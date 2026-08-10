@@ -1,0 +1,57 @@
+# =====================================================================
+#  RELS NNN (Digital Methods) .gitignore
+#  Rule of thumb: git tracks things you AUTHOR (prose, code, XML, docx).
+#  Everything large, downloaded, generated, or confidential is excluded
+#  and synced by rsync instead (see shared/GIT_SYNC.md).
+# =====================================================================
+
+# ---- Student data & PII: never leaves this machine ------------------
+private/
+Research Project/*.zip
+Research Project/Grades-*.csv
+
+# ---- Downloaded source materials (scans, books, articles) -----------
+*/sources/
+*/Source_PDFs/
+*/01_Source_Materials/
+*/books/
+*/Books/
+NotebookLM_Assets/
+
+# ---- Bulk media, scratch, and old snapshots -------------------------
+media/
+archive/
+scratch/
+backups/
+_work/
+*/images/
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.m4a
+*.mp3
+*.wav
+*.aac
+
+# ---- Heavy binaries git handles badly -------------------------------
+*.pptx
+*.odp
+*.zip
+*.bak
+
+# ---- Machine-local agent settings ------------------------------------
+.claude/settings.local.json
+
+# ---- Python / editor / OS artifacts ---------------------------------
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.DS_Store
+*.log
+.env
+*~
+.~lock.*#
+.media-attic/
