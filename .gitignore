@@ -1,5 +1,5 @@
 # =====================================================================
-#  RELS NNN (Digital Methods) .gitignore
+#  RELS 398 (Digital Methods) .gitignore
 #  Rule of thumb: git tracks things you AUTHOR (prose, code, XML, docx).
 #  Everything large, downloaded, generated, or confidential is excluded
 #  and synced by rsync instead (see shared/GIT_SYNC.md).
@@ -55,3 +55,11 @@ venv/
 *~
 .~lock.*#
 .media-attic/
+
+# ---- Superseded placeholders (see the README.md in each folder) ------
+.gitkeep
+
+# ---- Drive-only imports (Ken's decision, see 00_.../OneDrive_import_plan.md) --
+# Downloaded material, not authored here. The generic */sources/ pattern
+# doesn't reach this depth, so name it explicitly.
+03_Research/Griffitts_Thesis_and_Software/
