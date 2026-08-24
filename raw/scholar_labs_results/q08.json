@@ -2,28 +2,108 @@
   "id": "08",
   "topic": "Topic_08_Apparatus",
   "title": "Critical Apparatus Encoding & TEI Apparatus Structures",
-  "query": "How does the TEI P5 Critical Apparatus module (tei:app, lem, rdg) structure manuscript variants, and how can automated pipelines and AI assistants support apparatus construction and error detection?",
-  "results_count": 2,
+  "query": "How do digital scholarly editions model critical apparatus structures and textual variation across manuscript traditions, and how do automated tools and large language models assist in apparatus encoding and verification?",
+  "results_count": 10,
   "results": [
     {
-      "title": "Evaluating AI for the Digital Scholarly Edition",
-      "title_link": "https://www.torrossa.com/gs/resourceProxy?an=6192637&publisher=FZ8178#page=168",
-      "pdf_link": null,
-      "authors_venue_year": "Evaluating AI for the Digital Scholarly EditionKM Penner\u00a0- Artificial Intelligence for Bible Translation and\u00a0\u2026, 2026 - torrossa.comExplains the use of the TEI P5 Critical Apparatus module elements `<app>`, `<lem>`, and `<rdg>` with the `@wit` attribute to encode textual variants, contrasting the lemma text with alternative readings from different witnesses.AI Support for Apparatus: Evaluates the ability of AI chatbots to identify textual differences and encode them according to TEI standards, specifically using the `<app>`, `<lem>`, and `<rdg>` elements, as part of the scholarly workflow.Improving AI Accuracy: Demonstrates how detailed, explicit instructions in prompts significantly improve the performance of AI chatbots in encoding transcriptions into the TEI P5 XML format, which is crucial for apparatus construction.Save Cite Related articles All 2 versions",
+      "title": "Computational Reuse of Printed Critical Apparatuses",
+      "title_link": "https://hal.science/hal-05060132/",
+      "pdf_link": "https://www.cs.tau.ac.il/~nachumd/papers/CiSt.pdf",
+      "authors_venue_year": "Computational Reuse of Printed Critical ApparatusesL Bambaci, N Dershowitz, DSB Ezra - 2025 - hal.scienceIntroduces a complete pipeline for processing textual data from a printed critical apparatus, involving automatic segmentation and transcription, rule-based parsing, and textual reconstruction to encode tens of thousands of entries and reconstruct hundreds of collated witnesses.Rule-Based Structure Recognition: Applies a rule-based pipeline to recognize the internal structure of a printed critical apparatus from an automatic transcription, contrasting with approaches based on statistical learning.Transcription Model Training: Details how models for Handwritten Text Recognition (HTR) are used, specifically mentioning training transcription models for the apparatus using a custom-annotated corpus that captures patterns of variation.Save Cite Related articles  View as HTML [PDF] tau.ac.il",
       "summary": null,
       "key_points": [],
       "cited_by": null,
       "cited_by_link": null
     },
     {
-      "title": "The Scholarly Edition Workflow: Tradition Meets Technology",
-      "title_link": "https://books.google.com/books?hl=en&lr=&id=S2G9EQAAQBAJ&oi=fnd&pg=PT29&ots=O18UvpFfA8&sig=aU9xs6_RohjaMD0fPukbaNXZ_0w",
-      "pdf_link": null,
-      "authors_venue_year": "The Scholarly Edition Workflow: Tradition Meets TechnologyKM Penner\u00a0- Artificial Intelligence for Bible Translation and\u00a0\u2026, 2026 - books.google.comExplains the use of the `<app>`, `<lem>`, and `<rdg>` elements by detailing a task where chatbots were instructed to identify textual differences among multiple versions and encode these variants using these specific TEI elements with appropriate `@wit` attributes.AI for TEI Encoding: Evaluates the capability of AI chatbots to automate tasks such as transcribing text from manuscript images and encoding it into the TEI P5 standard, including specific elements for page breaks, columns, and line breaks.AI Limitations in Variant Detection: Demonstrates the limitations of current AI models (Claude 3.5 Haiku, Gemini 1.5 Flash, and OpenAI GPT 4o mini) in accurately detecting and encoding textual variants into TEI, concluding that they failed to produce usable TEI encoding for this specific task.Save Cite Related articles  Found early results. Searching deeper...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.Looking for results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.An error occurred.RetryMore resultsReady to explore your own questions and answers?Ask your questionScholar Labs is experimental and can make mistakes.Help & PrivacyPrivacyTermsHelpYou're on the waitlistScholar Labs home",
+      "title": "Computational Reuse of Printed Critical Apparatuses: The Reverse Engineering Kennicott Project as a Case Study",
+      "title_link": "https://ieeexplore.ieee.org/abstract/document/11224071/",
+      "pdf_link": "https://link.springer.com/content/pdf/10.1007/s42803-026-00125-z.pdf",
+      "authors_venue_year": "Computational Reuse of Printed Critical Apparatuses: The Reverse Engineering Kennicott Project as a Case StudyL Bambaci, DSB Ezra\u00a0- 2025 IEEE 8th Congress on Information\u00a0\u2026, 2025 - ieeexplore.ieee.orgIntroduces a complete pipeline, including automatic segmentation, transcription, rule-based parsing, and textual reconstruction, for processing textual data from a printed critical apparatus to enable computational reuse.Use of Language Models: Explains that dedicated transcription models were trained for the critical apparatus, accounting for mixed languages (Hebrew and Latin), abbreviations, and editorial symbols, which allowed for the accurate transcription of complex textual variants.Textual Variation Reconstruction: Describes the system's ability to reconstruct the full text of collated witnesses by aligning apparatus entries (lemmas and variants) against the tokenized reference text and replacing lemmas with their respective variants, generating reconstructed versions for large-scale analysis.Save Cite Related articles All 2 versions  No full text available [PDF] springer.com",
       "summary": null,
       "key_points": [],
       "cited_by": null,
       "cited_by_link": null
+    },
+    {
+      "title": "Convergences. AI, editorial practice, and the Danish Digital Scholarly Edition of Grundtvig's Works",
+      "title_link": "https://link.springer.com/article/10.1007/s42803-026-00125-z",
+      "pdf_link": "https://zfdg.de/sites/default/files/pdf_uploads/2025_008_Pollin-et-al_Generative-AI.pdf",
+      "authors_venue_year": "Convergences. AI, editorial practice, and the Danish Digital Scholarly Edition of Grundtvig's WorksJ Tafdrup, K Vad, KSG Rasmussen\u2026\u00a0- International Journal of\u00a0\u2026, 2026 - SpringerExplores the application of computational methods, particularly Large Language Models (LLMs), within a Human-in-the-Loop (HITL) framework for tasks like named entity recognition, semantic annotation, and biblical reference detection in a Digital Scholarly Edition.Resource Intensity of Variant Encoding: Demonstrates that encoding textual variance and variants, even if restricted, proved too resource-intensive to complete during the initial funding period for one part of the project, leading to suspension of work on textual variants in the hymns.AI for Manuscript Transcription: Discusses how the emergence of LLMs and AI provides a new technological foundation to transcribe manuscript textual corpora and encode them with rich descriptive metadata, even if the aim is not to return to full variant encoding.Save Cite Related articles All 2 versions  [PDF] zfdg.de",
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    },
+    {
+      "title": "When it was 2024\u2013Generative AI in the Field of Digital Scholarly Editions",
+      "title_link": "https://zfdg.de/2025_008",
+      "pdf_link": "https://www.cs.tau.ac.il/~nachumd/papers/AIUCD.pdf",
+      "authors_venue_year": "When it was 2024\u2013Generative AI in the Field of Digital Scholarly EditionsF Fischer, C Pollin, P Sahle, M Scholger\u2026\u00a0- Zeitschrift f\u00fcr digitale\u00a0\u2026, 2025 - zfdg.deDemonstrates that text generators can make informed suggestions on textual criticism by combining probabilities of a textual sequence with reasoning on textual tradition, which addresses how automated tools assist in handling textual variation.Automated TEI Encoding: Proposes a conceptual framework for transforming unstructured text into TEI-compliant XML documents, which is the underlying data structure for digital scholarly editions, and involves agents for adding TEI annotations and verifying TEI encoding.LLM Applications in Editing: Identifies eight key application areas for Large Language Models (LLMs) in digital scholarly editing, including text establishment (transcription, markup), normalization, named entity recognition, and information enrichment.Save Cite Related articles  View as HTML [PDF] tau.ac.il",
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    },
+    {
+      "title": "Reverse Engineering Critical Apparatuses for HTR Ground Truth Creation: The Case of Kennicott's Collation of the Hebrew Bible",
+      "title_link": "https://www.cs.tau.ac.il/~nachumd/papers/AIUCD.pdf",
+      "pdf_link": "https://iris.unive.it/bitstream/10278/5099709/1/2025_008_Pollin-et-al_Generative-AI.pdf",
+      "authors_venue_year": null,
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    },
+    {
+      "title": "When it was 2024\u2013Generative AI in the field of digital scholarly editions",
+      "title_link": "https://iris.unive.it/handle/10278/5099709",
+      "pdf_link": "https://univ-grenoble-alpes.hal.science/hal-01182162/document",
+      "authors_venue_year": "When it was 2024\u2013Generative AI in the field of digital scholarly editionsC Pollin, F Fischer, P Sahle, M Scholger\u2026\u00a0- Zeitschrift f\u00fcr digitale\u00a0\u2026, 2025 - iris.unive.itIdentifies eight key application areas for Large Language Models (LLMs) in digital scholarly editing, including text establishment (transcription, markup), normalization, named entity recognition (NER), and translation.Automated TEI Encoding: Proposes a conceptual framework for transforming unstructured text into TEI-compliant XML documents, which is the underlying data structure required for digital scholarly editions, by combining multiple LLM-based agents for tasks like adding TEI annotations and verifying TEI encoding.Textual Criticism Assistance: Demonstrates that text generators are capable of making informed individual suggestions on textual criticism by conceptualizing these decisions as a combination of probabilities of a textual sequence and reasoning about textual tradition.Save Cite Cited by 5 Related articles All 3 versions  No full text available View as HTML [PDF] hal.science",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 5,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=10978834109701621762&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Digital scholarly editing: Theories, models and methods",
+      "title_link": "https://books.google.com/books?hl=en&lr=&id=4QnACwAAQBAJ&oi=fnd&pg=PP1&ots=p3HhK9VvDi&sig=W06T7yRjjRUJwcxmsN5o7C0JfmQ",
+      "pdf_link": "https://revistascientificas.us.es/index.php/PH/article/download/27372/25265",
+      "authors_venue_year": "[BOOK][B] Digital scholarly editing: Theories, models and methodsE Pierazzo - 2016 - books.google.comExplains that new editorial models and workflows have emerged, moving beyond the simple transfer of traditional print practices to the digital medium.Computational Impact: Discusses that computational techniques impose radical changes in how texts, documents, and editions are conceived and managed, indicating a theoretical shift in digital textual scholarship.Automatic Collation: Notes that some digital editions utilize complex algorithms for grouping variants and require automatic collation to produce them, strongly incentivizing the development of collational algorithms and tools.Save Cite Cited by 401 Related articles All 11 versions  No full text available [PDF] us.es",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 401,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=15289421036879288091&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "The Future is already here: Navigating the New Frontiers of Digital Scholarly Editing in an Age of HTR and AI",
+      "title_link": "https://revistascientificas.us.es/index.php/PH/article/view/27372",
+      "pdf_link": null,
+      "authors_venue_year": "The Future is already here: Navigating the New Frontiers of Digital Scholarly Editing in an Age of HTR and AIJ Cummings\u00a0- Philologia Hispalensis, 2025 - revistascientificas.us.esDiscusses how the Text Encoding Initiative (TEI) guidelines emerged as the de facto standard for encoding digital scholarly editions, providing a robust framework for representing textual features and editorial interventions.AI for Collation: Explores the potential and limitations of Artificial Intelligence (AI) in scholarly tasks, specifically mentioning the collation of multiple witnesses, and advocates for a collaborative model where human expertise complements AI tools.LLM Limitations in Variation: Notes that Large Language Models (LLMs) struggled to accurately identify, align texts, or correct errors, particularly where there were forms of complex textual variation, and often made mistakes in collation.Save Cite Related articles All 4 versions  No full text available View as HTML [HTML] clio-online.net",
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    },
+    {
+      "title": "From Manuscript to Stemma: A Phylogenetic Approach to Medieval Armenian Fables",
+      "title_link": "https://www.connections.clio-online.net/article/id/fda-161612",
+      "pdf_link": "https://cnrs.hal.science/hal-05429104/document",
+      "authors_venue_year": "[HTML][HTML] From Manuscript to Stemma: A Phylogenetic Approach to Medieval Armenian FablesA Shahnazaryan - 2026 - connections.clio-online.netApplies phylogenetic stemmatic analysis to reconstruct the historical relationships among 100 manuscript witnesses of the medieval Armenian Aghvesagirk\u02bf fable collection by examining patterns of shared textual variants.Automated Collation Tools: Utilizes automated collation software to systematically detect and document textual variants (additions, omissions, substitutions, etc.) across manuscript witnesses, generating a structured dataset for further computational analysis.AI and Apparatus Encoding: Mentions that recent advances in transformer models, such as BERT and GPT offerings, have exploded the potential for AI methods in manuscript studies, including the possibilities for (semi-)automated encoding of text into TEI markup.Save Cite Related articles  Cached [PDF] hal.science",
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    },
+    {
+      "title": "Editing in the age of AI: stratified establishment of medieval texts",
+      "title_link": "https://link.springer.com/article/10.1007/s42803-025-00116-6",
+      "pdf_link": null,
+      "authors_venue_year": "Editing in the age of AI: stratified establishment of medieval textsA Pinche\u00a0- International Journal of Digital Humanities, 2025 - SpringerProposes a concept of stratified editing where successive layers\u2014including raw Automated Text Recognition (ATR) output, corrected transcriptions, normalized forms, and enriched annotations\u2014coexist and retain distinct epistemic value, moving away from a single 'final' edition.AI and Transcription: Explains that ATR and AI significantly accelerate transcription, transforming the editorial process and allowing for the acquisition and sharing of large amounts of data, thereby supporting new approaches to textual scholarship and analysis of large corpora.Automation in Textual Variation: Discusses how automated tools aid in the initial stages of textual variation analysis, such as identifying passages for collation and beginning to sketch the branches of a manuscript tradition, although fundamental editorial judgments remain crucial.Save Cite Cited by 2 Related articles All 4 versions  Looking for more results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.Looking for results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.An error occurred.RetryMore resultsReady to explore your own questions and answers?Ask your questionScholar Labs is experimental and can make mistakes.Help & PrivacyPrivacyTermsHelpYou're on the waitlistScholar Labs home",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 2,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=12828473171800615027&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
     }
   ]
 }

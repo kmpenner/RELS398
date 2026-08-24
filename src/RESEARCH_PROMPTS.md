@@ -254,14 +254,14 @@ Required Report Structure & Depth:
 ---
 
 ## Topic 8: Critical Apparatus Encoding & TEI Apparatus Structures
-*Week 8 • Tue Oct 27 (#20) / Wed Oct 28 (#21) / Fri Oct 30 (#22)*
+*Week 8 • Tue Oct 27 (#21) / Wed Oct 28 (#22) / Fri Oct 30 (#23)*
 
-**Course Context & Primary Materials:** `TEI P5 Guidelines, Critical Apparatus module; Burnard, What is the Text Encoding Initiative?`  
-**Methodological Cycle:** **Tue** hand-encode a critical apparatus entry in TEI XML; **Wed** automate apparatus generation from CollateX output and validate; **Fri** AI-assisted apparatus drafting, variant annotation, and consistency auditing. *Textual Variants & Collation Assignment due Fri Oct 30.*
+**Course Context & Primary Materials:** `TEI Guidelines ch. 12 (Critical Apparatus); Sahle, "Digital Scholarly Editions" (vol. 2); Almas & Beaulieu, "Developing a New Integrated Editing Platform" (Perseids)`  
+**Methodological Cycle:** **Tue** manual critical apparatus drafting (apparatus elements, lemma, readings); **Wed** deterministic apparatus generation from collation tables (TEI Parallel Segmentation); **Fri** AI-assisted apparatus encoding and error detection, verified by hand.
 
 ### Stage 1: Google Scholar Labs Natural-Language Query
 ```text
-How does the TEI P5 Critical Apparatus module (tei:app, lem, rdg) structure manuscript variants, and how can automated pipelines and AI assistants support apparatus construction and error detection?
+How do digital scholarly editions model critical apparatus structures and textual variation across manuscript traditions, and how do automated tools and large language models assist in apparatus encoding and verification?
 ```
 
 ### Stage 2: Gemini Deep Research Prompt (Attach Downloaded Papers)
@@ -269,18 +269,18 @@ How does the TEI P5 Critical Apparatus module (tei:app, lem, rdg) structure manu
 Role: You are an expert scholar in digital humanities, textual scholarship, computational philology, and manuscript studies.
 Objective: Conduct an exhaustive academic deep research report investigating the following central inquiry for an undergraduate digital methods / textual editing curriculum:
 
-Central Inquiry: How does the TEI P5 Critical Apparatus module (tei:app, lem, rdg) structure manuscript variants, and how can automated pipelines and AI assistants support apparatus construction and error detection?
+Central Inquiry: How do digital scholarly editions model critical apparatus structures and textual variation across manuscript traditions, and how do automated tools and large language models assist in apparatus encoding and verification?
 
-Core Thesis to Substantiate & Evaluate: Encoding a critical apparatus using TEI's `app`, `lem`, and `rdg` elements formalizes textual variance into machine-actionable data, allowing automated transformation from collation outputs while requiring human verification to catch structural and attribution errors.
+Core Thesis to Substantiate & Evaluate: Encoding a critical apparatus requires selecting between distinct structural models where automated collation converters provide high structural accuracy, while LLMs assist in drafting apparatus entries from complex legacy notation but require systematic manual validation against primary witness sigla.
 
 Attached Literature: Analyze and synthesize the attached peer-reviewed papers downloaded from Google Scholar Labs in dialogue with broader literature in digital humanities, computational philology, and manuscript studies.
 
 Required Report Structure & Depth:
-1. Abstract & Executive Summary (Synthesis of critical apparatus markup in digital textual scholarship).
-2. Technical, Methodological & Historical Foundations (Print vs digital apparatus paradigms, TEI apparatus methods: location-referenced, double-end-point, parallel segmentation; `app`, `lem`, `rdg`, `witDetail`).
-3. Comparative Methodological Evaluation (Hand-crafted TEI apparatus vs CollateX-to-TEI automated export vs AI-assisted apparatus generation; validation using TEI Critical Apparatus Toolbox).
-4. Real-World Digital Edition Case Studies (2-3 detailed case studies, e.g., Greek New Testament Virtual Manuscript Room [NTVMR], Homer Multitext).
-5. Pedagogical Takeaways & Synthesis for Digital Editors (Best practices for parallel segmentation and witness list encoding).
+1. Abstract & Executive Summary (Synthesis of critical apparatus modeling in digital scholarly editions).
+2. Technical, Methodological & Historical Foundations (TEI P5 Critical Apparatus Module; Parallel Segmentation method vs Location-Referenced vs Double-Endpoint Attachment; handling overlapping hierarchies and complex stemmatic variants).
+3. Comparative Methodological Evaluation (3-Step Cycle Analysis: Manual apparatus drafting vs deterministic collation export vs AI-assisted apparatus encoding and error checking).
+4. Real-World Digital Edition Case Studies (2-3 detailed case studies of critical editions with rich digital apparatuses, e.g., Homer Multitext, Greek New Testament Digital Editions [IGNTP / INTF], Scholastic Commentaries and Texts Archive [SCTA]).
+5. Pedagogical Takeaways & Synthesis for Digital Editors (Decision tree for selecting apparatus encoding methods; best practices for apparatus validation).
 6. Comprehensive Academic & Technical References (Complete bibliographic entries with active DOIs/URLs).
 ```
 
