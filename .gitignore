@@ -1,30 +1,30 @@
 # =====================================================================
 #  RELS 398 (Digital Methods) .gitignore
-#  Rule of thumb: git tracks things you AUTHOR (prose, code, XML, docx).
-#  Everything large, downloaded, generated, or confidential is excluded
-#  and synced by rsync instead (see shared/GIT_SYNC.md).
+#  Developer Conventions: raw/ | src/ | dist/ | config/ | scripts/ | private/
+#  Rule of thumb: git tracks what you AUTHOR (prose, code, XML, docx).
+#  Large binary assets, downloads, compiler cruft, and PII are excluded.
 # =====================================================================
 
-# ---- Student data & PII: never leaves this machine ------------------
+# ---- Privacy, Legal & Student PII (Strictly local / machine rsync) ----
 private/
-Research Project/*.zip
-Research Project/Grades-*.csv
+*Grades*
+*grades*
+*assignsubmission*
+*.csv
 
-# ---- Downloaded source materials (scans, books, articles) -----------
-*/sources/
-*/Source_PDFs/
-*/01_Source_Materials/
-*/books/
-*/Books/
+# ---- Raw Downloaded Source Materials (Scans, Workbooks, Audio) -------
+raw/textbooks/
+raw/audio_transcripts/
+raw/media/
+raw/readings/
 NotebookLM_Assets/
 
-# ---- Bulk media, scratch, and old snapshots -------------------------
+# ---- Bulk Media, Scratch, and Temporary Snapshots -------------------
 media/
 archive/
 scratch/
 backups/
 _work/
-*/images/
 *.mp4
 *.mov
 *.avi
@@ -34,16 +34,18 @@ _work/
 *.wav
 *.aac
 
-# ---- Heavy binaries git handles badly -------------------------------
+# ---- Heavy Binaries git handles poorly ------------------------------
 *.pptx
 *.odp
 *.zip
 *.bak
 
-# ---- Machine-local agent settings ------------------------------------
+# ---- Secrets, Machine & IDE Settings --------------------------------
 .claude/settings.local.json
+.env
+*.key
 
-# ---- Python / editor / OS artifacts ---------------------------------
+# ---- Python / OS Artifacts ------------------------------------------
 __pycache__/
 *.pyc
 *.pyo
@@ -51,22 +53,15 @@ __pycache__/
 venv/
 .DS_Store
 *.log
-.env
 *~
 .~lock.*#
 .media-attic/
 
-# ---- Superseded placeholders (see the README.md in each folder) ------
-.gitkeep
-
-# ---- Drive-only imports (Ken's decision, see 00_.../OneDrive_import_plan.md) --
-# Downloaded material, not authored here. The generic */sources/ pattern
-# doesn't reach this depth, so name it explicitly.
-03_Research/Griffitts_Thesis_and_Software/
-
-# ---- LaTeX intermediate artifacts -------------------
+# ---- LaTeX Intermediate Compiler Cruft ------------------------------
 *.aux
 *.out
 *.toc
 *.fls
 *.fdb_latexmk
+*.synctex.gz
+
