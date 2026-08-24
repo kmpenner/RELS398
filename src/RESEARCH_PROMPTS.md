@@ -22,15 +22,15 @@ The curriculum follows a cumulative **learning-by-project** methodology where st
 
 ---
 
-## Topic 1: Orientation, Unicode Polytonic Greek & Manuscript Selection
+## Topic 1: Orientation, Polytonic Greek, Manuscript Selection & Local Git Version Control
 *Week 1 • Wed Sep 2 (#1) / Fri Sep 4 (#2)*
 
 **Course Context & Primary Materials:** `Finney, "Manuscript Markup" (pp. 323–360); Griffitts §3.4.1; TEI Guidelines vi.2`  
-**Methodological Context:** *Orientation week (no three-step cycle).* Toolchain setup (Git, VS Code / Oxygen XML, Transkribus, THREAD); Unicode polytonic Greek keyboards and fonts; selection of primary manuscript passage by Fri Sep 4.
+**Methodological Context:** *Orientation week (no three-step cycle).* Local Git version control fundamentals (repository initialization, staging, atomic commits, diffs, and commit log audit trails for tracking AI vs manual edits); Unicode polytonic Greek keyboards and fonts; Oxygen XML / VS Code; selection of primary manuscript passage by Fri Sep 4.
 
 ### Stage 1: Google Scholar Labs Natural-Language Query
 ```text
-What technical and scholarly challenges arise in representing polytonic Greek text in digital environments, and how do Unicode standards and foundational TEI conventions support undergraduate manuscript selection and editorial setup?
+How do local Git version control workflows and Unicode polytonic Greek standards support undergraduate digital scholarly editing, manuscript selection, and reproducible editorial audit trails?
 ```
 
 ### Stage 2: Gemini Deep Research Prompt (Attach Downloaded Papers)
@@ -38,19 +38,19 @@ What technical and scholarly challenges arise in representing polytonic Greek te
 Role: You are an expert scholar in digital humanities, textual scholarship, computational philology, and manuscript studies.
 Objective: Conduct an exhaustive academic deep research report investigating the following central inquiry for an undergraduate digital methods / textual editing curriculum:
 
-Central Inquiry: What technical and scholarly challenges arise in representing polytonic Greek text in digital environments, and how do Unicode standards and foundational TEI conventions support undergraduate manuscript selection and editorial setup?
+Central Inquiry: How do local Git version control workflows and Unicode polytonic Greek standards support undergraduate digital scholarly editing, manuscript selection, and reproducible editorial audit trails?
 
-Core Thesis to Substantiate & Evaluate: Digital editing of historical documents requires robust Unicode font infrastructure and input methods for polytonic scripts alongside foundational markup conventions (TEI) and version control (Git) to make manuscript transcription reproducible and interoperable.
+Core Thesis to Substantiate & Evaluate: Digital editing of historical documents requires foundational local Git version control discipline (atomic commits, clear commit messages, diff tracking, and AI-usage logging) alongside robust Unicode polytonic Greek infrastructure to make undergraduate manuscript transcription reproducible, accountable, and pedagogically sound.
 
 Attached Literature: Analyze and synthesize the attached peer-reviewed papers downloaded from Google Scholar Labs in dialogue with broader literature in digital humanities, computational philology, and manuscript studies.
 
 Required Report Structure & Depth:
 1. Abstract & Executive Summary (High-level synthesis for digital humanities / textual editing instructors).
-2. Technical, Methodological & Historical Foundations (Unicode normalization forms NFC/NFD, polytonic Greek character sets, legacy encodings, Git version control in digital editing).
-3. Applied Implementation & Editorial Dimensions (Keyboard mappings, font rendering across OS platforms, object selection criteria for novice editors, data integrity).
-4. Real-World Digital Edition Case Studies (2-3 detailed case studies of digital Greek editions illustrating character encoding challenges and solutions).
-5. Pedagogical Takeaways & Synthesis for Digital Editors (Actionable guidelines for establishing a reproducible editing environment).
-6. Comprehensive Academic & Technical References (Complete bibliographic entries with active DOIs/URLs, including Unicode and TEI specifications).
+2. Technical, Methodological & Historical Foundations (Unicode normalization forms NFC/NFD, polytonic Greek character sets, legacy encodings; Git version control architecture, tree objects, atomic commits, diff algorithms, and commit logs as editorial provenance).
+3. Applied Implementation & Editorial Dimensions (Establishing a reproducible local editing repository, commit hygiene, documenting AI vs human interventions in git history, keyboard mappings, and font rendering across OS platforms).
+4. Real-World Digital Edition Case Studies (2-3 detailed case studies of digital Greek editions illustrating character encoding challenges and version-controlled editorial workflows).
+5. Pedagogical Takeaways & Synthesis for Digital Editors (Actionable guidelines for establishing a reproducible editing environment and local Git workflow).
+6. Comprehensive Academic & Technical References (Complete bibliographic entries with active DOIs/URLs, including Unicode, Git, and TEI specifications).
 ```
 
 ---
@@ -319,15 +319,15 @@ Required Report Structure & Depth:
 
 ---
 
-## Topic 10: Edition Consolidation, Peer Review & TEI Schema Quality Control
+## Topic 10: Edition Consolidation, GitHub Collaboration, Peer Review & Schema Validation
 *Week 10 • Tue Nov 10 (#26) / Fri Nov 13 (#27) — Wed Nov 11 closed (Remembrance Day)*
 
 **Course Context & Primary Materials:** *No new external readings; review project repository and edition files to date.*  
-**Methodological Context:** *Consolidation and peer review week (no three-step cycle).* Complete validation sweep across all student TEI XML files; structured rubric-based peer review of editions in progress; catch-up slack. *Linguistic Markup Assignment due Fri Nov 13.*
+**Methodological Context:** *Consolidation and collaborative peer review week (no three-step cycle).* GitHub collaborative workflows (remotes, forks, pull requests, issue tracking); collaborative rubric-based peer review of editions in progress; validation sweep of every TEI file built so far; catch-up slack. *Linguistic Markup Assignment due Fri Nov 13.*
 
 ### Stage 1: Google Scholar Labs Natural-Language Query
 ```text
-What best practices in automated schema validation, Schematron rules, and structured peer review ensure quality control and data integrity across multi-stage digital scholarly editions?
+How do GitHub collaborative workflows (forks, pull requests, issue tracking) combined with XML schema validation and structured peer review improve data integrity and student learning in digital scholarly editing projects?
 ```
 
 ### Stage 2: Gemini Deep Research Prompt (Attach Downloaded Papers)
@@ -335,18 +335,18 @@ What best practices in automated schema validation, Schematron rules, and struct
 Role: You are an expert scholar in digital humanities, textual scholarship, computational philology, and manuscript studies.
 Objective: Conduct an exhaustive academic deep research report investigating the following central inquiry for an undergraduate digital methods / textual editing curriculum:
 
-Central Inquiry: What best practices in automated schema validation, Schematron rules, and structured peer review ensure quality control and data integrity across multi-stage digital scholarly editions?
+Central Inquiry: How do GitHub collaborative workflows (forks, pull requests, issue tracking) combined with XML schema validation and structured peer review improve data integrity and student learning in digital scholarly editing projects?
 
-Core Thesis to Substantiate & Evaluate: Cumulative digital editions require rigorous mid-project consolidation, combining automated XML/Schematron schema validation with collaborative peer review to detect encoding drift, broken references, and structural inconsistencies before final publication layers.
+Core Thesis to Substantiate & Evaluate: Cumulative digital scholarly editions require structured mid-project consolidation, combining distributed GitHub workflows (forking, pull requests, issue tracking, and peer review) with automated XML/Schematron schema validation to ensure data integrity, detect encoding inconsistencies, and foster collaborative scholarly critique.
 
 Attached Literature: Analyze and synthesize the attached peer-reviewed papers downloaded from Google Scholar Labs in dialogue with broader literature in digital humanities, computational philology, and manuscript studies.
 
 Required Report Structure & Depth:
-1. Abstract & Executive Summary (Synthesis of quality control and validation strategies in digital humanities projects).
-2. Technical, Methodological & Historical Foundations (XML Schema definition [XSD/RelaxNG], Schematron business rules, continuous integration [CI] in digital edition repos, peer review rubrics in digital pedagogy).
-3. Applied Implementation & Editorial Dimensions (Detecting mismatched witness IDs, unclosed tag structures, invalid attribute values, and incomplete metadata headers).
-4. Real-World Digital Edition Case Studies (2-3 detailed case studies, e.g., TEI Quality Assurance pipelines, Scholastic Commentaries and Texts Archive [SCTA]).
-5. Pedagogical Takeaways & Synthesis for Digital Editors (Audit checklist and peer-review rubric for evaluating an intermediate TEI edition).
+1. Abstract & Executive Summary (Synthesis of collaborative version control, quality control, and validation strategies in digital humanities projects).
+2. Technical, Methodological & Historical Foundations (Distributed version control architectures, GitHub peer-review paradigms in humanities education, Schematron business rules, XML validation engines, and continuous integration [CI] in digital editing).
+3. Applied Implementation & Editorial Dimensions (Managing forks and pull requests for textual review, designing structured peer-review rubrics for TEI XML documents, resolving encoding merge conflicts, and automated linting).
+4. Real-World Digital Edition Case Studies (2-3 detailed case studies, e.g., TEI Quality Assurance pipelines, Scholastic Commentaries and Texts Archive [SCTA], Perseids collaborative editing).
+5. Pedagogical Takeaways & Synthesis for Digital Editors (Audit checklist and GitHub peer-review rubric for evaluating an intermediate TEI edition).
 6. Comprehensive Academic & Technical References (Complete bibliographic entries with active DOIs/URLs).
 ```
 
