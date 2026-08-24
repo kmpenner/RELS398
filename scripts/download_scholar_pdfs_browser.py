@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""RELS 398: Browser-based Fallback PDF Downloader via Chrome CDP
+"""RELS 398: Publisher-Aware Browser Fallback PDF Downloader via Chrome CDP
 
-Downloads research papers that block headless requests (MDPI, Springer,
-Digital Commons, PMC interstitials) using the authenticated Chrome browser session.
+Downloads missing research papers via the authenticated Chrome browser session,
+utilizing StFX Library Proxy (EZproxy) host-rewriting and publisher-specific
+direct PDF resolution rules.
 """
 import argparse
 import json
@@ -11,10 +12,12 @@ import sys
 import time
 from pathlib import Path
 from urllib.parse import quote, urlsplit, urlunsplit
+import requests
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 CDP_URL = "http://127.0.0.1:9222"
 LIBRARY_PROXY_HOST = "libproxy.stfx.ca"
+DOI_RE = re.compile(r'10\.\d{4,9}/[^\s&?#"\']+')
 
 
 def sanitize_filename(name: str, max_len: int = 80) -> str:
@@ -23,12 +26,25 @@ def sanitize_filename(name: str, max_len: int = 80) -> str:
     return s[:max_len]
 
 
+def extract_doi(*urls: str) -> str | None:
+    for url in urls:
+        if not url:
+            continue
+        m = DOI_RE.search(url)
+        if m:
+            doi = m.group(0).rstrip(".,)")
+            if doi.endswith("/html") or doi.endswith("/pdf"):
+                doi = doi.rsplit("/", 1)[0]
+            return doi
+    return None
+
+
 def proxied(url: str, use_proxy: bool) -> str:
     if not use_proxy or not url:
         return url
     parts = urlsplit(url)
-    host = (parts.hostname or "")
-    if not host or host.endswith(LIBRARY_PROXY_HOST):
+    host = parts.hostname or ""
+    if not host or host.endswith(LIBRARY_PROXY_HOST) or "google.com" in host:
         return url
     rewritten = host.replace("-", "--").replace(".", "-") + "." + LIBRARY_PROXY_HOST
     if parts.port:
@@ -36,18 +52,50 @@ def proxied(url: str, use_proxy: bool) -> str:
     return urlunsplit((parts.scheme or "https", rewritten, parts.path, parts.query, parts.fragment))
 
 
+def build_candidate_urls(r: dict, use_proxy: bool) -> list[str]:
+    urls = []
+    title_link = r.get("title_link") or ""
+    pdf_link = r.get("pdf_link") or ""
+    doi = extract_doi(pdf_link, title_link)
+
+    # 1. Direct PDF link from metadata
+    if pdf_link:
+        urls.append(proxied(pdf_link, use_proxy))
+
+    # 2. Publisher-specific direct PDF constructs via DOI
+    if doi:
+        if "springer.com" in title_link or "10.1007" in doi or "10.1140" in doi:
+            urls.append(proxied(f"https://link.springer.com/content/pdf/{doi}.pdf", use_proxy))
+        elif "wiley.com" in title_link or "10.1111" in doi:
+            urls.append(proxied(f"https://onlinelibrary.wiley.com/doi/pdfdirect/{doi}", use_proxy))
+        elif "tandfonline.com" in title_link or "10.1080" in doi or "10.4324" in doi:
+            urls.append(proxied(f"https://www.tandfonline.com/doi/pdf/{doi}?download=true", use_proxy))
+        elif "acm.org" in title_link or "10.1145" in doi:
+            urls.append(proxied(f"https://dl.acm.org/doi/pdf/{doi}", use_proxy))
+        elif "degruyter" in title_link or "10.1515" in doi:
+            urls.append(proxied(f"https://www.degruyterbrill.com/document/doi/{doi}/pdf", use_proxy))
+        elif "mdpi.com" in title_link or "10.3390" in doi:
+            # MDPI direct PDF is typically /pdf on end of article link
+            clean_link = title_link.rstrip("/")
+            urls.append(f"{clean_link}/pdf")
+
+    # 3. Landing page
+    if title_link and "books.google.com" not in title_link:
+        urls.append(proxied(title_link, use_proxy))
+
+    return list(dict.fromkeys(urls))  # deduplicate preserving order
+
+
 def try_download_one(page, url: str, dest: Path, timeout_ms: int = 25000) -> tuple[bool, str]:
     if not url:
         return False, "empty_url"
 
-    # Pattern A: navigation triggers download event
+    resp = None
+    # Pattern A: navigation triggers file download event
     try:
-        with page.expect_download(timeout=8000) as download_info:
-            try:
-                page.goto(url, timeout=timeout_ms, wait_until="domcontentloaded")
-            except PlaywrightTimeoutError:
-                pass
-        download = download_info.value
+        with page.expect_download(timeout=8000) as dl_info:
+            resp = page.goto(url, timeout=timeout_ms, wait_until="commit")
+        download = dl_info.value
         download.save_as(str(dest))
         if dest.exists() and dest.stat().st_size > 1000:
             with open(dest, "rb") as f:
@@ -55,34 +103,48 @@ def try_download_one(page, url: str, dest: Path, timeout_ms: int = 25000) -> tup
                     return True, "download_event_ok"
             dest.unlink(missing_ok=True)
             return False, "download_event_not_pdf"
+    except PlaywrightTimeoutError:
+        pass
     except Exception:
         pass
 
-    # Pattern B: page loads or navigates to PDF URL / PDF embed
+    # Pattern B: page settles on PDF content or PDF embed
     try:
         page.wait_for_timeout(3000)
         final_url = page.url
-        
-        # Check if browser navigated to a .pdf URL directly
-        if final_url.lower().endswith(".pdf") or "pdf" in final_url.lower():
-            resp = page.request.get(final_url, timeout=timeout_ms)
-            if resp.status == 200:
-                body = resp.body()
-                if body.startswith(b"%PDF-") and len(body) > 1000:
-                    dest.write_bytes(body)
-                    return True, "direct_pdf_ok"
+        content_type = ""
+        try:
+            content_type = (resp.headers or {}).get("content-type", "").lower() if resp else ""
+        except Exception:
+            pass
 
-        # Check for iframe or embed pointing to PDF
-        pdf_embed = page.locator("embed[type='application/pdf'], iframe[src*='.pdf'], a[href*='.pdf']").first
+        looks_pdf = "pdf" in content_type or final_url.lower().split("?")[0].endswith(".pdf")
+        if looks_pdf:
+            api_resp = page.context.request.get(final_url, timeout=timeout_ms)
+            body = api_resp.body()
+            if body.startswith(b"%PDF-") and len(body) > 1000:
+                dest.write_bytes(body)
+                return True, f"direct_pdf_ok ({len(body)//1024} KB)"
+
+        # Check for PDF embed/iframe/object
+        pdf_embed = page.locator("embed[type='application/pdf'], iframe[src*='.pdf'], a[href*='.pdf'], a:has-text('Download PDF'), a:has-text('View PDF')").first
         if pdf_embed.count() > 0:
             pdf_href = pdf_embed.get_attribute("src") or pdf_embed.get_attribute("href")
-            if pdf_href:
-                resp = page.request.get(pdf_href, timeout=timeout_ms)
-                if resp.status == 200:
-                    body = resp.body()
-                    if body.startswith(b"%PDF-") and len(body) > 1000:
-                        dest.write_bytes(body)
-                        return True, "embed_pdf_ok"
+            if pdf_href and (".pdf" in pdf_href or "download" in pdf_href):
+                full_href = page.evaluate(f"new URL('{pdf_href}', window.location.href).href")
+                try:
+                    with page.expect_download(timeout=6000) as dl_info2:
+                        page.goto(full_href, timeout=timeout_ms, wait_until="commit")
+                    dl = dl_info2.value
+                    dl.save_as(str(dest))
+                    if dest.exists() and dest.stat().st_size > 1000:
+                        return True, "embed_download_ok"
+                except Exception:
+                    api_resp2 = page.context.request.get(full_href, timeout=timeout_ms)
+                    body2 = api_resp2.body()
+                    if body2.startswith(b"%PDF-") and len(body2) > 1000:
+                        dest.write_bytes(body2)
+                        return True, "embed_fetched_ok"
 
     except Exception as ex:
         return False, f"browser_error: {ex}"
@@ -103,7 +165,7 @@ def process_topic_browser(json_file: Path, readings_dir: Path, page, use_proxy: 
 
     results = data.get("results", [])
     print(f"\n=======================================================")
-    print(f"Topic {qid}: {data['title']} (Browser Pass)")
+    print(f"Topic {qid}: {data['title']} (Browser + EZproxy Pass)")
     print(f"Target: {dest_dir}")
     print(f"=======================================================")
 
@@ -121,22 +183,16 @@ def process_topic_browser(json_file: Path, readings_dir: Path, page, use_proxy: 
         if existing_entry.get("status") in ("cached", "downloaded"):
             continue
 
-        print(f"\n[{idx}/{len(results)}] Retrying: {title[:75]}...")
+        print(f"\n[{idx}/{len(results)}] Resolving: {title[:75]}...")
 
-        candidate_urls = []
-        if r.get("pdf_link"):
-            candidate_urls.append(r["pdf_link"])
-        if r.get("title_link"):
-            candidate_urls.append(r["title_link"])
-
+        candidate_urls = build_candidate_urls(r, use_proxy)
         downloaded = False
-        for u in candidate_urls:
-            target_url = proxied(u, use_proxy)
-            print(f"      Navigating to: {target_url[:80]}...")
+        for target_url in candidate_urls:
+            print(f"      Trying: {target_url[:80]}...")
             ok, reason = try_download_one(page, target_url, dest_path)
             if ok:
                 size_kb = dest_path.stat().st_size // 1024
-                print(f"      ✓ Browser Acquired! ({size_kb} KB)")
+                print(f"      ✓ Acquired via Browser! ({size_kb} KB)")
                 manifest_by_idx[idx] = {
                     "index": idx,
                     "title": title,
@@ -150,7 +206,7 @@ def process_topic_browser(json_file: Path, readings_dir: Path, page, use_proxy: 
                 print(f"      ✗ {reason}")
 
         if not downloaded:
-            print(f"      ⚠️ Still unacquired via browser.")
+            print(f"      ⚠️ Could not resolve PDF in browser.")
 
         time.sleep(1.5)
 
@@ -162,8 +218,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--scholar-dir", default="raw/scholar_labs_results")
     ap.add_argument("--readings-dir", default="raw/readings")
-    ap.add_argument("--topics", help="Comma-separated topic IDs to retry, e.g. '03,08,10'")
-    ap.add_argument("--use-library-proxy", action="store_true")
+    ap.add_argument("--topics", help="Comma-separated topic IDs to retry, e.g. '01,02,03'")
+    ap.add_argument("--use-library-proxy", action="store_true", default=True)
     ap.add_argument("--cdp", default=CDP_URL)
     args = ap.parse_args()
 
