@@ -22,57 +22,30 @@ conventions of the existing course repos. Outstanding items below.
       say what this is. Drop it if you'd rather match exactly.)
 - [x] `398.code-workspace` created, following 331's bare-number pattern rather
       than 117's `RELS117.code-workspace`.
-- [ ] **`rm DigitalMethods.code-workspace`** — superseded, but deletion is gated
-      in the sandbox. It was never committed, so it just needs removing.
-- [ ] GitHub remote → `https://github.com/kmpenner/RELS398.git` (see §2).
+- [x] **`rm DigitalMethods.code-workspace`** — removed.
+- [x] GitHub remote → `https://github.com/kmpenner/RELS398.git` configured and tracking `main`.
 - [ ] Optionally add `398` to the `REPOS=(...)` array in `shared/init-repos.sh`.
       Not required — nothing reads that array except the script itself, and
       `/sit`, `/stand`, and `drive-sync.sh` all discover repos by looking for
       `.git`.
 
-## 1a. Still needed: term and year
+## 1a. Term and year ✅
 
-`course.json` has `"term": "TBD"` and `"year": 2026`. The year is a guess from
-the syllabus filename ("Digital Methods - Syllabus 2026"); the term isn't
-inferable without reading that file, which is still in OneDrive.
-
-This matters beyond bookkeeping: `shared/pdf-pipeline/make_pdf.py` reads
-`course.json` and prints `term` and `year` into the PDF header and copyright
-footer. `"TBD"` is non-empty, so the script won't error — it will render
-"Syllabus – TBD" onto a branded PDF.
-
-- [ ] Set `term` (e.g. `"Fall 2026"`) and confirm `year`.
+- [x] Set `term` (`"Fall 2026"`) and `year` (`2026`) in `course.json`.
 
 ## 1b. Moodle site ✅
 
 Recorded as `"moodle_url"` in `course.json`:
 `https://moodle.stfx.ca/course/view.php?id=49782`
 
-No existing convention to match — a grep across every repo found no Moodle URL
-stored anywhere, and only 117 and 222 have a `course.json` at all. Chose
-`course.json` over the admin README because it's structured metadata, and
-`make_pdf.py` only reads the keys it knows (`code`, `title`, `term`, `year`,
-and the two template versions), so an extra key is inert. Move it if you'd
-rather it lived in prose.
+## 2. Git remote ✅
 
-## 2. Git remote — not yet created
+- [x] GitHub remote created and configured (`origin -> https://github.com/kmpenner/RELS398.git`).
 
-- [ ] The local repo is initialized (`main`, one commit) but has **no remote**.
-      Matching the other repos, which are all private and named `RELS<NNN>`:
-      ```bash
-      cd ~/projects/RELS/398
-      gh repo create RELS398 --private --source=. --remote=origin --push
-      ```
-      (Note: `init-repos.sh` would name it `RELS-398` with a hyphen, which does
-      **not** match the existing remotes — only `RELS-shared` uses a hyphen.)
-      Do §5 first, or the push will carry only the initial commit.
+## 3. course.json ✅
 
-## 3. course.json — remaining
-
-- [ ] `term` and `year`: see §1a.
-- [ ] Confirm `syllabus_template_version` (`2026-01-22`) and
-      `schedule_template_version` (`2024-5-6`) are still current. These are
-      copied from 117/222 and are printed into the PDF footer by `make_pdf.py`.
+- [x] `term` and `year` set.
+- [x] Template versions confirmed (`syllabus_template_version: 2026-01-22`, `schedule_template_version: 2024-5-6`).
 
 ## 4. Workspace file
 
@@ -81,38 +54,16 @@ rather it lived in prose.
       University/RELS331`). Add the equivalent `Digital Methods` path to
       `398.code-workspace` once you know the local OneDrive path on this machine.
 
-## 5. Finish the commit that this session couldn't (needs your shell)
+## 5. Repository Scaffold & History ✅
 
-A stale `.git/index.lock` appeared partway through — Cowork's sandbox gates
-file deletion in this folder and the permission prompt was declined, so the
-lock and five `.gitkeep` files can't be removed from here. Commit 1
-(`Initialize Digital Methods course repository`) landed; the folder READMEs and
-the `.gitignore` addition are on disk but **uncommitted**. In a normal shell:
+- [x] Folder READMEs, `.gitignore`, and initial commits landed cleanly.
 
-```bash
-cd ~/projects/RELS/398
-rm -f .git/index.lock DigitalMethods.code-workspace
-git rm --cached 0*/.gitkeep 2>/dev/null; rm -f 0*/.gitkeep
-git add -A
-git commit -m "Scaffold RELS 398 Digital Methods: folder READMEs, OneDrive import plan, course metadata"
-```
+## 6. Content & Syllabus/Schedule ✅
 
-- [ ] Run the above. The `.gitkeep` files are 0 bytes, which trips `/stand`'s
-      0-byte scan (the check that catches native Google Doc stubs) on every
-      session until they're gone. Each folder now has a `README.md` instead,
-      which keeps it in git without a 0-byte file.
-- [ ] Once they're gone, the `.gitkeep` line at the bottom of `.gitignore` can
-      go too.
-
-## 6. Content
-
-- [ ] Templates are copied into `Supplementary Templates/` from `shared/`.
-      Build the real syllabus and schedule into `00_Syllabus_and_Admin/`.
-- [ ] Add module folders under `01_Course_Modules/`, following either the 331
-      pattern (`Module_01_Topic_Name`) or the 222 pattern
-      (`Module 1 - Topic Name`, containing `01_Source_Materials`,
-      `02_Drafts_and_Outlines`, `03_Moodle_Assets`).
-- [ ] Remove the `.gitkeep` files from the numbered folders as real content lands.
+- [x] Authored canonical LaTeX syllabus (`RELS 398 Syllabus.tex`) and schedule (`RELS 398 Schedule.tex`).
+- [x] Restructured schedule for 13-week three-step comparative cycle (Manual ground truth Tue -> Deterministic software Wed -> AI/LLM evaluation Fri), restored Reconciliation to Week 5, staggered due dates, and balanced evaluation weights to 100%.
+- [x] Master Research Prompts (`03_Research/RESEARCH_PROMPTS.md`) updated with Stage 1 and Stage 2 prompts for all 13 topics.
+- [ ] Layout migration to `shared/LESSON_PIPELINE.md` §A3 standard (`raw/`, `src/`, `dist/`, `config/`, `scripts/`, `private/`).
 
 ## 7. OneDrive import — CANNOT RUN FROM COWORK
 
