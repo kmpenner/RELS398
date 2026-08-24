@@ -23,6 +23,15 @@ Ms't wiaqpulti'kl ankukamkewe'l. We are all treaty people.
 
 A practical, hands-on course on digital methods for processing historical texts and ancient manuscripts. Students develop practical skills in cataloguing, transcription, textual criticism, linguistic markup, translation, annotation, and digital publication. The course bridges traditional humanities scholarship with modern computational methods, preparing students for digital humanities research across disciplines.
 
+The course follows a cumulative \textbf{learning-by-project} design: in Week~1, each student selects a primary manuscript witness, and each weekly assignment throughout the term develops one layer of a complete, TEI-conformant digital scholarly edition of that passage---spanning cataloguing and metadata, diplomatic transcription, double-keying reconciliation, orthographic normalization, variant collation, critical apparatus, morphological tagging, translation alignment, and scholarly commentary, culminating in a print-ready digital edition portfolio.
+
+To foster rigorous critical judgment, standard course weeks follow a \textbf{three-step comparative cycle}:
+\begin{enumerate}[leftmargin=*,noitemsep,topsep=2pt]
+  \item \textbf{Tuesday (Manual):} Transcribing, regularizing, or parsing by hand in a plain text editor to produce an authoritative scholarly \textbf{ground truth}.
+  \item \textbf{Wednesday (Deterministic):} Applying specialized, rule-based software tools (e.g., Transkribus HTR models, CollateX, CLTK pipelines).
+  \item \textbf{Friday (AI-Assisted):} Evaluating modern LLMs and AI coding assistants against your ground truth to measure character and word error rates (CER/WER), audit hallucinations, and adjudicate editorial decisions.
+\end{enumerate}
+
 \subsection*{Course Outcomes}
 
 By the end of this course, you should be able to:
@@ -108,6 +117,12 @@ The following table details the assessment components for RELS 398 / ENGL 398.
 \evalrow{Print-Ready Publication}{
   \begin{evalitemlist}
     \item Final formatted digital edition publication package.
+  \end{evalitemlist}
+}{5}
+
+\evalrow{Comprehensive Digital Edition Portfolio}{
+  \begin{evalitemlist}
+    \item Assembled TEI-conformant edition submitted during the December exam period.
   \end{evalitemlist}
 }{5}
 
