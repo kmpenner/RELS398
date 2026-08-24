@@ -1,7 +1,109 @@
 {
   "id": "07",
-  "title": "Ground truth, double-keying and error rates",
-  "query": "How is ground truth transcription used to evaluate character error rates in handwritten text recognition, and what role does manual double-keying play in establishing it?",
-  "results_count": 0,
-  "results": []
+  "topic": "Topic_07_Collation",
+  "title": "Computational Collation & Variant Alignment Algorithms",
+  "query": "How do computational collation tools such as CollateX automate witness alignment and textual variant identification across manuscript traditions compared to manual collation?",
+  "results_count": 10,
+  "results": [
+    {
+      "title": "From Manuscript to Stemma: A Phylogenetic Approach to Medieval Armenian Fables",
+      "title_link": "https://www.connections.clio-online.net/article/id/fda-161612",
+      "pdf_link": "https://pure.knaw.nl/portal/files/799786159/Computer_supported_collation_with_CollateX_haentjens_dekker_middell.pdf",
+      "authors_venue_year": "[HTML][HTML] From Manuscript to Stemma: A Phylogenetic Approach to Medieval Armenian FablesA Shahnazaryan - 2026 - connections.clio-online.netExplains that automated collation tools, such as CollateX, algorithmically identify and align corresponding words and phrases across all manuscript witnesses, enhancing the process over manual methods.Bias Reduction: Shows that computational collation compares all witnesses equally with one another, eliminating the editorial bias that can be introduced in traditional manual collation by privileging a single base text.Textual Variation and Genealogy: Details that computer-assisted stemmatic analysis uses digital tools to collate all manuscript witnesses to create a comprehensive dataset of every textual variation, which algorithms then analyze to generate a graph-based model of genealogical relationships.Save Cite Related articles  Cached [PDF] knaw.nl",
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    },
+    {
+      "title": "Computer-supported collation with CollateX: managing textual variance in an environment with varying requirements",
+      "title_link": "https://pure.knaw.nl/portal/files/799786159/Computer_supported_collation_with_CollateX_haentjens_dekker_middell.pdf",
+      "pdf_link": "https://hal.science/hal-02268348/document",
+      "authors_venue_year": "[PDF][PDF] Computer-supported collation with CollateX: managing textual variance in an environment with varying requirementsRH Dekker, G Middell\u00a0- Supporting Digital Humanities 2011\u00a0\u2026, 2011 - pure.knaw.nlExplains that manual collation is tedious and error-prone, making automation, especially when dealing with a large number of versions, an ideal and often necessary candidate for computer support.CollateX Modular Steps: Details the modularization of the digital collation process into discrete steps, including tokenization, alignment of tokens, analysis of the computed alignment, and output/visualization of results.Alignment Algorithm: Compares computational collation to sequence alignment problems found in computational biology and outlines how CollateX's algorithm aligns tokens, detects transpositions, and handles multiple versions by comparing them against a growing variant graph.Save Cite Cited by 64 Related articles All 2 versions  View as HTML [PDF] hal.science",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 64,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=4635235061592117237&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Collating medieval vernacular texts. aligning witnesses, classifying variants",
+      "title_link": "https://hal.science/hal-02268348/document",
+      "pdf_link": "https://hal.science/tel-02493805v1/file/enury-phd-2018-12-05.pdf",
+      "authors_venue_year": "[PDF][PDF] Collating medieval vernacular texts. aligning witnesses, classifying variantsJB Camps, E Spadini, L Ing\u00a0- DH2019 Digital Humanities Conference\u00a0\u2026, 2019 - hal.sciencePresents an experimental computer-assisted workflow for aligning witnesses and classifying variants, which is particularly relevant for medieval texts with structural and localized variations.CollateX Tool Use: Utilizes the collation program CollateX, which employs multiple alignment algorithms suitable for comparing more than two witnesses and features a modular structure based on the Gothenburg model.Automated Normalization and Variant Categorization: Speeds up the task of text preparation and makes the identification of fine-grained variant categories possible through the use of Natural Language Processing (NLP) tools for automatic normalization and linguistic annotation.Save Cite Cited by 12 Related articles All 5 versions  View as HTML [PDF] hal.science",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 12,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=9633278055660574605&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Automated collation and digital editions: From theory to practice",
+      "title_link": "https://hal.science/tel-02493805/",
+      "pdf_link": "https://iris.unil.ch/bitstreams/dae8fa8a-2871-426b-8d58-8f2b842918ea/download",
+      "authors_venue_year": "Automated collation and digital editions: From theory to practiceE Nury - 2018 - hal.scienceExplains that automated collation tools take a transcription of each witness as input, which are then aligned using an alignment algorithm to compare texts and identify differences.Advantages Over Manual Collation: Highlights that automated collation offers advantages over manual methods, such as consistency in comparison, the ability to easily add new manuscripts, and a common format for sharing data.Methodological Difference: Contrasts the methodologies, noting that the traditional heuristics in textual criticism do not typically include the full transcription of manuscripts, which is a necessary preliminary step for automated collation.Save Cite Cited by 21 Related articles All 5 versions  View as HTML [PDF] unil.ch",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 21,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=11161066256609381438&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Risorse e sfide per la collazione automatica di testi medievali",
+      "title_link": "https://iris.unil.ch/entities/publication/061b6477-2711-4c1c-bb61-911c7c1893d9",
+      "pdf_link": "https://iris.unil.ch/bitstreams/ec2d1bb8-fc4e-4d8c-b81b-4b1760732797/download",
+      "authors_venue_year": "Risorse e sfide per la collazione automatica di testi medievaliE Spadini - 2019 - iris.unil.chExplains that computational collation involves a pipeline where the text of each witness is annotated with linguistic information, alignment is performed on the lemma to neutralize orthographic variation, and linguistic annotation is used to identify categories of variants.CollateX Architecture: Notes that the architecture of CollateX and JuxtaCommons is based on the Gothenburg model, which guides the design of modern collation tools.Automation Compared to Manual: Addresses the history of computational collation by noting that semi-automatic collation algorithms originated in the 1960s, but many steps were previously performed manually, indicating a shift toward full automation.Save Cite Cited by 3 Related articles All 4 versions  View as HTML [PDF] unil.ch",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 3,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=17449075383045608648&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Filolog\u00eda digital versus filolog\u00eda cl\u00e1sica en el estudio de la tradici\u00f3n manuscrita del Fuero Juzgo",
+      "title_link": "https://iris.unil.ch/entities/publication/f3474be6-8a35-4b71-9371-02f96079626c",
+      "pdf_link": "https://library.oapen.org/bitstream/handle/20.500.12657/46670/9783110684384.pdf?sequence=1#page=167",
+      "authors_venue_year": "Filolog\u00eda digital versus filolog\u00eda cl\u00e1sica en el estudio de la tradici\u00f3n manuscrita del Fuero JuzgoC Mabille - 2023 - iris.unil.chExplains that computational collation tools were first based on pairwise alignment, comparing two texts at a time and merging results for global alignment, which mirrors manual collation but is dependent on the order and base manuscript.CollateX Progressive Alignment: Indicates that CollateX is the sole program using a progressive multiple alignment algorithm, which performs operations that are impossible for a human brain, distinguishing it from the pairwise alignment that mimics manual collation.Normalized Alignment Input: Notes that the Python version of CollateX allows the assignment of a normalized form (n value) to tokens, which is used during the alignment stage instead of the paleographic form (t value), significantly improving results by reducing the need for manual correction.Save Cite Cited by 2 Related articles All 9 versions  No full text available View as HTML [PDF] oapen.org",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 2,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=3682884090619734215&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "3.3 Transcription and collation",
+      "title_link": "https://library.oapen.org/bitstream/handle/20.500.12657/46670/9783110684384.pdf?sequence=1#page=167",
+      "pdf_link": "https://historiasfingidas.dlls.univr.it/article/download/1108/1240",
+      "authors_venue_year": "[PDF][PDF] 3.3 Transcription and collationT Andrews\u00a0- Handbook of Stemmatology, 2020 - library.oapen.orgExplains that computational collation tools require all manuscript witnesses to be transcribed in full before the software operates on the transcriptions to identify and align the readings they contain.Automatic Alignment Process: Details that automated collation is essentially an alignment process that compares the normalized tokens of each text to produce a proposal for how they correspond, often resulting in an alignment table or a variant graph.Contrast with Manual Collation: Contrasts manual collation, where the bulk of the work involves meticulous comparison, alignment, and record-keeping with reference to a base text, with automated methods that can transform the resulting digital collation into an apparatus of variants or a variant graph.Save Cite Cited by 16 Related articles All 7 versions  No full text available View as HTML [PDF] univr.it",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 16,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=16176117353231095235&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "De editor anal\u00f3gico a editor digital",
+      "title_link": "https://historiasfingidas.dlls.univr.it/article/view/1108",
+      "pdf_link": "https://journals.openedition.org/digitalmedievalist/pdf/2482",
+      "authors_venue_year": "De editor anal\u00f3gico a editor digitalJMF Rueda\u00a0- Historias Fingidas, 2022 - historiasfingidas.dlls.univr.itExplains that automatic collation systems concretely speed up and simplify philological work compared to traditional methods.Time Comparison: Compares textual comparisons taking minutes with computational tools versus months with manual methods.CollateX Functionality: Details that CollateX can apply a `near_match` parameter in its algorithm to consider variants as indifferent, thereby reducing noise and simplifying the handling of textual differences.Save Cite Cited by 12 Related articles All 3 versions  No full text available View as HTML [PDF] openedition.org",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 12,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=8129021641139052648&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "You're collating just fine and other lies you've been telling yourself",
+      "title_link": "https://journals.openedition.org/digitalmedievalist/2482",
+      "pdf_link": "https://pure.knaw.nl/ws/portalfiles/portal/5794483/9789088904837_Boot_et_al._2017_Advances_in_Digital_Scholary_Editing_e_book.pdf#page=348",
+      "authors_venue_year": "You're collating just fine and other lies you've been telling yourselfB Bordalejo, A V\u00e1zquez\u00a0- Digital Medievalist, 2021 - journals.openedition.orgCompares manual and computer-assisted approaches to collation methods, specifically emphasizing stemmatology and medieval textual traditions.Computer Minimizes Data Risk: Argues that computer-assisted collation minimizes the risk of missing relevant data, supporting the use of tools like CollateX for thorough variant identification.Demonstrates Tool Integration: Examines the integration of CollateX and the Collation Editor within platforms like Textual Communities to show how variants and spellings are handled in specific textual examples, such as The Reeve\u2019s Tale Line 5.Save Cite Cited by 8 Related articles All 8 versions  No full text available View as HTML [PDF] knaw.nl",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 8,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=1759132580597192561&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "The role of the base manuscript in the collation of medieval texts",
+      "title_link": "https://pure.knaw.nl/ws/portalfiles/portal/5794483/9789088904837_Boot_et_al._2017_Advances_in_Digital_Scholary_Editing_e_book.pdf#page=348",
+      "pdf_link": null,
+      "authors_venue_year": "[PDF][PDF] The role of the base manuscript in the collation of medieval textsE Spadini\u00a0- Advances in Digital Scholarly Editing, 2017 - pure.knaw.nlExplains that manual collation usually involves selecting a base witness, an often arbitrary choice, against which all other witnesses are compared, a process that can be time-consuming and difficult to organize.Computational Collation Base Witness: Contrasts traditional collation by noting that software for automatic collation historically implemented text alignment using a base witness, with CollateX being the only one, in its entire history, that uses a multiple alignment algorithm, partly progressive and partly non-progressive.Multiple Alignment Algorithm: Notes that multiple alignment aims to calculate variation among all witnesses, which is far more complex and computationally expensive than base text alignment, and progressive multiple alignment involves an initial pairwise alignment and a second comparison based on a guide tree to find correspondences.Save Cite Cited by 6 Related articles All 3 versions  View as HTML Looking for more results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.Looking for results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.An error occurred.RetryMore resultsReady to explore your own questions and answers?Ask your questionScholar Labs is experimental and can make mistakes.Help & PrivacyPrivacyTermsHelpYou're on the waitlistScholar Labs home",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 6,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=6777720786128995814&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    }
+  ]
 }

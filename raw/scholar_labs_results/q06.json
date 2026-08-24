@@ -1,7 +1,79 @@
 {
   "id": "06",
-  "title": "Cognitive load and weekly deadline rhythm in technical courses",
-  "query": "What does research on cognitive load and spacing say about how much time students need between learning a new technical method and submitting graded work using it?",
-  "results_count": 0,
-  "results": []
+  "topic": "Topic_06_Normalization",
+  "title": "Normalization, Orthographic Regularization & TEI Primary Sources",
+  "query": "How should orthographic variation such as iotacism be normalized in historical manuscripts, and how do rule-based scripts and AI models compare when encoding TEI orig and reg elements?",
+  "results_count": 7,
+  "results": [
+    {
+      "title": "Resolving High-Vowel Ambiguity (\u27e8 \u00ef\u27e9/\u27e8 i\u27e9/\u27e8 \u0131\u27e9) in OCR-Derived Old Turkic Editions: An Edition-Metadata-Driven Disambiguation Layer",
+      "title_link": "https://pdfs.semanticscholar.org/1770/e7fe4c9a5cb36ed8c8f155dcdb1bf624c180.pdf",
+      "pdf_link": "https://aclanthology.org/N19-1389.pdf",
+      "authors_venue_year": "[PDF][PDF] Resolving High-Vowel Ambiguity (\u27e8 \u00ef\u27e9/\u27e8 i\u27e9/\u27e8 \u0131\u27e9) in OCR-Derived Old Turkic Editions: An Edition-Metadata-Driven Disambiguation LayerE U\u00e7ar\u00a0- Turkic Studies Journal, 2026 - pdfs.semanticscholar.orgProposes a dedicated disambiguation layer integrated into a TEI-P5 two-layer encoding framework (orig/reg) to handle orthographic variation, operating at the graphemic representation level using edition-specific metadata and rule-based linguistic cues.Handling Ambiguity: Explains that orthographic variation such as high-vowel collapse is a main error type that cannot be resolved solely at the representation level, and the proposed method successfully disambiguates approximately 88\u201393% of high-vowel ambiguity cases while preserving unresolved forms through explicit TEI `<unclear>` annotation.Deterministic Normalization: Uses a deterministic system of priority and avoids probabilistic methods, prioritizing philological verifiability over statistical generalization for text normalization.Save Cite Related articles All 2 versions  No full text available View as HTML [PDF] aclanthology.org",
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    },
+    {
+      "title": "A large-scale comparison of historical text normalization systems",
+      "title_link": "https://aclanthology.org/N19-1389/",
+      "pdf_link": null,
+      "authors_venue_year": "A large-scale comparison of historical text normalization systemsM Bollmann\u00a0- Proceedings of the 2019 conference of the north\u00a0\u2026, 2019 - aclanthology.orgReviews existing literature and reports experiments comparing systems spanning all categories of proposed normalization techniques, including rule-based methods, distance metrics, statistical machine translation, and neural encoder\u2013decoder models, across eight languages.Normalization Approaches: Outlines normalization techniques that include hand-crafted algorithms tailored to specific languages, supervised machine learning, character-based statistical machine translation (SMT), and neural machine translation (NMT).Definition of Normalization: Defines historical text normalization as mapping historical variant spellings to a single, contemporary \u201cnormal form\u201d to address spelling variation challenges in historical NLP.Save Cite Cited by 137 Related articles All 8 versions  No full text available View as HTML",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 137,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=15141045038628661100&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "The identification of spelling variants in English and German historical texts: Manual or automatic?",
+      "title_link": "https://academic.oup.com/dsh/article-abstract/23/1/65/932391",
+      "pdf_link": "https://pdfs.semanticscholar.org/49f8/320a558588931a462297d8846fbacf40e6b8.pdf",
+      "authors_venue_year": "The identification of spelling variants in English and German historical texts: Manual or automatic?T Pilz, A Ernst-Gerlach, S Kempken\u2026\u00a0- Literary and\u00a0\u2026, 2008 - academic.oup.comDiscusses two approaches for addressing spelling variation in historical German and English texts: one aiming to develop a search engine and the other aiming to improve corpus linguistic techniques, both sharing a goal of assessing a generic spelling detection tool for Indo-European languages.Normalizing Variants with VARD: Explains that the VARD tool for English historical texts uses a list of variant forms and their modern equivalents to insert a modern form alongside the historical variant, preserved using an XML 'reg' tag, to detect and normalize spelling variants.Comparing Manual and Automatic Rules: Compares manual rule derivation, trained string edit distance, and automatic rule learning as three different paths taken by the German RSNSR project to reach its goal of reliable full text-searches in historical documents with non-standard orthography.Save Cite Cited by 43 Related articles All 10 versions  No full text available [PDF] semanticscholar.org",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 43,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=9556909560668393017&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Natural language processing for historical texts",
+      "title_link": "https://books.google.com/books?hl=en&lr=&id=6Y1gAQAAQBAJ&oi=fnd&pg=PR11&ots=-hajrTZH1Z&sig=tCjLmgene4R1yKXE9pgpLzKGO5o",
+      "pdf_link": "https://www.scivisionpub.com/pdfs/the-role-of-error-in-the-computational-generation-of-word-forms-3916.pdf",
+      "authors_venue_year": "[BOOK][B] Natural language processing for historical textsM Piotrowski - 2012 - books.google.comDiscusses the handling of spelling differences and variation encountered in historical texts in Chapter 6, following a discussion of text encoding.TEI Encoding: Covers the encoding of historical texts using TEI in Chapter 5, which is relevant to the use of TEI orig and reg elements.Manuscript Normalization: Addresses the normalization of historical manuscript text, noting that some transcription guidelines require the normalization of capitalization in manuscripts to sentence initials and proper names.Save Cite Cited by 413 Related articles All 8 versions  No full text available [PDF] scivisionpub.com",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 413,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=17304713086468058389&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "The role of error in the computational generation of word forms",
+      "title_link": "https://www.scivisionpub.com/pdfs/the-role-of-error-in-the-computational-generation-of-word-forms-3916.pdf",
+      "pdf_link": "https://research.birmingham.ac.uk/files/247227057/CuglianaE2024Computational.pdf",
+      "authors_venue_year": "[PDF][PDF] The role of error in the computational generation of word formsT Mez\u0151\u00a0- Journal of Advanced Artificial Intelligence and Machine\u00a0\u2026, 2025 - scivisionpub.comApplies a hybrid processing pipeline that includes neural HTR-based correction (Transformer+CTC), a rule-based finite-state transducer (FST) for stem and affix normalization, and edit distance with trigram language model fine-tuning to address orthographic fluctuations and scribal errors.Modeling Orthographic Variation: Models and corrects orthographic phenomena by integrating neural HTR with rule-based FST and a noisy channel model, treating errors as reconstructible historical markers rather than simple noise.TEI Encoding Comparison: Mentions that the Medieval Nordic Text Archive (MENOTA) uses the TEI P5 standard, applying the `<allomorph>` tag to mark stem and suffix alternations, and performs normalization using FST, illustrating a comparison of rule-based scripts in encoding TEI elements.Save Cite Cited by 1 Related articles All 2 versions  View as HTML [PDF] birmingham.ac.uk",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 1,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=11570114871941598489&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Computational approaches and the epistemology of scholarly editing",
+      "title_link": "https://research.birmingham.ac.uk/en/publications/computational-approaches-and-the-epistemology-of-scholarly-editin/",
+      "pdf_link": "https://aclanthology.org/C16-1013.pdf",
+      "authors_venue_year": "Computational approaches and the epistemology of scholarly editingE Cugliana, A Ward, J van Zundert\u2026\u00a0- \u2026\u00a0Journal of Digital\u00a0\u2026, 2024 - research.birmingham.ac.ukSuggests that the constitution of digital scholarly editions will increasingly shift editorial reasoning from implicit knowledge held by the scholar to explicit forms of code, analysis, calculation, reasoning, and logic.Orthographic Normalization Example: Presents a case study involving the normalization of orthography in a mediaeval German text to illustrate how reasoning can be introduced into the normalization process by creating rules that consider contextual information, not just character co-occurrence.Rule-Based Normalization: Contrasts relying on substitution pipelines based on probability rates with the introduction of a level of reasoning into the normalization process, which should consider contextual information and annotations characterizing single tokens.Save Cite Cited by 5 Related articles All 6 versions  No full text available View as HTML [PDF] aclanthology.org",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 5,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=14122524890278627973&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Improving historical spelling normalization with bi-directional LSTMs and multi-task learning",
+      "title_link": "https://aclanthology.org/C16-1013/",
+      "pdf_link": null,
+      "authors_venue_year": "Improving historical spelling normalization with bi-directional LSTMs and multi-task learningM Bollmann, A S\u00f8gaard\u00a0- Proceedings of COLING 2016, the 26th\u00a0\u2026, 2016 - aclanthology.orgExplores the suitability of a deep bi-directional Long Short-Term Memory (bi-LSTM) network applied on a character level for the task of historical spelling normalization.AI vs. Rule-Based Comparison: Compares the deep neural network model favorably to previously established normalization algorithms, such as Norma and a Conditional Random Field (CRF) tagger, when evaluated on Early New High German texts.Normalization Method Details: Frames spelling normalization as a character-based sequence labeling task, where historical wordforms are aligned with their modern normalizations on a character level, using methods like iterated Levenshtein distance alignment.Save Cite Cited by 94 Related articles All 6 versions  View as HTML Looking for more results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.Looking for results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.An error occurred.RetryMore resultsReady to explore your own questions and answers?Ask your questionScholar Labs is experimental and can make mistakes.Help & PrivacyPrivacyTermsHelpYou're on the waitlistScholar Labs home",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 94,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=6432835970672329760&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    }
+  ]
 }

@@ -1,7 +1,109 @@
 {
   "id": "05",
-  "title": "Project-based cumulative assessment in digital humanities courses",
-  "query": "How effective is cumulative project-based assessment, where each weekly assignment is a stage of a single scholarly digital edition, compared with independent weekly assignments in digital humanities courses?",
-  "results_count": 0,
-  "results": []
+  "topic": "Topic_05_Reconciliation",
+  "title": "Transcription Reconciliation, Double-Keying & Error Rate Evaluation",
+  "query": "What methods and metrics, such as double-keying and character/word error rate (CER/WER) calculation, govern the reconciliation of manual, HTR, and AI-generated manuscript transcriptions into a consensus text?",
+  "results_count": 10,
+  "results": [
+    {
+      "title": "Unlocking the archives: Using large language models to transcribe handwritten historical documents",
+      "title_link": "https://www.tandfonline.com/doi/abs/10.1080/01615440.2025.2500309",
+      "pdf_link": "https://assets-eu.researchsquare.com/files/rs-7943432/v1_covered_3d696cfd-7607-4efe-b873-16abf0a7a028.pdf",
+      "authors_venue_year": "Unlocking the archives: Using large language models to transcribe handwritten historical documentsM Humphries, LC Leddy, Q Downton\u2026\u00a0- Historical Methods: A\u00a0\u2026, 2025 - Taylor & FrancisDetermines accuracy by comparing transcriptions to a \u201cground-truth\u201d document to calculate error rates, which are then benchmarked against rates reported for humans and established HTR software.Strict vs. Modified Metrics: Employs two Character Error Rate (CER) and Word Error Rate (WER) metrics\u2014strict and modified\u2014which utilize different definitions of substitution (S) to assess performance under various conditions, such as allowing for differences in historical capitalization, punctuation, and spelling.Transcription Workflow: Manages the processing of large numbers of images using the Transcription Pearl software tool, which provides a workflow for transcribing and correcting historical documents using Large Language Models.Save Cite Cited by 61 Related articles All 8 versions  [PDF] researchsquare.com",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 61,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=10213791354845021913&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "A methodological framework for the use of AI tools in automated workflows for generating validated and structured historical datasets",
+      "title_link": "https://link.springer.com/article/10.1007/s42803-026-00121-3",
+      "pdf_link": "https://dl.acm.org/doi/pdf/10.1145/3815723.3815726",
+      "authors_venue_year": "A methodological framework for the use of AI tools in automated workflows for generating validated and structured historical datasetsJA Motilla-Ch\u00e1vez, D Espitia, D Perez-Martinez\u2026\u00a0- International Journal of\u00a0\u2026, 2026 - SpringerEvaluates the quality of correction on historical corpora using Character Error Rate (CER) and Word Error Rate (WER) metrics, demonstrating significant reductions in these error rates (up to -93.5% and -66.8% respectively) after Large Language Model (LLM)-assisted post-correction.Integrated Workflow: Uses a reproducible workflow that integrates Optical Character Recognition (OCR), LLM-assisted post-correction, and Named Entity Recognition (NER) into a unified pipeline to transform heterogeneous, noisy textual data into structured formats.Human-in-the-Loop Validation: Employs human-in-the-loop (HITL) validation stages within the workflow to ensure process oversight, quality control, and allow expert review to be embedded at critical decision points.Save Cite Cited by 1 Related articles All 4 versions  No full text available [PDF] acm.org",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 1,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=3654042930752779341&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Multimodal large language model-assisted metadata extraction from historical concert programmes (1872\u20131928)",
+      "title_link": "https://dl.acm.org/doi/abs/10.1145/3815723.3815726",
+      "pdf_link": "https://link.springer.com/content/pdf/10.1007/s10032-025-00543-9.pdf",
+      "authors_venue_year": "Multimodal large language model-assisted metadata extraction from historical concert programmes (1872\u20131928)SO Eck, KR Page\u00a0- Proceedings of the 13th International Conference on\u00a0\u2026, 2026 - dl.acm.orgMeasures the error of MLLM-generated metadata against a manually curated reference dataset using Levenshtein distance, specifically as a character-level error measure.Consensus Strategy for Reconciliation: Applies a simple consensus strategy of extracted metadata fields by selecting the most frequent value (majority pick) from repeated sampling to create a first-pass metadata record for later expert verification and reconciliation.Workflow Shifts Effort: Finds that the final reconciliation effort is shifted from initial manual transcription to subsequent expert verification and correction when using the MLLM-assisted workflow.Save Cite Cited by 1 Related articles All 2 versions  No full text available [PDF] springer.com",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 1,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=5071956545376209309&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Tabular context-aware optical character recognition and tabular data reconstruction for historical records: LG Singh, SE Middleton",
+      "title_link": "https://link.springer.com/article/10.1007/s10032-025-00543-9",
+      "pdf_link": "https://arxiv.org/pdf/2602.13905",
+      "authors_venue_year": "Tabular context-aware optical character recognition and tabular data reconstruction for historical records: LG Singh, SE MiddletonLG Singh, SE Middleton\u00a0- International Journal on Document Analysis and\u00a0\u2026, 2025 - SpringerAchieves superior performance with a 0.049 word error rate (WER) and a 0.035 character error rate (CER), outperforming existing methods by up to 41% in OCR tasks and 10.74% in table reconstruction tasks, thus using WER/CER as key metrics.Consensus Text Generation: Employs an annotation process for a new dataset where crowd-sourced annotators flagged difficult-to-transcribe cells for correction by domain experts, ensuring high-quality data through a measure of consensus.AI Post-Correction Method: Incorporates ByT5 as an end-to-end model for post-OCR correction within the pipeline, enhancing transcription accuracy and robustness for historical document digitization.Save Cite Cited by 15 Related articles All 12 versions  [PDF] arxiv.org",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 15,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=12922891942111034238&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Pre-Editorial Normalization for Automatically Transcribed Medieval Manuscripts in Old French and Latin",
+      "title_link": "https://arxiv.org/abs/2602.13905",
+      "pdf_link": null,
+      "authors_venue_year": "Pre-Editorial Normalization for Automatically Transcribed Medieval Manuscripts in Old French and LatinT Cl\u00e9rice, R Bawden, A Glaise, A Pinche\u2026\u00a0- arXiv preprint arXiv\u00a0\u2026, 2026 - arxiv.orgBenchmarks the resource using ByT5-based sequence-to-sequence models on normalization and pre-annotation tasks, with a model achieving a 6.7% Character Error Rate (CER), substantially outperforming previous models for this task.Pre-Editorial Normalization Task: Introduces the task of Pre-Editorial Normalization (PEN), which involves normalizing graphemic Automatic Text Recognition (ATR) output according to editorial conventions, maintaining palaeographic fidelity while providing a normalized version for practical usability.Alignment and Dataset Creation: Presents a new dataset derived from the CoMMA corpus and aligned with digitized Old French and Latin editions using the `passim` tool, and also produces a manually corrected gold-standard evaluation set.Save Cite Cited by 3 Related articles All 9 versions  View as HTML [HTML] mdpi.comCheck for full text @ X",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 3,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=10892641522442858351&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Reframing Historical Text Extraction: A Cross-Pathway Validation of OCR, LLM-Assisted Correction, and Direct Multimodal Transcription",
+      "title_link": "https://www.mdpi.com/2078-2489/17/8/722",
+      "pdf_link": "https://link.springer.com/content/pdf/10.1007/s10462-025-11408-2.pdf",
+      "authors_venue_year": "[HTML][HTML] Reframing Historical Text Extraction: A Cross-Pathway Validation of OCR, LLM-Assisted Correction, and Direct Multimodal TranscriptionCM Viana\u00a0- Information, 2026 - mdpi.comProposes a comparative validation framework that treats conventional Optical Character Recognition (OCR), Large Language Model (LLM)-assisted correction, and direct multimodal transcription as alternative pathways for producing textual layers from historical document images.Error Metrics Used: Uses manually verified reference transcriptions to evaluate each pathway output, calculating error metrics like Content-Normalised Character Error Rate (CER) and Word Error Rate (WER).Semantic Assessment Included: Complements CER and WER with a semantic preservation assessment focused on entity categories relevant to downstream reuse, such as place names, agricultural terms, and measurement expressions.Save Cite Related articles  Cached [PDF] springer.comCheck for full text @ X",
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    },
+    {
+      "title": "A review of artificial intelligence in herbarium specimen image analysis",
+      "title_link": "https://link.springer.com/article/10.1007/s10462-025-11408-2",
+      "pdf_link": "https://dl.acm.org/doi/pdf/10.1145/3453476",
+      "authors_venue_year": "A review of artificial intelligence in herbarium specimen image analysisYY Guo, H Cai, GLC Bramley, HJ Atkins, B Li\u2026\u00a0- Artificial Intelligence\u00a0\u2026, 2025 - SpringerExplains that transcription quality, after Optical Character Recognition (OCR) or Handwritten Text Recognition (HTR), is measured using the Character Error Rate (CER), a standard metric in automatic speech and text recognition.Transcription Pipeline Steps: Details that automated label transcription in modern pipelines is a multi-step process involving locating and classifying labels, applying OCR or HTR, and performing post-processing, often using Large Language Models (LLMs), for correction and formatting.Human Validation Strategy: Mentions that low-confidence detections or conflicting records from automated extraction are routed to experts or volunteers for manual review, verification, and normalization, demonstrating a Human-in-the-Loop (HITL) quality assurance strategy.Save Cite Cited by 2 Related articles All 6 versions  [PDF] acm.orgFull View",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 2,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=16118690913904142706&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Survey of post-OCR processing approaches",
+      "title_link": "https://dl.acm.org/doi/abs/10.1145/3453476",
+      "pdf_link": "https://openaccess.thecvf.com/content/ICCV2025W/VisionDocs/papers/Peer_CTC_Transcription_Alignment_of_the_Bullinger_Letters_Automatic_Improvement_of_ICCVW_2025_paper.pdf",
+      "authors_venue_year": "Survey of post-OCR processing approachesTTH Nguyen, A Jatowt, M Coustaty\u2026\u00a0- ACM Computing Surveys\u00a0\u2026, 2021 - dl.acm.orgReviews state-of-the-art post-OCR processing approaches, including manual, semi-automatic, and automatic methods, which encompass reconciliation techniques for transcribed texts.Text Recognition Techniques: Discusses techniques for processing digitized texts that include character recognition, handwritten texts, and advanced neural network methods, which are relevant to AI-generated manuscript transcriptions.Evaluation Metrics: Reports on evaluation metrics and accessible datasets used in the field, which are essential for calculating error rates like CER/WER and comparing transcription quality.Save Cite Cited by 322 Related articles All 7 versions  No full text available [PDF] thecvf.com",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 322,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=5506767520253247151&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Ctc transcription alignment of the bullinger letters: Automatic improvement of annotation quality",
+      "title_link": "https://openaccess.thecvf.com/content/ICCV2025W/VisionDocs/html/Peer_CTC_Transcription_Alignment_of_the_Bullinger_Letters_Automatic_Improvement_of_ICCVW_2025_paper.html",
+      "pdf_link": null,
+      "authors_venue_year": "Ctc transcription alignment of the bullinger letters: Automatic improvement of annotation qualityM Peer, A Scius-Bertrand\u2026\u00a0- Proceedings of the IEEE\u00a0\u2026, 2025 - openaccess.thecvf.comIntroduces a self-training method based on a CTC alignment algorithm that matches full transcriptions to text line images using dynamic programming and model output probabilities trained with the CTC loss.Metrics and Accuracy: Reports that the approach improves performance by 1.1 percentage points in Character Error Rate (CER) and increases alignment accuracy, and notes that alignment accuracy is higher when using a weakly trained model.Reconciling HTR and Historical Needs: Explains that a challenge in the process is reconciling character-accurate transcriptions required by HTR systems with regularized text versions preferred by historians, exemplified by the hyphenation problem.Save Cite Cited by 1 Related articles All 5 versions  View as HTML Check for full text @ X",
+      "summary": null,
+      "key_points": [],
+      "cited_by": 1,
+      "cited_by_link": "https://scholar.google.com/scholar?cites=6178484431093647039&as_sdt=2005&sciodt=0,5&hl=en&inst=5140007463653430726"
+    },
+    {
+      "title": "Postcorrection of Weak Transcriptions by Large Language Models in the Iterative Process of Handwritten Text Recognition",
+      "title_link": "https://link.springer.com/article/10.3103/S0005105525701511",
+      "pdf_link": null,
+      "authors_venue_year": "Postcorrection of Weak Transcriptions by Large Language Models in the Iterative Process of Handwritten Text RecognitionVP Zykov, LM Mestetskiy\u00a0- Automatic Documentation and Mathematical\u00a0\u2026, 2025 - SpringerApplies the metrics of word error rate (WER) and character error rate (CER) to evaluate the effectiveness of Large Language Model (LLM) postcorrection in improving the accuracy of weak transcriptions generated by a Handwritten Text Recognition (HTR) model.Iterative Annotation Process: Proposes an iterative annotation procedure where expert annotators correct errors in automatically generated \"weak transcriptions\" rather than transcribing the text from scratch, thereby accelerating the construction of accurate editorial annotations.LLM Postcorrection Method: Focuses on integrating automatic postcorrection using LLMs, like ChatGPT-4o and DeepSeek-R1, to refine HTR outputs, demonstrating that this approach significantly reduces the word error rate of machine transcriptions.Save Cite Related articles All 2 versions  Looking for more results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.Looking for results...Scholar Labs is currently not designed for queries like this.Suggestions:Try a different questionTry your query on Google ScholarNo results found.Search stopped.An error occurred.RetryMore resultsReady to explore your own questions and answers?Ask your questionScholar Labs is experimental and can make mistakes.Help & PrivacyPrivacyTermsHelpYou're on the waitlistScholar Labs home",
+      "summary": null,
+      "key_points": [],
+      "cited_by": null,
+      "cited_by_link": null
+    }
+  ]
 }
