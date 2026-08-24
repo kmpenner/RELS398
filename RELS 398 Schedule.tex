@@ -7,132 +7,181 @@
 
 \begin{stfxschedule}
 
-%% Week 1
-\weekrow{Week 1}{Wed Sep 2 (\#1)\newline Fri Sep 4 (\#2)}{1. Orientation \& Polytonic Greek I/O}{
+%% Week 1 -- setup week, no three-step cycle
+\weekrow{Week 1}{Wed Sep 2 (\#1)\newline Fri Sep 4 (\#2)}{1. Orientation}{
   Finney, ``Manuscript Markup'' (pp.\ 323--360).\newline
   Griffitts, \S 3.4.1; TEI Guidelines vi.2.
 }{
-  Git setup, Unicode polytonic Greek fonts, and keyboard layouts.
+  \textit{Orientation week --- no three-step cycle.}\newline
+  Git and repository setup; Unicode polytonic Greek fonts and keyboard layouts;
+  Oxygen XML / VS Code; GitHub, Transkribus and THREAD accounts.\newline
+  \textbf{Choose your manuscript passage by Fri Sep 4} (ungraded, but every later
+  assignment builds on it).
 }
 
 %% Week 2
-\weekrow{Week 2}{Tue Sep 8 (\#3)\newline Wed Sep 9 (\#4)\newline Fri Sep 11 (\#5)}{2. Manuscript Metadata \& RDF}{
+\weekrow{Week 2}{Tue Sep 8 (\#3)\newline Wed Sep 9 (\#4)\newline Fri Sep 11 (\#5)}{2. Cataloguing}{
   Griffitts \S 3.4.2, 3.6.1, 4.1; TEI Guidelines v.1--3.\newline
   Ceriani, \textit{Codex Marchalianus} introduction.
 }{
-  Cataloguing manuscripts, RDF triples, TEI Header metadata.\newline
+  Manuscript identification, TEI Header, RDF triples and CTS URNs. XML and TEI
+  fundamentals: elements, attributes, well-formedness, schema validation.\newline
+  \textbf{Tue:} hand-write a \texttt{teiHeader} in a plain text editor.\newline
+  \textbf{Wed:} validate it against the TEI schema in Oxygen; build RDF triples.\newline
+  \textbf{Fri:} AI-generated and enriched metadata, verified against your own header.\newline
   \textit{Add/Drop deadline: Mon Sep 14.}
 }
 
 %% Week 3
-\weekrow{Week 3}{Tue Sep 15 (\#6)\newline Wed Sep 16 (\#7)\newline Fri Sep 18 (\#8)}{3. IIIF \& Image Storage Formats}{
+\weekrow{Week 3}{Tue Sep 15 (\#6)\newline Wed Sep 16 (\#7)\newline Fri Sep 18 (\#8)}{3. IIIF Imaging}{
   Griffitts \S 4.3--4.4.\newline
   Havens, ``Adobe Photoshop \& Digital Paleography''.
 }{
-  International Image Interoperability Framework (IIIF), multispectral imaging.
+  \textit{Infrastructure week --- the three-step cycle does not apply.}\newline
+  International Image Interoperability Framework (IIIF), raking light,
+  multispectral imaging, canvas linking; building a manifest for your passage.\newline
+  \textbf{Cataloguing \& Metadata Assignment Due: Fri Sep 18}.
 }
 
 %% Week 4
-\weekrow{Week 4}{Tue Sep 22 (\#9)\newline Wed Sep 23 (\#10)\newline Fri Sep 25 (\#11)}{4. Transcription Platforms: Transkribus \& THREAD\newline\textit{(Fri Sep 25: Remote Delivery)}}{
+\weekrow{Week 4}{Tue Sep 22 (\#9)\newline Wed Sep 23 (\#10)\newline Fri Sep 25 (\#11)}{4. Transcription\newline\textit{(Fri Sep 25: Remote Delivery)}}{
   Transkribus User Guide; THREAD Documentation.\newline
-  Clemens \& Graham, \textit{Introduction to Manuscript Studies}.
+  Clemens \& Graham, \textit{Introduction to Manuscript Studies}.\newline
+  stoa.org transcription conventions.
 }{
-  Manual transcription, baseline HTR training, automated OCR.\newline
-  \textbf{Cataloguing \& Metadata Assignment Due: Fri Sep 25}.
+  Diplomatic versus normalized transcription.\newline
+  \textbf{Tue:} manual diplomatic transcription in a text editor --- this becomes
+  your ground truth.\newline
+  \textbf{Wed:} baseline detection and HTR model training in Transkribus.\newline
+  \textbf{Fri (remote):} LLM-assisted transcription and correction.
 }
 
-%% Week 5
-\weekrow{Week 5}{Tue Sep 29 (\#12)\newline\textit{Wed Sep 30 Closed}\newline Fri Oct 2 (\#13)}{5. Normalization \& Orthographic Regularization\newline\textit{(Wed Sep 30: Truth \& Reconciliation)}}{
-  TEI Guidelines ch.\ 11 (Representation of Primary Sources).\newline
-  Robinson, ``Collation and Textual Criticism''.
+%% Week 5 -- two meetings; the comparison IS the topic
+\weekrow{Week 5}{Tue Sep 29 (\#12)\newline\textit{Wed Sep 30 Closed}\newline Fri Oct 2 (\#13)}{5. Reconciliation\newline\textit{(Wed Sep 30: Truth \& Reconciliation)}}{
+  Haaf et al., ``Measuring Correctness of Double-Keying''.\newline
+  Griffitts \S 4.5.2.
 }{
-  Iotacism, orthographic variants, and normalization schemas.\newline
-  \textbf{Transcription Assignment Due: Fri Oct 2}.
+  \textit{Two-step week by design: reconciliation is itself the comparison, so
+  the missing Wednesday costs nothing.}\newline
+  \textbf{Tue:} double-keying and consensus text building by hand.\newline
+  \textbf{Fri:} character and word error rates for the HTR and AI passes, scored
+  against your manual ground truth.\newline
+  \textbf{Transcription Assignment Due: Fri Oct 2} (includes the reconciliation report).
 }
 
 %% Week 6
-\weekrow{Week 6}{Tue Oct 6 (\#14)\newline Wed Oct 7 (\#15)\newline Fri Oct 9 (\#16)}{6. Textual Variants \& CollateX}{
-  CollateX Documentation; Haentjens Dekker et al.\ (2015).\newline
-  Aland \& Aland, \textit{Text of the New Testament} (ch.\ 5).
+\weekrow{Week 6}{Tue Oct 6 (\#14)\newline Wed Oct 7 (\#15)\newline Fri Oct 9 (\#16)}{6. Normalization}{
+  TEI Guidelines ch.\ 11 (Representation of Primary Sources).\newline
+  Griffitts \S 4.6.1; Sabel, ``Encoding of Variant Taxonomies in TEI''.
 }{
-  Automated alignment, apparatus criticus generation, variant taxonomy.\newline
-  \textbf{Normalization Assignment Due: Fri Oct 9}.
+  Iotacism, orthographic variants, \texttt{tei:orig} / \texttt{tei:reg} markup.\newline
+  \textbf{Tue:} regularize by hand, recording each decision.\newline
+  \textbf{Wed:} rule-based normalization with a deterministic script.\newline
+  \textbf{Fri:} AI-assisted normalization, checked against your own rules.
 }
 
 %% Study Break
 \shadedrow{Oct 12--16}{N/A}{\textbf{Fall Study Break} (No Classes)}{Thanksgiving Day Mon Oct 12.}
 
 %% Week 7
-\weekrow{Week 7}{Tue Oct 20 (\#17)\newline Wed Oct 21 (\#18)\newline Fri Oct 23 (\#19)}{7. TEI XML Schema \& Linguistic Markup}{
-  TEI P5 Guidelines (Core \& Text Structure).\newline
-  Burnard, \textit{What is the Text Encoding Initiative?}.
+\weekrow{Week 7}{Tue Oct 20 (\#17)\newline Wed Oct 21 (\#18)\newline Fri Oct 23 (\#19)}{7. Collation}{
+  CollateX Documentation; Haentjens Dekker et al.\ (2015).\newline
+  Griffitts \S 4.6.2--3, 4.7; Robinson, ``Collation and Textual Criticism''.
 }{
-  Structural XML tagging, validation schemas, and Oxygen XML.\newline
-  \textbf{Textual Variants Assignment Due: Fri Oct 23}.
+  Variant taxonomy, base texts, alignment algorithms.\newline
+  \textbf{Tue:} collate two witnesses by hand on paper.\newline
+  \textbf{Wed:} automated alignment with the CollateX engine.\newline
+  \textbf{Fri:} AI-assisted variant classification and adjudication.\newline
+  \textbf{Normalization Assignment Due: Fri Oct 23}.
 }
 
 %% Week 8
-\weekrow{Week 8}{Tue Oct 27 (\#20)\newline Wed Oct 28 (\#21)\newline Fri Oct 30 (\#22)}{8. Morphological Tagging \& POS Analysis}{
-  CLTK (Classical Language Toolkit) Documentation.\newline
-  Schmid, ``TreeTagger for Historical Languages''.
+\weekrow{Week 8}{Tue Oct 27 (\#20)\newline Wed Oct 28 (\#21)\newline Fri Oct 30 (\#22)}{8. Apparatus}{
+  TEI P5 Guidelines, Critical Apparatus module.\newline
+  Burnard, \textit{What is the Text Encoding Initiative?}.
 }{
-  Lemmatization, POS tagging, morphological analysis pipelines.\newline
-  \textbf{Linguistic Markup Assignment Due: Fri Oct 30}.
+  \texttt{tei:app}, \texttt{tei:lem}, \texttt{tei:rdg}; the TEI Critical
+  Apparatus Toolbox.\newline
+  \textbf{Tue:} encode an apparatus entry by hand.\newline
+  \textbf{Wed:} generate the apparatus from CollateX output; validate.\newline
+  \textbf{Fri:} AI-assisted apparatus drafting and error hunting.\newline
+  \textbf{Textual Variants \& Collation Assignment Due: Fri Oct 30}.\newline
+  \textit{Mid-term grades due Mon Oct 26.}
 }
 
 %% Week 9
-\weekrow{Week 9}{Tue Nov 3 (\#23)\newline Wed Nov 4 (\#24)\newline Fri Nov 6 (\#25)}{9. Interlinear Glossing \& Word Alignment}{
-  Leipzig Glossing Rules; TEI Link \& Alignment module.\newline
-  Baumgardt, ``Digital Interlinear Editions''.
+\weekrow{Week 9}{Tue Nov 3 (\#23)\newline Wed Nov 4 (\#24)\newline Fri Nov 6 (\#25)}{9. Lemmatization}{
+  CLTK (Classical Language Toolkit) Documentation.\newline
+  TEI Guidelines ch.\ 18; Schmid, ``TreeTagger for Historical Languages''.
 }{
-  Word-level parallel alignment, interlinear glossing.\newline
-  \textit{Last day to drop: Wed Nov 4.}\newline
-  \textbf{Interlinear Glossing Assignment Due: Fri Nov 6}.
+  Lemmatization, morphological analysis, part-of-speech tagging.\newline
+  \textbf{Tue:} parse and lemmatize a passage by hand with a lexicon.\newline
+  \textbf{Wed:} CLTK and Morpheus tagging pipelines.\newline
+  \textbf{Fri:} LLM-assisted parsing, scored against your manual parse.\newline
+  \textit{Last day to drop: Wed Nov 4.}
 }
 
-%% Week 10
-\weekrow{Week 10}{Tue Nov 10 (\#26)\newline\textit{Wed Nov 11 Closed}\newline Fri Nov 13 (\#27)}{10. Translation Alignment \& Parallel Texts\newline\textit{(Wed Nov 11: Remembrance Day)}}{
-  Tiedemann, ``Parallel Data Extraction''; TEI \S 16.1.\newline
-  DCNS Translation Guidelines.
+%% Week 10 -- two meetings; deliberate slack
+\weekrow{Week 10}{Tue Nov 10 (\#26)\newline\textit{Wed Nov 11 Closed}\newline Fri Nov 13 (\#27)}{10. Consolidation\newline\textit{(Wed Nov 11: Remembrance Day)}}{
+  No new readings. Review your own edition files to date.
 }{
-  Sentence alignment, parallel translation linking.\newline
-  \textbf{Translation Alignment Assignment Due: Fri Nov 13}.
+  \textit{Consolidation week --- no new method, and none of the three steps.}\newline
+  Peer review of editions in progress; validation sweep of every TEI file built
+  so far; catch-up on outstanding stages.\newline
+  \textbf{Linguistic Markup Assignment Due: Fri Nov 13}.
 }
 
 %% Week 11
-\weekrow{Week 11}{Tue Nov 17 (\#28)\newline Wed Nov 18 (\#29)\newline Fri Nov 20 (\#30)}{11. Scholarly Commentary \& Digital Annotations}{
-  TEI \S 17 (Simple Analytic Mechanisms); Open Annotation Data Model.\newline
-  Vander Meulen, ``Digital Commentary''.
+\weekrow{Week 11}{Tue Nov 17 (\#28)\newline Wed Nov 18 (\#29)\newline Fri Nov 20 (\#30)}{11. Alignment}{
+  Leipzig Glossing Rules; TEI \S 16.1 (Link \& Alignment).\newline
+  Tiedemann, ``Parallel Data Extraction''; Baumgardt, ``Digital Interlinear Editions''.
 }{
-  Footnote encoding, linked scholarly apparatus, commentary tags.\newline
-  \textbf{Scholarly Commentary Assignment Due: Fri Nov 20}.
+  Sentence-level translation alignment and word-level interlinear glossing
+  (Alpheios Alignment Editor, Logeion).\newline
+  \textbf{Tue:} align and gloss by hand.\newline
+  \textbf{Wed:} automated sentence alignment and glossing tools.\newline
+  \textbf{Fri:} AI-assisted alignment and gloss generation, verified by hand.
 }
 
 %% Week 12
-\weekrow{Week 12}{Tue Nov 24 (\#31)\newline Wed Nov 25 (\#32)\newline Fri Nov 27 (\#33)}{12. Edition Introductions \& Editorial Principles}{
-  Sahle, \textit{Digital Scholarly Editions} (vol.\ 2).\newline
-  Pierazzo, \textit{Digital Textual Scholarship} (ch.\ 4--5).
+\weekrow{Week 12}{Tue Nov 24 (\#31)\newline Wed Nov 25 (\#32)\newline Fri Nov 27 (\#33)}{12. Commentary}{
+  TEI \S 17 (Simple Analytic Mechanisms); Open Annotation Data Model.\newline
+  Vander Meulen, ``Digital Commentary''.
 }{
-  Manuscript stemma, editorial principles, introduction writing.\newline
-  \textbf{Edition Introduction Assignment Due: Fri Nov 27}.
+  Annotating passages, intertextual cross-referencing (Tesserae), commentary
+  structures and linked scholarly apparatus.\newline
+  \textbf{Tue:} write commentary notes by hand and encode them.\newline
+  \textbf{Wed:} annotation tooling and cross-reference networks.\newline
+  \textbf{Fri:} AI-assisted commentary drafting --- and its limits.\newline
+  \textbf{Interlinear Glossing \& Translation Alignment Assignments Due: Fri Nov 27}.
 }
 
 %% Week 13
-\weekrow{Week 13}{Tue Dec 1 (\#34)\newline Wed Dec 2 (\#35)\newline\textit{Thu Dec 3 Closed}\newline Fri Dec 4 (\#36)}{13. Final Project Assembly \& Publication\newline\textit{(Fri Dec 4: Wed Timetable 10:30 AM)}}{
-  Final validation of TEI XML schemas, CSS stylesheet rendering, and PDF output.
+\weekrow{Week 13}{Tue Dec 1 (\#34)\newline Wed Dec 2 (\#35)\newline\textit{Thu Dec 3 Closed}\newline Fri Dec 4 (\#36)}{13. Publication}{
+  Sahle, \textit{Digital Scholarly Editions} (vol.\ 2).\newline
+  Pierazzo, \textit{Digital Textual Scholarship} (ch.\ 4--5).\newline
+  TEI Publisher documentation.
 }{
-  Final project assembly and web/print publishing.\newline
-  \textbf{Print-Ready Publication Package Due: Fri Dec 4}.\newline
-  \textit{Thu Dec 3: Closed (Feast Day).}
+  \textit{Studio weeks --- no three-step cycle.} Stemma codicum, editorial
+  principles, and writing the edition introduction; TEI validation, CSS
+  rendering, web and print output.\newline
+  \textbf{Scholarly Commentary Assignment Due: Fri Dec 4}.\newline
+  \textit{Thu Dec 3: Closed (Feast Day). Fri Dec 4 runs a Wednesday timetable,
+  10:30 AM --- the term's second-last class day.}
 }
 
 %% Exam Period
 \eventrow{Dec 10--19}{N/A}{Comprehensive Digital Edition Portfolio}{
-  \textbf{DECEMBER EXAM PERIOD}: Final digital edition submission window.
+  \textbf{DECEMBER EXAM PERIOD}: submit the assembled TEI-conformant edition ---
+  \texttt{teiHeader} with catalogue information, diplomatic transcription,
+  normalized text with variants, lemmas and parsings, translation, and
+  commentary.\newline
+  \textbf{Edition Introduction, Print-Ready Publication, and Digital Edition
+  Portfolio all due in this window.}
 }
 
 \end{stfxschedule}
 
-\schedulefootnote{*Class meetings: Tuesdays 8:30 AM, Wednesdays 10:30 AM, Fridays 9:30 AM (MULH 3032).}
+\schedulefootnote{*Class meetings: Tuesdays 8:30 AM, Wednesdays 10:30 AM, Fridays 9:30 AM (MULH 3032). A standard week runs the same method three ways: \textbf{Tuesday} by hand in a text editor, \textbf{Wednesday} with specialist deterministic software, \textbf{Friday} with AI assistance (LLMs, Antigravity, Claude Code, or Hermes). Your Tuesday work is the ground truth against which Wednesday and Friday are measured. Weeks 1, 3, 10 and 13 depart from this pattern and say so in their row.}
 
 \end{document}
