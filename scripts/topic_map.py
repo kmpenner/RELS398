@@ -21,6 +21,38 @@ TOPIC_MAP = {
 }
 
 
+# Lessons are one per class meeting, following the three-step comparative cycle
+# (Tue manual / Wed deterministic / Fri AI-assisted). Weeks 1, 3, 5, 10 and 13
+# depart from that pattern and say so in the schedule, so their lesson counts
+# differ. Derived from src/syllabus/RELS 398 Schedule.tex -- keep in sync with it.
+LESSON_MAP = {
+    1:  ["1.1", "1.2"],                 # orientation week; no cycle
+    2:  ["2.1", "2.2", "2.3"],
+    3:  ["3.1", "3.2", "3.3"],          # infrastructure week; no cycle
+    4:  ["4.1", "4.2", "4.3"],
+    5:  ["5.1", "5.2"],                 # Wed Sep 30 closed; two-step by design
+    6:  ["6.1", "6.2", "6.3"],
+    7:  ["7.1", "7.2", "7.3"],
+    8:  ["8.1", "8.2", "8.3"],
+    9:  ["9.1", "9.2", "9.3"],
+    10: ["10.1", "10.2"],               # Wed Nov 11 closed; consolidation
+    11: ["11.1", "11.2", "11.3"],
+    12: ["12.1", "12.2", "12.3"],
+    13: ["13.1", "13.2", "13.3"],       # studio weeks; no cycle
+}
+
+
+def lessons(topic_num: int) -> list[str]:
+    """Lesson ids for a topic, in meeting order."""
+    return LESSON_MAP.get(topic_num, [])
+
+
+def content_path(topic_num: int, lesson_id: str) -> Path:
+    folder = TOPIC_MAP.get(topic_num, f"Topic_{topic_num:02d}")
+    return (ROOT / "src/modules" / folder /
+            f"03a_Lesson_{lesson_id}_Lesson_Content.md")
+
+
 def lit_dir(topic_num: int) -> Path:
     folder = TOPIC_MAP.get(topic_num, f"Topic_{topic_num:02d}")
     return ROOT / "raw/readings" / folder
