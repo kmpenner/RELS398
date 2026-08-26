@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Topic_11_Alignment/Lesson_11.3_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 11.3: AI-Assisted Alignment and Gloss Generation: LLMs, Neural Models, and Philological Verification.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: The Generative Shift in Computational Philology</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What fundamental capability distinguishes Large Language Models (LLMs) from count-based statistical aligners in parallel text processing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Generative AI bridges statistical frequency and semantic comprehension, but its probabilistic nature requires rigorous philological auditing to detect subtle hallucinations.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>LLMs possess deep contextual semantic representations across multilingual corpora, enabling them to understand discourse context and generate complex 4-line IGT in a single inference step.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Unlike frequency-based statistical aligners, transformer LLMs leverage rich contextual semantics to perform joint alignment, segmentation, and Leipzig glossing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>LLMs are completely incapable of producing errors or hallucinations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLMs are probabilistic models susceptible to subtle, fluent hallucinations that require rigorous verification.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>LLMs execute faster than C++ binaries by operating without electrical power.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLMs require substantial GPU/CPU resources and are computationally heavier than statistical tools like fast_align.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>LLMs replace the need for primary manuscript transcriptions entirely.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLMs annotate and align primary witness transcriptions; they do not replace primary evidence.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: How Large Language Models Process Bilingual Parallel Texts</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do transformer-based LLMs process parallel source and target texts internally during alignment tasks?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>LLMs align parallel texts through cross-lingual attention layers and in-context learning, combining semantic comprehension with generative flexibility.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Through dynamic contextual embeddings and cross-lingual self-attention heads that track correspondences across languages in high-dimensional vector space.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Attention heads naturally attend across parallel translation tokens, allowing the model to generate alignment mappings autoregressively.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By looking up every word in a hardcoded SQLite database table.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLMs generate predictions via learned neural weights and attention mechanisms rather than database lookups.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By calculating the character length ratio of sentences using the Gale-Church formula.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Gale-Church is a classical length-based dynamic programming algorithm, not an LLM attention process.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By translating both texts into binary Morse code before evaluation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLMs operate on token embeddings in continuous vector space.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: The Subword Tokenization Barrier in Ancient Languages</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is subword tokenization (such as BPE or WordPiece) a major obstacle when applying general LLMs to ancient languages?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Subword tokenizers splinter polytonic Greek, pointed Hebrew, and Syriac into arbitrary byte fragments, distorting word boundaries and causing index hallucinations.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Tokenizers trained on modern web text splinter polytonic Greek, pointed Hebrew, and Syriac into arbitrary byte fragments, distorting word boundaries and causing index hallucinations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Underrepresented historical scripts are shattered across non-linguistic character and byte boundaries, causing coordinate counting errors in LLMs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Subword tokenizers delete all ancient languages from the internet automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tokenizers simply segment text into subwords; the issue is vocabulary allocation bias toward modern languages.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Subword tokenization is only used in image generation models.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Subword tokenization is standard across all modern text-based transformer LLMs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ancient languages contain too few letters for tokenizers to divide.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ancient languages have rich morphology and diacritics, which cause severe over-segmentation into fragmented byte tokens.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Prompt Engineering Architectures for Translation Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What are the five mandatory components of a professional philological alignment prompt?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Robust alignment prompts define an expert persona, supply pre-tokenized index streams, dictate edge-case handling, and enforce strict JSON schemas.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>System persona, pre-tokenized index streams, explicit edge-case rules, few-shot demonstrations, and strict machine-readable output formatting.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Structured prompts constrain the model's role, input coordinates, edge-case logic (particles, idioms), and output syntax (JSON/bracketed).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A generic greeting, an apology, three random poems, a Latin prayer, and an email address.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Prompts must be structured, formal, and technically rigorous for reproducible data pipelines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A complete copy of the Liddell-Scott-Jones lexicon pasted into every user message.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pasting entire lexicons exceeds context limits and creates irrelevant noise.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A single instruction asking the model to do its best without specifying output format.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unconstrained zero-shot prompts yield unstructured, conversational prose that breaks automated parsers.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: The Representation Challenge: Index Notation vs. Bracketed Text Substitution</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does bracketed text substitution (e.g. Ἐν [In] ἀρχῇ [the beginning]) vastly outperform numerical index notation (e.g. G1-E1 G2-E3) in LLM alignment?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>LLMs fail at numerical coordinate pairing; using bracketed text substitution (`source [target]`) eliminates index drift and boosts alignment accuracy by ~29%.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>LLMs struggle with internal coordinate counting and arithmetic tracking, whereas bracketed substitution leverages natural language generation, boosting accuracy by ~29%.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Bracketed inline projection avoids off-by-one index drift and multi-digit tokenization fragmentation by aligning tokens through direct text adjacency.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Bracketed substitution is the only format recognized by Python regular expressions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python regex parses both numbers and text; the improvement is in LLM cognitive output quality.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Numerical index notation is legally copyrighted by IBM and cannot be used in AI prompts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pharaoh index notation is open, but poses cognitive and arithmetic challenges for autoregressive language models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Bracketed substitution deletes the source text and preserves only the English words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Bracketed substitution preserves both source words and their aligned target translations side by side.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Zero-Shot vs. Few-Shot In-Context Alignment Performance</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What impact does 3-shot in-context prompting have on Alignment Error Rate (AER) in Ancient Greek bitexts compared to zero-shot prompting?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>3-shot in-context prompting slashes Alignment Error Rate from ~29% to ~6.6% by demonstrating exact handling of particles, idioms, and punctuation.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It slashes AER from ~28.9% down to ~6.6% by demonstrating exact handling of untranslated particles, multi-word idioms, and Leipzig formatting.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Providing 3 carefully curated gold-standard exemplars teaches the model implicit edge-case rules and structural consistency, dramatically improving precision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It increases the error rate because the model becomes confused by too many examples.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Few-shot demonstrations provide vital task anchoring and reduce errors substantially.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It has zero effect because LLM weights cannot be modified at inference time.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. In-context learning changes output behavior dramatically without modifying underlying model weights.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It reduces the error rate to exactly 0.000% across every language in existence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Few-shot prompting achieves ~6.6% AER, which is state-of-the-art but still requires human verification.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Structured Output Enforcement: JSON Schemas and Standoff Targets</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does constrained decoding via JSON Schema improve downstream TEI XML serialization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Constrained decoding via JSON Schema guarantees 100% syntactically valid alignment data, eliminating malformed outputs and streamlining TEI generation.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It mathematically guarantees that the LLM output conforms to a strict structural schema, eliminating markdown prose, malformed brackets, and invalid keys.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Constrained decoding masks output logits so the model cannot generate syntactically invalid data, ensuring seamless ingestion into XML build scripts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It converts all JSON objects into binary image files automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. JSON schemas enforce text and data structures, not image creation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminates the need to run schema validation on the resulting TEI XML documents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Downstream TEI RelaxNG validation (xmllint) remains mandatory.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It translates the JSON payload into twenty different spoken languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. JSON Schema enforces structural syntax, not automated multilingual translation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Automated 4-Line IGT Generation via Generative AI</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When prompted for 4-line IGT, what four synchronized tiers does an LLM generate simultaneously?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>LLMs can generate fully synchronized 4-line IGT blocks in seconds, decomposing complex verbal morphology into standardized Leipzig tiers.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Line 1 (surface orthography), Line 2 (morpheme segmentation), Line 3 (Leipzig glosses), and Line 4 (free idiomatic translation).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The LLM produces all four tiers in a single inference step, maintaining vertical token and hyphen synchronization across tiers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Line 1 (English), Line 2 (French), Line 3 (German), Line 4 (Spanish).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 4-line IGT represents linguistic analysis tiers for a single sentence pair, not four separate language translations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Line 1 (text), Line 2 (sound wave), Line 3 (video), Line 4 (3D model).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. IGT is a textual linguistic representation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Line 1 (manuscript shelfmark), Line 2 (library name), Line 3 (editor name), Line 4 (publication date).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Those are catalog metadata fields, not the four tiers of Interlinear Glossed Text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Specialized Multilingual Glossing Models: GlossLM and PolyGloss</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What structural architectural advantage does the ByT5 variant of GlossLM offer for historical language processing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Specialized models like GlossLM and PolyGloss are pretrained on 450k+ IGT examples across 1,800 languages, providing byte-level morphological precision.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It operates directly on raw Unicode UTF-8 bytes, completely bypassing the subword tokenization barrier and preventing diacritic corruption in Greek, Hebrew, and Syriac.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. ByT5's byte-level processing is immune to BPE subword splintering, preserving complex polytonic accents, cantillation marks, and vocalic points.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It runs without a computer processor by using optical laser disks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. ByT5 is a neural sequence-to-sequence model executed on standard hardware.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes all consonants and evaluates only vowels in ancient manuscripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GlossLM evaluates complete morphological strings at the byte level.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It restricts glossing to modern Latin script only.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GlossLM supports over 1,800 languages across diverse writing systems.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Joint Morphological Segmentation and Glossing</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is joint segmentation and glossing (interleaved stream) superior to a cascaded two-stage pipeline?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Joint segmentation and glossing predicts morphemes and grammatical tags simultaneously in an interleaved stream, eliminating cascaded pipeline errors.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It eliminates error propagation where a segmentation mistake guarantees a downstream tagging error, allowing grammatical constraints to inform morpheme splitting.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Joint sequence-to-sequence models optimize segmentation boundaries and grammatical tags simultaneously, preventing cascading pipeline failures.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It doubles the length of the training corpus by repeating words ten times.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Joint modeling interleaves segmentation and gloss tags in a compact representation (e.g. ἐ- [PST] παιδευ- [educate]).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires human scholars to type both lines at the exact same millisecond.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Joint modeling is an automated neural sequence prediction mechanism.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It converts all verbs into indeclinable particles.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Joint modeling preserves and refines fine-grained morphological tagging.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Hallucination Taxonomy in AI Morphological Glossing</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the AI morphological glossing hallucination taxonomy, what characterizes a Type I phantom segmentation error?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The AI hallucination taxonomy categorizes errors into phantom morphemes (Type I), fictitious tags (Type II), root inversions (Type III), and Leipzig syntax violations (Type IV).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The model inserts an illegitimate morpheme hyphen boundary inside an unsegmentable, monolithic lexical root.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Type I errors artificially split atomic roots (e.g. λ-όγ-ος instead of λόγ-ος) based on superficial phonological patterns.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model assigns an ablative case tag to a Greek accusative noun.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Assigning impossible or incorrect grammatical categories is a Type II fictitious feature error.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model confuses two phonologically similar dictionary headwords.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Confusing similar roots is a Type III root inversion error.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model inserts unescaped whitespace inside a gloss tier token.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Formatting and delimiter violations represent Type IV Leipzig syntax errors.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: The Problem of Non-Isomorphic Syntax in Generative Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the LLM tendency toward "over-regularization" affect the alignment of Greek genitive absolutes and hyperbaton?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>LLMs tend to over-regularize non-isomorphic syntax; editors must audit genitive absolutes, hyperbaton, and synthetic verbs for missing multi-word links.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The model forces unnatural 1:1 alignments, dropping subordinate conjunctions in genitive absolutes and misaligning separated adjectives to adjacent nouns.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. LLMs tend to assume symmetrical word order and compositionality, requiring human auditing to recover multi-word clauses and split noun phrases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model crashes and deletes the entire repository file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The model generates plausible-looking output that conceals subtle syntactic over-simplifications.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model translates genitive absolutes into hexadecimal numbers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The error is linguistic over-regularization, not data corruption.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model converts hyperbaton into modern French prose.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The model aligns to the target English words, but links them to incorrect adjacent tokens.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Idiom Drift and Dead Metaphors in AI Alignments</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When encountering ancient multi-word idioms like χάριν ἔχειν ("to thank") or polysemous terms like ἄνωθεν, how should editors handle LLM outputs?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>LLMs struggle with idioms and polysemy; scholars must override literal compositional drift and encode alternative theological readings via TEI <link> notes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Override literal compositional word-by-word drift by binding idiom tokens into compound links and encoding polysemous layers via TEI <link> notes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. LLMs tend to fragment idioms into literal matches or suppress alternative theological readings; editors preserve these nuances in TEI standoff notes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Accept the LLM's single most probable literal translation as infallible historical truth.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLMs frequently miss non-compositional idioms and dogmatically suppress polysemy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete all idioms from the primary historical manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial scholarship preserves primary manuscript texts in their entirety.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ban the use of TEI standoff markup whenever an idiom appears.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI standoff markup is specifically designed to represent complex multi-word idioms and annotations.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Handling Pro-Drop, Ellipsis, and Zero-Anaphora</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In aligning a Greek pro-drop verb (e.g. ἔγραψα, "I wrote"), what is the philologically correct TEI alignment representation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Pro-drop languages omit subject pronouns; LLMs must link synthetic verbs directly to English pronoun-verb pairs (`#w1 #tr1 #tr2`) rather than hallucinating phantom source tokens.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Link the synthetic verb token directly to both the English subject pronoun and the verb (<link targets="#w1 #tr1 #tr2"/>).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Greek synthetic verbs encode subject person/number inflections, so the single source token correctly maps to both the English pronoun and verb without hallucinating source tokens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hallucinate an imaginary Greek pronoun token [G0: ἐγώ] in the source document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Inventing phantom source tokens corrupts the primary manuscript transcription.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Leave the English pronoun "I" completely unaligned as an abandoned orphan token.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The pronoun is an overt translation of the verb's inflection and must be bound to the verb link.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete the English pronoun "I" from the translation to force a 1:1 match.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The English translation must remain natural and grammatical.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Neural Embedding Aligners: Awesome-Align and SimAlign</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do neural embedding aligners (such as SimAlign and Awesome-Align) extract word alignments without generating text prompts?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Neural embedding aligners (SimAlign, Awesome-Align) compute cosine similarity matrices directly from transformer layer activations, bypassing generative hallucination entirely.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They extract contextual vector representations from multilingual transformer layers and compute a cross-lingual cosine similarity matrix.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Embedding aligners inspect internal transformer activations directly, bypassing text generation and eliminating generative hallucinations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They translate texts using acoustic microphone frequencies.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Embedding aligners operate on text representations within neural transformer models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They look up words in printed Latin dictionaries using optical OCR scanners.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. SimAlign extracts contextual embeddings from multilingual language models like mBERT or XLM-RoBERTa.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They require human annotators to draw lines on paper printouts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Embedding aligners are automated computational algorithms.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Optimal Transport and Maximum Weight Bipartite Matching</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What mathematical algorithm is used in modern neural aligners to extract globally optimal many-to-many (N:M) alignments from a similarity matrix?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Optimal transport (Sinkhorn algorithm) extracts globally optimal N:M alignments from neural similarity matrices without relying on generative text decoding.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Entropy-regularized Optimal Transport using the Sinkhorn algorithm.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Optimal transport models alignment as transferring probability mass across a bipartite graph, balancing precision and recall across complex N:M correspondences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Bubble Sort algorithm.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Bubble sort is an elementary list sorting routine, not a graph matching or optimal transport solver.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Random Monte Carlo guessing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Optimal transport is a deterministic convex optimization framework.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Linear regression on page numbers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Optimal transport operates on pairwise similarity cost matrices between word tokens.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Quantitative Benchmark: Manual vs. fast_align vs. LLMs</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What did the comprehensive 20-sentence historical benchmark reveal regarding the performance of 3-shot LLMs versus raw zero-shot LLMs and fast_align?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>3-shot in-context LLMs achieve 6.6% AER, dramatically outperforming zero-shot prompts and statistical aligners on historical bitexts.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>3-shot prompted LLMs achieved 6.6% AER (93.4% F1), dramatically outperforming both fast_align (26.1% AER) and zero-shot LLMs (28.9% AER).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Few-shot in-context exemplars using bracketed substitution delivered state-of-the-art accuracy, while zero-shot prompts failed due to coordinate and particle errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Zero-shot LLMs achieved 0.00% AER, proving that few-shot examples are harmful.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Zero-shot LLMs suffered from a 28.9% AER due to coordinate errors and index hallucinations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>fast_align outperformed all AI models across every metric.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. fast_align achieved 26.1% AER, struggling heavily on particles and idioms compared to 3-shot LLMs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All automated systems achieved identical 50.0% error rates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The benchmark showed clear stratification across methodological paradigms.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Worked Case Study 1: Classical Attic Prose (Lysias / Xenophon)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the Classical Attic case study (Lysias 12.1), how did 3-shot LLM performance compare to fast_align on complex verbal and prepositional syntax?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>On Classical Attic prose, 3-shot LLMs successfully resolve prepositional idioms, modal optatives, and articular infinitives that fragment statistical aligners.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The 3-shot LLM successfully recovered the idiom Περὶ πολλοῦ ("a great deal") and the modal optative ἂν ποιησαίμην ("I would give"), whereas fast_align fragmented them into literal noise.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The LLM's semantic depth allowed it to reconstruct complex idioms and modal verbal constructions that statistical aligners broke apart.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>fast_align translated the entire Greek sentence into Latin hexameters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. fast_align is a word aligner, not a verse translator.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The 3-shot LLM deleted the Greek text and refused to output alignments.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The 3-shot LLM produced highly accurate, structured alignments matching the human gold standard.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both tools failed completely and produced zero alignment links.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both tools produced outputs, but the LLM demonstrated superior handling of complex Attic syntax.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Worked Case Study 2: New Testament Greek Particles and Polysemy (John / Romans)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How did few-shot prompting resolve the common automated failure mode on untranslated Greek particles like postpositive δέ?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Few-shot prompting teaches LLMs to leave untranslated discourse particles (δέ, γάρ) unaligned, preventing domino cascades of erroneous links.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The exemplars taught the model to leave untranslated particles unaligned (#w_de #NULL), preventing domino cascades of erroneous links.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Few-shot demonstrations showed the model that discourse particles omitted in English must be mapped to NULL rather than forcibly linked to adjacent words.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It forced the model to translate every δέ as "supercalifragilisticexpialidocious".</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Few-shot prompting enforces rigorous philological accuracy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It instructed the model to delete all Greek particles from the manuscript transcription.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transcriptions remain untouched; only the alignment links map to NULL.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It caused the model to crash whenever a particle appeared in second position.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The model handled postpositive syntax cleanly and consistently.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Worked Case Study 3: Semitic Morphology and Clitic Complexes (Classical Syriac / Hebrew)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why did specialized models like GlossLM outperform general LLMs on Classical Syriac Peshitta John 1:1?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Specialized byte-level models (GlossLM) outperform general LLMs on Semitic texts by correctly applying clitic equals signs (`=`) and non-concatenative root rules.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>GlossLM natively applies Leipzig Rule 6 clitic equals signs (=) and non-concatenative root rules (\) to proclitic prepositions and emphatic nominal states.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Pretrained on massive multilingual IGT corpora, GlossLM handles Semitic clitic complexes (ܒ݁=ܪܺܫܺܝܬ݂) and nominal state inflections without hyphenation errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>General LLMs are legally prohibited from processing Semitic languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. General LLMs can process Semitic text, but struggle with fine-grained Leipzig clitic syntax and diacritic tokenization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Classical Syriac contains zero grammatical nouns.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Syriac has a rich nominal system with absolute, construct, and emphatic states.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>GlossLM replaces all Syriac words with English slang.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GlossLM generates standard academic Leipzig glosses.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: The Post-Editing Paradigm: When AI Accelerates vs. Hinders Annotation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>According to empirical studies in human-computer interaction, when does post-editing AI-generated annotations become genuinely efficient for scholars?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Post-editing AI output is only efficient when model accuracy exceeds ~85%; below that threshold, diagnosing subtle fluent hallucinations takes longer than manual authoring.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Only when model accuracy exceeds ~85% (such as 3-shot LLMs); below that threshold, diagnosing subtle fluent hallucinations takes longer than manual authoring.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The "fluency trap" makes diagnosing subtle errors mentally exhausting; high model accuracy (>85–90%) is required to achieve genuine 8x–10x acceleration.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Post-editing is always 100 times faster regardless of how many errors the AI makes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Reviewing and repairing low-accuracy AI output (<70%) is slower and more fatiguing than manual authoring from scratch.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Post-editing is only efficient when the human editor does not know the source language.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly post-editing requires deep philological expertise to catch subtle hallucinations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Post-editing has been outlawed by the Text Encoding Initiative.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HITL post-editing is widely recognized as the standard digital humanities workflow.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Designing a Human-in-the-Loop (HITL) Verification Workflow</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What are the four synchronized stages of an authoritative Human-in-the-Loop (HITL) alignment pipeline?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The HITL workflow combines automated AI generation, rule-based heuristic auditing, and interactive human verification to ensure critical edition integrity.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Automated proposal generation → deterministic heuristic auditing → scholarly interactive verification → cryptographic provenance serialization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The HITL architecture combines AI speed, automated rule linting, expert human curation, and permanent TEI XML provenance tracking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Raw AI generation → commercial publishing → student complaint → repository deletion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly editing requires rigorous pre-publication verification and validation gates.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual transcription → paper printing → postal mailing → library archiving.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HITL is a modern digital pipeline integrating AI and web workbenches.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated translation → speech synthesis → automated grading → social media release.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Critical edition workflows focus on philological rigor, schema validation, and citable provenance.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Automated Error Diagnosis and Heuristic Auditing Scripts</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What three critical checks does our Python heuristic auditing script perform on AI-generated IGT data before human review?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Python heuristic auditing scripts validate token parity, morpheme hyphen synchronization, and Leipzig tag legality before human review.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Word token count parity (Rule 1), morpheme hyphen count synchronization (Rule 2), and validation of category tags against closed Leipzig vocabularies (Rule 3).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The heuristic auditing script catches token mismatches, unbalanced hyphens, and hallucinated tags before the human reviewer spends time on the passage.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Checking the author's credit card balance, operating system version, and internet speed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Heuristic auditing inspects linguistic data integrity and Leipzig compliance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Translating the text into fifteen modern languages to test server load.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Auditing validates the syntax and structure of the specific generated IGT block.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deleting all XML elements that contain more than four letters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Auditing flags errors for correction rather than arbitrarily deleting markup.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Ensemble Alignment Methods: Blending Deterministic and Neural Predictions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does a tiered confidence cascade operate in an ensemble alignment architecture?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ensemble pipelines combine deterministic lexical anchors, neural embeddings, and generative LLMs into a tiered confidence cascade.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>High-precision deterministic tools align routine proper names and cognates (Tier 1), neural embeddings align regular syntax (Tier 2), and LLMs resolve complex cruces (Tier 3).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Ensemble pipelines route 80% of routine alignments to fast deterministic/embedding models, reserving LLMs and human scholars for difficult literary cruces.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All models generate random guesses, and the shortest string is selected.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ensemble methods combine complementary models based on mathematical confidence tiers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deterministic tools are run only on weekends, while AI models run on weekdays.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ensemble tiers execute sequentially in an integrated automated pipeline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ensemble methods require deleting all TEI XML headers from the corpus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ensemble pipelines output rich TEI standoff markup with explicit confidence ratings (@cert).</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Ethical and Epistemic Implications of AI in Digital Critical Editions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What primary ethical and epistemic hazard arises when incorporating generative AI into historical critical editions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>AI introduces risks of linguistic homogenization; ethical scholarship requires complete transparency, provenance encoding, and human accountability.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Algorithmic homogenization that smooths over scribal anomalies, conceals intentional polysemy, and presents machine predictions without attribution.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. LLMs are biased toward modern standardized norms; ethical scholarship requires preserving historical anomalies and documenting all AI assistance transparently.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>AI models will copyright ancient Greek manuscripts and prevent public reading.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical texts remain in the public domain; the hazard is epistemic bias and concealed provenance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Computers will refuse to process texts that contain grammatical errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Models process noisy text, but tend to silently regularize historical idiosyncrasies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Using AI in digital humanities is a criminal offense in thirty countries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The ethical responsibility is academic honesty, provenance disclosure, and philological fidelity.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: TEI Encoding of AI-Generated Annotations: interp, cert, and resp</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In TEI P5 standoff markup, which attributes and elements formally record AI model provenance and confidence scores?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI `@resp`, `@cert`, and `<application>` elements formally document AI model versions, prompt configurations, confidence scores, and human verification status.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>@resp (pointing to declared <application> headers), @cert (recording confidence decimals), and <fs> / <note> (recording verification status).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. These TEI attributes ensure that every alignment link explicitly identifies its generating agent (model/human), confidence rating, and review status.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A global CSS style tag embedded in the HTML footer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Provenance must be encoded at the XML data layer within the TEI header and standoff link elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An anonymous comment written at the end of the text file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Anonymous comments lack machine-readable linkage to specific alignment targets.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A digital watermark placed on the cover of the printed book.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI standoff metadata is embedded within the structured XML graph.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Complete Python Pipeline: LLM Alignment to Validated TEI StandOff XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In an end-to-end Python AI alignment pipeline, how are model-generated token identifiers (e.g. G1, E2) mapped to permanent TEI standoff links?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A unified Python pipeline automates LLM querying, JSON parsing, IDREF resolution, and TEI `<linkGrp>` standoff XML serialization.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The script resolves index numbers against the ordered @xml:id attributes of the parsed source/target XML trees and serializes them into <link targets="#src_id #trg_id"/>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The pipeline bridges model output and scholarly XML by translating temporary token coordinates into persistent URI fragment pointers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The script deletes the XML files and writes the alignments to an unversioned text file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The pipeline generates schema-validated TEI P5 XML standoff markup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The script prints the numbers on a desktop printer and scans them as images.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The process is fully digital, automated, and reproducible in Python.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The script renames all XML IDs in the source text to match the model's arbitrary numbers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Base source IDs remain stable and immutable; standoff links point to existing IDs.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Comprehensive Synthesis of the Three-Step Cycle</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is none of the three methodological paradigms (manual, deterministic, AI-assisted) sufficient in isolation for digital textual scholarship?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The complete alignment workflow unites manual gold standards (benchmarking), deterministic tools (speed), and generative AI (semantic synthesis).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Manual curation is too slow for scale, deterministic tools lack semantic context, and AI models require human gold standards for benchmarking and verification.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The master digital philologist unites all three: manual ground truth for evaluation, deterministic tools for bulk speed, and AI models for semantic crux resolution.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because digital humanities requires using three different operating systems simultaneously.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The three-step cycle is a methodological framework, not a hardware requirement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because all three methods produce completely identical results on every text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Each paradigm has distinct strengths, speeds, precision profiles, and failure modes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because funding agencies require discarding all work done on Tuesdays and Wednesdays.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The three stages build cumulative evidence leading to validated critical editions.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Preparing Your Interlinear Glossing and Translation Alignment Assignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What seven required deliverables comprise the final Interlinear Glossing and Translation Alignment portfolio due Friday November 27?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Package and commit your seven assignment deliverables (TEI source/target, manual IGT, fast_align, LLM output, AER report, curated edition) by Fri Nov 27.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Source XML, target XML, manual IGT ground truth, fast_align standoff, AI alignment standoff, comparative AER evaluation report, and master curated edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The portfolio synthesizes the entire three-step cycle into a fully validated, version-controlled TEI XML package with quantitative benchmarking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Seven different translations of the same modern English novel into French.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The assignment focuses on historical parallel texts using the Topic 11 toolchain.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Seven empty text files committed with the commit message "done".</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The assignment requires schema-validated XML, IGT plain text, and a rigorous quantitative report.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A single PDF document containing screenshots of chat conversations with an AI model.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Deliverables must follow international digital standards (TEI P5 XML, Leipzig plain text, Markdown report).</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Topic 11 Conclusion: The Horizon of Aligned Digital Scholarship</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Looking ahead to Topic 12 (Commentary), how does translation alignment serve as the architectural foundation for downstream digital scholarship?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Translation alignment provides the explicit bipartite graph foundation that unlocks downstream digital commentary networks and intertextual discovery.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The explicit bipartite alignment graph provides the coordinate network needed to anchor intertextual commentary, scholia, and cross-lingual allusions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Translation alignment establishes the fine-grained node network that connects texts to the Open Annotation Data Model and intertextual discovery engines like Tesserae.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It proves that historical texts will never need commentary apparatuses in digital editions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Topic 12 builds directly on alignment graphs to encode rich commentary networks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces all literary criticism with automated sentence length counting.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Alignment is a foundational data structure that empowers deeper literary and philological analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires deleting the translation before beginning commentary encoding.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Commentary networks link source texts, aligned translations, and scholia simultaneously.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
