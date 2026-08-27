@@ -5,20 +5,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 TOPIC_MAP = {
-    1: "Topic_01_Orientation",
-    2: "Topic_02_Cataloguing",
-    3: "Topic_03_IIIF_Imaging",
-    4: "Topic_04_Transcription",
-    5: "Topic_05_Reconciliation",
-    6: "Topic_06_Normalization",
-    7: "Topic_07_Collation",
-    8: "Topic_08_Apparatus",
-    9: "Topic_09_Lemmatization",
-    10: "Topic_10_Consolidation",
-    11: "Topic_11_Alignment",
-    12: "Topic_12_Commentary",
-    13: "Topic_13_Publication",
+    1: "Module_01_Orientation",
+    2: "Module_02_Cataloguing",
+    3: "Module_03_IIIF_Imaging",
+    4: "Module_04_Transcription",
+    5: "Module_05_Reconciliation",
+    6: "Module_06_Normalization",
+    7: "Module_07_Collation",
+    8: "Module_08_Apparatus",
+    9: "Module_09_Lemmatization",
+    10: "Module_10_Consolidation",
+    11: "Module_11_Alignment",
+    12: "Module_12_Commentary",
+    13: "Module_13_Publication",
 }
+MODULE_MAP = TOPIC_MAP
 
 
 # Lessons are one per class meeting, following the three-step comparative cycle
@@ -48,18 +49,18 @@ def lessons(topic_num: int) -> list[str]:
 
 
 def content_path(topic_num: int, lesson_id: str) -> Path:
-    folder = TOPIC_MAP.get(topic_num, f"Topic_{topic_num:02d}")
+    folder = TOPIC_MAP.get(topic_num, f"Module_{topic_num:02d}")
     return (ROOT / "src/modules" / folder /
             f"03a_Lesson_{lesson_id}_Lesson_Content.md")
 
 
 def lit_dir(topic_num: int) -> Path:
-    folder = TOPIC_MAP.get(topic_num, f"Topic_{topic_num:02d}")
+    folder = TOPIC_MAP.get(topic_num, f"Module_{topic_num:02d}")
     return ROOT / "raw/readings" / folder
 
 
 def report_path(topic_num: int) -> Path:
-    folder = TOPIC_MAP.get(topic_num, f"Topic_{topic_num:02d}")
+    folder = TOPIC_MAP.get(topic_num, f"Module_{topic_num:02d}")
     return ROOT / "src/research_reports" / f"{folder}_Deep_Research_Report.md"
 
 

@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_04_Transcription/Lesson_4.1_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 4.1: Diplomatic Transcription by Hand: Building the Ground Truth.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Why the Manual Step Comes First</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the course require manual diplomatic transcription before running automated HTR or vision-language models?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Today's transcription is the measuring instrument for the rest of the term — every error rate you compute is a distance from it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Automated transcription fundamentally requires an authoritative human baseline against which error rates, algorithmic biases, and hallucinated readings can be measured and evaluated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Without a verified reference, machine output is simply text of unknown quality that cannot be scored.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual transcription is a pedagogical prerequisite intended solely to build student palaeographical skills before delegating work to automation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The reference is a structural methodological requirement for computing CER and WER, not merely a pedagogical exercise.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated models cannot process raw manuscript images unless a human transcriber has first pre-tagged the vocabulary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Zero-shot VLMs and pre-trained HTR models accept images directly; human ground truth is needed for measurement and training.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Institutional funding guidelines mandate that digital editions document a minimum number of manual transcription hours.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The requirement is methodological and computational, not an administrative mandate.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Diplomatic Versus Normalized Transcription</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must today's ground truth transcription be strictly diplomatic rather than normalized?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Transcribe diplomatically, because a model trained on normalized text learns to silently modernize — and Week 6 needs the unnormalized base.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An HTR model trained on normalized text learns to silently overwrite historical orthography with modern assumptions, producing over-normalized errors that look clean and are invisible in standard metrics.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Training on normalized text teaches the statistical model to modernize, destroying the evidence needed for later editorial decisions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Diplomatic transcription is faster and less demanding because it ignores scribal abbreviations and punctuation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Diplomatic transcription requires careful attention to all surface features, making it more detailed and demanding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI XML schemas prohibit the encoding of regularized orthography in digital editions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI supports normalization via elements like <reg>, but normalization should be applied to a diplomatic base rather than silently during initial transcription.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Normalized transcriptions cannot be rendered into HTML or transformed into critical apparatuses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalized text is easy to render; the problem is that silent normalization destroys historical evidence.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: The Ordered Hierarchy and What TEI Assumes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does TEI XML reconcile the conflict between a text's logical hierarchy and a manuscript's physical page structure?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Physical and logical structure both exist and do not nest, so TEI records line and page boundaries as empty milestones within the logical hierarchy.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It represents physical boundaries (pages, lines, columns) as empty milestone elements like <code>&lt;pb/&gt;</code> and <code>&lt;lb/&gt;</code> within the logical hierarchy.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Milestone elements mark physical points in the character stream without interfering with the proper nesting of logical elements like paragraphs or divisions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It splits every physical line into an independent XML document and links them via XInclude.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI maintains continuous logical elements while recording physical breaks inline using milestones.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It strictly privileges physical page layout as the primary XML tree, forcing logical elements to be fragmented across line elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The OHCO model nests logical content objects; physical layout is marked with milestones.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It abandons tree-based XML validation in favor of non-hierarchical property graphs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI XML strictly enforces XML tree well-formedness and uses milestones to handle overlapping physical structures.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: The Core Encoding Vocabulary</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the structural function of the TEI <code>&lt;choice&gt;</code> element in diplomatic transcription?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>&lt;choice&gt;</code> holds alternatives rather than deciding between them, so one encoding can serve palaeographic, reading, and search views.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It groups alternative encodings of the same textual phenomenon (such as an abbreviation and its expansion) without deciding between them, allowing different processors to generate different views.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <code>&lt;choice&gt;</code> preserves both the palaeographical artifact and the editorial interpretation, enabling multiple output presentations from a single data source.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It prompts the XML parser to randomly select one child element each time the document is transformed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;choice&gt;</code> holds alternatives deterministically for downstream stylesheets or applications to filter based on target audience.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It indicates that the editor is uncertain between two different words in the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual uncertainty is encoded with <code>&lt;unclear&gt;</code> or <code>&lt;app&gt;</code>, whereas <code>&lt;choice&gt;</code> wraps alternative representations such as <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically validates that an expanded abbreviation conforms to classical lexical norms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML elements do not perform lexical validation; <code>&lt;choice&gt;</code> is a container for alternative encodings.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Encoding Abbreviations</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When encoding an expanded abbreviation with <code>&lt;choice&gt;</code>, what is the specific role of the <code>&lt;ex&gt;</code> element inside <code>&lt;expan&gt;</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Encode the abbreviation and its expansion separately with <code>&lt;ex&gt;</code> marking supplied letters, so the model learns what is actually on the page.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It marks precisely those characters that were supplied by editorial inference rather than written on the parchment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <code>&lt;ex&gt;</code> identifies supplied characters so stylesheets can render them in italics and models can distinguish ink from editorial addition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It denotes an abbreviation that has been excluded from the critical apparatus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;ex&gt;</code> stands for editorial expansion, tagging the specific letters not present in the manuscript.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It indicates that the scribal abbreviation is an external loanword from Latin or Aramaic.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;ex&gt;</code> represents supplied expansion characters regardless of language.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It instructs HTR training software to ignore the word during layout segmentation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;ex&gt;</code> is a TEI markup element for editorial expansion, not an HTR segmentation directive.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Encoding Uncertainty and Damage</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the crucial methodological distinction between the TEI <code>&lt;unclear&gt;</code> element and the <code>&lt;gap/&gt;</code> element?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>&lt;unclear&gt;</code> proposes a reading with reduced confidence and <code>&lt;gap/&gt;</code> proposes nothing — conflating them misrepresents inference as absence or difficulty as loss.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>&lt;unclear&gt;</code> wraps a proposed reading offered with reduced confidence, whereas <code>&lt;gap/&gt;</code> is an empty element recording that material is missing or wholly illegible without offering text.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Putting text inside <code>&lt;gap/&gt;</code> or leaving <code>&lt;unclear&gt;</code> empty misrepresents inference as absence or difficulty as loss.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;unclear&gt;</code> is reserved for physical water damage, while <code>&lt;gap/&gt;</code> is used exclusively for faded ink.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Physical damage is tagged with <code>&lt;damage&gt;</code> or noted via attributes; <code>&lt;unclear&gt;</code> and <code>&lt;gap/&gt;</code> distinguish whether a reading is offered.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;unclear&gt;</code> indicates text supplied from an external printed edition, while <code>&lt;gap/&gt;</code> marks scribal deletions.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Supplied text is tagged with <code>&lt;supplied&gt;</code> and deletions with <code>&lt;del&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;gap/&gt;</code> contains the transcriber's tentative guess, while <code>&lt;unclear&gt;</code> indicates text that is completely unreadable.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This reverses their functions: <code>&lt;unclear&gt;</code> contains a tentative reading, while <code>&lt;gap/&gt;</code> is empty.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Scribal Corrections</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it essential to encode scribal corrections using <code>&lt;subst&gt;</code>, <code>&lt;del&gt;</code>, and <code>&lt;add&gt;</code> rather than simply transcribing the final corrected text?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Scribal corrections are transmission evidence, and recording only the corrected text destroys it while leaving the reading unchanged.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Scribal corrections provide critical transmission evidence about readers, correctors, and exemplar relationships that would be completely destroyed by recording only the final text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Preserving both the deleted and added text across hands provides essential evidence for textual history and collation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>HTR models cannot process lines where characters have been deleted or cancelled on the page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HTR models can process the image, but encoding structure captures the palaeographical history for the digital edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI XML requires <code>&lt;subst&gt;</code> for every line break that occurs near a marginal note.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;subst&gt;</code> groups an addition and a deletion that constitute a single act of correction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Recording only the corrected text invalidates the XML document against the TEI schema.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Plain text is schema-valid, but omitting the correction discards irreplaceable codicological and stemmatic evidence.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Line Breaks and Why They Matter Here</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are manuscript line breaks treated as structural elements rather than typographical accidents in this transcription pipeline?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Line divisions are structural here — HTR trains on lines, your zones bind per line, and line breaks are codicological evidence.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>HTR models train on discrete line images, facsimile zones bind per line, and line division constitutes codicological evidence of scribal practice and exemplars.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Line divisions are required for pairing line images to text in HTR training and for linking TEI <code>&lt;lb/&gt;</code> milestones to image zones.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Modern web browsers cannot display Greek text unless every line is manually broken with <code>&lt;lb/&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Web browsers handle text reflow automatically; line breaks are preserved for HTR, facsimile binding, and codicological evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI XML rules mandate that no element may contain more than ten consecutive words without a line break.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no such length restriction in TEI XML.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Scribes strictly avoided breaking words across lines, so any line break represents a major syntactic pause.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scribes broke words freely across line ends without hyphens.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Setting Up the Transcription Document</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must you verify UTF-8 encoding, schema validation, and the pre-commit NFC normalization hook before transcribing polytonic Greek?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Verify UTF-8, live schema validation, and the NFC hook before typing — a mixed-normalization ground truth invalidates Week 5.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Inconsistent character encoding or mixed Unicode normalization forms (NFC versus NFD) will corrupt Greek diacritics and produce grossly inflated, meaningless error rates in Week 5.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A mixed normalization ground truth means identical-looking characters have different byte sequences, breaking Levenshtein distance calculations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git repositories automatically reject any commit that contains polytonic Greek characters unless an NFC hook is active.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git is content-agnostic and stores arbitrary byte streams; the hook ensures consistency.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>XML schemas cannot validate documents containing Greek unless they are stored in UTF-16 with canonical decomposition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI schemas work seamlessly with UTF-8 NFC-encoded text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transkribus can only import files that have been validated against an external DTD rather than RelaxNG.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The issue is character normalization and well-formedness, not DTD validation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Transcription Method: Working at Full Zoom</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary cognitive risk when transcribing a familiar historical text, and how is it mitigated?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Type what you see rather than what you expect, and check your line position regularly — line skip silently invalidates every binding after it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Reading what you expect the text to say rather than what is actually written on the parchment; mitigated by working at high zoom and transcribing difficult lines backwards.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Expectation bias causes transcribers to overlook genuine scribal variants, which transcribing backwards word-by-word helps disrupt.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Over-magnifying the image causes pixel interpolation artifacts that make clear letterforms appear completely illegible.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. High zoom is recommended to disambiguate letterforms and diacritics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transcribing line-by-line causes editors to accidentally modernize archaic vocabulary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Line-by-line transcription at full zoom enforces focus on physical ink rather than modernizing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Using IIIF viewers introduces non-standard colour profiles that distort ink density.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. IIIF delivers faithful image tiles; the risk described is human cognitive expectation bias.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Recognizing the Hand</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should an editor characterize the scribe's hand and document it in <code>transcription/HAND.md</code> before transcribing at volume?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Characterize the hand before transcribing at volume, and record it — you will consult it on Wednesday to judge HTR errors.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It establishes an inventory of letterforms, ligatures, and abbreviations, enabling the editor to distinguish between model errors and scribal idiosyncrasies.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Documenting the palaeographical features disciplines your reading and provides the reference needed to evaluate HTR output on Wednesday.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transkribus requires an uploaded markdown description of the hand before it can initiate layout analysis.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transkribus does not parse markdown hand descriptions; it is for human editorial reference and error diagnosis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Characterizing the hand allows automated scripts to convert cursive Greek ligatures directly into unaccented Latin text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The hand document records palaeographical observations to maintain Greek diplomatic accuracy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It guarantees that the hand will be classified into a recognized international palaeographical registry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The purpose is internal project rigor and diagnostic grounding.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Diacritics and the Polygon Problem</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What causes an HTR model to transcribe Greek letters accurately while systematically omitting accents and breathings?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Layout polygons drawn too tightly cut off Greek accents entirely, so note how high this hand places diacritics — you will adjust for it tomorrow.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The baseline polygon envelope was computed too tightly around the letter body, cutting off high-placed diacritics from the line image seen by the recognizer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. If breathings and accents sit above the polygon boundary, they are cropped out of the image fed into the recognition neural network.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The CTC decoder architecture mathematically suppresses non-spacing diacritical characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CTC can recognize diacritics if they are present in the line image and training data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Greek polytonic Unicode characters cannot be processed by convolutional neural networks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Precomposed or combined polytonic characters are standard targets for HTR models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Faded ink causes the recognition model to mistake circumflexes for paragraph division markers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The systematic omission of diacritics across lines is typically caused by truncated layout polygons.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Scriptio Continua and Word Boundaries</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the recommended diplomatic approach when transcribing a manuscript written in <em>scriptio continua</em>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Supply word division and declare it in the header — and expect <em>scriptio continua</em> to make word error rate uninterpretable in Week 5.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Insert editorial word spaces to enable downstream collation and analysis, while explicitly declaring in the TEI header that word division was supplied editorially.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Declaring the intervention in the header preserves transparency while ensuring the text remains usable for computational tools.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Silently insert word spaces without recording the intervention anywhere in the metadata.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Silent intervention conceals the manuscript's physical state from readers and downstream researchers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Strictly avoid all whitespace in the transcription file, forcing downstream tokenizers to segment words probabilistically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. While completely faithful, an unspaced transcription is practically unusable for standard collation and indexing tools unless declared.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Replace all Greek letters with hyphenated syllables to mark theoretical morpheme boundaries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial syllable hyphenation is not a diplomatic transcription standard.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Consistency and the Transcription Convention Document</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is editorial inconsistency in applying transcription conventions more damaging than making a suboptimal conventional choice?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Write your conventions down and follow them — inconsistency is worse than any particular choice, for readers and for models alike.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Inconsistent practices make it impossible for readers or machine learning models to know whether an unmarked variant reflects the manuscript or transcriber oversight.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An HTR model learns inconsistency and reproduces it unpredictably, and human readers cannot interpret erratic encoding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Inconsistent transcriptions trigger fatal validation errors in the TEI RelaxNG schema.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schemas validate XML structure and allowed tags, not internal editorial consistency of conventions like lunate sigma.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git merge algorithms cannot resolve branch conflicts in files that contain variable spelling conventions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git merges text lines regardless of orthographic conventions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Inconsistent encoding permanently locks the Transkribus credit balance allocated to the course.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Credit consumption depends on page and line counts, not editorial consistency.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Double-Keying and Accuracy</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is double-keying, and why is it essential for building a reliable ground truth?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Your ground truth will contain errors, which is why Week 5 double-keys it — transcribe now so that the second pass finds few differences.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Transcribing the same text independently twice and adjudicating differences, which localizes errors and isolates transcriber bias.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Agreement between independent passes indicates high accuracy, while differences pinpoint exact locations requiring adjudication.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transcribing a manuscript simultaneously using a physical keyboard and an on-screen virtual keyboard.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-keying refers to two independent transcription passes of the same text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Running two different OCR engines over the manuscript image and averaging their numerical confidence scores.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-keying is an independent human transcription verification method.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Typing the Greek text once in Unicode and once in legacy ASCII Beta Code.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-keying involves independent duplicate entry to eliminate single-pass human transcription errors.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: How Much to Transcribe Today</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the recommended target for today's manual transcription session?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>One accurate folio beats three careless ones — today's conventions propagate into everything transcribed afterwards.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>One folio transcribed completely and accurately with full TEI encoding, rather than rushing through multiple folios carelessly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. One accurate, fully encoded folio establishes the conventions and provides a clean ground truth baseline; careless transcription teaches the model errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The entire codex, using rapid plain-text skimming without diacritics or milestone tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unencoded, hasty transcription produces corrupt training data and invalid ground truth.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Exactly three lines of text, leaving the remainder of the folio to be generated by automated layout tools.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A full folio is required to establish representative hand conventions and provide sufficient baseline data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>At least 500 lines of normalized prose across three different unrelated witnesses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The task focuses on your selected witness's specific passage, done diplomatically.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Sampling for Training Data</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it important to sample training folios across the manuscript and deliberately include difficult or damaged pages rather than only clean consecutive folios?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Sample training pages across the corpus and deliberately include difficult ones, or the model will fail precisely where you need it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Neural models degrade significantly when encountering unfamiliar layouts, ink variations, or glosses; diverse sampling exposes the model to the variance it will actually encounter.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Models trained solely on pristine pages fail on damaged or glossed pages where assistance is most needed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sampling consecutive pages causes Git merge conflicts when updating the TEI facsimile element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git handles consecutive lines normally; the issue is machine learning generalization across layout topographies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>HTR models cannot learn character transitions unless every quire in the codex is sampled in reverse chronological order.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Neural networks do not require reverse chronological ordering; they require representative variance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Difficult pages require fewer Transkribus compute credits to process than clean pages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Compute credits are consumed per page or line regardless of difficulty.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Validating the Transcription</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should you count <code>&lt;lb/&gt;</code> elements against <code>&lt;zone&gt;</code> elements in your TEI document before committing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Count <code>&lt;lb/&gt;</code> against <code>&lt;zone&gt;</code> every session — a mismatch means line skip, and every binding after it is wrong.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A count mismatch reveals a skipped or extra line, which would silently invalidate every facsimile zone binding after that point.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Line skips misalign all subsequent lines with their image zones, making downstream evaluation and HTR training incorrect.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI schema mandates that the number of <code>&lt;lb/&gt;</code> elements must always be exactly double the number of <code>&lt;zone&gt;</code> elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. In a one-to-one line binding architecture, the counts should match directly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Counting elements is required to calculate the exact monetary cost of Transkribus credit usage.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Credit usage in Transkribus is calculated per page or processed unit on their platform, not by XML tag counts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A mismatch causes XML parsers to automatically delete the <code>&lt;teiHeader&gt;</code> metadata block.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML parsers do not delete content on mismatch; the error is a silent alignment failure in project bindings.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Committing the Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should the manual ground truth state be explicitly tagged in Git (e.g. <code>git tag -a gt-f42r</code>)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Tag the ground truth state, because Week 5's measurements are only reproducible against the exact version that was measured.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It creates a permanent, immutable reference point for that exact version, ensuring that Week 5's error rate calculations remain reproducible even if the text is later edited.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A tag preserves the specific snapshot against which machine outputs were evaluated.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git tags are required to unlock write permissions for remote collaborators on GitHub.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tags mark specific commits in history; they do not control repository permissions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tagging a commit compresses the XML file so that it can be imported into Transkribus without credit charges.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tags are metadata pointers in Git and have no effect on file size or platform billing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Untagged commits are automatically purged by Git's garbage collector after 48 hours.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Commits on active branches are retained; tagging provides a stable scholarly citation point.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: What Ground Truth Quality Determines</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the consequence of training an HTR model on a ground truth transcription that has been silently normalized?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A silently normalized ground truth produces a model that modernizes invisibly — and standard error metrics will not detect it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The model learns to produce modernized output, destroying historical orthography while achieving a deceptively low CER that fails to detect the loss of diplomatic fidelity.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Standard CER metrics treat modernized characters as normal text, concealing that the model has learned to overwrite historical evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The HTR model will crash during the first epoch of neural network backpropagation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The model will train successfully, but it will learn modernizing biases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The resulting CER will immediately jump above 95%, causing the training run to abort.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The CER may appear deceptively low on clean text while masking the destruction of historical features.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Silent normalization forces Transkribus to switch from a PyLaia engine to a legacy OCR engine.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The engine architecture does not change; the training data itself is corrupted.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Human-in-the-Loop as a Methodological Commitment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the course insist on transcribing by hand before using or correcting machine output?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Correcting a machine transcription tests plausibility; transcribing independently tests correctness, and only the second gives you grounds for judgement.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Transcribing independently forces direct engagement with the ink to determine what is correct, whereas correcting machine output merely tests plausibility and anchors human judgement.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Anchoring bias leads human editors to accept plausible-looking machine guesses; only an independent reading establishes true correctness.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Machine transcriptions are legally protected by copyright and cannot be modified without prior manual verification.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no copyright barrier; the justification is cognitive and methodological.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Neural networks cannot run on GPU clusters unless an MD5 hash of a human-signed transcription is submitted with the job.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Computational pipelines do not require cryptographic proof of human labour.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Reading machine output first causes irreversible eye fatigue that prevents high-zoom palaeographical analysis.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The issue is cognitive anchoring and uncritical acceptance of plausible errors.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Preparing for Wednesday</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it important to note how high above the baseline the scribe places diacritics before Wednesday's session?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Bring a validated, tagged transcription and a note of this hand's diacritic height — polygon correction is Wednesday's first task.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Wednesday begins with correcting layout analysis polygons, and knowing diacritic height determines how much vertical margin is needed to prevent accents from being truncated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Accents that extend above default polygon boundaries are cropped out of line images and lost to the recognition model.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transkribus requires the user to input the exact diacritic height in millimeters during account registration.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transkribus does not require diacritic height at registration; it is needed for visual polygon adjustment.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Diacritic height determines the number of LSTM recurrent layers allocated during CTC training.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Model network architecture is fixed; polygon dimensions determine image cropping.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Breathings placed higher than 2 mm above a letter indicate that the manuscript was copied in Western Europe.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Diacritic height is a palaeographical feature of scribal hand and line spacing, not a geographical proof.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Note: Friday Is Remote</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What critical toolchain components must be tested on your remote machine prior to Friday's session?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Test your full toolchain on the machine you will use Friday — push your repository, publish your manifest, install your keyboard.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Confirming repository access, remote manifest reachability, XML validation, and local polytonic Greek keyboard layouts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Missing a polytonic keyboard layout or finding an unshared localhost manifest on Friday morning derails the remote session.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Installing an enterprise-grade database engine to cache IIIF image tiles locally.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. IIIF tiles are fetched over standard HTTP; no local database is needed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Purchasing a commercial GPU workstation capable of training 70-billion parameter models locally.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Friday uses hosted vision-language model APIs or interfaces; no specialized local GPU is required.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Converting all XML files into binary Microsoft Word documents for remote compatibility.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The project strictly maintains TEI XML and markdown in Git.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Reading Your Own Errors</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should you analyze and document the patterns in your own manual transcription errors?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Record the patterns in your own errors, because in Week 5 they tell you when to suspect yourself rather than the machine.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>In Week 5 reconciliation, knowing your personal error patterns helps you identify when the machine output is actually correct and your ground truth was mistaken.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Single-pass human ground truth contains errors; recognizing your own blind spots prevents you from erroneously 'correcting' a machine reading to match your mistake.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Recording personal error patterns is required by GitHub's terms of service for academic repositories.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Documenting errors is a scholarly practice for reconciliation, not a platform requirement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transkribus uses your documented error patterns to invert its CTC loss function during training.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HTR training uses paired text and image lines, not prose error logs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It proves that single-pass manual transcription is always 100% accurate across all scribal hands.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual transcription is known to have low but real error rates, which error logs help diagnose.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Why Not Simply Start with the Machine?</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary operational threshold where post-correcting HTR output becomes less efficient than manual transcription?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Correcting machine output tests plausibility and anchors your judgement, which is exactly the wrong test on the hard readings.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>When the Character Error Rate (CER) exceeds approximately 15%, the cognitive load of identifying and correcting errors exceeds the time required to transcribe from scratch.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Above ~15% CER, post-correction is a net loss in time and effort.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>When the Word Error Rate (WER) falls below 2%, automated correction tools cease to function.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Low error rates make post-correction fast and viable.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>When a manuscript contains more than three columns of text per page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Column count affects layout analysis, not the cognitive efficiency threshold of error correction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>When the image resolution exceeds 600 DPI, making file sizes too large to view.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Higher resolution generally improves recognition quality.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: A Worked Example</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the worked TEI example, what multiple layers of evidence are preserved that a normalized edition would discard?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The encoding records abbreviation, uncertainty, correction, and loss — all evidence that later weeks need and that a clean transcription discards.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Scribal abbreviations with explicit supplied characters, uncertain readings qualified with confidence and lighting source, scribal corrections across hands, and measured lacunae.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The diplomatic encoding preserves the physical and historical evidence that later weeks draw upon for collation, apparatus, and commentary.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The complete biographical dictionary of every scribe who worked in the scriptorium.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI encodes textual and codicological evidence on the page, not speculative biographies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Modern syntactic parse trees and automated English translations embedded directly in the <code>&lt;teiHeader&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The example demonstrates diplomatic transcription elements like <code>&lt;choice&gt;</code>, <code>&lt;subst&gt;</code>, <code>&lt;unclear&gt;</code>, and <code>&lt;gap/&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated vector embeddings for semantic search across classical literature.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The example focuses on foundational TEI XML structural and palaeographical markup.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Checklist Before You Leave</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which verification step ensures that your diplomatic transcription is structurally linked to the facsimile images from Lesson 3.3?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Finish and validate before Wednesday — tomorrow's work builds directly on this file.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Ensuring every line has an <code>&lt;lb/&gt;</code> element with <code>@n</code> and <code>@facs</code> attributes matching the corresponding <code>&lt;zone&gt;</code> elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Matching line milestones and facsimile zones ensures the image-text binding is intact and checkable.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Exporting the TEI document into a proprietary binary word processor file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The workflow uses open XML standards and web-ready IIIF manifests.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Removing all polytonic accents so the file can be processed as pure ASCII.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The pipeline strictly requires polytonic Greek normalized to NFC.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deleting the <code>&lt;facsimile&gt;</code> section to reduce XML file size before committing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The facsimile element holds the coordinate zones required for verification.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: The Week Ahead</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Across Topic 4 and Week 5, what four distinct roles does today's manual transcription file fulfill?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Today's file serves as training data, comparison reference, verification object, and measurement reference — four roles, one artefact.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It serves as today's product, Wednesday's HTR training data, Friday's comparison baseline, and Week 5's reference for scoring machine CER and WER.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A single carefully transcribed artifact anchors every subsequent computational stage and evaluation metric.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A draft syllabus, a grading rubric, a student roster, and a final course transcript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Today's file is a scholarly digital transcription serving specific pipeline roles.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An OCR engine configuration script, an image compression profile, a CSS stylesheet, and a web server config.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are system administration tasks unrelated to the transcribed TEI file.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A replacement for the original codex, a legal copyright declaration, a grant application, and a print publisher contract.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The file is a scholarly encoding serving training, reference, and measurement roles.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: What Counts as Good Work Here</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is marking a difficult reading as <code>&lt;unclear&gt;</code> considered a hallmark of good scholarly transcription rather than an editorial failure?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Marking uncertainty honestly is the hardest and most diagnostic part of good transcription — a confident guess destroys the record of what was actually legible.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It honestly records the limits of decipherment from the ink, preserving evidence of ambiguity rather than presenting a confident guess as an established fact.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A confident guess destroys the record of what was actually legible, misleading subsequent readers and distorting error rates.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Marking readings as <code>&lt;unclear&gt;</code> automatically triggers Transkribus to allocate extra compute credits.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transkribus does not alter credit billing based on XML uncertainty tags.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI schema rejects any transcription that does not mark at least 15% of its words as <code>&lt;unclear&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI schemas have no minimum requirement for uncertainty elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It indicates that the editor has delegated the transcription of that word to an external commercial service.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;unclear&gt;</code> is a scholarly qualification of reduced confidence by the transcriber.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: The Anchor</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the manual diplomatic transcription step considered irreducible in computational philology?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automation is always measured against a reference, and a reference cannot be produced by the thing it measures — which is why the manual step is irreducible rather than merely traditional.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A measuring instrument cannot calibrate itself; automated models cannot evaluate their own accuracy, so an independent human ground truth is structurally necessary as a baseline.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Machine output is just text of unquantified quality until measured against an independently produced reference.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual transcription is required because neural networks are incapable of learning non-Latin alphabets.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Neural models learn non-Latin scripts effectively given adequate training data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>International copyright laws forbid computers from processing historical manuscripts without prior human transcription.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no such legal prohibition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Computing CER requires proprietary hardware that only human transcribers can operate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CER is a mathematical calculation (Levenshtein distance) requiring a reference text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

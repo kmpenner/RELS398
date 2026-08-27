@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Topic_03_IIIF_Imaging"
+TOPIC = "Module_03_IIIF_Imaging"
 TITLE = "Raking Light, Multispectral Imaging, and Computational Palaeography"
 
 QUESTIONS = [

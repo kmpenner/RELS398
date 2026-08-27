@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_09_Lemmatization/Lesson_9.1_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 9.1: Manual Morphological Parsing, Lemmatization, and Treebanking.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: What Lemmatization and Parsing Accomplish</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does digital textual scholarship require morphological parsing and lemmatization rather than relying exclusively on orthographic string matching?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Lemmatization and morphological parsing convert unstructured character sequences into semantically and grammatically queryable linguistic data.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>String matching cannot bridge inflected surface forms to underlying dictionary headwords or expose the grammatical relationships governing words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Raw character matching leaves inflectional paradigms and syntactic government opaque; parsing and lemmatization structure text into queryable linguistic data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>String matching is too computationally expensive for modern computers to execute across large historical corpora.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Exact string matching is computationally trivial; the problem is its analytical opacity to inflectional morphology and syntax.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Optical character recognition software cannot output raw text strings without first performing lemmatization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. OCR produces raw character streams; lemmatization is a downstream analytical process applied to transcribed text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Digital editions are prohibited by TEI guidelines from storing unparsed orthographic character sequences.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI easily accommodates unparsed text; linguistic annotation is an analytical enrichment, not a format requirement.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The Anatomy of an Inflected Word Form</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What distinguishes the morphology of synthetic, fusional languages like Ancient Greek and Latin from agglutinative languages?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Fusional morphology bundles multiple grammatical categories into single affixes, requiring editors to systematically isolate stems, affixes, and inflectional terminations.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Fusional languages compress multiple grammatical categories into single, indivisible affixes rather than stringing together discrete, one-to-one morphemes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In fusional languages, a single affix simultaneously encodes multiple categories (e.g. Greek -ων encoding genitive, plural, and gender) rather than isolated single-feature affixes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Fusional languages rely entirely on periphrastic auxiliary verbs rather than attaching inflectional affixes to stems.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Analytic languages use periphrastic auxiliaries; fusional languages attach synthetic affixes to stems.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Agglutinative languages fuse lexical roots and stems so thoroughly that morpheme boundaries cannot be distinguished.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Agglutinative languages maintain clean, segmented, one-to-one morpheme boundaries; fusional languages compress multiple features into single affixes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Fusional languages never modify the lexical root through temporal augments, reduplication, or ablaut.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Fusional languages routinely alter lexical roots via augments, reduplication, and ablaut vowel gradation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: The Concept of the Lemma and Lexicographical Conventions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must an annotator strictly follow a specific language tradition's canonical citation convention when assigning a lemma?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A lemma is a standardized lexicographical citation form, and manual annotation must strictly follow the reference authority's canonical convention.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A lemma is a standardized lexicographical citation convention, and diverging from canonical standards breaks interoperability with downstream databases.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Lexicographical traditions establish specific citation forms (e.g. LSJ first-person singular present active for Greek verbs); using non-standard forms disrupts computational linking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Universal linguistic principles dictate that the infinitive form must always be the lemma in every human language.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Citation conventions vary by language family: Greek/Latin use first-person present active indicative, Semitic languages use third-person masculine perfect roots, and modern Romance languages use infinitives.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Lemmas are physical entities discovered directly inside manuscript witnesses rather than editorial conventions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A lemma is an abstract editorial convention chosen to represent an entire inflectional paradigm in dictionaries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Downstream treebanks and NLP parsers automatically convert arbitrary citation forms into valid identifiers without errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. NLP pipelines and alignment databases rely on exact string matches against canonical dictionary headwords.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Tokenization and Segmental Ambiguity</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is tokenization in historical manuscript editing considered an interpretive philological act rather than a mechanical string split?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Tokenization is an interpretive philological decision that requires isolating enclitics, crasis, and contracted forms into discrete grammatical units.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Manuscript continuous script, enclitics, crasis, and elision require editors to decide where discrete grammatical words begin and end.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Scribes wrote in scriptio continua or used contracted forms like crasis (κἀγώ) and enclitics (-que), requiring grammatical interpretation to establish token boundaries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Modern Unicode standards require all ancient texts to be tokenized into fixed three-letter segments.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tokenization establishes linguistic word boundaries, not arbitrary character-length chunks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tokenization requires determining the font family and ink composition used by the historical scribe.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Font and ink analysis belong to paleography/codicology, not grammatical token segmentation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Punctuation in medieval manuscripts always marks exact sentence and clause boundaries identical to modern syntax.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manuscript punctuation is idiosyncratic and rarely aligns systematically with modern syntactic clause boundaries.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Morphological Ambiguity and Paradigmatic Syncretism</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does a human philologist resolve paradigmatic syncretism during manual morphological parsing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Paradigmatic syncretism creates pervasive surface ambiguity that can only be resolved through systematic analysis of syntactic context and semantic government.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By analyzing the surrounding syntactic context, verbal case government, agreement markers, and discourse semantics.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Paradigmatic syncretism creates surface homophony; the correct analysis can only be identified by synthesizing syntactic government and semantic context.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By selecting the shortest dictionary definition listed in the reference lexicon.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Definition length has no bearing on grammatical case, number, or part-of-speech selection.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By defaulting to nominative singular masculine whenever a noun form is ambiguous.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Defaulting to an arbitrary baseline corrupts morphological distributions and distorts syntactic analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By removing ambiguous tokens from the digital edition's text stream entirely.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly editions preserve all attested text and resolve ambiguous morphology in context.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Verbal Complexity: Stems, Aspect, and Principal Parts</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why cannot Ancient Greek verb forms be parsed accurately through simple, naive suffix stripping?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ancient verbal systems rely on distinct aspectual stems and suppletive roots, requiring philological identification of principal parts rather than naive affix stripping.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Greek verbs construct aspectual stems through deep phonological changes, ablaut, reduplication, and suppletive roots across six principal parts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Greek verbal morphology relies on distinct aspectual stems and suppletive roots (e.g. ὁράω, ὄψομαι, εἶδον) that cannot be derived by stripping suffixes from a single base.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ancient Greek verbs lack inflectional suffixes entirely, relying exclusively on independent preverbal particles.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Greek verbs are heavily inflected with synthetic personal and mood suffixes attached to aspectual stems.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Greek verbs inflect identically across all conjugations without any irregular or athematic paradigms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Greek possesses complex thematic and athematic (mi-verb) conjugations with widespread irregular paradigms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Suffix stripping is prohibited by international copyright restrictions on Greek lexicographical databases.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Suffix stripping fails due to linguistic and phonological reality, not legal or copyright restrictions.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Nominal and Adjectival Inflection: Agreement and Case Government</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In Classical Greek and Latin nominal parsing, what principle ensures grammatical agreement between a substantive and an attributive adjective?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Nominal parsing involves identifying declension classes, verifying gender-number-case agreement across phrases, and establishing syntactic case government.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They must share identical gender, number, and case, even if they belong to different declension classes and carry different surface endings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Agreement is syntactic and feature-based: a third-declension noun and first-declension adjective agree in gender, number, and case despite having distinct inflectional terminations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They must share identical character lengths and phonological vowel quantities in their terminations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Agreement depends on grammatical feature concordance (gender/number/case), not syllable length or phonological identity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They must both belong to the exact same declension class and stem paradigm.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Adjectives routinely modify substantives of different declension classes (e.g. first-declension adjective modifying a third-declension noun).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Adjectives in classical languages do not inflect for case and remain indeclinable modifiers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Adjectives in Greek and Latin inflect fully for case, number, and gender to agree with their governing nouns.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Closed-Class Categories: Particles, Conjunctions, and Prepositions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does manual parsing of historical closed-class words like Greek prepositions and particles require syntactic analysis?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Closed-class particles and prepositions must be categorized by their specific syntactic function and case government rather than treated as static lexical glosses.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Many closed-class tokens are polysemous homographs whose function and meaning depend on the specific case they govern or the discourse clause they modulate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A single preposition like παρά changes meaning completely depending on whether it governs genitive, dative, or accusative, while particles modulate modal semantics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Closed-class words constantly undergo unpredictable nominal declension across all nine morphological cases.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Closed-class functional words are indeclinable; their complexity lies in polysemy, homography, and case government.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Prepositions in Ancient Greek and Latin always govern only the nominative case.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Prepositions govern oblique cases (genitive, dative, accusative, ablative), never the nominative.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Particles were added exclusively by nineteenth-century typographers and do not represent historical language.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Discourse particles are integral elements of ancient Greek narrative and philosophical prose.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: The Universal Dependencies Taxonomy and UPOS Tagset</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the structural role of the 17 Universal Part-of-Speech (UPOS) tags in the Universal Dependencies framework?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Universal Dependencies UPOS tagset provides 17 standardized, cross-linguistic categories that establish the foundational part-of-speech classification for every token.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They provide a standardized, coarse-grained, cross-linguistically consistent part-of-speech taxonomy applicable to every human language.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The 17 UPOS tags establish a fixed, universal classification ensuring that core grammatical categories are comparable across languages and corpora.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They replace all language-specific grammatical descriptions with a single numeric ranking from 1 to 17.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. UPOS tags are standardized categorical labels (e.g. NOUN, VERB, ADJ), not numeric quality rankings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They provide fine-grained inflectional case and mood details for Greek dialectal poetry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Coarse UPOS tags provide high-level parts of speech; detailed inflectional features are stored in FEATS and XPOS.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They are proprietary tags licensed exclusively to commercial natural language processing platforms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Universal Dependencies is an open, international academic standard developed for cross-linguistic research.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Language-Specific Part-of-Speech Tags and Positional Tagsets</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How is morphological information encoded in the Perseus 9-position XPOS positional tagset?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Positional XPOS tagsets use a 9-character code to record the complete inflectional profile of a historical word form in a standardized, machine-readable syntax.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>As a fixed-length 9-character string where each specific position maps deterministically to a morphological dimension, with hyphens marking non-applicable features.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The 9-position code dedicates positions to POS, person, number, tense, mood, voice, gender, case, and degree (e.g. v3sria---), using hyphens for inapplicable slots.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As a comma-separated list of English grammatical definitions enclosed in brackets.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Positional XPOS uses a compact 9-character positional string, not free English prose.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As a variable-length binary bitmask encoding Unicode character offsets.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Perseus tagset uses readable single-letter codes in a fixed 9-character layout.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As an unstructured XML comment placed at the end of the document body.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Positional tags are structured machine-readable strings stored directly in token metadata.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Morphosyntactic Features in Universal Dependencies</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the Universal Dependencies FEATS standard structure morphological properties?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Universal Dependencies FEATS standard encodes morphological properties as sorted, pipe-delimited key-value pairs for transparent data exchange.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>As an alphabetically sorted, pipe-delimited list of explicit key-value pairs without spaces around equals signs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The FEATS column formats features as explicit key-value pairs (e.g. Case=Nom|Gender=Masc|Number=Sing) sorted alphabetically for transparent data exchange.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As a single 9-digit floating-point number representing grammatical probability.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. FEATS uses structured key-value strings, not probabilistic numerical values.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As an unorganized paragraph of Latin prose describing the word's etymology.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. FEATS specifies structured, machine-actionable morphological features, not etymological prose.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As an encrypted binary blob readable only by dedicated proprietary hardware.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. FEATS strings are standard UTF-8 plain text designed for open interoperability.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Principles of Dependency Grammar for Historical Languages</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is dependency grammar superior to phrase-structure constituency grammar for modeling ancient Greek and Latin syntax?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Dependency grammar models direct head-dependent relations between words, providing a robust syntax model for the flexible word order and hyperbaton of ancient languages.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Dependency grammar models direct head-dependent relations between words, making it invariant under free word order, discontinuous constituents, and hyperbaton.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Because dependency links connect words directly rather than through rigid nested phrase boxes, the syntax model remains robust under word-order permutations and hyperbaton.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Constituency grammar cannot represent sentences containing more than five words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Constituency grammar can model long sentences, but it struggles with non-projective word order and discontinuous constituents in inflected languages.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dependency grammar requires all verbs to be placed strictly at the end of the sentence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dependency grammar makes no assumptions about word order; links connect semantic heads and dependents regardless of linear position.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Classical languages were written without grammar rules, making phrase structures impossible to formulate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Classical languages possessed rich, rigorous grammatical systems; dependency grammar simply models their non-configurational syntax more effectively.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Syntactic Dependency Relations in Universal Dependencies</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the Universal Dependencies DEPREL framework, what structural principle governs prepositional phrases such as ἐν τῇ πόλει?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Universal Dependencies DEPREL tags specify the exact grammatical relation connecting each dependent word to its governing semantic head.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Content words are privileged as heads: the noun (πόλει) is the head of the phrase, while the preposition (ἐν) attaches to it with the relation 'case'.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In modern UD, content words act as heads: the preposition attaches as a 'case' dependent and the article as 'det' to the noun head.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The preposition is always the root head of the entire sentence, governing all verbs and nouns.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The main finite verb is typically the sentence root; prepositions attach to their nominal complements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The article is treated as the head governing both the preposition and the noun.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Articles attach to nouns with the 'det' relation; they never serve as heads of content nouns in UD.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Prepositions and articles are deleted from the dependency tree because they carry no grammatical meaning.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Every token in the sentence is integrated into the dependency tree with specific relations like 'case' and 'det'.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: The Ancient Greek and Latin Dependency Treebank Standard</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary structural difference between the legacy AGLDT Prague-style treebank schema and the modern Universal Dependencies standard?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The AGLDT standard provided the historical foundation for classical treebanking, which has now been harmonized into the content-head architecture of Universal Dependencies.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Legacy AGLDT treated function words (like prepositions and auxiliaries) as heads governing content words, whereas modern UD treats content words as heads.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Legacy Prague/AGLDT placed prepositions (AuxP) as heads governing nouns; UD inverted this to establish content words as heads with function words as dependents.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Legacy AGLDT banned the annotation of Latin texts, focusing exclusively on Attic oratory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. AGLDT included extensive Latin corpora (Cicero, Caesar, Virgil, Jerome) as well as Greek.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Modern UD forbids the inclusion of morphological feature tags on word tokens.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Modern UD fully supports and standardizes morphological features via UPOS, XPOS, and FEATS.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Legacy AGLDT was encoded in proprietary binary formats that could not be converted to plain text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. AGLDT was encoded in XML and has been successfully mapped to Universal Dependencies format.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: The PROIEL Treebank Architecture and Biblical Corpora</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What theoretical innovation did the PROIEL treebank project introduce to historical dependency annotation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The PROIEL treebank provides an expertly annotated, gold-standard reference for biblical and historical corpora, pioneering the integration of syntax, pragmatics, and secondary predication.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It integrated syntactic dependency trees with pragmatic information packaging, discourse referentiality, and dual-index secondary predication.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. PROIEL advanced historical treebanking by modeling syntax alongside information structure (topic/focus), anaphora, and secondary predication (e.g. participles).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminated manual annotation entirely, relying on unverified automated neural parsers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. PROIEL was manually annotated and verified by expert philologists, creating a gold-standard reference.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It restricted its corpus strictly to modern twentieth-century vernacular translations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. PROIEL focused on ancient Indo-European biblical translations in Greek, Latin, Gothic, Classical Armenian, and Old Church Slavonic.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaced dependency trees with flat, unannotated character word lists.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. PROIEL created rich, multi-layered syntactic and pragmatic dependency graphs.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Manual Annotation Protocols and Scholarly Lexica</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the purpose of establishing an explicit four-step verification protocol during manual parsing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A standardized four-step manual protocol backed by authoritative lexica guarantees that gold-standard annotations remain methodologically sound and consistent.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To guarantee that surface identification, lexical lookup, morphological decomposition, and syntactic attachment remain internally consistent and methodologically sound.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A standardized four-step protocol backed by authoritative lexica ensures that ground-truth annotations are rigorous, reproducible, and documented across all tokens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To ensure that manual annotations can be completed in less than five seconds per paragraph.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual parsing prioritizes philological rigor and accuracy over rapid processing speed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To prevent human editors from consulting scholarly dictionaries like LSJ or Lewis and Short.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The protocol explicitly requires querying authoritative lexica (LSJ, OLD, ThLL) for verification.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To automatically generate XML files without requiring any editorial review.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The protocol defines disciplined human editorial review to produce the reference ground truth.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: TEI P5 Chapter 18: Simple Analytic Mechanisms</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the main architectural advantage of TEI P5 Chapter 18's inline linguistic segmentation over ISO Feature Structures?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI P5 Chapter 18 defines lightweight inline XML mechanisms that embed morphological analysis directly into the text stream of a digital edition.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It embeds analytical attributes directly on word (<w>) and punctuation (<pc>) elements in the text stream, avoiding verbose and complex standoff XML structures.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Chapter 18 provides a lightweight inline mechanism that attaches lemma, POS, and morphosyntactic descriptions directly to text tokens in <w> and <pc> tags.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminates the need for XML validation schemas, allowing arbitrary tag syntax.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Chapter 18 conforms strictly to TEI P5 XML schemas and validation rules.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It separates the diplomatic transcription into an encrypted external database.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Chapter 18 keeps the diplomatic text inline while enriching it with analytical XML attributes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It forces all digital editions to be published exclusively in printed book format.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI Chapter 18 is designed specifically for computational processing and digital edition interfaces.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: The att.linguistic Attribute Class in TEI XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which group of attributes is provided by the TEI att.linguistic attribute class on the <w> element?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The TEI att.linguistic attribute class provides standardized @lemma, @pos, and @msd attributes to store morphological analyses directly on <w> elements.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>@lemma, @lemmaRef, @pos, @msd, and @join.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The att.linguistic class provides @lemma (headword), @lemmaRef (lexicon URI), @pos (part of speech), @msd (morphosyntactic description), and @join (clitic attachment).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>@src, @href, @alt, and @target.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are generic linking and media attributes, not the linguistic class attributes defined in Chapter 18.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>@meter, @rhyme, @stanza, and @caesura.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These attributes belong to verse and metrical analysis modules, not att.linguistic.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>@wit, @rdg, @lem, and @app.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These belong to the Chapter 13 textcrit module for apparatus encoding, not linguistic analysis.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Segmenting Sentences, Words, and Punctuation in TEI XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How are sentences, words, and punctuation structured in a fully compliant TEI Chapter 18 document?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Full TEI linguistic encoding wraps sentences in <s>, words in <w>, and punctuation in <pc>, assigning unique @xml:id anchors to every token.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Sentences are wrapped in <s>, words in <w>, and punctuation marks in <pc>, each carrying a unique @xml:id anchor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The structural hierarchy wraps clauses/sentences in <s>, lexical words in <w>, and punctuation in <pc>, assigning unique @xml:id attributes for downstream linking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All tokens are merged into a single unstructured <p> element without individual word tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Full linguistic tokenization requires explicit segmentation into <s>, <w>, and <pc> elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Punctuation marks must be deleted from the XML file to prevent parsing errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Punctuation characters are preserved and classified inside <pc> elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Every letter in the sentence must be enclosed in an independent <c> tag with font descriptions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Character-level <c> tags are used only for specialized graphemic studies, not standard linguistic tokenization.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Step-by-Step Manual Parsing Walkthrough: Classical Greek Prose</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the manual parse of Plato's Apology 17a (Ὅτι μὲν ὑμεῖς ... πεπόνθατε ... οὐκ οἶδα), what is the syntactic root and how does πεπόνθατε attach to it?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Manual parsing systematically resolves every token's lemma, morphosyntactic feature bundle, and syntactic dependency attachment within the sentence hierarchy.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The matrix verb οἶδα is the root (HEAD=0, DEPREL=root), and πεπόνθατε attaches to it as a clausal complement (DEPREL=ccomp).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The main finite clause is headed by οἶδα ('I do not know'), and the subordinate clause headed by πεπόνθατε ('what you have experienced') functions as its clausal complement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The interjection ὦ is the root, and all other words attach as vocatives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Interjections and vocatives are peripheral discourse elements, not the structural root of the clause.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The pronoun ὑμεῖς is the root, and οἶδα is an adjectival modifier.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Nominal subjects depend on their governing verbs; a pronoun cannot be the clausal root over a finite verb.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The preposition ὑπὸ is the root, governing the entire sentence as an adverbial phrase.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Prepositions attach to their nominal complements; they do not serve as matrix roots of complex sentences.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Step-by-Step Manual Parsing Walkthrough: Poetic Hyperbaton and Dialect</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does parsing Homeric epic lines like Iliad 1.1 (Μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος) require human philological expertise?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Poetic hyperbaton and dialectal morphology require human philological expertise to resolve non-projective word order and non-standard inflectional endings.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Poetic hyperbaton displaces words from natural word order, while epic dialect features uncontracted vowels, synizesis, and non-Attic genitive endings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Epic poetry features non-projective hyperbaton (displaced accusative object) and dialectal morphology (uncontracted -ηος, synizesis in -εω) that break standard Attic parsers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Homeric poetry was composed in modern Latin rather than Ancient Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Homeric epic is composed in an archaic Greek literary dialect fusing Ionic, Aeolic, and Mycenaean elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Epic poems contain no verbs, requiring all words to be parsed as indeclinable interjections.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Epic verse contains fully articulated verbal systems, including root and sigmatic aorists.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated taggers parse Homeric poetry with 100% precision without needing dictionary lookups.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Automated taggers trained on Attic prose suffer high error rates on Homeric dialect forms.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Encoding Standoff Syntactic Dependencies in TEI XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does TEI XML represent syntactic dependency graphs without disrupting the document's hierarchical tree structure?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI <linkGrp> and <link> elements represent syntactic dependency graphs by linking head and dependent token IDs without disrupting text hierarchy.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By encoding standoff <linkGrp> and <link> elements that reference governing head and dependent token @xml:id values.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Standoff linking via <linkGrp> and <link targets="#head #dep"> represents complex network graphs independently of XML element nesting hierarchies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By inserting overlapping XML closing tags across sentence boundaries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Overlapping tags violate XML well-formedness rules and cause fatal parse errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By embedding executable JavaScript scripts directly inside every <w> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI uses declarative XML linking mechanisms, not embedded scripts, for syntax graphs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By converting all word tokens into external PDF hyperlinks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dependency links connect internal XML token identifiers within the scholarly edition.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: The CoNLL-U Format: The Global Exchange Standard for Syntax Trees</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What are the mandatory ten fields in order for every token line in a standard CoNLL-U file?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CoNLL-U is the 10-column tab-delimited standard used to exchange and evaluate morphological and syntactic treebanks across all modern NLP software.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>ID, FORM, LEMMA, UPOS, XPOS, FEATS, HEAD, DEPREL, DEPS, and MISC.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. CoNLL-U defines exactly ten tab-delimited columns in fixed sequence: ID, FORM, LEMMA, UPOS, XPOS, FEATS, HEAD, DEPREL, DEPS, and MISC.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TOKEN, TRANSLATION, DEFINITION, SYNONYM, ANTONYM, ETYMOLOGY, DATE, AUTHOR, WITNESS, NOTE.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are lexicographical fields; CoNLL-U specifies strict morphosyntactic and dependency fields.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>XML_ID, TEI_TAG, CSS_CLASS, FONT_SIZE, COLOR, BOLD, ITALIC, UNDERLINE, MARGIN, PADDING.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are CSS/HTML presentation properties, unrelated to CoNLL-U treebank architecture.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>LINE, STANZA, POEM, BOOK, AUTHOR, METRE, FOOT, CAESURA, SCAN, RHYME.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These describe verse metrics, not Universal Dependencies morphosyntax.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Inter-Annotator Agreement in Morphosyntactic Annotation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are statistical metrics like Cohen's Kappa or Krippendorff's Alpha used to evaluate inter-annotator agreement instead of raw percentage agreement?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Inter-annotator agreement metrics quantify consensus among human annotators, establishing a statistically validated gold standard for machine evaluation.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They mathematically account for the probability of chance agreement among annotators, providing an objective measure of consensus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Raw percentage agreement overstates consensus on skewed categories; chance-corrected metrics like Kappa calculate true consensus above baseline probability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They automatically correct all grammatical errors made by human annotators without discussion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Agreement metrics evaluate statistical consistency; adjudication meetings resolve disagreements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They measure the typing speed of annotators in words per minute.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Inter-annotator agreement measures consensus on categorical labels, not data-entry speed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They eliminate the need for having more than one annotator in a project.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Measuring inter-annotator agreement inherently requires multiple independent annotators.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Edge Cases in Manual Annotation: Clitics, Crasis, and Tmesis</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In Universal Dependencies and CoNLL-U, how should crasis (e.g. Greek κἀγώ from καὶ ἐγώ) and tmesis be handled?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Clitics, crasis, and tmesis require multi-word token segmentation and compound relation tagging to preserve morphological and syntactic integrity.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Crasis is split into multi-word token lines with individual sub-token analyses, while tmesis preverbs link to verbs via 'compound:prt'.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Crasis uses multi-word token spans (e.g. 1-2) with discrete lemma/POS sub-lines; detached tmesis preverbs attach with compound relation labels.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Crasis must be deleted from the text and replaced by modern English translations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical texts preserve all attested contractions, decomposing them systematically into sub-tokens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tmesis preverbs must be merged into single words by deleting all intervening words in the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial manipulation of manuscript word order is unacceptable; tmesis is modeled via dependency relations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Clitics must be permanently capitalized and tagged as proper nouns.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Clitics are functional words (pronouns, particles, conjunctions) and are tagged according to their true grammatical function.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Edge Cases in Manual Annotation: Ellipsis and Null Heads</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does Universal Dependencies represent nominal sentences with omitted copulas (e.g. Omnia praeclara rara)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Universal Dependencies handles ellipsis and copula omission by promoting predicate words to clause heads and utilizing the orphan relation for gapped arguments.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The predicate adjective (rara) is promoted to the clause head (root), and the subject (Omnia) attaches to it as nsubj.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In nominal clauses lacking a copula, UD promotes the predicate complement to clause root, attaching the nominal subject directly to it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The sentence is declared invalid and excluded from the treebank.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Copula omission is standard in classical languages and fully supported in UD through predicate promotion.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An imaginary phantom token is inserted into the text and assigned a fake manuscript shelfmark.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. UD avoids inserting ungrounded phantom tokens into primary token sequences in basic treebanks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The first word in the sentence is always designated as root regardless of its part of speech.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dependency heads are determined by grammatical predication, not linear word position.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Creating the Ground-Truth Benchmark Dataset</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What linguistic criteria must be balanced when selecting a 200–300 word passage for a ground-truth benchmark dataset?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A representative ground-truth dataset spanning regular paradigms, ambiguous forms, and complex syntax is the necessary benchmark for evaluating automated NLP pipelines.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It must include regular nominal and verbal paradigms, closed-class particles, instances of morphological ambiguity, and complex syntactic structures.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A rigorous benchmark must contain a balanced distribution of regular forms, ambiguous homographs, closed-class items, and complex syntax to evaluate NLP pipelines thoroughly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It must consist entirely of third-person singular present indicative regular active verbs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A homogeneous dataset fails to test parser resilience on nominal declensions, irregular stems, or complex syntax.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It must be written exclusively in modern twentieth-century journalistic prose.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The benchmark must be selected directly from the historical corpus under study in the course.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It must contain only words that begin with the letter alpha.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Passages are selected for representative grammatical and syntactic breadth, not arbitrary orthographic constraints.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Documenting the Editorial Annotation Schema</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must an editorial annotation schema manual accompany a gold-standard linguistic dataset in a version-controlled repository?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A comprehensive annotation manual documents lexical authorities and disambiguation rules, ensuring transparency and reproducibility for the gold-standard dataset.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It documents reference lexicographical editions, tokenization rules, taxonomic disambiguation decisions, and dependency attachment conventions for scientific reproducibility.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An explicit schema manual ensures that editorial decisions and taxonomy interpretations are transparent, allowing other researchers to replicate the dataset.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is required by law to register the text with national copyright offices.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Annotation manuals serve scientific transparency and scholarly reproducibility, not legal copyright registration.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It contains the compiler settings used to build the operating system kernel.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The document records linguistic and philological annotation guidelines, not OS kernel parameters.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically translates the historical text into five modern languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The schema manual defines tagging conventions and disambiguation rules, not automated translations.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Preparing Ground-Truth Data for Automated Testing</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must manual annotations be exported and validated in both CoNLL-U and TEI Chapter 18 XML formats before automated scoring?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Exporting manual annotations to validated CoNLL-U and TEI XML files creates the machine-readable evaluation keys required for automated benchmarking.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>CoNLL-U serves as the standard input/evaluation format for NLP scoring scripts, while TEI XML preserves the annotations within the digital edition repository.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. CoNLL-U is the universal benchmark format for machine evaluation, while TEI Chapter 18 XML embeds the validated linguistic layer into the archival edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Exporting to two formats allows the editor to delete the underlying manuscript transcriptions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Diplomatic transcriptions remain the foundational core of the digital edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CoNLL-U format is used exclusively for printing physical paper books.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CoNLL-U is a plain-text tab-delimited format engineered specifically for computational NLP pipelines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI XML is incompatible with Unicode characters and requires ASCII conversion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI XML natively requires UTF-8/UTF-16 Unicode character encoding.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: The Philologist as the Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What fundamental epistemological principle underpins the three-step comparative cycle of Topic 9?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Human philological expertise creates the gold-standard reference against which all deterministic, statistical, and neural models must be measured.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Computational algorithms do not establish linguistic truth; they approximate human philological judgment, which remains the definitive gold standard.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Machine taggers and AI models are probabilistic approximations; expert human philology establishes the ground truth against which all computational tools are measured.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated neural networks have rendered human philological expertise completely obsolete.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Without human ground truth, machine accuracy cannot be evaluated, and models degrade on historical anomalies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Human editors should accept automated parser outputs without checking dictionaries or context.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Uncritical acceptance of machine output propagates systemic errors throughout digital corpora.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deterministic algorithms and large language models never make morphological or syntactic errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both deterministic and generative models make frequent errors on historical spelling, dialect, and complex syntax.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

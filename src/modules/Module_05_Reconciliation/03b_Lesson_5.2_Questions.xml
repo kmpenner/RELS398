@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_05_Reconciliation/Lesson_5.2_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 5.2: Character and Word Error Rates: Measuring the Machine Passes.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: What a Measurement Requires</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What do Character Error Rate (CER) and Word Error Rate (WER) measure in document analysis?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CER and WER are normalized edit distances, and understanding the algorithm is what lets you interpret the numbers rather than quote them.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Normalized edit distances representing the minimum number of single-unit insertions, deletions, and substitutions required to transform machine output into a calibrated reference, divided by the reference length.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. CER and WER are normalized edit distances that quantify the minimum cost of transforming a hypothesis into the ground truth.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The percentage of pixels in the manuscript image that match the rendered font glyphs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Edit distance measures string discrepancies in character and word sequences, not image pixel overlap.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The execution speed of the recognition neural network measured in milliseconds per line.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CER and WER evaluate transcription accuracy, not algorithmic execution latency.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The semantic similarity score produced by cosine distance in high-dimensional word embedding vectors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CER and WER operate on exact string edit operations, not semantic embedding distances.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Levenshtein Distance</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which edit operations are permitted in the standard formulation of Levenshtein distance, and how is transposition handled?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Levenshtein distance is the minimum number of insertions, deletions, and substitutions — and transposition is not one of the permitted operations.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Permitted operations are insertion, deletion, and substitution; transposition is not permitted and counts as two operations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Standard Levenshtein allows only insertion, deletion, and substitution; swapping adjacent letters (transposition) costs two edits.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Permitted operations are insertion, deletion, and transposition; substitution is forbidden.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Substitution is a core operation in standard Levenshtein distance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transposition is permitted as a single atomic operation with cost 1 in standard Levenshtein.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Single-operation transposition is part of Damerau-Levenshtein distance, not standard Levenshtein distance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All four operations (insertion, deletion, substitution, and transposition) are permitted with fractional costs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standard Levenshtein assigns discrete integer unit costs (1) to insertion, deletion, and substitution.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: The Wagner-Fischer Algorithm</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the Wagner-Fischer dynamic programming matrix D of dimensions (m+1) × (n+1), what do row 0 and column 0 represent?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The extra row and column represent the empty string, and back-tracing the matrix recovers not just the distance but the exact alignment of errors.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The empty string: row 0 represents the cost of building the hypothesis from nothing (insertions), while column 0 represents the cost of reducing the reference to nothing (deletions).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The extra row and column represent prefixes of length zero, anchoring the dynamic programming recurrence base cases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The header metadata and TEI schema validation checksums.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Wagner-Fischer is a general string alignment matrix and contains no XML metadata or checksums.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The memory addresses of the Python garbage collector pointers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The matrix entries store accumulated edit costs, not low-level memory pointers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The first line and first column of the physical manuscript page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The matrix indices represent character sequence positions, with index 0 representing the empty string prefix.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Implementing It</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must both the reference and hypothesis strings be normalized to Unicode NFC prior to computing edit distance in Python?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>WER is the same algorithm over whitespace tokens — and NFC-normalizing both inputs is what stops you measuring encoding difference.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Comparing an NFC string against an NFD string will record false-positive edit errors at every polytonic Greek character with combining diacritics.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Normalizing both inputs to NFC ensures that identical characters share identical byte representations and code point sequences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Python's string equality operator raises a fatal TypeError when comparing unnormalized strings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python compares raw code point sequences without error; unnormalized strings simply fail to match logically.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NFC normalization removes all punctuation marks and converts Greek letters to uppercase.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. NFC preserves character case and diacritics in canonical precomposed form; it does not strip punctuation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dynamic programming matrices can only allocate memory for single-byte ASCII characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python arrays and strings seamlessly handle 32-bit Unicode code points.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: The Definitions of CER and WER</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why can the Character Error Rate (CER = [S + D + I] / N) mathematically exceed 100% (1.0)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CER can exceed 100% because insertions add to the numerator but not the denominator — a rate above 1.0 means substantial hallucination.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Insertions (I) are added to the numerator without increasing the reference character denominator (N), so severe hallucinations yield rates above 100%.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When a model generates long hallucinated sequences from degraded images, the count of insertions can exceed the total reference character length.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A floating-point overflow error occurs in the Python arithmetic logic unit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CER > 100% is a mathematically valid outcome of the formula when insertions exceed reference length.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The denominator N represents the word count rather than the character count.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. N in CER is the reference character count; WER uses reference word count.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The calculation is invalid unless normalized by the square root of the matrix diagonal.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CER is simply normalized by the reference length N; no matrix root is used.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: The Relationship Between CER and WER</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does an error profile with low CER (e.g. 4%) and disproportionately high WER (e.g. 25%) typically diagnose?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Low CER with disproportionately high WER means word-boundary failure, not character misreading — diagnose it rather than reporting it flatly.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Systemic word-boundary or tokenization failure (such as <em>scriptio continua</em> fusion or line-end hyphenation fractures) where characters are accurate but spaces are misplaced.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When characters are largely correct but word boundaries are corrupted, errors scatter across many tokens, driving WER up dramatically.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model made catastrophic character recognition errors on every line.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Severe character misrecognition would result in a high CER as well as high WER.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The dynamic programming script was compiled with an incorrect optimization flag.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The disparity reflects real linguistic and tokenization phenomena in the text stream.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The transcriber used the wrong font family during visual inspection.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Font rendering does not affect computed character or word error rates.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Preparing the Texts for Comparison</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When extracting text streams from TEI XML before computing error rates, why must an editor deliberately select the <code>&lt;abbr&gt;</code> layer rather than stripping all tags indiscriminately?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Preprocessing decisions change the number, so record them — and when stripping markup, choose the <abbr> or <expan> layer deliberately.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Indiscriminately stripping all tags concatenates both <code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code> into a doubled nonsense string, severely inflating error rates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A `<choice>` element contains both the manuscript abbreviation and its editorial expansion; stripping tags keeps both strings, producing doubled text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI parser will throw a fatal syntax exception if <code>&lt;expan&gt;</code> is processed by Python.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python string processing does not crash; it extracts both layers unless specifically filtered.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The <code>&lt;abbr&gt;</code> tag is encrypted using SHA-256 hashes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI tags are standard plaintext XML elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Machine learning recognition engines can read only expanded Latin abbreviations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HTR models read the raw ink on the page, corresponding to the diplomatic `<abbr>` layer.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Measuring Per Line</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must overall folio CER be calculated as a weighted average by line length rather than a simple arithmetic mean of per-line error rates?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Weight the overall rate by line length, and read the per-line distribution — rising error means misalignment, not model failure.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An unweighted mean treats very short lines (e.g. 3 characters) and long lines (e.g. 60 characters) equally, skewing the true aggregate error rate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Total edit distance divided by total reference characters correctly weights each line by its contribution to the document.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Python's standard library does not support arithmetic division on floating-point lists.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python easily computes arithmetic means; the issue is mathematical weighting.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Weighted averages are required by the ISO 9001 document certification standard.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Weighting by length is a basic mathematical necessity for ratio metrics, not an external standard.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Line breaks carry negative edit costs in the Levenshtein dynamic programming matrix.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Edit costs are non-negative; line breaks are structural delimiters.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Aligning the Machine Outputs</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is HTR output line-aligned by construction, whereas Vision-Language Model (VLM) output often requires manual realignment or whole-text evaluation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>HTR output is line-aligned by construction and VLM output often is not — never compare a per-line figure against a whole-text one without saying so.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>HTR models process segmented line image polygons and export coordinate-bound lines (ALTO/PAGE XML), whereas VLMs often reflow text into continuous prose.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. HTR architectures operate per line image, while VLMs generate open-ended text tokens that frequently lose physical line structure.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>HTR models are connected directly to the physical scanner hardware during digitization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HTR models run on digital image files after segmentation, not directly on hardware.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>VLMs are legally restricted from outputting newline characters by developer safety filters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Safety filters do not restrict whitespace; VLMs simply lack native line-segmentation grounding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>PAGE XML formats can be parsed only on Linux supercomputing clusters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. PAGE XML is an open XML format parsable by standard XML tools on any operating system.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Computing Against Both Ground Truths</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is revealed by calculating a model's CER against both the original ground truth (<code>gt-f42r</code>) and the double-keyed consensus (<code>gt-f42r-consensus</code>)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Measuring against both ground truths quantifies how much of Week 4's 'machine error' was yours — and only the tags make it retrievable.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The difference between the two scores quantifies how much of Week 4's measured 'machine error' was actually human reference error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Comparing scores against uncalibrated and calibrated baselines isolates the proportion of error caused by flaws in the initial human ground truth.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It determines whether the Git repository index needs to be rebuilt with garbage collection.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Error rate benchmarking evaluates transcription accuracy, not Git index maintenance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It proves that the HTR model had overfitted to the validation split.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Measuring against two ground truths measures reference accuracy, not model overfitting.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It converts character error rates into word error rates automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CER and WER are computed on different token units, not converted via reference comparisons.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Interpreting the Numbers Against Thresholds</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>According to established document analysis benchmarks (AlKendi et al., 2024), what operational threshold marks a recognition model as a net economic loss?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Above 15% CER a tool is a net loss, not slow help — the threshold converts a quality judgement into a decision.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Above 15% CER, where the time and cognitive load of post-correction exceed the effort required to transcribe from scratch.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When CER exceeds roughly 15%, correcting noisy machine predictions is slower and more mentally taxing than fresh manual transcription.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Above 1% CER, which causes immediate failure in commercial OCR engines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 1% to 5% CER is considered excellent and highly usable with minimal post-correction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Above 50% CER, because lower rates can always be corrected instantaneously by regular expressions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Regular expressions cannot fix complex graphemic noise, and 15% is the recognized economic threshold.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Above 5% CER, which invalidates all TEI schema validation rules.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schema validation checks XML markup validity, completely independent of text stream CER values.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Why the Number Is Not Enough</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What did Levchenko's (2024) benchmark on 18th-century Russian demonstrate regarding aggregate CER and diplomatic fidelity?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A model can score better on CER while destroying diplomatic fidelity — compute fidelity measures alongside the error rate.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A model can achieve a low CER (e.g. GPT-4o at 9.23%) while destroying diplomatic fidelity by hallucinating anachronistic archaic characters, whereas a higher-CER HTR model never fabricated graphemes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Aggregate CER weights all edits equally, concealing severe qualitative failures such as temporal hallucination and fabricated historical orthography.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>PyLaia models are incapable of processing Cyrillic script encodings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. PyLaia processed the Cyrillic scripts; the finding was about graphemic fidelity versus statistical hallucination.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Language models always produce higher CER than line-based HTR models across all historical corpora.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GPT-4o achieved a lower numerical CER (9.23% vs 26.93%), but introduced rampant anachronistic insertions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Historical Russian manuscripts can be transcribed only using monotonic Greek fonts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The study evaluated Russian Cyrillic historical orthography, not Greek fonts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Building an Error Typology</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In an error audit typology, why are 'plausible wrong words' generated by language models more hazardous than 'impossible character sequences' produced by HTR?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Categorized errors identify systematic bias; an aggregate rate cannot — and plausible wrong words are the ones post-correction will miss.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Plausible wrong words fit the syntactic and semantic context smoothly, making them easy for human proofreaders to miss during post-correction.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An impossible sequence is immediately obvious to an editor, whereas a contextually plausible hallucination slips past reading checks silently.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Plausible wrong words crash the Python XML parser during entity expansion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML parsers process any valid Unicode characters regardless of word plausibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Impossible character sequences automatically corrupt Git branch pointers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Text content has no effect on Git internal branch pointers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Plausible wrong words always double the measured Word Error Rate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Any wrong word counts as one error in WER; the hazard is cognitive oversight during proofreading.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Why Error Rates Matter Downstream</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does Named Entity Recognition (NER) fail catastrophically (F-score dropping from 90% to 60% as WER rises from 1% to 7%) on noisy transcriptions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>NER collapses from 90% to 60% F-score as WER goes from 1% to 7%, because proper names have no redundancy to recover from.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Named entities have low textual redundancy, so a single corrupted character invalidates the entire proper noun, and entities are disproportionately out-of-vocabulary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Common words are recoverable from context and repetition, but proper names lack redundancy and are lost to indexing when corrupted.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NER algorithms require uncompressed TIFF images to locate proper names.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. NER operates on extracted text streams, not raster images.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Part-of-speech taggers refuse to process texts with Word Error Rates above 2%.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. POS taggers degrade roughly linearly; NER collapses non-linearly due to lack of entity redundancy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Named entities in Greek manuscripts were written exclusively in invisible ink.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical named entities are standard ink text, but linguistically unique and vulnerable to recognition noise.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Pre-Editorial Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What critical safeguard must be enforced when applying sequence-to-sequence transformers (e.g. ByT5) for pre-editorial normalization of historical text?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automated normalization works under strict constraints — unexpanded proper names, human review of noisy spans — and erases dialectal evidence without them.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Enforce strict constraints so abbreviations representing proper names remain unexpanded and continuous spans of severe noise are flagged for human review rather than hallucinated over.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Without strict constraints, seq2seq models erase dialectal variants and fabricate coherent text over illegible gaps, destroying evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Disable all GPU acceleration to prevent floating-point rounding errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization constraints govern model generation behavior, not hardware execution.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Convert all historical Greek text into modern French before processing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pre-editorial normalization operates within the historical source language.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Require the model to replace all medieval abbreviations with Latin numeric digits.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization regularizes graphemic forms (e.g. ramist letters, minims), not numerical replacement.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: The Reconciliation Audit Report</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the Reconciliation Audit Report, why do XML structural errors take precedence in severity over typographical character errors?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The audit report has five required components, and structural errors take precedence over typographical ones in reporting.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A structural error (such as an unclosed element or broken hierarchy) compromises the entire Document Object Model, rendering the file unparseable by downstream tools.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Structural errors break XML parsing and invalidate downstream processing pipelines, whereas typographical errors are localized to character positions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Structural errors result in automatic deletion of the Git repository on remote servers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks file blobs regardless of XML validity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Typographical errors are legally classified as copyright violations in digital libraries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Typographical errors are simple transcription mistakes, not legal violations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI schemas cannot validate files that contain character substitutions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schema validators verify markup element grammar, ignoring character substitution errors in text content.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Writing Component 1: Ground Truth Validation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What must Component 1 of the Reconciliation Audit Report transparently disclose regarding single-author double-keying?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Component 1 lets a reader judge how much confidence your reference deserves — including the limitation of self-double-keying.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The limitation of correlated error: self-double-keying cannot catch systematic palaeographical misunderstandings shared across both passes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Honest scholarship demands acknowledging the methodological limitation of single-transcriber double-keying in the audit report.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A certification that the student's transcription achieved 100.000% mathematical perfection.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly reports document empirical metrics and limitations, not unsubstantiated claims of perfection.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The serial number of the monitor hardware used during transcription.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hardware serial numbers are irrelevant to methodological validation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A legal waiver transferring copyright of the manuscript to the university.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ground truth validation concerns transcription methodology and agreement reliability, not copyright transfers.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Writing Component 2: Error Rate Benchmarking</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must Component 2 of the audit report explicitly state all preprocessing operations (e.g. whitespace collapsing, case handling, Unicode normalization)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Report preprocessing, the per-line distribution, and the CER-to-WER relationship — an aggregate alone is neither reproducible nor diagnostic.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Preprocessing decisions directly alter edit distance calculations; without stating them, reported error rates are neither comparable nor reproducible.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A CER calculated with punctuation stripped or case folded differs from a strict calculation; reproducibility requires full preprocessing disclosure.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Preprocessing commands must be re-executed in real time by the Moodle grading plugin.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Moodle does not execute preprocessing commands; reporting ensures human and scientific reproducibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Unstated preprocessing causes XML files to fail RelaxNG schema validation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schema validation tests XML grammar, not the preprocessing parameters used in benchmark scripts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Python requires preprocessing metadata in the docstring to compute Levenshtein distance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Algorithms compute distances purely from the string inputs provided in memory.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Writing Components 3 and 4: Typology and Structure</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is identifying systematic bias (e.g. recurring confusion of a specific letter pair in 11 of 14 cases) more valuable than reporting random typographical slips?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Systematic errors are more serious and more tractable than random ones — and structural failure takes precedence over typographical error.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Systematic biases reveal specific model limitations that can be rectified through targeted training data or rule-based normalization parameters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Distinguishing systematic bias from random slips enables actionable improvements in fine-tuning and post-correction workflows.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Systematic biases automatically disqualify a digital edition from being deposited in library archives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Identifying biases is a standard step in refining editions and models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Random slips cannot be recorded in Markdown tables due to formatting constraints.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Markdown tables can format any text data; the value lies in analytical diagnosis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Systematic errors have zero impact on downstream Named Entity Recognition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Systematic errors directly corrupt downstream NLP tools, making their identification essential.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Writing Component 5: Model Parameterization</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does Component 5 of the audit report evaluate a language model's compliance with negative prompting constraints?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Report constraint compliance instruction by instruction — that table measures how far explicit prompting actually constrained the model.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By auditing output against each negative constraint (e.g. do not expand abbreviations, do not modernize spelling, do not supply text across gaps) to measure the false-positive rate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Component 5 quantitatively audits whether the model obeyed explicit negative constraints or succumbed to unprompted anachronistic normalization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By measuring the GPU temperature during API call execution.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hardware operational telemetry does not evaluate prompt constraint compliance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By verifying that the prompt was translated into 16th-century Early Modern English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Prompts are evaluated on how effectively they constrained the model on the target manuscript.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By checking whether the model API returned an HTTP 404 response code.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HTTP status codes indicate network connectivity, not linguistic constraint compliance.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Drawing the Conclusion</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What characterizes a scientifically sound and actionable conclusion in a transcription reconciliation report?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>State what you measured, on what material, with what consequence for your edition — a general claim about AI is not a finding.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Stating specific measured metrics on a named manuscript witness, identifying exact error concentrations, and providing concrete operational decisions on tool adoption.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Strong conclusions are grounded in empirical measurements on specific historical materials and provide clear, defensible workflow choices.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Making sweeping, unsubstantiated generalizations that artificial intelligence is entirely useless for historical studies.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Sweeping assertions are unscientific; reports require specific, evidence-based assessments.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Claiming that automated models have rendered human palaeographical expertise completely obsolete.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Empirical audits demonstrate that human diplomatic expertise is essential for grounding and post-correction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Recommending that all historical manuscripts be transcribed exclusively using speech recognition software.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Conclusions must logically follow from the experimental findings on the written witness.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: The Transcription Assignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the Git commit history with provenance trailers evaluated as a primary deliverable alongside the TEI XML text?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The commit history with provenance trailers is assessed alongside the text — indistinguishable machine and human commits fail the requirement.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides an auditable, tamper-evident record proving the independent creation, attribution, and systematic adjudication of all human and machine contributions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Provenance trailers and commit histories demonstrate the evidential integrity and scholarly rigor of the entire editorial workflow.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git commit logs are automatically converted into PDF diplomas by university registrar offices.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Assessment evaluates scholarly methodology and transparency, not automated diploma generation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI Consortium requires commit logs to assign an ISBN to digital publications.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI guidelines govern encoding; assessment focuses on reproducible research practices.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Repositories without commit histories cannot be cloned over SSH network connections.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git operates over SSH regardless of commit message content; trailers provide scholarly provenance.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Tagging the Submission</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it essential to create an annotated Git tag (<code>submission-transcription</code>) and push it to the remote repository upon assignment completion?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Tag and push the submitted state — within three weeks of further work it becomes otherwise unrecoverable.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Subsequent coursework in Weeks 6–13 will continually modify the repository files, making the submitted state unrecoverable without an immutable tag.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Digital editions evolve across terms; tagging snapshots the exact submitted milestone so it remains retrievable and assessable.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git servers delete repositories that do not receive a tag within 30 days of creation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git repositories persist indefinitely regardless of tag presence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tags are required to compress XML files into binary zip archives on GitHub.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tags are references to specific commits, not file compression tools.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Annotated tags automatically grant commercial copyright licenses to the course instructor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tags record release milestones and carry no copyright licensing implications.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: What the Two Weeks Established</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What fundamental thesis did the completed transcription and reconciliation pipeline (Weeks 4 and 5) empirically validate?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>You now have measured figures for your own manuscript rather than the literature's account — which is what makes your tool choices defensible.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Automated transcription models require a calibrated human diplomatic ground truth, because recognition errors, systematic biases, and hallucinations can be measured only against such a baseline.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Machine learning models cannot be evaluated or safely utilized without a verified, calibrated human diplomatic reference.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Machine transcription can completely bypass human verification if prompts are sufficiently detailed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The two weeks demonstrated that unconstrained models hallucinate and fail on out-of-vocabulary manuscript forms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Character error rates are purely theoretical numbers with no practical impact on digital editions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Error rates dictate post-correction economics and determine downstream NLP validity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual double-keying is obsolete and should never be used in scholarly digital humanities projects.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-keying remains the gold standard for calibrating ground truth references.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Checklist Before Submitting</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>If a student discovers that VLM output could not be aligned line-by-line due to text reflowing, what is the required reporting procedure?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>State what could not be computed as a limitation rather than omitting it — a silent gap is worse than a reported one.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Report whole-text error figures and explicitly state the alignment limitation in the audit report rather than omitting the data silently.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Openly reporting methodological constraints and limitations is a hallmark of rigorous scholarly reporting.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Invent synthetic line breaks randomly without consulting the manuscript image.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Fabricating data destroys the integrity of the measurement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete the VLM pass entirely and pretend the experiment was never conducted.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Omitting failed experiments creates publication bias and conceals important findings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Abort the course and request an incomplete grade from the academic dean.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Methodological limitations are normal and should simply be transparently documented.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Common Problems Today</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What happens if an editor computes CER on a TEI XML fragment containing <code>&lt;choice&gt;&lt;abbr&gt;θς&lt;/abbr&gt;&lt;expan&gt;θεός&lt;/expan&gt;&lt;/choice&gt;</code> by stripping tags with a naive regular expression?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Stripping all tags concatenates <abbr> and <expan> into nonsense — extract one layer consistently on both sides.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The extracted text becomes <code>θςθεός</code> (concatenating abbreviation and expansion), creating an artificial mismatch that inflates the error rate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Naive tag stripping joins alternative text layers together, producing doubled nonsense words that distort edit distance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The regular expression engine causes a stack overflow and crashes the operating system.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Simple regex operations execute quickly; the error is logical (extracting concatenated text).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The XML file is automatically converted into an uncompressed audio WAV recording.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Regex text filtering operates strictly on string characters.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Python compiler ignores the string and returns a CER of exactly 0.00%.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The string is processed, but the resulting concatenated text produces massive false error rates.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: What Good Work Looks Like Here</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the transparent disclosure of methodological limitations (such as single-author double-keying or unaligned machine prose) considered a hallmark of excellent scholarship?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A report that names its own limitations is more trustworthy than one presenting figures without qualification.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It establishes intellectual honesty and provides readers with the necessary context to calibrate their confidence in the reported figures.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Naming limitations distinguishes critical scholarship from unverified assertion, allowing peers to accurately interpret the findings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It guarantees that the student will receive automatic immunity from academic grading rubrics.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Academic assessment rewards rigor and honesty, not immunity from criteria.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows commercial AI vendors to correct their proprietary models free of charge.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly auditing serves academic transparency and research validity, not corporate model tuning.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It proves that historical manuscripts are too corrupted for digital processing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transparent reporting contextualizes successful processing within realistic boundaries.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Looking Ahead to Week 6</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How will the consensus text established today serve the upcoming tasks in Week 6 (Orthographic Normalization)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Week 6 normalizes as a separate layer over your verified consensus, with Tuesday's hand-recorded rules as Friday's reference.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides the verified diplomatic base over which regularizations (such as iotacism and <code>&lt;orig&gt;/&lt;reg&gt;</code>) can be built as a distinct, traceable layer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Week 6 builds normalization as a separate layer over the consensus text, ensuring regularizations are not entangled with transcription errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It will be permanently deleted and replaced with a modern printed translation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The diplomatic consensus is preserved as the foundation of the digital edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It will be converted into binary machine code to train autonomous drone navigation systems.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The text is used for philological normalization and digital textual editing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminates the need to record any further editorial decisions in Week 6.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Week 6 introduces explicit normalization rules that build directly upon the consensus text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: The Method Generalizes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What overarching cyclical pattern connects all subsequent analytical stages (normalization, collation, apparatus, lemmatization) in this course?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Every remaining week repeats this procedure on a different operation — establish a reference by hand, verify it, measure against it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Establish a verified reference by hand, apply automated computational methods, measure the distance between them, categorize errors, and report with limitations stated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Every stage repeats the same rigorous scientific cycle: hand-crafted reference, automated execution, empirical measurement, and transparent auditing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Download third-party datasets from the internet, run automated neural scripts, and publish without human review.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The course emphasizes rigorous human grounding and empirical verification over passive automation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Translate all Greek texts into Latin, format with Microsoft Word, and print on parchment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The curriculum focuses on digital TEI XML standards and reproducible computational methods.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Rely exclusively on commercial closed-source software without inspecting algorithms or code.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The course teaches open-source algorithms, reproducible code, and custom verification toolchains.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: What the Numbers Are For</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is reporting an isolated error rate number (e.g. 'CER = 5.9%') without its methodological context fundamentally deficient?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A measurement is an argument whose premises are the reference, the preprocessing, and the alignment — reporting a figure without them is assertion, not measurement.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A measurement is an argument whose validity depends entirely on its premises: the calibrated reference, preprocessing decisions, alignment methods, and error typology.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An isolated figure is an unverified assertion; only the surrounding audit report provides the evidentiary basis that makes the measurement meaningful.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Error rate numbers are classified state secrets under international copyright treaties.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Error rates are public scientific metrics; their deficiency lies in lack of context.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Single numbers cause memory leaks in web browsers during digital edition display.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Displaying numbers does not cause memory leaks; the issue is epistemological validity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI schema rejects XML documents that contain numbers with decimal points.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Decimal numbers are standard in XML attribute values and documentation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

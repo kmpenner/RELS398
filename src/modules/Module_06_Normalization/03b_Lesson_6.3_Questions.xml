@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_06_Normalization/Lesson_6.3_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 6.3: AI-Assisted Normalization and the Risk of Over-Normalization.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Today's Question</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the central methodological question when evaluating generative AI for historical text normalization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The question is whether contextual capability is worth the fidelity and accountability it costs — not simply which method is more accurate.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Whether the contextual disambiguation capability AI brings is worth the loss of transparency, reproducibility, and the risk of over-normalization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The evaluation is not simply about raw accuracy, but balancing contextual power against editorial fidelity and inspectability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether language models can physically replace human eyes for reading damaged ink.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Today's task addresses linguistic normalization of transcribed text, not physical image transcription.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether AI models can automatically rewrite historical texts in modern English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization regularizes historical orthography, not translating languages.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether AI models can eliminate the need for version control in digital editions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Version control is essential for recording provenance and tracking changes across all methods.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Neural Normalization: The Sequence-to-Sequence Approach</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is training a character-level sequence-to-sequence model (such as a bi-LSTM) impractical for a single-folio term project?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Neural normalization is framed as character-level translation and works well with data — which you do not have at the scale it needs.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Neural sequence-to-sequence models require thousands of aligned training pairs to learn character transformations, which a single folio cannot provide.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Character-based translation models starve for data on small samples, requiring extensive historical corpora to achieve acceptable accuracy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Bidirectional LSTM networks are incapable of reading Greek characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Bi-LSTMs handle arbitrary Unicode character vocabularies effectively when trained on sufficient data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sequence-to-sequence models only run on supercomputers with quantum processors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Bi-LSTMs run on standard hardware; the constraint is training data volume.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI guidelines strictly forbid the use of recurrent neural networks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI guidelines govern XML encoding standards, not machine learning architectures.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Data Sparsity and Multi-Task Learning</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What empirical finding characterizes multi-task learning in historical text normalization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Multi-task learning helps only around 5,000 tokens and degrades with abundant data — manuscript work is always the sparse regime.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides significant error reduction when target data is exceptionally small (~5,000 tokens), but can degrade performance on abundant data due to domain mismatch.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Auxiliary tasks (like grapheme-to-phoneme mapping) help only in sparse-data regimes and harm performance when abundant target data is available.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It guarantees 100% accuracy on every historical language without exception.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Multi-task learning reduces error rates under sparsity, but never guarantees perfect accuracy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It completely eliminates the need for human editors to review normalization outputs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Human review remains mandatory to verify philological validity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It only functions when the auxiliary task is written in modern English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Auxiliary tasks typically involve related dialects, historical phonetics, or phonetic transcriptions.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: What Language Models Bring</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What capability do large language models bring to normalization that character-level rule scripts structurally lack?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Models bring exactly the contextual capability your rules structurally lack — and lose exact character alignment and verifiability doing it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Paragraph-level attention that enables contextual and syntactic disambiguation of ambiguous historical forms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Language models attend across surrounding sentences to determine grammatical roles that isolated token rules cannot discern.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Guaranteed mathematical verifiability for every character transformation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Language models are probabilistic black boxes lacking the mathematical inspectability of rule transducers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Flawless character-level alignment between diplomatic and regularized forms in strict TEI.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Models frequently struggle with exact character-level alignment in structured markup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Total immunity from hallucinating non-existent words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Generative models are prone to hallucination and lexical substitution without strict constraints.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: The Over-Normalization Risk</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the specific danger of over-normalization when using generative models on historical manuscripts?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Over-normalization produces better text than the manuscript contains — fluent, standard, and no longer a record of what was written.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The model prioritizes modern fluency over diplomatic fidelity, silently altering dialectal syntax, replacing archaic lexemes, or erasing valid variants.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Over-normalization produces 'better', more standard text than the scribe wrote, destroying authentic linguistic and transmission evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model crashes the local computer by generating infinite XML tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Over-normalization is a semantic and philological failure, not a computational crash.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model converts all Greek letters into Latin transliterations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The model generates Greek, but standardizes it excessively toward classical or modern norms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model deletes all punctuation marks and line breaks from the TEI header.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Over-normalization affects textual words and grammar, not header metadata.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Designing Today's Experiment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must the entire diplomatic text—including standard forms—be supplied to the model during the normalization experiment?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Supply the whole text, not just flagged tokens — a model that never sees a token cannot demonstrate over-application.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Supplying only flagged non-standard tokens makes it impossible to measure over-application and false positives on standard words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. To evaluate whether a model inappropriately alters valid historical words, it must be given the opportunity to process the entire text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Language models refuse to process prompts that contain fewer than 500 words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Models accept prompts of arbitrary length; full text is required for experimental validity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Standard Greek words are legally required to accompany historical variants.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The requirement is methodological and scientific, not legal.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Supplying partial text causes Git to reject the subsequent commit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks whatever files are committed; experimental integrity requires the complete text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Prompting for Constrained Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the model explicitly prompted to classify the <code>type</code> of variation (e.g., orthographic, dialectal, name, slip)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Requiring the model to state the <em>type</em> of variation forces the editorial judgement into the open where it can be checked.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It forces the model's underlying editorial classification into the open where it can be audited against the editor's policy.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Requiring a typed rationale allows the editor to check whether the model recognized an authentic dialectal form or mistook it for an error.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The <code>type</code> attribute is required for Python to parse JSON strings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. JSON parsers handle arbitrary keys; the <code>type</code> field is an editorial audit mechanism.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Classifying variation type automatically translates the text into modern English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Classification identifies historical linguistic categories, not translations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The <code>type</code> field allows the model to bypass character token limits.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Token limits are architectural constraints unaffected by JSON keys.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Running It</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must raw model proposals be committed to Git before any editorial review or correction takes place?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Commit the raw proposals before reviewing, and do not inject them into the TEI — the model proposes, you dispose.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It preserves the unedited machine output as an auditable baseline, ensuring performance and error rates are measured accurately.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Reviewing before committing blends human corrections with machine proposals, destroying the empirical evaluation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git automatically fixes any hallucinations in the JSON file during the commit process.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git records file states exactly as written without modifying content.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Unreviewed commits are required to generate Moodle XML question banks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Question banks are generated from curated Python data modules.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Committing raw output automatically publishes the text to academic journals.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Commits are private local repository milestones until pushed and published.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: The Three-Way Comparison</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are fidelity metrics (over-normalization rate, name violations, dialect collapse) essential alongside precision and recall?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Compute over-normalization, name violation, and dialectal collapse rates — precision and recall alone cannot show a model is modernizing rather than regularizing.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Precision and recall alone measure agreement with targets but fail to reveal whether the model is modernizing historical text and erasing linguistic data.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A model can achieve high precision while quietly erasing rare dialectal forms and modernizing archaic vocabulary.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Fidelity metrics are the only numbers accepted by the TEI header parser.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI headers store descriptive prose and arbitrary metadata.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Precision and recall cannot be calculated when comparing three methods.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Precision and recall are calculated pairwise across methods.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Fidelity metrics measure the computational speed and GPU power used during inference.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Fidelity metrics evaluate philological integrity and text preservation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Using the Baseline as a Detector</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the rule-based baseline detect generative over-normalization in language model proposals?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Proposals unreachable by any character-level rule are where the model stopped regularizing orthography — that is the detector.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because rules only perform character-level substitutions, model proposals with large edit distances from rule reachability flag semantic or morphological alteration.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When a model proposal cannot be reached by character rewrite rules, it has almost certainly substituted a modern synonym or altered grammar.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The rule baseline uses an online web crawler to check if the AI violated copyright law.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The detector uses string distance and rule reachability, not web crawlers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The rule baseline automatically deletes the AI model from the computer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The baseline is a diagnostic filter that alerts the human editor to inspect suspicious proposals.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The rule baseline converts all neural proposals into random Latin characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The baseline performs mathematical distance analysis on Greek text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Reading the Flagged Cases</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must an editor inspect high-deviation flagged cases individually rather than rejecting them automatically?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Inspect flagged cases individually — some are gaps in your rules, and some are the model quietly removing evidence Week 7 needs.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Some flagged cases may represent genuine orthographic variation that the rule set missed, while others represent destructive over-normalization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Flagged proposals can reveal valid gaps in the editor's rules as well as harmful model hallucinations or lexical substitutions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Individual inspection is required by the computer operating system to release disk space.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. File space is managed by the OS independently of editorial inspection.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All flagged proposals are guaranteed to be 100% correct.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. High-deviation proposals are precisely where models most frequently over-normalize or hallucinate.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated rejection causes Git to corrupt the commit history DAG.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git history is unaffected by editorial acceptance or rejection.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Testing the Ambiguous Set</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When evaluating how a language model resolves contextually ambiguous tokens, what must be assessed in addition to its final answer?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Check whether correct resolutions come with genuine contextual reasons — a right answer without the reasoning has not demonstrated the capability.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Whether the model provided a valid contextual and syntactic explanation rather than asserting a standard form based on frequency alone.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A correct answer with a generic explanation may be a lucky guess; genuine contextual disambiguation demonstrates syntactic reasoning.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether the model generated the answer in less than one millisecond.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Inference speed does not validate linguistic reasoning.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether the model used uppercase letters for all Greek words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Greek casing conventions follow orthographic standards, not reasoning quality.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether the model can translate the passage into five modern languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Multilingual translation is irrelevant to Greek contextual disambiguation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: The Downstream Paradox</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the 'downstream paradox' identified by Robertson and Goldwater regarding neural historical text normalization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Neural normalization generalizes well and may deliver no downstream benefit over memorization — which is why auditing against a rule baseline is the recommended practice.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Neural models generalize well to unseen variants, but they do not consistently yield significant downstream NLP improvements over a naive memorization baseline.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Despite theoretical advantages, sophisticated neural normalizers often fail to improve downstream tagging more than simple lookup tables.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Downstream parsers always crash when processing regularized Greek text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Parsers operate effectively on standard forms; the paradox concerns the relative gain over memorization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Normalizing text makes it completely impossible to perform lexical searches.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization enables lexical search; the paradox concerns downstream POS tagging gains.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Neural models refuse to process text that contains downstream XML milestones.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The paradox is an empirical NLP finding, not an XML formatting bug.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Retrieval-Augmented Grounding</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does lightweight retrieval-augmented grounding (RAG) reduce the risk of over-normalization in language models?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Supplying candidates from your own lexicon constrains the model to attested forms — a lightweight grounding that removes much of the over-normalization risk.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Supplying candidates from a project lexicon and policy constraints restricts the model to attested forms, preventing out-of-vocabulary hallucinations and modernizations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Grounding anchors the model's generation in verified historical vocabulary and explicit editorial rules.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>RAG permanently disconnects the computer from the local area network.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. RAG structures prompt context; it does not disable networking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>RAG replaces the need for any human editorial review of the text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Grounded proposals still require human verification against the manuscript.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>RAG converts the entire TEI XML file into uncompressed audio files.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. RAG operates entirely on text and structured data.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Direct TEI Generation and Its Failure</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the most dangerous failure mode when prompting a language model to generate TEI <code>&lt;choice&gt;</code> markup directly?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A model-generated <code>&lt;orig&gt;</code> that has been partly normalized destroys the diplomatic layer silently — check it character by character.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The model silently regularizes the <code>&lt;orig&gt;</code> element, permanently corrupting the diplomatic record without leaving visible traces.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. If <code>&lt;orig&gt;</code> is altered, the diplomatic layer ceases to reflect the manuscript, silently destroying primary evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model outputs well-formed XML that passes all schema validation checks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Well-formed valid XML is desirable; the danger is corrupted diplomatic text within valid tags.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model adds too many comments explaining historical Greek grammar.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Excessive commentary is a minor formatting issue, not a destruction of primary evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model compiles the TEI file into a PDF document automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. PDF compilation is performed by external build tools, not model prompt outputs.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Projecting Accepted Proposals</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the precise scholarly meaning of <code>@resp="#llm"</code> on an accepted <code>&lt;choice&gt;</code> regularization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>@resp</code> records what proposed a regularization, not what decided it — you decided all three classes, and nothing enters unreviewed.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It indicates that the language model proposed the regularization, while the human editor reviewed and accepted responsibility for it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <code>@resp</code> records proposal provenance; the editor remains accountable for every claim included in the edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It declares that the model legally owns the copyright to that specific word.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>@resp</code> tracks scholarly provenance, not legal ownership.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It informs downstream software that the word should be hidden from human readers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Regularized words are displayed in reading views regardless of proposal agent.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It signals that the word was emended without consulting the manuscript facsimile.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. All accepted proposals must be verified against the manuscript facsimile.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Assembling the Week's Findings</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the comparative assessment of the three normalization methods, what unique guarantee does the rule script provide?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The rule script *cannot* over-normalize, which is a guarantee rather than an observation — the model's equivalent cells must be measured.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The rule script structurally cannot over-normalize or collapse dialectal forms, because it only performs character-level substitutions conditioned on lexicon presence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The rule script's mathematical constraints guarantee that it cannot invent words or modernize syntax, whereas model outputs must always be tested.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The rule script guarantees 100% recall across every folio of the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Rule scripts often miss unseen variants, yielding moderate recall.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The rule script eliminates the need to record provenance in the TEI header.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. All methods require clear provenance declarations in the header.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The rule script automatically resolves all contextually ambiguous Greek forms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Rule scripts decline ambiguous tokens because they process tokens in isolation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Drawing the Conclusion</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What characterizes a rigorous, evidence-based conclusion in a normalization study?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A hybrid conclusion derived from your own measurements is worth more than the same conclusion adopted from the literature.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides specific quantitative metrics (precision, recall, over-normalization rate) and articulates a hybrid division of labor based on empirical findings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A strong conclusion is quantified, acknowledges specific model failure modes, and recommends targeted hybrid workflows.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It asserts that AI models have made human philologists completely obsolete.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Uncritical enthusiasm ignores documented failure modes and the necessity of human judgement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It claims that computers should never be used in digital humanities research.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Rejecting computational tools ignores the scalability and precision of hybrid pipelines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It copies verbatim paragraphs from commercial AI marketing brochures.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly conclusions must be grounded in primary empirical measurements.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Guarding Against Black Boxes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does an editor practice methodological scepticism when integrating AI tools into a scholarly edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Scepticism is a working practice — establish the standard, build a detector, constrain explicitly, measure fidelity, review everything, record provenance.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By establishing ground truth first, building a baseline detector, constraining prompts, measuring fidelity, and reviewing all proposals before inclusion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Scepticism is an active engineering and philological practice that guards the edition against unverified black-box claims.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By refusing to turn on the computer or use digital text editors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital methods are central to modern scholarship when properly disciplined.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By accepting all model outputs without review to speed up publication.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Uncritical acceptance introduces silent errors and corrupts the diplomatic record.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By deleting all documentation so readers cannot inspect how the text was made.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hiding methods creates a black box; scholarship requires full transparency.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Updating the Header</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should the TEI header's <code>&lt;editorialDecl&gt;</code> describe the human review protocol and error-detection methodology?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Record the review practice, not only the methods — a reader needs to know that nothing entered unreviewed and how review was targeted.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It demonstrates to readers that machine proposals were systematically audited, establishing the evidentiary reliability of the entire regularized layer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Documenting the review protocol proves that no unverified machine claims entered the edition, ensuring academic credibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is required by search engines to index polytonic Greek characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Search indexing operates on text content, not TEI editorial declarations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically generates PDF companion notes without running build scripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. PDF compilation requires dedicated software pipelines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It transfers legal liability for errors to the software developer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial declarations establish scholarly transparency, not legal liability.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Checklist Before You Leave</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is a character-by-character check of model-generated <code>&lt;orig&gt;</code> elements a mandatory verification step?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Check model-generated <code>&lt;orig&gt;</code> character by character — a silently normalized diplomatic layer is the failure that cannot be recovered from.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A model that silently normalizes the <code>&lt;orig&gt;</code> layer destroys the primary diplomatic evidence in a way that cannot be recovered from the XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. If the diplomatic layer is compromised, the edition ceases to be an authentic record of the manuscript witness.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Checking characters is required to convert the file into an image format.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Character verification ensures textual fidelity, not image conversion.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Python interpreter crashes if an <code>&lt;orig&gt;</code> tag contains Greek accents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python processes accented Unicode characters without error.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Unchecked <code>&lt;orig&gt;</code> tags are automatically deleted by Git after pushing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git preserves all committed text exactly as authored.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Common Problems Today</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is an apparently perfect (0%) over-normalization rate misleading if reported in isolation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>An excellent over-normalization rate on a model that proposed almost nothing is meaningless — read fidelity measures alongside recall.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A model that was over-constrained and proposed almost no regularizations will have zero over-normalizations while achieving near-zero recall.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Fidelity metrics must always be evaluated alongside recall; doing nothing yields zero errors but zero utility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A 0% over-normalization rate causes a division-by-zero error in Python.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Zero percentages are valid numbers; the issue is methodological interpretation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A 0% over-normalization rate proves that the model achieved super-human intelligence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Zero over-normalization coupled with low recall simply reflects an inactive model.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI guidelines require every edition to contain at least 10% erroneous regularizations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editions strive for zero errors through rigorous human review.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: What Good Work Looks Like Here</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the methodological difference between using the rule baseline as a competitor versus using it as a detector?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Using the rule baseline as a detector — rather than merely as a competitor — is what makes today an audit rather than a comparison.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A competitor merely compares aggregate accuracy scores, whereas a detector uses character reachability to actively audit and flag suspicious neural outputs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Using the baseline as a detector turns the deterministic script into an active quality assurance instrument for evaluating AI.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A competitor runs on a different computer, whereas a detector runs in the cloud.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both techniques run locally within the project evaluation pipeline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A detector automatically deletes any files created by the competitor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The detector inspects and flags text tokens for human review.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A competitor evaluates Latin text, while a detector evaluates Greek text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both apply across historical languages.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Connecting to the Weeks Ahead</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the regularized layer created this week indispensable for Week 9's automated lemmatization and parsing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Week 7 must choose a layer to collate on — <code>&lt;reg&gt;</code> for substantive variants, <code>&lt;orig&gt;</code> for evidence of shared descent.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Automated morphological parsers and digital lexicons fail on unnormalized historical phonetic spellings, requiring standard forms in <code>&lt;reg&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Lexicons and parsers expect standard classical headwords; iotacistic spellings in raw text break morphological lookup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Morphological parsers only execute on files that have been published in print.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Parsers run on digital text files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Week 9 requires all Greek words to be converted into English translations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lemmatization identifies Greek dictionary lemmas, not English translations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The regularized layer is used to calculate physical parchment thickness in Week 9.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Regularization addresses linguistic spelling, not codicological measurements.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: The Week's Three Methods, Reviewed</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do the three steps of Topic 6 relate to one another in the overall project architecture?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Each method's limits define the next one's job — which is why none of the three steps is redundant.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Each method's structural limitations define the next method's role: manual sets policy, rules provide verifiable baselines, and AI assists with context.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The cycle is non-redundant and hierarchical: each method addresses the specific blind spots of the preceding tool.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The three steps are identical duplicates created to increase student homework volume.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Each step explores a distinct computational and philological paradigm.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Only the AI step is kept in the final edition; the manual and rule steps are discarded.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. All three steps contribute to the multi-layered edition and its documented provenance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The three methods are competing commercial software products licensed by the university.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. They represent core methodologies in digital scholarly editing.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: A Note on What Was Preserved</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the ultimate scholarly achievement of encoding regularizations in parallel TEI XML?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Not one original form was overwritten — that is the week's actual achievement, and it came from ordinary decisions made deliberately.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Not a single historical scribal spelling was overwritten, allowing diplomatic fidelity and modern computational searchability to coexist perfectly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. By refusing the false choice between diplomatic and critical texts, TEI preserves primary evidence while enabling modern research tools.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The digital edition was compressed into a proprietary encrypted format.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI XML is an open, non-proprietary international standard.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All manuscript spelling variations were eliminated from historical memory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Variations are preserved permanently in <code>&lt;orig&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The need for human scholars to read manuscripts was permanently removed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital editions enhance and empower human philological research.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Preparing for Week 7</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What critical preparation must be completed during the Fall Study Break before Week 7's collation sessions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Use the study break to transcribe your second witness — Week 7's collation needs two witnesses and cannot proceed with one.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Transcribing the corresponding lines of a second manuscript witness, since automated collation requires at least two witnesses to compare.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Collation aligns and compares multiple texts; without a second transcribed witness, collation cannot take place.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Purchasing a commercial license for proprietary collation software.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The course uses open-source tools like CollateX.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Memorizing the entire Greek New Testament in modern monotonic spelling.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarship relies on critical editions and tools, not rote memorization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deleting the Git repository to start Week 7 with a clean slate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The repository must be preserved and expanded across the term.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: What the Assignment Will Require</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it strongly recommended to draft the over-normalization analysis immediately rather than waiting until the assignment due date?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Write the over-normalization analysis today — the study break intervenes and reconstructing today's reasoning later is much harder.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The Fall Study Break intervenes, and reconstructing today's empirical measurements and reasoning weeks later is substantially harder.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Documenting experimental findings while the comparison data and decision rationale are fresh ensures accurate reporting.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Assignment reports submitted after today are subject to automatic deletion by Git.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git never deletes files automatically; immediate drafting preserves fresh analytical insights.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Python scripts will self-destruct once the study break begins.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Local scripts and repositories persist indefinitely.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>University servers block all assignment submissions during study breaks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Submissions and repositories remain fully accessible.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: A Note on Judgement</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is an explicit, documented normalization policy more valuable to future scholarship than an unstated traditional editorial standard?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Stating the policy does not make it right; it makes it arguable, which is the condition under which it can be improved.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An explicit policy makes editorial decisions arguable, testable, and improvable, whereas unstated practices conceal assumptions from scrutiny.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Transparency allows future scholars to understand, evaluate, and re-analyze editorial choices under different assumptions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An explicit policy guarantees that no future scholar will ever disagree with the text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarship thrives on debate; explicit documentation provides the evidence needed for informed disagreement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Documented policies allow web browsers to display 3D animations of the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial documentation serves philological rigor, not 3D web animations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Unstated practices are strictly illegal under digital repository regulations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Documenting policy is a standard of scholarly excellence, not administrative regulation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: Fluency Against Fidelity, Again</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the ultimate lesson regarding generative AI models in textual scholarship?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The model's failure mode is improvement rather than error, and improvement has no image to check against — which is why the verifiable baseline is the detector.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Generative models fail through fluent 'improvement' rather than obvious errors, making verifiable deterministic baselines essential for detecting subtle alterations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Because over-normalized text looks polished and standard, an inspectable rule baseline is required to catch where authentic historical evidence was erased.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Generative models should be used without restriction for all scholarly editing tasks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unrestricted models silently erase authentic linguistic and textual variation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Generative models are incapable of generating valid Greek words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Models generate highly fluent Greek; the danger is that it is too fluent and unfaithful to the manuscript.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deterministic rule baselines are obsolete and should be replaced entirely by generative AI.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Verifiable rule baselines are the vital detector and check on opaque AI models.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

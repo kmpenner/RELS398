@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Topic_02_Cataloguing"
+TOPIC = "Module_02_Cataloguing"
 TITLE = "Deterministic Schema Validation, Linked Data, and Canonical Citation"
 
 QUESTIONS = [

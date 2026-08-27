@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Topic_02_Cataloguing"
+TOPIC = "Module_02_Cataloguing"
 TITLE = "AI-Assisted Metadata Enrichment, Entity Extraction, and Validation Auditing"
 
 QUESTIONS = [

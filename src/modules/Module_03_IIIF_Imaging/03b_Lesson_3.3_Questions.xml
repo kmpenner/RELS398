@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_03_IIIF_Imaging/Lesson_3.3_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 3.3: Building the Manifest and Binding It to TEI.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: What Today Produces</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does the bidirectional coordinate binding created in Lesson 3.3 enable for a digital edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Today's artefact links each transcribed line to the exact region of parchment it transcribes, in both directions and machine-actionably.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A reader can click any transcribed line to view the exact parchment region, or select a manuscript region to view its transcription, making evidence machine-actionable.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Coordinate binding links text to image in both directions, making every reading immediately verifiable against its physical evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically translates Greek verse into rhyming English poetry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The binding links transcription lines to image coordinates; it does not generate poetic translations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It compiles the digital edition into a physical print book using an automated printing press.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It builds a web-accessible, machine-actionable digital link between text and evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It locks the digital edition behind a paywall to monetize access to manuscript scans.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The binding creates open, interactive scholarly links between text and evidence.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Two Manifests, Two Situations</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In 'Situation B' (authoring your own IIIF manifest for your passage), what is your relationship to the image files?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Authoring a manifest does not mean hosting images — you describe an object that references the institution's Image API endpoints.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>You author a JSON-LD manifest describing the object and its sequence, but the images remain hosted and served by the holding institution's Image API endpoints.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Authoring a manifest does not mean hosting images yourself; you describe the object and reference existing Image API endpoints.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>You must download all master TIFFs and host them on a private dedicated physical server in your home.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Situation B references external institutional Image API endpoints without hosting image files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>You take legal ownership of the physical manuscript codex and its copyright.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Authoring a digital manifest has no effect on legal ownership of physical objects.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>You re-photograph the original manuscript in the library reading room.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. You construct a manifest referencing existing digital images.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Recording Canvas Identifiers</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it essential to record both canvas dimensions (<code>height</code>, <code>width</code>) and image dimensions (<code>body.height</code>, <code>body.width</code>) when surveying folios?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Record canvas ids, canvas dimensions, and image dimensions together — where the last two differ, every coordinate needs scaling.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Canvas dimensions define the coordinate space for annotations; if image dimensions differ from canvas dimensions, all computed coordinates require scaling.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. If canvas and image pixel dimensions differ, coordinates calculated from image pixels will be systematically offset unless scaled.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>If canvas dimensions are recorded, web browsers will refuse to display text fonts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Canvas dimensions establish the 2D coordinate space for annotations and images.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Image dimensions must match canvas dimensions down to the nanometer under international treaty.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Mismatches are common technical variations that require simple proportional scaling.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Recording image dimensions is only required for manuscripts written after the invention of print.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Coordinate scaling applies to all digital surrogates regardless of date.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Determining Coordinates for a Region</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does Lesson 3.3 require students to measure and bind a few lines by hand rather than relying entirely on automated tools?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Bind a few regions by hand today so that you can verify next week's automated line coordinates against a known-good case.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Hand-measured coordinates provide an understood, known-good control against which next week's automated HTR line coordinates can be verified for scaling or offset errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Having a hand-verified ground truth allows immediate detection of systematic scaling or translation errors in automated transforms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated HTR tools are strictly forbidden by TEI Consortium licensing regulations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HTR and automated layout analysis are central tools introduced in Week 4.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hand measurement is the only way to generate XML files that pass RelaxNG validation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validation checks XML syntax and schema conformance, not the method of measurement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Computer algorithms cannot calculate pixel coordinates on 2D images.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Algorithms calculate coordinates rapidly; hand measurement provides a reliable control.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: The TEI Facsimile Module</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do the core elements of the TEI <code>&lt;facsimile&gt;</code> module map conceptually to IIIF Presentation API entities?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<facsimile> describes surfaces and zones separately from the transcription, and TEI <surface> maps to a IIIF canvas.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>&lt;facsimile&gt;</code> corresponds to the Manifest, <code>&lt;surface&gt;</code> maps to a Canvas, and <code>&lt;zone&gt;</code> corresponds to a canvas coordinate region (fragment selector).]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. TEI <surface> models a physical writing surface (IIIF Canvas), and <zone> models a bounded region on that surface.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;facsimile&gt;</code> represents a SQL database, <code>&lt;surface&gt;</code> represents an audio recording, and <code>&lt;zone&gt;</code> represents a CSS font.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI facsimile elements model physical documents and their digital spatial surrogates.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;surface&gt;</code> represents an individual word, while <code>&lt;zone&gt;</code> represents the entire library building.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <surface> represents a page/canvas; <zone> represents a sub-region (line/block/word).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;facsimile&gt;</code> is restricted to modern photographs, while IIIF is restricted to handwritten parchment.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both TEI facsimile and IIIF apply across all historical and modern documents.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Two Coordinate Conventions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the key geometric difference between TEI <code>&lt;zone&gt;</code> coordinate attributes (<code>ulx</code>, <code>uly</code>, <code>lrx</code>, <code>lry</code>) and a IIIF fragment selector (<code>#xywh=x,y,w,h</code>)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI names two corners and IIIF names a corner plus dimensions; treating IIIF's last two values as a corner produces regions that are too large.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>TEI specifies two opposite diagonal corner points (<code>upper-left</code> and <code>lower-right</code>), whereas IIIF specifies one corner point (<code>x,y</code>) plus <code>width</code> and <code>height</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. TEI defines opposite corners (ulx/uly to lrx/lry), whereas IIIF defines top-left origin plus width and height.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI coordinates are measured in inches, while IIIF coordinates are measured in millimeters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both systems use unitless integer coordinates in their respective canvas spaces.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI places the origin (0,0) at the bottom-right, while IIIF places it in the exact center.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both conventions place the coordinate origin (0,0) at the top-left corner.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI coordinates must always be prime numbers, whereas IIIF requires powers of two.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Coordinates in both formats are arbitrary integers representing spatial bounds.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Binding Transcription to Zones with @facs</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In a TEI document, how does a line beginning element (<code>&lt;lb&gt;</code>) link to its corresponding physical region on the manuscript?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>@facs on <pb> and <lb> binds transcription to zones; declare zones locally so coordinates can be corrected in one place.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It uses the <code>@facs</code> attribute containing a fragment reference (e.g., <code>facs="#f42r_l01"</code>) pointing to the <code>xml:id</code> of a declared <code>&lt;zone&gt;</code> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <lb n="1" facs="#f42r_l01"/> points to the <zone xml:id="f42r_l01" ...> declared in the <facsimile> header.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It embeds a base64-encoded JPEG image directly inside the <code>&lt;lb&gt;</code> element text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <lb> is an empty milestone element linking via @facs, not embedding binary data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It uses a CSS class selector that fetches random image tiles from search engines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. @facs resolves to explicit XML zone identifiers within the document or external canvas URIs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It executes a JavaScript <code>fetch()</code> command that modifies the remote TEI schema.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI is declarative XML markup; @facs is an attribute expressing an ID reference.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Connecting surface to the IIIF Canvas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does a TEI <code>&lt;surface&gt;</code> element establish a bidirectional link to a IIIF Presentation API Canvas?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Put the canvas URI on <surface> and record dimensions at every level, so coordinate mismatches can be detected rather than silently misplacing regions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By declaring the full canvas URI in its <code>@facs</code> attribute (e.g., <code>facs="https://.../canvas/p42"</code>) and recording surface dimensions in <code>ulx, uly, lrx, lry</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The <surface> carries the external canvas URI in @facs and defines the surface coordinate bounds in its attributes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By attaching a PDF copy of the manuscript to the TEI document via an email attachment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The link is established through web URIs in the @facs attribute.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By embedding the library's SQL database username and password in <code>&lt;surface&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Public canvas URIs require no database credentials.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By requiring all users to install a proprietary desktop font before opening the file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The connection is a standard web identifier link between XML and JSON-LD.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Generating the Fragment URI</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Given a <code>&lt;surface facs="https://.../canvas/p42"&gt;</code> and a child <code>&lt;zone xml:id="l01" ulx="420" uly="512" lrx="2580" lry="640"/&gt;</code>, what is the resulting IIIF fragment URI for line 1?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Verify every binding by constructing the Image API URL for its region and confirming the returned image shows what you expected.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>https://.../canvas/p42#xywh=420,512,2160,128</code>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Width is 2580 - 420 = 2160 and height is 640 - 512 = 128, yielding #xywh=420,512,2160,128 appended to the canvas URI.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>https://.../canvas/p42#xywh=420,512,2580,640</code>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This mistakenly copies lrx and lry directly as width and height without subtracting ulx and uly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>https://.../canvas/p42#corners=420,512,2160,128</code>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The IIIF media fragment selector syntax uses #xywh=, not #corners=.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>https://.../canvas/p42/crop/420/512/2580/640</code>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This is an invalid URL structure; IIIF fragment selectors use standard #xywh= syntax on canvas URIs.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Authoring a Manifest: The Skeleton</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is generating a IIIF manifest using a Python script preferable to hand-editing the JSON file?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Generate manifests from a script rather than hand-editing JSON, and commit the generator alongside its output.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A script enforces correct JSON-LD structure, generates language maps, formats required metadata consistently, and enables reproducible regeneration.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Scripting prevents recurring syntax mistakes (trailing commas, string labels vs. language maps) and ensures reproducibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hand-edited JSON files are automatically deleted by the operating system.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hand-edited files are valid if syntax is correct, but prone to human authoring errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Python scripts are the only software licensed to output Unicode Greek characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Any text editor can write Unicode Greek; scripts automate structural consistency.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>IIIF validators reject manifests that were not compiled by Python 3.12.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validators evaluate JSON-LD syntax and schema compliance regardless of how the file was generated.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Authoring a Manifest: Canvases</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In a Presentation API 3.0 manifest, what is the consequence of omitting the <code>service</code> block inside an image body?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Include the service block or deep zoom will not work, and set canvas dimensions from the image's own dimensions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The viewer treats the image as a single static file and cannot request multi-resolution tiles, degrading deep zoom to client-side image scaling.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The service block informs the viewer of the Image API service endpoint needed for dynamic deep zoom tiling.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The viewer will invert the colors of the manuscript, turning black ink white.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Omission of the service block disables dynamic tiling; it does not invert pixel colors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The web browser will permanently block all network traffic to the domain.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The image will simply be loaded as a static file without deep zoom capability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The manifest file will fail JSON syntax parsing with a fatal error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The JSON remains syntactically valid, but lacks the image service description for deep zoom.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Adding a Choice for Spectral Layers</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When constructing a <code>Choice</code> body for alternative spectral layers on a canvas, what should the first entry in the <code>items</code> array represent?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A Choice expresses spectral alternatives on one canvas, and its labels must state the imaging conditions precisely enough to be evaluated.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The natural visible-colour image, because viewers display the first item in the <code>Choice</code> list by default.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The initial item in a Choice list is the default display layer in viewers like Mirador.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An uncalibrated high-noise PCA component to test viewer rendering speed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The default view should be the standard natural-colour image for baseline reading.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A blank transparent PNG file to obscure the manuscript from unauthorized viewers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Choice layers present real alternative imaging captures for scholarly use.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The institutional library's logo in vector SVG format.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Choice items must be image layers of the physical manuscript folio.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Ranges: Identifying Your Passage Within the Codex</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is using a IIIF <code>Range</code> preferable to publishing an extracted passage as a standalone, disconnected manifest?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A range identifies your passage within the full codex rather than detaching it, preserving the codicological context as part of the edition.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A <code>Range</code> identifies the passage's constituent canvases within the codex's full sequence, preserving codicological context as scholarly evidence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Ranges allow navigation directly to a passage while maintaining its structural place within the complete manuscript.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Standalone manifests are forbidden under the IIIF specification.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standalone manifests are syntactically legal, but isolate the passage from its codicological context.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ranges automatically encrypt the rest of the manuscript to prevent unauthorized browsing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ranges provide table-of-contents navigation across open canvases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A <code>Range</code> converts medieval Greek script into modern German prose.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ranges define structural groupings of canvases, not textual translations.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Validating What You Have Built</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is structural schema validation alone insufficient to ensure a IIIF manifest and its TEI bindings are correct?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Validators check structure, not meaning — a conformant manifest can have every coordinate wrong, so verify regions visually.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Validators check syntax and schema conformance, but cannot detect whether coordinates point to the wrong lines or whether remote image URLs resolve.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A manifest can pass all schema validators while pointing to moved images or misplaced coordinates; visual checking is required.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Schema validators only run on Windows operating systems.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validators run across all platforms; their limitation is checking form rather than empirical accuracy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Schema validators intentionally insert random coordinates into XML documents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validators are deterministic checking tools.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Validating TEI documents invalidates the accompanying Git repository history.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validation checks files without affecting version control history.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Preparing for HTR Ingestion</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must a custom IIIF manifest be published at an HTTP/HTTPS URL rather than remaining as a local file before Week 4?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>HTR platforms fetch manifests over HTTP, so a manifest that exists only as a local file cannot be ingested.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>HTR platforms (like Transkribus or eScriptorium) fetch images by dereferencing the manifest URL over the public web during ingestion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Remote cloud HTR platforms require public HTTP/HTTPS endpoints to fetch manifests and image tiles.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Local JSON files are automatically erased by Git upon commit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks local files normally; the constraint is remote platform web accessibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Local files cannot store numbers larger than 1000.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. File systems handle arbitrary data; HTR servers simply cannot access private local paths.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The IIIF specification requires manifests to be stored exclusively on government servers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manifests can be hosted on any web server, such as GitHub Pages.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: From ALTO to TEI: What Next Week Produces</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do the spatial coordinates emitted in ALTO/PAGE XML by HTR platforms relate to TEI <code>&lt;zone&gt;</code> elements?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>ALTO coordinates are in image pixels, so today's hand-verified zones are the control that will catch a scaling error in next week's transform.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>ALTO outputs bounding boxes in image pixel coordinates, which correspond structurally to TEI zones but may require scaling if canvas dimensions differ from image pixels.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. ALTO <TextLine> boxes map directly to TEI zones, requiring coordinate scaling if canvas and image spaces diverge.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>ALTO coordinates are expressed in degrees of latitude and longitude.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. ALTO uses 2D raster pixel bounding boxes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>ALTO XML does not record any spatial coordinates or line positions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. ALTO is an established spatial standard recording bounding boxes and baselines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI zones cannot accept numeric coordinates from automated OCR/HTR tools.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI <zone> attributes (ulx, uly, lrx, lry) specifically store geometric coordinates.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: What Belongs in the Repository</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should manifest generator scripts (e.g., <code>build_manifest.py</code>) and source documentation (<code>SOURCES.md</code>) be committed alongside generated JSON files?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Commit generators alongside generated files, and record external resources as documents because they change without notice.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Committing generators and documentation ensures reproducibility, explaining how data was constructed and preserving external endpoint records against link rot.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Generators and source records make the digital edition fully auditable, reproducible, and resilient over time.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git repositories fail to push if they contain only JSON files without Python code.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks any file type; the rule ensures scholarly auditability and reproducibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Committing Python scripts prevents external researchers from viewing the JSON files.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Version-controlled scripts document the transformation pipeline openly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Generator scripts automatically delete compiled editions after thirty days.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scripts provide permanent, reproducible build instructions.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: The Cataloguing and Metadata Assignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the Cataloguing and Metadata Assignment, what is evaluated alongside the correctness of the TEI header and image bindings?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The commit history is assessed alongside the content, and an invalid TEI header is the most common avoidable failure.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The Git commit history, which must demonstrate atomic, typed commits with informative rationale explaining editorial decisions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The version-controlled process record is an assessed deliverable alongside the TEI and metadata content.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The speed at which the student typed their transcription in words per minute.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Typing speed is irrelevant; structural accuracy and process rationale are assessed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether the student purchased a commercial font licence for their edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The course uses open standards and open-source tooling.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The physical weight of the student's computer hardware.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Assessment focuses on scholarly encoding, metadata, and version control discipline.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Common Errors in Today's Work</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>If every bounding box on a folio is shifted and scaled by an identical ratio, what is the root cause?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A scaling error makes every binding wrong by the same ratio, so it looks internally consistent — only visual comparison catches it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A scaling discrepancy between canvas coordinate dimensions and master image pixel dimensions that was not corrected during coordinate conversion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A constant ratio error across all zones indicates a failure to scale image pixel coordinates to canvas dimensions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The medieval scribe used a crooked ruler when drawing ink guidelines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scribal ruling variations are local physical irregularities, not systematic digital scaling ratios.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The web browser is running low on battery power, causing pixel compression.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Battery levels have no effect on mathematical coordinate rendering in browsers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The XML document contains a typo in its root <code>&lt;TEI&gt;</code> namespace tag.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Namespace typos cause schema validation failures, not proportional coordinate scaling offsets.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Exercise: Build the Binding</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is hand-verifying three lines of transcription coordinates more valuable today than generating three hundred unverified line coordinates?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Three verified lines are worth more than three hundred unverified ones — the point is a control you understand.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Three hand-verified lines provide an understood, reliable baseline to calibrate and debug next week's automated HTR coordinate transformation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A carefully verified small control set allows rapid detection and correction of systematic pipeline errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI schemas reject documents that contain more than three lines of text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI documents can contain millions of lines; the limitation today is pedagogical focus on verification.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Three lines is the maximum amount of text that can fit in a single Git commit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git commits can store arbitrarily large files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hand measurement takes 24 hours per line, making larger samples physically impossible.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hand measurement takes seconds, but establishing a verified control is the primary objective.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Bidirectionality and What It Enables</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does bidirectional coordinate binding streamline Week 5's transcription reconciliation phase?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The binding makes verification cheap, and cheap verification is verification that actually happens.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An editor can click directly between disputed readings in the text and the corresponding manuscript image region instantly, making verification rapid and routine.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Direct spatial jumping allows editors to check ground truth against HTR output in seconds rather than hunting through facsimiles.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows the computer to automatically overwrite the manuscript image with modern Greek typography.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The binding creates navigable links between transcription and original images.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminates the need for human editors to review transcription errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Bidirectional navigation empowers human editors to reconcile readings efficiently.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It translates the manuscript into Latin, Hebrew, and Syriac simultaneously.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Spatial binding connects transcription to image coordinates.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Coordinate Stability Over the Term</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the most effective safeguard against institutional image rescans that change canvas dimensions later in the term?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Record the canvas dimensions your coordinates were computed against, because a rescan invalidates them silently.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Record the original canvas dimensions alongside your coordinates and document access dates, allowing a mathematical correction factor to be computed if dimensions change.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Recording baseline dimensions and access dates enables systematic recalculation if an institution republishes at different dimensions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Store all coordinates exclusively in handwritten paper notebooks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital reproducibility requires version-controlled records in the repository.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Disable all internet connections on your computer until December.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital scholarship requires web connectivity; recording baseline metadata safeguards against changes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Request that the holding library freeze all digitization activities worldwide.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Libraries update digital holdings independently; defensive documentation is the editor's responsibility.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Looking Ahead: Week 4 and the Three-Step Cycle</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What role does Tuesday's manual diplomatic transcription play in the course's three-step comparative cycle?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Tuesday's manual transcription is the ground truth that every later measurement depends on, and today's binding is what makes transcribing accurately affordable.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It establishes the verified human ground truth against which deterministic HTR (Wednesday) and AI-assisted transcription (Friday) are objectively evaluated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The manual diplomatic transcription serves as the baseline ground truth for measuring HTR and LLM error rates in Week 5.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It serves as a rough, disposable draft that will be deleted once AI models run.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual transcription is the gold-standard ground truth for the entire course.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is an optional exercise that can be skipped if automated OCR passes without syntax errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Establishing human ground truth is mandatory for comparative evaluation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It generates the final published critical commentary automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Commentary is authored in Week 12 based on the verified edition.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Publishing the Manifest</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When publishing a custom manifest via GitHub Pages, what two technical requirements must be satisfied for external IIIF viewers to load it?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The manifest's id must equal its actual URL, and CORS must permit cross-origin loading or only your own machine can use it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The manifest's declared <code>id</code> must match its public URL, and the server must provide permissive Cross-Origin Resource Sharing (CORS) headers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. IIIF requires matching dereferenceable id URLs and CORS headers to allow cross-domain viewer loading.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The manifest must be password-protected and encrypted with a 4096-bit RSA key.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Public IIIF manifests must be accessible without authentication or private encryption.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The repository must be written in assembly language and hosted on a physical mainframe.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GitHub Pages provides standard static HTTPS hosting for JSON-LD files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The manifest must be converted into a PDF document before publication.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manifests must remain valid JSON-LD files.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: The Week in the Arc of the Course</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the infrastructure built in Week 3 (IIIF manifests, canvases, and coordinate bindings) support the remaining weeks of the course?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Nearly every remaining layer of the edition attaches to the canvas coordinate space built this week.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides the unified spatial coordinate spine to which transcription, normalization, collation, apparatus, and commentary all attach.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Every subsequent layer of the digital edition anchors directly to the canvas coordinate space established this week.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It completes all course work, making the remaining ten weeks unnecessary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Week 3 establishes the imaging foundation; the edition itself is constructed in Weeks 4 through 13.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces the TEI XML guidelines with an image-only photo album.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI text and IIIF images are bound together into an integrated digital edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It restricts all subsequent work strictly to printing physical paper facsimiles.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The infrastructure enables interactive digital publication and analysis.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Interoperability as a Scholarly Value</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In what way is technical interoperability (IIIF/TEI) analogous to traditional scholarly apparatus conventions (sigla, apparatus criticus)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Standards let scholars cooperate without coordinating, and an edition that only its author can use is not yet scholarship.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Both are standardized conventions that allow independent scholars to communicate, compare, and verify evidence without requiring prior bilateral coordination.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Standardized protocols and critical sigla both enable collaboration and verification without bilateral negotiation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both were invented in the twenty-first century by commercial software corporations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Critical apparatus conventions evolved over centuries of classical philology.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both are designed to restrict manuscript reading exclusively to tenured university professors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Open standards democratize access and enable transparent scholarly communication.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both require specialized proprietary software licences that expire annually.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both represent open, enduring scholarly standards.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: A Checklist Before You Leave</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is opening an Image API URL for a newly bound zone the most critical validation check before completing today's work?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Verify zones by opening their Image API URLs — structural validation cannot tell you whether a coordinate is right.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides direct visual verification that the computed coordinates actually frame the intended line of text on the manuscript page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Visual inspection of the returned crop is the only test that verifies semantic correctness rather than mere syntax.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It tests whether the student's monitor has sufficient brightness for reading.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It verifies the mathematical accuracy of the coordinate crop.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically registers the digital edition with the Library of Congress.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It confirms the URL returns the intended visual evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It verifies that the holding library has paid its annual web hosting bill.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It tests the validity of the specific coordinate binding.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: If Your Manuscript Lacks IIIF</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>If a chosen manuscript is available only as static image files without a native IIIF server, how can an editor still build a valid TEI edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Without IIIF you can still bind coordinates using plain images and TEI zones — you lose deep zoom, not the binding the course depends on.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Use standard TEI <code>&lt;graphic&gt;</code> and <code>&lt;zone&gt;</code> elements using pixel coordinates, or generate a static Level 0 IIIF tile pyramid with tools like <code>iiif_static.py</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Editors can either bind TEI zones directly to static graphics or generate a Level 0 static tile pyramid for GitHub Pages.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Abandon digital methods entirely and write the edition on parchment with a quill.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Valid TEI editions can be constructed using static graphics and standard zones.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sue the holding library for non-compliance with digital humanities standards.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Practical workarounds (TEI graphic/zone or Level 0 static generation) handle non-IIIF sources.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete the manuscript's catalogue record from global library databases.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Non-IIIF images remain fully usable via standard TEI facsimile markup.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: What Good Work Looks Like Here</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What distinguishes a high-quality scholarly submission from a minimally compliant one on the Cataloguing and Metadata Assignment?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A good submission records divergences, negative results, and the reasoning behind decisions — not only what worked.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A good submission documents editorial reasoning, notes divergences from library catalogues with rationale, records negative results, and maintains an atomic commit log.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Scholarly rigor is demonstrated by documenting rationale, divergences, image provenance, and negative results.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A good submission has the largest file size measured in gigabytes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Quality is measured by scholarly documentation, accuracy, and rationale, not raw file size.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A good submission must be translated into at least seven modern European languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The assignment focuses on Greek transcription, metadata, and image binding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A good submission conceals all difficulties, uncertainties, and failed attempts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transparent recording of uncertainties and negative results is a hallmark of good scholarship.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: The Coordinate Space as the Edition's Spine</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the canvas coordinate space described as the 'spine' of the digital edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The canvas coordinate space is the spine of the edition; every layer from transcription to commentary attaches to it, which is what makes them one object.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Every subsequent analytical layer — transcription, apparatus, collation, linguistic annotation, commentary — anchors to its coordinates, uniting them into a single object.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The canvas coordinate space provides the unifying framework that integrates images, transcription, apparatus, and commentary.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It binds the printed paper pages of the final codex with synthetic bookbinding glue.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 'Spine' is the structural metaphor for the digital coordinate space uniting all edition layers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It encrypts the entire repository into a closed proprietary database format.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The spine is an open coordinate system connecting open TEI and IIIF standards.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically corrects all historical scribal spelling errors without human intervention.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The coordinate space anchors human scholarly analysis and evidence.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_11_Alignment/Lesson_11.2_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 11.2: Automated Sentence and Word Alignment Tools: From Gale-Church to fast_align and Ugarit.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: The Role of Deterministic Automation in Parallel Text Processing</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary methodological virtue of deterministic alignment tools in digital scholarly editing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Deterministic alignment leverages reproducible mathematical and statistical algorithms to generate scalable parallel text alignments that human scholars can audit and refine.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They provide completely reproducible, mathematically transparent baseline alignments that scale across massive corpora while remaining fully auditable by scholars.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Unlike black-box neural systems, deterministic algorithms use explicit mathematical models whose probabilities and transformations can be audited and understood.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They replace human philologists by automatically making all subjective editorial decisions without oversight.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Deterministic tools provide high-recall baselines to accelerate human curation; they do not replace scholarly judgment.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They guarantee 100% precision on ancient idioms without requiring corpus preprocessing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Deterministic tools struggle with idioms and require careful tokenization and preprocessing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They convert ancient texts into modern English audio recordings automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Alignment establishes structural correspondences between written bitexts, not audio synthesis.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The Two-Tier Architecture of Automated Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must automated parallel text alignment operate in a two-tier architecture (sentence alignment followed by word alignment)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automated alignment operates in two cascading tiers—macro sentence alignment and micro word alignment—where sentence-level errors inevitably corrupt word-level results.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Attempting to align unsegmented words across entire documents is computationally intractable, and sentence-level macro-segmentation bounds the search space for micro word alignment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Partitioning documents into synchronized sentence pairs reduces billions of potential pairings into manageable, independent search spaces.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Word alignment must always precede sentence alignment to establish dictionary definitions first.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Word alignment operates within the bounded search space of pre-aligned sentences; reversing the order is computationally intractable.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sentence alignment is used exclusively for modern languages, while word alignment is used exclusively for ancient languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both tiers are essential for parallel processing across all language pairs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The two-tier architecture prevents editors from using TEI XML markup in their repositories.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The two-tier model maps directly to TEI <s> and <w> elements in standoff <linkGrp> structures.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Length-Based Sentence Alignment: The Gale-Church Algorithm</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What foundational empirical observation underpins the Gale-Church sentence alignment algorithm?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Gale-Church algorithm uses dynamic programming to align parallel sentences based on the statistical regularity of character-length ratios across translations.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The character length of a translated sentence is strongly correlated with the character length of the source sentence across parallel corpora.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Gale and Church proved that sentence lengths in characters follow a regular statistical ratio that dynamic programming can optimize globally.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Translations always contain exactly the same number of words as their source texts in every language.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Word counts vary dramatically across languages; Gale-Church relies on character length correlations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sentence alignment requires comprehensive bilingual dictionaries covering every word in both languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Gale-Church is language-agnostic and requires zero lexical dictionaries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The first sentence of a book always has the highest character count.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Sentence position does not determine absolute character length.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Mathematical Mechanics of Gale-Church</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the Gale-Church algorithm evaluate candidate sentence alignment beads (such as 1:1, 1:2, or 2:1 matches)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Gale-Church calculates the negative log probability of normal length differences (δ) combined with prior alignment probabilities to populate a dynamic programming grid.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It models standardized character-length differences (δ) using a normal distribution and minimizes negative log probabilities across a dynamic programming grid.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The algorithm combines the probability of length differences with prior bead probabilities in a recurrence relation to find the optimal path.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It counts the number of rhyming vowels between the source and target sentences.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Gale-Church evaluates character lengths, not poetic phonology.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It computes the Euclidean distance between high-dimensional neural vector embeddings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Neural vector embeddings belong to modern tools like Vecalign, not classical Gale-Church.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It assigns random cost penalties to all sentence pairs containing more than ten words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cost penalties are derived rigorously from normal probability density functions.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Strengths and Failure Modes of Length-Based Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does pure length-based alignment frequently fail when applied to ancient and medieval literary texts?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Pure length-based alignment achieves high accuracy on modern literal bitexts but fails on ancient texts due to non-monotonic reordering, loose paraphrases, and punctuation divergence.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Ancient literary traditions involve non-monotonic reordering, substantial omissions or expansions, and divergent modern punctuation conventions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Paraphrastic expansions, poetic strophe inversions, and scribal deletions violate Gale-Church's monotonic and normal length assumptions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Historical languages contain Unicode characters that dynamic programming cannot process.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dynamic programming processes character counts regardless of script.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ancient texts are too short for mathematical algorithms to execute.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Gale-Church runs on texts of any length, but fails when translational structural symmetry breaks down.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Gale-Church is legally restricted to modern Canadian parliamentary proceedings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Gale-Church was tested on Hansard data, but is an open algorithm applicable to any corpus.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Lexical and Anchor-Based Sentence Alignment: Champollion and Hunalign</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do hybrid aligners like Hunalign and Champollion improve upon pure length-based sentence alignment?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Hybrid aligners like Hunalign and Champollion combine character lengths with bilingual lexical anchors and structural milestones to prevent alignment drift in literary bitexts.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They combine character length metrics with bilingual lexical anchors, TF-IDF weights, and dynamic lexicon bootstrapping to prevent alignment drift.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Anchoring the dynamic programming path on known lexical matches (such as cognates or proper nouns) keeps the alignment synchronized even across loose translations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They translate the entire corpus into Python code before executing sentence segmentation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hunalign and Champollion operate directly on natural language bitexts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They discard sentence boundaries and align entire books as monolithic single tokens.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hybrid aligners refine sentence-level alignment rather than discarding boundaries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They require human annotators to approve every sentence link individually via command-line prompts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are fully automated deterministic algorithms.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Modern Neural Sentence Alignment: Vecalign and Bertalign</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What core architectural advantage do neural sentence aligners (such as Vecalign and Bertalign) offer over length-based tools?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Neural sentence aligners (Vecalign, Bertalign) compare dense multilingual sentence embeddings, achieving human-level alignment accuracy across complex literary paraphrases.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They represent sentences as dense multilingual embedding vectors, enabling semantic alignment that is invariant to word order, paraphrase, and surface vocabulary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. By comparing semantic vectors in a shared embedding space, neural aligners effortlessly match loose paraphrases and inverted clauses that break character-count heuristics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They operate without requiring electricity or computer memory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Neural aligners require GPU or CPU computing resources to compute transformer embeddings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They convert all TEI XML tags into relational database tables during sentence pairing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Neural sentence alignment is a vector similarity process, not a database transformation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They restrict sentence lengths to exactly five words per line.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Embedding models handle sentences of arbitrary and variable lengths.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Introduction to Statistical Word Alignment and the IBM Models</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the foundational statistical machine translation framework of Brown et al. (1993), how is word alignment modeled mathematically?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The IBM Models formulate word alignment as a hidden generative process, using the Expectation-Maximization (EM) algorithm to learn translation probabilities from unannotated bitexts.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>As a hidden generative stochastic process where word alignments are latent variables estimated from parallel bitexts via the Expectation-Maximization (EM) algorithm.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Because true alignments are unobserved in raw text, the EM algorithm iteratively estimates translation probabilities and latent alignment links until convergence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As a rigid hardcoded lookup in a static print dictionary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The IBM models learn lexical translation probabilities automatically from unannotated parallel corpora.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As a deterministic sorting algorithm that alphabetizes words in both languages simultaneously.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Word alignment models semantic and syntactic correspondence, not alphabetical ordering.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As a rule-based expert system written in Prolog.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The IBM models are statistical probabilistic models trained with EM.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: IBM Model 1: Lexical Translation Probabilities</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What simplifying assumption distinguishes IBM Model 1 from higher-level alignment models, and what mathematical property results from it?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>IBM Model 1 models word alignment based purely on lexical co-occurrence probabilities t(f | e), converging reliably to a global mathematical maximum via EM.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It assumes word order has zero effect on alignment probability, making its likelihood function strictly convex and guaranteed to converge to a global maximum.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Model 1 considers only lexical co-occurrence probabilities t(f|e), ensuring that EM training never gets trapped in sub-optimal local maxima.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It assumes all words in the target language must begin with the letter A.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Model 1 is indifferent to orthographic spelling patterns.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires sentences to be exactly the same length in both languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Model 1 handles unequal sentence lengths using a length normalization parameter ε.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It incorporates syntactic dependency treebanks to evaluate parse trees.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Model 1 completely ignores word order and syntactic structure.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: IBM Model 2: Adding Positional Distortions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What essential linguistic parameter does IBM Model 2 add to the lexical probabilities of Model 1?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>IBM Model 2 introduces a positional distortion parameter a(i | j, l, m), penalizing alignments that deviate excessively from the diagonal translation path.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A positional distortion parameter a(i | j, l, m) that models the probability of connecting target index j to source index i, penalizing distant non-diagonal jumps.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Model 2 incorporates word-order preservation, reflecting the tendency of human translations to follow a roughly diagonal alignment path.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A syllable counter that counts poetic meter in hexameter verse.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Distortion parameters track word positions, not poetic metrics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A semantic sentiment score evaluating emotional tone.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The parameter is purely positional and structural.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A random number generator that shuffles words across the sentence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Model 2 imposes structural discipline on word order rather than randomizing it.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: IBM Models 3, 4, and 5: Fertility and Relative Distortion</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does the concept of "fertility" (φ) model in IBM Models 3, 4, and 5?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>IBM Models 3–5 incorporate fertility (n(φ | e)) and relative distortion, modeling 1:N expansions and phrase movement at the cost of high computational complexity.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The number of target words generated by a single source word, accommodating 1:N expansions (e.g. Greek synthetic verbs to English phrases) and zero-fertility deletions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Fertility distributions n(φ|e) model how many target tokens a source token can generate, though this non-polynomial coupling makes training computationally expensive.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The number of manuscripts in which a specific textual variant is attested.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. In IBM statistical alignment, fertility refers to word-generation count in bitexts, not manuscript stemmatics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The total number of vowels contained within a single grammatical morpheme.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Fertility is a token-level generation count parameter.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The speed at which an editor types translations into a digital text editor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Fertility is an internal statistical parameter of the generative translation model.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: The Hidden Markov Model (HMM) for Word Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the decisive computational advantage of the HMM word alignment model over IBM Models 3–5?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The HMM aligner models word alignment as a first-order Markov chain based on relative jump distances (i - i'), combining high accuracy with exact polynomial-time inference.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It conditions alignment transitions on relative jump distances (i - i'), allowing exact training and inference to run in polynomial time via the Baum-Welch and Viterbi algorithms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The HMM achieves alignment quality comparable to Model 4 while avoiding exponential heuristic search through exact dynamic programming.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminates the need for source texts by predicting translations from target texts alone.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Parallel bitext alignment requires both source and target texts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It compresses XML files by 90% using Huffman encoding.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HMM is an alignment model, not a file compression utility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It translates texts without requiring computer memory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HMM inference requires standard polynomial memory allocation for trellis dynamic programming.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: The fast_align Breakthrough: Log-Linear Reparameterization</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does fast_align reparameterize IBM Model 2 to achieve rapid, high-quality alignment without overfitting?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>`fast_align` reparameterizes IBM Model 2 into a log-linear model with a diagonal tension parameter (λ), achieving GIZA++ quality at 10x the speed.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It replaces the massive table of independent distortion parameters with a compact log-linear model governed by a single diagonal tension parameter (λ).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Dyer et al. (2013) collapsed thousands of fragile positional parameters into a single global stiffness variable, preventing overfitting and accelerating EM training.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces statistical mathematics with manual human keypresses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. fast_align is a fully automated statistical alignment tool.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes all function words from the corpus before running alignment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. fast_align aligns all tokens, using a null probability parameter p0 for untranslated items.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It converts all Greek texts into modern Latin transliterations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. fast_align operates natively on UTF-8 encoded text across all scripts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Mathematical Mechanics of fast_align</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the fast_align formulation, how does the normalized position distance d = |i/l - j/m| affect the posterior alignment probability?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>`fast_align` calculates alignment posteriors γ_ij using normalized position distance penalties (d) and optimizes lexical probabilities and diagonal tension via convex gradient ascent.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Distances farther from the diagonal receive an exponential penalty exp(-λ · d), favoring monotonic alignments unless lexical translation affinity t(f|e) is strong.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The log-linear model softly constrains alignments toward the diagonal, dynamically balancing positional proximity with lexical co-occurrence strength.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Any word not on the exact diagonal (d = 0) is instantly deleted from the output file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Off-diagonal alignments are penalized exponentially, but permitted when lexical affinity is high.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The distance d is multiplied by the author's year of birth to adjust for historical era.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. d is a purely geometric distance between relative sentence indices.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Distances greater than 0.5 are inverted into negative integers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The partition function normalizes probabilities smoothly across all candidate positions.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Symmetrization Heuristics: Combining Asymmetric Alignments</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must directional alignments (Source→Target and Target→Source) be combined using symmetrization heuristics like grow-diag-final-and?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Symmetrization heuristics (`grow-diag-final-and`) reconcile directional forward and reverse passes into balanced, bidirectional N:M alignment matrices.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>IBM-style models are strictly asymmetric (permitting only 1:N in one direction), and symmetrization reconciles both passes into bidirectional, many-to-many (N:M) alignments.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Symmetrization begins with the high-precision intersection of forward and reverse passes and expands along neighboring diagonals to capture complete phrasal correspondences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Symmetrization is required to translate left-to-right scripts into right-to-left scripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Symmetrization combines directional mathematical matrices, regardless of script directionality.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Directional models cannot run on multi-core computer processors without symmetrization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Symmetrization addresses mathematical 1:N/N:1 directional constraints, not CPU architecture.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Symmetrization deletes all alignment links that have a confidence score below 100%.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Symmetrization balances precision and recall to discover multi-word and compound links.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Preprocessing for Statistical Word Alignment: Tokenization and Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which preprocessing steps are mandatory before passing historical parallel texts to fast_align or GIZA++?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Preprocessing requires Unicode NFC normalization, lowercasing, punctuation tokenization, and formatting into strict source ||| target parallel bitext lines.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Unicode NFC normalization, case harmonization, whitespace punctuation isolation, and formatting into source ||| target parallel lines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Clean tokenization prevents punctuation from creating false hapax legomena and ensures exact co-occurrence counting.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Translating the source text into modern French before formatting.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Alignment is performed directly between the primary historical language and its target translation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Removing all spaces from both texts to create continuous character strings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Statistical word aligners require clear whitespace token boundaries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Converting the text files into proprietary Microsoft Word docx formats.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Computational alignment pipelines require clean plain-text or XML data.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Morphology and Vocabulary Inflation in Ancient Languages</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does rich inflectional morphology in ancient Greek, Latin, and Syriac hinder statistical word aligners, and how is this mitigated?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Fusional morphology causes severe vocabulary inflation and data sparsity; training aligners on lemmatized forms dramatically improves statistical alignment quality.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Fusional morphology causes severe vocabulary inflation and data sparsity in small corpora; training aligners on lemmatized forms or lemma-tag bundles mitigates error rates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A single Greek verb lemma can generate hundreds of surface forms that appear only once; lemmatization aggregates co-occurrence statistics across the corpus.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ancient languages lack grammatical verbs, so aligners cannot compute sentence predicates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ancient languages possess rich verbal systems; the challenge is inflectional variety causing data sparsity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Morphology causes computer hard drives to overheat during training.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The bottleneck is statistical data sparsity in small datasets, not hardware overheating.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Aligners can only process texts that contain zero inflectional endings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Aligners process inflected text, but achieve much higher accuracy when trained on lemmatized representations.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Evaluating Alignment Quality: Alignment Error Rate (AER)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the standard Och and Ney (2003) Alignment Error Rate formula, how are proposed machine links (A) evaluated against human Sure (S) and Possible (P) links?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Alignment Error Rate (AER) evaluates automated alignments (A) against human Sure (S) and Possible (P) links, penalizing missed Sure links and spurious non-Possible links.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Machine links are penalized for missing Sure links (|A ∩ S|) and proposing non-Possible links, but are NOT penalized for proposing links classified as Possible.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The formula AER = 1 - (|A ∩ S| + |A ∩ P|) / (|A| + |S|) ensures automated tools are evaluated fairly against flexible translational paraphrases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Machine links are evaluated purely by the total number of characters in the file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. AER evaluates set intersections between machine link sets and human gold standard link sets.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Possible links are penalized twice as heavily as Sure links.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Possible links provide a permissive upper bound that carries zero penalty if proposed by the machine.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>AER is calculated by taking the square root of the number of unaligned Greek particles.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. AER is a formalized harmonic ratio combining precision and recall over S and P sets.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Worked Mathematical Example of AER Calculation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Given |S| = 5, |P| = 6, machine links |A| = 6, with |A ∩ S| = 4 and |A ∩ P| = 5, what is the exact Alignment Error Rate (AER)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Calculating AER requires computing set intersections |A ∩ S| and |A ∩ P| to measure precision, recall, and composite alignment error.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>AER = 1 - (4 + 5) / (6 + 5) = 1 - 9/11 ≈ 18.18%</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Substituting values into the formula yields 1 - 9/11 = 2/11 ≈ 0.1818 (18.18% error rate).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>AER = 1 - (5 + 6) / (6 + 5) = 0.00%</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That assumes perfect agreement without checking actual intersections |A ∩ S| and |A ∩ P|.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>AER = 4 / 5 = 80.00%</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 4/5 is the Recall score (80%), not the composite Alignment Error Rate.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>AER = 5 / 6 = 83.33%</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 5/6 is the Precision score (83.33%), not the Alignment Error Rate.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Digital Humanities Alignment Platforms: Ugarit</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What specialized capabilities distinguish the Ugarit platform from general commercial translation memory tools?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ugarit is a specialized digital humanities web platform integrating interactive visualization, fast_align backends, inter-annotator analytics, and TEI XML export.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides web-based visual drag-and-drop alignment, integrated fast_align pre-alignment, Inter-Annotator Agreement analytics, and direct export to TEI P5 standoff XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Ugarit was custom-built for historical and low-resource languages, providing a complete philological annotation and benchmarking ecosystem.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically replaces all ancient texts with generative video animations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ugarit is a specialized text alignment and open philology platform.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It prohibits users from editing or correcting automated alignment suggestions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ugarit's core strength is interactive human post-editing of statistical suggestions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires all users to write raw C++ source code to align two words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ugarit features an intuitive graphical web interface with SVG bipartite alignment arcs.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Ugarit in Action: Workflow, Visualization, and Data Export</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the standard four-step editorial workflow executed within the Ugarit platform?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ugarit provides an end-to-end editorial pipeline: uploading bitexts, running automated pre-alignment, post-editing via bipartite graphs, and exporting TEI XML.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Bitext ingestion with language metadata → automated fast_align pre-alignment → interactive scholarly post-editing → TEI P5 standoff XML export.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. This workflow combines the speed of statistical automation with human philological curation and standardized XML output.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deleting the target translation → running OCR on the source text → printing PDF copies → manual scanning.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ugarit operates on digital bitexts in an end-to-end web environment.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Translating source text with Google Translate → saving as Word document → uploading to social media.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital critical editing follows rigorous open data and TEI XML standards.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Exporting texts as unformatted CSV spreadsheets without XML ID pointers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ugarit generates compliant TEI P5 standoff markup with persistent @xml:id pointers.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: The Alpheios Alignment Editor</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What architectural design feature characterizes the Alpheios Alignment Editor in contrast to server-centric platforms?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Alpheios Alignment Editor provides a client-side, browser-native alignment environment with deep dictionary integration (Logeion) optimized for pedagogy.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It is a client-side, browser-native application running entirely in local JavaScript, providing complete data privacy, offline capabilities, and deep dictionary integration.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Alpheios runs locally in the user's browser, querying Logeion and Perseus morphological engines dynamically without requiring server database accounts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires a mainframe supercomputer to open a single text file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Alpheios is lightweight and executes directly in any modern web browser.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It converts all XML documents into encrypted binary files that cannot be inspected.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Alpheios supports open standards including TEI XML and JSON-LD.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It can only be used on mobile smartphones and is incompatible with desktop computers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Alpheios runs across desktop and laptop web environments.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Logeion and Lexical Lookups in Aligned Environments</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does integrating Logeion into an aligned reading environment enhance scholarly analysis?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Aligned environments query Logeion to dynamically display morphological parsings, dictionary definitions, and empirical translation frequencies on user click.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Clicking an aligned token dynamically retrieves authoritative dictionary entries (LSJ, Lewis & Short), full morphological paradigms, and empirical translation frequency distributions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Logeion connects translation alignment directly to historical lexicography, showing how words have been translated across extensive corpora.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically corrects spelling mistakes in manuscript facsimiles without editorial approval.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Logeion provides lexicographical reference data; it does not silently alter transcriptions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It locks the user's web browser until a commercial dictionary fee is paid.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Logeion is an open-access scholarly resource developed at the University of Chicago.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes the English translation and displays only Latin definitions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Logeion supports Greek, Latin, and multilingual dictionary lookups seamlessly.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Comparative Analysis: fast_align vs. Ugarit vs. Hand Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What did empirical benchmarking reveal regarding the balance between speed and precision across fast_align, Ugarit post-editing, and hand alignment?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Unsupervised fast_align achieves ~26% AER in seconds; human post-editing in Ugarit slashes AER to <4% while saving 87% of manual authoring time.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Raw fast_align is instantaneous but noisy (~26% AER); human post-editing in Ugarit slashes AER to <4% while saving 87% of manual authoring time.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The hybrid post-editing workflow combines the high speed of statistical pre-alignment with human editorial precision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hand alignment is 100 times faster than running fast_align on a computer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. fast_align executes in seconds, whereas manual hand alignment requires 45+ minutes per passage.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Raw fast_align achieves 0.00% AER on all ancient poetic texts without human intervention.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. fast_align suffers from ~26% AER due to particle misalignments and fragmented idioms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Human post-editing in Ugarit increases alignment errors compared to raw machine output.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Human post-editing dramatically reduces error rates from 26% down to under 4%.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Handling Non-Isomorphic Structures in Deterministic Tooling</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why do statistical aligners like fast_align struggle with ancient Greek idioms (such as χάριν ἔχειν) and synthetic middle verbs (such as ἐπαιδευσάμην)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Deterministic models struggle with idioms and clitic clusters; symmetrization heuristics and interactive grouping tools are essential to resolve non-isomorphic syntax.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They assume compositionality and penalize multi-word distance jumps, requiring symmetrization heuristics or interactive human grouping to link phrasal units.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Statistical models fragment non-compositional idioms into literal noise; symmetrization (GDFA) and visual grouping tools are essential to unite multi-word phrases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Greek idioms are prohibited by statistical translation algorithms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Idioms are natural linguistic phenomena; statistical models struggle because idioms violate literal compositional assumptions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Middle voice verbs cannot be encoded in UTF-8 Unicode.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unicode represents all Greek characters; the difficulty lies in 1:N synthetic-to-analytic structural expansion.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>fast_align automatically converts all Greek verbs into modern German nouns.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. fast_align models token correspondences between the provided language pair.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Automating the Alignment Pipeline with Python: A fast_align Wrapper</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In a Python wrapper script for fast_align, what is the function of the atools utility?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A Python wrapper script automates bitext preparation, forward/reverse fast_align training, and atools symmetrization into a single reproducible pipeline.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It ingests the forward (source→target) and reverse (target→source) alignment files and executes symmetrization heuristics (such as grow-diag-final-and).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. atools is the companion utility bundled with fast_align that combines directional alignment matrices into balanced bidirectional outputs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It translates the output into HTML web pages automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. atools handles alignment matrix symmetrization, not HTML rendering.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes all punctuation marks from the Python script itself.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. atools processes alignment text files, not Python source code.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It sends automated email notifications to repository contributors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. atools is a dedicated alignment matrix manipulation binary.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Converting Statistical Alignment Formats (Pharaoh) to TEI linkGrp</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does a conversion script transform 0-indexed Pharaoh alignment strings (e.g. 0-0 1-1 1-2) into TEI P5 standoff XML?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Converting Pharaoh format (0-0 1-1) to TEI <linkGrp> maps token indices to persistent @xml:id pointers, embedding statistical links into scholarly XML.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It maps numerical token offsets to declared @xml:id attributes in the source and target XML documents, serializing them into <link targets="#src_id #trg_id"/> elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. This maps ephemeral index coordinates to persistent, citable XML IDs within a schema-validated <linkGrp> structure.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It prints the numbers directly into the manuscript image files.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standoff alignment generates XML pointer elements, not image modifications.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces all Greek words with numerical hash values in the primary source document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standoff markup leaves the base source text completely intact.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It converts the Pharaoh string into a binary executable file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI standoff is human-readable and machine-parseable XML.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Deterministic Interlinear Glossing: Rule-Based and Dictionary-Driven Tagging</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What are the primary strengths and limitations of finite-state morphological analyzers like Morpheus and CLTK rule engines?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Rule-based analyzers (Morpheus, CLTK) provide high-precision morphological segmentation and Leipzig tags but struggle with dialect variants and polysemous ambiguity.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They achieve 100% precision on regular grammatical paradigms, but suffer from rule brittleness on dialect variants and cannot disambiguate combinatorial parse ambiguities.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Rule-based analyzers produce flawless analyses for attested forms, but produce multiple competing parses without contextual scoring and fail on unmodeled dialect forms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They can only process modern English text and crash on Greek and Latin.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Morpheus was built specifically for Classical Greek and Latin.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They require 100 terabytes of GPU memory to run a single word parse.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Finite-state morphological analyzers are lightweight and execute instantly on basic CPUs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They generate random Leipzig abbreviations that violate international linguistic standards.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Rule-based systems adhere strictly to formal grammatical rules.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Limits of Deterministic Alignment: The Need for Contextual Intelligence</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are deterministic statistical aligners fundamentally incapable of resolving complex literary and theological cruces?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Deterministic aligners are fast, mathematically transparent, and scalable, but lack the contextual intelligence needed to resolve complex literary paraphrases.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They operate purely on surface token frequencies and positional heuristics, remaining blind to discourse context, pragmatic irony, and deep semantic nuance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Statistical tools lack semantic comprehension and cannot detect theological double entendre, figurative metaphor, or complex syntactic paraphrase.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They run too fast for human scholars to read their output logs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. High computational throughput is a benefit; the limitation is the lack of contextual semantic understanding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They are prohibited by international copyright law from analyzing religious texts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Computational alignment algorithms are open mathematical tools applicable to any literature.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They cannot process files larger than 10 kilobytes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Statistical tools scale effortlessly to millions of words.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Summary and Synthesis</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does deterministic automation bridge the gap between manual human gold standards and generative AI models?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Deterministic alignment provides the reproducible, high-speed computational baseline that bridges manual human gold standards with generative AI.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides an ultra-fast, reproducible, and mathematically transparent baseline that handles routine literal alignments, freeing scholars to focus on complex cruces.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Deterministic tooling supplies the mechanical scaffolding that scales parallel editions while establishing the benchmark for evaluating AI models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It proves that human scholars will be entirely replaced by computer scripts by next semester.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The course emphasizes that computational tools accelerate and assist human philological discernment, rather than replacing it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It demonstrates that statistical models are superior to human gold standards in every philological dimension.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Human gold standards remain the ultimate authority against which all automated models are measured.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminates the need for version control and TEI XML encoding in digital humanities.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Deterministic outputs are serialized directly into version-controlled TEI XML standards.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

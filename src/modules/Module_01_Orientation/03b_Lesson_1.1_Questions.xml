@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_01_Orientation/Lesson_1.1_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 1.1: Local Git Version Control for Textual Scholarship.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Why Version Control Belongs in a Philology Course</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does this course teach Git in a curriculum about historical documents?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Git is on the syllabus because its data model formalises textual transmission, not because digital humanists are expected to know developer tools.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Git's data model formalises the same process textual criticism studies: variant states of a document across a branching history of transmission.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The two fields converged independently on the same structure because both track descent with modification through copying.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git is a widely required job skill, and employability is a stated outcome of the course.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Employability may be a side benefit, but the justification given is structural rather than vocational.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Version control is the only reliable way to back up a digital edition against data loss.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git is not a backup tool; a backup does not record rationale, attribution, or the relations between states.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Funding bodies now require digital humanities projects to use version control.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. No such requirement is the basis for the argument made here.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The Print Edition as a Lossy Record</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What did Giarratano's five print editions of the <em>Bucolica</em> demonstrate about print as a scholarly record?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Print editions preserve the editor's conclusions and discard the editor's reasoning; a version-controlled edition preserves both.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Print preserves an editor's conclusions but discards the reasoning behind systemic changes of method.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. His shift from a positive to a negative apparatus, and his renaming of the sigla, survive as outcomes with no recoverable rationale.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Print editions are unreliable because typesetting introduces errors at every impression.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The loss described is of editorial rationale, not of typographical accuracy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Five editions of one short text show that the manuscript tradition was unusually unstable.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The instability was in the editor's method across his career, not in the manuscript witnesses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The editions prove that nineteenth- and twentieth-century editors worked without a consistent method.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Giarratano had a method at each stage; what is lost is why it changed between stages.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: The Apparatus and the Commit Log</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In what sense are a critical apparatus and a commit log the same kind of object?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>You will produce two editions this term: the TEI edition of your passage, and the Git history documenting how you arrived at it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Both are structured records of deviation from a reference state, with each deviation attributed and precisely located.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. One records readings against a base text; the other records states against a prior commit.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both are appendices consulted only by specialists and ignored by ordinary readers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The correspondence claimed is structural, not a claim about readership.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both are generated automatically from the text without editorial intervention.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An apparatus is constructed by an editor, and a useful commit log requires deliberate discipline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both are arranged chronologically, so the earliest reading always appears first.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An apparatus is ordered by position in the text, not by date.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Content-Addressable Storage</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does it mean that Git is a content-addressable store?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Git names every stored object by a hash of its contents, so an object's identifier is a verifiable claim about its bytes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An object's name is a hash computed from its contents, so identical content necessarily has an identical name.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The name is derived from the data, which is why it cannot disagree with the data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Objects are stored under names chosen by the user, then indexed by content for fast searching.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That reverses the relationship: the content determines the name, not the other way round.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git stores a list of changes rather than complete snapshots, addressing each change by its position.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git stores complete snapshots; the delta model is the common misconception it replaces.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Each file is addressed by its path within the repository, which must therefore remain stable.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Blobs carry no path information at all; paths live in tree objects.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: The Four Object Types</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which pairing of Git object and function is correct?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Blobs hold content, trees hold structure, commits hold history and rationale, and tags mark states worth citing.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A tree stores directory structure, mapping names to the hashes of blobs and sub-trees.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The tree supplies exactly what the blob omits: names, structure, and file modes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A blob stores a file's contents together with its filename and path.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A blob stores raw contents only; it carries no name, path, or timestamp.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A commit stores the differences between its own state and that of its parent.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A commit points to a root tree — a complete snapshot — not to a set of differences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A tag stores a copy of the repository at a milestone so it can be restored independently.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A tag is a named pointer to a commit, not a copy of anything.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: The Directed Acyclic Graph</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is a repository's history necessarily acyclic?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A repository's history is a directed acyclic graph, the same formal structure as a stemma — but recorded rather than inferred.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A commit's hash incorporates its parents' hashes, so a commit cannot be its own ancestor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Acyclicity is enforced mathematically by the hashing scheme rather than by a rule.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git refuses to create a commit whose timestamp precedes its parent's timestamp.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Timestamps are metadata and can be manipulated; they are not what prevents cycles.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Branches are prohibited from merging back into the branch they diverged from.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Merging back is routine and produces a merge commit with two parents, not a cycle.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Each commit may have only one parent, which makes loops structurally impossible.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A merge commit has several parents; the graph is still acyclic.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Cryptographic Integrity and the Cascading Hash</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What happens when a single character is altered in a file deep in a repository's history?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A change anywhere in history changes every hash downstream of it, so a repository's history cannot be altered without leaving evidence.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The blob, tree, and commit hashes all change, and every descendant commit's hash changes with them.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The change cascades outward, which is why tampering cannot be concealed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Only the affected commit's hash changes; later commits are unaffected because they store their own snapshots.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Each commit references its parent's hash, so a changed parent changes every descendant.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git records the alteration in a separate audit log while leaving the original hashes intact.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no separate audit log; the integrity guarantee is in the hash chain itself.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The repository becomes corrupt and must be restored from a remote copy.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The history is not corrupt; it is a different, visibly different history.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Branching for Editorial Hypotheses</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does cheap branching change about the way editorial alternatives are handled?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Branches make editorial alternatives cheap enough to test rather than merely to speculate about.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An alternative encoding can be carried through to completion and compared, rather than rejected on a prospective judgement.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When the experiment is nearly free, alternatives can be tested rather than merely speculated about.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows several editors to work on the same lines simultaneously without conflicts arising.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Concurrent work on the same lines still produces conflicts; branching does not prevent them.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It removes the need to choose between competing readings, since both can be published.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A branch is a working space for testing; the edition still adopts a reading.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It guarantees that abandoned work is deleted, keeping the repository small.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Abandoned branches can be discarded, but nothing about branching guarantees deletion.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Declaring Who You Are</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must <code>user.name</code> and <code>user.email</code> be configured before the first commit rather than afterwards?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Authorship metadata is permanent in the commit object, so configure it correctly before the first commit rather than after.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Authorship metadata is written into every commit object and cannot be changed later without rewriting history.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Fixing it retrospectively means rewriting every affected commit, which changes their hashes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git refuses to create a repository until an identity has been configured.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git will initialise a repository regardless; it may only warn at commit time.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The email address determines which remote repository commits are pushed to.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The remote is configured separately; the email only attributes authorship.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An unconfigured identity causes commits to be attributed to the most recent contributor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Commits are not silently attributed to someone else.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Initialising the Repository</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the consequence of deleting the <code>.git</code> directory from a project?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>.git</code> is the repository and the visible files are just a checked-out view of it; structure the working tree once, at the start.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The entire history is lost while the currently checked-out files remain on disk.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The visible files are one checked-out state; the repository itself is the hidden directory.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All project files are deleted along with the history.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The working tree is untouched; only the object database and references go.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The repository reverts to its initial commit, discarding later work.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no repository left to revert to.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nothing is lost, because the history is reconstructed from the working files on the next commit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. History cannot be reconstructed from a single snapshot of files.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Working Directory, Staging Area, Repository</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the staging area for?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The staging area exists so that a commit can record one logical change rather than everything you happen to have edited.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It holds the exact content of a proposed next commit, so a commit can record one logical change rather than everything edited.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. This is what makes atomic committing possible and distinguishes Git from a backup tool.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It stores files temporarily while Git checks them for errors before committing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git performs no validation of content; hooks do that, and they are separate.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It keeps a backup of the previous version of each file in case a commit must be undone.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Recovery comes from committed history, not from the index.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It queues changes for transmission to the remote repository on the next push.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pushing transmits commits, not staged content.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Your First Commit</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should <code>git status</code> be run again after staging and before committing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Stage deliberately and inspect the index before committing; correcting the staging area is trivial, correcting history is not.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Staging is where mistakes occur, and correcting the index is far easier than correcting history.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A stray file caught before the commit costs seconds; caught afterwards it costs a rewrite.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git will not permit a commit unless the status has been checked since the last change.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. No such requirement exists; the practice is a discipline, not an enforcement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Running it refreshes the index so that recent edits are included in the commit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>git status</code> reports state; it does not stage anything.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It confirms that the remote is reachable before the commit is recorded locally.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Committing is entirely local and does not involve the remote.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Atomic Commits as Cognitive Discipline</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the practical test for whether a change should be one commit or several?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>If you cannot describe a commit in one clause without "and", it is more than one commit.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Whether the change can be described in one clause without using "and".</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Needing a conjunction is the signal that two distinct scholarly acts have been bundled together.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether the change touches only a single file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. One logical change may span several files, and one file may contain several changes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether the change was made in a single working session.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Grouping by time rather than by meaning is precisely the habit to avoid.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether the diff is shorter than a stated number of lines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Size is not the criterion; a one-line change can still be two logical acts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Recognising Non-Atomic Commits</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the recommended remedy for the habit of committing at the end of each working session?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Commit when a change is complete, not when you stop working for the day.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Commit when a change is finished, not when you stop working.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Grouping by completion rather than by clock is what keeps a commit describable.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Commit more frequently, so that each session produces several smaller commits.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Frequency alone does not help if the grouping is still by time rather than by meaning.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Write a longer message describing each of the changes the commit contains.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A longer message documents the problem rather than solving it; the commit is still not separately reversible.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Squash the session's work into a single commit before pushing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That makes the entanglement permanent rather than resolving it.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: The Conventional Commits Specification</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does adopting a fixed commit-message grammar achieve?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A fixed message grammar makes the commit log queryable, which is what makes it usable as an apparatus.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It makes the log machine-readable, so the history can be filtered, counted, and summarised programmatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A queryable log can actually be used as an apparatus; an ad-hoc one is read one line at a time, or not at all.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It shortens commit messages, which keeps the log readable on a single screen.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The specification adds a structured body and footers; brevity is not its aim.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows Git to reject commits whose content does not match the declared type.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git cannot verify that a commit's content matches its declared type.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically generates the apparatus criticus from the commit history.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It makes the history queryable; building an apparatus remains editorial work.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Commit Types and Editorial Acts</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What distinguishes a <code>fix:</code> commit from a <code>refactor:</code> commit in editorial terms?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The type prefix classifies the kind of editorial act, and <code>fix</code> versus <code>refactor</code> marks the difference between changing a claim and changing its expression.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A fix changes what the edition claims; a refactor changes how an unchanged claim is expressed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Giarratano's shift from a positive to a negative apparatus was a refactor of enormous scope.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A fix corrects an error introduced by the editor; a refactor corrects an error made by the scribe.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both types can apply to either, since the distinction concerns claim versus expression.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A fix is a small change and a refactor is a large one.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scale is not the criterion; a one-character fix and a one-character refactor are both possible.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A fix alters the text and a refactor alters only the metadata in the TEI header.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A refactor may restructure the encoding of the text itself while leaving the reading unchanged.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: The Commit Body</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What belongs in the body of a commit message that cannot be recovered from the diff?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The diff records what you changed; only the commit body can record why, and only if you write it at the time.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The reasoning: what evidence supported the change and why the decision was made.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The diff shows what changed exhaustively; only the body can record why.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A description of which lines and files were altered.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is exactly what the diff already shows, and no prose can improve on it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The date and author of the change, for the permanent record.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both are stored automatically as commit metadata.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A list of the files that were deliberately left unchanged.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This is not the body's purpose and would rapidly become unmanageable.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Reading History with git log</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What question does <code>git log -S "ἐγένοντο"</code> answer?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>git log</code> with <code>-S</code> and <code>--grep</code> turns the commit history into a searchable record of editorial decisions.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Which commits introduced or removed that string, and therefore when a reading entered the text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The pickaxe search has no analogue in ordinary file management and answers a question philologists ask constantly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Which commits mention that string in their commit messages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is <code>--grep</code>; <code>-S</code> searches the content of the changes themselves.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Which files in the current working tree contain that string.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is a task for <code>grep</code>; <code>-S</code> searches history.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>How many times that string occurs across the whole repository.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It returns commits that changed the number of occurrences, not a total count.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Reading Change with git diff</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which invocation shows exactly what is about to be committed?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>diff</code> compares any two states Git knows about, including two competing editorial hypotheses on separate branches.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>git diff --staged</code>, which compares the index against the last commit.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. This should become reflexive; it catches both unintended inclusions and forgotten files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>git diff</code>, which compares the working directory against the index.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That shows what you have changed but <em>not</em> staged — the opposite of what is about to be committed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>git diff HEAD</code>, which compares the working directory against the last commit.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That includes unstaged changes, so it overstates what the commit will contain.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>git log -p</code>, which shows the changes introduced by each commit.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That shows changes already committed, not the pending one.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Why the Default Diff Algorithm Fails on TEI</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does Git's default diff algorithm produce unreadable output on TEI XML?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The default diff algorithm misaligns the repetitive closing tags of TEI XML, producing accurate diffs that no one can read.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Myers assumes lines are distinctive, but TEI is full of short repetitive closing tags that admit many equally minimal alignments.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. It selects an alignment that is minimal in edit distance and meaningless in structure.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It cannot process non-Latin characters such as polytonic Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The algorithm is indifferent to the script; the problem is repetition of markup lines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>XML files are too large for the algorithm to handle within reasonable time.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The failure is in alignment quality, not in performance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It ignores whitespace, so the nesting of XML elements is lost.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Whitespace handling is configurable and is not the cause described.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Patience and Histogram Diff</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the patience algorithm produce a more legible diff of marked-up text?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>diff.algorithm histogram</code> makes TEI diffs legible by anchoring on unique lines instead of repetitive closing tags.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It discards lines occurring more than once and anchors the alignment on the unique lines that remain.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Repeated closing tags are ignored as anchors, so alignment falls on meaningful content.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It compares the XML tree structure rather than the text lines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Patience is still a line-based algorithm; it is not XML-aware.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It ignores all lines containing markup, comparing only the textual content.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Nothing is excluded from the diff; only the choice of anchors changes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It records the changes in the order they were made rather than by position.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Diff algorithms have no access to the order in which edits were made.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Line Endings and .gitattributes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What problem does <code>* text=auto eol=lf</code> in <code>.gitattributes</code> prevent?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>* text=auto eol=lf</code> in <code>.gitattributes</code> prevents platform line-ending differences from swamping your diffs.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A one-word edit made on Windows rewriting every line ending, so the diff claims the whole file changed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Nothing is corrupted, but the audit trail for that commit is destroyed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Greek characters being corrupted when a file moves between operating systems.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is a character-encoding problem, addressed by Unicode normalisation instead.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Merge conflicts arising when two editors change the same line.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Genuine concurrent edits still conflict; line endings are a separate issue.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Image files being altered when committed from a different platform.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Images are protected by declaring them <code>binary</code>, which is a separate directive.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Pre-Commit Hooks</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must hook scripts be kept in a tracked directory and installed into <code>.git/hooks/</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A pre-commit hook enforces normalisation and schema validity automatically, but hooks are not cloned — install them from a tracked directory.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>.git/hooks/</code> is not version controlled, so hooks do not travel when a repository is cloned.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Without a tracked copy and a setup step, collaborators and instructors silently lack your checks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hooks must be compiled before use, and the tracked directory holds the source.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hooks are ordinary executable scripts and are not compiled.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git executes hooks from the tracked directory in preference to <code>.git/hooks/</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git executes only what is in <code>.git/hooks/</code>, which is why installation is needed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Storing them in <code>.git/hooks/</code> would cause them to run on the remote server as well.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are local hooks; nothing about their location causes remote execution.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Commit Trailers for AI Interventions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which trailer marks the most hazardous state for an edition, and why?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Every commit containing machine-generated text carries trailers recording the model, and whether a human has verified it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>Human-Verified: false</code>, because unverified machine output is indistinguishable on screen from verified transcription.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. It is the trailer students most often omit and most need, and it maintains a work queue automatically.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>AI-Generated: true</code>, because any machine involvement compromises the edition.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Machine involvement is expected in this course; the hazard is machine output that has not been checked.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>Model:</code>, because without it the output cannot be reproduced.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Recording the model matters for provenance, but it does not mark unverified content.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>Ground-Truth-Commit:</code>, because it identifies which reference was used for measurement.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That trailer supports measurement; it does not flag unchecked text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Auditing Provenance Programmatically</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does <code>git log --grep="Human-Verified: false"</code> produce in practice?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Structured trailers let you query your own edition for what a machine wrote and what you have verified.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A live list of everything in the edition that a machine wrote and no human has yet checked.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. It is a work queue that maintains itself, and at term's end a statement of how much rests on unverified automation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A list of commits that failed the pre-commit hook's validation checks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Failed commits are aborted and never enter the history to be searched.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A count of the total proportion of the edition produced by machine assistance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It lists commits; a proportion requires further counting and a denominator.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A list of readings that the editor has marked as textually uncertain.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual uncertainty is encoded in TEI with <code>&lt;unclear&gt;</code>, not in commit trailers.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Tags and Semantic Versioning</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should states submitted for assessment be marked with an annotated tag rather than a lightweight one?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Annotated tags with semantic versions give an edition citable states whose differences remain machine-recoverable.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An annotated tag is a full object carrying its own author, date, and message, which a bare pointer does not.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Anything intended to be cited needs that metadata attached to it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Lightweight tags are deleted automatically when the branch advances.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lightweight tags persist; they simply carry no metadata.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Only annotated tags can be pushed to a remote repository.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both kinds can be pushed, though neither is pushed by default.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Annotated tags compress the repository state, making it faster to retrieve.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tags point at commits; they neither copy nor compress anything.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Case Study: The Library of Digital Latin Texts</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What follows from the LDLT's decision to separate an edition's data from its presentation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The LDLT treats an edition as a versioned database with citable releases, making peer review operate on changes rather than on finished objects.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The edition becomes a versioned database of which any printed or web view is one rendering, so its identity must be fixed by explicit tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When the edition is a repository rather than an object on a shelf, "the edition" needs stating.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Editors no longer need to make presentational decisions, since these are handled by the publisher.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Presentation decisions remain; they are simply decoupled from the underlying data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The apparatus can be omitted, since variant readings are recorded in the commit history instead.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The apparatus is part of the edition's data; version history records the editorial process.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Peer review becomes unnecessary because every change is already recorded.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Recording changes is what makes review of the changes possible, not what replaces it.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Case Study: The Perseids Platform</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does the Perseids Platform demonstrate about undergraduate digital editing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Perseids shows undergraduates producing genuine version-controlled editions, with the commit history itself serving as evidence of scholarly process.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Students can produce genuine version-controlled editions, with the commit history itself serving as evidence of scholarly process.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Because work arrives as reviewable commits on branches, the process can be assessed and not only the artefact.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Undergraduates require a simplified interface that conceals the underlying version control.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Perseids absorbs infrastructural burden while keeping the workflow genuine, not concealed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transcription work is best assessed by comparing the finished file against a model answer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The point is precisely that process evidence is available that a finished file cannot supply.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Digital editing should be reserved for graduate study, where the necessary skills already exist.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The platform was built to make the work accessible to undergraduates.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Interfaces and Accessibility</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the course's position on using a graphical interface rather than the command line?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Understand the model conceptually; use whichever interface leaves you the most attention for the philology.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The object model must be understood conceptually, but the interface used to produce a commit is a matter of preference.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A commit is byte-identical however it was made; effort should go to philology rather than syntax recall.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The command line is required, because graphical tools produce commits in a different format.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The resulting commit objects are identical.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Graphical tools are preferred throughout, since command-line syntax is not examinable.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Some operations — hooks, trailers, pickaxe searches — are not exposed by graphical tools.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Either may be used, and neither requires understanding how Git stores data.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Conceptual understanding of the object model and the DAG is explicitly required.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: The Repository as Research Journal</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which property of a version-controlled edition depends entirely on the editor's discipline rather than on Git's architecture?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Reproducibility is guaranteed by Git's architecture; explainability is guaranteed only by your commit discipline, which is why the commit discipline is what is assessed.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Explainability — that any decision can be traced to its rationale.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Reproducibility is guaranteed architecturally; explainability comes only from atomic commits, informative bodies, and honest trailers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Reproducibility — that any state of the edition can be recovered exactly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is guaranteed by content-addressable storage and the hash chain, whatever the editor does.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Integrity — that the history cannot be altered without leaving evidence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is a cryptographic property of the commit graph, not a matter of discipline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Attribution — that each commit records who made it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Authorship is recorded automatically once the identity is configured.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
