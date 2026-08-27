@@ -51,7 +51,7 @@ editorial decisions across witnesses. *Base text* — the primary witness or
 reconstructed reading against which variants are collated. *Variation unit* — the
 specific span of text where witnesses diverge.
 
-**The takeaway for this page:** The critical apparatus is not an ornamental footnote
+**Takeaway:** The critical apparatus is not an ornamental footnote
 but a structured data model recording evidence of historical transmission.
 
 ---
@@ -94,7 +94,7 @@ thirty percent, making monumental editions economically viable for publishers.
 However, this compression introduces severe epistemological vulnerabilities that
 become fatal when transferred unthinkingly into digital computational systems.
 
-**The takeaway for this page:** A positive apparatus explicitly attests every
+**Takeaway:** A positive apparatus explicitly attests every
 witness for both lemma and variants, whereas a negative apparatus records only
 deviating witnesses to economize space.
 
@@ -141,7 +141,7 @@ practice. In TEI XML, every witness evaluated at a variation unit must be
 explicitly declared, ensuring that missing text, lacunae, and authentic scribal
 readings are transparently differentiated in the underlying dataset.
 
-**The takeaway for this page:** Silent agreement in a negative apparatus conflates
+**Takeaway:** Silent agreement in a negative apparatus conflates
 witness presence with physical absence, introducing fatal errors into automated
 stemmatic analysis.
 
@@ -186,7 +186,7 @@ editions.
 Over the following sections, you will learn to apply each core element of this
 module by hand, building a comprehensive TEI critical apparatus file from scratch.
 
-**The takeaway for this page:** The TEI P5 `textcrit` module provides a standardized
+**Takeaway:** The TEI P5 `textcrit` module provides a standardized
 XML vocabulary that converts textual variation from static print footnotes into
 machine-actionable data.
 
@@ -229,7 +229,7 @@ Furthermore, `<app>` tags can be nested when complex sub-variations occur within
 broader textual divergence, allowing editors to capture micro-variants without
 losing the macro-level variation structure.
 
-**The takeaway for this page:** An `<app>` container encloses the variation unit,
+**Takeaway:** An `<app>` container encloses the variation unit,
 using `<lem>` for the preferred reading and `<rdg>` for variant alternatives.
 
 ---
@@ -269,7 +269,7 @@ validators will flag the attribute as a malformed URI reference.
 Using explicit URI pointers guarantees that sigla are globally unique and immune to
 typographic ambiguities (such as confusing Latin letter B with Greek Beta).
 
-**The takeaway for this page:** The `@wit` attribute uses space-separated `#sigla`
+**Takeaway:** The `@wit` attribute uses space-separated `#sigla`
 pointers to link readings directly to authoritative manuscript identifiers declared
 in the TEI Header.
 
@@ -332,7 +332,7 @@ scan the entire apparatus, cross-reference every `@wit` token against the
 `<listWit>`, and instantly alert the editor if an unregistered siglum or typographical
 typo (such as `#VatGr1290` instead of `#VatGr1209`) appears in the text.
 
-**The takeaway for this page:** The `<listWit>` element in the TEI Header defines
+**Takeaway:** The `<listWit>` element in the TEI Header defines
 authoritative `@xml:id` identifiers, nested families, and metadata for every
 manuscript cited in the edition.
 
@@ -379,7 +379,7 @@ families while filtering out superficial orthographic noise (Camps, Ing, & Spadi
 Without `<rdgGrp>`, an algorithm analyzing this site would treat all four variant
 spellings as independent, unrelated divergences, distorting the genealogical stemma.
 
-**The takeaway for this page:** The `<rdgGrp>` element structures complex variations
+**Takeaway:** The `<rdgGrp>` element structures complex variations
 hierarchically, grouping minor orthographic sub-variants beneath major lexical or
 stemmatic divergences.
 
@@ -423,7 +423,7 @@ Furthermore, `<witDetail>` can link directly to high-resolution IIIF image
 coordinates, allowing users to click a footnote and zoom into the exact scraped
 parchment fibers on screen.
 
-**The takeaway for this page:** The `<witDetail>` element captures essential
+**Takeaway:** The `<witDetail>` element captures essential
 paleographical and codicological context—such as erasures, corrections, and
 marginal additions—tied directly to specific witness readings.
 
@@ -472,7 +472,7 @@ In large-scale traditions with hundreds of fragmentary papyri, milestone lacuna
 tracking is the only mechanism that prevents mathematical models from collapsing into
 statistical chaos.
 
-**The takeaway for this page:** Milestone elements `<lacunaStart/>` and
+**Takeaway:** Milestone elements `<lacunaStart/>` and
 `<lacunaEnd/>` explicitly define spans of physical destruction, preventing algorithms
 from misclassifying physical loss as intentional omission.
 
@@ -509,7 +509,7 @@ between strict XML nesting and fluid manuscript variation, the TEI P5 Guidelines
 specify three distinct architectural linking methods: **Parallel Segmentation**,
 **Location-Referenced**, and **Double-Endpoint Attachment** (TEI Consortium, 2026).
 
-**The takeaway for this page:** The OHCO model of XML forbids overlapping tags,
+**Takeaway:** The OHCO model of XML forbids overlapping tags,
 requiring specialized TEI linking architectures to handle variants that cross
 structural boundaries.
 
@@ -552,7 +552,7 @@ Without this explicit declaration, downstream transformation stylesheets cannot
 reliably determine whether to parse the document as an inline token stream or an
 external pointer network.
 
-**The takeaway for this page:** The `<variantEncoding>` element in the TEI Header
+**Takeaway:** The `<variantEncoding>` element in the TEI Header
 declares the project's chosen apparatus architecture (`method` and `location`) for
 all downstream software tools.
 
@@ -594,7 +594,7 @@ However, parallel segmentation suffers from one severe limitation: it cannot han
 overlapping hierarchies. If a variant spans across a line break `<lb/>`, page break
 `<pb/>`, or structural `<div>`, the inline markup breaks XML validity.
 
-**The takeaway for this page:** Parallel segmentation embeds `<app>` directly
+**Takeaway:** Parallel segmentation embeds `<app>` directly
 inline, making it ideal for XSLT transformation and automated collation, but unable
 to handle overlapping hierarchies.
 
@@ -649,7 +649,7 @@ Notice how an omission or insertion is modeled in parallel segmentation: an empt
 `<lem/>` or `<rdg/>` explicitly marks the absence of text in that witness branch.
 This explicit tagging maintains positive reporting across the entire verse.
 
-**The takeaway for this page:** In parallel segmentation, omissions and additions are
+**Takeaway:** In parallel segmentation, omissions and additions are
 explicitly encoded using empty `<lem/>` or `<rdg/>` tags embedded directly within the
 inline token stream.
 
@@ -691,7 +691,7 @@ variant attaches. It is nearly impossible for an algorithm to dynamically recons
 witness texts or calculate exact string alignments from a location-referenced
 apparatus (Robinson & Driscoll, 2016).
 
-**The takeaway for this page:** Location-referenced apparatuses cleanly separate base
+**Takeaway:** Location-referenced apparatuses cleanly separate base
 text from variants using `@loc` coordinates, but their informal linkage makes
 automated computational processing exceedingly difficult.
 
@@ -742,7 +742,7 @@ This requirement mirrors traditional print conventions (where the lemma is follo
 by a square bracket `]`), making it comfortable for human readers but fragile if line
 numbering shifts during subsequent editorial revisions.
 
-**The takeaway for this page:** Location-referenced apparatuses require explicit
+**Takeaway:** Location-referenced apparatuses require explicit
 lemmas to identify the target phrase within the referenced line or verse coordinate.
 
 ---
@@ -784,7 +784,7 @@ The apparatus entry cleanly spans the precise substring between `@from="#a1"` an
 `@to="#a2"`. This architecture provides the ultimate balance: an unobstructed base
 text combined with exact, algorithmic machine-actionability (Schmidt & Colomb, 2009).
 
-**The takeaway for this page:** Double-endpoint attachment uses external `<app>`
+**Takeaway:** Double-endpoint attachment uses external `<app>`
 elements pointing to `<anchor/>` milestones via `@from` and `@to`, solving
 overlapping hierarchies with exact computational precision.
 
@@ -833,7 +833,7 @@ With double-endpoint attachment, `<anchor xml:id="p1"/>` sits inside line 1, and
 milestones effortlessly. The trade-off is substantial encoding overhead: the editor
 must invent, maintain, and verify hundreds of unique anchor IDs across the edition.
 
-**The takeaway for this page:** Double-endpoint attachment easily spans structural
+**Takeaway:** Double-endpoint attachment easily spans structural
 tags like line and stanza boundaries, but demands meticulous maintenance of anchor
 identifiers.
 
@@ -867,7 +867,7 @@ However, for complex manuscript traditions featuring massive structural
 transpositions, Double-Endpoint Attachment represents the computational gold
 standard.
 
-**The takeaway for this page:** Choose Parallel Segmentation for automated collation
+**Takeaway:** Choose Parallel Segmentation for automated collation
 workflows, and Double-Endpoint Attachment when managing overlapping structural
 hierarchies and complex transpositions.
 
@@ -908,7 +908,7 @@ When recording an editorial emendation or conjecture not attested by any survivi
 manuscript, the `@resp` attribute on `<lem>` identifies the scholar responsible for
 the conjecture, preserving full transparency.
 
-**The takeaway for this page:** The `<lem>` element embodies editorial judgement—whether
+**Takeaway:** The `<lem>` element embodies editorial judgement—whether
 designating a historical copy-text reading or an eclectically reconstructed original.
 
 ---
@@ -954,7 +954,7 @@ phonology, such as confusing αι and ε, or ει, η, and ι).
 Explicitly tagging `@type` and `@cause` transforms the apparatus into an empirical
 dataset for studying scribal habits and dialectal evolution across centuries.
 
-**The takeaway for this page:** Use `@type` to classify the linguistic category of a
+**Takeaway:** Use `@type` to classify the linguistic category of a
 variant and `@cause` to record the paleographical mechanism behind the scribal
 divergence.
 
@@ -992,7 +992,7 @@ Furthermore, editors can embed genetic transcription tags—such as `<add>`
 `<rdg>` element. This bridges the gap between text-critical comparison and diplomatic
 paleography, creating a truly multi-layered digital edition.
 
-**The takeaway for this page:** The `@hand` attribute and embedded `<add>`/`<del>`
+**Takeaway:** The `@hand` attribute and embedded `<add>`/`<del>`
 elements precisely record multi-layered scribal corrections across different
 historical hands within a single witness.
 
@@ -1031,7 +1031,7 @@ undergraduate editors at StFX can preserve the exact orthographic integrity of C
 Breton Gaelic scribes while documenting how transatlantic migration altered poetic
 diction over two centuries.
 
-**The takeaway for this page:** Physical archival holdings—such as StFX's Gaelic
+**Takeaway:** Physical archival holdings—such as StFX's Gaelic
 manuscripts—demonstrate that positive digital apparatus encoding is essential for
 capturing dialectal and performance variance without editorial distortion.
 
@@ -1072,7 +1072,7 @@ Instead of a traditional base text with apparatus footnotes, the HMT uses Canoni
 Text Services (CTS) URNs and stand-off markup to treat every witness, scholion, and
 image coordinate as an autonomous node in a linked data graph (Dué & Ebbott, 2010).
 
-**The takeaway for this page:** The Homer Multitext proves that print apparatuses
+**Takeaway:** The Homer Multitext proves that print apparatuses
 frequently suppress vital physical evidence, demonstrating the need for multi-text
 digital architectures.
 
@@ -1112,7 +1112,7 @@ globally to establish pre-genealogical coherence across the entire corpus (Mink,
 2004). Without exhaustively validated, machine-readable TEI apparatus data, this
 mathematical reconstruction of textual history would be impossible.
 
-**The takeaway for this page:** The ECM demonstrates how exhaustive TEI apparatus
+**Takeaway:** The ECM demonstrates how exhaustive TEI apparatus
 encoding provides the mathematical dataset required for modern phylogenetic methods
 like the CBGM.
 
@@ -1178,7 +1178,7 @@ forest until dawn." Witness B is physically torn after "through", losing the wor
 </p>
 ```
 
-**The takeaway for this page:** Manual encoding of multi-word variants and lacunae
+**Takeaway:** Manual encoding of multi-word variants and lacunae
 forces the editor to define precise variation unit boundaries and handle physical
 damage explicitly.
 
@@ -1219,7 +1219,7 @@ Corrected XML:       <rdg wit="#CodexA">λόγος &amp; σοφία</rdg>
 Running an XML syntax linter (such as `xmllint`) in your terminal immediately catches
 these well-formedness errors before you submit files to schema validation.
 
-**The takeaway for this page:** Strict vigilance over IDREF pointers, URI `#`
+**Takeaway:** Strict vigilance over IDREF pointers, URI `#`
 prefixes, XML entity escaping, and milestone closure prevents fatal validation
 failures in hand-crafted TEI.
 
@@ -1257,7 +1257,7 @@ Documenting these constraints in markdown ensures complete consistency across yo
 editorial team and provides the baseline specification required to configure
 automated tools.
 
-**The takeaway for this page:** A Method Reference Document formalizes project rules
+**Takeaway:** A Method Reference Document formalizes project rules
 for linking methods, lemma selection, variant classification, and witness sigla.
 
 ---
@@ -1291,7 +1291,7 @@ Tomorrow you will measure exactly how much human labour CollateX automates, wher
 algorithmic conversion excels, and where machine alignment fails to replicate the
 nuanced classification of the human editor.
 
-**The takeaway for this page:** Today's hand-crafted TEI apparatus serves as the
+**Takeaway:** Today's hand-crafted TEI apparatus serves as the
 ground-truth benchmark against which tomorrow's automated CollateX export will be
 measured.
 
@@ -1326,7 +1326,7 @@ The Three-Step Apparatus Cycle:
 Keep your hand-encoded XML file clean and well-documented. It is the gold standard
 against which all subsequent computational methods in this module will be evaluated.
 
-**The takeaway for this page:** Manual TEI apparatus construction makes every
+**Takeaway:** Manual TEI apparatus construction makes every
 philological assumption explicit, establishing the baseline ground truth for the
 entire apparatus pipeline.
 

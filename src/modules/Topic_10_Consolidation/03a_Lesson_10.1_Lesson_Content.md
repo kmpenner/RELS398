@@ -42,7 +42,7 @@ repositories, forks, feature branching, pull requests, and issue tracking,
 reframing software engineering workflows as rigorous instruments of collaborative
 textual scholarship.
 
-**The takeaway for this page:** Consolidation is not an administrative pause but an
+**Takeaway:** Consolidation is not an administrative pause but an
 essential editorial synthesis where nine isolated methodological layers are
 integrated into a collaborative, multi-editor digital critical edition.
 
@@ -82,7 +82,7 @@ edition ceases to be a static, closed book produced by a solitary authority and
 becomes a dynamic, living research corpus curated by a transparent community of
 scholars (Almas & Beaulieu, 2013).
 
-**The takeaway for this page:** Modern digital textual scholarship replaces
+**Takeaway:** Modern digital textual scholarship replaces
 solitary desktop curation with distributed, transparent collaboration, ensuring
 data preservation, traceable provenance, and communal editorial adjudication.
 
@@ -124,7 +124,7 @@ provides mathematically verifiable provenance for every reading in your edition,
 guaranteeing that editorial interventions cannot be altered retroactively or
 erased without detection (Himmelstein et al., 2019).
 
-**The takeaway for this page:** Git's Directed Acyclic Graph models textual
+**Takeaway:** Git's Directed Acyclic Graph models textual
 transmission as an immutable network of cryptographic nodes, ensuring permanent
 provenance and citation stability for every editorial intervention.
 
@@ -165,7 +165,7 @@ four distinct storage zones on your computer and the network:
    GitHub that receives your pushed commits (`git push`) and supplies external
    updates (`git fetch`).
 
-**The takeaway for this page:** A Git remote is an external peer repository used to
+**Takeaway:** A Git remote is an external peer repository used to
 synchronize Directed Acyclic Graphs across distributed editors, mediated through
 local working trees, staging indexes, and remote tracking branches.
 
@@ -207,7 +207,7 @@ push changes freely to their personal forks and then submit a formal **Pull
 Request (PR)** asking the project maintainers to pull and merge the verified
 changes into the canonical repository.
 
-**The takeaway for this page:** The fork-and-pull model isolates experimental
+**Takeaway:** The fork-and-pull model isolates experimental
 editorial work within personal sandboxes, protecting the canonical corpus from
 accidental data corruption while enabling open, distributed collaboration.
 
@@ -244,7 +244,7 @@ validated, and accepted through a structured pull request.
 repository hosted under a contributor's personal account. *Upstream* — the
 authoritative, primary repository from which personal forks are derived.
 
-**The takeaway for this page:** Forking provides an autonomous personal sandbox
+**Takeaway:** Forking provides an autonomous personal sandbox
 for experimental editorial labor while maintaining the genealogical linkage
 necessary for upstream contribution.
 
@@ -279,7 +279,7 @@ transcribing a specific manuscript quire or encoding variant readings for a sing
 chapter—editors ensure that each contribution can be reviewed, debugged, and
 merged independently of all other ongoing work (Witt, 2018).
 
-**The takeaway for this page:** Feature branches isolate discrete editorial tasks
+**Takeaway:** Feature branches isolate discrete editorial tasks
 into independent streams, ensuring the `main` branch remains clean, stable, and
 continuously publishable.
 
@@ -327,7 +327,7 @@ re-introducing obsolete readings. Once a pull request is merged, its associated
 feature branch should be promptly deleted from both the local machine and the
 remote fork.
 
-**The takeaway for this page:** Semantic branch naming conventions communicate
+**Takeaway:** Semantic branch naming conventions communicate
 editorial intent instantly, while prompt deletion of merged branches preserves
 repository clarity and historical hygiene.
 
@@ -373,7 +373,7 @@ With both remotes configured, your local workstation becomes a bridge: you will
 fetch updates from `upstream` to stay synchronized with your peers, while pushing
 your personal editorial branches exclusively to `origin`.
 
-**The takeaway for this page:** Mapping both `origin` (personal fork) and `upstream`
+**Takeaway:** Mapping both `origin` (personal fork) and `upstream`
 (canonical repository) enables bidirectional synchronization between individual
 editorial labor and the broader collaborative project.
 
@@ -418,7 +418,7 @@ While rebasing yields clean, linear commit logs, merging preserves the true
 chronological record of transmission. In textual scholarship, where data provenance
 is paramount, explicit merge commits are widely preferred.
 
-**The takeaway for this page:** Regularly fetching and merging `upstream/main`
+**Takeaway:** Regularly fetching and merging `upstream/main`
 keeps your local environment synchronized with canonical project updates,
 preventing drift and minimizing downstream merge collisions.
 
@@ -459,7 +459,7 @@ links, or debate whether an editorial intervention should be marked as `<corr>` 
 debated revisions and reviewer approvals—remains permanently archived and linked to
 the merge commit, creating a fully transparent audit trail of editorial reasoning.
 
-**The takeaway for this page:** A pull request is a dynamic apparatus criticus,
+**Takeaway:** A pull request is a dynamic apparatus criticus,
 transforming code review into an attributed, transparent forum for collaborative
 philological debate and editorial adjudication.
 
@@ -499,7 +499,7 @@ Every scholarly PR should include four essential components:
    XML locally, checked facsimile alignments, and verified that all tags conform to
    project schemas.
 
-**The takeaway for this page:** An effective pull request is atomic, tightly
+**Takeaway:** An effective pull request is atomic, tightly
 scoped, and thoroughly documented, facilitating rapid, rigorous peer evaluation.
 
 ---
@@ -541,7 +541,7 @@ ensure that basic technical quality control occurs prior to peer review, freeing
 human reviewers to concentrate on paleographical and interpretive matters (Witt,
 2018).
 
-**The takeaway for this page:** Pull request templates standardize submission
+**Takeaway:** Pull request templates standardize submission
 protocols, embedding self-audit checklists directly into the collaborative
 workflow to guarantee baseline data integrity.
 
@@ -585,7 +585,7 @@ verify whether an edit altered only the text string, modified semantic attribute
 values (such as changing `@ana="#noun"` to `@ana="#verb"`), or reorganized the
 underlying XML hierarchy (Huskey, 2024).
 
-**The takeaway for this page:** Mastering word-level and whitespace-aware diffs
+**Takeaway:** Mastering word-level and whitespace-aware diffs
 allows reviewers to isolate substantive philological emendations from cosmetic XML
 formatting changes.
 
@@ -629,7 +629,7 @@ select one of three formal dispositions: *Comment* (general feedback), *Approve*
 (ready to merge), or *Request Changes* (blocking merge until critical defects are
 resolved).
 
-**The takeaway for this page:** Inline review comments and direct markdown
+**Takeaway:** Inline review comments and direct markdown
 suggestions turn the pull request diff into an active workspace for collaborative
 paleographical correction and markup refinement.
 
@@ -671,7 +671,7 @@ notified that the requested modifications have been implemented. This iterative
 feedback loop continues until the edition meets all scholarly standards and receives
 formal approval (Weigl et al., 2024).
 
-**The takeaway for this page:** Pushing new commits to an active feature branch
+**Takeaway:** Pushing new commits to an active feature branch
 automatically updates the open pull request, supporting a seamless, iterative
 dialogue between contributor and reviewer.
 
@@ -710,7 +710,7 @@ well-formedness, crashing parsers, breaking publication pipelines, and halting
 continuous integration builds. Resolving XML conflicts therefore demands deep
 philological understanding alongside rigorous structural awareness.
 
-**The takeaway for this page:** Merge conflicts in TEI XML documents threaten the
+**Takeaway:** Merge conflicts in TEI XML documents threaten the
 validity of hierarchical tree structures and cannot be resolved mechanically
 without careful philological and syntactic adjudication.
 
@@ -759,7 +759,7 @@ To resolve the conflict, you must manually edit the text to synthesize the corre
 combined reading and completely delete all seven-character marker lines before
 saving (Huskey, 2024).
 
-**The takeaway for this page:** Git conflict markers explicitly delimit competing
+**Takeaway:** Git conflict markers explicitly delimit competing
 editorial readings, providing the raw evidence needed to synthesize a valid,
 consensus XML tree.
 
@@ -807,7 +807,7 @@ branch while Editor B lemmatizes `folio_12v.xml` on another. Because the two edi
 are modifying completely separate physical files on disk, Git merges both feature
 branches automatically with zero merge collisions (Witt, 2018).
 
-**The takeaway for this page:** Modularizing large texts into discrete, folio-level
+**Takeaway:** Modularizing large texts into discrete, folio-level
 files assembled via W3C XInclude drastically reduces merge collisions and allows
 distributed teams to edit concurrently.
 
@@ -853,7 +853,7 @@ $ git add src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
 $ git commit -m "Reconcile merge conflict in Folio 14v: combine lemma tags with variant apparatus"
 ```
 
-**The takeaway for this page:** Resolving an XML merge conflict requires
+**Takeaway:** Resolving an XML merge conflict requires
 synthesizing competing readings, deleting all conflict markers, verifying XML
 well-formedness, and concluding the merge with a descriptive commit.
 
@@ -892,7 +892,7 @@ collaborators can convene around a specific manuscript puzzle, debate alternativ
 solutions, and establish a documented consensus before any code is committed
 (Faghihi et al., 2022).
 
-**The takeaway for this page:** GitHub Issues function as open, collaborative
+**Takeaway:** GitHub Issues function as open, collaborative
 scholarly marginalia, providing a structured space to debate paleographical
 puzzles and record editorial decisions.
 
@@ -951,7 +951,7 @@ body:
       required: true
 ```
 
-**The takeaway for this page:** Structured issue templates ensure that
+**Takeaway:** Structured issue templates ensure that
 collaborative textual queries include necessary manuscript citations, IIIF
 coordinates, and transcription hypotheses.
 
@@ -995,7 +995,7 @@ Each manuscript folio moves through visual columns across its editorial lifecycl
 +----------------+----------------+----------------+----------------+
 ```
 
-**The takeaway for this page:** Labels, milestones, and Kanban project boards
+**Takeaway:** Labels, milestones, and Kanban project boards
 transform sprawling editorial tasks into a transparent, visual project management
 pipeline.
 
@@ -1038,7 +1038,7 @@ Applications like the LombardPress web viewer consume this data via open APIs,
 ensuring that the underlying textual data remains permanent, version-controlled,
 and citeable regardless of future software changes (Witt, 2019).
 
-**The takeaway for this page:** The SCTA proves that distributed Git repositories
+**Takeaway:** The SCTA proves that distributed Git repositories
 and community pull requests can curate massive, interconnected medieval corpora
 without centralized publishing bottlenecks.
 
@@ -1071,7 +1071,7 @@ structured review rubric, providing feedback and approving merges (Almas & Beaul
 scaffolding required to transform classroom exercises into authentic contributions
 to digital classical scholarship.
 
-**The takeaway for this page:** The Perseids Project demonstrates that
+**Takeaway:** The Perseids Project demonstrates that
 version-controlled pull request workflows allow students to produce vetted,
 publication-grade classical editions within a structured pedagogical framework.
 
@@ -1111,7 +1111,7 @@ HTML and PDF formats (Himmelstein et al., 2019). Manubot proves that combining G
 collaboration with automated pipeline processing creates a frictionless, highly
 reproducible scholarly authoring environment.
 
-**The takeaway for this page:** Manubot shows how Git version control and
+**Takeaway:** Manubot shows how Git version control and
 automated continuous integration can transform multi-author scholarly writing into
 a transparent, reproducible, and version-tracked collaboration.
 
@@ -1146,7 +1146,7 @@ edition release, GitHub Actions pipelines automatically validate the hybrid TEI/
 schemas, verify metadata against linked databases, and synthesize interactive web
 renderings (Weigl et al., 2024).
 
-**The takeaway for this page:** E-LAUTE demonstrates that distributed Git workflows
+**Takeaway:** E-LAUTE demonstrates that distributed Git workflows
 successfully coordinate complex multimodal editions combining TEI text, MEI musical
 notation, and performance data across multidisciplinary teams.
 
@@ -1200,7 +1200,7 @@ be accompanied by a corresponding `<change>` entry recording the editor's ORCID
 identifier, the date, and the precise nature of the editorial intervention (TEI
 Consortium, 2026; Daquino et al., 2023).
 
-**The takeaway for this page:** Digital editions must synchronize Git commit
+**Takeaway:** Digital editions must synchronize Git commit
 provenance with internal TEI `<revisionDesc>` metadata to ensure rigorous,
 permanent academic attribution.
 
@@ -1234,7 +1234,7 @@ their designated directories, remove abandoned scratch files, verify that all fi
 names conform to the project naming standard (`03a_Lesson_XX_Content.md`), and
 execute a clean commit to your local `main` branch (Weigl et al., 2024).
 
-**The takeaway for this page:** A consolidated scholarly repository organizes all
+**Takeaway:** A consolidated scholarly repository organizes all
 accumulated methodological layers into a clean, standardized directory structure,
 laying the physical foundation for automated validation and collaborative peer
 review.
@@ -1272,7 +1272,7 @@ execute automated XML schema validation sweeps across every TEI layer produced t
 date, and you will conduct structured, in-class **peer reviews** of your classmates'
 editions using formal philological rubrics.
 
-**The takeaway for this page:** Today's version-control foundation prepares your
+**Takeaway:** Today's version-control foundation prepares your
 repository for Friday's automated schema validation sweeps, CI/CD pipelines, and
 collaborative peer reviews.
 

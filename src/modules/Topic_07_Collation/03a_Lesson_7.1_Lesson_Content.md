@@ -41,7 +41,7 @@ differences. *Witness* — a surviving manuscript or edition attesting a text.
 *Variant site* — a point at which witnesses differ. *Lemma* — the reading adopted in
 the base text at a variant site.
 
-**The takeaway for this page:** Collation records differences because differences
+**Takeaway:** Collation records differences because differences
 are evidence about transmission — not for their own sake.
 
 ---
@@ -85,7 +85,7 @@ the distinction largely collapses. Understand that you are making a choice, reco
 which witness you chose as base, and note that Wednesday's method does not require
 one.
 
-**The takeaway for this page:** A base text privileges one witness's readings as the
+**Takeaway:** A base text privileges one witness's readings as the
 norm — with two witnesses this barely matters, and Wednesday's method avoids it
 entirely.
 
@@ -126,7 +126,7 @@ Decide today, record the decision, and apply it consistently. Wednesday's tool w
 require the same decision expressed as a configuration, and Friday's model will need
 to be told which you are asking about.
 
-**The takeaway for this page:** Collate on `<reg>` for the substantive apparatus and
+**Takeaway:** Collate on `<reg>` for the substantive apparatus and
 analyze `<orig>` separately — one collation cannot serve both purposes.
 
 ---
@@ -172,7 +172,7 @@ next section.
 If you have only transcribed one witness, transcribe at least twenty lines of the
 second now. Collation requires two.
 
-**The takeaway for this page:** Remove the layer you are not collating before
+**Takeaway:** Remove the layer you are not collating before
 stripping markup, or every `<choice>` produces a token that matches nothing.
 
 ---
@@ -209,7 +209,7 @@ catching yourself applying them.
 Keep a second sheet beside the collation for exactly this. Every time you decide a
 difference does not count, write down why.
 
-**The takeaway for this page:** You will make dozens of tacit judgements today — the
+**Takeaway:** You will make dozens of tacit judgements today — the
 record of them, not the variant list, is what Wednesday needs.
 
 ---
@@ -251,7 +251,7 @@ Manly and Rickert used one card per variant site, and the practice is sound — 
 or a row per variant keeps each one separable and reorderable, which matters when
 you later group variants by type.
 
-**The takeaway for this page:** Re-establishing alignment after an omission is the
+**Takeaway:** Re-establishing alignment after an omission is the
 hard part by hand — and it is exactly what Wednesday's algorithm computes.
 
 ---
@@ -292,7 +292,7 @@ a different word is a specific event, and its independent recurrence is improbab
 
 Classify every variant as you record it. Reclassifying later means rereading.
 
-**The takeaway for this page:** Orthographic variants are weak evidence because two
+**Takeaway:** Orthographic variants are weak evidence because two
 scribes can produce them independently; long omissions are strong evidence because
 they cannot.
 
@@ -336,7 +336,7 @@ extended cognitive event rather than ten isolated decisions (Gotoh, 1982).
 When you find an omission today, check its boundaries for similar endings and record
 what you find.
 
-**The takeaway for this page:** Check every omission's boundaries for similar
+**Takeaway:** Check every omission's boundaries for similar
 endings — *homoioteleuton* is a single cognitive event, which is why Wednesday's
 algorithm penalizes gap opening rather than gap length.
 
@@ -381,7 +381,7 @@ Mark transpositions distinctly in your record. Wednesday's tool will report them
 an omission and an addition, and your identification is what tells you the tool has
 mis-modelled a single event.
 
-**The takeaway for this page:** Mark transpositions distinctly — Wednesday's
+**Takeaway:** Mark transpositions distinctly — Wednesday's
 algorithm will report each as a separate omission and addition, and your record is
 what shows that is wrong.
 
@@ -420,7 +420,7 @@ Keep this list beside the variant record throughout. It will be longer than you
 expect, and its length is the measure of how much implicit knowledge manual
 collation depends on.
 
-**The takeaway for this page:** The list of differences you discount becomes
+**Takeaway:** The list of differences you discount becomes
 Wednesday's configuration — and its length measures how much manual collation relies
 on implicit knowledge.
 
@@ -461,7 +461,7 @@ Decide based on your actual witnesses rather than on principle. Look at whether 
 punctuate, whether they punctuate differently, and whether the differences are
 interesting. Record the decision and the reason.
 
-**The takeaway for this page:** Decide punctuation handling from what your witnesses
+**Takeaway:** Decide punctuation handling from what your witnesses
 actually do — stripping absent punctuation costs nothing, stripping meaningful
 punctuation costs evidence.
 
@@ -506,7 +506,7 @@ that phylogenetic algorithms consume are computed from collation data, and the
 collation data is a record of variants — which someone has to produce, and which for
 most of the discipline's history was produced exactly as you are producing it.
 
-**The takeaway for this page:** Phylogenetic stemmatics consumes collation data as
+**Takeaway:** Phylogenetic stemmatics consumes collation data as
 its input — the variant record you are building by hand is what those methods run
 on.
 
@@ -552,7 +552,7 @@ tree model may not fit. That is a limitation to state rather than to work around
 this scale — but knowing it exists prevents you from over-interpreting a
 two-witness collation as evidence of a clean genealogical relation.
 
-**The takeaway for this page:** Contamination breaks tree models, and Greek biblical
+**Takeaway:** Contamination breaks tree models, and Greek biblical
 traditions are heavily contaminated — do not over-interpret a two-witness collation
 as clean descent.
 
@@ -593,7 +593,7 @@ When you finish, count:
 
 The last row matters for Wednesday's comparison, as in every previous week.
 
-**The takeaway for this page:** A long run with no variants may mean lost alignment
+**Takeaway:** A long run with no variants may mean lost alignment
 rather than agreement — check before trusting it.
 
 ---
@@ -655,7 +655,7 @@ Tag it, as the reference for Wednesday:
 git tag -a collation-manual-w7 -m "Manual collation reference, ff. 42r-43v"
 ```
 
-**The takeaway for this page:** Record discounted differences alongside variants —
+**Takeaway:** Record discounted differences alongside variants —
 they are Wednesday's configuration, not merely notes.
 
 ---
@@ -692,7 +692,7 @@ tomorrow, probably by accepting a default.
 Write it now, while the decisions are fresh. You made most of them today without
 noticing, and reconstructing them tomorrow means re-deriving rather than recording.
 
-**The takeaway for this page:** Every imprecise line in the method document becomes a
+**Takeaway:** Every imprecise line in the method document becomes a
 default you accept under time pressure tomorrow.
 
 ---
@@ -732,7 +732,7 @@ because you noticed yourself discounting.
 Read the last two rows against the first three. Neither column dominates, and the
 week's conclusion should reflect that rather than ranking the methods.
 
-**The takeaway for this page:** Manual collation supplies interpretation and
+**Takeaway:** Manual collation supplies interpretation and
 classification that the algorithm cannot; the algorithm supplies scale and
 reproducibility that you cannot.
 
@@ -773,7 +773,7 @@ it does. The specific tests:
 The second question is the one that requires the discounted list, and it is where
 most of the configuration work will go.
 
-**The takeaway for this page:** Install and test CollateX before Wednesday —
+**Takeaway:** Install and test CollateX before Wednesday —
 installation failures are the commonest way to lose the session.
 
 ---
@@ -806,7 +806,7 @@ noting — two closely related witnesses may differ only in small ways. Wednesda
 comparison still works, and the absence of complex variance is itself a finding
 about the relationship between your witnesses.
 
-**The takeaway for this page:** Finding no omissions or transpositions is a finding
+**Takeaway:** Finding no omissions or transpositions is a finding
 about your witnesses' relationship, not a failed exercise.
 
 ---
@@ -837,7 +837,7 @@ informative result: it suggests a close genealogical relationship, and it is exa
 what you would expect if one was copied from the other or both from a common
 exemplar. Verify the alignment, then record the finding.
 
-**The takeaway for this page:** Disagreement everywhere usually means a broken
+**Takeaway:** Disagreement everywhere usually means a broken
 extraction, and agreement everywhere usually means either close kinship or lost
 alignment — verify before concluding.
 
@@ -871,7 +871,7 @@ occurrence of the same word, and is therefore probably a mechanical skip rather 
 a deliberate excision, is an interpretation supported by evidence — and it bears
 directly on whether the omission counts as evidence of descent.
 
-**The takeaway for this page:** Recording that an omission is bounded by similar
+**Takeaway:** Recording that an omission is bounded by similar
 endings turns a datum into an interpretation — and changes what the variant is
 evidence for.
 
@@ -908,7 +908,7 @@ State these limits in your report. A two-witness collation supporting a claim ab
 the whole tradition would be overreaching, and saying what your evidence can and
 cannot support is the same disposition Lesson 5.2 section 27 asked for.
 
-**The takeaway for this page:** Two witnesses record variation and cannot generally
+**Takeaway:** Two witnesses record variation and cannot generally
 determine which reading is original — state that limit rather than overreaching.
 
 ---
@@ -948,7 +948,7 @@ own edition, and `git diff` between two tagged states performs exactly this
 operation on it. The structural identity that Lesson 1.1 argued for is not an
 analogy — it is the same computation applied to different material.
 
-**The takeaway for this page:** Treating drafts as witnesses makes the same
+**Takeaway:** Treating drafts as witnesses makes the same
 machinery trace authorial revision — and your own Git history is a genetic edition
 of your edition.
 
@@ -985,7 +985,7 @@ being stated.
 
 The **Normalization Assignment is due Friday October 23**, at the end of this week.
 
-**The takeaway for this page:** Your taxonomy determines what enters Week 8's
+**Takeaway:** Your taxonomy determines what enters Week 8's
 apparatus — including everything makes it unreadable, so the filtering policy must
 be stated.
 
@@ -1022,7 +1022,7 @@ criticism.
 tested. You will configure it to reproduce today's decisions and measure how far it
 succeeds.
 
-**The takeaway for this page:** Automated collation produces the dataset on which
+**Takeaway:** Automated collation produces the dataset on which
 criticism is performed; today's judgements are the criticism, and they are what the
 tool must be told.
 
@@ -1059,7 +1059,7 @@ The third row is the valuable one, and it is the same benefit as Lesson 6.2 sect
 15: the deterministic method's uniform attention catches what human attention
 misses. Expect it, and record the corrections it prompts.
 
-**The takeaway for this page:** Wednesday will find variants you missed through
+**Takeaway:** Wednesday will find variants you missed through
 fatigue — treat those as findings rather than as the tool's false positives.
 
 ---
@@ -1096,7 +1096,7 @@ differences are orthographic, and collating on the regularized layer suppresses 
 before alignment rather than requiring configuration to filter them afterwards. The
 work Week 6 did is what makes Wednesday tractable.
 
-**The takeaway for this page:** Predict tomorrow's raw difference count from your
+**Takeaway:** Predict tomorrow's raw difference count from your
 discounted list — a large discrepancy means either your list is incomplete or the
 tool tokenizes differently than you assume.
 
@@ -1135,7 +1135,7 @@ everywhere.
 That is a substantial and easily missed source of spurious variants. Decide now that
 line-broken words are rejoined before tokenization, and record it.
 
-**The takeaway for this page:** Rejoin words broken across lines before tokenizing,
+**Takeaway:** Rejoin words broken across lines before tokenizing,
 or your witnesses will differ wherever their line breaks fall differently.
 
 ---
@@ -1167,7 +1167,7 @@ anything else on this list, because an apparatus entry states that witnesses dif
 and a commentary explains what the difference means — and the explanation depends on
 observations made while looking at the passage, which is now.
 
-**The takeaway for this page:** Half of today's outputs are configuration for
+**Takeaway:** Half of today's outputs are configuration for
 tomorrow rather than results — the manual step specifies the automation as well as
 providing the reference.
 
@@ -1204,7 +1204,7 @@ reproduces today's decisions.
 
 **Due Friday October 23.** The Normalization Assignment, from Topic 6.
 
-**The takeaway for this page:** Collation produces evidence for inferences about
+**Takeaway:** Collation produces evidence for inferences about
 descent, and the inferences depend on a classification only judgement supplies.
 
 ---

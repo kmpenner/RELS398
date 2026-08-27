@@ -45,7 +45,7 @@ reading invented or normalized by a language model. *Human-in-the-Loop (HITL)* �
 editorial workflow where automated AI suggestions must be verified by a human expert
 before acceptance.
 
-**The takeaway for this page:** Generative AI offers powerful semantic drafting
+**Takeaway:** Generative AI offers powerful semantic drafting
 capabilities for apparatus construction, but introduces severe risks of factual
 hallucination that require strict verification.
 
@@ -83,7 +83,7 @@ resolution, and domain-specific philological reasoning (Bambaci et al., 2025).
 As you will discover today, LLMs perform radically differently on these two tasks,
 exhibiting distinct error profiles that demand specialized auditing strategies.
 
-**The takeaway for this page:** Evaluating AI in textual criticism requires
+**Takeaway:** Evaluating AI in textual criticism requires
 distinguishing between structured collation conversion (Task A) and unstructured
 legacy print parsing (Task B).
 
@@ -121,7 +121,7 @@ Deciphering this single line requires extensive domain knowledge:
 Converting hundreds of thousands of such legacy entries into machine-actionable TEI
 XML is one of the grand challenges of computational philology (Bambaci et al., 2025).
 
-**The takeaway for this page:** Legacy printed apparatuses contain vast troves of
+**Takeaway:** Legacy printed apparatuses contain vast troves of
 unstructured collational data compressed into dense, human-oriented typographical
 shorthand.
 
@@ -157,7 +157,7 @@ deterministic grammar parsers were better suited for decoding Kennicott's
 apparatus. Their empirical findings provide essential lessons for digital editors
 everywhere (Bambaci et al., 2025).
 
-**The takeaway for this page:** The REK project digitized 1.5 million Hebrew Bible
+**Takeaway:** The REK project digitized 1.5 million Hebrew Bible
 variants from Kennicott's 18th-century edition, evaluating generative AI against
 deterministic grammar parsers.
 
@@ -200,7 +200,7 @@ The REK project demonstrated that for regularized print apparatuses, determinist
 grammar parsers drastically outperform generative LLMs in accuracy, speed, and
 verifiable reproducibility (Bambaci et al., 2025).
 
-**The takeaway for this page:** Deterministic Context-Free Grammar parsers (ANTLR4)
+**Takeaway:** Deterministic Context-Free Grammar parsers (ANTLR4)
 achieve 98% accuracy on structured legacy apparatuses, completely avoiding generative
 hallucinations.
 
@@ -233,7 +233,7 @@ Hebrew ground truth without requiring scholars to transcribe a single manuscript
 page by hand (Bambaci et al., 2025). It proves that legacy apparatuses are rich
 data repositories capable of powering modern machine-learning models.
 
-**The takeaway for this page:** Programmatically applying apparatus variants to a
+**Takeaway:** Programmatically applying apparatus variants to a
 base text allows scholars to reconstruct millions of tokens of full-text witness
 data for training machine-learning models.
 
@@ -282,7 +282,7 @@ tasks:
 When deployed in this semantic advisory role, LLMs function as powerful research
 assistants, accelerating the drafting of rich commentary (Tafdrup et al., 2026).
 
-**The takeaway for this page:** LLMs excel at semantic enrichment—identifying
+**Takeaway:** LLMs excel at semantic enrichment—identifying
 intertextual allusions, disambiguating named entities, and drafting historical
 commentary notes.
 
@@ -318,7 +318,7 @@ hallucination rates of the model across hundreds of candidate passages, establis
 the definitive methodological framework for AI in scholarly editing (Tafdrup et al.,
 2026).
 
-**The takeaway for this page:** The *Grundtvig’s Works* project deployed GPT-4o to
+**Takeaway:** The *Grundtvig’s Works* project deployed GPT-4o to
 draft explanatory apparatus notes and biblical references across a massive 19th-century
 theological corpus.
 
@@ -350,7 +350,7 @@ weights strongly compel it to "correct" the text into smooth, grammatical prose,
 obliterating the very variant that the textual critic seeks to preserve (Tafdrup et
 al., 2026).
 
-**The takeaway for this page:** LLM hallucinations in textual criticism are
+**Takeaway:** LLM hallucinations in textual criticism are
 insidiously plausible, systematically standardizing rare scribal errors and
 fabricating phantom witness sigla.
 
@@ -395,7 +395,7 @@ STRICT CONSTRAINTS:
 Constraining the model with strict rules and explicit few-shot patterns reduces
 structural syntax errors by over eighty percent (Tafdrup et al., 2026).
 
-**The takeaway for this page:** Robust prompt engineering with witness whitelists,
+**Takeaway:** Robust prompt engineering with witness whitelists,
 few-shot exemplars, and strict negative constraints significantly reduces LLM syntax
 and sigla errors.
 
@@ -443,7 +443,7 @@ However, when tested on complex edge cases—such as multi-word transpositions,
 lacunose witnesses, or nested reading groups—the models frequently begin to drift,
 dropping witness sigla or misplacing apparatus boundaries (Tafdrup et al., 2026).
 
-**The takeaway for this page:** LLMs convert simple collation tables to TEI XML with
+**Takeaway:** LLMs convert simple collation tables to TEI XML with
 high fluency, but struggle with complex edge cases like transpositions and lacunae.
 
 ---
@@ -474,7 +474,7 @@ fabricated a reading out of thin air.
 Scholarly authority cannot be certified by a schema validator. It requires deep,
 witness-level verification against primary evidence (Burnard, 2014; Pinche, 2025).
 
-**The takeaway for this page:** Schema validation only confirms structural syntax;
+**Takeaway:** Schema validation only confirms structural syntax;
 it cannot detect historical falsehoods, corrupted readings, or hallucinated sigla.
 
 ---
@@ -513,7 +513,7 @@ This associative bleed-through is exceptionally dangerous. If uncorrected, it
 corrupts the edition by introducing ghost witnesses that were never collated by the
 project team (Tafdrup et al., 2026).
 
-**The takeaway for this page:** Associative memory causes LLMs to inject famous
+**Takeaway:** Associative memory causes LLMs to inject famous
 manuscript sigla from their pre-training data into projects where those witnesses
 were never collated.
 
@@ -550,7 +550,7 @@ evidence for establishing stemmatic descent. An AI that silently normalizes vari
 destroys the very historical signal that scholars require (Robinson & Driscoll,
 2016).
 
-**The takeaway for this page:** LLMs tend to standardize bizarre scribal spellings,
+**Takeaway:** LLMs tend to standardize bizarre scribal spellings,
 silently erasing rare morphological variants and corrupting the stemmatic record.
 
 ---
@@ -586,7 +586,7 @@ Human-in-the-Loop Governance:
 This workflow harnesses the high-speed drafting power of AI while preserving the
 unimpeachable scholarly integrity of the critical edition (Tafdrup et al., 2026).
 
-**The takeaway for this page:** The Human-in-the-Loop framework mandates that all
+**Takeaway:** The Human-in-the-Loop framework mandates that all
 AI-generated apparatus markup is treated as provisional proposals subject to expert
 human verification.
 
@@ -614,7 +614,7 @@ freed from verifying basic syntax. Scholars focus one hundred percent of their
 attention on Gate 4: adjudicating genuine philological discrepancies and inspecting
 high-resolution manuscript images (Pinche, 2025).
 
-**The takeaway for this page:** A multi-stage verification protocol uses automated
+**Takeaway:** A multi-stage verification protocol uses automated
 scripts to filter syntax and sigla errors, reserving human review for philological
 adjudication.
 
@@ -660,7 +660,7 @@ Running this audit script across thousands of lines of generated XML takes less 
 a second, instantly outputting an error report that directs human editors to the exact
 lines requiring manual intervention.
 
-**The takeaway for this page:** Automated Python auditing scripts instantly flag
+**Takeaway:** Automated Python auditing scripts instantly flag
 phantom sigla, missing lemmas, and text drift in AI-generated apparatus files.
 
 ---
@@ -715,7 +715,7 @@ In the body text, apparatus entries carry explicit attribution:
 This strict stratified attribution ensures complete academic transparency and
 reproducibility (Pinche, 2025).
 
-**The takeaway for this page:** Stratified TEI encoding uses `@resp`, `@cert`, and
+**Takeaway:** Stratified TEI encoding uses `@resp`, `@cert`, and
 `<respStmt>` to transparently document AI model provenance and human review.
 
 ---
@@ -743,7 +743,7 @@ achieves its highest rigor by combining all three: using manual human judgement 
 establish ground truth rules, deterministic tools like CollateX for structural
 alignment, and AI models for semantic drafting within an audited HITL framework.
 
-**The takeaway for this page:** Textual scholarship is optimized by combining manual
+**Takeaway:** Textual scholarship is optimized by combining manual
 human ground truth, deterministic alignment speed, and AI-assisted semantic drafting.
 
 ---
@@ -769,7 +769,7 @@ architects:
 Matching the appropriate pipeline to the specific linguistic and material realities
 of the corpus prevents costly methodological dead-ends.
 
-**The takeaway for this page:** Match your editorial pipeline to corpus scale and
+**Takeaway:** Match your editorial pipeline to corpus scale and
 complexity: use deterministic tools for alignment and LLMs with HITL for semantic
 enrichment.
 
@@ -807,7 +807,7 @@ This massive mathematical engine depends entirely on the absolute integrity of t
 underlying TEI apparatus. A single hallucinated siglum or miscoded lacuna corrupts
 the coherence percentages across the entire manuscript tradition (Mink, 2004).
 
-**The takeaway for this page:** The CBGM proves that large-scale mathematical
+**Takeaway:** The CBGM proves that large-scale mathematical
 stemmatology requires exhaustively validated, machine-readable TEI apparatus
 datasets.
 
@@ -848,7 +848,7 @@ This architecture allows researchers anywhere in the world to query the global g
 discovering cross-textual variant patterns across thousands of medieval codices
 without relying on any single publisher's interface (Witt, 2018).
 
-**The takeaway for this page:** The SCTA models critical apparatuses as Linked Open
+**Takeaway:** The SCTA models critical apparatuses as Linked Open
 Data, connecting TEI variants to persistent URIs, SPARQL queries, and IIIF images.
 
 ---
@@ -882,7 +882,7 @@ high-resolution IIIF images of the Venetus A codex, ancient marginal scholia, an
 paleographical annotations into a distributed knowledge network (Dué & Ebbott, 2010;
 Robinson & Driscoll, 2016).
 
-**The takeaway for this page:** The Homer Multitext uses Canonical Text Services
+**Takeaway:** The Homer Multitext uses Canonical Text Services
 (CTS) URNs and stand-off markup to represent multi-text traditions without
 hierarchical apparatus footnotes.
 
@@ -915,7 +915,7 @@ philological defects**:
 Your task is to write a Python script utilizing `lxml` and XPath to audit the file,
 generate a diagnostic error log, and output a corrected, verified TEI XML document.
 
-**The takeaway for this page:** Systematic auditing exercises train editors to
+**Takeaway:** Systematic auditing exercises train editors to
 uncover subtle hallucinations, ghost variants, and reference breaks in AI-generated
 markup.
 
@@ -971,7 +971,7 @@ enum, phantom sigla are mathematically eliminated at inference time (Tafdrup et 
 2026). The validated JSON is then deterministically converted into TEI XML via
 Python.
 
-**The takeaway for this page:** Grammar-constrained decoding and strict JSON Schema
+**Takeaway:** Grammar-constrained decoding and strict JSON Schema
 enums mathematically prevent LLMs from generating phantom sigla or illegal syntax.
 
 ---
@@ -1009,7 +1009,7 @@ By upholding these ethical standards, the digital humanities community ensures t
 technological innovation strengthens, rather than degrades, the trustworthiness of
 our shared cultural heritage.
 
-**The takeaway for this page:** Ethical scholarly editing requires transparent AI
+**Takeaway:** Ethical scholarly editing requires transparent AI
 attribution, rigorous verification against primary facsimiles, and protection of
 the historical record from synthetic pollution.
 
@@ -1045,7 +1045,7 @@ The Completed Three-Step Cycle:
 You now possess a complete, multi-tiered understanding of how textual variation is
 modeled, processed, and validated in modern digital editions.
 
-**The takeaway for this page:** The three-step cycle proves that human philological
+**Takeaway:** The three-step cycle proves that human philological
 ground truth, deterministic graph algorithms, and AI semantic drafting form a
 mutually reinforcing editorial ecosystem.
 
@@ -1085,7 +1085,7 @@ jing schemas/tei_all.rng dist/my_assignment_apparatus.xml
 Ensure all files are committed to your local Git branch and pushed to your remote
 repository before midnight tonight.
 
-**The takeaway for this page:** Verify schema validity, witness header metadata, and
+**Takeaway:** Verify schema validity, witness header metadata, and
 methodological commentary before submitting the Textual Variants & Collation
 Assignment today.
 
@@ -1121,7 +1121,7 @@ Preview of Topic 9 Pipeline:
 Understanding morphological lemmatization is the key to unlocking automated
 syntactic search, linguistic commentary, and advanced digital philology.
 
-**The takeaway for this page:** Next week explores lemmatization and morphological
+**Takeaway:** Next week explores lemmatization and morphological
 tagging, examining how automated NLP pipelines enrich digital texts with grammatical
 and lexical intelligence.
 
@@ -1156,7 +1156,7 @@ auditing, you have acquired the technical and methodological mastery required to
 preserve, edit, and transmit the written heritage of humanity into the computational
 future.
 
-**The takeaway for this page:** The digital critical apparatus is a living,
+**Takeaway:** The digital critical apparatus is a living,
 machine-actionable graph of textual transmission, uniting ancient material evidence
 with modern computational intelligence.
 

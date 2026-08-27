@@ -18,7 +18,7 @@ In a digital edition, these layers of annotation convert text into a rich knowle
 
 Together, these operations bridge the divide between philological close reading and computational distant reading. When an edition is annotated with rigorous morphological and syntactic data, scholars can query grammatical constructions across millions of words, analyze stylistic shifts across centuries, and build accurate translation alignments. Today, you will establish the reference ground truth by performing these analytical operations entirely by hand using authoritative lexica and formal grammatical standards.
 
-**The takeaway for this page:** Lemmatization and morphological parsing convert unstructured character sequences into semantically and grammatically queryable linguistic data.
+**Takeaway:** Lemmatization and morphological parsing convert unstructured character sequences into semantically and grammatically queryable linguistic data.
 
 ---
 
@@ -32,7 +32,7 @@ A typical inflected word in Greek or Latin contains a lexical root, thematic vow
 
 In nominal and adjectival systems, the stem attaches directly to case-number-gender terminations. Because these terminations are fusional, a single morpheme like the Greek *-ων* simultaneously denotes genitive case and plural number across masculine, feminine, and neuter nouns. The philologist’s task during manual parsing is to isolate these constituent layers, stripping inflectional morphology to identify the base lexical stem while recording the full bundle of grammatical features encoded in the surface form.
 
-**The takeaway for this page:** Fusional morphology bundles multiple grammatical categories into single affixes, requiring editors to systematically isolate stems, affixes, and inflectional terminations.
+**Takeaway:** Fusional morphology bundles multiple grammatical categories into single affixes, requiring editors to systematically isolate stems, affixes, and inflectional terminations.
 
 ---
 
@@ -54,7 +54,7 @@ In Ancient Greek lexicography, such as the *Greek-English Lexicon* of Liddell, S
 
 When assigning a lemma during manual analysis, the editor must strictly adhere to the chosen authority's citation standard. Assigning the infinitive *παιδεύειν* or the stem *παιδευ-* as a Greek lemma violates the standard and breaks downstream computational collation against Perseus and PROIEL databases.
 
-**The takeaway for this page:** A lemma is a standardized lexicographical citation form, and manual annotation must strictly follow the reference authority's canonical convention.
+**Takeaway:** A lemma is a standardized lexicographical citation form, and manual annotation must strictly follow the reference authority's canonical convention.
 
 ---
 
@@ -68,7 +68,7 @@ Tokenization is therefore an interpretive editorial act rather than a purely mec
 
 Similar phenomena abound in Ancient Greek with proclitics and enclitics (e.g., *εἴ_γε*, *οὐ_πώποτε*), crasis (the contraction of two words across a boundary, such as *κἀγώ* from *καὶ ἐγώ*), and elision (where a final vowel is dropped before an initial vowel, as in *δ' ἄλλος* for *δὲ ἄλλος*). Prodelision or aphaeresis (where an initial vowel is absorbed by a preceding long vowel or diphthong, such as *ὦ 'γάθ'* for *ὦ ἀγαθέ*) presents an identical challenge. If an editor fails to segment crasis or split enclitics during manual preparation, the resulting composite string cannot be mapped to any valid dictionary lemma.
 
-**The takeaway for this page:** Tokenization is an interpretive philological decision that requires isolating enclitics, crasis, and contracted forms into discrete grammatical units.
+**Takeaway:** Tokenization is an interpretive philological decision that requires isolating enclitics, crasis, and contracted forms into discrete grammatical units.
 
 ---
 
@@ -90,7 +90,7 @@ Similarly, the Greek form *λόγου* is unambiguously the genitive singular of
 
 To resolve these ambiguities during manual analysis, the philologist must examine the syntactic environment: the case government of the governing verb, prepositions, agreement with neighboring nouns or adjectives, and discourse context. Manual parsing establishes the gold-standard benchmark precisely because a trained human scholar can resolve homophony by synthesizing syntactic, semantic, and pragmatic clues that automated algorithms frequently miss.
 
-**The takeaway for this page:** Paradigmatic syncretism creates pervasive surface ambiguity that can only be resolved through systematic analysis of syntactic context and semantic government.
+**Takeaway:** Paradigmatic syncretism creates pervasive surface ambiguity that can only be resolved through systematic analysis of syntactic context and semantic government.
 
 ---
 
@@ -111,7 +111,7 @@ These aspectual stems are not derived from one another by simple concatenation o
 
 When an editor encounters the surface token *δόντι* in a text, simple suffix stripping cannot trace the word back to its dictionary lemma *δίδωμι* ("to give"). The editor must recognize *δόντι* as the masculine/neuter dative singular of the second aorist active participle (root *δο-*). Manual parsing requires the scholar to trace surface aspectual stems back to their parent lexeme through systematic knowledge of historical phonology and principal parts.
 
-**The takeaway for this page:** Ancient verbal systems rely on distinct aspectual stems and suppletive roots, requiring philological identification of principal parts rather than naive affix stripping.
+**Takeaway:** Ancient verbal systems rely on distinct aspectual stems and suppletive roots, requiring philological identification of principal parts rather than naive affix stripping.
 
 ---
 
@@ -125,7 +125,7 @@ Manual parsing of nominals requires identifying the declension class (first/a-st
 
 Furthermore, manual parsing requires identifying how cases are governed by surrounding syntactic heads. A genitive case may represent possession, partitive relation, source, value, or the object of a specific verb of remembering or ruling; an accusative may represent a direct object, extent of space/time, or an adverbial accusative of respect; a dative may represent an indirect object, instrument, agent, reference, or location. Recording the morphological features of a noun is thus the foundation for determining its syntactic dependency role in the sentence.
 
-**The takeaway for this page:** Nominal parsing involves identifying declension classes, verifying gender-number-case agreement across phrases, and establishing syntactic case government.
+**Takeaway:** Nominal parsing involves identifying declension classes, verifying gender-number-case agreement across phrases, and establishing syntactic case government.
 
 ---
 
@@ -139,7 +139,7 @@ Closed-class words are predominantly indeclinable: they do not take inflectional
 
 Similarly, prepositions (*ἐπί*, *παρά*, *πρός*, *διά*, *κατά*) govern multiple distinct cases, shifting their semantic meaning fundamentally depending on whether the governed noun is in the genitive, dative, or accusative. When parsing a preposition like *παρά*, the editor must record its part of speech (adposition) and document the case of its complement (*παρὰ τοῦ βασιλέως* = "from the king" [genitive/source]; *παρὰ τῷ βασιλεῖ* = "beside the king" [dative/location]; *παρὰ τὸν βασιλέα* = "to the presence of the king" / "contrary to the king" [accusative/motion or opposition]).
 
-**The takeaway for this page:** Closed-class particles and prepositions must be categorized by their specific syntactic function and case government rather than treated as static lexical glosses.
+**Takeaway:** Closed-class particles and prepositions must be categorized by their specific syntactic function and case government rather than treated as static lexical glosses.
 
 ---
 
@@ -173,7 +173,7 @@ The foundational layer of UD annotation is the Universal Part-of-Speech (UPOS) t
 
 When annotating by hand, assigning the correct UPOS tag requires distinguishing functional categories that historical grammars often conflated. For instance, the Greek definite article *ὁ, ἡ, τό* is tagged as `DET` (determiner), while demonstrative pronouns like *οὗτος* used independently are tagged as `PRON`.
 
-**The takeaway for this page:** The Universal Dependencies UPOS tagset provides 17 standardized, cross-linguistic categories that establish the foundational part-of-speech classification for every token.
+**Takeaway:** The Universal Dependencies UPOS tagset provides 17 standardized, cross-linguistic categories that establish the foundational part-of-speech classification for every token.
 
 ---
 
@@ -207,7 +207,7 @@ For example, consider the Latin verb form *rexit* ("he ruled"). Its Perseus XPOS
 
 Now consider the Greek noun form *πόλεσιν* ("to the cities"): its XPOS tag is `n-p---fd-` (`n` = noun, `p` = plural, `f` = feminine, `d` = dative). Positional XPOS strings provide an exceptionally compact, deterministic representation of complete inflectional bundles.
 
-**The takeaway for this page:** Positional XPOS tagsets use a 9-character code to record the complete inflectional profile of a historical word form in a standardized, machine-readable syntax.
+**Takeaway:** Positional XPOS tagsets use a 9-character code to record the complete inflectional profile of a historical word form in a standardized, machine-readable syntax.
 
 ---
 
@@ -237,7 +237,7 @@ For the noun *faucibus* ("in the jaws"), the FEATS string is:
 
 When constructing manual annotations, features must be ordered alphabetically by feature name, without spaces around the equal signs or pipes. Empty or inapplicable features are omitted entirely rather than marked with hyphens. The combination of UPOS, XPOS, and FEATS ensures that every token carries both a broad syntactic category and a fully detailed inflectional description.
 
-**The takeaway for this page:** The Universal Dependencies FEATS standard encodes morphological properties as sorted, pipe-delimited key-value pairs for transparent data exchange.
+**Takeaway:** The Universal Dependencies FEATS standard encodes morphological properties as sorted, pipe-delimited key-value pairs for transparent data exchange.
 
 ---
 
@@ -259,7 +259,7 @@ In a dependency tree for the Latin sentence *regem cives amant* ("The citizens l
 
 Notice that this structure remains identical regardless of whether the sentence is written *regem cives amant*, *cives amant regem*, or *amant cives regem*. Dependency trees are invariant under word-order permutation, making them the optimal framework for ancient corpora.
 
-**The takeaway for this page:** Dependency grammar models direct head-dependent relations between words, providing a robust syntax model for the flexible word order and hyperbaton of ancient languages.
+**Takeaway:** Dependency grammar models direct head-dependent relations between words, providing a robust syntax model for the flexible word order and hyperbaton of ancient languages.
 
 ---
 
@@ -291,7 +291,7 @@ Universal Dependencies defines a standardized set of Universal Dependency Relati
 
 In manual treebanking, identifying the correct head is essential. In UD, content words are privileged as heads: in a prepositional phrase like *ἐν τῇ πόλει* ("in the city"), the noun *πόλει* is the head of the phrase, while the preposition *ἐν* attaches to *πόλει* with the relation `case`, and the article *τῇ* attaches to *πόλει* with `det`.
 
-**The takeaway for this page:** Universal Dependencies DEPREL tags specify the exact grammatical relation connecting each dependent word to its governing semantic head.
+**Takeaway:** Universal Dependencies DEPREL tags specify the exact grammatical relation connecting each dependent word to its governing semantic head.
 
 ---
 
@@ -310,7 +310,7 @@ Consider the phrase *in monte alto* ("on the high mountain"):
 
 The key structural difference between legacy AGLDT and modern UD lies in the treatment of function words. In the legacy AGLDT, prepositions and auxiliary verbs were treated as heads governing content words. In modern UD, content words (nouns, lexical verbs) are consistently treated as heads, while function words (prepositions, auxiliaries, conjunctions) attach as dependents. When consulting classical treebank data, the editor must recognize which standard governs the file.
 
-**The takeaway for this page:** The AGLDT standard provided the historical foundation for classical treebanking, which has now been harmonized into the content-head architecture of Universal Dependencies.
+**Takeaway:** The AGLDT standard provided the historical foundation for classical treebanking, which has now been harmonized into the content-head architecture of Universal Dependencies.
 
 ---
 
@@ -324,7 +324,7 @@ PROIEL documents not only syntactic dependency trees but also anaphoric links, i
 
 The PROIEL Greek and Latin treebanks have been fully converted into Universal Dependencies format (`grc_proiel` and `la_proiel`), providing over 200,000 syntactically annotated tokens. Because the PROIEL corpus was annotated and verified entirely by expert philologists, it serves as the definitive reference dataset used to train neural parsing models like Stanza and UDPipe. When evaluating automated tools on biblical or Koine Greek, your manual benchmark will be compared directly against PROIEL standards.
 
-**The takeaway for this page:** The PROIEL treebank provides an expertly annotated, gold-standard reference for biblical and historical corpora, pioneering the integration of syntax, pragmatics, and secondary predication.
+**Takeaway:** The PROIEL treebank provides an expertly annotated, gold-standard reference for biblical and historical corpora, pioneering the integration of syntax, pragmatics, and secondary predication.
 
 ---
 
@@ -345,7 +345,7 @@ During manual parsing, the editor must follow a four-step verification protocol 
 
 Documenting edge cases and controversial interpretations in an editorial log ensures that manual ground truth remains internally consistent and reproducible.
 
-**The takeaway for this page:** A standardized four-step manual protocol backed by authoritative lexica guarantees that gold-standard annotations remain methodologically sound and consistent.
+**Takeaway:** A standardized four-step manual protocol backed by authoritative lexica guarantees that gold-standard annotations remain methodologically sound and consistent.
 
 ---
 
@@ -359,7 +359,7 @@ Historically, complex linguistic markup in TEI relied on ISO-standard Feature St
 
 Chapter 18 defines an inline, lightweight mechanism that attaches analytical metadata directly to the text stream. By wrapping linguistic tokens in dedicated segmentation elements—primarily `<w>` for words, `<pc>` for punctuation, and `<s>` for sentences—editors can embed lemmas, parts of speech, and morphological descriptions directly within the text of their digital edition without separating analysis from the diplomatic reading.
 
-**The takeaway for this page:** TEI P5 Chapter 18 defines lightweight inline XML mechanisms that embed morphological analysis directly into the text stream of a digital edition.
+**Takeaway:** TEI P5 Chapter 18 defines lightweight inline XML mechanisms that embed morphological analysis directly into the text stream of a digital edition.
 
 ---
 
@@ -386,7 +386,7 @@ The core of TEI inline linguistic annotation is the `att.linguistic` attribute c
 
 By encoding linguistic metadata inside `att.linguistic` attributes, the textual scholar maintains complete separation between the surface reading (the element text content) and the linguistic analysis (the XML attributes), allowing automated scripts to query grammatical features while rendering tools display clean text to human readers.
 
-**The takeaway for this page:** The TEI `att.linguistic` attribute class provides standardized `@lemma`, `@pos`, and `@msd` attributes to store morphological analyses directly on `<w>` elements.
+**Takeaway:** The TEI `att.linguistic` attribute class provides standardized `@lemma`, `@pos`, and `@msd` attributes to store morphological analyses directly on `<w>` elements.
 
 ---
 
@@ -419,7 +419,7 @@ Consider the encoding of a complete Latin sentence (*Veritas vincit.*):
 
 Every word and punctuation mark receives a globally unique `@xml:id`. This identifier serves as the indispensable anchor for all subsequent computational layers, including syntactic dependency linking, translation alignment (Topic 11), and scholarly commentary (Topic 12).
 
-**The takeaway for this page:** Full TEI linguistic encoding wraps sentences in `<s>`, words in `<w>`, and punctuation in `<pc>`, assigning unique `@xml:id` anchors to every token.
+**Takeaway:** Full TEI linguistic encoding wraps sentences in `<s>`, words in `<w>`, and punctuation in `<pc>`, assigning unique `@xml:id` anchors to every token.
 
 ---
 
@@ -449,7 +449,7 @@ Let us trace the manual analysis of each token:
 
 This rigorous decomposition leaves no word unaccounted for, providing a complete structural blueprint of the Greek sentence.
 
-**The takeaway for this page:** Manual parsing systematically resolves every token's lemma, morphosyntactic feature bundle, and syntactic dependency attachment within the sentence hierarchy.
+**Takeaway:** Manual parsing systematically resolves every token's lemma, morphosyntactic feature bundle, and syntactic dependency attachment within the sentence hierarchy.
 
 ---
 
@@ -479,7 +479,7 @@ Philological analysis reveals several epic dialect features that automated tagge
 
 If an editor relies on a standard Classical Attic dictionary lookup, *Πηληϊάδεω* and *Ἀχιλῆος* fail to match standard paradigms. The human philologist recognizes the epic dialectal markers and supplies the proper lemma and case assignment.
 
-**The takeaway for this page:** Poetic hyperbaton and dialectal morphology require human philological expertise to resolve non-projective word order and non-standard inflectional endings.
+**Takeaway:** Poetic hyperbaton and dialectal morphology require human philological expertise to resolve non-projective word order and non-standard inflectional endings.
 
 ---
 
@@ -507,7 +507,7 @@ TEI P5 provides the `<linkGrp>` (link group) and `<link>` elements within the Si
 
 In this standoff architecture, the `<linkGrp>` element points to the governing sentence (`@corresp="#s1"`). Each `<link>` element specifies the syntactic relation (`@type="obj"`) and records the source and target tokens in the `@targets` attribute (`targets="#s1_w2 #s1_w1"`, indicating that `#s1_w2` is the head and `#s1_w1` is the dependent). Standoff linking cleanly decouples syntax trees from text serialization, allowing an edition to store multiple competing syntactic analyses of the same line.
 
-**The takeaway for this page:** TEI `<linkGrp>` and `<link>` elements represent syntactic dependency graphs by linking head and dependent token IDs without disrupting text hierarchy.
+**Takeaway:** TEI `<linkGrp>` and `<link>` elements represent syntactic dependency graphs by linking head and dependent token IDs without disrupting text hierarchy.
 
 ---
 
@@ -543,7 +543,7 @@ Every token in a CoNLL-U file occupies exactly one line containing ten mandatory
 
 Because all modern NLP parsers (Stanza, UDPipe, Trankit, spaCy) ingest and output CoNLL-U, your manual ground truth will be authored in or converted to CoNLL-U to enable automated scoring against machine taggers.
 
-**The takeaway for this page:** CoNLL-U is the 10-column tab-delimited standard used to exchange and evaluate morphological and syntactic treebanks across all modern NLP software.
+**Takeaway:** CoNLL-U is the 10-column tab-delimited standard used to exchange and evaluate morphological and syntactic treebanks across all modern NLP software.
 
 ---
 
@@ -563,7 +563,7 @@ $$\kappa = \frac{P_o - P_e}{1 - P_e}$$
 
 In this formula, $P_o$ is the observed proportional agreement among annotators, and $P_e$ is the hypothetical probability of chance agreement. In morphological tagging of Greek and Latin, expert human annotators typically achieve $\kappa \ge 0.95$ on coarse UPOS tagging, $\kappa \approx 0.90$ on full morphosyntactic feature bundles, and $\kappa \approx 0.85$ on syntactic dependency heads. Disagreements are brought to an adjudication session where scholars debate the philological evidence and establish an agreed consensus gold standard.
 
-**The takeaway for this page:** Inter-annotator agreement metrics quantify consensus among human annotators, establishing a statistically validated gold standard for machine evaluation.
+**Takeaway:** Inter-annotator agreement metrics quantify consensus among human annotators, establishing a statistically validated gold standard for machine evaluation.
 
 ---
 
@@ -579,7 +579,7 @@ During manual parsing, several historical linguistic phenomena test the limits o
 
 Properly documenting these edge cases in your manual parsing notes prevents systematic scoring penalties when testing automated taggers on Wednesday and Friday.
 
-**The takeaway for this page:** Clitics, crasis, and tmesis require multi-word token segmentation and compound relation tagging to preserve morphological and syntactic integrity.
+**Takeaway:** Clitics, crasis, and tmesis require multi-word token segmentation and compound relation tagging to preserve morphological and syntactic integrity.
 
 ---
 
@@ -597,7 +597,7 @@ In Classical Greek and Latin, the copula (*εἰμί*, *sum*) is routinely omitt
 
 In cases of **gapping** (where a lexical verb is expressed in the first coordinate clause but elided in subsequent coordinate clauses, e.g., *Caesar vicit Gallos, Pompeius Hispanos*), Universal Dependencies utilizes the `orphan` relation. The subject *Pompeius* attaches to the matrix verb *vicit* as a conjunct clause (`conj`), while the object *Hispanos* attaches to *Pompeius* with the relation `orphan`. Understanding these formal conventions allows human editors to construct valid dependency trees even when key syntactic elements are physically absent from the manuscript.
 
-**The takeaway for this page:** Universal Dependencies handles ellipsis and copula omission by promoting predicate words to clause heads and utilizing the `orphan` relation for gapped arguments.
+**Takeaway:** Universal Dependencies handles ellipsis and copula omission by promoting predicate words to clause heads and utilizing the `orphan` relation for gapped arguments.
 
 ---
 
@@ -616,7 +616,7 @@ Your benchmark dataset should comprise approximately 200–300 words of continuo
 
 Once selected, you will parse every token by hand, recording the surface form, canonical lemma, UPOS tag, Perseus 9-position XPOS tag, UD FEATS string, governing HEAD index, and DEPREL relation. This manual parse will be locked as the definitive ground-truth against which automated systems will be evaluated.
 
-**The takeaway for this page:** A representative ground-truth dataset spanning regular paradigms, ambiguous forms, and complex syntax is the necessary benchmark for evaluating automated NLP pipelines.
+**Takeaway:** A representative ground-truth dataset spanning regular paradigms, ambiguous forms, and complex syntax is the necessary benchmark for evaluating automated NLP pipelines.
 
 ---
 
@@ -635,7 +635,7 @@ Your editorial schema document must record:
 
 Version-controlling this schema document alongside your CoNLL-U and TEI XML files in your Git repository guarantees scientific transparency and replicability.
 
-**The takeaway for this page:** A comprehensive annotation manual documents lexical authorities and disambiguation rules, ensuring transparency and reproducibility for the gold-standard dataset.
+**Takeaway:** A comprehensive annotation manual documents lexical authorities and disambiguation rules, ensuring transparency and reproducibility for the gold-standard dataset.
 
 ---
 
@@ -656,7 +656,7 @@ python3 shared/scripts/validate_conllu.py --lang grc gold_standard.conllu
 
 Once validated, these gold files will serve as the exact evaluation keys for calculating precision, recall, macro-F1 scores, and Unlabeled/Labeled Attachment Scores (UAS/LAS) across deterministic and AI-assisted pipelines.
 
-**The takeaway for this page:** Exporting manual annotations to validated CoNLL-U and TEI XML files creates the machine-readable evaluation keys required for automated benchmarking.
+**Takeaway:** Exporting manual annotations to validated CoNLL-U and TEI XML files creates the machine-readable evaluation keys required for automated benchmarking.
 
 ---
 
@@ -670,7 +670,7 @@ By parsing, lemmatizing, and treebanking a passage by hand, you have mastered th
 
 On Wednesday (Lesson 9.2), you will pass this identical text through deterministic and rule-based NLP engines—including Morpheus, TreeTagger, and the Classical Language Toolkit (CLTK)—to measure how well rule cascades and Markov models reproduce your manual parsing decisions. On Friday (Lesson 9.3), you will evaluate large language models and neural transformers against this same ground truth, investigating precision, recall, and morphological hallucination.
 
-**The takeaway for this page:** Human philological expertise creates the gold-standard reference against which all deterministic, statistical, and neural models must be measured.
+**Takeaway:** Human philological expertise creates the gold-standard reference against which all deterministic, statistical, and neural models must be measured.
 
 ---
 

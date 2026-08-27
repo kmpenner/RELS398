@@ -18,7 +18,7 @@ The primary goal of deterministic tooling in digital scholarly editing is not to
 
 Today you will master the foundational algorithms of automated parallel text alignment: length-based dynamic programming for sentence pairing (the Gale-Church algorithm), statistical lexical translation modeling (IBM Models 1–5 and `fast_align`), and modern web-based digital philology platforms (Ugarit and the Alpheios Alignment Editor). You will measure the performance of these tools directly against the gold standard you authored yesterday.
 
-**The takeaway for this page:** Deterministic alignment leverages reproducible mathematical and statistical algorithms to generate scalable parallel text alignments that human scholars can audit and refine.
+**Takeaway:** Deterministic alignment leverages reproducible mathematical and statistical algorithms to generate scalable parallel text alignments that human scholars can audit and refine.
 
 ---
 
@@ -42,7 +42,7 @@ This two-tier architecture introduces a critical vulnerability known as **error 
 
 Consequently, establishing a flawless sentence-aligned bitext is the mandatory prerequisite for all downstream word-level and morpheme-level processing. In today's laboratory, you will examine how sentence alignment algorithms achieve robust synchronization before exploring word-level statistical modeling.
 
-**The takeaway for this page:** Automated alignment operates in two cascading tiers—macro sentence alignment and micro word alignment—where sentence-level errors inevitably corrupt word-level results.
+**Takeaway:** Automated alignment operates in two cascading tiers—macro sentence alignment and micro word alignment—where sentence-level errors inevitably corrupt word-level results.
 
 ---
 
@@ -65,7 +65,7 @@ The Gale-Church algorithm formulates sentence alignment as a dynamic programming
 
 By assigning a probabilistic penalty score to each configuration based on character-length ratios and prior alignment probabilities, the algorithm uses the Viterbi dynamic programming algorithm to discover the globally optimal alignment sequence in $\mathcal{O}(I \cdot J)$ time.
 
-**The takeaway for this page:** The Gale-Church algorithm uses dynamic programming to align parallel sentences based on the statistical regularity of character-length ratios across translations.
+**Takeaway:** The Gale-Church algorithm uses dynamic programming to align parallel sentences based on the statistical regularity of character-length ratios across translations.
 
 ---
 
@@ -107,7 +107,7 @@ D(i-2, j-2) - \log P(2:2) - \log P(\delta_{2:2})
 
 Because the dynamic programming matrix evaluates all possible paths simultaneously, the algorithm easily recovers from localized length fluctuations, guaranteeing a mathematically optimal global alignment.
 
-**The takeaway for this page:** Gale-Church calculates the negative log probability of normal length differences ($\delta$) combined with prior alignment probabilities to populate a dynamic programming grid.
+**Takeaway:** Gale-Church calculates the negative log probability of normal length differences ($\delta$) combined with prior alignment probabilities to populate a dynamic programming grid.
 
 ---
 
@@ -133,7 +133,7 @@ However, when applied to ancient, medieval, and historical literary texts, pure 
 
 To overcome these limitations in humanities corpora, computational linguists developed **hybrid alignment architectures** that integrate lexical anchors, bilingual lexicons, and structural markup alongside length metrics.
 
-**The takeaway for this page:** Pure length-based alignment achieves high accuracy on modern literal bitexts but fails on ancient texts due to non-monotonic reordering, loose paraphrases, and punctuation divergence.
+**Takeaway:** Pure length-based alignment achieves high accuracy on modern literal bitexts but fails on ancient texts due to non-monotonic reordering, loose paraphrases, and punctuation divergence.
 
 ---
 
@@ -158,7 +158,7 @@ Lexical anchoring is especially valuable when aligning ancient texts against ver
 
 Furthermore, digital critical editions can leverage structural TEI milestone tags (such as `<pb/>` for page breaks, `<cb/>` for column breaks, or biblical verse numbers `<milestone unit="verse"/>`) as absolute boundary constraints. By forcing the dynamic programming path to pass through known structural milestones, editors eliminate long-distance alignment drift entirely.
 
-**The takeaway for this page:** Hybrid aligners like Hunalign and Champollion combine character lengths with bilingual lexical anchors and structural milestones to prevent alignment drift in literary bitexts.
+**Takeaway:** Hybrid aligners like Hunalign and Champollion combine character lengths with bilingual lexical anchors and structural milestones to prevent alignment drift in literary bitexts.
 
 ---
 
@@ -183,7 +183,7 @@ In historical digital philology, neural sentence aligners have demonstrated exce
 
 However, neural aligners require substantial computational resources (GPUs) and specialized pre-trained models. For standard digital edition workflows, a hybrid approach—using structural TEI milestones for coarse division and neural embeddings for fine clause pairing—represents the current state of the art.
 
-**The takeaway for this page:** Neural sentence aligners (Vecalign, Bertalign) compare dense multilingual sentence embeddings, achieving human-level alignment accuracy across complex literary paraphrases.
+**Takeaway:** Neural sentence aligners (Vecalign, Bertalign) compare dense multilingual sentence embeddings, achieving human-level alignment accuracy across complex literary paraphrases.
 
 ---
 
@@ -204,7 +204,7 @@ The core philosophy of the IBM models rests on a generative translation metaphor
 
 Because human annotators have not manually labeled the alignments across millions of training sentences, the alignment vector $\mathbf{a}$ cannot be observed directly. To solve this problem of incomplete data, Brown et al. applied the **Expectation-Maximization (EM) algorithm** (Dempster et al., 1977). The EM algorithm iteratively estimates translation probabilities and latent alignments until mathematical convergence.
 
-**The takeaway for this page:** The IBM Models formulate word alignment as a hidden generative process, using the Expectation-Maximization (EM) algorithm to learn translation probabilities from unannotated bitexts.
+**Takeaway:** The IBM Models formulate word alignment as a hidden generative process, using the Expectation-Maximization (EM) algorithm to learn translation probabilities from unannotated bitexts.
 
 ---
 
@@ -234,7 +234,7 @@ The Expectation-Maximization algorithm trains Model 1 through two alternating st
 
 A remarkable mathematical property of IBM Model 1 is that its likelihood function is **strictly convex**. This means Model 1 has no local maxima; starting from uniform initial probabilities, EM training is mathematically guaranteed to converge to the unique global maximum (Och & Ney, 2003).
 
-**The takeaway for this page:** IBM Model 1 models word alignment based purely on lexical co-occurrence probabilities $t(f \mid e)$, converging reliably to a global mathematical maximum via EM.
+**Takeaway:** IBM Model 1 models word alignment based purely on lexical co-occurrence probabilities $t(f \mid e)$, converging reliably to a global mathematical maximum via EM.
 
 ---
 
@@ -262,7 +262,7 @@ $$P(a_j = i \mid \mathbf{e}, \mathbf{f}) = \frac{a(i \mid j, l, m) \cdot t(f_j \
 
 By initializing Model 2 with the converged lexical parameters $t(f \mid e)$ from Model 1, Model 2 rapidly learns the characteristic word-order distortions of the language pair. However, because Model 2 conditions alignment on absolute sentence positions ($i$ and $j$), it struggles when sentences contain long introductory clauses or substantial parenthetical phrases.
 
-**The takeaway for this page:** IBM Model 2 introduces a positional distortion parameter $a(i \mid j, l, m)$, penalizing alignments that deviate excessively from the diagonal translation path.
+**Takeaway:** IBM Model 2 introduces a positional distortion parameter $a(i \mid j, l, m)$, penalizing alignments that deviate excessively from the diagonal translation path.
 
 ---
 
@@ -290,7 +290,7 @@ To model authentic linguistic realities, **IBM Models 3, 4, and 5** introduce th
 
 However, Models 3 through 5 introduce immense computational complexity. Because fertility couples all alignment decisions across the entire sentence, the exact sum over all alignments cannot be computed in polynomial time. Implementations like **GIZA++** (Och & Ney, 2003) must rely on heuristic local search and hill-climbing algorithms, making training slow and sensitive to initialization.
 
-**The takeaway for this page:** IBM Models 3–5 incorporate fertility ($n(\phi \mid e)$) and relative distortion, modeling 1:N expansions and phrase movement at the cost of high computational complexity.
+**Takeaway:** IBM Models 3–5 incorporate fertility ($n(\phi \mid e)$) and relative distortion, modeling 1:N expansions and phrase movement at the cost of high computational complexity.
 
 ---
 
@@ -317,7 +317,7 @@ The HMM transition probability is typically parameterized as a function of the j
 
 The decisive advantage of the HMM aligner over IBM Models 3–5 is that **exact training and inference can be performed in polynomial time $\mathcal{O}(m \cdot l^2)$** using the standard **Baum-Welch algorithm** (Forward-Backward algorithm) and **Viterbi decoding**. The HMM aligner achieves alignment error rates comparable to IBM Model 4 while executing orders of magnitude faster.
 
-**The takeaway for this page:** The HMM aligner models word alignment as a first-order Markov chain based on relative jump distances ($i - i'$), combining high accuracy with exact polynomial-time inference.
+**Takeaway:** The HMM aligner models word alignment as a first-order Markov chain based on relative jump distances ($i - i'$), combining high accuracy with exact polynomial-time inference.
 
 ---
 
@@ -344,7 +344,7 @@ Where:
 
 This brilliant reparameterization collapses thousands of fragile distortion parameters into a single global stiffness variable, preventing overfitting while dramatically accelerating Expectation-Maximization training.
 
-**The takeaway for this page:** `fast_align` reparameterizes IBM Model 2 into a log-linear model with a diagonal tension parameter ($\lambda$), achieving GIZA++ quality at 10x the speed.
+**Takeaway:** `fast_align` reparameterizes IBM Model 2 into a log-linear model with a diagonal tension parameter ($\lambda$), achieving GIZA++ quality at 10x the speed.
 
 ---
 
@@ -385,7 +385,7 @@ During the Maximization step:
 
 In practical execution, `fast_align` processes hundreds of thousands of words per second on a single CPU core, making it the ideal engine for rapid digital scholarly edition workflows.
 
-**The takeaway for this page:** `fast_align` calculates alignment posteriors $\gamma_{ij}$ using normalized position distance penalties ($d$) and optimizes lexical probabilities and diagonal tension via convex gradient ascent.
+**Takeaway:** `fast_align` calculates alignment posteriors $\gamma_{ij}$ using normalized position distance penalties ($d$) and optimizes lexical probabilities and diagonal tension via convex gradient ascent.
 
 ---
 
@@ -414,7 +414,7 @@ The three standard symmetrization algorithms implemented in tools like `atools` 
 | Union ($A_1 \cup A_2$) | Moderate ($\approx 75\%$) | Very High ($>95\%$) | Captures all phrasal links | Broad intertextual search / fuzzy cross-reference |
 | `grow-diag-final-and` | High ($\approx 88\%$) | High ($\approx 89\%$) | Balanced phrasal expansion | **Default choice for TEI parallel edition workflows** |
 
-**The takeaway for this page:** Symmetrization heuristics (`grow-diag-final-and`) reconcile directional forward and reverse passes into balanced, bidirectional N:M alignment matrices.
+**Takeaway:** Symmetrization heuristics (`grow-diag-final-and`) reconcile directional forward and reverse passes into balanced, bidirectional N:M alignment matrices.
 
 ---
 
@@ -440,7 +440,7 @@ Executing `fast_align` or GIZA++ on raw manuscript transcriptions will produce c
 
 Failing to properly preprocess and normalize corpus files is the single most common cause of statistical alignment failure in digital humanities projects.
 
-**The takeaway for this page:** Preprocessing requires Unicode NFC normalization, lowercasing, punctuation tokenization, and formatting into strict `source ||| target` parallel bitext lines.
+**Takeaway:** Preprocessing requires Unicode NFC normalization, lowercasing, punctuation tokenization, and formatting into strict `source ||| target` parallel bitext lines.
 
 ---
 
@@ -465,7 +465,7 @@ This morphological richness causes severe **data sparsity**. In a small or mediu
 
 By replacing rare inflected surface tokens with standardized lemma-tag bundles during statistical training, aligners achieve up to a **40% relative reduction in alignment error rate** (Palladino, 2023).
 
-**The takeaway for this page:** Fusional morphology causes severe vocabulary inflation and data sparsity; training aligners on lemmatized forms dramatically improves statistical alignment quality.
+**Takeaway:** Fusional morphology causes severe vocabulary inflation and data sparsity; training aligners on lemmatized forms dramatically improves statistical alignment quality.
 
 ---
 
@@ -498,7 +498,7 @@ $$\text{AER}(S, P, A) = 1 - \frac{|A \cap S| + |A \cap P|}{|A| + |S|} = 1 - \fra
 
 Notice the crucial mathematical asymmetry in Och and Ney's formula: **an automated tool is penalized if it fails to find a Sure link ($|A \cap S|$), but it is NOT penalized for proposing a link that is classified as Possible ($P$)**. This prevents automated tools from being unfairly penalized when human translators employ loose or idiomatic phrasing.
 
-**The takeaway for this page:** Alignment Error Rate (AER) evaluates automated alignments ($A$) against human Sure ($S$) and Possible ($P$) links, penalizing missed Sure links and spurious non-Possible links.
+**Takeaway:** Alignment Error Rate (AER) evaluates automated alignments ($A$) against human Sure ($S$) and Possible ($P$) links, penalizing missed Sure links and spurious non-Possible links.
 
 ---
 
@@ -540,7 +540,7 @@ The statistical tool generates the following alignment set:
 
 An AER of **18.18%** indicates strong baseline performance. The primary error source was the article misallocation ($(5,5)$ instead of $(4,5)$), a classic symptom of statistical word aligners operating on asymmetric function words.
 
-**The takeaway for this page:** Calculating AER requires computing set intersections $|A \cap S|$ and $|A \cap P|$ to measure precision, recall, and composite alignment error.
+**Takeaway:** Calculating AER requires computing set intersections $|A \cap S|$ and $|A \cap P|$ to measure precision, recall, and composite alignment error.
 
 ---
 
@@ -570,7 +570,7 @@ The core capabilities of Ugarit include:
 
 Ugarit serves as both an annotation workbench and a public repository of open philological data, housing thousands of aligned historical texts accessible to the global research community (Palladino et al., 2021).
 
-**The takeaway for this page:** Ugarit is a specialized digital humanities web platform integrating interactive visualization, `fast_align` backends, inter-annotator analytics, and TEI XML export.
+**Takeaway:** Ugarit is a specialized digital humanities web platform integrating interactive visualization, `fast_align` backends, inter-annotator analytics, and TEI XML export.
 
 ---
 
@@ -608,7 +608,7 @@ Once the editor verifies the passage, Ugarit generates compliant TEI P5 XML stan
 
 This hybrid workflow—automated generation followed by visual human validation—combines the speed of statistical computation with the uncompromising rigor of classical philology.
 
-**The takeaway for this page:** Ugarit provides an end-to-end editorial pipeline: uploading bitexts, running automated pre-alignment, post-editing via bipartite graphs, and exporting TEI XML.
+**Takeaway:** Ugarit provides an end-to-end editorial pipeline: uploading bitexts, running automated pre-alignment, post-editing via bipartite graphs, and exporting TEI XML.
 
 ---
 
@@ -632,7 +632,7 @@ The hallmark feature of the Alpheios editor is its deep, real-time integration w
 
 For classroom pedagogy, instructors can assign students parallel texts in Alpheios, where students construct alignments as a method of demonstrating morphological comprehension. The resulting alignment files can be collected, validated, and merged into collaborative digital critical editions.
 
-**The takeaway for this page:** The Alpheios Alignment Editor provides a client-side, browser-native alignment environment with deep dictionary integration (Logeion) optimized for pedagogy.
+**Takeaway:** The Alpheios Alignment Editor provides a client-side, browser-native alignment environment with deep dictionary integration (Logeion) optimized for pedagogy.
 
 ---
 
@@ -663,7 +663,7 @@ Consider how an aligned digital reading environment utilizes Logeion during live
 
 This dynamic synergy between translation alignment and lexicography bridges the historical divide between reading a primary text, consulting a lexicon, and analyzing a translation.
 
-**The takeaway for this page:** Aligned environments query Logeion to dynamically display morphological parsings, dictionary definitions, and empirical translation frequencies on user click.
+**Takeaway:** Aligned environments query Logeion to dynamically display morphological parsings, dictionary definitions, and empirical translation frequencies on user click.
 
 ---
 
@@ -695,7 +695,7 @@ The empirical results demonstrate the profound value of the hybrid post-editing 
 
 This quantitative finding proves that deterministic automation is most powerful when used as an accelerator for human scholarship rather than as an unmonitored replacement.
 
-**The takeaway for this page:** Unsupervised `fast_align` achieves ~26% AER in seconds; human post-editing in Ugarit slashes AER to <4% while saving 87% of manual authoring time.
+**Takeaway:** Unsupervised `fast_align` achieves ~26% AER in seconds; human post-editing in Ugarit slashes AER to <4% while saving 87% of manual authoring time.
 
 ---
 
@@ -727,7 +727,7 @@ Ancient idioms frequently combine multiple independent words to produce a non-co
 
 Deterministic tools succeed brilliantly on literal 1:1 correspondences but require human intervention or rule-based pre-segmentation to resolve non-isomorphic idioms, clitic clusters, and synthetic expansions.
 
-**The takeaway for this page:** Deterministic models struggle with idioms and clitic clusters; symmetrization heuristics and interactive grouping tools are essential to resolve non-isomorphic syntax.
+**Takeaway:** Deterministic models struggle with idioms and clitic clusters; symmetrization heuristics and interactive grouping tools are essential to resolve non-isomorphic syntax.
 
 ---
 
@@ -790,7 +790,7 @@ The output file (`symmetrized.align`) contains standard **Pharaoh alignment form
 
 Integrating this script into your course repository automates the transition from raw text to statistical alignment in seconds.
 
-**The takeaway for this page:** A Python wrapper script automates bitext preparation, forward/reverse `fast_align` training, and `atools` symmetrization into a single reproducible pipeline.
+**Takeaway:** A Python wrapper script automates bitext preparation, forward/reverse `fast_align` training, and `atools` symmetrization into a single reproducible pipeline.
 
 ---
 
@@ -856,7 +856,7 @@ def pharaoh_to_tei_linkgrp(pharaoh_line: str, src_xml: Path, trg_xml: Path, s_id
 
 This transformation bridges computational linguistics and digital philology, converting ephemeral index output into permanent, schema-validated scholarly markup.
 
-**The takeaway for this page:** Converting Pharaoh format (`0-0 1-1`) to TEI `<linkGrp>` maps token indices to persistent `@xml:id` pointers, embedding statistical links into scholarly XML.
+**Takeaway:** Converting Pharaoh format (`0-0 1-1`) to TEI `<linkGrp>` maps token indices to persistent `@xml:id` pointers, embedding statistical links into scholarly XML.
 
 ---
 
@@ -884,7 +884,7 @@ While deterministic rule-based analyzers achieve **100% precision** on forms att
 
 Deterministic morphological analyzers provide the initial candidate parses, but selecting the correct context-dependent analysis requires human philological judgment or neural language modeling.
 
-**The takeaway for this page:** Rule-based analyzers (Morpheus, CLTK) provide high-precision morphological segmentation and Leipzig tags but struggle with dialect variants and polysemous ambiguity.
+**Takeaway:** Rule-based analyzers (Morpheus, CLTK) provide high-precision morphological segmentation and Leipzig tags but struggle with dialect variants and polysemous ambiguity.
 
 ---
 
@@ -910,7 +910,7 @@ However, deterministic algorithms possess zero **semantic comprehension or disco
 
 This profound limitation sets the stage for **Friday’s seminar (Meeting #30)**: *AI-Assisted Alignment and Gloss Generation*. On Friday, you will harness large language models (LLMs) and neural multilingual representations to evaluate whether generative AI can bridge the semantic and syntactic gaps that deterministic algorithms leave behind.
 
-**The takeaway for this page:** Deterministic aligners are fast, mathematically transparent, and scalable, but lack the contextual intelligence needed to resolve complex literary paraphrases.
+**Takeaway:** Deterministic aligners are fast, mathematically transparent, and scalable, but lack the contextual intelligence needed to resolve complex literary paraphrases.
 
 ---
 
@@ -937,7 +937,7 @@ Deterministic tools provide the indispensable mechanical scaffold for large-scal
 
 **For Friday:** Prepare your manual gold standard dataset from Tuesday and your `fast_align` outputs from today. On Friday, you will prompt state-of-the-art large language models to generate alignments and four-line interlinear glosses, rigorously evaluating their outputs for morphological hallucinations, non-isomorphic syntactic drift, and philological fidelity.
 
-**The takeaway for this page:** Deterministic alignment provides the reproducible, high-speed computational baseline that bridges manual human gold standards with generative AI.
+**Takeaway:** Deterministic alignment provides the reproducible, high-speed computational baseline that bridges manual human gold standards with generative AI.
 
 ---
 

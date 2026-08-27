@@ -35,7 +35,7 @@ canvas, annotation, and fragment selector. Lesson 3.2 established what the image
 are and how alternatives are expressed as a `Choice`. Week 2 produced your TEI
 header. Today joins them.
 
-**The takeaway for this page:** Today's artefact links each transcribed line to the
+**Takeaway:** Today's artefact links each transcribed line to the
 exact region of parchment it transcribes, in both directions and machine-actionably.
 
 ---
@@ -75,7 +75,7 @@ licence permitting redistribution.
 Most of you are in Situation A for your primary witness and Situation B for the
 combined view of both witnesses. Today covers both.
 
-**The takeaway for this page:** Authoring a manifest does not mean hosting images
+**Takeaway:** Authoring a manifest does not mean hosting images
 — you describe an object that references the institution's Image API endpoints.
 
 ---
@@ -121,7 +121,7 @@ factor. If the two differ, note the ratio now.
 
 Commit the output to `images/CANVASES.md`.
 
-**The takeaway for this page:** Record canvas ids, canvas dimensions, and image
+**Takeaway:** Record canvas ids, canvas dimensions, and image
 dimensions together — where the last two differ, every coordinate needs scaling.
 
 ---
@@ -158,7 +158,7 @@ For hand measurement, the arithmetic approach is a reasonable start: if a text
 block runs from y=400 to y=3600 across 24 lines, each line occupies roughly 133
 units, and line 8 begins near y=400+7×133=1331. Refine by inspection.
 
-**The takeaway for this page:** Bind a few regions by hand today so that you can
+**Takeaway:** Bind a few regions by hand today so that you can
 verify next week's automated line coordinates against a known-good case.
 
 ---
@@ -203,7 +203,7 @@ Note that TEI's native coordinate attributes name two corners — upper-left x a
 y, lower-right x and y — whereas IIIF names a corner plus dimensions. Converting
 between them is straightforward arithmetic, and the next section handles it.
 
-**The takeaway for this page:** `<facsimile>` describes surfaces and zones
+**Takeaway:** `<facsimile>` describes surfaces and zones
 separately from the transcription, and TEI `<surface>` maps to a IIIF canvas.
 
 ---
@@ -246,7 +246,7 @@ scaling caveat from section 03.
 Write the conversion once, as a tested function, and use it everywhere. Ad-hoc
 arithmetic performed inline is where sign and ordering errors enter.
 
-**The takeaway for this page:** TEI names two corners and IIIF names a corner plus
+**Takeaway:** TEI names two corners and IIIF names a corner plus
 dimensions; treating IIIF's last two values as a corner produces regions that are
 too large.
 
@@ -297,7 +297,7 @@ the transcription carries its own image references and needs no accompanying
 The recommended practice for this course is the first, with `<surface>` carrying
 the canvas URI — which the next section covers.
 
-**The takeaway for this page:** `@facs` on `<pb>` and `<lb>` binds transcription to
+**Takeaway:** `@facs` on `<pb>` and `<lb>` binds transcription to
 zones; declare zones locally so coordinates can be corrected in one place.
 
 ---
@@ -336,7 +336,7 @@ This is a case where slight redundancy is worth its cost. Coordinate systems
 misalign silently, and recording the dimensions at each level is what lets a
 mismatch be caught by a check rather than discovered by a reader.
 
-**The takeaway for this page:** Put the canvas URI on `<surface>` and record
+**Takeaway:** Put the canvas URI on `<surface>` and record
 dimensions at every level, so coordinate mismatches can be detected rather than
 silently misplacing regions.
 
@@ -380,7 +380,7 @@ constructing an Image API URL and looking at what comes back. It takes seconds,
 it requires no tooling beyond a browser, and it is the only direct test that a
 coordinate is right.
 
-**The takeaway for this page:** Verify every binding by constructing the Image API
+**Takeaway:** Verify every binding by constructing the Image API
 URL for its region and confirming the returned image shows what you expected.
 
 ---
@@ -425,7 +425,7 @@ a scholarly document rather than a bare pointer list.
 Generate, validate, and commit the generator alongside the output. The script is
 the reproducible artefact; the JSON is its product.
 
-**The takeaway for this page:** Generate manifests from a script rather than
+**Takeaway:** Generate manifests from a script rather than
 hand-editing JSON, and commit the generator alongside its output.
 
 ---
@@ -479,7 +479,7 @@ Set `height` and `width` on the canvas from the *image's* dimensions unless you
 have a reason to do otherwise. Choosing arbitrary canvas dimensions is legal and
 creates exactly the scaling mismatch discussed throughout this week.
 
-**The takeaway for this page:** Include the `service` block or deep zoom will not
+**Takeaway:** Include the `service` block or deep zoom will not
 work, and set canvas dimensions from the image's own dimensions.
 
 ---
@@ -527,7 +527,7 @@ inside a structure designed to prevent it.
 If your manuscript has only visible-light imaging, omit the `Choice` — a single
 image body is correct and simpler.
 
-**The takeaway for this page:** A `Choice` expresses spectral alternatives on one
+**Takeaway:** A `Choice` expresses spectral alternatives on one
 canvas, and its labels must state the imaging conditions precisely enough to be
 evaluated.
 
@@ -569,7 +569,7 @@ Where the institution's manifest already carries ranges, check whether one
 corresponds to your passage; you may be able to reference it rather than
 constructing your own.
 
-**The takeaway for this page:** A range identifies your passage within the full
+**Takeaway:** A range identifies your passage within the full
 codex rather than detaching it, preserving the codicological context as part of the
 edition.
 
@@ -610,7 +610,7 @@ for lb in tree.findall(".//t:lb", TEI):
 Add steps 1, 2, and 6 to your pre-commit hook. Steps 5 and 7 are worth running
 manually today and scripting as your edition grows.
 
-**The takeaway for this page:** Validators check structure, not meaning — a
+**Takeaway:** Validators check structure, not meaning — a
 conformant manifest can have every coordinate wrong, so verify regions visually.
 
 ---
@@ -643,7 +643,7 @@ own manifest for the combined multi-witness view, which matters from Week 7.
 Test ingestion today if you can. Discovering on Wednesday that a manifest cannot
 be imported costs a session; discovering it now costs ten minutes.
 
-**The takeaway for this page:** HTR platforms fetch manifests over HTTP, so a
+**Takeaway:** HTR platforms fetch manifests over HTTP, so a
 manifest that exists only as a local file cannot be ingested.
 
 ---
@@ -678,7 +678,7 @@ result against. If the transformed coordinates agree with your hand measurements
 the transform is right. If they are consistently off by a constant factor, you
 have found the scaling error — and you found it because you had a control.
 
-**The takeaway for this page:** ALTO coordinates are in image pixels, so today's
+**Takeaway:** ALTO coordinates are in image pixels, so today's
 hand-verified zones are the control that will catch a scaling error in next week's
 transform.
 
@@ -715,7 +715,7 @@ invalidate every coordinate you computed unless you recorded the originals.
 Commit with a Conventional Commits message, and tag the state you submit for
 today's assignment as discussed in Lesson 1.1.
 
-**The takeaway for this page:** Commit generators alongside generated files, and
+**Takeaway:** Commit generators alongside generated files, and
 record external resources as documents because they change without notice.
 
 ---
@@ -752,7 +752,7 @@ claim and one of the more interesting things you can contribute at this stage.
 Verify against the schema before submitting. An invalid header is the most common
 avoidable failure on this assignment.
 
-**The takeaway for this page:** The commit history is assessed alongside the
+**Takeaway:** The commit history is assessed alongside the
 content, and an invalid TEI header is the most common avoidable failure.
 
 ---
@@ -783,7 +783,7 @@ internal consistency checking will reveal.
 
 Check one binding visually before trusting a hundred computed ones.
 
-**The takeaway for this page:** A scaling error makes every binding wrong by the
+**Takeaway:** A scaling error makes every binding wrong by the
 same ratio, so it looks internally consistent — only visual comparison catches it.
 
 ---
@@ -811,7 +811,7 @@ If your passage's second witness is available, repeat the first two steps for it
 Week 7's collation needs both witnesses' canvas records, and gathering them now
 while the procedure is fresh is cheaper than reconstructing it in October.
 
-**The takeaway for this page:** Three verified lines are worth more than three
+**Takeaway:** Three verified lines are worth more than three
 hundred unverified ones — the point is a control you understand.
 
 ---
@@ -845,7 +845,7 @@ determines whether Week 5's error rates mean anything.
 That is the recurring pattern: infrastructure that makes verification cheap raises
 the standard of the work, because verification that is cheap actually happens.
 
-**The takeaway for this page:** The binding makes verification cheap, and cheap
+**Takeaway:** The binding makes verification cheap, and cheap
 verification is verification that actually happens.
 
 ---
@@ -884,7 +884,7 @@ def to_percent(x, y, w, h, canvas_w, canvas_h):
 This is defensive work, and most of you will never need it. The cost is a few
 lines in a record file, and the alternative failure is silent.
 
-**The takeaway for this page:** Record the canvas dimensions your coordinates were
+**Takeaway:** Record the canvas dimensions your coordinates were
 computed against, because a rescan invalidates them silently.
 
 ---
@@ -918,7 +918,7 @@ already bound to zones means each line's region can be brought up as you work,
 which is materially faster than locating lines by eye and substantially reduces
 line-skip errors.
 
-**The takeaway for this page:** Tuesday's manual transcription is the ground truth
+**Takeaway:** Tuesday's manual transcription is the ground truth
 that every later measurement depends on, and today's binding is what makes
 transcribing accurately affordable.
 
@@ -959,7 +959,7 @@ Test by loading the published URL into Mirador from a different machine. If it
 renders, it is genuinely reachable; if it renders only locally, something is
 serving it that will not be available in Week 13.
 
-**The takeaway for this page:** The manifest's `id` must equal its actual URL, and
+**Takeaway:** The manifest's `id` must equal its actual URL, and
 CORS must permit cross-origin loading or only your own machine can use it.
 
 ---
@@ -995,7 +995,7 @@ refers to something established this week. The canvas coordinate space is what t
 entire edition hangs on, which is why an infrastructure week sits this early and
 why today's small binding exercise matters more than its size suggests.
 
-**The takeaway for this page:** Nearly every remaining layer of the edition
+**Takeaway:** Nearly every remaining layer of the edition
 attaches to the canvas coordinate space built this week.
 
 ---
@@ -1029,7 +1029,7 @@ analyses of a manuscript are worth far more when they can be related to one
 another than when each sits in its own repository, and relating them requires
 shared standards rather than shared institutions.
 
-**The takeaway for this page:** Standards let scholars cooperate without
+**Takeaway:** Standards let scholars cooperate without
 coordinating, and an edition that only its author can use is not yet scholarship.
 
 ---
@@ -1061,7 +1061,7 @@ errors the others cannot. Structural validation confirms your document is
 well-formed; only opening the image confirms your coordinates mean what you
 intended.
 
-**The takeaway for this page:** Verify zones by opening their Image API URLs —
+**Takeaway:** Verify zones by opening their Image API URLs —
 structural validation cannot tell you whether a coordinate is right.
 
 ---
@@ -1097,7 +1097,7 @@ coordinate binding, which is the part the rest of the course depends on.
 Raise this today if it applies to you. It is workable, but it changes what Week 13
 can publish and is much easier to address now than in November.
 
-**The takeaway for this page:** Without IIIF you can still bind coordinates using
+**Takeaway:** Without IIIF you can still bind coordinates using
 plain images and TEI zones — you lose deep zoom, not the binding the course depends
 on.
 
@@ -1132,7 +1132,7 @@ This is the standard the whole course is oriented toward. The assignments are
 occasions for producing a defensible scholarly artefact, and the criterion is
 whether a reader can evaluate your claims from what you have recorded.
 
-**The takeaway for this page:** A good submission records divergences, negative
+**Takeaway:** A good submission records divergences, negative
 results, and the reasoning behind decisions — not only what worked.
 
 ---
@@ -1171,7 +1171,7 @@ object rather than seven documents about the same manuscript (Clausen et al.,
 transcription — your ground truth for everything measured thereafter. Come with
 your bindings working and your images loading at full zoom.
 
-**The takeaway for this page:** The canvas coordinate space is the spine of the
+**Takeaway:** The canvas coordinate space is the spine of the
 edition; every layer from transcription to commentary attaches to it, which is what
 makes them one object.
 

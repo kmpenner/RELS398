@@ -33,7 +33,7 @@ perceives it. *Code point* — a numeric value in the Unicode standard, written
 `U+03B1`. *Rendering* — the process by which a font turns code points into
 visible marks.
 
-**The takeaway for this page:** Identical appearance on screen does not imply
+**Takeaway:** Identical appearance on screen does not imply
 identical storage, and every tool in your pipeline compares storage.
 
 ---
@@ -70,7 +70,7 @@ sometimes wrongly. When you make normalization decisions about accents in Week 6
 you are adjudicating between editorial traditions rather than recovering an
 author's intention — and the difference matters for how you justify the decision.
 
-**The takeaway for this page:** Greek diacritics are a Hellenistic editorial
+**Takeaway:** Greek diacritics are a Hellenistic editorial
 apparatus for recording pronunciation, not part of the original written text.
 
 ---
@@ -108,7 +108,7 @@ and different fonts render the same code point differently. The code point is
 unambiguous; the visual form is not. Judge encoding by inspecting code points,
 never by inspecting the rendered glyph.
 
-**The takeaway for this page:** Three accents encode pitch contour, and the grave
+**Takeaway:** Three accents encode pitch contour, and the grave
 is a positional variant of the acute — which makes it a collation decision, not
 an automatic one.
 
@@ -149,7 +149,7 @@ their combination is where the encoding problems of the next several pages
 originate: a single alpha may carry a breathing, an accent, and an iota subscript
 simultaneously.
 
-**The takeaway for this page:** Smooth breathing marks the positive absence of
+**Takeaway:** Smooth breathing marks the positive absence of
 aspiration, so an unmarked vowel in a manuscript is a different fact from a
 smooth-breathed one.
 
@@ -193,7 +193,7 @@ you record it.
 **Vocabulary.** *Ypogegrammeni* — the "written under" iota, U+0345. *Adscript* —
 the same historical iota written as a full letter on the line.
 
-**The takeaway for this page:** Iota subscript is a later editorial convention for
+**Takeaway:** Iota subscript is a later editorial convention for
 an adscript the manuscripts wrote in full, so converting between them is an
 intervention that must be recorded.
 
@@ -231,7 +231,7 @@ while discarding the critical apparatus and paratextual material that make an
 edition scholarly. The two losses share a cause: an infrastructure that could not
 represent complexity encouraged projects to shed it.
 
-**The takeaway for this page:** Beta Code encoded Greek as ASCII sequences,
+**Takeaway:** Beta Code encoded Greek as ASCII sequences,
 severing the unity of the grapheme and forcing every program to reassemble
 letters for itself.
 
@@ -269,7 +269,7 @@ follow a base letter and modify it. Smooth breathing is U+0313, acute is U+0301,
 ypogegrammeni is U+0345. Any combination can be built by concatenation, including
 combinations for which no precomposed character exists (Unicode Consortium, 2025).
 
-**The takeaway for this page:** Unicode provides both precomposed polytonic
+**Takeaway:** Unicode provides both precomposed polytonic
 characters in Greek Extended and composable marks in Combining Diacritical Marks
 — two routes to the same grapheme.
 
@@ -310,7 +310,7 @@ doing heavy lifting. Software that compares strings byte by byte — which is mo
 software, including Git, most search tools, and most XML processors — does not
 implement canonical equivalence, and will treat them as different.
 
-**The takeaway for this page:** Precomposed and decomposed forms are canonically
+**Takeaway:** Precomposed and decomposed forms are canonically
 equivalent by the standard but unequal to most software, which compares bytes.
 
 ---
@@ -348,7 +348,7 @@ recorded from the source is content, and NFKC silently destroys it.
 search index construction, where collapsing distinctions is the point, and for
 nothing else in this course.
 
-**The takeaway for this page:** Use the canonical forms NFC and NFD, which are
+**Takeaway:** Use the canonical forms NFC and NFD, which are
 lossless; the compatibility forms NFKC and NFKD destroy distinctions that are
 philological data.
 
@@ -385,7 +385,7 @@ The requirement is therefore not stylistic. Encode in NFC because in Week 5 you
 will subtract one transcription from another, and that subtraction is only valid
 if both are in the same form.
 
-**The takeaway for this page:** NFC is required because Week 5's error-rate
+**Takeaway:** NFC is required because Week 5's error-rate
 comparison is only meaningful if ground truth and machine output are in the same
 normalization form.
 
@@ -426,7 +426,7 @@ implementation. That determinism is what lets you treat a normalized file's hash
 as a meaningful identity, which is exactly what Lesson 1.1's argument about
 content-addressable storage depends on.
 
-**The takeaway for this page:** Canonical Combining Class fixes the order of
+**Takeaway:** Canonical Combining Class fixes the order of
 multiple marks, which is what makes normalization deterministic across platforms.
 
 ---
@@ -463,7 +463,7 @@ normalization forms. Git reports a conflict. Both students look at the conflict
 markers, see two identical-looking lines of Greek, and have no way to resolve it
 by inspection — the difference is real, structural, and invisible.
 
-**The takeaway for this page:** macOS tends to produce NFD and Windows NFC, so a
+**Takeaway:** macOS tends to produce NFD and Windows NFC, so a
 mixed-platform team generates conflicts that are structurally real and visually
 undetectable.
 
@@ -515,7 +515,7 @@ declared explicitly on both read and write: relying on the platform default
 encoding is exactly the kind of implicit platform dependence this lesson is
 about.
 
-**The takeaway for this page:** `unicodedata.normalize("NFC", text)` is the whole
+**Takeaway:** `unicodedata.normalize("NFC", text)` is the whole
 mechanism, available in any standard Python installation.
 
 ---
@@ -558,7 +558,7 @@ what lets you diagnose the problem when it appears in someone else's files. What
 you do not need is to remember to run a command every time, because that is the
 part humans reliably fail at.
 
-**The takeaway for this page:** Enforce NFC in the pre-commit hook and re-stage
+**Takeaway:** Enforce NFC in the pre-commit hook and re-stage
 the normalized file, so unnormalized text cannot enter the repository.
 
 ---
@@ -604,7 +604,7 @@ back implausibly high, the first hypothesis to test is a normalization mismatch,
 and you will want the check to be reflexive rather than something you have to
 work out under time pressure.
 
-**The takeaway for this page:** When Greek text behaves strangely, dump the code
+**Takeaway:** When Greek text behaves strangely, dump the code
 points — the rendering cannot tell you what is stored.
 
 ---

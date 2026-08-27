@@ -18,7 +18,7 @@ The distinction between syntactic well-formedness and schema validity is the fou
 
 Furthermore, deterministic validation creates the epistemological foundation for downstream data processing. If a digital edition guarantees that every date is an ISO 8601 string and every manuscript shelfmark resides inside `//tei:msDesc/tei:msIdentifier/tei:idno`, external software can ingest millions of records without human intervention. Determinism replaces ad-hoc data cleaning with certified structural compliance.
 
-**The takeaway for this page:** Deterministic validation evaluates XML documents against explicit, rule-governed schemas, transforming subjective text entry into mathematically verifiable and interoperable research data.
+**Takeaway:** Deterministic validation evaluates XML documents against explicit, rule-governed schemas, transforming subjective text entry into mathematically verifiable and interoperable research data.
 
 ---
 
@@ -39,7 +39,7 @@ RELAX NG is based on the mathematical theory of formal grammars and tree automat
 
 By expressing TEI constraints in RELAX NG, a project can guarantee that every digital manuscript record shares an identical structural grammar regardless of which scholar authored the file. RELAX NG patterns can declare optional elements, mutually exclusive choices, and recursive structures without ambiguous parser states.
 
-**The takeaway for this page:** RELAX NG provides the mathematical tree grammar that defines permissible element hierarchies, sequences, and datatypes across TEI digital editions.
+**Takeaway:** RELAX NG provides the mathematical tree grammar that defines permissible element hierarchies, sequences, and datatypes across TEI digital editions.
 
 ---
 
@@ -70,7 +70,7 @@ Learning to read compiler error messages is an essential editorial skill. An err
 
 As you resolve each error in Oxygen, the editor dynamically re-evaluates the tree, turning red warning indicators green only when every single syntactic and grammatical rule has been completely satisfied.
 
-**The takeaway for this page:** Oxygen XML Editor links XML documents to RELAX NG and Schematron schemas via `<?xml-model?>` instructions, providing instant compiler feedback on structural defects.
+**Takeaway:** Oxygen XML Editor links XML documents to RELAX NG and Schematron schemas via `<?xml-model?>` instructions, providing instant compiler feedback on structural defects.
 
 ---
 
@@ -107,7 +107,7 @@ These containment rules prevent the degradation of archival data. Because every 
 
 Furthermore, hierarchical containment formalizes ontological relationships: a `<supportDesc>` is not an independent physical object, but a physical property of the `<objectDesc>`, which in turn is a component of the manuscript's physical description.
 
-**The takeaway for this page:** RELAX NG strictly enforces element containment and sequencing, ensuring that complex manuscript metadata is predictable and machine-traversable.
+**Takeaway:** RELAX NG strictly enforces element containment and sequencing, ensuring that complex manuscript metadata is predictable and machine-traversable.
 
 ---
 
@@ -131,7 +131,7 @@ Furthermore, schemas enforce *enumerations*—controlled vocabularies for attrib
 
 By enforcing these constraints, deterministic validation guarantees that downstream statistical scripts can calculate median manuscript dates, sort volumes by dimension, or filter by support material without encountering unparseable formatting errors.
 
-**The takeaway for this page:** Schemas enforce ISO datatypes and controlled attribute enumerations, ensuring that chronological, numerical, and categorical values remain machine-computable.
+**Takeaway:** Schemas enforce ISO datatypes and controlled attribute enumerations, ensuring that chronological, numerical, and categorical values remain machine-computable.
 
 ---
 
@@ -156,7 +156,7 @@ To enforce these complex editorial constraints, digital philologists deploy ISO 
 
 Schematron acts as the project's automated editorial supervisor, catching logical and referential errors that tree grammars overlook entirely.
 
-**The takeaway for this page:** ISO Schematron complements RELAX NG by executing XPath-driven business logic and cross-element assertions that grammar-based schemas cannot evaluate.
+**Takeaway:** ISO Schematron complements RELAX NG by executing XPath-driven business logic and cross-element assertions that grammar-based schemas cannot evaluate.
 
 ---
 
@@ -196,7 +196,7 @@ When Oxygen executes this Schematron schema alongside RELAX NG, it checks every 
 
 Writing project-specific Schematron rules allows editorial teams to automate quality assurance, freeing human editors from manually checking thousands of internal cross-references.
 
-**The takeaway for this page:** Schematron uses XPath assertions to audit internal cross-references and enforce mandatory editorial rules across the entire TEI document.
+**Takeaway:** Schematron uses XPath assertions to audit internal cross-references and enforce mandatory editorial rules across the entire TEI document.
 
 ---
 
@@ -218,7 +218,7 @@ From this single ODD source of truth, automated compilers (such as the TEI `roma
 
 This unified compilation guarantees that documentation and validation schemas never drift out of sync: any change to the ODD file automatically updates both the validation rules and the project's published encoding guidelines.
 
-**The takeaway for this page:** The TEI ODD architecture generates project-specific RELAX NG schemas, Schematron rules, and human-readable documentation from a single XML source of truth.
+**Takeaway:** The TEI ODD architecture generates project-specific RELAX NG schemas, Schematron rules, and human-readable documentation from a single XML source of truth.
 
 ---
 
@@ -248,7 +248,7 @@ By publishing this schema in a version-controlled GitHub repository, the Bodleia
 
 This institutional workflow demonstrates how customized schemas bridge the gap between individual scholarly cataloguers and massive institutional repositories.
 
-**The takeaway for this page:** Institutional repositories like the Bodleian Library use customized ODD schemas to enforce mandatory cataloguing constraints across diverse historical collections.
+**Takeaway:** Institutional repositories like the Bodleian Library use customized ODD schemas to enforce mandatory cataloguing constraints across diverse historical collections.
 
 ---
 
@@ -264,7 +264,7 @@ Contributing archivists from Rome, London, Paris, Vienna, and Heidelberg generat
 
 The success of the Bibliotheca Laureshamensis demonstrated that a shared, deterministic schema can transcend international borders, language barriers, and institutional silos to digitally resurrect a destroyed historical library (Büttner & Kautz, 2013).
 
-**The takeaway for this page:** The Bibliotheca Laureshamensis virtually reunited 331 dispersed Carolingian manuscripts across 73 institutions by using the TEI ENRICH schema as an automated validation gate.
+**Takeaway:** The Bibliotheca Laureshamensis virtually reunited 331 dispersed Carolingian manuscripts across 73 institutions by using the TEI ENRICH schema as an automated validation gate.
 
 ---
 
@@ -288,7 +288,7 @@ To a computer, the string `"Alexandria"` is merely ten Unicode characters. The m
 
 To transform static XML documents into active participants in global scholarly networks, digital humanists integrate the principles of Linked Open Data (LOD) and the Resource Description Framework (RDF) (Koho et al., 2021; Koho et al., 2023). Linking local textual assertions to global authority URIs ensures that our digital editions become searchable nodes within the wider Semantic Web.
 
-**The takeaway for this page:** Unlinked XML documents remain isolated textual silos; Linked Open Data connects local strings to global semantic authorities, enabling automated cross-institutional computation.
+**Takeaway:** Unlinked XML documents remain isolated textual silos; Linked Open Data connects local strings to global semantic authorities, enabling automated cross-institutional computation.
 
 ---
 
@@ -316,7 +316,7 @@ In this graph architecture, knowledge is not confined to a single document. Trip
 
 Graph-based data structures allow scholars to uncover non-linear historical connections—such as identifying all manuscripts illuminated by the same workshop that subsequently passed through the hands of the same Renaissance collector.
 
-**The takeaway for this page:** RDF models information as Subject-Predicate-Object triples, weaving disparate manuscript descriptions into a globally queryable semantic knowledge graph.
+**Takeaway:** RDF models information as Subject-Predicate-Object triples, weaving disparate manuscript descriptions into a globally queryable semantic knowledge graph.
 
 ---
 
@@ -342,7 +342,7 @@ When a search indexer or RDF extraction pipeline processes this XML snippet, it 
 
 By disambiguating entities via URIs, digital editions ensure that spelling variations, dialectal shifts, and language differences no longer obstruct computational discovery.
 
-**The takeaway for this page:** Embedding persistent URIs in TEI `@ref` attributes transitions editions from ambiguous text strings to unambiguous, machine-resolvable entities.
+**Takeaway:** Embedding persistent URIs in TEI `@ref` attributes transitions editions from ambiguous text strings to unambiguous, machine-resolvable entities.
 
 ---
 
@@ -370,7 +370,7 @@ The primary authority registers in digital manuscript studies include:
 
 Using these established authority registers ensures that our digital metadata is immediately compatible with international museum and library data infrastructures.
 
-**The takeaway for this page:** Linking to centralized authority registers like VIAF, Getty TGN/AAT, Pleiades, and Wikidata ensures that entities are globally disambiguated and machine-linked.
+**Takeaway:** Linking to centralized authority registers like VIAF, Getty TGN/AAT, Pleiades, and Wikidata ensures that entities are globally disambiguated and machine-linked.
 
 ---
 
@@ -390,7 +390,7 @@ Using an event-centric CIDOC-CRM and FRBRoo ontology, MMM harmonized all three d
 
 The MMM project proves that semantic web ontologies can bridge the gap between disparate archival traditions without erasing the unique local histories of individual collections.
 
-**The takeaway for this page:** Mapping Manuscript Migrations harmonized 20 million triples across SDBM, Bibale, and Oxford TEI files, proving that event-centric RDF models can unify heterogeneous institutional databases.
+**Takeaway:** Mapping Manuscript Migrations harmonized 20 million triples across SDBM, Bibale, and Oxford TEI files, proving that event-centric RDF models can unify heterogeneous institutional databases.
 
 ---
 
@@ -411,7 +411,7 @@ To ingest heterogeneous manuscript metadata into Wikibase, projects utilize reco
 | `Q112260` (Codex Marchalianus) | `P35` (date of origin) | `"0550-0600"` (ISO 8601 Interval) | Chronological manufacturing span |
 | `Q112260` (Codex Marchalianus) | `P48` (contains text) | `Q665274` (Book of Isaiah - Septuagint) | Intellectual work content |
 
-**The takeaway for this page:** Wikibase provides an accessible, graph-native platform for hosting manuscript data, combining OpenRefine entity reconciliation with SPARQL querying capabilities.
+**Takeaway:** Wikibase provides an accessible, graph-native platform for hosting manuscript data, combining OpenRefine entity reconciliation with SPARQL querying capabilities.
 
 ---
 
@@ -427,7 +427,7 @@ When a 7th-century Syriac chronicle asserts that "Bishop Severus traveled to Ant
 
 This architecture creates a completely verifiable, machine-actionable chain of evidence: an abstract historical claim in a knowledge graph points to a URI, which is justified by a CTS URN, which resolves to an exact word in a primary manuscript witness (Berti, 2016). Factoid prosopography ensures that contradictory historical assertions can be modeled transparently without editorial bias.
 
-**The takeaway for this page:** The SPEAR project demonstrates factoid prosopography by linking TEI event tags to RDF authority files, with every historical assertion justified by an exact CTS URN.
+**Takeaway:** The SPEAR project demonstrates factoid prosopography by linking TEI event tags to RDF authority files, with every historical assertion justified by an exact CTS URN.
 
 ---
 
@@ -445,7 +445,7 @@ When humanities scholarship moved to the web in the 1990s, this citation stabili
 
 To restore canonical citation stability to digital textual scholarship, Christopher Blackwell and Neel Smith developed the Canonical Text Services (CTS) protocol and the broader CITE Architecture (Blackwell & Smith, 2019; Smith, 2009).
 
-**The takeaway for this page:** Web URLs suffer from link rot and technology dependence; digital textual scholarship requires domain-independent, canonical citation protocols.
+**Takeaway:** Web URLs suffer from link rot and technology dependence; digital textual scholarship requires domain-independent, canonical citation protocols.
 
 ---
 
@@ -470,7 +470,7 @@ urn:cite2:hmt:va_images.v1:VA062RN_0062
 
 By decoupling citation identity from web storage locations, the CITE architecture ensures that digital scholarly citations remain valid for centuries, outlasting transient servers and institutional re-organizations (Blackwell & Smith, 2019).
 
-**The takeaway for this page:** The CITE Architecture models texts as abstract citation trees (OHCO2), using persistent URNs to identify texts and artifacts independently of physical servers.
+**Takeaway:** The CITE Architecture models texts as abstract citation trees (OHCO2), using persistent URNs to identify texts and artifacts independently of physical servers.
 
 ---
 
@@ -504,7 +504,7 @@ Scheme  Domain   Group   Work   Version      Passage
 | Exemplar (Optional)| `diplomatic` | Distinct physical copy or editorial layer | Diplomatic transcription layer |
 | Passage (Optional) | `1.1` | Hierarchical passage address | Chapter 1, Verse 1 |
 
-**The takeaway for this page:** A CTS URN decomposes text identification into a rigorous hierarchy: protocol, namespace, textgroup, work, version, exemplar, and passage.
+**Takeaway:** A CTS URN decomposes text identification into a rigorous hierarchy: protocol, namespace, textgroup, work, version, exemplar, and passage.
 
 ---
 
@@ -525,7 +525,7 @@ Because the CTS citation hierarchy reflects the conceptual structure of the work
 
 This hierarchical addressing enables seamless navigation across comparative digital editions, allowing users to zoom out to whole books or zoom in to single verses dynamically.
 
-**The takeaway for this page:** CTS URNs support flexible granularity, enabling seamless citations from overarching works down to specific verses and continuous passage ranges.
+**Takeaway:** CTS URNs support flexible granularity, enabling seamless citations from overarching works down to specific verses and continuous passage ranges.
 
 ---
 
@@ -548,7 +548,7 @@ Consider Isaiah 1:2: *«ἄκουε οὐρανὲ καὶ ἐνωτίζου γ�
 
 This sub-reference syntax allows digital critical apparatuses and factoid databases to target exact paleographical tokens without adding invasive XML markup to the base transcription (Blackwell & Smith, 2019; Berti, 2016).
 
-**The takeaway for this page:** CTS sub-reference syntax (`@token[index]`) enables mathematical citation of specific words, repeated tokens, and character substrings within a passage.
+**Takeaway:** CTS sub-reference syntax (`@token[index]`) enables mathematical citation of specific words, repeated tokens, and character substrings within a passage.
 
 ---
 
@@ -577,7 +577,7 @@ By pairing CTS URNs (identifying the text) with CITE2 URNs (identifying the imag
 
 This alignment allows users to click on any word in a digital critical edition and immediately highlight the exact pixels on the high-resolution manuscript image where the scribe wrote that word.
 
-**The takeaway for this page:** CITE2 URNs identify physical manuscript folios and high-resolution images, linking textual transcriptions directly to visual facsimiles.
+**Takeaway:** CITE2 URNs identify physical manuscript folios and high-resolution images, linking textual transcriptions directly to visual facsimiles.
 
 ---
 
@@ -607,7 +607,7 @@ Using TEI `<cit>` markup paired with CTS URNs, an editor records both the citing
 
 This architecture ensures that a fragment is never ripped from its manuscript host; the CTS URN anchors the quote to its exact place in the surviving witness while simultaneously connecting it to the author's virtual collected works (Berti, 2016).
 
-**The takeaway for this page:** CTS URNs and TEI `<cit>` elements model fragmentary text reuses, preserving the physical host context while linking citations to lost works.
+**Takeaway:** CTS URNs and TEI `<cit>` elements model fragmentary text reuses, preserving the physical host context while linking citations to lost works.
 
 ---
 
@@ -650,7 +650,7 @@ Server Response:
 
 Because CTS services speak a standardized protocol, a client application can pull Greek texts from Leipzig, Latin texts from Harvard, and Syriac texts from Oxford into a single unified collation interface (Tiepmar & Heyer, 2014).
 
-**The takeaway for this page:** CTS web microservices expose standardized API endpoints (`GetPassage`, `GetValidReff`) that resolve abstract URNs into structured XML text fragments.
+**Takeaway:** CTS web microservices expose standardized API endpoints (`GetPassage`, `GetValidReff`) that resolve abstract URNs into structured XML text fragments.
 
 ---
 
@@ -697,7 +697,7 @@ By nesting `<div type="textpart" subtype="chapter" n="1">` and `<div type="textp
 
 This alignment ensures that your edition can participate directly in distributed text service networks, automated alignment engines, and multi-witness collation pipelines.
 
-**The takeaway for this page:** Embedding CTS URNs in `<msItem>` and structural `<div type="textpart">` elements aligns the TEI XML tree with the canonical citation hierarchy.
+**Takeaway:** Embedding CTS URNs in `<msItem>` and structural `<div type="textpart">` elements aligns the TEI XML tree with the canonical citation hierarchy.
 
 ---
 
@@ -725,7 +725,7 @@ Follow these systematic steps:
 
 Save your validated file as `src/modules/Topic_02_Cataloguing/03a_Lesson_2.2_Primary_Witness_Header_Validated.xml`.
 
-**The takeaway for this page:** The validation lab transforms raw manual markup into a certified, schema-valid, linked-data-enriched digital manuscript record.
+**Takeaway:** The validation lab transforms raw manual markup into a certified, schema-valid, linked-data-enriched digital manuscript record.
 
 ---
 
@@ -768,7 +768,7 @@ WHERE {
 
 This query searches millions of records in seconds, demonstrating the immense analytical payoff of structured, linked metadata (Koho et al., 2021; Koho et al., 2023).
 
-**The takeaway for this page:** Validated TEI headers are transformed into RDF triples via XSLT, enabling lightning-fast SPARQL queries across decentralized international repositories.
+**Takeaway:** Validated TEI headers are transformed into RDF triples via XSLT, enabling lightning-fast SPARQL queries across decentralized international repositories.
 
 ---
 
@@ -795,7 +795,7 @@ git commit -m "Topic 02: Validated primary witness header against RELAX NG, Sche
 
 Document your validation results in your personal lab notes: record how many syntax errors Oxygen caught in your Tuesday draft, what types of errors they were (e.g., date formats, nesting, unclosed tags), and how you resolved them. This error log will form the quantitative baseline for Friday's comparative report.
 
-**The takeaway for this page:** A zero-error validation report is the mandatory stage gate that certifies your ground truth before comparative AI benchmarking.
+**Takeaway:** A zero-error validation report is the mandatory stage gate that certifies your ground truth before comparative AI benchmarking.
 
 ---
 
@@ -824,7 +824,7 @@ Comparative Cycle Progress — Week 2 (Topic 02):
 
 On Friday, we complete the cycle with Step 3: AI-assisted metadata extraction. You will prompt Large Language Models and computer vision pipelines to catalogue your manuscript passage automatically, scoring their outputs directly against the validated ground truth you certified today.
 
-**The takeaway for this page:** TEI XML, RDF Linked Open Data, and CTS URNs form the three-part computational infrastructure that makes digital textual scholarship permanent, interoperable, and reproducible.
+**Takeaway:** TEI XML, RDF Linked Open Data, and CTS URNs form the three-part computational infrastructure that makes digital textual scholarship permanent, interoperable, and reproducible.
 
 ---
 

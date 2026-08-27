@@ -31,7 +31,7 @@ nothing more — which is what makes it applicable to objects of extreme value
 wavelength. *Fluorescence* — absorption of radiation at one wavelength followed by
 emission at a longer one. *Non-destructive* — leaving the object unaltered.
 
-**The takeaway for this page:** Materials that look identical to the eye respond
+**Takeaway:** Materials that look identical to the eye respond
 differently outside the visible range, and multispectral imaging samples those
 differences.
 
@@ -73,7 +73,7 @@ which makes it the technique you are most likely to be able to apply yourself. I
 your manuscript's repository offers raking-light captures, seek them out; they
 frequently reveal ruling patterns that inform codicological description.
 
-**The takeaway for this page:** Raking light reveals evidence that has no colour —
+**Takeaway:** Raking light reveals evidence that has no colour —
 ruling, erasure, and dry-point annotation — by turning depth into shadow.
 
 ---
@@ -112,7 +112,7 @@ how the disturbance responds — which is far more informative than any single
 static image, and closer to what an examiner does when tilting a physical object
 under a lamp.
 
-**The takeaway for this page:** RTI fits a polynomial per pixel to many
+**Takeaway:** RTI fits a polynomial per pixel to many
 illumination angles, producing a relightable surface model rather than a fixed
 photograph.
 
@@ -154,7 +154,7 @@ RTI equipment is not available to this course, but RTI datasets exist for many
 manuscripts and viewers are freely available. If your manuscript has been imaged
 this way, it is worth pursuing.
 
-**The takeaway for this page:** RTI's derived surface normals allow enhancements
+**Takeaway:** RTI's derived surface normals allow enhancements
 that exceed any physically achievable lighting, recovering writing whose ink is
 entirely lost.
 
@@ -200,7 +200,7 @@ recovers the contrast that the eye cannot (Easton et al., 2003).
 *Scriptio superior* — the later text written over it. *Iron-gall ink* — the
 standard European ink, made from iron salts and tannins.
 
-**The takeaway for this page:** Parchment fluoresces under UV while iron-gall ink
+**Takeaway:** Parchment fluoresces under UV while iron-gall ink
 does not, and carbon ink absorbs infrared while stains become transparent — two
 different physical mechanisms for two different recovery problems.
 
@@ -244,7 +244,7 @@ wavelengths refract differently through the lens, chromatic aberration displaces
 them slightly, and registration algorithms correct this along with any residual
 distortion before processing begins (Clausen et al., 2026).
 
-**The takeaway for this page:** A datacube gives every pixel a spectrum rather
+**Takeaway:** A datacube gives every pixel a spectrum rather
 than a colour, and pixel-perfect registration across bands is what makes it
 processable.
 
@@ -283,7 +283,7 @@ in which apparent brightness corresponds to a computed quantity rather than to
 reflected light. Reading it requires knowing what was computed — which is why the
 processing must be documented alongside the image.
 
-**The takeaway for this page:** Erased text is identified by its pattern across
+**Takeaway:** Erased text is identified by its pattern across
 bands rather than its brightness in any one, so recovery is a statistical
 operation and its output is not a photograph.
 
@@ -323,7 +323,7 @@ thing. It has no concept of "ink" and cannot be directed at the under-text; it
 simply reorganizes the data so that structure concentrates in early components.
 Finding the under-text means inspecting the components and recognizing it.
 
-**The takeaway for this page:** PCA reorders spectral data by variance, and the
+**Takeaway:** PCA reorders spectral data by variance, and the
 erased under-text usually emerges in the middle components rather than the first.
 
 ---
@@ -364,7 +364,7 @@ Its limitation is that it requires an assumption about the number of independent
 sources and can produce components in an arbitrary order and sign. Interpretation
 is required; the algorithm does not label its outputs.
 
-**The takeaway for this page:** ICA separates overlapping texts into distinct
+**Takeaway:** ICA separates overlapping texts into distinct
 outputs by recovering statistically independent sources, which suits palimpsests
 precisely.
 
@@ -401,7 +401,7 @@ structure lies. MNF establishes how much real signal exists and suppresses noise
 ICA separates the layers once the signal is known to be there. The scholar
 inspects outputs from each and selects what proves legible.
 
-**The takeaway for this page:** MNF orders components by signal-to-noise rather
+**Takeaway:** MNF orders components by signal-to-noise rather
 than variance, which is what makes very degraded material tractable.
 
 ---
@@ -443,7 +443,7 @@ without knowing what they are looking at.
 Whenever you cite such an image, record the processing: which method, which
 components, which channel assignments.
 
-**The takeaway for this page:** False-colour composites encode computed
+**Takeaway:** False-colour composites encode computed
 quantities as colour, so the channel assignments must be documented or the image
 cannot be evaluated as evidence.
 
@@ -483,7 +483,7 @@ the tenth-century iron-gall ink, causing them to fluoresce through the gold leaf
 and revealing the text beneath by its elemental composition rather than its
 optical properties (Easton et al., 2003).
 
-**The takeaway for this page:** The Archimedes Palimpsest required optical
+**Takeaway:** The Archimedes Palimpsest required optical
 multispectral imaging, statistical separation, and finally X-ray fluorescence to
 read text through gold leaf — no single technique sufficed.
 
@@ -523,7 +523,7 @@ That third point is a live methodological issue for you. When you evaluate a
 processed image this term, you are performing the philologist's half of that
 collaboration, and the judgement required is palaeographic rather than technical.
 
-**The takeaway for this page:** Recovery requires imaging scientists and
+**Takeaway:** Recovery requires imaging scientists and
 philologists together — only a palaeographer can judge whether a recovered form
 is a letter.
 
@@ -563,7 +563,7 @@ dropdown that a philologist can use without understanding PCA is what converts a
 recovery into a usable scholarly resource — and IIIF `Choice` annotations are the
 mechanism.
 
-**The takeaway for this page:** Recovery is not access; Princeton's contribution
+**Takeaway:** Recovery is not access; Princeton's contribution
 was packaging multispectral results into an interface a philologist could actually
 use.
 
@@ -612,7 +612,7 @@ state the imaging condition precisely — "UV fluorescence, 365 nm" rather than
 "UV". And the first item in the list is what a viewer displays by default;
 put the natural-colour image first unless there is a reason not to.
 
-**The takeaway for this page:** `Choice` lists alternative images for one canvas,
+**Takeaway:** `Choice` lists alternative images for one canvas,
 and its labels are where the imaging conditions are documented.
 
 ---

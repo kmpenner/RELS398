@@ -70,7 +70,7 @@ becomes inconsistent.
 
 **Structure.** Exactly 30 sections, `## **01 Content**` … `## **30 Content**`,
 each with a bold thematic sub-header, 2–4 developed paragraphs, and a closing
-`**The takeaway for this page:** …` line. Close the file with `## References`.
+`**Takeaway:** …` line. Close the file with `## References`.
 
 **Front matter.** Each lesson opens with a title line, then an italic line giving
 course, topic, meeting number and date, then an italic note naming which step of
@@ -208,7 +208,7 @@ After a PDF, confirm it rendered rather than merely exited 0:
 
 ```bash
 pdftotext dist/moodle/Topic_01_Orientation/04_Lesson_1.1_Notes.pdf - \
-  | grep -c 'takeaway for this page'      # expect 30
+  | grep -cF '**Takeaway:**'      # expect 30
 ```
 
 ---

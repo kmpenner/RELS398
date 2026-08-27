@@ -30,7 +30,7 @@ strength of a single image. That is a change in evidential standards produced by
 an infrastructural improvement — which is a recurring pattern in this course, and
 worth noticing as such.
 
-**The takeaway for this page:** Layered canvases make multi-spectral verification
+**Takeaway:** Layered canvases make multi-spectral verification
 cheap enough to be routine, which raises the evidential standard for a reading.
 
 ---
@@ -75,7 +75,7 @@ and the `Choice` labels carry the summary. Your Week 1 commit discipline is the
 other half: when you use a processed image, record in the commit body which layer
 you read from.
 
-**The takeaway for this page:** A processed image without its processing
+**Takeaway:** A processed image without its processing
 parameters cannot be evaluated as evidence, so record wavelengths, method,
 components, and channel assignments.
 
@@ -114,7 +114,7 @@ case is exactly the one your expectation could have produced. Treat readings tha
 conveniently support your hypothesis with more scepticism than readings that
 complicate it.
 
-**The takeaway for this page:** Statistical enhancement amplifies noise as readily
+**Takeaway:** Statistical enhancement amplifies noise as readily
 as signal, and expectation makes false letterforms easy to see — so require
 persistence across methods and parameters.
 
@@ -155,7 +155,7 @@ transcription. The first asserts what the text says; the second asserts what the
 text says, how confident the editor is, who is responsible, and what evidence
 supports it. Where recovery is involved, the second is the only defensible form.
 
-**The takeaway for this page:** Encode recovered readings with `<unclear>`,
+**Takeaway:** Encode recovered readings with `<unclear>`,
 `@cert`, `@resp`, and a `@source` pointing at the imaging condition that supports
 them.
 
@@ -199,7 +199,7 @@ That coordinate preservation is what makes the pipeline coherent: the
 transcription arrives already bound to positions on the page, which is exactly the
 binding Lesson 3.3 builds by hand.
 
-**The takeaway for this page:** HTR platforms ingest manifests directly and emit
+**Takeaway:** HTR platforms ingest manifests directly and emit
 coordinate-bound ALTO or PAGE XML, so Friday's manifest is Week 4's input.
 
 ---
@@ -240,7 +240,7 @@ the object itself under any illumination.
 Record your choice in your repository now, before Week 4 begins, so that the
 decision is deliberate.
 
-**The takeaway for this page:** Transcribe from the most legible layer, verify
+**Takeaway:** Transcribe from the most legible layer, verify
 against the others, and always record which layer supported a contested reading.
 
 ---
@@ -272,7 +272,7 @@ visible-light images. This week's content remains necessary because it is what
 lets you read the imaging literature on your manuscript, evaluate published
 recovered readings, and understand what the images in your edition are and are not.
 
-**The takeaway for this page:** Check your manifest for unlisted spectral layers,
+**Takeaway:** Check your manifest for unlisted spectral layers,
 and ask curators directly; if none exists, the course proceeds from visible light.
 
 ---
@@ -315,7 +315,7 @@ spectral composite, and a transcribed line can all target the same canvas region
 which is what allows a chemical observation and a palaeographic one to be stated
 about the same place.
 
-**The takeaway for this page:** XRF maps elemental composition rather than
+**Takeaway:** XRF maps elemental composition rather than
 appearance, and the canvas is what lets chemical and textual observations refer to
 the same place on the page.
 
@@ -352,7 +352,7 @@ map or a spectral component rather than by an appeal to what an examiner can see
 and evaluating such a claim requires understanding how the evidence was produced —
 which is why this lesson exists in a philology course.
 
-**The takeaway for this page:** Recovery techniques treat the manuscript as a
+**Takeaway:** Recovery techniques treat the manuscript as a
 dataset with many projections rather than a surface bearing text, which changes
 what can count as evidence for a reading.
 
@@ -394,7 +394,7 @@ that. An `<unclear>` element with `@cert="low"` and a note that UV was consulted
 without resolution is a more useful scholarly statement than a confident reading
 or a silent omission.
 
-**The takeaway for this page:** Recovery often fails, and a documented negative
+**Takeaway:** Recovery often fails, and a documented negative
 result is a real finding — record what you consulted even when it resolved
 nothing.
 
@@ -426,7 +426,7 @@ Add the results to `images/SOURCES.md` alongside yesterday's record and commit
 with a Conventional Commits message. By Friday this file documents your edition's
 entire image basis.
 
-**The takeaway for this page:** Assess the least legible region of your passage
+**Takeaway:** Assess the least legible region of your passage
 against every layer available, and record what remains unresolved.
 
 ---
@@ -466,7 +466,7 @@ qualifications intact. "Smith reads X, from an ICA composite; components and
 parameters unreported" is honest and lets your reader weigh it. Repeating the
 reading as established fact passes along a confidence the evidence may not support.
 
-**The takeaway for this page:** Evaluate published recoveries by whether the
+**Takeaway:** Evaluate published recoveries by whether the
 imaging and processing are described well enough for you to assess them, and cite
 them with their qualifications intact.
 
@@ -500,7 +500,7 @@ the same day. Ensure the header validates before Friday's meeting; debugging
 schema errors while attempting to build coordinate bindings is a poor use of the
 session.
 
-**The takeaway for this page:** Friday joins the structural and imaging models to
+**Takeaway:** Friday joins the structural and imaging models to
 your TEI, and the cataloguing assignment is due the same day — validate your
 header beforehand.
 
@@ -538,7 +538,7 @@ about the same manuscript (Clausen et al., 2026).
 Keep that in view on Friday. The manifest you build is not a container for
 pictures; it is the coordinate framework the rest of your edition attaches to.
 
-**The takeaway for this page:** Every technique this week produces something that
+**Takeaway:** Every technique this week produces something that
 targets a canvas region, which is what makes the imaging, transcription, and
 apparatus one object.
 
@@ -582,7 +582,7 @@ and doing that responsibly requires knowing what the output is.
 Metadata Assignment is due Friday September 18**, and Friday's meeting builds your
 manifest and binds it to your TEI.
 
-**The takeaway for this page:** Every manuscript image is an instrument's output,
+**Takeaway:** Every manuscript image is an instrument's output,
 which is why it can show more than the eye and why it cannot be evaluated without
 its documentation.
 

@@ -39,7 +39,7 @@ worth reporting.
 and producing text. *Zero-shot* — applied without task-specific training.
 *Hallucination* — fluent output not grounded in the input.
 
-**The takeaway for this page:** The question is not which system is best but what
+**Takeaway:** The question is not which system is best but what
 kind of error each makes — the kinds differ more than the rates.
 
 ---
@@ -80,7 +80,7 @@ evidence is precisely what a diplomatic transcription must not do. The model's
 greatest strength on modern text is its principal liability on historical
 manuscripts.
 
-**The takeaway for this page:** A VLM's linguistic knowledge is its strength on
+**Takeaway:** A VLM's linguistic knowledge is its strength on
 modern text and its liability on manuscripts, because it resolves ambiguous ink by
 expectation.
 
@@ -124,7 +124,7 @@ because they have been directly exposed to palaeographic variation, scribal
 shorthand, idiosyncratic ligatures, and non-standard physical layouts (Mattingly et
 al., 2024). Internet-scale training contains very little Byzantine minuscule.
 
-**The takeaway for this page:** The same model achieves 1.39% CER on modern
+**Takeaway:** The same model achieves 1.39% CER on modern
 handwriting and 52.23% on historical — the gap is period, not language.
 
 ---
@@ -166,7 +166,7 @@ generic PyLaia baseline — 9.23% against 26.93% — while inserting anachronist
 characters in 59% of processed files. PyLaia performed worse by the metric and
 never once fabricated an archaic grapheme (Levchenko, 2024).
 
-**The takeaway for this page:** GPT-4o beat a generic HTR baseline on CER while
+**Takeaway:** GPT-4o beat a generic HTR baseline on CER while
 inventing anachronistic characters in 59% of files — the metric and the fidelity
 diverge.
 
@@ -210,7 +210,7 @@ abbreviations, or expand them? Does it preserve scribal errors, or correct them?
 Each of those is a modernization that a low CER would not reveal. Plan to check
 them specifically today.
 
-**The takeaway for this page:** A model can score well on CER while silently
+**Takeaway:** A model can score well on CER while silently
 modernizing or hallucinating archaism — check preservation and insertion
 separately.
 
@@ -253,7 +253,7 @@ place where a `<gap/>` or `<unclear>` belongs.
 
 Both are things you must check for explicitly, because neither announces itself.
 
-**The takeaway for this page:** VLMs reflow lines, add commentary, and fill gaps
+**Takeaway:** VLMs reflow lines, add commentary, and fill gaps
 confidently — none of which announces itself in the output.
 
 ---
@@ -290,7 +290,7 @@ but check first whether your passage is from a text so well known that the model
 may be reproducing it from memory rather than reading it. Section 12 addresses that
 possibility.
 
-**The takeaway for this page:** Record the prompt verbatim, the model version, and
+**Takeaway:** Record the prompt verbatim, the model version, and
 the date — without them the result is not reproducible.
 
 ---
@@ -337,7 +337,7 @@ requirement regardless.
 
 Record the exact prompt in your log.
 
-**The takeaway for this page:** Every constraint in the prompt addresses a
+**Takeaway:** Every constraint in the prompt addresses a
 documented failure mode, and a good prompt reduces those failures without
 eliminating them.
 
@@ -383,7 +383,7 @@ converges on a prompt tuned to this passage, which is not what you are measuring
 and which will not generalize. Run the designed experiment; note separately any
 additional prompts you tried and what changed.
 
-**The takeaway for this page:** Commit the raw output before correcting or
+**Takeaway:** Commit the raw output before correcting or
 reformatting anything — that state is what Week 5 measures.
 
 ---
@@ -420,7 +420,7 @@ than any published benchmark.
 
 Categorize every error. Counts by category are what Week 5's comparison needs.
 
-**The takeaway for this page:** Fluent output reads as correct, so check against
+**Takeaway:** Fluent output reads as correct, so check against
 the image — and look specifically at where you recorded damage.
 
 ---
@@ -460,7 +460,7 @@ reduction in verification labour, whatever it does for transcription labour.
 Record what you find. It bears directly on whether this method is usable for your
 manuscript.
 
-**The takeaway for this page:** If the model's uncertainty markers do not track its
+**Takeaway:** If the model's uncertainty markers do not track its
 errors, you must check everything — and the tool saves no verification labour at
 all.
 
@@ -508,7 +508,7 @@ filling it incorrectly.
 Run both tests and report the result. For a well-known text this is the single most
 important check you make today.
 
-**The takeaway for this page:** Where your manuscript differs from the printed
+**Takeaway:** Where your manuscript differs from the printed
 text, a model reciting from memory gives the printed reading — that is the test.
 
 ---
@@ -553,7 +553,7 @@ figure is not comparable to a line-aligned measurement.
 Compute the same figure for Wednesday's HTR output against the same ground truth,
 so you have a like-for-like comparison. Record both, with the caveats.
 
-**The takeaway for this page:** Normalize both strings to NFC before computing CER,
+**Takeaway:** Normalize both strings to NFC before computing CER,
 or you measure encoding difference rather than transcription difference.
 
 ---
@@ -593,7 +593,7 @@ The distinction running through the table: these tools are good at tasks where
 linguistic knowledge is the point, and bad at tasks where linguistic knowledge
 contaminates the evidence. Transcription is the second kind.
 
-**The takeaway for this page:** These tools help where linguistic knowledge is the
+**Takeaway:** These tools help where linguistic knowledge is the
 point and harm where it contaminates evidence — transcription is the second kind.
 
 ---
@@ -627,7 +627,7 @@ general model each produce on the same lines. That comparison is the basis for
 choosing tools deliberately for the rest of the term — and for defending the choice
 in your Week 12 commentary.
 
-**The takeaway for this page:** Automation saves labour only below the threshold
+**Takeaway:** Automation saves labour only below the threshold
 where correction costs less than transcription — and you have now measured where
 your tools sit.
 
@@ -672,7 +672,7 @@ not verified. That is an accurate picture of your edition's current condition, a
 it is exactly the kind of statement a reader of a digital edition should be able to
 obtain.
 
-**The takeaway for this page:** Record the model access date — a hosted model can
+**Takeaway:** Record the model access date — a hosted model can
 change without notice, making the date the only record of what produced the output.
 
 ---
@@ -712,7 +712,7 @@ recorded uncertainty or damage. Those lines are the informative ones — agreeme
 easy lines tells you little, and divergence on hard lines tells you what each
 system does when the evidence runs out.
 
-**The takeaway for this page:** Compare on the lines where you recorded uncertainty
+**Takeaway:** Compare on the lines where you recorded uncertainty
 — agreement on easy lines is uninformative, and divergence on hard lines is the
 finding.
 
@@ -753,7 +753,7 @@ That is a genuinely useful symmetry. The specialized model is a check on your
 expectation-driven errors, and you are a check on its ink-level errors. The two
 complement each other, which is what human-in-the-loop actually means in practice.
 
-**The takeaway for this page:** The VLM's distinctive failures are not recognition
+**Takeaway:** The VLM's distinctive failures are not recognition
 errors but consequences of being a language model — and the HTR model cannot make
 your expectation-driven errors.
 
@@ -791,7 +791,7 @@ transcription method for this edition; it may remain useful for [specific task].
 That statement is defensible, specific, and useful. It is also exactly the kind of
 claim the Week 5 reconciliation report asks for.
 
-**The takeaway for this page:** A documented failure — this model, this prompt,
+**Takeaway:** A documented failure — this model, this prompt,
 this manuscript, this rate — is a contribution, and vague dismissal is not.
 
 ---
@@ -828,7 +828,7 @@ Push before you finish. Today's work must be available on whatever machine you u
 next week, and a remote session's output left on a laptop is a common way to lose a
 session's work.
 
-**The takeaway for this page:** Hooks are not cloned — install and test your NFC
+**Takeaway:** Hooks are not cloned — install and test your NFC
 hook on this machine before committing anything today.
 
 ---
@@ -862,7 +862,7 @@ evaluated, and mitigated (AlKendi et al., 2024).
 Every row in that table is a measurement made against a ground truth someone
 produced by hand.
 
-**The takeaway for this page:** Every finding in the table is a measurement against
+**Takeaway:** Every finding in the table is a measurement against
 a hand-produced ground truth — which is the week's thesis in operation.
 
 ---
@@ -892,7 +892,7 @@ available when it does apply. A model reproducing a printed edition from memory
 produces excellent-looking output that is worthless as a witness transcription, and
 nothing else in this checklist would detect it.
 
-**The takeaway for this page:** For a well-known text, the memorization test is the
+**Takeaway:** For a well-known text, the memorization test is the
 most important check available — nothing else detects a recited printed edition.
 
 ---
@@ -923,7 +923,7 @@ reconciliation report. Everything you have recorded this week — methodology,
 comparisons, error categories, timings — is material for it. Students who kept
 those records assemble the report; students who did not, redo the work.
 
-**The takeaway for this page:** Week 5 double-keys the ground truth and then
+**Takeaway:** Week 5 double-keys the ground truth and then
 measures against it — and the Transcription Assignment on October 2 includes the
 reconciliation report.
 
@@ -960,7 +960,7 @@ two damaged regions, against my fine-tuned model's Z" is a finding you establish
 The difference between them is the difference between having read about the
 specialization gap and having measured it.
 
-**The takeaway for this page:** A specific measured conclusion about *your*
+**Takeaway:** A specific measured conclusion about *your*
 manuscript is the deliverable; a general claim about AI is a repetition of what you
 were told.
 
@@ -996,7 +996,7 @@ Record your tool decisions and your reasons. Week 12's commentary will need to s
 what methods produced the text, and a decision recorded at the time is worth more
 than one reconstructed in December.
 
-**The takeaway for this page:** Let today's measurement set your tool choices for
+**Takeaway:** Let today's measurement set your tool choices for
 the term, and record the reasons at the time rather than reconstructing them later.
 
 ---
@@ -1028,7 +1028,7 @@ properly. Every measurement is a distance from the reference, and a compromised
 reference compromises everything computed from it. That is why Tuesday is not a
 warm-up.
 
-**The takeaway for this page:** The three-step cycle is a general method for
+**Takeaway:** The three-step cycle is a general method for
 evaluating tools against material, and it collapses if the manual reference is
 compromised.
 
@@ -1065,7 +1065,7 @@ never amortizes. Say so if you find it. The exercise's value is in having measur
 the trade-off on real material, not in reaching a predetermined conclusion about
 which tool wins.
 
-**The takeaway for this page:** For a short passage, HTR's setup cost may never
+**Takeaway:** For a short passage, HTR's setup cost may never
 amortize — say so if you find it, because the measurement is the point.
 
 ---
@@ -1104,7 +1104,7 @@ Verify the push succeeded and the tags are present on the remote before you fini
 A remote session that ends with unpushed work is a session that may need to be
 repeated.
 
-**The takeaway for this page:** Push tags explicitly — they are not pushed by
+**Takeaway:** Push tags explicitly — they are not pushed by
 default, and Week 5's measurement retrieves the tagged states.
 
 ---
@@ -1138,7 +1138,7 @@ its errors can be measured (AlKendi et al., 2024).
 Week 5 takes that ground truth, improves it by double-keying, and performs the
 measurement properly.
 
-**The takeaway for this page:** Three meetings, one thesis — automation accelerates
+**Takeaway:** Three meetings, one thesis — automation accelerates
 transcription and depends absolutely on a hand-produced reference to be evaluated
 at all.
 
@@ -1180,7 +1180,7 @@ reconciliation report, at the end of Week 5.
 independently, without consulting Tuesday's version. Do not review it beforehand.
 The independence is what makes the comparison informative.
 
-**The takeaway for this page:** Fluency and fidelity are independent, and the more
+**Takeaway:** Fluency and fidelity are independent, and the more
 plausible a tool's output, the less its plausibility tells you about its accuracy.
 
 ---

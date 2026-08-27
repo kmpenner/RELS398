@@ -20,7 +20,7 @@ Today's lesson equips you with the theoretical insights, technical architectures
 
 **Vocabulary.** *Generative AI* — artificial intelligence systems, particularly large language models, capable of generating novel text, code, or data based on probabilistic patterns learned during training. *Human-in-the-Loop (HITL)* — an editorial and computational workflow where human expert judgment is required at critical decision points to validate, correct, or reject automated outputs. *Epistemological hazard* — a structural risk within a research methodology that threatens the validity, truth-value, or reliability of scholarly knowledge.
 
-**The takeaway for this page:** Generative AI provides rapid drafting and semantic synthesis for digital commentary, but its probabilistic nature requires strict Human-in-the-Loop verification to maintain scholarly integrity.
+**Takeaway:** Generative AI provides rapid drafting and semantic synthesis for digital commentary, but its probabilistic nature requires strict Human-in-the-Loop verification to maintain scholarly integrity.
 
 ---
 
@@ -48,7 +48,7 @@ Yet, this semantic flexibility is a double-edged sword. While deterministic tool
 
 **Vocabulary.** *Semantic inference* — the ability of a computational model to deduce meaning, conceptual relationships, and contextual implications beyond surface-level lexical tokens. *High-dimensional vector space* — a mathematical space where semantic concepts are represented as numerical vectors, positioning words with similar meanings in close proximity. *Associative hallucination* — a model error where conceptually related ideas are falsely asserted to have a direct historical or textual connection.
 
-**The takeaway for this page:** LLMs transcend deterministic keyword matching by inferring semantic, thematic, and conceptual relationships, functioning as powerful hypothesis generators for textual allusions.
+**Takeaway:** LLMs transcend deterministic keyword matching by inferring semantic, thematic, and conceptual relationships, functioning as powerful hypothesis generators for textual allusions.
 
 ---
 
@@ -75,7 +75,7 @@ Despite these vast capabilities, every automated output remains a provisional dr
 
 **Vocabulary.** *Foundation model* — a large-scale artificial intelligence model trained on broad, multimodal data at scale that can be adapted to a wide range of downstream specialized tasks. *Discourse structure* — the organizational pattern of a text that governs how arguments, narrative transitions, and rhetorical strategies unfold across sentences and paragraphs. *Entity extraction* — the automated identification of named entities (persons, locations, organizations, dates) within unstructured text.
 
-**The takeaway for this page:** Foundation models can assist across philological, historical, intertextual, and rhetorical commentary categories, acting as versatile drafting engines for human editors.
+**Takeaway:** Foundation models can assist across philological, historical, intertextual, and rhetorical commentary categories, acting as versatile drafting engines for human editors.
 
 ---
 
@@ -113,7 +113,7 @@ The insidious nature of these hallucinations lies in their high degree of plausi
 
 **Vocabulary.** *Citation hallucination* — the generation by an AI model of plausible-sounding but entirely fabricated bibliographic references, primary source passages, or chapter and verse numbers. *Autoregressive generation* — a text generation process where each subsequent token is predicted based on the statistical probability distribution of preceding tokens. *Numerical drift* — an error where an AI model cites an authentic text but provides incorrect numerical locators (pages, verses, sections).
 
-**The takeaway for this page:** LLMs generate plausible but fabricated citations through probabilistic token prediction; every AI-generated reference must be forensically verified against primary corpora.
+**Takeaway:** LLMs generate plausible but fabricated citations through probabilistic token prediction; every AI-generated reference must be forensically verified against primary corpora.
 
 ---
 
@@ -141,7 +141,7 @@ The authors concluded that while LLMs provide immense value for preliminary expl
 
 **Vocabulary.** *Ground-truth dataset* — an independently verified, highly accurate dataset used as a gold standard to train, test, and benchmark computational algorithms. *Associative over-generation* — a model error where common vocabulary triggers false-positive allusions to well-known texts simply due to topical association. *Curated pipeline* — a structured workflow combining computational generation with mandatory human review and authorization.
 
-**The takeaway for this page:** The *Grundtvig's Works* study proved that LLMs suffer from associative over-generation and citation errors, demonstrating that automated commentary requires strict human ground-truth vetting.
+**Takeaway:** The *Grundtvig's Works* study proved that LLMs suffer from associative over-generation and citation errors, demonstrating that automated commentary requires strict human ground-truth vetting.
 
 ---
 
@@ -169,7 +169,7 @@ To counteract conceptual flattening, digital editors must enforce strict **lexic
 
 **Vocabulary.** *Historical anachronism* — the erroneous attribution of modern concepts, values, or theological categories to a past historical era where they did not exist. *Conceptual flattening* — reducing the rich, culturally specific, and nuanced meaning of historical terminology to generic, contemporary commonplaces. *Epigraphic evidence* — historical inscriptions on stone, metal, or pottery providing primary documentary context for ancient language usage.
 
-**The takeaway for this page:** LLMs naturally project modern semantic assumptions onto ancient terms; editors must constrain models with historical lexica and epigraphy to prevent conceptual flattening.
+**Takeaway:** LLMs naturally project modern semantic assumptions onto ancient terms; editors must constrain models with historical lexica and epigraphy to prevent conceptual flattening.
 
 ---
 
@@ -198,7 +198,7 @@ To protect the integrity of digital scholarship, editing environments must be de
 
 **Vocabulary.** *Automation bias* — the psychological propensity of humans to over-rely on automated systems, leading to uncritical acceptance of false or biased algorithmic outputs. *Cognitive friction* — deliberate design elements that slow down user interaction to encourage careful evaluation and prevent thoughtless, automatic actions. *Passive scanning* — reading text superficially for general coherence rather than performing rigorous, detail-oriented verification.
 
-**The takeaway for this page:** Highly articulate AI outputs trigger automation bias, requiring editing workflows to introduce deliberate cognitive friction that forces rigorous human review.
+**Takeaway:** Highly articulate AI outputs trigger automation bias, requiring editing workflows to introduce deliberate cognitive friction that forces rigorous human review.
 
 ---
 
@@ -225,7 +225,7 @@ To mitigate the AI Ghostwriter Effect, scholarly editions must institute strict 
 
 **Vocabulary.** *AI Ghostwriter Effect* — the psychological condition where users utilize generative AI to write content without feeling true intellectual ownership, yet claim sole authorial credit. *Psychological ownership* — the internal sense that an intellectual work, argument, or text belongs to oneself through personal creative labor. *Provenance metadata* — structured machine-readable records documenting the origin, authorship, and transformation history of an object or data element.
 
-**The takeaway for this page:** The AI Ghostwriter Effect erodes intellectual ownership; preserving scholarly accountability requires deep hermeneutic engagement and transparent provenance metadata.
+**Takeaway:** The AI Ghostwriter Effect erodes intellectual ownership; preserving scholarly accountability requires deep hermeneutic engagement and transparent provenance metadata.
 
 ---
 
@@ -257,7 +257,7 @@ By binding AI generation directly to document anchors via W3C Web Annotation sta
 
 **Vocabulary.** *Inline anchored commentary* — an annotation interface where computational suggestions are visually and structurally bound directly to specific text spans in the primary document. *Referential ambiguity* — uncertainty regarding exactly which word, clause, or syntactic construction an interpretive note is addressing. *Micro-note* — a concise, atomic commentary note focused exclusively on a single philological, historical, or literary phenomenon.
 
-**The takeaway for this page:** Chat interfaces promote detached, uncritical copy-pasting; rigorous digital scholarship requires inline anchored commentary bound to discrete text spans.
+**Takeaway:** Chat interfaces promote detached, uncritical copy-pasting; rigorous digital scholarship requires inline anchored commentary bound to discrete text spans.
 
 ---
 
@@ -284,7 +284,7 @@ AnchoredAI enforces desirable difficulty by requiring the editor to manually int
 
 **Vocabulary.** *Anchoring Context Window (ACW)* — a calibrated text buffer surrounding a targeted selection that provides essential contextual data to an LLM and ensures resilient web anchoring. *Desirable difficulty* — a learning and interface design principle where introducing deliberate cognitive friction improves deep comprehension and critical evaluation. *Target span* — the exact sequence of characters or tokens in a primary text selected for annotation or analysis.
 
-**The takeaway for this page:** Anchoring Context Windows provide precise contextual data for AI generation, while desirable difficulty ensures active human evaluation and eliminates automation bias.
+**Takeaway:** Anchoring Context Windows provide precise contextual data for AI generation, while desirable difficulty ensures active human evaluation and eliminates automation bias.
 
 ---
 
@@ -318,7 +318,7 @@ By engineering prompts with these comprehensive scholarly constraints, digital e
 
 **Vocabulary.** *System prompt* — foundational instructions provided to an AI model that configure its behavioral persona, analytical rules, constraints, and output format across a session. *Few-shot exemplar* — sample input-output pairs provided within a prompt to teach the model desired styles, structures, and standards through concrete demonstration. *Negative constraint* — an explicit directive in a prompt prohibiting specific undesirable behaviors, such as fabricating citations or using modern jargon.
 
-**The takeaway for this page:** Effective scholarly prompt engineering requires establishing an expert philological persona, enforcing historical lexical constraints, and providing few-shot gold-standard exemplars.
+**Takeaway:** Effective scholarly prompt engineering requires establishing an expert philological persona, enforcing historical lexical constraints, and providing few-shot gold-standard exemplars.
 
 ---
 
@@ -389,7 +389,7 @@ By combining rigorous prompt constraints with strict JSON Schema enforcement, th
 
 **Vocabulary.** *Schema-constrained generation* — forcing an LLM to generate output that strictly adheres to a predefined structural specification, such as a JSON Schema. *JSON Schema* — a declarative standard for annotating and validating the structure, data types, and required fields of JSON documents. *Decoding constraint* — a mathematical mask applied during LLM token sampling that restricts valid next tokens to syntactically allowed characters.
 
-**The takeaway for this page:** Schema-constrained generation forces LLMs to produce strictly validated JSON structures that feed seamlessly into automated TEI and W3C Web Annotation pipelines.
+**Takeaway:** Schema-constrained generation forces LLMs to produce strictly validated JSON structures that feed seamlessly into automated TEI and W3C Web Annotation pipelines.
 
 ---
 
@@ -417,7 +417,7 @@ In our AI-assisted commentary workflow, we adopt the DCC philosophy: we utilize 
 
 **Vocabulary.** *Vocabulary scaffolding* — an educational and editorial framework that provides tiered linguistic assistance based on empirical word-frequency distributions. *Core vocabulary* — the set of high-frequency lemmas in a language that account for the vast majority of tokens in standard literary texts. *Running vocabulary* — a localized list of lower-frequency words appearing in a specific passage, provided alongside the text to aid reading.
 
-**The takeaway for this page:** The Dickinson College Commentaries model demonstrates how algorithmic tools can automate routine vocabulary scaffolding, freeing scholars to focus on deep interpretive commentary.
+**Takeaway:** The Dickinson College Commentaries model demonstrates how algorithmic tools can automate routine vocabulary scaffolding, freeing scholars to focus on deep interpretive commentary.
 
 ---
 
@@ -447,7 +447,7 @@ Thus, the optimal digital commentary pipeline uses **both tools in tandem**: Tes
 
 **Vocabulary.** *Synonymic substitution* — an intertextual technique where an author borrows an idea or phrase from a predecessor but replaces the original vocabulary with synonymous words. *Structural parody* — imitating the formal rhetorical or syntactic structure of an earlier text, often to subvert or recontextualize its original meaning. *Thematic motif resonance* — subtle literary resonance achieved through shared imagery, metaphors, or cultural concepts rather than direct verbal quotation.
 
-**The takeaway for this page:** Tesserae excels at verbatim and lemmatized word overlap, while LLMs excel at uncovering synonymic, structural, and thematic allusions lacking shared vocabulary.
+**Takeaway:** Tesserae excels at verbatim and lemmatized word overlap, while LLMs excel at uncovering synonymic, structural, and thematic allusions lacking shared vocabulary.
 
 ---
 
@@ -477,7 +477,7 @@ In modern AI-assisted editing, we use LLMs to automate the preliminary extractio
 
 **Vocabulary.** *RDF/OWL ontology* — a formal, machine-readable conceptual model that defines classes, properties, and relationships to represent knowledge within a domain on the Semantic Web. *Citation Typing Ontology (CiTO)* — a standardized semantic ontology for describing the factual and rhetorical nature of citations between texts. *SPARQL* — the standard query language for retrieving and manipulating data stored in Resource Description Framework (RDF) format.
 
-**The takeaway for this page:** The DanteSources project proves that formal ontologies (FRBRoo, DoCO, CiTO) transform narrative commentary into queryable, semantic knowledge graphs.
+**Takeaway:** The DanteSources project proves that formal ontologies (FRBRoo, DoCO, CiTO) transform narrative commentary into queryable, semantic knowledge graphs.
 
 ---
 
@@ -505,7 +505,7 @@ The lesson for Western classical and biblical commentary is direct: ancient Gree
 
 **Vocabulary.** *Polysemy* — the capacity for a single word, character, or symbol to have multiple distinct but related meanings. *Homography* — words that share the same written form but possess different meanings, origins, or grammatical functions. *Context-sensitive embedding* — a numerical representation of a word generated by a neural model that changes dynamically based on the surrounding sentence context.
 
-**The takeaway for this page:** The *Graphilosophy* project illustrates how contextual neural embeddings disambiguate dense polysemous vocabulary in ancient commentary traditions.
+**Takeaway:** The *Graphilosophy* project illustrates how contextual neural embeddings disambiguate dense polysemous vocabulary in ancient commentary traditions.
 
 ---
 
@@ -536,7 +536,7 @@ The CARE architecture demonstrates that the future of digital scholarly editions
 
 **Vocabulary.** *Behavioral telemetry* — automated logging and tracking of user interactions, navigation paths, timing, and interface events to analyze cognitive workflows. *Cognitive offloading* — the use of physical actions or digital tools to reduce the mental effort required to complete a complex intellectual task. *AI broker* — a middleware software service that routes user interface events to appropriate machine learning models and formats the results for presentation.
 
-**The takeaway for this page:** The CARE reading environment demonstrates through behavioral telemetry that on-demand, inline AI micro-notes encourage critical engagement, whereas unsolicited text prompts cognitive passivity.
+**Takeaway:** The CARE reading environment demonstrates through behavioral telemetry that on-demand, inline AI micro-notes encourage critical engagement, whereas unsolicited text prompts cognitive passivity.
 
 ---
 
@@ -566,7 +566,7 @@ Multi-model cross-verification effectively transforms AI from an individual hall
 
 **Vocabulary.** *Multi-model cross-verification* — an automated pipeline where multiple distinct AI models independently review, audit, and critique generated outputs to detect errors and establish consensus. *Adversarial auditing* — an evaluation workflow where an AI model is explicitly instructed to find flaws, errors, and hallucinations in another model's output. *Consensus engine* — an algorithmic component that aggregates outputs from multiple models to calculate agreement metrics and flag discrepancies.
 
-**The takeaway for this page:** Multi-model cross-verification pipelines employ diverse AI architectures to adversarially audit commentary drafts, filtering out hallucinations before human review.
+**Takeaway:** Multi-model cross-verification pipelines employ diverse AI architectures to adversarially audit commentary drafts, filtering out hallucinations before human review.
 
 ---
 
@@ -612,7 +612,7 @@ By combining generative AI drafting with automated API validation, the digital e
 
 **Vocabulary.** *Authority validation* — programmatically verifying that a named entity, geographic location, or bibliographic citation corresponds to an authentic record in an established authority file. *Pleiades* — a collaborative Linked Open Data gazetteer of ancient places maintained by the Institute for the Study of the Ancient World (ISAW). *CTS URN Resolver* — a network service that accepts a Canonical Text Services URN and returns the exact canonical text passage or XML node.
 
-**The takeaway for this page:** Deterministic validation scripts query Pleiades, VIAF, and CTS URN APIs to mechanically verify AI claims before they reach the human editor.
+**Takeaway:** Deterministic validation scripts query Pleiades, VIAF, and CTS URN APIs to mechanically verify AI claims before they reach the human editor.
 
 ---
 
@@ -637,7 +637,7 @@ Furthermore, Stage 4 enforces rigorous provenance tracking. When an approved not
 
 **Vocabulary.** *Proposing power* — the capacity of an automated computational tool to suggest candidate annotations, parses, or links for human review. *Authorizing power* — the exclusive right and responsibility of the human scholar to validate, edit, or reject computational proposals for inclusion in an edition. *Provenance tracking* — maintaining an unbroken, machine-readable audit trail documenting how every piece of data was created, modified, and verified.
 
-**The takeaway for this page:** The HITL editorial architecture restricts computational tools to proposing candidate notes, reserving exclusive authorizing power for the human scholar.
+**Takeaway:** The HITL editorial architecture restricts computational tools to proposing candidate notes, reserving exclusive authorizing power for the human scholar.
 
 ---
 
@@ -686,7 +686,7 @@ Save this script. In the next section, we execute the generation run and capture
 
 **Vocabulary.** *System prompt crafting* — designing prompt instructions that enforce technical, scholarly, and formatting constraints on AI generation. *Word-level tokenization* — segmenting text into discrete, uniquely identified word units (`[w1]`, `[w2]`) to facilitate precise stand-off anchoring.
 
-**The takeaway for this page:** Crafting scholarly prompts requires embedding word-level token anchors, specifying authoritative reference works, and mandating anti-hallucination rules.
+**Takeaway:** Crafting scholarly prompts requires embedding word-level token anchors, specifying authoritative reference works, and mandating anti-hallucination rules.
 
 ---
 
@@ -759,7 +759,7 @@ Notice how the structured output isolates the exact text, anchoring prefix/suffi
 
 **Vocabulary.** *Candidate extraction* — the process of generating potential annotations from primary text using automated models prior to verification. *Raw output capture* — saving unedited computational results to an immutable JSON log to preserve full experimental provenance.
 
-**The takeaway for this page:** Executing schema-constrained generation captures structured candidate commentary notes with explicit word anchors and preliminary authority URIs.
+**Takeaway:** Executing schema-constrained generation captures structured candidate commentary notes with explicit word anchors and preliminary authority URIs.
 
 ---
 
@@ -796,7 +796,7 @@ This forensic exercise demonstrates why unvetted AI text can never be admitted d
 
 **Vocabulary.** *Forensic philological audit* — a systematic, line-by-line verification of computational claims against primary manuscript witnesses, epigraphic evidence, and standard reference works. *Phantom reference* — a completely fabricated citation generated by an AI model that does not correspond to any historical text. *Predicate adjective* — an adjective that completes the meaning of a linking verb (copula) and agrees with the subject in gender, number, and case.
 
-**The takeaway for this page:** Forensic hallucination audits expose phantom citations, anachronisms, and grammatical errors, proving that human philological vetting is indispensable.
+**Takeaway:** Forensic hallucination audits expose phantom citations, anachronisms, and grammatical errors, proving that human philological vetting is indispensable.
 
 ---
 
@@ -874,7 +874,7 @@ By running this deterministic script, you automate the mechanical task of syntax
 
 **Vocabulary.** *CTS URN validation* — verifying that a canonical text identifier conforms to standard syntactic and hierarchical rules (`urn:cts:namespace:textgroup:work:passage`). *Automated gatekeeping* — using programmatic scripts to filter out malformed or broken data before human editorial review.
 
-**The takeaway for this page:** Python verification scripts mechanically validate CTS URNs and Pleiades URIs, establishing an automated quality gate for candidate notes.
+**Takeaway:** Python verification scripts mechanically validate CTS URNs and Pleiades URIs, establishing an automated quality gate for candidate notes.
 
 ---
 
@@ -908,7 +908,7 @@ This hands-on vetting demonstrates the true essence of the Human-in-the-Loop par
 
 **Vocabulary.** *Philological adjudication* — the scholarly process of evaluating, correcting, and authorizing linguistic, grammatical, and text-critical claims. *Lectio difficilior* — the principle that the more difficult reading is more likely to be authentic because scribes tend to smooth difficult text. *Phonetic assimilation* — a linguistic process where adjacent sounds become identical or similar, often leading to scribal transcription errors.
 
-**The takeaway for this page:** Human philological vetting transforms superficial AI drafts into authoritative scholarly commentary by supplying text-critical depth and rhetorical nuance.
+**Takeaway:** Human philological vetting transforms superficial AI drafts into authoritative scholarly commentary by supplying text-critical depth and rhetorical nuance.
 
 ---
 
@@ -986,7 +986,7 @@ This clean stand-off structure ensures that your digital edition complies 100% w
 
 **Vocabulary.** *TEI stand-off serialization* — converting structured commentary data into TEI P5 `<standOff>` and `<interp>` elements linked to base text tokens via `xml:id` pointers. *Responsibility statement (`resp`)* — a TEI XML attribute identifying the agent (scholar or editor) intellectually responsible for a specific markup element.
 
-**The takeaway for this page:** Serializing vetted notes into TEI P5 `<standOff>` containers anchors commentary to word tokens while recording explicit provenance and human responsibility.
+**Takeaway:** Serializing vetted notes into TEI P5 `<standOff>` containers anchors commentary to word tokens while recording explicit provenance and human responsibility.
 
 ---
 
@@ -1069,7 +1069,7 @@ This dual serialization (TEI XML for long-term archiving and W3C JSON-LD for liv
 
 **Vocabulary.** *AnnotationCollection* — a W3C Web Annotation resource that groups individual annotations together with shared collection-level metadata. *WADM JSON-LD publication* — serializing scholarly commentary as linked open data to enable distributed consumption by web clients and RDF triplestores.
 
-**The takeaway for this page:** Serializing vetted commentary into W3C JSON-LD creates distributed Linked Open Data annotations equipped with resilient text-quote selectors.
+**Takeaway:** Serializing vetted commentary into W3C JSON-LD creates distributed Linked Open Data annotations equipped with resilient text-quote selectors.
 
 ---
 
@@ -1101,7 +1101,7 @@ The modern digital editor achieves optimal results by synthesizing all three: us
 
 **Vocabulary.** *Comparative audit matrix* — an analytical evaluation grid that systematically compares the performance, precision, recall, and limitations of diverse research methodologies on an identical dataset. *Methodological synthesis* — combining the distinct strengths of multiple analytical approaches into a unified, synergistic research workflow.
 
-**The takeaway for this page:** Synthesizing manual philology, deterministic discovery, and AI assistance creates an optimal workflow combining computational scale with scholarly precision.
+**Takeaway:** Synthesizing manual philology, deterministic discovery, and AI assistance creates an optimal workflow combining computational scale with scholarly precision.
 
 ---
 
@@ -1152,7 +1152,7 @@ By contrast, storing commentary in plain-text, human-readable **TEI P5 XML** and
 
 **Vocabulary.** *Minimal computing* — a digital humanities design philosophy emphasizing simple, durable, low-resource technologies (plain text, static files, open standards) to ensure long-term preservation and open access. *Archival durability* — the capacity of digital data to remain accessible, readable, and verifiable across decades without requiring proprietary software.
 
-**The takeaway for this page:** Ethical textual scholarship demands transparent AI provenance metadata in TEI headers and adherence to minimal computing for long-term preservation.
+**Takeaway:** Ethical textual scholarship demands transparent AI provenance metadata in TEI headers and adherence to minimal computing for long-term preservation.
 
 ---
 
@@ -1174,7 +1174,7 @@ As you finalize your **Scholarly Commentary Assignment (due Friday, Dec 4)**, re
 
 **Next Week (Topic 13: Publication):** We enter our final studio phase, compiling our collations, critical apparatuses, translations, and commentary notes into a complete, print-ready, and web-published digital scholarly edition portfolio.
 
-**The takeaway for this page:** The Augmented Philologist synthesizes computational scale, generative AI drafting, and disciplined human vetting to build robust, enduring digital scholarly editions.
+**Takeaway:** The Augmented Philologist synthesizes computational scale, generative AI drafting, and disciplined human vetting to build robust, enduring digital scholarly editions.
 
 ---
 

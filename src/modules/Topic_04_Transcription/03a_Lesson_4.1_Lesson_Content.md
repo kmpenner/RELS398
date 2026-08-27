@@ -41,7 +41,7 @@ reference for measuring automated output. *Character error rate (CER)* — the
 proportion of character-level edits needed to transform machine output into the
 ground truth.
 
-**The takeaway for this page:** Today's transcription is the measuring instrument
+**Takeaway:** Today's transcription is the measuring instrument
 for the rest of the term — every error rate you compute is a distance from it.
 
 ---
@@ -84,7 +84,7 @@ because the output looks like clean text (AlKendi et al., 2024).
 Normalization is Week 6's subject, and it is done *from* a diplomatic base, with
 each decision recorded. Doing it now, silently, destroys the evidence Week 6 needs.
 
-**The takeaway for this page:** Transcribe diplomatically, because a model trained
+**Takeaway:** Transcribe diplomatically, because a model trained
 on normalized text learns to silently modernize — and Week 6 needs the
 unnormalized base.
 
@@ -128,7 +128,7 @@ being treated as typographic accident. The line is a real feature of the artefac
 it is where HTR operates, and it is where your zone bindings from Lesson 3.3
 attach.
 
-**The takeaway for this page:** Physical and logical structure both exist and do
+**Takeaway:** Physical and logical structure both exist and do
 not nest, so TEI records line and page boundaries as empty milestones within the
 logical hierarchy.
 
@@ -170,7 +170,7 @@ Today you will use `<pb/>`, `<lb/>`, `<unclear>`, `<gap/>`, and `<choice>` with
 `<abbr>`/`<expan>` most heavily. Reserve `<orig>`/`<reg>` for Week 6 — recording
 regularizations now would pre-empt decisions that week exists to make deliberately.
 
-**The takeaway for this page:** `<choice>` holds alternatives rather than deciding
+**Takeaway:** `<choice>` holds alternatives rather than deciding
 between them, so one encoding can serve palaeographic, reading, and search views.
 
 ---
@@ -218,7 +218,7 @@ the model learns to hallucinate letters that are not on the page — which is
 precisely the over-normalization failure described in section 02 (AlKendi et al.,
 2024).
 
-**The takeaway for this page:** Encode the abbreviation and its expansion
+**Takeaway:** Encode the abbreviation and its expansion
 separately with `<ex>` marking supplied letters, so the model learns what is
 actually on the page.
 
@@ -266,7 +266,7 @@ Be honest and be specific. In Week 5 these encodings become the record of which
 readings were genuinely uncertain, and a transcription that marks nothing as
 unclear will produce error rates that are wrong in an uninterpretable direction.
 
-**The takeaway for this page:** `<unclear>` proposes a reading with reduced
+**Takeaway:** `<unclear>` proposes a reading with reduced
 confidence and `<gap/>` proposes nothing — conflating them misrepresents inference
 as absence or difficulty as loss.
 
@@ -311,7 +311,7 @@ Record corrections carefully today. In Week 7, when you collate witnesses, a
 correction in one witness that agrees with another witness's uncorrected reading
 is exactly the kind of evidence that establishes a relationship between them.
 
-**The takeaway for this page:** Scribal corrections are transmission evidence, and
+**Takeaway:** Scribal corrections are transmission evidence, and
 recording only the corrected text destroys it while leaving the reading unchanged.
 
 ---
@@ -351,7 +351,7 @@ inconsistency here confuses both HTR training and any later tokenization.
 Number your lines from 1 on each folio, matching the numbering in your zones.
 Consistency between the two is what makes the bindings checkable.
 
-**The takeaway for this page:** Line divisions are structural here — HTR trains on
+**Takeaway:** Line divisions are structural here — HTR trains on
 lines, your zones bind per line, and line breaks are codicological evidence.
 
 ---
@@ -398,7 +398,7 @@ multi-diacritic character, commit, and confirm the committed bytes are NFC.
 Commit the skeleton before transcribing, so that the transcription itself appears
 as a clean diff.
 
-**The takeaway for this page:** Verify UTF-8, live schema validation, and the NFC
+**Takeaway:** Verify UTF-8, live schema validation, and the NFC
 hook before typing — a mixed-normalization ground truth invalidates Week 5.
 
 ---
@@ -435,7 +435,7 @@ worst downstream consequences. A skipped line puts every subsequent line out of
 alignment with its zone, so all your bindings become wrong from that point.
 Because the transcription still reads correctly, nothing looks broken.
 
-**The takeaway for this page:** Type what you see rather than what you expect, and
+**Takeaway:** Type what you see rather than what you expect, and
 check your line position regularly — line skip silently invalidates every binding
 after it.
 
@@ -477,7 +477,7 @@ documents your palaeographic reasoning for your Week 12 commentary, and it is wh
 you will consult on Wednesday when judging whether an HTR error reflects the model
 or the hand.
 
-**The takeaway for this page:** Characterize the hand before transcribing at
+**Takeaway:** Characterize the hand before transcribing at
 volume, and record it — you will consult it on Wednesday to judge HTR errors.
 
 ---
@@ -515,7 +515,7 @@ above the line this scribe places accents — because tomorrow you will be adjus
 polygons, and knowing how much vertical margin the hand requires tells you what to
 adjust them to.
 
-**The takeaway for this page:** Layout polygons drawn too tightly cut off Greek
+**Takeaway:** Layout polygons drawn too tightly cut off Greek
 accents entirely, so note how high this hand places diacritics — you will adjust
 for it tomorrow.
 
@@ -560,7 +560,7 @@ word-boundary detection is required.
 If this applies to your manuscript, expect Week 5's WER to behave oddly and know
 why.
 
-**The takeaway for this page:** Supply word division and declare it in the header
+**Takeaway:** Supply word division and declare it in the header
 — and expect *scriptio continua* to make word error rate uninterpretable in Week 5.
 
 ---
@@ -599,7 +599,7 @@ manuscripts, balancing visual diversity by merging variant character
 representations while preserving crucial scribal abbreviations (Clérice et al.,
 2024). Uniformity of convention is what made a 160,000-line dataset trainable.
 
-**The takeaway for this page:** Write your conventions down and follow them —
+**Takeaway:** Write your conventions down and follow them —
 inconsistency is worse than any particular choice, for readers and for models
 alike.
 
@@ -641,7 +641,7 @@ scored against a ground truth containing errors is scored against a moving targe
 and some apparent machine errors will be your errors. Week 5's reconciliation
 exists partly to find those.
 
-**The takeaway for this page:** Your ground truth will contain errors, which is why
+**Takeaway:** Your ground truth will contain errors, which is why
 Week 5 double-keys it — transcribe now so that the second pass finds few
 differences.
 
@@ -680,7 +680,7 @@ conventions everything after it follows. Errors in convention made today
 propagate into every folio you transcribe subsequently, and correcting them later
 means revisiting all of it.
 
-**The takeaway for this page:** One accurate folio beats three careless ones —
+**Takeaway:** One accurate folio beats three careless ones —
 today's conventions propagate into everything transcribed afterwards.
 
 ---
@@ -723,7 +723,7 @@ Even a strong model remains brittle when the layout topography changes.
 Plan your sampling now, before transcribing more, so that the ground truth you
 build through the week is diverse by design rather than by accident.
 
-**The takeaway for this page:** Sample training pages across the corpus and
+**Takeaway:** Sample training pages across the corpus and
 deliberately include difficult ones, or the model will fail precisely where you
 need it.
 
@@ -762,7 +762,7 @@ errors are substantively wrong and structurally perfect.
 
 Commit only after all seven pass.
 
-**The takeaway for this page:** Count `<lb/>` against `<zone>` every session — a
+**Takeaway:** Count `<lb/>` against `<zone>` every session — a
 mismatch means line skip, and every binding after it is wrong.
 
 ---
@@ -807,7 +807,7 @@ If you later correct the ground truth — and Week 5 will — the tag preserves 
 was actually used for the original measurement, so the comparison remains valid
 and the correction is visible as a change.
 
-**The takeaway for this page:** Tag the ground truth state, because Week 5's
+**Takeaway:** Tag the ground truth state, because Week 5's
 measurements are only reproducible against the exact version that was measured.
 
 ---
@@ -848,7 +848,7 @@ That is why the diplomatic requirement is not pedantry. It is the difference
 between a ground truth that measures what you think it measures and one that
 does not.
 
-**The takeaway for this page:** A silently normalized ground truth produces a model
+**Takeaway:** A silently normalized ground truth produces a model
 that modernizes invisibly — and standard error metrics will not detect it.
 
 ---
@@ -882,7 +882,7 @@ independently, and has no basis for judging whether the machine's reading is rig
 — they can only judge whether it is plausible, which is a different and much
 weaker test.
 
-**The takeaway for this page:** Correcting a machine transcription tests
+**Takeaway:** Correcting a machine transcription tests
 plausibility; transcribing independently tests correctness, and only the second
 gives you grounds for judgement.
 
@@ -914,7 +914,7 @@ your machine — a local file will not import. And model training consumes credi
 the course has a shared allocation, so do not begin speculative training runs
 before Wednesday's session.
 
-**The takeaway for this page:** Bring a validated, tagged transcription and a note
+**Takeaway:** Bring a validated, tagged transcription and a note
 of this hand's diacritic height — polygon correction is Wednesday's first task.
 
 ---
@@ -949,7 +949,7 @@ is not published, publish it before Friday.
 Do this today rather than Thursday evening. Every item is quick when there is time
 and none of them is quick at nine on Friday morning.
 
-**The takeaway for this page:** Test your full toolchain on the machine you will
+**Takeaway:** Test your full toolchain on the machine you will
 use Friday — push your repository, publish your manifest, install your keyboard.
 
 ---
@@ -984,7 +984,7 @@ reference. Having an honest account of your own error patterns is what will let
 you notice the cases where the machine is right and you are not — and those cases
 exist.
 
-**The takeaway for this page:** Record the patterns in your own errors, because in
+**Takeaway:** Record the patterns in your own errors, because in
 Week 5 they tell you when to suspect yourself rather than the machine.
 
 ---
@@ -1023,7 +1023,7 @@ errors that are exceptionally difficult for a human editor to catch during
 post-correction, because the hallucinated word reads perfectly and does not match
 the ink (AlKendi et al., 2024). Only an independent reading catches those.
 
-**The takeaway for this page:** Correcting machine output tests plausibility and
+**Takeaway:** Correcting machine output tests plausibility and
 anchors your judgement, which is exactly the wrong test on the hard readings.
 
 ---
@@ -1066,7 +1066,7 @@ preserve none of it. Every element above is evidence that Weeks 6 through 12 wil
 draw on — the abbreviations for Week 6, the correction for Week 7's collation, the
 uncertain reading and the lacuna for Week 8's apparatus and Week 12's commentary.
 
-**The takeaway for this page:** The encoding records abbreviation, uncertainty,
+**Takeaway:** The encoding records abbreviation, uncertainty,
 correction, and loss — all evidence that later weeks need and that a clean
 transcription discards.
 
@@ -1097,7 +1097,7 @@ Anything unfinished should be finished before Wednesday rather than carried
 forward. Tomorrow's work builds on this file directly, and an incomplete or
 unvalidated transcription blocks the session.
 
-**The takeaway for this page:** Finish and validate before Wednesday — tomorrow's
+**Takeaway:** Finish and validate before Wednesday — tomorrow's
 work builds directly on this file.
 
 ---
@@ -1125,7 +1125,7 @@ The **Transcription Assignment is due Friday October 2**, at the end of Week 5, 
 includes the reconciliation report. The work of these two weeks is one continuous
 task: transcribe, automate, compare, reconcile, measure, report.
 
-**The takeaway for this page:** Today's file serves as training data, comparison
+**Takeaway:** Today's file serves as training data, comparison
 reference, verification object, and measurement reference — four roles, one
 artefact.
 
@@ -1159,7 +1159,7 @@ it. An honest `<unclear>` is more useful to every subsequent reader — includin
 you in Week 8, building the apparatus — than a confident guess, and it is the
 difference between recording evidence and asserting conclusions.
 
-**The takeaway for this page:** Marking uncertainty honestly is the hardest and
+**Takeaway:** Marking uncertainty honestly is the hardest and
 most diagnostic part of good transcription — a confident guess destroys the record
 of what was actually legible.
 
@@ -1195,7 +1195,7 @@ diacritic height. You will correct layout analysis before training anything.
 **For Friday.** Remote delivery — verify your full toolchain per section 23 before
 then.
 
-**The takeaway for this page:** Automation is always measured against a reference,
+**Takeaway:** Automation is always measured against a reference,
 and a reference cannot be produced by the thing it measures — which is why the
 manual step is irreducible rather than merely traditional.
 

@@ -44,7 +44,7 @@ purpose.
 *Regularization* — the same operation, the term TEI uses. *Lemma* — the dictionary
 headword under which a form is listed.
 
-**The takeaway for this page:** Standardizing spelling makes text searchable and
+**Takeaway:** Standardizing spelling makes text searchable and
 destroys linguistic evidence — TEI resolves this by keeping both layers in
 parallel.
 
@@ -85,7 +85,7 @@ These are not random errors. They are systematic, predictable from the phonology
 and therefore *evidence*: the specific substitutions attested in a manuscript
 constrain when and where it was written and how its scribe learned the language.
 
-**The takeaway for this page:** Iotacism merged several graphemes into homophones,
+**Takeaway:** Iotacism merged several graphemes into homophones,
 so the substitutions are systematic evidence about date and provenance rather than
 random error.
 
@@ -126,7 +126,7 @@ encounter a non-standard form, the first question is not "what should this be?" 
 "what kind of variation is this?" — because the answer determines which TEI
 encoding is correct, as the next several pages establish.
 
-**The takeaway for this page:** Ask what kind of variation a form represents before
+**Takeaway:** Ask what kind of variation a form represents before
 asking what it should be — the answer determines the encoding.
 
 ---
@@ -165,7 +165,7 @@ That architecture is what today's work builds. You are not deciding whether your
 edition is documentary or critical. You are recording both, and recording how they
 relate.
 
-**The takeaway for this page:** TEI's parallel layers refuse the choice between
+**Takeaway:** TEI's parallel layers refuse the choice between
 documentary and critical editing — both exist in the file with their relationship
 explicit.
 
@@ -209,7 +209,7 @@ This is the payoff for not normalizing during transcription, as Lesson 4.1 secti
 02 insisted. Had you silently regularized in Week 4, the `<orig>` layer would not
 exist and none of these options would be available.
 
-**The takeaway for this page:** `<choice>` holds alternatives rather than deciding
+**Takeaway:** `<choice>` holds alternatives rather than deciding
 between them, which is what lets Week 7 collate on either layer deliberately.
 
 ---
@@ -250,7 +250,7 @@ dozens of times, and the judgements must be consistent and defensible. Recording
 the reason at the time is what makes them so; deciding case by case without a
 principle produces an edition whose editorial policy cannot be stated.
 
-**The takeaway for this page:** `<orig>`/`<reg>` claims a spelling was acceptable
+**Takeaway:** `<orig>`/`<reg>` claims a spelling was acceptable
 then; `<sic>`/`<corr>` claims it was a mistake — and which applies is a genuine
 editorial judgement.
 
@@ -288,7 +288,7 @@ When you cannot decide, record the uncertainty rather than resolving it silently
 `<choice>` can carry `@cert`, and a documented uncertainty is more useful to a later
 editor than a confident misclassification.
 
-**The takeaway for this page:** A recurring, phonologically motivated form is a
+**Takeaway:** A recurring, phonologically motivated form is a
 variant; an isolated mechanical slip is an error — and grammatically wrong forms may
 belong in the apparatus instead.
 
@@ -332,7 +332,7 @@ where ει was substituted for ι before a given consonant class — transformin
 was once dismissed as scribal error into a corpus for sociolinguistic study
 (Gignac, 1976).
 
-**The takeaway for this page:** The DDbDP's inline markup turned what print editions
+**Takeaway:** The DDbDP's inline markup turned what print editions
 discarded as scribal error into a queryable corpus for studying language change.
 
 ---
@@ -377,7 +377,7 @@ idiosyncrasies, and the sequence of corrections recorded with `<del>`, `<add>`, 
 If your own manuscript shows systematic homophonic substitution, this is a question
 you can ask of it.
 
-**The takeaway for this page:** Whether Sinaiticus was copied by ear or by eye is
+**Takeaway:** Whether Sinaiticus was copied by ear or by eye is
 decided by orthographic evidence — which a regularized edition would have destroyed.
 
 ---
@@ -416,7 +416,7 @@ specification: the rules you write today are what the deterministic script
 implements, and a rule you cannot state in this document is one you cannot
 implement tomorrow.
 
-**The takeaway for this page:** Today's decision log is tomorrow's specification —
+**Takeaway:** Today's decision log is tomorrow's specification —
 a rule you cannot state here cannot be implemented as a script.
 
 ---
@@ -468,7 +468,7 @@ this scribe's practice and deserves a policy line; one occurring once may be a s
 That frequency distinction is often the best available evidence for the
 `<orig>`/`<sic>` judgement.
 
-**The takeaway for this page:** Count how often each substitution pattern occurs —
+**Takeaway:** Count how often each substitution pattern occurs —
 frequency is often the best evidence for whether it is practice or slip.
 
 ---
@@ -519,7 +519,7 @@ Work systematically through the text rather than opportunistically. Consistency 
 the property that matters most, and it is easiest to achieve by handling one
 phenomenon at a time across the whole text.
 
-**The takeaway for this page:** Encode at the word level with complete forms in both
+**Takeaway:** Encode at the word level with complete forms in both
 layers, and never regularize inside an `<unclear>` reading.
 
 ---
@@ -559,7 +559,7 @@ The first row is the one that most often goes wrong. If your manuscript reads
 about the transmission — and regularizing it here would silently resolve a question
 Week 7 exists to investigate.
 
-**The takeaway for this page:** Normalization is orthographic only — altering
+**Takeaway:** Normalization is orthographic only — altering
 morphology, resolving names, or fixing variant readings all destroy evidence other
 weeks need.
 
@@ -600,7 +600,7 @@ generation of scholarship does not use it forecloses questions that have not yet
 been formulated. Recording both layers costs storage and effort; discarding one
 costs information permanently.
 
-**The takeaway for this page:** Editions that discarded orthographic evidence
+**Takeaway:** Editions that discarded orthographic evidence
 foreclosed questions nobody had yet asked — which is the argument for recording both
 layers.
 
@@ -647,7 +647,7 @@ distinguishes them at the element level; the header states the policy; and your
 commit trailers record the provenance of each batch. All three layers of
 documentation are needed, and today is when the first two are established.
 
-**The takeaway for this page:** A future researcher must be able to tell whether a
+**Takeaway:** A future researcher must be able to tell whether a
 `<reg>` came from a human, a script, or a model — which needs `@resp`, the header,
 and commit trailers together.
 
@@ -684,7 +684,7 @@ tomorrow. A policy stated as "regularize iotacism where appropriate" cannot be
 implemented. A policy stated as an ordered list of context-conditioned substitutions
 can be.
 
-**The takeaway for this page:** Today produces the policy that Wednesday must state
+**Takeaway:** Today produces the policy that Wednesday must state
 formally enough for a script — "regularize where appropriate" cannot be implemented.
 
 ---
@@ -723,7 +723,7 @@ disambiguate — pure dictionary lookups and character regex fail because they p
 tokens in isolation (Bollmann, 2019). Mark those cases; they are exactly what
 Friday's contextual step exists for.
 
-**The takeaway for this page:** Formal rules need a context condition, and rule
+**Takeaway:** Formal rules need a context condition, and rule
 order changes the result — cases needing syntax are what Friday's step is for.
 
 ---
@@ -763,7 +763,7 @@ Count these cases. The proportion of your variants that require contextual
 resolution is a real property of your text, and it predicts how much value the
 Friday method can add.
 
-**The takeaway for this page:** Cases needing syntax to resolve are the boundary
+**Takeaway:** Cases needing syntax to resolve are the boundary
 between Wednesday's method and Friday's — resolve them by hand today as the
 reference.
 
@@ -803,7 +803,7 @@ and a noisy channel model combining edit distance with a trigram language model 
 rank candidates, with output encoded in TEI separating graphemic, phonological, and
 morphological layers (Bollmann, 2019).
 
-**The takeaway for this page:** A failed morphological normalization shifted a
+**Takeaway:** A failed morphological normalization shifted a
 poem's theological emphasis — normalization errors propagate into meaning, not just
 searchability.
 
@@ -849,7 +849,7 @@ Human-Verified: true
 AI-Generated: false
 ```
 
-**The takeaway for this page:** Work one phenomenon at a time across the whole
+**Takeaway:** Work one phenomenon at a time across the whole
 folio — consistency follows almost automatically, and line-by-line work does not
 produce it.
 
@@ -888,7 +888,7 @@ operation.
 
 Record both sets of counts today so tomorrow's measurement is straightforward.
 
-**The takeaway for this page:** Record what you deliberately left alone — a script
+**Takeaway:** Record what you deliberately left alone — a script
 is evaluated on precision as well as recall, and over-application is the worse
 failure.
 
@@ -924,7 +924,7 @@ Tag today's state, because Wednesday's script will be measured against it:
 git tag -a norm-manual-f42r -m "Manual normalization reference, f. 42r"
 ```
 
-**The takeaway for this page:** Tag today's state — Wednesday's script is measured
+**Takeaway:** Tag today's state — Wednesday's script is measured
 against it, and it must remain retrievable after the script modifies the text.
 
 ---
@@ -955,7 +955,7 @@ If you find you have done either, revert rather than patching. Both are cases wh
 the correct state is the unmodified original with a note, and reconstructing that
 from a partial correction is harder than starting again from the tagged consensus.
 
-**The takeaway for this page:** Changing morphology or resolving variant readings
+**Takeaway:** Changing morphology or resolving variant readings
 both exceed what normalization licenses — revert rather than patch.
 
 ---
@@ -987,7 +987,7 @@ Come prepared to revise today's decisions. If implementing a rule reveals that y
 applied it inconsistently, the remedy is to fix the inconsistency in the text and
 amend the policy, not to weaken the rule until it matches what you happened to do.
 
-**The takeaway for this page:** Formalizing your rules will expose imprecision in
+**Takeaway:** Formalizing your rules will expose imprecision in
 them — that discovery is the point, and the remedy is fixing the text rather than
 weakening the rule.
 
@@ -1021,7 +1021,7 @@ boundaries is one whose editorial policy a reader can evaluate. An edition that
 regularizes freely produces a cleaner text and a weaker claim, because a reader
 cannot tell what was changed or on what principle.
 
-**The takeaway for this page:** Conservative regularization with documented
+**Takeaway:** Conservative regularization with documented
 boundaries produces a weaker-looking text and a stronger claim.
 
 ---
@@ -1054,7 +1054,7 @@ That is the deeper argument for today. It is not only that a reference is needed
 measurement. It is that the editorial policy of your edition should be authored
 rather than emergent.
 
-**The takeaway for this page:** Normalization policy has corpus-wide consequences,
+**Takeaway:** Normalization policy has corpus-wide consequences,
 so it should be authored deliberately rather than emerging from whatever a script or
 model happens to do.
 
@@ -1092,7 +1092,7 @@ Row 9 explains why the `<reg>` layer earns its cost. Morphological parsers requi
 standard forms, and lemmatization on unnormalized text fails on exactly the forms
 that iotacism produced.
 
-**The takeaway for this page:** Next week's collation must choose a layer — `<reg>`
+**Takeaway:** Next week's collation must choose a layer — `<reg>`
 for substantive variants, `<orig>` for evidence of shared descent — and the choice
 exists only because both layers do.
 
@@ -1131,7 +1131,7 @@ a weaker alternative to the neural method. It is the *verifiable* method, and it
 role on Friday is to serve as the transparent standard against which the opaque one
 is checked.
 
-**The takeaway for this page:** Rule-based normalization is transparent and neural
+**Takeaway:** Rule-based normalization is transparent and neural
 normalization is not — which makes the rule baseline the check on the model, not
 merely a weaker alternative.
 
@@ -1163,7 +1163,7 @@ Write it accordingly. Not "regularized iotacism where needed," but a policy with
 stated criteria, a case register with individual reasoning, and an explicit list of
 what was deliberately left alone.
 
-**The takeaway for this page:** The decision log is your edition's editorial
+**Takeaway:** The decision log is your edition's editorial
 introduction, written as you work rather than reconstructed afterwards — and
 queryable in a way a printed one is not.
 
@@ -1200,7 +1200,7 @@ measured against it, and only a human editor could have produced it.
 as a deterministic script and measure it against today's work — recall and
 precision both.
 
-**The takeaway for this page:** TEI keeps both layers, but deciding which variation
+**Takeaway:** TEI keeps both layers, but deciding which variation
 is usage and which is error is editorial judgement no standard supplies — that
 judgement is today's product.
 

@@ -41,7 +41,7 @@ it earns its cost.
 morphology, lexis, or syntax. *Contextual disambiguation* — resolving an ambiguous
 form using surrounding text.
 
-**The takeaway for this page:** The question is whether contextual capability is
+**Takeaway:** The question is whether contextual capability is
 worth the fidelity and accountability it costs — not simply which method is more
 accurate.
 
@@ -84,7 +84,7 @@ aligned training pairs, and you have a few hundred from one folio. That is not
 enough to train a sequence model from scratch, which is why today's practical work
 uses a language model rather than a trained normalizer.
 
-**The takeaway for this page:** Neural normalization is framed as character-level
+**Takeaway:** Neural normalization is framed as character-level
 translation and works well with data — which you do not have at the scale it needs.
 
 ---
@@ -126,7 +126,7 @@ from 100 tokens are operating in the regime you actually inhabit (Bollmann, 2019
 Note this in your report. "Neural methods outperform rules given sufficient data,
 and I do not have sufficient data" is a correct and useful conclusion.
 
-**The takeaway for this page:** Multi-task learning helps only around 5,000 tokens
+**Takeaway:** Multi-task learning helps only around 5,000 tokens
 and degrades with abundant data — manuscript work is always the sparse regime.
 
 ---
@@ -171,7 +171,7 @@ today: models struggle with the deterministic projection of character-level
 alignments that strict TEI markup requires (Bollmann, 2019). A model may normalize
 correctly and mis-align which original corresponds to which regularization.
 
-**The takeaway for this page:** Models bring exactly the contextual capability your
+**Takeaway:** Models bring exactly the contextual capability your
 rules structurally lack — and lose exact character alignment and verifiability doing
 it.
 
@@ -213,7 +213,7 @@ diplomatic and nothing records the original form.
 
 This is the specific thing to test for today, and section 12 gives the method.
 
-**The takeaway for this page:** Over-normalization produces better text than the
+**Takeaway:** Over-normalization produces better text than the
 manuscript contains — fluent, standard, and no longer a record of what was written.
 
 ---
@@ -251,7 +251,7 @@ literature predicts.
 
 Record the design in `logs/vlm-normalization-w6.md` before beginning.
 
-**The takeaway for this page:** Supply the whole text, not just flagged tokens — a
+**Takeaway:** Supply the whole text, not just flagged tokens — a
 model that never sees a token cannot demonstrate over-application.
 
 ---
@@ -304,7 +304,7 @@ model's classification matches yours.
 Record the prompt verbatim. It is a required component of the audit under the
 framework in Lesson 5.2 section 16.
 
-**The takeaway for this page:** Requiring the model to state the *type* of variation
+**Takeaway:** Requiring the model to state the *type* of variation
 forces the editorial judgement into the open where it can be checked.
 
 ---
@@ -347,7 +347,7 @@ instruction, record that. It is a structural compliance failure of exactly the k
 Lesson 4.3 section 06 catalogued, and it belongs in the report rather than being
 quietly cleaned up.
 
-**The takeaway for this page:** Commit the raw proposals before reviewing, and do
+**Takeaway:** Commit the raw proposals before reviewing, and do
 not inject them into the TEI — the model proposes, you dispose.
 
 ---
@@ -389,7 +389,7 @@ aggregate error rates cannot capture. A model with excellent precision and a 12%
 over-normalization rate is not a good normalizer for a diplomatic edition; it is a
 good modernizer.
 
-**The takeaway for this page:** Compute over-normalization, name violation, and
+**Takeaway:** Compute over-normalization, name violation, and
 dialectal collapse rates — precision and recall alone cannot show a model is
 modernizing rather than regularizing.
 
@@ -442,7 +442,7 @@ Calibrate the threshold on your own manual regularizations: none of them should
 exceed it, since all were orthographic by policy. A threshold that flags your own
 work is set too low.
 
-**The takeaway for this page:** Proposals unreachable by any character-level rule
+**Takeaway:** Proposals unreachable by any character-level rule
 are where the model stopped regularizing orthography — that is the detector.
 
 ---
@@ -484,7 +484,7 @@ Week 7's collation exists to find, and has done so invisibly.
 Record every flagged case with your determination. These are the substance of
 today's findings.
 
-**The takeaway for this page:** Inspect flagged cases individually — some are gaps
+**Takeaway:** Inspect flagged cases individually — some are gaps
 in your rules, and some are the model quietly removing evidence Week 7 needs.
 
 ---
@@ -525,7 +525,7 @@ for four" is the honest statement — and a set of six does not support a percen
 This is the model's strongest case, and it should be reported as fairly as the
 failures.
 
-**The takeaway for this page:** Check whether correct resolutions come with genuine
+**Takeaway:** Check whether correct resolutions come with genuine
 contextual reasons — a right answer without the reasoning has not demonstrated the
 capability.
 
@@ -569,7 +569,7 @@ rather than collapsed by generative fluency (Bollmann, 2019).
 That is exactly what section 10's detector does, and it is why Wednesday preceded
 today.
 
-**The takeaway for this page:** Neural normalization generalizes well and may
+**Takeaway:** Neural normalization generalizes well and may
 deliver no downstream benefit over memorization — which is why auditing against a
 rule baseline is the recommended practice.
 
@@ -614,7 +614,7 @@ If you have time, run both the unconstrained and the grounded prompt and compare
 The difference in over-normalization rate between them is a genuinely interesting
 result and directly tests the literature's claim.
 
-**The takeaway for this page:** Supplying candidates from your own lexicon
+**Takeaway:** Supplying candidates from your own lexicon
 constrains the model to attested forms — a lightweight grounding that removes much
 of the over-normalization risk.
 
@@ -665,7 +665,7 @@ Test it, record what happens, and do not use the output directly if it fails the
 checks. Extracting the model's *decisions* and projecting them into TEI yourself is
 safer and is what section 16 recommends.
 
-**The takeaway for this page:** A model-generated `<orig>` that has been partly
+**Takeaway:** A model-generated `<orig>` that has been partly
 normalized destroys the diplomatic layer silently — check it character by character.
 
 ---
@@ -715,7 +715,7 @@ Where you accept a model proposal that your script did not reach, note it — th
 are the cases where the AI step contributed something, and counting them is how you
 state its value.
 
-**The takeaway for this page:** `@resp` records what proposed a regularization, not
+**Takeaway:** `@resp` records what proposed a regularization, not
 what decided it — you decided all three classes, and nothing enters unreviewed.
 
 ---
@@ -754,7 +754,7 @@ and its capability is broader, and those are real advantages. Whether they outwe
 the loss of verifiability depends on what the edition needs, and that is the
 judgement your conclusion should make explicitly.
 
-**The takeaway for this page:** The rule script *cannot* over-normalize, which is a
+**Takeaway:** The rule script *cannot* over-normalize, which is a
 guarantee rather than an observation — the model's equivalent cells must be measured.
 
 ---
@@ -790,7 +790,7 @@ improves downstream processing should note that the improvement over a naive
 memorization baseline is not consistently demonstrated (Robertson & Goldwater,
 2018).
 
-**The takeaway for this page:** A hybrid conclusion derived from your own
+**Takeaway:** A hybrid conclusion derived from your own
 measurements is worth more than the same conclusion adopted from the literature.
 
 ---
@@ -828,7 +828,7 @@ scholarly claim regardless of its accuracy.
 This is the same argument as Lesson 6.2 section 23, and it is the disposition to
 carry into the remaining weeks.
 
-**The takeaway for this page:** Scepticism is a working practice — establish the
+**Takeaway:** Scepticism is a working practice — establish the
 standard, build a detector, constrain explicitly, measure fidelity, review
 everything, record provenance.
 
@@ -875,7 +875,7 @@ Note also what the second paragraph does: it states the *review practice*, not j
 the methods. A reader learns that nothing entered unreviewed and how the review was
 targeted.
 
-**The takeaway for this page:** Record the review practice, not only the methods —
+**Takeaway:** Record the review practice, not only the methods —
 a reader needs to know that nothing entered unreviewed and how review was targeted.
 
 ---
@@ -904,7 +904,7 @@ Verify each.
 - Everything committed, tagged, and pushed.
 - Costs recorded for all three methods.
 
-**The takeaway for this page:** Check model-generated `<orig>` character by
+**Takeaway:** Check model-generated `<orig>` character by
 character — a silently normalized diplomatic layer is the failure that cannot be
 recovered from.
 
@@ -936,7 +936,7 @@ The last row is the trap. A model that proposes almost nothing has an excellent
 over-normalization rate and is useless. Always read the fidelity measures alongside
 recall; either alone is misleading.
 
-**The takeaway for this page:** An excellent over-normalization rate on a model that
+**Takeaway:** An excellent over-normalization rate on a model that
 proposed almost nothing is meaningless — read fidelity measures alongside recall.
 
 ---
@@ -970,7 +970,7 @@ their rule baseline to detect where the model exceeded orthographic regularizati
 has built an instrument and used it — and that instrument is the literature's own
 recommended safeguard (Bollmann, 2019).
 
-**The takeaway for this page:** Using the rule baseline as a detector — rather than
+**Takeaway:** Using the rule baseline as a detector — rather than
 merely as a competitor — is what makes today an audit rather than a comparison.
 
 ---
@@ -1006,7 +1006,7 @@ forms iotacism produced. The `<reg>` layer is what makes that week's work possib
 subject to the caveat from section 13 that the downstream benefit over naive
 memorization is not consistently demonstrated.
 
-**The takeaway for this page:** Week 7 must choose a layer to collate on — `<reg>`
+**Takeaway:** Week 7 must choose a layer to collate on — `<reg>`
 for substantive variants, `<orig>` for evidence of shared descent.
 
 ---
@@ -1040,7 +1040,7 @@ judgement for the variant-versus-error decision.
 The through-line: **each method's limits define the next method's job.** That is why
 the cycle is ordered as it is, and why none of the three steps is redundant.
 
-**The takeaway for this page:** Each method's limits define the next one's job —
+**Takeaway:** Each method's limits define the next one's job —
 which is why none of the three steps is redundant.
 
 ---
@@ -1077,7 +1077,7 @@ across six weeks — not normalizing during transcription, keeping both layers,
 attributing provenance, documenting policy — and none of those decisions was
 individually difficult. They were simply made deliberately rather than by default.
 
-**The takeaway for this page:** Not one original form was overwritten — that is the
+**Takeaway:** Not one original form was overwritten — that is the
 week's actual achievement, and it came from ordinary decisions made deliberately.
 
 ---
@@ -1112,7 +1112,7 @@ adequately on that hand, though a different scribe may need its own model.
 
 **The **Normalization Assignment is due Friday October 23**, at the end of Week 7.**
 
-**The takeaway for this page:** Use the study break to transcribe your second
+**Takeaway:** Use the study break to transcribe your second
 witness — Week 7's collation needs two witnesses and cannot proceed with one.
 
 ---
@@ -1147,7 +1147,7 @@ Write what you can of the report today, while the analysis is fresh. The break
 intervenes, and reconstructing today's reasoning in three weeks is substantially
 harder than recording it now.
 
-**The takeaway for this page:** Write the over-normalization analysis today — the
+**Takeaway:** Write the over-normalization analysis today — the
 study break intervenes and reconstructing today's reasoning later is much harder.
 
 ---
@@ -1185,7 +1185,7 @@ The bottom row is the point. Making the policy explicit does not make it right. 
 makes it *arguable*, which is the condition under which it can be improved — by you
 in Week 12, or by a reader in ten years.
 
-**The takeaway for this page:** Stating the policy does not make it right; it makes
+**Takeaway:** Stating the policy does not make it right; it makes
 it arguable, which is the condition under which it can be improved.
 
 ---
@@ -1225,7 +1225,7 @@ variation is usage or error.
 **For Week 7, resuming Tuesday October 20 after the study break.** Collation. Bring
 both witnesses transcribed, and your decision about which layer to align on.
 
-**The takeaway for this page:** The model's failure mode is improvement rather than
+**Takeaway:** The model's failure mode is improvement rather than
 error, and improvement has no image to check against — which is why the verifiable
 baseline is the detector.
 

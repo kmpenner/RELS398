@@ -18,7 +18,7 @@ When an edition aligns its translation to its source, every rendering becomes an
 
 Alignment also unlocks computational interoperability across digital corpora. When sentences and words are formally linked, digital reading environments can provide dynamic bilingual reading interfaces, cross-lingual dictionary lookups, automated syntactic treebank synchronization, and bilingual search capabilities. Today you begin the three-step comparative cycle by establishing the foundational ground truth for this entire framework: authoring parallel alignments and interlinear glosses entirely by hand.
 
-**The takeaway for this page:** Digital translation alignment transforms a translation from a passive facing-page paraphrase into an explicit, verifiable computational claim about textual meaning.
+**Takeaway:** Digital translation alignment transforms a translation from a passive facing-page paraphrase into an explicit, verifiable computational claim about textual meaning.
 
 ---
 
@@ -40,7 +40,7 @@ The creation of a bitext requires making structural choices at multiple granular
 
 Working with bitexts forces editors to abandon the illusion that translation is a simple substitution cipher. Languages differ profoundly in syntax, morphology, lexical semantics, and pragmatic framing. As you construct manual alignments today, you will encounter non-isomorphic structures where one word in Greek corresponds to three words in English, or where a particle has no direct lexical equivalent. Capturing these asymmetries rigorously is the primary challenge of digital alignment.
 
-**The takeaway for this page:** A bitext is a compound data structure linking two languages as an explicit bipartite graph, exposing cross-lingual divergence that facing-page layouts conceal.
+**Takeaway:** A bitext is a compound data structure linking two languages as an explicit bipartite graph, exposing cross-lingual divergence that facing-page layouts conceal.
 
 ---
 
@@ -70,7 +70,7 @@ Notice how the vertical alignment between Line 2 and Line 3 operates with absolu
 
 Authoring four-line IGT by hand requires rigorous morphological parsing and consistent notation. If an editor misaligns a single morpheme delimiter, the entire computational parser downstream will fail to map the grammatical category to its phonetic token. To ensure total interoperability across languages and research teams, digital philologists adhere strictly to the Leipzig Glossing Rules.
 
-**The takeaway for this page:** Four-line IGT separates surface orthography, morphemic segmentation, grammatical glossing, and idiomatic translation into four synchronized, machine-readable tiers.
+**Takeaway:** Four-line IGT separates surface orthography, morphemic segmentation, grammatical glossing, and idiomatic translation into four synchronized, machine-readable tiers.
 
 ---
 
@@ -103,7 +103,7 @@ in        beginning DAT    be.PST.3SG  DEF.NOM.SG.M  word.NOM
 
 In the incorrect example above, the space between `beginning` and `DAT` causes automated processors to align `DAT` with `ἦν`, `be.PST.3SG` with `ὁ`, and `DEF.NOM.SG.M` with `λόγος`, completely corrupting the semantic data structure. Rule 1 is therefore the fundamental structural constraint upon which all subsequent glossing rules operate.
 
-**The takeaway for this page:** Leipzig Rule 1 requires exact whitespace token synchronization so that every source word aligns with exactly one gloss token.
+**Takeaway:** Leipzig Rule 1 requires exact whitespace token synchronization so that every source word aligns with exactly one gloss token.
 
 ---
 
@@ -133,7 +133,7 @@ Rule 2 prohibits unbalanced hyphenation. If an editor writes `ἐ-ποίησα-�
 
 When authoring by hand, you must verify that every hyphen in the source segmentation tier has a strictly corresponding hyphen in the gloss tier. This discipline forces the philologist to commit to a precise morphological analysis of every prefix, root, and affix in the text.
 
-**The takeaway for this page:** Leipzig Rule 2 mandates that every hyphen in the segmented source text must pair with an identical hyphen in the gloss tier.
+**Takeaway:** Leipzig Rule 2 mandates that every hyphen in the segmented source text must pair with an identical hyphen in the gloss tier.
 
 ---
 
@@ -160,7 +160,7 @@ When glossing ancient historical languages, editors occasionally encounter gramm
 
 Consistency in capitalization is vital. If an editor writes `Pst` or `pst` instead of `PST`, text-mining algorithms will treat the grammatical label as an English lexical word (e.g., confusing past tense with the noun "past"). Adhering strictly to Rule 3 maintains the integrity of the linguistic metadata.
 
-**The takeaway for this page:** Leipzig Rule 3 requires lexical translations in lowercase and grammatical categories in standard uppercase abbreviations, preserving clear boundaries between meaning and morphology.
+**Takeaway:** Leipzig Rule 3 requires lexical translations in lowercase and grammatical categories in standard uppercase abbreviations, preserving clear boundaries between meaning and morphology.
 
 ---
 
@@ -200,7 +200,7 @@ Gloss:       assembly of citizens.NOM.SG.F
 
 Rule 4 also specifies that a colon (`:`) may be used instead of a period when a grammatical feature is not formally marked by an overt affix but is inherent to the lexical category or construction. Adhering to Rule 4 punctuation prevents ambiguity between synthetic fusion and analytic multi-word definitions.
 
-**The takeaway for this page:** Use periods (`.`) for fused grammatical features and underscores (`_`) for multi-word translations to preserve exact token counts without whitespace errors.
+**Takeaway:** Use periods (`.`) for fused grammatical features and underscores (`_`) for multi-word translations to preserve exact token counts without whitespace errors.
 
 ---
 
@@ -239,7 +239,7 @@ In the Syriac example above, the root `ܩܛܠ` is inflected with the second-pers
 
 Mastering Rule 5 notation is essential for parsing historical narrative prose, where verb forms carry dense pronominal information that English must unpack into separate subject pronouns, verbs, and object pronouns.
 
-**The takeaway for this page:** Leipzig Rule 5 unifies person and number into unpunctuated tokens (`1SG`, `3PL`) and uses relational markers (`>`) for subject-object pronominal affixes.
+**Takeaway:** Leipzig Rule 5 unifies person and number into unpunctuated tokens (`1SG`, `3PL`) and uses relational markers (`>`) for subject-object pronominal affixes.
 
 ---
 
@@ -277,7 +277,7 @@ In the Hebrew example, the conjunction `וְ` ("and") and the definite prepositi
 
 **Rule 8 (Reduplication with tilde `~`).** When a morphological process repeats a root syllable or initial consonant (such as the perfect tense reduplication in Ancient Greek or Hebrew intensive stems), the reduplicated syllable is separated from the base stem by a tilde (`~`). This distinguishes historical reduplication from regular prefixation.
 
-**The takeaway for this page:** Use equals signs (`=`) for clitics, angle brackets (`< >`) for infixes, and tildes (`~`) for reduplication to model complex non-concatenative phonology.
+**Takeaway:** Use equals signs (`=`) for clitics, angle brackets (`< >`) for infixes, and tildes (`~`) for reduplication to model complex non-concatenative phonology.
 
 ---
 
@@ -321,7 +321,7 @@ Using the backslash `\` allows the editor to assign the lexical meaning (`write`
 
 Understanding Rule 9 prevents editors from erroneously forcing non-concatenative languages into rigid agglutinative boxes. When historical languages alter their vocalic stems, the backslash operator preserves both the lexical identity and the grammatical mutation.
 
-**The takeaway for this page:** Leipzig Rule 9 uses the backslash (`\`) to denote internal vowel gradations, Indo-European ablaut, and Semitic templatic root alternations.
+**Takeaway:** Leipzig Rule 9 uses the backslash (`\`) to denote internal vowel gradations, Indo-European ablaut, and Semitic templatic root alternations.
 
 ---
 
@@ -364,7 +364,7 @@ In Ancient Greek, nouns ending in `-ος` are overwhelmingly masculine. However,
 
 Correctly distinguishing between overt inflectional endings, null morphemes, and inherent lexical properties is the hallmark of professional philological annotation.
 
-**The takeaway for this page:** Use `∅` for contrastive null morphemes and square brackets `[ ]` for inherent lexical categories like gender that lack dedicated affixes.
+**Takeaway:** Use `∅` for contrastive null morphemes and square brackets `[ ]` for inherent lexical categories like gender that lack dedicated affixes.
 
 ---
 
@@ -420,7 +420,7 @@ Line 4: "I would consider it of great importance, gentlemen..."
 
 Notice the exact vertical synchronization. Every word in Line 1 stands directly above its segmented counterpart in Line 2 and its gloss in Line 3. The complex four-morpheme verb `ποιη-σα-ί-μην` is fully unpacked, exposing its lexical stem, aorist aspect, optative mood, and first-person middle subject agreement.
 
-**The takeaway for this page:** Manual Greek IGT construction requires systematically unpacking verbal stem, aspect, mood, and person morphemes into strictly synchronized vertical tiers.
+**Takeaway:** Manual Greek IGT construction requires systematically unpacking verbal stem, aspect, mood, and person morphemes into strictly synchronized vertical tiers.
 
 ---
 
@@ -476,7 +476,7 @@ Notice how the combination of the existential particle `ܐܺܝܬ݂-ܰܘܗ݈ܝ` w
 
 Authoring this manually teaches the digital editor that alignment is not a passive mechanical translation; it is an explicit linguistic model of how the source language constructs meaning.
 
-**The takeaway for this page:** Semitic IGT leverages clitic boundaries (`=`) and templatic alternations (`\`) to model proclitic prepositions, existential particles, and emphatic nominal states.
+**Takeaway:** Semitic IGT leverages clitic boundaries (`=`) and templatic alternations (`\`) to model proclitic prepositions, existential particles, and emphatic nominal states.
 
 ---
 
@@ -506,7 +506,7 @@ In the snippet above, the `<linkGrp>` declares that the enclosed `<link>` elemen
 
 By relying on explicit ID-based pointers, TEI Chapter 16 allows editors to align texts at any desired level of granularity—from entire documents down to individual phonemes—while preserving strict XML schema validity.
 
-**The takeaway for this page:** TEI Chapter 16 (§16.1) defines `<linkGrp>` and `<link>` as an extensible graph network for encoding pointer-based relationships across parallel documents.
+**Takeaway:** TEI Chapter 16 (§16.1) defines `<linkGrp>` and `<link>` as an extensible graph network for encoding pointer-based relationships across parallel documents.
 
 ---
 
@@ -560,7 +560,7 @@ In TEI XML, sentences are encoded using the `<s>` (sentence-like segment) or `<s
 
 Sentence-level `<linkGrp>` structures are clean, robust, and highly scalable. In digital reading environments (such as the Alpheios or Perseus platforms), when a user clicks or hovers over a sentence in the Greek text, JavaScript queries the `<linkGrp>`, identifies the target English sentence ID, and instantly highlights the parallel translation on screen (Crane et al., 2024).
 
-**The takeaway for this page:** Sentence-level alignment assigns unique `@xml:id` attributes to `<s>` elements and pairs them through `<link targets="#src_id #tr_id"/>` elements in a `<linkGrp>`.
+**Takeaway:** Sentence-level alignment assigns unique `@xml:id` attributes to `<s>` elements and pairs them through `<link targets="#src_id #tr_id"/>` elements in a `<linkGrp>`.
 
 ---
 
@@ -598,7 +598,7 @@ This TEI representation captures the exact morphological segmentation that we au
 
 By explicitly tagging `<w>` and `<m>`, the digital critical edition distinguishes between the visual surface text and its underlying linguistic anatomy. This markup forms the foundational input for automated treebank integration, lemmatized concordance searches, and programmatic linguistic validation.
 
-**The takeaway for this page:** TEI `<w>` and `<m>` elements encode word-level and morpheme-level segmentation with `@lemma` and `@pos` attributes, giving every affix a unique `@xml:id`.
+**Takeaway:** TEI `<w>` and `<m>` elements encode word-level and morpheme-level segmentation with `@lemma` and `@pos` attributes, giving every affix a unique `@xml:id`.
 
 ---
 
@@ -645,7 +645,7 @@ In a standoff model, the source text and all translation texts remain pristine a
 
 In professional digital scholarly editing, **standoff alignment is the gold standard**. It enforces a clean separation of concerns: philologists curate the source transcription, linguists curate the morphological analysis, and translators curate their alignments, all interconnected through stable URI networks.
 
-**The takeaway for this page:** Standoff alignment isolates alignment links in separate files via `<standOff>` and `<linkGrp>`, enabling clean multi-translation scaling and collaborative version control.
+**Takeaway:** Standoff alignment isolates alignment links in separate files via `<standOff>` and `<linkGrp>`, enabling clean multi-translation scaling and collaborative version control.
 
 ---
 
@@ -689,7 +689,7 @@ In the example above, `<join>` binds the separated prefix ἀπὸ (`#w_grc_5`) 
 
 This capability allows digital critical editions to represent the most intricate syntactic phenomena—such as tmesis, split prepositional phrases, and chiasmus—without distorting the physical order of words in the manuscript transcription.
 
-**The takeaway for this page:** TEI `<link targets="..."/>` supports 1:N, N:1, and N:M alignments by listing multiple URIs, while `<join>` binds discontinuous tokens into virtual units.
+**Takeaway:** TEI `<link targets="..."/>` supports 1:N, N:1, and N:M alignments by listing multiple URIs, while `<join>` binds discontinuous tokens into virtual units.
 
 ---
 
@@ -730,7 +730,7 @@ To represent zero-alignment unambiguously, TEI allows three standard approaches:
 
 Explicitly encoding zero-alignments ensures that the entire token vocabulary of both texts is accounted for in the alignment database. This completeness is crucial when computing statistical alignment error rates or building bilingual lexicons.
 
-**The takeaway for this page:** Zero-alignments (1:0 and 0:1) must be explicitly encoded using unary links, `#NULL` pointers, or `<supplied>` elements to distinguish intentional omissions from errors.
+**Takeaway:** Zero-alignments (1:0 and 0:1) must be explicitly encoded using unary links, `#NULL` pointers, or `<supplied>` elements to distinguish intentional omissions from errors.
 
 ---
 
@@ -783,7 +783,7 @@ In this XML structure, each morpheme `<m>` is immediately paired with its child 
 
 Furthermore, because every `<gloss>` element resides within the XML hierarchy, automated search scripts can execute complex morphosyntactic queries—such as "find all instances where a root glossed as `word` is paired with a suffix glossed as `DAT.SG`"—with absolute precision.
 
-**The takeaway for this page:** The TEI `<seg type="igt">` structure pairs `<m>` morphemes directly with `<gloss>` elements, enabling robust CSS/XSLT interlinear rendering and morphosyntactic querying.
+**Takeaway:** The TEI `<seg type="igt">` structure pairs `<m>` morphemes directly with `<gloss>` elements, enabling robust CSS/XSLT interlinear rendering and morphosyntactic querying.
 
 ---
 
@@ -820,7 +820,7 @@ By linking the morpheme `m_grc_2b` (`-ος`) to the formal Feature Structure `#f
 
 This level of deep encoding connects digital critical editions directly to the Linked Open Data (LOD) cloud and linguistic ontologies such as ISOcat and Universal Dependencies (UD). It allows historical texts to be analyzed using modern multilingual natural language processing pipelines without loss of philological fidelity.
 
-**The takeaway for this page:** TEI `<fs>` (Feature Structures) unpacks concatenated Leipzig strings into formal, machine-readable feature-value pairs linked to international linguistic ontologies.
+**Takeaway:** TEI `<fs>` (Feature Structures) unpacks concatenated Leipzig strings into formal, machine-readable feature-value pairs linked to international linguistic ontologies.
 
 ---
 
@@ -861,7 +861,7 @@ When authoring alignments across RTL and LTR scripts, editors must explicitly de
 
 Furthermore, editors must decide whether to align at the *consonantal* layer or the *vocalized* layer. In Hebrew and Syriac manuscripts, the original consonantal text was written centuries before the vocalization systems were standardized. An edition may choose to store the consonantal text in `<orig>` and the fully vocalized reading in `<reg>`, linking the alignment pointers to the normalized reading.
 
-**The takeaway for this page:** Cross-script alignment requires explicit `@xml:lang` and `@dir` declarations on all elements to prevent Unicode BiDi rendering distortions across LTR and RTL texts.
+**Takeaway:** Cross-script alignment requires explicit `@xml:lang` and `@dir` declarations on all elements to prevent Unicode BiDi rendering distortions across LTR and RTL texts.
 
 ---
 
@@ -888,7 +888,7 @@ The distinction between **Sure ($S$)** and **Possible ($P$)** links—first form
 
 When you author your manual alignment dataset today, you are establishing the gold standard against which you will evaluate automated aligners tomorrow (Lesson 11.2) and AI models on Friday (Lesson 11.3). If your gold standard contains careless mistakes, your entire comparative cycle will be compromised.
 
-**The takeaway for this page:** A gold standard requires rigorous annotation guidelines and must categorize alignments into Sure ($S$) and Possible ($P$) links for mathematical evaluation.
+**Takeaway:** A gold standard requires rigorous annotation guidelines and must categorize alignments into Sure ($S$) and Possible ($P$) links for mathematical evaluation.
 
 ---
 
@@ -921,7 +921,7 @@ Inter-Annotator Disagreement Analysis:
 
 The data reveals that disagreements rarely stem from ignorance of Greek grammar; rather, they arise from differing philosophical perspectives on whether untranslated discourse particles should be linked to loose English punctuation or marked as unaligned. This underscores why explicit annotation guidelines are essential.
 
-**The takeaway for this page:** Inter-annotator agreement measures human consistency ($\kappa$ and $F_1$); empirical benchmarks show expert philologists achieve ~86–91% agreement on historical bitexts.
+**Takeaway:** Inter-annotator agreement measures human consistency ($\kappa$ and $F_1$); empirical benchmarks show expert philologists achieve ~86–91% agreement on historical bitexts.
 
 ---
 
@@ -956,7 +956,7 @@ In traditional print editions, editors write a lengthy footnote in the commentar
 
 By assigning unique `@resp` (responsibility) attributes and attaching `<note>` elements to individual `<link>` declarations, TEI allows a digital edition to preserve multiple competing alignments side by side. Alignment does not force a false consensus; it provides the formal syntax to document scholarly disagreement with absolute clarity.
 
-**The takeaway for this page:** TEI `<link>` elements support multiple competing alignments with `@resp` and `<note>` attributes, transparently preserving polysemy and scholarly debate.
+**Takeaway:** TEI `<link>` elements support multiple competing alignments with `@resp` and `<note>` attributes, transparently preserving polysemy and scholarly debate.
 
 ---
 
@@ -988,7 +988,7 @@ To complete today’s manual alignment laboratory, you will execute a structured
 
 Executing this protocol manually gives you firsthand experience with the cognitive labor required to create high-quality linguistic metadata. This lived experience is essential for critically evaluating automated and AI tools later this week.
 
-**The takeaway for this page:** The six-stage manual workflow enforces rigorous progression from tokenization through Leipzig glossing to schema-validated TEI standoff markup.
+**Takeaway:** The six-stage manual workflow enforces rigorous progression from tokenization through Leipzig glossing to schema-validated TEI standoff markup.
 
 ---
 
@@ -1048,7 +1048,7 @@ if __name__ == '__main__':
 
 Integrating schema validation and automated pointer verification into your daily authoring workflow guarantees that your manual dataset is technically flawless.
 
-**The takeaway for this page:** Use monospace editors for plain-text IGT and validate TEI XML with `xmllint` and Python pointer verification scripts to catch syntax and reference errors.
+**Takeaway:** Use monospace editors for plain-text IGT and validate TEI XML with `xmllint` and Python pointer verification scripts to catch syntax and reference errors.
 
 ---
 
@@ -1076,7 +1076,7 @@ Empirical Translation Distribution for Greek Lemma 'λόγος' (Sample Size = 5
 ### 3. Training and Fine-Tuning Natural Language Processing Models
 High-quality, human-curated interlinear glosses are the lifeblood of computational linguistics. Neural models for low-resource languages (such as GlossLM and PolyGloss) depend entirely on expert-annotated gold standard corpora for supervised fine-tuning and benchmark evaluation (Ginn et al., 2024). Your manual annotations contribute directly to the global infrastructure for historical language preservation.
 
-**The takeaway for this page:** Aligned corpora power interactive reading environments, empirical bilingual lexicography, and the benchmark datasets required to train modern AI models.
+**Takeaway:** Aligned corpora power interactive reading environments, empirical bilingual lexicography, and the benchmark datasets required to train modern AI models.
 
 ---
 
@@ -1116,7 +1116,7 @@ git commit -m "feat(topic11): establish manual ground truth IGT and TEI standoff
 
 Lock this dataset. You must not modify your manual ground truth after testing automated tools on Wednesday; doing so would invalidate the integrity of your comparative experimental cycle.
 
-**The takeaway for this page:** Package and lock your 15–20 sentence manual IGT and TEI alignment dataset in Git as the unalterable reference baseline for Wednesday and Friday.
+**Takeaway:** Package and lock your 15–20 sentence manual IGT and TEI alignment dataset in Git as the unalterable reference baseline for Wednesday and Friday.
 
 ---
 
@@ -1142,7 +1142,7 @@ Manual alignment is intellectually demanding and inherently slow. It forces the 
 
 **Due Friday November 27:** Interlinear Glossing & Translation Alignment Assignments.
 
-**The takeaway for this page:** Manual alignment and Leipzig glossing provide the unshakeable philological ground truth against which all automated and AI methods must be measured.
+**Takeaway:** Manual alignment and Leipzig glossing provide the unshakeable philological ground truth against which all automated and AI methods must be measured.
 
 ---
 

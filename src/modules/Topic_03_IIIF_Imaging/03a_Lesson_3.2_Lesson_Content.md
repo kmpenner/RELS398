@@ -41,7 +41,7 @@ nothing more — which is what makes it applicable to objects of extreme value
 wavelength. *Fluorescence* — absorption of radiation at one wavelength followed by
 emission at a longer one. *Non-destructive* — leaving the object unaltered.
 
-**The takeaway for this page:** Materials that look identical to the eye respond
+**Takeaway:** Materials that look identical to the eye respond
 differently outside the visible range, and multispectral imaging samples those
 differences.
 
@@ -82,7 +82,7 @@ which makes it the technique you are most likely to be able to apply yourself. I
 your manuscript's repository offers raking-light captures, seek them out; they
 frequently reveal ruling patterns that inform codicological description.
 
-**The takeaway for this page:** Raking light reveals evidence that has no colour —
+**Takeaway:** Raking light reveals evidence that has no colour —
 ruling, erasure, and dry-point annotation — by turning depth into shadow.
 
 ---
@@ -120,7 +120,7 @@ how the disturbance responds — which is far more informative than any single
 static image, and closer to what an examiner does when tilting a physical object
 under a lamp.
 
-**The takeaway for this page:** RTI fits a polynomial per pixel to many
+**Takeaway:** RTI fits a polynomial per pixel to many
 illumination angles, producing a relightable surface model rather than a fixed
 photograph.
 
@@ -161,7 +161,7 @@ RTI equipment is not available to this course, but RTI datasets exist for many
 manuscripts and viewers are freely available. If your manuscript has been imaged
 this way, it is worth pursuing.
 
-**The takeaway for this page:** RTI's derived surface normals allow enhancements
+**Takeaway:** RTI's derived surface normals allow enhancements
 that exceed any physically achievable lighting, recovering writing whose ink is
 entirely lost.
 
@@ -206,7 +206,7 @@ recovers the contrast that the eye cannot (Easton et al., 2003).
 *Scriptio superior* — the later text written over it. *Iron-gall ink* — the
 standard European ink, made from iron salts and tannins.
 
-**The takeaway for this page:** Parchment fluoresces under UV while iron-gall ink
+**Takeaway:** Parchment fluoresces under UV while iron-gall ink
 does not, and carbon ink absorbs infrared while stains become transparent — two
 different physical mechanisms for two different recovery problems.
 
@@ -249,7 +249,7 @@ wavelengths refract differently through the lens, chromatic aberration displaces
 them slightly, and registration algorithms correct this along with any residual
 distortion before processing begins (Clausen et al., 2026).
 
-**The takeaway for this page:** A datacube gives every pixel a spectrum rather
+**Takeaway:** A datacube gives every pixel a spectrum rather
 than a colour, and pixel-perfect registration across bands is what makes it
 processable.
 
@@ -287,7 +287,7 @@ in which apparent brightness corresponds to a computed quantity rather than to
 reflected light. Reading it requires knowing what was computed — which is why the
 processing must be documented alongside the image.
 
-**The takeaway for this page:** Erased text is identified by its pattern across
+**Takeaway:** Erased text is identified by its pattern across
 bands rather than its brightness in any one, so recovery is a statistical
 operation and its output is not a photograph.
 
@@ -326,7 +326,7 @@ thing. It has no concept of "ink" and cannot be directed at the under-text; it
 simply reorganizes the data so that structure concentrates in early components.
 Finding the under-text means inspecting the components and recognizing it.
 
-**The takeaway for this page:** PCA reorders spectral data by variance, and the
+**Takeaway:** PCA reorders spectral data by variance, and the
 erased under-text usually emerges in the middle components rather than the first.
 
 ---
@@ -366,7 +366,7 @@ Its limitation is that it requires an assumption about the number of independent
 sources and can produce components in an arbitrary order and sign. Interpretation
 is required; the algorithm does not label its outputs.
 
-**The takeaway for this page:** ICA separates overlapping texts into distinct
+**Takeaway:** ICA separates overlapping texts into distinct
 outputs by recovering statistically independent sources, which suits palimpsests
 precisely.
 
@@ -402,7 +402,7 @@ structure lies. MNF establishes how much real signal exists and suppresses noise
 ICA separates the layers once the signal is known to be there. The scholar
 inspects outputs from each and selects what proves legible.
 
-**The takeaway for this page:** MNF orders components by signal-to-noise rather
+**Takeaway:** MNF orders components by signal-to-noise rather
 than variance, which is what makes very degraded material tractable.
 
 ---
@@ -443,7 +443,7 @@ without knowing what they are looking at.
 Whenever you cite such an image, record the processing: which method, which
 components, which channel assignments.
 
-**The takeaway for this page:** False-colour composites encode computed
+**Takeaway:** False-colour composites encode computed
 quantities as colour, so the channel assignments must be documented or the image
 cannot be evaluated as evidence.
 
@@ -482,7 +482,7 @@ the tenth-century iron-gall ink, causing them to fluoresce through the gold leaf
 and revealing the text beneath by its elemental composition rather than its
 optical properties (Easton et al., 2003).
 
-**The takeaway for this page:** The Archimedes Palimpsest required optical
+**Takeaway:** The Archimedes Palimpsest required optical
 multispectral imaging, statistical separation, and finally X-ray fluorescence to
 read text through gold leaf — no single technique sufficed.
 
@@ -521,7 +521,7 @@ That third point is a live methodological issue for you. When you evaluate a
 processed image this term, you are performing the philologist's half of that
 collaboration, and the judgement required is palaeographic rather than technical.
 
-**The takeaway for this page:** Recovery requires imaging scientists and
+**Takeaway:** Recovery requires imaging scientists and
 philologists together — only a palaeographer can judge whether a recovered form
 is a letter.
 
@@ -560,7 +560,7 @@ dropdown that a philologist can use without understanding PCA is what converts a
 recovery into a usable scholarly resource — and IIIF `Choice` annotations are the
 mechanism.
 
-**The takeaway for this page:** Recovery is not access; Princeton's contribution
+**Takeaway:** Recovery is not access; Princeton's contribution
 was packaging multispectral results into an interface a philologist could actually
 use.
 
@@ -608,7 +608,7 @@ state the imaging condition precisely — "UV fluorescence, 365 nm" rather than
 "UV". And the first item in the list is what a viewer displays by default;
 put the natural-colour image first unless there is a reason not to.
 
-**The takeaway for this page:** `Choice` lists alternative images for one canvas,
+**Takeaway:** `Choice` lists alternative images for one canvas,
 and its labels are where the imaging conditions are documented.
 
 ---
@@ -645,7 +645,7 @@ strength of a single image. That is a change in evidential standards produced by
 an infrastructural improvement — which is a recurring pattern in this course, and
 worth noticing as such.
 
-**The takeaway for this page:** Layered canvases make multi-spectral verification
+**Takeaway:** Layered canvases make multi-spectral verification
 cheap enough to be routine, which raises the evidential standard for a reading.
 
 ---
@@ -689,7 +689,7 @@ and the `Choice` labels carry the summary. Your Week 1 commit discipline is the
 other half: when you use a processed image, record in the commit body which layer
 you read from.
 
-**The takeaway for this page:** A processed image without its processing
+**Takeaway:** A processed image without its processing
 parameters cannot be evaluated as evidence, so record wavelengths, method,
 components, and channel assignments.
 
@@ -727,7 +727,7 @@ case is exactly the one your expectation could have produced. Treat readings tha
 conveniently support your hypothesis with more scepticism than readings that
 complicate it.
 
-**The takeaway for this page:** Statistical enhancement amplifies noise as readily
+**Takeaway:** Statistical enhancement amplifies noise as readily
 as signal, and expectation makes false letterforms easy to see — so require
 persistence across methods and parameters.
 
@@ -767,7 +767,7 @@ transcription. The first asserts what the text says; the second asserts what the
 text says, how confident the editor is, who is responsible, and what evidence
 supports it. Where recovery is involved, the second is the only defensible form.
 
-**The takeaway for this page:** Encode recovered readings with `<unclear>`,
+**Takeaway:** Encode recovered readings with `<unclear>`,
 `@cert`, `@resp`, and a `@source` pointing at the imaging condition that supports
 them.
 
@@ -810,7 +810,7 @@ That coordinate preservation is what makes the pipeline coherent: the
 transcription arrives already bound to positions on the page, which is exactly the
 binding Lesson 3.3 builds by hand.
 
-**The takeaway for this page:** HTR platforms ingest manifests directly and emit
+**Takeaway:** HTR platforms ingest manifests directly and emit
 coordinate-bound ALTO or PAGE XML, so Friday's manifest is Week 4's input.
 
 ---
@@ -850,7 +850,7 @@ the object itself under any illumination.
 Record your choice in your repository now, before Week 4 begins, so that the
 decision is deliberate.
 
-**The takeaway for this page:** Transcribe from the most legible layer, verify
+**Takeaway:** Transcribe from the most legible layer, verify
 against the others, and always record which layer supported a contested reading.
 
 ---
@@ -881,7 +881,7 @@ visible-light images. This week's content remains necessary because it is what
 lets you read the imaging literature on your manuscript, evaluate published
 recovered readings, and understand what the images in your edition are and are not.
 
-**The takeaway for this page:** Check your manifest for unlisted spectral layers,
+**Takeaway:** Check your manifest for unlisted spectral layers,
 and ask curators directly; if none exists, the course proceeds from visible light.
 
 ---
@@ -923,7 +923,7 @@ spectral composite, and a transcribed line can all target the same canvas region
 which is what allows a chemical observation and a palaeographic one to be stated
 about the same place.
 
-**The takeaway for this page:** XRF maps elemental composition rather than
+**Takeaway:** XRF maps elemental composition rather than
 appearance, and the canvas is what lets chemical and textual observations refer to
 the same place on the page.
 
@@ -959,7 +959,7 @@ map or a spectral component rather than by an appeal to what an examiner can see
 and evaluating such a claim requires understanding how the evidence was produced —
 which is why this lesson exists in a philology course.
 
-**The takeaway for this page:** Recovery techniques treat the manuscript as a
+**Takeaway:** Recovery techniques treat the manuscript as a
 dataset with many projections rather than a surface bearing text, which changes
 what can count as evidence for a reading.
 
@@ -1000,7 +1000,7 @@ that. An `<unclear>` element with `@cert="low"` and a note that UV was consulted
 without resolution is a more useful scholarly statement than a confident reading
 or a silent omission.
 
-**The takeaway for this page:** Recovery often fails, and a documented negative
+**Takeaway:** Recovery often fails, and a documented negative
 result is a real finding — record what you consulted even when it resolved
 nothing.
 
@@ -1031,7 +1031,7 @@ Add the results to `images/SOURCES.md` alongside yesterday's record and commit
 with a Conventional Commits message. By Friday this file documents your edition's
 entire image basis.
 
-**The takeaway for this page:** Assess the least legible region of your passage
+**Takeaway:** Assess the least legible region of your passage
 against every layer available, and record what remains unresolved.
 
 ---
@@ -1070,7 +1070,7 @@ qualifications intact. "Smith reads X, from an ICA composite; components and
 parameters unreported" is honest and lets your reader weigh it. Repeating the
 reading as established fact passes along a confidence the evidence may not support.
 
-**The takeaway for this page:** Evaluate published recoveries by whether the
+**Takeaway:** Evaluate published recoveries by whether the
 imaging and processing are described well enough for you to assess them, and cite
 them with their qualifications intact.
 
@@ -1103,7 +1103,7 @@ the same day. Ensure the header validates before Friday's meeting; debugging
 schema errors while attempting to build coordinate bindings is a poor use of the
 session.
 
-**The takeaway for this page:** Friday joins the structural and imaging models to
+**Takeaway:** Friday joins the structural and imaging models to
 your TEI, and the cataloguing assignment is due the same day — validate your
 header beforehand.
 
@@ -1140,7 +1140,7 @@ about the same manuscript (Clausen et al., 2026).
 Keep that in view on Friday. The manifest you build is not a container for
 pictures; it is the coordinate framework the rest of your edition attaches to.
 
-**The takeaway for this page:** Every technique this week produces something that
+**Takeaway:** Every technique this week produces something that
 targets a canvas region, which is what makes the imaging, transcription, and
 apparatus one object.
 
@@ -1183,7 +1183,7 @@ and doing that responsibly requires knowing what the output is.
 Metadata Assignment is due Friday September 18**, and Friday's meeting builds your
 manifest and binds it to your TEI.
 
-**The takeaway for this page:** Every manuscript image is an instrument's output,
+**Takeaway:** Every manuscript image is an instrument's output,
 which is why it can show more than the eye and why it cannot be evaluated without
 its documentation.
 

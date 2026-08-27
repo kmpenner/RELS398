@@ -40,7 +40,7 @@ variation (Fradejas Rueda, 2022).
 witnesses. *Tokenization* — dividing text into comparable units. *Normalization* —
 here, neutralizing non-significant variation before alignment.
 
-**The takeaway for this page:** Configuration is not a smaller task than manual
+**Takeaway:** Configuration is not a smaller task than manual
 collation, but a different one — stating as a rule what you decided case by case.
 
 ---
@@ -79,7 +79,7 @@ today's work is at stages 1 and 2 — deciding what a token is and what differen
 neutralize — while stage 3 runs unchanged. That distribution is typical: alignment is
 the part that is solved, and preparation is the part that requires philology.
 
-**The takeaway for this page:** Alignment is the solved part; tokenization and
+**Takeaway:** Alignment is the solved part; tokenization and
 normalization are where the philology goes, and they are where you will spend today.
 
 ---
@@ -123,7 +123,7 @@ The adaptation to text rests on a structural observation: textual sequences beha
 mathematically like nucleotide sequences, which is why algorithms designed for
 biological alignment transfer to identifying textual homology.
 
-**The takeaway for this page:** Needleman–Wunsch is the same dynamic programming as
+**Takeaway:** Needleman–Wunsch is the same dynamic programming as
 Wagner–Fischer, maximizing alignment score rather than minimizing edit distance.
 
 ---
@@ -168,7 +168,7 @@ own *homoioteleuton* analysis yesterday supports.
 If your manual collation found a long omission, watch specifically for whether
 today's alignment recovers it as one gap.
 
-**The takeaway for this page:** Affine gap penalties encode the philological claim
+**Takeaway:** Affine gap penalties encode the philological claim
 that omissions are single events — which is why the algorithm finds them as gaps
 rather than as scattered mismatches.
 
@@ -212,7 +212,7 @@ The elegance of the model is that it represents *all* witnesses in one structure
 without privileging any. There is no base text in a variant graph — which is the
 structural answer to the bias problem from Tuesday's section 02.
 
-**The takeaway for this page:** A variant graph represents all witnesses in one
+**Takeaway:** A variant graph represents all witnesses in one
 acyclic structure with no base text — which is the structural answer to base-text
 bias.
 
@@ -251,7 +251,7 @@ One caveat on progressive alignment: the order in which witnesses are added has
 minor effects on the result, since each is aligned against what has accumulated so
 far. With two witnesses this does not arise. With many, record the order.
 
-**The takeaway for this page:** Progressive alignment merges each witness into an
+**Takeaway:** Progressive alignment merges each witness into an
 accumulated graph rather than comparing against a base — which removes the bias but
 makes witness order slightly significant.
 
@@ -301,7 +301,7 @@ without removing the signal.
 Save this raw output. It is the baseline against which your configuration's effect
 is measured.
 
-**The takeaway for this page:** Run unconfigured first and investigate every
+**Takeaway:** Run unconfigured first and investigate every
 difference that appears in neither of your lists — those are what your attention
 missed.
 
@@ -350,7 +350,7 @@ thing produces a collation that is wrong everywhere and looks plausible.
 Feed the tokenizer's output to CollateX as a pre-tokenized witness rather than as
 plain text, so that your decisions rather than the defaults govern.
 
-**The takeaway for this page:** Rejoin line-broken words in the tokenizer or your
+**Takeaway:** Rejoin line-broken words in the tokenizer or your
 witnesses will differ at every line break — a large source of entirely spurious
 variants.
 
@@ -411,7 +411,7 @@ Note the further normalization applied to `n`: lowercasing and accent stripping.
 reaches the reader. Reduce it to exactly the features you consider significant for
 alignment, and no more.
 
-**The takeaway for this page:** The `n` value is only for matching and never reaches
+**Takeaway:** The `n` value is only for matching and never reaches
 the reader, so reduce it to exactly the features you consider alignment-significant.
 
 ---
@@ -456,7 +456,7 @@ abandoning the reduction.
 Record every reduction applied, in the method document. Each is an editorial claim
 that a class of difference does not count.
 
-**The takeaway for this page:** Each reduction applied to the `n` value is an
+**Takeaway:** Each reduction applied to the `n` value is an
 editorial claim that a class of difference does not count — record them all.
 
 ---
@@ -497,7 +497,7 @@ If you do use it, run with and without and compare. The additional alignments it
 produces are exactly the cases to check by hand, and their quality tells you whether
 the threshold is set sensibly for your text.
 
-**The takeaway for this page:** Fuzzy matching aligns coincidentally similar words —
+**Takeaway:** Fuzzy matching aligns coincidentally similar words —
 prefer dual-token normalization, since Week 6 already did the expensive part.
 
 ---
@@ -557,7 +557,7 @@ Human-Verified: false
 Baseline-Commit: <collation-manual-w7>
 ```
 
-**The takeaway for this page:** Disable `near_match` when you have normalized
+**Takeaway:** Disable `near_match` when you have normalized
 deliberately — it keeps alignment governed by your decisions rather than a distance
 threshold.
 
@@ -600,7 +600,7 @@ that you missed is a correction to your manual work, and it is the direct benefi
 uniform machine attention over fatigued human attention (Fradejas Rueda, 2022).
 Count these separately and report them.
 
-**The takeaway for this page:** Low precision usually means your configuration is
+**Takeaway:** Low precision usually means your configuration is
 incomplete rather than that the tool is over-reporting — check that first.
 
 ---
@@ -637,7 +637,7 @@ successful test of the affine model on your data. If it did not, investigate why
 and check whether normalization noise is preventing the surrounding text from
 aligning.
 
-**The takeaway for this page:** Ambiguous gap boundaries where the boundary word
+**Takeaway:** Ambiguous gap boundaries where the boundary word
 repeats corroborate a *homoioteleuton* diagnosis rather than indicating an alignment
 failure.
 
@@ -676,7 +676,7 @@ It also bears on Week 8. An apparatus generated automatically from this alignmen
 will contain two entries where one editorial fact exists, and correcting that is
 manual work you should anticipate.
 
-**The takeaway for this page:** The DAG cannot express a backward move, so a
+**Takeaway:** The DAG cannot express a backward move, so a
 transposition arrives as two entries where one editorial fact exists — and correcting
 that is manual.
 
@@ -716,7 +716,7 @@ suppressing differences, and taken far enough it suppresses real variants. The
 diacritic-stripping decision from section 10 is the usual culprit; check that no
 recorded variant disappeared when you applied it.
 
-**The takeaway for this page:** A configuration step that reduces both reported
+**Takeaway:** A configuration step that reduces both reported
 differences and recorded variants is over-normalizing — check that no real variant
 disappeared.
 
@@ -757,7 +757,7 @@ Note also what remained manual: adjudication. The tool produced the alignment; t
 scholars decided what the variants meant. That division is the one this week is
 teaching.
 
-**The takeaway for this page:** At eleven million words automation is not better
+**Takeaway:** At eleven million words automation is not better
 than manual collation — it is the only option, and it reveals patterns sequential
 reading cannot.
 
@@ -800,7 +800,7 @@ The general lesson: a collation tool's value lies less in its alignment algorith
 they are all doing Needleman–Wunsch — than in whether it lets the editor express
 philological distinctions before and after alignment.
 
-**The takeaway for this page:** Collation tools differ less in their algorithms than
+**Takeaway:** Collation tools differ less in their algorithms than
 in whether they let the editor express philological distinctions before and after
 alignment.
 
@@ -855,7 +855,7 @@ open("collation/variant_graph.dot", "w").write(collate(c, output="dot"))
 Rendering it shows the variant graph as a graph, which makes the branching structure
 of the differences visible in a way a table does not.
 
-**The takeaway for this page:** The TEI export records that witnesses differ but not
+**Takeaway:** The TEI export records that witnesses differ but not
 which reading is adopted or how significant it is — both are Week 8's editorial work.
 
 ---
@@ -889,7 +889,7 @@ decisions, and recording it completely is straightforward.
 
 Commit with a `docs:` prefix.
 
-**The takeaway for this page:** The configuration is a finite list of explicit
+**Takeaway:** The configuration is a finite list of explicit
 decisions, so complete reproducibility is achievable here in a way it will not be on
 Friday.
 
@@ -926,7 +926,7 @@ requires knowing what kinds of variation matter and why, which is philological
 knowledge rather than pattern matching — and no row in the table above is likely to
 move to the machine column.
 
-**The takeaway for this page:** The algorithm aligns by character overlap and has no
+**Takeaway:** The algorithm aligns by character overlap and has no
 semantic comprehension — a synonym substitution registers as divergence without
 being recognized as one.
 
@@ -964,7 +964,7 @@ Tag today's output:
 git tag -a collation-collatex-w7 -m "CollateX alignment, configuration v4"
 ```
 
-**The takeaway for this page:** Verify that no recorded variant disappeared under
+**Takeaway:** Verify that no recorded variant disappeared under
 normalization before accepting an improved precision figure.
 
 ---
@@ -997,7 +997,7 @@ stripping have collapsed a real distinction, the tool reports agreement where th
 witnesses differ, and nothing signals the loss. Always verify against your recorded
 variants.
 
-**The takeaway for this page:** Few reported variants looks like a clean result and
+**Takeaway:** Few reported variants looks like a clean result and
 may mean your normalization collapsed real distinctions — verify against the manual
 record.
 
@@ -1032,7 +1032,7 @@ collation missed, three of which they verified against the facsimile as genuine,
 used the tool to improve the edition — and has evidence for the claim that
 automation catches what fatigue does not.
 
-**The takeaway for this page:** Reporting the variants the tool found that you
+**Takeaway:** Reporting the variants the tool found that you
 missed is what turns a measurement of the tool into an improvement of the edition.
 
 ---
@@ -1071,7 +1071,7 @@ deterministic rigour required to produce definitive critical apparatuses, which 
 why deterministic algorithms remain the gold standard for baseline collation
 (Haentjens Dekker & Middell, 2011). Friday tests that claim on your data.
 
-**The takeaway for this page:** Whether a model recognizes your transposition as one
+**Takeaway:** Whether a model recognizes your transposition as one
 event tests directly whether semantic reasoning supplies what the graph model
 structurally cannot.
 
@@ -1109,7 +1109,7 @@ baseline scholarly collation (Haentjens Dekker & Middell, 2011) — not because 
 are the most capable, but because a baseline needs to be reproducible before it
 needs to be clever.
 
-**The takeaway for this page:** A baseline needs to be reproducible before it needs
+**Takeaway:** A baseline needs to be reproducible before it needs
 to be clever — which is why deterministic alignment remains the standard.
 
 ---
@@ -1148,7 +1148,7 @@ That is the argument for measuring against a manual baseline. A systematic
 configuration error produces plausible output, and the only way to detect it is
 comparison against work produced differently.
 
-**The takeaway for this page:** Automated collation fails systematically rather than
+**Takeaway:** Automated collation fails systematically rather than
 randomly — uniform errors are invisible without a differently-produced baseline to
 compare against.
 
@@ -1187,7 +1187,7 @@ completely between them, and nothing in the tool indicates which you performed.
 Only the method document does — which makes it a load-bearing part of the edition
 rather than an appendix to it.
 
-**The takeaway for this page:** Different configurations produce different, equally
+**Takeaway:** Different configurations produce different, equally
 correct collations of the same witnesses — only the method document says which
 question yours answers.
 
@@ -1223,7 +1223,7 @@ witness so that `@wit` references resolve.
 The **Textual Variants & Collation Assignment is due Friday October 30**, at the end
 of Week 8, and this week's work is its foundation.
 
-**The takeaway for this page:** Week 8 adds the lemma, the classification, and the
+**Takeaway:** Week 8 adds the lemma, the classification, and the
 formal sigla to today's export — the export is the raw material, not the apparatus.
 
 ---
@@ -1263,7 +1263,7 @@ reproducibility.
 
 **Due Friday October 23.** The Normalization Assignment, from Topic 6.
 
-**The takeaway for this page:** Alignment is solved; defining what counts as a
+**Takeaway:** Alignment is solved; defining what counts as a
 variant is not, and that definition is the configuration you wrote today.
 
 ---

@@ -42,7 +42,7 @@ that any compliant viewer can display images from any compliant server.
 interface. *Interoperability* — the capacity of independently built systems to
 work together without prior coordination.
 
-**The takeaway for this page:** IIIF exists because digitization without shared
+**Takeaway:** IIIF exists because digitization without shared
 standards produced millions of images that could not be brought together.
 
 ---
@@ -80,7 +80,7 @@ That is the claim worth holding onto: interoperability does not merely make
 existing work more convenient, it makes some scholarly operations possible for
 the first time.
 
-**The takeaway for this page:** Juxtaposing witnesses is the basic operation of
+**Takeaway:** Juxtaposing witnesses is the basic operation of
 textual criticism, and image silos prevented it — so interoperability is a
 methodological requirement, not a convenience.
 
@@ -120,7 +120,7 @@ server anywhere in the world. A single manifest can assemble folios from the
 Vatican, Leipzig, and Paris into one virtual codex — which is exactly the
 Sinaiticus problem solved.
 
-**The takeaway for this page:** The Image API delivers pixels and the
+**Takeaway:** The Image API delivers pixels and the
 Presentation API describes structure, and their independence is what lets one
 manifest gather images from many institutions.
 
@@ -165,7 +165,7 @@ in any IIIF-compliant collection in the world, at any resolution, with a line of
 text. In Week 12, when your commentary needs to reproduce the exact patch of
 parchment supporting a disputed reading, this is how you will obtain it.
 
-**The takeaway for this page:** One URL template gives you any region of any
+**Takeaway:** One URL template gives you any region of any
 image in any IIIF collection, at any size — learn to write it by hand.
 
 ---
@@ -207,7 +207,7 @@ economize. You should seek the highest-resolution IIIF source available for your
 passage, because the cost of high resolution is borne by the server's storage
 rather than by your bandwidth.
 
-**The takeaway for this page:** Tiling means only the visible screenful is ever
+**Takeaway:** Tiling means only the visible screenful is ever
 transferred, so image resolution costs the viewer nothing.
 
 ---
@@ -257,7 +257,7 @@ The `items` array — empty above — holds the canvases. That is the next secti
 *JSON-LD* — JSON with a `@context` mapping its keys to shared vocabulary URIs, so
 the data is machine-interpretable rather than merely machine-readable.
 
-**The takeaway for this page:** A manifest is a retrievable web document
+**Takeaway:** A manifest is a retrievable web document
 describing one object — its identity, metadata, rights, and the sequence of
 canvases that compose it.
 
@@ -293,7 +293,7 @@ folio acquires visible-light, ultraviolet, infrared, and statistically processed
 representations — and for Lesson 3.3, where your TEI transcription is bound to
 canvas coordinates rather than to any particular photograph of the page.
 
-**The takeaway for this page:** A canvas is an abstract coordinate space standing
+**Takeaway:** A canvas is an abstract coordinate space standing
 for the page itself, and images are evidence painted onto it — which is why one
 page can carry many images.
 
@@ -352,7 +352,7 @@ superseding the earlier Open Annotation model used in 2.1 (IIIF Consortium,
 general web standard rather than a IIIF-specific invention, and tools built for
 web annotation work with them.
 
-**The takeaway for this page:** Content attaches to a canvas by annotation, and
+**Takeaway:** Content attaches to a canvas by annotation, and
 because the mechanism is uniform, images, transcriptions, and commentary all
 attach the same way.
 
@@ -391,7 +391,7 @@ Write 3.0 for your own manifest. Read 2.1 when you must, and be aware that
 converting between them is not purely mechanical, since 3.0 can express
 structures 2.1 cannot.
 
-**The takeaway for this page:** `@id` means 2.1 and bare `id` means 3.0; write
+**Takeaway:** `@id` means 2.1 and bare `id` means 3.0; write
 3.0, because only it can express layered spectral alternatives.
 
 ---
@@ -430,7 +430,7 @@ without them targeting is undefined. And every resource needs an `id` that is a
 genuine HTTP URI, not an arbitrary local string — the identifiers are meant to be
 dereferenceable.
 
-**The takeaway for this page:** Collection, manifest, canvas, annotation page,
+**Takeaway:** Collection, manifest, canvas, annotation page,
 annotation, body — and ranges group canvases into a table of contents without
 disturbing their order.
 
@@ -470,7 +470,7 @@ interface for comparing its manuscripts with Leipzig's. It published standard
 manifests, and comparison became possible as a consequence. That is what a
 standard does: it makes cooperation happen without requiring coordination.
 
-**The takeaway for this page:** The Vatican stores one master per folio and
+**Takeaway:** The Vatican stores one master per folio and
 generates tiles on demand, and comparison with other libraries works because both
 publish to the same standard — not because they cooperated.
 
@@ -508,7 +508,7 @@ lesson.
 Install Mirador locally this week, or bookmark a hosted instance. You will use it
 in every remaining week of the course.
 
-**The takeaway for this page:** Viewers are interchangeable because manifests are
+**Takeaway:** Viewers are interchangeable because manifests are
 standard, and Mirador is the one to learn because it juxtaposes witnesses.
 
 ---
@@ -544,7 +544,7 @@ canvas identifiers for your folios, and the licence and required attribution. A
 manifest URL that worked in September and was not written down is a genuine
 obstacle in December.
 
-**The takeaway for this page:** Every IIIF viewer must fetch a manifest, so the
+**Takeaway:** Every IIIF viewer must fetch a manifest, so the
 network inspector always reveals the URL when the interface does not.
 
 ---
@@ -585,7 +585,7 @@ research data, make the related point that descriptive and material data about a
 manuscript accumulate from many sources and must be kept traceable to those
 sources rather than merged into an undifferentiated record.
 
-**The takeaway for this page:** A manifest's metadata is a catalogue claim that
+**Takeaway:** A manifest's metadata is a catalogue claim that
 can be wrong; read it as evidence, not as fact.
 
 ---
@@ -625,7 +625,7 @@ If your chosen manuscript is In Copyright, raise it this week. It is workable �
 you link rather than reproduce — but it changes what Week 13 can publish, and
 that is better known now than in December.
 
-**The takeaway for this page:** Linking to a canvas is not republication; copying
+**Takeaway:** Linking to a canvas is not republication; copying
 the image file is — so prefer linking, and always display the required
 attribution.
 
@@ -666,7 +666,7 @@ as a single connected resource.
 vocabularies so that it can be referenced and combined across sources. *`@context`*
 — the JSON-LD element mapping keys to vocabulary URIs.
 
-**The takeaway for this page:** JSON-LD states the meaning of its keys in the
+**Takeaway:** JSON-LD states the meaning of its keys in the
 data, which is what lets a manifest be cited from and combined with other
 scholarly data.
 
@@ -709,7 +709,7 @@ A line of your transcription will carry a `@facs` attribute pointing at exactly
 the region of the canvas that shows it — so that a reader clicking a word is
 taken to the parchment.
 
-**The takeaway for this page:** `#xywh=x,y,w,h` addresses any rectangle of a
+**Takeaway:** `#xywh=x,y,w,h` addresses any rectangle of a
 canvas, and this is the mechanism that will bind your transcription to the image.
 
 ---
@@ -748,7 +748,7 @@ conditions that evidence was produced — which image, which wavelength, which
 processing. Lesson 3.2 concerns exactly those conditions, and Lesson 3.3 concerns
 recording them.
 
-**The takeaway for this page:** A digital surrogate is a dataset derived from the
+**Takeaway:** A digital surrogate is a dataset derived from the
 manuscript, not a picture of it, and in some respects it shows more than autopsy
 can.
 
@@ -784,7 +784,7 @@ solved a *distribution* problem — the leaves could be brought together. Imagin
 solved a *legibility* problem — the text could be read. Neither addresses the
 other, and both were needed. Lesson 3.2 takes up the second.
 
-**The takeaway for this page:** Sinaiticus needed two distinct advances —
+**Takeaway:** Sinaiticus needed two distinct advances —
 interoperability to reunite dispersed leaves, and enhanced imaging to make the
 ink legible.
 
@@ -821,7 +821,7 @@ Add validation to your pre-commit hook, exactly as you did for XML in Week 1. A
 malformed manifest committed on a Tuesday and discovered on a Friday is an
 avoidable loss.
 
-**The takeaway for this page:** Validate as JSON, then for IIIF conformance, then
+**Takeaway:** Validate as JSON, then for IIIF conformance, then
 by rendering, then by checking that the images actually resolve.
 
 ---
@@ -857,7 +857,7 @@ determine in advance what a source supports. If you plan to extract arbitrary
 regions from an institution's images for your commentary, confirm Level 2 before
 depending on it.
 
-**The takeaway for this page:** Level 2 serves arbitrary regions on demand; Level
+**Takeaway:** Level 2 serves arbitrary regions on demand; Level
 0 serves only pre-generated derivatives, and is what static hosting supports.
 
 ---
@@ -895,7 +895,7 @@ if your transcription is bound to canvas coordinates — which is precisely what
 Lesson 3.3 does — then a searchable image-linked edition is a matter of
 configuration rather than of redesign.
 
-**The takeaway for this page:** Binding your transcription to canvas coordinates
+**Takeaway:** Binding your transcription to canvas coordinates
 now is what makes a searchable, image-linked edition possible later.
 
 ---
@@ -929,7 +929,7 @@ each witness — so that a reader evaluating your editorial decision sees the
 parchment rather than taking your word for it. That is a genuine advance over
 print, where the apparatus can only assert.
 
-**The takeaway for this page:** Friday's manifest is Tuesday's HTR input, and
+**Takeaway:** Friday's manifest is Tuesday's HTR input, and
 every later week's verification against the manuscript runs through it.
 
 ---
@@ -971,7 +971,7 @@ Your own edition is a small instance of this. By Week 13 it will link
 codicological description, images under multiple conditions, transcription,
 apparatus, and commentary, all anchored to a common coordinate space.
 
-**The takeaway for this page:** The canvas is a shared coordinate space that
+**Takeaway:** The canvas is a shared coordinate space that
 imaging, materials analysis, and transcription can all target, which is what makes
 them relatable.
 
@@ -1010,7 +1010,7 @@ can identify the folio and the exact region you meant. Your Week 1 commit
 discipline is the mechanism here — record the identifiers in the repository, at
 the time you use them.
 
-**The takeaway for this page:** Record DOIs, full canvas URIs, dimensions, and
+**Takeaway:** Record DOIs, full canvas URIs, dimensions, and
 access dates, so that your citations survive the link rot that will eventually
 occur.
 
@@ -1043,7 +1043,7 @@ Record the results as a Markdown file in your repository — `images/SOURCES.md`
 a reasonable location — and commit it with a Conventional Commits message. In
 Week 13 this file is the basis of your edition's image documentation.
 
-**The takeaway for this page:** Write the Image API URLs by hand; that skill is
+**Takeaway:** Write the Image API URLs by hand; that skill is
 what makes you independent of any particular viewer.
 
 ---
@@ -1077,7 +1077,7 @@ The last row is the classic hand-authoring error and the one most likely to bite
 you on Friday. In 2.1 a label is a string; in 3.0 it is a language map holding
 arrays. Mixing them produces exactly this symptom.
 
-**The takeaway for this page:** Diagnose in order — validate the manifest, check
+**Takeaway:** Diagnose in order — validate the manifest, check
 the image endpoints, then check the version — and recognize CORS failures as the
 institution's bug, not yours.
 
@@ -1111,7 +1111,7 @@ correct once seen.
 Always read the canvas dimensions from the manifest, and never assume they match
 the image.
 
-**The takeaway for this page:** Fragment selectors address canvas coordinates, not
+**Takeaway:** Fragment selectors address canvas coordinates, not
 image pixels, and the two frequently differ by a scale factor.
 
 ---
@@ -1148,7 +1148,7 @@ manuscripts but are frequently not surfaced in the default viewer, appearing onl
 as additional entries in the manifest. If your manuscript has them, Wednesday's
 work applies directly to your own edition rather than to an example.
 
-**The takeaway for this page:** The canvas-as-space abstraction is what makes
+**Takeaway:** The canvas-as-space abstraction is what makes
 tomorrow's spectral layering expressible; check now whether your own manuscript
 has non-visible-light captures.
 
@@ -1185,7 +1185,7 @@ both render in Mirador, and check your manifests for non-visible-light captures.
 18**, and Friday's meeting builds the manifest for your passage and binds it to
 your TEI. Everything recorded today is the input to that work.
 
-**The takeaway for this page:** IIIF makes every region of every image
+**Takeaway:** IIIF makes every region of every image
 addressable by a shared rule, and the canvas — a coordinate space, not a picture —
 is what lets images, text, and analysis all refer to the same place.
 

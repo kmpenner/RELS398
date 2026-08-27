@@ -53,7 +53,7 @@ Gothenburg Model, converting internal alignment graphs into interchange formats.
 *Serialization* — translating in-memory data structures into a standardized file
 format like XML.
 
-**The takeaway for this page:** Automated apparatus generation is the serialization
+**Takeaway:** Automated apparatus generation is the serialization
 of an algorithmic variant graph into standardized TEI XML.
 
 ---
@@ -92,7 +92,7 @@ failure that occurred upstream in Phase 1 (tokenization) or Phase 2 (normalizati
 If a comma was attached to a word in Phase 1, CollateX will treat that word as a
 distinct variant in Phase 3 and export a flawed apparatus in Phase 5.
 
-**The takeaway for this page:** The Gothenburg Model isolates apparatus export as
+**Takeaway:** The Gothenburg Model isolates apparatus export as
 Phase 5, meaning exported XML fidelity depends entirely on upstream tokenization and
 normalization.
 
@@ -138,7 +138,7 @@ during execution (Haentjens Dekker et al., 2015). This design reflects a deliber
 theoretical stance: automated tools should record multi-witness alignment neutrally,
 leaving the assignment of editorial privilege to the human scholar.
 
-**The takeaway for this page:** CollateX natively exports TEI XML using Parallel
+**Takeaway:** CollateX natively exports TEI XML using Parallel
 Segmentation, producing un-lemmatized `<rdg>` elements unless a base text is
 explicitly configured.
 
@@ -186,7 +186,7 @@ diplomatic surface forms are passed to ensure precise alignment control (Haentje
 Dekker et al., 2015). This structured approach allows editors to collate thousands of
 lines while preserving underlying paleographical metadata.
 
-**The takeaway for this page:** The Python `collatex.collate()` API automates the
+**Takeaway:** The Python `collatex.collate()` API automates the
 generation of TEI XML apparatuses directly from programmatic witness collections.
 
 ---
@@ -233,7 +233,7 @@ contains no `<lem>` element, no `@type` classifications, and no `<listWit>`
 catalogue. These elements must be supplied through downstream post-processing scripts
 or editorial refinement.
 
-**The takeaway for this page:** CollateX automatically consolidates identical
+**Takeaway:** CollateX automatically consolidates identical
 witnesses into shared `<rdg>` elements and inlines invariant text, but requires
 post-processing to add editorial metadata.
 
@@ -274,7 +274,7 @@ elevated to the `<lem>`, while authentic readings in other witnesses are marked 
 deviations (Robinson & Driscoll, 2016). Editors must consciously decide whether
 their edition requires a base-text apparatus or an un-lemmatized multi-witness graph.
 
-**The takeaway for this page:** Designating a base text in CollateX automatically
+**Takeaway:** Designating a base text in CollateX automatically
 populates the `<lem>` element, but structurally privileges that witness's readings.
 
 ---
@@ -312,7 +312,7 @@ algorithm to suffer from **alignment drift**, misaligning adjacent words and
 creating artificially fragmented variation units across successive sentences
 (Camps, Ing, & Spadini, 2019).
 
-**The takeaway for this page:** Un-normalized historical spelling creates severe
+**Takeaway:** Un-normalized historical spelling creates severe
 orthographic noise in CollateX, obscuring substantive variants and fragmenting
 apparatus entries.
 
@@ -352,7 +352,7 @@ property (`"n"`). Because all three manuscripts share the normalized lemma `"roi
 CollateX aligns them perfectly on a single graph node, completely eliminating
 alignment drift (Camps, Ing, & Spadini, 2019).
 
-**The takeaway for this page:** The FALCON workflow aligns witnesses on normalized
+**Takeaway:** The FALCON workflow aligns witnesses on normalized
 lemmas (`"n"`) while preserving diplomatic surface strings (`"t"`), eliminating
 orthographic noise in automated collation.
 
@@ -396,7 +396,7 @@ This automated re-injection achieves the ideal balance: algorithmic alignment is
 robust and noise-free, while the resulting TEI apparatus preserves every authentic
 paleographical detail of the original manuscripts (Camps, Ing, & Spadini, 2019).
 
-**The takeaway for this page:** Re-injection maps diplomatic surface forms back into
+**Takeaway:** Re-injection maps diplomatic surface forms back into
 aligned graph nodes, automatically classifying variants into substantive and
 orthographic categories.
 
@@ -433,7 +433,7 @@ When an automated script generates an apparatus, it must link back to these
 underlying strata, ensuring that every editorial transformation remains fully
 auditable and reproducible.
 
-**The takeaway for this page:** Stratified editing preserves raw ATR, diplomatic
+**Takeaway:** Stratified editing preserves raw ATR, diplomatic
 transcription, normalized tokens, and critical apparatus markup as distinct,
 reusable layers of scholarship.
 
@@ -477,7 +477,7 @@ To properly represent transpositions, digital editions must either use TEI
 Double-Endpoint Attachment (pointing to milestone anchors) or deploy the TEI
 `<transpose>` and `<ptr>` elements defined in the `transcr` module.
 
-**The takeaway for this page:** Parallel segmentation cannot linearly serialize
+**Takeaway:** Parallel segmentation cannot linearly serialize
 crossed graph edges, fragmenting complex transpositions into artificial additions and
 omissions.
 
@@ -539,7 +539,7 @@ def json_to_tei_app(collatex_json):
 Writing your own serializer gives you total control over attribute injection,
 namespace management, and schema compliance.
 
-**The takeaway for this page:** Custom Python serialization of CollateX JSON data
+**Takeaway:** Custom Python serialization of CollateX JSON data
 enables editors to inject project-specific lemma rules, metadata attributes, and
 advanced XML structures.
 
@@ -583,7 +583,7 @@ This automated two-pass architecture eliminates the massive manual labor of
 inventing and maintaining hundreds of anchor identifiers, making Double-Endpoint
 Attachment practical for large-scale corpora.
 
-**The takeaway for this page:** Algorithmic two-pass serialization enables automated
+**Takeaway:** Algorithmic two-pass serialization enables automated
 generation of Double-Endpoint Attachment markup without the tedious manual overhead
 of hand-coding anchor IDs.
 
@@ -619,7 +619,7 @@ However, schema validation alone is insufficient for critical editions. A docume
 can be one hundred percent schema-valid while containing catastrophic philological
 and referential errors.
 
-**The takeaway for this page:** Schema validation using Relax NG guarantees syntax
+**Takeaway:** Schema validation using Relax NG guarantees syntax
 well-formedness and TEI structural compliance, serving as the first quality gate.
 
 ---
@@ -663,7 +663,7 @@ philological constraints:
 Running Schematron validation via Python or `xmllint` guarantees that typos in
 manuscript sigla are caught automatically during continuous integration.
 
-**The takeaway for this page:** Schematron rules enforce deep referential integrity,
+**Takeaway:** Schematron rules enforce deep referential integrity,
 guaranteeing that every cited witness siglum resolves to a valid entry in the TEI
 witness catalogue.
 
@@ -698,7 +698,7 @@ TEI Critical Apparatus Toolbox Core Modules:
 For digital editors, the Toolbox serves as an indispensable bridge between raw XML
 markup and publishable scholarly interfaces.
 
-**The takeaway for this page:** The TEI Critical Apparatus Toolbox provides an
+**Takeaway:** The TEI Critical Apparatus Toolbox provides an
 integrated environment for auditing witness consistency, transforming apparatus
 views, and publishing dynamic editions.
 
@@ -731,7 +731,7 @@ The Toolbox consistency checker parses the entire `<text>` stream against the
 This diagnostic report instantly pinpoints omissions, enabling the editorial team to
 re-examine the manuscript facsimiles and rectify the data before publication.
 
-**The takeaway for this page:** The Toolbox's consistency checker detects
+**Takeaway:** The Toolbox's consistency checker detects
 unintentional witness omissions at variation units, preventing silent data loss.
 
 ---
@@ -768,7 +768,7 @@ This flexibility proves that the digital apparatus is not a static document, but
 computational database from which infinite specialized presentations can be
 generated (Burnard, 2014).
 
-**The takeaway for this page:** A single TEI Parallel Segmentation file can be
+**Takeaway:** A single TEI Parallel Segmentation file can be
 dynamically transformed into positive apparatuses, negative apparatuses, or
 complete diplomatic witness reconstructions.
 
@@ -800,7 +800,7 @@ Furthermore, the Toolbox provides a side-by-side visualization showing how norma
 tokens align with their underlying diplomatic manuscript facsimiles, providing
 complete transparency during editorial review (Camps, Ing, & Spadini, 2019).
 
-**The takeaway for this page:** The Toolbox prepares raw TEI transcriptions for
+**Takeaway:** The Toolbox prepares raw TEI transcriptions for
 CollateX by extracting clean normalized or diplomatic token streams.
 
 ---
@@ -835,7 +835,7 @@ Automated validation scripts must parse all milestone pairs and confirm that eve
 `<lacunaStart>` has exactly one corresponding `<lacunaEnd>` with matching `@wit`
 attributes.
 
-**The takeaway for this page:** Automated validation of lacuna state machines ensures
+**Takeaway:** Automated validation of lacuna state machines ensures
 that physically damaged manuscripts are accurately excluded from statistical
 collation metrics without false omission warnings.
 
@@ -883,7 +883,7 @@ This automated clustering eliminates hundreds of hours of manual markup while
 ensuring absolute consistency in how variation hierarchies are modeled across
 massive corpora (Camps, Ing, & Spadini, 2019).
 
-**The takeaway for this page:** Deterministic string-distance algorithms and
+**Takeaway:** Deterministic string-distance algorithms and
 morphological rules can automatically organize flat CollateX output into hierarchical
 `<rdgGrp>` structures.
 
@@ -922,7 +922,7 @@ where the algorithm failed to match human judgement, it was almost always due to
 complex multi-word transpositions or un-normalized phonetic spellings (Haentjens
 Dekker & Middell, 2011).
 
-**The takeaway for this page:** Benchmarking automated apparatuses against manual
+**Takeaway:** Benchmarking automated apparatuses against manual
 ground truth quantifies algorithmic precision and pinpoints systematic collation
 edge cases.
 
@@ -960,7 +960,7 @@ medieval texts; in modern genetic criticism, it provides the only scalable means
 map the non-linear development of an author's thought across decades of revision
 (Haentjens Dekker et al., 2015).
 
-**The takeaway for this page:** The Beckett Digital Manuscript Project proves that
+**Takeaway:** The Beckett Digital Manuscript Project proves that
 CollateX-driven TEI apparatuses are vital for mapping complex genetic draft
 revisions in modern literature.
 
@@ -995,7 +995,7 @@ commentator quoted a specific variant reading of Augustine, linking the TEI text
 directly to high-resolution manuscript images served via the International Image
 Interoperability Framework (IIIF) (Witt, 2018).
 
-**The takeaway for this page:** The SCTA transforms TEI apparatus markup into Linked
+**Takeaway:** The SCTA transforms TEI apparatus markup into Linked
 Open Data, connecting variant readings to global SPARQL endpoints and IIIF image
 canvases.
 
@@ -1031,7 +1031,7 @@ lacuna, the error ripples through thousands of statistical calculations. Strict
 deterministic validation is the absolute prerequisite for mathematical stemmatology
 (Mink, 2004).
 
-**The takeaway for this page:** The INTF data pipeline proves that rigorous
+**Takeaway:** The INTF data pipeline proves that rigorous
 deterministic validation of TEI apparatus XML is essential for calculating accurate
 genealogical coherence in the CBGM.
 
@@ -1073,7 +1073,7 @@ Running this pipeline guarantees that whenever a transcription typo is corrected
 an underlying manuscript file, the entire critical apparatus is re-collated,
 re-serialized, and re-validated in seconds.
 
-**The takeaway for this page:** An automated build pipeline links tokenization,
+**Takeaway:** An automated build pipeline links tokenization,
 CollateX alignment, TEI serialization, and validation into a fully reproducible
 editorial workflow.
 
@@ -1111,7 +1111,7 @@ Corrected Pipeline:  Punctuation stripped during Phase 2 (Normalization)
 Anticipating these failure modes allows editors to refine upstream normalization
 rules rather than attempting to fix exported XML by hand.
 
-**The takeaway for this page:** Upstream tokenization glitches and alignment drift
+**Takeaway:** Upstream tokenization glitches and alignment drift
 are the primary causes of malformed apparatus entries in automated collation.
 
 ---
@@ -1146,7 +1146,7 @@ Adhering strictly to this debugging protocol maintains the core principle of
 reproducible digital scholarship: the generated apparatus is a deterministic
 artifact of the code and transcriptions, not an artisanal hand-edited document.
 
-**The takeaway for this page:** Always debug automated apparatus errors by correcting
+**Takeaway:** Always debug automated apparatus errors by correcting
 upstream tokenization and normalization rules rather than hand-patching generated
 XML.
 
@@ -1180,7 +1180,7 @@ Test Suite** consisting of three files:
 On Friday, you will feed these datasets into state-of-the-art language models and
 rigorously benchmark their generative output against your deterministic baseline.
 
-**The takeaway for this page:** Today's validated CollateX XML and alignment tables
+**Takeaway:** Today's validated CollateX XML and alignment tables
 form the deterministic baseline for Friday's AI evaluation experiments.
 
 ---
@@ -1214,7 +1214,7 @@ With your deterministic baseline securely established and validated, you are ful
 equipped to test the capabilities and perils of artificial intelligence in Friday's
 investigation.
 
-**The takeaway for this page:** Deterministic CollateX collation combined with
+**Takeaway:** Deterministic CollateX collation combined with
 Schematron validation delivers high-speed, mathematically reproducible TEI
 apparatuses, establishing the baseline for AI evaluation.
 

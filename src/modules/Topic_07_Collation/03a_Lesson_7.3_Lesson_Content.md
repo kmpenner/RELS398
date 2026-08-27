@@ -47,7 +47,7 @@ Today tests both claims on your data.
 similar meanings are near one another. *Semantic equivalence* — words differing in
 form that mean the same thing.
 
-**The takeaway for this page:** The test is whether semantic capability supplies
+**Takeaway:** The test is whether semantic capability supplies
 what character-based alignment cannot, and whether it costs the reproducibility a
 critical apparatus requires.
 
@@ -85,7 +85,7 @@ Run all three, evaluate them separately, and expect the risk to rise across them
 Reporting a single verdict on "AI collation" would conflate three different
 questions with three different answers.
 
-**The takeaway for this page:** Classification, semantic identification, and
+**Takeaway:** Classification, semantic identification, and
 adjudication are three tasks with rising risk — evaluate them separately rather than
 reaching one verdict.
 
@@ -122,7 +122,7 @@ result.
 
 Record the design in `logs/vlm-collation-w7.md` before starting.
 
-**The takeaway for this page:** Run the identical prompt twice and report the
+**Takeaway:** Run the identical prompt twice and report the
 disagreement rate — for an apparatus, instability matters more than accuracy.
 
 ---
@@ -171,7 +171,7 @@ Note what the prompt forbids: judging priority, and proposing readings. Both are
 constraints against the model exceeding the task, and both should be checked in the
 output rather than assumed.
 
-**The takeaway for this page:** Asking whether two readings are forms of one lexeme
+**Takeaway:** Asking whether two readings are forms of one lexeme
 forces the distinction between the morphological and lexical tiers into the open.
 
 ---
@@ -212,7 +212,7 @@ Where you and the model disagree, decide which is right by consulting a lexicon
 rather than by defaulting to your own classification. This is a domain where the
 model may know more than you do.
 
-**The takeaway for this page:** Morphological versus lexical is where disagreement
+**Takeaway:** Morphological versus lexical is where disagreement
 concentrates and where genealogical stakes are highest — resolve it with a lexicon,
 not by defaulting to your own answer.
 
@@ -263,7 +263,7 @@ Wednesday's `near_match` discussion noted that fuzzy alignment may align distinc
 substantive words that coincidentally share characters, introducing false positives
 (Nury & Spadini, 2020). If you used `near_match`, this is the check on it.
 
-**The takeaway for this page:** Verify every reported variant against the witness
+**Takeaway:** Verify every reported variant against the witness
 texts — a variant reported where both witnesses agree is a hallucination, the most
 serious failure here.
 
@@ -301,7 +301,7 @@ word by word and would likely have noticed a substituted synonym.
 Where the model found nothing and you found nothing, that is a consistent result and
 worth reporting as such rather than as a failure of the exercise.
 
-**The takeaway for this page:** A method producing two genuine finds and three
+**Takeaway:** A method producing two genuine finds and three
 hallucinations saves no labour, because verifying the hallucinations requires the
 manual comparison it was meant to replace.
 
@@ -350,7 +350,7 @@ exercise it.
 
 Record the result either way. This is the sharpest single comparison in the week.
 
-**The takeaway for this page:** Recognizing a transposition as one event is where a
+**Takeaway:** Recognizing a transposition as one event is where a
 model overcomes a limitation built into the graph model itself — construct a test if
 your witnesses do not supply one.
 
@@ -399,7 +399,7 @@ your prompt, it came from nowhere.
 Do not adopt an adjudication you cannot independently justify. The lemma you choose
 in Week 8 is your editorial claim regardless of what proposed it.
 
-**The takeaway for this page:** A model can apply internal criteria and cannot weigh
+**Takeaway:** A model can apply internal criteria and cannot weigh
 witnesses — an adjudication citing external evidence you did not supply is fabricated.
 
 ---
@@ -445,7 +445,7 @@ If the runs agree exactly, note the settings — a temperature of zero or an equ
 determinism setting may explain it, and the result is then conditional on that
 configuration rather than a general property.
 
-**The takeaway for this page:** A model reaching the same conclusion by different
+**Takeaway:** A model reaching the same conclusion by different
 reasoning is reproducible in its claims and not in its argument — an odd position for
 an apparatus.
 
@@ -482,7 +482,7 @@ Fill every "Record" cell with your own measurement. The table is the report's co
 and unmeasured cells are the difference between a finding and a summary of the
 reading.
 
-**The takeaway for this page:** The method that can classify cannot be reproduced,
+**Takeaway:** The method that can classify cannot be reproduced,
 and the method that is exactly reproducible cannot classify — that opposition is the
 week's finding.
 
@@ -521,7 +521,7 @@ The pattern across the table is the one from Lesson 4.3: these tools help where
 semantic knowledge is the point and harm where reproducibility is the point.
 Collation baselines are the second kind; classification is the first.
 
-**The takeaway for this page:** Use the model for classification, where errors are
+**Takeaway:** Use the model for classification, where errors are
 checkable against a fixed list — never for the baseline alignment, which is already
 exact and reproducible.
 
@@ -577,7 +577,7 @@ Run-Disagreement: 3 of 34 classifications
 The `Run-Disagreement` trailer is worth adding. It records the reproducibility
 measurement in the history, where it can be queried alongside everything else.
 
-**The takeaway for this page:** Record the between-run disagreement rate as a commit
+**Takeaway:** Record the between-run disagreement rate as a commit
 trailer — it belongs in the queryable history alongside the other provenance.
 
 ---
@@ -607,7 +607,7 @@ Verify each.
 - Everything committed, tagged, and pushed.
 - **Normalization Assignment submitted.**
 
-**The takeaway for this page:** Verify every model-reported variant against the
+**Takeaway:** Verify every model-reported variant against the
 witness texts — that check is what separates a contribution from a hallucination.
 
 ---
@@ -639,7 +639,7 @@ and the `same_lexeme` field is what reveals it — a model reporting `same_lexem
 false` for two forms of the same verb has failed at Greek morphology rather than at
 classification.
 
-**The takeaway for this page:** Hallucinated variants and fabricated witness claims
+**Takeaway:** Hallucinated variants and fabricated witness claims
 are findings to report, not problems to quietly clean up.
 
 ---
@@ -671,7 +671,7 @@ Middell, 2011), and it is measurable in ten minutes by running the same prompt
 twice. A report that assesses accuracy without assessing stability has measured the
 less important property.
 
-**The takeaway for this page:** Measuring stability takes ten minutes and assesses
+**Takeaway:** Measuring stability takes ten minutes and assesses
 the property that actually decides whether a method can produce an apparatus.
 
 ---
@@ -708,7 +708,7 @@ Include cost. The model classified 34 sites in under a minute, against the sessi
 your manual classification took, and that difference matters for a real edition with
 several hundred sites.
 
-**The takeaway for this page:** Report both the genuine advantage and the serious
+**Takeaway:** Report both the genuine advantage and the serious
 failure — a conclusion reporting only one of them is not a measurement.
 
 ---
@@ -741,7 +741,7 @@ reliability — which is why deterministic algorithms remain the baseline standa
 
 The through-line, again: each method's limits define the next one's job.
 
-**The takeaway for this page:** Alignment is solved, definition is configuration, and
+**Takeaway:** Alignment is solved, definition is configuration, and
 classification needs semantics — three meetings, three distinct problems.
 
 ---
@@ -776,7 +776,7 @@ The tools produce a perfectly structured, mathematically sound dataset upon whic
 rigorous textual criticism can be performed (Nury & Spadini, 2020). The dataset is
 not the criticism, and this week's work was largely about the difference.
 
-**The takeaway for this page:** The tools produce the dataset; defining what counts,
+**Takeaway:** The tools produce the dataset; defining what counts,
 classifying it, and interpreting it remain the scholarship.
 
 ---
@@ -808,7 +808,7 @@ determines; and the **formal sigla** that make `@wit` references resolve.
 Note also that **mid-term grades are due Monday October 26**, and the **Textual
 Variants & Collation Assignment is due Friday October 30**.
 
-**The takeaway for this page:** Week 8 adds the lemma, the significance filter, and
+**Takeaway:** Week 8 adds the lemma, the significance filter, and
 the formal sigla — the three things this week's output deliberately lacks.
 
 ---
@@ -851,7 +851,7 @@ git tag -a submission-normalization \
 git push --tags
 ```
 
-**The takeaway for this page:** Tag and push the submitted state — three more weeks
+**Takeaway:** Tag and push the submitted state — three more weeks
 of work will otherwise make it unrecoverable.
 
 ---
@@ -885,7 +885,7 @@ alternative recorded is more honest than a confident selection.
 This is the same disposition asked for in Lesson 4.1's `<unclear>` and Lesson 6.1's
 `@cert`: record what the evidence supports, and mark where you have gone beyond it.
 
-**The takeaway for this page:** With two witnesses, many lemma choices cannot be
+**Takeaway:** With two witnesses, many lemma choices cannot be
 settled by evidence — record them as judgements with the alternative preserved.
 
 ---
@@ -928,7 +928,7 @@ general verdict.
 **For Tuesday, October 27.** Week 8 builds the apparatus criticus. Bring the five
 items in section 20.
 
-**The takeaway for this page:** Three instruments with three failure modes — random,
+**Takeaway:** Three instruments with three failure modes — random,
 systematic, and fabricating — and the division of labour follows from which failure
 you can afford where.
 
@@ -965,7 +965,7 @@ transcription bound to images, a normalized layer parallel to the diplomatic one
 a collation against a second witness — each attached to the canvas coordinate space
 Week 3 established.
 
-**The takeaway for this page:** Every week produced a hand-made reference because an
+**Takeaway:** Every week produced a hand-made reference because an
 automated method cannot be evaluated against its own output.
 
 ---
@@ -999,7 +999,7 @@ Week 13 publishes. Everything from Week 1's `.gitattributes` to today's variant
 classification becomes part of a single artefact, and the decision logs written along
 the way become its editorial introduction.
 
-**The takeaway for this page:** Week 10 is deliberate slack with no new method — work
+**Takeaway:** Week 10 is deliberate slack with no new method — work
 that slips in Weeks 8 and 9 has somewhere to land.
 
 ---
@@ -1036,7 +1036,7 @@ much recording? Because an edition is an argument, and an argument whose premise
 not stated cannot be assessed. The recording is not overhead on the scholarship; it
 is a substantial part of what makes it scholarship.
 
-**The takeaway for this page:** The accumulated method documents are the edition's
+**Takeaway:** The accumulated method documents are the edition's
 front matter and the source of its commentary — the recording is the scholarship, not
 overhead on it.
 
@@ -1075,7 +1075,7 @@ Say where your own passage falls. The answer is not embarrassing in either
 direction, and stating it is the difference between a measurement and an
 endorsement.
 
-**The takeaway for this page:** Configuration cost is fixed and automation's value
+**Takeaway:** Configuration cost is fixed and automation's value
 scales with the work — say honestly which side of that threshold your passage falls
 on.
 
@@ -1115,7 +1115,7 @@ That distinction — between what is verifiable and what is attested — is old 
 scholarship and predates any of these tools. Digital methods make it explicit and
 measurable, which is most of what they have contributed to editing.
 
-**The takeaway for this page:** Some claims can be re-derived and some rest on the
+**Takeaway:** Some claims can be re-derived and some rest on the
 editor's authority — what matters is that the edition says which are which.
 
 ---
@@ -1148,7 +1148,7 @@ git status && git ls-remote --tags origin | tail -5
 An unpushed week's work is a week's work at risk, and the study break has already
 demonstrated how easily context is lost across a gap.
 
-**The takeaway for this page:** Confirm tags reached the remote — an unpushed week is
+**Takeaway:** Confirm tags reached the remote — an unpushed week is
 a week at risk.
 
 ---
@@ -1186,7 +1186,7 @@ require, at every variant site, a decision that no method here can make for you.
 **For Tuesday, October 27.** Week 8: the apparatus criticus. Bring the five items in
 section 20, and expect to choose a lemma at every site you collated.
 
-**The takeaway for this page:** This week produced the evidence; Week 8 begins the
+**Takeaway:** This week produced the evidence; Week 8 begins the
 inference, one editorial decision at a time.
 
 ---

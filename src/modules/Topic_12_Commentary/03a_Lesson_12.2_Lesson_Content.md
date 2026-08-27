@@ -20,7 +20,7 @@ The computational turn in textual scholarship addresses this limitation through 
 
 **Vocabulary.** *Intertextuality* — the relational interdependence of literary texts, whereby a work incorporates, echoes, or transforms preceding texts. *Text reuse* — the verbatim or near-verbatim reappearance of text passages across different documents or authors. *Canonical bias* — the tendency of scholars to search for and identify allusions only in famous, highly visible works.
 
-**The takeaway for this page:** Deterministic algorithms eliminate human memory bottlenecks and canonical bias by scanning massive historical corpora systematically for textual reuse.
+**Takeaway:** Deterministic algorithms eliminate human memory bottlenecks and canonical bias by scanning massive historical corpora systematically for textual reuse.
 
 ---
 
@@ -45,7 +45,7 @@ To capture authentic literary borrowing, deterministic algorithms must abstract 
 
 **Vocabulary.** *Surface form* — the exact orthographic string of a word as it appears written in a text. *Inflection* — the modification of a word to express grammatical categories such as tense, case, voice, or number. *Bag-of-words* — a computational text representation that models a passage as an unordered collection of words.
 
-**The takeaway for this page:** Deterministic intertextual discovery requires abstracting inflected surface words into standardized lemmas to detect shared vocabulary across grammatical variations.
+**Takeaway:** Deterministic intertextual discovery requires abstracting inflected surface words into standardized lemmas to detect shared vocabulary across grammatical variations.
 
 ---
 
@@ -70,7 +70,7 @@ If two poetic passages share the common conjunction *et* ("and") and the preposi
 
 **Vocabulary.** *Tesserae* — an open-source computational tool for discovering intertextual parallels across classical Greek and Latin corpora. *Inverted index* — a database data structure mapping words to their exact storage locations across a document corpus. *Candidate pair* — a pair of passages from two different texts that satisfy minimum lexical overlap criteria.
 
-**The takeaway for this page:** Tesserae discovers classical allusions by identifying pairs of texts that share rare lemmas clustered in close syntactic proximity.
+**Takeaway:** Tesserae discovers classical allusions by identifying pairs of texts that share rare lemmas clustered in close syntactic proximity.
 
 ---
 
@@ -95,7 +95,7 @@ Once tokenized and decomposed, every word is mapped to its dictionary lemma usin
 
 **Vocabulary.** *Enclitic* — a grammatically dependent word that attaches phonologically and orthographically to the preceding word. *Lemmatization* — the algorithmic process of grouping together inflected forms of a word so they can be analyzed as a single item. *Stopword* — a high-frequency function word filtered out or downweighted during information retrieval.
 
-**The takeaway for this page:** Textual preprocessing strips punctuation, separates enclitics, and resolves inflected words to lemmas to prepare corpora for algorithmic cross-comparison.
+**Takeaway:** Textual preprocessing strips punctuation, separates enclitics, and resolves inflected words to lemmas to prepare corpora for algorithmic cross-comparison.
 
 ---
 
@@ -123,7 +123,7 @@ Taking the natural logarithm ($\ln$) scales the final output into an intuitive n
 
 **Vocabulary.** *Scoring metric* — a mathematical function that assigns a quantitative value to an item to rank its relevance or quality. *Phrase density* — the spatial concentration or proximity of matching tokens within a given text window. *Natural logarithm ($\ln$)* — the logarithm to the base $e$, used to scale exponential growth into linear distributions.
 
-**The takeaway for this page:** The Tesserae scoring metric assigns high numerical values to rare shared words clustered closely together, elevating significant allusions above background noise.
+**Takeaway:** The Tesserae scoring metric assigns high numerical values to rare shared words clustered closely together, elevating significant allusions above background noise.
 
 ---
 
@@ -148,7 +148,7 @@ This statistical weighting models the subconscious intuition of the expert human
 
 **Vocabulary.** *TF-IDF* — Term Frequency-Inverse Document Frequency; a numerical statistic reflecting how important a word is to a document within a corpus. *Zipf's Law* — an empirical law stating that the frequency of any word is inversely proportional to its rank in the frequency table. *Lexical signature* — a distinctive combination of rare words characteristic of a specific author or passage.
 
-**The takeaway for this page:** Inverted frequency weighting computationally mirrors human philological intuition by suppressing high-frequency function words and elevating distinctive lexical signatures.
+**Takeaway:** Inverted frequency weighting computationally mirrors human philological intuition by suppressing high-frequency function words and elevating distinctive lexical signatures.
 
 ---
 
@@ -175,7 +175,7 @@ Furthermore, modern adaptations of the algorithm implement sliding window cutoff
 
 **Vocabulary.** *Phrase density* — the compact grouping of matching words within a short textual window. *Distance divisor* — the denominator in the scoring formula that penalizes widely separated words. *Sliding window* — a constrained token range moved progressively across a text to analyze local contextual features.
 
-**The takeaway for this page:** Distance-based scoring penalizes diffuse word co-occurrences and rewards tight phrase density, capturing the compact acoustic nature of literary allusions.
+**Takeaway:** Distance-based scoring penalizes diffuse word co-occurrences and rewards tight phrase density, capturing the compact acoustic nature of literary allusions.
 
 ---
 
@@ -205,7 +205,7 @@ The digital editor’s responsibility is to tune these parameters methodically, 
 
 **Vocabulary.** *Precision* — the fraction of retrieved instances that are relevant. *Recall* — the fraction of relevant instances that are retrieved. *True positive* — a genuine literary allusion correctly identified by the algorithm. *False positive* — a coincidence of common words incorrectly flagged as an allusion.
 
-**The takeaway for this page:** Editors must deliberately calibrate score thresholds to balance high recall (capturing subtle echoes) against high precision (filtering out coincidental noise).
+**Takeaway:** Editors must deliberately calibrate score thresholds to balance high recall (capturing subtle echoes) against high precision (filtering out coincidental noise).
 
 ---
 
@@ -230,7 +230,7 @@ Furthermore, deterministic matching provides completely objective, reproducible 
 
 **Vocabulary.** *Formulaic repetition* — the standardized repetition of set phrases, epithets, or half-lines characteristic of oral and epic poetry. *Sub-canonical author* — a historical author not included in the traditional literary canon. *Reproducibility* — the capacity of an experiment or computational procedure to be replicated exactly by other researchers.
 
-**The takeaway for this page:** Deterministic tools excel at surfacing verbatim loans, formulaic repetitions, and obscure borrowings from sub-canonical literature that human readers miss.
+**Takeaway:** Deterministic tools excel at surfacing verbatim loans, formulaic repetitions, and obscure borrowings from sub-canonical literature that human readers miss.
 
 ---
 
@@ -262,7 +262,7 @@ Deterministic algorithms detect *lexical overlap*; they do not understand *meani
 
 **Vocabulary.** *Synonymic substitution* — alluding to a source text by replacing key words with semantic equivalents or synonyms. *Metapoetics* — poetry that reflects upon the nature and composition of poetry itself. *Cross-linguistic allusion* — an allusion that translates or adapts a passage from another language.
 
-**The takeaway for this page:** Deterministic algorithms are blind to synonymic substitutions, structural parodies, cross-linguistic translations, and thematic resonances that lack shared lemmas.
+**Takeaway:** Deterministic algorithms are blind to synonymic substitutions, structural parodies, cross-linguistic translations, and thematic resonances that lack shared lemmas.
 
 ---
 
@@ -287,7 +287,7 @@ Most importantly, students frequently discover at least one or two genuine, surp
 
 **Vocabulary.** *Audit matrix* — a structured grid used to evaluate the performance of an algorithm against a known reference standard. *Heuristic* — a practical problem-solving approach or rule-of-thumb that aids in discovery but does not guarantee optimal theoretical proof. *Human-in-the-loop (HITL)* — a system architecture where human judgment actively guides, verifies, and refines automated algorithmic outputs.
 
-**The takeaway for this page:** Auditing algorithmic output against manual ground truth reveals that algorithms function as powerful heuristic discovery engines requiring human critical vetting.
+**Takeaway:** Auditing algorithmic output against manual ground truth reveals that algorithms function as powerful heuristic discovery engines requiring human critical vetting.
 
 ---
 
@@ -309,7 +309,7 @@ The W3C standard externalizes commentary into standalone, web-native **Linked Op
 
 **Vocabulary.** *W3C Web Annotation Data Model (WADM)* — the official W3C Recommendation specifying a structured data model and ontology for web annotations. *JSON-LD* — JavaScript Object Notation for Linked Data; a lightweight syntax for encoding RDF graphs in JSON. *First-class citizen* — an entity that supports all operations generally available to other entities, such as having a persistent URI and independent addressability.
 
-**The takeaway for this page:** The W3C Web Annotation Data Model transforms commentary from document-internal XML into independent, web-native Linked Open Data graphs.
+**Takeaway:** The W3C Web Annotation Data Model transforms commentary from document-internal XML into independent, web-native Linked Open Data graphs.
 
 ---
 
@@ -346,7 +346,7 @@ This clean, relational separation ensures that annotations are completely decoup
 
 **Vocabulary.** *Body* — the payload or interpretive content of an annotation in the WADM. *Target* — the resource or specific region of a resource being annotated in the WADM. *Tripartite graph* — a network structure consisting of three distinct classes of interconnected nodes.
 
-**The takeaway for this page:** The W3C Web Annotation model structures commentary into three decoupled components: the Annotation metadata node, the interpretive Body, and the targeted Text.
+**Takeaway:** The W3C Web Annotation model structures commentary into three decoupled components: the Annotation metadata node, the interpretive Body, and the targeted Text.
 
 ---
 
@@ -402,7 +402,7 @@ JSON-LD allows web applications to parse annotations effortlessly using standard
 
 **Vocabulary.** *JSON-LD* — a JSON-based format to serialize Linked Data. `@context` — the JSON-LD keyword defining the mapping from JSON keys to RDF ontology URIs. *ORCID* — Open Researcher and Contributor ID; a persistent digital identifier for scholars.
 
-**The takeaway for this page:** JSON-LD serializes W3C Web Annotations into standard web-native objects that combine developer simplicity with semantic RDF graph power.
+**Takeaway:** JSON-LD serializes W3C Web Annotations into standard web-native objects that combine developer simplicity with semantic RDF graph power.
 
 ---
 
@@ -430,7 +430,7 @@ By explicitly declaring motivations, digital edition platforms can programmatica
 
 **Vocabulary.** *Motivation* — the W3C property explicitly declaring the intent or reason why an annotation was created. *Semantic filtering* — querying and displaying data based on the declared meaning and intent of its attributes.
 
-**The takeaway for this page:** The W3C motivation taxonomy (`commenting`, `identifying`, `linking`, `classifying`) formally declares scholarly intent, enabling multi-layered interface filtering.
+**Takeaway:** The W3C motivation taxonomy (`commenting`, `identifying`, `linking`, `classifying`) formally declares scholarly intent, enabling multi-layered interface filtering.
 
 ---
 
@@ -459,7 +459,7 @@ To ensure that scholarly commentary endures across website redesigns and text re
 
 **Vocabulary.** *Orphaned annotation* — an annotation whose target anchor can no longer be resolved in the source document due to edits. *DOM (Document Object Model)* — the tree structure representation of an HTML document created by a web browser. *Dynamic rendering* — generating webpage content client-side using JavaScript rather than static HTML files.
 
-**The takeaway for this page:** Dynamic web environments cause brittle character offsets and DOM paths to break; resilient web commentary requires robust multi-layered selectors.
+**Takeaway:** Dynamic web environments cause brittle character offsets and DOM paths to break; resilient web commentary requires robust multi-layered selectors.
 
 ---
 
@@ -494,7 +494,7 @@ Why this architecture is exceptionally resilient:
 
 **Vocabulary.** *TextQuoteSelector* — a W3C selector that identifies a text target using an exact string paired with prefix and suffix context strings. *Contextual triangulation* — using surrounding text strings to uniquely locate a target among identical word occurrences. *Fuzzy matching* — algorithmic string matching that tolerates minor misspellings or character edits.
 
-**The takeaway for this page:** The `TextQuoteSelector` ensures anchor survival across website redesigns by storing exact target strings bounded by prefix and suffix context windows.
+**Takeaway:** The `TextQuoteSelector` ensures anchor survival across website redesigns by storing exact target strings bounded by prefix and suffix context windows.
 
 ---
 
@@ -535,7 +535,7 @@ By combining positional and media fragment selectors, a digital edition can link
 
 **Vocabulary.** *TextPositionSelector* — a W3C selector recording start and end Unicode code point character offsets. *FragmentSelector* — a W3C selector targeting spatial bounding boxes or temporal intervals in media. *Media Fragments* — W3C standard for addressing sub-regions of images, audio, and video via URI syntax.
 
-**The takeaway for this page:** Positional and fragment selectors provide high-speed character indexing and multi-modal spatial anchoring to IIIF manuscript images.
+**Takeaway:** Positional and fragment selectors provide high-speed character indexing and multi-modal spatial anchoring to IIIF manuscript images.
 
 ---
 
@@ -579,7 +579,7 @@ This multi-tiered selector cascade guarantees maximum durability: annotations lo
 
 **Vocabulary.** *Selector chain* — a compound W3C selector combining multiple selection strategies to establish robust fallback resolution. *Resolution cascade* — a prioritized sequence of fallback attempts executed by an annotation client to locate a target. *Graceful degradation* — the ability of a computer system to maintain functionality when certain components fail.
 
-**The takeaway for this page:** Selector chains combine fast DOM/positional lookups with resilient text-quote context matching to provide robust, fail-safe web anchoring.
+**Takeaway:** Selector chains combine fast DOM/positional lookups with resilient text-quote context matching to provide robust, fail-safe web anchoring.
 
 ---
 
@@ -604,7 +604,7 @@ Because Recogito natively exports W3C JSON-LD and RDF Turtle graphs, annotations
 
 **Vocabulary.** *Recogito* — an open-source web platform for semantic annotation of text and images, developed by the Pelagios Network. *Pelagios Network* — an international digital humanities collective connecting historical geographic data across online resources. *Turtle (Terse RDF Triple Language)* — a compact, human-readable serialization format for RDF graphs.
 
-**The takeaway for this page:** Recogito 2 demonstrates how intuitive graphical interfaces can generate standards-compliant W3C Web Annotations aligned with global gazetteers.
+**Takeaway:** Recogito 2 demonstrates how intuitive graphical interfaces can generate standards-compliant W3C Web Annotations aligned with global gazetteers.
 
 ---
 
@@ -632,7 +632,7 @@ Because Pundit outputs standard Open Annotation / W3C Linked Data, the resulting
 
 **Vocabulary.** *Pundit* — an open-source semantic web annotation tool allowing users to build structured RDF triple annotations on web documents. *RDF triple* — a foundational data entity in the Semantic Web composed of a subject, predicate, and object. *SemLib* — the Semantic Digital Libraries project that pioneered early linked open annotation tools.
 
-**The takeaway for this page:** Net7 Pundit formalizes commentary into machine-readable RDF triples, bridging textual notes with global semantic knowledge graphs.
+**Takeaway:** Net7 Pundit formalizes commentary into machine-readable RDF triples, bridging textual notes with global semantic knowledge graphs.
 
 ---
 
@@ -657,7 +657,7 @@ Furthermore, because Hypothes.is exposes a robust RESTful API, developers can wr
 
 **Vocabulary.** *Hypothes.is* — an open-source platform providing a standards-compliant collaborative annotation layer for the web. *Client-side injection* — adding functionality to a webpage dynamically in the user's browser using JavaScript. *REST API* — an Application Programming Interface adhering to representational state transfer principles for data exchange.
 
-**The takeaway for this page:** Hypothes.is provides an open, collaborative web annotation layer that implements W3C standards and connects directly to digital edition workflows via REST APIs.
+**Takeaway:** Hypothes.is provides an open, collaborative web annotation layer that implements W3C standards and connects directly to digital edition workflows via REST APIs.
 
 ---
 
@@ -689,7 +689,7 @@ They developed semi-automated tools to extract thousands of scholarly references
 
 **Vocabulary.** *FRBRoo* — an object-oriented ontology combining the Functional Requirements for Bibliographic Records with CIDOC CRM. *DoCO* — Document Components Ontology; an ontology describing the structural parts of documents. *Knowledge graph* — a programmatic network of real-world entities and their semantic relationships stored as linked data.
 
-**The takeaway for this page:** DanteSources illustrates how integrating formal ontologies (FRBRoo, DoCO, CiTO) transforms traditional narrative commentary into queryable knowledge graphs.
+**Takeaway:** DanteSources illustrates how integrating formal ontologies (FRBRoo, DoCO, CiTO) transforms traditional narrative commentary into queryable knowledge graphs.
 
 ---
 
@@ -731,7 +731,7 @@ SPARQL transforms digital editions from passive reading sites into computational
 
 **Vocabulary.** *SPARQL* — the standard query language for retrieving and manipulating data stored in Resource Description Framework (RDF) format. *Distant reading* — computational analysis of large textual corpora without reading individual texts linearly. *Triplestore* — a specialized graph database optimized for storing and querying RDF triples.
 
-**The takeaway for this page:** SPARQL queries allow researchers to execute relational, distant-reading analyses across linked intertextual commentary networks.
+**Takeaway:** SPARQL queries allow researchers to execute relational, distant-reading analyses across linked intertextual commentary networks.
 
 ---
 
@@ -757,7 +757,7 @@ Inspect the top 10 highest-scoring candidates returned by the algorithm. Note th
 
 **Vocabulary.** *Target text* — the primary text under analysis whose allusions are being investigated. *Source corpus* — the broader library of antecedent literature searched for potential model texts. *Score cutoff* — the minimum numerical score required for a candidate match to be included in results.
 
-**The takeaway for this page:** Running Tesserae with configured stoplists and distance cutoffs generates a scored, ranked list of candidate intertextual matches.
+**Takeaway:** Running Tesserae with configured stoplists and distance cutoffs generates a scored, ranked list of candidate intertextual matches.
 
 ---
 
@@ -789,7 +789,7 @@ Document these metrics in your lab notes. These figures provide the empirical ba
 
 **Vocabulary.** *Quantitative evaluation* — assessing performance through numerical metrics like precision, recall, and F1-score. *Formulaic noise* — non-allusive matches caused by recurring genre conventions or standard conversational formulas.
 
-**The takeaway for this page:** Evaluating candidate matches against manual ground truth produces quantitative precision and recall metrics that benchmark algorithmic efficiency.
+**Takeaway:** Evaluating candidate matches against manual ground truth produces quantitative precision and recall metrics that benchmark algorithmic efficiency.
 
 ---
 
@@ -853,7 +853,7 @@ Verify that your JSON-LD object:
 
 **Vocabulary.** *Multi-body annotation* — an annotation containing more than one body payload, such as combining textual prose with a semantic URI. *LOD conversion* — transforming document-internal markup into linked open data serializations.
 
-**The takeaway for this page:** Converting TEI stand-off notes into W3C JSON-LD creates multi-body, multi-selector web annotations ready for distributed semantic consumption.
+**Takeaway:** Converting TEI stand-off notes into W3C JSON-LD creates multi-body, multi-selector web annotations ready for distributed semantic consumption.
 
 ---
 
@@ -897,7 +897,7 @@ This round-trip verification demonstrates that your commentary is live on the op
 
 **Vocabulary.** *API token* — a secure credential used by software programs to authenticate requests to a web API. *Round-trip verification* — testing a workflow by publishing data to an external service and programmatically retrieving it back.
 
-**The takeaway for this page:** Deploying annotations to Hypothes.is and fetching them via REST APIs confirms live web interoperability and distributed accessibility.
+**Takeaway:** Deploying annotations to Hypothes.is and fetching them via REST APIs confirms live web interoperability and distributed accessibility.
 
 ---
 
@@ -923,7 +923,7 @@ The optimal digital humanities workflow does not choose between these standards;
 
 **Vocabulary.** *Editorial lifecycle* — the progression of a digital edition from transcription and collation to publication and long-term archiving. *Immutable* — unchanging over time or unable to be modified without creating a new version.
 
-**The takeaway for this page:** TEI stand-off XML provides optimal document archiving and version control, while W3C Web Annotations provide optimal web publication and linked open data integration.
+**Takeaway:** TEI stand-off XML provides optimal document archiving and version control, while W3C Web Annotations provide optimal web publication and linked open data integration.
 
 ---
 
@@ -945,7 +945,7 @@ Deterministic tools provide the *leads*; formal web annotations provide the *dis
 
 **For Friday:** Review the research report on Generative AI and LLM commentary generation; examine the epistemological hazards of citation hallucination, historical anachronism, and automation bias (Draxler et al., 2024; Lou et al., 2025; Tafdrup et al., 2026).
 
-**The takeaway for this page:** Deterministic discovery algorithms and W3C linked web annotations empower digital editors to surface, structure, and publish intertextual networks across the global Semantic Web.
+**Takeaway:** Deterministic discovery algorithms and W3C linked web annotations empower digital editors to surface, structure, and publish intertextual networks across the global Semantic Web.
 
 ---
 

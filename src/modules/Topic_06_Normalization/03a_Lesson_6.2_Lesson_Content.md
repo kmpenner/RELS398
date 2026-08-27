@@ -38,7 +38,7 @@ a stated procedure. *Finite-state transducer (FST)* — a formal machine mapping
 strings to output strings by state transitions. *Rule core* — a transformation
 pattern derived from aligned historical and modern forms.
 
-**The takeaway for this page:** Implementing the policy audits it — every place you
+**Takeaway:** Implementing the policy audits it — every place you
 cannot write a rule is imprecision, genuine context-dependence, or inconsistency.
 
 ---
@@ -77,7 +77,7 @@ The important property they share is **inspectability**. For any output, you can
 state which rule produced it. That is not true of the methods on Friday, and it is
 the reason today's baseline is not simply a weaker alternative.
 
-**The takeaway for this page:** For any rule-based output you can state which rule
+**Takeaway:** For any rule-based output you can state which rule
 produced it — an inspectability that Friday's methods do not have.
 
 ---
@@ -132,7 +132,7 @@ This is worth doing even though you already know your policy, because the derive
 rules may not match the policy you thought you were applying. A discrepancy means
 you applied something you did not state.
 
-**The takeaway for this page:** Derive rules from your own manual pairs — a
+**Takeaway:** Derive rules from your own manual pairs — a
 discrepancy with your stated policy means you were applying something unstated.
 
 ---
@@ -184,7 +184,7 @@ its precision will be poor.
 
 Commit the lexicon files as data alongside the script.
 
-**The takeaway for this page:** The standard-form set is what lets a rule check its
+**Takeaway:** The standard-form set is what lets a rule check its
 own output — without it, rules generate candidates they cannot filter.
 
 ---
@@ -245,7 +245,7 @@ Note that each rule is *named*. That name is what makes the output auditable: fo
 every regularization the script proposes, it can report which rule fired, which is
 exactly the transparency section 02 described.
 
-**The takeaway for this page:** Name every rule and require an explicit condition —
+**Takeaway:** Name every rule and require an explicit condition —
 the name makes output auditable and the condition stops the rule being destructive.
 
 ---
@@ -292,7 +292,7 @@ with it.
 Report the counts of all three. The distribution tells you how much of your text the
 rule method can actually decide.
 
-**The takeaway for this page:** Generate all candidates rather than taking the first
+**Takeaway:** Generate all candidates rather than taking the first
 match — ambiguity then surfaces as multiple candidates instead of being hidden by
 rule order.
 
@@ -344,7 +344,7 @@ Use this layer conservatively. It proposes candidates for forms your rules did n
 recognize, and its proposals need review — it is a suggestion mechanism, not a
 decision procedure.
 
-**The takeaway for this page:** Weight substitution costs by phonological
+**Takeaway:** Weight substitution costs by phonological
 plausibility — the weights are an editorial claim about the period's phonology and
 should be documented.
 
@@ -396,7 +396,7 @@ guessing would trade a visible failure for an invisible error.
 
 Save as `tools/normalize.py` and commit.
 
-**The takeaway for this page:** Every decision must carry its method and reason —
+**Takeaway:** Every decision must carry its method and reason —
 and where rules conflict, the script should decline rather than guess.
 
 ---
@@ -448,7 +448,7 @@ Report summary counts immediately:
 | Ambiguous, declined | Record |
 | Unresolved, no candidate | Record |
 
-**The takeaway for this page:** Have the script emit structured proposals rather
+**Takeaway:** Have the script emit structured proposals rather
 than modified XML — mixing machine and human decisions in one state destroys the
 comparison.
 
@@ -492,7 +492,7 @@ the remainder handled manually.
 
 Report both. A single accuracy figure conceals which failure mode you have.
 
-**The takeaway for this page:** High precision with low recall is useful; high
+**Takeaway:** High precision with low recall is useful; high
 recall with low precision is worse than useless — a single accuracy figure hides
 which you have.
 
@@ -528,7 +528,7 @@ limitation of the method rather than a defect in your implementation.
 Note both explicitly in your report. Distinguishing "the script failed" from "the
 method cannot do this" is the analytical work of today's evaluation.
 
-**The takeaway for this page:** Distinguish implementation failures from method
+**Takeaway:** Distinguish implementation failures from method
 limitations — a script structurally cannot tell period-normal usage from a scribal
 slip.
 
@@ -568,7 +568,7 @@ practice can be made explicit.
 Record the ambiguous set carefully. Friday's method claims to resolve exactly these,
 and this set is the test.
 
-**The takeaway for this page:** Ambiguities the script finds where you hesitated not
+**Takeaway:** Ambiguities the script finds where you hesitated not
 at all mark where your judgement uses context your stated rules do not capture.
 
 ---
@@ -608,7 +608,7 @@ and neural methods become preferable as data grows. For a term project on one
 manuscript, today's method is not the primitive precursor to Friday's — it is
 plausibly the better tool, and Friday will test that.
 
-**The takeaway for this page:** Rule-based systems reach 83% accuracy from 100
+**Takeaway:** Rule-based systems reach 83% accuracy from 100
 tokens — at your scale today's method may simply be the better tool, not the
 primitive one.
 
@@ -648,7 +648,7 @@ first question is whether the manual decision was consistent with the policy.
 Sometimes the script is right and you were not. Record those cases; they are
 corrections to your text, and they are the most valuable thing today produces.
 
-**The takeaway for this page:** Do not tune until the script reproduces your
+**Takeaway:** Do not tune until the script reproduces your
 decisions exactly — where it disagrees, check whether your decision followed your own
 policy.
 
@@ -702,7 +702,7 @@ Human-Verified: true
 This is the deterministic step improving the manual step, which is worth noticing:
 the three-step cycle is not a ranking with the human at the top.
 
-**The takeaway for this page:** The script's uniformity catches your inconsistency —
+**Takeaway:** The script's uniformity catches your inconsistency —
 the deterministic step improves the manual one, not only the reverse.
 
 ---
@@ -748,7 +748,7 @@ Do not inject proposals you have not reviewed. A `<reg>` in your edition is a cl
 you are making, whatever produced it, and attributing it to the script does not
 transfer the responsibility.
 
-**The takeaway for this page:** Attribute machine regularizations to a named script
+**Takeaway:** Attribute machine regularizations to a named script
 at a named commit — "generated by a script" is not reproducible attribution.
 
 ---
@@ -790,7 +790,7 @@ depends on knowing them.
 
 Commit the header change with the script output.
 
-**The takeaway for this page:** Record the script's measured precision and recall in
+**Takeaway:** Record the script's measured precision and recall in
 the header — a reader cannot otherwise judge how much weight the `<reg>` layer bears.
 
 ---
@@ -824,7 +824,7 @@ If you have time, test on a second folio you did not derive rules from. The drop
 recall between the two is a measure of how well your rules generalize, and it is a
 more honest figure than the one from the folio the rules came from.
 
-**The takeaway for this page:** Recall measured on the folio the rules came from is
+**Takeaway:** Recall measured on the folio the rules came from is
 optimistic — test on a folio you did not use, and report the drop.
 
 ---
@@ -863,7 +863,7 @@ Also record today's costs, as in previous weeks: time to write the script, time 
 iterate, and time to review its proposals. Friday's method requires almost no setup,
 and the comparison must weigh that against quality.
 
-**The takeaway for this page:** Build the per-token comparison table today so
+**Takeaway:** Build the per-token comparison table today so
 Friday's AI proposals become a column rather than a new analysis.
 
 ---
@@ -894,7 +894,7 @@ Verify each.
 - State tagged and pushed.
 - Costs recorded.
 
-**The takeaway for this page:** Run the script against the diplomatic base rather
+**Takeaway:** Run the script against the diplomatic base rather
 than the normalized text, or you measure it against its own target.
 
 ---
@@ -926,7 +926,7 @@ exactly has probably been tuned until it did, which means it has learned your fo
 rather than your policy. Perfect agreement is a warning sign rather than a success
 criterion.
 
-**The takeaway for this page:** A script proposing nothing looks identical to a text
+**Takeaway:** A script proposing nothing looks identical to a text
 needing nothing — test with a known non-standard token before trusting a clean run.
 
 ---
@@ -959,7 +959,7 @@ time has compared two things. A student who reports that the script surfaced thr
 places where their manual work was inconsistent with their own stated policy, and
 corrected them, has used the comparison to improve the edition.
 
-**The takeaway for this page:** Using the comparison to correct your own
+**Takeaway:** Using the comparison to correct your own
 inconsistencies is what makes it an evaluation rather than a demonstration.
 
 ---
@@ -999,7 +999,7 @@ Friday will likely show the AI method resolving cases your rules could not. Hold
 this alongside that result: greater capability and lesser accountability, and the
 edition has to decide which it needs where.
 
-**The takeaway for this page:** A rule-based `<reg>` is a claim the reader can
+**Takeaway:** A rule-based `<reg>` is a claim the reader can
 check; a neural one is a claim they must trust — which matters independently of
 accuracy.
 
@@ -1039,7 +1039,7 @@ recognition.
 Friday should be approached in this spirit. The question is not whether the AI
 method beats your script, but which parts of the task each should handle.
 
-**The takeaway for this page:** The literature's position is hybrid — rules for
+**Takeaway:** The literature's position is hybrid — rules for
 deterministic substitution, models for context, humans for the variant-versus-error
 judgement.
 
@@ -1079,7 +1079,7 @@ into semantic alteration.
 That detection mechanism is the concrete payoff of today's work, and it is worth
 knowing you have built it.
 
-**The takeaway for this page:** Your rule baseline is the detector for Friday's
+**Takeaway:** Your rule baseline is the detector for Friday's
 over-normalization — a large deviation from character-level substitution marks where
 the model altered meaning.
 
@@ -1119,7 +1119,7 @@ ranking with the human at the top.
 Friday tests whether contextual methods resolve what rules cannot, and whether they
 cost more in fidelity than they return in coverage.
 
-**The takeaway for this page:** The script's value is a verifiable baseline and an
+**Takeaway:** The script's value is a verifiable baseline and an
 audit of your own consistency — not merely automation of what you already did.
 
 ---
@@ -1158,7 +1158,7 @@ their capability is needed, and prefer the reproducible method where it suffices
 And record the provenance either way, so a later reader knows which they are looking
 at.
 
-**The takeaway for this page:** Your script's output can be re-derived indefinitely;
+**Takeaway:** Your script's output can be re-derived indefinitely;
 a hosted model's cannot — which means claims resting on it may become underivable.
 
 ---
@@ -1193,7 +1193,7 @@ As confidence grows, you can review selectively: all proposals from the distance
 layer, which is the least reliable, and a sample from the rule layer. State in the
 header what review practice was applied to which folios.
 
-**The takeaway for this page:** Record which rule set version normalized each folio
+**Takeaway:** Record which rule set version normalized each folio
 — otherwise the edition is inconsistent in a way nobody can detect.
 
 ---
@@ -1232,7 +1232,7 @@ documentation requirement intensifies as the term proceeds. Where there is no
 external fact to appeal to, the stated policy *is* the standard, and an unstated
 policy leaves nothing to evaluate against.
 
-**The takeaway for this page:** Normalization has no fact of the matter, so the
+**Takeaway:** Normalization has no fact of the matter, so the
 stated policy is the standard — which is why documentation matters more here than in
 transcription.
 
@@ -1266,7 +1266,7 @@ accountability.
 **For Friday.** Bring the seven items in section 25. The ambiguous set is the test
 case, and your rule baseline is the detector for over-normalization.
 
-**The takeaway for this page:** Writing the rules made your tacit editorial practice
+**Takeaway:** Writing the rules made your tacit editorial practice
 explicit — what survived is policy, and what did not is either genuine
 context-dependence or inconsistency you did not know about.
 

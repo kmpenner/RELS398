@@ -44,7 +44,7 @@ perceives it. *Code point* — a numeric value in the Unicode standard, written
 `U+03B1`. *Rendering* — the process by which a font turns code points into
 visible marks.
 
-**The takeaway for this page:** Identical appearance on screen does not imply
+**Takeaway:** Identical appearance on screen does not imply
 identical storage, and every tool in your pipeline compares storage.
 
 ---
@@ -80,7 +80,7 @@ sometimes wrongly. When you make normalization decisions about accents in Week 6
 you are adjudicating between editorial traditions rather than recovering an
 author's intention — and the difference matters for how you justify the decision.
 
-**The takeaway for this page:** Greek diacritics are a Hellenistic editorial
+**Takeaway:** Greek diacritics are a Hellenistic editorial
 apparatus for recording pronunciation, not part of the original written text.
 
 ---
@@ -117,7 +117,7 @@ and different fonts render the same code point differently. The code point is
 unambiguous; the visual form is not. Judge encoding by inspecting code points,
 never by inspecting the rendered glyph.
 
-**The takeaway for this page:** Three accents encode pitch contour, and the grave
+**Takeaway:** Three accents encode pitch contour, and the grave
 is a positional variant of the acute — which makes it a collation decision, not
 an automatic one.
 
@@ -157,7 +157,7 @@ their combination is where the encoding problems of the next several pages
 originate: a single alpha may carry a breathing, an accent, and an iota subscript
 simultaneously.
 
-**The takeaway for this page:** Smooth breathing marks the positive absence of
+**Takeaway:** Smooth breathing marks the positive absence of
 aspiration, so an unmarked vowel in a manuscript is a different fact from a
 smooth-breathed one.
 
@@ -200,7 +200,7 @@ you record it.
 **Vocabulary.** *Ypogegrammeni* — the "written under" iota, U+0345. *Adscript* —
 the same historical iota written as a full letter on the line.
 
-**The takeaway for this page:** Iota subscript is a later editorial convention for
+**Takeaway:** Iota subscript is a later editorial convention for
 an adscript the manuscripts wrote in full, so converting between them is an
 intervention that must be recorded.
 
@@ -237,7 +237,7 @@ while discarding the critical apparatus and paratextual material that make an
 edition scholarly. The two losses share a cause: an infrastructure that could not
 represent complexity encouraged projects to shed it.
 
-**The takeaway for this page:** Beta Code encoded Greek as ASCII sequences,
+**Takeaway:** Beta Code encoded Greek as ASCII sequences,
 severing the unity of the grapheme and forcing every program to reassemble
 letters for itself.
 
@@ -274,7 +274,7 @@ follow a base letter and modify it. Smooth breathing is U+0313, acute is U+0301,
 ypogegrammeni is U+0345. Any combination can be built by concatenation, including
 combinations for which no precomposed character exists (Unicode Consortium, 2025).
 
-**The takeaway for this page:** Unicode provides both precomposed polytonic
+**Takeaway:** Unicode provides both precomposed polytonic
 characters in Greek Extended and composable marks in Combining Diacritical Marks
 — two routes to the same grapheme.
 
@@ -314,7 +314,7 @@ doing heavy lifting. Software that compares strings byte by byte — which is mo
 software, including Git, most search tools, and most XML processors — does not
 implement canonical equivalence, and will treat them as different.
 
-**The takeaway for this page:** Precomposed and decomposed forms are canonically
+**Takeaway:** Precomposed and decomposed forms are canonically
 equivalent by the standard but unequal to most software, which compares bytes.
 
 ---
@@ -351,7 +351,7 @@ recorded from the source is content, and NFKC silently destroys it.
 search index construction, where collapsing distinctions is the point, and for
 nothing else in this course.
 
-**The takeaway for this page:** Use the canonical forms NFC and NFD, which are
+**Takeaway:** Use the canonical forms NFC and NFD, which are
 lossless; the compatibility forms NFKC and NFKD destroy distinctions that are
 philological data.
 
@@ -387,7 +387,7 @@ The requirement is therefore not stylistic. Encode in NFC because in Week 5 you
 will subtract one transcription from another, and that subtraction is only valid
 if both are in the same form.
 
-**The takeaway for this page:** NFC is required because Week 5's error-rate
+**Takeaway:** NFC is required because Week 5's error-rate
 comparison is only meaningful if ground truth and machine output are in the same
 normalization form.
 
@@ -427,7 +427,7 @@ implementation. That determinism is what lets you treat a normalized file's hash
 as a meaningful identity, which is exactly what Lesson 1.1's argument about
 content-addressable storage depends on.
 
-**The takeaway for this page:** Canonical Combining Class fixes the order of
+**Takeaway:** Canonical Combining Class fixes the order of
 multiple marks, which is what makes normalization deterministic across platforms.
 
 ---
@@ -463,7 +463,7 @@ normalization forms. Git reports a conflict. Both students look at the conflict
 markers, see two identical-looking lines of Greek, and have no way to resolve it
 by inspection — the difference is real, structural, and invisible.
 
-**The takeaway for this page:** macOS tends to produce NFD and Windows NFC, so a
+**Takeaway:** macOS tends to produce NFD and Windows NFC, so a
 mixed-platform team generates conflicts that are structurally real and visually
 undetectable.
 
@@ -514,7 +514,7 @@ declared explicitly on both read and write: relying on the platform default
 encoding is exactly the kind of implicit platform dependence this lesson is
 about.
 
-**The takeaway for this page:** `unicodedata.normalize("NFC", text)` is the whole
+**Takeaway:** `unicodedata.normalize("NFC", text)` is the whole
 mechanism, available in any standard Python installation.
 
 ---
@@ -556,7 +556,7 @@ what lets you diagnose the problem when it appears in someone else's files. What
 you do not need is to remember to run a command every time, because that is the
 part humans reliably fail at.
 
-**The takeaway for this page:** Enforce NFC in the pre-commit hook and re-stage
+**Takeaway:** Enforce NFC in the pre-commit hook and re-stage
 the normalized file, so unnormalized text cannot enter the repository.
 
 ---
@@ -601,7 +601,7 @@ back implausibly high, the first hypothesis to test is a normalization mismatch,
 and you will want the check to be reflexive rather than something you have to
 work out under time pressure.
 
-**The takeaway for this page:** When Greek text behaves strangely, dump the code
+**Takeaway:** When Greek text behaves strangely, dump the code
 points — the rendering cannot tell you what is stored.
 
 ---
@@ -637,7 +637,7 @@ explicitly rather than accepting the default. A default font that silently fails
 on rare combinations will cost you an afternoon in Week 6, when you are working
 with exactly those combinations.
 
-**The takeaway for this page:** A missing glyph is a font problem, not a data
+**Takeaway:** A missing glyph is a font problem, not a data
 problem; diagnose by changing fonts before changing files.
 
 ---
@@ -673,7 +673,7 @@ Whatever method you adopt, verify its output once, deliberately: type a
 multi-diacritic character such as ᾧ, dump its code points, and learn what your
 own setup produces. Knowing your own tooling's default saves diagnosis later.
 
-**The takeaway for this page:** Verify what normalization form your own keyboard
+**Takeaway:** Verify what normalization form your own keyboard
 produces, and always normalize text pasted from external sources.
 
 ---
@@ -704,7 +704,7 @@ perfectly acceptable to use it — with the caveat from Lesson 1.1 that graphica
 Git tools do not expose hooks, trailers, or pickaxe searches, so you will need
 the command line for those.
 
-**The takeaway for this page:** Oxygen's value is schema-aware validation as you
+**Takeaway:** Oxygen's value is schema-aware validation as you
 type, catching encoding errors before they enter the repository.
 
 ---
@@ -743,7 +743,7 @@ font, set UTF-8, install the extensions, and verify that a deliberately invalid
 XML file is flagged. Discovering that validation was never enabled is a poor way
 to begin the cataloguing assignment.
 
-**The takeaway for this page:** VS Code with the XML and GitLens extensions puts
+**Takeaway:** VS Code with the XML and GitLens extensions puts
 encoding, scripting, and version history in one window.
 
 ---
@@ -779,7 +779,7 @@ that HTR *model training* consumes credits. Week 4 will use a shared course
 allocation, but create the account now and familiarize yourself with the
 interface.
 
-**The takeaway for this page:** Create all three accounts this week; GitHub's
+**Takeaway:** Create all three accounts this week; GitHub's
 email must match your Git configuration, and THREAD approval is not immediate.
 
 ---
@@ -821,7 +821,7 @@ records provenance in commit trailers and measures error rates against your own
 ground truth. A model wrong 1% of the time uniformly could be trusted and spot-
 checked. A model that is 99% correct and occasionally invents a page cannot.
 
-**The takeaway for this page:** Machine transcription can achieve a 1.0% median
+**Takeaway:** Machine transcription can achieve a 1.0% median
 error rate while occasionally fabricating entire pages, which is why provenance
 and ground truth are non-negotiable.
 
@@ -860,7 +860,7 @@ recoverable and the error rate remains measurable. And known-hard categories —
 numerals, abbreviations, marginalia — receive targeted review rather than being
 trusted at the general rate.
 
-**The takeaway for this page:** Concentrated, fluent failures defeat sampling, so
+**Takeaway:** Concentrated, fluent failures defeat sampling, so
 machine output must be compared page by page against the image.
 
 ---
@@ -899,7 +899,7 @@ articulation they force. Explaining why a statistically anomalous reading is
 nevertheless correct requires stating your reasoning explicitly — which is
 exactly the reasoning that Giarratano's print editions failed to preserve.
 
-**The takeaway for this page:** Language models detect statistical anomaly, not
+**Takeaway:** Language models detect statistical anomaly, not
 textual error, so their proposals are evidence for your judgement rather than
 substitutes for it.
 
@@ -936,7 +936,7 @@ many folios it spans, whether it is written in one hand, whether it contains
 lacunae or marginalia, and whether a colophon is present anywhere in the
 manuscript.
 
-**The takeaway for this page:** You need codicological vocabulary to describe what
+**Takeaway:** You need codicological vocabulary to describe what
 you have chosen, and the physical structure of the book is evidence, not context.
 
 ---
@@ -978,7 +978,7 @@ unfinishable one in November. Textual interest matters, but tractability matters
 more, and a clean passage encoded completely is worth more than an ambitious one
 abandoned in Week 9.
 
-**The takeaway for this page:** Confirm at least two accessible witnesses and open
+**Takeaway:** Confirm at least two accessible witnesses and open
 image licensing before committing; those two constraints eliminate most
 unworkable choices.
 
@@ -1011,7 +1011,7 @@ manuscript, and much of what the header needs — repository, shelfmark, date,
 material, extent, hand — is what you are gathering now (Bausi et al., 2015; TEI
 Consortium, 2026).
 
-**The takeaway for this page:** Verify images, manifest, licence, and second
+**Takeaway:** Verify images, manifest, licence, and second
 witness before committing to a passage; the first four checks are the ones that
 cannot be fixed later.
 
@@ -1056,7 +1056,7 @@ selection criteria, and records the evidence that the criteria were met. Three
 months from now it is the only surviving record of why you are working on this
 text.
 
-**The takeaway for this page:** Record the passage and your reasons for choosing
+**Takeaway:** Record the passage and your reasons for choosing
 it as a committed document; it becomes the seed of your editorial introduction.
 
 ---
@@ -1091,7 +1091,7 @@ same argument about corpus preparation: normalization is prerequisite to
 analysis, and analysis performed on unnormalized data yields results that are
 wrong without appearing wrong.
 
-**The takeaway for this page:** Encoding faults present as inexplicable error
+**Takeaway:** Encoding faults present as inexplicable error
 rates and phantom variants, which is why they must be eliminated before the
 analysis that would otherwise be blamed.
 
@@ -1142,7 +1142,7 @@ Test the hook rather than assuming it works: create a file containing decomposed
 Greek, stage it, commit, and confirm the committed content is NFC. An untested
 hook is not a control.
 
-**The takeaway for this page:** Complete and verify the checklist before Week 2;
+**Takeaway:** Complete and verify the checklist before Week 2;
 test the pre-commit hook rather than assuming it functions.
 
 ---
@@ -1185,7 +1185,7 @@ header in a plain text editor, Wednesday you validate it against the schema in
 Oxygen and build RDF triples, and Friday you compare AI-generated metadata against
 the header you wrote yourself.
 
-**The takeaway for this page:** Version control makes your reasoning checkable and
+**Takeaway:** Version control makes your reasoning checkable and
 normalization makes your text checkable; the whole course is an exercise in
 checking, and this week built its preconditions.
 

@@ -42,7 +42,7 @@ of a set of files at successive points in time, with the metadata needed to
 identify, compare, and recover any of those states. *Exemplar* — the manuscript
 a scribe copies from. *Witness* — any surviving manuscript that attests a text.
 
-**The takeaway for this page:** Git is on the syllabus because its data model
+**Takeaway:** Git is on the syllabus because its data model
 formalizes textual transmission, not because digital humanists are expected to
 know developer tools.
 
@@ -80,7 +80,7 @@ from positive to negative apparatus would have been a documented restructuring.
 The evidence would still exist. This is the concrete stake of the discipline you
 are about to learn: what is not committed with rationale is not recoverable.
 
-**The takeaway for this page:** Print editions preserve the editor's conclusions
+**Takeaway:** Print editions preserve the editor's conclusions
 and discard the editor's reasoning; a version-controlled edition preserves both.
 
 ---
@@ -119,7 +119,7 @@ being both the scribe and the editor of your own text — which means the qualit
 of your apparatus is entirely within your control, and entirely your
 responsibility.
 
-**The takeaway for this page:** You will produce two editions this term: the TEI
+**Takeaway:** You will produce two editions this term: the TEI
 edition of your passage, and the Git history that documents how you arrived at
 it.
 
@@ -161,7 +161,7 @@ from the data and cannot lie.
 change in the data changes the value. *Content-addressable* — named by content
 rather than by assigned label.
 
-**The takeaway for this page:** Git names every stored object by a hash of its
+**Takeaway:** Git names every stored object by a hash of its
 contents, so an object's identifier is a verifiable claim about its bytes.
 
 ---
@@ -198,7 +198,7 @@ the blob is unchanged — the content did not change — and only the tree entry
 differs. Git detects renames after the fact by noticing that a blob left one
 path and arrived at another, rather than by recording a rename operation.
 
-**The takeaway for this page:** Blobs hold content, trees hold structure, commits
+**Takeaway:** Blobs hold content, trees hold structure, commits
 hold history and rationale, and tags mark states worth citing.
 
 ---
@@ -237,7 +237,7 @@ never has: a transmission history with no gaps in it.
 cycles. *Stemma codicum* — the genealogical tree of a text's surviving witnesses.
 *Merge commit* — a commit with more than one parent.
 
-**The takeaway for this page:** A repository's history is a directed acyclic
+**Takeaway:** A repository's history is a directed acyclic
 graph, the same formal structure as a stemma — but recorded rather than inferred.
 
 ---
@@ -272,7 +272,7 @@ trail being trustworthy; an audit trail that could be quietly edited afterwards
 would establish nothing. The cryptographic chain is what converts "here is my
 work log" into "here is a verifiable claim about my work."
 
-**The takeaway for this page:** A change anywhere in history changes every hash
+**Takeaway:** A change anywhere in history changes every hash
 downstream of it, so a repository's history cannot be altered without leaving
 evidence.
 
@@ -309,7 +309,7 @@ students work on their own branches precisely so that they can attempt difficult
 encoding without risking the shared text, and submit the result for editorial
 review only once it is complete (Almas & Beaulieu, 2012).
 
-**The takeaway for this page:** Branches make editorial alternatives cheap enough
+**Takeaway:** Branches make editorial alternatives cheap enough
 to test rather than merely to speculate about.
 
 ---
@@ -350,7 +350,7 @@ Verify the result with `git config --global --list` before continuing. Everythin
 in this course accumulates, and an identity error committed today propagates
 through every assignment that follows.
 
-**The takeaway for this page:** Authorship metadata is permanent in the commit
+**Takeaway:** Authorship metadata is permanent in the commit
 object, so configure it correctly before the first commit rather than after.
 
 ---
@@ -393,7 +393,7 @@ Add a `README.md` at the root stating which manuscript passage you have chosen
 and why. That file is the first thing a reviewer reads, and by the end of term it
 will be the front matter of your edition.
 
-**The takeaway for this page:** `.git` is the repository and the visible files are
+**Takeaway:** `.git` is the repository and the visible files are
 just a checked-out view of it; structure the working tree once, at the start.
 
 ---
@@ -429,7 +429,7 @@ Use `git status` constantly — it reports which files sit in which state, and i
 suggests the command to move them. Experienced users run it more often than any
 other command, not less.
 
-**The takeaway for this page:** The staging area exists so that a commit can
+**Takeaway:** The staging area exists so that a commit can
 record one logical change rather than everything you happen to have edited.
 
 ---
@@ -466,7 +466,7 @@ experiments. Prefer naming files explicitly. Where a broad add is genuinely
 convenient, protect yourself first with a `.gitignore` file listing the patterns
 that should never be tracked, such as `.DS_Store`, `*~`, and `.vscode/`.
 
-**The takeaway for this page:** Stage deliberately and inspect the index before
+**Takeaway:** Stage deliberately and inspect the index before
 committing; correcting the staging area is trivial, correcting history is not.
 
 ---
@@ -505,7 +505,7 @@ you are looking at two commits.
 is complete and independently reversible. *Revert* — a new commit that undoes the
 effect of an earlier one, without erasing it from history.
 
-**The takeaway for this page:** If you cannot describe a commit in one clause
+**Takeaway:** If you cannot describe a commit in one clause
 without "and", it is more than one commit.
 
 ---
@@ -541,7 +541,7 @@ and given real messages — before the branch is merged. What must not happen is
 work-in-progress commits reaching `main` and being left there as the permanent
 record.
 
-**The takeaway for this page:** Commit when a change is complete, not when you
+**Takeaway:** Commit when a change is complete, not when you
 stop working for the day.
 
 ---
@@ -584,7 +584,7 @@ all.
 *Scope* — an optional parenthesized noun naming the affected component. *Footer /
 trailer* — structured `Key: value` metadata at the end of a commit message.
 
-**The takeaway for this page:** A fixed message grammar makes the commit log
+**Takeaway:** A fixed message grammar makes the commit log
 queryable, which is what makes it usable as an apparatus.
 
 ---
@@ -619,7 +619,7 @@ Use `chore` sparingly. It is a genuine category for mechanical maintenance, but
 it is also the path of least resistance, and a log in which most commits are
 `chore` is a log whose author was not thinking about classification.
 
-**The takeaway for this page:** The type prefix classifies the *kind* of
+**Takeaway:** The type prefix classifies the *kind* of
 editorial act, and `fix` versus `refactor` marks the difference between changing
 a claim and changing its expression.
 
@@ -662,7 +662,7 @@ it. Where a decision was genuinely uncertain, say so and say what would resolve
 it; a recorded uncertainty is far more useful to a later editor than a confident
 silence.
 
-**The takeaway for this page:** The diff records what you changed; only the
+**Takeaway:** The diff records what you changed; only the
 commit body can record why, and only if you write it at the time.
 
 ---
@@ -696,7 +696,7 @@ editorial decisions made two months earlier. Students who wrote informative
 commit bodies retrieve their reasoning in seconds. Students who wrote "updates"
 reconstruct it from memory, badly.
 
-**The takeaway for this page:** `git log` with `-S` and `--grep` turns the commit
+**Takeaway:** `git log` with `-S` and `--grep` turns the commit
 history into a searchable record of editorial decisions.
 
 ---
@@ -727,7 +727,7 @@ structured document — which is, precisely, an apparatus criticus generated
 automatically from your own work. When in Week 6 you produce a hand-normalized
 text and a script-normalized text, this command is how you will compare them.
 
-**The takeaway for this page:** `diff` compares any two states Git knows about,
+**Takeaway:** `diff` compares any two states Git knows about,
 including two competing editorial hypotheses on separate branches.
 
 ---
@@ -762,7 +762,7 @@ This matters more than it may appear. Every verification practice in this course
 normalization, auditing a collation — depends on your ability to read a diff of
 XML. If diffs are illegible, verification degrades into trust.
 
-**The takeaway for this page:** The default diff algorithm misaligns the
+**Takeaway:** The default diff algorithm misaligns the
 repetitive closing tags of TEI XML, producing accurate diffs that no one can
 read.
 
@@ -804,7 +804,7 @@ appearing in the same order in two sequences, not necessarily contiguously.
 *Anchor* — a uniquely matching line used to align two versions before filling in
 surrounding differences.
 
-**The takeaway for this page:** `diff.algorithm histogram` makes TEI diffs
+**Takeaway:** `diff.algorithm histogram` makes TEI diffs
 legible by anchoring on unique lines instead of repetitive closing tags.
 
 ---
@@ -845,7 +845,7 @@ them outright.
 it in Week 8 when the apparatus layer makes XML-aware diffing worth configuring
 specifically.
 
-**The takeaway for this page:** `* text=auto eol=lf` in `.gitattributes` prevents
+**Takeaway:** `* text=auto eol=lf` in `.gitattributes` prevents
 platform line-ending differences from swamping your diffs.
 
 ---
@@ -888,7 +888,7 @@ breaks every downstream process in the pipeline, and the cost of catching it at
 commit time is a few seconds, while the cost of discovering it three weeks later
 is a re-encoding.
 
-**The takeaway for this page:** A pre-commit hook enforces normalization and
+**Takeaway:** A pre-commit hook enforces normalization and
 schema validity automatically, but hooks are not cloned — install them from a
 tracked directory.
 
@@ -936,7 +936,7 @@ failures" — fluent, entirely fabricated Greek text with no relation to the ima
 Output that good on average and that bad occasionally is precisely the kind that
 must be labelled, because spot-checking will not find the failures.
 
-**The takeaway for this page:** Every commit containing machine-generated text
+**Takeaway:** Every commit containing machine-generated text
 carries trailers recording the model, and whether a human has verified it.
 
 ---
@@ -970,7 +970,7 @@ of such tools in scholarship depends on the scholar's ability to state precisely
 where the machine's judgement enters — which is exactly what these trailers make
 possible.
 
-**The takeaway for this page:** Structured trailers let you query your own
+**Takeaway:** Structured trailers let you query your own
 edition for what a machine wrote and what you have verified.
 
 ---
@@ -1007,7 +1007,7 @@ and `v2.0.0` can run `git diff v1.0.0..v2.0.0` and see the complete evolution of
 your editorial thought between two published states — the precise capacity that
 Giarratano's five print editions destroyed (Huskey, 2024).
 
-**The takeaway for this page:** Annotated tags with semantic versions give an
+**Takeaway:** Annotated tags with semantic versions give an
 edition citable states whose differences remain machine-recoverable.
 
 ---
@@ -1043,7 +1043,7 @@ not only what the editor concluded but what the editor altered and why. This is
 the workflow you will practise in the Week 5 reconciliation exercise and in every
 peer review thereafter.
 
-**The takeaway for this page:** The LDLT treats an edition as a versioned
+**Takeaway:** The LDLT treats an edition as a versioned
 database with citable releases, making peer review operate on changes rather than
 on finished objects.
 
@@ -1082,7 +1082,7 @@ judgement was exercised — rather than only the final artifact. Your commit
 history is part of what is being evaluated, and it is evidence of thinking that a
 finished file cannot supply.
 
-**The takeaway for this page:** Perseids shows undergraduates producing genuine
+**Takeaway:** Perseids shows undergraduates producing genuine
 version-controlled editions, with the commit history itself serving as evidence
 of scholarly process.
 
@@ -1120,7 +1120,7 @@ Use the interface that leaves you the most attention for the manuscript. Reach
 for the command line when you need something a graphical tool does not expose —
 which will happen, particularly with hooks, trailers, and `-S` searches.
 
-**The takeaway for this page:** Understand the model conceptually; use whichever
+**Takeaway:** Understand the model conceptually; use whichever
 interface leaves you the most attention for the philology.
 
 ---
@@ -1158,7 +1158,7 @@ so choose a passage with legible script, at least two available witnesses, and a
 manageable length — twenty to forty lines. Record the choice and your reasons in
 your repository's `README.md`, and commit it.
 
-**The takeaway for this page:** Reproducibility is guaranteed by Git's
+**Takeaway:** Reproducibility is guaranteed by Git's
 architecture; explainability is guaranteed only by your commit discipline, which
 is why the commit discipline is what is assessed.
 

@@ -18,7 +18,7 @@ The transition to digital manuscript studies requires replacing discursive narra
 
 Furthermore, this formalization changes how scholars interact with the historical record. When metadata is structured into discrete, typed fields, researchers can execute complex computational queries across thousands of manuscripts simultaneously. A scholar can instantly aggregate all sixth-century Greek witnesses produced in Egypt that feature hexaplaric signs and single-column layouts. What previously required months of manual archival collation becomes an instantaneous computational operation, provided the underlying metadata adheres to a rigorous, shared data model.
 
-**The takeaway for this page:** Discursive print catalogues isolate codicological knowledge in human-readable silos; digital philology requires formal, machine-actionable schemas to enable computational analysis and cross-institutional discovery.
+**Takeaway:** Discursive print catalogues isolate codicological knowledge in human-readable silos; digital philology requires formal, machine-actionable schemas to enable computational analysis and cross-institutional discovery.
 
 ---
 
@@ -41,7 +41,7 @@ Premodern manuscripts break this bibliographic assumption entirely. Every handwr
 
 Because every manuscript is an `F4 Manifestation Singleton`, cataloguing a manuscript requires documenting not only the abstract texts it carries, but the physical biography of the unique physical container itself. The digital record must capture the unique parchment preparation, unique scribal hands, historical marginal glosses, quire repairs, and distinct provenance transfers that belong exclusively to that specific volume (Le Bœuf, 2012).
 
-**The takeaway for this page:** Modern print catalogues model mass-produced publication types, but premodern manuscripts are manifestation singletons whose unique physical embodiment cannot be separated from their textual witness.
+**Takeaway:** Modern print catalogues model mass-produced publication types, but premodern manuscripts are manifestation singletons whose unique physical embodiment cannot be separated from their textual witness.
 
 ---
 
@@ -57,7 +57,7 @@ Hand-authoring slows down your analytical gaze and cultivates close codicologica
 
 Furthermore, hand-authoring establishes intellectual ownership over the digital edition. When you manually structure metadata, you experience firsthand the tensions between physical ambiguity and digital taxonomy. Scribes did not create manuscripts to fit into modern XML schemas; they wrote across margins, erased lines, added loose slips, and changed layouts mid-quire. Confronting these anomalies by hand ensures that you understand the editorial cost of computational modeling before you delegate tasks to automated algorithms.
 
-**The takeaway for this page:** Writing XML markup by hand forces conscious decision-making for every codicological feature, establishing the authoritative human ground truth required to evaluate automated tools.
+**Takeaway:** Writing XML markup by hand forces conscious decision-making for every codicological feature, establishing the authoritative human ground truth required to evaluate automated tools.
 
 ---
 
@@ -87,7 +87,7 @@ The core rules of well-formed XML are absolute:
 
 Understanding these syntactic foundations is essential because even a trivial typo—such as a missing slash in a closing tag or an unquoted attribute—will cause downstream validation tools and rendering scripts to fail completely.
 
-**The takeaway for this page:** XML enforces strict syntactic well-formedness—single root, perfect nesting, exact case matching, and quoted attributes—with zero tolerance for parsing defects.
+**Takeaway:** XML enforces strict syntactic well-formedness—single root, perfect nesting, exact case matching, and quoted attributes—with zero tolerance for parsing defects.
 
 ---
 
@@ -122,7 +122,7 @@ In XML, information is structured using two primary mechanisms: elements and att
 
 Finally, XML reserves five characters that cannot be written directly in text content because they conflict with syntax delimiters. You must escape these using predefined character entity references: `&lt;` for `<` (less than), `&gt;` for `>` (greater than), `&amp;` for `&` (ampersand), `&apos;` for `'` (apostrophe), and `&quot;` for `"` (quotation mark). Writing a bare ampersand (such as `Clemens & Graham`) causes an immediate fatal parser crash.
 
-**The takeaway for this page:** Elements define hierarchical containers and primary content, while attributes supply qualifying metadata, categorical types, machine-readable values, and external links.
+**Takeaway:** Elements define hierarchical containers and primary content, while attributes supply qualifying metadata, categorical types, machine-readable values, and external links.
 
 ---
 
@@ -146,7 +146,7 @@ The `<teiHeader>` serves as the digital metadata envelope. It contains all the b
 
 The strict separation between `<teiHeader>` and `<text>` is fundamental to digital editing. A transcription without a header is an anonymous orphan; a header without a transcription is a rich codicological catalogue record. Today's lesson focuses entirely on authoring the `<teiHeader>` and its manuscript description module, establishing the metadata scaffolding that will support all subsequent transcription and collation work in future weeks.
 
-**The takeaway for this page:** A TEI document cleanly separates descriptive metadata in the `<teiHeader>` from transcribed primary text in `<text>`, ensuring the digital edition remains fully documented and auditable.
+**Takeaway:** A TEI document cleanly separates descriptive metadata in the `<teiHeader>` from transcribed primary text in `<text>`, ensuring the digital edition remains fully documented and auditable.
 
 ---
 
@@ -176,7 +176,7 @@ When formulating a digital title, clarity and precision are essential. The title
 
 Furthermore, documenting project sponsors and funding agencies in `<sponsor>` and `<funder>` ensures that grant requirements and institutional support are formally encoded within the digital file's permanent metadata header.
 
-**The takeaway for this page:** The `<fileDesc>` and `<titleStmt>` document the digital edition as an independent intellectual publication, distinguishing the digital editors from the ancient scribes.
+**Takeaway:** The `<fileDesc>` and `<titleStmt>` document the digital edition as an independent intellectual publication, distinguishing the digital editors from the ancient scribes.
 
 ---
 
@@ -214,7 +214,7 @@ Notice the inclusion of `@xml:id` attributes on each `<name>` element. These uni
 
 By formally defining contributor IDs at the top of the header, the digital edition creates a closed, auditable namespace for all editorial assertions made throughout the lifetime of the project.
 
-**The takeaway for this page:** Granular intellectual credit and editorial accountability are established using `<respStmt>`, linking specific scholarly tasks to identified contributors via `@xml:id`.
+**Takeaway:** Granular intellectual credit and editorial accountability are established using `<respStmt>`, linking specific scholarly tasks to identified contributors via `@xml:id`.
 
 ---
 
@@ -245,7 +245,7 @@ The `@when` attribute on the `<date>` element enforces standard ISO 8601 formatt
 
 Including persistent digital identifiers—such as Digital Object Identifiers (DOIs) or Handle URIs—within `<idno>` ensures that your digital edition can be permanently cited and indexed in international academic repositories.
 
-**The takeaway for this page:** The `<publicationStmt>` establishes the legal and institutional availability of the digital edition, recording open-access licenses, distributors, and ISO-standard dates.
+**Takeaway:** The `<publicationStmt>` establishes the legal and institutional availability of the digital edition, recording open-access licenses, distributors, and ISO-standard dates.
 
 ---
 
@@ -267,7 +267,7 @@ When an edition is derived directly from a handwritten artifact, `<sourceDesc>` 
 
 By placing `<msDesc>` inside `<sourceDesc>`, you declare that the digital text following in `<body>` is a direct surrogate and representation of this specific physical object. The metadata encoded in `<msDesc>` provides the physical context that justifies every transcription and apparatus decision made in the body text.
 
-**The takeaway for this page:** In manuscript-based editions, `<sourceDesc>` houses the `<msDesc>` module, anchoring the digital transcription to a specific historical codex.
+**Takeaway:** In manuscript-based editions, `<sourceDesc>` houses the `<msDesc>` module, anchoring the digital transcription to a specific historical codex.
 
 ---
 
@@ -309,7 +309,7 @@ A handwritten codex exists in a real-world repository. To ensure that scholars w
 
 By recording standard scholarly sigla—such as Rahlfs number Q or Pinakes identifier 68437—inside `<altIdentifier>`, you ensure that external research databases can automatically link your digital edition to existing international authority indices.
 
-**The takeaway for this page:** The `<msIdentifier>` provides the definitive archival address of the physical object, combining country, settlement, repository, shelfmark, and standard scholarly sigla.
+**Takeaway:** The `<msIdentifier>` provides the definitive archival address of the physical object, combining country, settlement, repository, shelfmark, and standard scholarly sigla.
 
 ---
 
@@ -337,7 +337,7 @@ Codex Marchalianus Codicological Overview:
 
 Translating Ceriani's observations into TEI requires mapping nineteenth-century Latin codicology into rigid XML trees, identifying where Ceriani's prose can be broken down into structured attributes and child elements (Ceriani, 1890).
 
-**The takeaway for this page:** Codex Marchalianus (Vat. gr. 2125) exemplifies a multi-layered sixth-century prophetic witness whose complex physical and marginal features demand rigorous TEI codicological description.
+**Takeaway:** Codex Marchalianus (Vat. gr. 2125) exemplifies a multi-layered sixth-century prophetic witness whose complex physical and marginal features demand rigorous TEI codicological description.
 
 ---
 
@@ -378,7 +378,7 @@ The `<locus>` element explicitly binds each intellectual item to its physical co
 
 When a manuscript contains paratextual additions—such as scribal poems, tables of contents, or Eusebian canon lists—these are also encoded as discrete `<msItem>` or `<msItemStruct>` nodes, preserving the exact internal architecture of the codex.
 
-**The takeaway for this page:** The `<msContents>` element structures the intellectual works in a codex into discrete `<msItem>` nodes, mapping each work to its physical folio range via `<locus>`.
+**Takeaway:** The `<msContents>` element structures the intellectual works in a codex into discrete `<msItem>` nodes, mapping each work to its physical folio range via `<locus>`.
 
 ---
 
@@ -413,7 +413,7 @@ By recording both the standardized title and the exact scribal `<rubric>` and `<
 
 In many premodern manuscripts, titles are damaged or absent. In such cases, the `<incipit>` is the primary diagnostic feature used by cataloguing databases to automatically identify the text against canonical registers.
 
-**The takeaway for this page:** Dedicated elements like `<rubric>`, `<incipit>`, and `<explicit>` record the exact scribal framing formulas that mark textual boundaries in the codex.
+**Takeaway:** Dedicated elements like `<rubric>`, `<incipit>`, and `<explicit>` record the exact scribal framing formulas that mark textual boundaries in the codex.
 
 ---
 
@@ -441,7 +441,7 @@ In hand-authoring `<physDesc>`, you must resist the temptation to write unstruct
 
 By organizing physical data into these distinct containers, digital editions allow scholars to run targeted statistical analyses across manuscript corpora—such as analyzing the correlation between parchment thickness, ruling patterns, and scribal hands.
 
-**The takeaway for this page:** The `<physDesc>` module formalizes the material properties of the manuscript into dedicated sub-elements for support, layout, script, decoration, and binding.
+**Takeaway:** The `<physDesc>` module formalizes the material properties of the manuscript into dedicated sub-elements for support, layout, script, decoration, and binding.
 
 ---
 
@@ -478,7 +478,7 @@ Notice that measurements are encoded twice: as machine-readable numbers inside `
 
 Recording both total leaf dimensions and written area dimensions allows scholars to calculate the ratio of margin to text, providing critical evidence regarding the prestige and economic expenditure of the manuscript's production.
 
-**The takeaway for this page:** The `<supportDesc>` captures the physical medium and leaf dimensions, using `@quantity` and `@unit` attributes to provide machine-actionable measurements.
+**Takeaway:** The `<supportDesc>` captures the physical medium and leaf dimensions, using `@quantity` and `@unit` attributes to provide machine-actionable measurements.
 
 ---
 
@@ -511,7 +511,7 @@ Documenting the foliation system is essential for citation integrity: if a ninet
 
 Furthermore, recording physical damage and insect erosion in `<condition>` establishes the material justification for lacunae and illegible readings in downstream diplomatic transcriptions.
 
-**The takeaway for this page:** The `<foliation>` element documents the history and location of leaf-numbering systems, resolving discrepancies between historical and modern citations.
+**Takeaway:** The `<foliation>` element documents the history and location of leaf-numbering systems, resolving discrepancies between historical and modern citations.
 
 ---
 
@@ -536,7 +536,7 @@ When hand-authoring `<collation>`, digital editors must carefully inspect quire 
 
 Deviations from Gregory's Rule or breaks in quire signature numeration indicate missing leaves, inserted bifolia, or structural disruptions that must be documented in the `<collation>` formula.
 
-**The takeaway for this page:** The `<collation>` element formalizes the physical structure of quires, leaf counts, and quire signatures, exposing the mechanical construction of the codex.
+**Takeaway:** The `<collation>` element formalizes the physical structure of quires, leaf counts, and quire signatures, exposing the mechanical construction of the codex.
 
 ---
 
@@ -565,7 +565,7 @@ Recording page architecture is critical for downstream transcription and image a
 
 Codicologists classify ruling patterns using standard classification systems, such as the Leroy-Sautel system for Greek manuscripts. Recording the ruling code (`00D1`) in `<layout>` allows computational comparison of scriptorium ruling traditions across late antiquity.
 
-**The takeaway for this page:** The `<layoutDesc>` and `<layout>` elements capture the mise-en-page, specifying column counts, written lines, ruling techniques, and margin widths.
+**Takeaway:** The `<layoutDesc>` and `<layout>` elements capture the mise-en-page, specifying column counts, written lines, ruling techniques, and margin widths.
 
 ---
 
@@ -599,7 +599,7 @@ Assigning `@xml:id="h1"`, `@xml:id="h2"`, etc., enables you to tag every word, l
 
 In ancient manuscripts, scribes also used distinctive abbreviations known as *nomina sacra* (e.g., ΘΣ for Θεός, ΚΣ for Κύριος) written with a supralinear stroke. Documenting how each hand treats nomina sacra provides vital paleographical diagnostic data.
 
-**The takeaway for this page:** The `<handDesc>` and `<handNote>` elements document distinct scribal hands, establishing unique `@xml:id` handles for granular paleographic attribution in transcriptions.
+**Takeaway:** The `<handDesc>` and `<handNote>` elements document distinct scribal hands, establishing unique `@xml:id` handles for granular paleographic attribution in transcriptions.
 
 ---
 
@@ -629,7 +629,7 @@ Documenting these signs in the header provides the cataloguing framework require
 
 Origen's Hexapla placed six parallel columns side-by-side to compare the Hebrew text with Greek translations. In copies of the Septuagint derived from the Hexapla, scribes transferred Origen's critical signs into the margins, making them indispensable evidence for textual criticism (Ceriani, 1890).
 
-**The takeaway for this page:** The `<decoDesc>` module catalogues artistic illuminations, decorated initials, and critical philological signs like asterisks and obels.
+**Takeaway:** The `<decoDesc>` module catalogues artistic illuminations, decorated initials, and critical philological signs like asterisks and obels.
 
 ---
 
@@ -657,7 +657,7 @@ The attribute `@contemporary="false"` explicitly states that the binding is not 
 
 When older binding fragments—such as medieval pastedowns or fragments of lost manuscripts used as spine lining—are preserved during rebinding, their presence is documented inside `<binding>` child elements.
 
-**The takeaway for this page:** The `<bindingDesc>` documents the bookbinding materials, sewing structure, and conservation history, explicitly distinguishing contemporary bindings from modern rebinding.
+**Takeaway:** The `<bindingDesc>` documents the bookbinding materials, sewing structure, and conservation history, explicitly distinguishing contemporary bindings from modern rebinding.
 
 ---
 
@@ -678,7 +678,7 @@ A manuscript is not a static museum object; it is an itinerant survivor. It was 
 
 By structuring history into distinct chronological events, TEI aligns directly with event-centric Linked Open Data ontologies like CIDOC-CRM (Le Bœuf, 2012; Koho et al., 2021). Each historical transfer represents a discrete event with its own temporal bounds, geographic locations, and historical agents.
 
-**The takeaway for this page:** The `<history>` element traces the temporal lifecycle of the codex, dividing its history into origin, sequential provenance transfers, and modern institutional acquisition.
+**Takeaway:** The `<history>` element traces the temporal lifecycle of the codex, dividing its history into origin, sequential provenance transfers, and modern institutional acquisition.
 
 ---
 
@@ -711,7 +711,7 @@ Dating premodern manuscripts is inherently uncertain. When a colophon is missing
 
 By encoding `@evidence="palaeographic"`, the editor explicitly documents the scholarly basis for the assigned date, distinguishing stylistic dating from explicit colophon dates.
 
-**The takeaway for this page:** The `<origin>` element uses ISO 8601 attributes like `@notBefore` and `@notAfter` to represent historical dating ranges and palaeographical uncertainty.
+**Takeaway:** The `<origin>` element uses ISO 8601 attributes like `@notBefore` and `@notAfter` to represent historical dating ranges and palaeographical uncertainty.
 
 ---
 
@@ -743,7 +743,7 @@ Recording provenance as a sequence of distinct events allows computational knowl
 
 When a manuscript contains former library shelfmarks or bookplates, these physical traces are encoded within their respective `<provenance>` elements, establishing a verifiable physical audit trail for each custodial transfer (Koho et al., 2021).
 
-**The takeaway for this page:** The custodial chain is modeled as a chronological sequence of `<provenance>` elements, enabling computational tracking of manuscript migrations across time and geography.
+**Takeaway:** The custodial chain is modeled as a chronological sequence of `<provenance>` elements, enabling computational tracking of manuscript migrations across time and geography.
 
 ---
 
@@ -779,7 +779,7 @@ The `<acquisition>` element sits inside `<history>` and details the specific dat
 
 Recording secondary literature in `<listBibl>` ensures that future editors can trace the scholarly genealogy of every codicological claim made in the digital header.
 
-**The takeaway for this page:** The `<acquisition>` and `<additional>` elements document the institutional accession history, cataloguing sources, and related secondary bibliography for the manuscript.
+**Takeaway:** The `<acquisition>` and `<additional>` elements document the institutional accession history, cataloguing sources, and related secondary bibliography for the manuscript.
 
 ---
 
@@ -801,7 +801,7 @@ Taking time to manually trace your element openings and closures line-by-line pr
 
 Furthermore, pay close attention to XML attribute naming conventions: attributes like `@xml:id` and `@xml:lang` belong to the reserved XML namespace and require the `xml:` prefix, whereas standard TEI attributes like `@type`, `@n`, and `@ref` must never carry a prefix.
 
-**The takeaway for this page:** Hand-written XML requires rigorous manual checking for unescaped characters, case mismatches, missing quotes, and improper tag containment.
+**Takeaway:** Hand-written XML requires rigorous manual checking for unescaped characters, case mismatches, missing quotes, and improper tag containment.
 
 ---
 
@@ -835,7 +835,7 @@ Save your file in your personal Git repository under the path `src/modules/Topic
 
 Ensure that your header contains real codicological data derived from your inspection of your manuscript's digital facsimiles and published catalogue records, rather than placeholder lorem ipsum text.
 
-**The takeaway for this page:** Hand-authoring your selected manuscript's complete `<teiHeader>` creates the foundational XML ground truth for the remainder of the semester.
+**Takeaway:** Hand-authoring your selected manuscript's complete `<teiHeader>` creates the foundational XML ground truth for the remainder of the semester.
 
 ---
 
@@ -862,7 +862,7 @@ Do not edit this file further today. Tomorrow morning, in Lesson 2.2, you will o
 
 Freezing your manual ground truth in Git ensures that your comparative experiment remains mathematically valid and auditable throughout the course.
 
-**The takeaway for this page:** Committing your hand-written XML file to Git freezes your manual ground truth, establishing the baseline for tomorrow's deterministic schema audit.
+**Takeaway:** Committing your hand-written XML file to Git freezes your manual ground truth, establishing the baseline for tomorrow's deterministic schema audit.
 
 ---
 
@@ -885,7 +885,7 @@ Tomorrow, we move to Step 2: deterministic validation. You will see how formal s
 
 As you step away from your editor today, reflect on the decisions you made. Every tag you chose represents a theoretical claim about how a physical historical object should be represented in a digital medium.
 
-**The takeaway for this page:** A TEI Header is an explicit scholarly argument that translates physical manuscript materiality into a formal, auditable digital data architecture.
+**Takeaway:** A TEI Header is an explicit scholarly argument that translates physical manuscript materiality into a formal, auditable digital data architecture.
 
 ---
 

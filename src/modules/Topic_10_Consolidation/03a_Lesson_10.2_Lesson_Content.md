@@ -42,7 +42,7 @@ pipelines to enforce XML and Schematron schemas on every commit, and engage in a
 in-class peer-review exchange to evaluate your classmates' work against a formal
 six-domain rubric (Faghihi et al., 2022).
 
-**The takeaway for this page:** A robust digital edition relies on a dual-gate
+**Takeaway:** A robust digital edition relies on a dual-gate
 quality assurance architecture combining automated schema validation with
 structured human peer review.
 
@@ -83,7 +83,7 @@ validation runs automatically on independent cloud runners, using identical
 dependencies and canonical schemas to evaluate every submitted commit under uniform
 conditions.
 
-**The takeaway for this page:** Local desktop validation is necessary for
+**Takeaway:** Local desktop validation is necessary for
 interactive authoring but insufficient for collaborative integrity, necessitating
 centralized automated validation gates.
 
@@ -125,7 +125,7 @@ witness siglum in an apparatus points to a defined `@xml:id`, that translation
 elements specify correct language codes, and that morphological tokens contain both
 lemmas and parts of speech (Kalvesmaki, 2024; Bauman, 2015).
 
-**The takeaway for this page:** Comprehensive XML quality control operates across
+**Takeaway:** Comprehensive XML quality control operates across
 three distinct tiers: syntactic well-formedness, grammatical structure, and
 rule-based semantic constraints.
 
@@ -172,7 +172,7 @@ xmllint --noout src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
 # ms_a_folio_14v.xml:42: parser error : Opening and ending tag mismatch: orig line 40 and choice
 ```
 
-**The takeaway for this page:** Well-formedness is the non-negotiable syntactic
+**Takeaway:** Well-formedness is the non-negotiable syntactic
 baseline of all XML, ensuring that documents can be parsed into unambiguous
 hierarchical trees.
 
@@ -215,7 +215,7 @@ Jing traverses the document tree and verifies that every element occurs only whe
 permitted by the grammar, catching missing metadata containers, illegal child tags,
 and invalid attribute enumerations (Dunning, 2020).
 
-**The takeaway for this page:** RELAX NG enforces the geometric and structural
+**Takeaway:** RELAX NG enforces the geometric and structural
 grammar of TEI documents, verifying that elements nest according to established
 schema definitions.
 
@@ -258,7 +258,7 @@ grammar-based schemas cannot express:
 To enforce these vital philological "business rules," digital editions must layer
 rule-based validation on top of structural grammar (Kalvesmaki, 2024).
 
-**The takeaway for this page:** Grammar-based schemas define structural shapes but
+**Takeaway:** Grammar-based schemas define structural shapes but
 cannot enforce conditional co-occurrence rules or cross-referential integrity
 across document trees.
 
@@ -295,7 +295,7 @@ here`). When Schematron fails, it outputs custom, plain-language diagnostic mess
 written directly by the project editors, explaining *why* the encoding violates
 philological standards and *how* to correct it (Kalvesmaki, 2024).
 
-**The takeaway for this page:** ISO Schematron uses XPath queries to validate
+**Takeaway:** ISO Schematron uses XPath queries to validate
 complex business rules and conditional constraints that lie beyond the reach of
 grammar-based schemas.
 
@@ -344,7 +344,7 @@ evaluates `@wit and normalize-space(@wit) != ''`. If an encoder writes
 exact element and prints our custom diagnostic message: `[APP-02] Every <rdg>
 element must possess a non-empty @wit attribute...` (Kalvesmaki, 2024).
 
-**The takeaway for this page:** Schematron rules combine XPath context matching with
+**Takeaway:** Schematron rules combine XPath context matching with
 explicit boolean tests to generate tailored, actionable diagnostic feedback for
 editors.
 
@@ -396,7 +396,7 @@ every individual siglum matches an `@xml:id` declared within `<listWit>`. If an
 encoder mistypes `#CodexC` as `#CodexX`, Schematron intercepts the mistake
 instantly (Bauman, 2015).
 
-**The takeaway for this page:** Schematron XPath assertions guarantee relational
+**Takeaway:** Schematron XPath assertions guarantee relational
 integrity by verifying that every internal pointer and witness siglum resolves to a
 valid declared identifier.
 
@@ -451,7 +451,7 @@ By articulating these rules in Schematron, we guarantee that all student
 contributions adhere to identical editorial conventions across the entire course
 corpus (Kalvesmaki, 2024).
 
-**The takeaway for this page:** Rule-based validation prevents invalid editorial
+**Takeaway:** Rule-based validation prevents invalid editorial
 combinations, ensuring that normalization pairs and morphological tags conform
 strictly to project policy.
 
@@ -495,7 +495,7 @@ recording the exact XPath location, line number, role (`error`/`warning`), and t
 of every failed assertion, making it easily parseable by automated CI tools
 (Kalvesmaki, 2024; Dunning, 2020).
 
-**The takeaway for this page:** Schematron operates by compiling XPath rules into
+**Takeaway:** Schematron operates by compiling XPath rules into
 XSLT stylesheets via Saxon, generating machine-readable SVRL reports of all
 constraint violations.
 
@@ -533,7 +533,7 @@ commit to GitHub, CI runners immediately spin up a clean virtual container, exec
 syntax parsers, Jing RELAX NG validators, and Saxon Schematron suites, and report
 the results within seconds (Dunning, 2020; Krautter et al., 2021).
 
-**The takeaway for this page:** Continuous Integration automates quality control,
+**Takeaway:** Continuous Integration automates quality control,
 running reproducible validation suites on every commit to prevent malformed data
 from entering canonical repositories.
 
@@ -593,7 +593,7 @@ jobs:
           java-version: '17'
 ```
 
-**The takeaway for this page:** GitHub Actions workflows define automated
+**Takeaway:** GitHub Actions workflows define automated
 event-driven pipelines that execute validation tasks inside isolated, ephemeral
 virtual machines.
 
@@ -659,7 +659,7 @@ When committed to `.github/workflows/validate-tei.yml`, this workflow guarantees
 that every single push and pull request is rigorously tested across all three tiers
 before it can be merged (Dunning, 2020).
 
-**The takeaway for this page:** A standard TEI validation workflow automates Java
+**Takeaway:** A standard TEI validation workflow automates Java
 runtime provisioning, schema downloading, and multi-tiered validation across all
 repository XML files.
 
@@ -708,7 +708,7 @@ the GitHub YAML file: the workflow dynamically discovers which schema governs ea
 individual XML file directly from its internal processing instructions (Dunning,
 2020).
 
-**The takeaway for this page:** Community-developed GitHub Actions streamline CI
+**Takeaway:** Community-developed GitHub Actions streamline CI
 setup by automatically discovering XML-model processing instructions and executing
 standardized validation pipelines.
 
@@ -764,7 +764,7 @@ When Oxygen, VS Code, or `xml-model-validator` opens this file, it immediately
 recognizes both schemas and executes both validation passes concurrently (Dunning,
 2020; TEI Consortium, 2026).
 
-**The takeaway for this page:** Standard `<?xml-model?>` processing instructions
+**Takeaway:** Standard `<?xml-model?>` processing instructions
 declare the exact grammar and Schematron schemas governing a document, enabling
 both IDEs and CI runners to validate automatically.
 
@@ -806,7 +806,7 @@ automated validation functions as an objective, non-judgmental automated tutor,
 empowering students to debug and refine their encoding iteratively (Faghihi et al.,
 2022).
 
-**The takeaway for this page:** Translating automated validation failures into
+**Takeaway:** Translating automated validation failures into
 inline GitHub annotations provides contextual, non-judgmental feedback directly
 alongside the offending markup.
 
@@ -847,7 +847,7 @@ By establishing automated merge gates, human error is mathematically designed ou
 of the system. The canonical `main` branch is guaranteed to remain valid,
 schema-compliant, and continuously publishable at all times (Witt, 2018).
 
-**The takeaway for this page:** Branch protection rules enforce automated merge
+**Takeaway:** Branch protection rules enforce automated merge
 gates, mathematically preventing malformed or unvalidated TEI data from polluting
 the canonical edition.
 
@@ -879,7 +879,7 @@ can download and inspect the compiled PDF reading notes alongside the raw TEI XM
 diff, evaluating both the underlying code and the rendered reading experience
 simultaneously (Rosselli Del Turco, 2016; Weigl et al., 2024).
 
-**The takeaway for this page:** CI/CD pipelines can automatically generate static
+**Takeaway:** CI/CD pipelines can automatically generate static
 HTML previews and PDF reading notes, allowing reviewers to evaluate visual
 presentation alongside underlying code.
 
@@ -912,7 +912,7 @@ whether an English translation captures the rhetorical subtlety of a Greek claus
 verification, liberating human peer reviewers to concentrate their intellectual
 energy on interpretive, historical, and philological scholarship (Witt, 2018).
 
-**The takeaway for this page:** Automated pipelines verify structural and syntactic
+**Takeaway:** Automated pipelines verify structural and syntactic
 conformance, liberating human peer reviewers to concentrate on interpretive
 nuance and philological rigor.
 
@@ -939,7 +939,7 @@ six essential domains (Faghihi et al., 2022; Huskey, 2024):
 | **5. Metadata Provenance** | Is `<teiHeader>` complete? Does `<revisionDesc>` log the contributor's name, date, and change rationale? | **Request Changes.** Contributor must supply missing attribution metadata. |
 | **6. Minimal Computing** | Does markup separate data from presentation? Are hardcoded display styles avoided in favor of semantic tags? | **Request Changes.** Remove presentation markup in favor of CSS classes. |
 
-**The takeaway for this page:** A structured peer-review rubric provides an
+**Takeaway:** A structured peer-review rubric provides an
 objective framework for evaluating both technical encoding standards and humanistic
 scholarship.
 
@@ -974,7 +974,7 @@ When auditing a peer's `teiHeader`, reviewers must evaluate four core sections:
    and that all major milestones are logged as dated `<change>` elements (Daquino
    et al., 2023).
 
-**The takeaway for this page:** Auditing the `teiHeader` ensures that manuscript
+**Takeaway:** Auditing the `teiHeader` ensures that manuscript
 physical descriptions, provenance history, and contributor attribution meet
 international cataloguing standards.
 
@@ -1011,7 +1011,7 @@ following points:
   with `<unclear>` and lacunae are measured with `<gap reason="lost" unit="char"
   quantity="..."/>`.
 
-**The takeaway for this page:** Auditing the diplomatic layer confirms that
+**Takeaway:** Auditing the diplomatic layer confirms that
 physical milestones and scribal alterations faithfully represent the primary
 manuscript evidence.
 
@@ -1047,7 +1047,7 @@ marked an unusual reading as a scribal error (`<sic>`) when it could represent a
 legitimate dialectal variant (`<orig>`), the reviewer should raise this question in
 an inline PR comment (Witt, 2018).
 
-**The takeaway for this page:** Auditing normalization and apparatus layers ensures
+**Takeaway:** Auditing normalization and apparatus layers ensures
 that editorial emendations and variant readings are transparently documented and
 philologically justified.
 
@@ -1076,7 +1076,7 @@ Reviewers cross-check questionable lemmas against authoritative lexicons (Liddel
 via Logeion) and use inline GitHub review comments to suggest corrected
 morphological feature strings (Faghihi et al., 2022).
 
-**The takeaway for this page:** Auditing the linguistic layer verifies that Greek
+**Takeaway:** Auditing the linguistic layer verifies that Greek
 lemmas, morphological parsings, and grammatical attributes are philologically
 accurate across all encoded tokens.
 
@@ -1125,7 +1125,7 @@ Follow this step-by-step protocol during the lab session:
 - **Linguistic Layer:** 18 tokens audited; 17 correct. Found one minor parsing error on line 58 (verb tagged as imperfect instead of aorist).
 ```
 
-**The takeaway for this page:** The peer review exchange provides real-world
+**Takeaway:** The peer review exchange provides real-world
 experience in evaluating, annotating, and adjudicating scholarly markup within an
 active collaborative repository.
 
@@ -1162,7 +1162,7 @@ the society's official imprimatur (seal of quality) and is published as an open-
 version-controlled TEI repository that can be hosted on any platform or archived
 permanently (Huskey, 2024).
 
-**The takeaway for this page:** The Digital Latin Library proves that
+**Takeaway:** The Digital Latin Library proves that
 version-controlled peer review can award authoritative academic credentials that
 travel independently of proprietary hosting platforms.
 
@@ -1199,7 +1199,7 @@ frameworks, and by utilizing lightweight, client-side rendering engines like
 without transformations), your edition achieves true digital permanence (Rosselli
 Del Turco, 2016; Holmes & Turska, 2023).
 
-**The takeaway for this page:** Adhering to Endings Project principles ensures that
+**Takeaway:** Adhering to Endings Project principles ensures that
 digital critical editions remain functional, secure, and citeable for decades
 without ongoing server maintenance.
 
@@ -1237,7 +1237,7 @@ European server clusters, and mints a permanent **Digital Object Identifier (DOI
 software (Zotero, Mendeley) and academic bibliographies can cite your digital
 edition with perfect bibliographic precision (Daquino et al., 2023).
 
-**The takeaway for this page:** Archiving version-controlled releases to permanent
+**Takeaway:** Archiving version-controlled releases to permanent
 repositories like Zenodo assigns permanent DOIs, ensuring long-term citability and
 FAIR data compliance.
 
@@ -1271,7 +1271,7 @@ Latin and English translations, exploring the international **Leipzig Glossing
 Rules** and constructing linked interlinear data representations (TEI Consortium,
 2026).
 
-**The takeaway for this page:** Week 10 consolidation validates and unifies all
+**Takeaway:** Week 10 consolidation validates and unifies all
 accumulated edition layers, establishing the rigorous foundation needed for
 bilingual translation alignment and commentary.
 

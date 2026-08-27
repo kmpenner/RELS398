@@ -20,7 +20,7 @@ The digital medium restores and vastly expands the relational architecture of hi
 
 **Vocabulary.** *Paratext* — material surrounding the main text (notes, prefaces, apparatus) that frames its reception. *Scholia* — ancient or medieval marginal and interlinear notes explaining grammar, history, or rhetoric. *Epistemology* — the philosophical investigation of what constitutes knowledge and how interpretive claims are justified.
 
-**The takeaway for this page:** Scholarly commentary is an active epistemological practice that transforms historical texts from isolated documents into connected networks of cultural interpretation.
+**Takeaway:** Scholarly commentary is an active epistemological practice that transforms historical texts from isolated documents into connected networks of cultural interpretation.
 
 ---
 
@@ -45,7 +45,7 @@ Digital scholarship addresses this complexity through layered hermeneutics. By d
 
 **Vocabulary.** *Hermeneutics* — the theory and methodology of interpretation, particularly of historical and literary texts. *Multi-vocality* — the presence of multiple interpretive voices or analytical perspectives within an edition. *Typological decomposition* — separating complex qualitative commentary into distinct, standardized categories.
 
-**The takeaway for this page:** Commentary provides the interpretive rationale behind textual phenomena, requiring structured categorization to remain computationally tractable and pedagogically effective.
+**Takeaway:** Commentary provides the interpretive rationale behind textual phenomena, requiring structured categorization to remain computationally tractable and pedagogically effective.
 
 ---
 
@@ -70,7 +70,7 @@ By maintaining strict boundaries between these four types, a digital project can
 
 **Vocabulary.** *Prosopography* — the historical study of persons, their genealogies, and their social connections. *Realia* — physical objects, customs, and material culture specific to a historical era. *Taxonomy* — a formal system of classification for ordering complex phenomena.
 
-**The takeaway for this page:** Digital commentary must be structured around four rigorous categories: philological, historical, intertextual, and structural-thematic.
+**Takeaway:** Digital commentary must be structured around four rigorous categories: philological, historical, intertextual, and structural-thematic.
 
 ---
 
@@ -95,7 +95,7 @@ When authoring philological notes by hand, maintain a concise, standardized form
 
 **Vocabulary.** *Hapax legomenon* — a word that occurs only once within a specified corpus or text. *Lectio difficilior* — the more difficult reading, often preferred in textual criticism because scribes tend to smooth difficult text. *Morphosyntax* — the interaction between morphological word-forms and syntactic sentence structures.
 
-**The takeaway for this page:** Philological notes explicate linguistic anomalies, grammatical parsing, and text-critical decisions to establish baseline semantic comprehension.
+**Takeaway:** Philological notes explicate linguistic anomalies, grammatical parsing, and text-critical decisions to establish baseline semantic comprehension.
 
 ---
 
@@ -120,7 +120,7 @@ By anchoring manual historical notes to global gazetteers like Pleiades and auth
 
 **Vocabulary.** *Linked Open Data (LOD)* — structured data published on the web in standard formats that can be automatically interlinked across diverse repositories. *Gazetteer* — a geographic dictionary or directory used in conjunction with maps and historical texts. *Pleiades* — a community-built digital gazetteer of ancient places.
 
-**The takeaway for this page:** Historical notes identify persons, places, and realia, providing cultural context while anchoring entities to persistent linked open data identifiers.
+**Takeaway:** Historical notes identify persons, places, and realia, providing cultural context while anchoring entities to persistent linked open data identifiers.
 
 ---
 
@@ -145,7 +145,7 @@ When drafting intertextual notes manually, record: (1) the exact source work and
 
 **Vocabulary.** *Allusion* — an indirect or covert reference in literature to another work, person, or event. *CiTO (Citation Typing Ontology)* — a formal semantic ontology that characterizes the nature and purpose of citations between works. *Mimesis* — the classical literary practice of imitating and transforming authoritative model texts.
 
-**The takeaway for this page:** Intertextual notes categorize the precise nature of textual borrowing, distinguishing between explicit quotations, subtle echoes, and conceptual parallels.
+**Takeaway:** Intertextual notes categorize the precise nature of textual borrowing, distinguishing between explicit quotations, subtle echoes, and conceptual parallels.
 
 ---
 
@@ -170,7 +170,7 @@ Structural and exegetical notes provide the interpretive framework that gives co
 
 **Vocabulary.** *Exegesis* — critical explanation or interpretation of a text, especially religious or philosophical literature. *Typology* — a method of biblical interpretation wherein people, events, or institutions in the Old Testament are viewed as prefigurations of the New Testament. *Antithesis* — a rhetorical figure wherein contrasting ideas are placed in sharp juxtaposition.
 
-**The takeaway for this page:** Structural and rhetorical notes explicate discourse architecture, argumentative transitions, and macro-level interpretive motifs.
+**Takeaway:** Structural and rhetorical notes explicate discourse architecture, argumentative transitions, and macro-level interpretive motifs.
 
 ---
 
@@ -195,7 +195,7 @@ To build durable digital editions that survive software updates, markup revision
 
 **Vocabulary.** *Anchor* — the precise mechanism or selector that binds an annotation to a specific target in a digital document. *Byte offset* — the position of a character expressed as a numerical distance in bytes from the start of a file. *Brittleness* — the vulnerability of an automated link to break when the underlying source document undergoes minor revisions.
 
-**The takeaway for this page:** Primitive character offsets break when text is edited; digital commentary requires resilient anchor mechanisms based on unique IDs and canonical citation schemes.
+**Takeaway:** Primitive character offsets break when text is edited; digital commentary requires resilient anchor mechanisms based on unique IDs and canonical citation schemes.
 
 ---
 
@@ -222,7 +222,7 @@ By utilizing CTS URNs within digital commentary, an editor binds notes to the ab
 
 **Vocabulary.** *CTS URN* — Canonical Text Services Uniform Resource Name; a standardized, syntax-governed identifier for citing textual passages. *CITE Architecture* — Collection, Index, Text, Extension; a computational framework for citing scholarly resources. *Textgroup* — the authorial or traditional grouping of related works within CTS.
 
-**The takeaway for this page:** CTS URNs provide technology-independent, persistent identifiers that link commentary to canonical intellectual works rather than fragile web files.
+**Takeaway:** CTS URNs provide technology-independent, persistent identifiers that link commentary to canonical intellectual works rather than fragile web files.
 
 ---
 
@@ -248,7 +248,7 @@ Furthermore, CTS URNs support version-independent addressing. If an editor omits
 
 **Vocabulary.** *Sub-reference* — an extended syntax in CTS URNs (using `@`) that targets specific words or characters within a canonical passage. *Hierarchical granularity* — the ability of an addressing system to operate across multiple nested levels of a text. *Version independence* — the property of a citation that allows it to resolve across different editions of the same work.
 
-**The takeaway for this page:** CTS URN sub-references allow commentary to target entire chapters, verse ranges, or individual words with mathematical precision and cross-edition durability.
+**Takeaway:** CTS URN sub-references allow commentary to target entire chapters, verse ranges, or individual words with mathematical precision and cross-edition durability.
 
 ---
 
@@ -275,7 +275,7 @@ Embedding commentary directly into the base text stream creates severe maintenan
 
 **Vocabulary.** *OHCO model* — Ordered Hierarchy of Content Objects; the theoretical model underlying XML that treats documents as strictly nested trees. *Overlapping hierarchies* — a condition where two or more logical structural systems in a document cross boundaries without nesting. *Milestone tag* — an empty XML tag used to mark a boundary in a secondary hierarchy without enclosing content.
 
-**The takeaway for this page:** Embedded XML markup cannot natively handle overlapping physical, metrical, and interpretive structures, necessitating externalized annotation architectures.
+**Takeaway:** Embedded XML markup cannot natively handle overlapping physical, metrical, and interpretive structures, necessitating externalized annotation architectures.
 
 ---
 
@@ -321,7 +321,7 @@ This architectural separation provides transformative advantages for the digital
 
 **Vocabulary.** *Stand-off markup* — a markup technique where annotations and structural codes are stored outside the primary text stream and connected via pointers. `<standOff>` — the official TEI container element for contextual and interpretive data. *Separation of concerns* — a software architecture principle separating distinct domains of data to enhance maintainability.
 
-**The takeaway for this page:** TEI stand-off markup externalizes commentary into a dedicated container, preserving transcription integrity while supporting infinite overlapping interpretive layers.
+**Takeaway:** TEI stand-off markup externalizes commentary into a dedicated container, preserving transcription integrity while supporting infinite overlapping interpretive layers.
 
 ---
 
@@ -348,7 +348,7 @@ By adopting TEI §17 mechanisms, a digital scholarly edition transforms humanist
 
 **Vocabulary.** *TEI P5* — the current fifth version of the Text Encoding Initiative Guidelines. *Analytic mechanism* — a formal markup structure designed to encode textual analysis and interpretation. *Relational network* — a system of data objects connected by explicit, typed references.
 
-**The takeaway for this page:** TEI §17 provides standardized analytic elements (`<interpGrp>`, `<interp>`, `<span>`, `<ptr>`) for formalizing humanistic commentary into structured, queryable data.
+**Takeaway:** TEI §17 provides standardized analytic elements (`<interpGrp>`, `<interp>`, `<span>`, `<ptr>`) for formalizing humanistic commentary into structured, queryable data.
 
 ---
 
@@ -386,7 +386,7 @@ This structure ensures consistency across a multi-editor project. When multiple 
 
 **Vocabulary.** *Controlled vocabulary* — an authoritative, restricted list of terms used for indexing and categorizing data. `@ana` — TEI attribute used to associate any text element with an external interpretive definition (`<interp>`). `@resp` — TEI attribute designating the scholar responsible for an editorial assertion.
 
-**The takeaway for this page:** `<interpGrp>` and `<interp>` formalize controlled vocabularies of editorial interpretation, linking analytical concepts to text spans via standard attributes.
+**Takeaway:** `<interpGrp>` and `<interp>` formalize controlled vocabularies of editorial interpretation, linking analytical concepts to text spans via standard attributes.
 
 ---
 
@@ -430,7 +430,7 @@ By utilizing standard URI pointing mechanisms, TEI pointers seamlessly bridge lo
 
 **Vocabulary.** *Fragment identifier* — the portion of a URI following a `#` symbol that specifies a distinct anchor within a document. *Unidirectional link* — a link that points in one direction from source to target. *Link group (`<linkGrp>`)* — a TEI container for organizing related `<link>` elements.
 
-**The takeaway for this page:** `<ptr>` and `<link>` elements use URI and fragment identifier syntax to create unambiguous connections between stand-off notes, text spans, and external resources.
+**Takeaway:** `<ptr>` and `<link>` elements use URI and fragment identifier syntax to create unambiguous connections between stand-off notes, text spans, and external resources.
 
 ---
 
@@ -473,7 +473,7 @@ This approach resolves the overlapping hierarchies problem completely: any numbe
 
 **Vocabulary.** `<seg>` — a TEI element used to segment arbitrary text spans in the body for analytic or linguistic purposes. `<span>` — a stand-off element defining a text range via start and end boundary attributes. *Non-invasive markup* — annotation techniques that record textual properties without altering the base transcription stream.
 
-**The takeaway for this page:** Stand-off `<span>` elements define multi-word commentary targets via `@from` and `@to` boundaries, enabling overlapping spans without inserting intrusive inline tags.
+**Takeaway:** Stand-off `<span>` elements define multi-word commentary targets via `@from` and `@to` boundaries, enabling overlapping spans without inserting intrusive inline tags.
 
 ---
 
@@ -521,7 +521,7 @@ For small, single-editor projects with brief glosses, inline notes offer simplic
 
 **Vocabulary.** *Inline encoding* — placing markup and annotations directly inside the primary text stream. *Merge conflict* — a version control collision occurring when multiple contributors edit the same lines of a file concurrently. *Modularity* — the degree to which a system's components can be separated and recombined.
 
-**The takeaway for this page:** Stand-off notes are superior to inline notes for scholarly commentary because they preserve transcription clarity, prevent merge conflicts, and support multi-layered annotations.
+**Takeaway:** Stand-off notes are superior to inline notes for scholarly commentary because they preserve transcription clarity, prevent merge conflicts, and support multi-layered annotations.
 
 ---
 
@@ -557,7 +557,7 @@ By consistently applying these attributes, the digital edition enables dynamic u
 
 **Vocabulary.** `@subtype` — a TEI attribute providing a secondary, finer classification within a primary `@type`. `@cert` — a TEI attribute declaring the degree of editorial certainty for an assertion. *Dynamic filtering* — the capability of a digital interface to show or hide content based on user-selected metadata criteria.
 
-**The takeaway for this page:** Enriching `<note>` elements with `@type`, `@subtype`, `@resp`, `@cert`, and `@source` enables multi-dimensional filtering and transparent scholarly accountability.
+**Takeaway:** Enriching `<note>` elements with `@type`, `@subtype`, `@resp`, `@cert`, and `@source` enables multi-dimensional filtering and transparent scholarly accountability.
 
 ---
 
@@ -599,7 +599,7 @@ Structuring note bodies with these elements ensures that bibliographic citations
 
 **Vocabulary.** `<mentioned>` — a TEI element used to mark words or phrases mentioned as linguistic objects rather than used in communication. `<cit>` — a TEI container element combining a quotation with a bibliographic reference. *Semantic field* — the organization of related words and concepts within a language.
 
-**The takeaway for this page:** Structuring note bodies with `<mentioned>`, `<cit>`, `<bibl>`, and `<ref>` allows digital publishing systems to automatically build bibliographies, indexes, and internal link networks.
+**Takeaway:** Structuring note bodies with `<mentioned>`, `<cit>`, `<bibl>`, and `<ref>` allows digital publishing systems to automatically build bibliographies, indexes, and internal link networks.
 
 ---
 
@@ -648,7 +648,7 @@ By incorporating `<listPerson>` and `<listPlace>` registers into the `<standOff>
 
 **Vocabulary.** *Authority file* — a standardized record that establishes the recognized heading and unique identifier for an entity. *VIAF* — Virtual International Authority File; a collaborative service aggregating national library authority files. *Toponym* — the proper name of a geographical place.
 
-**The takeaway for this page:** Encoding Linked Open Data URIs in `<listPerson>` and `<listPlace>` registers connects local commentary notes to global mapping and prosopographical databases.
+**Takeaway:** Encoding Linked Open Data URIs in `<listPerson>` and `<listPlace>` registers connects local commentary notes to global mapping and prosopographical databases.
 
 ---
 
@@ -672,7 +672,7 @@ Furthermore, DCC links every grammatical explanation directly to sections of sta
 
 **Vocabulary.** *Vocabulary scaffolding* — providing targeted lexical support based on empirical frequency metrics to assist reading comprehension. *LASLA* — Laboratoire d'Analyse Statistique des Langues Anciennes; a research institute providing lemmatized Latin linguistic corpora.
 
-**The takeaway for this page:** Dickinson College Commentaries demonstrates how algorithmic vocabulary filtering and linked grammatical references create powerful, multi-tiered digital commentary editions.
+**Takeaway:** Dickinson College Commentaries demonstrates how algorithmic vocabulary filtering and linked grammatical references create powerful, multi-tiered digital commentary editions.
 
 ---
 
@@ -696,7 +696,7 @@ The GV case study underscores the irreplaceable value of human editorial experti
 
 **Vocabulary.** *Historical mediation* — the editorial practice of explaining historical, theological, and linguistic distance for modern readers. *Archaism* — the deliberate use of outdated or ancient language forms and styles. *Liturgical paraphrase* — rewording liturgical or biblical texts into poetry or prose.
 
-**The takeaway for this page:** The *Grundtvig's Works* edition demonstrates the irreplaceable depth of manual scholarly commentary alongside the labor limits that motivate computational assistance.
+**Takeaway:** The *Grundtvig's Works* edition demonstrates the irreplaceable depth of manual scholarly commentary alongside the labor limits that motivate computational assistance.
 
 ---
 
@@ -723,7 +723,7 @@ Begin by creating your base XML document. Ensure that every word token receives 
 
 **Vocabulary.** *Ground truth* — the verified, authoritative reference dataset against which automated and experimental models are tested. *Tokenization* — the process of segmenting a continuous text stream into discrete words and punctuation marks. *Deterministic identifier* — an ID generated by a predictable rule that remains consistent across processing runs.
 
-**The takeaway for this page:** Establishing a stable ground-truth passage with explicit token IDs is the foundational prerequisite for all digital commentary encoding.
+**Takeaway:** Establishing a stable ground-truth passage with explicit token IDs is the foundational prerequisite for all digital commentary encoding.
 
 ---
 
@@ -750,7 +750,7 @@ Draft at least three distinct philological notes for your selected passage. Ensu
 
 **Vocabulary.** *Deponent verb* — a verb with passive or middle morphological forms but an active semantic meaning. *Parrhesia* — in ancient Greece, the practice and civic right of speaking candidly and boldly. *Semantic shift* — the evolution of word meanings over historical time.
 
-**The takeaway for this page:** Philological drafting requires precise morphological parsing, standard lexical citations, and contextual explanations of semantic nuance.
+**Takeaway:** Philological drafting requires precise morphological parsing, standard lexical citations, and contextual explanations of semantic nuance.
 
 ---
 
@@ -781,7 +781,7 @@ Author at least three historical/LOD notes and two intertextual notes for your p
 
 **Vocabulary.** *Lex Julia* — ancient Roman legislation safeguarding citizens against arbitrary physical abuse without trial. *Imperial cult* — the official religious veneration of Roman emperors as divine benefactors across the empire. *Priene Inscription* — famous 9 BCE Greek inscription from Asia Minor using *euangelia* for Caesar Augustus.
 
-**The takeaway for this page:** Historical notes anchor entities to LOD URIs, while intertextual notes articulate the literary and ideological dimensions of textual echoes.
+**Takeaway:** Historical notes anchor entities to LOD URIs, while intertextual notes articulate the literary and ideological dimensions of textual echoes.
 
 ---
 
@@ -841,7 +841,7 @@ Ensure that your schema declaration points to the official TEI P5 RelaxNG schema
 
 **Vocabulary.** `tei_all.rng` — the complete, unrestricted RelaxNG schema containing all TEI P5 modules and elements. `<publicationStmt>` — TEI header element detailing the publication and licensing of the electronic document. `<sourceDesc>` — TEI header element recording the physical manuscript or printed edition source.
 
-**The takeaway for this page:** Building the TEI document shell establishes formal editorial metadata, licensing, and schema validation for the stand-off commentary.
+**Takeaway:** Building the TEI document shell establishes formal editorial metadata, licensing, and schema validation for the stand-off commentary.
 
 ---
 
@@ -895,7 +895,7 @@ Once encoded, validate the document. Check that:
 
 **Vocabulary.** *Well-formedness* — the structural syntax rule in XML requiring all tags to be properly closed, quoted, and nested. *Schema validity* — the property of an XML document conforming to a formal grammar ruleset (such as TEI RelaxNG). `@target` resolution — verifying that a pointer URI matches an actual existing target identifier.
 
-**The takeaway for this page:** Populating `<standOff>` with typed `<note>`, `<interpGrp>`, and `<listPlace>` elements creates a valid, fully linked TEI commentary file.
+**Takeaway:** Populating `<standOff>` with typed `<note>`, `<interpGrp>`, and `<listPlace>` elements creates a valid, fully linked TEI commentary file.
 
 ---
 
@@ -931,7 +931,7 @@ Documenting these policies ensures that your commentary remains transparent, rep
 
 **Vocabulary.** `<editorialDecl>` — TEI header element providing details of editorial practices applied during text encoding. `<interpretation>` — TEI sub-element describing the scope of interpretive and analytic annotations. *Annotation threshold* — the explicit editorial criteria determining when a textual feature warrants an explanatory note.
 
-**The takeaway for this page:** The commentary editorial statement formalizes selection criteria, target audience levels, citation standards, and attribution protocols.
+**Takeaway:** The commentary editorial statement formalizes selection criteria, target audience levels, citation standards, and attribution protocols.
 
 ---
 
@@ -957,7 +957,7 @@ Save this summary. Tomorrow and Friday, you will evaluate how many of these manu
 
 **Vocabulary.** *Ground-truth corpus* — the verified human reference dataset used to benchmark automated algorithms. *False negative* — an authentic feature that an automated algorithm fails to detect. *False positive* — a spurious candidate generated by an algorithm that does not represent a true match.
 
-**The takeaway for this page:** Compiling a structured audit summary of today's manual notes establishes the quantitative baseline for auditing automated and AI tools later this week.
+**Takeaway:** Compiling a structured audit summary of today's manual notes establishes the quantitative baseline for auditing automated and AI tools later this week.
 
 ---
 
@@ -978,7 +978,7 @@ Manual commentary drafting requires immense erudition, hermeneutic reflection, a
 
 **For Wednesday:** Install and review the Tesserae intertextual discovery documentation; examine how deterministic frequency-weighted algorithms detect text reuse across classical corpora.
 
-**The takeaway for this page:** Manual commentary provides the irreplaceable ground truth of scholarly depth, structured through TEI stand-off markup to anchor subsequent computational discovery.
+**Takeaway:** Manual commentary provides the irreplaceable ground truth of scholarly depth, structured through TEI stand-off markup to anchor subsequent computational discovery.
 
 ---
 

@@ -42,7 +42,7 @@ which is what makes correction efficient rather than exhaustive.
 computational comparison and adjudication. *Consensus text* — the reconciled text
 resulting from that adjudication.
 
-**The takeaway for this page:** Two independent passes rarely err identically, so
+**Takeaway:** Two independent passes rarely err identically, so
 disagreement between them localizes error precisely.
 
 ---
@@ -81,7 +81,7 @@ Your first pass is very unlikely to have been at 99.9%.
 This is not a reason for discouragement. It is the reason double-keying exists, and
 the reason today's session is a required step rather than an optional refinement.
 
-**The takeaway for this page:** Double-keying reaches 99.95% or better on printed
+**Takeaway:** Double-keying reaches 99.95% or better on printed
 text; a single manuscript pass is well below that, which is why today is required.
 
 ---
@@ -121,7 +121,7 @@ The first is the essential one and the most tempting to skip. A second pass
 conducted with the first pass in view is not a second pass; it is proofreading,
 which finds a different and smaller class of error.
 
-**The takeaway for this page:** Professional double-keying uses transcribers who
+**Takeaway:** Professional double-keying uses transcribers who
 cannot read the language, because comprehension causes auto-correction — so do not
 reread your first pass.
 
@@ -166,7 +166,7 @@ Today addresses both. Double-keying finds your typographical errors; a separate
 structural review finds the encoding ones. Do not assume that agreement on
 characters implies agreement on markup.
 
-**The takeaway for this page:** Double-keying finds character errors and cannot
+**Takeaway:** Double-keying finds character errors and cannot
 find structural ones — perfect characters in wrong markup still misrepresent the
 document.
 
@@ -208,7 +208,7 @@ abbreviations, and the difficult regions. Speed is fine; the failure to guard
 against is transcribing from memory of last week rather than from the image. If you
 find yourself typing a line before reading it, stop and reread the image.
 
-**The takeaway for this page:** Commit the second pass before comparing, so that
+**Takeaway:** Commit the second pass before comparing, so that
 its independence is verifiable in the history rather than merely asserted.
 
 ---
@@ -258,7 +258,7 @@ Check the line counts first. If the two passes have different numbers of lines, 
 contains a line skip, and you must find and fix it before any line-by-line
 comparison is meaningful.
 
-**The takeaway for this page:** Normalize to NFC before comparing, or every
+**Takeaway:** Normalize to NFC before comparing, or every
 accented character reports as a difference — and check line counts before anything
 else.
 
@@ -302,7 +302,7 @@ different words, one of them was almost certainly produced by reading rather tha
 seeing — and if the two words are both plausible in context, the ink is the only
 arbiter.
 
-**The takeaway for this page:** Adjudicate by looking at the ink, not by choosing
+**Takeaway:** Adjudicate by looking at the ink, not by choosing
 the reading that makes better sense — that is the error the method exists to
 neutralize.
 
@@ -343,7 +343,7 @@ exists destroys the record of how it was reached.
 Commit the consensus separately, with a message recording how many disagreements
 were found and how they were resolved.
 
-**The takeaway for this page:** Keep both passes alongside the consensus — the
+**Takeaway:** Keep both passes alongside the consensus — the
 passes are the evidence for how the consensus was reached.
 
 ---
@@ -384,7 +384,7 @@ raters, accommodates missing data — a frequent occurrence when one annotator s
 a damaged word another attempts — and supports nominal, ordinal, and continuous
 data (Haaf et al., 2013).
 
-**The takeaway for this page:** Percentage agreement ignores chance; use a
+**Takeaway:** Percentage agreement ignores chance; use a
 chance-adjusted metric, and prefer Krippendorff's alpha because it handles missing
 data.
 
@@ -431,7 +431,7 @@ mark is an accent or punctuation, whether a region is damage or discoloration �
 where the category count is small. If you and a classmate adjudicate such
 judgements independently, kappa is the appropriate measure.
 
-**The takeaway for this page:** Report the distribution of agreement, not just the
+**Takeaway:** Report the distribution of agreement, not just the
 mean — a sudden collapse means line skip, not difficulty.
 
 ---
@@ -468,7 +468,7 @@ transcription. The diplomatic text and the normalized text both exist, and the
 relationship between them is recorded. That is exactly the architecture your
 edition is building.
 
-**The takeaway for this page:** The DTA rejected OCR for difficult typography and
+**Takeaway:** The DTA rejected OCR for difficult typography and
 normalized only after reconciliation — a separate layer over a verified diplomatic
 base.
 
@@ -511,7 +511,7 @@ For your edition, the practical equivalent is your `CONVENTIONS.md` from Lesson
 you find structural inconsistency between your two passes today, the remedy is to
 make the convention explicit rather than to fix the instances.
 
-**The takeaway for this page:** TEI permits several valid encodings of the same
+**Takeaway:** TEI permits several valid encodings of the same
 feature, so consistency requires an explicit convention — your `CONVENTIONS.md` is
 that document.
 
@@ -556,7 +556,7 @@ undecided convention. Decide it now.
 Structural inconsistencies found today are cheap to fix. Found in Week 8, when the
 apparatus depends on them, they require revisiting the whole transcription.
 
-**The takeaway for this page:** Differing `<unclear>` counts signal an inconsistent
+**Takeaway:** Differing `<unclear>` counts signal an inconsistent
 threshold, not a disagreement about the text — fix the convention, not the
 instances.
 
@@ -594,7 +594,7 @@ HTR model has no expectations about Greek and no palaeographic misunderstandings
 only ink-level errors. Where it disagrees with both your passes, it is worth
 looking at the ink again.
 
-**The takeaway for this page:** Self double-keying cannot catch your systematic
+**Takeaway:** Self double-keying cannot catch your systematic
 misunderstandings — exchange lines with a classmate, and examine points where the
 machine disagrees with both passes.
 
@@ -640,7 +640,7 @@ see** — which introduces pervasive anachronism (Haaf et al., 2013).
 
 Your job in adjudication is to be the first kind of reader.
 
-**The takeaway for this page:** Humans transcribe what they see even when it makes
+**Takeaway:** Humans transcribe what they see even when it makes
 no sense; models transcribe what they expect — which is why unique forms are
 exactly where models fail.
 
@@ -681,7 +681,7 @@ correcting characters but about reconciling the transcription with the physical
 coordinates of the page. Your `<lb/>` elements and their `@facs` bindings are that
 reconciliation, which is why the line-count check in section 06 comes first.
 
-**The takeaway for this page:** Consensus means reconciling text with the page's
+**Takeaway:** Consensus means reconciling text with the page's
 physical coordinates, not only correcting characters — which is why line alignment
 is checked first.
 
@@ -723,7 +723,7 @@ provides a mechanism for correction is more honest than one that presents a
 settled text — and the version control history is precisely the mechanism that
 makes such correction traceable.
 
-**The takeaway for this page:** A published edition can be a living document that
+**Takeaway:** A published edition can be a living document that
 improves through recorded correction, rather than a text claiming finality.
 
 ---
@@ -762,7 +762,7 @@ a different error distribution.
 Note the points where this occurs and check them Friday when the full comparison is
 assembled.
 
-**The takeaway for this page:** Where both machines agree against both your passes,
+**Takeaway:** Where both machines agree against both your passes,
 look again — their errors are uncorrelated with yours, so their agreement is a real
 signal.
 
@@ -799,7 +799,7 @@ will need to be explained to a reader.
 
 Commit it with a `docs:` prefix.
 
-**The takeaway for this page:** Record each disagreement with both readings, the
+**Takeaway:** Record each disagreement with both readings, the
 adjudication, and the reason — that record is the assignment and the seed of your
 commentary.
 
@@ -846,7 +846,7 @@ irreproducible. Friday will compute against the consensus, and the difference
 between the two sets of figures is itself informative — it shows how much of Week
 4's measured error was your error rather than the machines'.
 
-**The takeaway for this page:** Tag the consensus but keep the original ground
+**Takeaway:** Tag the consensus but keep the original ground
 truth tag — the difference between measurements against each shows how much error
 was yours.
 
@@ -888,7 +888,7 @@ It is also the empirical justification for double-keying, produced from your own
 work. If pass 1 was 1.4% wrong, then double-keying improved your ground truth by
 that margin — and you can say so with a number rather than on authority.
 
-**The takeaway for this page:** Measure pass 1 against the consensus — that number
+**Takeaway:** Measure pass 1 against the consensus — that number
 states how much of Week 4's measured machine error was actually yours.
 
 ---
@@ -925,7 +925,7 @@ git tag -l && git ls-remote --tags origin
 Tags existing only locally are not available if you work from another machine, and
 Friday's measurement retrieves the tagged states.
 
-**The takeaway for this page:** Ensure all outputs are line-aligned and all tags
+**Takeaway:** Ensure all outputs are line-aligned and all tags
 are pushed — Friday's measurement retrieves tagged states and needs line alignment.
 
 ---
@@ -957,7 +957,7 @@ and languages are well represented in the data the world has chosen to create.
 
 That observation is not this week's assignment. It is worth holding as you work.
 
-**The takeaway for this page:** The week's technical sense of "reconciliation" is
+**Takeaway:** The week's technical sense of "reconciliation" is
 unrelated to the national day; the coincidence is a reasonable moment to notice
 whose documents digitization has prioritized.
 
@@ -990,7 +990,7 @@ If the second pass is unfinished, finish it before Friday. Friday's measurements
 are computed against the consensus, and without a consensus there is nothing to
 measure against but the unverified Week 4 text.
 
-**The takeaway for this page:** Friday measures against the consensus, so an
+**Takeaway:** Friday measures against the consensus, so an
 unfinished second pass blocks the session.
 
 ---
@@ -1022,7 +1022,7 @@ The sixth row is the subtler bias. If every adjudication resolves toward pass 1,
 ask whether you are examining the ink or defending your first reading. Pass 2 was
 made with more knowledge of the hand and has, if anything, the better claim.
 
-**The takeaway for this page:** Near-identical passes usually mean the second was
+**Takeaway:** Near-identical passes usually mean the second was
 not independent — genuine independence produces genuine disagreement.
 
 ---
@@ -1054,7 +1054,7 @@ most useful thing you can tell a reader about the reliability of your Week 4
 measurements. An editor who reports the limitations of their own reference is one
 whose figures can be trusted.
 
-**The takeaway for this page:** Reporting how wrong your own ground truth was is
+**Takeaway:** Reporting how wrong your own ground truth was is
 what makes your other figures trustworthy.
 
 ---
@@ -1092,7 +1092,7 @@ Note that the bottom row is still revisable. Section 17's living-document model
 applies: publication is a state, not a termination, and an edition that records its
 own uncertainty invites the correction that improves it.
 
-**The takeaway for this page:** The consensus text is the current state of an
+**Takeaway:** The consensus text is the current state of an
 argument, not the true text — and the version history is what lets it be corrected
 without loss.
 
@@ -1129,7 +1129,7 @@ trailers in Lesson 1.1: the reader needs to know how each part of the edition wa
 produced in order to weigh it. Uniform presentation of non-uniform work is the
 thing to avoid.
 
-**The takeaway for this page:** Stratify verification by stakes and state which
+**Takeaway:** Stratify verification by stakes and state which
 parts received which treatment — uniform presentation of non-uniform work is the
 failure.
 
@@ -1161,7 +1161,7 @@ transcription — the temptation Lesson 4.1 section 02 warned against — would 
 foreclosed Week 6 entirely. The decisions are only available to be made
 deliberately because they were not made silently.
 
-**The takeaway for this page:** Week 6 normalizes over the consensus text — and
+**Takeaway:** Week 6 normalizes over the consensus text — and
 normalizing before reconciling would entangle regularizations with corrections
 irrecoverably.
 
@@ -1199,7 +1199,7 @@ reconciliation report.
 **Due Friday October 2.** The Transcription Assignment, including the
 reconciliation report.
 
-**The takeaway for this page:** An uncalibrated ground truth produces measurements
+**Takeaway:** An uncalibrated ground truth produces measurements
 that look precise and are not — double-keying calibrates it, and the amount of
 correction is itself a reportable figure.
 

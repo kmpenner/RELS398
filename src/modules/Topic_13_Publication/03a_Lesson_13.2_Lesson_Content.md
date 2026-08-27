@@ -25,7 +25,7 @@ To solve this crisis, the TEI Consortium developed the **TEI Processing Model**,
 
 **Vocabulary.** *XSLT (Extensible Stylesheet Language Transformations)* — an XML-based language used for transforming XML documents into other formats such as HTML or PDF. *Declarative modeling* — specifying *what* should be done abstractly rather than scripting *how* to execute every procedural step. *Transformation brittleness* — the tendency of complex custom stylesheets to break when minor changes are made to the underlying schema.
 
-**The takeaway for this page:** The TEI Processing Model replaces brittle, custom XSLT stylesheets with standardized, declarative rendering rules embedded directly in the schema.
+**Takeaway:** The TEI Processing Model replaces brittle, custom XSLT stylesheets with standardized, declarative rendering rules embedded directly in the schema.
 
 ---
 
@@ -52,7 +52,7 @@ The TEI Processing Model does not violate the separation of content and presenta
 
 **Vocabulary.** *Myth of presentation* — the mistaken belief that textual encoding is entirely detached from visual rendering and that presentation can be treated as an arbitrary afterthought. *First-class scholarly dimension* — treating visual layout and interaction as integral to the editorial argument rather than an auxiliary technical detail. *Genetic cancellation* — deleted text in a manuscript witness reflecting an authorial or scribal revision.
 
-**The takeaway for this page:** Visual presentation is an integral dimension of scholarly communication that must be formalized declaratively within the edition's schema.
+**Takeaway:** Visual presentation is an integral dimension of scholarly communication that must be formalized declaratively within the edition's schema.
 
 ---
 
@@ -103,7 +103,7 @@ An ODD file is processed by an ODD compiler (such as Roma, OxGarage, or TEI Publ
 
 **Vocabulary.** *ODD (One Document Does It All)* — a TEI XML format that integrates human-readable prose documentation, formal validation schemas, and output processing models in a single file. *Literate programming* — a programming paradigm where code is interwoven with natural language documentation. *Schema generation* — compiling an ODD specification into formal Relax NG or Schematron schemas.
 
-**The takeaway for this page:** An ODD file serves as the single source of truth, generating human-readable guidelines, validation schemas, and publication transformations from one file.
+**Takeaway:** An ODD file serves as the single source of truth, generating human-readable guidelines, validation schemas, and publication transformations from one file.
 
 ---
 
@@ -135,7 +135,7 @@ Instead of writing custom XSLT code to generate specific HTML `<div>` or `<span>
 
 **Vocabulary.** *TEI Processing Model* — the standardized TEI framework mapping XML elements to abstract rendering behaviors. *Abstract behaviour* — a platform-independent rendering operation (such as `inline`, `block`, or `note`) decoupled from specific HTML or LaTeX syntax. *Rendering semantics* — the formal rules defining how structured data should be visually presented.
 
-**The takeaway for this page:** The TEI Processing Model maps hundreds of diverse TEI elements onto a compact set of abstract, platform-agnostic rendering behaviors.
+**Takeaway:** The TEI Processing Model maps hundreds of diverse TEI elements onto a compact set of abstract, platform-agnostic rendering behaviors.
 
 ---
 
@@ -183,7 +183,7 @@ In the example above, the `<persName>` tag is customized with two distinct `<mod
 
 **Vocabulary.** `<schemaSpec>` — TEI container defining a custom schema and its included modules. `<elementSpec>` — TEI container documenting and modifying the validation and rendering rules for a specific element. `@mode="change"` — ODD attribute indicating that an existing TEI element's default definition is being customized.
 
-**The takeaway for this page:** An ODD transformation pipeline customizes elements inside `<elementSpec>` by attaching conditional `<model>` rules that govern rendering.
+**Takeaway:** An ODD transformation pipeline customizes elements inside `<elementSpec>` by attaching conditional `<model>` rules that govern rendering.
 
 ---
 
@@ -212,7 +212,7 @@ The editor never writes low-level target code; they simply invoke the appropriat
 
 **Vocabulary.** *Behaviour* — an abstract rendering function defined in the TEI Processing Model. `omit` — a behaviour instructing the transformation engine to suppress an element and its contents entirely. *Medium-appropriate rendering* — the automatic adaptation of an abstract behaviour to the physical or digital affordances of the output channel.
 
-**The takeaway for this page:** The TEI Processing Model provides standard behaviours covering layout, annotations, tables, graphics, and document control.
+**Takeaway:** The TEI Processing Model provides standard behaviours covering layout, annotations, tables, graphics, and document control.
 
 ---
 
@@ -256,7 +256,7 @@ The most common structural elements in historical and critical editions are mapp
 
 **Vocabulary.** `paragraph` — behaviour formatting text as a prose paragraph. `heading` — behaviour formatting text as a hierarchical section title. `inline` — behaviour rendering content inside the current text line. `block` — behaviour formatting content as a standalone vertical block.
 
-**The takeaway for this page:** Basic document architecture is established by mapping prose to `paragraph`, titles to `heading`, phrase-level markup to `inline`, and containers to `block`.
+**Takeaway:** Basic document architecture is established by mapping prose to `paragraph`, titles to `heading`, phrase-level markup to `inline`, and containers to `block`.
 
 ---
 
@@ -307,7 +307,7 @@ Mapping these elements through the Processing Model guarantees that tables remai
 
 **Vocabulary.** `table` — behaviour generating a tabular data grid. `row` — behaviour generating a table row. `cell` — behaviour generating an individual table cell with span support. `list` — behaviour generating an ordered or unordered list container.
 
-**The takeaway for this page:** Structured collation tables and witness lists are mapped using the `table`, `row`, `cell`, and `list` behaviours.
+**Takeaway:** Structured collation tables and witness lists are mapped using the `table`, `row`, `cell`, and `list` behaviours.
 
 ---
 
@@ -349,7 +349,7 @@ In TEI Publisher, invoking `alternate` automatically generates an accessible HTM
 
 **Vocabulary.** `alternate` — behaviour designed to toggle or pop up alternative readings of the same text span. `<pb-popover>` — a TEI Publisher Web Component that displays interactive floating popups. *Interactive multi-layer reading* — allowing readers to dynamically toggle between diplomatic, regularized, and critical views.
 
-**The takeaway for this page:** The `alternate` behaviour effortlessly transforms TEI `<choice>` elements into interactive web tooltips while supporting clean diplomatic and reading views.
+**Takeaway:** The `alternate` behaviour effortlessly transforms TEI `<choice>` elements into interactive web tooltips while supporting clean diplomatic and reading views.
 
 ---
 
@@ -396,7 +396,7 @@ Using predicates allows you to author sophisticated, context-aware publishing ru
 
 **Vocabulary.** `@predicate` — an XPath expression in a `<model>` element that determines whether the rule applies. *Sequential evaluation* — testing model rules in top-to-bottom order until the first matching predicate is found. *Fallback model* — a model rule without a predicate placed at the end of an `<elementSpec>` to handle all default cases.
 
-**The takeaway for this page:** The `@predicate` attribute evaluates XPath expressions to apply context-sensitive rendering rules based on attributes, ancestors, and active modes.
+**Takeaway:** The `@predicate` attribute evaluates XPath expressions to apply context-sensitive rendering rules based on attributes, ancestors, and active modes.
 
 ---
 
@@ -443,7 +443,7 @@ If a `<model>` omits the `@output` attribute, it applies universally across all 
 
 **Vocabulary.** `@output` — attribute specifying the target publication format (`web`, `print`, `latex`, `epub`) for a `<model>` rule. *Multi-output targeting* — configuring an ODD specification to generate distinct media outputs from a single XML source. *Universal model* — a model rule without an `@output` restriction that applies to all media.
 
-**The takeaway for this page:** The `@output` attribute allows editors to customize rendering rules for specific media while sharing universal baseline rules.
+**Takeaway:** The `@output` attribute allows editors to customize rendering rules for specific media while sharing universal baseline rules.
 
 ---
 
@@ -483,7 +483,7 @@ Because `@value` accepts full XPath expressions, you can construct dynamic strin
 
 **Vocabulary.** `<param>` — TEI element providing a named argument to a processing model behaviour. `@value` — XPath expression evaluated dynamically to supply data to a parameter. *Dynamic string construction* — using XPath functions (such as `concat()`) inside a parameter value to build URLs or labels.
 
-**The takeaway for this page:** The `<param>` element passes dynamic parameters—extracted via XPath—into abstract behaviors to control URLs, image sources, note placements, and content streams.
+**Takeaway:** The `<param>` element passes dynamic parameters—extracted via XPath—into abstract behaviors to control URLs, image sources, note placements, and content streams.
 
 ---
 
@@ -517,7 +517,7 @@ Furthermore, styling rules can reference external CSS stylesheets, allowing desi
 
 **Vocabulary.** `<outputRendition>` — TEI element containing declarative CSS styling rules applied to a model behaviour. `@scope="before"` — attribute applying CSS styles to the `::before` pseudo-element. *Presentation decoupling* — generating typographical brackets and punctuation dynamically at render time rather than hard-coding them into the transcription.
 
-**The takeaway for this page:** The `<outputRendition>` element attaches declarative CSS styles and pseudo-element brackets directly to model rules.
+**Takeaway:** The `<outputRendition>` element attaches declarative CSS styles and pseudo-element brackets directly to model rules.
 
 ---
 
@@ -560,7 +560,7 @@ When the transformation engine encounters `<modelSequence>`, it executes every e
 
 **Vocabulary.** `<modelSequence>` — TEI container grouping multiple `<model>` elements that must be executed in sequential order. *Multi-pass rendering* — processing a single XML node into multiple distinct layout locations (e.g., inline text and bottom apparatus). *Footnote stream* — the paginated or digital container where notes and apparatus entries collect.
 
-**The takeaway for this page:** The `<modelSequence>` element executes multiple model rules in sequential order, allowing elements like `<app>` to render simultaneously inline and in the apparatus stream.
+**Takeaway:** The `<modelSequence>` element executes multiple model rules in sequential order, allowing elements like `<app>` to render simultaneously inline and in the apparatus stream.
 
 ---
 
@@ -607,7 +607,7 @@ Using `<modelGrp>` organizes complex ODD files into clean, modular blocks, drama
 
 **Vocabulary.** `<modelGrp>` — TEI element grouping multiple `<model>` specifications sharing common output targets or predicates. *Attribute inheritance* — child `<model>` elements automatically inheriting properties declared on their parent `<modelGrp>`. *Modular ODD architecture* — structuring schema specifications into clean, isolated logical blocks.
 
-**The takeaway for this page:** The `<modelGrp>` container centralizes shared output formats and predicates, reducing code repetition and simplifying ODD maintenance.
+**Takeaway:** The `<modelGrp>` container centralizes shared output formats and predicates, reducing code repetition and simplifying ODD maintenance.
 
 ---
 
@@ -658,7 +658,7 @@ By mapping the apparatus through the Processing Model, you eliminate the need to
 
 **Vocabulary.** *Parallel segmentation transformation* — extracting the `<lem>` for reading flows while converting `<rdg>` variants into apparatus notes. *Variant popover* — an interactive web component displaying manuscript sigla upon user click. *Siglum formatting* — programmatically appending witness sigla (`@wit`) to variant strings at render time.
 
-**The takeaway for this page:** Mapping `<app>`, `<lem>`, and `<rdg>` through the Processing Model automates interactive web popovers and multi-tier print apparatus footnotes from a single XML source.
+**Takeaway:** Mapping `<app>`, `<lem>`, and `<rdg>` through the Processing Model automates interactive web popovers and multi-tier print apparatus footnotes from a single XML source.
 
 ---
 
@@ -713,7 +713,7 @@ In TEI Publisher, stand-off notes are dynamically linked to inline text spans vi
 
 **Vocabulary.** `<standOff>` — TEI container for annotations and commentary decoupled from the primary text. *Commentary drawer* — a collapsible web panel that displays context-sensitive scholarly notes. *Categorical color-coding* — using distinct border colors to visually distinguish philological, historical, and intertextual notes.
 
-**The takeaway for this page:** Stand-off commentary is mapped to interactive sidebar drawers on the web and structured endnote sections in print PDFs.
+**Takeaway:** Stand-off commentary is mapped to interactive sidebar drawers on the web and structured endnote sections in print PDFs.
 
 ---
 
@@ -756,7 +756,7 @@ By applying CSS Flexbox (`display: inline-flex; flex-direction: column;`), the f
 
 **Vocabulary.** *Interlinear stacking* — arranging multiple linguistic tiers vertically above or below a word. *CSS Flexbox alignment* — using flexible box layout modules to keep multi-line glosses aligned. *Leipzig glossing presentation* — formatting grammatical tags in standardized small-cap abbreviations.
 
-**The takeaway for this page:** Mapping `<w>` with CSS Flexbox maintains perfect vertical alignment across all four interlinear gloss tiers while supporting responsive line wrapping.
+**Takeaway:** Mapping `<w>` with CSS Flexbox maintains perfect vertical alignment across all four interlinear gloss tiers while supporting responsive line wrapping.
 
 ---
 
@@ -795,7 +795,7 @@ In TEI Publisher, scrolling past a `<pb>` tag in the text view automatically sen
 
 **Vocabulary.** `<pb>` — TEI milestone element marking the boundary between one page of a text and the next. `<pb-facsimile>` — TEI Publisher Web Component that embeds and controls a IIIF image viewer. *Synchronized scrolling* — automatically updating the image viewer as the reader scrolls through the transcription.
 
-**The takeaway for this page:** The `<pb>` element is mapped to `<pb-facsimile>` for real-time IIIF deep-zoom synchronization on the web and folio markers in print PDFs.
+**Takeaway:** The `<pb>` element is mapped to `<pb-facsimile>` for real-time IIIF deep-zoom synchronization on the web and folio markers in print PDFs.
 
 ---
 
@@ -823,7 +823,7 @@ This three-tier architecture eliminates the need for heavyweight server-side web
 
 **Vocabulary.** *eXist-db* — an open-source native XML database engine. *XQuery* — a functional programming language designed for querying and transforming XML data collections. *Web Components* — a suite of W3C standard web platform APIs allowing developers to create reusable custom HTML tags.
 
-**The takeaway for this page:** TEI Publisher integrates eXist-db, compiled XQuery Processing Model engines, and frontend Web Components into a complete publication stack.
+**Takeaway:** TEI Publisher integrates eXist-db, compiled XQuery Processing Model engines, and frontend Web Components into a complete publication stack.
 
 ---
 
@@ -850,7 +850,7 @@ Because the compilation step is fully automated, editors never write low-level t
 
 **Vocabulary.** *ODD compilation* — the automated generation of XSLT or XQuery transformation libraries from an ODD specification. *Saxon* — an industry-standard XSLT and XQuery processing engine. `tei-publisher-lib` — the open-source XQuery library powering the TEI Publisher processing model.
 
-**The takeaway for this page:** ODD compilers automatically generate optimized XSLT 3.0 or XQuery transformation code from abstract model rules.
+**Takeaway:** ODD compilers automatically generate optimized XSLT 3.0 or XQuery transformation code from abstract model rules.
 
 ---
 
@@ -897,7 +897,7 @@ The `subscribe` attribute allows web components to communicate asynchronously: w
 
 **Vocabulary.** `<pb-view>` — the core Web Component responsible for displaying transformed TEI content. *Custom Elements* — the HTML5 standard allowing developers to define new HTML tags with encapsulated functionality. *Asynchronous event broadcasting* — components communicating across an interface via event signals.
 
-**The takeaway for this page:** TEI Publisher Web Components provide lightweight, native browser tags for rendering text, IIIF images, and interactive popovers.
+**Takeaway:** TEI Publisher Web Components provide lightweight, native browser tags for rendering text, IIIF images, and interactive popovers.
 
 ---
 
@@ -934,7 +934,7 @@ Storing documents natively in eXist-db allows scholars to execute powerful XQuer
 
 **Vocabulary.** *Native XML database* — a database engine designed specifically to store, query, and manipulate XML documents natively without relational decomposition. *XQuery collection* — a logical directory inside an XML database containing documents. *DOM tree* — Document Object Model tree structure representing an XML file in memory.
 
-**The takeaway for this page:** eXist-db stores TEI XML documents natively, allowing rapid querying, collection management, and transformation.
+**Takeaway:** eXist-db stores TEI XML documents natively, allowing rapid querying, collection management, and transformation.
 
 ---
 
@@ -971,7 +971,7 @@ Configuring specialized Lucene indices transforms your digital edition from a pa
 
 **Vocabulary.** *Apache Lucene* — an open-source full-text search engine library. `collection.xconf` — configuration file defining index rules in eXist-db. *Faceted search* — searching across multiple orthogonal dimensions (e.g., author, date, manuscript witness, lemma).
 
-**The takeaway for this page:** Configuring Lucene indexing in eXist-db enables real-time full-text, morphosyntactic, and faceted entity search across the edition.
+**Takeaway:** Configuring Lucene indexing in eXist-db enables real-time full-text, morphosyntactic, and faceted entity search across the edition.
 
 ---
 
@@ -1013,7 +1013,7 @@ This modular extension mechanism guarantees that even the most complex digital e
 
 **Vocabulary.** *Custom behaviour* — a project-specific extension function added to the TEI Processing Model engine. *MEI (Music Encoding Initiative)* — an XML standard for encoding musical scores. *Modular extensibility* — the ability to add new computational features without modifying core system libraries.
 
-**The takeaway for this page:** Custom behaviors allow editors to extend the Processing Model with project-specific features—such as interactive stemmata or music scores—while preserving clean ODD architecture.
+**Takeaway:** Custom behaviors allow editors to extend the Processing Model with project-specific features—such as interactive stemmata or music scores—while preserving clean ODD architecture.
 
 ---
 
@@ -1038,7 +1038,7 @@ To debug transformations systematically:
 
 **Vocabulary.** *Model precedence* — the rule that the first `<model>` whose predicate evaluates to true is executed, while subsequent models are ignored. *XPath builder* — an interactive development tool used to test and validate XPath queries against an XML document. *Isolation testing* — verifying a small fragment of code independently to locate errors quickly.
 
-**The takeaway for this page:** Systematic debugging requires testing XPath predicates, checking parameter names, enforcing model precedence, and inspecting compiled transformation code.
+**Takeaway:** Systematic debugging requires testing XPath predicates, checking parameter names, enforcing model precedence, and inspecting compiled transformation code.
 
 ---
 
@@ -1070,7 +1070,7 @@ Maintaining strict version control discipline ensures that the history of your s
 
 **Vocabulary.** *Semantic commit message* — a structured commit message format (e.g., `feat:`, `fix:`, `docs:`) indicating the precise nature of an edit. *Branch protection* — repository rules preventing direct commits to the production branch without peer review. *Semantic versioning* — standard version numbering scheme (`MAJOR.MINOR.PATCH`).
 
-**The takeaway for this page:** ODD specifications must be managed with atomic Git commits, branch protection, and semantic release tagging to maintain reproducible build history.
+**Takeaway:** ODD specifications must be managed with atomic Git commits, branch protection, and semantic release tagging to maintain reproducible build history.
 
 ---
 
@@ -1123,7 +1123,7 @@ Automating validation via GitHub Actions ensures that defects are caught immedia
 
 **Vocabulary.** *Continuous Integration (CI)* — the automated practice of building and testing code on every repository commit. *GitHub Actions* — a CI/CD platform that automates software workflows directly within GitHub repositories. *Virtual test environment* — an isolated cloud container used to execute automated build and test scripts.
 
-**The takeaway for this page:** Continuous Integration pipelines automatically compile ODD specifications and validate all TEI XML documents on every Git push.
+**Takeaway:** Continuous Integration pipelines automatically compile ODD specifications and validate all TEI XML documents on every Git push.
 
 ---
 
@@ -1146,7 +1146,7 @@ However, for advanced multi-modal editions requiring dynamic full-text search, f
 
 **Vocabulary.** *Static site generator* — a software tool that compiles raw source files into static HTML pages at build time. *Edition Visualization Technology (EVT)* — an open-source tool for creating digital editions from TEI XML without a backend database. *Maintenance debt* — the ongoing labor and financial cost required to keep software servers operating over time.
 
-**The takeaway for this page:** Choosing between TEI Publisher, EVT, and static site generators involves balancing dynamic querying power against long-term serverless sustainability.
+**Takeaway:** Choosing between TEI Publisher, EVT, and static site generators involves balancing dynamic querying power against long-term serverless sustainability.
 
 ---
 
@@ -1166,7 +1166,7 @@ We have demonstrated that:
 
 On Friday, in Lesson 13.3, you will complete the publication assembly, compiling your edition into responsive web applications, standalone interactive HTML packages, and typographically flawless print-ready PDFs.
 
-**The takeaway for this page:** The TEI Processing Model and ODD architecture provide the declarative bridge that transforms structured TEI XML markup into multi-modal scholarly editions.
+**Takeaway:** The TEI Processing Model and ODD architecture provide the declarative bridge that transforms structured TEI XML markup into multi-modal scholarly editions.
 
 ---
 

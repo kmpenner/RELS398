@@ -16,7 +16,7 @@ In response to this bottleneck, the digital humanities community has increasingl
 
 However, this computational acceleration introduces a critical epistemological peril. Generative AI models are statistical prediction engines, not deterministic logic processors. When tasked with producing structured archival metadata, neural networks frequently invent plausible-sounding historical facts, hallucinate non-existent scribal hands, and generate syntactically broken XML markup (De Cristofaro & Zilio, 2025). The central question of today's meeting is not whether AI can catalogue manuscripts, but how scholarly editors can rigorously measure, constrain, and audit AI-generated metadata using deterministic schema validation.
 
-**The takeaway for this page:** Artificial intelligence offers unprecedented speed in manuscript metadata extraction, but its probabilistic nature introduces hallucinations that demand rigorous schema-based auditing.
+**Takeaway:** Artificial intelligence offers unprecedented speed in manuscript metadata extraction, but its probabilistic nature introduces hallucinations that demand rigorous schema-based auditing.
 
 ---
 
@@ -30,7 +30,7 @@ When an LLM processes a prompt containing Latin catalogue prose or an uncial Gre
 
 Because the training corpora of models like GPT-4 and Claude 3.5 contain thousands of public TEI-XML files, GitHub repositories, and open-access library catalogues, these models possess an impressive surface familiarity with XML grammar. They can effortlessly generate standard XML opening and closing tags, populate common `<teiHeader>` containers, and mimic the discursive tone of professional archivists. However, because this generation is driven by statistical probability rather than formal grammar rules, the model has no innate awareness of whether its generated XML tree actually satisfies a project's specific RELAX NG schema (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** Large Language Models generate XML metadata via probabilistic next-token prediction, producing fluent surface structures without an innate understanding of formal schema constraints.
+**Takeaway:** Large Language Models generate XML metadata via probabilistic next-token prediction, producing fluent surface structures without an innate understanding of formal schema constraints.
 
 ---
 
@@ -52,7 +52,7 @@ The integration of artificial intelligence into textual scholarship brings two f
 
 When an LLM generates a `<teiHeader>`, it prioritizes semantic plausibility over structural grammar. It may recognize that a paragraph discusses the physical dimensions of a leaf and spontaneously invent a tag like `<leafDimensions height="305" width="240"/>`—a tag that is semantically clear to a human reader, but completely illegal under the official TEI P5 schema (TEI Consortium, 2025). Deterministic schema validation is the indispensable auditor that exposes and corrects these probabilistic deviations.
 
-**The takeaway for this page:** Codicological cataloguing requires reconciling probabilistic AI text generation with the unyielding, deterministic constraints of XML schemas.
+**Takeaway:** Codicological cataloguing requires reconciling probabilistic AI text generation with the unyielding, deterministic constraints of XML schemas.
 
 ---
 
@@ -82,7 +82,7 @@ Rules:
 5. Escape all ampersands as &amp;."
 ```
 
-**The takeaway for this page:** Effective TEI prompt engineering requires explicit system constraints, few-shot schema exemplars, low temperature settings, and strict XML output modes.
+**Takeaway:** Effective TEI prompt engineering requires explicit system constraints, few-shot schema exemplars, low temperature settings, and strict XML output modes.
 
 ---
 
@@ -104,7 +104,7 @@ Today, you will feed the raw cataloguing notes for your chosen manuscript passag
 
 By establishing this rigorous scoring protocol, you transform subjective impressions of "how smart the AI seems" into quantitative, reproducible engineering data (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** Tuesday's manual header and Wednesday's schema validation serve as the gold-standard benchmark against which automated AI outputs are quantitatively scored.
+**Takeaway:** Tuesday's manual header and Wednesday's schema validation serve as the gold-standard benchmark against which automated AI outputs are quantitatively scored.
 
 ---
 
@@ -120,7 +120,7 @@ The authors established a strict experimental pipeline: each LLM was provided wi
 
 The findings of the PubCINET study revealed dramatic, systematic divergences in how different neural architectures handle structured XML schemas, exposing the core behavioral profiles of modern frontier models (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** The PubCINET project established an empirical benchmark comparing ChatGPT-4 and Claude 3.5 in automated TEI encoding, measuring schema compliance and entity extraction.
+**Takeaway:** The PubCINET project established an empirical benchmark comparing ChatGPT-4 and Claude 3.5 in automated TEI encoding, measuring schema compliance and entity extraction.
 
 ---
 
@@ -143,7 +143,7 @@ ChatGPT-4 Performance Summary (De Cristofaro & Zilio, 2025):
 - Schematron Compliance: POOR (Generates broken internal @target pointers)
 ```
 
-**The takeaway for this page:** ChatGPT-4 excels at inferring implicit historical entities from context, but frequently fails deterministic XML schema validation through illegal element nesting.
+**Takeaway:** ChatGPT-4 excels at inferring implicit historical entities from context, but frequently fails deterministic XML schema validation through illegal element nesting.
 
 ---
 
@@ -166,7 +166,7 @@ A structural hallucination occurs when a model generates an XML sequence that is
 | Undefined entity | `<p>Copyright &copy; 2026</p>` | Entity `copy` not declared; fatal well-formedness crash |
 | Attribute type hallucination | `<supportDesc support="parchment">` | Attribute `support` is invalid; expected `material` |
 
-**The takeaway for this page:** Structural hallucinations—such as premature tag closure, illegal HTML tags, and undefined character entities—are the primary cause of LLM validation failures.
+**Takeaway:** Structural hallucinations—such as premature tag closure, illegal HTML tags, and undefined character entities—are the primary cause of LLM validation failures.
 
 ---
 
@@ -189,7 +189,7 @@ Claude 3.5 Sonnet Performance Summary (De Cristofaro & Zilio, 2025):
 - Schematron Compliance: HIGH (Strictly adheres to authorized URI dictionaries)
 ```
 
-**The takeaway for this page:** Claude 3.5 Sonnet produces near-flawless schema-valid XML markup, but its semantic literalism causes it to omit historical entities not pre-defined in reference files.
+**Takeaway:** Claude 3.5 Sonnet produces near-flawless schema-valid XML markup, but its semantic literalism causes it to omit historical entities not pre-defined in reference files.
 
 ---
 
@@ -208,7 +208,7 @@ No single current frontier model excels simultaneously at autonomous semantic de
 
 This specialization gap demonstrates why automated metadata pipelines cannot rely on a single unmonitored LLM. A robust digital editing workflow must combine the semantic discovery strengths of one model with the structural precision of another, governed at every step by deterministic schema validation (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** Digital editors must navigate a trade-off between ChatGPT-4's semantic discovery and Claude 3.5's structural obedience, combining models strategically within audited pipelines.
+**Takeaway:** Digital editors must navigate a trade-off between ChatGPT-4's semantic discovery and Claude 3.5's structural obedience, combining models strategically within audited pipelines.
 
 ---
 
@@ -247,7 +247,7 @@ To solve this, De Cristofaro and Zilio (2025) developed the **`macro.xml` refere
 
 When this `macro.xml` file is injected into the LLM's prompt context, the model is instructed to retrieve entity URIs *exclusively* from this pre-verified list (De Cristofaro & Zilio, 2025). This technique eliminates URI hallucination, transforming open-ended generative prediction into a constrained entity-matching operation.
 
-**The takeaway for this page:** Providing LLMs with pre-compiled `macro.xml` authority dictionaries constrains entity linking and eliminates hallucinated LOD URIs.
+**Takeaway:** Providing LLMs with pre-compiled `macro.xml` authority dictionaries constrains entity linking and eliminates hallucinated LOD URIs.
 
 ---
 
@@ -265,7 +265,7 @@ In historical manuscript cataloguing, NERD presents severe challenges that defea
 
 While LLMs demonstrate powerful semantic reasoning in resolving these ambiguous phrases (De Cristofaro & Zilio, 2025), their entity disambiguations must be verified. If an LLM encounters a note attributing a marginal reading to "Theodotion," it must correctly determine whether the text refers to the 2nd-century Jewish translator of the Old Testament (VIAF 59880157) or a later Byzantine copyist.
 
-**The takeaway for this page:** Automated NERD leverages LLM semantic reasoning to resolve ambiguous historical names, but requires human verification to prevent identity misattributions.
+**Takeaway:** Automated NERD leverages LLM semantic reasoning to resolve ambiguous historical names, but requires human verification to prevent identity misattributions.
 
 ---
 
@@ -292,7 +292,7 @@ This output is syntactically well-formed and schema-valid XML. It uses proper TE
 
 This hazard illustrates why schema validation alone is insufficient: a schema tests *structural validity*, but only human editorial expertise can certify *historical truth*.
 
-**The takeaway for this page:** LLMs can generate schema-valid but completely fabricated historical narratives, underscoring that structural validity does not equal historical truth.
+**Takeaway:** LLMs can generate schema-valid but completely fabricated historical narratives, underscoring that structural validity does not equal historical truth.
 
 ---
 
@@ -313,7 +313,7 @@ To extract metadata directly from digital facsimiles, the digital humanities com
 
 Visual AI pipelines bridge the gap between image pixels and structured metadata, automating the extraction of layout dimensions, ink colors, and decorative elements (Ignatowicz et al., 2025).
 
-**The takeaway for this page:** Computer vision neural networks extract codicological metadata directly from manuscript image pixels, automating layout segmentation and visual feature detection.
+**Takeaway:** Computer vision neural networks extract codicological metadata directly from manuscript image pixels, automating layout segmentation and visual feature detection.
 
 ---
 
@@ -331,7 +331,7 @@ To overcome this, the MEM architecture introduces a **Multilayer Vision Mechanis
 2. **Layer 2 (Micro Cropping & Extraction):** The detected regions of interest (ROIs) are programmatically cropped and passed to specialized neural models.
 3. **Layer 3 (Multimodal Semantic Fusion):** Multimodal vision-language models (such as BLIP-2 or fine-tuned Mistral-7B) analyze the cropped ROIs, transcribe embedded text, evaluate iconographic motifs, and map the visual data to RDF knowledge graphs linked to Wikidata (Ignatowicz et al., 2025).
 
-**The takeaway for this page:** The MEM framework uses Multilayer Vision Mechanisms (YOLOv11 + multimodal LLMs) to hierarchically segment and enrich nested visual manuscript metadata.
+**Takeaway:** The MEM framework uses Multilayer Vision Mechanisms (YOLOv11 + multimodal LLMs) to hierarchically segment and enrich nested visual manuscript metadata.
 
 ---
 
@@ -356,7 +356,7 @@ These visual ROIs map directly to specific TEI `<physDesc>` and `<decoDesc>` ele
 | Parchment leaf dimensions | Pixel-to-millimeter scale calibration | `<extent><dimensions unit="mm">` |
 | Margin annotations | Bounding polygon extraction | `<additions><p>Marginal glosses...</p></additions>` |
 
-**The takeaway for this page:** Computer vision models segment specific manuscript ROIs—stamps, initials, layouts, and damage—mapping visual coordinates directly to TEI elements.
+**Takeaway:** Computer vision models segment specific manuscript ROIs—stamps, initials, layouts, and damage—mapping visual coordinates directly to TEI elements.
 
 ---
 
@@ -387,7 +387,7 @@ The pipeline automatically outputs verified RDF semantic triples:
 
 This multimodal fusion transforms inert digital images into dynamic, machine-queryable nodes within global Linked Open Data networks (Ignatowicz et al., 2025; Koho et al., 2021).
 
-**The takeaway for this page:** Multimodal AI translates visual heraldic stamps and illuminations into RDF semantic triples, connecting manuscript images directly to Wikidata knowledge graphs.
+**Takeaway:** Multimodal AI translates visual heraldic stamps and illuminations into RDF semantic triples, connecting manuscript images directly to Wikidata knowledge graphs.
 
 ---
 
@@ -405,7 +405,7 @@ Historical codices are degraded physical objects. Over centuries of use, manuscr
 
 These vulnerabilities demonstrate why automated computer vision outputs must never be ingested directly into archival databases without systematic human review.
 
-**The takeaway for this page:** Vision models suffer from physical noise misclassification, column fragmentation, and Eurocentric training bias, requiring rigorous manual filtering.
+**Takeaway:** Vision models suffer from physical noise misclassification, column fragmentation, and Eurocentric training bias, requiring rigorous manual filtering.
 
 ---
 
@@ -429,7 +429,7 @@ $$F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} +
 
 A model with high Precision but low Recall (like Claude 3.5 Sonnet) produces highly accurate data but leaves significant omissions. A model with high Recall but low Precision (like ChatGPT-4) captures every detail but injects numerous hallucinations and formatting errors (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** Information retrieval metrics—Precision, Recall, and F1-Score—quantify the trade-off between AI metadata completeness and accuracy against human ground truth.
+**Takeaway:** Information retrieval metrics—Precision, Recall, and F1-Score—quantify the trade-off between AI metadata completeness and accuracy against human ground truth.
 
 ---
 
@@ -472,7 +472,7 @@ def score_tei_document(xml_path: Path, rng_path: Path) -> dict:
 
 Executing this script across hundreds of AI-generated files produces a quantitative **Schema Validity Rate** ($\text{SVR} = \frac{\text{Valid Files}}{\text{Total Files}}$), providing an unvarnished mathematical measure of model reliability (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** Programmatic validation scripts running Jing and lxml calculate objective Schema Validity Rates for AI-generated XML documents.
+**Takeaway:** Programmatic validation scripts running Jing and lxml calculate objective Schema Validity Rates for AI-generated XML documents.
 
 ---
 
@@ -502,7 +502,7 @@ Please correct these errors and return ONLY the repaired, valid XML file."
 
 Research demonstrates that frontier LLMs can resolve over 80% of their structural syntax errors when provided with explicit compiler error reflection prompts (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** Feeding compiler error logs back into LLMs in an automated reflection loop enables neural models to self-correct structural schema violations.
+**Takeaway:** Feeding compiler error logs back into LLMs in an automated reflection loop enables neural models to self-correct structural schema violations.
 
 ---
 
@@ -522,7 +522,7 @@ The empirical data demonstrates distinct convergence trajectories:
 
 Claude 3.5 Sonnet converges to 100% validity within two reflection passes, making it exceptionally cost-effective in automated pipelines (De Cristofaro & Zilio, 2025). ChatGPT-4 improves dramatically on Pass 2, but occasionally enters degenerative loops where fixing one nesting error introduces another illegal HTML tag. Smaller open-source models lack the latent reasoning depth to interpret complex compiler logs, failing to converge even after multiple iterations.
 
-**The takeaway for this page:** Claude 3.5 converges to schema validity in 1–2 reflection passes, whereas ChatGPT-4 requires multiple passes and smaller models frequently fail to converge.
+**Takeaway:** Claude 3.5 converges to schema validity in 1–2 reflection passes, whereas ChatGPT-4 requires multiple passes and smaller models frequently fail to converge.
 
 ---
 
@@ -542,7 +542,7 @@ Common AI failure modes in canonical citation include:
 
 To prevent citation drift, automated pipelines must cross-walk AI-generated URNs against authoritative CTS service inventories (`GetCapabilities` endpoints) before committing records to publication (Tiepmar & Heyer, 2014).
 
-**The takeaway for this page:** AI-generated CTS URNs must be validated against authoritative CTS capability inventories to prevent hallucinated work IDs and token index drift.
+**Takeaway:** AI-generated CTS URNs must be validated against authoritative CTS capability inventories to prevent hallucinated work IDs and token index drift.
 
 ---
 
@@ -569,7 +569,7 @@ Discrepancy Audit Log Example:
 
 Documenting these discrepancies produces the empirical data required for your Topic 02 comparative report.
 
-**The takeaway for this page:** Reconciling AI outputs against human ground truth reveals AI errors, omissions, and occasional surprising discoveries, providing empirical data for editorial evaluation.
+**Takeaway:** Reconciling AI outputs against human ground truth reveals AI errors, omissions, and occasional surprising discoveries, providing empirical data for editorial evaluation.
 
 ---
 
@@ -592,7 +592,7 @@ A comprehensive economic assessment balances API infrastructure costs against hu
 
 AI-assisted cataloguing dramatically reduces data entry costs, but shifts the human labor burden from *authoring* to *auditing and error reconciliation* (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** AI cataloguing reduces processing time from hours to seconds, shifting human expertise from manual data entry to critical schema auditing and fact-checking.
+**Takeaway:** AI cataloguing reduces processing time from hours to seconds, shifting human expertise from manual data entry to critical schema auditing and fact-checking.
 
 ---
 
@@ -633,7 +633,7 @@ A scholarly digital edition must never conceal the role of AI. If an LLM generat
 
 Explicit algorithmic attribution preserves the historical integrity of the scholarly record, ensuring future researchers know exactly which assertions were generated by neural networks and verified by human editors (De Cristofaro & Zilio, 2025).
 
-**The takeaway for this page:** Transparency requires documenting AI models in `<respStmt>` and recording automated drafting steps in `<revisionDesc>` change logs.
+**Takeaway:** Transparency requires documenting AI models in `<respStmt>` and recording automated drafting steps in `<revisionDesc>` change logs.
 
 ---
 
@@ -672,7 +672,7 @@ jobs:
 
 When an AI model commits an updated manuscript description to Git, the CI/CD pipeline immediately executes the Jing RELAX NG validator and Schematron scripts. If the AI commit violates schema rules, the build fails automatically, blocking publication and notifying the human editor to intervene (Cummings, 2018).
 
-**The takeaway for this page:** CI/CD pipelines automate RELAX NG and Schematron validation on every Git commit, creating an automated gate that prevents invalid AI markup from entering production.
+**Takeaway:** CI/CD pipelines automate RELAX NG and Schematron validation on every Git commit, creating an automated gate that prevents invalid AI markup from entering production.
 
 ---
 
@@ -697,7 +697,7 @@ Follow this experimental protocol:
 
 Save all test files and your scoring matrix in your personal Git branch.
 
-**The takeaway for this page:** The hands-on lab executes structured AI metadata extractions across ChatGPT-4 and Claude 3.5, scoring raw outputs, self-correction passes, and F1 metrics against ground truth.
+**Takeaway:** The hands-on lab executes structured AI metadata extractions across ChatGPT-4 and Claude 3.5, scoring raw outputs, self-correction passes, and F1 metrics against ground truth.
 
 ---
 
@@ -725,7 +725,7 @@ Follow the standard RELS 398 analytical structure:
 - **§3 Qualitative Error Analysis:** Detail specific structural hallucinations and factual misattributions.
 - **§4 Editorial Recommendation:** Formulate an evidence-based recommendation on how your project will deploy AI tools responsibly within a schema-governed pipeline.
 
-**The takeaway for this page:** The comparative evaluation report synthesizes quantitative error rates, F1-scores, and qualitative analyses across the manual, deterministic, and AI passes.
+**Takeaway:** The comparative evaluation report synthesizes quantitative error rates, F1-scores, and qualitative analyses across the manual, deterministic, and AI passes.
 
 ---
 
@@ -748,7 +748,7 @@ The Complete Three-Step Comparative Cycle — Topic 02:
 
 The grand conclusion of Topic 02 is that **Artificial Intelligence does not replace text encoding schemas; it makes them more essential than ever.** In an era where neural networks can generate infinite volumes of plausible, probabilistic text, the formal, deterministic schema—enforced by RELAX NG, Schematron, and rigorous human editorial judgement—is the sole anchor that preserves academic truth, structural integrity, and historical reality in digital scholarship.
 
-**The takeaway for this page:** Generative AI accelerates cataloguing, but deterministic schemas and human editorial judgement remain the indispensable anchors of scholarly integrity.
+**Takeaway:** Generative AI accelerates cataloguing, but deterministic schemas and human editorial judgement remain the indispensable anchors of scholarly integrity.
 
 ---
 

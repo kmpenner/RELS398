@@ -38,7 +38,7 @@ encoded XML.
 *Hypothesis* — the output being scored. *Edit distance* — the minimum number of
 single-unit edits transforming one string into another.
 
-**The takeaway for this page:** CER and WER are normalized edit distances, and
+**Takeaway:** CER and WER are normalized edit distances, and
 understanding the algorithm is what lets you interpret the numbers rather than
 quote them.
 
@@ -75,7 +75,7 @@ The recursive definition is mathematically clean and computationally hopeless:
 implemented directly it recomputes the same subproblems exponentially many times,
 which makes it unusable for sequences of any real length (Haaf et al., 2013).
 
-**The takeaway for this page:** Levenshtein distance is the *minimum* number of
+**Takeaway:** Levenshtein distance is the *minimum* number of
 insertions, deletions, and substitutions — and transposition is not one of the
 permitted operations.
 
@@ -121,7 +121,7 @@ backwards from D[m][n] to D[0][0], you recover the *alignment* — the precise
 correspondence showing exactly where a model hallucinated a character or where a
 transcriber skipped a word (Haaf et al., 2013).
 
-**The takeaway for this page:** The extra row and column represent the empty
+**Takeaway:** The extra row and column represent the empty
 string, and back-tracing the matrix recovers not just the distance but the exact
 alignment of errors.
 
@@ -182,7 +182,7 @@ al., 2013).
 
 Save this as `tools/cer.py` and commit it.
 
-**The takeaway for this page:** WER is the same algorithm over whitespace tokens —
+**Takeaway:** WER is the same algorithm over whitespace tokens —
 and NFC-normalizing both inputs is what stops you measuring encoding difference.
 
 ---
@@ -226,7 +226,7 @@ twenty-character word makes the whole word wrong under this evaluation (Haaf et
 al., 2013). A model with 5% CER distributed across many words may have a WER
 several times higher.
 
-**The takeaway for this page:** CER can exceed 100% because insertions add to the
+**Takeaway:** CER can exceed 100% because insertions add to the
 numerator but not the denominator — a rate above 1.0 means substantial
 hallucination.
 
@@ -268,7 +268,7 @@ WER and destroys semantic coherence (Bawden et al., 2026).
 Compute both rates and report the ratio. If it is anomalous, diagnose it — the
 explanation is a finding.
 
-**The takeaway for this page:** Low CER with disproportionately high WER means
+**Takeaway:** Low CER with disproportionately high WER means
 word-boundary failure, not character misreading — diagnose it rather than reporting
 it flatly.
 
@@ -316,7 +316,7 @@ would compare a doubled text. Decide which layer you are measuring — for a
 diplomatic comparison it is `<abbr>` — and extract that consistently from both
 sides.
 
-**The takeaway for this page:** Preprocessing decisions change the number, so
+**Takeaway:** Preprocessing decisions change the number, so
 record them — and when stripping markup, choose the `<abbr>` or `<expan>` layer
 deliberately.
 
@@ -365,7 +365,7 @@ analysis produced a bad line image, which is the Lesson 4.2 section 02 cascade.
 
 Report the distribution, not just the mean.
 
-**The takeaway for this page:** Weight the overall rate by line length, and read
+**Takeaway:** Weight the overall rate by line length, and read
 the per-line distribution — rising error means misalignment, not model failure.
 
 ---
@@ -406,7 +406,7 @@ cannot support per-line analysis, and the report must say so.
 Do not compare a line-aligned HTR figure against a whole-text VLM figure without
 noting that they were computed differently. That comparison is not like for like.
 
-**The takeaway for this page:** HTR output is line-aligned by construction and VLM
+**Takeaway:** HTR output is line-aligned by construction and VLM
 output often is not — never compare a per-line figure against a whole-text one
 without saying so.
 
@@ -448,7 +448,7 @@ Report both figures. Reporting only the flattering one, or only the corrected on
 without noting the change, conceals a real fact about the reliability of your
 earlier measurements.
 
-**The takeaway for this page:** Measuring against both ground truths quantifies how
+**Takeaway:** Measuring against both ground truths quantifies how
 much of Week 4's "machine error" was yours — and only the tags make it retrievable.
 
 ---
@@ -483,7 +483,7 @@ it converts a quality judgement into a decision. Above roughly 15% CER, the
 cognitive load and time to post-correct exceed the time to transcribe from scratch
 (AlKendi et al., 2024). A tool above that line is not slow help; it is a net loss.
 
-**The takeaway for this page:** Above 15% CER a tool is a net loss, not slow help —
+**Takeaway:** Above 15% CER a tool is a net loss, not slow help —
 the threshold converts a quality judgement into a decision.
 
 ---
@@ -523,7 +523,7 @@ For your Greek, compute analogues. What proportion of polytonic diacritics survi
 correctly? Were abbreviations preserved or expanded? Was *scriptio continua*
 preserved or divided? Each is a fidelity measure that CER does not capture.
 
-**The takeaway for this page:** A model can score better on CER while destroying
+**Takeaway:** A model can score better on CER while destroying
 diplomatic fidelity — compute fidelity measures alongside the error rate.
 
 ---
@@ -562,7 +562,7 @@ in your VLM output on your own manuscript is a substantive result.
 
 Count each category and report counts alongside the aggregate rate.
 
-**The takeaway for this page:** Categorized errors identify systematic bias; an
+**Takeaway:** Categorized errors identify systematic bias; an
 aggregate rate cannot — and plausible wrong words are the ones post-correction will
 miss.
 
@@ -605,7 +605,7 @@ This bears directly on Week 9's lemmatization and Week 12's commentary. Without
 post-correction, extracting historical actors and geographic networks from noisy
 transcription is statistically invalid (van Strien et al., 2020).
 
-**The takeaway for this page:** NER collapses from 90% to 60% F-score as WER goes
+**Takeaway:** NER collapses from 90% to 60% F-score as WER goes
 from 1% to 7%, because proper names have no redundancy to recover from.
 
 ---
@@ -647,7 +647,7 @@ The architecture to note: normalization is a *separate layer* over a preserved
 graphemic base, with explicit constraints and human review of uncertain regions.
 That is exactly Week 6's design.
 
-**The takeaway for this page:** Automated normalization works under strict
+**Takeaway:** Automated normalization works under strict
 constraints — unexpanded proper names, human review of noisy spans — and erases
 dialectal evidence without them.
 
@@ -690,7 +690,7 @@ false-positive rate for unprompted anachronistic normalizations.
 Write these as `logs/reconciliation-report-w5.md`. Each has a direct counterpart in
 work you have already done, and the report assembles rather than generates.
 
-**The takeaway for this page:** The audit report has five required components, and
+**Takeaway:** The audit report has five required components, and
 structural errors take precedence over typographical ones in reporting.
 
 ---
@@ -732,7 +732,7 @@ verification was needed.
 A reader of this section should be able to judge how much confidence your reference
 deserves. That judgement conditions every number in the rest of the report.
 
-**The takeaway for this page:** Component 1 lets a reader judge how much confidence
+**Takeaway:** Component 1 lets a reader judge how much confidence
 your reference deserves — including the limitation of self-double-keying.
 
 ---
@@ -765,7 +765,7 @@ mean, and it tells a reader where the model's difficulty actually lies.
 Include the difference between measurements against the two references, per section
 10, with a sentence on what it implies for Week 4's reported figures.
 
-**The takeaway for this page:** Report preprocessing, the per-line distribution,
+**Takeaway:** Report preprocessing, the per-line distribution,
 and the CER-to-WER relationship — an aggregate alone is neither reproducible nor
 diagnostic.
 
@@ -806,7 +806,7 @@ If your VLM output lost line structure entirely, that is a structural failure of
 first magnitude and belongs in this section rather than being absorbed into the
 error rate.
 
-**The takeaway for this page:** Systematic errors are more serious and more
+**Takeaway:** Systematic errors are more serious and more
 tractable than random ones — and structural failure takes precedence over
 typographical error.
 
@@ -847,7 +847,7 @@ diplomatic fidelity.
 
 If you ran the memorization tests from Lesson 4.3 section 12, report them here.
 
-**The takeaway for this page:** Report constraint compliance instruction by
+**Takeaway:** Report constraint compliance instruction by
 instruction — that table measures how far explicit prompting actually constrained
 the model.
 
@@ -885,7 +885,7 @@ Include the cost comparison from Lesson 4.3 section 27. A conclusion about which
 tool to use must weigh setup cost against per-folio saving, and for a short passage
 the honest answer may be that manual transcription is competitive.
 
-**The takeaway for this page:** State what you measured, on what material, with
+**Takeaway:** State what you measured, on what material, with
 what consequence for your edition — a general claim about AI is not a finding.
 
 ---
@@ -923,7 +923,7 @@ Verify before submitting:
 - Preprocessing decisions are stated for every reported figure.
 - The submission state is tagged.
 
-**The takeaway for this page:** The commit history with provenance trailers is
+**Takeaway:** The commit history with provenance trailers is
 assessed alongside the text — indistinguishable machine and human commits fail the
 requirement.
 
@@ -957,7 +957,7 @@ existing only in your local clone protects nothing.
 git ls-remote --tags origin | grep submission
 ```
 
-**The takeaway for this page:** Tag and push the submitted state — within three
+**Takeaway:** Tag and push the submitted state — within three
 weeks of further work it becomes otherwise unrecoverable.
 
 ---
@@ -995,7 +995,7 @@ That replication is the point. You are no longer relying on the literature's
 account of what these tools do; you have a figure for your own material, produced
 by a method you can defend.
 
-**The takeaway for this page:** You now have measured figures for your own
+**Takeaway:** You now have measured figures for your own
 manuscript rather than the literature's account — which is what makes your tool
 choices defensible.
 
@@ -1028,7 +1028,7 @@ If any figure cannot be computed — because the VLM output could not be line-al
 for instance — state that as a limitation rather than omitting it. A reported
 limitation is a finding; a silent gap is not.
 
-**The takeaway for this page:** State what could not be computed as a limitation
+**Takeaway:** State what could not be computed as a limitation
 rather than omitting it — a silent gap is worse than a reported one.
 
 ---
@@ -1061,7 +1061,7 @@ computes its validation CER with its own preprocessing, which may differ from yo
 Your figure is not wrong because it differs; it is computed differently, and saying
 so is the correct response.
 
-**The takeaway for this page:** Stripping all tags concatenates `<abbr>` and
+**Takeaway:** Stripping all tags concatenates `<abbr>` and
 `<expan>` into nonsense — extract one layer consistently on both sides.
 
 ---
@@ -1098,7 +1098,7 @@ qualification.
 That is a general property of scholarly work, and it is the disposition this course
 is trying to build.
 
-**The takeaway for this page:** A report that names its own limitations is more
+**Takeaway:** A report that names its own limitations is more
 trustworthy than one presenting figures without qualification.
 
 ---
@@ -1130,7 +1130,7 @@ evidence permanently (Bawden et al., 2026). Week 6's Friday step will test exact
 that behaviour, and your hand-recorded rules from Tuesday will be the reference —
 the same structure as this week, applied to a different operation.
 
-**The takeaway for this page:** Week 6 normalizes as a separate layer over your
+**Takeaway:** Week 6 normalizes as a separate layer over your
 verified consensus, with Tuesday's hand-recorded rules as Friday's reference.
 
 ---
@@ -1166,7 +1166,7 @@ verified produces measurements that look precise and are not.
 That is the course's method, and after two weeks of executing it you should be able
 to state why it is ordered as it is.
 
-**The takeaway for this page:** Every remaining week repeats this procedure on a
+**Takeaway:** Every remaining week repeats this procedure on a
 different operation — establish a reference by hand, verify it, measure against it.
 
 ---
@@ -1206,7 +1206,7 @@ Tag and push the submitted state.
 Bring it validated, and bring your conventions document — Tuesday's regularization
 decisions extend it.
 
-**The takeaway for this page:** A measurement is an argument whose premises are the
+**Takeaway:** A measurement is an argument whose premises are the
 reference, the preprocessing, and the alignment — reporting a figure without them is
 assertion, not measurement.
 

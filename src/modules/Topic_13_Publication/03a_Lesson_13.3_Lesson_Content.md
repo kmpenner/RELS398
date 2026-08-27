@@ -25,7 +25,7 @@ Historically, publishers treated print and digital as competing, mutually exclus
 
 **Vocabulary.** *Multi-modal publishing* — the automated generation of distinct publication formats (web, standalone HTML, print PDF, linked data) from a single master XML source. *Scholarly affordance* — the specific reading, analytical, or annotative capabilities provided by a particular medium. *Single source of truth* — maintaining one canonical dataset from which all derivative deliverables are compiled.
 
-**The takeaway for this page:** A digital scholarly edition must fulfill the multi-modal imperative by compiling into web, standalone offline, and print-ready formats from a single TEI XML master.
+**Takeaway:** A digital scholarly edition must fulfill the multi-modal imperative by compiling into web, standalone offline, and print-ready formats from a single TEI XML master.
 
 ---
 
@@ -53,7 +53,7 @@ An editor must never attempt to force a print layout onto a smartphone screen, n
 
 **Vocabulary.** *Medium-specific affordance* — the distinctive functional properties and reading behaviors enabled by a specific physical or digital medium. *Spatial bounding* — the fixed physical dimensions of a printed sheet of paper. *Citation stability* — the guarantee that a reference cited today will resolve to the exact same passage decades later.
 
-**The takeaway for this page:** Effective multi-modal publishing honors the distinct affordances of screens (interactivity), pages (stability), and raw data (computability).
+**Takeaway:** Effective multi-modal publishing honors the distinct affordances of screens (interactivity), pages (stability), and raw data (computability).
 
 ---
 
@@ -82,7 +82,7 @@ By building on standard Semantic HTML5 tags (`<article>`, `<section>`, `<nav>`, 
 
 **Vocabulary.** *Responsive web architecture* — a web design approach that dynamically adapts layout and typography to fit any screen size or device. *Dual viewport* — an interface layout that displays manuscript images and transcribed text side by side. *Semantic HTML5* — using standard HTML tags that convey structural meaning rather than generic container divisions.
 
-**The takeaway for this page:** Responsive web editions combine semantic HTML5, CSS grid layouts, and interactive components to deliver synchronized facsimiles, texts, and commentaries.
+**Takeaway:** Responsive web editions combine semantic HTML5, CSS grid layouts, and interactive components to deliver synchronized facsimiles, texts, and commentaries.
 
 ---
 
@@ -112,7 +112,7 @@ Using tools like **Edition Visualization Technology (EVT)** or custom build scri
 
 **Vocabulary.** *Serverless edition bundle* — a digital edition compiled into static HTML/JS/CSS files requiring no server-side database. *Edition Visualization Technology (EVT)* — an open-source static client tool for rendering TEI critical and diplomatic editions. *Server decay* — the eventual failure and abandonment of digital projects due to unmaintained server infrastructure.
 
-**The takeaway for this page:** Standalone, serverless HTML packages eliminate database dependencies, allowing editions to run offline and survive indefinitely as static files.
+**Takeaway:** Standalone, serverless HTML packages eliminate database dependencies, allowing editions to run offline and survive indefinitely as static files.
 
 ---
 
@@ -155,7 +155,7 @@ Because the entire index is pre-computed during the build step and stored as a c
 
 **Vocabulary.** *Lunr.js* — a client-side JavaScript full-text search engine designed for static web applications. *Pre-computed index* — a search index generated during build time and serialized into JSON for instant browser querying. *Zero-latency search* — search queries evaluated in local memory without network round-trips.
 
-**The takeaway for this page:** Pre-compiling search indices with Lunr.js enables instant full-text, lemma, and commentary searching directly inside static, serverless web editions.
+**Takeaway:** Pre-compiling search indices with Lunr.js enables instant full-text, lemma, and commentary searching directly inside static, serverless web editions.
 
 ---
 
@@ -207,7 +207,7 @@ By defining print layouts with standard CSS, you reuse your existing web styling
 
 **Vocabulary.** *CSS Paged Media* — W3C CSS specifications governing the pagination and printing of web documents. `@page` — CSS at-rule used to define the dimensions, orientation, and margins of a printed page. *Running header* — repetitive text printed at the top of successive pages indicating title or chapter.
 
-**The takeaway for this page:** The CSS Paged Media standard enables scholars to design beautiful, paginated print layouts using familiar CSS syntax.
+**Takeaway:** The CSS Paged Media standard enables scholars to design beautiful, paginated print layouts using familiar CSS syntax.
 
 ---
 
@@ -263,7 +263,7 @@ Using pseudo-class selectors guarantees that your compiled PDF exhibits the exac
 
 **Vocabulary.** *Recto* — the front or right-hand page of a bound book (always odd-numbered). *Verso* — the back or left-hand page of a bound book (always even-numbered). *Binding gutter* — the extra margin space added to the inner edge of a page to ensure text is not obscured by book binding.
 
-**The takeaway for this page:** Using `@page :left`, `@page :right`, and `@page :first` selectors establishes mirror binding gutters and professional academic running headers.
+**Takeaway:** Using `@page :left`, `@page :right`, and `@page :first` selectors establishes mirror binding gutters and professional academic running headers.
 
 ---
 
@@ -317,7 +317,7 @@ These margin boxes allow editors to position complex metadata with absolute prec
 
 **Vocabulary.** *Margin box* — one of sixteen predefined layout areas in the page margin defined by CSS Paged Media. `string-set` — CSS property that copies text content from a document node into a named string variable. `counter-reset` — CSS property initializing or restarting a counter (such as resetting page numbers to 1).
 
-**The takeaway for this page:** CSS margin boxes provide sixteen dedicated layout containers for dynamic running headers, folio markers, and multi-scheme page counters.
+**Takeaway:** CSS margin boxes provide sixteen dedicated layout containers for dynamic running headers, folio markers, and multi-scheme page counters.
 
 ---
 
@@ -342,7 +342,7 @@ In a typical publishing workflow:
 
 **Vocabulary.** *Paged.js* — an open-source JavaScript polyfill that renders CSS Paged Media layouts inside any web browser. *WeasyPrint* — an open-source Python library that transforms HTML and CSS into print-ready PDF documents. *Headless browser* — a web browser running without a graphical user interface, controlled programmatically via command line.
 
-**The takeaway for this page:** Paged.js enables interactive in-browser layout design, while WeasyPrint provides automated Python-based PDF compilation.
+**Takeaway:** Paged.js enables interactive in-browser layout design, while WeasyPrint provides automated Python-based PDF compilation.
 
 ---
 
@@ -369,7 +369,7 @@ For traditional book publication with massive, four-tier apparatuses spanning hu
 
 **Vocabulary.** *`reledmac`* — a comprehensive LaTeX package designed for typesetting critical editions with multiple apparatus streams and line numbers. *Typst* — a modern, Rust-based markup-based typesetting system designed as an alternative to LaTeX. *Micro-typography* — fine adjustments to kerning, tracking, and line breaking to produce optimal visual harmony.
 
-**The takeaway for this page:** CSS Paged Media unifies web and print workflows, while LaTeX `reledmac` and Typst offer specialized micro-typographic alternatives.
+**Takeaway:** CSS Paged Media unifies web and print workflows, while LaTeX `reledmac` and Typst offer specialized micro-typographic alternatives.
 
 ---
 
@@ -428,7 +428,7 @@ By using CSS `float: footnote`, the rendering engine automatically calculates pa
 
 **Vocabulary.** *Multi-tiered apparatus* — a critical apparatus divided into separate horizontal bands for substantive vs. orthographic variants. `float: footnote` — CSS Paged Media property that moves an element from the text stream to the bottom footnote area. *Substantive variant* — a textual variation that affects meaning or syntax.
 
-**The takeaway for this page:** Using CSS `float: footnote` and distinct classes formats multi-tiered critical apparatuses at the foot of each page automatically.
+**Takeaway:** Using CSS `float: footnote` and distinct classes formats multi-tiered critical apparatuses at the foot of each page automatically.
 
 ---
 
@@ -477,7 +477,7 @@ Embedding `@font-face` definitions directly inside your CSS and packaging the `.
 
 **Vocabulary.** *Polytonic Greek* — the Greek writing system featuring the full traditional system of accents, breathings, and iota subscripts. *WOFF2 (Web Open Font Format 2.0)* — a highly compressed font format optimized for web and digital publishing. *Glyph fallback* — the undesirable visual glitch occurring when a system substitutes missing characters with default system fonts.
 
-**The takeaway for this page:** Packaging dedicated polytonic Greek fonts (Cardo, New Athena Unicode) ensures flawless diacritic rendering across web and print media.
+**Takeaway:** Packaging dedicated polytonic Greek fonts (Cardo, New Athena Unicode) ensures flawless diacritic rendering across web and print media.
 
 ---
 
@@ -514,7 +514,7 @@ Compiling to **PDF/A-3b** represents the gold standard of digital preservation: 
 
 **Vocabulary.** *PDF/A* — an ISO-standardized version of the Portable Document Format specialized for long-term digital preservation. *Font embedding* — including the complete binary font data within a document file. *Compound archiving (PDF/A-3)* — embedding raw data files (such as XML) directly inside an archival PDF container.
 
-**The takeaway for this page:** Compiling print editions to PDF/A-3b guarantees long-term visual preservation while embedding the raw TEI XML source directly inside the PDF.
+**Takeaway:** Compiling print editions to PDF/A-3b guarantees long-term visual preservation while embedding the raw TEI XML source directly inside the PDF.
 
 ---
 
@@ -579,7 +579,7 @@ Running a single command (`python3 build_edition.py`) regenerates every publicat
 
 **Vocabulary.** *Automated build pipeline* — a scripted workflow that executes compilation, validation, and packaging tasks in sequence. *Lint gate* — a strict validation checkpoint that halts the build pipeline if formatting or schema errors are detected. *Reproducible research* — the principle that any scholar can re-run the build pipeline to generate identical deliverables.
 
-**The takeaway for this page:** An automated Python build pipeline orchestrates validation, ODD compilation, search indexing, and PDF generation with a single command.
+**Takeaway:** An automated Python build pipeline orchestrates validation, ODD compilation, search indexing, and PDF generation with a single command.
 
 ---
 
@@ -605,7 +605,7 @@ This multi-tiered architecture achieves three vital objectives:
 
 **Vocabulary.** *Multi-tiered licensing* — applying different, specialized open access licenses to distinct layers of a digital project. *Legal friction* — contractual or copyright barriers that prevent computational reuse of research data. *Open access* — the free, unrestricted online availability of scholarly research.
 
-**The takeaway for this page:** Multi-tiered licensing pairs CC BY 4.0 for prose, CC0 for structured data, and MIT for software to maximize scholarly impact and legal reusability.
+**Takeaway:** Multi-tiered licensing pairs CC BY 4.0 for prose, CC0 for structured data, and MIT for software to maximize scholarly impact and legal reusability.
 
 ---
 
@@ -637,7 +637,7 @@ Applying standard **CC BY 4.0** guarantees maximum dissemination while securing 
 
 **Vocabulary.** *CC BY 4.0* — Creative Commons Attribution 4.0 International license permitting free sharing and adaptation with credit. *Attribution requirement* — the legal obligation to cite the original authors and provide a link to the source edition. *Copyleft* — a licensing principle requiring derivative works to be released under the same license.
 
-**The takeaway for this page:** CC BY 4.0 is the gold standard for critical editions, maximizing global dissemination while guaranteeing proper scholarly citation.
+**Takeaway:** CC BY 4.0 is the gold standard for critical editions, maximizing global dissemination while guaranteeing proper scholarly citation.
 
 ---
 
@@ -671,7 +671,7 @@ Dedicating data to CC0 eliminates "attribution stacking"—a catastrophic legal 
 
 **Vocabulary.** *CC0 1.0 Universal* — a legal tool that allows copyright owners to waive all copyright and dedicate their data to the worldwide public domain. *Attribution stacking* — the accumulation of burdensome legal attribution requirements when combining hundreds of independent datasets. *Non-copyrightability of facts* — the legal principle that factual and historical data cannot be copyrighted.
 
-**The takeaway for this page:** Dedicating structured tokens and RDF graphs to CC0 eliminates legal attribution stacking and maximizes Linked Open Data reusability.
+**Takeaway:** Dedicating structured tokens and RDF graphs to CC0 eliminates legal attribution stacking and maximizes Linked Open Data reusability.
 
 ---
 
@@ -705,7 +705,7 @@ For digital humanities build pipelines, the **MIT License** is strongly recommen
 
 **Vocabulary.** *MIT License* — a permissive open-source software license granting unrestricted rights to use, copy, modify, and distribute code. *GNU GPL-3.0* — a strong copyleft software license requiring all modified versions to remain open source. *Open Source Initiative (OSI)* — the international organization maintaining the formal open source definition.
 
-**The takeaway for this page:** Releasing build scripts and ODD stylesheets under the MIT Open Source License enables other scholars to freely adapt and reuse your computational pipelines.
+**Takeaway:** Releasing build scripts and ODD stylesheets under the MIT Open Source License enables other scholars to freely adapt and reuse your computational pipelines.
 
 ---
 
@@ -758,7 +758,7 @@ Embedding machine-actionable license URIs enables automated search engines and d
 
 **Vocabulary.** `<licence>` — TEI element within `<availability>` documenting the legal terms under which a text is published. `@target` — attribute containing the canonical URL of the license deed. *Machine-actionable licensing* — expressing copyright terms in structured XML that software crawlers can parse automatically.
 
-**The takeaway for this page:** Embedding explicit `<licence>` elements with canonical URLs inside `<publicationStmt>` formalizes the multi-tiered licensing structure in machine-readable XML.
+**Takeaway:** Embedding explicit `<licence>` elements with canonical URLs inside `<publicationStmt>` formalizes the multi-tiered licensing structure in machine-readable XML.
 
 ---
 
@@ -781,7 +781,7 @@ A digital edition that exists only on an obscure, private server behind a login 
 
 **Vocabulary.** *FAIR Principles* — a set of international guidelines ensuring that digital research data is Findable, Accessible, Interoperable, and Reusable. *Data stewardship* — the long-term ethical and technical preservation of scholarly research outputs. *Open protocol* — a publicly available, non-proprietary communication standard (such as HTTP or REST).
 
-**The takeaway for this page:** The FAIR principles guarantee that digital editions are Findable via persistent IDs, Accessible via open protocols, Interoperable via TEI XML, and Reusable via open licensing.
+**Takeaway:** The FAIR principles guarantee that digital editions are Findable via persistent IDs, Accessible via open protocols, Interoperable via TEI XML, and Reusable via open licensing.
 
 ---
 
@@ -816,7 +816,7 @@ Two primary persistent identifier systems are employed in computational philolog
 
 **Vocabulary.** *Persistent Identifier (PID)* — a long-lasting digital reference that reliably points to a unique digital object even if its underlying web URL changes. *Link rot* — the phenomenon where hyperlinks cease to function because target web pages move or disappear. *Canonical Text Service (CTS) URN* — a URN syntax providing citation-based identification of textual passages.
 
-**The takeaway for this page:** Assigning DOIs and CTS URNs guarantees persistent, unalterable citation resolution, insulating your scholarship against link rot.
+**Takeaway:** Assigning DOIs and CTS URNs guarantees persistent, unalterable citation resolution, insulating your scholarship against link rot.
 
 ---
 
@@ -847,7 +847,7 @@ Archiving on Zenodo guarantees that even if your university server goes offline 
 
 **Vocabulary.** *Trusted digital repository* — an archival data storage institution committed to long-term data preservation, persistent indexing, and open access. *Zenodo* — an open-access general-purpose repository developed by CERN under the European Open Science Cloud (EOSC). *Semantic release snapshot* — an immutable, point-in-time archival copy of a software or data release.
 
-**The takeaway for this page:** Depositing versioned release bundles into trusted repositories like Zenodo mints citable DOIs and guarantees redundant, multi-decade preservation.
+**Takeaway:** Depositing versioned release bundles into trusted repositories like Zenodo mints citable DOIs and guarantees redundant, multi-decade preservation.
 
 ---
 
@@ -871,7 +871,7 @@ By isolating your scholarship in human-readable plain text (TEI XML) and compili
 
 **Vocabulary.** *Software obsolescence* — the process whereby software tools, formats, or operating systems become unsupported and unusable. *Graceful degradation* — the ability of a system to maintain core functionality even when advanced features fail. *Plain-text durability* — the indefinite readability of ASCII and UTF-8 encoded text without specialized decoding software.
 
-**The takeaway for this page:** Grounding your edition in plain-text TEI XML, static HTML5, and open standards protects your scholarship against software obsolescence.
+**Takeaway:** Grounding your edition in plain-text TEI XML, static HTML5, and open standards protects your scholarship against software obsolescence.
 
 ---
 
@@ -902,7 +902,7 @@ In the remaining sections, we review the synthesis of these layers and execute t
 
 **Vocabulary.** *10-layer portfolio architecture* — the complete, integrated hierarchy of philological, linguistic, codicological, and computational data forming a digital scholarly edition. *Vertical integration* — the seamless flow of data from base codicology up through the published interface.
 
-**The takeaway for this page:** The 10-layer portfolio architecture integrates codicology, facsimiles, transcriptions, normalizations, collations, apparatuses, morphology, translations, commentaries, and publication pipelines into an inseparable whole.
+**Takeaway:** The 10-layer portfolio architecture integrates codicology, facsimiles, transcriptions, normalizations, collations, apparatuses, morphology, translations, commentaries, and publication pipelines into an inseparable whole.
 
 ---
 
@@ -939,7 +939,7 @@ The foundation of your digital edition connects the material reality of ancient 
 
 **Vocabulary.** *Diplomatic fidelity* — the precise, unregularized recording of physical manuscript text. *Surface coordinate binding* — linking XML text elements directly to $(x, y, w, h)$ bounding boxes on a digital facsimile image.
 
-**The takeaway for this page:** Layers 1–4 establish the material and paleographical foundation, connecting codicological metadata, IIIF facsimiles, diplomatic transcriptions, and normalized spellings.
+**Takeaway:** Layers 1–4 establish the material and paleographical foundation, connecting codicological metadata, IIIF facsimiles, diplomatic transcriptions, and normalized spellings.
 
 ---
 
@@ -975,7 +975,7 @@ The analytical engine of your digital edition performs computational collation, 
 
 **Vocabulary.** *Algorithmic alignment* — using dynamic programming algorithms (Needleman-Wunsch) to align divergent manuscript streams. *Morphosyntactic tagging* — assigning grammatical part-of-speech and inflectional codes to individual words.
 
-**The takeaway for this page:** Layers 5–8 execute the philological analysis, generating automated collations, critical apparatuses, linguistic parses, and stratified translations.
+**Takeaway:** Layers 5–8 execute the philological analysis, generating automated collations, critical apparatuses, linguistic parses, and stratified translations.
 
 ---
 
@@ -1004,7 +1004,7 @@ Integrating these final layers transforms your structured XML repository into a 
 
 **Vocabulary.** *Linked Open Data (LOD)* — publishing structured data using URIs and RDF to connect information across global research databases. *Multi-modal deliverable suite* — the complete set of generated web, standalone HTML, and print PDF artifacts.
 
-**The takeaway for this page:** Layers 9–10 complete the edition, integrating Linked Open Data commentary graphs and compiling multi-modal publishing packages.
+**Takeaway:** Layers 9–10 complete the edition, integrating Linked Open Data commentary graphs and compiling multi-modal publishing packages.
 
 ---
 
@@ -1033,7 +1033,7 @@ Document the results of your audit in `FINAL_QA_AUDIT.md`. Once all 12 gates are
 
 **Vocabulary.** *Quality Assurance (QA) gate* — a mandatory verification checkpoint that must pass before software or research data is published. *Pointer integrity* — the programmatic verification that all internal XML ID references resolve successfully. *VeraPDF* — an industry-standard open-source validator for PDF/A compliance.
 
-**The takeaway for this page:** The 12-Gate QA Checklist verifies XML validity, schema compliance, pointer integrity, font embedding, offline functionality, and PDF/A standards prior to release.
+**Takeaway:** The 12-Gate QA Checklist verifies XML validity, schema compliance, pointer integrity, font embedding, offline functionality, and PDF/A standards prior to release.
 
 ---
 
@@ -1063,7 +1063,7 @@ Maintaining an active, version-controlled repository ensures that your scholarsh
 
 **Vocabulary.** *Scholarly life cycle* — the ongoing process of maintaining, correcting, and updating a digital edition post-publication. *Semantic versioning* — standard version numbering scheme (`MAJOR.MINOR.PATCH`). *Zenodo versioning* — Zenodo's capability to maintain a master DOI representing all versions while assigning individual DOIs to each specific release snapshot.
 
-**The takeaway for this page:** Post-publication maintenance uses GitHub Issues, semantic versioning, and automated Zenodo archiving to integrate scholarly feedback and publish versioned releases.
+**Takeaway:** Post-publication maintenance uses GitHub Issues, semantic versioning, and automated Zenodo archiving to integrate scholarly feedback and publish versioned releases.
 
 ---
 
@@ -1086,7 +1086,7 @@ As Patrick Sahle and Elena Pierazzo have shown, a digital scholarly edition is n
 
 Congratulations on completing your digital scholarly edition!
 
-**The takeaway for this page:** Digital scholarly editing transforms philology by uniting deep manuscript knowledge, rigorous computational modeling, and multi-modal open stewardship into an enduring digital edition.
+**Takeaway:** Digital scholarly editing transforms philology by uniting deep manuscript knowledge, rigorous computational modeling, and multi-modal open stewardship into an enduring digital edition.
 
 ---
 

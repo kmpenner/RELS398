@@ -31,7 +31,7 @@ The editorial studio operates without the weekly three-step cycle. Instead, each
 
 **Vocabulary.** *Digital Scholarly Edition (DSE)* — an edition guided by the digital paradigm that cannot be rendered in print without critical loss of content or functionality. *Portfolio synthesis* — the integration of multi-layered transcriptions, collations, and commentaries into a unified release. *Editorial studio* — a dedicated workshop environment where complex scholarly assets are assembled and peer-reviewed.
 
-**The takeaway for this page:** The final digital edition portfolio integrates ten distinct philological and computational layers into a unified, publication-grade digital scholarly edition.
+**Takeaway:** The final digital edition portfolio integrates ten distinct philological and computational layers into a unified, publication-grade digital scholarly edition.
 
 ---
 
@@ -55,7 +55,7 @@ By publishing an exhaustive editorial introduction, you transform your edition f
 
 **Vocabulary.** *Praefatio* — the formal Latin preface of a classical critical edition detailing witnesses and editorial rules. *Epistemological opacity* — the condition wherein a scholar's editorial choices cannot be verified due to missing methodological documentation. *Machine-actionable metadata* — data structured in standardized formats (such as XML) that can be queried and processed automatically by software.
 
-**The takeaway for this page:** The editorial introduction provides the essential methodological rationale that makes editorial choices transparent, accountable, and scientifically reproducible.
+**Takeaway:** The editorial introduction provides the essential methodological rationale that makes editorial choices transparent, accountable, and scientifically reproducible.
 
 ---
 
@@ -79,7 +79,7 @@ Stemmatology operates on the premise that manuscript transmission is a historica
 
 **Vocabulary.** *Stemmatology* — the scientific study of the genealogical relationships among surviving manuscript witnesses. *Textus receptus* — the historically received or dominant print text of a work prior to modern critical editing. *Archetype ($\Omega$)* — the lost common ancestor of all surviving manuscript witnesses of a text.
 
-**The takeaway for this page:** Classical stemmatology replaces subjective editorial taste with an objective genealogical analysis of manuscript copying errors.
+**Takeaway:** Classical stemmatology replaces subjective editorial taste with an objective genealogical analysis of manuscript copying errors.
 
 ---
 
@@ -105,7 +105,7 @@ Finally, if the reconstructed archetype contains an obvious nonsensical error or
 
 **Vocabulary.** *Recensio* — the exhaustive survey, collation, and genealogical classification of all surviving witnesses. *Examinatio* — the critical weighing of variant readings based on stemmatic authority and intrinsic probability. *Emendatio* — the conjectural restoration of an authorial reading corrupted in the archetype.
 
-**The takeaway for this page:** Classical editing proceeds strictly from objective genealogical survey (*recensio*) to critical evaluation (*examinatio*) and final conjectural correction (*emendatio*).
+**Takeaway:** Classical editing proceeds strictly from objective genealogical survey (*recensio*) to critical evaluation (*examinatio*) and final conjectural correction (*emendatio*).
 
 ---
 
@@ -135,7 +135,7 @@ In the example above, Manuscripts A and B both suffer from an identical homeotel
 
 **Vocabulary.** *Conjunctive error (error conjunctivus)* — an error shared by two or more witnesses that is so distinctive that it could not have occurred independently, proving common descent. *Homeoteleuton* — an omission caused by a scribe's eye skipping between identical word endings. *Transcriptional coincidence* — the accidental generation of identical errors by independent scribes.
 
-**The takeaway for this page:** Only distinctive shared errors (*errores conjunctivi*) possess the diagnostic power to unite manuscripts into genealogical families.
+**Takeaway:** Only distinctive shared errors (*errores conjunctivi*) possess the diagnostic power to unite manuscripts into genealogical families.
 
 ---
 
@@ -169,7 +169,7 @@ By systematically mapping both conjunctive and separative errors across your col
 
 **Vocabulary.** *Separative error (error separativus)* — an error in one manuscript that proves another manuscript containing the correct reading cannot have been copied from it. *Branch demarcation* — the formal identification of independent sub-lineages within a stemma. *Sibling witnesses* — manuscripts that descend independently from a common parent hyparchetype.
 
-**The takeaway for this page:** Separative errors establish independence, proving that one manuscript cannot have descended from another.
+**Takeaway:** Separative errors establish independence, proving that one manuscript cannot have descended from another.
 
 ---
 
@@ -202,7 +202,7 @@ Once a manuscript is proven to be a *codex descriptus*, it must be strictly **el
 
 **Vocabulary.** *Codex descriptus* — a manuscript that is a direct or indirect copy of another surviving manuscript. *Eliminatio codicum descriptorum* — the methodological rule mandating the exclusion of derived copies from the critical apparatus. *Stemmatic noise* — redundant readings from derived manuscripts that obscure the transmission history.
 
-**The takeaway for this page:** Eliminating derived copies (*codices descripti*) removes redundant noise and focuses the apparatus exclusively on independent witnesses.
+**Takeaway:** Eliminating derived copies (*codices descripti*) removes redundant noise and focuses the apparatus exclusively on independent witnesses.
 
 ---
 
@@ -231,7 +231,7 @@ Modeling manuscript transmission as a formal graph allows textual critics to app
 
 **Vocabulary.** *Graph theory* — the branch of mathematics studying networks of points (vertices) connected by lines (edges). *Directed edge* — a graph connection with an explicit direction, representing transmission from parent to child. *Leaf node* — a terminal vertex in a graph with no outgoing edges.
 
-**The takeaway for this page:** Graph theory formalizes manuscript transmission as a network of nodes (witnesses) and directed edges (copying events).
+**Takeaway:** Graph theory formalizes manuscript transmission as a network of nodes (witnesses) and directed edges (copying events).
 
 ---
 
@@ -263,7 +263,7 @@ When horizontal transmission occurs, a manuscript has **multiple parents**. The 
 
 **Vocabulary.** *Vertical transmission* — the copying of a text from a single exemplar without external influence. *Horizontal transmission (contamination)* — the mixing of readings from multiple distinct exemplars during copying or correction. *Directed Acyclic Graph (DAG)* — a graph with directed edges and no closed cycles, capable of modeling multiple parentage.
 
-**The takeaway for this page:** While simple traditions form strict trees, contaminated traditions require Directed Acyclic Graphs (DAGs) to model horizontal borrowing across lineages.
+**Takeaway:** While simple traditions form strict trees, contaminated traditions require Directed Acyclic Graphs (DAGs) to model horizontal borrowing across lineages.
 
 ---
 
@@ -288,7 +288,7 @@ In ancient and medieval literature, the most culturally significant and widely r
 
 **Vocabulary.** *Closed tradition* — a manuscript tradition free from contamination where transmission is strictly vertical. *Open tradition* — a manuscript tradition featuring pervasive contamination and horizontal borrowing. *Contaminatio* — the Latin term for the mixing of divergent manuscript traditions.
 
-**The takeaway for this page:** Open traditions defeat classical tree-building because horizontal contamination creates hybrid manuscripts with multiple genealogical parents.
+**Takeaway:** Open traditions defeat classical tree-building because horizontal contamination creates hybrid manuscripts with multiple genealogical parents.
 
 ---
 
@@ -323,7 +323,7 @@ By combining rigorous statistical coherence with local philological decisions, t
 
 **Vocabulary.** *Coherence-Based Genealogical Method (CBGM)* — a computational method that uses statistical agreement and local variant priority to reconstruct contaminated traditions. *Pre-genealogical coherence* — the raw percentage of agreement between two witnesses across all shared variation units. *Ausgangstext (Initial Text)* — the reconstructed ancestral text from which the surviving manuscript tradition originated.
 
-**The takeaway for this page:** The CBGM solves contamination by calculating statistical pre-genealogical coherence across all collated variants to identify closest relatives.
+**Takeaway:** The CBGM solves contamination by calculating statistical pre-genealogical coherence across all collated variants to identify closest relatives.
 
 ---
 
@@ -360,7 +360,7 @@ When authoring your digital edition:
 
 **Vocabulary.** *Local stemma* — a diagram showing the genealogical relationship among variant readings at a single text passage. *Global stemma* — a comprehensive diagram or network representing the genealogical history of all witnesses across a work. *Direction of change* — the historical progression from an ancestral reading to secondary scribal corruptions.
 
-**The takeaway for this page:** Modern textual criticism constructs local stemmata for individual passages first, aggregating them computationally into a global genealogical network.
+**Takeaway:** Modern textual criticism constructs local stemmata for individual passages first, aggregating them computationally into a global genealogical network.
 
 ---
 
@@ -423,7 +423,7 @@ Compiling `stemma.dot` to an SVG via the command line (`dot -Tsvg stemma.dot -o 
 
 **Vocabulary.** *Graphviz DOT* — a plain-text graph description language used to generate network diagrams. *Scalable Vector Graphics (SVG)* — an XML-based vector image format that scales infinitely without loss of resolution. *Declarative visualization* — generating diagrams programmatically from structured code rather than manual drawing.
 
-**The takeaway for this page:** Stemmata should be authored in declarative graph languages (Graphviz DOT or Mermaid) and compiled to scalable vector graphics (SVG) for web and print.
+**Takeaway:** Stemmata should be authored in declarative graph languages (Graphviz DOT or Mermaid) and compiled to scalable vector graphics (SVG) for web and print.
 
 ---
 
@@ -501,7 +501,7 @@ Every `@wit` attribute in your critical apparatus (`<app>`) must reference an `@
 
 **Vocabulary.** `<listWit>` — the TEI element defining a structured list or hierarchy of manuscript witnesses. `<witness>` — the TEI element declaring an individual witness and its unique XML identifier. *Structural binding* — the enforcement of referential integrity between apparatus readings and declared witness sigla.
 
-**The takeaway for this page:** Nesting TEI `<listWit>` and `<witness>` elements formalizes your stemma codicum directly within the machine-readable header.
+**Takeaway:** Nesting TEI `<listWit>` and `<witness>` elements formalizes your stemma codicum directly within the machine-readable header.
 
 ---
 
@@ -553,7 +553,7 @@ By structuring `<encodingDesc>` comprehensively, you ensure that external resear
 
 **Vocabulary.** `<encodingDesc>` — the TEI header container documenting the relationship between an electronic text and its source materials. `<projectDesc>` — prose description of the aim and institutional context of the project. `<classDecl>` — classification declaration defining custom taxonomies and controlled vocabularies.
 
-**The takeaway for this page:** The `<encodingDesc>` container establishes the technical and methodological rules that govern the entire digital edition.
+**Takeaway:** The `<encodingDesc>` container establishes the technical and methodological rules that govern the entire digital edition.
 
 ---
 
@@ -601,7 +601,7 @@ Decomposing your editorial introduction into these formal XML elements guarantee
 
 **Vocabulary.** `<editorialDecl>` — the TEI element providing details of editorial practice applied during encoding. *Decomposed policy* — breaking down a general editorial statement into specialized, machine-readable XML sub-elements. *Encoding transparency* — the degree to which an edition's markup rules are explicitly documented.
 
-**The takeaway for this page:** The `<editorialDecl>` element decomposes editorial policies into standardized sub-elements governing correction, normalization, hyphenation, and interpretation.
+**Takeaway:** The `<editorialDecl>` element decomposes editorial policies into standardized sub-elements governing correction, normalization, hyphenation, and interpretation.
 
 ---
 
@@ -641,7 +641,7 @@ In your narrative introduction, the correction section must address:
 
 **Vocabulary.** `<correction>` — TEI element stating how and under what circumstances corrections have been made. *Ante correctionem (a.c.)* — the original reading of a manuscript before a corrector modified it. *Post correctionem (p.c.)* — the modified reading of a manuscript after correction.
 
-**The takeaway for this page:** The `<correction>` element documents the degree and markup mechanisms used to emend scribal errors and physical damage.
+**Takeaway:** The `<correction>` element documents the degree and markup mechanisms used to emend scribal errors and physical damage.
 
 ---
 
@@ -675,7 +675,7 @@ Documenting this policy prevents readers from mistaking deliberate orthographic 
 
 **Vocabulary.** `<normalization>` — TEI element indicating the extent of regularization or normalization applied to the source text. *Iotacism* — the historical phonetic merger of multiple Greek vowels and diphthongs into the sound [i]. *Scriptio continua* — continuous writing without word spaces or punctuation.
 
-**The takeaway for this page:** The `<normalization>` declaration explicitly defines how phonetic spellings, word divisions, accents, and *nomina sacra* are regularized between diplomatic and reading views.
+**Takeaway:** The `<normalization>` declaration explicitly defines how phonetic spellings, word divisions, accents, and *nomina sacra* are regularized between diplomatic and reading views.
 
 ---
 
@@ -712,7 +712,7 @@ Documenting your segmentation rules guarantees that other researchers can progra
 
 **Vocabulary.** `<segmentation>` — TEI element describing the principles according to which a text has been segmented into sentences, words, or morphemes. *Tokenization* — the process of breaking a stream of text into discrete words, symbols, or elements. `<pc>` — TEI element for punctuation characters.
 
-**The takeaway for this page:** The `<segmentation>` declaration formalizes how sentences, words, and punctuation marks are tokenized for computational processing.
+**Takeaway:** The `<segmentation>` declaration formalizes how sentences, words, and punctuation marks are tokenized for computational processing.
 
 ---
 
@@ -743,7 +743,7 @@ For undergraduate and standard scholarly editions, **Parallel Segmentation** (`m
 
 **Vocabulary.** `<variantEncoding>` — TEI element declaring the method and location used for encoding textual variation. *Parallel segmentation* — an apparatus encoding method where variants are embedded directly inline at the point of variation. *Referential dereferencing* — the computational retrieval of target content linked via ID pointers.
 
-**The takeaway for this page:** The `<variantEncoding>` declaration explicitly informs software processors whether variants are encoded via parallel segmentation, double-endpoint attachment, or location referencing.
+**Takeaway:** The `<variantEncoding>` declaration explicitly informs software processors whether variants are encoded via parallel segmentation, double-endpoint attachment, or location referencing.
 
 ---
 
@@ -782,7 +782,7 @@ Documenting these explicit thresholds ensures that your commentary is recognized
 
 **Vocabulary.** `<interpretation>` — TEI element describing the scope of interpretive and analytic annotations. *Annotation threshold* — the objective criteria determining whether a textual phenomenon warrants an explanatory note. *Stand-off annotation* — commentary stored externally from the base text and linked via persistent pointers.
 
-**The takeaway for this page:** The `<interpretation>` declaration defines the four-tier commentary taxonomy and articulates the objective thresholds governing note generation.
+**Takeaway:** The `<interpretation>` declaration defines the four-tier commentary taxonomy and articulates the objective thresholds governing note generation.
 
 ---
 
@@ -838,7 +838,7 @@ Authoring complete codicological descriptions connects your digital text directl
 
 **Vocabulary.** `<msDesc>` — TEI element providing a structured codicological and paleographical description of a manuscript. *Shelfmark* — the official alphanumeric call number assigned to a manuscript by a holding library. *Quaternion* — a manuscript quire composed of four folded sheets of parchment (eight leaves / sixteen pages).
 
-**The takeaway for this page:** Complete codicological descriptions in `<msDesc>` document the material reality, layout, script, date, and provenance of every collated witness.
+**Takeaway:** Complete codicological descriptions in `<msDesc>` document the material reality, layout, script, date, and provenance of every collated witness.
 
 ---
 
@@ -888,7 +888,7 @@ Distinguishing scribal hands ensures that your apparatus accurately reflects whe
 
 **Vocabulary.** `<handDesc>` — TEI element describing the different scribal hands identified in a manuscript. `<handShift>` — milestone element marking a change of scribe or script within a text. *Scribal stratification* — the historical layering of corrections and marginalia added to a manuscript across successive centuries.
 
-**The takeaway for this page:** Declaring scribal hands in `<handDesc>` and linking interventions via `@resp` preserves the historical stratification of manuscript corrections.
+**Takeaway:** Declaring scribal hands in `<handDesc>` and linking interventions via `@resp` preserves the historical stratification of manuscript corrections.
 
 ---
 
@@ -915,7 +915,7 @@ Explicitly stating your principles ensures that your readers understand the theo
 
 **Vocabulary.** *Constitutio textus* — the formal establishment or reconstruction of the critical reading text. *Bédierism* — an editorial philosophy (named after Joseph Bédier) that privileges a single "best manuscript" over eclectic reconstruction. *Editorial adjudication* — the reasoned choice among competing variant readings.
 
-**The takeaway for this page:** The principles of textual constitution define whether your edition is stemmatically reconstructed, coherence-based, or best-text documentary.
+**Takeaway:** The principles of textual constitution define whether your edition is stemmatically reconstructed, coherence-based, or best-text documentary.
 
 ---
 
@@ -941,7 +941,7 @@ In your introduction, document exactly how you applied these canons to adjudicat
 
 **Vocabulary.** *Lectio difficilior potior* — the text-critical rule that the more difficult reading is more likely to be original. *Lectio brevior* — the rule that the shorter reading is generally preferred over scribal expansions. *Usus scribendi* — the distinctive writing style, vocabulary, and grammar characteristic of a specific author.
 
-**The takeaway for this page:** *Lectio difficilior* and *lectio brevior* resolve stemmatically ambiguous variants by modeling predictable scribal tendencies toward simplification and expansion.
+**Takeaway:** *Lectio difficilior* and *lectio brevior* resolve stemmatically ambiguous variants by modeling predictable scribal tendencies toward simplification and expansion.
 
 ---
 
@@ -975,7 +975,7 @@ Documenting your translation principles ensures that readers understand the inte
 
 **Vocabulary.** *Formal equivalence* — a translation approach prioritizing literal fidelity to source grammar, syntax, and word order. *Dynamic equivalence* — a translation approach prioritizing natural readability in the target language. *Interlinear gloss* — a multi-line format providing word-by-word morphological and semantic analysis directly beneath the source text.
 
-**The takeaway for this page:** The translation rationale documents whether your translation is formal, dynamic, or interlinear, while detailing the computational pipelines used for lemmatization.
+**Takeaway:** The translation rationale documents whether your translation is formal, dynamic, or interlinear, while detailing the computational pipelines used for lemmatization.
 
 ---
 
@@ -1021,7 +1021,7 @@ Embedding these licenses directly in the machine-readable header ensures your wo
 
 **Vocabulary.** `<publicationStmt>` — TEI header element providing information concerning the publication and distribution of the text. *CC BY 4.0* — Creative Commons Attribution license permitting sharing and adaptation with credit. *CC0 1.0* — Creative Commons Public Domain Dedication waiving all copyright.
 
-**The takeaway for this page:** The `<publicationStmt>` formalizes a multi-tiered licensing structure: CC BY 4.0 for editorial content, CC0 for data/metadata, and MIT for software scripts.
+**Takeaway:** The `<publicationStmt>` formalizes a multi-tiered licensing structure: CC BY 4.0 for editorial content, CC0 for data/metadata, and MIT for software scripts.
 
 ---
 
@@ -1061,7 +1061,7 @@ Connecting `<revisionDesc>` to your Git commit history (Topic 1) establishes tot
 
 **Vocabulary.** `<revisionDesc>` — TEI header element summarizing the revision history for an electronic file. `<change>` — TEI element recording a single editorial modification or release milestone. *Provenance audit trail* — the immutable chronological record documenting who made specific edits and when.
 
-**The takeaway for this page:** The `<revisionDesc>` element maintains a machine-readable audit trail of all editorial milestones, synchronizing with Git version control history.
+**Takeaway:** The `<revisionDesc>` element maintains a machine-readable audit trail of all editorial milestones, synchronizing with Git version control history.
 
 ---
 
@@ -1086,7 +1086,7 @@ Document your review findings in a structured Markdown audit report (`AUDIT_REPO
 
 **Vocabulary.** *Collaborative audit* — the systematic peer review of both philological content and computational markup before publication. *Pointer resolution* — the programmatic verification that all internal XML ID references resolve successfully. *Referential integrity* — the guarantee that every pointer references a valid, extant target node.
 
-**The takeaway for this page:** Collaborative peer review audits schema validity, pointer resolution, stemmatic logic, and apparatus accuracy before final compilation.
+**Takeaway:** Collaborative peer review audits schema validity, pointer resolution, stemmatic logic, and apparatus accuracy before final compilation.
 
 ---
 
@@ -1106,7 +1106,7 @@ We have demonstrated that:
 
 Tomorrow, in Lesson 13.2, you will translate these principles into executable computational pipelines, configuring the **TEI Processing Model** and **ODD specification** to automate multi-format publishing.
 
-**The takeaway for this page:** The editorial introduction and stemma codicum constitute the intellectual keystone that transforms structured XML markup into an authoritative, reproducible digital critical edition.
+**Takeaway:** The editorial introduction and stemma codicum constitute the intellectual keystone that transforms structured XML markup into an authoritative, reproducible digital critical edition.
 
 ---
 

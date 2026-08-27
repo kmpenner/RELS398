@@ -18,7 +18,7 @@ Generative AI introduces the possibility of automating not only literal word-to-
 
 However, generative models are fundamentally probabilistic language generators, not deterministic rule engines. They are susceptible to subtle, highly persuasive failure modes: inventing phantom morphemes, hallucinating nonexistent grammatical cases, smoothing over textual cruces, and fabricating 1:1 correspondences across non-isomorphic syntactic boundaries. Today, you will learn how to prompt and constrain LLMs for alignment tasks, systematically benchmark their outputs against your manual gold standard, and design rigorous human-in-the-loop verification pipelines (Palladino, 2023).
 
-**The takeaway for this page:** Generative AI bridges statistical frequency and semantic comprehension, but its probabilistic nature requires rigorous philological auditing to detect subtle hallucinations.
+**Takeaway:** Generative AI bridges statistical frequency and semantic comprehension, but its probabilistic nature requires rigorous philological auditing to detect subtle hallucinations.
 
 ---
 
@@ -44,7 +44,7 @@ When an LLM processes a prompt containing an ancient Greek sentence and its Engl
 
 While this generative capacity allows LLMs to handle complex literary translations that derail statistical aligners, it also introduces the risk of generative drift. The model may generate a plausible-sounding grammatical explanation that reflects modern linguistic intuition rather than the authentic philological reality of the historical manuscript.
 
-**The takeaway for this page:** LLMs align parallel texts through cross-lingual attention layers and in-context learning, combining semantic comprehension with generative flexibility.
+**Takeaway:** LLMs align parallel texts through cross-lingual attention layers and in-context learning, combining semantic comprehension with generative flexibility.
 
 ---
 
@@ -77,7 +77,7 @@ This subword splintering creates catastrophic failure modes in alignment tasks:
 
 Understanding this tokenization barrier is essential: when designing prompts, we must provide explicit whitespace tokenization and avoid relying on the model's internal subword counting.
 
-**The takeaway for this page:** Subword tokenizers splinter polytonic Greek, pointed Hebrew, and Syriac into arbitrary byte fragments, distorting word boundaries and causing index hallucinations.
+**Takeaway:** Subword tokenizers splinter polytonic Greek, pointed Hebrew, and Syriac into arbitrary byte fragments, distorting word boundaries and causing index hallucinations.
 
 ---
 
@@ -114,7 +114,7 @@ Target (English): [E1] In [E2] the [E3] beginning [E4] was [E5] the [E6] Word
 
 By constraining the model's role, input tokenization, and output syntax, structured prompt engineering transforms a probabilistic chat model into a dependable, deterministic-like annotation engine.
 
-**The takeaway for this page:** Robust alignment prompts define an expert persona, supply pre-tokenized index streams, dictate edge-case handling, and enforce strict JSON schemas.
+**Takeaway:** Robust alignment prompts define an expert persona, supply pre-tokenized index streams, dictate edge-case handling, and enforce strict JSON schemas.
 
 ---
 
@@ -149,7 +149,7 @@ LLM Output: Ἐν [In] ἀρχῇ [the beginning] ἦν [was] ὁ [the] λόγο
 
 Once the LLM outputs the bracketed text substitution string, a simple 10-line Python script uses regular expressions to match the bracketed strings against the source and target token offsets, generating flawless, schema-compliant TEI `<linkGrp>` markup without a single index hallucination.
 
-**The takeaway for this page:** LLMs fail at numerical coordinate pairing; using bracketed text substitution (`source [target]`) eliminates index drift and boosts alignment accuracy by ~29%.
+**Takeaway:** LLMs fail at numerical coordinate pairing; using bracketed text substitution (`source [target]`) eliminates index drift and boosts alignment accuracy by ~29%.
 
 ---
 
@@ -190,7 +190,7 @@ The exemplars teach the model three critical implicit conventions:
 2. How to handle multi-word verbal units (e.g., bracketed expansions).
 3. The exact casing and punctuation stripping rules expected by the downstream parser.
 
-**The takeaway for this page:** 3-shot in-context prompting slashes Alignment Error Rate from ~29% to ~6.6% by demonstrating exact handling of particles, idioms, and punctuation.
+**Takeaway:** 3-shot in-context prompting slashes Alignment Error Rate from ~29% to ~6.6% by demonstrating exact handling of particles, idioms, and punctuation.
 
 ---
 
@@ -239,7 +239,7 @@ When an LLM generates data under this schema constraint:
 
 A simple Python script can instantly deserialize this JSON payload and map it directly into schema-validated TEI P5 `<linkGrp>` and `<link>` elements.
 
-**The takeaway for this page:** Constrained decoding via JSON Schema guarantees 100% syntactically valid alignment data, eliminating malformed outputs and streamlining TEI generation.
+**Takeaway:** Constrained decoding via JSON Schema guarantees 100% syntactically valid alignment data, eliminating malformed outputs and streamlining TEI generation.
 
 ---
 
@@ -276,7 +276,7 @@ Notice the remarkable precision of the model's output:
 
 Generating IGT via LLMs achieves in 2 seconds what required 15 minutes of manual lookups in printed grammars on Tuesday. However, human verification remains mandatory: if the model misidentifies an irregular verb root or hallucinates a middle voice ending as a passive ending, the entire downstream linguistic analysis is corrupted.
 
-**The takeaway for this page:** LLMs can generate fully synchronized 4-line IGT blocks in seconds, decomposing complex verbal morphology into standardized Leipzig tiers.
+**Takeaway:** LLMs can generate fully synchronized 4-line IGT blocks in seconds, decomposing complex verbal morphology into standardized Leipzig tiers.
 
 ---
 
@@ -302,7 +302,7 @@ GlossLM is built on a sequence-to-sequence transformer backbone (fine-tuned from
 
 The ByT5 variant of GlossLM is particularly revolutionary for historical philology because it operates **directly on raw Unicode UTF-8 bytes**, completely bypassing the subword tokenization barrier. It can process polytonic Greek accents, Tiberian Hebrew cantillation marks, and Syriac diacritical points without byte corruption.
 
-**The takeaway for this page:** Specialized models like GlossLM and PolyGloss are pretrained on 450k+ IGT examples across 1,800 languages, providing byte-level morphological precision.
+**Takeaway:** Specialized models like GlossLM and PolyGloss are pretrained on 450k+ IGT examples across 1,800 languages, providing byte-level morphological precision.
 
 ---
 
@@ -337,7 +337,7 @@ De-interleaving Algorithm into 4-Line IGT:
 
 By predicting morpheme boundaries and grammatical categories simultaneously, the neural model uses grammatical constraints to resolve ambiguous segmentations, and uses phonological boundaries to select correct grammatical tags.
 
-**The takeaway for this page:** Joint segmentation and glossing predicts morphemes and grammatical tags simultaneously in an interleaved stream, eliminating cascaded pipeline errors.
+**Takeaway:** Joint segmentation and glossing predicts morphemes and grammatical tags simultaneously in an interleaved stream, eliminating cascaded pipeline errors.
 
 ---
 
@@ -376,7 +376,7 @@ The model violates the formal formatting grammar of the Leipzig Glossing Rules.
 
 Recognizing this taxonomy enables digital editors to construct targeted automated filters that flag suspected hallucinations before human peer review.
 
-**The takeaway for this page:** The AI hallucination taxonomy categorizes errors into phantom morphemes (Type I), fictitious tags (Type II), root inversions (Type III), and Leipzig syntax violations (Type IV).
+**Takeaway:** The AI hallucination taxonomy categorizes errors into phantom morphemes (Type I), fictitious tags (Type II), root inversions (Type III), and Leipzig syntax violations (Type IV).
 
 ---
 
@@ -401,7 +401,7 @@ In real historical bitexts, syntax is deeply **non-isomorphic**:
 
 When auditing AI alignments, editors must specifically scrutinize genitive absolutes, split noun phrases, and synthetic verbs to ensure the model has not forced unnatural 1:1 constraints onto asymmetric syntax.
 
-**The takeaway for this page:** LLMs tend to over-regularize non-isomorphic syntax; editors must audit genitive absolutes, hyperbaton, and synthetic verbs for missing multi-word links.
+**Takeaway:** LLMs tend to over-regularize non-isomorphic syntax; editors must audit genitive absolutes, hyperbaton, and synthetic verbs for missing multi-word links.
 
 ---
 
@@ -442,7 +442,7 @@ Preserving Theological Ambiguity in AI-Assisted TEI Standoff:
 
 A generative AI will almost always prioritize the single most probable reading according to its pretraining weights. Human scholars must intervene to record polysemous layers and idiomatic groupings in TEI standoff notes.
 
-**The takeaway for this page:** LLMs struggle with idioms and polysemy; scholars must override literal compositional drift and encode alternative theological readings via TEI `<link>` notes.
+**Takeaway:** LLMs struggle with idioms and polysemy; scholars must override literal compositional drift and encode alternative theological readings via TEI `<link>` notes.
 
 ---
 
@@ -480,7 +480,7 @@ Philologically Correct Alignment (Synthetic Fusion):
 
 When processing ancient bitexts, automated auditing scripts must verify that English subject pronouns generated by Greek inflections are formally bound to the synthetic verb token, and that unexpressed copulas are mapped to explicit `#NULL` targets.
 
-**The takeaway for this page:** Pro-drop languages omit subject pronouns; LLMs must link synthetic verbs directly to English pronoun-verb pairs (`#w1 #tr1 #tr2`) rather than hallucinating phantom source tokens.
+**Takeaway:** Pro-drop languages omit subject pronouns; LLMs must link synthetic verbs directly to English pronoun-verb pairs (`#w1 #tr1 #tr2`) rather than hallucinating phantom source tokens.
 
 ---
 
@@ -511,7 +511,7 @@ Cosine Similarity Matrix S between Greek and English Tokens:
 
 Once the similarity matrix $\mathbf{S}$ is constructed, graph matching algorithms extract the optimal alignment links without generating a single word of hallucinated text.
 
-**The takeaway for this page:** Neural embedding aligners (SimAlign, Awesome-Align) compute cosine similarity matrices directly from transformer layer activations, bypassing generative hallucination entirely.
+**Takeaway:** Neural embedding aligners (SimAlign, Awesome-Align) compute cosine similarity matrices directly from transformer layer activations, bypassing generative hallucination entirely.
 
 ---
 
@@ -550,7 +550,7 @@ Where $\mathbf{C} = 1 - \mathbf{S}$ is the transport cost matrix, $\mathbf{P}$ i
 
 Optimal transport matching on neural embeddings provides a mathematically rigorous, non-generative alignment alternative that is completely immune to text-generation hallucinations.
 
-**The takeaway for this page:** Optimal transport (Sinkhorn algorithm) extracts globally optimal N:M alignments from neural similarity matrices without relying on generative text decoding.
+**Takeaway:** Optimal transport (Sinkhorn algorithm) extracts globally optimal N:M alignments from neural similarity matrices without relying on generative text decoding.
 
 ---
 
@@ -582,7 +582,7 @@ Key Findings from the Benchmark:
 - **3-Shot Bracketed LLM Achieves State-of-the-Art:** Providing three in-context exemplars using bracketed substitution slashes AER to **6.6%**, outperforming all statistical and embedding aligners.
 - **The Speed-Precision Frontier:** While human annotation is flawless, 3-shot LLMs deliver 93.4% $F_1$ accuracy in seconds, providing the ultimate acceleration engine for digital critical edition production.
 
-**The takeaway for this page:** 3-shot in-context LLMs achieve 6.6% AER, dramatically outperforming zero-shot prompts and statistical aligners on historical bitexts.
+**Takeaway:** 3-shot in-context LLMs achieve 6.6% AER, dramatically outperforming zero-shot prompts and statistical aligners on historical bitexts.
 
 ---
 
@@ -613,7 +613,7 @@ To see these systems in action, let us examine a side-by-side comparative case s
 
 The qualitative analysis confirms our quantitative findings: while `fast_align` fragments complex Greek syntax into isolated, literal word matches, the 3-shot LLM seamlessly reconstructs high-level idioms, modal auxiliaries, and articular infinitive clauses.
 
-**The takeaway for this page:** On Classical Attic prose, 3-shot LLMs successfully resolve prepositional idioms, modal optatives, and articular infinitives that fragment statistical aligners.
+**Takeaway:** On Classical Attic prose, 3-shot LLMs successfully resolve prepositional idioms, modal optatives, and articular infinitives that fragment statistical aligners.
 
 ---
 
@@ -644,7 +644,7 @@ Target: "He" (#tr1) "answered" (#tr2) "and" (#tr3) "said" (#tr4) "to" (#tr5) "th
 
 By mastering particle omission, few-shot prompted LLMs prevent the cascading alignment errors that plague statistical aligners on biblical and patristic corpora.
 
-**The takeaway for this page:** Few-shot prompting teaches LLMs to leave untranslated discourse particles (δέ, γάρ) unaligned, preventing domino cascades of erroneous links.
+**Takeaway:** Few-shot prompting teaches LLMs to leave untranslated discourse particles (δέ, γάρ) unaligned, preventing domino cascades of erroneous links.
 
 ---
 
@@ -675,7 +675,7 @@ Semitic orthography writes prepositions, conjunctions, and relative markers as s
 
 This case study illustrates why specialized models like GlossLM are indispensable when working outside Indo-European languages: GlossLM natively understands Semitic clitic boundaries (`=`), root ablaut (`\`), and nominal state inflections.
 
-**The takeaway for this page:** Specialized byte-level models (GlossLM) outperform general LLMs on Semitic texts by correctly applying clitic equals signs (`=`) and non-concatenative root rules.
+**Takeaway:** Specialized byte-level models (GlossLM) outperform general LLMs on Semitic texts by correctly applying clitic equals signs (`=`) and non-concatenative root rules.
 
 ---
 
@@ -707,7 +707,7 @@ This occurs because of two psychological and computational mechanisms:
 
 Because 3-shot prompted LLMs achieve **>92% accuracy**, they cross the efficiency threshold, delivering genuine **8x–10x acceleration** without compromising editorial integrity.
 
-**The takeaway for this page:** Post-editing AI output is only efficient when model accuracy exceeds ~85%; below that threshold, diagnosing subtle fluent hallucinations takes longer than manual authoring.
+**Takeaway:** Post-editing AI output is only efficient when model accuracy exceeds ~85%; below that threshold, diagnosing subtle fluent hallucinations takes longer than manual authoring.
 
 ---
 
@@ -733,7 +733,7 @@ A robust HITL alignment pipeline consists of four synchronized stages:
 
 This architecture guarantees that the machine functions strictly as an assistant, while full epistemic authority and editorial accountability remain entirely with the human scholar.
 
-**The takeaway for this page:** The HITL workflow combines automated AI generation, rule-based heuristic auditing, and interactive human verification to ensure critical edition integrity.
+**Takeaway:** The HITL workflow combines automated AI generation, rule-based heuristic auditing, and interactive human verification to ensure critical edition integrity.
 
 ---
 
@@ -801,7 +801,7 @@ if __name__ == "__main__":
 
 Running this linter in your continuous integration pipeline intercepts 90% of AI syntax errors before they ever reach the human reviewer.
 
-**The takeaway for this page:** Python heuristic auditing scripts validate token parity, morpheme hyphen synchronization, and Leipzig tag legality before human review.
+**Takeaway:** Python heuristic auditing scripts validate token parity, morpheme hyphen synchronization, and Leipzig tag legality before human review.
 
 ---
 
@@ -826,7 +826,7 @@ In computational philology, an ensemble alignment architecture operates via a **
 
 This tiered ensemble approach maximizes both speed and philological fidelity: 80% of the corpus is aligned instantly by deterministic and embedding models, leaving the LLM and human scholar to focus exclusively on difficult literary cruces.
 
-**The takeaway for this page:** Ensemble pipelines combine deterministic lexical anchors, neural embeddings, and generative LLMs into a tiered confidence cascade.
+**Takeaway:** Ensemble pipelines combine deterministic lexical anchors, neural embeddings, and generative LLMs into a tiered confidence cascade.
 
 ---
 
@@ -850,7 +850,7 @@ When an editor publishes an aligned digital edition, what claims are they making
 
 Responsible digital philology requires total algorithmic transparency. Every AI contribution must be permanently documented with complete computational provenance.
 
-**The takeaway for this page:** AI introduces risks of linguistic homogenization; ethical scholarship requires complete transparency, provenance encoding, and human accountability.
+**Takeaway:** AI introduces risks of linguistic homogenization; ethical scholarship requires complete transparency, provenance encoding, and human accountability.
 
 ---
 
@@ -901,7 +901,7 @@ When serializing AI-generated alignment links into TEI XML standoff documents, t
 
 This TEI encoding guarantees that future researchers querying your digital edition can instantly filter between human-curated ground truth, verified AI suggestions, and raw machine predictions.
 
-**The takeaway for this page:** TEI `@resp`, `@cert`, and `<application>` elements formally document AI model versions, prompt configurations, confidence scores, and human verification status.
+**Takeaway:** TEI `@resp`, `@cert`, and `<application>` elements formally document AI model versions, prompt configurations, confidence scores, and human verification status.
 
 ---
 
@@ -983,7 +983,7 @@ if __name__ == "__main__":
 
 Integrating this script into your digital edition build process allows you to generate, audit, and commit hundreds of parallel verses in minutes.
 
-**The takeaway for this page:** A unified Python pipeline automates LLM querying, JSON parsing, IDREF resolution, and TEI `<linkGrp>` standoff XML serialization.
+**Takeaway:** A unified Python pipeline automates LLM querying, JSON parsing, IDREF resolution, and TEI `<linkGrp>` standoff XML serialization.
 
 ---
 
@@ -1013,7 +1013,7 @@ The grand lesson of Topic 11 is that **none of these three paradigms is sufficie
 
 The master digital philologist orchestrates all three: using manual curation for ground truth, deterministic tools for bulk scaffolding, and AI models for intelligent synthesis under strict human verification.
 
-**The takeaway for this page:** The complete alignment workflow unites manual gold standards (benchmarking), deterministic tools (speed), and generative AI (semantic synthesis).
+**Takeaway:** The complete alignment workflow unites manual gold standards (benchmarking), deterministic tools (speed), and generative AI (semantic synthesis).
 
 ---
 
@@ -1049,7 +1049,7 @@ git commit -m "feat(topic11): submit complete interlinear glossing and translati
 git push origin main
 ```
 
-**The takeaway for this page:** Package and commit your seven assignment deliverables (TEI source/target, manual IGT, fast_align, LLM output, AER report, curated edition) by Fri Nov 27.
+**Takeaway:** Package and commit your seven assignment deliverables (TEI source/target, manual IGT, fast_align, LLM output, AER report, curated edition) by Fri Nov 27.
 
 ---
 
@@ -1079,7 +1079,7 @@ You mastered:
 **Looking Ahead to Topic 12 (Next Week):**  
 In Topic 12 (*Commentary*), you will take the aligned parallel texts you engineered this week and link them into vast, intertextual scholarly commentary networks. You will explore the **W3C Open Annotation Data Model**, encode deep scholia and apparatus notes in TEI Chapter 17, and use **Tesserae** to discover intertextual allusions across classical and biblical literature.
 
-**The takeaway for this page:** Translation alignment provides the explicit bipartite graph foundation that unlocks downstream digital commentary networks and intertextual discovery.
+**Takeaway:** Translation alignment provides the explicit bipartite graph foundation that unlocks downstream digital commentary networks and intertextual discovery.
 
 ---
 

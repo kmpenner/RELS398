@@ -18,7 +18,7 @@ By passing the passage you analyzed yesterday through automated engines—such a
 
 Understanding the boundary between deterministic reliability and algorithmic failure is essential for digital editors. When software runs predictably, an editor can design automated filters and validation checks that isolate uncertain readings for human review, establishing a disciplined human-in-the-loop workflow. This comparative methodology ensures that computational speed never compromises philological rigor.
 
-**The takeaway for this page:** Deterministic pipelines operationalize grammatical rules into scalable, reproducible software, automating routine parsing while exposing algorithmic limitations.
+**Takeaway:** Deterministic pipelines operationalize grammatical rules into scalable, reproducible software, automating routine parsing while exposing algorithmic limitations.
 
 ---
 
@@ -45,7 +45,7 @@ The FST architecture transitions across a series of internal states:
 
 Because Morpheus models Greek morphology purely through formal grammatical rules, its derivations are transparent, predictable, and mathematically rigorous. It operates without probabilistic estimation, providing an exhaustive catalog of all morphologically possible interpretations of a given character sequence without stochastic drift.
 
-**The takeaway for this page:** The Morpheus engine uses finite-state transducers to match inflected surface forms against a comprehensive stem lexicon and morphological rule network.
+**Takeaway:** The Morpheus engine uses finite-state transducers to match inflected surface forms against a comprehensive stem lexicon and morphological rule network.
 
 ---
 
@@ -61,7 +61,7 @@ When thousands of words are processed, an editor using raw FST output is confron
 
 Second, finite-state transducers are brittle when encountering out-of-vocabulary words, spelling variants, or unedited manuscript readings. If a stem is absent from the lexicon—or if a scribe writes an itacistic spelling such as *γινώσκει* instead of *γιγνώσκει*—the transducer fails to reach an accepting state and returns an empty analysis. Rule-based transducers possess zero native capacity to infer plausible parses for words outside their explicit rule set, halting automated annotation on non-standard texts.
 
-**The takeaway for this page:** Finite-state analyzers generate all theoretically possible parses without contextual disambiguation and fail completely on out-of-vocabulary spellings.
+**Takeaway:** Finite-state analyzers generate all theoretically possible parses without contextual disambiguation and fail completely on out-of-vocabulary spellings.
 
 ---
 
@@ -81,7 +81,7 @@ However, standard HMMs suffer from severe data sparsity when estimating higher-o
 
 By evaluating the transition probabilities of surrounding tags, TreeTagger can determine whether *profundum* is governed by a preceding preposition (favoring a noun reading) or modifies an adjacent substantive (favoring an adjectival reading), bringing statistical context to morphological disambiguation. This probabilistic grounding allows scholars to process continuous historical prose with minimal human intervention.
 
-**The takeaway for this page:** TreeTagger uses decision-tree-augmented Markov models to calculate the most statistically probable sequence of grammatical tags in context.
+**Takeaway:** TreeTagger uses decision-tree-augmented Markov models to calculate the most statistically probable sequence of grammatical tags in context.
 
 ---
 
@@ -100,7 +100,7 @@ In blinded evaluations, the Diorisis system achieved 97% lemmatization accuracy 
 
 The Diorisis experiment highlighted a fundamental philological principle: when a lexicon is comprehensive enough to cover nearly all valid word forms, a lightweight statistical model can outperform far heavier neural systems by eliminating out-of-vocabulary search failures on standard vocabulary. Furthermore, the resulting database provides an invaluable reference resource for training downstream machine-learning models.
 
-**The takeaway for this page:** The Diorisis pipeline pairs a 900,000-form lexicon with TreeTagger's statistical model to achieve 97% accuracy on classical prose.
+**Takeaway:** The Diorisis pipeline pairs a 900,000-form lexicon with TreeTagger's statistical model to achieve 97% accuracy on classical prose.
 
 ---
 
@@ -126,7 +126,7 @@ Historical languages present unique computational challenges that modern NLP lib
 
 The CLTK architecture organizes linguistic processing into modular, language-specific pipelines (`NLP(language='grc')` for Greek; `NLP(language='lat')` for Latin). Each pipeline sequences discrete processing units that transform raw text into fully annotated document objects conforming to Universal Dependencies standards (Johnson et al., 2021).
 
-**The takeaway for this page:** The Classical Language Toolkit (CLTK) provides a modular, language-specific NLP framework engineered to overcome the data sparsity and orthographic challenges of pre-modern corpora.
+**Takeaway:** The Classical Language Toolkit (CLTK) provides a modular, language-specific NLP framework engineered to overcome the data sparsity and orthographic challenges of pre-modern corpora.
 
 ---
 
@@ -153,7 +153,7 @@ Consider how an ambiguous token like *ἐπαιδεύθησαν* traverses this 
 
 By placing high-precision dictionary lookups at the front of the cascade, the pipeline avoids expensive computational operations on common words, reserving neural and rule-based parsing engines for ambiguous open-class substantives and verbs.
 
-**The takeaway for this page:** Cascading backoff lemmatizers maximize recall by chaining closed-class lookups, unigram frequency models, regex rules, and finite-state fallbacks.
+**Takeaway:** Cascading backoff lemmatizers maximize recall by chaining closed-class lookups, unigram frequency models, regex rules, and finite-state fallbacks.
 
 ---
 
@@ -172,7 +172,7 @@ In comparative benchmarks, GLEM achieved 93% accuracy on Classical Greek prose, 
 
 If a dialectal form or scribal error alters three or four characters in a word, the nearest-neighbor distance calculation is disrupted, causing GLEM to link the token to an unrelated lexical cluster. For instance, an itacistic spelling like *γεινωσκουσιν* might have higher character overlap with an unrelated noun stem than with the true root *γιγνωσκ-*, causing the memory-based classifier to output an erroneous lemma. This behavior illustrates the persistent trade-off between instance-based pattern matching and rule-based derivation.
 
-**The takeaway for this page:** Memory-Based Learning (GLEM) lemmatizes unknown forms by computing k-nearest-neighbor similarity against stored training exemplars.
+**Takeaway:** Memory-Based Learning (GLEM) lemmatizes unknown forms by computing k-nearest-neighbor similarity against stored training exemplars.
 
 ---
 
@@ -192,7 +192,7 @@ In the CLTK, calling `NLP(language='grc')` loads pre-trained Stanza models train
 
 Because these neural models process whole sentences simultaneously, they capture non-local syntactic dependencies far more effectively than n-gram Markov models, significantly improving attachment accuracy on complex dependent clauses.
 
-**The takeaway for this page:** Stanza and UDPipe provide end-to-end neural pipelines trained on Universal Dependencies treebanks to generate synchronized POS tags and syntax trees.
+**Takeaway:** Stanza and UDPipe provide end-to-end neural pipelines trained on Universal Dependencies treebanks to generate synchronized POS tags and syntax trees.
 
 ---
 
@@ -225,7 +225,7 @@ for token in doc:
 
 By leveraging spaCy's optimized C-extensions, LatinCy can process hundreds of thousands of words in seconds, making it the premier deterministic tool for bulk Latin corpus annotation. Its integration into spaCy allows scholars to construct custom rule matchers, entity recognizers, and text classification pipelines using standard modern software patterns. Furthermore, LatinCy's modular architecture allows editors to train custom statistical components on domain-specific subcorpora, such as Neo-Latin or legal texts.
 
-**The takeaway for this page:** LatinCy embeds classical Latin language models into the spaCy framework, providing high-speed, standards-compliant linguistic annotation.
+**Takeaway:** LatinCy embeds classical Latin language models into the spaCy framework, providing high-speed, standards-compliant linguistic annotation.
 
 ---
 
@@ -241,7 +241,7 @@ Because rule-based dictionaries and statistical n-gram tables are built on stand
 
 For textual scholars editing unstudied manuscript witnesses, understanding this noise bottleneck prevents naive assumptions about tool performance. An editor cannot assume that a 95% published benchmark applies equally to a ninth-century Carolingian codex or a twelfth-century Byzantine manuscript. Managing orthographic noise requires explicit pre-processing or multi-layered encoding strategies.
 
-**The takeaway for this page:** Historical orthographic variation causes severe performance degradation in deterministic parsers by creating out-of-vocabulary mismatches with standardized lexica.
+**Takeaway:** Historical orthographic variation causes severe performance degradation in deterministic parsers by creating out-of-vocabulary mismatches with standardized lexica.
 
 ---
 
@@ -272,7 +272,7 @@ As the data proves, state-of-the-art tools lose 20 to 25 percentage points of ac
 
 This collapse occurs because standard lexica store only etymological classical spellings. When an itacistic spelling enters the pipeline, dictionary lookups fail, forcing taggers into statistical fallback modes that mispredict lemmas based on distorted surface characters. The error ripples through syntactic dependency parsing, where misidentified word classes distort entire sentence graphs.
 
-**The takeaway for this page:** Itacistic vowel mergers in Byzantine Greek cause a 20–25% accuracy collapse in deterministic taggers due to phonetic spellings violating dictionary headword stems.
+**Takeaway:** Itacistic vowel mergers in Byzantine Greek cause a 20–25% accuracy collapse in deterministic taggers due to phonetic spellings violating dictionary headword stems.
 
 ---
 
@@ -292,7 +292,7 @@ When a deterministic parser encounters *λογω* without an iota subscript, fin
 
 In epigraphic and papyrological datasets, where text is inscribed entirely without diacritics in majuscule script, standard rule cascades drop below 50% accuracy unless preceded by an explicit accent restoration pass. Without the iota subscript, a deterministic parser cannot disambiguate whether a third-person verb is indicative (*ποιεῖ*) or subjunctive (*ποιῇ*), creating critical grammatical misinterpretations.
 
-**The takeaway for this page:** The loss of iota subscripts and diacritics strips words of essential case and mood markers, causing deterministic engines to misparse inflectional categories.
+**Takeaway:** The loss of iota subscripts and diacritics strips words of essential case and mood markers, causing deterministic engines to misparse inflectional categories.
 
 ---
 
@@ -314,7 +314,7 @@ When Vatri and McGillivray (2020) benchmarked lemmatization across corpora, accu
 
 These findings highlight that a model trained on fifth-century BCE Athenian oratory cannot be treated as a universal parser for all periods of Greek literature. Digital humanists must match their models and lexica to the specific dialect and era of the text, curating specialized treebanks for epic, biblical, and Byzantine corpora.
 
-**The takeaway for this page:** Morphological taggers trained on Classical Attic prose suffer systematic accuracy drops when processing Homeric uncontracted forms or Koine inflectional shifts.
+**Takeaway:** Morphological taggers trained on Classical Attic prose suffer systematic accuracy drops when processing Homeric uncontracted forms or Koine inflectional shifts.
 
 ---
 
@@ -338,7 +338,7 @@ For lemmatization, **Accuracy** is calculated as the total number of correct lem
 
 Computing these metrics across distinct word classes allows editors to pinpoint exact algorithmic weaknesses. For instance, a tagger might achieve 98% precision on common nouns but drop to 70% recall on irregular verbs, signaling where post-processing validation is required. These empirical calculations ensure that evaluations remain grounded in objective mathematical measurement.
 
-**The takeaway for this page:** Precision, Recall, F1, and Exact Match ratios provide the mathematical framework for benchmarking automated tagger performance against manual gold standards.
+**Takeaway:** Precision, Recall, F1, and Exact Match ratios provide the mathematical framework for benchmarking automated tagger performance against manual gold standards.
 
 ---
 
@@ -368,7 +368,7 @@ This serialization achieves complete scholarly transparency: downstream search e
 
 This architecture ensures that digital editions satisfy both computational and paleographical demands. A paleographer examining scribal orthography can extract all `@orig` strings, while a computational linguist analyzing syntax operates over clean `@norm` and `@lemma` attributes. Encoding both layers inside the `<w>` element eliminates the need for redundant duplicate files.
 
-**The takeaway for this page:** TEI `@orig` and `@norm` attributes maintain diplomatic fidelity while providing normalized strings for NLP parsing pipelines.
+**Takeaway:** TEI `@orig` and `@norm` attributes maintain diplomatic fidelity while providing normalized strings for NLP parsing pipelines.
 
 ---
 
@@ -403,7 +403,7 @@ def normalize_greek_for_nlp(text):
 
 By running this preprocessing script over raw transcriptions, editors can eliminate up to 70% of out-of-vocabulary mismatches before querying Morpheus or TreeTagger. When building your pipeline, each normalization rule should be logged in an audit trail, ensuring that every transformation from diplomatic character to normalized token is recorded and reversible.
 
-**The takeaway for this page:** Python preprocessing scripts normalize Unicode forms, expand abbreviations, and regularize scribal spelling shifts prior to NLP ingestion.
+**Takeaway:** Python preprocessing scripts normalize Unicode forms, expand abbreviations, and regularize scribal spelling shifts prior to NLP ingestion.
 
 ---
 
@@ -435,7 +435,7 @@ When executing this code, CLTK tokenizes the text, normalizes diacritics, querie
 
 Editors can inspect the internal properties of each `Word` object, accessing morphological features, syntactic governor indices, and stopword classifications to perform automated quality checks across entire documents. Advanced configurations allow users to inject custom lexicon dictionaries directly into the pipeline before runtime.
 
-**The takeaway for this page:** The CLTK Python API configures modular pipelines to execute tokenization, lemmatization, and dependency parsing across Ancient Greek texts.
+**Takeaway:** The CLTK Python API configures modular pipelines to execute tokenization, lemmatization, and dependency parsing across Ancient Greek texts.
 
 ---
 
@@ -478,7 +478,7 @@ for tag_line in tags:
 
 Running both tools side by side allows editors to compare the probabilistic decision-tree predictions of TreeTagger against the neural embeddings of LatinCy. Comparing their outputs reveals where statistical n-grams agree with neural attention and where differences require human adjudication. This dual-execution strategy ensures high confidence across standard grammatical structures.
 
-**The takeaway for this page:** Python interfaces for LatinCy and TreeTagger enable side-by-side execution and comparative benchmarking across Latin corpora.
+**Takeaway:** Python interfaces for LatinCy and TreeTagger enable side-by-side execution and comparative benchmarking across Latin corpora.
 
 ---
 
@@ -498,7 +498,7 @@ Any discrepancy in tokenization (such as an automated tokenizer failing to split
 
 Running this comparison establishes your quantitative benchmark: you will compute overall accuracy, tokenization error rate, and feature-by-feature precision scores, creating the empirical foundation for Friday's AI evaluation. Logging these metrics in an experimental lab notebook ensures that all methodological comparisons remain fully documented.
 
-**The takeaway for this page:** Running automated pipelines over the manual benchmark passage and exporting aligned CoNLL-U files is the prerequisite for empirical scoring.
+**Takeaway:** Running automated pipelines over the manual benchmark passage and exporting aligned CoNLL-U files is the prerequisite for empirical scoring.
 
 ---
 
@@ -524,7 +524,7 @@ Common tokenization failure modes in classical NLP pipelines include:
 
 Digital editors must inspect tokenization alignment reports, adjusting tokenizer regular expressions to ensure 100% token correspondence before scoring morphology.
 
-**The takeaway for this page:** Tokenization errors propagate to all subsequent layers; automated token streams must be strictly aligned with gold tokens prior to morphological evaluation.
+**Takeaway:** Tokenization errors propagate to all subsequent layers; automated token streams must be strictly aligned with gold tokens prior to morphological evaluation.
 
 ---
 
@@ -554,7 +554,7 @@ Analyzing the off-diagonal cells of the confusion matrix reveals systematic algo
 
 By inspecting the confusion matrix, an editor can determine whether errors stem from true model confusion or from minor taxonomic disagreements between the annotation manual and the training treebank.
 
-**The takeaway for this page:** Confusion matrices expose systematic grammatical misclassifications, such as conflations between substantivized adjectives, pronouns, and determiners.
+**Takeaway:** Confusion matrices expose systematic grammatical misclassifications, such as conflations between substantivized adjectives, pronouns, and determiners.
 
 ---
 
@@ -582,7 +582,7 @@ In typical benchmarks across Classical Greek prose:
 
 This disparity proves that the primary bottleneck in historical lemmatization is not algorithmic failure to recognize morphology, but orthographic divergence from standard dictionary headword spelling.
 
-**The takeaway for this page:** Distinguishing exact match from normalized match accuracy demonstrates that spelling variation, rather than grammatical parsing, is the primary driver of lemmatization errors.
+**Takeaway:** Distinguishing exact match from normalized match accuracy demonstrates that spelling variation, rather than grammatical parsing, is the primary driver of lemmatization errors.
 
 ---
 
@@ -607,7 +607,7 @@ Empirical analysis reveals that **Gender** and **Voice** exhibit the lowest accu
 
 When evaluating automated parsing for a digital edition, knowing that Gender and Voice carry higher error rates allows editors to focus manual proofreading passes specifically on these vulnerable feature dimensions.
 
-**The takeaway for this page:** Feature-level evaluation reveals that Gender and Voice exhibit the highest error rates due to third-declension nominal syncretism and deponent verbal systems.
+**Takeaway:** Feature-level evaluation reveals that Gender and Voice exhibit the highest error rates due to third-declension nominal syncretism and deponent verbal systems.
 
 ---
 
@@ -631,7 +631,7 @@ In classical treebank evaluations:
 
 Dependency parsers struggle most acutely with long-distance attachments, coordinated structures (`conj`/`cc`), and prepositional phrase attachment ambiguity. Because dependency relations model the hierarchical architecture of the sentence, a single misattached head near the root can cascade errors across all subordinate clauses.
 
-**The takeaway for this page:** Unlabeled Attachment Score (UAS) and Labeled Attachment Score (LAS) quantify the structural accuracy of automated syntactic dependency trees against manual gold standards.
+**Takeaway:** Unlabeled Attachment Score (UAS) and Labeled Attachment Score (LAS) quantify the structural accuracy of automated syntactic dependency trees against manual gold standards.
 
 ---
 
@@ -680,7 +680,7 @@ This automated script creates standardized `<w>` and `<pc>` elements, injecting 
 
 By maintaining a clean separation between text nodes and analytical attributes, the serialized XML document remains fully compliant with TEI validation schemas while encoding rich linguistic metadata for downstream web applications.
 
-**The takeaway for this page:** Python serialization scripts convert NLP pipeline document objects into TEI P5 Chapter 18 XML elements carrying full `att.linguistic` attributes.
+**Takeaway:** Python serialization scripts convert NLP pipeline document objects into TEI P5 Chapter 18 XML elements carrying full `att.linguistic` attributes.
 
 ---
 
@@ -716,7 +716,7 @@ python3 shared/scripts/validate_conllu.py --lang grc machine_output.conllu
 
 Validating the CoNLL-U export ensures that downstream scoring scripts and cross-platform repositories can parse the generated dependency trees without syntax errors. This guarantees that your automated outputs can be directly integrated into international treebank collections.
 
-**The takeaway for this page:** Exporting pipeline predictions to validated CoNLL-U files ensures adherence to Universal Dependencies specifications and enables automated scoring.
+**Takeaway:** Exporting pipeline predictions to validated CoNLL-U files ensures adherence to Universal Dependencies specifications and enables automated scoring.
 
 ---
 
@@ -738,7 +738,7 @@ Comparing the results of finite-state transducers (Morpheus), decision-tree tagg
 
 Understanding these trade-offs allows digital scholars to select the optimal tool for each specific philological corpus. A project editing standardized Classical Latin prose may rely safely on LatinCy or TreeTagger, whereas a project editing non-standard medieval epigrams requires custom normalization and rule cascades.
 
-**The takeaway for this page:** Rule-based tools offer deterministic precision but zero disambiguation, while statistical and neural models provide contextual tagging at the cost of vulnerability to dialectal noise.
+**Takeaway:** Rule-based tools offer deterministic precision but zero disambiguation, while statistical and neural models provide contextual tagging at the cost of vulnerability to dialectal noise.
 
 ---
 
@@ -760,7 +760,7 @@ By combining preprocessing normalization with layered statistical and rule-based
 
 This multi-tiered architecture ensures that high-confidence regular forms are processed at lightning speed, while ambiguous and non-standard tokens are progressively escalated to deeper analytical models.
 
-**The takeaway for this page:** Hybrid pipelines combine rule-based normalizers, static closed-class lookups, large morphological lexica, and neural disambiguators to maximize parsing accuracy on noisy historical texts.
+**Takeaway:** Hybrid pipelines combine rule-based normalizers, static closed-class lookups, large morphological lexica, and neural disambiguators to maximize parsing accuracy on noisy historical texts.
 
 ---
 
@@ -780,7 +780,7 @@ These limitations define the motivation for Friday’s lesson (Lesson 9.3). On F
 
 By completing today's deterministic benchmarking, you have acquired the quantitative baseline necessary to critically evaluate whether modern generative models represent a genuine breakthrough or merely an expensive, less predictable alternative to structured pipelines.
 
-**The takeaway for this page:** Deterministic pipelines deliver rapid, scalable annotation for standard texts, but orthographic noise and complex syntax require advanced neural architectures or human intervention.
+**Takeaway:** Deterministic pipelines deliver rapid, scalable annotation for standard texts, but orthographic noise and complex syntax require advanced neural architectures or human intervention.
 
 ---
 

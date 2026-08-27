@@ -41,7 +41,7 @@ produces, and Week 5 will measure both against yesterday's ground truth.
 parameters mapping images to characters. *Training* — the process of fitting those
 parameters to labelled examples.
 
-**The takeaway for this page:** A specialized HTR model is bounded by its training
+**Takeaway:** A specialized HTR model is bounded by its training
 data, which makes it fail rather than fabricate — the opposite of Friday's tools.
 
 ---
@@ -79,7 +79,7 @@ layout problem there, not a recognition problem.
 The diagnostic habit that follows: when output is bad, look at the line images
 before blaming the model. If the line image is wrong, no model can fix it.
 
-**The takeaway for this page:** Recognition only ever sees line images that layout
+**Takeaway:** Recognition only ever sees line images that layout
 analysis produced — so when output is bad, inspect the line images first.
 
 ---
@@ -122,7 +122,7 @@ accurate baseline identification on complex historical manuscripts
 (eScriptorium/Kraken, 2024; AlKendi et al., 2024). Transkribus and eScriptorium
 both use baseline-oriented approaches, though their implementations differ.
 
-**The takeaway for this page:** Modern layout analysis predicts sloping baselines
+**Takeaway:** Modern layout analysis predicts sloping baselines
 and computes envelopes around them, because manuscript lines do not fit rectangles.
 
 ---
@@ -157,7 +157,7 @@ Import only the folios you intend to work on. A collection containing an entire
 codex when you are working on four folios makes every subsequent operation slower
 and every listing harder to read.
 
-**The takeaway for this page:** Import by manifest URI so training data stays
+**Takeaway:** Import by manifest URI so training data stays
 linked to the institutional source rather than becoming a detached copy.
 
 ---
@@ -196,7 +196,7 @@ Zoom in on a line with a high breathing and look at where the polygon boundary
 runs. If the breathing is outside it, every diacritic in your training data is
 being discarded before the model ever sees it.
 
-**The takeaway for this page:** Check whether polygons enclose high-placed
+**Takeaway:** Check whether polygons enclose high-placed
 breathings and accents — if they do not, the model is being trained on Greek with
 the diacritics cut off.
 
@@ -237,7 +237,7 @@ Whatever you do, verify by inspecting extracted line images directly. The line
 image is what the model sees, and looking at it is the only direct check that your
 corrections had the intended effect.
 
-**The takeaway for this page:** Adjust the layout parameters from a measurement of
+**Takeaway:** Adjust the layout parameters from a measurement of
 this hand rather than correcting page by page — and verify by looking at extracted
 line images.
 
@@ -281,7 +281,7 @@ Verify alignment by spot-checking: pick three lines at random, look at the image
 read the paired text. If they match, the alignment is probably right. Do this
 before training, every time.
 
-**The takeaway for this page:** Verify line alignment by spot-checking image
+**Takeaway:** Verify line alignment by spot-checking image
 against text — an off-by-one misalignment produces a model that has learned the
 wrong pairing entirely.
 
@@ -320,7 +320,7 @@ evidence and model broader linguistic context only weakly (AlKendi et al., 2024)
 The model is, in effect, reading the ink rather than reading the language — which
 is what produces the error profile in the next section.
 
-**The takeaway for this page:** CTC training needs only line images paired with
+**Takeaway:** CTC training needs only line images paired with
 line text, which is why your diplomatic transcription is directly usable as
 training data.
 
@@ -364,7 +364,7 @@ requiring exceptional vigilance during post-correction for hallucinated sequence
 For a first model on a single hand, PyLaia's conspicuous failure mode is the right
 choice.
 
-**The takeaway for this page:** A CTC model's errors are conspicuous because it
+**Takeaway:** A CTC model's errors are conspicuous because it
 produces impossible sequences rather than plausible wrong words — which makes
 post-correction far more reliable.
 
@@ -410,7 +410,7 @@ If your hand is consistent, start with PyLaia. If it is highly variable or badly
 degraded, a transformer base may serve better — but plan for more careful
 post-correction.
 
-**The takeaway for this page:** Transformers read context as well as ink, which
+**Takeaway:** Transformers read context as well as ink, which
 helps on degraded text and produces plausible wrong words that are hard to catch.
 
 ---
@@ -454,7 +454,7 @@ reduced the manual ground truth required per individual manuscript by up to 80%
 without sacrificing accuracy (Perdiki & Konstantinidou, 2023). Diversity of
 training material substitutes for volume.
 
-**The takeaway for this page:** Transfer learning turned 17.18% CER into 3.90% on
+**Takeaway:** Transfer learning turned 17.18% CER into 3.90% on
 identical data — always fine-tune from a base model rather than training from
 scratch.
 
@@ -496,7 +496,7 @@ much starker form.
 Record which base model you chose and why, in your repository. It is a
 methodological decision, and Week 5's report should state it.
 
-**The takeaway for this page:** A matched small model beats a large general one —
+**Takeaway:** A matched small model beats a large general one —
 script match matters more than parameter count.
 
 ---
@@ -536,7 +536,7 @@ should stop at the minimum.
 Note that model training consumes credits from the course's shared allocation.
 Plan your runs; do not launch speculative training repeatedly.
 
-**The takeaway for this page:** Hold out a representative validation set and stop
+**Takeaway:** Hold out a representative validation set and stop
 when validation error stops falling — a rising validation curve means the model is
 memorizing your lines.
 
@@ -573,7 +573,7 @@ If your first model lands above 15%, the usual causes in order of likelihood are
 layout errors producing bad line images, misaligned ground truth, too little
 training data, or a poorly matched base model. Check them in that order.
 
-**The takeaway for this page:** Above 15% CER, correcting the output costs more
+**Takeaway:** Above 15% CER, correcting the output costs more
 than transcribing from scratch — the model is a net loss, not a slow tool.
 
 ---
@@ -615,7 +615,7 @@ model with 4% CER that modernizes (Levchenko, 2024).
 
 Look at the errors, not only at the number. Week 5 will formalize this.
 
-**The takeaway for this page:** CER weights every difference equally, so a model
+**Takeaway:** CER weights every difference equally, so a model
 that silently drops diacritics or expands abbreviations can score well while being
 useless for a diplomatic edition.
 
@@ -653,7 +653,7 @@ to be wrong in ways that make word error rate uninterpretable — the system
 recognizes characters correctly but fuses them into concatenated tokens, so that
 distinct words emerge as a single string (Perdiki & Konstantinidou, 2023).
 
-**The takeaway for this page:** Categorize errors rather than just correcting
+**Takeaway:** Categorize errors rather than just correcting
 them, and inspect the line image whenever output is nonsense — it is usually a
 layout fault.
 
@@ -693,7 +693,7 @@ then correct less carefully because it looks familiar. The loop can converge on 
 confidently wrong model. Periodically transcribe a page independently, without
 looking at model output, and compare — that is the check that breaks the loop.
 
-**The takeaway for this page:** Each iteration makes ground truth cheaper, but
+**Takeaway:** Each iteration makes ground truth cheaper, but
 correcting model output risks a feedback loop — periodically transcribe a page
 blind to break it.
 
@@ -734,7 +734,7 @@ homogeneous. If some carry glosses, marginalia, or a change of hand, expect the
 model to perform differently there, and validate on those pages specifically rather
 than assuming the general figure applies.
 
-**The takeaway for this page:** A model's CER holds only for layouts like those it
+**Takeaway:** A model's CER holds only for layouts like those it
 was validated on — glossed or irregular pages need their own measurement.
 
 ---
@@ -776,7 +776,7 @@ unverifiable.
 This course uses Transkribus for its accessibility and model library. If your work
 continues past this term, eScriptorium is worth learning for the reproducibility.
 
-**The takeaway for this page:** Transkribus is more accessible; eScriptorium is
+**Takeaway:** Transkribus is more accessible; eScriptorium is
 reproducible — and a proprietary model makes any claim resting on it unverifiable
 later.
 
@@ -818,7 +818,7 @@ found the scaling error — and you found it because you had a control.
 Export today, commit the raw export alongside your transformed TEI, and record the
 scale factor you applied.
 
-**The takeaway for this page:** ALTO preserves line coordinates in image pixels —
+**Takeaway:** ALTO preserves line coordinates in image pixels —
 transform them into TEI zones and check the result against your hand-measured
 control lines.
 
@@ -870,7 +870,7 @@ The `Human-Verified: false` on the first commit is the work queue from Lesson 1.
 section 24 in action. Between those two commits, your repository contains
 unverified machine text, and the trailer says so.
 
-**The takeaway for this page:** Commit raw model output and your corrections
+**Takeaway:** Commit raw model output and your corrections
 separately, or Week 5 cannot compute an error rate at all.
 
 ---
@@ -911,7 +911,7 @@ Expect Friday's model to be worse on this material, possibly dramatically. That 
 the finding, not a failure of the exercise — and it will be more convincing for
 having been measured than for having been asserted.
 
-**The takeaway for this page:** Record cost as well as quality — Friday's tool
+**Takeaway:** Record cost as well as quality — Friday's tool
 needs no training or ground truth, and the comparison is meaningless without that.
 
 ---
@@ -956,7 +956,7 @@ Scale does not substitute for exposure to the specific material. That is the
 week's central empirical finding, and Friday will let you verify it on your own
 manuscript.
 
-**The takeaway for this page:** General models are excellent on modern handwriting
+**Takeaway:** General models are excellent on modern handwriting
 and catastrophic on historical scripts — scale does not substitute for exposure to
 the material.
 
@@ -997,7 +997,7 @@ through an LLM for correction. That is precisely the configuration the evidence
 says degrades quality, and you would be degrading the output while feeling you had
 improved it.
 
-**The takeaway for this page:** Adding LLM post-correction to OCR degrades quality
+**Takeaway:** Adding LLM post-correction to OCR degrades quality
 — it corrects toward plausibility, and unusual readings are the interesting ones.
 
 ---
@@ -1029,7 +1029,7 @@ If your model's validation CER exceeds 15%, do not proceed to correction — the
 output is not worth correcting. Diagnose instead, in the order given in section 14:
 layout, alignment, data volume, base model.
 
-**The takeaway for this page:** If validation CER exceeds 15%, diagnose rather than
+**Takeaway:** If validation CER exceeds 15%, diagnose rather than
 correct — check layout, then alignment, then data volume, then base model.
 
 ---
@@ -1063,7 +1063,7 @@ output is wrong in a way you cannot explain, look at what the model actually saw
 The extracted line image is the ground truth about the input, and almost every
 inexplicable failure is visible there.
 
-**The takeaway for this page:** When output is inexplicably wrong, look at the
+**Takeaway:** When output is inexplicably wrong, look at the
 extracted line image — that is what the model actually saw.
 
 ---
@@ -1099,7 +1099,7 @@ only remedy is redoing the work.
 
 Commit it with a `docs:` prefix.
 
-**The takeaway for this page:** A CER figure is uninterpretable without its base
+**Takeaway:** A CER figure is uninterpretable without its base
 model, training volume, and validation set — record the methodology today.
 
 ---
@@ -1134,7 +1134,7 @@ Holding both facts together is what Week 5's assessment requires.
 Verify your remote toolchain today, per Lesson 4.1 section 23. Every item on that
 list is quick now and none of them is quick on Friday morning.
 
-**The takeaway for this page:** Tag all three states so Friday's three-way
+**Takeaway:** Tag all three states so Friday's three-way
 comparison is exact, and expect the general model to be much worse and much faster.
 
 ---
@@ -1166,7 +1166,7 @@ abbreviation for *kai*, and degrades on the glossed folio is a much more useful
 finding than "6% CER" — because it tells you what to fix, what to check manually,
 and what to say about the method's applicability to this manuscript.
 
-**The takeaway for this page:** Reporting *what* the model gets wrong and why is
+**Takeaway:** Reporting *what* the model gets wrong and why is
 the scholarly contribution; the CER number alone is tool operation.
 
 ---
@@ -1203,7 +1203,7 @@ the week.
 **For Friday.** Remote delivery. Bring the seven items in section 28, with all three
 states tagged.
 
-**The takeaway for this page:** An HTR model reads ink within the bounds of its
+**Takeaway:** An HTR model reads ink within the bounds of its
 training and fails conspicuously; Friday's instrument reads expectation too, and
 fails fluently.
 

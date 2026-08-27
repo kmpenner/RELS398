@@ -18,7 +18,7 @@ The purpose of today's lab is not to treat generative AI as an infallible magic 
 
 This comparative methodology is essential for digital scholarship. As large-scale language models are increasingly integrated into digital editions and cultural heritage platforms, editors must develop critical algorithmic literacy. Knowing precisely where an LLM excels at disambiguating subtle poetic syntax and where it stumbles on dialectal anomalies allows scholars to build dependable human-in-the-loop workflows.
 
-**The takeaway for this page:** The Friday cycle benchmarks neural transformers and LLMs against manual ground truth to quantify parsing precision, recall, and hallucination rates.
+**Takeaway:** The Friday cycle benchmarks neural transformers and LLMs against manual ground truth to quantify parsing precision, recall, and hallucination rates.
 
 ---
 
@@ -38,7 +38,7 @@ In a classical sentence, a transformer's attention heads can directly link a dis
 
 Furthermore, transformers utilize subword tokenization (such as Byte-Pair Encoding or WordPiece) or character-level representations. This enables neural models to decompose unfamiliar inflected forms into sub-lexical morphemes, allowing the network to recognize familiar aspectual prefixes, tense stems, and personal endings even when the composite surface token was never encountered during pre-training (Manjavacas et al., 2019; Riemenschneider & Frank, 2023).
 
-**The takeaway for this page:** Transformer self-attention mechanisms resolve long-distance hyperbaton by computing direct dependencies between words across entire sentences simultaneously.
+**Takeaway:** Transformer self-attention mechanisms resolve long-distance hyperbaton by computing direct dependencies between words across entire sentences simultaneously.
 
 ---
 
@@ -60,7 +60,7 @@ Unlike general-purpose models, GreBERTa's embedding space is natively tuned to h
 
 When benchmarked against classical Attic and Koine prose, GreBERTa achieves part-of-speech tagging accuracy exceeding 94.5%, outperforming legacy probabilistic taggers like TreeTagger while maintaining complete deterministic reproducibility (Riemenschneider & Frank, 2023; Vatri & McGillivray, 2020). Because encoder-only models classify tokens from fixed tag vocabularies, they produce zero syntactic hallucinations, making them ideal for high-throughput corpus tagging.
 
-**The takeaway for this page:** Specialized neural encoders like GreBERTa leverage bidirectional masked pre-training on classical corpora to deliver highly accurate, deterministic morphological classification.
+**Takeaway:** Specialized neural encoders like GreBERTa leverage bidirectional masked pre-training on classical corpora to deliver highly accurate, deterministic morphological classification.
 
 ---
 
@@ -82,7 +82,7 @@ By supplying the target word within its surrounding sentence context, GreTA enab
 
 On standard classical benchmarks, character-level sequence-to-sequence models achieve lemma accuracy above 95.8% (Riemenschneider & Frank, 2023). Because the decoder operates at the character level, it can construct base lemmas from unencountered poetic or dialectal inflections, demonstrating superior generalization over static dictionary lookup engines.
 
-**The takeaway for this page:** Sequence-to-sequence transformers like GreTA treat lemmatization as contextual string transduction, decoding canonical dictionary headwords character by character.
+**Takeaway:** Sequence-to-sequence transformers like GreTA treat lemmatization as contextual string transduction, decoding canonical dictionary headwords character by character.
 
 ---
 
@@ -102,7 +102,7 @@ During the **EvaLatin 2022** shared task—the international competitive benchma
 
 The Cracovia system’s strength lies in its dual-head design: one classification head predicts the coarse Universal POS (UPOS) tag, while a second specialized head predicts the complex morphosyntactic feature string (FEATS). By sharing underlying transformer representations across both tasks, the model learns the mutual constraints governing Latin grammar—for example, recognizing that a token assigned the UPOS tag `NOUN` cannot simultaneously receive verbal tense or mood features (Burns, 2023; Wittweiler et al., 2024).
 
-**The takeaway for this page:** The Cracovia system combines XLM-RoBERTa encoders with multi-task fine-tuning on LASLA and UD treebanks to achieve state-of-the-art Latin morphological tagging.
+**Takeaway:** The Cracovia system combines XLM-RoBERTa encoders with multi-task fine-tuning on LASLA and UD treebanks to achieve state-of-the-art Latin morphological tagging.
 
 ---
 
@@ -133,7 +133,7 @@ When evaluated on standard classical prose, models like GPT-4 demonstrate an imp
 
 However, general-purpose LLMs operate fundamentally differently from dedicated parsers. An LLM generates text through autoregressive token sampling based on statistical probability distributions rather than evaluating formal grammar rules. Consequently, while an LLM can articulate eloquent grammatical explanations, its raw parsing output is vulnerable to non-deterministic formatting drift, missed tokens, and morphological hallucinations when confronted with historical anomalies (Wittweiler et al., 2024; Zhang et al., 2024).
 
-**The takeaway for this page:** General-purpose LLMs possess broad emergent philological reasoning, but their probabilistic sampling creates non-deterministic outputs that require systematic validation.
+**Takeaway:** General-purpose LLMs possess broad emergent philological reasoning, but their probabilistic sampling creates non-deterministic outputs that require systematic validation.
 
 ---
 
@@ -160,7 +160,7 @@ However, GPT-4's **recall collapsed to 88.75%** (and GPT-3.5 dropped to 76.65%).
 
 For digital editors, this paradox carries profound practical implications: LLMs are exceptional filters for verifying candidate readings, but they are inefficient and unreliable engines for bulk, exhaustive token tagging across complete texts.
 
-**The takeaway for this page:** LLMs exhibit near-perfect precision but poor recall in zero-shot POS tagging, frequently skipping or dropping ambiguous historical tokens.
+**Takeaway:** LLMs exhibit near-perfect precision but poor recall in zero-shot POS tagging, frequently skipping or dropping ambiguous historical tokens.
 
 ---
 
@@ -200,7 +200,7 @@ Providing structured exemplars anchors the model's output distribution. Research
 
 3. **Citation Standardization:** It forces the model to adhere to canonical dictionary citation forms (e.g. LSJ first-person singular present active) rather than generating modern infinitives or bare roots (Crane, 1991; Zhang et al., 2024).
 
-**The takeaway for this page:** Few-shot prompting with annotated exemplars anchors LLM output to standard tagsets, dramatically improving recall and citation consistency.
+**Takeaway:** Few-shot prompting with annotated exemplars anchors LLM output to standard tagsets, dramatically improving recall and citation consistency.
 
 ---
 
@@ -224,7 +224,7 @@ The second mechanism is **false analogical regularization**. Ancient Greek and L
 
 The third mechanism is **etymological over-decomposition**. When processing rare compound words or hapax legomena in theological texts, LLMs often decompose the word into constituent roots and invent a fictitious base lemma rather than citing the attested dictionary headword documented in LSJ or Lewis & Short.
 
-**The takeaway for this page:** Morphological hallucination stems from modern language pre-training bias and analogical regularization of irregular historical paradigms.
+**Takeaway:** Morphological hallucination stems from modern language pre-training bias and analogical regularization of irregular historical paradigms.
 
 ---
 
@@ -249,7 +249,7 @@ On standardized classical prose, fine-tuned neural models (Cracovia) and hybrid 
 
 Crucially, on unedited medieval manuscripts, few-shot prompted LLMs demonstrate superior semantic resilience (82.10%) compared to closed-lexicon taggers, because their broad pre-training allows them to decipher phonological mutations that completely break deterministic dictionary lookups (Swaelens et al., 2024).
 
-**The takeaway for this page:** Specialized taggers dominate standardized classical prose, while sequence-to-sequence models and LLMs excel on archaic poetry and noisy medieval manuscripts.
+**Takeaway:** Specialized taggers dominate standardized classical prose, while sequence-to-sequence models and LLMs excel on archaic poetry and noisy medieval manuscripts.
 
 ---
 
@@ -280,7 +280,7 @@ The experiment proved that state-of-the-art neural embeddings fine-tuned on clas
 
 To build reliable digital editions of manuscript witnesses, scholars cannot rely on off-the-shelf NLP models. They must understand the exact linguistic mechanisms that disrupt automated parsing.
 
-**The takeaway for this page:** Unstandardized medieval manuscript transcriptions cause specialized classical taggers to suffer a catastrophic 20–25% accuracy collapse.
+**Takeaway:** Unstandardized medieval manuscript transcriptions cause specialized classical taggers to suffer a catastrophic 20–25% accuracy collapse.
 
 ---
 
@@ -311,7 +311,7 @@ When an itacistic spelling like *ἐσκοτήσθι* (for normalized *ἐσκο
 
 3. **Pronominal Confusion:** The phonetic merger of *ἡμεῖς* ("we") and *ὑμεῖς* ("you all") into identical [iˈmis] pronunciations caused scribes to swap *ἡ-* and *ὑ-* prefixes indiscriminately, confounding both syntactic dependency parsers and translation engines.
 
-**The takeaway for this page:** Itacism merges six distinct historical vowel spellings into the [i] sound, causing catastrophic lexicon lookup misses and transformer subword fragmentation.
+**Takeaway:** Itacism merges six distinct historical vowel spellings into the [i] sound, causing catastrophic lexicon lookup misses and transformer subword fragmentation.
 
 ---
 
@@ -340,7 +340,7 @@ Consider the morphological consequences of dropping the iota subscript:
 
 When automated parsers encounter texts lacking iota subscripts, rule-based transducers like Morpheus default to the un-subscripted nominative analysis 100% of the time, systematically corrupting the case distribution of the resulting treebank (Crane, 1991; Swaelens et al., 2024).
 
-**The takeaway for this page:** Omission of the iota subscript obliterates the morphological boundary between datives, nominatives, subjunctives, and adverbs.
+**Takeaway:** Omission of the iota subscript obliterates the morphological boundary between datives, nominatives, subjunctives, and adverbs.
 
 ---
 
@@ -364,7 +364,7 @@ When an Attic-trained statistical tagger processes Homeric epic, it encounters a
 
 Resolving these dialectal variations requires either massive dialect-specific training corpora (such as the PROIEL Homeric treebank) or sequence-to-sequence neural architectures capable of dynamic stem-suffix decomposition (Haug & Jøhndal, 2008; Riemenschneider & Frank, 2023).
 
-**The takeaway for this page:** Uncontracted vowels, archaic suffixes, and unaugmented verbs in Homeric Greek cause Attic-trained taggers to misclassify tense, aspect, and nominal case.
+**Takeaway:** Uncontracted vowels, archaic suffixes, and unaugmented verbs in Homeric Greek cause Attic-trained taggers to misclassify tense, aspect, and nominal case.
 
 ---
 
@@ -392,7 +392,7 @@ The joint language modeling loss acts as a powerful structural regularizer. It f
 
 When tested on noisy medieval Dutch and Latin datasets with severe orthographic variation, joint multi-task learning reduced lemmatization error rates by over **18%** compared to standalone sequence-to-sequence models, proving that contextual language modeling is the most effective defense against historical spelling variation (Manjavacas et al., 2019).
 
-**The takeaway for this page:** Joint learning trains neural networks on lemmatization, POS tagging, and language modeling simultaneously, preventing error propagation on noisy texts.
+**Takeaway:** Joint learning trains neural networks on lemmatization, POS tagging, and language modeling simultaneously, preventing error propagation on noisy texts.
 
 ---
 
@@ -418,7 +418,7 @@ The integrity of the HTRG filter depends entirely on the accuracy of the underly
 
 Wittweiler et al. (2024) demonstrated that when tagger accuracy drops by just 5%, the precision of intertextual citation networks collapses by over 20%, proving that downstream computational philology is inextricably tethered to low-level morphological precision.
 
-**The takeaway for this page:** Intertextual citation detection relies on the HTRG filter, where minor POS tagging errors cascade into major failures in discovering literary allusions.
+**Takeaway:** Intertextual citation detection relies on the HTRG filter, where minor POS tagging errors cascade into major failures in discovering literary allusions.
 
 ---
 
@@ -471,7 +471,7 @@ Enforcing a Pydantic schema provides three vital guarantees:
 
 3. **Automated Validation:** If the LLM generates an invalid morphological feature string, Pydantic throws an immediate validation exception, triggering an automatic retry prompt.
 
-**The takeaway for this page:** Constraining LLM generation with Pydantic schemas guarantees type safety, strict tagset compliance, and direct serialization into downstream pipelines.
+**Takeaway:** Constraining LLM generation with Pydantic schemas guarantees type safety, strict tagset compliance, and direct serialization into downstream pipelines.
 
 ---
 
@@ -511,7 +511,7 @@ The attribute mappings adhere strictly to international encoding standards:
 
 Serializing data into `att.linguistic` attributes achieves complete interoperability: humanists can render the diplomatic surface text in web browsers via CSS/CETEIcean, while computational algorithms query the underlying XML attributes to build syntactic knowledge graphs (Rosselli Del Turco, 2016; TEI Consortium, 2026).
 
-**The takeaway for this page:** TEI P5 `att.linguistic` attributes (`@lemma`, `@pos`, `@msd`) serialize computational NLP outputs directly onto `<w>` word tokens.
+**Takeaway:** TEI P5 `att.linguistic` attributes (`@lemma`, `@pos`, `@msd`) serialize computational NLP outputs directly onto `<w>` word tokens.
 
 ---
 
@@ -555,7 +555,7 @@ The dual-layer encoding functions as follows:
 
 This dual-layer representation guarantees that the digital edition satisfies both the paleographer investigating localized scribal dialect and the computational philologist training machine-learning models (Bawden et al., 2026; TEI Consortium, 2026).
 
-**The takeaway for this page:** The `att.lexicographic.normalized` class (`@orig` and `@norm`) preserves manuscript diplomatic spelling while supplying normalized forms for NLP parsers.
+**Takeaway:** The `att.lexicographic.normalized` class (`@orig` and `@norm`) preserves manuscript diplomatic spelling while supplying normalized forms for NLP parsers.
 
 ---
 
@@ -599,7 +599,7 @@ For complex or disputed morphology, **TEI P5 Chapter 18 ("Feature Structures")**
 
 Using `<vAlt>` (value alternation) within feature structures allows digital editions to encode competing grammatical interpretations with explicit attribution to specific critical editions, providing a transparent, multi-vocal scholarly apparatus (TEI Consortium, 2026).
 
-**The takeaway for this page:** Stand-off TEI Feature Structures (`<fs>`, `<f>`, `<vAlt>`) represent complex, disputed morphological ambiguities without flattening scholarly debate.
+**Takeaway:** Stand-off TEI Feature Structures (`<fs>`, `<f>`, `<vAlt>`) represent complex, disputed morphological ambiguities without flattening scholarly debate.
 
 ---
 
@@ -658,7 +658,7 @@ The benchmarking harness enforces strict evaluation constraints:
 
 3. **Multi-Level Scoring:** Computes separate accuracy scores for lexical headwords (`lemma_accuracy`), grammatical categories (`upos_accuracy`), and complete feature bundles (`strict_accuracy`).
 
-**The takeaway for this page:** An automated Python benchmarking harness aligns predictions against gold-standard IDs to calculate rigorous lemma, POS, and strict accuracy metrics.
+**Takeaway:** An automated Python benchmarking harness aligns predictions against gold-standard IDs to calculate rigorous lemma, POS, and strict accuracy metrics.
 
 ---
 
@@ -693,7 +693,7 @@ Where:
 
 Computing **Macro-averaged F1** is essential for historical languages. Because pre-modern texts contain sparse distributions of rare morphological phenomena (such as Homeric duals or rare Byzantine optatives), Macro-F1 guarantees that tagger failures on low-frequency grammatical categories are visibly penalized (Wittweiler et al., 2024).
 
-**The takeaway for this page:** Macro-averaged F1 weights rare and frequent grammatical categories equally, exposing model blind spots on sparse historical morphology.
+**Takeaway:** Macro-averaged F1 weights rare and frequent grammatical categories equally, exposing model blind spots on sparse historical morphology.
 
 ---
 
@@ -724,7 +724,7 @@ When analyzing discrepancies between AI predictions and your Tuesday manual grou
 
 By maintaining a structured error log during evaluation, digital editors can isolate systemic weaknesses in their prompting architecture and design targeted programmatic preprocessing filters (Wittweiler et al., 2024).
 
-**The takeaway for this page:** Qualitative error analysis categorizes failure modes across stem confusion, diacritic blindness, clitic errors, and lexical hallucination.
+**Takeaway:** Qualitative error analysis categorizes failure modes across stem confusion, diacritic blindness, clitic errors, and lexical hallucination.
 
 ---
 
@@ -761,7 +761,7 @@ Injecting explicit paradigm rules directly into the prompt context transforms th
 
 By providing the model with the exact inflectional rules governing irregular verbs, kappa-aorists, and athematic nouns, in-context paradigm injection eliminates morphological hallucination almost entirely, elevating LLM accuracy to match dedicated rule-based systems (Zhang et al., 2024).
 
-**The takeaway for this page:** In-context paradigm injection supplies explicit grammatical rules in prompts, reducing irregular verb hallucination below 0.5%.
+**Takeaway:** In-context paradigm injection supplies explicit grammatical rules in prompts, reducing irregular verb hallucination below 0.5%.
 
 ---
 
@@ -790,7 +790,7 @@ The consensus arbitration engine operates under three deterministic rules:
 
 Ensemble architectures achieve the highest reported reliability in pre-modern NLP, automating over 92% of routine tokens while isolating genuinely ambiguous historical cruxes for human scholarly review (Swaelens et al., 2024).
 
-**The takeaway for this page:** Multi-engine ensemble pipelines combine FSTs, neural transformers, and LLMs, automating unanimous tokens while routing disagreements to human scholars.
+**Takeaway:** Multi-engine ensemble pipelines combine FSTs, neural transformers, and LLMs, automating unanimous tokens while routing disagreements to human scholars.
 
 ---
 
@@ -828,7 +828,7 @@ In empirical testing on ambiguous Latin poetry, LLM arbitration resolved over **
 
 By reserving LLM inference exclusively for the 5–8% of tokens where fast local taggers disagree, digital editions reduce API costs by over 90% while achieving overall corpus accuracy superior to any single standalone engine (Wittweiler et al., 2024).
 
-**The takeaway for this page:** The Alternative Annotator Test deploys LLMs as targeted arbiters on conflicting parser outputs, maximizing accuracy while minimizing computational costs.
+**Takeaway:** The Alternative Annotator Test deploys LLMs as targeted arbiters on conflicting parser outputs, maximizing accuracy while minimizing computational costs.
 
 ---
 
@@ -852,7 +852,7 @@ For a university digital scholarship lab, processing a 50-million-word historica
 
 Sustainable digital editing adheres to the **Minimal Computing** paradigm: deploy fast, local, open-source neural and probabilistic models for bulk corpus processing, and reserve heavy cloud-based LLM inference strictly for interactive research queries and ambiguous edge-case arbitration (Holmes & Turska, 2023; Wittweiler et al., 2024).
 
-**The takeaway for this page:** Minimal computing mandates using fast local models for bulk annotation, reserving costly cloud LLMs for targeted edge cases.
+**Takeaway:** Minimal computing mandates using fast local models for bulk annotation, reserving costly cloud LLMs for targeted edge cases.
 
 ---
 
@@ -876,7 +876,7 @@ A modern **Human-in-the-Loop (HITL)** digital editorial workflow establishes an 
 
 By integrating automated tooling into a disciplined human-in-the-loop framework, digital editions achieve both massive scalability and unimpeachable scholarly rigor (Crane, 1991; Wittweiler et al., 2024).
 
-**The takeaway for this page:** Human-in-the-loop workflows combine automated pre-annotation with expert scholarly review, ensuring computational scalability never compromises philological rigor.
+**Takeaway:** Human-in-the-loop workflows combine automated pre-annotation with expert scholarly review, ensuring computational scalability never compromises philological rigor.
 
 ---
 
@@ -906,7 +906,7 @@ python3 scripts/lint_lesson_content.py --course-dir . --lessons 9.3
 
 Achieving clean validation ensures that your linguistic annotations are mathematically sound, fully interoperable, and ready for collaborative peer review in Topic 10.
 
-**The takeaway for this page:** Finalizing Assignment 3 requires validating tokenization, `@lemma`, `@pos`, `@msd`, and normalization markup against project schemas.
+**Takeaway:** Finalizing Assignment 3 requires validating tokenization, `@lemma`, `@pos`, `@msd`, and normalization markup against project schemas.
 
 ---
 
@@ -928,7 +928,7 @@ Next week in **Topic 10 (Consolidation and Continuous Integration)**, you will t
 
 Following consolidation, we move to **Topic 11 (Translation Alignment and Interlinear Glossing)**, where you will link your Greek text to historical Latin and English translations using the international Leipzig Glossing Rules, expanding your digital edition into a fully bilingual comparative corpus.
 
-**The takeaway for this page:** The three-step cycle establishes that computational NLP tools amplify, but remain strictly accountable to, human philological expertise.
+**Takeaway:** The three-step cycle establishes that computational NLP tools amplify, but remain strictly accountable to, human philological expertise.
 
 ---
 
