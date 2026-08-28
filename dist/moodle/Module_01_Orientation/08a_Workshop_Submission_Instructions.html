@@ -1,0 +1,18 @@
+<div class="card p-3 mb-3" style="padding: 1.25rem;">
+    <h4 style="margin-top: 0;">Submission Instructions</h4>
+    <ol>
+        <li>Initialize a clean Git repository: <code>git init scriptorium_workshop</code></li>
+        <li>On the <code>main</code> branch, commit the base transcription text for the assigned excerpt from <em>Athenaze</em> / Greek Gospel of Mark.</li>
+        <li>Create and checkout branch <code>witness-alpha</code>; introduce three scribal corrections / variants with clear commit messages.</li>
+        <li>Create and checkout branch <code>witness-beta</code> from <code>main</code>; introduce two distinct variants and ensure text is normalized using Unicode NFC (<code>unicodedata.normalize('NFC\, text)</code>).</li>
+        <li>Merge <code>witness-alpha</code> into <code>main</code>, then merge <code>witness-beta</code> into <code>main</code>, deliberately resolving the merge conflict in the editor.</li>
+        <li>Generate your formatted graph log: <code>git log --graph --oneline --all</code>.</li>
+        <li>Write a <strong>300–500 word reflection</strong> addressing:
+            <ul>
+                <li>How does the Git commit graph document editorial deliberation compared to traditional apparatus notation?</li>
+                <li>Why is NFC normalization essential before attempting automatic text collation?</li>
+            </ul>
+        </li>
+        <li>Paste your formatted Git log and reflection into the submission box below.</li>
+    </ol>
+</div>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_01_Orientation/Weekly Quiz</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Formative Knowledge Check Quiz for Module_01_Orientation: Module 01 Knowledge Check Quiz.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Git DAG and Textual Transmission</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does Git's Directed Acyclic Graph (DAG) commit model structurally correspond to the transmission of ancient manuscript traditions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Git's DAG formally mirrors stemmatology: directed branches of textual descent with cumulative, attributable modifications.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Both model textual history as a branching sequence of discrete states descending from ancestral nodes with attributed modifications.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Git DAG models historical descent with modification, exactly mirroring stemmatological branching in manuscript transmission.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both rely on a single central authoritative server that dictates the canonical reading to all subscribers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git is inherently distributed and peer-to-peer, just like historical manuscript copying prior to print monopolies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both automatically erase previous textual states whenever a new correction is introduced.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git is strictly append-only and preserves the complete history of previous states.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both require mechanical typecasting that standardizes every character into fixed physical blocks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This describes print typography, not graph-based textual transmission.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Snapshots vs. Diff Deltas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does Git internally store the state of files across successive commits compared to older version control systems like RCS or CVS?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Git stores commits as full repository tree snapshots rather than cumulative delta diffs, ensuring atomic integrity across edits.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Git stores each commit as a complete snapshot of the project tree (with unchanged files referencing existing blob objects), rather than a delta list of line-by-line diffs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Git commits point to a complete root tree object, giving each commit an immutable, self-contained record of the entire repository state.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git stores only the line-by-line textual differences (deltas) and computes full files on demand by replaying the history.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Older VCS tools like CVS/SCCS used delta chains; Git uses root tree snapshots of blob objects.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git compresses all files into a single flat binary database that cannot be inspected without internet connectivity.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git repositories are fully local and store objects in a content-addressable object store under .git/objects.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git only tracks file metadata (timestamps and filenames) while leaving content history to external backup utilities.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks the complete content of every tracked file via cryptographic hashing.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Cryptographic Hashes and Tamper-Evidence</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is Git's content-addressable object database (using SHA-1/SHA-256 hashes) vital for digital philology and critical editions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Content-addressable hashing guarantees tamper-evident provenance for every transcribed character and editorial decision.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because any change to a single character, diacritic, or commit parent alters the resulting hash, guaranteeing an immutable, tamper-evident audit trail.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The cryptographic hash function ensures that any modification to textual data or historical metadata produces a completely different object ID, preventing silent corruption.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because cryptographic hashes automatically translate ancient Greek dialects into modern English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hashes are mathematical checksums, not translation algorithms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because hashes encrypt the text so that only authorized journal editors can view the transcription.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git hashing is for content identification and integrity verification, not encryption or access restriction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because using hashes eliminates the need to record the scholar's name or email in the commit metadata.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Commit objects explicitly record the author and committer metadata alongside the tree hash.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: The Three Trees of Git</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In standard Git architecture, which component represents the intermediate staging area where changes are prepared before being committed to repository history?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Git Index (Staging Area) allows editors to craft precise, atomic commits reflecting specific philological interventions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The Index (or Staging Area), which allows scholars to assemble granular, focused commits rather than dumping all working directory changes at once.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Index bridges the local working directory and the permanent repository history, enabling precise, modular commit curation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Working Tree, where untracked and uncommitted files are permanently sealed against modification.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Working Tree is the active directory on the filesystem where files are edited.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Remote Origin, which stores backup files on GitHub or GitLab.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Remote origin is a remote tracking repository, not the local intermediate staging area.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Reflog, which permanently publishes student grades to the university registrar.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The reflog is a local tracking log of HEAD pointer movements.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Branching and the HEAD Pointer</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When creating a new branch in Git (e.g., <code>git checkout -b witness-alpha</code>), what is physically created in the repository database?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Git branches are lightweight pointer files that point to specific commit hashes, allowing effortless multi-witness collation lines.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A lightweight 41-byte pointer file holding the 40-character commit hash of the current HEAD, with no duplication of source files.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Branches in Git are simple, lightweight reference pointers to commit objects, making branching instantaneous and cheap.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A complete duplicate copy of every file in the project folder stored in a hidden partition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git does not duplicate project files when creating branches; branches are simply pointer references.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A new remote web server hosted in the cloud dedicated to that branch.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Branch creation is entirely local and does not require cloud infrastructure.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A locked, read-only PDF export of the working directory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Branches are fully active, editable lines of development.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Merge Conflicts as Philological Divergence</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Under what conditions does Git halt an automatic merge and signal a merge conflict when combining two witness branches?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Merge conflicts occur when divergent branches modify identical lines, requiring the textual critic to resolve variant readings.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>When both branches have modified the exact same line(s) of a file differently since their common ancestor commit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When two divergent branches alter the same line range, Git cannot deterministically decide which reading to privilege and requires editorial intervention.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whenever two branches contain files with Greek Unicode characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git handles UTF-8 encoded Greek without conflict as long as edits do not overlap on identical lines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whenever a branch has more than three commits in its log history.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git effortlessly merges long branch histories via recursive three-way merge algorithms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Only when the remote server loses internet connectivity during the merge command.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Merges are executed locally in the working directory.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Unicode Code Points and Hexadecimal Notation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the Unicode Standard, how is a specific character uniquely identified across computational architectures?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Unicode identifies characters via universal, abstract hexadecimal code points (e.g., U+03B1 for alpha).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By a unique integer code point conventionally formatted in hexadecimal as <code>U+XXXX</code> (e.g., <code>U+03B1</code> for GREEK SMALL LETTER ALPHA).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Unicode assigns an immutable abstract code point (U+XXXX) to every distinct grapheme across world scripts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By its pixel coordinate in the Microsoft Windows font registry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unicode defines abstract character numbers, independent of font glyphs or display pixels.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By the sequential order in which the character appears in the Homeric epics.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unicode code points follow architectural block allocations, not literary chronology.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By a proprietary ASCII escape sequence licensed by Adobe Systems.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unicode is an open, international encoding standard maintained by the Unicode Consortium.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: NFC vs. NFD Normalization in Polytonic Greek</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the operational difference between Unicode Normalization Form C (NFC) and Normalization Form D (NFD)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>NFC favours precomposed characters (U+1F00) while NFD separates base letters from combining diacritics (U+03B1 + U+0314).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>NFC uses precomposed characters where available (e.g., single code point U+1F00 for ἁ), whereas NFD decomposes characters into a base letter plus separate combining diacritical marks (e.g., U+03B1 + U+0314).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. NFC (Canonical Composition) combines base characters and accents into single precomposed codepoints; NFD (Canonical Decomposition) separates them into atomic building blocks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NFC converts Greek text into Latin transliteration, whereas NFD converts Latin into Cyrillic.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization forms alter internal byte representation within the same script, not language translation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NFC compresses text files into ZIP archives, whereas NFD expands them into uncompressed XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization has nothing to do with archive compression.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NFC is designed exclusively for Hebrew text, whereas NFD is designed exclusively for Latin script.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization forms apply universally across all Unicode-encoded writing systems.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: The Silent Danger of Un-Normalized Greek Text</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why will a Python regex search for the Greek word <code>ἁμαρτία</code> silently fail if the search query is in NFC and the manuscript corpus is in NFD?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Visual identity does not guarantee binary identity: NFC and NFD byte streams differ, causing silent search and collation failures.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because string comparison operates on underlying byte sequences; even though NFC and NFD render identically on screen (canonically equivalent), their code points and byte streams differ.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Visual equivalence does not equal binary equality. A string search compares numerical byte values, so decomposed and precomposed forms fail exact matches unless normalized first.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Python does not support non-ASCII character strings in regular expressions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python 3 strings are fully Unicode-compliant by default.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because NFD text causes the operating system graphics card to crash during text rendering.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Operating system font shaping engines render both forms correctly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Greek vowels lose their semantic definition when combined with breathing marks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The semantic meaning is identical; the underlying numeric representation is what differs.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: UTF-8 Variable-Length Encoding</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How are Polytonic Greek characters in the Greek and Coptic block (U+0370–U+03FF) and Greek Extended block (U+1F00–U+1FFF) encoded in UTF-8?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>UTF-8 encodes Basic Greek in 2 bytes and Greek Extended polytonic characters in 3 bytes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>As multi-byte sequences (2 bytes for Basic Greek, 3 bytes for Greek Extended), where each byte begins with specific header bits defining the sequence length.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. UTF-8 is a variable-length encoding: standard ASCII uses 1 byte, Basic Greek uses 2 bytes, and Greek Extended precomposed characters use 3 bytes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As fixed 4-byte integers stored in Big-Endian binary arrays with no compression.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This describes UTF-32, not variable-length UTF-8.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As single 8-bit ASCII characters where accents are ignored.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 8-bit ASCII cannot encode the vast inventory of polytonic Greek characters.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As proprietary binary blobs accessible only within Microsoft Word.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. UTF-8 is the universal open standard of the modern web and digital humanities.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
