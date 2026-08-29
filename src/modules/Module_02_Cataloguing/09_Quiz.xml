@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_02_Cataloguing/Weekly Quiz</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Formative Knowledge Check Quiz for Module_02_Cataloguing: Module 02 Knowledge Check Quiz.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Authority Files vs. Local Shelfmarks</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are global authority identifiers (such as Trismegistos numbers or Pinakes records) essential in digital manuscript cataloguing rather than relying solely on local library shelfmarks?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Global authority IDs (e.g. Trismegistos, Pinakes) provide persistent, language-independent identification across dispersed collections.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because local shelfmarks can change during institutional reorganizations or vary in spelling across languages, whereas authority URIs provide persistent, unambiguous identifiers across international databases.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Authority files disambiguate manuscripts whose library names, cities, or catalogue call numbers vary across centuries and publications.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because local shelfmarks are copyright-protected by holding libraries and cannot be published online.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Shelfmarks are historical catalogue numbers and are not copyright-restricted.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Trismegistos stores the full high-resolution photographic scans of every manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Trismegistos is a metadata authority database, not an image repository.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because authority identifiers automatically translate Greek manuscripts into English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Authority records track cataloguing identifiers and textual metadata, not linguistic translation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Canonical Text Services (CTS) URN Syntax</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the Canonical Text Services (CTS) URN architecture, what structural hierarchy is encoded in the identifier <code>urn:cts:greekLit:tlg0012.tlg001.perseus-grc1:1.1</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CTS URNs encode a rigorous conceptual hierarchy: namespace -> textgroup -> work -> edition -> passage citation.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Namespace, textgroup (Homer), work (Iliad), version/edition, and specific passage citation (Book 1, Line 1).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. CTS URNs express a strict conceptual hierarchy moving from author/textgroup down to specific passage citations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The physical GPS coordinates of the library where the manuscript is housed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CTS URNs cite abstract textual works and passages, not physical buildings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The IP address and TCP port number of the Moodle web server.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CTS URNs are uniform resource names for philological citation, not network addresses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The date and timestamp of the most recent Git commit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CTS URNs follow Homer Multitext citation ontology, independent of version control timestamps.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: TEI Header Architecture</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Under the Text Encoding Initiative (TEI P5) guidelines, which element is the mandatory container for all codicological, palaeographical, and administrative metadata describing a manuscript witness?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><msDesc> within <sourceDesc> is the canonical TEI container for structured manuscript cataloguing and codicological data.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><code>&lt;msDesc&gt;</code> (Manuscript Description) within the <code>&lt;sourceDesc&gt;</code> of the <code>&lt;teiHeader&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The <msDesc> element holds the structured codicological hierarchy, including identification, contents, physical description, and history.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>&lt;body&gt;</code> inside <code>&lt;text&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The <body> element contains the primary transcription text, not the codicological metadata.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>&lt;encodingDesc&gt;</code> inside <code>&lt;profileDesc&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <encodingDesc> documents the editorial and transcription principles applied during encoding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>&lt;revisionDesc&gt;</code> inside <code>&lt;front&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <revisionDesc> documents the change log of the XML file itself.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Physical Description Hierarchy in TEI</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which TEI element specifically structures information about the material support, quire collation, foliation, and page layout of a codex?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><physDesc> houses the physical architecture of the codex: support, collation, dimensions, script, and binding.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><code>&lt;physDesc&gt;</code> (Physical Description), containing children such as <code>&lt;objectDesc&gt;</code>, <code>&lt;supportDesc&gt;</code>, and <code>&lt;layoutDesc&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <physDesc> is the specialized sub-tree in <msDesc> dedicated to material aspects of the manuscript artifact.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>&lt;msContents&gt;</code>, which lists the modern scholars who purchased the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <msContents> lists the intellectual works, titles, and rubrics contained within the manuscript.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>&lt;history&gt;</code>, which records the grammar rules of ancient Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <history> records provenance, acquisition, and former owners.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>&lt;additional&gt;</code>, which stores student quiz grades.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <additional> holds administrative notes and surrogate image details.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Quire Collation Formulae</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In classical codicology, what does the collation formula <code>1–5⁸, 6⁶ (fol. 46)</code> indicate about the physical construction of a manuscript?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Collation formulae represent the quire structure (gatherings) and leaf counts that constitute the codicological body.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The codex consists of five quires of 8 leaves (quaterniones) followed by one quire of 6 leaves (ternio), totaling 46 leaves.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Standard collation notation records quire indices with superscript leaf counts and total foliation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The manuscript was written by five different scribes over six centuries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The numbers represent quires (gatherings) and leaves, not scribal personnel.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The text has five chapters of 8 verses each and six footnotes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Collation formulae describe the physical gatherings of parchment/paper, not text divisions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The codex was sold five times for eight gold florins.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Collation formulae are structural binding formulas.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Dublin Core vs. TEI msDesc</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is standard Dublin Core (DC) metadata insufficient on its own for critical manuscript scholarship?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI msDesc provides the hierarchical depth required for physical codicology that flat standards like Dublin Core cannot represent.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Dublin Core uses flat, 15-property key-value pairs designed for modern bibliographies, whereas TEI msDesc models deeply nested, composite codicological realities like multiple scribal hands, palimpsests, and quire repairs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Dublin Core is too flat and generic to capture the intricate multi-tiered physical and historical nuances of premodern manuscripts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dublin Core is an obsolete proprietary format that cannot be viewed on modern computers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dublin Core is an active, universal metadata standard (ISO 15836), but it lacks domain depth for codicology.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dublin Core is illegal under European open-access copyright legislation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dublin Core is completely open and public-domain.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dublin Core does not permit dates earlier than 1900 CE.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dublin Core allows historical dates, but lacks structural fields for material codicology.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Linked Open Data and URIs</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does expressing manuscript metadata as RDF triples (Subject–Predicate–Object) with dereferenceable URIs improve scholarly discovery?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>RDF triples and linked data URIs connect isolated manuscript records into a global, queryable scholarly knowledge graph.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It allows disparate library catalogues across the world to be queried as a single decentralized graph database, automatically connecting manuscripts with linked bibliographies, gazetteers, and prosopographies.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. RDF linked data enables automated federated SPARQL queries across international institutional silos.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It encrypts library records to prevent unauthorized public access.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Linked Open Data is designed for open, frictionless interoperability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It converts all ancient manuscripts into modern MP3 audiobooks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. RDF is a knowledge graph data model, not an audio conversion format.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces all human librarians with automated cataloguing bots.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Linked data assists scholars and librarians by interconnecting semantic metadata.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: LLM Hallucinations in Codicological Extraction</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When using Large Language Models (LLMs) to automatically convert unstructured 19th-century Latin catalogue descriptions into TEI XML, what is a common hallucination risk?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>LLMs can hallucinate plausible-sounding codicological details; automated schema validation and manual verification are mandatory.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The LLM may fabricate plausible-sounding folio counts, invent watermarks, or confabulate shelfmarks that appear syntactically valid but do not exist in the source document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Probabilistic language models optimize for plausible fluent text and can invent specific historical numbers or codicological details.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The LLM will refuse to process any text written in Latin or Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Modern LLMs handle Latin and ancient Greek fluently.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The LLM will alter the physical parchment in the library vault.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Software models interact only with digital representations, not physical artifacts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The LLM will automatically delete the Git repository if an error is encountered.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLM inference does not execute destructive repository commands unless piped into unmonitored scripts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Deterministic Validation with Schematron</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is ISO Schematron used alongside RelaxNG or XML Schema in professional TEI metadata pipelines?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Schematron enforces contextual business rules and philological constraints that structural schemas cannot express.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Schematron can validate complex co-occurrence constraints and business logic (e.g. asserting that if a manuscript is marked 'fragment', foliation must be under 5 leaves) that grammar-based schemas cannot express.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Schematron uses XPath expressions to test rule-based contextual dependencies and logical constraints across XML documents.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Schematron is the only tool that can translate Greek into Latin.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schematron is a structural and semantic XML validation language.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Schematron is required to compile Python scripts into executable machine code.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schematron is an XML validation standard, not a Python compiler.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Schematron automatically writes student research papers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schematron is an automated validation engine.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: The Role of Controlled Vocabularies</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should TEI metadata attributes (such as <code>@script</code>, <code>@material</code>, or <code>@ruling</code>) use values drawn from controlled vocabularies (e.g. Getty AAT or CERL thesauri)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Controlled vocabularies guarantee semantic consistency across independent cataloguing projects and search engines.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Controlled vocabularies eliminate synonymous variations (e.g. 'parchment' vs. 'vellum' vs. 'pergamentum'), enabling precise computational filtering and cross-corpus aggregation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Standardized ontologies ensure that identical concepts are indexed consistently regardless of local linguistic preference.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because using uncontrolled strings results in immediate criminal copyright prosecution.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Controlled vocabularies are a scholarly best practice for interoperability, not a criminal matter.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because controlled vocabularies reduce the size of the XML file by 95%.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Vocabulary control improves semantic consistency, not file compression.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because controlled vocabularies make text unreadable to humans.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Controlled terms use clear natural language concepts mapped to persistent URIs.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
