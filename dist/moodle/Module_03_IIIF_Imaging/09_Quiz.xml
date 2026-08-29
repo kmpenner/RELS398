@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_03_IIIF_Imaging/Weekly Quiz</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Formative Knowledge Check Quiz for Module_03_IIIF_Imaging: Module 03 Knowledge Check Quiz.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: IIIF Image API URL Structure</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the standard IIIF Image API 3.0 specification, what does the URL path <code>.../120,300,800,600/max/0/default.jpg</code> specify?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>IIIF Image API syntax follows: {scheme}://{server}/{prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Extract a rectangular region starting at pixel coordinate (120, 300) with width 800 and height 600, render it at full available resolution with no rotation, in default colour profile as a JPEG.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The standard IIIF Image API parameter order is {region}/{size}/{rotation}/{quality}.{format}.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Download 120 images of size 300x800 at 0% quality.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The numbers represent the region bounding box (x, y, w, h).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Scale the whole image to 120x300 pixels and rotate it 600 degrees.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Region precedes size, and rotation is 0 degrees.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Authenticate user ID 120 with password hash 300 on port 800.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are purely spatial and rendering image parameters.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The Abstract Canvas Concept</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the IIIF Presentation API define an abstract, virtual 'Canvas' rather than linking directly to image pixel dimensions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Canvas is an abstract coordinate space that decouples physical pixel dimensions from scholarly annotations and layered imaging.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A Canvas represents an abstract coordinate space that can host multiple layered images (e.g. multispectral bands, X-ray, RTI), vector annotations, and transcription overlays on a single shared surface.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Canvas is an abstract continuous coordinate space onto which multiple visual and textual resources are painted.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because computer monitors are physically unable to display JPEG images directly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standard image files display easily, but cannot layer multi-modal representations without an abstract canvas.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the IIIF Consortium prohibits the use of digital photography in scholarly archives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. IIIF was designed specifically to optimize high-resolution digital photography delivery.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because storing canvas coordinates eliminates the need for web browsers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. IIIF canvases are interpreted by web client viewers like Mirador.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Tiled Deep Zoom (Image Pyramids)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do IIIF image servers (such as Cantaloupe or Loris) deliver smooth deep zooming for 500-megapixel manuscript scans over standard internet connections?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Pyramidal image tiling allows instant deep zooming by delivering only the visible tiles for the client viewport.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By generating hierarchical multi-resolution image pyramids and serving only the specific 256x256 pixel tiles visible in the user's current viewport at the requested zoom level.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Tiled deep zoom avoids downloading massive multi-gigabyte files by serving small pre-rendered tiles on demand.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By compressing the entire 500MB manuscript scan into a single low-resolution GIF animation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pyramidal tiling preserves full 100% resolution at deep zoom levels while streaming only visible tiles.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By transmitting raw uncompressed TIFF files over high-speed satellite relays.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Raw TIFF downloads would overwhelm client bandwidth; tiled streaming solves bandwidth bottlenecks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By requiring students to purchase specialized GPU server hardware.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standard web browsers easily render tiled deep zoom interfaces.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Painting Annotations in Presentation 3.0</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In IIIF Presentation API 3.0, what is the semantic role of an <code>Annotation</code> with <code>motivation: "painting"</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>In IIIF 3.0, images are attached to Canvases via W3C Annotation objects with motivation='painting'.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It instructs the viewer to render the associated media resource (e.g. high-resolution image or video) as the primary visual content of the Canvas.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In Presentation 3.0, images are 'painted' onto the Canvas via W3C Web Annotations with motivation='painting'.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It flags the manuscript image as an illegal graffiti vandalism.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 'Painting' is the technical W3C term for displaying media on a canvas.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It applies artistic oil painting filters to modern photographs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. No artistic alteration is applied; it is the standard media presentation directive.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It calculates student tuition fees for visual arts courses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Motivation attributes define presentation behavior in the JSON-LD schema.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: TEI Facsimile and surface/zone Elements</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the TEI <code>&lt;facsimile&gt;</code> element establish line-level correspondence with a high-resolution manuscript image?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI <facsimile> uses <surface> and <zone> elements with @facs pointers to map text directly to image regions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A <code>&lt;surface&gt;</code> defines the page coordinates, child <code>&lt;zone&gt;</code> elements define bounding boxes for specific lines, and <code>&lt;lb facs="#zone_id"/&gt;</code> links transcription lines to those zones.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. TEI facsimile markup uses @facs XML ID pointers to link specific textual elements (<p>, <l>, <lb>) to spatial <zone> coordinates.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By embedding binary image data directly into the middle of Greek words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI separates facsimile geometry from textual transcription, linking them cleanly via ID references.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By replacing the TEI header with an Adobe PDF wrapper.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI maintains its own native <facsimile> architectural module.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By requiring scribes to write in HTML rather than ancient Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI models historical text structures independently of rendering formats.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Mirador Comparison Workspaces</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What core scholarly advantage does the Mirador digital viewer offer over traditional institutional library web viewers?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Mirador enables side-by-side, synchronized multi-witness collation across disparate international repositories.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Mirador is an open, multi-window workspace that allows scholars to pull IIIF manifests from different libraries worldwide into side-by-side comparative panels with synchronized zoom and pan.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Mirador breaks institutional silos by allowing manifests from Oxford, the Vatican, and the BNF to be collated in a single browser window.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Mirador automatically rewrites Greek manuscripts into modern French poetry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Mirador is a visual viewer and annotation environment, not a translation tool.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Mirador prevents students from taking notes during lecture.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Mirador supports deep textual annotation and workspace configuration.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Mirador requires a proprietary annual license fee paid to Microsoft.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Mirador is free, open-source software developed by the global IIIF community.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Multispectral Imaging (MSI) in IIIF</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How can a palimpsest (a scraped and rewritten manuscript) be represented effectively within a single IIIF Canvas?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Layered IIIF Canvases allow real-time cross-fading and opacity adjustment across multispectral image bands.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By attaching multiple image services (visible light, ultraviolet fluorescence, infrared, and false-color processed bands) as layered choices on the same Canvas, allowing users to cross-fade between spectral layers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. IIIF canvases support multiple image layers, enabling seamless opacity blending between visible text and recovered undertext.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By physically cutting the parchment into thin slices.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. MSI is non-destructive optical imaging.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By deleting the undertext and keeping only the modern upper script.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The primary goal of palimpsest imaging is recovering erased historical undertexts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By converting the image into a single-channel audio waveform.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Multispectral data consists of multi-wavelength visual photographic datasets.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: IIIF info.json Handshake</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the function of the <code>info.json</code> document requested by client viewers from a IIIF Image API server?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The info.json response informs the viewer of the image's dimensions, tile sizes, scale factors, and supported features.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It delivers technical metadata about the image (maximum width and height, supported scale factors, tile dimensions, available color profiles, and service compliance level).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The info.json handshake provides the client viewer with the exact geometry and capabilities of the image server before tile streaming begins.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It reveals the private home address of the manuscript curator.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. info.json contains image technical specifications, not personnel PII.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It contains the final exam questions for the academic course.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It is a technical image descriptor document.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It compiles the Python server code into WebAssembly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. info.json is a static JSON descriptor response.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Decoupling Data from Presentation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the architectural separation of IIIF image hosting from scholarly annotation servers beneficial for long-term digital sustainability?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Decoupled IIIF architectures ensure that scholarly annotations remain valid even when repository hosting backends evolve.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Libraries can maintain and upgrade their multi-terabyte image storage without breaking third-party scholarly annotations, which reference persistent URI coordinates rather than local server implementations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Decoupling image delivery from annotation storage ensures that research data remains durable and interoperable across software migrations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because image files become permanently unreadable after two years.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standard image formats remain readable, but coupled monolithic platforms suffer software rot.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because digital humanities projects are prohibited from using web servers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Open web architectures depend on distributed microservices and standardized APIs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because decoupling automatically deletes all copyright notices.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Rights and attribution are explicitly preserved in IIIF manifests.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: JSON-LD and Shared Ontologies</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does IIIF Presentation API 3.0 use JSON-LD (JavaScript Object Notation for Linked Data) with standard <code>@context</code> definitions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>JSON-LD bridges clean JSON data interchange with formal RDF Linked Data ontologies via @context.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>JSON-LD combines developer-friendly JSON syntax with RDF semantics, enabling machines to understand that terms like 'Canvas', 'Annotation', and 'Manifest' map to formal Linked Data ontologies.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The @context URI maps standard JSON keys to unambiguous semantic web URIs, bridging web development and knowledge graphs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because JSON-LD is the only programming language understood by the Linux operating system kernel.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. JSON-LD is a data serialization format, not an operating system language.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because standard JSON is illegal in academic publications.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. JSON-LD extends JSON with semantic context mappings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because JSON-LD encrypts database records to prevent search engine indexing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Linked Data explicitly maximizes machine discoverability and indexing.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
