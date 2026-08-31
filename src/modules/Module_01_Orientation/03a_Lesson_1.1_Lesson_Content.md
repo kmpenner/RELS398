@@ -1,1197 +1,637 @@
-# Lesson 1.1 — Local Git Version Control for Textual Scholarship
+# Lesson 1.1 — The Digital Scholar's Workbench: Plain Text, Git, XML, and AI
 
 *RELS 398 / ENGL 398 · Topic 1: Orientation · Meeting #1 (Wed Sep 2)*
 
-*Orientation week — the three-step comparative cycle does not yet apply. This
-meeting establishes the version control discipline that every later week's
-manual, deterministic, and AI-assisted work will be recorded in.*
+*Orientation week — the three-step comparative cycle does not yet apply. This meeting establishes the foundational computational mindset, file formats, and software tools that you will use throughout the semester.*
 
 ---
 
 ## **01 Content**
 
-**Why a Version Control System Belongs in a Philology Course**
+**Moving from Word Processors to the Digital Workbench**
 
-You have enrolled in a course about historical documents, and the first thing
-you will be asked to learn is a piece of software written for programmers. That
-sequence deserves an explanation, because the justification is not that Git is a
-useful job skill — though it is — but that Git is a formal model of the very
-thing textual criticism has always studied.
+Welcome to the digital scriptorium. If you have written essays for university courses, you have almost certainly used software like Microsoft Word, Google Docs, or Apple Pages. These tools are designed around a simple, visual metaphor: a virtual sheet of 8.5 x 11-inch white paper upon which you arrange paragraphs, apply bold fonts, and adjust margins. For printing an essay or submitting a PDF, word processors are wonderful tools.
 
-Textual criticism exists because texts change as they are copied. A scribe
-working from an exemplar introduces errors, corrections, and deliberate
-alterations; a later scribe copies that copy, inheriting some changes and adding
-others. The discipline's central problem is reconstructing the relationships
-among those states from the surviving evidence. Git exists because software
-changes as it is edited, and its central problem is recording the relationships
-among those states exactly. The two disciplines converged on the same abstract
-structure independently, and the convergence is not a coincidence: both are
-concerned with tracking variant states of a document across a branching history
-of transmission.
+However, when our goal is to study historical documents computationally—to search across thousands of medieval manuscripts, to compare fifty variants of an ancient poem, or to publish an interactive digital edition on the web—traditional word processors fail us. Word processors are designed for *human eyes looking at printed pages*, not for *computer programs analyzing textual data*. 
 
-Huskey (2024) makes this argument directly, proposing that scholarly editors
-treat the Git repository as a research journal rather than as file storage. The
-claim is stronger than it sounds. A research journal is not a backup; it is an
-argument in progress, in which each entry is dated, attributed, and justified. A
-Git repository used properly has exactly those properties, and a Git repository
-used carelessly has none of them. The difference lies entirely in the discipline
-of the person committing.
+In this course, we step behind the curtain of consumer software. You will learn to treat texts not merely as formatted documents, but as structured, living datasets. To do this, we replace the word processor with a **digital workbench**: a suite of transparent, open tools designed to give you total control over every character, word, and metadata tag in your scholarship.
 
-**Vocabulary.** *Version control system (VCS)* — software that records the state
-of a set of files at successive points in time, with the metadata needed to
-identify, compare, and recover any of those states. *Exemplar* — the manuscript
-a scribe copies from. *Witness* — any surviving manuscript that attests a text.
+**Vocabulary.** *Digital Humanities (DH)* — an interdisciplinary field that applies computational methods and tools to humanities research, teaching, and preservation. *Word Processor* — software designed for typing, formatting, and printing human-readable documents on simulated pages. *Data Transparency* — the degree to which a file format allows direct inspection and manipulation of its underlying raw data.
 
-**Takeaway:** Git is on the syllabus because its data model
-formalizes textual transmission, not because digital humanists are expected to
-know developer tools.
+**Takeaway:** Traditional word processors are built for printing visual pages; digital scholarship requires a digital workbench where texts can be analyzed, searched, and transformed as computational data.
 
 ---
 
 ## **02 Content**
 
-**The Print Edition as a Lossy Record: Giarratano's *Bucolica***
+**What is Plain Text? (And Why .docx Hides Your Data)**
 
-The best case for version-controlled editing is a case where its absence
-destroyed evidence. Huskey (2024) analyzes the editorial career of Caesar
-Giarratano, who published five separate print editions of Calpurnius Siculus'
-*Bucolica* between 1910 and 1951 — five editions of the same short pastoral
-text, by the same editor, across forty-one years.
+To understand why digital scholars work differently, consider what happens when you save a one-sentence document in Microsoft Word. If you type the word "Hello" and save it as `document.docx`, the resulting file on your hard drive is not five bytes of text. It is actually a zipped archive containing dozens of internal XML files, styling rules, font specifications, printing margins, and metadata tracking who created the file and when. 
 
-Across those editions Giarratano changed his method fundamentally. He moved from
-a *positive* critical apparatus, which records all variant readings including
-the one printed in the text, to a *negative* apparatus, which records only the
-readings rejected. He abandoned his Greek-character manuscript sigla in favour of
-Latin characters, silently renaming every witness in the edition. These are not
-typographical adjustments; they are systemic changes to how the edition
-represents evidence, and each implies a changed view of what an apparatus is for
-(Huskey, 2024).
+If you try to open a `.docx` file in a simple programming script, the computer sees a scrambled wall of compressed binary code. The text you wrote is trapped inside proprietary formatting wrappers. If Microsoft Word were to disappear tomorrow, opening and reading those complex formatting structures would require specialized software.
 
-The rationale for those changes is gone. Print editions record outcomes, not
-reasoning: the reader receives the finished apparatus with no account of why its
-form changed between 1910 and 1951. A scholar today who wants to understand
-Giarratano's development must physically obtain all five volumes and collate
-them by hand — performing textual criticism on a modern critical edition, which
-is precisely the labour the edition was supposed to spare them (Huskey, 2024).
+**Plain text**, by contrast, is the universal lingua franca of computing. A plain text file (such as `.txt`, `.md`, or `.xml`) contains *only the exact characters you typed*—letters, numbers, spaces, and line breaks—with zero hidden binary formatting. A five-letter word in a plain text file takes up exactly five bytes of storage. Plain text created today will still be easily readable on any computer fifty or one hundred years from now. In computational philology, plain text is our bedrock of durability and transparency.
 
-Had Giarratano worked in a version-controlled repository, the change of sigla
-would have been a single documented commit with a stated reason, and the shift
-from positive to negative apparatus would have been a documented restructuring.
-The evidence would still exist. This is the concrete stake of the discipline you
-are about to learn: what is not committed with rationale is not recoverable.
+**Vocabulary.** *Plain Text* — unformatted text containing only raw character codes, universally readable across all operating systems without specialized software. *Binary File* — a file format encoded in machine-readable binary code that requires specific software to interpret. *Proprietary Format* — a file structure owned and controlled by a private company.
 
-**Takeaway:** Print editions preserve the editor's conclusions
-and discard the editor's reasoning; a version-controlled edition preserves both.
+**Takeaway:** Plain text contains only the raw characters you type with no hidden styling codes, making it permanent, universally readable, and accessible to computer analysis.
 
 ---
 
 ## **03 Content**
 
-**The Critical Apparatus and the Commit Log Are the Same Object**
+**Meet Your Workbench: The Visual Studio Code (VS Code) Editor**
 
-Consider what a critical apparatus does. Against a base text, it records
-alternative readings, each attributed to a witness, each located at a precise
-point in the text. It is a structured record of deviation from a reference state.
+Because plain text contains no built-in styling, we do not edit it with a word processor. Instead, we use a specialized tool called a **code editor** or **text workbench**. In this course, our primary workbench is **Visual Studio Code** (commonly known as **VS Code**).
 
-Now consider what `git log` combined with `git diff` does. Against a base state,
-it records alternative states, each attributed to an author, each located at a
-precise point in the file. The structural correspondence is exact, and Huskey
-(2024) argues it should be exploited pedagogically rather than treated as a
-curiosity.
+When you first open VS Code, it might look intimidating because it lacks the familiar toolbar of Microsoft Word (you will not find buttons to change text to Comic Sans or make margins 1.5 inches). Instead, VS Code provides tools built specifically for working with structured text and code:
 
-The correspondence extends through the whole vocabulary of the discipline, which
-is why this course can teach both at once:
+- **Line Numbers:** Every line in your document is numbered along the left margin, allowing you to cite and locate specific passages instantly.
+- **Syntax Highlighting:** When editing structured formats like XML or Python, VS Code automatically colors different components (tags in blue, text in white, attributes in orange), making structural errors jump out visually.
+- **Integrated Terminal:** A built-in command prompt at the bottom of the screen where you can run scripts and version control commands without leaving your editor.
+- **Extensibility:** Specialized plugins for historical languages (such as ancient Greek or Hebrew font support), XML schema validators, and Git tracking.
 
-| Philological concept | Git equivalent | Shared epistemological function |
-| --- | --- | --- |
-| Exemplar or archetype | The `main` branch | The reference state from which variants deviate |
-| Scribal copying | `git clone`, `git branch` | Duplicating a text so it can be altered independently |
-| Variant reading or emendation | `git commit` | A dated, attributed alteration with stated rationale |
-| Critical apparatus | `git diff`, `git log` | The aggregated record of deviation from the reference |
-| Stemma codicum | The commit graph | The genealogy of states and their descent relations |
-| Siglum | Commit hash | A short unique label identifying one witness or state |
+VS Code does not alter the underlying bytes of your files. What you see on screen is the literal reality of the data stored on your computer.
 
-There is one important asymmetry. The scribe did not intend to create an
-apparatus; the apparatus is reconstructed after the fact by an editor working
-from damaged and partial evidence. You, by contrast, are generating your own
-transmission history deliberately and in full. You are in the unusual position of
-being both the scribe and the editor of your own text — which means the quality
-of your apparatus is entirely within your control, and entirely your
-responsibility.
+**Vocabulary.** *Code Editor* — a text editing program designed specifically for writing and editing plain text, markup, and computer programming languages. *Syntax Highlighting* — a feature that displays source code and markup in distinct colors and fonts according to their category. *Integrated Development Environment (IDE)* — a comprehensive software suite combining an editor, terminal, and debugging tools.
 
-**Takeaway:** You will produce two editions this term: the TEI
-edition of your passage, and the Git history that documents how you arrived at
-it.
+**Takeaway:** VS Code is our primary digital workbench, providing line numbers, syntax highlighting, and an integrated terminal to view and edit text files with complete precision.
 
 ---
 
 ## **04 Content**
 
-**Content-Addressable Storage: What Git Actually Stores**
+**Files, Folders, and File Extensions (.txt, .md, .xml, .py)**
 
-Most people's mental model of version control is that it stores a list of
-changes — a file, then a patch, then another patch. That model is wrong for Git,
-and holding it will make Git's behaviour seem arbitrary. Git stores complete
-snapshots, and it addresses them by their content.
+On modern smartphones and tablets, operating systems hide the file system: apps save data into mysterious cloud silos, and users rarely see where a document physically lives. In digital scholarship, however, you must be the master of your file system. You need to know exactly which folder a document lives in and what kind of data it contains.
 
-A *content-addressable* store is one in which an object's name is derived from
-its contents rather than assigned externally. Git computes a SHA-1 checksum over
-each object's bytes, producing a forty-character hexadecimal identifier, and
-that identifier *is* the object's name in the database (Chacon & Straub, 2014).
-The consequence is that identical content necessarily has an identical name: if
-two of your transcription files contain exactly the same text, Git stores that
-content once and points at it twice, whatever the files are called and wherever
-they sit in the directory tree.
+A file's identity is signaled by its **file extension**—the letters following the final period in its filename:
 
-The philological payoff is immediate. Because the name is derived from the
-content, the name cannot disagree with the content. If a byte changes, the hash
-changes; if the hash is unchanged, no byte has changed. There is no way to alter
-a stored transcription while leaving its identifier intact, which means the
-identifier functions as a tamper-evident seal on the state of your edition at a
-moment in time (Chacon & Straub, 2014).
+- `.txt` *(Plain Text):* Pure, unadorned text without any special formatting or tags.
+- `.md` *(Markdown):* Lightweight plain text that uses simple punctuation symbols for formatting (e.g., `# Header`, `**bold**`, `*italics*`, `- list item`). We use Markdown for taking notes, writing documentation, and drafting lesson content.
+- `.xml` *(Extensible Markup Language):* Plain text structured into hierarchical tags (e.g., `<title>Odyssey</title>`), which we use for digital editions and Moodle question banks.
+- `.py` *(Python Script):* Plain text containing instructions written in the Python programming language that your computer can execute.
 
-This is why Git can make guarantees that a folder of files named
-`transcription_v2_FINAL_revised.xml` cannot. Manual versioning schemes encode
-your intentions in filenames, and filenames lie — they are assigned by a tired
-student at midnight and are not checked against anything. Hashes are computed
-from the data and cannot lie.
+In this course, everything we build is stored in clean, well-organized folder trees where filenames are descriptive, lower-case or snake_case, and free of spaces (e.g., `lesson_01_notes.md` rather than `My Notes For Class (1) final.md`).
 
-**Vocabulary.** *SHA-1* — a cryptographic hash function producing a 160-bit
-(40 hex character) digest. *Checksum* — a value computed from data such that a
-change in the data changes the value. *Content-addressable* — named by content
-rather than by assigned label.
+**Vocabulary.** *File Extension* — a suffix at the end of a computer file name indicating its format and encoding. *Markdown (.md)* — a lightweight markup language with plain-text formatting syntax designed to be converted to HTML. *Directory Tree* — the hierarchical organization of folders and subfolders on a computer storage device.
 
-**Takeaway:** Git names every stored object by a hash of its
-contents, so an object's identifier is a verifiable claim about its bytes.
+**Takeaway:** File extensions (.txt, .md, .xml, .py) tell the computer how to interpret plain text data, and maintaining organized directory structures is essential for digital scholarship.
 
 ---
 
 ## **05 Content**
 
-**The Four Object Types: Blobs, Trees, Commits, and Tags**
+**The Command Line: Talking Directly to Your Operating System**
 
-The entire Git database is built from four object types. Understanding them is
-not optional trivia; nearly every confusing Git behaviour you will encounter
-this term becomes obvious once you know which object is involved.
+For most computer users, interacting with software happens through a **Graphical User Interface (GUI)**: clicking icons with a mouse, dragging files into windows, and tapping buttons. While GUIs are friendly, they limit you to doing only what the software developer anticipated. If you need to rename 500 image files at once or search 50 XML documents for a Greek keyword, clicking 500 times by hand is exhausting.
 
-A **blob** stores the raw contents of a file, and nothing else — no filename, no
-path, no timestamp, no permissions. A blob of your transcription is just the
-bytes of the transcription. A **tree** supplies exactly what the blob omits: it
-is a directory listing, mapping names to the hashes of blobs and of other trees,
-along with file mode information. A **commit** points to a single root tree —
-that is, to a complete snapshot of the project — and adds the metadata that makes
-the snapshot meaningful: author, committer, timestamp, message, and pointers to
-its parent commit or commits. A **tag** is a named, optionally signed pointer to
-a specific commit, used to mark states that matter permanently (Chacon & Straub,
-2014).
+The **Command Line Interface (CLI)**, also known as the **Terminal** or **Shell**, allows you to talk directly to your computer's operating system by typing short, precise text commands. Instead of clicking on a folder icon, you type `cd projects/RELS` to change directories; instead of right-clicking to see what files exist, you type `ls` (on Linux/Mac) or `dir` (on Windows) to list files.
 
-| Object | Stores | Points to | Editorial analogue |
-| --- | --- | --- | --- |
-| Blob | Raw file contents | Nothing | The text of one witness, unlabelled |
-| Tree | Names, modes, structure | Blobs and sub-trees | The physical arrangement of a codex |
-| Commit | Author, date, message | One root tree, parent commits | A dated editorial intervention with rationale |
-| Tag | A label, optionally signed | One commit | A published edition, cited by version |
+The terminal is not a relic of 1970s computing; it is the most powerful, reproducible tool in the modern digital humanist's toolkit. When you run a task in the terminal, you can record the exact command in your research notes, allowing any other scholar in the world to re-run that exact command and get the identical result.
 
-The separation of blob from tree explains a behaviour that puzzles new users:
-Git does not track file renames as such. When you rename a transcription file,
-the blob is unchanged — the content did not change — and only the tree entry
-differs. Git detects renames after the fact by noticing that a blob left one
-path and arrived at another, rather than by recording a rename operation.
+**Vocabulary.** *Command Line Interface (CLI)* — a text-based interface used to run programs, manage files, and interact with the operating system. *Graphical User Interface (GUI)* — a visual interface based on windows, icons, and menus. *Terminal / Shell* — the program that receives keyboard commands and passes them to the operating system.
 
-**Takeaway:** Blobs hold content, trees hold structure, commits
-hold history and rationale, and tags mark states worth citing.
+**Takeaway:** The command line allows scholars to issue precise, scriptable, and reproducible text instructions directly to the computer, bypassing the limitations of point-and-click interfaces.
 
 ---
 
 ## **06 Content**
 
-**The Directed Acyclic Graph**
+**Why Digital Humanities Projects Need Open, Transparent Tools**
 
-Because every commit stores the hash of its parent, commits chain backwards
-through time. That chain is not a simple line: a commit may have two parents (a
-merge), and several commits may share one parent (a branch point). The resulting
-structure is a **directed acyclic graph**, or DAG (Chacon & Straub, 2014).
+Consider a tragedy common in academic history: a scholar spends ten years creating a digital catalogue of rare manuscripts using a proprietary commercial database software. Five years later, the software company goes out of business, the operating system updates, the software stops running, and the scholar's ten years of research are locked in an unreadable binary vault.
 
-Each word in the term does work. *Directed*: the parent relation has an
-orientation — a commit knows its parents, but a parent does not know its
-children, exactly as an exemplar does not know what was copied from it.
-*Acyclic*: there are no loops, because a commit's hash incorporates its parents'
-hashes, so a commit cannot be its own ancestor. *Graph*: the structure is a
-network of nodes and edges, not a list.
+This phenomenon is known as **digital obsolescence** or **software rot**. To ensure that cultural heritage and historical scholarship endure for generations, the international Digital Humanities community adheres to a set of core principles:
 
-The philological reader will recognize this shape immediately. A stemma codicum
-is a directed acyclic graph over manuscripts: descent has an orientation, no
-manuscript descends from itself, and the structure branches. The two fields
-arrived at the same formalism because they are modelling the same phenomenon —
-descent with modification through copying (Huskey, 2024).
+1. **Open Standards:** Using non-proprietary, openly documented formats (like plain text, XML, and JSON) that belong to no single corporation.
+2. **Open Source Software:** Using tools whose source code is publicly accessible, free to inspect, and maintainable by the academic community (such as VS Code, Git, and Python).
+3. **Data Portability:** Ensuring that your research data can be moved effortlessly from one computer to another, from local drives to web servers, without loss of fidelity.
 
-There is one instructive place where the analogy breaks, and it is worth
-noticing now. Stemmatic reconstruction is *inference under uncertainty*: the
-editor infers relations among witnesses from shared errors, because the actual
-history is unobserved and most intermediate copies are lost. Your Git DAG, by
-contrast, is *observed* — it is not reconstructed but recorded, complete, with no
-missing intermediaries. This term you will experience what a philologist almost
-never has: a transmission history with no gaps in it.
+When you learn these open tools in RELS 398, you are not just learning software for a single semester; you are learning the durable foundation of open scholarly infrastructure.
 
-**Vocabulary.** *DAG* — a set of nodes connected by directed edges containing no
-cycles. *Stemma codicum* — the genealogical tree of a text's surviving witnesses.
-*Merge commit* — a commit with more than one parent.
+**Vocabulary.** *Digital Obsolescence* — the situation where digital resources become inaccessible because the necessary hardware or software is no longer available. *Open Standard* — a publicly available specification with collaborative development that ensures interoperability. *Open Source* — software whose source code is released under a license allowing anyone to study, change, and distribute it.
 
-**Takeaway:** A repository's history is a directed acyclic
-graph, the same formal structure as a stemma — but recorded rather than inferred.
+**Takeaway:** Digital humanities relies on open standards and plain-text formats to prevent software obsolescence and guarantee that cultural research remains accessible for decades.
 
 ---
 
 ## **07 Content**
 
-**Cryptographic Integrity and the Cascading Hash**
+**The "Final_Final_v2" Trap: Why We Need Version Control**
 
-The properties described so far combine into something stronger than either
-alone. Because a commit's hash is computed over its content — which includes its
-tree hash and its parent hashes — a change anywhere in the history propagates
-outward to every commit that descends from it.
+Every student and writer has lived through the chaos of manual document versioning. You write an essay draft and save it as `Essay.docx`. Later, you make edits and save it as `Essay_v2.docx`. Your professor gives feedback, so you create `Essay_revised.docx`. The night before the deadline, you make late corrections and save `Essay_final.docx`, followed an hour later by `Essay_final_really_FINAL_v2.docx`.
 
-Follow the cascade concretely. You alter a single combining diacritic in a TEI
-transcription. The file's bytes differ, so its blob hash differs. The tree
-listing that blob now references a different hash, so the tree's own hash
-differs. The commit pointing at that tree now references a different tree hash,
-so the commit hash differs. Every subsequent commit references a changed parent
-hash, so every one of them changes too (Chacon & Straub, 2014).
+This haphazard naming system creates serious scholarly problems:
 
-The security consequence is that silent tampering is not merely difficult but
-structurally impossible. There is no way to reach into the middle of a
-repository's history, alter a reading, and leave the surrounding history intact:
-either the downstream hashes change and the alteration is visible, or they do not
-change and the alteration did not happen. History can be *rewritten* — Git
-provides tools for that — but a rewrite produces a visibly different graph. It
-cannot be done invisibly.
+- **Loss of Context:** Which file contains the paragraph you deleted yesterday? You have to open five files and compare them side by side.
+- **Accidental Overwriting:** If you work on two different computers, you might accidentally copy an older file over a newer one, erasing days of research.
+- **No Record of Rationale:** You see that a sentence was changed, but you have no memory of *why* you changed it—was it to fix a typo, or because a new source disproved your original argument?
 
-For a scholarly edition this is the guarantee that matters. Huskey's (2024)
-argument for reproducibility and explainability in editing depends on the audit
-trail being trustworthy; an audit trail that could be quietly edited afterwards
-would establish nothing. The cryptographic chain is what converts "here is my
-work log" into "here is a verifiable claim about my work."
+When editing ancient manuscripts with multiple variant readings, this chaos is fatal. We need a system that tracks the complete evolution of a project cleanly, automatically, and permanently.
 
-**Takeaway:** A change anywhere in history changes every hash
-downstream of it, so a repository's history cannot be altered without leaving
-evidence.
+**Vocabulary.** *Version Control* — the management of changes to documents, computer programs, and other collections of information. *Rollback* — restoring a file or project to a previously saved state. *Diff* — a visual comparison showing the exact lines added, deleted, or modified between two versions of a document.
+
+**Takeaway:** Saving multiple copies of files with names like "final_v2" causes confusion and lost work; version control solves this by tracking changes systematically within a single project history.
 
 ---
 
 ## **08 Content**
 
-**Branching, and Why You Will Use It for Editorial Hypotheses**
+**What is Git? A Time Machine for Your Writing and Research**
 
-A branch in Git is startlingly cheap: it is a file containing a single commit
-hash, plus a name. Creating one costs a few dozen bytes, which is why Git
-encourages branching in situations where older version control systems made it a
-significant undertaking (Chacon & Straub, 2014).
+**Git** is the world's standard version control system. Created in 2005 by Linus Torvalds, Git was built to coordinate work among thousands of software developers across the globe, but its core design makes it the ultimate tool for scholarly writers and digital editors.
 
-The editorial use is the interesting one. You will frequently face a decision
-with no clearly correct answer: whether to treat a marginal addition as part of
-the text or as apparatus, whether a damaged sequence is best restored one way or
-another, whether to encode a correction with `<sic>`/`<corr>` or to leave it
-diplomatic. The traditional response is to choose, proceed, and record the
-rejected option in a footnote. The version-controlled response is to encode both
-fully, on separate branches, and compare the finished results before deciding.
+Rather than making dozens of separate copies of your files, Git keeps all your files in a single folder called a **repository** (or "repo"). Whenever you reach a meaningful milestone in your work (e.g., you finished transcribing a folio, fixed five typos, or added a new bibliography entry), you ask Git to take a **snapshot** of the entire project. This snapshot is called a **commit**.
 
-This changes what an editorial hypothesis costs. On paper, pursuing an
-alternative encoding through an entire passage is expensive enough that editors
-rarely do it, and so alternatives are usually rejected on the basis of a
-prospective judgement rather than a completed trial. On a branch, the same
-experiment costs almost nothing and can be abandoned without trace or merged
-without penalty. You should expect to use this repeatedly from Week 6 onward,
-when normalization decisions start to have consequences that only become visible
-several steps later in the pipeline.
+Think of Git as a video game checkpoint system or a historical time machine:
 
-The Perseids Platform makes exactly this affordance central to its pedagogy:
-students work on their own branches precisely so that they can attempt difficult
-encoding without risking the shared text, and submit the result for editorial
-review only once it is complete (Almas & Beaulieu, 2012).
+- Every commit records the exact state of all files at that precise second.
+- Every commit records *who* made the change, *when* it was made, and a short message explaining *why*.
+- You can travel back in time to inspect or restore any previous commit without losing any work created since.
 
-**Takeaway:** Branches make editorial alternatives cheap enough
-to test rather than merely to speculate about.
+**Vocabulary.** *Git* — a distributed version control system that tracks changes in files across time. *Repository (Repo)* — a directory containing your project files along with the complete, hidden history of all changes tracked by Git. *Commit* — a recorded snapshot of your project at a specific point in time, accompanied by a descriptive message.
+
+**Takeaway:** Git acts as a project time machine, recording clean snapshots (commits) of your files with timestamps, author attribution, and explanations of why changes were made.
 
 ---
 
 ## **09 Content**
 
-**Installing Git and Declaring Who You Are**
+**Taking a Snapshot: The Three States (Edit -> Stage -> Commit)**
 
-Before the first commit, Git needs to know how to attribute your work. This is
-not a formality: authorship metadata is baked into every commit object and cannot
-be changed later without rewriting history.
+To understand how Git works in practice, you need to understand its **Three States**. Git does not automatically record every single keystroke you make (which would clutter your history with half-finished sentences). Instead, taking a snapshot is an intentional, three-step process:
 
-Configure your identity globally, once, on each machine you will work on:
+1. **Working Directory (Editing):** This is your normal folder where you create, edit, and delete files using VS Code. When you save a file, the change exists on your hard drive, but Git has not recorded a formal snapshot yet.
+2. **Staging Area (Preparing):** When you are ready to make a snapshot, you choose which specific files you want to include in the next commit using the command `git add <filename>`. Think of the staging area as a photographic studio: you arrange the exact files you want in the picture before snapping the camera.
+3. **Repository (Committed Snapshot):** You execute `git commit -m "Your message"`. Git seals the snapshot permanently into the project's historical ledger.
 
-```bash
-git config --global user.name "Your Full Name"
-git config --global user.email "yourid@stfx.ca"
-```
+This three-stage workflow gives you total control: you can edit four different files, but stage and commit only two of them if they represent a single, focused improvement.
 
-Use the name you want to appear in the permanent record of your edition, in the
-form you would use in a publication. Use your StFX address rather than a personal
-one, since the repository will be reviewed as coursework. If you also work on a
-personal laptop, configure it identically — commits made under two different
-identities look like two different editors to anyone reading the log later, and
-the resulting apparatus is misattributed.
+**Vocabulary.** *Working Directory* — the local filesystem directory where you actively edit your project files. *Staging Area (Index)* — the intermediate holding zone where changes are gathered and formatted before being committed. *`git add`* — the command that moves changes from the working directory to the staging area. *`git commit`* — the command that permanently saves staged changes as a new historical snapshot.
 
-Two further global settings will save you difficulty in Week 4 and after. Set
-the default branch name explicitly, and set your editor to something you can
-actually exit:
-
-| Setting | Command | Why it matters here |
-| --- | --- | --- |
-| Default branch name | `git config --global init.defaultBranch main` | Keeps every student repository consistent for review |
-| Commit editor | `git config --global core.editor "code --wait"` | Enables multi-line commit bodies without `vi` |
-| Rebase on pull | `git config --global pull.rebase false` | Preserves merge commits as evidence of integration |
-
-Verify the result with `git config --global --list` before continuing. Everything
-in this course accumulates, and an identity error committed today propagates
-through every assignment that follows.
-
-**Takeaway:** Authorship metadata is permanent in the commit
-object, so configure it correctly before the first commit rather than after.
+**Takeaway:** Git's three-step workflow (Edit in Working Directory $
+ightarrow$ Stage with `git add` $
+ightarrow$ Commit with `git commit`) ensures that every snapshot is an intentional, curated record of progress.
 
 ---
 
 ## **10 Content**
 
-**Initializing the Repository for Your Edition**
+**Writing Good Commit Messages: Leaving Breadcrumbs for Your Future Self**
 
-Each of you will maintain a single repository for the whole term, containing the
-passage you select this week and every layer of encoding you subsequently build
-on it. Create it now, in a location you will not lose:
+When you create a commit, Git requires you to write a **commit message**. The commit message is the scholarly justification for why that snapshot exists.
 
-```bash
-mkdir rels398-edition
-cd rels398-edition
-git init
-```
+A bad commit message tells the reader nothing:
 
-`git init` creates a `.git` directory. That hidden directory *is* the repository:
-the object database, the references, the configuration, and the hooks all live
-inside it. The visible files beside it are merely the currently checked-out
-state — a view of one commit, which Git can regenerate at any time from the
-objects it holds. Deleting `.git` deletes your entire history while leaving the
-current files intact, which is a mistake that looks harmless right up until you
-need an earlier state.
+- ❌ `"changes"`
+- ❌ `"stuff"`
+- ❌ `"fixed it"`
+- ❌ `"asdfasdf"`
 
-Establish the directory structure now rather than reorganizing later. The layout
-below mirrors the distinction between source material, working files, and
-outputs that the course assignments assume:
+If you look back at your project six weeks later, those messages give you no clue which commit fixed an error in line 45 or why a paragraph was rephrased. 
 
-| Directory | Holds | Populated in |
-| --- | --- | --- |
-| `images/` | Facsimile images and IIIF manifest for your passage | Week 3 |
-| `transcription/` | Diplomatic and normalized transcriptions | Weeks 4–6 |
-| `collation/` | Witness files, CollateX input and output | Week 7 |
-| `edition/` | The TEI file with apparatus, lemmatization, commentary | Weeks 8–12 |
-| `logs/` | Error-rate reports, AI-usage notes, reconciliation records | Weeks 5 onward |
+A good commit message is concise, informative, and states the *reason* for the edit:
 
-Add a `README.md` at the root stating which manuscript passage you have chosen
-and why. That file is the first thing a reviewer reads, and by the end of term it
-will be the front matter of your edition.
+- ✅ `"Fix transcription error in Odyssey line 12: change alpha to omicron based on London papyrus"`
+- ✅ `"Add bibliography entry for Romanello (2024) metadata extraction study"`
+- ✅ `"Correct closing XML tags in Module 02 quiz questions"`
 
-**Takeaway:** `.git` is the repository and the visible files are
-just a checked-out view of it; structure the working tree once, at the start.
+Writing clear commit messages is not a bureaucratic chore; it is the discipline of leaving breadcrumbs for your future self and your academic collaborators.
+
+**Vocabulary.** *Commit Message* — the human-readable text explanation attached to every Git commit describing the purpose and rationale of the change. *Conventional Commits* — a standardized format for structuring commit message titles (e.g., `feat:`, `fix:`, `docs:`).
+
+**Takeaway:** Good commit messages clearly explain the reason for an edit, turning your Git log into an intelligible, step-by-step history of your scholarly research.
 
 ---
 
 ## **11 Content**
 
-**The Three States: Working Directory, Staging Area, Repository**
+**Checking Your Project History: Reading the Git Log**
 
-Git's most distinctive feature, and the one that most reliably confuses
-newcomers, is that a file exists in three places at once. Understanding the
-three states is what makes atomic committing possible.
+Once you have made several commits, Git holds a complete, immutable ledger of your project's history. To inspect this history, you open your terminal and type the command:
+```bash
+git log
+```
 
-The **working directory** is what you see and edit: ordinary files on disk. The
-**staging area** — also called the index — is a proposed next commit, holding the
-exact content that will be recorded when you commit. The **repository** is the
-object database in `.git`, holding every committed state permanently (Chacon &
-Straub, 2014).
+When you run `git log`, Git displays a list of your commits in reverse chronological order (newest on top). For each commit, you will see:
 
-| State | Contents | Moved into it by | Reverted by |
-| --- | --- | --- | --- |
-| Working directory | Files as currently edited | Editing in Oxygen or VS Code | `git restore <file>` |
-| Staging area | The proposed next commit | `git add <file>` | `git restore --staged <file>` |
-| Repository | All permanently recorded states | `git commit` | `git revert <commit>` |
+1. **Commit Hash (ID):** A unique identifier (e.g., `736dbb0...`) that names that exact snapshot.
+2. **Author:** The name and email address of the scholar who made the change.
+3. **Date and Time:** The exact timestamp when the snapshot was committed.
+4. **Commit Message:** The explanation written by the author.
 
-The staging area is what separates Git from a backup tool, and it exists
-precisely so that *what you commit need not be everything you have changed*. In
-a morning's work you may fix a typographic error in a transcription, adjust the
-TEI header, and experiment with an encoding you are not yet sure about. Those are
-three different scholarly acts. The staging area lets you record them as three
-commits, in an order you choose, rather than as one undifferentiated lump.
+By viewing this log, you can reconstruct the complete story of your edition. If you want to see a condensed, one-line summary of recent history, you can type `git log --oneline`, which displays a clean timeline of your project's milestones.
 
-Use `git status` constantly — it reports which files sit in which state, and it
-suggests the command to move them. Experienced users run it more often than any
-other command, not less.
+**Vocabulary.** *`git log`* — the command that lists the chronological history of commits in a repository. *Commit Hash / SHA* — a unique alphanumeric fingerprint that identifies a specific commit. *Provenance* — the chronological record of the ownership, custody, and modification history of a historical artifact or digital file.
 
-**Takeaway:** The staging area exists so that a commit can
-record one logical change rather than everything you happen to have edited.
+**Takeaway:** Running `git log` displays the chronological timeline of your project, showing who changed what, when it occurred, and the rationale behind every milestone.
 
 ---
 
 ## **12 Content**
 
-**Your First Commit**
+**Undoing Mistakes Safely Without Panic**
 
-With the structure in place, record the initial state. The sequence is: inspect,
-stage, inspect again, commit.
+One of the greatest fears for students working with computers is making a catastrophic mistake: accidentally deleting three pages of text, overwriting a file with junk, or breaking formatting so badly that nothing works. In a normal word processor, pressing Ctrl+Z a few times might help, but if you close the program, those undo steps vanish forever.
 
+In Git, **you never need to panic**. Because every commit is a permanent snapshot, you can easily discard experimental mistakes and restore your files to the exact state of your last commit with a single command:
 ```bash
-git status
-git add README.md
-git status
-git commit -m "chore(repo): initialize edition repository with README"
+git restore <filename>
 ```
 
-Note the deliberate second `git status`. Staging is the step where mistakes
-happen — a stray file, a forgotten file, an editor backup — and it is far easier
-to correct the index before committing than to correct the history afterwards.
-Read what Git tells you is staged, and confirm it is what you meant.
+If you made changes to a file that didn't work out, `git restore` wipes away the unstaged edits and reloads the pristine version from your last commit. If you want to see what changes you made before deciding to keep or discard them, you type `git diff`, which displays every added word in green and every deleted word in red. Git gives you total psychological freedom to experiment boldly, knowing a safety net is always in place.
 
-The `-m` flag supplies a single-line message. It is convenient and it is the
-right tool for a genuinely trivial commit, but it will not serve you for most of
-this term's work, because a one-line message cannot carry rationale. From Week 4
-onward, run `git commit` with no `-m`, let your editor open, and write a subject
-line followed by a blank line and a body explaining *why*.
+**Vocabulary.** *`git restore`* — the command that discards uncommitted changes in your working directory and restores the file from the repository. *`git diff`* — the command that displays the line-by-line differences between your current working file and your last commit. *Safety Net* — the version control guarantee that committed work cannot be accidentally deleted or overwritten.
 
-A frequent early error deserves naming: `git add .` stages everything in the
-directory, including files you did not intend to track — editor swap files,
-operating system metadata, large image derivatives, and half-finished
-experiments. Prefer naming files explicitly. Where a broad add is genuinely
-convenient, protect yourself first with a `.gitignore` file listing the patterns
-that should never be tracked, such as `.DS_Store`, `*~`, and `.vscode/`.
-
-**Takeaway:** Stage deliberately and inspect the index before
-committing; correcting the staging area is trivial, correcting history is not.
+**Takeaway:** Git eliminates the fear of making mistakes by allowing you to inspect changes with `git diff` and instantly restore previous clean states with `git restore`.
 
 ---
 
 ## **13 Content**
 
-**Atomic Commits as Cognitive Discipline**
+**Cloud Sharing: What is GitHub vs. Local Git?**
 
-An **atomic commit** records exactly one logical change — one scholarly act,
-complete in itself. The requirement sounds like tidiness. It is in fact the
-central intellectual discipline of this course's version control practice, and
-Huskey (2024) treats it as the precondition for a repository functioning as a
-research journal at all.
+A common point of confusion for beginners is the difference between **Git** and **GitHub**:
 
-Consider why. If a commit contains one change, its message can state what that
-change was and why it was made, and the message is verifiable against the diff.
-If a commit contains six unrelated changes, no honest message can describe it —
-the author is forced into vagueness ("various corrections"), and the record
-becomes unusable for exactly the purpose it was created to serve. Non-atomic
-commits do not merely make history untidy; they make it uninformative.
+- **Git** is the *local software tool* running on your own laptop that creates snapshots, tracks history, and manages files on your hard drive. Git does not require an internet connection; you can commit changes while sitting on an airplane or in a cabin in the woods.
+- **GitHub** is a *cloud-based hosting service* (owned by Microsoft) that stores copies of Git repositories on the internet. GitHub allows scholars across the world to share repositories, collaborate on digital editions, report issues, and publish web pages.
 
-Atomicity also determines whether history is *reversible*. Suppose you later
-discover that your treatment of a particular abbreviation was wrong. If that
-decision was applied in its own commit, you can revert precisely it, leaving
-everything else untouched. If it was bundled with your header metadata and three
-transcription corrections, reverting it means losing those too, and you will
-instead redo the work by hand — which is to say the history provided no
-protection at all.
+Think of Git as your local camera, and GitHub as an online photo album where you upload copies of your pictures to share with colleagues. When you want to send your local commits up to GitHub, you use the command `git push`. When you want to download updates that a collaborator pushed to GitHub down to your laptop, you use the command `git pull`.
 
-The practical test is a sentence. Before committing, state what the commit does
-in one clause without using "and". "Corrects the iotacism at line 14." "Adds the
-TEI header." If you need "and", or if you find yourself reaching for a semicolon,
-you are looking at two commits.
+**Vocabulary.** *GitHub* — a web-based hosting platform for Git repositories offering collaboration tools, code review, and project management. *`git push`* — the command that uploads local repository commits to a remote server like GitHub. *`git pull`* — the command that downloads and integrates remote changes into your local repository. *Remote Repository* — a version of your project hosted on the internet or network.
 
-**Vocabulary.** *Atomic commit* — a commit recording a single logical change that
-is complete and independently reversible. *Revert* — a new commit that undoes the
-effect of an earlier one, without erasing it from history.
-
-**Takeaway:** If you cannot describe a commit in one clause
-without "and", it is more than one commit.
+**Takeaway:** Git is the local program tracking changes on your computer; GitHub is the online platform where repositories are backed up, shared, and collaborated on globally.
 
 ---
 
 ## **14 Content**
 
-**What Non-Atomic Commits Look Like in Practice**
+**How Computers Read: Strings of Characters**
 
-Recognizing the failure is easier than defining the rule. The table below
-contrasts commits from a real editorial workflow — the left column shows patterns
-that recur constantly in student repositories, the right shows the same work
-recorded usably.
+Before we explore how to mark up historical documents, we must pause and consider how a computer "thinks" about language. When a human reads the word *"Homer"*, our brain instantly retrieves rich semantic associations: ancient Greece, epic poetry, the Trojan War, blindness, and hexameter verse.
 
-| Non-atomic commit | Why it fails | Atomic replacement |
-| --- | --- | --- |
-| `updates` | Describes nothing; diff must be read to learn anything | Separate commits, each naming its change |
-| `fixed typos and added header` | Two unrelated acts; neither is separately reversible | `fix(transcription): correct itacism at 3.14`, then `feat(header): add teiHeader` |
-| `end of day` | Groups by time rather than by meaning | One commit per decision made that day |
-| `AI stuff` | Hides provenance of machine-generated content | `feat(transcription): add LLM draft` with an `AI-Generated: true` trailer |
-| `asdfasdf` | Placeholder committed in haste and never revisited | Any message stating the actual change |
+To a computer, however, the word *"Homer"* is merely a sequence (a **string**) of five abstract numerical character codes:
 
-Two habits produce most non-atomic commits. The first is committing by clock
-rather than by meaning — working for three hours and then committing whatever
-has accumulated. The remedy is to commit when a change is *finished*, not when
-you stop working. The second is treating commits as saves. Your editor already
-saves your file; a commit is a claim that a piece of work is complete enough to
-be recorded, and it should be reserved for that.
+- `'H'` (Unicode value 72)
+- `'o'` (Unicode value 111)
+- `'m'` (Unicode value 109)
+- `'e'` (Unicode value 101)
+- `'r'` (Unicode value 114)
 
-There is a legitimate exception worth knowing. Work-in-progress commits on a
-private branch, made to preserve state before an experiment, are a normal and
-useful practice. The expectation is that such commits are cleaned up — squashed
-and given real messages — before the branch is merged. What must not happen is
-work-in-progress commits reaching `main` and being left there as the permanent
-record.
+The computer possesses zero inherent understanding that "Homer" is an author, that the text is Greek literature, or that the sentence is a question. If we want a computer program to search for all personal names in an ancient text, or to distinguish a spoken dialogue from narrator commentary, we must provide explicit structural cues that the computer can parse.
 
-**Takeaway:** Commit when a change is complete, not when you
-stop working for the day.
+**Vocabulary.** *String* — a sequence of characters (letters, numbers, punctuation, and spaces) treated as a fundamental data type in computer programming. *Character Encoding* — a system that pairs each character in a language with a specific numerical code (e.g., ASCII, Unicode). *Semantic Meaning* — the human understanding, context, and significance conveyed by words.
+
+**Takeaway:** Computers process text as dumb strings of numerical character codes; to make historical texts computable, human scholars must add explicit structural and semantic markers.
 
 ---
 
 ## **15 Content**
 
-**The Conventional Commits Specification**
+**What is Markup? Putting Labels on Human Language**
 
-Ad-hoc commit messages degrade predictably. A log of "fixed typos," "more
-edits," and "updated XML" carries no information that could not be obtained by
-reading the diffs, which means the log has failed (Huskey, 2024). The remedy
-adopted in this course is a formal message grammar: the Conventional Commits
-specification.
+The word **markup** comes from traditional print publishing. Before computers, an editor would take an author's handwritten manuscript and literally "mark it up" in the margins with blue pencil, writing instructions to the typesetter: *"Set this in 14pt italics," "Indent this paragraph,"* or *"Insert footnote here."*
 
-The specification mandates a structured subject line (Conventional Commits,
-n.d.):
+In digital humanities, **digital markup** serves a similar purpose, but with a crucial difference: instead of only giving *visual formatting* instructions (like "make this bold"), digital markup gives *semantic and structural* meaning to the text.
 
-```text
-<type>[optional scope]: <description>
+Imagine you have this plain text sentence:
+> Socrates spoke to Plato in Athens.
 
-[optional body]
+To mark this up digitally, we place descriptive labels around the words:
+> `<person>Socrates</person> spoke to <person>Plato</person> in <place>Athens</place>.`
 
-[optional footer(s)]
-```
+Now, a simple computer script can scan 10,000 pages of text and extract a list of every `<person>` mentioned and every `<place>` visited, without getting confused by ordinary words.
 
-The `type` is drawn from a fixed vocabulary and states the *kind* of change. The
-optional `scope`, in parentheses, states *where* the change applies. The
-description states what changed, in the imperative mood and lower case, without
-a closing period. The body — separated by a blank line — carries the rationale,
-and the footers carry structured metadata.
+**Vocabulary.** *Markup* — text added to the content of a document to provide structural, formatting, or semantic metadata. *Semantic Markup* — markup that describes the meaning and conceptual nature of text content rather than its visual appearance. *Presentational Markup* — markup that describes only visual styling (e.g., bold, color, font size).
 
-The value of a fixed grammar is that it makes the log machine-readable. A history
-written this way can be filtered, counted, and summarized programmatically: every
-apparatus correction, every normalization decision, every AI-assisted commit can
-be extracted with a single command. A history written ad hoc can only be read
-one line at a time by a human being, which in practice means it is not read at
-all.
-
-**Vocabulary.** *Type* — the fixed-vocabulary term classifying a commit.
-*Scope* — an optional parenthesized noun naming the affected component. *Footer /
-trailer* — structured `Key: value` metadata at the end of a commit message.
-
-**Takeaway:** A fixed message grammar makes the commit log
-queryable, which is what makes it usable as an apparatus.
+**Takeaway:** Digital markup embeds explicit labels within text, allowing computers to search, categorize, and analyze semantic entities like people, places, and dates across large textual corpora.
 
 ---
 
 ## **16 Content**
 
-**Mapping Commit Types to Editorial Acts**
+**The Anatomy of XML: Elements, Tags, Content, and Attributes**
 
-Conventional Commits was written for software, and its vocabulary reflects that.
-This course adopts the specification but binds each type to a specific class of
-editorial intervention, so that the log describes philological work rather than
-programming work (Huskey, 2024).
+The global standard for writing structured markup in the humanities is **XML** (which stands for **Extensible Markup Language**). XML is not a programming language; it is a markup format with strict, elegant grammatical rules.
 
-| Type | Editorial meaning | Example |
-| --- | --- | --- |
-| `feat` | New material: a witness, a division, a translation, an apparatus entry | `feat(collation): add witness N for lines 1-20` |
-| `fix` | Correction of an error: a mistranscription, an invalid tag, a wrong siglum | `fix(apparatus): correct siglum from V to N at line 14` |
-| `refactor` | Systemic change to encoding method, with no change to the reading | `refactor(epidoc): move inline app entries to external div` |
-| `chore` | Maintenance: metadata, formatting, normalization passes | `chore(unicode): normalize Greek text to NFC` |
-| `docs` | Editorial documentation: README, method notes, decision records | `docs(method): record normalization policy for iota subscript` |
-| `test` | Validation work: schema checks, error-rate measurement scripts | `test(schema): add RelaxNG validation for edition.xml` |
+Let us examine the anatomy of a standard XML building block:
+```xml
+<placeName type="city" ref="https://pleiades.stoa.org/places/579885">Athens</placeName>
+```
 
-The distinction between `fix` and `refactor` is the one that repays attention,
-because it maps onto a genuine philological difference. A `fix` changes what the
-edition *claims* — the reading was wrong and is now right. A `refactor` changes
-how the edition *expresses* a claim that is unchanged — the same reading, encoded
-differently. Giarratano's shift from positive to negative apparatus was a
-refactor of enormous scope, and recording it as such would have marked it as a
-methodological change rather than a textual one (Huskey, 2024).
+This snippet consists of four fundamental parts:
 
-Use `chore` sparingly. It is a genuine category for mechanical maintenance, but
-it is also the path of least resistance, and a log in which most commits are
-`chore` is a log whose author was not thinking about classification.
+1. **Opening Tag (`<placeName>`):** Starts with `<` and ends with `>`, announcing that a specific element begins here.
+2. **Element Name (`placeName`):** The identifier that names what kind of information this is.
+3. **Attributes (`type="city"` and `ref="..."`):** Key-value pairs inside the opening tag that provide extra metadata. Attributes always use an equals sign and wrap their values in quotation marks (`name="value"`).
+4. **Content (`Athens`):** The actual text lying between the opening and closing tags.
+5. **Closing Tag (`</placeName>`): Starts with `</` and ends with `>`, signaling that this element is finished.
 
-**Takeaway:** The type prefix classifies the *kind* of
-editorial act, and `fix` versus `refactor` marks the difference between changing
-a claim and changing its expression.
+Together, the opening tag, attributes, content, and closing tag form a single **XML Element**.
+
+**Vocabulary.** *XML (Extensible Markup Language)* — a text format designed for storing and transporting structured data with customizable tags. *XML Element* — a logical unit of XML comprising an opening tag, content, and closing tag. *XML Attribute* — a name-value pair inside an opening tag providing supplementary metadata about the element.
+
+**Takeaway:** An XML element consists of an opening tag with optional attributes, text content, and a matching closing tag (`<tag attribute="value">content</tag>`).
 
 ---
 
 ## **17 Content**
 
-**The Commit Body: Recording Rationale, Not Description**
+**Golden Rules of XML: Closing Tags and Clean Nesting**
 
-The subject line says what changed. The body says why — and the body is where
-the scholarship lives. A diff already shows what changed, exhaustively and
-without ambiguity; no prose description can improve on it. What the diff cannot
-supply is the reasoning, and that is irrecoverable once forgotten.
+Unlike human readers, who can easily overlook missing punctuation or deduce meaning from messy handwriting, XML parser software is strictly unforgiving. For an XML document to be valid, it must be **well-formed**, meaning it obeys two golden rules:
 
-Compare two records of the same edit:
+**Rule 1: Every opening tag must have an exact closing tag.**
 
-```text
-fix(transcription): correct reading at line 14
-```
+- ❌ Broken: `<title>The Iliad` (missing `</title>`)
+- ✅ Valid: `<title>The Iliad</title>`
 
-```text
-fix(transcription): correct ἐγένετο to ἐγένοντο at line 14
+**Rule 2: Elements must be cleanly nested, never overlapping.**
+Elements must close in the reverse order that they opened, like Russian nesting dolls:
 
-The plural is required by the compound subject in line 13. Collation
-against the facsimile at f. 42v confirms the manuscript reads -οντο;
-the singular in my Tuesday transcription was an eye-skip to the
-identical form in line 11. Cf. the same error corrected at 2.7.
-```
+- ❌ Broken: `<sentence><person>Achilles</sentence></person>` (overlapping tags)
+- ✅ Valid: `<sentence><person>Achilles</person></sentence>` (clean nesting)
 
-The first is adequate bookkeeping. The second is a scholarly note: it states the
-evidence, identifies the cause of the original error, and cross-references a
-related decision. Six weeks from now, when you are writing the commentary layer
-and need to explain this reading, the second commit has already written half of
-it (Huskey, 2024).
+If an element has no text content (such as a line break), it can be written as a self-closing tag: `<lb/>` or `<pb n="12r"/>` (page break for folio 12 recto). If an XML file violates even a single rule, the computer refuses to process it and reports a syntax error. This strictness is intentional: it guarantees that data is never ambiguous.
 
-The habit to build is to write the body as though for a reader who does not have
-your current context — because in December, you will be that reader. State what
-the manuscript shows, what you decided, and what evidence or principle decided
-it. Where a decision was genuinely uncertain, say so and say what would resolve
-it; a recorded uncertainty is far more useful to a later editor than a confident
-silence.
+**Vocabulary.** *Well-Formed XML* — XML code that strictly adheres to the syntactic grammar rules of the XML specification (all tags closed, properly nested, attributes quoted). *Self-Closing Tag* — an empty XML element that closes itself without separate closing tags (e.g., `<lb/>`). *XML Parser* — software that reads and checks XML documents to ensure they are well-formed before processing.
 
-**Takeaway:** The diff records what you changed; only the
-commit body can record why, and only if you write it at the time.
+**Takeaway:** Well-formed XML requires that every tag is explicitly closed and that elements nest cleanly without overlapping boundaries.
 
 ---
 
 ## **18 Content**
 
-**Reading History with `git log`**
+**What is TEI? The Global Standard for Historical Manuscripts**
 
-A log is only valuable if it can be interrogated. `git log` in its bare form
-prints commits in reverse chronological order with full metadata, which is
-rarely the view you want. Its options turn it into a genuine research
-instrument.
+Because XML is "extensible," anyone can invent whatever tag names they want. You could invent `<coolManuscript>` and someone else could invent `<oldBook>`. But if every university and archive uses random tags, nobody can share data.
 
-| Command | Returns | Editorial use |
-| --- | --- | --- |
-| `git log --oneline` | One line per commit | A rapid overview of the edition's development |
-| `git log --oneline --graph` | The same, with the DAG drawn | Seeing where branches diverged and merged |
-| `git log --follow <file>` | History of one file across renames | The full record of one transcription |
-| `git log -S "ἐγένοντο"` | Commits that added or removed a string | Finding when a reading entered the text |
-| `git log --grep="apparatus"` | Commits whose messages match a pattern | Retrieving all apparatus-related decisions |
-| `git log --since="2026-10-01"` | Commits within a date range | Reconstructing a week's work for a report |
+In 1987, an international consortium of literature professors, manuscript curators, and computer scientists founded the **Text Encoding Initiative (TEI)**. The TEI created an exhaustive, scholarly dictionary of XML tags specifically designed for historical texts, manuscripts, and literary works.
 
-The `-S` option — the "pickaxe" — deserves particular attention, because it has
-no analogue in ordinary file management and it answers a question philologists
-ask constantly: *when did this reading enter the text, and who put it there?*
-Given a form you are unsure about, `-S` returns exactly the commits that
-introduced or removed it, and the commit body then supplies the rationale.
+Today, the **TEI P5 Guidelines** are the universal standard for digital scholarly editions worldwide (used by Oxford, the British Library, the Vatican Library, Perseus, and Harvard). When you learn TEI in this course, you are learning the exact encoding framework used by professional digital editors across the globe.
 
-You will use these in Week 12, when the commentary layer requires you to justify
-editorial decisions made two months earlier. Students who wrote informative
-commit bodies retrieve their reasoning in seconds. Students who wrote "updates"
-reconstruct it from memory, badly.
+**Vocabulary.** *Text Encoding Initiative (TEI)* — an international organization and standard for encoding humanities texts in XML. *TEI P5* — the current fifth version of the official TEI Guidelines and tagset. *Digital Scholarly Edition* — a critical edition of a historical text produced and published using digital computational standards.
 
-**Takeaway:** `git log` with `-S` and `--grep` turns the commit
-history into a searchable record of editorial decisions.
+**Takeaway:** The TEI (Text Encoding Initiative) is the international standard vocabulary of XML tags used by libraries, universities, and scholars to encode historical texts and manuscripts.
 
 ---
 
 ## **19 Content**
 
-**Reading Change with `git diff`**
+**A Simple TEI Example: Marking People, Places, and Deleted Words**
 
-Where `log` shows which commits exist, `diff` shows what they altered. It
-operates between any two states Git knows about, which includes states you have
-not committed.
+To see how intuitive TEI XML is, look at how a medieval manuscript sentence is encoded when a scribe made a mistake and crossed out a word:
 
-| Invocation | Compares | Answers |
-| --- | --- | --- |
-| `git diff` | Working directory against index | What have I changed but not staged? |
-| `git diff --staged` | Index against last commit | What exactly am I about to commit? |
-| `git diff HEAD` | Working directory against last commit | What have I changed since the last commit? |
-| `git diff abc123 def456` | Any two commits | What changed between these two states? |
-| `git diff main..experiment` | Two branches | How does this editorial hypothesis differ? |
+```xml
+<p>
+  In the year <date when="1245">1245</date>, 
+  <persName ref="#scribe_john">John</persName> visited 
+  <placeName ref="#antioch">Antioch</placeName> and wrote 
+  <del rend="strikethrough">twenty</del>
+  <add place="above">thirty</add> pages.
+</p>
+```
 
-`git diff --staged` should become reflexive. It is the last check before a commit
-becomes permanent, and it catches the two most common errors — staging a file you
-did not intend to include, and failing to stage one you did.
+Look at what this simple TEI snippet accomplishes:
 
-For a scholarly edition, `git diff main..experiment` is the powerful case. It
-renders the full difference between two complete editorial approaches as a
-structured document — which is, precisely, an apparatus criticus generated
-automatically from your own work. When in Week 6 you produce a hand-normalized
-text and a script-normalized text, this command is how you will compare them.
+- `<persName>` and `<placeName>` identify the historical human beings and geographical locations.
+- `<date when="1245">` allows a computer timeline to index this event, even if the text wrote "the twelfth year of the king's reign."
+- `<del>` (deletion) records that the word "twenty" was crossed out on the physical parchment.
+- `<add>` (addition) records that the word "thirty" was written above the line by the corrector.
 
-**Takeaway:** `diff` compares any two states Git knows about,
-including two competing editorial hypotheses on separate branches.
+A web browser reading this TEI file can display the clean text to general readers, or render a specialized view for palaeographers showing the strikethrough and insertion in exact visual positions.
+
+**Vocabulary.** *`<persName>` / `<placeName>`* — TEI elements that encode proper names of persons and places. *`<del>` / `<add>`* — TEI elements that record physical scribal deletions and text additions in a manuscript. *Palaeography* — the study of ancient and medieval handwriting and scripts.
+
+**Takeaway:** TEI markup allows scholars to simultaneously capture historical meaning, physical manuscript alterations (scribal corrections and additions), and metadata in a single, transparent XML file.
 
 ---
 
 ## **20 Content**
 
-**Why the Default Diff Algorithm Fails on TEI XML**
+**Why Well-Formed Markup Protects Cultural Heritage**
 
-Here the general-purpose tool meets the specialized material, and the fit is
-poor. Git's default diff uses the Myers algorithm, designed for source code, in
-which lines are typically long and distinctive. Its assumption is that matching
-lines between two versions is a good proxy for corresponding content.
+Why do scholars invest hundreds of hours encoding ancient manuscripts in TEI XML rather than simply typing them into a blog or uploading a PDF?
 
-TEI XML violates that assumption comprehensively. Marked-up philological text is
-densely nested and full of short, repetitive closing tags: `</w>`, `</rdg>`,
-`</app>`, `</lem>`, each occurring hundreds of times and each identical to every
-other instance. Presented with two versions, Myers finds enormous numbers of
-equally valid alignments among these identical lines, and frequently selects one
-that is minimal in edit distance but meaningless in structure — pairing the
-closing tag of one apparatus entry with that of an entirely different one
-(Angleraud et al., 2026).
+The answer is **long-term preservation and multi-purpose reusability**. When a historical text is encoded in clean, valid TEI XML:
 
-The output is a diff that is technically correct and practically unreadable: a
-scattering of additions and deletions spread across a region where one word
-actually changed. A student reviewing such a diff cannot see what happened, and
-so stops reviewing diffs. The audit trail is intact and useless — the failure
-mode Huskey (2024) identifies as the real risk in version-controlled editing,
-where the record exists but no one can read it.
+1. **It Never Goes Out of Date:** XML is stored in plain text. It will be just as readable in 2126 as it is today.
+2. **It Can Be Transformed into Any Format:** From a single TEI XML master file, automated scripts can instantly generate a printed book PDF, an interactive website, a mobile app version, or an audio screen-reader transcript without re-typing a single word.
+3. **It Connects to Global Knowledge Graphs:** Linking places to online historical gazetteers (like Pleiades) connects your local edition to a global map of the ancient world.
 
-This matters more than it may appear. Every verification practice in this course
-— checking an HTR output against your ground truth, reviewing an AI-suggested
-normalization, auditing a collation — depends on your ability to read a diff of
-XML. If diffs are illegible, verification degrades into trust.
+By learning to create well-formed markup, you are learning how to preserve endangered cultural heritage in a format that outlives any single software application or hardware platform.
 
-**Takeaway:** The default diff algorithm misaligns the
-repetitive closing tags of TEI XML, producing accurate diffs that no one can
-read.
+**Vocabulary.** *Data Longevity* — the ability of digital information to remain readable and usable over long time horizons. *Transformation Pipeline* — an automated series of computational steps that converts master data (e.g., TEI XML) into multiple output formats (HTML, PDF, EPUB). *Gazetteer* — a geographical dictionary or database linking historical place names to geographic coordinates.
+
+**Takeaway:** Well-formed TEI markup protects cultural heritage by preserving historical evidence in a durable, software-independent format that can be automatically transformed into websites, books, and research databases.
 
 ---
 
 ## **21 Content**
 
-**Patience and Histogram Diff**
+**What is Python and Why Do Humanists Use It?**
 
-The fix is to change algorithms, and Git ships with alternatives designed for
-exactly this failure.
+As your digital collection of historical texts grows from one page to thousands of pages, doing everything by hand becomes impossible. If you need to count how many times each character speaks in a 500-page drama, or verify that every date in 200 XML files is formatted correctly, you need automation.
 
-The **patience** algorithm inverts Myers' approach. Rather than seeking the
-minimal edit script over all lines, it first discards every line that appears
-more than once, computes the longest common subsequence over the *unique* lines
-that remain, and only then fills in the gaps between those anchors. Because
-`</app>` appears hundreds of times it is ignored as an anchor, while the distinct
-line containing your actual reading is unique and anchors correctly. The result
-aligns on meaningful content and keeps structural pairs together.
+This is where **Python** enters our digital scriptorium. Python is one of the world's most popular programming languages, celebrated for its clear, readable syntax that looks very close to plain English. 
 
-The **histogram** algorithm extends patience with a refinement to how it handles
-lines of low occurrence, and is substantially faster on large files. For TEI work
-it gives output of comparable quality to patience at better performance, and it
-is the sensible default for this course.
+In this course, you are **not** expected to be a computer science major or a professional software engineer. We use Python as a **scholarly research assistant**—writing short, focused scripts to handle tedious, repetitive tasks:
 
-Set it once, globally:
+- Scanning folders to find specific words or phrases.
+- Converting spreadsheets of manuscript metadata into valid XML records.
+- Calculating word frequencies and vocabulary overlap across ancient authors.
+- Automating the compilation of course interactive lessons and quizzes.
 
-```bash
-git config --global diff.algorithm histogram
-```
+**Vocabulary.** *Python* — a high-level, interpreted programming language known for its readability and widespread use in data science, artificial intelligence, and digital humanities. *Script* — a small program written in a language like Python to automate a specific sequence of tasks. *Interpreted Language* — a programming language where code is executed directly by an interpreter line-by-line without prior machine compilation.
 
-Do this now, before your first transcription. The setting costs nothing, changes
-no stored data — diff algorithms affect only how differences are *displayed*, not
-what is recorded — and it is the difference between a reviewable edition and an
-unreviewable one.
-
-**Vocabulary.** *Longest common subsequence* — the longest sequence of elements
-appearing in the same order in two sequences, not necessarily contiguously.
-*Anchor* — a uniquely matching line used to align two versions before filling in
-surrounding differences.
-
-**Takeaway:** `diff.algorithm histogram` makes TEI diffs
-legible by anchoring on unique lines instead of repetitive closing tags.
+**Takeaway:** Python is a readable, beginner-friendly programming language that digital humanists use to automate tedious tasks, process text collections, and transform research data.
 
 ---
 
 ## **22 Content**
 
-**Line Endings, `.gitattributes`, and Cross-Platform Collaboration**
+**Running Your First Python Script in the Terminal**
 
-A second infrastructural hazard is invisible until it destroys a week's diffs.
-Operating systems disagree about how to end a line: Windows writes a carriage
-return followed by a line feed (CRLF), while macOS and Linux write a bare line
-feed (LF).
+Writing and running a Python script is remarkably straightforward. Because a Python script is simply a plain text file saved with the `.py` extension, you can create it directly inside VS Code.
 
-The consequence in a mixed-platform class is severe. A student edits one word of
-a transcription on Windows and commits; their editor rewrites every line ending
-in the file, and Git — which compares bytes — correctly reports that every line
-changed. The one-word edit is now invisible inside a diff claiming the entire
-document was rewritten. Nothing is corrupted, but the audit trail for that commit
-is destroyed.
-
-The remedy is a `.gitattributes` file at the repository root, which instructs Git
-to normalize line endings on commit regardless of the committing platform:
-
-```text
-* text=auto eol=lf
-*.xml text eol=lf
-*.md text eol=lf
-*.jpg binary
-*.tif binary
+Consider a simple script saved as `hello_humanities.py`:
+```python
+student_name = "Alex"
+course = "RELS 398: Digital Methods"
+print(f"Welcome to {course}, {student_name}!")
 ```
 
-Commit this file before anyone else touches the repository, so that normalization
-applies from the beginning. The `binary` declarations matter too: they stop Git
-from attempting line-ending conversion on facsimile images, which would corrupt
-them outright.
+To run this script, you open the integrated terminal in VS Code and type:
+```bash
+python3 hello_humanities.py
+```
 
-`.gitattributes` also controls diff behaviour per file type, and you will extend
-it in Week 8 when the apparatus layer makes XML-aware diffing worth configuring
-specifically.
+The computer invokes the Python interpreter, executes the instructions line-by-line, and prints the output directly onto your screen:
+`Welcome to RELS 398: Digital Methods, Alex!`
 
-**Takeaway:** `* text=auto eol=lf` in `.gitattributes` prevents
-platform line-ending differences from swamping your diffs.
+In our weekly workshops, you will run pre-built Python scripts provided in the repository, learning how each command connects to the files on your hard drive.
+
+**Vocabulary.** *`python3`* — the terminal command used to invoke the Python 3 interpreter and execute a Python script file. *Variable* — a named storage location in a computer program that holds data (e.g., `student_name = "Alex"`). *`print()`* — a fundamental Python function that outputs text to the terminal screen.
+
+**Takeaway:** Python scripts are plain text files (.py) executed through the terminal using the command `python3 <script_name>`, executing your instructions line-by-line.
 
 ---
 
 ## **23 Content**
 
-**Pre-Commit Hooks: Automating Editorial Hygiene**
+**Automating Repetitive Tasks: Counting Words and Searching Texts**
 
-Some requirements are too easy to forget and too consequential to leave to
-memory. Git's answer is the **hook**: a script that runs automatically at a
-defined point in the Git workflow. A `pre-commit` hook runs immediately before a
-commit is finalized, and if it exits with a non-zero status the commit is
-aborted.
+To see the real power of Python in textual scholarship, imagine you are given a 100,000-word Latin or Greek text and asked to find every line containing the word for "king" (*basileus* or *rex*). Searching manually with your eyes would take hours and you might easily miss occurrences due to fatigue.
 
-For a digital editing repository, two checks belong in that hook. The first is
-Unicode normalization: a short script using Python's `unicodedata` library
-rewrites all staged text into Normalization Form C before the commit proceeds
-(Python Software Foundation, n.d.). The second is schema validation: the staged
-XML is checked against the EpiDoc RelaxNG schema, so that a structurally invalid
-file cannot enter the history at all (EpiDoc Guidelines, 2026; TEI Consortium,
-2026).
-
-Hooks live in `.git/hooks/` and must be executable. A minimal skeleton:
-
-```bash
-#!/bin/sh
-# .git/hooks/pre-commit
-python3 tools/normalize_nfc.py || exit 1
-xmllint --noout --relaxng schema/tei-epidoc.rng edition/*.xml || exit 1
+In Python, this task requires only five lines of code:
+```python
+with open("ancient_text.txt", "r", encoding="utf-8") as f:
+    for line_num, line in enumerate(f, start=1):
+        if "king" in line.lower():
+            print(f"Line {line_num}: {line.strip()}")
 ```
 
-Note one consequence of where hooks live: `.git/hooks/` is *not* itself version
-controlled, so hooks do not travel when a repository is cloned. Keep the scripts
-in a tracked `tools/` directory and install them into `.git/hooks/` with a setup
-script — otherwise your collaborators, and the instructor, will not have the
-checks you rely on.
+In less than one-tenth of a second, Python scans all 100,000 words, checks every sentence, and prints every matching line alongside its exact line number. This is not about replacing human scholarly reading; it is about freeing the human scholar from mechanical drudgery so you can focus your intellect on deep interpretation, critical analysis, and historical context.
 
-Why the second check matters will become clear in Week 8: a malformed XML file
-breaks every downstream process in the pipeline, and the cost of catching it at
-commit time is a few seconds, while the cost of discovering it three weeks later
-is a re-encoding.
+**Vocabulary.** *Iteration (Loop)* — a computational process where a sequence of instructions is repeated for each item in a collection (e.g., for every line in a file). *Computational Reading (Distant Reading)* — an approach in literary and historical studies that analyzes large text corpora computationally rather than through traditional close reading alone.
 
-**Takeaway:** A pre-commit hook enforces normalization and
-schema validity automatically, but hooks are not cloned — install them from a
-tracked directory.
+**Takeaway:** Python automates mechanical textual tasks (like concordance searches and frequency counts) in milliseconds, liberating scholars to focus on critical interpretation.
 
 ---
 
 ## **24 Content**
 
-**Commit Trailers and the Documentation of AI Interventions**
+**Python as the Glue Connecting Texts, Images, and Web Pages**
 
-This course will have you use machine assistance every Friday, and will require
-you to measure it against your own work. That comparison depends on being able to
-tell, unambiguously and later, which text a machine produced and which text you
-produced. Memory will not supply this; the repository must.
+In a modern digital edition project, you work with many different kinds of media simultaneously:
 
-Git's mechanism is the **trailer**: structured `Key: value` metadata on the final
-lines of a commit message, which Git parses and can filter on (Conventional
-Commits, n.d.). Every commit in this course that contains machine-generated or
-machine-corrected content must carry trailers recording the fact.
+- High-resolution photographs of manuscript pages from library servers (IIIF).
+- Structured TEI XML transcription files.
+- Metadata spreadsheets tracking scribes, dates, and watermark dimensions.
+- Web browser user interfaces (HTML/CSS) displaying the finished edition.
 
-```text
-feat(transcription): add HTR output for ff. 42r-43v
+Python is the **universal glue** that binds all these pieces together. A Python script can download manuscript images from an Oxford server via an API, match each image to the corresponding TEI XML page break tag (`<pb/>`), extract vocabulary definitions, and compile everything into a seamless interactive web page or Moodle quiz. Throughout this course, our shared Python scripts handle this pipeline smoothly behind the scenes.
 
-Transkribus model trained on 8 pages of my own diplomatic transcription
-(Week 4 Tuesday ground truth). Uncorrected model output; corrections
-follow in a separate commit so that raw CER can be measured against
-this state.
+**Vocabulary.** *Glue Code* — software code that does not implement core algorithms itself, but instead connects disparate software components, formats, and services together. *Pipeline* — a set of automated data processing elements connected in series, where the output of one element is the input of the next.
 
-AI-Generated: true
-Model: Transkribus / Text Titan I
-Human-Verified: false
-Ground-Truth-Commit: a3f9c21
-```
-
-The `Human-Verified: false` trailer is the one students most often omit and most
-need. It marks text that has entered the repository but has *not* yet been
-checked — the single most dangerous state for an edition, because unverified
-machine output is indistinguishable on screen from verified transcription. A
-later commit flips it to `true` once you have checked the passage against the
-facsimile.
-
-The requirement is not bureaucratic. Angleraud et al. (2026) document
-vision-language models achieving a median character error rate of 1.0% on Greek
-critical editions while simultaneously producing "catastrophic page-level
-failures" — fluent, entirely fabricated Greek text with no relation to the image.
-Output that good on average and that bad occasionally is precisely the kind that
-must be labelled, because spot-checking will not find the failures.
-
-**Takeaway:** Every commit containing machine-generated text
-carries trailers recording the model, and whether a human has verified it.
+**Takeaway:** Python acts as the connective glue in digital scholarship, linking raw manuscript images, XML markup, metadata databases, and interactive web interfaces into a unified workflow.
 
 ---
 
 ## **25 Content**
 
-**Auditing Provenance Programmatically**
+**What is a Large Language Model (Claude)?**
 
-Trailers earn their keep when the history is queried rather than read. Because
-the metadata is structured, the whole repository can be interrogated for the
-provenance of its contents (Huskey, 2024).
+In recent years, artificial intelligence has undergone a revolutionary shift with the development of **Large Language Models (LLMs)**, such as Anthropic's **Claude** and OpenAI's GPT models.
 
-| Question | Command |
-| --- | --- |
-| Which commits introduced machine-generated text? | `git log --grep="AI-Generated: true"` |
-| What remains unverified by a human? | `git log --grep="Human-Verified: false"` |
-| Which models were used across the term? | `git log --pretty=format:"%(trailers:key=Model)"` |
-| How much of the edition is machine-assisted? | `git rev-list --all --grep="AI-Generated: true" --count` |
-| What did a given model contribute? | `git log --grep="Model: Transkribus"` |
+An LLM is not a conscious mind, nor is it a magical all-knowing oracle. At a technical level, an LLM is a massive statistical neural network trained on hundreds of billions of words from books, academic articles, websites, and source code. By analyzing these vast patterns of human language, the model learns the complex grammatical, syntactic, and conceptual relationships between words.
 
-The second query is the one to run habitually. It produces a live list of
-everything in your edition that a machine wrote and you have not yet checked —
-a work queue that maintains itself, and, at the end of term, a statement of
-exactly how much of your edition rests on unverified automation.
+When you give an LLM a prompt (e.g., *"Translate this ancient Greek sentence into English and explain the grammatical case of each noun"*), the model uses statistical probability to generate a coherent, contextually appropriate response. Because LLMs have ingested vast multilingual and coding corpora, they are remarkably fluent at analyzing historical languages and writing computational code.
 
-This capability is the concrete form of the reproducibility argument. A reader of
-your finished edition can ask what came from where and receive an answer derived
-from the record rather than from your recollection. Cowen-Breen et al. (2023),
-describing machine learning applied to premodern Greek, emphasize that the value
-of such tools in scholarship depends on the scholar's ability to state precisely
-where the machine's judgement enters — which is exactly what these trailers make
-possible.
+**Vocabulary.** *Large Language Model (LLM)* — an artificial intelligence algorithm trained on massive text datasets that uses deep learning to understand, generate, and process natural human language. *Prompt* — the natural-language input, question, or instruction given to an AI model to guide its response. *Neural Network* — a computational model inspired by the human brain's interconnected neurons, used in machine learning to recognize patterns in data.
 
-**Takeaway:** Structured trailers let you query your own
-edition for what a machine wrote and what you have verified.
+**Takeaway:** Large Language Models like Claude are powerful statistical AI systems trained on vast textual datasets, capable of understanding prompts and generating fluent natural language and code.
 
 ---
 
 ## **26 Content**
 
-**Tags and Semantic Versioning for Published States**
+**How AI Can Assist: Transcribing, Summarizing, and Formatting**
 
-Some states of an edition matter permanently: the version submitted for an
-assignment, the version reviewed by a peer, the version published at term's end.
-Commit hashes identify these perfectly but cite terribly — `a3f9c21` is not a
-reference a reader can use. A **tag** attaches a durable name to a commit.
+For digital humanists, LLMs represent an astonishingly versatile research partner. When used properly, an AI assistant like Claude can accelerate scholarship in several major areas:
 
-```bash
-git tag -a v1.0.0 -m "Cataloguing and metadata assignment as submitted, Sep 18"
-```
+1. **Preliminary Transcription & Decipherment:** Helping decipher damaged or difficult manuscript readings by proposing plausible grammatical reconstructions based on context.
+2. **Metadata Extraction:** Reading an unstructured 19th-century Latin catalogue entry and automatically restructuring the dates, authors, and shelfmarks into a tidy table or JSON format.
+3. **Drafting Markup:** Converting plain text into draft TEI XML with proper tags and attributes in seconds, saving hours of manual bracket typing.
+4. **Code Explanation:** Explaining what a confusing Python script does line-by-line in plain English, helping you debug errors.
 
-The `-a` flag creates an *annotated* tag, which is a full object in the database
-carrying its own author, date, and message. Lightweight tags — created without
-`-a` — are bare pointers with no metadata, and are not appropriate for anything
-you intend to cite.
+AI does not replace the scholar's expertise; it acts as a tireless research assistant that handles tedious structural conversions at lightning speed.
 
-The Library of Digital Latin Texts applies semantic versioning to editions, and
-this course follows the same scheme (Huskey, 2024):
+**Vocabulary.** *AI-Assisted Philology* — the practice of using artificial intelligence models to assist with transcription, translation, grammatical parsing, and markup in textual scholarship. *Data Restructuring* — converting unstructured text (like a narrative book description) into standardized, structured data (like XML or JSON).
 
-| Component | Increments when | Editorial meaning |
-| --- | --- | --- |
-| Major (`2.0.0`) | Method or markup changes systemically | A different editorial approach to the same text |
-| Minor (`1.1.0`) | Material is added without restructuring | New witnesses, apparatus entries, or commentary |
-| Patch (`1.0.1`) | Localized errors are corrected | Typographic and encoding fixes only |
-
-The payoff is citability with recoverable difference. A reviewer given `v1.0.0`
-and `v2.0.0` can run `git diff v1.0.0..v2.0.0` and see the complete evolution of
-your editorial thought between two published states — the precise capacity that
-Giarratano's five print editions destroyed (Huskey, 2024).
-
-**Takeaway:** Annotated tags with semantic versions give an
-edition citable states whose differences remain machine-recoverable.
+**Takeaway:** AI models can assist scholars by generating draft transcriptions, restructuring messy bibliographic notes into clean XML, and explaining complex computer code.
 
 ---
 
 ## **27 Content**
 
-**Case Study: The Library of Digital Latin Texts**
+**The Critical Rule: AI Hallucinations and Why the Human Stays in Charge**
 
-The LDLT, operating under the Digital Latin Library, is the fullest realization
-of the argument this lesson has been making, and it is worth examining as a model
-for what your own repository is a small instance of.
+Despite their impressive fluency, LLMs have a critical, dangerous flaw: **hallucination**. Because an LLM generates text based on statistical plausibility rather than an internal concept of ground-truth fact, it can confidently invent false information that *looks* completely convincing:
 
-The project's foundational commitment is the separation of the edition's *data*
-from its *presentation*. A traditional critical edition fuses the two
-irretrievably: the apparatus is a set of typographic conventions at the foot of a
-page, and extracting the underlying scholarly claims from that layout is a manual
-task. The LDLT instead maintains editions as TEI XML in Git repositories, from
-which any number of presentations — print, web, machine-readable API — can be
-generated. The edition is a database; the book is one view of it (Huskey, 2024).
+- An LLM might invent a non-existent Greek manuscript shelfmark at the British Library.
+- It might cite a fake academic paper written by real professors.
+- It might translate a Latin verb with absolute grammatical confidence, but completely invert the historical meaning.
 
-This decoupling makes version control not merely useful but necessary. When the
-edition is a printed artifact, "the edition" is unambiguous — it is the object on
-the shelf. When the edition is a repository, identity must be established
-explicitly, which is what the annotated tag and the semantic version supply.
-The LDLT requires its editors to use both, so that any state of any edition can
-be cited and retrieved exactly (Huskey, 2024).
+In scholarship, an unverified hallucination is fatal. That is why the golden rule of this course is: **The AI proposes, but the human scholar disposes.** 
 
-The editorial workflow is correspondingly formalized. Editors work in branches;
-changes arrive by pull request; review happens on the diff, with reviewers
-commenting on specific lines of the proposed change. Peer review of an edition
-thus operates on the *change* rather than on the finished object — reviewers see
-not only what the editor concluded but what the editor altered and why. This is
-the workflow you will practise in the Week 5 reconciliation exercise and in every
-peer review thereafter.
+You must never blindly accept AI output as authoritative truth. Every AI-generated transcription, translation, and XML tag must be audited and verified against the primary historical evidence by a human editor.
 
-**Takeaway:** The LDLT treats an edition as a versioned
-database with citable releases, making peer review operate on changes rather than
-on finished objects.
+**Vocabulary.** *Hallucination (AI)* — a confident response generated by an AI model that contains false, fabricated, or inaccurate information not grounded in its source data. *Human-in-the-Loop (HITL)* — a workflow design where automated or AI processes require human review, judgment, and approval at critical decision points.
+
+**Takeaway:** AI models frequently hallucinate plausible-sounding falsehoods; human scholars must always audit and verify every AI-generated claim against primary evidence.
 
 ---
 
 ## **28 Content**
 
-**Case Study: The Perseids Platform and Undergraduate Editing**
+**What is Antigravity? An Agentic Workspace for Pair-Programming**
 
-Perseids, developed at Tufts University in association with the Perseus Project,
-demonstrates that the workflow in this lesson is achievable by undergraduates —
-which is the relevant question for you this week (Almas & Beaulieu, 2012).
+In traditional computing, you use software in isolation: you type code in one window, copy it into a chatbot web browser in another window, and paste the answer back. This back-and-forth copying is slow and disconnects the AI from your actual project environment.
 
-The platform was built to address a specific bottleneck: an enormous stock of
-inscriptions and manuscripts that had never been transcribed or translated, and
-a supply of students capable of the work but not of the infrastructure it
-required. Perseids' response was to keep the scholarly rigour and absorb the
-infrastructural burden. Underneath, it runs SoSOL, a papyrological editing
-platform built directly on a Git repository, so that every student intervention
-is a commit in a real version-controlled history (Almas & Beaulieu, 2012).
+In this course, we work in an advanced environment called **Antigravity** (built on Google's advanced agentic developer architecture). Antigravity is an **agentic pair-programming workspace**. 
 
-Two architectural choices are worth noting for your own work. First, texts are
-addressed with CTS URNs — canonical identifiers that resolve to specific
-hierarchical locations in a work, so that `urn:cts:greekLit:tlg0012.tlg001.
-perseus-grc1:1.1` identifies a precise textual node independently of any file or
-page. Second, transcriptions are linked to high-resolution facsimiles through an
-open annotation model, so that each editorial claim is anchored to the image
-evidence supporting it (Almas & Beaulieu, 2012). You will build both of these
-relations for your own passage: CTS-style identifiers in Week 2, image
-anchoring in Week 3.
+In Antigravity:
 
-The pedagogical result is the one this course is designed around. Because student
-work arrives as reviewable commits on branches, the instructor can assess the
-*process* — how a transcription developed, what was tried and abandoned, where
-judgement was exercised — rather than only the final artifact. Your commit
-history is part of what is being evaluated, and it is evidence of thinking that a
-finished file cannot supply.
+- The AI agent can see your project files directly (reading the exact XML, Python, and Markdown files on your disk).
+- You collaborate with the AI through natural-language conversation, asking it to inspect files, run automated verification linters, and propose edits.
+- The AI creates structured implementation plans and highlights changes for your review before executing them.
 
-**Takeaway:** Perseids shows undergraduates producing genuine
-version-controlled editions, with the commit history itself serving as evidence
-of scholarly process.
+Antigravity models the future of digital humanities collaboration: a seamless partnership where the human scholar directs the research questions and evaluates the historical evidence, while the AI agent assists with technical execution and automated consistency checks.
+
+**Vocabulary.** *AI Agent* — an artificial intelligence system that can perceive its computational environment, use tools (like reading files and running terminal commands), and take autonomous actions to achieve a specified goal. *Pair Programming* — a collaborative software development technique where two developers (or a human and an AI agent) work together on the same codebase simultaneously.
+
+**Takeaway:** Antigravity is an agentic pair-programming workspace where human scholars and AI agents collaborate directly within the project filesystem to build, test, and audit digital editions.
 
 ---
 
 ## **29 Content**
 
-**Interfaces, Accessibility, and Where Effort Should Go**
+**The Three-Step Method of This Course: Manual -> Automated -> AI-Assisted**
 
-A caution against a misplaced emphasis. This lesson has used command-line
-examples throughout, because commands are unambiguous to write down. It does not
-follow that you must work at the command line.
+To prepare you for the intellectual journey of this semester, RELS 398 is structured around a rigorous, comparative methodology called the **Three-Step Comparative Cycle**. Almost every module in this course walks through three distinct phases:
 
-The command line imposes real costs: syntax memorization, unforgiving error
-messages, and a cognitive load that competes directly with the philological
-thinking that is the actual point of the course. Huskey (2024) is explicit that
-students should be permitted and encouraged to use graphical interfaces and
-editor integrations for routine staging and committing, on the principle that
-mental effort should be spent on textual problems rather than on tool syntax.
+1. **Tuesday (Manual Foundations):** We work by hand, establishing the ground truth of scholarship. You will read raw manuscript images, transcribe letters with your own eyes, and experience the physical challenges that scribes and traditional editors faced.
+2. **Wednesday (Deterministic & Rule-Based Tools):** We apply classical computational methods—running Python scripts, compiling TEI XML, executing CollateX algorithms, and testing against strict schemas. These tools follow rigid, predictable mathematical rules.
+3. **Friday (AI-Assisted & Large Language Models):** We deploy generative AI models (like Claude) to perform the same task. We measure the AI's speed, evaluate its accuracy, audit its hallucinations, and calculate error rates (CER and WER) against our Tuesday manual ground truth.
 
-| Interface | Best suited to | Limitation |
-| --- | --- | --- |
-| Command line | Precise operations, scripting, hooks, unusual cases | Steep syntax burden; unhelpful errors |
-| VS Code Git integration | Staging, committing, diff review during editing | Obscures what commands are actually run |
-| Oxygen XML Git support | Committing without leaving the XML editor | Limited to common operations |
-| GitHub Desktop | Visual staging and history browsing | Little support for hooks or advanced work |
+By comparing all three methods every week, you will discover exactly where human judgment is irreplaceable, where rule-based algorithms excel, and where AI provides genuine scholarly leverage.
 
-The distinction to hold is between *understanding* and *typing*. You are
-responsible for understanding the object model, the DAG, atomicity, and what a
-commit records — that is conceptual knowledge, and it is examinable. Whether you
-produce a commit by typing `git commit` or by clicking a button in VS Code is a
-matter of preference, and the resulting commit is byte-identical either way.
+**Vocabulary.** *Ground Truth* — the empirically verified, authoritative baseline data against which automated and AI models are measured. *Deterministic Algorithm* — an algorithm that given the same input will always produce the exact same output every time. *Comparative Methodology* — a research strategy that systematically compares different techniques (manual, algorithmic, AI) on the same dataset to evaluate their strengths and weaknesses.
 
-Use the interface that leaves you the most attention for the manuscript. Reach
-for the command line when you need something a graphical tool does not expose —
-which will happen, particularly with hooks, trailers, and `-S` searches.
-
-**Takeaway:** Understand the model conceptually; use whichever
-interface leaves you the most attention for the philology.
+**Takeaway:** RELS 398 follows a Three-Step Comparative Cycle (Tuesday Manual $
+ightarrow$ Wednesday Deterministic $
+ightarrow$ Friday AI-Assisted) to teach you how traditional philology, rule-based algorithms, and modern AI intersect.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: The Repository as Research Journal**
+**Synthesis: Building Your Toolkit for the Semester Ahead**
 
-Everything in this lesson serves one claim, which Huskey (2024) states as the
-thesis of version-controlled editing: a scholarly edition should be
-reproducible and explainable, and the repository is the instrument that makes it
-so.
+Look back at what you have explored in this opening lesson. You have moved from the passive consumer mindset of word processors to the active, empowered stance of a digital humanist.
 
-*Reproducible* means that any state of the edition can be recovered exactly. The
-content-addressable object store and the cascading hash chain provide this
-absolutely — any commit can be checked out and will be byte-identical to the
-state recorded. *Explainable* means that any decision can be traced to its
-rationale. Nothing in Git provides this automatically; it is supplied entirely by
-atomic commits, informative bodies, and honest trailers. The first property is
-architectural, the second is a discipline, and only the second can be neglected —
-which is exactly why it is what this course assesses.
+You now understand the complete anatomy of our digital scriptorium:
 
-The practices to carry into Week 2 and beyond:
+- **Plain Text and VS Code:** The durable, transparent foundation where all our data lives.
+- **Git and Version Control:** The project time machine that protects your work and records your scholarly reasoning.
+- **XML and the TEI:** The international language of structured manuscript markup that preserves cultural heritage.
+- **Python:** The versatile script engine that automates repetitive textual tasks.
+- **Claude and Antigravity:** The AI assistants and agentic workspace that augment your analytical reach while keeping you firmly in the editorial driver's seat.
 
-- Commit atomically — one editorial act per commit, describable without "and".
-- Type every commit with a Conventional Commits prefix that classifies the act.
-- Write bodies that record evidence and reasoning, for the reader you will be in December.
-- Trail every machine-assisted commit with its model and verification status.
-- Tag every submitted state with an annotated semantic version.
-- Configure `diff.algorithm histogram` and `.gitattributes` before the first transcription.
+You do not need to memorize every command or XML tag today. Each tool will be practiced step-by-step in the weeks ahead. You are now equipped with the conceptual roadmap for the digital methods of the 21st century. Welcome to the scriptorium—let us begin building!
 
-**Due this week.** Choose your manuscript passage by **Friday, September 4**. The
-selection is ungraded, but every assignment from Week 2 to Week 13 builds on it,
-so choose a passage with legible script, at least two available witnesses, and a
-manageable length — twenty to forty lines. Record the choice and your reasons in
-your repository's `README.md`, and commit it.
+**Vocabulary.** *Computational Philology* — the application of computational methods, software tools, and data structures to the historical study of language, texts, and manuscripts. *Digital Scriptorium* — a modern digital workspace for transcribing, editing, and publishing historical documents using computational tools.
 
-**Takeaway:** Reproducibility is guaranteed by Git's
-architecture; explainability is guaranteed only by your commit discipline, which
-is why the commit discipline is what is assessed.
-
----
-
-## References
-
-Almas, B., & Beaulieu, M.-C. (2012). Developing a new integrated editing
-platform for source documents in classics. *Tufts University & Perseus Project*.
-
-Angleraud, N., Karamolegkou, A., Sagot, B., & Clérice, T. (2026).
-*Structure-aware text recognition for ancient Greek critical editions* (arXiv:
-2603.02803v3). Inria.
-
-Chacon, S., & Straub, B. (2014). *Pro Git* (2nd ed.). Apress.
-https://git-scm.com/book/en/v2
-
-Conventional Commits. (n.d.). *Conventional Commits specification v1.0.0*.
-Retrieved from https://www.conventionalcommits.org/
-
-Cowen-Breen, C., Brooks, C., Graziosi, B., & Haubold, J. (2023). Machine
-learning and the future of philology: A case study. *Transactions of the American
-Philological Association, 153*(1), 253–284.
-
-EpiDoc Guidelines. (2026). *Critical apparatus*.
-https://epidoc.stoa.org/gl/latest/supp-apparatus.html
-
-Huskey, S. J. (2024). Committing to reproducibility and explainability: Using
-Git as a research journal. *International Journal of Digital Humanities, 6*,
-9–21. https://doi.org/10.1007/s42803-023-00076-9
-
-Python Software Foundation. (n.d.). *unicodedata — Unicode database*. Python 3.12
-documentation. https://docs.python.org/3/library/unicodedata.html
-
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and
-interchange* (Version 4.12.0). https://tei-c.org/guidelines/p5/
+**Takeaway:** Digital scholarship unites plain text, Git version control, TEI XML markup, Python automation, and AI pair-programming into a powerful, transparent workspace for preserving and studying historical documents.
