@@ -38,8 +38,8 @@
 
 ## 4. Open Questions & Unresolved Issues
 
-- ⚠️ **[OPEN - AWAITING QUOTA RESET]:** Gemini Slides daily quota ceiling for Lesson 3.3 slide deck generation (staged in `.staging_L3.3/`).
-- ⚠️ **[OPEN - PENDING USER REVIEW]:** Moodle course 51185 Section 2 & Section 3 activity population following Moodle re-login.
+- ⚠️ **[OPEN - AWAITING QUOTA / BATCH RUN]:** Slide deck generation for Lesson 3.3 and Modules 04–13.
+- ⚠️ **[OPEN - NEXT ACTION]:** Author Phase F module assembly packages (Banner, Objectives, Readings, Watch List, Workshop, Weekly Quiz) for Module 04 (Transcription) through Module 13.
 
 ---
 
@@ -48,13 +48,15 @@
 - **Current Phase:** Phase D/E Slide Illustrations & Companion Media for remaining lessons (starting with Lesson 3.3), and Phase F Module Assembly for Modules 04–13.
 - **Verification Gate:** `python3 scripts/lint_lesson_content.py --course-dir .` (36/36 clean, 0 issues) & `python3 scripts/status.py`.
 - **Immediate Next Steps:**
-  1. Resume slide deck generation for Lesson 3.3 once quota allows.
+  1. Resume slide deck generation for Lesson 3.3 (`.staging_L3.3/` preserved).
   2. Author Phase F packages (Banner, Objectives, Readings, Watch List, Workshop, Weekly Quiz) for Module 04 (Transcription).
 
 ---
 
 ## 6. Recent Workstream Ledger
 
+- **[2026-08-31]**: Re-authored beginner-friendly Lesson 1.1 (Plain text, VS Code, Git, XML/TEI, Python, Claude AI pair-programming). Generated 30 fresh slide illustrations, Brief Audio (1:54), Deep Dive Audio (41:52), Infographic sheet, interactive XML, standalone HTML player with embedded base64 illustrations, and printable notes PDF.
+- **[2026-08-31]**: Added automated activity deletion and section clearing to `moodle_automation.py` and `populate_moodle_topic.py`. Purged all duplicate activities from Moodle Section 1 and Section 2, cleanly redeploying both modules (51 live activities tracked in `moodle_manifest.json`).
 - **[2026-08-29]**: Assembled Section 0 (General Orientation) and Module 03 (IIIF Imaging) full packages. Completed Lesson 3.2 illustrations (30 images), interactive XML, HTML player, and companion media (`b82521d`, `736dbb0`).
 - **[2026-08-28]**: Completed Lesson 2.1 illustrations, interactive XML, HTML player, and companion media. Built Module 02 assembly package.
 - **[2026-08-28]**: Populated Module 01 in Moodle course 51185 Section 1. Generated companion media across Lessons 1.1, 1.2, 2.2, 2.3, 3.1.
