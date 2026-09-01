@@ -1,1193 +1,509 @@
-# Lesson 1.2 — Unicode Polytonic Greek, the Editing Environment, and Manuscript Selection
+# Lesson 1.2 — Data That Lasts: FAIR Principles and the Scholarly Edition Workflow
 
 *RELS 398 / ENGL 398 · Topic 1: Orientation · Meeting #2 (Fri Sep 4)*
 
-*Orientation week — the three-step comparative cycle does not yet apply. This
-meeting establishes the character-encoding foundation and the working
-environment, and closes with the selection of the manuscript passage that every
-subsequent assignment builds upon.*
+*Orientation week — the three-step comparative cycle does not yet apply. This meeting sets the scholarly agenda for the whole term: what digital humanists are trying to produce, and why they produce it that way. By the end of today you will know the FAIR principles, the standard workflow of a scholarly digital edition, and the tools and accounts you will use — and you will have chosen the manuscript passage that every later assignment builds on.*
 
 ---
 
 ## **01 Content**
 
-**Visual Identity Is Not Computational Identity**
+**Where We Stand After Lesson 1.1**
 
-Two strings of Greek appear on your screen. They are rendered by the same font at
-the same size, and they are pixel-for-pixel identical. A search for one does not
-find the other. Your XSLT transformation processes one and silently skips the
-other. Your collation software reports a variant where you can see no difference
-whatsoever.
+On Wednesday you met the digital workbench: plain text instead of proprietary document formats, VS Code as your editor, the command line as a precision instrument, Git as a time machine, XML as a way of labeling what text means, Python as an automation engine, and AI assistants that must always be checked against evidence. If any of those words still feel shaky, that is expected — every one of them returns in a specific week of this course, where it gets practiced for real.
 
-This is not a malfunction. It is the single most important fact about digital
-Greek, and the whole of this lesson follows from it: **what you see is not what
-is stored.** The screen displays *graphemes* — units of writing — while the
-computer stores *code points*, numeric values standing for characters. The
-relationship between the two is not one-to-one, and for polytonic Greek it is
-emphatically not one-to-one.
+Today we answer a different question. Not *what tools will we use*, but *what are we making, and why does it look like this?* The answer is a scholarly edition — a curated, documented, reusable representation of a historical document. And the reason digital humanists insist on plain text, Git, and XML is that those choices are what make an edition trustworthy, shareable, and durable. The technical habits of Lesson 1.1 exist to serve scholarly values you will meet today.
 
-The consequence for a digital edition is severe, because every operation that
-matters is performed on the stored bytes rather than on the rendered image.
-Searching, sorting, collation, morphological analysis, error-rate measurement,
-schema validation — all compare code point sequences. Two visually identical
-readings that differ in their underlying encoding are, to every tool in your
-pipeline, two different readings.
+Those values have a name and a formal statement: the FAIR principles. They also have a concrete shape: the workflow that every scholarly edition of an ancient document follows, from cataloguing the manuscript to publishing the finished text. Both come straight from the research community you are joining this semester.
 
-Boschetti (2010), working on the Homer Multitext and on improving OCR accuracy
-for classical critical editions, treats orthographic and encoding normalization
-as prerequisite to any analytical work rather than as cleanup afterwards. The
-ordering is deliberate: analysis performed on inconsistently encoded text
-produces results that are wrong in ways that do not announce themselves.
+**Vocabulary.** *Scholarly edition* — a curated representation of a document that records evidence and editorial decisions so that others can examine and reuse them. *Research data* — the artifacts (texts, images, metadata, code) on which scholarly claims are based.
 
-**Vocabulary.** *Grapheme* — the smallest unit of a writing system as a reader
-perceives it. *Code point* — a numeric value in the Unicode standard, written
-`U+03B1`. *Rendering* — the process by which a font turns code points into
-visible marks.
-
-**Takeaway:** Identical appearance on screen does not imply
-identical storage, and every tool in your pipeline compares storage.
+**Takeaway:** Lesson 1.1 gave you the tools; today gives you the purpose — producing scholarship that other people can find, check, and reuse.
 
 ---
 
 ## **02 Content**
 
-**The Hellenistic Invention of the Diacritical System**
+**Why Ancient Documents Are Hard to Study**
 
-The complexity you are about to encode is not an artifact of computing. It
-originates in a scholarly intervention made more than two thousand years ago, for
-reasons that are recognizably philological.
+Start with the object itself. A surviving ancient or medieval document is handwritten — there is no typeset original to consult. Each manuscript is unique: when scribes copied a text, every copy introduced small differences, so hundreds of "editions" of one work exist, none authoritative. Hands are difficult to read: abbreviations were standard, spelling was not fixed, and layout carries meaning that a plain transcription flattens. Manuscripts are also physically dispersed — the witnesses to a single ancient work may sit in libraries in five countries — and they are fragile, so direct access is rationed and expensive.
 
-Ancient Greek was originally written without accents, breathings, or word
-division — a continuous stream of capital letters known as *scriptio continua*.
-This was adequate while the language was spoken natively, because readers
-supplied pronunciation from competence. By the Hellenistic period that condition
-was failing: Attic Greek of the classical authors was diverging from the spoken
-Koine, the pitch accent was collapsing toward a stress accent, and readers at
-Alexandria could no longer reliably reconstruct the pronunciation of the texts
-they were preserving.
+These difficulties explain almost every technique you will learn this semester. Because every copy differs, we learn collation and textual criticism (Modules 7–8). Because hands are hard to read, we learn transcription and HTR (Module 4). Because documents are dispersed, we learn to work from digital images (Module 3) and shared catalogs (Module 2). The field did not adopt digital methods out of fashion; it adopted them because the objects demand systematic comparison and sharing.
 
-The response, associated with Aristophanes of Byzantium in the third and second
-centuries BCE, was a system of marks recording exactly the information that was
-being lost: the position and contour of the pitch accent, and the presence or
-absence of initial aspiration. The diacritics are, in origin, a preservation
-technology — an editorial apparatus for pronunciation, added by scholars to texts
-that were already old.
+Keep this in mind as a reading strategy for the whole course: whenever a new tool appears, ask *which difficulty of the manuscript itself* is this tool answering? If you can answer that, you understand the method. If you cannot, you have probably memorized a button.
 
-This history explains a fact you will confront directly in Week 6. Diacritics are
-*editorial*, not authorial. The manuscripts you will transcribe carry accentuation
-supplied by scribes centuries after composition, applied inconsistently, and
-sometimes wrongly. When you make normalization decisions about accents in Week 6,
-you are adjudicating between editorial traditions rather than recovering an
-author's intention — and the difference matters for how you justify the decision.
+**Vocabulary.** *Witness* — one manuscript copy of a work, used as evidence for its text. *HTR* — handwritten text recognition, machine transcription of handwriting. *Dispersed corpus* — the surviving copies of a work, scattered across many libraries.
 
-**Takeaway:** Greek diacritics are a Hellenistic editorial
-apparatus for recording pronunciation, not part of the original written text.
+**Takeaway:** Ancient documents are handwritten, individually variable, dispersed, and fragile — and each digital method in this course exists to answer one of those difficulties.
 
 ---
 
 ## **03 Content**
 
-**The Accents: Oxia, Varia, Perispomeni**
+**What Scholars Have Always Made: The Edition**
 
-The polytonic system marks three accent contours, each originally denoting a
-distinct pitch movement on the accented syllable.
+For five centuries the central product of textual scholarship has been the edition. An edition is not a photograph and not a paraphrase. It is an argument, made with evidence: the editor gathers the witnesses, compares their readings, decides which reading probably stood in the lost original (or deliberately preserves each witness's own text), and presents a reconstructed text together with an *apparatus* — the formal record of important variants and emendations.
 
-| Accent | Greek name | Mark | Original phonetic value | Example |
-| --- | --- | --- | --- | --- |
-| Acute | oxia (ὀξεῖα) | ´ | Rising pitch | λόγος |
-| Grave | varia (βαρεῖα) | ` | Suppressed or lowered pitch | ἀγαθὸς λόγος |
-| Circumflex | perispomeni (περισπωμένη) | ῀ | Rising then falling on one syllable | δῶρον |
+Print editions achieve a great deal. A critical edition of a classical work, with its introduction describing the manuscripts and its apparatus recording variants, lets a reader who will never visit the Vatican Library know what the evidence is. This is worth dwelling on: scholarly publishing solved the dispersion problem, in its own medium, long before computers. Catalogs, printed facsimiles, and critical editions were the original knowledge infrastructure.
 
-The grave is the one with an editorial dimension you should understand now.
-It is not an independent accent so much as a contextual variant: an acute on a
-final syllable is written as a grave when another word follows without
-intervening punctuation. The same word therefore appears with different
-accentuation depending on its position in the sentence.
+But print has a structural limit. An edition must *conclude*: the editor's decisions are baked into the printed text, while the evidence that justified them is compressed into a few cramped apparatus lines. If you disagree with the editor's choice — or want to ask a question the editor never thought of — the printed page cannot answer you. The evidence has been consumed in the act of publication.
 
-This creates a genuine encoding problem rather than a merely orthographic one. If
-you are collating witnesses, is ἀγαθός in one manuscript and ἀγαθὸς in another a
-textual variant, or the same word in different syntactic environments? The answer
-depends on context, and the decision must be made explicitly and recorded — it
-cannot be delegated to software, which sees two different code point sequences
-and will report a difference.
+**Vocabulary.** *Critical edition* — an edition that reconstructs a text by weighing variant readings across witnesses. *Apparatus criticus* — the formal footnoted record of variant readings in a critical edition. *Emendation* — a proposed correction to the transmitted text.
 
-The circumflex introduces a separate problem, this time typographic. It is
-represented in different traditions by a tilde-like mark or by an inverted breve,
-and different fonts render the same code point differently. The code point is
-unambiguous; the visual form is not. Judge encoding by inspecting code points,
-never by inspecting the rendered glyph.
-
-**Takeaway:** Three accents encode pitch contour, and the grave
-is a positional variant of the acute — which makes it a collation decision, not
-an automatic one.
+**Takeaway:** Print editions record the editor's conclusions, but the reasoning and evidence are compressed almost beyond recovery — the limitation digital editions exist to remove.
 
 ---
 
 ## **04 Content**
 
-**The Breathings: Dasia and Psili**
+**What a Digital Edition Adds**
 
-Every word-initial vowel in polytonic Greek carries a breathing mark, and initial
-rho carries one too. There are two.
+A digital edition treats the *evidence* — not just the conclusions — as the publication. Every witness transcription is stored. Every variant is marked up as structured data, not squeezed into a footnote. Every editorial decision can carry its justification inline. A reader can display the text of manuscript B instead of the editor's reconstruction, search across all witnesses, or count how often a particular scribe makes a particular kind of error. Gabler called this the digital scholarly edition: not a text with decoration, but a library of linked, machine-readable evidence that generates many possible readings.
 
-The **rough breathing** (dasia, δασεῖα), written as a mark resembling an opening
-single quote, indicates initial aspiration — an /h/ sound preceding the vowel, as
-in ὁδός (*hodos*, "road"). The **smooth breathing** (psili, ψιλή), resembling a
-closing single quote, indicates the *absence* of aspiration, as in ὀδούς
-(*odous*, "tooth").
+This only works because of the Lesson 1.1 stack. The transcription is plain text, so any program can read it. It is marked up in XML using TEI vocabulary, so the tags mean the same thing in every project. It is version-controlled in Git, so every editorial change is dated, attributed, and reversible. A claim in a digital edition is *inspectable* in a way a printed claim cannot be: you can walk from the published reading back to the image of the manuscript.
 
-The smooth breathing is worth pausing on, because it is where students most often
-go wrong. It marks a negative: it asserts that there is no aspiration. A reader
-might reasonably expect the absence of a sound to be represented by the absence
-of a mark, but the system is explicit in both directions. A vowel-initial word
-with *no* breathing mark at all is not "unaspirated" — it is *unmarked*, which is
-a different claim, and in a diplomatic transcription it is a claim about the
-manuscript rather than about the language.
+Your instructor sketched this program in a keynote — "A Toolkit for Humanities Research and Editing Ancient Documents" (DHSI-East 2022) — which is the direct ancestor of this course's structure. Its proposal: standardize the workflow, connect existing open tools instead of reinventing them, and make every intermediate product reusable. That agenda is this syllabus.
 
-This distinction becomes an editorial decision in Week 4. Many manuscripts,
-particularly earlier ones and those in hands working quickly, omit breathings
-irregularly. A diplomatic transcription must record the omission faithfully; a
-normalized transcription supplies the missing mark. Recording which you have done
-— and being able to move between the two — is precisely what the
-`<orig>`/`<reg>` markup you meet in Week 6 exists to support (TEI Consortium,
-2026).
+**Vocabulary.** *Digital scholarly edition* — an edition published as structured, machine-readable data, preserving evidence alongside conclusions. *TEI* — the Text Encoding Initiative, the standard XML vocabulary for encoding texts. *Inspectability* — the ability of a reader to trace a published claim back to its evidence.
 
-Note also that breathings and accents co-occur on the same vowel constantly, and
-their combination is where the encoding problems of the next several pages
-originate: a single alpha may carry a breathing, an accent, and an iota subscript
-simultaneously.
-
-**Takeaway:** Smooth breathing marks the positive absence of
-aspiration, so an unmarked vowel in a manuscript is a different fact from a
-smooth-breathed one.
+**Takeaway:** A digital edition publishes the evidence itself, so readers can re-derive, question, and reuse the editor's work — which is exactly what print cannot do.
 
 ---
 
 ## **05 Content**
 
-**Diaeresis, Iota Subscript, and Iota Adscript**
+**FAIR: The Principles That Govern Research Data**
 
-Three further marks complete the polytonic inventory, and each carries an
-encoding consequence.
+In 2016 a consortium of research organizations published a short paper that became the reference point for data management across the sciences and humanities: Wilkinson et al., *The FAIR Guiding Principles for scientific data management and stewardship*. FAIR states what well-managed research data should be. The acronym stands for:
 
-The **diaeresis** (¨) marks a vowel that is *not* part of a diphthong with the
-preceding vowel — a separation instruction, as in ἀΐδιος, where the iota is
-pronounced independently. Unlike accents and breathings it makes a claim about
-syllabification rather than about pitch or aspiration, and it can co-occur with
-an accent on the same vowel.
+- **F**indable — others (and machines) can discover the data, through persistent identifiers and rich metadata.
+- **A**ccessible — once found, the data can actually be retrieved, using open, well-defined protocols.
+- **I**nteroperable — the data uses shared formats and vocabularies, so different tools and projects can combine it.
+- **R**eusable — the data is documented and licensed clearly enough that a stranger can legitimately build on it.
 
-The **iota subscript** (ypogegrammeni, ῳ ῃ ᾳ) is the historical trace of a long
-diphthong whose iota ceased to be pronounced. Ancient manuscripts wrote the iota
-on the line, as a full letter — the **iota adscript** (ωι ηι αι). The subscript
-form is a Byzantine and later editorial convention, introduced to record a letter
-that was no longer sounded.
+Two points of emphasis. First, FAIR is about *data and metadata*, not about software or paper: a PDF of an edition is not FAIR because its contents are locked in presentation. Second, FAIR is deliberately not a rulebook but a matrix of principles — each project decides how to implement them. FAIR says a digital edition should be findable, accessible, interoperable, and reusable; TEI, Git, GitHub, IIIF, and open licenses are *how* this course implements it.
 
-The distinction is directly consequential for your transcription. A manuscript
-may write the adscript, may write the subscript, or may omit the iota entirely,
-and these are three different states of the evidence:
+**Vocabulary.** *FAIR principles* — Findable, Accessible, Interoperable, Reusable: the guiding criteria for research data management (Wilkinson et al. 2016). *Metadata* — structured information about an object: who made it, what it is, where it lives. *Persistent identifier* — a stable web address (like a DOI) that keeps pointing at an object even if it moves.
 
-| Manuscript form | Encoding | Editorial status |
-| --- | --- | --- |
-| Iota adscript (ωι) | Two code points: omega + iota | The older written practice; transcribe as written |
-| Iota subscript (ῳ) | One precomposed point, or omega + U+0345 | Later convention; a normalization if supplied |
-| Iota omitted (ω) | Omega alone | May be scribal error or may reflect pronunciation |
-
-Deciding how to handle this in your own edition is a Week 6 task, but you should
-be able to see the shape of the problem already: silently converting adscript to
-subscript is an editorial intervention, and one that a reader cannot detect unless
-you record it.
-
-**Vocabulary.** *Ypogegrammeni* — the "written under" iota, U+0345. *Adscript* —
-the same historical iota written as a full letter on the line.
-
-**Takeaway:** Iota subscript is a later editorial convention for
-an adscript the manuscripts wrote in full, so converting between them is an
-intervention that must be recorded.
+**Takeaway:** FAIR = Findable, Accessible, Interoperable, Reusable — the checklist that turns a personal project into community infrastructure.
 
 ---
 
 ## **06 Content**
 
-**Beta Code and the Legacy Encoding Era**
+**FAIR Before the Internet**
 
-Before Unicode, representing this system on computers required improvisation, and
-the improvisation that dominated classical scholarship was **Beta Code**.
+FAIR sounds like a modern invention, but scholarly practice was converging on it for centuries — with paper. Findable: manuscripts were described in library catalogs and printed indexes, so a scholar could discover that Codex Marchalianus was in the Vatican, without traveling there first. Accessible: facsimile volumes and printed editions put the texts into libraries worldwide. Interoperable: Latin, and later modern languages, plus conventions like standard citations, meant a German edition could be used by an Italian scholar. Reusable: critical apparatus explicitly licensed *reuse* — the next editor built on the last one's variant reports rather than re-reading every manuscript.
 
-Beta Code represents polytonic Greek using only the 7-bit ASCII character set —
-the 128 characters available on early terminals and mainframes. Each Greek letter
-maps to a Latin letter, and each diacritic to a punctuation mark, with the marks
-following the letter in a defined order. The word ἀγαθός is written `*A)GAQO/S`,
-in which `)` is the smooth breathing, `Q` is theta, and `/` is the acute.
+The keynote slide titled "FAIR before the Internet" makes exactly this point: manuscript catalogs and print editions were the FAIR infrastructure of early modern scholarship. What the internet changed was scale and mechanism. A printed catalog can tell you a manuscript exists; an online catalog with images lets you *read it* from Antigonish. A printed apparatus lets you see a handful of variants; a digital corpus lets you *compute* over thousands.
 
-The scheme was ingenious and it worked. The Thesaurus Linguae Graecae was built
-on it, and an enormous quantity of digitized classical text still exists in Beta
-Code or in formats derived from it. You will very likely encounter it this term
-in older datasets.
+So this course is not teaching something alien. It is teaching the same scholarly values, with tools that operate at a scale print never could — and with new failure modes (link rot, format obsolescence) that FAIR's emphasis on durable identifiers and open formats is designed to prevent.
 
-Its cost, however, was structural rather than merely cosmetic. Beta Code
-represents a single Greek grapheme as a *sequence* of ASCII characters, which
-severs the graphemic unity of the character: to the computer, ἀ is not one thing
-with properties but three unrelated symbols in a row. Sorting, searching, and
-counting all operate on that sequence rather than on the letter, and every
-program must implement its own logic to reassemble graphemes from it.
+**Vocabulary.** *Catalog* — a structured description of a library's holdings; the original "findable" layer. *Facsimile* — a full reproduction of a manuscript, photographic or printed. *Link rot* — the decay of web addresses over time, the failure mode persistent identifiers exist to prevent.
 
-Boschetti (2010) notes a related loss in early digital libraries, which prized
-breadth of coverage over depth of representation — digitizing the canonical texts
-while discarding the critical apparatus and paratextual material that make an
-edition scholarly. The two losses share a cause: an infrastructure that could not
-represent complexity encouraged projects to shed it.
-
-**Takeaway:** Beta Code encoded Greek as ASCII sequences,
-severing the unity of the grapheme and forcing every program to reassemble
-letters for itself.
+**Takeaway:** Catalogs, facsimiles, and print editions already pursued findability, accessibility, and reuse — the internet changed the scale, not the values.
 
 ---
 
 ## **07 Content**
 
-**Unicode's Architecture for Greek**
+**F and A: Making Manuscripts Findable and Accessible**
 
-Unicode replaced the legacy schemes with a single universal character set in
-which Greek letters are Greek letters rather than repurposed Latin ones. For
-polytonic Greek, three blocks matter (Unicode Consortium, 2025).
+The first two FAIR letters concern getting hold of the material. *Findable* means a researcher can discover that an object exists and where it lives. For manuscripts this is the work of shared catalogs: Pinakes for Greek manuscripts, the LDAB for literary papyri, Papyri.info for documentary papyri, Trismegistos for dates and identifiers. Each catalog record is *metadata* — shelfmark, contents, date, provenance, bibliography — built so that both humans and machines can retrieve it. In Module 2 you will write metadata of exactly this kind for your own passage, as a TEI header.
 
-| Block | Range | Contains | Primary use |
-| --- | --- | --- | --- |
-| Greek and Coptic | U+0370–U+03FF | Basic letters, monotonic accented forms | Modern Greek; base letters for composition |
-| Greek Extended | U+1F00–U+1FFF | Precomposed polytonic combinations | Ancient Greek with accents and breathings |
-| Combining Diacritical Marks | U+0300–U+036F | Accents and breathings as separate marks | Building accented forms compositionally |
+*Accessible* means retrieval is actually possible under defined conditions. For manuscripts this changed everything in the last two decades: digitization programs and the IIIF framework (the International Image Interoperability Framework — the subject of Module 3) put high-resolution images online with standard web addresses, so a scholar can study and even *annotate* the images without traveling. Many libraries now publish IIIF image servers for open materials; the Bodleian, the Vatican, and vHMML all serve manuscript images this way.
 
-The Greek and Coptic block supplies the alphabet: alpha is U+03B1, omega is
-U+03C9. These are the letters without polytonic diacritics, plus the accented
-forms that modern monotonic Greek requires.
+Notice the division of labor: catalogs make things findable, image servers make them accessible, and neither requires the scholar to own anything. When you choose your manuscript passage on Friday, you will be relying on exactly this layer — a findable record with accessible images.
 
-The Greek Extended block exists specifically for ancient Greek. It contains
-**precomposed** characters — single code points standing for a base letter
-together with all its diacritics. Alpha with smooth breathing and acute is one
-code point, U+1F04. Alpha with smooth breathing, acute, and iota subscript is
-also one code point, U+1F84. There are several hundred such combinations,
-enumerated exhaustively.
+**Vocabulary.** *Pinakes / LDAB / Papyri.info* — shared catalogs of Greek manuscripts and papyri. *IIIF* — International Image Interoperability Framework; standard URLs for serving and working with high-resolution images. *Shelfmark* — a manuscript's library call number (e.g., "Vat. gr. 2121").
 
-The Combining Diacritical Marks block takes the opposite approach. Rather than
-enumerating combinations, it supplies the marks as independent code points that
-follow a base letter and modify it. Smooth breathing is U+0313, acute is U+0301,
-ypogegrammeni is U+0345. Any combination can be built by concatenation, including
-combinations for which no precomposed character exists (Unicode Consortium, 2025).
-
-**Takeaway:** Unicode provides both precomposed polytonic
-characters in Greek Extended and composable marks in Combining Diacritical Marks
-— two routes to the same grapheme.
+**Takeaway:** Shared catalogs make manuscripts findable and IIIF image servers make them accessible — the F and A of FAIR, and the raw material of your own project.
 
 ---
 
 ## **08 Content**
 
-**The Two Ways to Write One Letter**
+**I: Interoperability — Shared Formats and Vocabularies**
 
-The existence of two routes is the source of the problem this lesson opened
-with. Take ἀ — alpha with smooth breathing. It can be encoded as:
+Interoperable means data from one project can be combined with data from another without custom translation. This is the letter that dictates most of this course's technical choices. If my transcription says a damaged word is `<damage>` and yours says `<lacuna>`, no software can combine our work; if both say the TEI's `<damage>`, every TEI-aware tool handles both. Interoperability is why you will learn XML and TEI rather than some bespoke format — TEI tags are the shared vocabulary of the field.
 
-| Route | Code points | Length | Where it typically originates |
-| --- | --- | --- | --- |
-| Precomposed | U+1F00 | 1 character | Windows input; Greek Extended keyboards |
-| Decomposed | U+03B1 U+0313 | 2 characters | macOS input; some web forms and OCR output |
+The same logic runs through every layer. Metadata uses shared vocabularies (Dublin Core terms, RDF triples with standard properties) so that catalog records can be merged across institutions — that is Week 2's Wednesday exercise, building RDF from your TEI header. Identifiers follow shared schemes: CTS URNs give every passage of ancient literature a permanent, canonical address, so a citation in my edition can point at the exact passage in yours. Images follow IIIF so any viewer can display any library's images.
 
-Both render as ἀ. Any font that supports polytonic Greek displays them
-identically, and no visual inspection can distinguish them. But their stored
-representations differ in both length and content, and therefore:
+Interoperability has a human face too: a format a stranger can understand counts as interoperable in the scholarly sense. This is why this course, and the THREAD project your instructor described in the keynote, favor boring, open, documented standards over clever proprietary ones. Clever locks out; boring composes.
 
-- A byte-level comparison evaluates them as unequal.
-- A character count returns 1 for one and 2 for the other.
-- A search for one does not match the other.
-- A regular expression matching a single character matches only the precomposed form.
-- An XSLT template matching on the string processes only one of them.
+**Vocabulary.** *Interoperability* — the ability of data and tools from different projects to work together. *RDF triple* — a subject–predicate–object statement in a shared machine-readable vocabulary. *CTS URN* — a permanent canonical identifier for a passage of ancient literature.
 
-For a longer word the divergence compounds. ᾧ — omega with rough breathing,
-circumflex, and iota subscript — is one code point precomposed, and up to four
-decomposed. A twenty-line transcription may differ in hundreds of code points
-from a visually identical transcription of the same passage.
-
-Unicode calls these two forms **canonically equivalent**: the standard asserts
-that they represent the same abstract character and that conforming software
-should treat them as the same (Unicode Consortium, 2025). The word "should" is
-doing heavy lifting. Software that compares strings byte by byte — which is most
-software, including Git, most search tools, and most XML processors — does not
-implement canonical equivalence, and will treat them as different.
-
-**Takeaway:** Precomposed and decomposed forms are canonically
-equivalent by the standard but unequal to most software, which compares bytes.
+**Takeaway:** Interoperability means choosing shared vocabularies — TEI, Dublin Core, CTS URNs, IIIF — over private ones, so that projects compose instead of isolating.
 
 ---
 
 ## **09 Content**
 
-**The Four Normalization Forms**
+**R: Reusability — Licensing, Documentation, Provenance**
 
-Unicode's solution is **normalization**: transforming text into a defined
-canonical representation so that equivalent strings become identical strings.
-Unicode Standard Annex #15 defines four forms (Unicode Consortium, 2025).
+The last letter is where digital scholarship most often fails, and where you have the most control. Reusable means: a stranger, finding your data and downloading it, can understand what it is, trust where it came from, and know what they are allowed to do with it. Three things deliver that.
 
-| Form | Full name | Operation | Lossy? |
-| --- | --- | --- | --- |
-| NFD | Normalization Form D | Canonical decomposition: split every character into base plus marks | No |
-| NFC | Normalization Form C | Canonical decomposition, then canonical composition: prefer precomposed | No |
-| NFKD | Normalization Form KD | Compatibility decomposition: also collapses formatting distinctions | Yes |
-| NFKC | Normalization Form KC | Compatibility decomposition, then composition | Yes |
+*Documentation.* Your TEI header will contain not just the manuscript's metadata but yours: who transcribed, with what method, on what date, following which conventions. Huskey (2024) shows Git functioning as a research journal here — the commit history is the documentation of *how the work developed*, and your commit messages are its prose.
 
-The distinction that matters is the **canonical / compatibility** split, not the
-composed / decomposed one. Canonical forms — NFC and NFD — preserve all
-information: converting between them is fully reversible, and no distinction the
-text made is lost. Compatibility forms — NFKC and NFKD — deliberately discard
-distinctions the standard regards as formatting rather than content.
+*Licensing.* Data without a license is legally unusable, because copyright defaults to "all rights reserved." This course follows the open-science norm: your edition work will carry an open license (such as Creative Commons Attribution), which converts "please ask" into "reuse freely, with credit."
 
-The K forms are dangerous for philology, and it is worth being concrete about
-why. Compatibility decomposition maps superscript characters to ordinary ones,
-ligatures to their constituent letters, and various presentation variants to
-base forms. In a scholarly context those distinctions are frequently the data:
-a superscript abbreviation mark, a manuscript ligature, or a presentation form
-recorded from the source is content, and NFKC silently destroys it.
+*Provenance.* A reusable dataset records where each piece came from: which library's image, which HTR model's transcription, which human corrected it. You will practice this in Module 5, where the reconciliation report states the error rate of each source — machine and human — against your hand-made ground truth.
 
-**Never apply NFKC or NFKD to manuscript transcription.** They are appropriate for
-search index construction, where collapsing distinctions is the point, and for
-nothing else in this course.
+**Vocabulary.** *Open license* — a statement (e.g., CC BY) granting reuse rights in advance. *Provenance* — the documented origin and processing history of a piece of data. *Ground truth* — a manually verified reference product against which automated outputs are measured.
 
-**Takeaway:** Use the canonical forms NFC and NFD, which are
-lossless; the compatibility forms NFKC and NFKD destroy distinctions that are
-philological data.
+**Takeaway:** Reusability = documentation + open license + provenance; Git, TEI headers, and reconciliation reports are where each lives.
 
 ---
 
 ## **10 Content**
 
-**Why This Course Mandates NFC**
+**The Workflow: Eight Stages of Editing an Ancient Text**
 
-Between the two lossless forms, this course requires **NFC** — precomposed
-wherever a precomposed character exists. Three reasons, in order of weight.
+Now assemble the purpose and the principles into a procedure. The keynote's central diagram — borrowed and extended by THREAD and similar projects — lays out the standard workflow of a scholarly digital edition as a sequence of stages, each with dedicated open tools:
 
-First, interoperability. NFC is the form specified for text on the Web and the
-form assumed by the great majority of XML tooling, database collations, and text
-processing libraries. Producing NFC means your edition behaves correctly in
-software you did not write and cannot inspect, which describes nearly everything
-your files will eventually pass through.
+Cataloguing → Images → Transcription → Normalization/Reconciliation → Collation/Textual criticism → Linguistic markup → Translation & Annotation → Presentation.
 
-Second, compactness and predictability of length. In NFC, ᾧ is a single
-character; in NFD it is up to four. Character offsets, line lengths, and the
-character error rates you will compute in Week 5 all depend on what counts as a
-character, and the NFC count corresponds to what a human reader would say if
-asked how many letters a word has.
+This is not a checklist invented for a course; it is how the field organizes itself. Papyri.info, the Homer Multitext, Codex Sinaiticus Online, eScriptorium projects — all follow some version of this pipeline, because it mirrors the logic of the task: you must know what witnesses exist (cataloguing) before you can look at them (images), read them (transcription), clean and compare what you read (normalization, collation), analyze it (linguistic markup), interpret it (translation, annotation), and only then publish (presentation).
 
-Third, and most important for this course, comparability. Every measurement you
-perform in Week 5 compares a machine transcription against your manual ground
-truth. If the two are in different normalization forms, the comparison is
-meaningless — a character error rate computed across a normalization mismatch can
-report tens of percent error on two transcriptions that are in fact identical.
-You would then spend an afternoon correcting a model that was already correct.
+Two properties are worth naming. The stages *compose*: each stage's output is the next stage's input, in open formats — that is interoperability in action. And the stages are *checkpointed*: modern practice keeps each stage's product in version control, so the edition's history is inspectable end to end — that is reusability.
 
-The requirement is therefore not stylistic. Encode in NFC because in Week 5 you
-will subtract one transcription from another, and that subtraction is only valid
-if both are in the same form.
+This course's thirteen modules are this workflow, spread over a semester, each practiced three ways (manual, deterministic, AI-assisted).
 
-**Takeaway:** NFC is required because Week 5's error-rate
-comparison is only meaningful if ground truth and machine output are in the same
-normalization form.
+**Vocabulary.** *Pipeline* — a staged workflow where each stage consumes the previous stage's output. *eScriptorium* — an open platform for HTR transcription. *Homer Multitext / Codex Sinaiticus* — flagship digital editions illustrating the workflow at scale.
+
+**Takeaway:** The scholarly edition workflow — cataloguing through presentation — structures this entire course, and each stage feeds the next through open formats.
 
 ---
 
 ## **11 Content**
 
-**Canonical Combining Class and the Ordering of Marks**
+**Stage 1: Cataloguing the Witnesses**
 
-One further mechanism is needed before normalization is well defined. When a
-letter carries several marks — breathing, accent, and iota subscript together —
-in what order are the combining code points stored? If the order were free, then
-two decomposed sequences could contain the same marks in different orders and
-still fail to compare equal, and normalization would not have solved the problem.
+Everything begins with a question most students skip: *which copies of this text exist, and where are they?* Cataloguing means answering that with metadata: for each witness, an identifier, a library and shelfmark, a date, a description of contents, and a bibliography. Before an editor transcribes a single letter, this stage decides the *scope of the evidence* — and a mistake here (missing a witness, misdating one) propagates into every later stage.
 
-Unicode fixes the order using the **Canonical Combining Class** (CCC), a numeric
-property assigned to every code point, ranging from 0 to 254. Marks are sorted by
-CCC value during normalization, so a given set of marks always yields one
-sequence (Unicode Consortium, 2025).
+The work is institutionalized in shared catalogs. Pinakes catalogs Greek manuscripts; the Leuven Database of Ancient Books (LDAB) covers literary papyri; Papyri.info integrates papyrological editions; Trismegistos assigns stable identifiers that other databases reuse. These catalogs are FAIR infrastructure in the strict sense: findable (searchable online), interoperable (shared identifiers like Trismegistos numbers that appear in other systems), reusable (openly consultable).
 
-| Code point | Mark | CCC | Effect on ordering |
-| --- | --- | --- | --- |
-| U+0301 | Combining acute | 230 | Sorts among above-letter marks |
-| U+0313 | Combining comma above (psili) | 230 | Sorts among above-letter marks |
-| U+0345 | Combining ypogegrammeni | 240 | Sorts after above-letter marks |
+In Week 2 you will do a miniature of this: identify the manuscript your passage comes from, gather its metadata, and write it as a TEI header — the catalog record that will live inside your own edition files for the rest of the term. Your Tuesday-by-hand version becomes the ground truth against which you judge a validation run and an AI-enriched version. Cataloguing is not clerical preface work; it is the first scholarly act.
 
-The ypogegrammeni's higher class places it consistently at the end of a combining
-sequence, which is why ᾆ decomposes to a fixed order rather than an arbitrary one
-(Unicode Consortium, 2025). Marks with class 0 are not reordered at all; marks
-sharing a class are left in their existing relative order, because for marks at
-the same position the order can be visually significant.
+**Vocabulary.** *TEI header* — the metadata section of a TEI file, describing the source, the editing, and the responsible parties. *Trismegistos number* — a stable identifier shared across papyrological databases. *Scope of evidence* — the set of witnesses an edition takes into account.
 
-You will not manipulate CCC values by hand. It matters because it is the reason
-normalization is *deterministic* — the guarantee that normalizing the same
-abstract text always produces the same bytes, on any platform, in any
-implementation. That determinism is what lets you treat a normalized file's hash
-as a meaningful identity, which is exactly what Lesson 1.1's argument about
-content-addressable storage depends on.
-
-**Takeaway:** Canonical Combining Class fixes the order of
-multiple marks, which is what makes normalization deterministic across platforms.
+**Takeaway:** Cataloguing fixes the identity and location of your evidence; Week 2 has you write your passage's catalog record as a TEI header.
 
 ---
 
 ## **12 Content**
 
-**The macOS and Windows Divergence**
+**Stage 2: Getting the Images — Digitization and IIIF**
 
-The abstract problem becomes a concrete classroom problem because operating
-systems differ in which form they produce by default.
+An editor used to work from microfilm or travel; today the first stop is a digital image. Libraries photograph manuscripts at very high resolution and serve the images through IIIF, which gives every image — and every *region* of every image — a standard web address. IIIF also lets scholars annotate and compare images across libraries in shared viewers, which is why Module 3 is devoted to it.
 
-macOS has historically normalized filenames to a variant of NFD at the file
-system level, and macOS input methods and text services tend to produce
-decomposed sequences. Windows favours precomposed NFC, and its Greek keyboard
-layouts emit precomposed characters from Greek Extended. Linux behaviour varies
-by input method and application, and cannot be assumed either way.
+Image quality is not a luxury. Transcription, paleographic analysis (letterforms, abbreviations, corrections), and HTR training all consume images, and their quality bounds what the later stages can achieve. This is the pipeline's first lesson in *garbage in, garbage out*: an unreadable image produces an unverifiable transcription no matter how careful the scholar.
 
-The result in a mixed-platform class is a failure mode that is genuinely
-invisible. Consider a peer review in Week 5. Your partner, on a Mac, transcribes a
-passage in NFD. You, on Windows, open the file and correct three words, and your
-editor writes your corrections in NFC. You commit. The diff shows changes on
-lines you never touched, because those lines were rewritten from NFD to NFC by
-your editor — or, worse, shows no changes on lines you did touch, because a
-whitespace-collapsing viewer hid the difference.
+Two practices from this stage matter for your project. First, *record the image source*: your TEI header will point at the specific IIIF address of each page you use, which is provenance and findability in one act. Second, *respect the access conditions*: libraries publish images under specific agreements, and reusable scholarship cites them properly rather than hoarding copies. When you verify your chosen passage on Friday, checking that good images exist — and bookmarking their IIIF addresses — is part of the check.
 
-Now recall the previous lesson: Git compares bytes. It will faithfully report a
-difference it cannot explain, on lines whose rendered appearance is unchanged.
-Students confronted with this conclude that Git is broken. Git is working
-perfectly; the text is in two forms.
+**Vocabulary.** *IIIF image server* — a library service delivering manuscript images at standard URLs with zoom and region support. *Paleography* — the study of historical handwriting. *Digitization program* — a library's systematic campaign to photograph and publish its holdings.
 
-Worse still is the merge case. Two students edit the same line in different
-normalization forms. Git reports a conflict. Both students look at the conflict
-markers, see two identical-looking lines of Greek, and have no way to resolve it
-by inspection — the difference is real, structural, and invisible.
-
-**Takeaway:** macOS tends to produce NFD and Windows NFC, so a
-mixed-platform team generates conflicts that are structurally real and visually
-undetectable.
+**Takeaway:** Digitized images accessed through IIIF are the edition's sensory evidence — and citing their source is your first provenance practice.
 
 ---
 
 ## **13 Content**
 
-**Normalizing with Python's `unicodedata`**
+**Stage 3: Transcription — From Pixels to Plain Text**
 
-The remedy is mechanical. Python's standard library includes `unicodedata`, whose
-`normalize` function implements all four forms (Python Software Foundation, n.d.).
+Transcription converts the image into plain text: the pivotal stage, because it is where the manuscript first becomes computable. The key distinction, which Week 4 takes up in depth, is *diplomatic* versus *normalized*. A diplomatic transcription records exactly what the scribe wrote — abbreviations expanded in brackets, line breaks preserved, errors left standing. A normalized transcription silently regularizes spelling and layout to modern conventions. Editors choose deliberately, and record the choice; this course will have you do both and feel the trade-off.
 
-```python
-import unicodedata
+Machine help has transformed the stage. HTR systems such as Transkribus learn a specific hand from examples and then transcribe pages automatically; you will train a model on your own hand-typed ground truth in Week 4. But machine output always contains errors, so professionals work by *double-keying* (two independent transcriptions compared letter by letter) or by systematic correction against the image — the reconciliation work of Week 5, which measures error rates rather than trusting impressions.
 
-decomposed = "ἀ"          # alpha + combining psili
-composed = unicodedata.normalize("NFC", decomposed)
+This is where Lesson 1.1 becomes daily practice: the transcription is typed in VS Code as plain text (or exported from Transkribus into plain text), and every session is committed to Git with a message saying what was done. The transcription file is the single most cited artifact of the whole edition.
 
-print(decomposed == composed)        # False - different code points
-print(len(decomposed), len(composed))  # 2 1
-print(f"{ord(composed):04X}")        # 1F00
-```
+**Vocabulary.** *Diplomatic transcription* — a transcription preserving the source's exact spelling, layout, and errors. *Double-keying* — two independent transcriptions compared to catch errors. *Ground truth* — your hand-verified transcription, used to measure machine output.
 
-The function takes the target form as a string and returns the normalized text.
-It is available in every standard Python installation with no dependencies, which
-matters for a course in which everyone must be able to run the same script.
-
-A practical script for a whole file:
-
-```python
-import unicodedata
-from pathlib import Path
-
-def normalize_file(path: Path, form: str = "NFC") -> bool:
-    """Rewrite path in the given normalization form. Return True if changed."""
-    original = path.read_text(encoding="utf-8")
-    normalized = unicodedata.normalize(form, original)
-    if original == normalized:
-        return False
-    path.write_text(normalized, encoding="utf-8")
-    return True
-```
-
-Two details deserve attention. The function returns whether it changed anything,
-which lets a calling script report what it touched rather than rewriting files
-silently — you want to know when normalization was needed. And the encoding is
-declared explicitly on both read and write: relying on the platform default
-encoding is exactly the kind of implicit platform dependence this lesson is
-about.
-
-**Takeaway:** `unicodedata.normalize("NFC", text)` is the whole
-mechanism, available in any standard Python installation.
+**Takeaway:** Transcription turns image into computable plain text; HTR accelerates it but never removes the human duty of verification.
 
 ---
 
 ## **14 Content**
 
-**Automating Normalization at Commit Time**
+**Stage 4: Reconciliation and Normalization**
 
-Knowing the remedy is insufficient, because normalization must be applied every
-time and human memory does not work that way. Attach it to the `pre-commit` hook
-introduced in Lesson 1.1, so that no unnormalized text can enter the history.
+Raw transcriptions disagree — with the manuscript, with each other, and with themselves. *Reconciliation* is comparing independent transcriptions of the same page and building a consensus text, recording every disagreement and how it was resolved. Week 5 has you do this by hand (Haaf et al. explain the statistics of double-keying), and then measure character and word error rates for the HTR and AI passes against your manual ground truth. Error rates sound humble, but they are the difference between a dataset a scholar can trust and one she must re-check entirely.
 
-```bash
-#!/bin/sh
-# .git/hooks/pre-commit
-python3 tools/normalize_nfc.py --staged || exit 1
-```
+*Normalization* is a different operation: deciding *how to represent* what the text says. Ancient texts vary wildly in spelling; manuscripts abbreviate; early printed editions normalized silently. Modern practice records both layers — the original form and the regularized form — explicitly, using markup that keeps the two apart (TEI's `orig` and `reg` elements, Week 6's subject). A normalization *rule set* is written down, so the next person can apply, audit, or dispute it.
 
-The script should operate on the *staged* files specifically, obtainable with
-`git diff --cached --name-only --diff-filter=ACM`. Having normalized a file, it
-must re-stage it with `git add`, or the commit will record the pre-normalization
-content while the working directory holds the normalized version — a
-discrepancy that is confusing to diagnose.
+Notice the FAIR logic humming under both: measured quality (reconciliation reports) and explicit, documented transformations (normalization rules) are what make the text *reusable* — a stranger knows exactly what was done to the raw evidence, and can undo it.
 
-| Step | Command or call | Purpose |
-| --- | --- | --- |
-| List staged text files | `git diff --cached --name-only --diff-filter=ACM` | Restrict work to what is being committed |
-| Normalize each | `unicodedata.normalize("NFC", text)` | Convert to the mandated form |
-| Re-stage changed files | `git add <file>` | Ensure the commit records normalized bytes |
-| Report | print changed paths | Make the intervention visible, not silent |
+**Vocabulary.** *Consensus text* — the agreed text built from independent transcriptions. *Character/word error rate* — the measured proportion of wrong characters/words against ground truth. *Regularization* — representing variant spelling in a standard form, recorded separately from the original.
 
-Keep the script in a tracked `tools/` directory and install it into `.git/hooks/`
-with a setup script, for the reason given in Lesson 1.1: hooks are not cloned.
-
-The pedagogical argument for automation is that it removes a burden without
-removing the understanding. You still need to know what NFC is, why it is
-required, and how to detect a violation — that knowledge is examinable and is
-what lets you diagnose the problem when it appears in someone else's files. What
-you do not need is to remember to run a command every time, because that is the
-part humans reliably fail at.
-
-**Takeaway:** Enforce NFC in the pre-commit hook and re-stage
-the normalized file, so unnormalized text cannot enter the repository.
+**Takeaway:** Reconciliation measures trustworthiness; documented normalization makes transformations explicit — together they keep the text honest and reversible.
 
 ---
 
 ## **15 Content**
 
-**Verifying Encoding by Inspecting Code Points**
+**Stage 5: Collation and Textual Criticism**
 
-Because the problem is invisible on screen, you need a habit of looking beneath
-the rendering. Learn to dump code points.
+When a work survives in multiple manuscripts, the witnesses' texts differ: scribes misread, skipped lines, "corrected" from memory, or deliberately revised. *Collation* is the systematic comparison of the witnesses' texts, variant by variant; its product is the *apparatus*. *Textual criticism* is the reasoning performed on that comparison — classifying the witnesses, detecting the scribes' error patterns, and where warranted, reconstructing the earliest recoverable text.
 
-```python
-import unicodedata
+Digital tools changed this stage's economics. CollateX aligns multiple transcriptions computationally and outputs the variant positions as data; visualization tools (like the Versioning Machine) display variants side by side. A collation that took a summer by hand can be re-run in seconds whenever a transcription improves — because the transcriptions are plain text in a repository, the whole comparison is *repeatable*, and the apparatus becomes a living dataset instead of a frozen print product.
 
-def inspect(text: str) -> None:
-    for ch in text:
-        print(f"U+{ord(ch):04X}  {unicodedata.name(ch, '<unnamed>')}")
+For your project, this stage explains *why* your passage choice matters: a passage with interesting variant transmission is one where collation has something to say. When you choose a passage on Friday, you are choosing the evidence for Weeks 7–8.
 
-inspect("ᾧ")
-```
+**Vocabulary.** *Collation* — systematic comparison of witness texts to identify variants. *Variant* — a place where witnesses differ. *Recension* — a reconstructable branch of a text's transmission history.
 
-For a file already in NFC, the output names one character. For the same grapheme
-in NFD, it names a base letter followed by combining marks. This is the ground
-truth about your data, and it is the only reliable way to answer the question
-"what is actually in this file?"
-
-Command-line equivalents are worth knowing, since you will often want to check a
-file without opening Python:
-
-| Task | Command |
-| --- | --- |
-| Dump code points of a file | `python3 -c "import sys;[print(f'U+{ord(c):04X}') for c in sys.stdin.read()]" < file.xml` |
-| Check whether a file is already NFC | `python3 -c "import sys,unicodedata as u;t=sys.stdin.read();print(t==u.normalize('NFC',t))" < file.xml` |
-| Show bytes with offsets | `xxd file.xml` |
-| Count characters versus bytes | `wc -m file.xml` and `wc -c file.xml` |
-
-The second command is the one to reach for when a diff looks wrong. If it prints
-`False`, the file is not normalized and that is very likely your explanation.
-
-Build the habit now, on files you understand. In Week 5, when an error rate comes
-back implausibly high, the first hypothesis to test is a normalization mismatch,
-and you will want the check to be reflexive rather than something you have to
-work out under time pressure.
-
-**Takeaway:** When Greek text behaves strangely, dump the code
-points — the rendering cannot tell you what is stored.
+**Takeaway:** Collation compares witnesses and generates the apparatus as reusable data; your passage choice determines what this stage will have to work with.
 
 ---
 
 ## **16 Content**
 
-**Fonts for Polytonic Greek**
+**Stage 6: Linguistic Markup — Morphology, Lemmas, Syntax**
 
-A font maps code points to glyphs. If a font lacks a glyph for a code point, the
-text is not wrong — it simply cannot be displayed, and you will see a replacement
-box. Students routinely mistake this for data corruption and "fix" correct files.
+Once the text is stable, the linguistic analysis begins. *Morphological tagging* assigns each word its grammatical analysis — part of speech, person, number, tense. *Lemmatization* links each word form to its dictionary headword, so that all inflected forms of one word can be found together. Syntax tagging goes further and records phrase structure. With these layers added, questions that classical scholarship previously answered by memory and card catalogs become queries: find every future indicative after a conditional particle, across a whole corpus, in seconds.
 
-Not every Unicode font covers the Greek Extended block, and coverage of rare
-combinations is uneven even among fonts that advertise polytonic support. Choose
-a font with documented coverage and use it consistently.
+Open tools do the first pass: CLTK (the Classical Language Toolkit) provides tokenizers, taggers, and lemmatizers for Greek and Latin; treebanks like Perseus' Ancient Greek Dependency Treebank provide hand-corrected exemplars. But — the recurring lesson — machine output is a draft. Tagging errors compound silently, so scholarly practice keeps the human in the loop, correcting and validating. Modules 9–11 of this course cover lemmatization, alignment, and consolidation, each with the manual-deterministic-AI cycle.
 
-| Font | Coverage | Notes |
-| --- | --- | --- |
-| Gentium Plus | Full polytonic; extensive diacritics | Free; designed for linguistic and philological use |
-| New Athena Unicode | Full polytonic, epigraphic and papyrological marks | Free; standard in classics |
-| Brill | Full polytonic, extensive scholarly range | Free for academic use; excellent rendering |
-| IFAO-Grec Unicode | Polytonic plus papyrological symbols | Free; strong for documentary texts |
-| Noto Serif / Sans | Good polytonic coverage | Free; consistent cross-platform rendering |
+For FAIR, linguistic layers are interoperability cashed out: tagsets follow shared schemes (like Universal Dependencies), so a lemmatized corpus can be searched by the same tools regardless of who produced it.
 
-Install at least two. When a character fails to render, the diagnostic step is to
-view the file in a different font: if the second font shows the character, your
-data is fine and the first font simply lacked the glyph. If every font shows a
-box, the code point may genuinely be wrong — at which point you inspect code
-points as in the previous section.
+**Vocabulary.** *Morphological tagging* — labeling each word's grammatical properties. *Lemma* — the dictionary headword form of an inflected word. *CLTK* — the Classical Language Toolkit, open-source NLP for ancient languages.
 
-For your XML editor and terminal, set a polytonic-capable monospace or serif face
-explicitly rather than accepting the default. A default font that silently fails
-on rare combinations will cost you an afternoon in Week 6, when you are working
-with exactly those combinations.
-
-**Takeaway:** A missing glyph is a font problem, not a data
-problem; diagnose by changing fonts before changing files.
+**Takeaway:** Linguistic markup turns a readable text into a queryable dataset — machine-tagged first, human-verified always, using shared tagsets.
 
 ---
 
 ## **17 Content**
 
-**Keyboard Layouts and Input Methods**
+**Stage 7: Translation and Annotation**
 
-You will type a good deal of polytonic Greek this term, and the input method you
-choose determines both your speed and — critically — the normalization form of
-what you produce.
+Translation in a digital edition is not an appendix; it is an alignment problem. Tools like the Alpheios Translation Alignment Editor let editors link each phrase of the translation to the phrase of the original it renders. The aligned translation then becomes data: a reader can click a Greek phrase to see the English; a researcher can study *how* a translator handled a construction across a whole work. Ugarit and similar platforms treat alignment quality itself as an object of study.
 
-| Method | Platform | Approach | Typical output form |
-| --- | --- | --- | --- |
-| Greek Polytonic layout | Windows, macOS, Linux | System layout with dead keys for diacritics | NFC on Windows; often NFD on macOS |
-| Keyman (Galaxie / classical layouts) | Cross-platform | Installable layout with mnemonic input | Configurable; usually NFC |
-| Unicode hex input | All | Type the code point directly | Exactly what you type |
-| Copy from a digital corpus | All | Reuse existing text | Whatever the source used — verify |
+*Annotation* is the broader art of attaching interpretive notes to the text — identifying people and places, explaining allusions, marking quotations. Digital annotation platforms (Recogito for places, CATMA for interpretive tagging) make annotations shared and structured instead of locked in a commentator's head, and they distinguish clearly between the *text*, which is evidence, and the *annotations*, which are arguments about the evidence. That distinction is FAIR thinking applied to interpretation: the layers stay separable so future readers can accept, reject, or extend each independently.
 
-The system polytonic layouts use *dead keys*: a key that produces no character
-itself but modifies the next keystroke. Typing the smooth-breathing dead key
-followed by alpha produces ἀ. Combinations chain, so breathing, accent, and iota
-subscript can be entered in sequence. The layouts repay a few hours of practice
-early in the term, and this weekend is the right time.
+Your edition will include a translation and commentary layer in the final modules (12–13), built by exactly this method — aligned, tagged, and kept distinct from the transcript of the manuscript itself.
 
-The last row of the table is the one to be careful about. Text copied from a
-digital corpus, a PDF, or a website arrives in whatever form that source used,
-which is frequently not NFC and occasionally not consistent within a single
-document. Always normalize after pasting, and never assume that text which looks
-right is encoded right.
+**Vocabulary.** *Translation alignment* — explicit word- or phrase-level links between original and translation. *Annotation layer* — interpretive notes stored separately from the transcribed text. *Recogito / CATMA* — open annotation platforms.
 
-Whatever method you adopt, verify its output once, deliberately: type a
-multi-diacritic character such as ᾧ, dump its code points, and learn what your
-own setup produces. Knowing your own tooling's default saves diagnosis later.
-
-**Takeaway:** Verify what normalization form your own keyboard
-produces, and always normalize text pasted from external sources.
+**Takeaway:** Translations and notes become structured, separable layers — interpretation preserved as reusable data, never merged into the evidence.
 
 ---
 
 ## **18 Content**
 
-**Oxygen XML Editor**
+**Stage 8: Presentation and Publication**
 
-Oxygen is the standard professional environment for TEI work and is available to
-you through the university. Its advantage over a general text editor is that it
-understands the schema your document declares.
+The final stage turns the data stack into something humans read: a web page, a print PDF, an API. The crucial principle is *separation of data from presentation* — the same TEI file can render as a reading website (via TEI Publisher or CETEIcean), a print-ready PDF, or a machine interface, without editing the file itself. Publications also export and archive: stable identifiers and institutional repositories (or GitHub, with archived releases) keep the edition addressable after the project website's funding ends.
 
-The features that matter for this course:
+This stage is where all five FAIR letters are audited. Is the edition findable — does it have a DOI or equivalent? Accessible — does it work without special software? Interoperable — can its data be exported in standard TEI? Reusable — is the license stated, the method documented, the code archived? A beautiful website that fails these is a poster, not an edition.
 
-- **Schema-aware completion.** With the TEI or EpiDoc schema associated, Oxygen offers only elements valid at the cursor position, which prevents a large class of encoding errors as you type (TEI Consortium, 2026; EpiDoc Guidelines, 2026).
-- **Continuous validation.** Errors are flagged as you work rather than at commit time, with the specific rule violated.
-- **Author mode.** A visual editing view driven by a stylesheet, useful when the raw markup becomes dense enough to obscure the text.
-- **XPath evaluation.** Query your own document interactively — indispensable from Week 8, when the apparatus makes documents large.
-- **Built-in XSLT and transformation scenarios.** Preview output without a separate toolchain.
+The Publication module (13) has you assemble your term's work into exactly this package. The syllabus's final deliverable — the Digital Edition Portfolio in the December exam period — is your presentation layer, built on thirteen weeks of data that were designed to survive presentation.
 
-Two configuration steps to take before Week 2. First, associate the TEI P5
-schema with your documents so validation is live from the outset. Second, set the
-editor font to a polytonic-capable face from the previous section, and set the
-file encoding explicitly to UTF-8.
+**Vocabulary.** *Separation of data and presentation* — storing content as data so multiple renderings are possible. *TEI Publisher* — an open platform for publishing TEI documents to the web. *DOI* — a persistent identifier for scholarly objects.
 
-Oxygen also has Git integration adequate for staging and committing. It is
-perfectly acceptable to use it — with the caveat from Lesson 1.1 that graphical
-Git tools do not expose hooks, trailers, or pickaxe searches, so you will need
-the command line for those.
-
-**Takeaway:** Oxygen's value is schema-aware validation as you
-type, catching encoding errors before they enter the repository.
+**Takeaway:** Presentation renders the data stack for humans — and a real edition passes the FAIR audit at the moment of publication.
 
 ---
 
 ## **19 Content**
 
-**VS Code as an XML and Git Environment**
+**The Workflow Is Your Semester**
 
-VS Code is the alternative, and for many students the better one, because it
-combines XML editing with the strongest available Git integration in a single
-free tool.
+Look at the schedule with the workflow in mind and the course stops being a list of topics. Cataloguing (Module 2, Week 2). Images and IIIF (Module 3, Week 3). Transcription (Module 4, Week 4). Reconciliation (Module 5, Week 5). Normalization (Module 6, Week 6). Collation (Module 7, Week 7). Apparatus/textual criticism (Module 8, Week 8). Lemmatization (Module 9, Week 9). Consolidation, alignment (Modules 10–11, Weeks 10–11). Commentary (Module 12, Week 12). Publication (Module 13, Week 13).
 
-| Extension | Provides | Needed from |
-| --- | --- | --- |
-| XML (Red Hat) | Schema validation, completion, formatting | Week 2 |
-| Scholarly XML | TEI-aware completion and RelaxNG validation | Week 2 |
-| GitLens | Inline blame, history, and authorship at each line | Week 4 |
-| Git Graph | Visual DAG of the repository | Week 1 |
-| Python | Running normalization and analysis scripts | Week 1 |
+Each module also runs the same *method* on its stage: Tuesday you do the stage by hand, Wednesday a deterministic script does it, Friday you compare an AI-assisted version against both — the three-step comparative cycle that begins in Week 2. The workflow gives the "what"; the cycle gives the "how," and it exists so that you personally experience what each tool adds and fails at.
 
-GitLens deserves specific mention for this course. It annotates each line of a
-file with the commit that last changed it, the author, and the message —
-transforming a static transcription into a document you can interrogate line by
-line. Hovering over a reading in your edition shows when it entered and why,
-provided you wrote a useful commit body. It renders the argument of Lesson 1.1
-visible in the editor.
+This is why the FAIR principles and the workflow belong in Orientation, before any tool training. Every command you learn this term is serving a named stage and a named principle. When a tool frustrates you — and one will — you will be able to ask whether it failed *you*, or whether it is genuinely hard, by comparing notes against the workflow.
 
-The practical advantage of consolidating on VS Code is that transcription,
-validation, Python scripting, and version control happen in one window. The
-practical disadvantage relative to Oxygen is a weaker Author mode and less mature
-XSLT support. Many students in this course use both: Oxygen for heavy encoding
-work, VS Code for scripting and Git.
+**Vocabulary.** *Three-step comparative cycle* — manual baseline, deterministic tool, AI-assisted pass, compared each week. *Orientation* — Weeks 1's setup of concepts, tools, and accounts before the cycle begins.
 
-Whichever you choose, configure it this weekend rather than in Week 2. Set the
-font, set UTF-8, install the extensions, and verify that a deliberately invalid
-XML file is flagged. Discovering that validation was never enabled is a poor way
-to begin the cataloguing assignment.
-
-**Takeaway:** VS Code with the XML and GitLens extensions puts
-encoding, scripting, and version history in one window.
+**Takeaway:** Modules 2–13 walk the standard edition workflow in order, each stage practiced manual → deterministic → AI-assisted.
 
 ---
 
 ## **20 Content**
 
-**Accounts to Create This Week**
+**Tool: Oxygen XML Editor**
 
-Three accounts are required, and all three should exist before Week 2 because
-each has an approval or setup delay that will otherwise cost you class time.
+Oxygen XML Editor is the professional application for working with TEI documents, and it is installed on the lab machines in MULH 3032 (an academic license is available for your own machine if you want it there). What Oxygen adds over a plain text editor is *validation*: it reads the TEI schema — the formal rulebook of which elements and attributes are legal where — and flags violations as you type, the way a spell-checker flags misspellings.
 
-| Service | Purpose | Needed by | Setup note |
-| --- | --- | --- | --- |
-| GitHub | Remote hosting, submission, peer review | Week 2 | Use your StFX address; match your Git `user.email` |
-| Transkribus | HTR model training and transcription | Week 4 | Free tier sufficient; model training needs credits |
-| THREAD | Collaborative transcription environment | Week 4 | Account approval is not instantaneous |
+Why this matters: XML is strict. A mistyped tag or an element in the wrong place makes the file unusable to every downstream tool. Validation catches that instantly, at typing time, instead of at publication time when it is expensive. Oxygen also understands *TEI specifically* — it offers templates for headers and transcripts, and can transform TEI into HTML or PDF with built-in processors.
 
-For GitHub, the email address matters more than it appears. Commits are
-associated with an author by email; if your local `user.email` does not match a
-verified address on your GitHub account, your commits will appear as an
-unrecognized author and will not be attributed to you in the interface. Set the
-same address in both places.
+In Week 2 you will hand-write a TEI header in a plain text editor on Tuesday, then open it in Oxygen on Wednesday and validate it against the schema. The errors you see are the lesson: they show you exactly what a schema *is* — a machine-readable statement of your project's standards. Oxygen enforces interoperability while you type.
 
-Enable two-factor authentication on GitHub, which is required for account
-security and affects how you authenticate from the command line: password
-authentication over HTTPS is not available, so you will use either a personal
-access token or an SSH key. Generate an SSH key this weekend and add it to your
-account; the alternative is discovering the requirement mid-class when you first
-try to push.
+**Vocabulary.** *Schema validation* — checking an XML file against a formal specification of legal structure. *TEI schema* — the rulebook defining legal TEI elements and their arrangement. *Transformation* — converting XML into another format (HTML, PDF) via a style processor.
 
-For Transkribus, note that the free tier covers a good deal of transcription but
-that HTR *model training* consumes credits. Week 4 will use a shared course
-allocation, but create the account now and familiarize yourself with the
-interface.
-
-**Takeaway:** Create all three accounts this week; GitHub's
-email must match your Git configuration, and THREAD approval is not immediate.
+**Takeaway:** Oxygen validates your XML against the TEI schema in real time — interoperability enforced at typing time, not discovered at publication.
 
 ---
 
 ## **21 Content**
 
-**Case Study: Structure-Aware OCR of Greek Critical Editions**
+**Tool: VS Code for XML and Git**
 
-A recent study illustrates why the encoding discipline in this lesson must
-precede any use of automation, and it is worth examining in detail because you
-will replicate a small version of it in Week 4.
+VS Code, which you installed on Wednesday, is the second half of your editing environment — and the two tools divide the labor deliberately. Oxygen is the specialist: schema validation, TEI templates, transformation. VS Code is the generalist workbench: it opens everything, tracks your project with Git's built-in interface, runs your Python scripts, and connects to your AI assistants. Real digital humanities projects use both, often side by side on the same file.
 
-Angleraud et al. (2026) address the digitization of printed Greek critical
-editions — a genuinely hard problem because the printed page is *polycentric*.
-A single page carries the primary text, a dense multi-layered apparatus at the
-foot, marginal line numbers, and canonical reference milestones such as Stephanus
-pagination embedded in the margins. Conventional OCR reads the page as a single
-column of text and interleaves these registers into an unusable transcript.
+Three VS Code practices to establish now, in Orientation, before Module 2 begins. *One project, one repository*: keep all course files for your edition inside a single Git-tracked folder, so every file's history is recorded in one place. *Commit at checkpoints*: end each work session with a commit whose message says what stage you were working on ("Lesson 1.2: chose passage, recorded shelfmark") — Huskey (2024) calls this the research journal, and your future self will read it that way. *Plain text always*: no file in this course should ever need a proprietary program to open.
 
-The researchers fine-tuned vision-language models — Qwen3-VL and DeepSeek-OCR-2 —
-on a synthetic corpus of 185,000 page images generated from TEI/XML sources with
-controlled typographic variation. The models were trained to emit structured
-output that explicitly separates the registers, marking milestones with `<ref>`
-and marginalia with `<note>` rather than flattening them into the text
-(Angleraud et al., 2026).
+There is no shortage of tools in this field; the keynote counted dozens at every workflow stage. The course's deliberate choice is a *minimal* stable toolkit — VS Code, Oxygen, Git, GitHub, Transkribus, Zotero — so that your energy goes into the scholarship and the method, not into relearning interfaces every month.
 
-The results are worth reading carefully in both directions. The fine-tuned
-Qwen3-VL-8B model achieved a median character error rate of 1.0% — excellent by
-any standard, and better than most students achieve transcribing by hand. But the
-same study documents "catastrophic page-level failures," in which the model's
-output drifts entirely from the image and it generates fluent, grammatical,
-entirely fabricated Greek. The models also struggled systematically with symbolic
-ambiguity, particularly failing to distinguish alphabetic Greek numerals from
-ordinary lexical tokens (Angleraud et al., 2026).
+**Vocabulary.** *Repository (repo)* — the Git-tracked folder containing a project and its complete history. *Minimal toolkit* — a deliberately small, stable set of tools mastered deeply. *Research journal* — using commit messages to record scholarly decisions as they happen.
 
-That combination — excellent median accuracy with occasional total fabrication —
-is the defining risk profile of machine transcription, and it is why this course
-records provenance in commit trailers and measures error rates against your own
-ground truth. A model wrong 1% of the time uniformly could be trusted and spot-
-checked. A model that is 99% correct and occasionally invents a page cannot.
-
-**Takeaway:** Machine transcription can achieve a 1.0% median
-error rate while occasionally fabricating entire pages, which is why provenance
-and ground truth are non-negotiable.
+**Takeaway:** Oxygen validates, VS Code runs everything else — a deliberately minimal toolkit chosen so scholarship, not interface churn, is the work.
 
 ---
 
 ## **22 Content**
 
-**What the OCR Case Study Implies for Your Workflow**
+**Accounts to Create This Week**
 
-Draw out the consequences, because they shape how the rest of the term is
-structured.
+The workflow is operated through free online platforms, and every student needs accounts on four of them before Week 2. Create each with your StFX email, using a strong password and a password manager rather than reusing passwords.
 
-If failures were uniformly distributed, sampling would be a valid quality
-control: check 10% of the output, estimate the error rate, and correct
-proportionally. Catastrophic page-level failure defeats sampling entirely,
-because the failures are concentrated and a sample may contain none of them while
-the document contains several (Angleraud et al., 2026).
+*GitHub* (github.com) hosts Git repositories online: it is the backup, sharing, and collaboration layer over local Git. GitHub also gives education accounts extra private-repository features. *Transkribus* (transkribus.eu) is the HTR platform for Module 4: you will upload manuscript images, transcribe ground truth, and train a recognition model on your own hand. *Zotero* (zotero.org) manages bibliographic data and exports it in open formats — the FAIR way to handle your bibliography, integrated with Word and browsers. *THREAD / Perseids* — the THREAD project's documentation (github.com/THREAD-project) is the open toolkit this course draws on; an account lets you explore the integration sites used in later modules.
 
-If failures were *visible*, they would be self-correcting: fluent output that is
-obviously wrong gets caught. But a hallucinated page of Greek is grammatical and
-plausible. It reads as competent Greek because the model is very good at
-producing competent Greek — which is the source of the problem, not a mitigation
-of it. The only detection method is comparison against the image.
+Two principles for choosing accounts, both from the FAIR discussion. Prefer platforms that *export* your data in open formats — platforms you can leave. And treat the account itself as part of your scholarly identity: the same username across GitHub and Zotero, attached to real work, becomes your provenance trail — the record that *you* produced *this* transcription on *this* date.
 
-| Failure profile | Effective control | Why |
-| --- | --- | --- |
-| Uniform low-rate errors | Sampling and spot-check | Sample is representative of the whole |
-| Concentrated catastrophic failure | Full comparison against source | Sample may miss the affected region entirely |
-| Fluent fabrication | Comparison against the image, not the text | Output is internally plausible and self-consistent |
-| Symbolic ambiguity (numerals) | Targeted review of known-hard categories | Failure is systematic and therefore predictable |
+**Vocabulary.** *GitHub* — the online hosting service for Git repositories. *Transkribus* — the HTR training and transcription platform used in Module 4. *Zotero* — open-source reference management with open export formats.
 
-Three practices follow, and each has a place later in the course. Every page of
-machine output is checked against the facsimile, not sampled. Machine output is
-committed separately from your corrections, so that the raw state remains
-recoverable and the error rate remains measurable. And known-hard categories —
-numerals, abbreviations, marginalia — receive targeted review rather than being
-trusted at the general rate.
-
-**Takeaway:** Concentrated, fluent failures defeat sampling, so
-machine output must be compared page by page against the image.
+**Takeaway:** Create GitHub, Transkribus, and Zotero accounts (plus THREAD documentation access) with your StFX email — each platform maps to a workflow stage you will use this term.
 
 ---
 
 ## **23 Content**
 
-**Machine Learning and Philological Judgement**
+**Why the Platforms Themselves Must Be FAIR**
 
-The OCR case study concerns transcription. A second body of work concerns
-something more ambitious — machine assistance in *editorial* judgement — and it
-frames a question this course returns to repeatedly.
+It is worth noticing that the platforms you just signed up for are themselves subject to the principles they serve. GitHub is useful to scholarship *because* your repository is exportable — the entire history, as plain files, clones to any machine. Zotero is useful *because* it exports open bibliographic formats instead of locking your library in a database. Transkribus is more guarded — trained models and processing time sit behind its accounts — which is precisely why this course also has you keep your ground truth and corrections in your own repository, in your own hands.
 
-Cowen-Breen et al. (2023) describe Logion, a BERT-based model trained on
-premodern Greek, applied to the detection of scribal errors and the suggestion of
-emendations. The model learns the statistical regularities of Greek as attested
-in a large corpus, and can therefore identify passages that are anomalous with
-respect to those regularities — which is, in a limited but real sense, what a
-philologist does when a reading strikes them as wrong.
+This is the practical skill the FAIR framework trains: reading a tool not just as a convenience but as a *data custody decision*. Where does my data live? In what format? Can I get it out, with its history intact? Who else can access it, under what terms? A tool that answers those questions well composes with the rest of the FAIR stack; a tool that answers badly becomes a lock on your own research.
 
-The limitation is precise and worth stating carefully. The model identifies
-*statistical* anomaly, not *textual* error. A passage may be unusual because a
-scribe erred, or because the author wrote something unusual — and authors of
-literary interest are, notoriously, the ones who write unusual things. The model
-cannot make that distinction, because the distinction requires knowing what the
-author was doing, which is not in the training data (Cowen-Breen et al., 2023).
+You will meet this decision repeatedly: choosing an image host, a publication platform, an annotation service. The workflow stage changes; the questions do not. Ask them every time, and you will not wake up in April with a term's work trapped in a service you cannot export.
 
-This maps directly onto the Friday step of every week from Week 4 onward. The
-machine's proposal is evidence — genuinely useful evidence, of a kind that would
-take a human a long time to assemble. It is not a conclusion. Your task on those
-Fridays is to adjudicate the proposal against the manuscript and against your
-knowledge of the text, and to record in the commit body why you accepted or
-rejected it.
+**Vocabulary.** *Data custody* — the question of where data lives and under whose control. *Export path* — the mechanism by which your data leaves a platform. *Vendor lock-in* — dependence on a service that does not let your data leave.
 
-The pedagogical value of such tools may lie less in their proposals than in the
-articulation they force. Explaining why a statistically anomalous reading is
-nevertheless correct requires stating your reasoning explicitly — which is
-exactly the reasoning that Giarratano's print editions failed to preserve.
-
-**Takeaway:** Language models detect statistical anomaly, not
-textual error, so their proposals are evidence for your judgement rather than
-substitutes for it.
+**Takeaway:** Evaluate every platform as a custody decision — open formats and real export paths are what keep your research yours.
 
 ---
 
 ## **24 Content**
 
-**Codicological Description and the Vocabulary of the Object**
+**Case Study: Machine Recognition of Greek Editions**
 
-Before selecting a passage, you need enough descriptive vocabulary to say what
-you are looking at. Comparative Oriental Manuscript Studies provides the standard
-framework for describing manuscripts as physical objects, and its terminology is
-what Week 2's cataloguing assignment will require (Bausi et al., 2015).
+To see the workflow's current frontier, consider a 2026 study by Angleraud, Karamolegkou, Sagot, and Clérice on structure-aware text recognition for ancient Greek critical editions. The problem: printed critical editions are dense two-dimensional objects — text interleaved with apparatus footnotes, corner brackets marking lemma citations, abbreviations everywhere — and standard OCR, which assumes plain flowing text, destroys exactly that structure. Their system trains a model to recognize not just the letters but the *layout roles*: which region is running text, which is apparatus, where a lemma begins.
 
-| Term | Refers to | Why it matters for selection |
-| --- | --- | --- |
-| Folio | A leaf; recto is the front, verso the back | Passage locations are cited as f. 42r, f. 42v |
-| Quire / gathering | A bundle of folded leaves forming a unit | Quire boundaries often coincide with damage or loss |
-| Ruling | Lines guiding the script | Affects legibility and line segmentation for HTR |
-| Hand | The writing of one scribe | A change of hand mid-passage complicates model training |
-| Lacuna | A physical gap where text is lost | Requires editorial restoration; adds difficulty |
-| Palimpsest | A reused leaf with erased underwriting | Requires multispectral imaging; usually too hard for this term |
-| Marginalia | Notes added in the margins | Must be encoded distinctly from the main text |
-| Colophon | A scribal note, often with date and place | Valuable metadata for the Week 2 TEI header |
+Read it against this lesson and it is the whole workflow in miniature. It presupposes findable, accessible inputs (scanned editions). Its center is transcription, machine-accelerated but evaluated against human-checked ground truth — error rates again. Its output is structured data (the apparatus as data, not typography), which is interoperability: once the apparatus is data, it can be collated, searched, and republished. The paper is also FAIR practice in itself: it documents method and releases code so others can reuse the approach.
 
-Bausi et al. (2015) emphasize that codicological description is not preliminary
-to textual work but part of it: the physical structure of the book carries
-evidence about how the text was transmitted, and an edition that ignores the
-object is missing data.
+The frontier moves — this study is 2026, your course materials will age — but the *shape* of the work is stable: identify the structure, get the evidence into plain data, measure against ground truth, publish openly. That shape is what you are learning.
 
-For your purposes this week, this vocabulary is the checklist you take to the
-selection decision. You should be able to state, of the passage you choose, how
-many folios it spans, whether it is written in one hand, whether it contains
-lacunae or marginalia, and whether a colophon is present anywhere in the
-manuscript.
+**Vocabulary.** *OCR / HTR* — optical/handwritten text recognition. *Structure-aware recognition* — models trained to recover layout roles, not just characters. *Apparatus as data* — variant information extracted into machine-usable form.
 
-**Takeaway:** You need codicological vocabulary to describe what
-you have chosen, and the physical structure of the book is evidence, not context.
+**Takeaway:** Current research automates the edition workflow stage by stage — but every advance is measured against human ground truth and published as open, structured data.
 
 ---
 
 ## **25 Content**
 
-**Choosing Your Passage: The Criteria That Matter**
+**Machine Learning and Philological Judgment**
 
-The selection due today governs the entire term. Every assignment from Week 2 to
-Week 13 operates on this passage, and a poor choice cannot be corrected in
-November. Weigh the following.
+A caution that the readings (Cowen-Breen et al. 2023) press directly: machine learning in philology is powerful *statistical pattern-matching*, not understanding. A language model that "reads" Greek has never seen a manuscript, cares nothing for scribal habits, and will produce fluent nonsense with the same confidence as truth. The studies that introduced ML into philology showed genuine gains — in OCR correction, in lemmatizing difficult forms — and equally showed that the gains evaporate without human evaluation.
 
-| Criterion | Target | Why |
-| --- | --- | --- |
-| Length | 20–40 lines | Enough for meaningful collation; small enough to encode fully |
-| Legibility | Clear, consistent hand | HTR training in Week 4 requires readable baselines |
-| Witnesses | At least 2, ideally 3 | Week 7 collation requires more than one witness |
-| Image availability | Open-licensed, high resolution | Week 3 IIIF work requires images you may use |
-| Textual interest | Known variants or cruxes | Weeks 8 and 12 need something to discuss |
-| Prior editions | At least one available | Provides a comparison for your editorial decisions |
-| Script | Not a difficult minuscule or palimpsest | Manageable within a thirteen-week term |
+The three-step cycle this course runs every week is the practical answer. Tuesday's manual work is your ground truth: slow, effortful, but * yours*, and authoritative for your passage. Wednesday's deterministic script does exactly what it is told — no intelligence, but perfect repeatability, which makes it auditable. Friday's AI pass is fast and occasionally brilliant, and worthless until compared. The comparison is the scholarship. A scholar who only runs the AI pass has not outsourced work; they have abandoned the evidence for a plausible imitation of it.
 
-The witness requirement is the one students most often underestimate. A passage
-surviving in a single manuscript makes Week 7's collation exercise impossible in
-any real sense — you cannot align witnesses you do not have, and substituting
-printed editions is a poor approximation of the exercise. Confirm that at least
-two witnesses are digitized and accessible *before* committing to a passage.
+Hold this position through the semester: automation changes *where* your effort goes — from mechanical transcription toward judgment, verification, and design of checks — not *whether* judgment is required. The workflow stages that looked clerical (double-keying, error rates) turn out to be exactly where scholarship lives.
 
-Image licensing is the second common failure. Many manuscript images are online
-but under restrictive terms; a IIIF manifest you cannot legally build or share
-undermines Week 3 and the final publication in Week 13. Prefer institutions with
-explicit open licensing — the Vatican Library, the British Library, the
-Bibliothèque nationale, e-codices, and similar repositories that publish IIIF
-endpoints openly.
+**Vocabulary.** *Statistical pattern matching* — predicting likely output from training data, without understanding. *Deterministic tool* — software that always produces the same output from the same input. *Evaluation* — measuring machine output against ground truth.
 
-Resist the temptation toward difficulty. A famously contested passage in a
-notoriously difficult hand is a compelling choice in September and an
-unfinishable one in November. Textual interest matters, but tractability matters
-more, and a clean passage encoded completely is worth more than an ambitious one
-abandoned in Week 9.
-
-**Takeaway:** Confirm at least two accessible witnesses and open
-image licensing before committing; those two constraints eliminate most
-unworkable choices.
+**Takeaway:** AI assists every stage but is only trustworthy when measured against your manual ground truth — the comparison is the scholarship.
 
 ---
 
 ## **26 Content**
 
-**Verifying Your Choice Before Committing to It**
+**Choosing Your Passage: The Criteria**
 
-Do not select from a catalogue description alone. Run the following checks, all
-of which are quick and any of which can disqualify a passage.
+By the end of today you will choose the manuscript passage that every assignment this term builds on — catalogued in Week 2, imaged in Week 3, transcribed in Week 4, and so on through publication in Week 13. Choose with the workflow in mind, because you are choosing the raw material for thirteen weeks of work.
 
-- **Open the images.** Confirm the resolution is sufficient to read individual letters when zoomed, not merely to identify the page.
-- **Locate the IIIF manifest.** Most major repositories expose a manifest URL; find it now, because Week 3 depends on it and its absence is a serious obstacle.
-- **Check the licence explicitly.** Find the stated terms, not an assumption. Note the required attribution formula.
-- **Identify the second witness.** Confirm it is digitized, accessible, and covers the same passage — not merely the same work.
-- **Read ten lines.** Actually attempt to read them. A hand that looks clear at page scale can be much harder at line scale.
-- **Find one prior edition.** Confirm a published text exists for comparison.
-- **Check for a change of hand.** Scan the passage boundaries for a shift in script.
+The criteria: *Size* — roughly ten to twenty lines of continuous text: enough to be substantial, few enough that you can double-key and translate it. *Image quality* — a legible, well-lit, publicly available image (check the library's IIIF or website). *Manageable apparatus* — some abbreviations or corrections to make transcription interesting, but not a page of heavy ligatures for your first semester. *Ancient language* — Greek or another language you are studying or willing to work with via tools; the linguistic modules need real morphology. *Sustained interest* — you will read this passage a hundred times; pick text you care about.
 
-If a passage fails on witnesses or on licensing, discard it and choose again —
-those two are not recoverable later. Failing on textual interest is survivable;
-failing on legibility is survivable if the passage is short. Failing on image
-resolution is not, because everything downstream depends on being able to read
-the source.
+Good sources of candidates: the passages cited in this week's readings; manuscript pages already online in the libraries' IIIF collections; or a text connected to work you have done in other courses. Nothing needs to be final today beyond the passage itself — the ungraded deadline exists so that every later week starts from a fixed object.
 
-Bring the results of these checks to Week 2. The cataloguing assignment, due
-Friday September 18, will ask you to produce a TEI header describing this
-manuscript, and much of what the header needs — repository, shelfmark, date,
-material, extent, hand — is what you are gathering now (Bausi et al., 2015; TEI
-Consortium, 2026).
+**Vocabulary.** *Candidate passage* — a prospective section of manuscript text for your edition project. *Ligature* — two or more letters written joined in a single stroke. *IIIF collection* — a library's online gallery of IIIF-served manuscript images.
 
-**Takeaway:** Verify images, manifest, licence, and second
-witness before committing to a passage; the first four checks are the ones that
-cannot be fixed later.
+**Takeaway:** Choose 10–20 continuous lines with a good public image, real but manageable difficulty, and a language you will enjoy working in.
 
 ---
 
 ## **27 Content**
 
-**Recording the Choice in the Repository**
+**Verifying Your Choice Before Committing**
 
-The selection is ungraded but not informal. Record it in your repository, as your
-first substantive commit, in a form that a reviewer can evaluate.
+Before you commit (in both senses) to a passage, run five checks — ten minutes now saves a stranded project in October.
 
-Your `README.md` should state:
+1. *Image exists and is legible.* Find the actual page image online. Zoom to 100%: can you read every line? If the library's viewer is the only access, confirm it allows study use.
+2. *Identity is established.* Can you find the manuscript in a catalog (Pinakes, LDAB, Papyri.info, or the library's catalog)? You will need its shelfmark and basic description for Week 2's TEI header. If no catalog record exists, the passage is still possible but Week 2 becomes harder.
+3. *Text is identifiable.* Do you know (or can you determine) what text the passage contains? A published edition or translation to compare against makes every later stage easier.
+4. *The passage is self-contained.* It should start and end at natural boundaries — not stop mid-word at the image's edge.
+5. *You can name its difficulty.* In one sentence, what will be hard here — the script, the abbreviations, the damage? Naming it now is the beginning of your documentation.
 
-- The work, author, and passage reference (book, chapter, line, or folio range).
-- The primary manuscript: repository, shelfmark, date, and folio range.
-- The second and any further witnesses, with the same identifying detail.
-- The image source, IIIF manifest URL, and licence terms.
-- At least one prior edition, cited.
-- Two or three sentences on why you chose this passage.
+Record the results of all five checks; they become the first entries in your project's documentation.
 
-The last item is the one that matters intellectually. Stating your reasons now
-produces a record you can evaluate later — in Week 10's consolidation session you
-will reread it and see whether the passage delivered what you expected, and in
-Week 13's publication you will have the beginning of an editorial introduction
-already written.
+**Vocabulary.** *Shelfmark verification* — confirming the manuscript's exact catalog identity. *Self-contained passage* — text with natural start and end points within the surviving image.
 
-Commit it with a message that follows the conventions from Lesson 1.1:
-
-```text
-docs(readme): select MS Vat. gr. 1209 ff. 42r-43v as edition passage
-
-Chosen for a clear tenth-century minuscule hand, two further digitized
-witnesses (BnF gr. 2934, BL Add. 17210), and open IIIF access via the
-Vatican Library. Passage covers 34 lines with two known variants
-discussed in the Wachtel edition, giving material for the Week 8
-apparatus.
-```
-
-Note what that body does: it states the choice, gives the reasons against the
-selection criteria, and records the evidence that the criteria were met. Three
-months from now it is the only surviving record of why you are working on this
-text.
-
-**Takeaway:** Record the passage and your reasons for choosing
-it as a committed document; it becomes the seed of your editorial introduction.
+**Takeaway:** Five checks — image, identity, text, boundaries, difficulty — turn a candidate passage into a defensible project choice.
 
 ---
 
 ## **28 Content**
 
-**How the Encoding Foundation Carries Through the Term**
+**Recording the Choice in the Repository**
 
-It is worth seeing where each element of this lesson reappears, because the
-material can feel like unmotivated preliminaries until it becomes load-bearing.
+Now the Lesson 1.1 machinery earns its keep. Your passage choice becomes a file — `README.md` in your course repository — containing: the manuscript's shelfmark and catalog identifier; the passage's location (folio and line numbers); the text it contains; the IIIF or web address of the image(s); and one sentence on the passage's expected difficulty. This small file is the seed of the TEI header you will write in Week 2 and the provenance record your whole project will stand on.
 
-| Established here | Becomes essential in | Consequence of neglect |
-| --- | --- | --- |
-| NFC normalization | Week 5 error rates | Error rate inflated by encoding mismatch, not transcription error |
-| Pre-commit hook | Every week | Unnormalized text accumulates and must be fixed retroactively |
-| Code point inspection | Weeks 5–7 | Encoding faults misdiagnosed as transcription or collation faults |
-| Polytonic font | Weeks 4–6 | Correct data mistaken for corruption; correct files "repaired" |
-| Diacritic vocabulary | Week 6 normalization | Cannot state what is being normalized or justify the decision |
-| Adscript / subscript distinction | Week 6 | Silent normalization of an editorial convention |
-| Codicological vocabulary | Week 2 TEI header | Header incomplete; cataloguing assignment weakened |
-| Passage with 2+ witnesses | Week 7 collation | Collation exercise cannot be performed as designed |
-| Open image licence | Weeks 3 and 13 | IIIF manifest unbuildable; edition unpublishable |
+Then commit it. In VS Code: stage the file, write a commit message like "Choose passage: Vat. gr. 2121 f. 213r, Gen 1:1–5" — specific enough that December-you knows exactly what happened — and commit. Push if you have GitHub set up. You have just performed the workflow's first FAIR act: the choice is findable (in your repo), documented (the file), and timestamped with attribution (the commit). Huskey's "research journal" begins exactly here.
 
-The pattern is that encoding problems do not present as encoding problems. They
-present as inexplicable error rates, spurious collation variants, mysterious diff
-noise, and files that look corrupted but are not. Every one of those symptoms
-sends students hunting in the wrong place, and the hours lost are hours not spent
-on the text.
+The deadline is Friday, September 4 — today. The choice is ungraded, but as the schedule says, every later assignment builds on it. If you are torn between two passages, commit the README for your primary choice and note the runner-up in the same file; you can note what would have changed, and the decision is at least recorded rather than drifting.
 
-This is why the course front-loads the infrastructure. Boschetti (2010) makes the
-same argument about corpus preparation: normalization is prerequisite to
-analysis, and analysis performed on unnormalized data yields results that are
-wrong without appearing wrong.
+**Vocabulary.** *README* — the standard first file of a repository, explaining what the project is. *Commit message* — the Git record of what changed and why. *Seed metadata* — the small initial record that later, fuller documentation grows from.
 
-**Takeaway:** Encoding faults present as inexplicable error
-rates and phantom variants, which is why they must be eliminated before the
-analysis that would otherwise be blamed.
+**Takeaway:** Write the passage's identity, location, image URL, and difficulty in a committed README.md — your project's first FAIR artifact is born today.
 
 ---
 
 ## **29 Content**
 
-**A Complete Setup Checklist**
+**Complete Setup Checklist**
 
-Consolidate everything from both meetings of Week 1 into a verifiable list.
-Complete it before Week 2 begins.
+By Sunday, every item on this list should be true. Check them off literally — this section is your checklist.
 
-**Version control (Lesson 1.1).**
+**Software (from Wednesday):** VS Code installed; Git installed and configured with your name and email (`git config --global user.name`, `user.email`); a course repository folder created and initialized with `git init`.
 
-- `git config --global user.name` and `user.email` set, matching your GitHub account.
-- `git config --global init.defaultBranch main` set.
-- `git config --global diff.algorithm histogram` set.
-- Repository created with the directory structure from Lesson 1.1.
-- `.gitattributes` committed with `* text=auto eol=lf`.
-- `.gitignore` committed, covering `.DS_Store`, editor backups, and `.vscode/`.
+**Accounts:** GitHub (StFX email; education benefits requested); Transkribus basic account; Zotero account with browser connector; THREAD project documentation bookmarked.
 
-**Encoding (this lesson).**
+**Passage:** chosen per the criteria in section 26; verified per the five checks in section 27; recorded in `README.md`; committed with a specific message; pushed to GitHub.
 
-- At least two polytonic fonts installed and verified on a multi-diacritic character.
-- A polytonic input method installed, and its output normalization form verified.
-- `tools/normalize_nfc.py` written and committed.
-- `pre-commit` hook installed and tested on a deliberately decomposed file.
+**Reading:** Finney, "Manuscript Markup" and Griffitts §3.4.1, plus TEI Guidelines vi.2, are the Week 1 readings — skim before Monday; Week 2's assignments assume them.
 
-**Environment.**
+**In the lab:** confirm you can log into a MULH 3032 machine and open Oxygen — Week 2's Wednesday needs it, and it is better to discover account problems now than during class.
 
-- Oxygen or VS Code installed, with TEI schema validation confirmed working.
-- Editor font set to a polytonic face; encoding set to UTF-8.
-- Python 3 available on the command line.
+None of this is deep work; all of it is *unblocking* work. Every minute spent now is not spent during Module 4 wondering why Transkribus won't accept your upload.
 
-**Accounts.**
+**Vocabulary.** *Setup debt* — postponed configuration work that later blocks real work. *Onboarding* — the complete process of becoming operational on a project's tools.
 
-- GitHub account with verified StFX email, 2FA enabled, SSH key added.
-- Transkribus account created.
-- THREAD account requested.
-
-**Passage.**
-
-- Passage selected against the criteria in section 25.
-- All seven verification checks in section 26 completed.
-- `README.md` committed recording the choice and the reasons.
-
-Test the hook rather than assuming it works: create a file containing decomposed
-Greek, stage it, commit, and confirm the committed content is NFC. An untested
-hook is not a control.
-
-**Takeaway:** Complete and verify the checklist before Week 2;
-test the pre-commit hook rather than assuming it functions.
+**Takeaway:** Software, accounts, passage, commit, push, readings, lab access — the full checklist, cleared now, keeps Week 2 about scholarship instead of setup.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: Infrastructure as Editorial Method**
+**Synthesis: Principles, Pipeline, and Your Project**
 
-The two meetings of this week have covered version control and character
-encoding, which look like technical preliminaries to the real work of the course.
-They are not preliminaries. They are the conditions that make the real work
-possible, and the argument connecting them is worth stating explicitly.
+Two frameworks and one decision — that was today. The FAIR principles (Findable, Accessible, Interoperable, Reusable) are the *values*: what separates community infrastructure from a private folder. The eight-stage workflow — cataloguing, images, transcription, reconciliation and normalization, collation, linguistic markup, translation and annotation, presentation — is the *practice*: how the field actually edits ancient documents, and the exact path your modules 2–13 will follow. And your chosen passage is the *object*: the manuscript evidence that will travel through every stage, in your hands, for thirteen weeks.
 
-An edition makes claims: this manuscript reads thus, this variant is to be
-preferred, this reading is corrupt. A *scholarly* edition additionally makes those
-claims inspectable — a reader can see what the evidence was and how the editor
-reasoned from it. Huskey (2024) frames this as reproducibility and explainability,
-and identifies version control as the mechanism that delivers both for a digital
-edition.
+The connection between the frameworks is the deep fact of this course. FAIR is not a compliance exercise attached to the workflow; it is what makes the workflow *cumulative* — each stage's output usable as the next stage's input, and each scholar's contribution reusable by the next scholar. Your README commit today and your published edition in December are the same act at two scales: evidence, documented, committed, dated, and open to the reader who comes after you.
 
-Character encoding is the same argument one level down. Before a claim about a
-reading can be inspected, the reading must be represented unambiguously. Text
-that is sometimes NFC and sometimes NFD does not make one claim; it makes a claim
-that varies by platform and by tool. Normalization is what makes the object of the
-claim stable enough to be argued about (Unicode Consortium, 2025).
+**Due today, Friday September 4.** Your passage, chosen and verified, recorded in a committed `README.md`.
 
-Both, finally, are about the same thing: making your work *checkable*. The commit
-history lets a reader check your reasoning. Consistent encoding lets a machine
-check your text. The three-step cycle that begins in Week 2 — manual, then
-deterministic, then AI-assisted — is an extended exercise in checking, and it
-depends entirely on the two foundations laid this week.
+**Next week.** Module 2 begins the cycle: Tuesday, hand-write your passage's TEI header; Wednesday, validate it in Oxygen and build RDF triples from it; Friday, compare an AI-enriched version against your own. Bring your passage's catalog information.
 
-**Due today, Friday September 4.** Your manuscript passage, selected against the
-criteria in section 25, verified by the checks in section 26, and recorded in a
-committed `README.md`. The selection is ungraded. Every graded assignment for the
-next twelve weeks builds on it.
-
-**Next week.** Topic 2 begins the three-step cycle: Tuesday you hand-write a TEI
-header in a plain text editor, Wednesday you validate it against the schema in
-Oxygen and build RDF triples, and Friday you compare AI-generated metadata against
-the header you wrote yourself.
-
-**Takeaway:** Version control makes your reasoning checkable and
-normalization makes your text checkable; the whole course is an exercise in
-checking, and this week built its preconditions.
+**Takeaway:** FAIR supplies the values, the eight-stage workflow supplies the practice, and your passage gives them an object — the course is their meeting.
 
 ---
 
@@ -1197,34 +513,35 @@ Angleraud, N., Karamolegkou, A., Sagot, B., & Clérice, T. (2026).
 *Structure-aware text recognition for ancient Greek critical editions* (arXiv:
 2603.02803v3). Inria.
 
-Bausi, A., Borbone, P. G., Briquel-Chatonnet, F., Buzi, P., Gippert, J., Macé,
-C., Maniaci, M., Melis, Z., Parodi, L. E., Witakowski, W., & Sokolinski, E.
-(Eds.). (2015). *Comparative Oriental manuscript studies: An introduction*.
-COMSt.
-
 Boschetti, F. (2010). Analytical developments for the Homer Multitext:
 Palaeography, orthography, morphology. In *Improving OCR accuracy for classical
 critical editions*.
-
-Chacon, S., & Straub, B. (2014). *Pro Git* (2nd ed.). Apress.
-https://git-scm.com/book/en/v2
 
 Cowen-Breen, C., Brooks, C., Graziosi, B., & Haubold, J. (2023). Machine
 learning and the future of philology: A case study. *Transactions of the American
 Philological Association, 153*(1), 253–284.
 
-EpiDoc Guidelines. (2026). *Critical apparatus*.
-https://epidoc.stoa.org/gl/latest/supp-apparatus.html
+Gabler, H. W. (2010). Theorizing the digital scholarly edition. *Literature
+Compass, 7*(2), 43–56.
+
+Haaf, S., Gius, E., & Würbach, S. (2019). Measuring correctness of double-keying.
+*Digital Humanities Quarterly*.
 
 Huskey, S. J. (2024). Committing to reproducibility and explainability: Using
 Git as a research journal. *International Journal of Digital Humanities, 6*,
 9–21. https://doi.org/10.1007/s42803-023-00076-9
 
-Python Software Foundation. (n.d.). *unicodedata — Unicode database*. Python 3.12
-documentation. https://docs.python.org/3/library/unicodedata.html
+Penner, K. M. (2022, May 2). *A toolkit for humanities research and editing
+ancient documents* [Keynote address]. DHSI-East, virtual.
+
+Robinson, P. (2010). Current issues in making digital editions of medieval
+texts — or, do electronic scholarly editions end? In M. Driscoll & E. S. Edward
+(Eds.), *New directions in medieval manuscript studies*.
 
 TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and
 interchange* (Version 4.12.0). https://tei-c.org/guidelines/p5/
 
-Unicode Consortium. (2025). *Unicode Standard Annex #15: Unicode normalization
-forms* (Revision 57). https://www.unicode.org/reports/tr15/
+Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., Appleton, G., Axton, M.,
+Baak, A., Blomberg, N., et al. (2016). The FAIR Guiding Principles for
+scientific data management and stewardship. *Scientific Data, 3*, 160018.
+https://doi.org/10.1038/sdata.2016.18
