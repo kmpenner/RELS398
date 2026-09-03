@@ -24,6 +24,8 @@
 - **[2026-08-28] Module-Specific Visual Styles:** Each module maintains a dedicated, content-tailored visual style in its `Module_NN_*/.style` and lesson image folders (`03c_*_Images/.style`) reflecting its domain (manuscripts, paleography, IIIF, XML, NLP).
 - **[2026-08-28] Standalone HTML Players:** Compiled via `generate_interactive_html_lesson.py` into both `src/modules/` and `dist/moodle/` for offline study.
 - **[2026-08-28] Moodle Quiz Configuration:** Formative interactive quizzes and weekly knowledge check quizzes configure `behaviour=immediatefeedback`, `navmethod=sequential`, 1 question/page, and 19 review checkboxes.
+- **[2026-09-03] Text & XML Editing Standard:** Visual Studio Code (VS Code) with XML tooling is the sole official editing environment across all course modules, completely replacing Oxygen XML Editor.
+- **[2026-09-03] Full-Page Witness Standard:** Primary textual witnesses chosen by students must be an entire full page (one complete folio recto or verso, or complete epigraphic surface) of the artifact to ensure full codicological evidence.
 
 ---
 

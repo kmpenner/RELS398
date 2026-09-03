@@ -321,33 +321,33 @@ This is why the FAIR principles and the workflow belong in Orientation, before a
 
 ## **20 Content**
 
-**Tool: Oxygen XML Editor**
+**Tool: Editing and Validating XML in VS Code**
 
-Oxygen XML Editor is the professional application for working with TEI documents, and it is installed on the lab machines in MULH 3032 (an academic license is available for your own machine if you want it there). What Oxygen adds over a plain text editor is *validation*: it reads the TEI schema — the formal rulebook of which elements and attributes are legal where — and flags violations as you type, the way a spell-checker flags misspellings.
+In this course, we use **Visual Studio Code (VS Code)** rather than proprietary applications like Oxygen to edit all text and XML files. Installing an XML extension (such as the standard Red Hat XML extension or Scholarly XML) equips VS Code with professional-grade XML capabilities: real-time schema validation (against RELAX NG, W3C XML Schema, or DTDs), tag autocompletion, syntax checking, and inline error highlighting right as you type.
 
-Why this matters: XML is strict. A mistyped tag or an element in the wrong place makes the file unusable to every downstream tool. Validation catches that instantly, at typing time, instead of at publication time when it is expensive. Oxygen also understands *TEI specifically* — it offers templates for headers and transcripts, and can transform TEI into HTML or PDF with built-in processors.
+Why this matters: XML is strict. A mistyped tag or an element in the wrong place makes the file unusable to downstream parsers. Real-time validation in VS Code catches syntax defects immediately, as red squiggles and diagnostic warnings in your editor panel, before broken markup ever reaches your Git repository or publication pipeline.
 
-In Week 2 you will hand-write a TEI header in a plain text editor on Tuesday, then open it in Oxygen on Wednesday and validate it against the schema. The errors you see are the lesson: they show you exactly what a schema *is* — a machine-readable statement of your project's standards. Oxygen enforces interoperability while you type.
+In Week 2 you will hand-write a TEI header in a bare text editor on Tuesday, then enable schema validation in VS Code on Wednesday to audit it against the official TEI schema. The errors flagged in VS Code are the lesson: they show you exactly what a schema *is* — a formal, machine-readable contract of your project's editorial standards.
 
-**Vocabulary.** *Schema validation* — checking an XML file against a formal specification of legal structure. *TEI schema* — the rulebook defining legal TEI elements and their arrangement. *Transformation* — converting XML into another format (HTML, PDF) via a style processor.
+**Vocabulary.** *Schema validation* — checking an XML file against a formal specification of legal structure. *TEI schema* — the rulebook defining legal TEI elements and their arrangement. *XML extension* — an editor add-on that brings language server validation and autocomplete into VS Code.
 
-**Takeaway:** Oxygen validates your XML against the TEI schema in real time — interoperability enforced at typing time, not discovered at publication.
+**Takeaway:** VS Code with an XML extension validates your markup in real time — interoperability enforced at typing time, without requiring proprietary editors.
 
 ---
 
 ## **21 Content**
 
-**Tool: VS Code for XML and Git**
+**Tool: VS Code as the Unified Scholarly Workbench**
 
-VS Code, which you installed on Wednesday, is the second half of your editing environment — and the two tools divide the labor deliberately. Oxygen is the specialist: schema validation, TEI templates, transformation. VS Code is the generalist workbench: it opens everything, tracks your project with Git's built-in interface, runs your Python scripts, and connects to your AI assistants. Real digital humanities projects use both, often side by side on the same file.
+Using VS Code for both plain text and XML keeps our toolkit unified and portable. Rather than dividing labor across multiple separate applications with proprietary licensing barriers, your entire digital scholarly workflow runs inside a single, free, cross-platform environment: editing plain text notes, authoring TEI XML editions, running Python scripts, querying AI assistants, and managing Git version control.
 
 Three VS Code practices to establish now, in Orientation, before Module 2 begins. *One project, one repository*: keep all course files for your edition inside a single Git-tracked folder, so every file's history is recorded in one place. *Commit at checkpoints*: end each work session with a commit whose message says what stage you were working on ("Lesson 1.2: chose passage, recorded shelfmark") — Huskey (2024) calls this the research journal, and your future self will read it that way. *Plain text always*: no file in this course should ever need a proprietary program to open.
 
-There is no shortage of tools in this field; the keynote counted dozens at every workflow stage. The course's deliberate choice is a *minimal* stable toolkit — VS Code, Oxygen, Git, GitHub, Transkribus, Zotero — so that your energy goes into the scholarship and the method, not into relearning interfaces every month.
+There is no shortage of tools in this field; the keynote counted dozens at every workflow stage. The course's deliberate choice is a *minimal* stable toolkit — VS Code, Git, GitHub, Transkribus, Zotero — so that your energy goes into the scholarship and the method, not into relearning interfaces every month.
 
 **Vocabulary.** *Repository (repo)* — the Git-tracked folder containing a project and its complete history. *Minimal toolkit* — a deliberately small, stable set of tools mastered deeply. *Research journal* — using commit messages to record scholarly decisions as they happen.
 
-**Takeaway:** Oxygen validates, VS Code runs everything else — a deliberately minimal toolkit chosen so scholarship, not interface churn, is the work.
+**Takeaway:** VS Code unifies plain text, XML validation, Git, and Python into a single open workbench — eliminating tool fragmentation and software bloat.
 
 ---
 
@@ -481,7 +481,7 @@ By Sunday, every item on this list should be true. Check them off literally — 
 
 **Reading:** Finney, "Manuscript Markup" and Griffitts §3.4.1, plus TEI Guidelines vi.2, are the Week 1 readings — skim before Monday; Week 2's assignments assume them.
 
-**In the lab:** confirm you can log into a MULH 3032 machine and open Oxygen — Week 2's Wednesday needs it, and it is better to discover account problems now than during class.
+**In the lab:** confirm VS Code with an XML extension is installed and operational on your laptop or lab machine — Week 2's Wednesday validation pass relies on it, and it is better to discover configuration problems now than during class.
 
 None of this is deep work; all of it is *unblocking* work. Every minute spent now is not spent during Module 4 wondering why Transkribus won't accept your upload.
 
@@ -501,7 +501,7 @@ The connection between the frameworks is the deep fact of this course. FAIR is n
 
 **Due today, Friday September 4.** Your passage, chosen and verified, recorded in a committed `README.md`.
 
-**Next week.** Module 2 begins the cycle: Tuesday, hand-write your passage's TEI header; Wednesday, validate it in Oxygen and build RDF triples from it; Friday, compare an AI-enriched version against your own. Bring your passage's catalog information.
+**Next week.** Module 2 begins the cycle: Tuesday, hand-write your passage's TEI header; Wednesday, validate it against the TEI schema in VS Code and build RDF triples from it; Friday, compare an AI-enriched version against your own. Bring your passage's catalog information.
 
 **Takeaway:** FAIR supplies the values, the eight-stage workflow supplies the practice, and your passage gives them an object — the course is their meeting.
 
