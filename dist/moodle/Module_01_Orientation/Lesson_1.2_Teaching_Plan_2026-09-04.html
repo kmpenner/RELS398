@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 1.2 Teaching Plan (2026-09-04)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+            --accent-green: #065f46;
+            --accent-red: #991b1b;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.6in 0.6in 0.6in 0.6in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.5;
+            font-size: 11pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 19pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 13pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9.5pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .badge-alert {
+            background: #eff6ff;
+            border-color: #93c5fd;
+            color: #1e40af;
+        }
+
+        .requirement-callout {
+            background: #fefce8;
+            border-left: 5px solid var(--stfx-gold);
+            border: 1px solid #fef08a;
+            border-left-width: 6px;
+            border-left-color: var(--stfx-gold);
+            padding: 0.9rem 1.1rem;
+            border-radius: 5px;
+            margin-bottom: 1.2rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11.5pt;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .requirement-callout p {
+            font-size: 10pt;
+            color: #713f12;
+            line-height: 1.45;
+        }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 13pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.25rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.2rem;
+            font-size: 10pt;
+        }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.5rem 0.7rem;
+            font-weight: 700;
+            font-size: 9.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.55rem 0.7rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .time-col {
+            width: 15%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col {
+            width: 30%;
+            font-weight: 700;
+            color: var(--stfx-dark);
+        }
+
+        .desc-col {
+            width: 55%;
+            color: #334155;
+            line-height: 1.4;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.9rem;
+        }
+
+        .card h4 {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.4rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul {
+            padding-left: 1.2rem;
+            font-size: 9.5pt;
+            color: var(--stfx-slate);
+        }
+
+        .card li {
+            margin-bottom: 0.3rem;
+        }
+
+        .code-box {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 0.6rem 0.8rem;
+            border-radius: 4px;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            font-size: 9pt;
+            margin: 0.4rem 0;
+            line-height: 1.4;
+        }
+
+        .code-box .comment {
+            color: #94a3b8;
+        }
+
+        .code-box .highlight {
+            color: var(--stfx-gold);
+            font-weight: 700;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 9.5pt;
+            margin-bottom: 0.35rem;
+        }
+
+        .checklist-box {
+            width: 14px;
+            height: 14px;
+            border: 1.5px solid var(--stfx-slate);
+            border-radius: 3px;
+            display: inline-block;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 10pt;
+            }
+            .header-box {
+                margin-bottom: 0.8rem;
+            }
+            .requirement-callout {
+                background: #fefce8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .schedule-table th {
+                background: #002D62 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break-after {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 · Digital Methods for Historical Documents</h2>
+            <h1>Instructor Lesson & Lab Plan: Meeting #2</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, September 4, 2026</span>
+                <span class="badge">Time: 9:30 AM – 10:20 AM (50 mins)</span>
+                <span class="badge">Room: Mulroney Hall 3032 (MULH 3032)</span>
+                <span class="badge badge-alert">Pre-requisite: Lesson 1.1 Interactive Completed</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CRITICAL REQUIREMENT CALLOUT -->
+    <div class="requirement-callout">
+        <h3>🏛️ CORE CURRICULUM DIRECTIVE: FULL-PAGE ARTIFACT SELECTION</h3>
+        <p>
+            <strong>The chosen textual witness MUST be an entire full page (folio recto, folio verso, or complete epigraphic surface) of the artifact.</strong>
+            Do not allow students to select isolated sentences or verse snippets. A full-page specimen is mathematically required because our downstream modules depend on page-level codicological evidence: bounding margins, ruling patterns (M1), quire structure (M2), multi-spectral IIIF image manifests (M3), full-page HTR baseline recognition (M4), lineation alignment (M6), and apparatus layout (M8).
+        </p>
+    </div>
+
+    <h3 class="section-header">Class Schedule & Pedagogical Flow (50 Minutes)</h3>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Timing</th>
+                <th class="activity-col">Phase & Focus</th>
+                <th class="desc-col">Actionable Instructions & Instructor Cues</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">09:30 – 09:38<br><small>(8 mins)</small></td>
+                <td>
+                    <strong>1. Welcome & Lesson 1.1 Debrief</strong><br>
+                    <small style="color:var(--stfx-slate);">Review & Synthesis</small>
+                </td>
+                <td>
+                    • <strong>Pulse Check:</strong> Survey students on Wednesday’s interactive lesson on Moodle. Confirm everyone understands why plain text (`.txt`, `.md`, `.xml`) is the foundation of durable scholarship rather than proprietary word processors.<br>
+                    • <strong>Concept Anchor:</strong> Remind students of Git as a <em>scholarly time machine</em> (audit trail of editorial decisions) and Claude/AI as an <em>inspectable assistant</em> that must always be verified against manuscript evidence.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">09:38 – 09:50<br><small>(12 mins)</small></td>
+                <td>
+                    <strong>2. FAIR Principles & The 8-Stage Pipeline</strong><br>
+                    <small style="color:var(--stfx-slate);">Theory & Architecture</small>
+                </td>
+                <td>
+                    • <strong>FAIR Presentation:</strong> Introduce <em>Findable, Accessible, Interoperable, Reusable</em> (Wilkinson et al. 2016). Emphasize that FAIR is not administrative compliance; it is what makes digital scholarship cumulative.<br>
+                    • <strong>The 8-Stage Semester Journey:</strong> Walk through how today’s single manuscript page will travel across every week:
+                      <em>Catalogue (W2) → IIIF Manifest (W3) → HTR Transcription (W4) → Reconciliation & Normalization (W5-6) → Collation (W7) → Morphological Markup (W9) → Translation Alignment (W11) → Web Edition (W13)</em>.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">09:50 – 10:10<br><small>(20 mins)</small></td>
+                <td>
+                    <strong>3. Hands-On Lab: Full-Page Witness Selection</strong><br>
+                    <small style="color:var(--stfx-slate);">Active Workshop</small>
+                </td>
+                <td>
+                    • <strong>Live Demo:</strong> Display live digital manuscript repositories on the projector (e.g., Digita Vaticana, British Library, CSNTM, Gallica).<br>
+                    • <strong>Enforce Full-Page Rule:</strong> Guide students to identify a single, complete folio (e.g., <em>f. 12v</em>, <em>p. 45</em>).<br>
+                    • <strong>Run the 5-Point Quality Check:</strong>
+                      1. <em>Image:</em> Minimum 300 DPI or zoomable IIIF viewer.<br>
+                      2. <em>Identifier:</em> Permanent shelfmark (e.g., <em>Vat. gr. 2121</em>, Pinakes ID).<br>
+                      3. <em>Text:</em> Full page containing known text (e.g., complete chapter section or poem).<br>
+                      4. <em>Handwriting:</em> Clean, legible script (avoid heavily degraded palimpsests).<br>
+                      5. <em>Benchmark:</em> Modern printed reference edition available for comparison.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:10 – 10:17<br><small>(7 mins)</small></td>
+                <td>
+                    <strong>4. Repo Initialization & First FAIR Commit</strong><br>
+                    <small style="color:var(--stfx-slate);">Technical Practice</small>
+                </td>
+                <td>
+                    • <strong>Create README.md:</strong> Students open their local Git course repository in VS Code and write their artifact provenance record.<br>
+                    • <strong>Execute Atomic Commit:</strong> Students stage, commit, and push their choice:
+                    <div class="code-box">
+                        <span class="comment"># In terminal / VS Code command prompt:</span><br>
+                        git add README.md<br>
+                        git commit -m <span class="highlight">"Choose full-page witness: Vat. gr. 2121 f. 213r (Gen 1:1-12)"</span><br>
+                        git push origin main
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:17 – 10:20<br><small>(3 mins)</small></td>
+                <td>
+                    <strong>5. Wrap-Up & Lab Verification</strong><br>
+                    <small style="color:var(--stfx-slate);">Exit Ticket & Next Week</small>
+                </td>
+                <td>
+                    • <strong>Oxygen Check:</strong> Confirm students can launch Oxygen XML Editor on the MULH 3032 lab computers (required for next Wednesday).<br>
+                    • <strong>Weekend Reading:</strong> Finney (pp. 323–360) and Griffitts §3.4.1 (TEI Header fundamentals).<br>
+                    • <strong>Next Tuesday:</strong> Hand-authoring our first TEI `<teiHeader>` metadata document!
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="grid-2">
+        <!-- REPOSITORY RECOMMENDATIONS -->
+        <div class="card">
+            <h4>📚 Approved High-Resolution Repositories</h4>
+            <ul>
+                <li><strong>Digita Vaticana:</strong> <code>digi.vatlib.it</code> (Exceptional Greek & Latin codices; native IIIF manifests).</li>
+                <li><strong>British Library Digitised Manuscripts:</strong> <code>bl.uk/manuscripts</code> (Cotton, Harley, and Additional collections).</li>
+                <li><strong>CSNTM (Center for New Testament Manuscripts):</strong> <code>csntm.org</code> (High-resolution Greek NT minuscules & uncials).</li>
+                <li><strong>Gallica (BnF Paris):</strong> <code>gallica.bnf.fr</code> (Vast medieval Greek and European manuscript holdings).</li>
+                <li><strong>Codex Sinaiticus Project:</strong> <code>codexsinaiticus.org</code> (High-resolution multi-light alignment).</li>
+            </ul>
+        </div>
+
+        <!-- STUDENT README TEMPLATE -->
+        <div class="card">
+            <h4>📝 Required README.md Seed Template</h4>
+            <div class="code-box" style="font-size: 8.5pt;">
+# Project Manuscript Witness<br>
+- **Repository / Library:** Vatican Library (BAV)<br>
+- **Shelfmark:** Vat. gr. 2121<br>
+- **Folio / Page:** f. 213r (Full Page)<br>
+- **Contents:** Genesis 1:1–14 (LXX Greek)<br>
+- **Date / Script:** 11th c. Byzantine Minuscule<br>
+- **IIIF / Image URL:** https://digi.vatlib.it/view/MSS_Vat.gr.2121/0435<br>
+- **Benchmark Edition:** Rahlfs-Hanhart Septuaginta (1935)<br>
+- **Estimated Complexity:** Moderate (clear hand; minor marginal notes)
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDENT READINESS CHECKLIST -->
+    <h3 class="section-header">Student Exit Verification Checklist (By Sunday Midnight)</h3>
+    <div class="grid-2">
+        <div>
+            <div class="checklist-item">
+                <span class="checklist-box"></span>
+                <span><strong>Full-Page Witness Selected:</strong> 1 full folio/page chosen with verified high-res image.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-box"></span>
+                <span><strong>Provenance README.md Committed:</strong> Committed with atomic, human-readable Git message.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-box"></span>
+                <span><strong>GitHub Sync:</strong> Repository pushed to remote GitHub repository.</span>
+            </div>
+        </div>
+        <div>
+            <div class="checklist-item">
+                <span class="checklist-box"></span>
+                <span><strong>Oxygen XML Lab Access:</strong> Verified login and software startup in MULH 3032.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-box"></span>
+                <span><strong>Transkribus & Zotero:</strong> Registered free account and bookmarked THREAD docs.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-box"></span>
+                <span><strong>Readings Skimmed:</strong> Finney & Griffitts skimmed before Tuesday 8:30 AM class.</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 1.2rem; padding-top: 0.6rem; border-top: 1px solid #cbd5e1; font-size: 8.5pt; color: #64748b; display: flex; justify-content: space-between;">
+        <span>St. Francis Xavier University · Department of Religious Studies & Department of English</span>
+        <span>Generated for Fall 2026 Academic Term · Printable Instructor Plan</span>
+    </div>
+
+</body>
+</html>

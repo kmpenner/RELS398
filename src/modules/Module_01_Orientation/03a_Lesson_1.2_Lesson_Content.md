@@ -421,13 +421,13 @@ Hold this position through the semester: automation changes *where* your effort 
 
 By the end of today you will choose the manuscript passage that every assignment this term builds on — catalogued in Week 2, imaged in Week 3, transcribed in Week 4, and so on through publication in Week 13. Choose with the workflow in mind, because you are choosing the raw material for thirteen weeks of work.
 
-The criteria: *Size* — roughly ten to twenty lines of continuous text: enough to be substantial, few enough that you can double-key and translate it. *Image quality* — a legible, well-lit, publicly available image (check the library's IIIF or website). *Manageable apparatus* — some abbreviations or corrections to make transcription interesting, but not a page of heavy ligatures for your first semester. *Ancient language* — Greek or another language you are studying or willing to work with via tools; the linguistic modules need real morphology. *Sustained interest* — you will read this passage a hundred times; pick text you care about.
+The criteria: *Size* — an entire full page (one complete folio recto or verso, or a complete epigraphic surface) of the textual artifact: substantial enough to contain complete page layout, ruling lines, margins, and scribal features, providing the codicological context needed across the whole term. *Image quality* — a high-resolution, well-lit, publicly accessible image (minimum 300 DPI or zoomable via IIIF). *Manageable apparatus* — some abbreviations or corrections to make transcription interesting, but not a page of impenetrable cursive ligatures for your first semester. *Ancient language* — Greek or another historical language you are studying or willing to work with via computational tools; the linguistic modules need real morphology. *Sustained interest* — you will study this page dozens of times; pick a textual artifact you genuinely care about.
 
-Good sources of candidates: the passages cited in this week's readings; manuscript pages already online in the libraries' IIIF collections; or a text connected to work you have done in other courses. Nothing needs to be final today beyond the passage itself — the ungraded deadline exists so that every later week starts from a fixed object.
+Good sources of candidates: the manuscripts cited in this week's readings; digitized codices available in online IIIF collections (e.g., Digita Vaticana, British Library, CSNTM, Gallica); or an artifact connected to research in your other courses. Nothing needs to be final today beyond the page selection itself — the ungraded deadline exists so that every later week starts from a fixed, authoritative physical object.
 
-**Vocabulary.** *Candidate passage* — a prospective section of manuscript text for your edition project. *Ligature* — two or more letters written joined in a single stroke. *IIIF collection* — a library's online gallery of IIIF-served manuscript images.
+**Vocabulary.** *Full-page witness* — an entire surviving manuscript folio page or epigraphic surface chosen as the physical object for an edition. *Ligature* — two or more letters written joined in a single stroke. *IIIF collection* — a library's online gallery of IIIF-served manuscript images.
 
-**Takeaway:** Choose 10–20 continuous lines with a good public image, real but manageable difficulty, and a language you will enjoy working in.
+**Takeaway:** Choose one complete full page (folio recto or verso) with a high-resolution public image, manageable scribal difficulty, and a language you will enjoy working in.
 
 ---
 
@@ -457,13 +457,13 @@ Record the results of all five checks; they become the first entries in your pro
 
 Now the Lesson 1.1 machinery earns its keep. Your passage choice becomes a file — `README.md` in your course repository — containing: the manuscript's shelfmark and catalog identifier; the passage's location (folio and line numbers); the text it contains; the IIIF or web address of the image(s); and one sentence on the passage's expected difficulty. This small file is the seed of the TEI header you will write in Week 2 and the provenance record your whole project will stand on.
 
-Then commit it. In VS Code: stage the file, write a commit message like "Choose passage: Vat. gr. 2121 f. 213r, Gen 1:1–5" — specific enough that December-you knows exactly what happened — and commit. Push if you have GitHub set up. You have just performed the workflow's first FAIR act: the choice is findable (in your repo), documented (the file), and timestamped with attribution (the commit). Huskey's "research journal" begins exactly here.
+Then commit it. In VS Code: stage the file, write a commit message like "Choose full-page witness: Vat. gr. 2121 f. 213r (Gen 1:1–14)" — specific enough that December-you knows exactly what happened — and commit. Push if you have GitHub set up. You have just performed the workflow's first FAIR act: the choice is findable (in your repo), documented (the file), and timestamped with attribution (the commit). Huskey's "research journal" begins exactly here.
 
-The deadline is Friday, September 4 — today. The choice is ungraded, but as the schedule says, every later assignment builds on it. If you are torn between two passages, commit the README for your primary choice and note the runner-up in the same file; you can note what would have changed, and the decision is at least recorded rather than drifting.
+The deadline is Friday, September 4 — today. The choice is ungraded, but as the schedule says, every later assignment builds on it. If you are torn between two manuscript pages, commit the README for your primary choice and note the runner-up in the same file; you can note what would have changed, and the decision is at least recorded rather than drifting.
 
 **Vocabulary.** *README* — the standard first file of a repository, explaining what the project is. *Commit message* — the Git record of what changed and why. *Seed metadata* — the small initial record that later, fuller documentation grows from.
 
-**Takeaway:** Write the passage's identity, location, image URL, and difficulty in a committed README.md — your project's first FAIR artifact is born today.
+**Takeaway:** Write the full-page witness's identity, location, image URL, and difficulty in a committed README.md — your project's first FAIR artifact is born today.
 
 ---
 
