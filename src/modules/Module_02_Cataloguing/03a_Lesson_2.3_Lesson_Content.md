@@ -96,7 +96,7 @@ Today, you will feed the raw cataloguing notes for your chosen manuscript passag
 
 | Evaluation Dimension | Manual Ground Truth (Tue/Wed) | AI-Generated Metadata (Fri) | Scoring Metric |
 | --- | --- | --- | --- |
-| Syntactic Well-Formedness | 100% (Certified in Oxygen) | Variable (Prone to quote/entity defects) | Binary Pass/Fail |
+| Syntactic Well-Formedness | 100% (Certified in VS Code) | Variable (Prone to quote/entity defects) | Binary Pass/Fail |
 | RELAX NG Schema Validity | 100% (0 errors in Jing) | Variable (Prone to illegal nesting) | Total Validation Error Count |
 | Schematron Rule Compliance | 100% (0 pointer errors) | High Failure Rate (Broken `@hand` IDs) | Cross-Reference Error Count |
 | Codicological Precision | Verified against facsimiles | Statistical approximation of notes | Precision, Recall, F1-Score |
@@ -736,13 +736,13 @@ Follow the standard RELS 398 analytical structure:
 This week has walked you through the full arc of computational manuscript cataloguing:
 
 - **Tuesday (Manual):** You hand-authored a complete TEI Header, confronting the material complexities of physical codices and establishing an authoritative human ground truth (Le Bœuf, 2012; TEI Consortium, 2025).
-- **Wednesday (Deterministic):** You subjected your markup to the uncompromising gate of RELAX NG and Schematron validation in Oxygen, linked your entities to RDF knowledge graphs, and established persistent CTS URNs (Cummings, 2018; Koho et al., 2021; Blackwell & Smith, 2019).
+- **Wednesday (Deterministic):** You subjected your markup to the uncompromising gate of RELAX NG and Schematron validation in VS Code, linked your entities to RDF knowledge graphs, and established persistent CTS URNs (Cummings, 2018; Koho et al., 2021; Blackwell & Smith, 2019).
 - **Friday (AI-Assisted):** You deployed frontier Large Language Models and computer vision pipelines to automate cataloguing, discovering both the immense speed of neural generation and the critical necessity of schema auditing (De Cristofaro & Zilio, 2025; Ignatowicz et al., 2025).
 
 ```
 The Complete Three-Step Comparative Cycle — Topic 02:
-[X] Tue: Manual — Hand-written TEI Header and msDesc (Human Ground Truth)
-[X] Wed: Deterministic — RELAX NG & Schematron validation in Oxygen, RDF LOD, CTS URNs
+[X] Tue: Manual — Hand-written TEI Header and msDesc in VS Code (Human Ground Truth)
+[X] Wed: Deterministic — RELAX NG & Schematron validation in VS Code, RDF LOD, CTS URNs
 [X] Fri: AI-Assisted — LLM metadata extraction scored against your manual baseline
 ```
 
