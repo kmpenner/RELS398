@@ -2,901 +2,887 @@
 
 *RELS 398 / ENGL 398 · Topic 2: Cataloguing · Meeting #3 (Tue Sep 8)*
 
-***Step 1 of the three-step cycle: manual.** Today you hand-write a complete TEI Header and codicological manuscript description (<msDesc>) for your chosen witness in a plain text editor without schema validation or autocomplete. What you produce is the ground-truth metadata baseline against which Wednesday's deterministic schema validation and Friday's AI extraction will be measured.*
+*Step 1 of the three-step cycle: manual ground truth. Today you hand-write a complete TEI Header and manuscript description (<msDesc>) for your chosen full-page witness in VS Code without automated schema autocomplete or AI. What you type with your own fingers becomes the authoritative baseline against which Wednesday's deterministic schema validation and Friday's AI metadata extraction will be tested and scored.*
 
 ---
 
 ## **01 Content**
 
-**From Discursive Catalogues to Formal Metadata Systems**
+**The Detective Problem: Why Ancient Books Don't Have Barcodes**
 
-The historical study of manuscripts has long been mediated through localized, print-based descriptive catalogues. For centuries, monastic librarians, university archivists, and classical philologists recorded their observations of handwritten codices in extensive discursive essays. A traditional nineteenth-century catalogue entry—such as those composed by Bernard de Montfaucon, Angelo Maria Bandini, or Konstantin von Tischendorf—might describe a manuscript's binding in poetic Latin, note the presence of marginal glosses in an unpunctuated paragraph, and summarize the contents of several theological treatises in a single flowing narrative (Le Bœuf, 2012). While these narrative catalogues represent monuments of humanistic erudition and paleographical insight, they were designed exclusively for human close reading. They treat metadata not as structured, queryable data points, but as literary exposition.
+Pick up any paperback on your desk, flip to the back cover, and you will find a neat barcode accompanied by an ISBN. Flip inside to the copyright page, and you will see a publisher, a city, a publication year, Library of Congress catalog numbers, and a copyright notice. Everything about a modern mass-produced book is designed to be instantly indexed by automated global systems. If ten thousand students buy the same edition of a novel, every single copy has the identical page numbers, the identical typos, and the identical font.
 
-In the computational era, this discursive legacy presents insurmountable barriers to scholarship. An unstructured print catalogue cannot be indexed by a relational database, queried via an application programming interface (API), or integrated into an automated text-processing pipeline. If one catalogue describes a manuscript's support as "parchment," another as "membranaceus," and a third as "vellum with heavy follicle patterns," a search engine cannot determine whether these repositories hold the same material medium. Knowledge remains locked in institutional silos, isolated by idiosyncratic cataloguing dialects, varied regional descriptive conventions, and unstandardized abbreviations (Le Bœuf, 2012).
+Now look at the high-resolution image of the manuscript page you chose on Friday. 
 
-The transition to digital manuscript studies requires replacing discursive narrative with formal, machine-actionable data architectures. This transition does not diminish the qualitative richness of codicological description; rather, it formalizes that description within unambiguous structural envelopes. By translating physical observations—ruling patterns, quire structures, scribal hands, and provenance histories—into standardized, machine-readable hierarchies, digital editors ensure that their codicological claims can be computed, compared, aggregated, and preserved across decentralized global networks.
+There is no barcode. There is no title page. There is no copyright declaration, no page number, and often not even an author's name attached to the text. Surviving ancient and medieval manuscripts are one-of-a-kind physical survivors. Each codex was crafted by hand from animal skin or papyrus reeds, copied by a flesh-and-blood human being whose handwriting changed when they were tired, and rebound, trimmed, or damaged across centuries of war, fire, and library migrations. If a modern cataloguer simply slaps a single author and title on a manuscript, they erase 90% of what that physical object actually is. To study a historical document computationally, we first have to solve a detective problem: how do we describe a unique material artifact so that both human scholars and computer programs can find, understand, and trust it?
 
-Furthermore, this formalization changes how scholars interact with the historical record. When metadata is structured into discrete, typed fields, researchers can execute complex computational queries across thousands of manuscripts simultaneously. A scholar can instantly aggregate all sixth-century Greek witnesses produced in Egypt that feature hexaplaric signs and single-column layouts. What previously required months of manual archival collation becomes an instantaneous computational operation, provided the underlying metadata adheres to a rigorous, shared data model.
+**Vocabulary.** *Codex* — a historical book made of folded sheets bound together at the spine (replacing the ancient scroll). *Bibliographic metadata* — structured information identifying what a text is, who created it, and where it lives.
 
-**Takeaway:** Discursive print catalogues isolate codicological knowledge in human-readable silos; digital philology requires formal, machine-actionable schemas to enable computational analysis and cross-institutional discovery.
+**Takeaway:** Modern books are mass-produced and standardized, but historical manuscripts are unique material artifacts that require structured codicological descriptions instead of simple title-author tags.
 
 ---
 
 ## **02 Content**
 
-**The Epistemology of Manuscript Modeling: FRBRoo and LRMoo**
+**Cracking the Code: The Mystery of Library Shelfmarks**
 
-To build a rigorous digital description of a manuscript, an editor must first clarify what kind of ontological entity a handwritten codex actually is. In the world of modern library cataloguing, standard metadata models like Dublin Core and MARC were designed around mass-produced printed books. Printed books are defined by shared, reproducible editions: ten thousand copies of a modern paperback share the same publisher, pagination, font, layout, and textual content. In bibliographic ontology, this conceptual layer is formalized by the Functional Requirements for Bibliographic Records (FRBR) through the WEMI hierarchy: Work, Expression, Manifestation, and Item (Le Bœuf, 2012).
+When scholars refer to manuscripts, they speak in what sounds like secret code: *Vat. gr. 2121*, *Cotton Nero A.x*, *P.Oxy. 840*, or *Sinai gr. 1186*. To a newcomer, these strings of letters and numbers look like cryptic passwords. In reality, they are historical street addresses known as *shelfmarks* (or call numbers).
 
-In the FRBR model, a *Work* is the abstract intellectual creation (such as Homer's *Iliad* or the biblical Book of Isaiah); an *Expression* is a specific intellectual realization in language and signs (such as the Greek Septuagint translation); a *Manifestation* is the physical embodiment of an expression in a published edition; and an *Item* is a single concrete exemplar owned by a library. For mass-produced print books, thousands of identical *Items* embody a single *Manifestation*.
+A shelfmark tells the story of where a physical book was shelved. In the Vatican Library (Biblioteca Apostolica Vaticana), *Vat. gr. 2121* means: the Vatican collection (*Vat.*), Greek language manuscript (*gr.*), item number 2121. In the British Library, the famous Cotton collection was originally organized in a room where bookcases were topped with busts of Roman emperors; *Cotton Nero A.x* (which preserves the unique copy of *Sir Gawain and the Green Knight*) was literally kept in the bookcase under Emperor Nero's bust, on top shelf A, tenth book from the left.
 
-Premodern manuscripts break this bibliographic assumption entirely. Every handwritten codex is a singular historical artifact produced through manual labor under unique material conditions. There is no mass-produced edition. To capture this reality, cultural heritage ontologists developed FRBRoo (an object-oriented harmonization with the CIDOC Conceptual Reference Model) and its successor LRMoo (Le Bœuf, 2012). In FRBRoo, a printed book is modeled as an instance of `F3 Manifestation Product Type`, representing a class of identical copies. A handwritten codex, by contrast, is modeled as an `F4 Manifestation Singleton`: an artifact where the physical manifestation and the concrete physical item are inextricably bound together as a singular, unrepeatable historical event (Le Bœuf, 2012).
+While shelfmarks are evocative pieces of library history, they pose a serious computational headache. What happens if a library moves a book, renumbers a collection, or changes its cataloguing dialect? How does an automated search engine in Antigonish know that "Vatican Greek 2121", "Vat. gr. 2121", and "BAV Vat.gr.2121" refer to the exact same physical volume in Rome? The answer is standardization. In digital editions, we record the traditional human shelfmark alongside persistent global identifiers (like CTS URNs and Trismegistos IDs) so that our references never break.
 
-| Ontological Level | Mass-Produced Print Concept | Manuscript Singleton Concept | Concrete Manuscript Example |
-| --- | --- | --- | --- |
-| Work | Abstract intellectual creation | Abstract intellectual creation | Book of Isaiah |
-| Expression | Intellectual realization in language | Specific translation / redaction | Greek Septuagint Translation |
-| Manifestation | `F3 Manifestation Product Type` (Print Run) | `F4 Manifestation Singleton` (Unique Codex) | Codex Marchalianus (Vat. gr. 2125) |
-| Item | Single circulating copy on a shelf | Concrete physical artifact in archive | Vatican Library physical vault volume |
+**Vocabulary.** *Shelfmark* — the unique identifier or call number assigned to a specific physical manuscript volume by its holding library. *Persistent identifier (PID)* — a permanent, machine-actionable web address that uniquely identifies a cultural object.
 
-Because every manuscript is an `F4 Manifestation Singleton`, cataloguing a manuscript requires documenting not only the abstract texts it carries, but the physical biography of the unique physical container itself. The digital record must capture the unique parchment preparation, unique scribal hands, historical marginal glosses, quire repairs, and distinct provenance transfers that belong exclusively to that specific volume (Le Bœuf, 2012).
-
-**Takeaway:** Modern print catalogues model mass-produced publication types, but premodern manuscripts are manifestation singletons whose unique physical embodiment cannot be separated from their textual witness.
+**Takeaway:** Shelfmarks are physical library call numbers with deep historical roots; digital editions anchor them with permanent web identifiers to prevent broken citations.
 
 ---
 
 ## **03 Content**
 
-**Why We Hand-Write XML Markup Before Running a Validator**
+**What is a TEI Header? The Digital Passport of Your Page**
 
-This morning begins the three-step comparative cycle for Topic 02. Before you open Oxygen XML Editor, before you load a RELAX NG schema, and before you run an automated parsing script, you will write a complete TEI Header and manuscript description by hand in a bare text editor. This exercise is not a historical reenactment or an exercise in arbitrary difficulty; it is an essential epistemological discipline.
+Think of a standard digital document — an HTML web page or a plain text file. At its simplest, it is just words on a screen. If you send that file to someone else, they have no built-in way of knowing who transcribed it, what library holds the original manuscript, what software was used, or whether they have permission to quote it in their own research.
 
-Automated tools, schema-aware editors, and artificial intelligence models make structural decisions for you. When an interactive development environment (IDE) auto-closes your XML tags or provides a drop-down menu of permitted child elements, it conceals the underlying tree structure of the data model. When an AI model generates an XML block from a plain-text prompt, it predicts probable sequences of tokens without understanding the codicological realities those tokens represent. By writing every angle bracket, every element name, and every attribute value manually, you force yourself to make every architectural decision explicitly.
+Enter the **TEI Header**.
 
-Hand-authoring slows down your analytical gaze and cultivates close codicological attention. As you inspect high-resolution digital facsimiles of your manuscript, you must decide whether an ink note in the upper margin is a chapter title (`<rubric>`), a liturgical instruction (`<head>`), an added variant (`<add>`), or an owner's acquisition mark (`<provenance>`). You must decide how to represent a missing quire or an ambiguous foliation sequence without relying on software defaults. The manual header you produce today will serve as your absolute *ground truth*—the gold standard against which tomorrow's deterministic schema validation and Friday's probabilistic AI extractions will be tested and scored.
+The Text Encoding Initiative (TEI) established a universal rule for scholarly electronic texts: every single digital edition must begin with a structured metadata envelope called the `<teiHeader>`. Think of the TEI Header as the official passport, birth certificate, and provenance dossier of your digital text. Before any of your manuscript transcription begins, the header formally documents:
 
-Furthermore, hand-authoring establishes intellectual ownership over the digital edition. When you manually structure metadata, you experience firsthand the tensions between physical ambiguity and digital taxonomy. Scribes did not create manuscripts to fit into modern XML schemas; they wrote across margins, erased lines, added loose slips, and changed layouts mid-quire. Confronting these anomalies by hand ensures that you understand the editorial cost of computational modeling before you delegate tasks to automated algorithms.
+1. What digital file this is and who edited it.
+2. What license governs its reuse (putting FAIR principles into code).
+3. The complete physical description of the manuscript witness resting in the library vault.
+4. A dated changelog recording every single edit made to the file over time.
 
-**Takeaway:** Writing XML markup by hand forces conscious decision-making for every codicological feature, establishing the authoritative human ground truth required to evaluate automated tools.
+Because the header uses standardized XML tags recognized across the globe, any search engine, library repository, or computational pipeline can read your header and immediately understand what your edition represents.
+
+**Vocabulary.** *TEI Header (`<teiHeader>`)* — the mandatory opening structural element in every TEI XML file that contains all bibliographic, codicological, and editorial metadata. *Machine-actionable* — structured so that computer algorithms can parse, query, and process the data without human intervention.
+
+**Takeaway:** The TEI Header is the digital passport of your edition, packaging its authorship, open license, and physical manuscript details into a universally understood XML envelope.
 
 ---
 
 ## **04 Content**
 
-**XML Fundamentals: The Syntax of Tree Structures**
+**Why We Type XML by Hand (Tuesday's Ground Truth)**
 
-The Text Encoding Initiative (TEI) is an application of XML (Extensible Markup Language). XML is not a programming language; it is a formal metalanguage for declaring structural hierarchies in plain text. Every XML document represents a mathematical tree consisting of nodes, branches, and leaves. Before encoding complex manuscript metadata, you must master the rigid rules of XML well-formedness.
+In this morning's lab, you will open Visual Studio Code and type out an entire TEI Header character by character, angle bracket by angle bracket. There will be no autocomplete filling in tags for you, no red squiggles correcting your typos, and no AI prompt writing the code on your behalf. 
 
-A document is *well-formed* if and only if it satisfies the fundamental syntactic grammar of XML. If a document violates even a single well-formedness rule, XML parsers are required by specification to halt immediately and raise a fatal error. Unlike web browsers, which forgivingly guess the layout of broken HTML, XML processors practice zero tolerance for syntax defects. This uncompromising strictness is intentional: it ensures that data structures are unambiguous and machine-parsable across all computing environments.
+Why do we force you to type raw markup by hand?
 
-The core rules of well-formed XML are absolute:
+When software autocompletes your tags or an AI generates markup for you, it hides the machine logic. You see a finished product without understanding the tree structure underneath. Even worse: AI language models are notorious for inventing plausible-sounding but completely illegal XML tags or hallucinating manuscript shelfmarks. If you don't know the syntax in your own fingers, you will never spot the AI's subtle hallucinations.
 
-- **Single Root Element:** Every XML document must contain exactly one root element that encloses all other content. No tags may exist outside this primary container (except for processing instructions and XML declarations).
-- **Matching Closing Tags:** Every opening tag (e.g., `<title>`) must have a corresponding, explicitly spelled closing tag (e.g., `</title>`), or be written as a self-closing element (e.g., `<pb/>` for page beginnings).
-- **Strict Nesting:** Elements must nest cleanly inside one another without overlapping. The sequence `<a><b></a></b>` is illegal; it must be written `<a><b></b></a>`.
-- **Case Sensitivity:** XML is strictly case-sensitive. The tag `<titleStmt>` is completely distinct from `<titlestmt>` or `<TitleStmt>`. An opening `<teiHeader>` cannot be closed with `</TeiHeader>`.
-- **Quoted Attribute Values:** All attribute values must be enclosed in single or double quotation marks (e.g., `@type="parchment"`, never `@type=parchment`).
+In this course, Tuesday is always **Step 1: Manual Ground Truth**. Hand-authoring forces you to make every structural decision deliberately. You have to decide whether that note in your manuscript margin is an owner's scribbled signature, a corrected spelling, or a liturgical instruction. What you produce today by hand will serve as your gold standard — the human baseline against which tomorrow's automated schema validator and Friday's AI model will be scored.
 
-| XML Syntactic Rule | Invalid Example | Valid Well-Formed Equivalent | Structural Rationale |
-| --- | --- | --- | --- |
-| Root containment | `<header></header><text></text>` | `<TEI><header></header><text></text></TEI>` | XML trees must have a single root vertex |
-| Tag closing | `<p>This is a paragraph.` | `<p>This is a paragraph.</p>` | Every opened branch must be explicitly terminated |
-| Clean nesting | `<persName><orgName></persName></orgName>` | `<persName><orgName></orgName></persName>` | Hierarchy prohibits overlapping branch intersections |
-| Case matching | `<msDesc></msdesc>` | `<msDesc></msDesc>` | XML parsers evaluate Unicode code points strictly |
-| Attribute quotes | `<dim type=leaf>` | `<dim type="leaf">` | Attribute values must be delimited string literals |
+**Vocabulary.** *Ground truth* — empirical, human-verified baseline data against which automated scripts and machine learning models are evaluated. *Syntax* — the formal grammar rules that govern how a computer language or markup system must be written.
 
-Understanding these syntactic foundations is essential because even a trivial typo—such as a missing slash in a closing tag or an unquoted attribute—will cause downstream validation tools and rendering scripts to fail completely.
-
-**Takeaway:** XML enforces strict syntactic well-formedness—single root, perfect nesting, exact case matching, and quoted attributes—with zero tolerance for parsing defects.
+**Takeaway:** Hand-typing your first TEI Header builds the mental model and muscle memory required to catch AI hallucinations and automated parser errors.
 
 ---
 
 ## **05 Content**
 
-**Elements, Attributes, and the Hierarchy of Containment**
+**The XML Tree: Trunks, Branches, and Leaves**
 
-In XML, information is structured using two primary mechanisms: elements and attributes. Knowing when to store data as element text content versus attribute values is one of the foundational design skills in digital text encoding.
+XML (Extensible Markup Language) is often described in intimidating language, but its core architecture is as simple and organic as a tree. 
 
-*Elements* represent semantic units and structural containers. They can hold plain text, child elements, or a mixture of both. Elements express hierarchy and sequence: an `<msContents>` element contains one or more `<msItem>` child elements, which in turn contain `<title>` and `<incipit>` elements. When information possesses its own internal structure, requires sequential ordering, or represents primary narrative content, it must be encoded as an element.
+An XML document is a hierarchy of boxes inside boxes. Everything starts at the root (the trunk). From that root sprout major sections (branches), which divide into subsections (twigs), which finally hold the actual text (leaves). 
 
-*Attributes* provide metadata about elements. They sit inside the opening tag and take the form of name-value pairs (e.g., `<supportDesc material="parchment">`). Attributes cannot contain child elements; they hold flat, unparsed text strings or controlled identifiers. Attributes are appropriate for categorizing an element (`@type="uncial"`), assigning machine-readable dates (`@when="0550"`), specifying measurement units (`@unit="mm"`), or linking to external authority registers (`@ref="https://viaf.org/viaf/88890041"`).
+Every piece of information in XML is enclosed in **elements**. An element begins with an opening tag (`<tag>`) and ends with a matching closing tag (`</tag>`). The slash `/` is critical — it tells the parser that this box is now closed.
 
 ```xml
-<!-- Example of element hierarchy combined with informative attributes -->
-<supportDesc material="parchment">
-  <support>
-    <p>Fine calfskin vellum, carefully scraped and bleached, with minimal follicle visibility on flesh sides.</p>
-  </support>
-  <extent>
-    <dimensions unit="mm" type="leaf">
-      <height quantity="305"/>
-      <width quantity="240"/>
-    </dimensions>
-    <dimensions unit="mm" type="written">
-      <height quantity="220"/>
-      <width quantity="155"/>
-    </dimensions>
-  </extent>
-</supportDesc>
+<manuscript>
+    <support>parchment</support>
+    <date>11th century</date>
+</manuscript>
 ```
 
-Finally, XML reserves five characters that cannot be written directly in text content because they conflict with syntax delimiters. You must escape these using predefined character entity references: `&lt;` for `<` (less than), `&gt;` for `>` (greater than), `&amp;` for `&` (ampersand), `&apos;` for `'` (apostrophe), and `&quot;` for `"` (quotation mark). Writing a bare ampersand (such as `Clemens & Graham`) causes an immediate fatal parser crash.
+Here, `<manuscript>` is the parent branch. `<support>` and `<date>` are child elements living inside it. If you close an outer tag before closing an inner tag (like `<manuscript><date>11th century</manuscript></date>`), the tree breaks. XML parsers do not forgive structural overlap. It is clean, strict, and nested.
 
-**Takeaway:** Elements define hierarchical containers and primary content, while attributes supply qualifying metadata, categorical types, machine-readable values, and external links.
+**Vocabulary.** *Element* — an XML building block composed of an opening tag, content, and a closing tag. *Nesting* — placing one element entirely inside another element without overlapping boundaries. *Root element* — the single outermost element that encloses the entire XML document.
+
+**Takeaway:** XML is a strictly nested tree hierarchy where every opened element must be properly closed within its parent container.
 
 ---
 
 ## **06 Content**
 
-**The Anatomy of the TEI Document Envelope**
+**Elements, Attributes, and Case Sensitivity**
 
-The Text Encoding Initiative (TEI) Guidelines establish a standardized XML vocabulary for representing textual and codicological materials (TEI Consortium, 2025). Every standard TEI document begins with a root `<TEI>` element containing two mandatory top-level branches: the `<teiHeader>` and the `<text>` (or `<facsimile>`).
+Inside our XML tree, elements do the heavy lifting of defining *structure*, but **attributes** provide *metadata* about those elements.
 
-The `<teiHeader>` serves as the digital metadata envelope. It contains all the bibliographic, codicological, administrative, and structural documentation required to understand the digital file and the physical source from which it was made (TEI Consortium, 2025). The `<text>` element contains the actual transcription of the manuscript's textual content, structured into front matter (`<front>`), body text (`<body>`), and back matter (`<back>`).
+An attribute lives inside the opening tag of an element, written as a name followed by an equals sign and a value in quotes: `name="value"`. For example:
 
-| Structural Branch | XML Container | Primary Function in Edition | Codicological Scope |
-| --- | --- | --- | --- |
-| Root | `<TEI>` | Root envelope enclosing metadata and primary text | Entire digital file and document ecosystem |
-| Metadata Header | `<teiHeader>` | Metadata envelope for bibliographic and codicological data | Archival, codicological, and project documentation |
-| File Description | `<fileDesc>` | Bibliographic description of digital file and physical source | Mandatory core metadata container |
-| Encoding Description | `<encodingDesc>` | Editorial principles, normalization rules, and markup taxonomy | Technical relationship between source and digital edition |
-| Profile Description | `<profileDesc>` | Non-bibliographic classifications, languages, and contexts | Subject headings, languages, text creation contexts |
-| Revision Description | `<revisionDesc>` | Change log recording modifications made to digital file | Editorial audit trail and commit history |
-| Text Carrier | `<text>` | Transcribed primary source divided into front, body, and back | Primary diplomatic or critical transcription |
+```xml
+<title level="m" xml:lang="grc">Codex Marchalianus</title>
+```
 
-The strict separation between `<teiHeader>` and `<text>` is fundamental to digital editing. A transcription without a header is an anonymous orphan; a header without a transcription is a rich codicological catalogue record. Today's lesson focuses entirely on authoring the `<teiHeader>` and its manuscript description module, establishing the metadata scaffolding that will support all subsequent transcription and collation work in future weeks.
+Here, `<title>` is the element. `level="m"` is an attribute specifying that this is a monograph/manuscript title, and `xml:lang="grc"` specifies that the title is in Ancient Greek.
 
-**Takeaway:** A TEI document cleanly separates descriptive metadata in the `<teiHeader>` from transcribed primary text in `<text>`, ensuring the digital edition remains fully documented and auditable.
+Three ironclad rules to burn into your memory today:
+
+1. **Attribute values MUST always be inside quotes**: `extent="full-page"` is valid; `extent=full-page` crashes the parser immediately.
+2. **XML is case-sensitive**: `<teiHeader>` is not the same as `<teiheader>` or `<TEIHEADER>`. In the TEI standard, element names use specific camelCase conventions.
+3. **Reserved characters must be escaped**: You cannot casually type `<` or `&` inside your text, because XML thinks they are code. An ampersand must be written as `&amp;`, and a less-than sign as `&lt;`.
+
+**Vocabulary.** *Attribute* — a name-value property placed inside an element's start tag that adds metadata or identifiers to that element. *Case-sensitive* — treating uppercase and lowercase letters as entirely distinct characters.
+
+**Takeaway:** Elements define structure; attributes add metadata inside start tags; quotes around attribute values and exact casing are non-negotiable.
 
 ---
 
 ## **07 Content**
 
-**The Digital Edition as Artifact: `<fileDesc>` and `<titleStmt>`**
+**The Document Envelope: `<TEI>` and `<teiHeader>`**
 
-The first mandatory child of `<teiHeader>` is `<fileDesc>` (file description). The `<fileDesc>` contains the full bibliographic description of the digital file itself, ensuring that the electronic edition can be cited as an independent intellectual publication (TEI Consortium, 2025).
-
-Within `<fileDesc>`, the first required element is `<titleStmt>` (title statement). The `<titleStmt>` records the title of the digital edition, the authors or principal investigators responsible for its creation, and any supporting sponsors or editors. It is crucial to understand that the title encoded in `<titleStmt>` is the title of *your digital project*, not the ancient title of the manuscript.
+Every TEI file you create this term will have the exact same top-level architecture. At the root of the file sits the `<TEI>` element. Inside `<TEI>`, there are exactly two main children:
 
 ```xml
-<fileDesc>
-  <titleStmt>
-    <title>Digital Scholarly Edition of Codex Marchalianus (Vat. gr. 2125): A Diplomatic Encoding of the Book of Isaiah</title>
-    <author>Anonymous 6th-Century Scribes</author>
-    <editor role="principal-investigator">Prof. K. M. Penner</editor>
-    <editor role="encoder">Jane Doe</editor>
-    <sponsor>St. Francis Xavier University Digital Humanities Initiative</sponsor>
-    <funder>Social Sciences and Humanities Research Council of Canada</funder>
-  </titleStmt>
-  <!-- ... publicationStmt and sourceDesc follow ... -->
-</fileDesc>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <!-- All metadata about the file and the manuscript goes here -->
+    </teiHeader>
+    <text>
+        <body>
+            <!-- The actual manuscript transcription goes here in Week 4 -->
+        </body>
+    </text>
+</TEI>
 ```
 
-When formulating a digital title, clarity and precision are essential. The title should explicitly name the primary witness, its institutional shelfmark, the specific biblical or literary text encoded, and the editorial approach (e.g., diplomatic transcription, critical edition, or codicological sample).
+The attribute `xmlns="http://www.tei-c.org/ns/1.0"` is the XML Namespace declaration. It tells any computer in the world: *"The tags inside this file follow the official Text Encoding Initiative Guidelines version 5."*
 
-Furthermore, documenting project sponsors and funding agencies in `<sponsor>` and `<funder>` ensures that grant requirements and institutional support are formally encoded within the digital file's permanent metadata header.
+Notice the clean division of labor. The `<teiHeader>` handles the *scholarship about the object* (metadata). The `<text>` element handles the *transcription of the object* (data). Today we focus entirely on the `<teiHeader>` — laying the architectural foundation before we transcribe a single Greek letter.
 
-**Takeaway:** The `<fileDesc>` and `<titleStmt>` document the digital edition as an independent intellectual publication, distinguishing the digital editors from the ancient scribes.
+**Vocabulary.** *XML Namespace (`xmlns`)* — a unique URI declaring which vocabulary and schema standard governs the tags in an XML document. *Separation of concerns* — keeping descriptive metadata cleanly separated from transcription data.
+
+**Takeaway:** Every TEI document wraps its metadata inside `<teiHeader>` and its transcription inside `<text>`, unified under the root `<TEI>` envelope.
 
 ---
 
 ## **08 Content**
 
-**Encoding Intellectual Responsibility and Contributions**
+**The Four Pillars of the Header**
 
-Scholarly editions are collaborative endeavors involving transcribers, encoders, research assistants, and institutional investigators. The TEI provides the `<respStmt>` (responsibility statement) element to record granular intellectual credit within the `<titleStmt>`.
-
-A `<respStmt>` pairs a specific statement of responsibility (`<resp>`) with the individual or group who performed it (`<name>` or `<persName>`). In digital philology, transparency regarding who transcribed a folio, who encoded the XML tags, and who audited the collations is essential for scholarly accountability.
+When you open the `<teiHeader>`, you encounter four core functional zones. Think of them as the four pillars holding up your edition:
 
 ```xml
-<titleStmt>
-  <title>Diplomatic Edition and Codicological Metadata for Codex Marchalianus</title>
-  <respStmt>
-    <resp>Transcription of Greek diplomatic text</resp>
-    <name xml:id="KP">Ken M. Penner</name>
-  </respStmt>
-  <respStmt>
-    <resp>TEI Header manuscript description and collation markup</resp>
-    <name xml:id="JD">Jane Doe</name>
-  </respStmt>
-  <respStmt>
-    <resp>Palaeographic audit of hexaplaric marginalia</resp>
-    <name xml:id="AS">Alex Smith</name>
-  </respStmt>
-  <respStmt>
-    <resp>Digitization and IIIF manifest curation</resp>
-    <orgName xml:id="STFX_DH">St. FX Digital Humanities Laboratory</orgName>
-  </respStmt>
-</titleStmt>
+<teiHeader>
+    <fileDesc>       <!-- 1. The File Description (Mandatory) -->
+    <encodingDesc>   <!-- 2. The Encoding Principles (How you tagged it) -->
+    <profileDesc>    <!-- 3. The Non-Bibliographic Profile (Language, hand) -->
+    <revisionDesc>   <!-- 4. The Revision History (Who changed what, when) -->
+</teiHeader>
 ```
 
-Notice the inclusion of `@xml:id` attributes on each `<name>` element. These unique identifiers allow later elements in the document—such as `<revisionDesc>` change logs or apparatus readings—to point back to specific contributors without repeating their full names.
+1. **`<fileDesc>` (File Description)**: The absolute heart of the header. It describes your digital edition as an electronic file, and it houses the codicological description of the ancient manuscript itself. You cannot have a valid TEI file without it.
+2. **`<encodingDesc>` (Encoding Description)**: Documents your editorial methods — for example, whether you normalized ancient spelling or transcribed abbreviations as symbols.
+3. **`<profileDesc>` (Profile Description)**: Records contextual details like languages used (e.g. Ancient Greek, Latin) and hand definitions.
+4. **`<revisionDesc>` (Revision Description)**: A structured historical changelog recording every major milestone in your project.
 
-By formally defining contributor IDs at the top of the header, the digital edition creates a closed, auditable namespace for all editorial assertions made throughout the lifetime of the project.
+Today, 80% of our practical work will take place inside `<fileDesc>`.
 
-**Takeaway:** Granular intellectual credit and editorial accountability are established using `<respStmt>`, linking specific scholarly tasks to identified contributors via `@xml:id`.
+**Vocabulary.** *`<fileDesc>`* — the mandatory TEI header element that contains full bibliographic and codicological descriptions of both the digital file and the source artifact. *`<revisionDesc>`* — the log of editorial changes and version history.
+
+**Takeaway:** The TEI Header divides metadata into four clear zones: file description, encoding methods, language profile, and revision history.
 
 ---
 
 ## **09 Content**
 
-**Digital Distribution and Licensing: `<publicationStmt>`**
+**Giving Yourself Credit: `<fileDesc>` and `<titleStmt>`**
 
-The second mandatory child of `<fileDesc>` is `<publicationStmt>` (publication statement). This element details the publication, distribution, and licensing conditions under which the digital text is made available to the public (TEI Consortium, 2025).
+Inside `<fileDesc>`, our first major task is to establish who created this electronic edition. This is handled by `<titleStmt>` (Title Statement).
 
-A properly constructed `<publicationStmt>` must declare the publisher or distributing institution, the geographic settlement, the publication date, and the formal intellectual property license. In modern open-access digital scholarship, editions are frequently published under Creative Commons licenses (such as CC BY 4.0 or CC BY-SA 4.0).
+When you build a digital edition in this course, you are not just doing classroom homework; you are creating an open, citable scholarly artifact. You are the digital editor. Here is how that looks in TEI XML:
 
 ```xml
-<publicationStmt>
-  <publisher>Department of Religious Studies, St. Francis Xavier University</publisher>
-  <pubPlace>Antigonish, Nova Scotia, Canada</pubPlace>
-  <date when="2026-09-08">September 8, 2026</date>
-  <availability status="restricted">
-    <licence target="https://creativecommons.org/licenses/by/4.0/">
-      Distributed under an open-access Creative Commons Attribution 4.0 International License (CC BY 4.0).
-    </licence>
-  </availability>
-  <idno type="URI">https://hdl.handle.net/123456789/398-vat-gr-2125</idno>
-  <idno type="DOI">10.5281/zenodo.1234567</idno>
-</publicationStmt>
+<titleStmt>
+    <title>Digital Scholarly Edition of Vat. gr. 2121, Folio 213r</title>
+    <author>Anonymous Scribe</author>
+    <editor>
+        <forename>Jane</forename>
+        <surname>Doe</surname>
+    </editor>
+    <respStmt>
+        <resp>Transcription and TEI encoding</resp>
+        <name>Jane Doe</name>
+    </respStmt>
+    <sponsor>St. Francis Xavier University</sponsor>
+    <funder>Department of Religious Studies / Digital Humanities Lab</funder>
+</titleStmt>
 ```
 
-The `@when` attribute on the `<date>` element enforces standard ISO 8601 formatting (`YYYY-MM-DD`). This ensures that search indexers and bibliographic harvesters can parse publication dates deterministically regardless of human reading habits.
+Notice how specific this is. We distinguish between the original `<author>` of the ancient text and the modern `<editor>` who produced the digital edition. The `<respStmt>` (Responsibility Statement) explicitly states who did what. In collaborative digital projects with dozens of researchers, this transparency ensures that student researchers receive clear, permanent attribution for their markup.
 
-Including persistent digital identifiers—such as Digital Object Identifiers (DOIs) or Handle URIs—within `<idno>` ensures that your digital edition can be permanently cited and indexed in international academic repositories.
+**Vocabulary.** *`<titleStmt>`* — the element within `<fileDesc>` that groups information about the title of a work and those responsible for its intellectual content. *`<respStmt>`* — statement of responsibility indicating specific scholarly contributions.
 
-**Takeaway:** The `<publicationStmt>` establishes the legal and institutional availability of the digital edition, recording open-access licenses, distributors, and ISO-standard dates.
+**Takeaway:** `<titleStmt>` establishes your academic authorship and intellectual responsibility as the digital editor of the witness.
 
 ---
 
 ## **10 Content**
 
-**The Source of Record: `<sourceDesc>` as the Codicological Anchor**
+**Putting FAIR into Practice: `<publicationStmt>`**
 
-The third mandatory child of `<fileDesc>` is `<sourceDesc>` (source description). In a digital edition of a modern printed novel, `<sourceDesc>` might contain a simple bibliographic citation of the 1922 first edition (`<bibl>`). In digital manuscript studies, however, `<sourceDesc>` is the codicological anchor of the entire enterprise.
+Last week you learned the FAIR principles: research data must be *Findable, Accessible, Interoperable, and Reusable*. 
 
-When an edition is derived directly from a handwritten artifact, `<sourceDesc>` must contain the specialized `<msDesc>` (manuscript description) module (TEI Consortium, 2025). The `<msDesc>` element replaces vague prose citations with a comprehensive, nested taxonomy designed to capture the material, intellectual, and chronological reality of the physical witness.
+Where does "Reusable" actually get declared in code? Right inside `<publicationStmt>`.
 
-| `<msDesc>` Sub-Module | TEI Element | Codicological Scope | Primary Child Elements |
-| --- | --- | --- | --- |
-| Identification | `<msIdentifier>` | Physical holding repository, settlement, and shelfmark | `<country>`, `<settlement>`, `<repository>`, `<idno>` |
-| Intellectual Contents | `<msContents>` | List of works, incipits, explicits, and paratexts | `<msItem>`, `<title>`, `<author>`, `<incipit>` |
-| Physical Description | `<physDesc>` | Support material, foliation, collation, layout, script, binding | `<objectDesc>`, `<handDesc>`, `<decoDesc>`, `<bindingDesc>` |
-| Historical Lifecycle | `<history>` | Origin date/place, chronological provenance transfers, acquisition | `<origin>`, `<provenance>`, `<acquisition>` |
-| Supplementary Records | `<additional>` | Microfilms, digital surrogates, finding aids, and bibliography | `<adminInfo>`, `<surrogates>`, `<listBibl>` |
+If you publish a digital text online without an explicit license, standard copyright laws apply by default — meaning nobody else has the legal right to reuse your XML, train an HTR model on your transcriptions, or include your work in a broader corpus. In open digital humanities, we reject proprietary paywalls. We license our editions under Creative Commons open licenses:
 
-By placing `<msDesc>` inside `<sourceDesc>`, you declare that the digital text following in `<body>` is a direct surrogate and representation of this specific physical object. The metadata encoded in `<msDesc>` provides the physical context that justifies every transcription and apparatus decision made in the body text.
+```xml
+<publicationStmt>
+    <publisher>St. Francis Xavier University Digital Humanities Hub</publisher>
+    <pubPlace>Antigonish, Nova Scotia</pubPlace>
+    <date when="2026">2026</date>
+    <availability status="free">
+        <licence target="https://creativecommons.org/licenses/by/4.0/">
+            Distributed under an open Creative Commons Attribution 4.0 International (CC BY 4.0) License.
+        </licence>
+    </availability>
+</publicationStmt>
+```
 
-**Takeaway:** In manuscript-based editions, `<sourceDesc>` houses the `<msDesc>` module, anchoring the digital transcription to a specific historical codex.
+By adding this block to your header, you give scholars everywhere legal permission to read, analyze, and build upon your edition, provided they give you credit. That is FAIR scholarship in action.
+
+**Vocabulary.** *`<publicationStmt>`* — the element that details the publication, distribution, and licensing conditions of the digital file. *Creative Commons (CC BY)* — a standard open-access license permitting free sharing and adaptation with attribution.
+
+**Takeaway:** `<publicationStmt>` secures the reusability of your scholarship by explicitly declaring open-access distribution and licensing terms.
 
 ---
 
 ## **11 Content**
 
-**Anchoring the Physical Object: The `<msIdentifier>` Architecture**
+**The Codicological Heart: `<sourceDesc>`**
 
-Every manuscript description must begin with an `<msIdentifier>` element. The function of `<msIdentifier>` is to provide unambiguous geographic, institutional, and archival coordinates for the physical object (TEI Consortium, 2025).
+Now we reach the pivot point of the entire header: `<sourceDesc>` (Source Description).
 
-A handwritten codex exists in a real-world repository. To ensure that scholars worldwide can locate and inspect the physical artifact, `<msIdentifier>` enforces a strict hierarchical address:
+Up to this point, `<fileDesc>` has been describing the *digital file* — you sitting at your laptop in Mulroney Hall in 2026. But a digital edition is an edition *of* something. What physical object did your text come from?
 
-- `<country>`: The nation-state where the repository is currently located.
-- `<settlement>`: The city, town, or locality of the holding library.
-- `<institution>`: The overarching parent organization (e.g., a university, national library, or ecclesiastical body).
-- `<repository>`: The specific library, archive, or department holding the item.
-- `<collection>`: The named manuscript collection or archival series (optional but common).
-- `<idno>`: The shelfmark, catalogue number, or call number uniquely identifying the volume within that repository.
-- `<altIdentifier>`: Secondary historical shelfmarks, former collection numbers, or standard cataloguing sigla (such as Gregory-Aland numbers or Rahlfs numbers for biblical manuscripts).
+If your edition were based on a modern printed book, `<sourceDesc>` would contain a standard `<bibl>` tag with publisher, ISBN, and page numbers. But because your project is built upon a unique, handwritten ancient artifact, TEI gives us a specialized, powerhouse element: **`<msDesc>` (Manuscript Description)**.
 
 ```xml
-<msIdentifier>
-  <country>Vatican City</country>
-  <settlement>Vatican City</settlement>
-  <institution>Holy See</institution>
-  <repository>Biblioteca Apostolica Vaticana</repository>
-  <collection>Vaticani graeci</collection>
-  <idno>Vat. gr. 2125</idno>
-  <altIdentifier type="Rahlfs">
-    <idno>Q</idno>
-  </altIdentifier>
-  <altIdentifier type="Diktyon">
-    <idno>68437</idno>
-  </altIdentifier>
-  <altIdentifier type="Pinakes">
-    <idno>68437</idno>
-  </altIdentifier>
-</msIdentifier>
+<sourceDesc>
+    <msDesc>
+        <!-- The complete physical and historical biography of your codex -->
+    </msDesc>
+</sourceDesc>
 ```
 
-By recording standard scholarly sigla—such as Rahlfs number Q or Pinakes identifier 68437—inside `<altIdentifier>`, you ensure that external research databases can automatically link your digital edition to existing international authority indices.
+Inside `<msDesc>`, we document the entire physical and historical reality of the manuscript: its library shelfmark, its physical material, its scribal hand, its dimensions, its ruling, and its historical journey.
 
-**Takeaway:** The `<msIdentifier>` provides the definitive archival address of the physical object, combining country, settlement, repository, shelfmark, and standard scholarly sigla.
+**Vocabulary.** *`<sourceDesc>`* — records details of the source material from which an electronic text was derived. *`<msDesc>`* — the TEI manuscript description module used to catalogue unique codices, scrolls, and inscriptions.
+
+**Takeaway:** `<sourceDesc>` houses the `<msDesc>` module, shifting our focus from the digital file to the physical reality of the surviving manuscript.
 
 ---
 
 ## **12 Content**
 
-**Case Study: Locating and Identifying Codex Marchalianus (Vat. gr. 2125)**
+**Anchoring the Object: `<msIdentifier>`**
 
-To ground this markup in a concrete historical exemplar, we examine Codex Marchalianus, preserved in the Vatican Library under the shelfmark *Vat. gr. 2125*. Designated by Alfred Rahlfs as manuscript **Q**, Codex Marchalianus is one of the most celebrated surviving Greek witnesses to the Old Testament prophetic books (Ceriani, 1890).
+How do you guarantee that anyone in the world can identify the exact physical book your edition is based on? You anchor it with a standardized `<msIdentifier>` block.
 
-Written in Egypt during the sixth century CE, Codex Marchalianus is a parchment codex containing the Twelve Minor Prophets, Isaiah, Jeremiah (with Baruch, Lamentations, and the Epistle), Ezekiel, and Daniel (with Susanna and Bel and the Dragon). What makes the manuscript extraordinary is not merely its early date, but its complex layering: written in an elegant Byzantine uncial (majuscule) hand, its wide margins were subsequently packed with thousands of hexaplaric notes, variant readings from Aquila, Symmachus, and Theodotion, and patristic scholia by sixth- and seventh-century correctors (Ceriani, 1890).
+The `<msIdentifier>` represents the administrative coordinates of the artifact. It moves logically from the broadest geographic location down to the specific shelfmark:
 
-When Antonio Maria Ceriani published his landmark photographic facsimile and codicological commentary in 1890, he provided the scholarly world with an exhaustive description of its quires, hands, and history (Ceriani, 1890). In our course exercises, we translate Ceriani's discursive nineteenth-century Latin introduction into structured, machine-actionable TEI XML.
-
-```
-Codex Marchalianus Codicological Overview:
-- Repository: Biblioteca Apostolica Vaticana (Vatican City)
-- Shelfmark: Vat. gr. 2125 (Siglum Q / Rahlfs 2125)
-- Date: 6th century CE (origin in Byzantine Egypt)
-- Support: Fine calfskin parchment, 416 surviving leaves (foliated 1-416)
-- Dimensions: ~305 mm x 240 mm (single column, 29 lines per page)
-- Ruling: Hard dry point on flesh side (Leroy-Sautel pattern 00D1)
-- Script: Formal Egyptian/Byzantine uncial (majuscule) in dark brown iron-gall ink
-- Correctors: Extensive 6th/7th-century marginal hands supplying Hexaplaric variants
+```xml
+<msIdentifier>
+    <settlement>Vatican City</settlement>
+    <repository>Biblioteca Apostolica Vaticana</repository>
+    <collection>Vaticani graeci</collection>
+    <idno type="shelfmark">Vat. gr. 2121</idno>
+    <altIdentifier type="trismegistos">
+        <idno>62345</idno>
+    </altIdentifier>
+</msIdentifier>
 ```
 
-Translating Ceriani's observations into TEI requires mapping nineteenth-century Latin codicology into rigid XML trees, identifying where Ceriani's prose can be broken down into structured attributes and child elements (Ceriani, 1890).
+- `<settlement>`: The city where the library is located.
+- `<repository>`: The official institution or library holding the manuscript.
+- `<collection>`: The specific collection within that library.
+- `<idno>`: The official identification number or shelfmark.
 
-**Takeaway:** Codex Marchalianus (Vat. gr. 2125) exemplifies a multi-layered sixth-century prophetic witness whose complex physical and marginal features demand rigorous TEI codicological description.
+Notice the `<altIdentifier>` tag: here we link our physical shelfmark to a global database number (like Trismegistos or Pinakes). This guarantees that even if the library renames a collection, our edition remains permanently linked to global manuscript authority files.
+
+**Vocabulary.** *`<msIdentifier>`* — groups the identifying information (city, repository, collection, shelfmark) that uniquely designates a manuscript. *Authority file* — an international registry of standardized names and identifiers for cultural artifacts.
+
+**Takeaway:** `<msIdentifier>` establishes unambiguous physical coordinates for your manuscript, pairing library shelfmarks with global authority IDs.
 
 ---
 
 ## **13 Content**
 
-**Mapping the Intellectual Contents: `<msContents>` and `<msItem>`**
+**What's on the Page? `<msContents>` and `<msItem>`**
 
-Following the identification of the physical manuscript, the next major branch of `<msDesc>` is `<msContents>`. The `<msContents>` element records the intellectual texts contained within the volume (TEI Consortium, 2025).
+Once we have established *which* manuscript we have, we must record *what text* it contains. This is governed by `<msContents>` and its child element `<msItem>`.
 
-A codex is rarely a single continuous text; it is frequently an anthology, a compilation of multiple biblical books, or a collection of disparate patristic treatises. Inside `<msContents>`, each distinct intellectual work is encapsulated within an `<msItem>` element. If a manuscript contains five books of the prophets, the `<msContents>` container will hold five distinct `<msItem>` children, ordered sequentially as they appear in the physical book.
+A single medieval codex might contain fifty different texts: three homilies, a commentary on the Psalms, a liturgical calendar, and a copy of the Book of Genesis. In your project, you are focusing on your **full-page witness**. Inside `<msItem>`, you document the boundaries and authorial identity of that specific text:
 
 ```xml
 <msContents>
-  <summary>Greek Old Testament Prophets (Twelve Minor Prophets, Isaiah, Jeremiah, Ezekiel, Daniel) with Hexaplaric marginal notes.</summary>
-  <textLang mainLang="grc">Ancient Greek (Biblical / Septuagint)</textLang>
-  
-  <msItem n="1">
-    <locus from="1r" to="58v">ff. 1r-58v</locus>
-    <title>Dodekapropheton (Twelve Minor Prophets)</title>
-    <textLang mainLang="grc"/>
-  </msItem>
-  
-  <msItem n="2">
-    <locus from="59r" to="142v">ff. 59r-142v</locus>
-    <title>Book of Isaiah</title>
-    <textLang mainLang="grc"/>
-  </msItem>
-  
-  <msItem n="3">
-    <locus from="143r" to="248v">ff. 143r-248v</locus>
-    <title>Jeremiah, Baruch, Lamentations, Epistle of Jeremiah</title>
-    <textLang mainLang="grc"/>
-  </msItem>
+    <msItem n="1">
+        <locus from="213r" to="213r">f. 213r</locus>
+        <author key="LXX">Septuagint</author>
+        <title xml:lang="grc">Γένεσις</title>
+        <title xml:lang="en">Book of Genesis</title>
+        <textLang mainLang="grc">Ancient Greek</textLang>
+        <rubric>ΑΡΧΗ ΤΗΣ ΓΕΝΕΣΕΩΣ</rubric>
+    </msItem>
 </msContents>
 ```
 
-The `<locus>` element explicitly binds each intellectual item to its physical coordinates in the book, recording the starting and ending folios (`from="59r" to="142v"`).
+Look at the `<locus>` element. The word *locus* is Latin for "place" — it tells the reader exactly which folio or page your witness spans. The `<rubric>` tag records any special text written in red ink, such as a traditional heading.
 
-When a manuscript contains paratextual additions—such as scribal poems, tables of contents, or Eusebian canon lists—these are also encoded as discrete `<msItem>` or `<msItemStruct>` nodes, preserving the exact internal architecture of the codex.
+**Vocabulary.** *`<msContents>`* — describes the intellectual contents of a manuscript or manuscript part. *`<locus>`* — defines the precise page, folio, or line coordinates where a text appears within a volume. *Rubric* — text written in red ink to signal a title, section start, or liturgical instruction.
 
-**Takeaway:** The `<msContents>` element structures the intellectual works in a codex into discrete `<msItem>` nodes, mapping each work to its physical folio range via `<locus>`.
+**Takeaway:** `<msContents>` maps the intellectual works preserved on your manuscript page, anchoring their titles, languages, and folio coordinates.
 
 ---
 
 ## **14 Content**
 
-**Titles, Attributions, and Textual Boundaries**
+**Materiality and Support: Animal Skin vs. River Reeds**
 
-Within each `<msItem>`, a digital editor must document the internal textual boundaries and scribal framing formulas that define the work. Historical manuscripts do not have modern title pages; scribes marked the beginning and ending of texts with specialized formulas.
+Now we open `<physDesc>` (Physical Description). This is where digital humanities becomes deeply tactile. We are not describing abstract bits and bytes; we are describing a physical object that survived centuries of history.
 
-To encode these features, TEI provides several dedicated child elements inside `<msItem>`:
-
-- `<author>`: The historical or traditional author attributed to the work.
-- `<title>`: The standardized or editorial title of the text.
-- `<rubric>`: The heading, title, or liturgical formula written by the scribe at the start of a section (often written in red ink or distinctive script).
-- `<incipit>`: The opening words of the actual text itself. Scribes and cataloguers use the incipit to identify texts when titles are missing or damaged.
-- `<explicit>`: The closing words of the primary text.
-- `<finalRubric>` or `<colophon>`: The concluding scribal blessing, signature, or book-closing announcement.
+The foundation of any manuscript is its **support material** — what is it written on?
 
 ```xml
-<msItem n="2">
-  <locus from="59r" to="142v">ff. 59r-142v</locus>
-  <author>Isaiah the Prophet</author>
-  <title>Book of Isaiah</title>
-  <rubric xml:lang="grc">ΟΡΑΣΙΣ ΗΝ ΕΙΔΕΝ ΗΣΑΙΑΣ ΥΙΟΣ ΑΜΩΣ</rubric>
-  <incipit xml:lang="grc">Ακουε ουρανε και ενωτιζου γη οτι κυριος ελαλησεν...</incipit>
-  <explicit xml:lang="grc">...και εσονται εις ορασιν παση σαρκι.</explicit>
-  <finalRubric xml:lang="grc">ΕΤΕΛΕΣΘΗ ΗΣΑΙΑΣ Ο ΠΡΟΦΗΤΗΣ</finalRubric>
-</msItem>
+<physDesc>
+    <objectDesc form="codex">
+        <supportDesc material="parchment">
+            <support>
+                <p>Prepared calfskin vellum of medium thickness, scraped smooth on the flesh side with visible follicle pores on the hair side.</p>
+            </support>
+        </supportDesc>
+    </objectDesc>
+</physDesc>
 ```
 
-By recording both the standardized title and the exact scribal `<rubric>` and `<incipit>`, you preserve both machine-searchable standardization and diplomatic fidelity to the physical witness.
+Historical manuscripts generally fall into three great material categories:
 
-In many premodern manuscripts, titles are damaged or absent. In such cases, the `<incipit>` is the primary diagnostic feature used by cataloguing databases to automatically identify the text against canonical registers.
+1. **Papyrus** (`material="papyrus"`): Ancient paper made from the sliced pith of Nile river reeds. Common in ancient Egypt and the Greco-Roman world; fibrous, brittle, and preserved primarily in arid climates.
+2. **Parchment / Vellum** (`material="parchment"`): Specially prepared animal skin (calf, sheep, or goat) scraped thin, stretched on frames, and treated with lime. Extremely durable, flexible, and capable of being erased and written over.
+3. **Paper** (`material="paper"`): Rag paper made from linen fibers, introduced to Europe from the Islamic world in the high Middle Ages.
 
-**Takeaway:** Dedicated elements like `<rubric>`, `<incipit>`, and `<explicit>` record the exact scribal framing formulas that mark textual boundaries in the codex.
+When you look at high-resolution images of parchment, you can often tell the difference between the yellow-tinted "hair side" (which has tiny follicle dots) and the pale, smooth "flesh side"!
+
+**Vocabulary.** *Support* — the physical material (parchment, papyrus, paper) that carries the written text. *Hair side / Flesh side* — the two distinct surfaces of animal skin parchment, differing in color, texture, and pore patterns.
+
+**Takeaway:** `<supportDesc>` captures the tactile medium of your witness, distinguishing between fragile Egyptian papyrus, durable parchment vellum, and late medieval rag paper.
 
 ---
 
 ## **15 Content**
 
-**The Physical Description Envelope: `<physDesc>` and Materiality**
+**Leaves, Folios, and Pages: The Geometry of a Codex**
 
-The third major branch of `<msDesc>` is `<physDesc>` (physical description). While `<msContents>` documents the intellectual layer, `<physDesc>` captures the physical, material embodiment of the artifact (TEI Consortium, 2025).
+When you read a modern book, you turn "pages" — page 1, page 2, page 3. But ancient and medieval scribes did not number individual pages; they numbered **leaves** (in Latin, *folia*).
 
-The `<physDesc>` element is a structured container holding several specialized sub-modules:
+A **folio** is a single sheet of parchment or paper bound into a book. Each folio has two sides:
 
-| Physical Property | TEI Sub-Element | Codicological Focus |
-| --- | --- | --- |
-| Object Architecture | `<objectDesc>` | Support medium, dimensions, foliation, quires, and layout |
-| Paleography & Script | `<handDesc>` | Scribal hands, scripts, ink colors, and hand shifts |
-| Non-Latin/Greek Scripts | `<scriptDesc>` | Character systems in multilingual or non-Western codices |
-| Typography (Incunabula) | `<typeDesc>` | Early printed typefaces and font classifications |
-| Musical Notation | `<musicNotation>` | Neumes, staves, and liturgical musical notation |
-| Illumination & Art | `<decoDesc>` | Miniatures, decorated initials, and marginal signs |
-| Secondary Inscriptions | `<additions>` | Marginal glosses, probationes pennae, and ownership notes |
-| Bookbinding | `<bindingDesc>` | Binding structure, boards, leather, clasps, and repairs |
-| Seals | `<sealDesc>` | Attached wax, lead, or applied institutional seals |
+- **Recto (r)**: The front side of the leaf, facing you on the right when the book is open.
+- **Verso (v)**: The back side of the leaf, revealed when you turn the page over (facing you on the left).
 
-In hand-authoring `<physDesc>`, you must resist the temptation to write unstructured prose summaries. Every physical property must be placed in its appropriate TEI container to ensure computational discoverability.
+Therefore, a manuscript with 100 leaves does not have page numbers 1 to 200. It has:
+*Folio 1r, Folio 1v, Folio 2r, Folio 2v, Folio 3r ...*
 
-By organizing physical data into these distinct containers, digital editions allow scholars to run targeted statistical analyses across manuscript corpora—such as analyzing the correlation between parchment thickness, ruling patterns, and scribal hands.
+In your course project, your primary witness is a **full-page textual artifact**. That means your witness is identified as either a complete *recto* or a complete *verso* (e.g. `f. 213r` or `f. 45v`). In your TEI Header, you record this extent:
 
-**Takeaway:** The `<physDesc>` module formalizes the material properties of the manuscript into dedicated sub-elements for support, layout, script, decoration, and binding.
+```xml
+<extent>
+    <measure unit="leaf" quantity="1">1 folio (recto)</measure>
+    <dimensions unit="mm" type="leaf">
+        <height>285</height>
+        <width>210</width>
+    </dimensions>
+</extent>
+```
+
+**Vocabulary.** *Folio (f.)* — an individual leaf of a codex. *Recto (r)* — the front side of a folio. *Verso (v)* — the back side of a folio. *Extent* — the physical size and quantity of leaves comprising a manuscript or document section.
+
+**Takeaway:** Manuscripts are counted by folios rather than pages, where each physical leaf consists of a front face (recto) and a back face (verso).
 
 ---
 
 ## **16 Content**
 
-**Support and Dimensions: `<objectDesc>` and `<supportDesc>`**
+**How Codices Were Assembled: Quires and Gatherings**
 
-Inside `<physDesc>`, the core physical structure of the book is captured within `<objectDesc>`. The `<objectDesc>` element contains two primary sub-elements: `<supportDesc>` (the material carrier and leaf structure) and `<layoutDesc>` (the mise-en-page or page layout).
+Before a scribe could write a single word, someone had to build the physical book. 
 
-The `<supportDesc>` element requires an explicit `@material` attribute declaring the medium (e.g., `parchment`, `paper`, `papyrus`, or `mixed`). Inside `<supportDesc>`, the editor provides a prose description in `<support>`, followed by numerical measurements in `<extent>`.
+Medieval books were not made by binding individual loose sheets. Scribes took large pieces of animal skin, folded them in half (forming a *bifolio* or two-leaf booklet), and nested several bifolia together inside one another like a stack of greeting cards. This folded booklet is called a **quire** or a **gathering**.
+
+The most popular gathering was the **quaternion** — four bifolia nested together to produce eight leaves (16 pages). 
+
+Scribes cared deeply about aesthetics. To ensure that open openings looked harmonious, they followed **Gregory's Rule** (the law of facing sides): hair side always faced hair side, and flesh side always faced flesh side. When you open a well-made Greek or Latin codex, both facing pages share the exact same pale ivory hue!
+
+In TEI XML, quire structure is encoded inside `<collation>`:
 
 ```xml
-<objectDesc form="codex">
-  <supportDesc material="parchment">
-    <support>
-      <p>High-quality calfskin parchment, medium thickness, supple and well-scraped. Follicle patterns visible on flesh sides; hair sides show light yellow tone.</p>
-    </support>
-    <extent>
-      <measure unit="leaf" quantity="416">416 folios</measure>
-      <dimensions unit="mm" type="leaf">
-        <height quantity="305">305 mm</height>
-        <width quantity="240">240 mm</width>
-      </dimensions>
-      <dimensions unit="mm" type="written">
-        <height quantity="220">220 mm</height>
-        <width quantity="155">155 mm</width>
-      </dimensions>
-    </extent>
-  </supportDesc>
-</objectDesc>
+<collation>
+    <p>Composed primarily of regular quaternions (gatherings of 8 leaves). Quire signatures marked in Greek numerals in the lower inner margin.</p>
+</collation>
 ```
 
-Notice that measurements are encoded twice: as machine-readable numbers inside `@quantity` attributes, and as human-readable strings inside element content. This dual-encoding pattern ensures that computational algorithms can calculate aspect ratios or search by dimension thresholds without parsing raw text strings.
+**Vocabulary.** *Quire / Gathering* — a group of folded leaves nested together and sewn through the crease to form a section of a codex. *Bifolio* — a single sheet folded in half to create two leaves (four pages). *Gregory's Rule* — the scribal practice of matching parchment openings so that hair side faces hair side and flesh side faces flesh side.
 
-Recording both total leaf dimensions and written area dimensions allows scholars to calculate the ratio of margin to text, providing critical evidence regarding the prestige and economic expenditure of the manuscript's production.
-
-**Takeaway:** The `<supportDesc>` captures the physical medium and leaf dimensions, using `@quantity` and `@unit` attributes to provide machine-actionable measurements.
+**Takeaway:** Codices are constructed from nested folded gatherings called quires, arranged with deliberate aesthetic symmetry according to Gregory's Rule.
 
 ---
 
 ## **17 Content**
 
-**Foliation, Pagination, and Extent**
+**Ruling the Page: The Invisible Geometry of Scribes**
 
-Manuscripts often exhibit complex foliation histories. A codex may contain medieval Roman numerals in ink, eighteenth-century Arabic numerals in iron-gall ink, and modern stamped or penciled foliation applied by nineteenth-century library conservators.
+If you have ever tried to write on a completely blank sheet of unlined paper, you know that handwriting naturally drifts upward or downward. Medieval scribes could not afford crooked lines on expensive parchment. Before writing, they laid down a precise geometric grid.
 
-The TEI allows editors to record these distinct numbering systems using the `<foliation>` element inside `<supportDesc>`. If folios were lost, inserted out of order, or misnumbered, these anomalies must be explicitly documented.
+Scribes used a sharp awl to prick tiny puncture holes along the outer margins of the parchment (a process called *pricking*). Then, using a straightedge, they scored lines across the leaf to guide their pens (called *ruling*).
 
-```xml
-<supportDesc material="parchment">
-  <extent>
-    <measure unit="leaf" quantity="416">416 folios</measure>
-  </extent>
-  <foliation n="1" type="modern">
-    Modern pencil foliation in upper right recto corner, numbered 1-416, applied during Vatican Library conservation in 1888.
-  </foliation>
-  <foliation n="2" type="early-modern">
-    Traces of an earlier 16th-century ink foliation in lower margin, partly trimmed away by rebinding.
-  </foliation>
-  <condition>
-    <p>Complete except for lost preliminary leaves; leaves 12 and 13 show minor insect damage in outer margins, text unaffected.</p>
-  </condition>
-</supportDesc>
-```
+Ruling was executed in two primary ways:
 
-Documenting the foliation system is essential for citation integrity: if a nineteenth-century collator cites folio 62v based on an old ink numbering, while your digital edition cites folio 64v based on modern pencil numbering, the discrepancy must be resolved in `<foliation>`.
+1. **Dry point**: Pressing a hard, blunt stylus into the parchment, creating an embossed furrow on one side and a raised ridge on the other.
+2. **Lead point / Hard point**: Drawing faint grey lines using a lead pencil-like stylus.
 
-Furthermore, recording physical damage and insect erosion in `<condition>` establishes the material justification for lacunae and illegible readings in downstream diplomatic transcriptions.
+When you inspect your full-page witness under high-resolution zoom, look closely between the lines of text. Can you see the faint horizontal ruling lines? Can you see the vertical *bounding lines* that keep the left and right margins razor-sharp?
 
-**Takeaway:** The `<foliation>` element documents the history and location of leaf-numbering systems, resolving discrepancies between historical and modern citations.
+**Vocabulary.** *Pricking* — tiny puncture marks made in the margins of parchment leaves to guide the ruling process. *Ruling* — the scored or drawn horizontal lines and vertical bounding margins that organize the text on a manuscript page.
+
+**Takeaway:** Scribes used pricking and ruling to construct an architectural grid on blank parchment before writing a single word.
 
 ---
 
 ## **18 Content**
 
-**Codicological Collation Formulas: `<collation>`**
+**Layout Architecture: Columns, Margins, and `<layoutDesc>`**
 
-In manuscript studies, *collation* refers to the physical assembly of quires (gatherings of bifolia) that form the codex. Documenting collation reveals how the manuscript was manufactured, whether quires were lost, and where later leaves were inserted.
+Manuscript pages are not all organized the same way. The spatial arrangement of text across a page is called its **layout**.
 
-Within `<supportDesc>`, the `<collation>` element records the quire structure. Codicologists represent quires using standardized algebraic notation, such as the formula popularized by Neil Ker: quire numbers in Roman or Arabic numerals, followed by superscripts indicating the number of leaves in the quire (e.g., $1	ext{–}52^8$ denoting 52 regular quaterniones).
+In the `<layoutDesc>` section of the TEI Header, we encode:
+
+- How many columns of text are on the page (`columns="1"`, `columns="2"`, etc.).
+- How many written lines are in each column (`writtenLines="25"`).
+- Whether there are wide outer margins reserved for commentary or student notes.
 
 ```xml
-<collation>
-  <p>The manuscript consists of 52 regular quaterniones (quires of 8 leaves / 4 bifolia), numbered continuously with Greek quire signatures in the upper inner margin.</p>
-  <formula>1-52<hi rend="superscript">8</hi> (total 416 leaves)</formula>
-  <signatures>Original Greek quire signatures (αʹ through νβʹ) written by the primary scribe on the first recto and last verso of each gathering.</signatures>
-  <catchwords>No catchwords present (consistent with 6th-century Egyptian uncial practices).</catchwords>
-</collation>
+<layoutDesc>
+    <layout columns="1" writtenLines="28">
+        <p>Single column of 28 lines, written in brown carbon ink below the top ruled line. Wide outer margins measuring approximately 45mm, containing occasional contemporary glosses.</p>
+    </layout>
+</layoutDesc>
 ```
 
-When hand-authoring `<collation>`, digital editors must carefully inspect quire signatures and hair/flesh orientation (Gregory's Rule) on digital facsimiles to verify whether quires are intact or anomalous. Gregory's Rule observes that Greek scribes arranged quires so that flesh sides faced flesh sides and hair sides faced hair sides across every opening.
+Early uncial manuscripts of the Bible (like *Codex Sinaiticus*) were famous for having four narrow columns per page, resembling open scroll columns! By the eleventh century, many Byzantine minuscules adopted elegant single-column or double-column formats.
 
-Deviations from Gregory's Rule or breaks in quire signature numeration indicate missing leaves, inserted bifolia, or structural disruptions that must be documented in the `<collation>` formula.
+**Vocabulary.** *`<layoutDesc>`* — groups information regarding the physical arrangement of text on the page, including columns, lines, and margins. *Bounding lines* — vertical ruled lines that demarcate the margins and keep text justified.
 
-**Takeaway:** The `<collation>` element formalizes the physical structure of quires, leaf counts, and quire signatures, exposing the mechanical construction of the codex.
+**Takeaway:** `<layoutDesc>` records the spatial arrangement of the page, specifying column counts, written line counts, and margin dimensions.
 
 ---
 
 ## **19 Content**
 
-**Layout Description and Page Architecture: `<layoutDesc>`**
+**The Human Touch: Scribes, Hands, and `<handDesc>`**
 
-The second major child of `<objectDesc>` is `<layoutDesc>` (layout description). This element describes the mise-en-page: how the physical surface of each page was prepared, ruled, and filled with script.
+A manuscript page is an intimate human record. When you look at the ink strokes, you are seeing the personal motor habits of an individual scribe who lived centuries ago.
 
-Within `<layoutDesc>`, one or more `<layout>` elements record the number of columns, lines per column, ruling methods, and bounding box dimensions. Attributes such as `@columns`, `@writtenLines`, and `@ruledLines` provide machine-readable layout parameters.
+In paleography (the study of ancient handwriting), we use the word **hand** to describe the handwriting of a specific scribe. A single codex might be copied by three different scribes, or a primary scribe might write the main biblical text while a later corrector writes corrections above the line.
+
+Inside `<handDesc>`, we formally document every distinct hand visible on your full-page witness:
 
 ```xml
-<layoutDesc>
-  <layout columns="1" writtenLines="29" ruledLines="29">
-    <p>Written in a single broad column of 29 lines per page. Bounding lines and text lines scored with a hard dry point on the flesh side (Leroy-Sautel ruling pattern 00D1).</p>
-    <dimensions unit="mm" type="column">
-      <height quantity="220"/>
-      <width quantity="155"/>
-    </dimensions>
-    <note>Exceptionally wide outer margins (approx. 65 mm) deliberately planned to accommodate hexaplaric notes and patristic scholia.</note>
-  </layout>
-</layoutDesc>
+<handDesc hands="1">
+    <handNote xml:id="h1" scope="sole" script="Byzantine_minuscule">
+        <p>Primary hand: neat 11th-century Byzantine minuscule script written in dark brown carbon ink, with consistent letter heights and standard ligature sets.</p>
+    </handNote>
+</handDesc>
 ```
 
-Recording page architecture is critical for downstream transcription and image alignment: automated handwriting recognition (HTR) and layout analysis tools (such as Transkribus in Week 4) depend directly on baseline and column models defined in `<layoutDesc>`.
+By assigning an `xml:id="h1"` to this hand, we create a computational hook! In Week 4, when you transcribe individual words or marginal corrections, you can tag them with `hand="#h1"`. Automated scripts can then instantly count how many words were written by the primary scribe versus later correctors!
 
-Codicologists classify ruling patterns using standard classification systems, such as the Leroy-Sautel system for Greek manuscripts. Recording the ruling code (`00D1`) in `<layout>` allows computational comparison of scriptorium ruling traditions across late antiquity.
+**Vocabulary.** *Paleography* — the scholarly study of historical handwriting, scripts, and decipherment. *Hand (`<handNote>`)* — the distinct handwriting style of an individual scribe or annotator. *Ligature* — two or more letters connected together into a single fluid stroke.
 
-**Takeaway:** The `<layoutDesc>` and `<layout>` elements capture the mise-en-page, specifying column counts, written lines, ruling techniques, and margin widths.
+**Takeaway:** `<handDesc>` defines the individual scribal hands on a page and assigns them unique XML IDs that link directly to transcription tags.
 
 ---
 
 ## **20 Content**
 
-**Paleographic Analysis: The `<handDesc>` and `<handNote>` Elements**
+**Rubrication and Visual Hierarchy: `<decoDesc>`**
 
-Following `<objectDesc>`, the next critical component of `<physDesc>` is `<handDesc>` (hand description). A manuscript may be written by a single scribe or by multiple collaborating scribes across centuries.
+Look at your manuscript image. Is every word written in plain black ink, or do certain headings, initial letters, or chapter markers leap off the page in bright red, gold, or blue?
 
-Within `<handDesc>`, each distinct scribal hand is assigned a `<handNote>` element with a unique `@xml:id`. The `<handNote>` describes the script family, ink color, letterform ductus, and chronological period of that hand.
+This decorative and functional hierarchy is called **rubrication** (from the Latin *ruber*, meaning "red"). 
+
+In ancient and medieval book production, the main scribe copied the bulk of the text in dark carbon or gall ink, leaving blank spaces wherever an initial capital or chapter title belonged. Later, a specialist (the rubricator or illuminator) went through the book with red vermilion or minium ink to paint the headings, liturgical markers, and decorative initials.
+
+In the TEI Header, decoration is captured under `<decoDesc>`:
 
 ```xml
-<handDesc hands="3">
-  <summary>Written primarily in a formal 6th-century Byzantine uncial hand, with extensive 6th- and 7th-century marginal hands.</summary>
-  
-  <handNote xml:id="h1" scope="major" script="uncial" medium="brown-ink">
-    <p><label>Hand 1 (Primary Scribe):</label> Formal Egyptian/Byzantine uncial (majuscule), upright, round, with slight serifs on vertical strokes of tau and gamma. Brown iron-gall ink. Responsible for the primary biblical text.</p>
-  </handNote>
-  
-  <handNote xml:id="h2" scope="minor" script="cursive-uncial" medium="black-ink">
-    <p><label>Hand 2 (Hexaplaric Corrector):</label> Rapid semi-uncial hand writing in dark blackish-green ink in outer margins. Responsible for supplying variant readings from Aquila, Symmachus, and Theodotion.</p>
-  </handNote>
-  
-  <handNote xml:id="h3" scope="minor" script="byzantine-minuscule" medium="faded-ink">
-    <p><label>Hand 3 (Late Scholiast):</label> Early minuscule hand (9th/10th century) adding occasional theological glosses in lower margins.</p>
-  </handNote>
-</handDesc>
+<decoDesc>
+    <decoNote type="initial">
+        <p>One prominent 3-line initial capital in red ink at the start of Genesis 1:1, decorated with modest foliate penwork.</p>
+    </decoNote>
+</decoDesc>
 ```
 
-Assigning `@xml:id="h1"`, `@xml:id="h2"`, etc., enables you to tag every word, line, or marginal addition in your transcription with a `@hand` attribute (e.g., `<add hand="#h2">`), explicitly linking text fragments to specific scribes.
+Rubrics were not just pretty pictures; they were the user interface of the medieval codex! They allowed a reader to scan a dense parchment leaf and instantly find the beginning of a liturgical reading or chapter.
 
-In ancient manuscripts, scribes also used distinctive abbreviations known as *nomina sacra* (e.g., ΘΣ for Θεός, ΚΣ for Κύριος) written with a supralinear stroke. Documenting how each hand treats nomina sacra provides vital paleographical diagnostic data.
+**Vocabulary.** *Rubrication* — the practice of writing titles, headings, and initial letters in red ink to establish visual hierarchy. *`<decoDesc>`* — describes the decorative elements of a manuscript, including miniatures, decorated initials, and marginal drawings.
 
-**Takeaway:** The `<handDesc>` and `<handNote>` elements document distinct scribal hands, establishing unique `@xml:id` handles for granular paleographic attribution in transcriptions.
+**Takeaway:** Rubrication and decorative initials served as the visual user interface of historical manuscripts, recorded in TEI under `<decoDesc>`.
 
 ---
 
 ## **21 Content**
 
-**Decorations, Miniatures, and Marginal Signs: `<decoDesc>`**
+**The Scars of Time: Physical Condition and Damage**
 
-Manuscripts frequently contain non-textual graphic elements, ranging from full-page illuminations to subtle philological punctuation signs. These features are documented in `<decoDesc>` (decoration description).
+A manuscript that has survived for eight hundred or two thousand years has lived a dangerous life. It has survived damp monastic scriptoria, hungry mice, insect larvae, soot from oil lamps, careless bookbinders, and wartime looting.
 
-Inside `<decoDesc>`, each distinct decorative element or system of signs is encoded inside a `<decoNote>` element. In biblical manuscripts like Codex Marchalianus, critical signs—such as Aristarchian asterisks and obels—are vital philological data (Ceriani, 1890).
+When you catalogue a manuscript, you must record its physical condition under `<condition>` inside `<supportDesc>`:
 
 ```xml
-<decoDesc>
-  <decoNote type="initials">
-    <p>Enlarged uncial initials at the beginning of each biblical book (approx. 25-30 mm high), decorated with simple red and green geometric penwork.</p>
-  </decoNote>
-  <decoNote type="philological-signs">
-    <p>Extensive use of Origenian hexaplaric signs in left margins: asterisks (※) marking words present in Hebrew but missing in the Old Greek, and obels (÷) marking words present in the Old Greek but absent in Hebrew.</p>
-  </decoNote>
-  <decoNote type="miniatures" subtype="frontispiece">
-    <p>No figurative miniatures; decorative knotted headpieces at the opening of Isaiah (fol. 59r) and Jeremiah (fol. 143r).</p>
-  </decoNote>
-</decoDesc>
+<condition>
+    <p>Parchment leaf is in good structural condition. Moderate ink flaking along lines 12–14 due to moisture exposure. Upper outer margin trimmed during 17th-century rebinding, slightly clipping a marginal note.</p>
+</condition>
 ```
 
-Documenting these signs in the header provides the cataloguing framework required when you later transcribe marginal signs in Topic 04 and Topic 08.
+Common types of physical damage to look for on your full-page witness:
 
-Origen's Hexapla placed six parallel columns side-by-side to compare the Hebrew text with Greek translations. In copies of the Septuagint derived from the Hexapla, scribes transferred Origen's critical signs into the margins, making them indispensable evidence for textual criticism (Ceriani, 1890).
+- **Flaking**: Ink separating and falling off brittle parchment surfaces.
+- **Foxing & Staining**: Brown spots caused by fungal mold or oxidation.
+- **Cropping**: When 16th- or 17th-century bookbinders rebound ancient books, they often used large guillotines to slice the page edges, accidentally cutting off ancient marginal annotations!
+- **Wormholes**: Circular tunnels eaten through parchment sheets by wood-boring beetle larvae.
 
-**Takeaway:** The `<decoDesc>` module catalogues artistic illuminations, decorated initials, and critical philological signs like asterisks and obels.
+Documenting damage is essential for text editing: if a letter is missing in your transcription, your condition report explains whether it was omitted by the scribe or eaten by an insect.
+
+**Vocabulary.** *`<condition>`* — describes the physical state of preservation of a manuscript leaf, including damage, wear, and repairs. *Cropping* — the trimming of page margins during rebinding that often damages marginal notes.
+
+**Takeaway:** `<condition>` records physical wear, moisture damage, and binder cropping, providing the physical explanation for lost or illegible text.
 
 ---
 
 ## **22 Content**
 
-**The Binding and Structural Protection: `<bindingDesc>`**
+**The Book's Biography: `<history>` and `<origin>`**
 
-A codex is protected by its binding. However, very few premodern manuscripts retain their original bindings; most surviving codices have been rebound multiple times across their historical lifecycle.
+Every manuscript has a life story. It was commissioned by someone, copied in a specific place at a specific time, bought, sold, bequeathed, inherited, stolen, and eventually catalogued in a modern research library.
 
-Within `<physDesc>`, the `<bindingDesc>` element records the physical construction, boards, covering materials, clasps, and conservation history of the binding.
+This historical journey is documented in the `<history>` container of the TEI Header.
+
+Within `<history>`, our first question is: *Where and when was this manuscript born?* This is recorded in `<origin>`:
 
 ```xml
-<bindingDesc>
-  <binding contemporary="false">
-    <p>Vatican Library conservation binding executed in 1968. Dark brown morocco leather over modern wooden boards, gold-stamped on spine with the arms of Pope Paul VI and the shelfmark <quote>Vat. Gr. 2125</quote>.</p>
-    <condition>
-      <p>Excellent modern structural condition; spine tight, sewing on five modern raised cords with acid-free Japanese paper guards.</p>
-    </condition>
-    <decoNote>Blind-tooled fillets on front and back boards.</decoNote>
-  </binding>
-</bindingDesc>
+<history>
+    <origin>
+        <origDate notBefore="1000" notAfter="1099">11th century</origDate>
+        <origPlace ref="https://pleiades.stoa.org/places/520998">Constantinople</origPlace>
+    </origin>
+</history>
 ```
 
-The attribute `@contemporary="false"` explicitly states that the binding is not contemporary with the sixth-century manufacturing of the parchment leaves. This distinction prevents researchers from mistaking modern binding structures for late antique craft.
+Look at the attributes in `<origDate>`: `notBefore="1000"` and `notAfter="1099"`. This is how digital humanists handle historical uncertainty! You may not know the exact Tuesday in the year 1042 when the scribe put down their pen, but paleographical evidence tells you the script belongs to the eleventh century. The `notBefore` and `notAfter` attributes translate fuzzy human dates into machine-queryable ISO numbers.
 
-When older binding fragments—such as medieval pastedowns or fragments of lost manuscripts used as spine lining—are preserved during rebinding, their presence is documented inside `<binding>` child elements.
+**Vocabulary.** *`<history>`* — groups elements concerning the complete historical development of a manuscript. *`<origin>`* — records the date and place of production of a manuscript. *Machine-queryable dating* — using standardized attributes (`notBefore`, `notAfter`, `when`) to enable computer chronological filtering.
 
-**Takeaway:** The `<bindingDesc>` documents the bookbinding materials, sewing structure, and conservation history, explicitly distinguishing contemporary bindings from modern rebinding.
+**Takeaway:** `<origin>` records when and where a manuscript was created, converting historical date ranges into machine-queryable attributes.
 
 ---
 
 ## **23 Content**
 
-**The Chronological Lifecycle: The `<history>` Element**
+**The Custodial Chain: `<provenance>` and Acquisition**
 
-The fourth major branch of `<msDesc>` is `<history>`. The `<history>` element formalizes the chronological lifecycle and historical movement of the artifact across time and space (TEI Consortium, 2025).
+After a manuscript leaves the scribe's desk, who owned it?
 
-A manuscript is not a static museum object; it is an itinerant survivor. It was manufactured at a specific date in a specific scriptorium (`<origin>`), possessed by a succession of monastic communities, private collectors, or royal libraries (`<provenance>`), and ultimately accessioned into its current repository (`<acquisition>`).
+The documented chain of custody of a cultural artifact is called its **provenance** (from the French *provenir*, "to come from"). A manuscript might have spent four centuries in a monastery on Mount Athos, was purchased by a Venetian ambassador in 1580, bequeathed to a French cardinal in 1650, and finally seized during the French Revolution to enter the Bibliothèque nationale de France in Paris.
 
-| Historical Stage | TEI Child Element | Codicological and Custodial Scope |
-| --- | --- | --- |
-| Manufacturing Moment | `<origin>` | Scribal production date, scriptorium place, and scribe |
-| First Custodial Phase | `<provenance>` (1) | Early monastic preservation and medieval library holdings |
-| Second Custodial Phase | `<provenance>` (2) | Renaissance humanistic collectors and private ownership |
-| Institutional Accession | `<acquisition>` | Formal transfer and entry into current institutional repository |
+In the TEI Header, each step in this historical journey is recorded in a `<provenance>` element:
 
-By structuring history into distinct chronological events, TEI aligns directly with event-centric Linked Open Data ontologies like CIDOC-CRM (Le Bœuf, 2012; Koho et al., 2021). Each historical transfer represents a discrete event with its own temporal bounds, geographic locations, and historical agents.
+```xml
+<provenance notBefore="1500" notAfter="1550">
+    <p>Belonged to the Monastery of Saint John the Theologian on Patmos, as indicated by a 16th-century Greek ex-libris inscription on folio 1v.</p>
+</provenance>
+<provenance notBefore="1600" notAfter="1650">
+    <p>Acquired in Rome by Cardinal Lelio Biscia (1575–1638); arms stamped in gold on the leather binding.</p>
+</provenance>
+<acquisition when="1640">
+    <p>Entered the Vatican Library following Cardinal Biscia's bequest in 1640.</p>
+</acquisition>
+```
 
-**Takeaway:** The `<history>` element traces the temporal lifecycle of the codex, dividing its history into origin, sequential provenance transfers, and modern institutional acquisition.
+Provenances often leave physical evidence on the page: scribbled ex-libris notes ("This book belongs to Brother Peter"), library stamps, coat-of-arms bookplates, and auction numbers.
+
+**Vocabulary.** *Provenance* — the chronological history of ownership, custody, and location of a historical artifact. *Ex-libris* — a Latin phrase ("from the books of") denoting an ownership inscription or bookplate. *`<acquisition>`* — details how a repository officially acquired the manuscript.
+
+**Takeaway:** `<provenance>` traces the custodial chain of custody from medieval monastic collections into modern research libraries.
 
 ---
 
 ## **24 Content**
 
-**Dating and Localizing the Manuscript: `<origin>`**
+**Connecting to Linked Open Data: CTS URNs and Trismegistos**
 
-The `<origin>` element records the circumstances of the manuscript's creation. It captures *when* the manuscript was written (`<origDate>`) and *where* it was written (`<origPlace>`).
+One of the great promises of digital humanities is **Linked Open Data** — the idea that cultural heritage records across the globe should connect to one another like links on the web.
 
-Dating premodern manuscripts is inherently uncertain. When a colophon is missing, palaeographers estimate date ranges based on script style, orthography, and material support. The TEI provides machine-readable date attributes to capture this scholarly uncertainty:
+If your TEI file simply says "Constantinople", a computer has to guess whether you mean the ancient Byzantine capital, a village in Ohio, or a book publisher. But if you connect your place name to a Linked Data URI (like Pleiades: `https://pleiades.stoa.org/places/520998`), the computer knows with mathematical certainty exactly which geographic coordinates on Earth you are referring to.
 
-- `@when`: A single exact date (e.g., `@when="1245-04-12"`).
-- `@notBefore` and `@notAfter`: A bounding date range (e.g., `@notBefore="0550"` and `@notAfter="0599"` for the sixth century).
-- `@from` and `@to`: A known period of continuous production.
-- `@cert`: Editorial certainty (`high`, `medium`, `low`).
+For ancient texts, the gold standard for linked identification is the **Canonical Text Service (CTS) URN**:
 
 ```xml
-<history>
-  <origin>
-    <origDate notBefore="0550" notAfter="0599" cert="medium" evidence="palaeographic">
-      Late 6th century CE (ca. 550–600 CE)
-    </origDate>
-    <origPlace ref="https://pleiades.stoa.org/places/727070">
-      Egypt (likely Alexandria or the Nitrian Desert)
-    </origPlace>
-    <p>Produced in an established Byzantine-Egyptian scriptorium, as evidenced by distinctive Coptic-influenced uncial letterforms and Egyptian orthographic patterns (Ceriani, 1890).</p>
-  </origin>
-</history>
+urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14
 ```
 
-By encoding `@evidence="palaeographic"`, the editor explicitly documents the scholarly basis for the assigned date, distinguishing stylistic dating from explicit colophon dates.
+This compact string breaks down like a universal postal code:
 
-**Takeaway:** The `<origin>` element uses ISO 8601 attributes like `@notBefore` and `@notAfter` to represent historical dating ranges and palaeographical uncertainty.
+- `urn:cts:greekLit`: The ancient Greek literary text collection.
+- `tlg0527`: The author identifier (Septuagint).
+- `tlg001`: The work identifier (Genesis).
+- `opp-grc1`: The specific edition or witness expression.
+- `1.1-1.14`: The precise passage citation (Chapter 1, verses 1–14).
+
+By embedding CTS URNs and Trismegistos IDs in your TEI Header, your edition becomes an active node in a worldwide computational network of classical and historical scholarship.
+
+**Vocabulary.** *Linked Open Data (LOD)* — structured data published on the web so that it can be automatically interlinked across independent repositories. *Canonical Text Service (CTS) URN* — a uniform resource name that identifies a specific ancient text passage independently of any single printed book.
+
+**Takeaway:** Linking names and texts to global URIs (like Pleiades and CTS URNs) transforms your isolated file into an interoperable node in the global web of scholarship.
 
 ---
 
 ## **25 Content**
 
-**Custodial Chain and Migration: The `<provenance>` Sequence**
+**The Full `<msDesc>` Architecture: The Master Blueprint**
 
-Between its creation and its arrival in a modern research library, a manuscript often migrated across continents through sales, bequests, confiscations, and gifts. Each discrete historical transfer of custody is encoded in an independent `<provenance>` element (Koho et al., 2021).
-
-Recording provenance as a sequence of distinct events allows computational knowledge graphs to map the migration of cultural heritage across centuries (Koho et al., 2021).
+Now let us step back and look at the complete architectural blueprint of `<msDesc>`. When all the pieces fit together, here is how the manuscript description is organized inside your `<teiHeader>`:
 
 ```xml
-<history>
-  <origin><!-- ... --></origin>
-  
-  <provenance notBefore="0800" notAfter="0900">
-    <p>Preserved in the Library of the Monastery of Saint Macarius the Great in the Nitrian Desert (Wadi El Natrun, Egypt) during the 9th century.</p>
-  </provenance>
-  
-  <provenance notBefore="1500" notAfter="1550">
-    <p>Acquired by the humanist scholar and collector René Marchal, Abbot of Saint-Nom in Paris, from whose collection the manuscript derives its traditional name <name type="ms-nickname">Codex Marchalianus</name>.</p>
-  </provenance>
-  
-  <provenance when="1738">
-    <p>Passed into the collection of Cardinal François de Mailly, Archbishop of Reims, who subsequently gifted the volume to Pope Clement XII for the Vatican Library in 1738.</p>
-  </provenance>
-</history>
+<sourceDesc>
+    <msDesc>
+        <msIdentifier>
+            <!-- 1. Where is it? (Settlement, Library, Shelfmark) -->
+        </msIdentifier>
+        <msContents>
+            <!-- 2. What text is on this page? (Locus, Title, Author) -->
+        </msContents>
+        <physDesc>
+            <!-- 3. What does it physically feel and look like? -->
+            <objectDesc form="codex">
+                <supportDesc material="parchment">
+                    <extent> <!-- Leaves, Dimensions --> </extent>
+                    <condition> <!-- Wear, Tears, Damage --> </condition>
+                </supportDesc>
+                <layoutDesc>
+                    <!-- Columns, Lines, Margins -->
+                </layoutDesc>
+            </objectDesc>
+            <handDesc>
+                <!-- Scribes, Handwriting, Inks -->
+            </handDesc>
+            <decoDesc>
+                <!-- Initials, Rubrication, Art -->
+            </decoDesc>
+        </physDesc>
+        <history>
+            <!-- 4. How did it get here? (Origin, Provenance, Acquisition) -->
+        </history>
+    </msDesc>
+</sourceDesc>
 ```
 
-When a manuscript contains former library shelfmarks or bookplates, these physical traces are encoded within their respective `<provenance>` elements, establishing a verifiable physical audit trail for each custodial transfer (Koho et al., 2021).
+Notice the beautiful internal logic. It moves from **identity** (`<msIdentifier>`), to **textual contents** (`<msContents>`), to **material physics** (`<physDesc>`), to **historical journey** (`<history>`). Every single physical observation you make about your manuscript page has a designated, unambiguous home.
 
-**Takeaway:** The custodial chain is modeled as a chronological sequence of `<provenance>` elements, enabling computational tracking of manuscript migrations across time and geography.
+**Vocabulary.** *Schema architecture* — the structural design and relationship of elements within a formal data model. *Coherence* — the logical organization of data from identification to physical description to historical lifecycle.
+
+**Takeaway:** The `<msDesc>` module follows an intuitive four-part journey: administrative identity, textual contents, physical description, and historical provenance.
 
 ---
 
 ## **26 Content**
 
-**Administrative and Acquisition Metadata: `<acquisition>` and `<additional>`**
+**Annotated Template for Your Primary Witness Header**
 
-The final elements of the manuscript description record institutional acquisition and supplementary administrative metadata.
-
-The `<acquisition>` element sits inside `<history>` and details the specific date, method, and transaction by which the manuscript entered its current repository. Following `<history>`, the optional `<additional>` element records administrative surrogates (microfilms, digitizations), secondary literature (`<listBibl>`), and cross-references to external catalogues.
+To help you hand-author your header today, here is the clean, annotated starter template for your primary witness. You will adapt this template in VS Code, replacing the placeholder values with the real facts from your chosen full-page artifact:
 
 ```xml
-<history>
-  <!-- origin and provenance -->
-  <acquisition when="1738-06-15">
-    <p>Accessioned into the Biblioteca Apostolica Vaticana on June 15, 1738, under the reign of Pope Clement XII, entered into the Latin-Greek inventory as <quote>Vat. gr. 2125</quote>.</p>
-  </acquisition>
-</history>
-
-<additional>
-  <adminInfo>
-    <recordHist>
-      <source>
-        <p>Codicological metadata transcribed from Ceriani (1890) and updated against the online Vatican Library DVL catalogue records.</p>
-      </source>
-    </recordHist>
-  </adminInfo>
-  <listBibl>
-    <bibl>Ceriani, A. M. (1890). <title>De Codice Marchaliano seu Vaticano Graeco 2125: Prophetarum Bibliothecae Vaticanae commentatio</title>. Romae.</bibl>
-  </listBibl>
-</additional>
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Digital Edition of [Shelfmark], Folio [Folio]</title>
+                <editor>
+                    <forename>[Your First Name]</forename>
+                    <surname>[Your Last Name]</surname>
+                </editor>
+                <sponsor>St. Francis Xavier University</sponsor>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>StFX Digital Humanities</publisher>
+                <date when="2026">2026</date>
+                <availability status="free">
+                    <licence target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <settlement>[City]</settlement>
+                        <repository>[Library]</repository>
+                        <idno type="shelfmark">[Shelfmark]</idno>
+                    </msIdentifier>
+                    <msContents>
+                        <msItem>
+                            <locus>[e.g. f. 213r]</locus>
+                            <title>[Work Title]</title>
+                            <textLang mainLang="grc">Greek</textLang>
+                        </msItem>
+                    </msContents>
+                    <physDesc>
+                        <objectDesc form="codex">
+                            <supportDesc material="parchment">
+                                <extent>1 full folio page</extent>
+                            </supportDesc>
+                            <layoutDesc>
+                                <layout columns="1" writtenLines="28"/>
+                            </layoutDesc>
+                        </objectDesc>
+                        <handDesc>
+                            <handNote xml:id="h1" script="minuscule"/>
+                        </handDesc>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <origDate>[e.g. 11th century]</origDate>
+                        </origin>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p><!-- Transcription will begin here in Week 4 --></p>
+        </body>
+    </text>
+</TEI>
 ```
 
-Recording secondary literature in `<listBibl>` ensures that future editors can trace the scholarly genealogy of every codicological claim made in the digital header.
+**Vocabulary.** *Starter template* — a validated skeletal code structure provided to guide student implementation. *Placeholder* — bracketed text indicating values that must be customized with empirical data.
 
-**Takeaway:** The `<acquisition>` and `<additional>` elements document the institutional accession history, cataloguing sources, and related secondary bibliography for the manuscript.
+**Takeaway:** This standardized starter template provides the skeletal envelope into which you will hand-type your primary witness details.
 
 ---
 
 ## **27 Content**
 
-**Common Syntax Traps in Hand-Authoring TEI Headers**
+**The Top Five Traps for New XML Authors**
 
-When writing XML by hand without the safety net of an interactive compiler, beginners frequently fall into predictable syntax traps. Understanding these common defects will help you audit your draft before tomorrow's validation lab.
+When writing XML by hand, humans make predictable errors. Because XML is a strict computational language, even a tiny typographic slip will break your document. Keep a sharp eye out for these top five beginner traps:
 
-| Syntax Defect | Error Description | Prevention and Solution |
-| --- | --- | --- |
-| Unescaped ampersand | Writing `&` directly in text content (e.g., `Clemens & Graham`) | Always write `&amp;` in XML text nodes. |
-| Tag case mismatch | Mismatched capitalization (e.g., `<msDesc>` closed with `</msdesc>`) | Enforce exact case consistency across opening and closing tags. |
-| Missing attribute quotes | Omitting quotes around attribute values (e.g., `<measure quantity=416>`) | Always surround attribute values with double quotes (`quantity="416"`). |
-| Illegal element nesting | Placing `<msContents>` outside `<msDesc>` or `<titleStmt>` outside `<fileDesc>` | Review the strict TEI hierarchy before closing parent elements. |
-| Incomplete self-closure | Writing `<pb>` or `<lb>` without a trailing slash | Use explicit self-closing syntax: `<pb/>`, `<lb/>`, `<dimensions/>`. |
+1. **The Missing Slash in the Closing Tag**: Writing `<title>Book of Genesis<title>` instead of `<title>Book of Genesis</title>`. Without that forward slash `/`, the parser thinks you opened a second title inside the first one!
+2. **Mismatched Capitalization**: Typing `<teiheader>` to close an opened `<teiHeader>`. Remember: XML is strictly case-sensitive.
+3. **Unquoted Attributes**: Writing `<layout columns=1>` instead of `<layout columns="1">`. Every attribute value in XML must be surrounded by quotation marks.
+4. **Self-Closing Slashes in Void Elements**: Elements that have no text content inside them must be self-closed with a trailing slash: `<layout columns="1" writtenLines="25"/>`. If you omit the trailing slash (`<layout columns="1">`), the parser waits endlessly for a closing `</layout>` tag.
+5. **Raw Ampersands**: Writing `Smith & Jones` instead of `Smith &amp; Jones`. If you need an ampersand, always write `&amp;`.
 
-Taking time to manually trace your element openings and closures line-by-line prevents cascade parsing errors where a single missing bracket invalidates hundreds of subsequent lines.
+Tomorrow morning in Lesson 2.2, we will enable automated schema validation in VS Code to see how many of these traps caught you!
 
-Furthermore, pay close attention to XML attribute naming conventions: attributes like `@xml:id` and `@xml:lang` belong to the reserved XML namespace and require the `xml:` prefix, whereas standard TEI attributes like `@type`, `@n`, and `@ref` must never carry a prefix.
+**Vocabulary.** *Self-closing tag* — an element without child text that closes itself with a trailing slash, such as `<lb/>` or `<milestone/>`. *Malformed XML* — markup that violates basic XML syntax rules, preventing parsers from building a valid tree.
 
-**Takeaway:** Hand-written XML requires rigorous manual checking for unescaped characters, case mismatches, missing quotes, and improper tag containment.
+**Takeaway:** Avoid the five classic traps: missing closing slashes, mismatched case, unquoted attributes, unclosed void tags, and unescaped ampersands.
 
 ---
 
 ## **28 Content**
 
-**Building the Ground Truth: The Student's Primary Witness Header**
+**Hands-On in VS Code: Hand-Typing Your Witness Header**
 
-Now you synthesize all twenty-seven preceding sections into a complete, working XML document. Today's lab deliverable is to hand-author the full `<teiHeader>` for the primary manuscript witness you selected in Week 1.
+Now open Visual Studio Code on your machine. Create a new file in your local course repository called:
 
-Open a basic plain-text editor (such as VS Code with XML extensions disabled, nano, or TextEdit in plain-text mode). Do not use Oxygen XML Editor today; do not use automated schema autocomplete.
+`03a_Lesson_2.1_Primary_Witness_Header.xml`
 
-Your file must contain the following complete structure:
+Set up your workspace with your manuscript image on one side of your screen and VS Code on the other side. 
 
-1. The XML declaration: `<?xml version="1.0" encoding="UTF-8"?>`
-2. The root `<TEI>` element declaring the TEI namespace: `<TEI xmlns="http://www.tei-c.org/ns/1.0">`
-3. A complete `<teiHeader>` containing:
-   - `<fileDesc>` with `<titleStmt>`, `<publicationStmt>`, and `<sourceDesc>`
-   - An `<msDesc>` inside `<sourceDesc>` with `<msIdentifier>`, `<msContents>`, `<physDesc>`, and `<history>`
-4. A stub `<text>` element containing a placeholder division for next week's transcription:
-   ```xml
-   <text>
-     <body>
-       <div type="transcription">
-         <p><!-- Diplomatic transcription will be authored here in Topic 04 --></p>
-       </div>
-     </body>
-   </text>
-   ```
+As you type out your `<teiHeader>`, inspect your full-page witness image carefully:
 
-Save your file in your personal Git repository under the path `src/modules/Topic_02_Cataloguing/03a_Lesson_2.1_Primary_Witness_Header.xml`.
+- Look at the top margin: is there an ancient folio number written in ink or pencil? Record it in `<locus>`.
+- Count the lines of text in the column. Exactly how many lines are written on this leaf? Record it in `<layout writtenLines="nn">`.
+- Look at the ink color. Is it jet black carbon ink, faded brown oak gall ink, or red rubrication? Record it in `<handNote>`.
+- Look at the script style. Are the letters large, separated capital letters (uncials / majuscules), or small, connected letters with fluid strokes (minuscules)? Record it in `script=""`.
 
-Ensure that your header contains real codicological data derived from your inspection of your manuscript's digital facsimiles and published catalogue records, rather than placeholder lorem ipsum text.
+Do not rush. Type every bracket with deliberation. Remember: this file is your **ground truth**. If you skip details now, you will have nothing authoritative against which to evaluate automated tools later this week.
 
-**Takeaway:** Hand-authoring your selected manuscript's complete `<teiHeader>` creates the foundational XML ground truth for the remainder of the semester.
+**Vocabulary.** *Split-screen inspection* — arranging a high-resolution image viewer alongside a text editor to perform direct visual encoding. *Ground truth authoring* — manual transcription and metadata recording performed with meticulous human verification.
+
+**Takeaway:** In VS Code, hand-type your witness header while inspecting your high-resolution image side-by-side, recording empirical line counts, folio numbers, and ink details.
 
 ---
 
 ## **29 Content**
 
-**Preparing for Wednesday's Audit: Deliverables and Configuration**
+**Committing Your Ground Truth to Git**
 
-Before you conclude today's session, you must commit your hand-authored XML file to Git version control. Today's commit represents your unassisted, manual editorial work.
+Once you have finished hand-typing your header and saved your file, it is time to record your achievement in Git.
 
-Follow the version control discipline established in Topic 01 (Huskey, 2024). Review your file status, verify that your changes are staged cleanly, and compose an atomic commit message describing your codicological decisions.
+Open the integrated terminal in VS Code (`Ctrl+\`` or `Terminal -> New Terminal`) and check your status:
 
 ```bash
-# Verify the status of your newly created header
 git status
-
-# Stage your hand-written TEI header
-git add src/modules/Topic_02_Cataloguing/03a_Lesson_2.1_Primary_Witness_Header.xml
-
-# Create an atomic commit documenting your manual baseline
-git commit -m "Topic 02: Hand-authored initial teiHeader and msDesc for primary witness"
 ```
 
-Do not edit this file further today. Tomorrow morning, in Lesson 2.2, you will open this exact file in Oxygen XML Editor and subject it to deterministic RELAX NG and Schematron schema validation. Every error that Oxygen flags tomorrow will be a direct measurement of the gap between human intuition and formal computational schemas.
+You will see your new file `03a_Lesson_2.1_Primary_Witness_Header.xml` listed under untracked files. Stage it and make your commit:
 
-Freezing your manual ground truth in Git ensures that your comparative experiment remains mathematically valid and auditable throughout the course.
+```bash
+git add 03a_Lesson_2.1_Primary_Witness_Header.xml
+git commit -m "Topic 02 (Cataloguing): Hand-author manual TEI header ground truth for [Your Shelfmark]"
+git push origin main
+```
 
-**Takeaway:** Committing your hand-written XML file to Git freezes your manual ground truth, establishing the baseline for tomorrow's deterministic schema audit.
+Write a commit message that means something! As Stephen Huskey noted in your readings, Git commit messages are your **scholarly research journal**. When you look back at your repository in December, this commit will mark the exact moment your digital edition project was formally catalogued and born.
+
+Do not attempt to validate the file with software today. Leave it exactly as your human hands created it.
+
+**Vocabulary.** *Git staging (`git add`)* — selecting modified files to be included in the next version checkpoint. *Atomic commit* — a Git commit that captures a single coherent, complete step in a project's lifecycle with a clear explanatory message.
+
+**Takeaway:** Stage and commit your hand-authored XML header to Git with a descriptive message, creating the permanent timestamped baseline of your project.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: The Header as an Argument in Structural Form**
+**Synthesis: The Header as a Scholarly Argument**
 
-A TEI Header is not administrative overhead; it is a scholarly argument in structural form. When you decide how to represent a manuscript's quire structure, how to date its scribal hands, and how to identify its historical owners, you are performing original textual scholarship (Le Bœuf, 2012; TEI Consortium, 2025).
+Congratulations: you have just built the architectural foundation of a digital scholarly edition.
 
-The manual step of this week's comparative cycle has forced you to slow down and confront the material complexity of your historical witness. By translating physical parchment, ruling patterns, and ink traces into rigid XML elements, you have experienced the profound epistemological shift from discursive cataloguing to formal data modeling.
+It is easy for beginners to assume that "the real work" of an edition is transcribing the text, and that the metadata header is just bureaucratic paperwork. But throughout history, the most consequential scholarly debates have hinged on metadata. Who wrote this manuscript? Where was it produced? Which century does the handwriting belong to? Is this marginal note an authorial correction or a later reader's opinion? 
 
-```
-Comparative Cycle Progress — Week 2 (Topic 02):
-[X] Tue: Manual — Hand-written TEI Header and msDesc (Human Ground Truth)
-[ ] Wed: Deterministic — RELAX NG & Schematron validation in Oxygen, RDF LOD, CTS URNs
-[ ] Fri: AI-Assisted — LLM metadata extraction scored against your manual baseline
-```
+A TEI Header is not administrative bureaucracy; it is a **rigorous scholarly argument in structural form**. Every tag you chose today—every date range, every material support label, every line count—represents an empirical claim based on physical manuscript evidence.
 
-Tomorrow, we move to Step 2: deterministic validation. You will see how formal schemas act as unyielding gatekeepers, ensuring that your humanistic interpretations conform perfectly to global computational standards.
+Tomorrow morning, in **Lesson 2.2**, we will enter **Step 2 of our three-step cycle (Deterministic Software)**. We will turn on the XML validation engine in VS Code, link our file to the official TEI RELAX NG schema, and watch the compiler evaluate our manual draft. Every syntax error and schema warning that lights up your screen tomorrow will teach you exactly where human intuition diverges from computational precision.
 
-As you step away from your editor today, reflect on the decisions you made. Every tag you chose represents a theoretical claim about how a physical historical object should be represented in a digital medium.
+**Due today, Tuesday September 8.** Your hand-authored `03a_Lesson_2.1_Primary_Witness_Header.xml` committed and pushed to your GitHub repository.
 
-**Takeaway:** A TEI Header is an explicit scholarly argument that translates physical manuscript materiality into a formal, auditable digital data architecture.
+**Tomorrow (Wednesday).** Step 2: Deterministic schema validation in VS Code, fixing syntax defects, building RDF linked data triples, and minting CTS URNs.
+
+**Takeaway:** A TEI Header is a structured scholarly argument about a physical artifact; your manual draft today is the empirical baseline for tomorrow's automated validation audit.
 
 ---
 
 ## References
 
-Ceriani, A. M. (1890). *De Codice Marchaliano seu Vaticano Graeco 2125: Prophetarum Bibliothecae Vaticanae commentatio*. Romae.
+Blackwell, C. W., & Smith, N. (2019). The CITE Architecture: A framework for linked data in the humanities. *Digital Humanities Quarterly, 13*(1).
 
-Huskey, S. J. (2024). Editorial workflows in the digital age: Git and version control for textual scholarship. *Digital Humanities Quarterly*, 18(2).
+Ceriani, A. M. (1890). *De codice Marchaliano vaticano graeco 2125*. Bibliotheca Apostolica Vaticana.
 
-Koho, M., Burrows, T., Hyvönen, E., Ikkala, E., Page, K., Ransom, L., ... & Wijsman, H. (2021). Harmonizing and publishing heterogeneous premodern manuscript metadata as Linked Open Data. *Journal of the Association for Information Science and Technology*, 73(2), 240–257. https://doi.org/10.1002/asi.24499
+Clemens, R., & Graham, T. (2007). *Introduction to manuscript studies*. Cornell University Press.
 
-Le Bœuf, P. (2012). Modeling rare and unique documents: Using FRBRoo/CIDOC CRM. *Journal of Archival Organization*, 10(2), 96–106.
+Cummings, J. (2018). The Text Encoding Initiative and the study of literature. In *A New Companion to Digital Humanities* (pp. 451–476). Wiley-Blackwell.
 
-TEI Consortium. (2025). *TEI P5: Guidelines for Electronic Text Encoding and Interchange*. Version 4.8.0. https://tei-c.org/release/doc/tei-p5-doc/en/html/
+Griffitts, T. (2020). *Digital philology and the Text Encoding Initiative: Methods for ancient manuscript research*. De Gruyter.
+
+Huskey, S. J. (2024). Committing to reproducibility and explainability: Using Git as a research journal. *International Journal of Digital Humanities, 6*, 9–21. https://doi.org/10.1007/s42803-023-00076-9
+
+Le Bœuf, P. (2012). Codicological metadata and the FRBR model. *Gazette du livre médiéval, 58*(1), 14–32.
+
+TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and interchange* (Version 4.12.0). https://tei-c.org/guidelines/p5/
