@@ -100,13 +100,13 @@
   <!-- 03 Question -->
   <question type="multichoice">
     <name>
-      <text>03 Question: Validating the Hand-Written Header in Oxygen XML Editor</text>
+      <text>03 Question: Validating Your Hand-Written Header in VS Code</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does an XML document formally associate itself with external RELAX NG and Schematron schemas in Oxygen XML Editor?</p>]]></text>
+      <text><![CDATA[<p>How does an XML document formally associate itself with an external RELAX NG schema in VS Code?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Oxygen XML Editor links XML documents to RELAX NG and Schematron schemas via `<?xml-model?>` instructions, providing instant compiler feedback on structural defects.</p>]]></text>
+      <text><![CDATA[<p>VS Code links XML documents to schemas via `<?xml-model?>` instructions, providing real-time background validation and diagnostics.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -115,13 +115,13 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Via <code>&lt;?xml-model?&gt;</code> processing instructions placed at the top of the file specifying schema URIs and schema types.</p>]]></text>
+      <text><![CDATA[<p>Via <code>&lt;?xml-model?&gt;</code> processing instructions placed at the top of the file specifying the schema URI and schema type.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Oxygen reads <code>&lt;?xml-model?&gt;</code> instructions to bind validation engines (like Jing) dynamically to the document.</p>]]></text>
+        <text><![CDATA[<p>Correct. VS Code reads the <code>&lt;?xml-model?&gt;</code> instruction to automatically fetch the schema and provide real-time background validation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By embedding the complete C++ source code of the Jing parser directly into the root <code>&lt;TEI&gt;</code> element.</p>]]></text>
+      <text><![CDATA[<p>By embedding the complete C++ source code of the parser directly into the root <code>&lt;TEI&gt;</code> element.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. Parsers are external executable engines referenced via lightweight processing instructions.</p>]]></text>
       </feedback>
@@ -135,7 +135,7 @@
     <answer fraction="0" format="html">
       <text><![CDATA[<p>By declaring schema definitions within the HTML <code>&lt;head&gt;</code> tag of the web browser.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI documents are XML, not HTML, and validation occurs in XML IDEs or CLI tools via processing instructions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TEI documents are XML, not HTML, and validation occurs in editors or CLI tools via processing instructions.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1147,7 +1147,7 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Resolving schema nesting errors in Oxygen, converting dates to ISO 8601, verifying <code>@hand</code> Schematron pointers, and embedding VIAF/AAT URIs and CTS URNs.</p>]]></text>
+      <text><![CDATA[<p>Resolving schema nesting errors in VS Code, converting dates to ISO 8601, verifying <code>@hand</code> Schematron pointers, and embedding VIAF/AAT URIs and CTS URNs.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Correct. These systematic steps ensure both internal structural validity and external semantic interoperability.</p>]]></text>
       </feedback>
@@ -1239,9 +1239,9 @@
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because Oxygen XML Editor locks the student's computer account if a file contains warnings.</p>]]></text>
+      <text><![CDATA[<p>Because VS Code disables Git commit functionality if a file contains warnings.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Oxygen reports errors for human review; the gate is a pedagogical and methodological requirement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. VS Code displays diagnostics in the Problems panel; the gate is a pedagogical and quality assurance requirement.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">

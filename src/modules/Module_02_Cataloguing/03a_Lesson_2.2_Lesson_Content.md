@@ -2,75 +2,79 @@
 
 *RELS 398 / ENGL 398 · Topic 2: Cataloguing · Meeting #4 (Wed Sep 9)*
 
-***Step 2 of the three-step cycle: deterministic.** Today you take yesterday's hand-written header into Oxygen XML Editor, validate it against the TEI RELAX NG schema and Schematron rules, link your entities with RDF triples to LOD authority files, and assign Canonical Text Services (CTS) URNs. The validation engine is an uncompromising structural gatekeeper.*
+*Step 2 of the three-step cycle: deterministic computation. Yesterday you hand-wrote a complete TEI Header in VS Code without software help. Today you introduce that draft to the machine: you configure real-time schema validation in VS Code, slay the red squiggly lines, link your manuscript entities to global authority files using RDF triples, and assign Canonical Text Services (CTS) URNs. The validator is an uncompromising structural gatekeeper, turning human typing into verified, interoperable data.*
 
 ---
 
 ## **01 Content**
 
-**What "Deterministic" Means in Structural Philology**
+**The Rule of the Machine: What "Deterministic" Really Means**
 
-The second step of our comparative cycle transitions from manual authorship to deterministic computation. In computational philology, a process is *deterministic* when identical inputs subjected to explicit, rule-governed algorithms produce identical, mathematically verifiable outputs every single time. Unlike probabilistic models, neural networks, or human interpretive intuition, deterministic systems operate without statistical approximation, ambiguity, or generative variance.
+Yesterday, you sat at your keyboard and made human, interpretive decisions. You looked at a high-resolution photograph of ancient parchment and decided how to describe ink colors, margin widths, and scribal handwriting in TEI XML. That was humanistic intuition at work.
 
-In the context of manuscript cataloguing and text encoding, deterministic methods govern document validation, semantic graph generation, and canonical citation resolving. When you feed your hand-written TEI XML document into a validation engine, the software does not "interpret" your prose or offer an intuitive impression of your encoding; it evaluates every element, attribute, and character against a formal mathematical grammar (Cummings, 2018; TEI Consortium, 2025).
+Today, we meet the machine.
 
-The distinction between syntactic well-formedness and schema validity is the foundation of this discipline. A document that is well-formed merely satisfies the basic syntax of XML—tags close properly and attributes are quoted. A document that is *valid*, however, proves that its structural hierarchy, element sequencing, data types, and internal cross-references conform completely to a domain-specific model defined by an editorial community (Cummings, 2018; TEI Consortium, 2025). Schema validation is the non-negotiable structural gatekeeper of digital scholarship.
+In digital scholarship, we call today's stage **deterministic**. A process is deterministic when identical inputs run through rule-governed algorithms produce the exact same, mathematically verifiable result every single time. There is no guessing, no mood, no statistical approximation, and no creative license. If you feed the number 2 + 2 into a calculator, it does not respond with "around 4ish" or write a poetic reflection on the nature of even numbers; it returns 4. Every time. Guaranteed.
 
-Furthermore, deterministic validation creates the epistemological foundation for downstream data processing. If a digital edition guarantees that every date is an ISO 8601 string and every manuscript shelfmark resides inside `//tei:msDesc/tei:msIdentifier/tei:idno`, external software can ingest millions of records without human intervention. Determinism replaces ad-hoc data cleaning with certified structural compliance.
+When you validate your hand-written TEI XML document today, the software will not "interpret" your thoughts or grade you on effort. It will evaluate every single bracket, element name, attribute value, and closing slash against a strict mathematical rulebook called a **schema**. If your markup obeys the rulebook to the letter, the validator gives you a clean bill of health. If you missed a single quote mark, misspelled an element name, or put a date inside the wrong container, the validator will stop you cold. That uncompromising strictness is not your enemy; it is the quality assurance that makes digital editions durable for centuries.
 
-**Takeaway:** Deterministic validation evaluates XML documents against explicit, rule-governed schemas, transforming subjective text entry into mathematically verifiable and interoperable research data.
+**Vocabulary.** *Deterministic* — a computational process governed by explicit rules where identical inputs produce identical, mathematically verifiable outputs with zero variance. *Schema validation* — the algorithmic verification of an XML document against a formal structural rulebook.
+
+**Takeaway:** Deterministic tools evaluate XML against unbending mathematical rules, ensuring that subjective human markup conforms to a rigorous, certified data standard.
 
 ---
 
 ## **02 Content**
 
-**The Grammar of XML: Understanding RELAX NG (RNG)**
+**The Rulebook: How Schemas (RELAX NG) Police Your Markup**
 
-To enforce structural consistency across digital editions, the digital humanities community relies heavily on schema definition languages. Historically, XML utilized Document Type Definitions (DTDs) and W3C XML Schema (XSD). However, modern digital philology and the Text Encoding Initiative have standardized on RELAX NG (REgular LAnguage for XML Next Generation), typically expressed in its XML syntax (RNG) or compact syntax (RNC) (Cummings, 2018; TEI Consortium, 2025).
+In Lesson 1.1, you learned the difference between well-formed XML and valid XML. 
 
-RELAX NG is based on the mathematical theory of formal grammars and tree automata. Unlike DTDs, which have limited datatype support and complex syntactic quirks, RELAX NG treats XML documents as structured pattern trees. It allows editors to define exact parent-child relationships, element choices, interleave patterns (allowing elements to occur in any order), and rich datatypes (such as ISO 8601 dates or numerical ranges) using standard W3C datatypes (TEI Consortium, 2025).
+Anyone can write *well-formed* XML: as long as your tags nest properly and attribute values are wrapped in quotes, the syntax is technically correct. You could invent a tag called `<cheeseburger price="5">` or `<alienSpaceship>`, and basic XML wouldn't complain. 
 
-| Schema Technology | Theoretical Basis | Strengths in Manuscript Encoding | Primary Limitations |
-| --- | --- | --- | --- |
-| Document Type Definition (DTD) | Context-free grammar | Legacy standard, lightweight parsing | No namespace support, weak datatyping |
-| W3C XML Schema (XSD) | Object-oriented grammar | Strong datatyping, widespread commercial adoption | Verbose syntax, rigid deterministic constraints |
-| RELAX NG (RNG) | Tree automata & regular expressions | Clean syntax, full namespace support, flexible patterns | Requires supplementary rules for cross-element logic |
-| ISO Schematron | Rule-based XPath assertions | Business logic, internal cross-reference auditing | Does not define basic structural grammar on its own |
+But a scholarly community cannot function on made-up tags. If one scholar invents `<parchment>`, another writes `<animalSkin>`, and a third writes `<vellum>`, no search engine on Earth can connect their research. To collaborate globally, we need a shared rulebook that defines:
 
-By expressing TEI constraints in RELAX NG, a project can guarantee that every digital manuscript record shares an identical structural grammar regardless of which scholar authored the file. RELAX NG patterns can declare optional elements, mutually exclusive choices, and recursive structures without ambiguous parser states.
+1. Exactly which tags are legally permitted.
+2. Exactly where each tag is allowed to appear (parent-child relationships).
+3. How many times an element can be repeated.
+4. What format attribute values must follow (e.g., must dates look like `YYYY-MM-DD`?).
 
-**Takeaway:** RELAX NG provides the mathematical tree grammar that defines permissible element hierarchies, sequences, and datatypes across TEI digital editions.
+In modern digital philology, the premier schema language is **RELAX NG** (REgular LAnguage for XML Next Generation). RELAX NG treats your document as a tree structure, using regular expressions to define valid branching patterns. It is lightweight, flexible, and fully supports the massive international standard maintained by the Text Encoding Initiative (TEI).
+
+**Vocabulary.** *Schema* — a formal machine-readable document specifying the structural rules, legal elements, and allowable attributes of an XML language. *RELAX NG (RNG)* — the schema standard used by the TEI to define document structure and grammar.
+
+**Takeaway:** Basic XML syntax prevents computer crashes, but schemas (like RELAX NG) enforce the shared scholarly vocabulary that makes digital editions interoperable.
 
 ---
 
 ## **03 Content**
 
-**Validating the Hand-Written Header in Oxygen XML Editor**
+**Validating Your Hand-Written Header in VS Code**
 
-Today's practical work takes place inside the Oxygen XML Editor, the standard interactive development environment for digital textual scholarship. Oxygen integrates parser engines (such as Xerces and Jing) that execute real-time, background validation as you inspect and modify your XML files (Cummings, 2018).
+Forget expensive, proprietary software. Today, you will perform industrial-grade XML schema validation directly inside **Visual Studio Code**.
 
-To connect your XML document to a validation schema, you insert an `xml-model` processing instruction at the very top of your file, immediately following the XML declaration:
+To connect your XML file to an official online schema, you add a special processing instruction called `xml-model` at the very top of your document, immediately beneath the `<?xml version="1.0"?>` declaration:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/msdesc/consolidated-tei-schema/master/msdesc.rng" 
             type="application/xml" 
             schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/msdesc/consolidated-tei-schema/master/msdesc.sch" 
-            type="application/xml" 
-            schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <!-- Document content -->
-</TEI>
 ```
 
-When you open yesterday's hand-written header in Oxygen with these processing instructions active, the editor will immediately audit your text. If your file contains syntax defects or schema violations, Oxygen displays red squiggly underlines and populates the lower validation panel with explicit compiler error logs.
+When you open this file in VS Code with an XML extension (such as Red Hat XML or Scholarly XML) installed:
 
-Learning to read compiler error messages is an essential editorial skill. An error stating `element "mscontents" not allowed here; expected the element "msContents"` alerts you to a fatal case-sensitivity error. An error stating `attribute "material" not allowed at this point; missing required child "support"` indicates that your element nesting violates the RELAX NG content model (TEI Consortium, 2025).
+1. VS Code reads the `xml-model` line and automatically downloads the official RELAX NG schema in the background.
+2. The language server audits your document in real time as you type.
+3. If an element is illegal, misspelled, or out of order, a red squiggly line appears instantly beneath the offending code.
+4. The **Problems panel** at the bottom of your VS Code window (`Ctrl+Shift+M` or `Cmd+Shift+M`) gives you a line-by-line list of every defect.
 
-As you resolve each error in Oxygen, the editor dynamically re-evaluates the tree, turning red warning indicators green only when every single syntactic and grammatical rule has been completely satisfied.
+You do not need to click "Compile" or upload your file to an external server. The machine gives you continuous, instant feedback.
 
-**Takeaway:** Oxygen XML Editor links XML documents to RELAX NG and Schematron schemas via `<?xml-model?>` instructions, providing instant compiler feedback on structural defects.
+**Vocabulary.** *`xml-model`* — an XML processing instruction that links a document directly to its validation schema and schema language. *Language server* — background software inside an editor that analyzes code in real time and reports diagnostics.
+
+**Takeaway:** By adding an `xml-model` processing instruction in VS Code, the editor downloads the schema and validates your markup in real time with line-by-line diagnostics.
 
 ---
 
@@ -78,36 +82,19 @@ As you resolve each error in Oxygen, the editor dynamically re-evaluates the tre
 
 **Structural Rules and Element Hierarchy in RNG**
 
-The primary function of a RELAX NG schema is enforcing hierarchical containment rules. In humanistic prose, a writer can place ideas in any sequence; in structured text encoding, elements must strictly obey parent-child and sibling rules defined by the schema (Cummings, 2018).
+How does a RELAX NG schema actually make decisions about your text? It evaluates your document as an ordered hierarchy of containers.
 
-Consider the codicological hierarchy of `<msDesc>`. The TEI RELAX NG schema dictates that `<msDesc>` can only contain a specific sequence of major components: `<msIdentifier>`, followed optionally by `<head>`, `<msContents>`, `<physDesc>`, `<history>`, `<additional>`, and `<msPart>`. If an encoder accidentally inserts `<history>` before `<msContents>`, or places `<supportDesc>` directly inside `<msDesc>` without wrapping it in `<physDesc>`, the RELAX NG parser rejects the document instantly (TEI Consortium, 2025).
+Inside a schema, elements are defined with specific rules regarding their children:
 
-```xml
-<!-- INVALID: Illegal sibling order and missing container -->
-<msDesc xml:id="ms1">
-  <msIdentifier><!-- ... --></msIdentifier>
-  <history><!-- history placed prematurely before msContents --></history>
-  <supportDesc material="parchment"><!-- supportDesc missing parent physDesc --></supportDesc>
-</msDesc>
+- **Sequence (`<rng:group>`)**: Elements must appear in an exact chronological order. For example, inside `<fileDesc>`, TEI demands that `<titleStmt>` must come *before* `<publicationStmt>`, and `<publicationStmt>` must come *before* `<sourceDesc>`. If you flip the order, the schema flags an error!
+- **Choice (`<rng:choice>`)**: You must provide one option from a set of alternatives (e.g. choose between `<p>` for prose description or `<msItem>` for structured listing).
+- **Cardinality (`<rng:zeroOrMore>`, `<rng:oneOrMore>`, `<rng:optional>`)**: Governs how many times an element can appear. You can have multiple `<editor>` elements, but only one `<msIdentifier>` per manuscript description.
 
-<!-- VALID: Proper hierarchical nesting and sequential order -->
-<msDesc xml:id="ms1">
-  <msIdentifier><!-- ... --></msIdentifier>
-  <msContents><!-- ... --></msContents>
-  <physDesc>
-    <objectDesc form="codex">
-      <supportDesc material="parchment"><!-- ... --></supportDesc>
-    </objectDesc>
-  </physDesc>
-  <history><!-- ... --></history>
-</msDesc>
-```
+When you see a validation error that says *"Element 'sourceDesc' is not allowed here"*, the validator is rarely saying that `<sourceDesc>` doesn't exist. It is usually telling you that you put it in the wrong order or nested it inside the wrong parent box!
 
-These containment rules prevent the degradation of archival data. Because every valid TEI document adheres to the same structural tree, downstream rendering scripts (XSLT transformations) and search engines can navigate directly to `//tei:physDesc/tei:objectDesc/tei:supportDesc` without writing specialized code for each contributor.
+**Vocabulary.** *Sequence* — a schema constraint requiring child elements to appear in a strict, predefined order. *Cardinality* — rules defining the minimum and maximum number of times an element may legally appear within a parent container.
 
-Furthermore, hierarchical containment formalizes ontological relationships: a `<supportDesc>` is not an independent physical object, but a physical property of the `<objectDesc>`, which in turn is a component of the manuscript's physical description.
-
-**Takeaway:** RELAX NG strictly enforces element containment and sequencing, ensuring that complex manuscript metadata is predictable and machine-traversable.
+**Takeaway:** Schema validators check not only whether tags exist, but whether they appear in the correct sequence and within the correct parent container.
 
 ---
 
@@ -115,23 +102,21 @@ Furthermore, hierarchical containment formalizes ontological relationships: a `<
 
 **Data Typing, Enumerations, and Attribute Constraints**
 
-Beyond governing element placement, RELAX NG enforces rigorous constraints on attribute values and textual content. In unconstrained XML, an attribute can contain any arbitrary string of text. A schema, however, restricts attributes to specific datatypes or closed lists of authorized terms (enumerations) (TEI Consortium, 2025).
+A schema does not just check tag names; it polices what goes *inside* those tags and attributes.
 
-Data typing is particularly vital for temporal and quantitative data. When recording dates in `<origDate>` or `<date>`, the TEI schema validates that `@when`, `@notBefore`, and `@notAfter` match the W3C XML Schema datatype `xsd:date` or `xsd:gYear` (ISO 8601 format: `YYYY-MM-DD` or `YYYY`). If a student writes `@when="Sixth Century"` or `@notBefore="ca. 550"`, the validator raises an invalid datatype error. Descriptive nuances belong in the element's text content; the attribute must remain a machine-computable integer or date string.
+In computer science, unformatted text is called a "string". If a computer asks for a date and you type "sometime during the reign of Charlemagne, probably a chilly autumn", a human understands, but a database cannot calculate how many years passed between that event and the Norman Conquest.
 
-```xml
-<!-- INVALID: Raw prose inside machine-readable attribute -->
-<origDate when="Late Sixth Century" cert="maybe">Written ca. 575 CE</origDate>
+Schemas enforce **datatypes**:
 
-<!-- VALID: Standard ISO 8601 date range with enumerated certainty -->
-<origDate notBefore="0550" notAfter="0599" cert="medium">Late 6th century CE (ca. 550–599 CE)</origDate>
-```
+1. **ISO 8601 Dates**: In attributes like `when="1050"`, `notBefore="1000"`, or `notAfter="1099"`, the schema demands standard numerical formats (`YYYY` or `YYYY-MM-DD`). If you write `when="about 1050"`, validation fails.
+2. **Enumerated Lists**: For certain attributes, the schema restricts you to a closed list of legal keywords. In `<supportDesc material="...">`, you must choose from authorized values like `"parchment"`, `"papyrus"`, or `"paper"`. If you type `material="animal_skin"`, the validator flags it because it violates the enumeration.
+3. **URIs and URLs**: In `ref="..."` or `target="..."`, the schema checks that the value is a properly formatted web address or CTS URN.
 
-Furthermore, schemas enforce *enumerations*—controlled vocabularies for attributes like `@type`, `@role`, and `@status`. In `<objectDesc form="codex">`, the schema restricts `@form` to values such as `codex`, `leaf`, `scroll`, or `fragment`, preventing typographical errors like `book` or `manuscript-volume` from polluting digital databases.
+By enforcing strict datatypes, the schema ensures that your edition can be filtered, sorted, and calculated by automated algorithms worldwide.
 
-By enforcing these constraints, deterministic validation guarantees that downstream statistical scripts can calculate median manuscript dates, sort volumes by dimension, or filter by support material without encountering unparseable formatting errors.
+**Vocabulary.** *Datatype* — a classification identifying the type of data a value can hold (e.g., integer, boolean, ISO date string). *Enumeration* — a closed, restricted set of allowable values for a specific attribute.
 
-**Takeaway:** Schemas enforce ISO datatypes and controlled attribute enumerations, ensuring that chronological, numerical, and categorical values remain machine-computable.
+**Takeaway:** Schemas enforce datatypes and closed vocabulary enumerations, preventing fuzzy text from breaking automated database calculations.
 
 ---
 
@@ -139,86 +124,81 @@ By enforcing these constraints, deterministic validation guarantees that downstr
 
 **Beyond Grammar: The Necessity of Schematron Business Logic**
 
-While RELAX NG provides an exceptional framework for defining grammatical structures and datatypes, it has a fundamental limitation: it operates locally within the context of parent-child relationships. RELAX NG cannot easily enforce rules that depend on relationships across disparate branches of the document tree.
+Here is a surprising truth about RELAX NG schemas: they have blind spots.
 
-For example, RELAX NG cannot verify whether an ID referenced in an attribute (such as `<name ref="#JD">` or `<add hand="#h2">`) actually exists as an `@xml:id` elsewhere in the file. Nor can it verify that *if* a manuscript is declared to have three hands (`<handDesc hands="3">`), there must be exactly three distinct `<handNote>` elements inside the container.
+A RELAX NG schema is like an English spelling and grammar checker. It knows that *"The dog chased the cat"* is grammatically correct. But if you write *"The two-year-old child drove a commercial Boeing 747 across the Atlantic"*, the grammar checker sees no problem—subject, verb, object are all in order. It has no idea that the sentence makes no logical sense in the real world.
 
-To enforce these complex editorial constraints, digital philologists deploy ISO Schematron (Cummings, 2018). Schematron is a rule-based validation language that uses XPath (XML Path Language) expressions to evaluate arbitrary assertions across the entire document tree. While RELAX NG asks "Is this element grammatically allowed here?", Schematron asks "Does this document satisfy our project's scholarly business logic?"
+The same problem happens in XML. 
 
-| Validation Need | Handled by RELAX NG | Handled by Schematron | Implementation Approach |
-| --- | --- | --- | --- |
-| Element hierarchy & nesting | Yes | Possible, but verbose | RNG tree grammar containment |
-| ISO date formatting | Yes | Possible, but verbose | W3C XML Schema datatypes |
-| Closed vocabulary enumerations | Yes | Yes | RNG `<choice>` / Schematron regex |
-| Internal cross-reference existence | No | Yes | Schematron XPath `@target = //@xml:id` |
-| Conditional requirements | No | Yes | Schematron `test="if-then" XPath rules` |
-| Quantitative parity verification | No | Yes | Schematron `test="count(handNote) = @hands"` |
+Suppose in your TEI Header you write:
+```xml
+<handDesc hands="1">
+    <handNote xml:id="h1">...</handNote>
+    <handNote xml:id="h2">...</handNote>
+</handDesc>
+```
+To RELAX NG, this is valid XML. It has a `<handDesc>` containing `<handNote>` elements. But logically, you have contradicted yourself! You explicitly declared `hands="1"`, yet you immediately listed two distinct scribal hands (`h1` and `h2`)!
 
-Schematron acts as the project's automated editorial supervisor, catching logical and referential errors that tree grammars overlook entirely.
+To catch these logical contradictions, digital editors use a complementary technology called **Schematron**. Schematron uses XPath expressions to write "business rules" that check real-world relationships across your document.
 
-**Takeaway:** ISO Schematron complements RELAX NG by executing XPath-driven business logic and cross-element assertions that grammar-based schemas cannot evaluate.
+**Vocabulary.** *Schematron* — a rule-based validation language that asserts business logic, cross-element constraints, and semantic consistency in XML documents. *XPath* — a syntax used to navigate through elements and attributes in an XML document.
+
+**Takeaway:** Grammatical schemas (RELAX NG) check tag structure, while rule-based validators (Schematron) catch real-world logical contradictions and broken cross-references.
 
 ---
 
 ## **07 Content**
 
-**Writing Schematron Rules for Internal Cross-References**
+**Writing Schematron Rules for Cross-References**
 
-In manuscript studies, a digital edition is an interconnected network of cross-references. Scribes identified in `<respStmt>` are referenced in `<change>` logs; scribal hands defined in `<handDesc>` are referenced in transcription lines; and cited witnesses are referenced in the critical apparatus.
+In your course project, one of the most powerful uses of Schematron is verifying internal cross-references.
 
-A Schematron schema consists of `<pattern>` containers holding `<rule>` elements with `@context` attributes. Inside each rule, one or more `<assert>` or `<report>` statements test boolean XPath expressions:
+In Lesson 2.1, you learned to give each scribal hand a unique identifier: `<handNote xml:id="h1">`. Later, in Week 4, when you transcribe text, you will link each line to that scribe using an attribute: `<line hand="#h1">`.
+
+What happens if you accidentally type `<line hand="#h99">`?
+
+Without Schematron, your XML might pass schema validation, but downstream software will crash because hand `#h99` does not exist! A Schematron rule prevents this by writing a simple assertion:
 
 ```xml
-<schema xmlns="http://purl.oclc.org/dsdl/schematron">
-  <ns prefix="tei" uri="http://www.tei-c.org/ns/1.0"/>
-  
-  <!-- Pattern 1: Verify hand references in text match defined handNotes -->
-  <pattern id="handRefCheck">
-    <rule context="tei:add[@hand]">
-      <assert test="substring(@hand, 2) = //tei:handNote/@xml:id">
-        The hand reference <value-of select="@hand"/> does not correspond to any defined tei:handNote @xml:id in this document.
-      </assert>
+<pattern>
+    <rule context="tei:line[@hand]">
+        <assert test="substring-after(@hand, '#') = //tei:handNote/@xml:id">
+            The hand reference <value-of select="@hand"/> must point to an existing handNote xml:id in the header!
+        </assert>
     </rule>
-  </pattern>
-
-  <!-- Pattern 2: Enforce mandatory locus coordinates inside msItem -->
-  <pattern id="locusCheck">
-    <rule context="tei:msItem">
-      <assert test="tei:locus[@from and @to]">
-        Every tei:msItem must contain a tei:locus element with both @from and @to attributes.
-      </assert>
-    </rule>
-  </pattern>
-</schema>
+</pattern>
 ```
 
-When Oxygen executes this Schematron schema alongside RELAX NG, it checks every `<add>` tag in real time. If an encoder types `<add hand="#h4">` when only hands `#h1`, `#h2`, and `#h3` are defined in the header, Oxygen flags a custom, human-readable Schematron error, preventing broken pointers from reaching publication.
+If a reference breaks, Schematron prints a clear, human-readable error message in your editor: *"The hand reference #h99 must point to an existing handNote xml:id in the header!"* That is the power of automated structural auditing.
 
-Writing project-specific Schematron rules allows editorial teams to automate quality assurance, freeing human editors from manually checking thousands of internal cross-references.
+**Vocabulary.** *Cross-reference validation* — verifying that internal pointers (like `#h1`) match real identifier targets (`xml:id="h1"`) declared elsewhere in the document. *Assertion (`<assert>`)* — a Schematron test condition that triggers an error message if evaluated as false.
 
-**Takeaway:** Schematron uses XPath assertions to audit internal cross-references and enforce mandatory editorial rules across the entire TEI document.
+**Takeaway:** Schematron audits internal pointers across your document, guaranteeing that every hand, scribe, and image reference points to an existing target.
 
 ---
 
 ## **08 Content**
 
-**Customizing the TEI: The ODD (One Document Does-It-All) Architecture**
+**Customizing the TEI: The ODD (One Document Does-It-All) Philosophy**
 
-The official TEI P5 Guidelines define over 500 distinct elements and hundreds of attributes (TEI Consortium, 2025). No single digital project ever uses all 500 elements. A manuscript cataloguing project requires deep physical description tags (`<collation>`, `<bindingDesc>`) but has no use for linguistic treebank elements or modern verse stanza tags.
+The complete Text Encoding Initiative Guidelines contain over 500 different elements and thousands of attributes. It covers everything from ancient Greek papyri to 19th-century poetry to speech corpora.
 
-To manage this complexity, the TEI community created the ODD (One Document Does-it-all) meta-schema architecture (Cummings, 2018). An ODD file is itself a TEI XML document that defines a customized subset of the TEI. In an ODD file, an editorial project declares:
+If you tried to validate your student manuscript against the *entire* TEI at once, it would be overwhelming. You could legally put stage directions from a Shakespeare play inside your biblical manuscript description!
 
-- Which TEI modules are included (e.g., `msdescription`, `header`, `core`, `textstructure`).
-- Which specific elements from those modules are retained or deleted.
-- Which attributes are mandatory, optional, or prohibited on each element.
-- Custom Schematron business rules tailored to the project's specific manuscript corpus.
-- Human-readable prose explaining the project's editorial philosophy and cataloguing manual.
+To prevent this chaos, the TEI invented a design philosophy called **ODD (One Document Does-it-all)**.
 
-From this single ODD source of truth, automated compilers (such as the TEI `roma` or `oxgarage` tools) simultaneously generate the machine-actionable RELAX NG schema (`.rng`), the Schematron file (`.sch`), and the formatted HTML documentation and user manuals for project encoders (Cummings, 2018).
+An ODD file is a single master document written in TEI XML that defines a project's customized editorial profile. In an ODD file, a research team:
 
-This unified compilation guarantees that documentation and validation schemas never drift out of sync: any change to the ODD file automatically updates both the validation rules and the project's published encoding guidelines.
+1. Selects only the specific TEI modules they need (e.g., `msdescription`, `textstructure`, `transcr`).
+2. Deletes elements they will never use.
+3. Modifies allowable attribute values to fit their corpus.
+4. Writes documentation explaining *why* they chose those rules.
 
-**Takeaway:** The TEI ODD architecture generates project-specific RELAX NG schemas, Schematron rules, and human-readable documentation from a single XML source of truth.
+From this single ODD file, automated compilers generate both human-readable HTML documentation and the machine-readable RELAX NG schema (`.rng`) that polices your files!
+
+**Vocabulary.** *ODD (One Document Does-it-all)* — the TEI format combining human-readable documentation, editorial guidelines, and machine-actionable schema specifications in a single XML source. *Subsetting* — creating a tailored profile of the TEI by including only relevant elements for a specific project.
+
+**Takeaway:** The TEI is customized for specific projects through ODD files, which generate both human documentation and strict RELAX NG schemas from a single source.
 
 ---
 
@@ -226,29 +206,22 @@ This unified compilation guarantees that documentation and validation schemas ne
 
 **Case Study: The Bodleian `msdesc.odd` Consolidated Schema**
 
-To understand how ODD customization works in major institutional archives, consider the Bodleian Library at the University of Oxford. The Bodleian preserves tens of thousands of medieval, early modern, Hebrew, Arabic, and Georgian manuscripts. Managing cataloguing data across disparate language departments required a single, uncompromising structural framework (Cummings, 2018).
+To see how world-class institutions use this workflow, look at the **Bodleian Libraries at the University of Oxford**.
 
-The Bodleian developed a consolidated ODD schema named `msdesc.odd`, maintained publicly on GitHub (Cummings, 2018). This ODD customization includes the TEI `msdescription` module while stripping out hundreds of non-manuscript elements. Crucially, it introduces strict Schematron rules to enforce Oxford cataloguing standards:
+The Bodleian holds tens of thousands of medieval and Renaissance manuscripts in dozens of languages (Greek, Latin, Arabic, Hebrew, Armenian). To catalogue these treasures consistently across hundreds of scholars, the Bodleian developed `msdesc.odd` — a consolidated manuscript description schema.
 
-```xml
-<!-- Excerpt of Bodleian msdesc.odd Schematron constraint -->
-<constraint>
-  <sch:rule context="tei:msDesc">
-    <sch:assert test="tei:msIdentifier/tei:idno">
-      A manuscript description must have an institutional shelfmark in tei:idno.
-    </sch:assert>
-    <sch:assert test="tei:physDesc/tei:objectDesc/tei:supportDesc/@material">
-      The support material attribute is mandatory on tei:supportDesc.
-    </sch:assert>
-  </sch:rule>
-</constraint>
-```
+Instead of allowing cataloguers to invent whatever markup they pleased, the Bodleian schema strictly enforces:
 
-By publishing this schema in a version-controlled GitHub repository, the Bodleian allows cataloguers, postdocs, and external collaborators to validate their XML records locally in Oxygen before submitting pull requests. The automated continuous integration pipeline tests every submitted file against `msdesc.odd`, guaranteeing zero cataloguing drift across decades of archival work.
+- Standardized settlement and repository naming conventions.
+- Mandatory `<supportDesc>` declarations with controlled vocabulary for parchment and paper.
+- Standardized foliation formats (`f. 1r`, `f. 1v`).
+- Automated linking to the Bodleian's internal digital library authority records.
 
-This institutional workflow demonstrates how customized schemas bridge the gap between individual scholarly cataloguers and massive institutional repositories.
+The schema we link to in this course (`msdesc.rng`) is directly derived from these international consortium best practices. When your file validates against it, your work meets the exact same technical standard used by Oxford University.
 
-**Takeaway:** Institutional repositories like the Bodleian Library use customized ODD schemas to enforce mandatory cataloguing constraints across diverse historical collections.
+**Vocabulary.** *Consolidated schema* — an institutional TEI customization that unifies cataloguing rules across large, heterogeneous archival collections. *Standardization* — adopting uniform encoding conventions across diverse manuscript traditions.
+
+**Takeaway:** Major archives like Oxford's Bodleian Library rely on customized TEI schemas to ensure consistent cataloguing across thousands of historical manuscripts.
 
 ---
 
@@ -256,598 +229,576 @@ This institutional workflow demonstrates how customized schemas bridge the gap b
 
 **Case Study: Bibliotheca Laureshamensis and the ENRICH Schema**
 
-A premier exemplar of schema-driven digital reunification is the *Bibliotheca Laureshamensis – digital* project (Büttner & Kautz, 2013). During the early Middle Ages, the Benedictine Abbey of Lorsch was one of the greatest intellectual and manuscript production centers of the Carolingian Empire. However, across centuries of war, Reformation secularization, and library sales, its magnificent collection was completely dispersed. Today, the 331 surviving Lorsch manuscripts and fragments reside in 73 independent libraries across 13 nations (Büttner & Kautz, 2013).
+Another landmark case study in digital codicology is the **Bibliotheca Laureshamensis** (the virtual reconstruction of the medieval monastic library of Lorsch, Germany).
 
-To digitally reconstruct this lost Carolingian library, the project deployed the TEI ENRICH schema—a specialized, highly constrained profile of the TEI manuscript description guidelines designed specifically for medieval European codices (Büttner & Kautz, 2013).
+During the Reformation and the Thirty Years' War, the magnificent 8th-century library of Lorsch was dispersed across the globe. Today, its surviving codices are scattered across 73 libraries in 12 countries, including Heidelberg, Rome, London, and Vienna.
 
-Contributing archivists from Rome, London, Paris, Vienna, and Heidelberg generated ENRICH-conformant XML descriptions for their respective holdings. When XML files were uploaded to the central project repository, an automated Subversion/Git hook immediately validated every record against the ENRICH RELAX NG schema (Büttner & Kautz, 2013). Documents containing illegal tags, missing foliation records, or broken provenance structures were automatically rejected at the server gate.
+How do you digitally reunite a library that has been physically shattered for four centuries?
 
-The success of the Bibliotheca Laureshamensis demonstrated that a shared, deterministic schema can transcend international borders, language barriers, and institutional silos to digitally resurrect a destroyed historical library (Büttner & Kautz, 2013).
+By using the **ENRICH (European Network for Research on Information and Cultural Heritage) TEI schema**. Participating libraries in Germany, the Vatican, and the UK each catalogued their physical holdings according to the shared ENRICH schema. Because the metadata was strictly valid and interoperable, a unified search portal was able to ingest XML records from 73 independent institutions and virtually assemble the entire monastic library on a single screen. That is the triumph of deterministic standards over local isolation.
 
-**Takeaway:** The Bibliotheca Laureshamensis virtually reunited 331 dispersed Carolingian manuscripts across 73 institutions by using the TEI ENRICH schema as an automated validation gate.
+**Vocabulary.** *Virtual reunification* — digitally aggregating separated leaves, quires, or entire manuscripts preserved in different global archives into a single unified scholarly resource. *Interoperability* — the ability of diverse computer systems to exchange and use data without custom conversion.
+
+**Takeaway:** The virtual reconstruction of Lorsch Abbey demonstrates how shared XML schemas allow globally scattered manuscript collections to be digitally reunited.
 
 ---
 
 ## **11 Content**
 
-**The Limits of Document Isolation: Why XML Needs Linked Open Data**
+**Breaking Out of the Silo: Why XML Needs Linked Open Data**
 
-While a valid TEI document achieves internal structural perfection, it remains an isolated digital island if it cannot communicate with the wider world. An XML file saved on a local hard drive or hosted on an institutional web server is an isolated data silo (Koho et al., 2021).
+Validating your XML file in VS Code is a major milestone. Your file is structurally sound, grammatically clean, and internally consistent.
 
-Consider how a traditional TEI document records entities:
+But it has one major limitation: **it is an isolated island**.
 
+If your XML file says:
 ```xml
-<origin>
-  <origPlace>Alexandria</origPlace>
-  <origDate>575</origDate>
-  <persName>Cyril of Alexandria</persName>
-</origin>
+<origPlace>Constantinople</origPlace>
+<author>John Chrysostom</author>
 ```
+A computer knows that "Constantinople" is a place name and "John Chrysostom" is an author name. But to the computer, those words are just dumb sequences of text characters (strings). 
 
-To a computer, the string `"Alexandria"` is merely ten Unicode characters. The machine does not know whether `"Alexandria"` refers to Alexandria in Egypt, Alexandria in Virginia, or Alexandria in Scotland. It cannot automatically cross-reference this record with archaeological databases, geographic coordinate systems, or historical gazetteers. If another cataloguer encodes `"Alexandrie"` in French or `"al-Iskandariyya"` in Arabic, a database treats these as three entirely unrelated entities (Koho et al., 2021).
+What if another scholar writes `<origPlace>Byzantium</origPlace>` or `<origPlace>Istanbul</origPlace>`? What if a French scholar writes `<author>Jean Chrysostome</author>`? To an automated search engine, those look like entirely different people and completely different cities!
 
-To transform static XML documents into active participants in global scholarly networks, digital humanists integrate the principles of Linked Open Data (LOD) and the Resource Description Framework (RDF) (Koho et al., 2021; Koho et al., 2023). Linking local textual assertions to global authority URIs ensures that our digital editions become searchable nodes within the wider Semantic Web.
+To connect our scholarship to the rest of the world, we must move **from strings to things**. We must connect text names to permanent entities in global knowledge graphs. This is the world of **Linked Open Data (LOD)**.
 
-**Takeaway:** Unlinked XML documents remain isolated textual silos; Linked Open Data connects local strings to global semantic authorities, enabling automated cross-institutional computation.
+**Vocabulary.** *Data silo* — an isolated repository of data that cannot easily interact with other computer systems. *Linked Open Data (LOD)* — structured data published on the web using open standards, explicitly linked to global knowledge bases.
+
+**Takeaway:** Clean XML markup creates structured documents, but Linked Open Data connects the entities inside those documents to global knowledge networks.
 
 ---
 
 ## **12 Content**
 
-**The Resource Description Framework (RDF) and Semantic Triples**
+**Speaking in Triples: The Resource Description Framework (RDF)**
 
-The Resource Description Framework (RDF) is the core standard of the Semantic Web, maintained by the World Wide Web Consortium (W3C). While XML models data as a hierarchical *tree* of nested nodes, RDF models all knowledge as a directed, labeled *graph* composed of semantic triples (Koho et al., 2021; Koho et al., 2023).
+How do computers express knowledge about the real world without getting confused by human language? They use **RDF (Resource Description Framework)**.
 
-An RDF triple consists of three components:
+At its core, RDF is astonishingly simple. Every fact in the universe is expressed as a three-part sentence called a **triple**:
 
-1. **Subject:** The entity being described, identified by a unique, persistent Uniform Resource Identifier (URI).
-2. **Predicate:** The property, relationship, or attribute linking the subject to the object, also identified by a URI defined in a formal ontology.
-3. **Object:** The value or related entity, which can be another URI (creating a graph link) or a literal string/number.
+Subject -> Predicate -> Object
 
-```
-Subject (URI)                               Predicate (URI)                   Object (URI / Literal)
----------------------------------------------------------------------------------------------------------
-<http://ldf.fi/schema/mmm/Vat_gr_2125>      crm:P108_was_produced_by          <http://ldf.fi/schema/mmm/Event_E01>
-<http://ldf.fi/schema/mmm/Event_E01>        crm:P4_has_time-span              <http://vocab.getty.edu/aat/300404495>
-<http://ldf.fi/schema/mmm/Event_E01>        crm:P7_took_place_at              <https://pleiades.stoa.org/places/727070>
-```
+Think of it like basic English grammar:
 
-In this graph architecture, knowledge is not confined to a single document. Triples from thousands of independent libraries can be aggregated into a single centralized knowledge graph and queried simultaneously using SPARQL (the standard query language for RDF) (Koho et al., 2023).
+- **Subject**: What are we talking about? (*This Manuscript Page*)
+- **Predicate**: What is its relationship or property? (*was copied in*)
+- **Object**: What is the target value? (*Constantinople*)
 
-Graph-based data structures allow scholars to uncover non-linear historical connections—such as identifying all manuscripts illuminated by the same workshop that subsequently passed through the hands of the same Renaissance collector.
+In RDF, however, we don't use fuzzy English words; we use permanent web addresses (URIs) for each of the three pieces:
 
-**Takeaway:** RDF models information as Subject-Predicate-Object triples, weaving disparate manuscript descriptions into a globally queryable semantic knowledge graph.
+- **Subject**: `https://digi.vatlib.it/view/MSS_Vat.gr.2121`
+- **Predicate**: `http://purl.org/dc/terms/spatial`
+- **Object**: `https://pleiades.stoa.org/places/520998`
+
+When computers read this triple, there is zero ambiguity. A machine in Tokyo and a machine in Antigonish know with mathematical precision that this exact manuscript in Rome was created at the geographic coordinates of ancient Constantinople.
+
+**Vocabulary.** *RDF (Resource Description Framework)* — a standard data model for representing information about resources on the web as semantic graphs. *Semantic triple* — a foundational knowledge statement composed of a Subject, a Predicate, and an Object.
+
+**Takeaway:** RDF models knowledge as unambiguous three-part statements (Subject to Predicate to Object), connecting web identifiers into global knowledge graphs.
 
 ---
 
 ## **13 Content**
 
-**From Strings to Things: Authority Control in TEI Markup**
+**From Strings to Real Things: Authority Control in TEI**
 
-The transition from textual strings to semantic graph nodes is encapsulated in the digital humanities slogan: **"Move from strings to things."** In a digital edition, we do not merely type the name of a person or place; we attach a persistent URI that identifies the actual historical entity (Koho et al., 2021).
+How do we embed these global Linked Data identifiers directly into our hand-authored TEI Header?
 
-The TEI provides standardized attributes—most notably `@ref` and `@corresp`—on names, places, dates, and materials to embed RDF URIs directly inside XML markup:
+We use **authority control attributes**, primarily `ref="..."` and `key="..."`.
+
+Look at how we transform plain text into Linked Data:
 
 ```xml
-<p>Written on 
-  <material ref="http://vocab.getty.edu/aat/300014224">parchment</material> 
-  in 
-  <placeName ref="https://pleiades.stoa.org/places/727070">Alexandria</placeName> 
-  under the patronage of 
-  <persName ref="https://viaf.org/viaf/88890041">René Marchal</persName>.
-</p>
+<!-- Before: Dumb strings in a silo -->
+<settlement>Vatican City</settlement>
+<repository>Biblioteca Apostolica Vaticana</repository>
+<origPlace>Constantinople</origPlace>
+
+<!-- After: Linked Open Data connected to global entities -->
+<settlement ref="https://www.wikidata.org/wiki/Q237">Vatican City</settlement>
+<repository ref="http://viaf.org/viaf/141312782">Biblioteca Apostolica Vaticana</repository>
+<origPlace ref="https://pleiades.stoa.org/places/520998">Constantinople</origPlace>
 ```
 
-When a search indexer or RDF extraction pipeline processes this XML snippet, it does not rely on text matching. It resolves the URI `http://vocab.getty.edu/aat/300014224` to the Getty Art & Architecture Thesaurus concept for "parchment," the Pleiades URI `727070` to ancient Alexandria (with exact latitude/longitude coordinates), and the VIAF URI `88890041` to the specific historical person of Abbot René Marchal (Koho et al., 2021).
+Look at the difference. The human reader still sees the familiar English words "Vatican City" and "Constantinople". But underneath, the computer follows the `ref` attribute directly to Wikidata and Pleiades! Automated scripts can now crawl your edition, pull geographic coordinates, and automatically plot your manuscript on an interactive historical map!
 
-By disambiguating entities via URIs, digital editions ensure that spelling variations, dialectal shifts, and language differences no longer obstruct computational discovery.
+**Vocabulary.** *Authority control* — the practice of linking variant names and terms to a single standardized identifier in an established cultural register. *`ref` attribute* — the TEI attribute used to point directly to a canonical URI or authority record.
 
-**Takeaway:** Embedding persistent URIs in TEI `@ref` attributes transitions editions from ambiguous text strings to unambiguous, machine-resolvable entities.
+**Takeaway:** By adding `ref` attributes to names and places, your TEI Header links human-readable text to permanent machine-readable authority records.
 
 ---
 
 ## **14 Content**
 
-**Global Authority Registers: VIAF, Getty TGN, Getty AAT, and Wikidata**
+**The Global Authority Registers: VIAF, Pleiades, and Wikidata**
 
-To make linked data effective, scholars do not invent arbitrary URIs; they link to established, globally maintained authority registers (Koho et al., 2021; Koho et al., 2023).
+Where do you find these magical URIs for your manuscript entities? You look them up in recognized global authority registers:
 
-The primary authority registers in digital manuscript studies include:
+1. **VIAF (Virtual International Authority File)** (`viaf.org`): The gold standard for historical people and cultural institutions. It combines authority files from the Library of Congress, the British Library, the Bibliothèque nationale de France, and the Vatican Library into a single universal ID.
+2. **Pleiades Gazetteer** (`pleiades.stoa.org`): The premier authority for ancient and medieval geography. It provides permanent URIs, historical name variants, and precise GPS coordinates for ancient cities, provinces, and monasteries.
+3. **Getty Vocabularies** (`getty.edu/research/tools/vocabularies/`):
+   - **TGN (Thesaurus of Geographic Names)**: Global geographic authority.
+   - **AAT (Art & Architecture Thesaurus)**: Standard terms for materials, scripts, and bookbinding techniques (e.g. "vellum", "minuscule", "rubrication").
+4. **Wikidata** (`wikidata.org`): The open, multilingual knowledge graph that connects millions of historical entities, institutions, and texts.
 
-- **Virtual International Authority File (VIAF):** Combines authority files from over 40 national libraries worldwide, establishing authoritative identifiers for historical authors, scribes, and collectors (e.g., `viaf.org/viaf/34454471` for Origen of Alexandria).
-- **Getty Thesaurus of Geographic Names (TGN):** Provides hierarchical, georeferenced identifiers for historical and modern settlements, regions, and nations.
-- **Getty Art & Architecture Thesaurus (AAT):** Provides standardized terminology for physical supports (`parchment`, `papyrus`), scripts (`uncial`, `Caroline minuscule`), and binding styles.
-- **Pleiades Gazetteer of the Ancient World:** Provides historical coordinates, names, and temporal spans for ancient Mediterranean and Near Eastern locations.
-- **Wikidata:** The world's largest open, multilingual knowledge base, providing Q-identifiers for historical figures, texts, institutions, and concepts (e.g., `Q112260` for Codex Marchalianus) (Koho et al., 2023).
+In your lab work today, you will look up the VIAF record for your holding library and the Pleiades ID for your manuscript's place of origin.
 
-| Authority Register | Primary Domain | Example Identifier | Resolved Entity |
-| --- | --- | --- | --- |
-| VIAF | Persons & Organizations | `viaf.org/viaf/88890041` | René Marchal (Abbot of Saint-Nom) |
-| Getty TGN | Geographic Places | `vocab.getty.edu/tgn/7001303` | Rome (Italy) |
-| Getty AAT | Materials & Techniques | `vocab.getty.edu/aat/300014224` | Parchment (material) |
-| Pleiades | Ancient Mediterranean Geography | `pleiades.stoa.org/places/727070` | Alexandria (Egypt) |
-| Wikidata | General Cultural Entities | `wikidata.org/entity/Q112260` | Codex Marchalianus (Q) |
+**Vocabulary.** *VIAF* — Virtual International Authority File, linking personal and institutional identities across national libraries. *Pleiades* — open digital gazetteer of the premodern Greek and Roman world. *Getty AAT* — structured thesaurus of terms for cultural heritage materials and techniques.
 
-Using these established authority registers ensures that our digital metadata is immediately compatible with international museum and library data infrastructures.
-
-**Takeaway:** Linking to centralized authority registers like VIAF, Getty TGN/AAT, Pleiades, and Wikidata ensures that entities are globally disambiguated and machine-linked.
+**Takeaway:** Digital editors link their entities to trusted global registers like VIAF for people and institutions, Pleiades for ancient places, and Getty AAT for materials.
 
 ---
 
 ## **15 Content**
 
-**Mapping Manuscript Migrations (MMM): Harmonizing Heterogeneous Data**
+**Mapping Manuscript Migrations (MMM): Harmonizing Global Data**
 
-The transformative power of Linked Open Data is best demonstrated by the *Mapping Manuscript Migrations* (MMM) project (Koho et al., 2021; Koho et al., 2023). MMM brought together three massive, historically heterogeneous manuscript databases:
+To see the staggering power of Linked Open Data in codicology, consider the **Mapping Manuscript Migrations (MMM)** project.
 
-1. **Schoenberg Database of Manuscripts (SDBM):** Developed at the University of Pennsylvania, recording over 250,000 historical "observations" of manuscripts appearing in auction and sales catalogues across centuries.
-2. **Bibale:** Developed by the IRHT in Paris, tracking the provenance and ownership histories of medieval collections.
-3. **Medieval Manuscripts in Oxford Libraries:** Deeply structured TEI-XML descriptions of individual physical codices in Oxford collections (Koho et al., 2021).
+For centuries, scholars had no way to track how manuscripts moved across Europe between the Middle Ages and the twentieth century. Data was trapped in separate institutional databases: the Schoenberg Database of Manuscripts at Penn, the Bibale database in Paris, and the Medieval Manuscripts in Oxford Libraries portal.
 
-These three sources had fundamentally incompatible data structures: SDBM modeled transaction events; Bibale modeled institutional collections; and Oxford modeled physical books.
+The MMM project took over 500,000 manuscript records from these three independent institutions, converted their metadata into RDF triples, and linked them through shared authority IDs (VIAF, Wikidata, and TGN).
 
-Using an event-centric CIDOC-CRM and FRBRoo ontology, MMM harmonized all three datasets into a unified RDF knowledge graph containing over 20 million triples (Koho et al., 2021; Le Bœuf, 2012). Researchers can now write SPARQL queries that trace how a single manuscript moved from a 12th-century French abbey, through 18th-century private auctions in London, into a 20th-century American university library (Koho et al., 2021).
+The result? 
 
-The MMM project proves that semantic web ontologies can bridge the gap between disparate archival traditions without erasing the unique local histories of individual collections.
+An interactive computational platform (`mappingmanuscriptmigrations.org`) where researchers can track the entire lifetime journey of a manuscript. You can see how a codex copied in a German monastery in 1100 was sold to an Italian merchant in 1520, bought by an English duke in 1740, and purchased by an American university in 1950. That global visualization is only possible because independent cataloguers agreed on shared Linked Data identifiers.
 
-**Takeaway:** Mapping Manuscript Migrations harmonized 20 million triples across SDBM, Bibale, and Oxford TEI files, proving that event-centric RDF models can unify heterogeneous institutional databases.
+**Vocabulary.** *Data harmonization* — integrating disparate data formats from multiple archives into a unified, coherent semantic model. *Schoenberg Database of Manuscripts (SDBM)* — an international database tracking manuscript provenance, sales, and migrations.
+
+**Takeaway:** The Mapping Manuscript Migrations project proves how linking local catalog records to shared RDF authorities unlocks global historical patterns of manuscript trade and provenance.
 
 ---
 
 ## **16 Content**
 
-**Wikibase as a Knowledge Graph Platform for Codicology**
+**Wikibase and Knowledge Graphs for Codicology**
 
-In recent years, the digital humanities community has embraced Wikibase—the open-source software engine that powers Wikidata—as a collaborative platform for hosting manuscript knowledge graphs (Koho et al., 2023).
+In recent years, the digital humanities community has embraced **Wikibase** — the open-source software engine behind Wikidata — as a flexible platform for building domain-specific knowledge graphs.
 
-Wikibase structures all data as *Items* (designated by `Q` numbers) and *Properties* (designated by `P` numbers). An Item represents an entity (e.g., `Q42: Codex Marchalianus`), while Properties represent predicates (e.g., `P14: held in repository`, `P22: material support`, `P35: date of origin`).
+Why Wikibase?
 
-To ingest heterogeneous manuscript metadata into Wikibase, projects utilize reconciliation workflows in OpenRefine (Koho et al., 2023). Disparate text strings from library catalogues are matched algorithmically against existing Wikidata and VIAF entities, assigning high-confidence URI matches and flagging ambiguous names for human review. Once populated, a Wikibase instance provides a built-in SPARQL endpoint, visual graph exploration tools, and a REST API, democratizing access to complex Linked Open Data (Koho et al., 2023).
+Traditional relational databases are rigid: they require fixed tables with predefined columns. If you discover an unexpected codicological detail (such as a 14th-century merchant's shopping list scribbled on a flyleaf), a traditional database has nowhere to put it. 
 
-| Wikibase Subject Item | Predicate Property | Object Target / Value | Codicological Interpretation |
-| --- | --- | --- | --- |
-| `Q112260` (Codex Marchalianus) | `P14` (held in repository) | `Q213878` (Biblioteca Apostolica Vaticana) | Physical institutional custody |
-| `Q112260` (Codex Marchalianus) | `P22` (material support) | `Q226697` (Parchment) | Codicological medium |
-| `Q112260` (Codex Marchalianus) | `P35` (date of origin) | `"0550-0600"` (ISO 8601 Interval) | Chronological manufacturing span |
-| `Q112260` (Codex Marchalianus) | `P48` (contains text) | `Q665274` (Book of Isaiah - Septuagint) | Intellectual work content |
+A knowledge graph, by contrast, is a living web of nodes and edges. You can connect any entity to any other entity using typed properties:
 
-**Takeaway:** Wikibase provides an accessible, graph-native platform for hosting manuscript data, combining OpenRefine entity reconciliation with SPARQL querying capabilities.
+- *Manuscript X* -> `hasBinding` -> *16th-century pigskin*
+- *Manuscript X* -> `containsAnnotationBy` -> *Erasmus of Rotterdam*
+- *Erasmus of Rotterdam* -> `studiedAt` -> *University of Paris*
+
+When your TEI Header includes Wikidata identifiers (`ref="https://www.wikidata.org/wiki/Q..."`), external knowledge graphs can ingest your edition and automatically connect your full-page witness to millions of related historical facts.
+
+**Vocabulary.** *Knowledge graph* — a network of real-world entities and their semantic relationships, represented as interconnected nodes and edges. *Wikibase* — the open-source software used to create collaborative, machine-actionable knowledge graphs.
+
+**Takeaway:** Knowledge graphs represent complex, interconnected manuscript histories as living networks of entities and relationships, easily enriched by TEI metadata.
 
 ---
 
 ## **17 Content**
 
-**Factoid Prosopography in Syriaca.org and the SPEAR Project**
+**Link Rot and 404s: Why Regular Web Links Fail Ancient Documents**
 
-A sophisticated application of TEI and Linked Data is *factoid prosopography*, exemplified by the Syriac Persons, Events, and Relations (SPEAR) project within the Syriaca.org ecosystem (Berti, 2016).
+Now let us tackle a second great danger in digital scholarship: **the crisis of broken citations**.
 
-Traditional prosopography attempts to write a unified, synthesized biographical narrative about a historical figure. Factoid prosopography, conversely, encodes discrete "factoids"—isolated assertions made by specific primary source texts, without deciding in advance whether those assertions are historically true (Berti, 2016).
+Suppose you are writing a research paper and you cite an online manuscript image like this:
+`https://www.somelibrary.edu/special-collections/greek/mss/box4/image23.jpg`
 
-When a 7th-century Syriac chronicle asserts that "Bishop Severus traveled to Antioch in 512 CE," SPEAR uses a customized TEI ODD schema to encode this claim as an event. The encoder links the person (`Severus`), the location (`Antioch`), and the date (`512`) to Syriaca.org RDF authority URIs. Furthermore, the encoding embeds a Canonical Text Services (CTS) URN pointing directly to the specific line of the Syriac chronicle that makes the assertion (Berti, 2016).
+What happens in three years when the library updates its web server? What happens when the library renames its website, reorganizes its digital collections, or goes through a rebranding campaign?
 
-This architecture creates a completely verifiable, machine-actionable chain of evidence: an abstract historical claim in a knowledge graph points to a URI, which is justified by a CTS URN, which resolves to an exact word in a primary manuscript witness (Berti, 2016). Factoid prosopography ensures that contradictory historical assertions can be modeled transparently without editorial bias.
+**404 Not Found. The link dies.**
 
-**Takeaway:** The SPEAR project demonstrates factoid prosopography by linking TEI event tags to RDF authority files, with every historical assertion justified by an exact CTS URN.
+This disease is known as **link rot**. In computational scholarship, relying on standard web URLs is fatal. If the citations in your digital edition break after five years, your scholarship is useless to the next generation of researchers.
+
+Ancient texts have survived for thousands of years. Homer's *Iliad* has been read for nearly three millennia; the Greek Septuagint for over two thousand years. How can we build digital citations that last as long as the manuscripts themselves? We need citation systems that are independent of temporary web server addresses.
+
+**Vocabulary.** *Link rot* — the phenomenon where web links become broken and point to missing resources (404 errors) as servers and website structures change over time. *Ephemerality* — the fragile, short-lived nature of standard web URLs.
+
+**Takeaway:** Standard web URLs are fragile and prone to link rot; scholarly editions require persistent, location-independent citation architectures that outlive server reboots.
 
 ---
 
 ## **18 Content**
 
-**The Crisis of Brittle Citations: Why Web URLs Fail Scholarship**
+**The CITE Architecture and the OHCO2 Text Model**
 
-In traditional print scholarship, classical and biblical philologists cite texts using canonical division systems: *Iliad* 1.1, *Romans* 3:23, or *Republic* 514a. These citations are permanent; they do not depend on which printing house manufactured the physical book you hold.
+To solve the crisis of broken links, classical philologists developed the **CITE Architecture** (Collections, Indices, Text, and Extensions) and the **OHCO2 Text Model**.
 
-When humanities scholarship moved to the web in the 1990s, this citation stability was catastrophically undermined. Projects began citing web URLs (e.g., `http://example.org/texts/greek/iliad_book1.html`). Web URLs, however, are inherently brittle:
+The OHCO2 model asserts a profound humanistic principle:
+**An ancient text is an Ordered Hierarchy of Content Objects.**
 
-- **Link Rot:** Server domains expire, institutional paths change, and projects lose funding, rendering URLs dead within years (Smith, 2009; Blackwell & Smith, 2019).
-- **Technology Dependence:** A URL points to a specific server implementation (e.g., a `.php` script or `.html` file) rather than the abstract intellectual text.
-- **Granularity Collapse:** Standard URLs cannot address specific word tokens, apparatus variants, or physical manuscript bounding boxes without platform-dependent URL parameters (Blackwell & Smith, 2019).
+What does that mean in plain English?
 
-To restore canonical citation stability to digital textual scholarship, Christopher Blackwell and Neel Smith developed the Canonical Text Services (CTS) protocol and the broader CITE Architecture (Blackwell & Smith, 2019; Smith, 2009).
+It means that an ancient text is not defined by the physical paper or modern web server it happens to be viewed on. When you read the Gospel of Mark or Homer's *Odyssey*, the text has a stable, logical structure that has existed for centuries:
 
-**Takeaway:** Web URLs suffer from link rot and technology dependence; digital textual scholarship requires domain-independent, canonical citation protocols.
+- A text consists of Books.
+- Books consist of Chapters.
+- Chapters consist of Verses or Lines.
+
+This logical hierarchy exists independently of whether the text is written on 4th-century Egyptian papyrus, printed in a 19th-century German book, or displayed on an iPhone screen. If our citation system points to the *logical structure* of the text rather than a *server file path*, the citation will never rot!
+
+**Vocabulary.** *CITE Architecture* — a digital framework designed for persistent, machine-actionable scholarly citations in classical philology. *OHCO2* — Ordered Hierarchy of Content Objects, a theoretical model treating texts as stable structural hierarchies of books, chapters, and lines.
+
+**Takeaway:** The OHCO2 text model treats literature as an ordered hierarchy of logical units (books, chapters, lines) rather than physical pages or server file paths.
 
 ---
 
 ## **19 Content**
 
-**The CITE Architecture and the OHCO2 Text Model**
+**GPS Coordinates for Texts: The Anatomy of a CTS URN**
 
-The Canonical Text Services (CTS) standard is built upon a fundamental theoretical foundation known as the **OHCO2 model** (Ordered Hierarchy of Content Objects) (Blackwell & Smith, 2019; Smith, 2009).
+The primary tool of the CITE Architecture is the **Canonical Text Services (CTS) URN (Uniform Resource Name)**.
 
-The OHCO2 model asserts that a text is not a sequence of physical printed pages, nor a collection of digital pixel grids. A text is an abstract, hierarchical tree of citable intellectual nodes: Books contain Chapters, Chapters contain Sections, and Sections contain Lines or Words (Blackwell & Smith, 2019; Tiepmar & Heyer, 2014).
+Think of a CTS URN as **permanent GPS coordinates for ancient texts**. Just as a latitude/longitude coordinate points to an exact physical spot on Earth regardless of whether you look at Google Maps, Apple Maps, or a paper atlas, a CTS URN points to an exact text passage regardless of what website displays it.
 
-Within the CITE (Collections, Indices, Texts, Extensions) Architecture, citation identifiers are modeled as Uniform Resource Names (URNs). Unlike Uniform Resource Locators (URLs), which specify *where* a file is currently hosted, a URN specifies *what* an intellectual object is, independently of any server, network protocol, or physical medium (Blackwell & Smith, 2019).
+Here is what a complete CTS URN looks like:
 
-```
-Traditional URL (Brittle, Server-Bound):
-https://library.vatican.va/digitized/vat_gr_2125/viewer.html?folio=62r&zoom=3
-
-CITE Architecture URN (Persistent, Abstract, Canonical):
-urn:cts:greekLit:tlg0527.tlg001.perseus-grc1:1.1
-urn:cite2:hmt:va_images.v1:VA062RN_0062
+```text
+urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14
 ```
 
-By decoupling citation identity from web storage locations, the CITE architecture ensures that digital scholarly citations remain valid for centuries, outlasting transient servers and institutional re-organizations (Blackwell & Smith, 2019).
+Let us dissect this string piece by piece. It consists of five colon-separated zones:
 
-**Takeaway:** The CITE Architecture models texts as abstract citation trees (OHCO2), using persistent URNs to identify texts and artifacts independently of physical servers.
+1. `urn:cts`: Declares that this is a Canonical Text Service identifier.
+2. `greekLit`: The text group or cultural corpus (Ancient Greek literature).
+3. `tlg0527`: The author identifier in the Thesaurus Linguae Graecae registry (Septuagint).
+4. `tlg001.opp-grc1`: The work and specific edition/witness expression (Book of Genesis, Greek text edition 1).
+5. `1.1-1.14`: The precise passage citation (Chapter 1, verses 1 through 14).
+
+Notice that there is no `http://`, no `.html`, and no website server name. This identifier will remain mathematically true and valid in the year 2526, long after today's web hosting companies have turned to dust.
+
+**Vocabulary.** *CTS URN* — Canonical Text Services Uniform Resource Name, a permanent, syntax-governed identifier for text passages that functions independently of web hosting infrastructure. *Canonical citation* — a standardized citation format traditionally used by scholars to cite a work by its internal structure (chapter, verse, line).
+
+**Takeaway:** A CTS URN acts as permanent GPS coordinates for literature, citing text passages by their logical structure rather than temporary website URLs.
 
 ---
 
 ## **20 Content**
 
-**Anatomy of the Canonical Text Services (CTS) URN**
+**Granular Passage Addressing in CTS URNs**
 
-A Canonical Text Services (CTS) URN is a strictly formalized, colon-delimited string that uniquely identifies any text, edition, translation, or passage across the entirety of world literature (Blackwell & Smith, 2019; Tiepmar & Heyer, 2014).
+One of the greatest features of CTS URNs is their incredible flexibility in citation granularity. You can cite as broadly as an entire author's corpus, or as specifically as a single word on a manuscript page!
 
-Every valid CTS URN conforms to a rigid hierarchical structure:
+Look at how the citation zooms in:
 
-`urn:cts:NAMESPACE:WORK_IDENTIFIER:PASSAGE_COMPONENT`
+| Granularity Level | CTS URN Syntax | What It Identifies |
+| :--- | :--- | :--- |
+| Corpus Level | `urn:cts:greekLit:tlg0527` | The entire Greek Septuagint corpus |
+| Work Level | `urn:cts:greekLit:tlg0527.tlg001` | The Book of Genesis |
+| Edition Level | `urn:cts:greekLit:tlg0527.tlg001.opp-grc1` | The specific digital Greek edition |
+| Chapter Level | `urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1` | Genesis Chapter 1 |
+| Verse Range | `urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14` | Genesis 1:1 through 1:14 (Your full-page witness!) |
+| Single Verse | `urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1` | Genesis Chapter 1, verse 1 |
 
-The `WORK_IDENTIFIER` is divided into three to four period-delimited segments:
+Because the syntax is strictly standardized, any automated script can parse this string, calculate that verse `1.1` is contained inside chapter `1`, and fetch the exact XML fragment on demand.
 
-`TEXTGROUP.WORK.VERSION.EXEMPLAR`
+**Vocabulary.** *Citation granularity* — the level of structural specificity (corpus, work, book, chapter, verse, word) targeted by a citation identifier. *Range expression* — citing an unbroken sequence of text units using a hyphen (`from-to`).
 
-```
-urn:cts:greekLit:tlg0527.tlg001.perseus-grc1:1.1
-^       ^        ^       ^      ^            ^
-Scheme  Domain   Group   Work   Version      Passage
-```
-
-| Component | Example Segment | Semantic Meaning | Structural Function |
-| --- | --- | --- | --- |
-| Scheme & Protocol | `urn:cts:` | Declares the string as a CTS canonical identifier | Enforces CITE architecture compliance |
-| Namespace | `greekLit` | Authoritative authority domain | Governs the collection namespace |
-| Textgroup | `tlg0527` | Author or thematic corpus | Septuagint Old Greek Corpus |
-| Work | `tlg001` | Specific intellectual work | Book of Isaiah |
-| Version (Optional) | `vat-gr-2125` | Specific manuscript witness or edition | Codex Marchalianus text layer |
-| Exemplar (Optional)| `diplomatic` | Distinct physical copy or editorial layer | Diplomatic transcription layer |
-| Passage (Optional) | `1.1` | Hierarchical passage address | Chapter 1, Verse 1 |
-
-**Takeaway:** A CTS URN decomposes text identification into a rigorous hierarchy: protocol, namespace, textgroup, work, version, exemplar, and passage.
+**Takeaway:** CTS URNs support scalable granularity, allowing scholars to reference an entire work, a chapter, or an exact verse range with identical mathematical syntax.
 
 ---
 
 ## **21 Content**
 
-**Granular Passage Addressing in CTS URNs**
+**Sub-Reference Syntax: Targeting the Individual Word**
 
-The power of the CTS URN syntax lies in its ability to address texts at varying levels of abstraction and granular precision (Blackwell & Smith, 2019; Smith, 2009).
+What happens if you want to cite a single specific word in your manuscript that contains an unusual scribal spelling?
 
-A scholar can cite an entire literary work, a specific chapter, a single line, or a passage range across chapters, simply by modifying the passage component:
+Ancient texts do not have word numbers. But the CTS standard includes a brilliant mechanism called **sub-reference syntax** using the `@` symbol:
 
-- **Work-Level Citation:** `urn:cts:greekLit:tlg0527.tlg001` (Cites the abstract Book of Isaiah across all editions and translations).
-- **Specific Witness Citation:** `urn:cts:greekLit:tlg0527.tlg001.vat-gr-2125` (Cites the specific manifestation of Isaiah preserved in Codex Marchalianus).
-- **Single Node Citation:** `urn:cts:greekLit:tlg0527.tlg001.vat-gr-2125:1.2` (Cites Chapter 1, Verse 2 in Codex Marchalianus).
-- **Passage Range Citation:** `urn:cts:greekLit:tlg0527.tlg001.vat-gr-2125:1.1-1.5` (Cites the continuous passage from Chapter 1 Verse 1 through Chapter 1 Verse 5).
+```text
+urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1@ἀρχῇ
+```
 
-Because the CTS citation hierarchy reflects the conceptual structure of the work rather than physical line breaks, a CTS-aware application can retrieve the exact corresponding Greek text, English translation, and Latin Vulgate parallel simultaneously for any valid URN (Tiepmar & Heyer, 2014).
+This URN targets the specific word **ἀρχῇ** ("beginning") inside Genesis 1:1!
 
-This hierarchical addressing enables seamless navigation across comparative digital editions, allowing users to zoom out to whole books or zoom in to single verses dynamically.
+What if a word appears multiple times in the same verse? (For example, the Greek conjunction **καί** might appear four times in a single line). You simply add an ordinal index in brackets:
 
-**Takeaway:** CTS URNs support flexible granularity, enabling seamless citations from overarching works down to specific verses and continuous passage ranges.
+```text
+urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1@καί[2]
+```
+
+This specifies the *second* occurrence of the word *καί* in verse 1! With sub-references, scholars can create digital footnotes, grammatical tags, and paleographical notes that point directly to an individual word on a parchment leaf with mathematical precision.
+
+**Vocabulary.** *Sub-reference (`@`)* — CTS syntax used to identify a specific word or token within a cited passage by its textual string. *Ordinal indexing (`[n]`)* — specifying which instance of a repeated word is targeted within a passage.
+
+**Takeaway:** Sub-reference syntax allows CTS URNs to pinpoint individual words within a verse, providing exact targets for textual variants and linguistic commentary.
 
 ---
 
 ## **22 Content**
 
-**Sub-Reference Syntax and String Indexing**
+**CITE URNs for Physical Objects: Folios, Images, and Papyri**
 
-Textual criticism requires even greater precision than verse-level citation. When recording a variant reading in a critical apparatus or commenting on a scribal correction, an editor must cite a specific word, character, or repeated term within a verse (Blackwell & Smith, 2019).
+Texts are logical entities, but manuscripts are physical objects. What if you want to cite the physical leaf itself rather than the abstract literary work?
 
-The CTS specification provides a standardized **sub-reference syntax** using the `@` symbol:
+The CITE Architecture includes a companion standard called the **CITE Object URN**:
 
-`PASSAGE@TOKEN[INDEX]`
+```text
+urn:cite2:rels398:manuscripts.v1:vat_gr_2121_f213r
+```
 
-Consider Isaiah 1:2: *«ἄκουε οὐρανὲ καὶ ἐνωτίζου γῆ ὅτι κύριος ἐλάλησεν...»*
+Notice the syntax:
 
-- **Single Word Target:** `urn:cts:greekLit:tlg0527.tlg001.vat-gr-2125:1.2@οὐρανὲ` (Isolates the word *οὐρανὲ* in verse 2).
-- **Disambiguating Repeated Words:** If the word *καὶ* occurs four times in verse 2, `@καὶ[2]` targets the second instance of *καὶ*.
-- **Sub-Token Character Offsets:** `urn:cts:greekLit:tlg0527.tlg001.vat-gr-2125:1.2@ἐνωτίζου[1,1-4]` (Isolates the first four characters *ἐνωτ-* of the word *ἐνωτίζου*).
-- **Sub-Reference Range:** `urn:cts:greekLit:tlg0527.tlg001.vat-gr-2125:1.2@οὐρανὲ-1.2@γῆ` (Cites the exact substring from *οὐρανὲ* through *γῆ*).
+- `urn:cite2`: Declares a CITE Object collection.
+- `rels398`: The project namespace (our course repository!).
+- `manuscripts.v1`: The collection name (manuscript leaves, version 1).
+- `vat_gr_2121_f213r`: The unique object identifier (Vatican Greek 2121, folio 213 recto).
 
-This sub-reference syntax allows digital critical apparatuses and factoid databases to target exact paleographical tokens without adding invasive XML markup to the base transcription (Blackwell & Smith, 2019; Berti, 2016).
+By pairing CTS URNs (for texts) with CITE Object URNs (for physical leaves), your digital edition creates a perfect semantic bridge between literature and codicology. You can formally assert: *"The text identified by `urn:cts:...:1.1-1.14` is inscribed on the physical artifact identified by `urn:cite2:...:vat_gr_2121_f213r`."*
 
-**Takeaway:** CTS sub-reference syntax (`@token[index]`) enables mathematical citation of specific words, repeated tokens, and character substrings within a passage.
+**Vocabulary.** *CITE Object URN* — a persistent identifier used to cite physical artifacts, museum objects, and digital images independently of text hierarchies. *Semantic bridge* — linking physical artifact records directly to literary text passages.
+
+**Takeaway:** While CTS URNs cite text passages, CITE Object URNs cite physical manuscript leaves and images, creating a permanent bridge between text and physical artifact.
 
 ---
 
 ## **23 Content**
 
-**CITE URNs for Non-Textual Artifacts: Folios, Images, and Papyri**
+**Embedding CTS URNs into the TEI Header**
 
-While CTS URNs address abstract textual hierarchies, digital editions also encompass physical artifacts: manuscript folios, papyrus fragments, physical inscriptions, and high-resolution digital images. The broader CITE Architecture provides the **CITE2 URN** protocol for non-textual cultural objects (Blackwell & Smith, 2019; Babeu, 2019).
+How do you formally record the CTS URN of your witness inside your TEI Header?
 
-A CITE2 URN identifies objects within structured collections:
+You place it directly inside the `<msContents>` block that you authored yesterday, using the `n` or `corresp` attribute:
 
-`urn:cite2:NAMESPACE:COLLECTION.VERSION:OBJECT_ID`
-
-```
-Manuscript Folio Object:
-urn:cite2:hmt:msA.v1:62r
-
-High-Resolution IIIF Image:
-urn:cite2:hmt:va_images.v1:VA062RN_0062
-
-Image Region of Interest (Bounding Box Coordinates):
-urn:cite2:hmt:va_images.v1:VA062RN_0062@0.15,0.22,0.60,0.18
+```xml
+<msContents>
+    <msItem n="1" corresp="urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14">
+        <locus from="213r" to="213r">f. 213r</locus>
+        <title xml:lang="grc">Γένεσις</title>
+        <title xml:lang="en">Book of Genesis</title>
+        <textLang mainLang="grc">Ancient Greek</textLang>
+    </msItem>
+</msContents>
 ```
 
-By pairing CTS URNs (identifying the text) with CITE2 URNs (identifying the image and physical leaf), a digital scholarly edition establishes a complete, bi-directional alignment between the transcribed words, the physical parchment folio, and the digital facsimile pixels (Blackwell & Smith, 2019; Babeu, 2019).
+Look at what this accomplishes:
 
-This alignment allows users to click on any word in a digital critical edition and immediately highlight the exact pixels on the high-resolution manuscript image where the scribe wrote that word.
+1. `<locus>` records the **physical coordinates** on the parchment (`f. 213r`).
+2. `corresp="..."` records the **canonical literary coordinates** in the global CTS network (`Genesis 1:1-1.14`).
 
-**Takeaway:** CITE2 URNs identify physical manuscript folios and high-resolution images, linking textual transcriptions directly to visual facsimiles.
+Any modern digital humanities tool can now ingest your header and immediately connect your physical transcription to every other edition, translation, and commentary of Genesis Chapter 1 across the globe.
+
+**Vocabulary.** *`corresp` attribute* — a TEI attribute used to declare a correspondence or link between an element and an external resource or URN. *Dual citation* — anchoring both physical page location and canonical literary chapter/verse coordinates simultaneously.
+
+**Takeaway:** Embedding CTS URNs into `<msItem corresp="...">` links the physical folio of your manuscript to the global literary citation network.
 
 ---
 
 ## **24 Content**
 
-**The Linked Fragment: Citing Lost Authors and Textual Reuses**
+**Hands-On in VS Code: Connecting to the Schema**
 
-A profound challenge in classical philology is encoding *fragments*—lost historical texts that survive only as brief quotations, paraphrases, or allusions preserved within the surviving works of later authors (Berti, 2016).
+Now it is time for today's practical lab work. 
 
-In traditional print editions (such as Felix Jacoby's *Fragmente der griechischen Historiker*), editors printed reconstructed fragments in isolation, severing them from their physical host contexts. In digital philology, Monica Berti demonstrates that CTS URNs and TEI XML allow scholars to represent the "linked fragment" with total contextual fidelity (Berti, 2016).
+Open Visual Studio Code on your machine. Open your course repository, and locate the primary witness header file you hand-authored yesterday:
 
-Using TEI `<cit>` markup paired with CTS URNs, an editor records both the citing host text and the cited lost author:
+`03a_Lesson_2.1_Primary_Witness_Header.xml`
+
+Make a copy of this file for today's milestone:
+
+`03a_Lesson_2.2_Validated_Witness_Header.xml`
+
+Now, insert the official schema instruction at the very top of the file, right after line 1:
 
 ```xml
-<cit>
-  <quote>
-    <!-- Text of the lost fragment as quoted by the host author -->
-    <w ref="urn:cts:greekLit:tlg0016.tlg001:1.10">...</w>
-  </quote>
-  <bibl>
-    <author ref="https://viaf.org/viaf/100189914">Hecataeus of Miletus</author>
-    <title ref="urn:cts:greekLit:tlg0592.tlg001">Genealogiai</title>
-    <citedRange>Frag. 15</citedRange>
-  </bibl>
-</cit>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/msdesc/consolidated-tei-schema/master/msdesc.rng" 
+            type="application/xml" 
+            schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
 ```
 
-This architecture ensures that a fragment is never ripped from its manuscript host; the CTS URN anchors the quote to its exact place in the surviving witness while simultaneously connecting it to the author's virtual collected works (Berti, 2016).
+Save the file (`Ctrl+S` or `Cmd+S`).
 
-**Takeaway:** CTS URNs and TEI `<cit>` elements model fragmentary text reuses, preserving the physical host context while linking citations to lost works.
+Watch your editor. Within two seconds, the background XML language server in VS Code will parse your hand-written markup against the official schema. If you made any syntax or structural mistakes yesterday, red squiggly lines will appear!
+
+**Vocabulary.** *Schema linking* — declaring the online or local location of a schema within an XML file to enable real-time editor validation. *Diagnostics* — the automated error and warning messages generated by a language server.
+
+**Takeaway:** Copy your hand-written header to `03a_Lesson_2.2_Validated_Witness_Header.xml`, add the `xml-model` processing instruction, and let VS Code audit your markup.
 
 ---
 
 ## **25 Content**
 
-**CTS Implementations and Web Microservices**
+**Slaying the Red Squiggles: Reading Validator Error Messages**
 
-A persistent URN is an abstract identifier; to be useful to human researchers, it must be resolved into actual digital data. This resolution is handled by Canonical Text Services web microservices (Tiepmar & Heyer, 2014).
+When red squiggly lines light up your screen, do not panic! Every programmer and digital editor in the world spends their days debugging errors. The secret to debugging is learning how to read what the validator is trying to tell you.
 
-A CTS service is an API that accepts standardized HTTP requests and returns structured XML or JSON responses. The CTS specification defines five mandatory request verbs (Tiepmar & Heyer, 2014):
+Open the Problems panel in VS Code (`Ctrl+Shift+M` or `Cmd+Shift+M`). 
 
-1. `GetCapabilities`: Returns an inventory of all textgroups, works, editions, and translations available on the server.
-2. `GetValidReff`: Returns a list of all valid passage URNs within a given text or range.
-3. `GetPassage`: Returns the transcribed TEI XML text for a specific passage URN.
-4. `GetPassagePlus`: Returns the passage text along with preceding and following passage citations for navigation.
-5. `GetFirstUrn` / `GetPrevNextUrn`: Navigates linearly across the citation tree.
+Here are the three most common error messages you will encounter today, and how to fix them:
 
-```
-Example HTTP CTS API Request:
-https://cts.perseids.org/api/cts?request=GetPassage&urn=urn:cts:greekLit:tlg0527.tlg001.perseus-grc1:1.1
+1. **"Element 'xyz' is not allowed here"**: You put a tag in the wrong container or out of sequence. Check the order! Does `<publicationStmt>` come before `<sourceDesc>`? Did you accidentally put `<supportDesc>` outside of `<objectDesc>`?
+2. **"The element type 'xyz' must be terminated by the matching end-tag"**: You forgot the closing slash `/` in your end tag, or you forgot to close a tag altogether.
+3. **"Attribute 'material' has invalid value"**: You typed a value that violates the schema enumeration. For example, you typed `material="vellum"`, but the schema only permits `material="parchment"`. Change it to `"parchment"`!
 
-Server Response:
-<GetPassage>
-  <request><urn>urn:cts:greekLit:tlg0527.tlg001.perseus-grc1:1.1</urn></request>
-  <reply>
-    <passage>
-      <TEI xmlns="http://www.tei-c.org/ns/1.0">
-        <div type="edition" n="urn:cts:greekLit:tlg0527.tlg001.perseus-grc1">
-          <div type="textpart" subtype="chapter" n="1">
-            <div type="textpart" subtype="verse" n="1">
-              <p>ΟΡΑΣΙΣ ΗΝ ΕΙΔΕΝ ΗΣΑΙΑΣ ΥΙΟΣ ΑΜΩΣ...</p>
-            </div>
-          </div>
-        </div>
-      </TEI>
-    </passage>
-  </reply>
-</GetPassage>
-```
+Work through the Problems panel one line at a time. Click on an error in the panel, and VS Code will jump directly to the offending line in your code. Fix the issue, save the file, and watch the error count drop.
 
-Because CTS services speak a standardized protocol, a client application can pull Greek texts from Leipzig, Latin texts from Harvard, and Syriac texts from Oxford into a single unified collation interface (Tiepmar & Heyer, 2014).
+**Vocabulary.** *Debugging* — the process of identifying, analyzing, and removing errors from computer code or markup. *Problems panel* — the VS Code interface displaying active errors, warnings, and schema diagnostic messages.
 
-**Takeaway:** CTS web microservices expose standardized API endpoints (`GetPassage`, `GetValidReff`) that resolve abstract URNs into structured XML text fragments.
+**Takeaway:** Read schema error messages carefully to identify sequence mistakes, unclosed tags, or illegal attribute values, resolving them one by one.
 
 ---
 
 ## **26 Content**
 
-**Integrating CTS URNs into the `<teiHeader>` and Body**
+**Enriching with Linked Open Data: VIAF and Pleiades**
 
-To ensure that your digital edition is fully CTS-compliant, you must embed canonical identifiers directly into your TEI Header and structural text body.
+Once your file has zero grammatical errors, our next task is to enrich your header with Linked Open Data authority URIs.
 
-In the `<teiHeader>`, the `<msItem>` and `<title>` elements declare the canonical work identifier via the `@ref` attribute. In the `<body>` of the document, each hierarchical division (`<div>`) declares its structural subtype and canonical citation number (`@n`):
+Open your browser and look up two global identifiers for your witness:
 
-```xml
-<teiHeader>
-  <fileDesc>
-    <sourceDesc>
-      <msDesc>
-        <msContents>
-          <msItem n="2">
-            <title ref="urn:cts:greekLit:tlg0527.tlg001">Book of Isaiah</title>
-          </msItem>
-        </msContents>
-      </msDesc>
-    </sourceDesc>
-  </fileDesc>
-</teiHeader>
+1. **Holding Repository**: Go to `viaf.org` and search for your holding library (e.g. "Biblioteca Apostolica Vaticana" or "British Library"). Copy the canonical VIAF URL (e.g., `http://viaf.org/viaf/141312782`). Add it to `<repository>`:
+   ```xml
+   <repository ref="http://viaf.org/viaf/141312782">Biblioteca Apostolica Vaticana</repository>
+   ```
 
-<text>
-  <body xml:lang="grc" n="urn:cts:greekLit:tlg0527.tlg001.vat-gr-2125">
-    <div type="textpart" subtype="book" n="1">
-      <div type="textpart" subtype="chapter" n="1">
-        <div type="textpart" subtype="verse" n="1">
-          <p>ΟΡΑΣΙΣ ΗΝ ΕΙΔΕΝ ΗΣΑΙΑΣ ΥΙΟΣ ΑΜΩΣ...</p>
-        </div>
-        <div type="textpart" subtype="verse" n="2">
-          <p>ΑΚΟΥΕ ΟΥΡΑΝΕ ΚΑΙ ΕΝΩΤΙΖΟΥ ΓΗ...</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</text>
-```
+2. **Place of Origin**: Go to `pleiades.stoa.org` and search for the ancient city where your manuscript was produced (e.g., "Constantinople" or "Alexandria"). Copy the Pleiades URL (e.g., `https://pleiades.stoa.org/places/520998`). Add it to `<origPlace>`:
+   ```xml
+   <origPlace ref="https://pleiades.stoa.org/places/520998">Constantinople</origPlace>
+   ```
 
-By nesting `<div type="textpart" subtype="chapter" n="1">` and `<div type="textpart" subtype="verse" n="1">`, your XML tree mirrors the exact OHCO2 citation hierarchy, allowing automated CTS scrapers to harvest your text without manual configuration.
+Now, your edition is no longer an isolated file; it is an active node connected to international library and geographical authority networks.
 
-This alignment ensures that your edition can participate directly in distributed text service networks, automated alignment engines, and multi-witness collation pipelines.
+**Vocabulary.** *Entity enrichment* — adding external authority identifiers (URIs) to plain text names in an electronic document. *Canonical record* — the authoritative master entry representing an entity in a shared database.
 
-**Takeaway:** Embedding CTS URNs in `<msItem>` and structural `<div type="textpart">` elements aligns the TEI XML tree with the canonical citation hierarchy.
+**Takeaway:** Enrich your repository with its VIAF identifier and your place of origin with its Pleiades URI to connect your edition to global authority networks.
 
 ---
 
 ## **27 Content**
 
-**Hands-On: Validating and Enriching the Primary Witness Header**
+**Adding Your Canonical Citation: Minting Your CTS URN**
 
-Now we execute the core practical work of Meeting #4. You will take yesterday's hand-written XML file (`03a_Lesson_2.1_Primary_Witness_Header.xml`), open it in Oxygen XML Editor, and execute a complete deterministic validation and linked data audit.
+Now add your witness's canonical citation.
 
-Follow these systematic steps:
+Look at your chosen manuscript page. Identify the exact book, chapter, and verse range inscribed on the parchment (e.g., Genesis 1:1–14, or Iliad 1:1–25).
 
-1. **Schema Association:** Verify that the `<?xml-model?>` processing instructions for the TEI consolidated RELAX NG schema and Schematron rules are active at the top of your file.
-2. **Grammar Validation:** Run the Oxygen validator (`Validate Document` / `Ctrl+Shift+V` or `Cmd+Shift+V`). Inspect the error log:
-   - Fix all invalid element nesting (e.g., ensure `<supportDesc>` is inside `<objectDesc>`).
-   - Correct all non-standard date strings into ISO 8601 format (`YYYY-MM-DD` or `YYYY`).
-   - Fix all capitalization and entity escape errors.
-3. **Cross-Reference Auditing:** Run the Schematron audit:
-   - Ensure all `@hand` pointers (e.g., `#h1`) correspond to valid `<handNote xml:id="h1">` declarations.
-   - Verify that all `<msItem>` elements contain valid `<locus>` foliation coordinates.
-4. **Linked Data Enrichment:**
-   - Attach VIAF URIs to all historical authors, editors, and scribes (`<persName ref="...">`).
-   - Attach Getty TGN or Pleiades URIs to your manuscript's place of origin and current settlement (`<placeName ref="...">`).
-   - Attach Getty AAT URIs to physical support materials (`<material ref="...">`).
-   - Assign the canonical CTS URN to your primary work in `<msItem>` and `<body>`.
+In your `03a_Lesson_2.2_Validated_Witness_Header.xml` file, update `<msContents>`:
 
-Save your validated file as `src/modules/Topic_02_Cataloguing/03a_Lesson_2.2_Primary_Witness_Header_Validated.xml`.
+1. Construct the CTS URN according to standard syntax:
+   - Septuagint Greek: `urn:cts:greekLit:tlg0527.tlg001.opp-grc1:CHAPTER.VERSE_START-CHAPTER.VERSE_END`
+   - New Testament Greek: `urn:cts:greekLit:tlg0031.tlg001.opp-grc1:...`
+2. Insert this URN into the `corresp` attribute of `<msItem>`:
+   ```xml
+   <msContents>
+       <msItem n="1" corresp="urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14">
+           <locus>f. 213r</locus>
+           <title>Book of Genesis</title>
+           <textLang mainLang="grc">Greek</textLang>
+       </msItem>
+   </msContents>
+   ```
 
-**Takeaway:** The validation lab transforms raw manual markup into a certified, schema-valid, linked-data-enriched digital manuscript record.
+Save the file. Verify that VS Code accepts the attribute without schema warnings.
+
+**Vocabulary.** *URN minting* — generating and assigning a standardized uniform resource name according to established syntactic domain rules. *Corpus coordinates* — identifying a text passage by its standard author and work registry numbers.
+
+**Takeaway:** Construct the CTS URN for your full-page passage and attach it via `<msItem corresp="...">`, permanently indexing your witness in the global classical corpus.
 
 ---
 
 ## **28 Content**
 
-**Extracting RDF Triples from TEI via XSLT and SPARQL**
+**Extracting RDF Triples: Seeing Your Header as Linked Data**
 
-Once a TEI Header is validated and enriched with URIs, it can be automatically converted into RDF semantic triples. This transformation is typically executed using XSLT (Extensible Stylesheet Language Transformations) stylesheets (Koho et al., 2021).
+To verify that your Linked Data markup actually works, how does a computer read it?
 
-An XSLT script traverses the validated TEI XML tree, matches `<msDesc>`, `<origin>`, and `<persName>` elements, and outputs standard RDF/XML or Turtle syntax:
+When semantic web tools (like Apache Jena or Python's `rdflib`) ingest your TEI Header, they automatically extract RDF triples from your tags and attributes. 
 
-```xml
-<!-- Conceptual XSLT Rule for Generating RDF Triples from TEI -->
-<xsl:template match="tei:msDesc">
-  <rdf:Description rdf:about="http://example.org/manuscript/{@xml:id}">
-    <rdf:type rdf:resource="http://erlangen-crm.org/current/E22_Man-Made_Object"/>
-    <crm:P1_is_identified_by>
-      <xsl:value-of select="tei:msIdentifier/tei:idno"/>
-    </crm:P1_is_identified_by>
-    <crm:P46i_forms_part_of rdf:resource="{tei:msIdentifier/tei:repository/@ref}"/>
-  </rdf:Description>
-</xsl:template>
+From the tags you just authored, the computer generates clean semantic statements:
+
+```turtle
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://digi.vatlib.it/view/MSS_Vat.gr.2121>
+    dct:title "Vat. gr. 2121" ;
+    crm:P53_has_former_or_current_location <http://viaf.org/viaf/141312782> ;
+    crm:P7_took_place_at <https://pleiades.stoa.org/places/520998> ;
+    dct:relation <urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14> .
 ```
 
-When this transformation is executed across thousands of TEI documents, the resulting RDF graphs are ingested into a triple store (such as GraphDB or Apache Jena) and queried via SPARQL:
+Look at how clear that is to a computer! 
 
-```sparql
-PREFIX crm: <http://erlangen-crm.org/current/>
-PREFIX tei: <http://www.tei-c.org/ns/1.0/>
+- The manuscript volume has a title `"Vat. gr. 2121"`.
+- It is located at the Vatican Library (`viaf...141312782`).
+- It was created at Constantinople (`pleiades...520998`).
+- It carries the text of Genesis 1:1–14 (`urn:cts...`).
 
-SELECT ?manuscript ?shelfmark ?place
-WHERE {
-  ?manuscript a crm:E22_Man-Made_Object ;
-              crm:P1_is_identified_by ?shelfmark ;
-              crm:P108i_was_produced_by ?production .
-  ?production crm:P7_took_place_at ?place .
-  FILTER (CONTAINS(STR(?place), "Alexandria"))
-}
-```
+Your plain text XML file has officially become a queryable knowledge graph.
 
-This query searches millions of records in seconds, demonstrating the immense analytical payoff of structured, linked metadata (Koho et al., 2021; Koho et al., 2023).
+**Vocabulary.** *Turtle (`.ttl`)* — a human-readable text syntax used to write and serialize RDF semantic graphs. *Triple extraction* — the algorithmic translation of structured XML elements and attributes into semantic Subject-Predicate-Object statements.
 
-**Takeaway:** Validated TEI headers are transformed into RDF triples via XSLT, enabling lightning-fast SPARQL queries across decentralized international repositories.
+**Takeaway:** Automated parsers extract clean RDF triples from your TEI tags and `ref` attributes, transforming your XML file into a queryable semantic knowledge graph.
 
 ---
 
 ## **29 Content**
 
-**Auditing the Deterministic Pass: Clean Validation as the Stage Gate**
+**The Stage Gate: Achieving a Zero-Error Audit in Git**
 
-Before concluding today's deterministic session, you must verify that your enriched document passes all validation gates with **zero errors and zero warnings**.
+Before you commit today's work, you must pass the **deterministic stage gate**.
 
-In the RELS 398 curriculum, validation is not an optional checklist; it is an unforgiving stage gate. You cannot proceed to Friday's AI evaluation lab if your underlying ground-truth XML file contains broken trees or invalid datatypes.
+Look at the bottom left of your VS Code window. The Problems counter must say:
+**0 Errors, 0 Warnings.**
 
-Run the repository linter and schema checker from your terminal:
+A single remaining syntax error or schema violation means your document cannot be ingested by downstream pipelines in Weeks 3 through 13. Deterministic validation is an all-or-nothing threshold.
+
+Once your file passes with zero errors, stage and commit it to Git:
 
 ```bash
-# Verify Git status
-git status
-
-# Stage your validated, linked TEI file
-git add src/modules/Topic_02_Cataloguing/03a_Lesson_2.2_Primary_Witness_Header_Validated.xml
-
-# Commit the deterministic milestone with an informative audit log
-git commit -m "Topic 02: Validated primary witness header against RELAX NG, Schematron, and LOD authorities"
+git add 03a_Lesson_2.2_Validated_Witness_Header.xml
+git commit -m "Topic 02 (Cataloguing): Pass deterministic schema validation in VS Code with LOD & CTS enrichment [0 errors]"
+git push origin main
 ```
 
-Document your validation results in your personal lab notes: record how many syntax errors Oxygen caught in your Tuesday draft, what types of errors they were (e.g., date formats, nesting, unclosed tags), and how you resolved them. This error log will form the quantitative baseline for Friday's comparative report.
+Notice the commit message: `[0 errors]`. You are documenting that your work passed the automated audit. Your Git commit history is your permanent, tamper-proof lab notebook.
 
-**Takeaway:** A zero-error validation report is the mandatory stage gate that certifies your ground truth before comparative AI benchmarking.
+**Vocabulary.** *Stage gate* — a mandatory quality-assurance milestone that must be 100% satisfied before a project can advance to the next production phase. *Clean validation* — an XML document state containing zero errors and zero warnings against all active schemas.
+
+**Takeaway:** Verify that VS Code reports 0 errors and 0 warnings, then commit your validated header to Git as your certified deterministic milestone.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: The Triple Infrastructure of Digital Philology**
+**Synthesis: The Three-Step Cycle in Action**
 
-Today's meeting has integrated the three indispensable pillars of modern digital textual scholarship:
+Look back at what you have accomplished across the first two days of Module 02:
 
-1. **TEI XML & RELAX NG:** Provides the granular, hierarchical markup vocabulary and structural grammar to represent the complex materiality of handwritten codices (Cummings, 2018; TEI Consortium, 2025).
-2. **RDF & Linked Open Data:** Connects local document strings to global semantic knowledge graphs, turning isolated files into interoperable nodes on the Semantic Web (Koho et al., 2021; Koho et al., 2023).
-3. **CTS URNs & CITE Architecture:** Establishes permanent, machine-actionable, canonical citations that identify texts, passages, and manuscript folios independently of physical servers (Blackwell & Smith, 2019; Smith, 2009).
+1. **Tuesday (Manual Ground Truth)**: You hand-wrote your manuscript description in raw XML. You made human decisions about ink, parchment, and scribal hands, discovering firsthand the tactile complexity of the artifact.
+2. **Wednesday (Deterministic Validation)**: You introduced your draft to the machine. You ran it against the official TEI RELAX NG schema in VS Code, slayed the syntax errors, enriched your entities with VIAF and Pleiades URIs, and minted a permanent CTS URN.
 
-| Infrastructure Layer | Core Standard & Schema | Primary Function in Digital Scholarship | Scholarly Benefit |
-| --- | --- | --- | --- |
-| Codicological Markup | TEI XML / RELAX NG | Internal document grammar and manuscript description | Preserves material and paleographic nuances in machine-readable trees |
-| Semantic Web Graph | RDF / Linked Open Data | Global entity reconciliation and cross-repository queries | Connects local text strings to international authority knowledge bases |
-| Citation Ontology | CTS URN / CITE Architecture | Technology-independent, machine-actionable text addressing | Provides persistent, granular citations down to words and substrings |
+You now possess an authoritative, certified baseline. 
 
-```
-Comparative Cycle Progress — Week 2 (Topic 02):
-[X] Tue: Manual — Hand-written TEI Header and msDesc (Human Ground Truth)
-[X] Wed: Deterministic — RELAX NG & Schematron validation in Oxygen, RDF LOD, CTS URNs
-[ ] Fri: AI-Assisted — LLM metadata extraction scored against your manual baseline
-```
+Why was this two-step preparation so crucial?
 
-On Friday, we complete the cycle with Step 3: AI-assisted metadata extraction. You will prompt Large Language Models and computer vision pipelines to catalogue your manuscript passage automatically, scoring their outputs directly against the validated ground truth you certified today.
+Because on **Friday, in Lesson 2.3**, we unleash **Artificial Intelligence**. You will feed raw cataloguing prose and manuscript images into large language models (LLMs) and ask the AI to automatically extract metadata and generate TEI markup.
 
-**Takeaway:** TEI XML, RDF Linked Open Data, and CTS URNs form the three-part computational infrastructure that makes digital textual scholarship permanent, interoperable, and reproducible.
+Because LLMs are probabilistic, they will hallucinate. They will invent non-existent shelfmarks, mix up folio numbers, and generate invalid XML tags that sound convincing. But on Friday, the AI will not be able to fool you. You will have your human ground truth from Tuesday and your deterministic schema validator from Wednesday. You will measure the AI's output against your baseline, calculate its precision and recall, and discover exactly where AI accelerates scholarship—and where it fails.
+
+**Due today, Wednesday September 9.** Your fully validated `03a_Lesson_2.2_Validated_Witness_Header.xml` committed and pushed to GitHub with zero schema errors.
+
+**Next class (Friday).** Step 3: Probabilistic AI-assisted metadata extraction, entity recognition, and scoring AI accuracy against human ground truth.
+
+**Takeaway:** Manual ground truth plus deterministic validation creates the rigorous foundation needed to evaluate and control probabilistic AI on Friday.
 
 ---
 
 ## References
 
-Babeu, A. (2019). Digital catalogs of ancient Greek authors and works through papyrological data. In M. Berti (Ed.), *Digital Classical Philology: Ancient Greek and Latin in the Digital Revolution* (pp. 55–72). De Gruyter Saur. https://doi.org/10.1515/9783110599572
+Blackwell, C. W., & Smith, N. (2019). The CITE Architecture: A framework for linked data in the humanities. *Digital Humanities Quarterly, 13*(1).
 
-Berti, M. (2016). The linked fragment: TEI and the encoding of text reuses of lost authors. *Journal of the Text Encoding Initiative*, 8. https://doi.org/10.4000/jtei.1218
+Bodleian Libraries. (2024). *Bodleian TEI manuscript description schema (msdesc.odd)*. University of Oxford. https://github.com/bodleian/consolidated-tei-schema
 
-Blackwell, C., & Smith, N. (2019). The CITE Architecture: A conceptual and practical overview. In M. Berti (Ed.), *Digital Classical Philology: Ancient Greek and Latin in the Digital Revolution* (pp. 73–94). De Gruyter Saur.
+Cummings, J. (2018). The Text Encoding Initiative and the study of literature. In *A New Companion to Digital Humanities* (pp. 451–476). Wiley-Blackwell.
 
-Büttner, A., & Kautz, M. (2013). Bibliotheca Laureshamensis – digital: virtuelle Klosterbibliothek Lorsch. *Pergament und Stein (Lorscher Studien 2)*, 5–8.
+Griffitts, T. (2020). *Digital philology and the Text Encoding Initiative: Methods for ancient manuscript research*. De Gruyter.
 
-Cummings, J. (2018). The Text Encoding Initiative and the study of literature. In R. Siemens & S. Schreibman (Eds.), *A Companion to Digital Literary Studies* (pp. 451–476). Blackwell.
+Huskey, S. J. (2024). Committing to reproducibility and explainability: Using Git as a research journal. *International Journal of Digital Humanities, 6*, 9–21. https://doi.org/10.1007/s42803-023-00076-9
 
-Koho, M., Burrows, T., Hyvönen, E., Ikkala, E., Page, K., Ransom, L., ... & Wijsman, H. (2021). Harmonizing and publishing heterogeneous premodern manuscript metadata as Linked Open Data. *Journal of the Association for Information Science and Technology*, 73(2), 240–257. https://doi.org/10.1002/asi.24499
+Hyvönen, E., et al. (2021). Mapping Manuscript Migrations: A knowledge graph and portal for medieval and Renaissance manuscripts. *Digital Humanities Quarterly, 15*(2).
 
-Koho, M., Coladangelo, L. P., Ransom, L., & Emery, D. (2023). Wikibase model for premodern manuscript metadata harmonization, linked data integration, and discovery. *ACM Journal on Computing and Cultural Heritage*, 16(3), Article 56. https://doi.org/10.1145/3594723
+Smith, N., & Blackwell, C. W. (2012). *The Canonical Text Services protocol*. Harvard University Center for Hellenic Studies.
 
-Le Bœuf, P. (2012). Modeling rare and unique documents: Using FRBRoo/CIDOC CRM. *Journal of Archival Organization*, 10(2), 96–106.
-
-Smith, N. (2009). Citation in classical studies. *Digital Humanities Quarterly*, 3(1).
-
-TEI Consortium. (2025). *TEI P5: Guidelines for Electronic Text Encoding and Interchange*. Version 4.8.0. https://tei-c.org/release/doc/tei-p5-doc/en/html/
-
-Tiepmar, J., & Heyer, G. (2014). A new implementation for Canonical Text Services. In *Proceedings of the Workshop on Human-Computer Tractable Data for the Digital Humanities* (pp. 1–8).
+TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and interchange* (Version 4.12.0). https://tei-c.org/guidelines/p5/
