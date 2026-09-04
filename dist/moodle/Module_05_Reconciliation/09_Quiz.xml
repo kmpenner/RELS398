@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_05_Reconciliation/Weekly Quiz</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Formative Knowledge Check Quiz for Module_05_Reconciliation: Module 05 Knowledge Check Quiz.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Statistical Independence in Double-Keying</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does independent double-keying achieve an accuracy rate near 99.98% while single-pass transcription with proofreading rarely exceeds 95%?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>If Transcriber A has a 1% error rate and Transcriber B has a 1% error rate, the probability of an undetected shared error is 0.01%.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Independent typists make uncorrelated random errors, meaning the probability of both making the exact same error at the exact same position is the product of their individual error rates (e.g. 0.01 × 0.01 = 0.0001).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Independence ensures errors do not correlate, making identical simultaneous mistakes statistically improbable.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Proofreaders are legally prohibited from modifying raw digital transcription files.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Proofreading workflows allow editing; the failure is cognitive, not legal.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Two transcribers automatically cancel out camera optical distortion in the source image.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Optical distortion affects image quality, not the statistical model of human typing error.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Double-keying forces both transcribers to write in valid TEI XML syntax from the first keystroke.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-keying is a transcription methodology, independent of XML serialization.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Cognitive Confirmation Bias in Proofreading</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In digital humanities text digitization, why does 'proofreading' against an existing transcription systematically miss up to 50% of errors?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Proofreading against a draft creates cognitive anchoring, blinding the reader to subtle errors.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Human readers naturally perform top-down lexical completion, reading what they expect the sentence to say rather than what the characters literally depict.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Cognitive science shows the human brain automatically 'smooths over' typos and omissions when reading pre-existing text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Monitors emit high-frequency screen flicker that degrades short-term ocular memory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The limitation is cognitive expectation, not hardware display flicker.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Proofreaders are trained exclusively in modern grammar and cannot recognize historical scripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Even expert palaeographers suffer from confirmation bias when proofreading pre-existing transcripts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Operating systems cache previous keystrokes, causing proofreading tools to reload old errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Confirmation bias is a psychological phenomenon, not an OS cache behavior.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Inter-Annotator Agreement (Cohen's Kappa)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is Cohen's Kappa coefficient preferred over simple percent agreement when measuring Inter-Annotator Agreement (IAA) between two transcribers?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Cohen's Kappa = (Observed Agreement - Chance Agreement) / (1 - Chance Agreement).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Cohen's Kappa statistically accounts for the agreement that would be expected to occur by random chance alone.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In texts where 98% of characters match easily, percent agreement overstates reliability; Kappa isolates true consensus above chance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Cohen's Kappa automatically corrects misspelled words using an internal Latin dictionary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Kappa is a purely mathematical agreement statistic, not a spell-checker.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Simple percent agreement requires at least five independent transcribers to calculate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Percent agreement can be computed with two transcribers; its defect is ignoring chance agreement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Cohen's Kappa is the only metric supported by the TEI Consortium guidelines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI guidelines do not mandate specific statistical agreement formulas.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Character-Level vs. Word-Level Diffing</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When comparing two independent diplomatic transcriptions in VS Code or Terminal, why is character-level diffing (`diff` or `wdiff`) essential over standard line-level diffing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Character-level inspection isolates the exact disputed grapheme without visual clutter.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Standard line diffs flag an entire 40-character line as divergent even if only a single accent, dot, or ligature differs, obscuring the exact location of disagreement.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Line diffs provide too coarse a granularity for palaeographical reconciliation; character diffs pinpoint the exact glyph in question.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Line-level diffing consumes exponential RAM and crashes local editors on files over 10 KB.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Line diffing is computationally lightweight, but pedagogically and philologically too coarse.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Character-level diffing is required by Git version control before commits can be staged.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git operates natively on line diffs; character diffing is chosen for editorial precision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Standard line diffs automatically convert all Unicode characters to ASCII.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Diff utilities preserve Unicode encodings.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: The Adjudication Step</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the double-keying workflow, what is the specific role of the 'Adjudicator'?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Adjudication leverages expert attention efficiently by targeting only divergent points.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A designated third editor who inspects the high-resolution facsimile exclusively at points of disagreement to make the authoritative decision and produce the consensus ground truth.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The adjudicator does not re-transcribe the entire text, but focuses their expertise on resolving genuine discrepancies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An AI algorithm that automatically chooses whichever transcription was submitted first.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Adjudication is an expert scholarly judgment rooted in material evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A peer student who evaluates the grammar of the modern English translation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Adjudication operates on the source transcription, not dynamic translation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A legal representative who assigns Creative Commons licenses to the digital edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Licensing is distinct from philological adjudication.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Handling Genuine Palaeographical Ambiguity</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What should editors do during reconciliation when a letter is physically damaged such that both transcribers proposed plausible, mutually incompatible readings?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI markup allows digital editions to preserve scholarly debate and material ambiguity explicitly.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Encode the ambiguity using TEI `<choice>` wrapping `<orig>` or `<app>` with multiple `<rdg>` elements, preserving the uncertainty rather than forcing a false consensus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Scholarly digital editions document genuine physical ambiguity rather than concealing it behind forced certainty.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete the disputed character entirely and remove it from the line count.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Deleting text destroys material lineation and distorts downstream metrics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Toss a coin to pick one reading and mark it as verified ground truth.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Random choice violates scholarly integrity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Discard the manuscript witness and choose an undamaged printed edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical philology studies surviving material artifacts as they are.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: LLM Post-Editing vs. Independent Keying</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does having a human 'post-edit' an LLM-generated transcription often reproduce the same systemic failures as single-pass proofreading?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Independent human transcription remains the only immune baseline against generative hallucination.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The human editor becomes cognitively anchored to the LLM's plausible hallucinations, accepting fabricated words that fit the syntax but do not exist in the ink.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. LLMs generate fluent text, creating strong anchoring that deceives human checkers into confirming phantom readings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>LLMs introduce hidden invisible Unicode characters that lock the editor's keyboard.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The failure is human cognitive anchoring, not software keyboard locks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Post-editing requires running specialized neural networks on local GPUs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Post-editing is done in standard text editors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Academic copyright law invalidates editions that involve human-AI collaboration.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Intellectual property law does not prohibit AI-assisted scholarly editing.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Systematic vs. Random Errors in Double-Keying</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When evaluating reconciliation discrepancies, what distinguishes a 'systematic error' from a 'random error'?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Identifying systematic errors is how transcribers refine their palaeographical decipherment skills.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Systematic errors stem from conceptual misunderstandings of scribal conventions (e.g. consistently misidentifying long-s as 'f'), while random errors are accidental keystroke slips.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Systematic errors require paleographical re-education, whereas random errors are naturally filtered out by double-keying.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Systematic errors occur only in printed books, while random errors occur only in manuscripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both error classes occur across all material formats.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Random errors can be predicted using Cohen's Kappa, but systematic errors cannot.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Kappa measures overall agreement, not error taxonomy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Systematic errors always produce invalid XML syntax, while random errors produce valid XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Error class describes editorial causation, not XML schema validity.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Truth and Reconciliation in Textual Scholarship</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the methodology of textual reconciliation pedagogically and ethically significant when transcribing historical documents?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Reconciliation proves that truth is established through rigorous comparative adjudication.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It establishes historical truth through rigorous, accountable evidence-testing, confronting discrepancies openly rather than enforcing an unverified singular narrative.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Reconciliation in scholarship is an exercise in intellectual humility, evidence-based consensus, and transparent accountability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It guarantees that no two scholars will ever disagree on historical interpretation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarship always involves debate; reconciliation provides transparent evidence for that debate.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows editors to alter historical records to conform to modern sensibilities.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Philological reconciliation respects historical reality and material evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminates all human involvement from archival publishing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Reconciliation is fundamentally a human, deliberative process.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Downstream Impact on Computational Philology</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does a peer-reconciled consensus ground truth impact downstream machine learning tasks (such as training Transkribus HTR or fine-tuning LLMs)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Garbage in, garbage out: machine learning models can only be as accurate as their training ground truth.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It prevents models from learning human typographical noise as ground truth, significantly lowering model perplexity and Character Error Rates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Training algorithms on noisy ground truth bakes human errors into the neural network; reconciled data yields clean, robust models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows neural networks to bypass GPU computation and train instantly on CPU.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Data quality improves model accuracy, but does not eliminate hardware requirements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically triples the size of the training image dataset.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Reconciliation cleans text labels; it does not generate synthetic images.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It removes the need to validate XML schemas with Schematron.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Clean transcription text does not substitute for structural schema validation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
