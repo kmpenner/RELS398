@@ -40,24 +40,33 @@
 
 ## 4. Open Questions & Unresolved Issues
 
-- ⚠️ **[OPEN - AWAITING 5-HOUR QUOTA RESET]:** Slide deck generation for Lesson 3.3 (artifact count reached 66; prompt submitted cleanly after fixing picker toggle, but generation timed out waiting for new artifact). Resume when quota window refreshes.
-- ⚠️ **[OPEN - NEXT ACTION]:** Author Phase F module assembly packages (Banner, Objectives, Readings, Watch List, Workshop, Weekly Quiz) for Module 05 (Reconciliation) through Module 13.
+- ⚠️ **[OPEN - AWAITING 5-HOUR QUOTA RESET]:** Slide deck generation for Lesson 3.3 (artifact count reached 66; prompt submitted cleanly after fixing picker toggle, but generation timed out waiting for new artifact). Resume when quota window refreshes (~16:53 local time).
+- ⚠️ **[OPEN - NEXT ACTION]:** Resume image generation for Lesson 3.3 and proceed to companion media (brief, detailed, infographic) once quota refreshes, completing Module 03.
 
 ---
 
 ## 5. Active Milestone & Next Target
 
-- **Current Phase:** Phase F Module Assembly for Modules 05–13, and Phase D/E Slide Illustrations & Companion Media for remaining lessons (starting with Lesson 3.3 upon quota refresh).
+- **Current Phase:** Phase D/E Slide Illustrations & Companion Media for remaining lessons (starting with Lesson 3.3 upon quota refresh), following full completion of Phase F packages across all 13 modules.
 - **Verification Gate:** `python3 scripts/lint_lesson_content.py --course-dir .` (36/36 clean, 0 issues) & `python3 scripts/status.py`.
 - **Immediate Next Steps:**
-  1. Author Phase F package (Banner, Objectives, Readings, Watch List, Workshop, Weekly Quiz) for Module 05 (Reconciliation).
-  2. Perform novice accessibility review on Module 03 lessons (3.1, 3.2, 3.3) to ensure terminology and digital imaging concepts remain beginner-friendly.
-  3. Re-run `generate_lesson_images.py --topic 3 --lesson 3.3` once Gemini Notebook quota refreshes.
+  1. Re-run `generate_lesson_images.py --topic 3 --lesson 3.3` once Gemini Notebook quota refreshes.
+  2. Generate companion media for Lesson 3.3 (`brief.m4a`, `detailed.m4a`, `infographic.jpg`).
+  3. Compile interactive XML (`03_Interactive_Lesson_3.3.xml`) and HTML player for Lesson 3.3.
+  4. Ensure Tuesday Meeting #3 readiness (Lesson 2.1 Teaching Plan and `witness_template.xml`).
 
 ---
 
 ## 6. Recent Workstream Ledger
 
+- **[2026-09-04]**: Completed Phase F assembly packages for **all remaining modules (Modules 05 through 13)**:
+  - Authored and generated branded 1200×300 banners (`01_Banner.png`), Learning Objectives HTML, Reading Lists, Curated Watch Lists, Workshop suites (descriptions, submission guides, 10-point rubrics), and 10-question Weekly Knowledge Check Quizzes with rich diagnostic feedback (`scripts/banks/quiz_05.py` through `quiz_13.py` -> `09_Quiz.xml`).
+  - All 13 course modules now possess 100% complete, fully validated Phase F assembly packages in both `src/modules/` and `dist/moodle/`.
+- **[2026-09-04]**: Completely eliminated all legacy Oxygen XML references across the entire course repository:
+  - Re-anchored instructions and validation workflows in Lessons 1.2, 9.3, 10.1, 10.2, 11.1, 13.1, 13.2, 13.3, and Question XMLs to Visual Studio Code (with XML extensions) and deterministic command-line validation (`xmllint`, `jing`).
+- **[2026-09-04]**: Prepared Tuesday Sep 8 lab assets:
+  - Authored and validated [src/modules/Module_02_Cataloguing/witness_template.xml](file:///home/kmpenner/projects/RELS/398/src/modules/Module_02_Cataloguing/witness_template.xml) as the starter ground-truth TEI Header skeleton for students to reference or copy during Tuesday's lab.
+  - Synchronized compiled `03b_Lesson_2.3_Questions.xml` to `dist/moodle/Module_02_Cataloguing/`.
 - **[2026-09-04]**: Completed Phase F assembly package for Module 04 (Diplomatic Transcription & HTR): generated 1200x300 banner (`01_Banner.png`), Learning Objectives, Reading List, Watch List, Workshop suite, and 10-question Weekly Knowledge Check Quiz (`scripts/banks/quiz_04.py` / `09_Quiz.xml`).
 - **[2026-09-04]**: Fully refreshed and synchronized Section 2 (Module 02: Cataloguing) on live Moodle with our newly rewritten novice-accessible Lesson 2.1 and 2.2 content, fresh question banks, Notes PDFs, and sequential completion gates. Verified Section 1 student attempts intact (`cmid=1427950`, Attempts: 3).
 - **[2026-09-04]**: Upstream fixes in `shared/scripts/notebook_ui.py`: repaired source picker view mode toggle to only switch when flat list options are absent, and added support for dismissing Google interstitial announcement modals with "Close dialog" buttons.
