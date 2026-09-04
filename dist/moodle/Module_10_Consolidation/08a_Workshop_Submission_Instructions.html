@@ -1,0 +1,11 @@
+<div class="card p-3 mb-3" style="padding: 1.25rem;">
+    <h4 style="margin-top: 0;">Submission Instructions</h4>
+    <ol>
+        <li>Create a feature branch in your repository and invite your partner as a collaborator or work via fork/PR.</li>
+        <li>Concurrently edit the same line of TEI XML in both branches to produce an intentional merge conflict.</li>
+        <li>Open the conflicted file in VS Code, evaluate both conflicting readings against your facsimile evidence, combine them correctly into a single valid TEI block, and delete all conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>).</li>
+        <li>Verify well-formedness with <code>xmllint --noout</code> and complete the merge commit.</li>
+        <li>Run a complete validation sweep on all TEI XML files in your project directory against the official TEI All Relax NG schema, verifying zero validation errors.</li>
+        <li>Submit your merged Git commit hash, terminal validation sweep log, and a <strong>300–500 word reflection</strong> on how continuous integration safeguards scholarly editions against accidental regression.</li>
+    </ol>
+</div>
