@@ -153,7 +153,7 @@ Understanding the movement of data between these environments requires tracking
 four distinct storage zones on your computer and the network:
 
 1. **Working Directory:** The physical files on your local drive that you directly
-   edit in VS Code or Oxygen XML Editor.
+   edit in VS Code with XML extensions.
 
 2. **Staging Area (Index):** The local preparation zone where you gather specific
    modified files (`git add`) prior to committing.
@@ -654,7 +654,7 @@ branch, make the necessary corrections in your text editor, and commit the fixes
 git checkout transcribe/ms-a-folio-14v
 
 # 2. Edit the TEI XML file to address reviewer feedback
-# (e.g. fix the <orig> tag in VS Code / Oxygen)
+# (e.g. fix the <orig> tag in VS Code)
 
 # 3. Stage and commit the correction with a clear commit message
 git add src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
@@ -825,7 +825,7 @@ transcriptions (Huskey, 2024).
 | Step | Terminal Operation | Action and Verification |
 |---|---|---|
 | **1. Identify Conflicted Files** | `git status` | Look under "Unmerged paths" to see which exact `.xml` files contain collision markers. |
-| **2. Inspect and Adjudicate** | Open file in VS Code / Oxygen | Locate each `<<<<<<< HEAD` block. Evaluate both readings against the IIIF facsimile, combine valid markup, and delete all conflict markers. |
+| **2. Inspect and Adjudicate** | Open file in VS Code | Locate each `<<<<<<< HEAD` block. Evaluate both readings against the IIIF facsimile, combine valid markup, and delete all conflict markers. |
 | **3. Validate Well-Formedness** | `xmllint --noout <file>` | Verify that your manual edits did not unbalance tags or break basic XML syntax rules. |
 | **4. Stage and Conclude Merge** | `git add <file>`<br>`git commit` | Staging the file informs Git that the conflict has been resolved. Committing completes the merge node. |
 

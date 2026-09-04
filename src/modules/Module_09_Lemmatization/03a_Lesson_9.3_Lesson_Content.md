@@ -870,7 +870,7 @@ A modern **Human-in-the-Loop (HITL)** digital editorial workflow establishes an 
 
 2. **Confidence Filtering:** Software scripts flag tokens with low confidence scores ($< 0.85$), conflicting ensemble predictions, or out-of-vocabulary roots.
 
-3. **Interactive Scholarly Review:** Editors review flagged tokens inside dedicated visual editing environments (such as the Alpheios Alignment Editor, Arethusa, or Oxygen XML Editor), correcting false readings with a single click.
+3. **Interactive Scholarly Review:** Editors review flagged tokens inside dedicated visual editing environments (such as the Alpheios Alignment Editor, Arethusa, or VS Code with XML and linguistic tools), correcting false readings with a single click.
 
 4. **Active Learning Retraining:** Manually corrected annotations are committed to the project's Git repository and fed back into local fine-tuning pipelines, continuously improving the accuracy of the project's specialized neural models.
 

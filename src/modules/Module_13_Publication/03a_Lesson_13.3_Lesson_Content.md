@@ -1017,7 +1017,7 @@ Before publishing your digital critical edition to Zenodo and GitHub, you must e
 | Gate # | Quality Assurance Gate | Verification Action | Pass / Fail Criterion |
 | --- | --- | --- | --- |
 | **Gate 1** | **XML Well-Formedness** | Run `xmllint --noout data/*.xml` | Zero XML syntax or unclosed tag errors |
-| **Gate 2** | **ODD Schema Validation** | Validate XML against compiled Relax NG (`.rng`) | Zero schema invalidity errors in Oxygen |
+| **Gate 2** | **ODD Schema Validation** | Validate XML against compiled Relax NG (`.rng`) | Zero schema invalidity errors in VS Code and validation pipelines |
 | **Gate 3** | **Content Linter** | Run `python3 scripts/lint_lesson_content.py` | Exactly 0 lint issues across all course lessons |
 | **Gate 4** | **Pointer Integrity** | Verify all `@wit` values match `<listWit>` IDs | Zero broken or unresolved `#wit-` pointers |
 | **Gate 5** | **Apparatus Alignment** | Check `<lem>` text matches base reading text verbatim | Zero discrepancies between lemma and reading view |

@@ -999,7 +999,7 @@ Executing this protocol manually gives you firsthand experience with the cogniti
 While manual alignment requires human philological judgement, you should leverage modern developer tooling to prevent mechanical syntax errors, broken XML tags, and invalid URI pointers.
 
 ### 1. Monospace Text Editors & Column Formatting
-When drafting four-line IGT in plain text, use an editor configured with a true monospace font (e.g., JetBrains Mono, Fira Code) and disable soft line wrapping. Modern editors (such as VS Code, Emacs, or Oxygen XML Editor) support column selection mode (`Alt+Shift+Drag` in VS Code), allowing you to edit and align multiple vertical tiers simultaneously.
+When drafting four-line IGT in plain text, use an editor configured with a true monospace font (e.g., JetBrains Mono, Fira Code) and disable soft line wrapping. Modern editors like VS Code support column selection mode (`Option+Shift+Drag` on macOS or `Alt+Shift+Drag` on Windows/Linux), allowing you to edit and align multiple vertical tiers simultaneously.
 
 ### 2. XML Schema Validation with RelaxNG and `xmllint`
 When authoring TEI XML markup, always validate your document against the official TEI P5 schema. The fastest way to validate TEI XML from the command line is using `xmllint`:

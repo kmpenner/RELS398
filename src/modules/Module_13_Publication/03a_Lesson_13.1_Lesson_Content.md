@@ -1075,7 +1075,7 @@ During today's studio session, you will exchange edition packages with a peer re
 
 | Audit Dimension | Verification Task | Critical Failure Indicator |
 | --- | --- | --- |
-| **Schema Validation** | Validate TEI XML against Relax NG schema | Any schema validation error in Oxygen |
+| **Schema Validation** | Validate TEI XML against Relax NG schema | Any schema validation error in VS Code or `jing` |
 | **Pointer Resolution** | Verify all `@wit` pointers match `<listWit>` IDs | Broken `@wit` references (e.g., `#wit-Z` undefined) |
 | **Stemmatic Logic** | Check conjunctive errors against declared stemma | Sibling witnesses lacking shared conjunctive errors |
 | **Apparatus Accuracy** | Verify `<lem>` matches reading text verbatim | Divergence between lemma and printed base text |

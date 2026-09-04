@@ -54,15 +54,15 @@ structured human peer review.
 
 When editors begin working with XML, they typically rely on interactive validation
 features embedded within desktop Integrated Development Environments (IDEs), such
-as Oxygen XML Editor or XML extensions in VS Code. In these desktop environments,
-the editor validates files on demand, watching for red squiggly underlines or
-clicking a "Validate" button to check the document against a local schema
+as XML extensions in VS Code. In these desktop environments,
+the editor validates files on the fly, showing red squiggly underlines or
+providing diagnostic panels to check the document against a configured schema
 (Kalvesmaki, 2024). While local interactive feedback is essential during initial
 authoring, relying solely on local validation in a collaborative project is
 inherently fragile.
 
 Local validation environments suffer from severe configuration drift. One student
-may have configured Oxygen to validate against a cached copy of the TEI All schema,
+may have configured their editor to validate against a cached copy of the TEI All schema,
 another may be validating against a customized local RELAX NG file, and a third may
 have disabled schema validation entirely due to a misconfigured XML catalog path
 (Faghihi et al., 2022). Furthermore, local validation depends entirely on human
@@ -760,7 +760,7 @@ In the header above, two distinct processing instructions are declared:
 - The second links `project_rules.sch` and specifies the ISO Schematron namespace
   (`http://purl.oclc.org/dsdl/schematron`).
 
-When Oxygen, VS Code, or `xml-model-validator` opens this file, it immediately
+When VS Code or `xml-model-validator` opens this file, it immediately
 recognizes both schemas and executes both validation passes concurrently (Dunning,
 2020; TEI Consortium, 2026).
 

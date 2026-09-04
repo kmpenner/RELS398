@@ -323,7 +323,7 @@ This is why the FAIR principles and the workflow belong in Orientation, before a
 
 **Tool: Editing and Validating XML in VS Code**
 
-In this course, we use **Visual Studio Code (VS Code)** rather than proprietary applications like Oxygen to edit all text and XML files. Installing an XML extension (such as the standard Red Hat XML extension or Scholarly XML) equips VS Code with professional-grade XML capabilities: real-time schema validation (against RELAX NG, W3C XML Schema, or DTDs), tag autocompletion, syntax checking, and inline error highlighting right as you type.
+In this course, we use **Visual Studio Code (VS Code)** rather than proprietary commercial suites to edit all text and XML files. Installing an XML extension (such as the standard Red Hat XML extension or Scholarly XML) equips VS Code with professional-grade XML capabilities: real-time schema validation (against RELAX NG, W3C XML Schema, or DTDs), tag autocompletion, syntax checking, and inline error highlighting right as you type.
 
 Why this matters: XML is strict. A mistyped tag or an element in the wrong place makes the file unusable to downstream parsers. Real-time validation in VS Code catches syntax defects immediately, as red squiggles and diagnostic warnings in your editor panel, before broken markup ever reaches your Git repository or publication pipeline.
 
