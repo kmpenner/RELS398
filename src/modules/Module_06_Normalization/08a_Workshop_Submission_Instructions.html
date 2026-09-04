@@ -1,0 +1,10 @@
+<div class="card p-3 mb-3" style="padding: 1.25rem;">
+    <h4 style="margin-top: 0;">Submission Instructions</h4>
+    <ol>
+        <li>Select a 20-line excerpt from your consensus diplomatic transcription.</li>
+        <li><strong>Step 1 (Manual):</strong> Hand-encode all orthographic variations using TEI <code>&lt;choice&gt;&lt;orig&gt;diplomatic&lt;/orig&gt;&lt;reg resp="#editor"&gt;normalized&lt;/reg&gt;&lt;/choice&gt;</code>, documenting your explicit regularization rules.</li>
+        <li><strong>Step 2 (Script):</strong> Write a small Python script (<code>normalize.py</code>) using <code>re.sub()</code> rules that automatically applies your orthographic rules to the raw text.</li>
+        <li><strong>Step 3 (AI):</strong> Pass the raw diplomatic text to an LLM (via VS Code or local CLI) with a system prompt instructing it to normalize orthography while preserving morphological syntax.</li>
+        <li>Submit your TEI XML file, your Python script, and a <strong>300–500 word comparative reflection</strong> evaluating the false positive and hypercorrection rate of the automated passes against your manual baseline.</li>
+    </ol>
+</div>
