@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_04_Transcription/Weekly Quiz</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Formative Knowledge Check Quiz for Module_04_Transcription: Module 04 Knowledge Check Quiz.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Diplomatic vs. Normalized Transcription</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What defines a diplomatic transcription in contrast to a normalized critical edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Diplomatic transcription models the physical manuscript witness as a material document.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It faithfully records the exact graphemic characters, lineation, scribal errors, and physical abbreviations found on the surface without modernization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Diplomatic transcription prioritizes the physical carrier's exact graphemic reality over editorial modernization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It modernizes spelling, punctuation, and capitalization to make the text immediately legible to modern readers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That describes a normalized or modernized edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It reconstructs lost archetype readings by collating multiple manuscript witnesses together.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That describes stemmatic critical collation, not diplomatic transcription.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It translates historical idiomatic expressions into contemporary English equivalents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transcription deals with the source text, not dynamic-equivalence translation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The Primacy of Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must manual diplomatic transcription precede automated HTR and LLM workflows in scientific philology?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The manual baseline is the scientific control of computational editing.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Human diplomatic transcription provides the authoritative ground truth against which machine error rates and hallucinations are quantitatively evaluated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Without verified human ground truth, automated outputs cannot be scored or audited.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transkribus and LLMs cannot parse digital images unless a human types the text first into the model prompt.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Vision models can process raw pixels directly; human text is needed for evaluation, not initiation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Unicode standards require human verification before digital font glyphs can render on web browsers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Font rendering engines parse character codepoints automatically.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>International copyright law prohibits training computer vision models directly on raw manuscript photographs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Copyright law does not govern the technical sequencing of manual and automated editing.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Baselines in HTR Models</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the Transkribus HTR pipeline, what is the specific technical function of a 'baseline'?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Transkribus trains character recognition on extracted baseline polygon strips.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A vector line upon which the characters of a line of text rest, guiding the neural network's sequential character recognition window.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Baselines define the geometric orientation and trajectory along which character recognition models traverse text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A bounding rectangle enclosing the entire manuscript page to crop out library margins and color charts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is a page or Region of Interest (ROI) boundary, not a baseline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The minimum acceptable Character Error Rate (CER) required before a model can be deployed in production.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is an accuracy threshold, not a baseline in layout analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The baseline coordinates of the holding library's physical building in geographic coordinates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Baselines are image coordinate vectors.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Character Error Rate (CER) Calculation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How is Character Error Rate (CER) mathematically calculated when benchmarking machine transcription against human ground truth?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CER = (Substitutions + Deletions + Insertions) / Total Reference Characters.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The sum of character substitutions, deletions, and insertions divided by the total number of characters in the ground truth.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. CER is normalized Levenshtein distance computed at the character level.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The total number of misspelled words divided by the total word count of the document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is Word Error Rate (WER), not CER.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The percentage of pixels in the binary image that do not match the predicted font outline.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pixel mismatch measures visual binarization loss, not semantic character error.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The ratio of valid XML tags to total XML tags generated by the vision-language model.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That measures syntactic schema validity, not transcription CER.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Vision-Language Model Hallucination</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary architectural cause of 'hallucination' when using Vision-Language Models (such as GPT-4o or Claude 3.5 Sonnet) for manuscript transcription?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Generative models hallucinate when language probability overpowers weak visual signals.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The model's autoregressive language prior overrules ambiguous visual evidence, generating syntactically plausible text that does not exist on the page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Strong linguistic priors cause the model to 'read' what it expects textually rather than what ink actually depicts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The image resolution is automatically downsampled by the browser, destroying high-frequency line edges.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Downsampling causes blur and unreadability, but not generative hallucination of absent text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model's internal memory runs out of tokens, causing it to loop the same sentence repeatedly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Token exhaustion causes truncated output, not fabricated readings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The physical manuscript's ink chemical composition interferes with optical character recognition sensors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLMs operate on digital pixels, not chemical sensors.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: TEI Diplomatic Abbreviation Markup</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In TEI XML diplomatic encoding, which pair of elements is used to capture both the original scribal abbreviation and its editorial expansion?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><choice><abbr>...</abbr><expan>...</expan></choice> is the standard TEI pattern.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><choice> wrapping <abbr> and <expan></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The <choice> container allows digital editions to toggle between diplomatic (<abbr>) and expanded (<expan>) views.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><subst> wrapping <add> and <del></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <subst> encodes scribal substitutions (additions replacing deletions).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><orig> wrapping <sic> and <corr></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <choice> wraps <sic> and <corr>, or <orig> and <reg>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><app> wrapping <rdg> and <lem></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <app> is for critical apparatus variants across multiple witnesses.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Overfitting in PyLaia HTR Training</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is 'overfitting' in the context of training a custom Transkribus PyLaia HTR model?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Overfitted models show artificially low validation loss on training data but fail on validation sets.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The model achieves near 0% CER on the training pages by memorizing noise and specific ink blots, but fails to generalize to unseen folios in the same hand.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Overfitting occurs when a neural network memorizes training idiosyncrasies at the expense of generalizability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model exceeds the 100-page training limit imposed by Transkribus cloud servers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is an administrative quota, not statistical overfitting.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The neural network layers become too wide to fit into the GPU memory buffer during inference.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That causes an Out-Of-Memory (OOM) error, not overfitting.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model attempts to transcribe text in two different languages simultaneously within the same line.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Polyglot training is a domain transfer task, not overfitting.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Show-Through and Bleed-Through Artifacts</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When an ancient or colonial manuscript has ink bleeding through from the reverse side (show-through), what risk does this pose to automated layout analysis?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Bleed-through requires morphological filtering or manual baseline curation in Transkribus.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The algorithm mistakenly detects the reverse-side ink traces as active text baselines on the current folio.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Bleed-through ink often mimics dark strokes, triggering false baseline generation in layout analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The image file format corrupts and cannot be read by IIIF image servers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Visual bleed-through does not corrupt image file headers or IIIF manifests.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The character recognition engine defaults to Latin script regardless of the language.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Script priors are determined by language models, not ink bleed-through.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The XML validator flags the document as structurally ill-formed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schema validation tests XML syntax, not image pixel artifacts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Leiden Conventions for Lacunae</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Under the Leiden Conventions frequently used in documentary papyrology and epigraphy, what do square brackets `[ ... ]` indicate?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>In TEI, Leiden `[...]` maps to `<supplied reason="lost">`.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Text lost through physical damage to the carrier and restored by editorial conjecture.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Square brackets signal a physical lacuna where text is missing and supplied by the editor.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Text deleted by the original scribe by strikethrough or expunction.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scribal deletions are marked with braces `{...}` in Leiden conventions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Abbreviations expanded by the modern editor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial expansions of abbreviations are marked with parentheses `(...)`.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Letters that are damaged and legible only through contextual guesswork.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Uncertain letters are indicated with underdots in Leiden notation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: WER vs. CER Divergence</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is Word Error Rate (WER) typically significantly higher than Character Error Rate (CER) on historical manuscript corpora?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>One single character substitution flips a whole word from correct to incorrect in WER.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A single incorrect character in a word causes the entire word to be scored as an error in WER.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Because words comprise multiple characters, a 5% CER easily translates to 20-30% WER.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Historical manuscripts do not separate words with spaces, making word counts impossible.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. While scriptio continua exists, WER algorithms tokenize by whitespace or dictionary boundaries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>WER measures only grammatical errors, whereas CER measures spelling errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both measure string edit distance, simply at different token granularities.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CER is weighted by token frequency, while WER treats all tokens identically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standard CER and WER are both unweighted edit distances.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
