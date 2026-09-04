@@ -40,22 +40,28 @@
 
 ## 4. Open Questions & Unresolved Issues
 
-- ⚠️ **[OPEN - AWAITING QUOTA / BATCH RUN]:** Slide deck generation for Lesson 3.3 and Modules 04–13.
-- ⚠️ **[OPEN - NEXT ACTION]:** Author Phase F module assembly packages (Banner, Objectives, Readings, Watch List, Workshop, Weekly Quiz) for Module 04 (Transcription) through Module 13.
+- ⚠️ **[OPEN - AWAITING 5-HOUR QUOTA RESET]:** Slide deck generation for Lesson 3.3 (artifact count reached 66; prompt submitted cleanly after fixing picker toggle, but generation timed out waiting for new artifact). Resume when quota window refreshes.
+- ⚠️ **[OPEN - NEXT ACTION]:** Author Phase F module assembly packages (Banner, Objectives, Readings, Watch List, Workshop, Weekly Quiz) for Module 05 (Reconciliation) through Module 13.
 
 ---
 
 ## 5. Active Milestone & Next Target
 
-- **Current Phase:** Phase D/E Slide Illustrations & Companion Media for remaining lessons (starting with Lesson 3.3), and Phase F Module Assembly for Modules 04–13.
+- **Current Phase:** Phase F Module Assembly for Modules 05–13, and Phase D/E Slide Illustrations & Companion Media for remaining lessons (starting with Lesson 3.3 upon quota refresh).
 - **Verification Gate:** `python3 scripts/lint_lesson_content.py --course-dir .` (36/36 clean, 0 issues) & `python3 scripts/status.py`.
 - **Immediate Next Steps:**
-  1. Resume slide deck generation for Lesson 3.3 (`.staging_L3.3/` preserved).
-  2. Author Phase F packages (Banner, Objectives, Readings, Watch List, Workshop, Weekly Quiz) for Module 04 (Transcription).
+  1. Author Phase F package (Banner, Objectives, Readings, Watch List, Workshop, Weekly Quiz) for Module 05 (Reconciliation).
+  2. Perform novice accessibility review on Module 03 lessons (3.1, 3.2, 3.3) to ensure terminology and digital imaging concepts remain beginner-friendly.
+  3. Re-run `generate_lesson_images.py --topic 3 --lesson 3.3` once Gemini Notebook quota refreshes.
 
 ---
 
 ## 6. Recent Workstream Ledger
+
+- **[2026-09-04]**: Completed Phase F assembly package for Module 04 (Diplomatic Transcription & HTR): generated 1200x300 banner (`01_Banner.png`), Learning Objectives, Reading List, Watch List, Workshop suite, and 10-question Weekly Knowledge Check Quiz (`scripts/banks/quiz_04.py` / `09_Quiz.xml`).
+- **[2026-09-04]**: Fully refreshed and synchronized Section 2 (Module 02: Cataloguing) on live Moodle with our newly rewritten novice-accessible Lesson 2.1 and 2.2 content, fresh question banks, Notes PDFs, and sequential completion gates. Verified Section 1 student attempts intact (`cmid=1427950`, Attempts: 3).
+- **[2026-09-04]**: Upstream fixes in `shared/scripts/notebook_ui.py`: repaired source picker view mode toggle to only switch when flat list options are absent, and added support for dismissing Google interstitial announcement modals with "Close dialog" buttons.
+- **[2026-09-04]**: Formalized In-Class Teaching Plans (Phase E5) in `shared/LESSON_PIPELINE.md`. Authored and compiled `Lesson_2.1_Teaching_Plan_2026-09-08.html` for Meeting #3 (Tuesday Sep 8), preserving teaching plans strictly in `src/modules/` and excluding them from `dist/`.
 
 - **[2026-09-03]**: Standardized on Visual Studio Code (VS Code) as the sole official text and XML editor across the course, removing all references to Oxygen XML Editor across Syllabus, Schedule, Lesson 1.2, Lesson 2.1, Lesson 2.2, question banks, and teaching plans.
 - **[2026-09-03]**: Enforced the full-page textual witness requirement (complete folio recto/verso or epigraphic surface) across Syllabus, Schedule, Lesson 1.2, and Lesson 2.1.
