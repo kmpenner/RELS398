@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 2.2 Teaching Plan (2026-09-09)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+            --accent-green: #065f46;
+            --accent-blue: #1e40af;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.55in 0.55in 0.55in 0.55in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .badge-done {
+            background: #ecfdf5;
+            border-color: #a7f3d0;
+            color: #065f46;
+        }
+
+        .badge-pending {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #1e40af;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong {
+            color: var(--stfx-navy);
+        }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p {
+            font-size: 9.5pt;
+            color: #713f12;
+            line-height: 1.4;
+        }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+        }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .time-col {
+            width: 16%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col {
+            width: 28%;
+            font-weight: 700;
+            color: var(--stfx-dark);
+        }
+
+        .desc-col {
+            width: 56%;
+            color: #334155;
+            line-height: 1.35;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul {
+            padding-left: 1.1rem;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .card li {
+            margin-bottom: 0.25rem;
+        }
+
+        .code-box {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 0.5rem 0.7rem;
+            border-radius: 4px;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            font-size: 8.5pt;
+            margin: 0.35rem 0;
+            line-height: 1.35;
+        }
+
+        .code-box .comment {
+            color: #94a3b8;
+        }
+
+        .code-box .highlight {
+            color: var(--stfx-gold);
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9.5pt;
+            }
+            .header-box {
+                margin-bottom: 0.6rem;
+            }
+            .requirement-callout {
+                background: #fefce8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .schedule-table th {
+                background: #002D62 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .context-banner {
+                background: #f1f5f9 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 · Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #4 (Lesson 2.2 In-Class Lab)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Wednesday, September 9, 2026</span>
+                <span class="badge">Time: 10:30 AM – 11:20 AM (50 mins)</span>
+                <span class="badge">Room: Mulroney Hall 3032 (MULH 3032)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PEDAGOGICAL ENTRY STATE AUDIT -->
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE (Lesson 2.1 Completed Tuesday):</strong><br>
+            • Every student has a hand-authored <code>witness.xml</code> with a complete <code>&lt;teiHeader&gt;</code>, committed to Git as their Step 1 ground-truth baseline.<br>
+            • No student has yet run their file against a formal schema — Tuesday's markup was written entirely by hand, with no autocomplete or validator feedback.<br>
+            • Students know the four core containers (<code>fileDesc</code>, <code>sourceDesc</code>/<code>msDesc</code>, <code>msIdentifier</code>, <code>physDesc</code>) and gave each scribal hand an <code>xml:id</code>.
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL TARGET (Step 2: Deterministic Validation):</strong><br>
+            • Copy yesterday's file to <code>03a_Lesson_2.2_Validated_Witness_Header.xml</code> and link it to the official <code>msdesc.rng</code> schema via an <code>xml-model</code> processing instruction.<br>
+            • Drive the Problems panel to <strong>0 errors, 0 warnings</strong>.<br>
+            • Enrich <code>&lt;repository&gt;</code> with a VIAF URI and <code>&lt;origPlace&gt;</code> with a Pleiades URI.<br>
+            • Mint a CTS URN for their passage and attach it via <code>&lt;msItem corresp="..."&gt;</code>, then commit the zero-error file to Git.
+        </div>
+    </div>
+
+    <!-- CORE DIRECTIVE CALLOUT -->
+    <div class="requirement-callout">
+        <h3>STEP 2 OF THE 3-STEP COMPARATIVE CYCLE: DETERMINISTIC VALIDATION</h3>
+        <p>
+            Remind students why the machine, not the instructor, now grades their markup: <strong>a schema evaluates identical input with zero variance — it is the uncompromising structural gatekeeper that human judgment cannot be.</strong> Today's zero-error file becomes the second data point in a three-step comparison: Tuesday's hand-authored draft, today's machine-validated and Linked-Data-enriched header, and Friday's AI-generated extraction, which students will score against this baseline for precision and recall.
+        </p>
+    </div>
+
+    <h3 class="section-header">Class Schedule & Pedagogical Flow (50 Minutes)</h3>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Timing</th>
+                <th class="activity-col">Phase & Focus</th>
+                <th class="desc-col">Instructor Teaching Cues & In-Class Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 – 10:36<br><small>(6 mins)</small></td>
+                <td>
+                    <strong>1. From Human Judgment to the Machine's Rulebook</strong><br>
+                    <small style="color:var(--stfx-slate);">Framing: What "Deterministic" Means</small>
+                </td>
+                <td>
+                    • Recap Tuesday in one line: <em>"You made humanistic, interpretive decisions about ink, margins, and hands."</em><br>
+                    • Contrast with today: a validator gives 2 + 2 = 4, never "around 4ish." Identical input, identical output, zero variance, every time.<br>
+                    • Name the stakes: a schema is not the enemy — it is the quality assurance that makes a digital edition durable for centuries.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:36 – 10:44<br><small>(8 mins)</small></td>
+                <td>
+                    <strong>2. Projector Demo: Linking the Schema</strong><br>
+                    <small style="color:var(--stfx-slate);">The <code>xml-model</code> Instruction</small>
+                </td>
+                <td>
+                    • Project VS Code. Open a copy of yesterday's file, save-as <code>03a_Lesson_2.2_Validated_Witness_Header.xml</code>.<br>
+                    • Insert the <code>xml-model</code> processing instruction (right panel code box) immediately below the <code>&lt;?xml version...?&gt;</code> line, then save.<br>
+                    • Watch the language server download the schema and audit in real time — narrate the first red squiggly line that appears and open the Problems panel (<code>Ctrl+Shift+M</code> / <code>Cmd+Shift+M</code>).<br>
+                    • Name RELAX NG's three constraint types on the board: <strong>Sequence</strong>, <strong>Choice</strong>, <strong>Cardinality</strong> — most errors are one of these three.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:44 – 11:04<br><small>(20 mins)</small></td>
+                <td>
+                    <strong>3. Hands-On Lab: Slaying the Red Squiggles</strong><br>
+                    <small style="color:var(--stfx-slate);">Students Validate & Fix Their Own File</small>
+                </td>
+                <td>
+                    • <strong>Student Action:</strong> Copy their own <code>witness.xml</code> to <code>03a_Lesson_2.2_Validated_Witness_Header.xml</code>, add the <code>xml-model</code> instruction, save, and open the Problems panel.<br>
+                    • <strong>Instructor Roaming:</strong> Triage the three common errors with students one at a time — see the "Reading Validator Messages" card at right.<br>
+                    • <strong>Checkpoint:</strong> Every student should reach 0 errors before moving on; do not let anyone skip ahead to enrichment with unresolved errors.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">11:04 – 11:16<br><small>(12 mins)</small></td>
+                <td>
+                    <strong>4. Linked Data Enrichment & CTS URN</strong><br>
+                    <small style="color:var(--stfx-slate);">VIAF, Pleiades, and the Citation URN</small>
+                </td>
+                <td>
+                    • Once a student's file is clean, send them to <code>viaf.org</code> for their holding repository and <code>pleiades.stoa.org</code> for the place of origin; add both as <code>ref="..."</code> attributes.<br>
+                    • Demonstrate constructing a CTS URN on the projector for the Genesis 1:1–14 example, then have students build their own passage's URN and attach it to <code>&lt;msItem corresp="..."&gt;</code>.<br>
+                    • Confirm VS Code still reports 0 errors after the new attributes are added — enrichment must not break validation.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">11:16 – 11:20<br><small>(4 mins)</small></td>
+                <td>
+                    <strong>5. Stage Gate & Friday Preview</strong><br>
+                    <small style="color:var(--stfx-slate);">Commit the Certified Baseline</small>
+                </td>
+                <td>
+                    • <strong>Terminal Git Checkpoint:</strong> every student runs<br>
+                      <code>git add 03a_Lesson_2.2_Validated_Witness_Header.xml</code><br>
+                      <code>git commit -m "Topic 02 (Cataloguing): Pass deterministic schema validation in VS Code with LOD & CTS enrichment [0 errors]"</code><br>
+                      <code>git push origin main</code><br>
+                    • <strong>Friday Teaser:</strong> <em>"On Friday we unleash AI. You will feed the same manuscript into an LLM and score its output against the ground truth you just certified — where does probabilistic AI accelerate scholarship, and where does it hallucinate?"</em>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4><code>xml-model</code> Instruction for Projection</h4>
+            <div class="code-box">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+&lt;?xml-model href="https://raw.githubusercontent.com/msdesc/consolidated-tei-schema/master/msdesc.rng"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="application/xml"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schematypens="http://relaxng.org/ns/structure/1.0"?&gt;<br>
+&lt;TEI xmlns="http://www.tei-c.org/ns/1.0"&gt;<br>
+&nbsp;&nbsp;...<br>
+&lt;/TEI&gt;
+            </div>
+            <div class="code-box">
+<span class="comment">&lt;!-- Enrichment: strings become things --&gt;</span><br>
+&lt;repository <span class="highlight">ref="http://viaf.org/viaf/141312782"</span>&gt;Biblioteca Apostolica Vaticana&lt;/repository&gt;<br>
+&lt;origPlace <span class="highlight">ref="https://pleiades.stoa.org/places/520998"</span>&gt;Constantinople&lt;/origPlace&gt;<br>
+&lt;msItem n="1" <span class="highlight">corresp="urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14"</span>&gt;
+            </div>
+        </div>
+        <div class="card">
+            <h4>Reading Validator Error Messages</h4>
+            <ul>
+                <li><strong>"Element 'xyz' is not allowed here":</strong> wrong order or wrong parent container — check whether <code>&lt;titleStmt&gt;</code> precedes <code>&lt;publicationStmt&gt;</code> precedes <code>&lt;sourceDesc&gt;</code>.</li>
+                <li><strong>"...must be terminated by the matching end-tag":</strong> a missing closing slash or an unclosed tag — scan for the open bracket without a partner.</li>
+                <li><strong>"Attribute 'material' has invalid value":</strong> a value outside the schema's enumeration — e.g. <code>material="vellum"</code> must become <code>material="parchment"</code>.</li>
+                <li><strong>Workflow:</strong> click an error in the Problems panel to jump to the offending line; fix one at a time and watch the count drop — do not try to fix everything before re-saving.</li>
+                <li><strong>Stage gate:</strong> the bottom-left Problems counter must read <strong>0 Errors, 0 Warnings</strong> before enrichment or commit.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
