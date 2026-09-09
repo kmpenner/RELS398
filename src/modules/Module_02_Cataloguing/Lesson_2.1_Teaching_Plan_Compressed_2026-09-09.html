@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 2.1 Compressed Teaching Plan (2026-09-09)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+            --accent-green: #065f46;
+            --accent-blue: #1e40af;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.55in 0.55in 0.55in 0.55in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .badge-done {
+            background: #ecfdf5;
+            border-color: #a7f3d0;
+            color: #065f46;
+        }
+
+        .badge-pending {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #1e40af;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong {
+            color: var(--stfx-navy);
+        }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p {
+            font-size: 9.5pt;
+            color: #713f12;
+            line-height: 1.4;
+        }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+        }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .time-col {
+            width: 16%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col {
+            width: 28%;
+            font-weight: 700;
+            color: var(--stfx-dark);
+        }
+
+        .desc-col {
+            width: 56%;
+            color: #334155;
+            line-height: 1.35;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul {
+            padding-left: 1.1rem;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .card li {
+            margin-bottom: 0.25rem;
+        }
+
+        .code-box {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 0.5rem 0.7rem;
+            border-radius: 4px;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            font-size: 8.5pt;
+            margin: 0.35rem 0;
+            line-height: 1.35;
+        }
+
+        .code-box .comment {
+            color: #94a3b8;
+        }
+
+        .code-box .highlight {
+            color: var(--stfx-gold);
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9.5pt;
+            }
+            .header-box {
+                margin-bottom: 0.6rem;
+            }
+            .requirement-callout {
+                background: #fefce8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .schedule-table th {
+                background: #002D62 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .context-banner {
+                background: #f1f5f9 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h1>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h1>
+            <h2>Instructor Teaching Plan: Meeting #4 &mdash; Lesson 2.1 (Compressed, Rescheduled Lab)</h2>
+            <div class="meta-badges">
+                <span class="badge">Date: Wednesday, September 9, 2026</span>
+                <span class="badge">Time: 10:30 AM &ndash; 11:20 AM (50 mins)</span>
+                <span class="badge">Room: Mulroney Hall 3032 (MULH 3032)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>ACTUAL STUDENT ENTRY STATE (Tuesday ran short):</strong><br>
+            &bull; Tuesday covered <strong>bash basics, launching VS Code, and opening the project folder</strong> &mdash; and stopped there.<br>
+            &bull; <strong>No student has authored any XML yet.</strong> The entire Lesson 2.1 markup block is outstanding.<br>
+            &bull; Students have chosen a candidate full-page textual witness and have <code>~/Documents/RELS398</code> open in VS Code with Git initialized.<br>
+            &bull; No XML extension is installed yet; Antigravity may be active and completing code.
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL TARGET (Step 1: Manual Ground Truth):</strong><br>
+            &bull; Install <strong>Red Hat XML</strong> only; disable Antigravity for the workspace.<br>
+            &bull; Hand-author a well-formed <code>witness.xml</code> with a complete <code>&lt;teiHeader&gt;</code>.<br>
+            &bull; <strong>No AI and no autocomplete</strong> &mdash; typing with their own fingers to build mental models.<br>
+            &bull; Commit the file to Git to anchor the authoritative baseline before leaving the room.
+        </div>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>WHAT WAS CUT, AND WHY IT IS SAFE TO CUT</h3>
+        <p>This plan drops the 8-minute Witness Showcase as a standalone phase (folded into the setup window while extensions install) and trims the projector demo from 12 minutes to 10. <strong>The 22-minute hands-on authoring block is preserved almost intact at 23 minutes &mdash; protect it.</strong> Step 1's whole pedagogical claim is that students cannot audit a machine's output if they have never done the work by hand; shortening the typing is the one cut that would break the three-step comparative cycle. If you run behind, cut enrichment detail and physDesc granularity, never the keyboard time.</p>
+    </div>
+
+    <h3 class="section-header">Class Schedule &amp; Pedagogical Flow (50 Minutes)</h3>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Timing</th>
+                <th class="activity-col">Phase &amp; Focus</th>
+                <th class="desc-col">Instructor Teaching Cues &amp; In-Class Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 &ndash; 10:36<br><small>(6 mins)</small></td>
+                <td>
+                    <strong>1. Tooling Setup &amp; The Detective Problem</strong><br>
+                    <small style="color:var(--stfx-slate);">Run the install and the framing in parallel</small>
+                </td>
+                <td>
+                    &bull; <strong>Start the install first, talk second.</strong> Direct everyone to Extensions (<code>Cmd+Shift+X</code>), search <em>XML</em>, install <strong>Red Hat XML</strong> (publisher: Red Hat). If it prompts for Java, that machine falls back to a partner's laptop &mdash; do not troubleshoot Java in class.<br>
+                    &bull; <strong>Disable Antigravity for this workspace</strong> (Extensions &rarr; Antigravity &rarr; Disable (Workspace)). Say why in one line: <em>"You cannot audit a machine's output if you have never done the work by hand."</em> It comes back on Friday.<br>
+                    &bull; <strong>While installs run &mdash; Quick Room Check:</strong> ask two or three students: <em>"What repository holds your artifact, what is its shelfmark, and what language is it in?"</em><br>
+                    &bull; <strong>The Core Problem, in one sentence:</strong> unlike a modern paperback with an ISBN and a title page, a historical artifact makes us describe the physical carrier &mdash; parchment, paper, ink, hands, quires &mdash; before we ever transcribe a word.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:36 &ndash; 10:46<br><small>(10 mins)</small></td>
+                <td>
+                    <strong>2. Anatomy of the Digital Passport</strong><br>
+                    <small style="color:var(--stfx-slate);">Projector Demonstration &mdash; four containers</small>
+                </td>
+                <td>
+                    &bull; <strong>Projector Demo:</strong> open VS Code on the main display, create <code>witness.xml</code>, and type the skeleton live. Type it &mdash; do not paste. They will type what they watch you type.<br>
+                    &bull; <strong>Walk the 4 Core Containers</strong> (roughly 2 minutes each):<br>
+                    &nbsp;&nbsp;1. <code>&lt;fileDesc&gt;</code> &mdash; title statement and open publication licence (CC BY-SA 4.0).<br>
+                    &nbsp;&nbsp;2. <code>&lt;sourceDesc&gt; / &lt;msDesc&gt;</code> &mdash; the physical manuscript description.<br>
+                    &nbsp;&nbsp;3. <code>&lt;msIdentifier&gt;</code> &mdash; settlement, repository, collection, shelfmark/<code>idno</code>.<br>
+                    &nbsp;&nbsp;4. <code>&lt;physDesc&gt;</code> &mdash; material (parchment vs. paper), foliation (recto vs. verso), ruling, scribal hands with an <code>xml:id</code> each.<br>
+                    &bull; <strong>Crucial Rule:</strong> tag symmetry &mdash; every tag opened is cleanly closed. Demonstrate deliberately breaking one closing tag so they see Red Hat XML's squiggle appear, then fix it.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:46 &ndash; 11:09<br><small>(23 mins)</small></td>
+                <td>
+                    <strong>3. Hands-On Lab: Authoring <code>witness.xml</code></strong><br>
+                    <small style="color:var(--stfx-slate);">Students type on their own laptops &mdash; PROTECTED TIME</small>
+                </td>
+                <td>
+                    &bull; <strong>Student Action:</strong> confirm the open folder is <code>~/Documents/RELS398</code>, create a new file named <code>witness.xml</code>, and author the header for their own artifact.<br>
+                    &bull; <strong>Leave the skeleton on the projector for the whole block.</strong> Do not advance slides; it is their reference.<br>
+                    &bull; <strong>Instructor Roaming:</strong><br>
+                    &nbsp;&nbsp;&ndash; Nova Scotia Archives / StFX holdings: guide recording the collection name and document call number.<br>
+                    &nbsp;&nbsp;&ndash; Medieval / classical: confirm support (parchment) and quire/folio designations.<br>
+                    &nbsp;&nbsp;&ndash; Help students identify scribal hands and folio sides (recto / verso).<br>
+                    &bull; <strong>Time check at 11:00.</strong> Anyone without a closed <code>&lt;/TEI&gt;</code> by then drops to the Minimum Viable Header (card at right) so they still have something to commit.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">11:09 &ndash; 11:16<br><small>(7 mins)</small></td>
+                <td>
+                    <strong>4. Stage Gate: Commit the Baseline</strong><br>
+                    <small style="color:var(--stfx-slate);">Terminal Git checkpoint</small>
+                </td>
+                <td>
+                    &bull; <strong>Every student runs, in the integrated terminal (<code>Ctrl+`</code>):</strong>
+                    <div class="code-box">git status<br>git add witness.xml<br>git commit -m "Step 1: Hand-authored TEI header ground truth"</div>
+                    &bull; <strong>Confirm the file is in the right place:</strong> if <code>git status</code> does not list <code>witness.xml</code>, it was saved outside <code>~/Documents/RELS398/</code> &mdash; the single most common failure at this gate.<br>
+                    &bull; This commit is the ground truth the next two steps are scored against. Nobody leaves without it.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">11:16 &ndash; 11:20<br><small>(4 mins)</small></td>
+                <td>
+                    <strong>5. Schedule Reset &amp; Friday Preview</strong><br>
+                    <small style="color:var(--stfx-slate);">Where the cycle now stands</small>
+                </td>
+                <td>
+                    &bull; <strong>Be explicit about the slip:</strong> "We are one meeting behind the plan; Friday absorbs it. Nothing is being dropped from the course."<br>
+                    &bull; <strong>Friday Teaser:</strong> <em>"On Friday we run your hand-written file against the formal TEI RELAX NG schema. You will find out which tags you misspelled or misnested &mdash; and you will let a machine, not me, be the one to tell you."</em><br>
+                    &bull; <strong>Homework, 10 minutes:</strong> install the <strong>Scholarly XML</strong> extension (publisher: Raff Viglianti) before Friday so the validation lab starts at full speed. Red Hat XML alone does not validate RELAX NG.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Minimal Starter Skeleton for Projection</h4>
+            <div class="code-box">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+&lt;<span class="highlight">TEI</span> xmlns="http://www.tei-c.org/ns/1.0"&gt;<br>
+&nbsp;&nbsp;&lt;<span class="highlight">teiHeader</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="highlight">fileDesc</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;titleStmt&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Electronic Edition of [Your Document Title]&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;author&gt;[Author or Anonymous]&lt;/author&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;editor&gt;[Your Name]&lt;/editor&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/titleStmt&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;publicationStmt&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;publisher&gt;St. Francis Xavier University&lt;/publisher&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;date when="2026"&gt;2026&lt;/date&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;availability&gt;&lt;licence target="https://creativecommons.org/licenses/by-sa/4.0/"&gt;CC BY-SA 4.0&lt;/licence&gt;&lt;/availability&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/publicationStmt&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="highlight">sourceDesc</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;msDesc&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="highlight">msIdentifier</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;repository&gt;[Holding Archive or Library]&lt;/repository&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;idno&gt;[Shelfmark / Call Number]&lt;/idno&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/msIdentifier&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="highlight">physDesc</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;objectDesc&gt;&lt;supportDesc material="paper"&gt;&lt;p&gt;Handmade rag paper.&lt;/p&gt;&lt;/supportDesc&gt;&lt;/objectDesc&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;handDesc&gt;&lt;handNote xml:id="h1"&gt;Primary scribal cursive script.&lt;/handNote&gt;&lt;/handDesc&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/physDesc&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/msDesc&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sourceDesc&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fileDesc&gt;<br>
+&nbsp;&nbsp;&lt;/teiHeader&gt;<br>
+&nbsp;&nbsp;&lt;text&gt;&lt;body&gt;&lt;p&gt;[Transcription to come in Module 4]&lt;/p&gt;&lt;/body&gt;&lt;/text&gt;<br>
+&lt;/TEI&gt;
+            </div>
+        </div>
+
+        <div class="card">
+            <h4>Triage: If the Lab Runs Long</h4>
+            <ul>
+                <li><strong>Minimum Viable Header (commit this at 11:09 regardless):</strong> <code>&lt;TEI&gt;</code> &rarr; <code>&lt;teiHeader&gt;</code> &rarr; <code>&lt;fileDesc&gt;</code> with <code>&lt;titleStmt&gt;</code>, <code>&lt;publicationStmt&gt;</code>, and a <code>&lt;sourceDesc&gt;/&lt;msDesc&gt;/&lt;msIdentifier&gt;</code> carrying repository and <code>idno</code>. Plus the closing <code>&lt;text&gt;</code> stub.</li>
+                <li><strong>First thing to defer:</strong> <code>&lt;physDesc&gt;</code> detail &mdash; ruling, foliation, additional hands. Assign as homework due before Friday.</li>
+                <li><strong>Second thing to defer:</strong> the CC BY-SA <code>&lt;availability&gt;</code> block. Cheap to add later, teaches nothing under time pressure.</li>
+                <li><strong>Never defer:</strong> the Git commit. An incomplete committed header is worth more to the three-step cycle than a perfect uncommitted one.</li>
+            </ul>
+
+            <h4 style="margin-top:0.6rem;">Common Novice Pitfalls to Watch For</h4>
+            <ul>
+                <li><strong>Unclosed or mismatched tags:</strong> <code>&lt;title&gt;...&lt;/author&gt;</code>, or omitting the slash in <code>&lt;/sourceDesc&gt;</code>.</li>
+                <li><strong>Case sensitivity:</strong> <code>&lt;teiHeader&gt;</code> is valid; <code>&lt;TeiHeader&gt;</code> and <code>&lt;TEIHEADER&gt;</code> will fail.</li>
+                <li><strong>Missing root element:</strong> forgetting the wrapping <code>&lt;TEI&gt;...&lt;/TEI&gt;</code> container.</li>
+                <li><strong>Smart quotes:</strong> if copying from notes, attributes need straight quotes (<code>"..."</code>), not curly ones.</li>
+                <li><strong>Saved in the wrong directory:</strong> <code>witness.xml</code> must sit inside <code>~/Documents/RELS398/</code> or Git will not see it.</li>
+                <li><strong>Antigravity still enabled:</strong> if a student's header appears fully formed in one keystroke, the extension is still live &mdash; disable it and have them retype.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

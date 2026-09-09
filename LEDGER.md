@@ -40,6 +40,7 @@
 
 ## 4. Open Questions & Unresolved Issues
 
+- ⚠️ **[OPEN - CONTENT CORRECTION NEEDED]:** `src/modules/Module_02_Cataloguing/03a_Lesson_2.2_Lesson_Content.md` tells students to use "Red Hat XML **or** Scholarly XML" for the `xml-model` step as if the two are interchangeable. They are not: Red Hat XML validates DTD and XSD, while RELAX NG (`msdesc.rng`) requires **Scholarly XML**. As written, a student with only Red Hat XML installed reaches "0 errors" because nothing is being checked — a silent failure at the Lesson 2.2 stage gate. Correct the lesson content and recompile the 2.2 question bank/notes before the validation lab runs.
 - ⚠️ **[OPEN - AWAITING 5-HOUR QUOTA RESET]:** Slide deck generation for Lesson 3.3 (artifact count reached 66; prompt submitted cleanly after fixing picker toggle, but generation timed out waiting for new artifact). Resume when quota window refreshes (~16:53 local time).
 - ⚠️ **[OPEN - NEXT ACTION]:** Resume image generation for Lesson 3.3 and proceed to companion media (brief, detailed, infographic) once quota refreshes, completing Module 03.
 
@@ -58,6 +59,12 @@
 ---
 
 ## 6. Recent Workstream Ledger
+
+- **[2026-09-09]**: Meeting #4 ran as a **rescheduled Lesson 2.1 lab, not Lesson 2.2**. Tuesday's Meeting #3 reached only bash basics, launching VS Code, and opening the project folder, leaving the entire TEI-header authoring block outstanding; the course is now one meeting behind plan.
+  - Authored `src/modules/Module_02_Cataloguing/Lesson_2.1_Teaching_Plan_Compressed_2026-09-09.html` for the Wed 10:30–11:20 slot: 6 min tooling setup (extension install running under the Detective Problem framing), 10 min projector demo of the four core containers, **23 min protected hands-on authoring**, 7 min Git stage gate, 4 min schedule reset. The Witness Showcase is folded into the setup window rather than run as its own phase; the authoring block is explicitly protected, since Step 1's ground-truth claim collapses if keyboard time is cut.
+  - Added a triage card (Minimum Viable Header = `fileDesc` + `msIdentifier` with repository and `idno`; defer `physDesc` detail first, `<availability>` second, **never** the commit) and an 11:00 hard time check, so every student commits something at the stage gate.
+  - **Settled the extension policy:** install **Red Hat XML only** for Lesson 2.1 (well-formedness and tag symmetry without schema-driven autocomplete), hold **Scholarly XML** back to the Lesson 2.2 validation step, and disable Antigravity per-workspace for 2.1 — re-enabled for the Lesson 2.3 AI-extraction lab.
+  - **Downstream:** Lesson 2.2 (deterministic validation) shifts to Friday and Lesson 2.3 (AI extraction) slides into the following week. Friday's plan has not yet been redrafted, and the 2.2/2.3 combination question is unresolved.
 
 - **[2026-09-04]**: Completed Phase F assembly packages for **all remaining modules (Modules 05 through 13)**:
   - Authored and generated branded 1200×300 banners (`01_Banner.png`), Learning Objectives HTML, Reading Lists, Curated Watch Lists, Workshop suites (descriptions, submission guides, 10-point rubrics), and 10-question Weekly Knowledge Check Quizzes with rich diagnostic feedback (`scripts/banks/quiz_05.py` through `quiz_13.py` -> `09_Quiz.xml`).
