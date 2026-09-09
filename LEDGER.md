@@ -54,11 +54,17 @@
   1. Re-run `generate_lesson_images.py --topic 3 --lesson 3.3` once Gemini Notebook quota refreshes.
   2. Generate companion media for Lesson 3.3 (`brief.m4a`, `detailed.m4a`, `infographic.jpg`).
   3. Compile interactive XML (`03_Interactive_Lesson_3.3.xml`) and HTML player for Lesson 3.3.
-  4. Ensure Tuesday Meeting #3 readiness (Lesson 2.1 Teaching Plan and `witness_template.xml`).
+  4. Correct `03a_Lesson_2.2_Lesson_Content.md` (Red Hat XML does not validate RELAX NG) and recompile the 2.2 bank/notes before Friday's Meeting #5.
 
 ---
 
 ## 6. Recent Workstream Ledger
+
+- **[2026-09-09]**: Resolved the schedule slip by **combining Lessons 2.2 and 2.3 into Friday's Meeting #5** rather than pushing 2.3 into the following week — the Module 02 Workshop Comparison Post is due Friday 11:00 PM and requires the AI-audit step, so 2.3 could not slip.
+  - Authored `src/modules/Module_02_Cataloguing/Lesson_2.2_2.3_Combined_Teaching_Plan_2026-09-11.html`: 6 min Scholarly XML install and framing, 8 min projector demo linking `msdesc.rng`, **16 min Lab A (validate the human file to 0 errors)**, **12 min Lab B (generate an AI header, run it through the same gate, score it)**, 6 min pooling results at the board, 2 min commit.
+  - **Combining principle:** the schema is the shared instrument, taught once and used twice — first on the student's header, then on the machine's. Everything that does not pass through the Problems panel was cut from class time: the VIAF/Pleiades/CTS enrichment block moves to the workshop (where Trismegistos/Pinakes authority reconciliation already lives), and 2.3's theory (semantic–structural trade-off, `macro.xml` authority architecture, NERD) stays on Moodle as the interactive lessons and quizzes.
+  - Lab B assessment is a **6-field scorecard** (repository, `idno`, material, extent, hand count, date; each marked correct/wrong/invented/missing) plus the AI file's raw first-pass schema error count. Teaching point: a schema-valid but factually false shelfmark passes the gate — structure is checkable by machine, truth is not.
+  - Completed `labs/witness.xml`, the header the class built together Wednesday: restored the TEI namespace, `teiHeader`, and real containment (`sourceDesc/msDesc/msIdentifier`, `physDesc/objectDesc/supportDesc`), and validated it clean against `msdesc.rng`. The one genuine error found on the way — `<extent>` rejecting a `<p>` that its sibling `<support>` accepts — is retained as Friday's live demo error in place of a contrived one.
 
 - **[2026-09-09]**: Meeting #4 ran as a **rescheduled Lesson 2.1 lab, not Lesson 2.2**. Tuesday's Meeting #3 reached only bash basics, launching VS Code, and opening the project folder, leaving the entire TEI-header authoring block outstanding; the course is now one meeting behind plan.
   - Authored `src/modules/Module_02_Cataloguing/Lesson_2.1_Teaching_Plan_Compressed_2026-09-09.html` for the Wed 10:30–11:20 slot: 6 min tooling setup (extension install running under the Detective Problem framing), 10 min projector demo of the four core containers, **23 min protected hands-on authoring**, 7 min Git stage gate, 4 min schedule reset. The Witness Showcase is folded into the setup window rather than run as its own phase; the authoring block is explicitly protected, since Step 1's ground-truth claim collapses if keyboard time is cut.

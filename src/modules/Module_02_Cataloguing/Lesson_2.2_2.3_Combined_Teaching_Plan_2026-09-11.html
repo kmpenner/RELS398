@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lessons 2.2 + 2.3 Combined Teaching Plan (2026-09-11)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+            --accent-green: #065f46;
+            --accent-blue: #1e40af;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.55in 0.55in 0.55in 0.55in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .badge-done {
+            background: #ecfdf5;
+            border-color: #a7f3d0;
+            color: #065f46;
+        }
+
+        .badge-pending {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #1e40af;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong {
+            color: var(--stfx-navy);
+        }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p {
+            font-size: 9.5pt;
+            color: #713f12;
+            line-height: 1.4;
+        }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+        }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .time-col {
+            width: 16%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col {
+            width: 28%;
+            font-weight: 700;
+            color: var(--stfx-dark);
+        }
+
+        .desc-col {
+            width: 56%;
+            color: #334155;
+            line-height: 1.35;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul {
+            padding-left: 1.1rem;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .card li {
+            margin-bottom: 0.25rem;
+        }
+
+        .code-box {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 0.5rem 0.7rem;
+            border-radius: 4px;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            font-size: 8.5pt;
+            margin: 0.35rem 0;
+            line-height: 1.35;
+        }
+
+        .code-box .comment {
+            color: #94a3b8;
+        }
+
+        .code-box .highlight {
+            color: var(--stfx-gold);
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9.5pt;
+            }
+            .header-box {
+                margin-bottom: 0.6rem;
+            }
+            .requirement-callout {
+                background: #fefce8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .schedule-table th {
+                background: #002D62 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .context-banner {
+                background: #f1f5f9 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h1>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h1>
+            <h2>Instructor Teaching Plan: Meeting #5 &mdash; Lessons 2.2 + 2.3 Combined</h2>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, September 11, 2026</span>
+                <span class="badge">Time: 9:30 AM &ndash; 10:20 AM (50 mins)</span>
+                <span class="badge">Room: Mulroney Hall 3032 (MULH 3032)</span>
+                <span class="badge">Workshop Comparison Post due 11:00 PM tonight</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE (after Wednesday's rescheduled 2.1 lab):</strong><br>
+            &bull; Each student has a hand-authored <code>witness.xml</code> with a <code>&lt;teiHeader&gt;</code>, committed to Git &mdash; some at Minimum Viable Header only.<br>
+            &bull; <strong>Red Hat XML installed; Scholarly XML was assigned as homework</strong> and will not be on every machine.<br>
+            &bull; No file has met a schema. Nobody has run an LLM against their artifact yet.<br>
+            &bull; Antigravity is still disabled at the workspace level from Wednesday.
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL TARGET (Steps 2 and 3 in one sitting):</strong><br>
+            &bull; Link <code>msdesc.rng</code> via <code>xml-model</code> and drive the Problems panel to <strong>0 errors</strong>.<br>
+            &bull; Generate an AI header for the <em>same</em> artifact and run it through the <em>same</em> gate.<br>
+            &bull; Score the machine against the human on a 6-field scorecard; pool the class results.<br>
+            &bull; Commit both files. Every student leaves with the evidence their Comparison Post needs.
+        </div>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE COMBINING PRINCIPLE: TWO STEPS, ONE INSTRUMENT</h3>
+        <p>These two lessons fit in one meeting only because they share an instrument. The schema is not a 2.2 topic that 2.3 moves past &mdash; it is the measuring device that makes Step 3 an experiment rather than a vibe. Teach it once at 9:36, then use it twice: first on the student's own header, then on the machine's. <strong>What gets cut is everything that does not pass through the Problems panel:</strong> the VIAF/Pleiades/CTS enrichment block moves to the workshop, and the whole theoretical apparatus of 2.3 (semantic&ndash;structural trade-off, <code>macro.xml</code> authority architecture, NERD theory) stays on Moodle where it already lives as interactive lessons and quizzes. In class today, students <em>do</em> the comparison; they <em>read</em> the theory tonight.</p>
+    </div>
+
+    <h3 class="section-header">Class Schedule &amp; Pedagogical Flow (50 Minutes)</h3>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Timing</th>
+                <th class="activity-col">Phase &amp; Focus</th>
+                <th class="desc-col">Instructor Teaching Cues &amp; In-Class Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">09:30 &ndash; 09:36<br><small>(6 mins)</small></td>
+                <td>
+                    <strong>1. Install Scholarly XML &amp; Frame the Day</strong><br>
+                    <small style="color:var(--stfx-slate);">Why Wednesday's extension is not enough</small>
+                </td>
+                <td>
+                    &bull; <strong>Install first, talk over it:</strong> Extensions (<code>Cmd+Shift+X</code>) &rarr; <em>Scholarly XML</em> (publisher: Raff Viglianti) &rarr; Install. Ask for a show of hands on who did it as homework.<br>
+                    &bull; <strong>Say plainly why:</strong> Red Hat XML validates DTD and XSD; TEI's <code>msdesc.rng</code> is <strong>RELAX NG</strong>, which only Scholarly XML checks. <em>"If you skip this install, your file will report zero errors because nothing is looking at it."</em> That sentence is the whole reason the install is not optional.<br>
+                    &bull; <strong>Frame the 50 minutes:</strong> <em>"One instrument, two subjects. First the schema judges you. Then it judges the machine. The second reading is only meaningful because you earned the first."</em>
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">09:36 &ndash; 09:44<br><small>(8 mins)</small></td>
+                <td>
+                    <strong>2. Projector Demo: Linking the Schema</strong><br>
+                    <small style="color:var(--stfx-slate);">A real error, from our own class file</small>
+                </td>
+                <td>
+                    &bull; <strong>Project <code>labs/witness.xml</code></strong> &mdash; the diary header the class built together on Wednesday. Paste the <code>xml-model</code> instruction directly under the XML declaration (code box, right) and save.<br>
+                    &bull; <strong>Narrate the download:</strong> the language server fetches the schema and audits live. Open the Problems panel (<code>Cmd+Shift+M</code>).<br>
+                    &bull; <strong>Use the error we actually have</strong> (see the "Live Demo Error" card at right) &mdash; <code>&lt;extent&gt;</code> wrapping a <code>&lt;p&gt;</code>. It is a genuine Sequence/Choice violation from our own file, not a contrived one. Fix it on screen; watch the counter drop to 0.<br>
+                    &bull; <strong>Name the three RELAX NG constraint types on the board:</strong> <em>Sequence</em>, <em>Choice</em>, <em>Cardinality</em>. Nearly every error they will hit is one of these three.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">09:44 &ndash; 10:00<br><small>(16 mins)</small></td>
+                <td>
+                    <strong>3. Lab A &mdash; Step 2: Validate the Human</strong><br>
+                    <small style="color:var(--stfx-slate);">Drive your own file to zero</small>
+                </td>
+                <td>
+                    &bull; <strong>Student Action:</strong> copy <code>witness.xml</code> to <code>witness_validated.xml</code>, add the <code>xml-model</code> instruction, save, open the Problems panel, and fix errors one at a time &mdash; click an error to jump to the line, fix, re-save, watch the count fall. Do not attempt a mass rewrite.<br>
+                    &bull; <strong>Instructor Roaming:</strong> triage against the three common messages in the "Reading Validator Messages" card. Students who stopped at a Minimum Viable Header on Wednesday will hit <em>fewer</em> errors, not more &mdash; do not let them conclude their thinner header was better.<br>
+                    &bull; <strong>Hard checkpoint at 09:58:</strong> anyone not at 0 errors pairs with a neighbour who is. Everyone must reach the gate, because Lab B is a comparison and needs a clean baseline on both sides.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:00 &ndash; 10:12<br><small>(12 mins)</small></td>
+                <td>
+                    <strong>4. Lab B &mdash; Step 3: Put the Machine Through the Same Gate</strong><br>
+                    <small style="color:var(--stfx-slate);">Re-enable AI, generate, validate, score</small>
+                </td>
+                <td>
+                    &bull; <strong>Re-enable Antigravity</strong> (Extensions &rarr; Enable (Workspace)) &mdash; Wednesday's ban is lifted, and say so explicitly: <em>"You have earned the right to use it, because now you can check it."</em><br>
+                    &bull; <strong>Student Action:</strong> paste the standard prompt (card at right) with their own artifact's description, save the model's output as <code>witness_ai.xml</code>, add the same <code>xml-model</code> line, and <strong>read the error count aloud to their neighbour before fixing anything.</strong> That raw number is the datum.<br>
+                    &bull; <strong>Then score the content</strong>, not just the structure, on the 6-field scorecard: repository, <code>idno</code>, material, extent, number of hands, date. Mark each <em>correct / wrong / invented / missing</em> against their own hand-authored file.<br>
+                    &bull; <strong>Watch for the classic three:</strong> invented tags that no schema allows (<code>&lt;leafDimensions&gt;</code> and friends), hallucinated VIAF URIs that resolve to nothing or to the wrong person, and conversational dates where the schema demands ISO 8601.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:12 &ndash; 10:18<br><small>(6 mins)</small></td>
+                <td>
+                    <strong>5. Pool the Numbers at the Board</strong><br>
+                    <small style="color:var(--stfx-slate);">The finding, not the theory</small>
+                </td>
+                <td>
+                    &bull; <strong>Two columns on the board:</strong> AI error count, and invented-or-wrong fields out of 6. Take a number from every student &mdash; it takes about 20 seconds each and the distribution is the argument.<br>
+                    &bull; <strong>Ask the two questions that matter:</strong> <em>"Where did it beat you?"</em> (usually speed, coverage, and boilerplate) and <em>"Where did it lie to you?"</em> (usually specifics it could not know &mdash; shelfmarks, hand counts, dates).<br>
+                    &bull; <strong>Land the point:</strong> the failures cluster on exactly the facts requiring access to the physical object. Fluency is not knowledge, and the schema caught structure but <em>not</em> the confident wrong shelfmark &mdash; that one only you could catch. That asymmetry is the course's whole argument for the human editor.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:18 &ndash; 10:20<br><small>(2 mins)</small></td>
+                <td>
+                    <strong>6. Commit &amp; Tonight's Deadline</strong><br>
+                    <small style="color:var(--stfx-slate);">Stage gate</small>
+                </td>
+                <td>
+                    &bull; <strong>Both files, one commit:</strong>
+                    <div class="code-box">git add witness_validated.xml witness_ai.xml<br>git commit -m "Steps 2-3: schema-validated header + scored AI extraction"<br>git push</div>
+                    &bull; <strong>Due 11:00 PM tonight:</strong> Workshop Comparison Post. Their scorecard and both error counts <em>are</em> the evidence &mdash; say this out loud, because students who do not realize it will start from scratch tonight.<br>
+                    &bull; <strong>Also tonight:</strong> Moodle Lessons 2.2 and 2.3 with their quizzes (the theory we did not lecture), plus the enrichment pass moved out of class &mdash; see the deferred card.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4><code>xml-model</code> Instruction for Projection</h4>
+            <div class="code-box">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+&lt;<span class="highlight">?xml-model</span> href="https://raw.githubusercontent.com/msdesc/consolidated-tei-schema/master/msdesc.rng"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="application/xml"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schematypens="http://relaxng.org/ns/structure/1.0"?&gt;<br>
+&lt;TEI xmlns="http://www.tei-c.org/ns/1.0"&gt;<br>
+&nbsp;&nbsp;...<br>
+&lt;/TEI&gt;
+            </div>
+
+            <h4 style="margin-top:0.6rem;">Live Demo Error &mdash; from our own <code>labs/witness.xml</code></h4>
+            <div class="code-box">
+<span class="comment">&lt;!-- REJECTED: extent takes prose, not a block --&gt;</span><br>
+&lt;extent&gt;<span class="highlight">&lt;p&gt;</span>2 volumes.<span class="highlight">&lt;/p&gt;</span>&lt;/extent&gt;<br>
+<br>
+<span class="comment">witness.xml:39: element p:</span><br>
+<span class="comment">Relax-NG validity error :</span><br>
+<span class="comment">Did not expect element p there</span><br>
+<br>
+<span class="comment">&lt;!-- ACCEPTED --&gt;</span><br>
+&lt;extent&gt;2 volumes.&lt;/extent&gt;
+            </div>
+            <ul>
+                <li>Note for the room: <code>&lt;support&gt;</code> one line above <em>does</em> take a <code>&lt;p&gt;</code>. Two sibling elements, two different content models &mdash; this is exactly why you cannot reason your way to validity and must ask the schema.</li>
+            </ul>
+
+            <h4 style="margin-top:0.6rem;">Standard Prompt for Lab B</h4>
+            <div class="code-box">
+Generate a TEI P5 teiHeader for this manuscript,<br>
+valid against the msdesc RELAX NG schema.<br>
+Include msIdentifier, physDesc with material<br>
+and extent, and handDesc. Output only XML.<br>
+<br>
+Description: <span class="highlight">[paste your own artifact notes]</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h4>Reading Validator Error Messages</h4>
+            <ul>
+                <li><strong>"Element 'xyz' is not allowed here"</strong> &mdash; wrong order or wrong parent. Check that <code>&lt;titleStmt&gt;</code> precedes <code>&lt;publicationStmt&gt;</code> precedes <code>&lt;sourceDesc&gt;</code>.</li>
+                <li><strong>"...must be terminated by the matching end-tag"</strong> &mdash; a missing slash or unclosed tag. Scan for the open bracket without a partner.</li>
+                <li><strong>"Attribute 'material' has invalid value"</strong> &mdash; outside the schema's enumeration; <code>material="vellum"</code> must become <code>material="parchment"</code>.</li>
+                <li><strong>Workflow:</strong> click the error to jump to the line, fix one at a time, re-save, watch the count drop. Never batch-rewrite.</li>
+            </ul>
+
+            <h4 style="margin-top:0.6rem;">Lab B Scorecard (6 fields, ~3 minutes)</h4>
+            <ul>
+                <li>For each of <strong>repository, idno, material, extent, number of hands, date</strong>, mark the AI output <em>correct / wrong / invented / missing</em> against your own file.</li>
+                <li><strong>Record two numbers:</strong> (1) AI schema error count on first validation, before any fixing; (2) fields wrong-or-invented out of 6.</li>
+                <li>A confident, well-formed, schema-valid shelfmark that is simply <em>false</em> scores as <em>invented</em>. Make sure students see that the schema passed it &mdash; that is the single most important thing they learn today.</li>
+            </ul>
+
+            <h4 style="margin-top:0.6rem;">Deferred Out of Class &mdash; Assign Tonight</h4>
+            <ul>
+                <li><strong>Linked Data enrichment:</strong> <code>&lt;repository ref="viaf.org/..."&gt;</code> and <code>&lt;origPlace ref="pleiades.stoa.org/..."&gt;</code>. Belongs with the workshop's Trismegistos/Pinakes authority reconciliation anyway.</li>
+                <li><strong>CTS URN</strong> on <code>&lt;msItem corresp="..."&gt;</code> &mdash; demonstrate only if Lab A somehow finishes early; otherwise it is workshop work.</li>
+                <li><strong>Rule for both:</strong> re-validate after enriching. Enrichment must not break validation.</li>
+                <li><strong>Moodle:</strong> Lessons 2.2 and 2.3 interactive lessons + quizzes carry the theory not lectured today.</li>
+            </ul>
+
+            <h4 style="margin-top:0.6rem;">If You Fall Behind</h4>
+            <ul>
+                <li><strong>Protect Lab B.</strong> If Lab A overruns, cut it at 10:02 and let stragglers finish tonight &mdash; Step 3 is the one that cannot be reconstructed alone, and the Comparison Post is due at 11:00 PM.</li>
+                <li><strong>Absolute minimum to leave with:</strong> an AI-generated header validated once, and its raw error count written down.</li>
+                <li><strong>Cut the board-pooling to three volunteers</strong> before cutting any lab time.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
