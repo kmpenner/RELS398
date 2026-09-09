@@ -7,20 +7,20 @@
       <text>$course$/Module_02_Cataloguing/Lesson_2.3_Interactive</text>
     </category>
     <info format="html">
-      <text><![CDATA[<p>Interactive check questions for Lesson 2.3: AI-Assisted Metadata Enrichment, Entity Extraction, and Validation Auditing.</p>]]></text>
+      <text><![CDATA[<p>Interactive check questions for Lesson 2.3: Auditing AI-Generated Manuscript Metadata.</p>]]></text>
     </info>
   </question>
 
   <!-- 01 Question -->
   <question type="multichoice">
     <name>
-      <text>01 Question: Why Anyone Would Let a Machine Catalogue a Manuscript</text>
+      <text>01 Question: What Today Actually Asks of You</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Manual cataloguing runs at hours per folio, and archives hold hundreds of thousands of uncatalogued items. What does that make the central question about AI cataloguing?</p>]]></text>
+      <text><![CDATA[<p>The workshop asks for at least two SUBTLE hallucinations. What makes an error subtle rather than obvious?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>AI can generate manuscript metadata thousands of times faster than a human, but because it predicts rather than knows, the real skill is measuring and auditing what it produces.</p>]]></text>
+      <text><![CDATA[<p>The workshop asks you to name at least two subtle hallucinations, meaning errors that pass validation, so today trains you to audit a header that already looks perfect.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -29,27 +29,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Not whether AI can generate metadata, which it plainly can, but how you measure its output and catch what it invented.</p>]]></text>
+      <text><![CDATA[<p>It survives every automatic check: well-formed, schema-valid, correctly formatted, plausible — and still wrong.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Speed is not in dispute. The scholarly problem is verification.</p>]]></text>
+        <text><![CDATA[<p>Correct. An error the schema catches is one the machine already told you about, which earns little credit.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Whether AI can generate TEI markup quickly enough to be worth using at all.</p>]]></text>
+      <text><![CDATA[<p>It is small in scope, such as a single wrong character in an attribute value.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Speed is the one thing already settled: a model produces a header in seconds.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Subtlety is about escaping detection, not about size; a one-digit error in an identifier can be very subtle.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Whether archives should stop digitizing manuscripts until better models exist.</p>]]></text>
+      <text><![CDATA[<p>It appears only in the physDesc section rather than the fileDesc.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The backlog argument runs the other way; the scale is why automation is attractive.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Subtle errors can occur anywhere; location is not what defines them.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Whether human cataloguers should be retrained as programmers.</p>]]></text>
+      <text><![CDATA[<p>It is an error the model admits to when asked.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The shift is from authoring records to auditing them, which is editorial work, not software work.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Models do not reliably report their own errors, and an admitted error would not be hard to find.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -57,13 +57,13 @@
   <!-- 02 Question -->
   <question type="multichoice">
     <name>
-      <text>02 Question: What the Model Is Actually Doing When It Writes TEI</text>
+      <text>02 Question: What the Model Is Doing When It Writes Your Header</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>A model has read thousands of real TEI headers. What follows about how it produces your header?</p>]]></text>
+      <text><![CDATA[<p>A model predicts what usually comes next. What does that imply about where its description of your witness will be weakest?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>An LLM writes TEI by predicting what usually comes next, which makes its output fluent and plausible without making it valid.</p>]]></text>
+      <text><![CDATA[<p>A model writes TEI by predicting what usually comes next, which makes it fluent, unable to check itself, and systematically wrong about whatever is distinctive in your witness.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -72,27 +72,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It answers what usually comes next, so its output is fluent and plausible without being checked against any schema.</p>]]></text>
+      <text><![CDATA[<p>Wherever your manuscript is unusual, since the model supplies the usual answer regardless.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. It has a strong sense of what TEI tends to look like and no access to what this schema permits.</p>]]></text>
+        <text><![CDATA[<p>Correct. It produces the average manuscript, and your witness is not average.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It consults the TEI Guidelines while generating, which is why its markup is usually valid.</p>]]></text>
+      <text><![CDATA[<p>In the sections it has seen least often, such as the publicationStmt.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The model holds no rulebook and performs no lookup during generation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Common containers are handled well; the difficulty is unusual content, not unusual elements.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It reproduces one of the headers it memorized during training, with the names swapped.</p>]]></text>
+      <text><![CDATA[<p>At the end of the file, where prediction errors accumulate.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It predicts token by token rather than retrieving a stored document.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Errors do not compound positionally in that way.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It runs an internal RELAX NG check and revises before returning output.</p>]]></text>
+      <text><![CDATA[<p>Only in the attributes, since element names are easier to predict.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. No validation happens unless you run it yourself afterwards.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Both are predicted the same way, and factual errors appear in element content too.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -103,10 +103,10 @@
       <text>03 Question: Two Ways of Being Right</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How do a schema and a language model differ in the kind of correctness each can deliver?</p>]]></text>
+      <text><![CDATA[<p>How do a schema and a language model differ in the kind of correctness each delivers?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Schemas are consistent but meaningless, while models are meaningful but inconsistent, so a serious pipeline uses each to cover the other's blind spot.</p>]]></text>
+      <text><![CDATA[<p>Schemas are consistent but indifferent to meaning, models grasp meaning but guarantee nothing, so each covers the other's blind spot.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -115,27 +115,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The schema is consistent but indifferent to meaning; the model grasps meaning but gives no guarantee of consistency.</p>]]></text>
+      <text><![CDATA[<p>The schema is consistent but indifferent to meaning; the model grasps meaning but guarantees nothing.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. They fail in opposite directions, which is why a pipeline uses each to cover the other's blind spot.</p>]]></text>
+        <text><![CDATA[<p>Correct. They fail in opposite directions, so each covers the other's blind spot.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The schema is more accurate than the model in every respect, so the model adds nothing.</p>]]></text>
+      <text><![CDATA[<p>The schema is more accurate in every respect, so the model adds nothing to the workflow.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A schema cannot read messy prose and find the meaning in it; a model genuinely can.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A schema cannot read messy prose and find meaning in it; a model genuinely can.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Both are deterministic, but the schema is faster.</p>]]></text>
+      <text><![CDATA[<p>Both are deterministic, but the schema runs faster.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The model is probabilistic and may answer differently to the same prompt twice.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The model is probabilistic and may answer the same prompt differently twice.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The model checks facts while the schema checks spelling.</p>]]></text>
+      <text><![CDATA[<p>The model checks facts while the schema checks structure.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The model does not check facts at all, and a schema checks structure rather than spelling.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The model does not check facts at all; it predicts them.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -143,13 +143,13 @@
   <!-- 04 Question -->
   <question type="multichoice">
     <name>
-      <text>04 Question: Asking Well: How to Prompt for TEI</text>
+      <text>04 Question: What a Schema Can and Cannot See</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Which set of prompt choices reflects current practice for generating schema-valid TEI?</p>]]></text>
+      <text><![CDATA[<p>Your file validates at zero errors. What exactly has been certified?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A good TEI prompt names the role, lists the permitted tags, shows a worked example, forbids commentary, and lowers the temperature.</p>]]></text>
+      <text><![CDATA[<p>A schema certifies that a file is well built, never that it is true, and every fact about the physical manuscript falls outside what it can see.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -158,27 +158,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Name the role, list the permitted elements, show a worked example, forbid commentary, and lower the temperature.</p>]]></text>
+      <text><![CDATA[<p>That the file is well built — permitted elements, permitted order, permitted attribute values — and nothing about whether it is true.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Each one narrows the model's prediction toward the markup you actually want.</p>]]></text>
+        <text><![CDATA[<p>Correct. Every fact about the physical manuscript lies outside what a schema can examine.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Keep the prompt short and general so the model is free to choose the best encoding.</p>]]></text>
+      <text><![CDATA[<p>That the file describes the manuscript accurately, since the schema checks attribute values.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. An open prompt produces chatty preamble and invented tags that fail validation immediately.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema checks that a value is of a permitted type, never that it is the right value.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Raise the temperature so the model considers more encoding possibilities.</p>]]></text>
+      <text><![CDATA[<p>That the file is both well-formed and factually consistent with its sources.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. High temperature increases invention, which is the opposite of what markup needs.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Source consistency is not something a schema has any access to.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Ask for an explanation alongside the XML so you can check the reasoning.</p>]]></text>
+      <text><![CDATA[<p>That the file will import into Moodle and other systems without error.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Mixed output has to be stripped by hand before it can be parsed; ask for XML only.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Import compatibility is a separate concern from schema validity.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -189,10 +189,10 @@
       <text>05 Question: Why Your Own Header Is the Measuring Stick</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why can an AI-generated header not be evaluated on its own terms?</p>]]></text>
+      <text><![CDATA[<p>Why is a verified header of your own required before the AI output can be audited at all?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Tuesday's header and Wednesday's zero-error file are the independent reference that turns an impression of cleverness into a measurable claim.</p>]]></text>
+      <text><![CDATA[<p>Your verified header is what converts an impression of the AI's cleverness into a specific, checkable claim about what it got wrong.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -201,27 +201,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A system cannot grade itself; without your independent verified header there is no reference to measure against.</p>]]></text>
+      <text><![CDATA[<p>Without an independent reference you can only report impressions; with one you can make specific claims a marker can check.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Your Tuesday and Wednesday files are what turn an impression into a measurable claim.</p>]]></text>
+        <text><![CDATA[<p>Correct. “The AI made mistakes” is not an audit; naming a wrong identifier and how you verified it is.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because AI output is always wrong, so it needs correcting rather than measuring.</p>]]></text>
+      <text><![CDATA[<p>Because the AI refuses to generate a header unless given an example first.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is often right, which is precisely why an impression is not good enough.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It will generate one readily; the issue is having something to measure it against.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because schema validation alone already proves the header is correct.</p>]]></text>
+      <text><![CDATA[<p>Because schema validation cannot run without a reference file to compare to.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Validation proves structure, not that the facts describe your manuscript.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Validation compares a file to the schema, not to another file.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the model refuses to disclose which parts it was unsure about.</p>]]></text>
+      <text><![CDATA[<p>Because the workshop rubric awards points for submitting two headers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The problem is the absence of a reference standard, not the model's disclosure.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The rubric rewards a precise diagnosis, which requires a baseline to be possible.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -229,13 +229,13 @@
   <!-- 06 Question -->
   <question type="multichoice">
     <name>
-      <text>06 Question: A Real Experiment: The PubCINET Study</text>
+      <text>06 Question: Why VIAF and Pleiades Are Not Enough Here</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What did De Cristofaro and Zilio (2025) find most useful in their comparison of two models on TEI encoding?</p>]]></text>
+      <text><![CDATA[<p>You linked your repository to VIAF and your place of origin to Pleiades on Wednesday. Why is that insufficient for this workshop?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The PubCINET study ran this same comparison across two models at scale, and found that different models fail in systematically different ways.</p>]]></text>
+      <text><![CDATA[<p>VIAF identifies people and Pleiades identifies places, so Greek manuscripts need their own registers — Trismegistos, Pinakes, and Diktyon.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Not that one model was better overall, but that the two failed in systematically opposite ways.</p>]]></text>
+      <text><![CDATA[<p>VIAF identifies people and institutions and Pleiades identifies ancient places, but neither identifies a text, a work, or a physical Greek codex.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Knowing the shape of each failure is more useful for pipeline design than a single ranking.</p>]]></text>
+        <text><![CDATA[<p>Correct. Those three needs are what Trismegistos, Pinakes, and Diktyon exist to serve.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That both models performed identically once given the same system prompt.</p>]]></text>
+      <text><![CDATA[<p>VIAF and Pleiades do not cover material earlier than the medieval period.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Their behaviour diverged sharply on both structure and entity recognition.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Both cover ancient material; the gap is in what kind of thing they identify.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That neither model produced usable TEI under any conditions.</p>]]></text>
+      <text><![CDATA[<p>Their identifiers are not stable enough for scholarly citation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. One produced clean, valid TEI on the first pass.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Both are stable and widely cited; they simply identify different categories of thing.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That model choice matters less than the size of the training corpus.</p>]]></text>
+      <text><![CDATA[<p>They cannot be recorded in TEI using the ref attribute.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The study compared behavioural profiles, not corpus size.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. You already recorded both that way on Wednesday.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -272,13 +272,13 @@
   <!-- 07 Question -->
   <question type="multichoice">
     <name>
-      <text>07 Question: The First Profile: Smart About Meaning, Careless About Structure</text>
+      <text>07 Question: Trismegistos: An Identifier for the Text Itself</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>The meaning-first model inferred people from nicknames and oblique references, yet routinely failed schema validation. What single explanation accounts for both?</p>]]></text>
+      <text><![CDATA[<p>What does a Trismegistos number identify?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A model that optimizes for meaning will read a document impressively and break the schema doing it.</p>]]></text>
+      <text><![CDATA[<p>A Trismegistos number is a stable public identifier for an ancient text as a documented object, alongside its registers of ancient places and persons.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -287,27 +287,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It optimizes for meaning, so when capturing sense and obeying schema grammar conflict, meaning wins.</p>]]></text>
+      <text><![CDATA[<p>An ancient text as a documented object of study, with its own record, bibliography, and links.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Its strength and its weakness are one behaviour observed from two directions.</p>]]></text>
+        <text><![CDATA[<p>Correct. It complements a CTS URN, which identifies a work as an abstract literary entity.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It was given a weaker system prompt than the other model in the study.</p>]]></text>
+      <text><![CDATA[<p>The physical Greek codex, stable across changes of shelfmark.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Both models received the same prompt and reference file.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is what a Diktyon number does.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It had not been trained on any TEI, so it guessed at the element names.</p>]]></text>
+      <text><![CDATA[<p>The modern library that currently holds the manuscript.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It produced recognizable TEI; the failures were nesting and legality, not vocabulary.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Institutions are identified in VIAF.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Its context window was too small to hold the schema.</p>]]></text>
+      <text><![CDATA[<p>The scribal hand responsible for a section of the text.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Neither model holds the schema during generation regardless of window size.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Hands are identified locally in your own file with xml:id.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -315,13 +315,13 @@
   <!-- 08 Question -->
   <question type="multichoice">
     <name>
-      <text>08 Question: Structural Hallucination: Confident XML That Cannot Exist</text>
+      <text>08 Question: Pinakes: Which Work, and Which Manuscripts Carry It</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is a structural hallucination, as distinct from a factual one?</p>]]></text>
+      <text><![CDATA[<p>Pinakes organizes its records around authors, works, and witnesses. Which distinction from Tuesday does that mirror?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Structural hallucinations are plausible, illegal markup — early closures, stray HTML, undefined entities — and Wednesday's schema catches all of them.</p>]]></text>
+      <text><![CDATA[<p>Pinakes catalogues Greek authors, works, and the manuscripts that transmit them, giving identifiers to the same work-versus-object distinction you drew on Tuesday.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -330,27 +330,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Markup that looks reasonable but is illegal in this schema, such as an early container closure or a stray HTML tag.</p>]]></text>
+      <text><![CDATA[<p>The distinction between the work your page transmits and the physical object in front of you.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The model is not confused about the manuscript; it is confused about rules it never had.</p>]]></text>
+        <text><![CDATA[<p>Correct. Pinakes gives an identifier to each level of that distinction.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A fabricated provenance narrative written in valid TEI.</p>]]></text>
+      <text><![CDATA[<p>The distinction between the teiHeader and the text element.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. That is a factual hallucination, and the schema cannot detect it.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is a division of your own file, not of the bibliographic record.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Any XML file that fails to open in a web browser.</p>]]></text>
+      <text><![CDATA[<p>The distinction between recto and verso of a folio.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The category is about schema legality, not browser rendering.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is a physical description detail, unrelated to the catalogue's structure.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A tag whose name is spelled correctly but capitalized wrongly.</p>]]></text>
+      <text><![CDATA[<p>The distinction between well-formed and valid XML.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. That is an ordinary well-formedness or case error, not the pattern described.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is a markup distinction with no bearing on Pinakes' organization.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -358,13 +358,13 @@
   <!-- 09 Question -->
   <question type="multichoice">
     <name>
-      <text>09 Question: The Second Profile: Obedient About Structure, Silent About the Rest</text>
+      <text>09 Question: Diktyon: A Number That Survives a Change of Shelfmark</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>The structure-first model produced valid TEI but left unlisted people untagged. Why is that failure harder to catch than broken markup?</p>]]></text>
+      <text><![CDATA[<p>Why does this lesson deliberately refuse to print the Diktyon number for the example manuscript?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A model that obeys the schema perfectly can still omit entities silently, and omissions produce no error to catch them.</p>]]></text>
+      <text><![CDATA[<p>A Diktyon number identifies a Greek manuscript stably across changes of shelfmark, and this lesson deliberately makes you look yours up rather than supplying it.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -373,27 +373,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>An omission produces no error, so the file validates cleanly and the gap is invisible unless a human notices something absent.</p>]]></text>
+      <text><![CDATA[<p>Because an unverified identifier is exactly the failure the lesson trains you to catch, whether a model or a lesson supplied it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Broken structure announces itself; silence does not.</p>]]></text>
+        <text><![CDATA[<p>Correct. Looking it up yourself is the point; being told it would defeat the exercise.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because omissions corrupt the XML tree in ways validators cannot parse.</p>]]></text>
+      <text><![CDATA[<p>Because Diktyon numbers are restricted and cannot be republished.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The tree is perfectly well formed, which is exactly the difficulty.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They are open and freely citable.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the model deletes the entities from your ground truth file as well.</p>]]></text>
+      <text><![CDATA[<p>Because the number changes whenever the holding library renumbers its collection.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It never touches your file; it simply does not tag the entity in its own output.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Stability across renumbering is precisely what Diktyon provides.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because Schematron reports omissions only as warnings, not errors.</p>]]></text>
+      <text><![CDATA[<p>Because TEI has no element in which to record it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. No rule fires at all, because nothing invalid was written.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is recorded in altIdentifier, as section 10 demonstrates.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -401,13 +401,13 @@
   <!-- 10 Question -->
   <question type="multichoice">
     <name>
-      <text>10 Question: The Trade-Off, and What to Do About It</text>
+      <text>10 Question: Putting Authority Identifiers into Your msDesc</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Given the two profiles, why is a single unsupervised model the wrong design whichever one you pick?</p>]]></text>
+      <text><![CDATA[<p>Where does a Diktyon number belong in your msIdentifier, and why?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>No single model is both semantically thorough and structurally obedient, so real pipelines combine models and put a schema gate between them and publication.</p>]]></text>
+      <text><![CDATA[<p>Authority identifiers attach to your markup through `@ref`, `@corresp`, and `altIdentifier`, and every one of them has to be looked up rather than assumed.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -416,27 +416,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>One yields rich content in broken markup and the other clean markup missing content, so neither alone produces finished work.</p>]]></text>
+      <text><![CDATA[<p>Inside altIdentifier, because TEI uses that element for a second identifier of the same object alongside the shelfmark.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The practical answer is a pipeline: discovery, then encoding, with the schema gate between them and publication.</p>]]></text>
+        <text><![CDATA[<p>Correct. Forcing it into idno would conflate two different identifiers of the manuscript.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because running two models halves the API cost per record.</p>]]></text>
+      <text><![CDATA[<p>Inside idno, since both are numbers identifying the manuscript.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Two passes cost more, not less; the argument is about coverage, not price.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. idno holds the shelfmark; a second identifier needs its own container.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because a single model cannot process images and text at the same time.</p>]]></text>
+      <text><![CDATA[<p>Inside repository, as an attribute on the holding institution.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The trade-off described concerns meaning versus structure in text, not modality.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The number identifies the manuscript, not the library.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because unsupervised models refuse to output TEI without a reference file.</p>]]></text>
+      <text><![CDATA[<p>Inside msContents, alongside the CTS URN on msItem.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. They will happily output TEI; the question is what is wrong with it.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. msContents describes the works carried; the Diktyon number identifies the object.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -444,13 +444,13 @@
   <!-- 11 Question -->
   <question type="multichoice">
     <name>
-      <text>11 Question: Giving the Model a List Instead of Letting It Guess</text>
+      <text>11 Question: Asking Well: How to Prompt for TEI</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Asked to add VIAF identifiers, a model returns correctly formatted URIs, some of which lead nowhere or to the wrong person. What is the fix?</p>]]></text>
+      <text><![CDATA[<p>Which set of prompt choices reflects current practice for generating schema-valid TEI?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Models fabricate authority URIs when asked to supply them, so give them a verified list and let them match instead of invent.</p>]]></text>
+      <text><![CDATA[<p>A good TEI prompt names the role, lists permitted tags, shows an example, forbids commentary, and lowers the temperature — and you record it as part of your method.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -459,27 +459,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Supply a reference list of already-verified entities and URIs, and instruct the model to use only identifiers from it.</p>]]></text>
+      <text><![CDATA[<p>Name the role, list the permitted elements, show a worked example, forbid commentary, and lower the temperature.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. This converts an open-ended invention problem into a matching problem, which models do well.</p>]]></text>
+        <text><![CDATA[<p>Correct. Each narrows the model's prediction toward the markup you actually want.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Ask the model to double-check each URI before including it.</p>]]></text>
+      <text><![CDATA[<p>Keep the prompt short and general so the model can choose the best encoding.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It has no ability to resolve a URL; asking it to check produces another confident prediction.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. An open prompt yields preamble and invented tags that fail validation immediately.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Accept the URIs and repair the broken ones after publication.</p>]]></text>
+      <text><![CDATA[<p>Raise the temperature so the model considers more encoding possibilities.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A wrong authority link asserts a false identity in the scholarly record.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Higher temperature increases invention, the opposite of what markup needs.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Use a larger model, which memorizes authority files more accurately.</p>]]></text>
+      <text><![CDATA[<p>Ask for an explanation beside the XML so the reasoning can be checked.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scale reduces but does not remove fabrication, and offers no guarantee for any given URI.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Mixed output must be stripped by hand before it will parse.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -487,13 +487,13 @@
   <!-- 12 Question -->
   <question type="multichoice">
     <name>
-      <text>12 Question: Finding Names in Text That Was Not Written for You</text>
+      <text>12 Question: Give It a List Instead of Letting It Guess</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does identifying historical persons in manuscripts defeat simple keyword matching?</p>]]></text>
+      <text><![CDATA[<p>Why are Trismegistos, Pinakes, and Diktyon numbers especially likely to be fabricated, compared with VIAF numbers?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Models resolve ambiguous historical names better than keyword matching, and state their guesses with the same confidence as their certainties.</p>]]></text>
+      <text><![CDATA[<p>Models fabricate rare identifiers most confidently, so verify them yourself and give the model a list to match against instead of a gap to fill.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -502,27 +502,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Spelling was unstandardized, names repeat across many individuals, and scribes often use titles instead of names.</p>]]></text>
+      <text><![CDATA[<p>They are far rarer in training data, so the model has learned their shape while seeing comparatively few real examples.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Resolving these requires context, which is where a model's semantic strength genuinely helps.</p>]]></text>
+        <text><![CDATA[<p>Correct. Familiar shape plus thin evidence is the exact recipe for confident invention.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because most historical names were never written in the documents at all.</p>]]></text>
+      <text><![CDATA[<p>They use a numeric format that models cannot reproduce accurately.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. They appear, but in variable, ambiguous, or oblique forms.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The format is reproduced correctly; it is the value that is wrong.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because manuscript transcriptions cannot be searched by computer.</p>]]></text>
+      <text><![CDATA[<p>They are hosted on sites that block automated access.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. They are plain text and fully searchable; the difficulty is in the variation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The model is not retrieving anything at generation time in any case.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because authority files such as VIAF do not cover premodern people.</p>]]></text>
+      <text><![CDATA[<p>They change frequently, so any stored value is soon out of date.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. VIAF covers premodern figures; the problem is matching the text to the right record.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Stability is the reason these identifiers exist.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -530,13 +530,13 @@
   <!-- 13 Question -->
   <question type="multichoice">
     <name>
-      <text>13 Question: The Failure the Schema Cannot See</text>
+      <text>13 Question: The First Validation Pass</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>A model invents a complete provenance: a named monk, a dated transfer, a library inventory. It is well-formed, uses real TEI elements, and passes the schema at zero errors. What does this prove?</p>]]></text>
+      <text><![CDATA[<p>Why must the AI file's error count be recorded before you fix anything?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A schema validates structure and cannot validate facts, so schema-valid output can be entirely fabricated and only a human editor will notice.</p>]]></text>
+      <text><![CDATA[<p>Validate the AI file exactly as you validated your own, and record the first-pass error count before touching anything, because correcting destroys the measurement.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -545,27 +545,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>That schema validation tests structure only, so a fully fabricated record can pass, and only an editor who knows the manuscript will catch it.</p>]]></text>
+      <text><![CDATA[<p>It is the only number describing the model's unassisted performance, and correcting the file destroys it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. This is the sharpest limit on automated auditing and the clearest statement of what the human editor is for.</p>]]></text>
+        <text><![CDATA[<p>Correct. Counts taken after your first edit describe a collaboration, which is a different and weaker claim.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That the schema used was incorrectly configured and should be replaced.</p>]]></text>
+      <text><![CDATA[<p>Because the Problems panel discards its history when a file is saved.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The schema performed exactly as designed; truth was never within its scope.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The reason is methodological rather than a limitation of the editor.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That Schematron rules would have caught the fabrication.</p>]]></text>
+      <text><![CDATA[<p>Because fixing errors before counting would itself violate the schema.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron checks internal consistency and cross-references, not historical fact.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Fixing is encouraged, but only after the measurement is taken.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That the model needs a lower temperature setting.</p>]]></text>
+      <text><![CDATA[<p>Because the count determines which model you should have chosen.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Lower temperature reduces stylistic variation, not the invention of plausible history.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is evidence for your comparison, not a tool-selection rule.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -573,13 +573,13 @@
   <!-- 14 Question -->
   <question type="multichoice">
     <name>
-      <text>14 Question: Metadata That Lives in the Image, Not the Text</text>
+      <text>14 Question: Handing the Errors Back</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does a second family of AI work on page images rather than catalogue prose?</p>]]></text>
+      <text><![CDATA[<p>Asked to repair the invalid date “ca. 550”, a model returns when="0550" and the file now validates. What has gone wrong?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Computer vision targets the codicological evidence that exists only in the image — layout, decoration, damage — and never appears in catalogue prose.</p>]]></text>
+      <text><![CDATA[<p>Feeding validation errors back repairs most structural faults, but cap the loop and check whether a repair invented certainty the source never had.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -588,27 +588,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Layout, ruling, decoration, and damage exist only in the object and its image, and appear in no textual description.</p>]]></text>
+      <text><![CDATA[<p>A structural repair manufactured false precision: an explicitly approximate date became an exact assertion the source never made.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Much of what you recorded on Tuesday you obtained by looking, not by reading.</p>]]></text>
+        <text><![CDATA[<p>Correct. Repairs can introduce factual errors while removing structural ones, so each repair needs checking.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because image processing is faster than text processing for large collections.</p>]]></text>
+      <text><![CDATA[<p>Nothing; the date is now correctly formatted and the file is valid.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The motivation is what kind of evidence is available, not processing speed.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Validity was achieved by asserting something the source did not support.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because catalogue prose is usually written in Latin, which models handle poorly.</p>]]></text>
+      <text><![CDATA[<p>The model should have used notBefore and notAfter, which the schema requires for all dates.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Models handle Latin adequately; the issue is that the information is simply absent.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema permits when; the problem is the evidence, not the attribute choice.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because IIIF images cannot be converted into text for models to read.</p>]]></text>
+      <text><![CDATA[<p>The error message was too vague for the model to act on correctly.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Transcription is possible; the point is that layout and damage are not textual facts at all.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The message was precise; the model acted on it and overstepped.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -616,13 +616,13 @@
   <!-- 15 Question -->
   <question type="multichoice">
     <name>
-      <text>15 Question: Looking at a Page in Layers</text>
+      <text>15 Question: Four Kinds of Wrong</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does the Metadata Enrichment Model examine a page in several passes at different scales?</p>]]></text>
+      <text><![CDATA[<p>Why does the four-part classification of AI errors matter for your audit?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Manuscript features nest inside one another, so vision systems examine a page in layers — wide, close, then interpretive — much as a cataloguer does.</p>]]></text>
+      <text><![CDATA[<p>AI errors are structural, obviously factual, subtly factual, or citational, and the categories differ by who is capable of catching them.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -631,27 +631,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Manuscript features nest inside one another, so a single flat detection pass finds some and misses the rest.</p>]]></text>
+      <text><![CDATA[<p>The categories differ in who is capable of catching them, and only the harder ones demonstrate editorial skill.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A page holds a text block, holding an initial, holding a figure, beside a stamp holding an inscription.</p>]]></text>
+        <text><![CDATA[<p>Correct. A submission reporting two structural errors has reported what the machine already announced.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because a single pass would exceed the memory available on standard hardware.</p>]]></text>
+      <text><![CDATA[<p>The categories differ in how much they affect schema validity.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The reason is the nested structure of the evidence, not a hardware limit.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Two of the four categories have no effect on validity at all.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because each pass uses a different image from the IIIF server.</p>]]></text>
+      <text><![CDATA[<p>The categories determine which errors the model can repair itself.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The passes operate on the same image at different scales and crops.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Self-repair applies to structural errors regardless of the classification's purpose.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the first pass transcribes text and the second translates it.</p>]]></text>
+      <text><![CDATA[<p>The categories correspond to the four sections of the TEI header.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The passes move from wide detection to close cropping to interpretation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They classify kinds of error, not locations in the file.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -659,13 +659,13 @@
   <!-- 16 Question -->
   <question type="multichoice">
     <name>
-      <text>16 Question: From Pixel Coordinates to TEI Elements</text>
+      <text>16 Question: Structural Errors: The Ones the Schema Hands You</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the significant result of detecting a region such as an ownership stamp or a ruled column?</p>]]></text>
+      <text><![CDATA[<p>Why are structural hallucinations the least valuable finding to report in your workshop comparison?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Each detected visual region maps onto a TEI element you already write by hand, so vision pipelines populate `physDesc` rather than inventing a new vocabulary.</p>]]></text>
+      <text><![CDATA[<p>Structural hallucinations are plausible, illegal markup that the schema catches instantly, which makes them the least valuable finding in your audit.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -674,27 +674,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Each detected region maps onto a TEI element you already write by hand, such as provenance, decoDesc, or layoutDesc.</p>]]></text>
+      <text><![CDATA[<p>The schema catches them automatically, so reporting them demonstrates nothing the machine did not already tell you.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The pipeline populates the same vocabulary you used on Tuesday, from the image, at speed.</p>]]></text>
+        <text><![CDATA[<p>Correct. They are worth counting, but the analysis has to go further to earn credit.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The bounding box coordinates are themselves the metadata to be published.</p>]]></text>
+      <text><![CDATA[<p>They occur too rarely to make a convincing argument.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Coordinates are intermediate; the deliverable is the TEI element they populate.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They are common; commonness is not the issue.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Detection replaces the need for a physDesc section in the header.</p>]]></text>
+      <text><![CDATA[<p>They are usually introduced by your own editing rather than the model.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Detection fills physDesc rather than removing it.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. These are the model's errors, present in the untouched output.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Each region receives a new element defined specifically for computer vision output.</p>]]></text>
+      <text><![CDATA[<p>They cannot be quoted in a written comparison.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. No new vocabulary is invented; existing TEI elements are used.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They quote easily; the problem is that they are trivially detected.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -702,13 +702,13 @@
   <!-- 17 Question -->
   <question type="multichoice">
     <name>
-      <text>17 Question: Turning a Picture into a Statement</text>
+      <text>17 Question: Obvious Factual Errors: Check These First</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>A vision pipeline detects an oval stamp on folio 1r and emits linked data about it. What has been achieved?</p>]]></text>
+      <text><![CDATA[<p>Models drift toward the famous when describing an unfamiliar manuscript. What auditing strategy follows?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Vision pipelines convert visual features into the same three-part linked-data statements you met on Wednesday, making a mark in a photograph searchable worldwide.</p>]]></text>
+      <text><![CDATA[<p>Obvious factual errors cluster in support, extent, hands, date, and repository, and models drift toward the famous, so check whatever is distinctive about your witness first.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -717,27 +717,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A mark in a photograph has become a three-part statement other systems can search, without anyone opening the image.</p>]]></text>
+      <text><![CDATA[<p>Check whatever is distinctive about your witness first, because that is where the average manuscript was substituted for yours.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. This is Wednesday's linked data arriving from the image rather than from the text.</p>]]></text>
+        <text><![CDATA[<p>Correct. Ordinary features are described well; unusual ones are where substitution happens.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The stamp has been transcribed into the transcription layer of the edition.</p>]]></text>
+      <text><![CDATA[<p>Check the most common fields first, since those are where most errors occur.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is described as metadata about the object, not as part of the text.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Common fields are where the model performs best.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The image file has been permanently attached to the Wikidata record.</p>]]></text>
+      <text><![CDATA[<p>Check the longest elements first, since more text means more opportunity for error.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A statement referencing the entity is created; the image is not uploaded anywhere.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Length is not what predicts error; distinctiveness is.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The manuscript has been automatically assigned a CTS URN.</p>]]></text>
+      <text><![CDATA[<p>Check the fields the schema flagged, since factual errors cluster near structural ones.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CTS URNs cite text passages and are unrelated to visual feature detection.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Factual errors are independent of where structural errors appear.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -745,13 +745,13 @@
   <!-- 18 Question -->
   <question type="multichoice">
     <name>
-      <text>18 Question: Where Vision Models Fail, and Who Pays for It</text>
+      <text>18 Question: The Subtle One: The Provenance That Never Happened</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Vision models are trained largely on Western European collections. Why is that more than a technical limitation?</p>]]></text>
+      <text><![CDATA[<p>A model invents a provenance naming a monastery, a monk, and a year, in valid TEI that passes at zero errors. What should you conclude from how specific it is?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Vision models misread damage as decoration and perform worst on non-Western material, so unaudited automation deepens exactly the cataloguing inequities it claims to fix.</p>]]></text>
+      <text><![CDATA[<p>A model produces fabricated provenance in flawless TEI that passes the schema at zero errors, and its specificity is a warning sign rather than a mark of research.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -760,27 +760,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>They perform worst on traditions that are already least catalogued, so unaudited automation widens an existing gap while appearing neutral.</p>]]></text>
+      <text><![CDATA[<p>Specificity is a warning sign rather than evidence, since the model cannot be vague and a probable narrative contains names and dates.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Syriac, Coptic, and Ethiopic material is misread or missed by tools that look impartial.</p>]]></text>
+        <text><![CDATA[<p>Correct. An unexpectedly precise claim about a poorly documented object is the thing to distrust first.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It slows processing on non-Western manuscripts, raising the cost per record.</p>]]></text>
+      <text><![CDATA[<p>Specificity indicates the model retrieved the details from a catalogue during generation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The consequence is misclassification and omission, not processing time.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No retrieval occurs; the detail is predicted, not looked up.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It means non-Western manuscripts must be photographed at higher resolution.</p>]]></text>
+      <text><![CDATA[<p>Specificity means the claim can be trusted, since vague output signals uncertainty.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The deficit is in the training data, not the image quality.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. This is exactly the inference the section warns against.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It causes the model to refuse to process unfamiliar scripts.</p>]]></text>
+      <text><![CDATA[<p>Specificity suggests the temperature was set too low.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It does not refuse; it produces confident, wrong output, which is worse.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Low temperature increases predictability, not fabrication of detail.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -788,13 +788,13 @@
   <!-- 19 Question -->
   <question type="multichoice">
     <name>
-      <text>19 Question: Two Numbers That Describe Any Extraction</text>
+      <text>19 Question: The Subtle One: Confidence the Source Never Had</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the difference between precision and recall when scoring an AI-generated header?</p>]]></text>
+      <text><![CDATA[<p>Your source says “approximately 29 lines” and the AI writes writtenLines="29". Why does this matter beyond tidiness?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Precision measures how much of what the AI said was true, recall measures how much of the truth it found, and the two fail independently.</p>]]></text>
+      <text><![CDATA[<p>Models convert hedged evidence into precise assertions — ranges into years, maybes into counts — producing valid markup that claims more than the source ever did.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -803,27 +803,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Precision asks how much of what the AI claimed was right; recall asks how much of what should have been found it found.</p>]]></text>
+      <text><![CDATA[<p>Downstream work queries these fields as data, and a false precision is worse than a recorded uncertainty because it cannot be seen or undone.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. They measure different failures, so a model can score well on one and poorly on the other.</p>]]></text>
+        <text><![CDATA[<p>Correct. Module 07's collation will read these values as if they were measurements.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Precision measures structural validity and recall measures factual accuracy.</p>]]></text>
+      <text><![CDATA[<p>Because the schema requires approximate values to use notBefore and notAfter.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Both are scored on content fields, against your verified header.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Those attributes are for dates, and the schema does not mandate them here.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They are two names for the same ratio, reported to different audiences.</p>]]></text>
+      <text><![CDATA[<p>Because 29 is likely to be the wrong number in most manuscripts.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Their denominators differ, and models routinely score high on one and low on the other.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It may well be right; the problem is asserting certainty the source withheld.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Precision applies to text extraction and recall to image extraction.</p>]]></text>
+      <text><![CDATA[<p>Because TEI forbids numeric attributes on layout elements.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Both apply to any extraction task regardless of the input type.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TEI provides exactly such attributes.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -831,13 +831,13 @@
   <!-- 20 Question -->
   <question type="multichoice">
     <name>
-      <text>20 Question: Counting Errors Without Reading Them</text>
+      <text>20 Question: The Subtle One: What Is Not There</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In the scoring script, why does the function return early when a file is not well-formed?</p>]]></text>
+      <text><![CDATA[<p>Why can an omission never be found by reading the AI file on its own?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A short Python script checks well-formedness and then schema validity, turning a pile of AI files into a countable pass rate.</p>]]></text>
+      <text><![CDATA[<p>Omissions produce no error and cannot be found by reading the AI file alone, so audit by walking your own header element by element.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -846,27 +846,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A file that cannot be parsed has no tree to check, so schema validation cannot run at all.</p>]]></text>
+      <text><![CDATA[<p>There is nothing to see: no error fires, the structure is clean, and only comparison with your own header reveals the gap.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Syntax first, then schema — the same order VS Code follows in the Problems panel.</p>]]></text>
+        <text><![CDATA[<p>Correct. A schema judges what you gave it and has no view of what should have been there.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because badly formed files are automatically excluded from the published edition.</p>]]></text>
+      <text><![CDATA[<p>Because omissions are always in elements the schema treats as optional.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Exclusion is a separate decision; the early return is about what is technically possible.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Whether optional or not, an absent element cannot announce itself.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the schema check would take too long on a malformed file.</p>]]></text>
+      <text><![CDATA[<p>Because the model deletes the corresponding element from your file as well.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is impossible rather than slow.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Your file is untouched; the omission is only in the model's output.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the model should be re-prompted before any further checking.</p>]]></text>
+      <text><![CDATA[<p>Because Schematron reports omissions as warnings rather than errors.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Re-prompting may follow, but the return exists because there is nothing to validate.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No rule fires at all when nothing invalid was written.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -874,13 +874,13 @@
   <!-- 21 Question -->
   <question type="multichoice">
     <name>
-      <text>21 Question: Handing the Errors Back</text>
+      <text>21 Question: The Subtle One: The Link That Goes Somewhere Else</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does pasting validation errors back to the model repair most structural failures?</p>]]></text>
+      <text><![CDATA[<p>Which kind of fabricated identifier is most dangerous, and what is the only test for it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Feeding validation errors back to the model supplies the schema knowledge it never had, and repairs most structural failures without your editing a tag.</p>]]></text>
+      <text><![CDATA[<p>Fabricated identifiers most often resolve to a real but wrong record, passing every automatic check, so the only test is following each link and reading what opens.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -889,27 +889,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>An error message is a precise fragment of the schema, delivered exactly where it is needed, supplying the rulebook the model never had.</p>]]></text>
+      <text><![CDATA[<p>One that is correctly formatted and resolves to a real but wrong record; the only test is following the link and reading what opens.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The model was not incapable of following the rule; it was never given the rule.</p>]]></text>
+        <text><![CDATA[<p>Correct. It passes valid XML, valid schema, and a resolvable URL, so nothing automatic will flag it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the model remembers its previous attempt and avoids repeating it.</p>]]></text>
+      <text><![CDATA[<p>One that resolves to nothing, because a dead link breaks the edition for every reader.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The repair works because of the information in the message, not memory of the attempt.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A dead link is honest: anyone who clicks discovers the problem immediately.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because error messages lower the model's temperature automatically.</p>]]></text>
+      <text><![CDATA[<p>One with an invalid character in the URI, since it will fail schema validation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Temperature is a setting you control and is unaffected by the prompt content.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is a structural error the schema catches for you.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the validator rewrites the file and the model merely confirms it.</p>]]></text>
+      <text><![CDATA[<p>One that omits the ref attribute entirely, since the link is then untraceable.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The validator only reports; the model produces the corrected file.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is an omission, not a fabricated identifier.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -917,56 +917,13 @@
   <!-- 22 Question -->
   <question type="multichoice">
     <name>
-      <text>22 Question: How Many Rounds Before It Gives Up</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>Why should a self-correction loop always be capped at two or three attempts?</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>Correction loops converge in one or two rounds for capable models and never converge for weak ones, so always cap the number of attempts.</p>]]></text>
-    </generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text><![CDATA[<p>Weak models fail to improve and resubmit the same error indefinitely, and even strong ones can circle where one fix introduces another.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Correct. Interpreting a compiler message is itself a reasoning task some models cannot perform.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because each attempt degrades the quality of the surrounding markup.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Attempts do not accumulate damage; they simply fail to converge.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because validators refuse to check the same file more than three times.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. No such limit exists in any validator.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the schema changes slightly on each validation run.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The schema is fixed; only the model's output changes.</p>]]></text>
-      </feedback>
-    </answer>
-  </question>
-
-  <!-- 23 Question -->
-  <question type="multichoice">
-    <name>
-      <text>23 Question: Citations the Model Cannot Check</text>
+      <text>22 Question: The Subtle One: The Citation That Does Not Resolve</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Why is a fabricated CTS URN worse than no URN at all?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Models produce correctly shaped CTS URNs that point nowhere, so every generated identifier must be resolved against a real service before it is committed.</p>]]></text>
+      <text><![CDATA[<p>Generated CTS URNs are correctly shaped and frequently point at the wrong text, so every one must be resolved against a real service before you commit it.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -977,19 +934,19 @@
     <answer fraction="100" format="html">
       <text><![CDATA[<p>A canonical URN promises to resolve indefinitely, so a well-formed one pointing nowhere is a broken promise that looks like a kept one.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Namespace invention, wrong work numbers, and invented word positions all produce citations that fail only when followed.</p>]]></text>
+        <text><![CDATA[<p>Correct. Invented namespaces, wrong work numbers, and invented word positions all fail only when followed.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because an invalid URN causes the TEI file to fail schema validation.</p>]]></text>
+      <text><![CDATA[<p>Because an invalid URN causes the file to fail schema validation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A correctly shaped URN passes validation regardless of whether it resolves.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A correctly shaped URN validates whether or not it resolves.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because CTS URNs cannot be corrected once they have been committed to Git.</p>]]></text>
+      <text><![CDATA[<p>Because CTS URNs cannot be corrected once committed to Git.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git history is editable in principle; the problem is that nobody realizes it is wrong.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They can be corrected; the difficulty is that nobody realizes they are wrong.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -1000,16 +957,16 @@
     </answer>
   </question>
 
-  <!-- 24 Question -->
+  <!-- 23 Question -->
   <question type="multichoice">
     <name>
-      <text>24 Question: Sorting the Differences</text>
+      <text>23 Question: Where Models Are Weakest, and Who That Harms</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When comparing your header with the AI's, why does the category “the AI was right and you were not” matter?</p>]]></text>
+      <text><![CDATA[<p>Model accuracy tracks how much has been written about a subject. What is the scholarly consequence for cataloguing?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Every difference between your header and the AI's is a structural error, a factual error, a genuine AI catch, or a legitimate disagreement — and the sorting is the analysis.</p>]]></text>
+      <text><![CDATA[<p>Models are least reliable on the least-studied traditions, so unaudited automation widens existing cataloguing inequities while appearing neutral.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1018,27 +975,70 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Recording it honestly is what makes the exercise research rather than a defence of your own work.</p>]]></text>
+      <text><![CDATA[<p>The tool performs worst where the backlog is largest, so unaudited automation widens the gap between well-described and neglected traditions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The AI does sometimes catch a detail you missed, and the log must be able to say so.</p>]]></text>
+        <text><![CDATA[<p>Correct. The failure is invisible, because the prose is equally polished whether or not it is accurate.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It never occurs in practice, but is listed for completeness.</p>]]></text>
+      <text><![CDATA[<p>Processing is slower for less-documented traditions, raising the cost per record.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It occurs regularly, which is precisely why the category exists.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The consequence is confident invention, not slower processing.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It determines whether you are permitted to submit the Comparison Post.</p>]]></text>
+      <text><![CDATA[<p>The model declines to describe material it has seen little of.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is an analytical category, not a submission requirement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It does not decline; it produces fluent output with far more of it invented.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It indicates that your schema validation on Wednesday was incomplete.</p>]]></text>
+      <text><![CDATA[<p>The problem is solved by photographing those collections at higher resolution.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A missed detail is a factual gap, unrelated to structural validation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The deficit is in textual training data, not image quality.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: The Six-Field Scorecard</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is “missing” kept as a separate column from “wrong or invented” on the scorecard?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Score six fields as right, wrong, or missing against your verified header, keeping omission separate from invention, and record the error counts before and after correction.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Omission and invention are different failures with different causes, and combining them hides both.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A cautious model omits; an unreliable one invents, and the responses to each are opposite.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because missing fields are penalized more heavily in the workshop rubric.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The distinction is analytical, not a marking scheme.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because missing fields can be filled in later while wrong ones cannot.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both are correctable; the distinction concerns what they reveal about the model.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the schema reports missing fields but not wrong ones.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The schema reports neither, since both may be perfectly valid.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1046,13 +1046,13 @@
   <!-- 25 Question -->
   <question type="multichoice">
     <name>
-      <text>25 Question: What It Costs</text>
+      <text>25 Question: Precision and Recall, From Your Own Counts</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>AI cataloguing removes structural errors cheaply and multiplies factual ones. What follows for the human role?</p>]]></text>
+      <text><![CDATA[<p>The AI fills five of your six fields and gets four right. What are its precision and recall?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>AI cuts cataloguing from hours to seconds and shifts the human effort from authoring to auditing, which is only an improvement if the auditing is real.</p>]]></text>
+      <text><![CDATA[<p>Precision is how much of what the AI said was true and recall is how much of the truth it found, and the pair distinguishes a cautious model from an unreliable one.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1061,27 +1061,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The work changes shape rather than disappearing, moving from writing records to checking them — which only helps if the checking actually happens.</p>]]></text>
+      <text><![CDATA[<p>Precision is four out of five, and recall is four out of six.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. An audited pipeline is an advance; the same pipeline unaudited fills a catalogue with confident fiction.</p>]]></text>
+        <text><![CDATA[<p>Correct. Precision divides by what it supplied; recall divides by what should have been found.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Human involvement can be reduced proportionally to the drop in cost per record.</p>]]></text>
+      <text><![CDATA[<p>Precision is four out of six, and recall is four out of five.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The factual error rate rises, so the auditing burden increases as generation gets cheaper.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The denominators are reversed.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The savings should be spent on larger models rather than on staff.</p>]]></text>
+      <text><![CDATA[<p>Both are four out of six, since the same four fields are correct.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. No model removes the need for factual verification against the object.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The measures differ precisely because their denominators differ.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Structural and factual errors fall together once a schema gate is added.</p>]]></text>
+      <text><![CDATA[<p>Precision is five out of six, and recall is four out of five.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The gate catches structure only and leaves factual errors untouched.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Precision counts correct answers, not attempted ones, in its numerator.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1089,13 +1089,13 @@
   <!-- 26 Question -->
   <question type="multichoice">
     <name>
-      <text>26 Question: Saying So in the File</text>
+      <text>26 Question: Sorting the Differences</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must AI contributions be recorded in respStmt and revisionDesc, with the model version and date?</p>]]></text>
+      <text><![CDATA[<p>Why should a comparison record the cases where the AI was right and you were not?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Record AI contributions in `<respStmt>` and `<revisionDesc>` with model versions and dates, because algorithmic provenance is provenance.</p>]]></text>
+      <text><![CDATA[<p>Every difference is a structural error, a factual error, a genuine AI catch, or a legitimate disagreement, and recording the third category honestly is what makes the audit credible.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1104,27 +1104,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A future reader must be able to tell which claims came from an editor who examined the object and which from a system predicting plausible text.</p>]]></text>
+      <text><![CDATA[<p>Recording them honestly is what makes the exercise research rather than a defence of your own work.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Algorithmic provenance is provenance, and the distinction is invisible in finished markup unless recorded.</p>]]></text>
+        <text><![CDATA[<p>Correct. A comparison finding zero AI advantages reads as unobserved rather than rigorous.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because TEI validation fails if an AI-generated file has no respStmt.</p>]]></text>
+      <text><![CDATA[<p>It is required before the submission can be accepted.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The schema does not require it; the obligation is scholarly.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is an analytical category, not a submission rule.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because publishers require an AI disclaimer on all digital editions.</p>]]></text>
+      <text><![CDATA[<p>It shows that your Wednesday validation was incomplete.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. This is provenance recorded in the file, not a legal disclaimer.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A missed detail is a factual gap, unrelated to structural validation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because it allows the model to be billed for its share of the work.</p>]]></text>
+      <text><![CDATA[<p>It never actually occurs, but is listed for completeness.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The purpose is the integrity of the scholarly record.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It occurs regularly, which is why the category exists.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1132,13 +1132,13 @@
   <!-- 27 Question -->
   <question type="multichoice">
     <name>
-      <text>27 Question: Making the Check Run Itself</text>
+      <text>27 Question: Recording the Machine's Part in the File</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What does an automated validation gate on every commit achieve that individual discipline does not?</p>]]></text>
+      <text><![CDATA[<p>Why record the model's version and date in respStmt and revisionDesc?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>An automated validation gate on every commit enforces the schema on human and AI contributions alike, without relying on anyone remembering to check.</p>]]></text>
+      <text><![CDATA[<p>Record AI contributions in `respStmt` and `revisionDesc` with model versions and dates, because algorithmic provenance is provenance.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1147,27 +1147,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It enforces the schema on human and AI contributions alike, so no invalid file enters the edition regardless of anyone's vigilance.</p>]]></text>
+      <text><![CDATA[<p>A future reader must be able to tell which claims came from an editor who examined the object and which from a system predicting text.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The rule is enforced by the repository rather than by remembering to check.</p>]]></text>
+        <text><![CDATA[<p>Correct. “An AI wrote this” means little in ten years; a version and a date can be checked.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It repairs invalid files automatically before they are merged.</p>]]></text>
+      <text><![CDATA[<p>Because the schema will not validate an AI-drafted file without a respStmt.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It rejects and reports; repair remains a human or model task.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema does not require it; the obligation is scholarly.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It removes the need for editors to read AI output at all.</p>]]></text>
+      <text><![CDATA[<p>Because publishers require an AI disclaimer on digital editions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It checks structure only, and factual auditing still requires an editor.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. This is provenance recorded in the file, not a legal disclaimer.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It guarantees that committed files describe the manuscript accurately.</p>]]></text>
+      <text><![CDATA[<p>Because it allows the AI contribution to be excluded from peer review.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. No automated gate can certify historical truth.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It makes the contribution reviewable rather than exempt.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1175,13 +1175,13 @@
   <!-- 28 Question -->
   <question type="multichoice">
     <name>
-      <text>28 Question: Today's Lab: Your Passage, Your Comparison</text>
+      <text>28 Question: Friday's Lab, Step by Step</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In today's lab, why must you record the AI file's error count before fixing anything?</p>]]></text>
+      <text><![CDATA[<p>Why does the lab have you look up Trismegistos, Pinakes, and Diktyon identifiers BEFORE prompting the model?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Generate a header for your own witness, record its error count before touching it, then score six fields against your validated file.</p>]]></text>
+      <text><![CDATA[<p>Verify identifiers before prompting, record the untouched output and its first error count, then score six fields and follow every link the model produced.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1190,27 +1190,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The first-pass count is the measurement, and once you begin correcting the file it cannot be recovered.</p>]]></text>
+      <text><![CDATA[<p>So you hold verified values the model cannot influence, giving you an independent standard for its identifiers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. An unfixed AI file with its error count written down is a complete result on its own.</p>]]></text>
+        <text><![CDATA[<p>Correct. Looking them up afterwards risks anchoring your search on what the model already asserted.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the Problems panel clears its history when the file is saved.</p>]]></text>
+      <text><![CDATA[<p>Because the prompt will not function without identifiers included in it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The reason is methodological: the raw count is the datum you are collecting.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The model will generate output regardless; the concern is independence.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because fixing errors before counting would violate the schema.</p>]]></text>
+      <text><![CDATA[<p>Because the authority sites are unavailable later in the day.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Fixing is encouraged, but only after the first count is recorded.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Availability is not the reason for the ordering.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the count determines which model you should have used.</p>]]></text>
+      <text><![CDATA[<p>Because the schema requires all identifiers to be present before validation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is evidence for your comparison, not a tool-selection rule.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema does not require these identifiers at all.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1218,13 +1218,13 @@
   <!-- 29 Question -->
   <question type="multichoice">
     <name>
-      <text>29 Question: Writing It Up</text>
+      <text>29 Question: Writing the Comparison</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What distinguishes a usable error analysis in the Comparison Post from an unusable one?</p>]]></text>
+      <text><![CDATA[<p>Your own evidence shows the schema catching structural errors and missing every subtle one. How should the comparison then argue for deterministic validation?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The report presents actual error counts and named failures across all three days, and concludes with a recommendation grounded in your own numbers.</p>]]></text>
+      <text><![CDATA[<p>The comparison reports method and figures briefly, spends its length on two verified subtle hallucinations, and argues the schema's necessity from your own numbers.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1233,27 +1233,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Naming the specific failure, such as an invented shelfmark, rather than reporting that the output had problems.</p>]]></text>
+      <text><![CDATA[<p>That it removes an entire class of failure at no cost, freeing your limited attention for the errors only a person can catch.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A named failure is an argument; a general impression is not.</p>]]></text>
+        <text><![CDATA[<p>Correct. The argument runs from your own numbers rather than from conviction.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Reporting the overall impression of which model felt more capable.</p>]]></text>
+      <text><![CDATA[<p>That the schema catches most hallucinations, so it remains the primary safeguard.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Impressions are exactly what the week's measurements were designed to replace.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Your own findings contradict this, and the marker will notice.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Listing every element the AI produced, whether or not it differed from yours.</p>]]></text>
+      <text><![CDATA[<p>That schemas will eventually detect factual errors as they improve.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The analysis is about the differences and how they are classified.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Factual verification is outside what any grammar-based schema can do.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Presenting only the final corrected file, since earlier drafts are superseded.</p>]]></text>
+      <text><![CDATA[<p>That validation matters mainly because Moodle requires valid XML on import.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The first-pass counts are the evidence and must be reported.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. This is a technical convenience, not a methodological argument.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1267,7 +1267,7 @@
       <text><![CDATA[<p>Why does the ability to generate plausible TEI in seconds make deterministic schemas more necessary rather than less?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Generative AI makes deterministic schemas and human editorial judgement more necessary, not less, because it can produce plausible errors faster than anyone can read them.</p>]]></text>
+      <text><![CDATA[<p>Generative AI makes deterministic schemas and human editorial judgement more necessary, because automating the cheap errors is what frees attention for the ones only a person can catch.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1276,25 +1276,25 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A system can now produce wrong markup faster than any human can read it, so the schema and the editor are what stand between that output and the record.</p>]]></text>
+      <text><![CDATA[<p>Automating away the cheap errors is what frees a human editor's attention for the expensive ones only a person can catch.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Correct. When markup was slow, errors were rare because so little was produced; that constraint is gone.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because models generate markup that no existing schema can parse.</p>]]></text>
+      <text><![CDATA[<p>Because models generate markup that existing schemas cannot parse.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The output parses readily; the problem is its volume and its confidence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The output parses readily; the problem is its volume and confidence.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because schemas are the only tool that can detect fabricated provenance.</p>]]></text>
+      <text><![CDATA[<p>Because schemas are the only tool capable of detecting fabricated provenance.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schemas cannot detect fabrication at all, as section 13 demonstrated.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schemas cannot detect fabrication at all, as section 18 demonstrated.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because generated files are larger and need stricter compression.</p>]]></text>
+      <text><![CDATA[<p>Because generated files are larger and require stricter storage rules.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. The argument concerns verification, not file size.</p>]]></text>
       </feedback>

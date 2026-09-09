@@ -1,42 +1,46 @@
-# Lesson 2.3 — AI-Assisted Metadata Enrichment, Entity Extraction, and Validation Auditing
+# Lesson 2.3 — Auditing AI-Generated Manuscript Metadata
 
 *RELS 398 / ENGL 398 · Topic 2: Cataloguing · Meeting #5 (Fri Sep 11)*
 
-***Step 3 of the three-step cycle: AI-assisted.** On Tuesday you wrote a TEI header by hand. On Wednesday you made a schema check it. Today you ask a machine to write the same header, put its work through the same schema, and score it against yours. The comparison is the lesson.*
+***Step 3 of the three-step cycle: AI-assisted.** On Tuesday you wrote a TEI header by hand. On Wednesday you made a schema check it. Today a machine writes the same header in seconds, and your job is to find what is wrong with it — including the errors that pass every check you own.*
 
 ---
 
 ## **01 Content**
 
-**Why Anyone Would Let a Machine Catalogue a Manuscript**
+**What Today Actually Asks of You**
 
-Start with the size of the problem. Libraries, monasteries, and university archives around the world hold hundreds of thousands of handwritten books and documents that have never been properly catalogued. Many are described only in handwritten registers from the nineteenth century. Some are described nowhere at all.
+By Monday you owe a workshop submission with three parts: a validated `<msDesc>` for your assigned Greek witness, authority identifiers that resolve to the right records, and a 300 to 500 word comparison in which you name **at least two subtle hallucinations** in an AI-generated version of the same description.
 
-You now know why this backlog is so hard to clear, because on Tuesday you cleared exactly one page of it. Writing a good `<msDesc>` takes a person who can read the script, recognize the material, count the hands, and encode all of it in TEI. That person works in hours per folio. At that rate, cataloguing the world's manuscripts is not slow. It is impossible (De Cristofaro & Zilio, 2025).
+Read that requirement carefully, because the difficulty is hiding in one word. Not two errors. Two *subtle* errors.
 
-So researchers have started handing the job to AI. Large language models can read a page of catalogue prose and return a tagged TEI header in seconds. That is roughly ten thousand times faster than you were on Tuesday.
+Obvious errors are easy. If a model closes a tag in the wrong place, Wednesday's schema tells you on the spot, and reporting it earns you very little. A subtle error is one that survives every automatic check you have: well-formed XML, valid against `msdesc.rng`, correctly formatted dates, plausible content — and wrong.
 
-The catch is the one you met in Lesson 1.1: these models are prediction engines, not truth engines. They invent scribal hands that never existed, dates that were never recorded, and XML tags that no schema allows (De Cristofaro & Zilio, 2025). Today's question is not "can AI catalogue manuscripts." It plainly can. The question is how you measure what it produced, and how you catch what it made up.
+So today is not an introduction to AI. You already know from Lesson 1.1 that these systems predict text and invent things. Today is training in a specific skill: looking at a clean, confident, schema-valid TEI header and finding the places where it is lying to you.
 
-**Takeaway:** AI can generate manuscript metadata thousands of times faster than a human, but because it predicts rather than knows, the real skill is measuring and auditing what it produces.
+That skill is the whole of this lesson, and most of what the module is assessing.
+
+**Takeaway:** The workshop asks you to name at least two subtle hallucinations, meaning errors that pass validation, so today trains you to audit a header that already looks perfect.
 
 ---
 
 ## **02 Content**
 
-**What the Model Is Actually Doing When It Writes TEI**
+**What the Model Is Doing When It Writes Your Header**
 
-Lesson 1.1 told you that a large language model predicts likely text. It is worth being precise about what that means when the text is XML.
+Lesson 1.1 told you that a large language model predicts likely text. It is worth being exact about what that means when the text is TEI.
 
-The model has read enormous amounts of writing, including a great deal of public TEI. It has seen thousands of real `<teiHeader>` elements. So when you give it a manuscript description, it is not consulting a rulebook about TEI. It is answering a much simpler question, over and over: given everything so far, what usually comes next?
+The model has read enormous amounts of writing, including a great deal of public TEI. It has seen thousands of real `<teiHeader>` elements. So when you hand it a catalogue description, it is not consulting the TEI Guidelines. It is answering one question repeatedly: given everything so far, what usually comes next?
 
 After `<msIdentifier>`, a `<repository>` usually comes next. After a description mentioning animal skin, `material="parchment"` usually comes next. The model is very good at "usually."
 
-This explains both its strength and its weakness. Its strength is fluency: it produces TEI that looks right immediately, because it has seen so much TEI that looks right. Its weakness is that "usually correct" and "valid" are different standards. The model has no copy of `msdesc.rng` in its head and no way to check itself against one (De Cristofaro & Zilio, 2025). It has a strong sense of what TEI tends to look like and no knowledge of what this schema actually permits.
+Two consequences follow, and they explain nearly everything in this lesson.
 
-Keep that distinction in view all day. Fluency is not knowledge, and the machine has plenty of the first.
+First, its output looks right immediately, because it has seen so much TEI that looks right. Second, it has no copy of `msdesc.rng` in its head and no way to check itself against one. It has a strong sense of what TEI tends to look like and no knowledge of what your schema actually permits.
 
-**Takeaway:** An LLM writes TEI by predicting what usually comes next, which makes its output fluent and plausible without making it valid.
+There is a third consequence, and it is the one that matters most for the audit. The model produces the *usual* answer even where your manuscript is unusual — and manuscripts are nothing but unusual.
+
+**Takeaway:** A model writes TEI by predicting what usually comes next, which makes it fluent, unable to check itself, and systematically wrong about whatever is distinctive in your witness.
 
 ---
 
@@ -44,43 +48,201 @@ Keep that distinction in view all day. Fluency is not knowledge, and the machine
 
 **Two Ways of Being Right**
 
-Wednesday and Friday put two very different kinds of tool side by side, and they disagree about what "correct" means.
+Wednesday and Friday put two very different tools side by side, and they disagree about what "correct" means.
 
-The schema you used on Wednesday is deterministic. Give it the same file twice and you get the same answer twice. It has a fixed list of what may appear, in what order, inside what parent. It does not care what your manuscript means. It has one question: does this tree obey the rules?
+The schema is deterministic. Give it the same file twice and you get the same answer twice. It holds a fixed list of what may appear, in what order, inside what parent. It does not care what your manuscript means. It has one question: does this tree obey the rules?
 
-The model you use today is probabilistic. Give it the same prompt twice and you may get two different headers. It has no fixed rules at all. What it has is a sense of meaning: it can tell that a phrase about a leaf's height belongs somewhere near the physical description, even if nobody told it so.
+The model is probabilistic. Give it the same prompt twice and you may get two different headers. It has no fixed rules at all. What it has is a sense of meaning: it can tell that a phrase about a leaf's height belongs near the physical description, even though nobody told it so.
 
-| What you want done | The schema (Wednesday) | The model (Friday) |
+| What you need done | The schema (Wednesday) | The model (Friday) |
 | --- | --- | --- |
-| Enforce element order and nesting | Reliable; this is its entire job | Approximate; obeys when it happens to |
+| Enforce element order and nesting | Reliable; this is its whole job | Approximate; obeys when it happens to |
 | Read messy prose and find the meaning | Cannot do this at all | Genuinely good at it |
 | Give the same answer every time | Always | Not guaranteed |
-| Notice that a date is not really a date | Catches the format, not the fact | Will happily invent a plausible one |
+| Notice that a date is not really a date | Checks the format, not the fact | Will invent a plausible one |
 
-Neither tool is the smarter one. They fail in opposite directions, which is exactly why they work well together: the model proposes, and the schema refuses.
+Neither is the smarter tool. They fail in opposite directions, which is why they belong together: the model proposes, and the schema refuses.
 
-**Takeaway:** Schemas are consistent but meaningless, while models are meaningful but inconsistent, so a serious pipeline uses each to cover the other's blind spot.
+**Takeaway:** Schemas are consistent but indifferent to meaning, models grasp meaning but guarantee nothing, so each covers the other's blind spot.
 
 ---
 
 ## **04 Content**
 
+**What a Schema Can and Cannot See**
+
+This is the most important idea in the lesson, and everything from section 15 onward depends on it. Take a moment with it.
+
+On Wednesday you drove the Problems panel to zero errors and it felt like proof. It was proof of something quite narrow. A RELAX NG schema answers one question: is this tree built out of permitted elements, in a permitted order, with permitted attribute values?
+
+Notice what is missing from that question. Nothing in it concerns your manuscript.
+
+| The schema checks | The schema cannot check |
+| --- | --- |
+| Is `msIdentifier` inside `msDesc`? | Is this the right shelfmark? |
+| Is `@when` formatted as a date? | Is it the right date? |
+| Is `@material` in the permitted list? | Is the leaf actually parchment? |
+| Did you close every element? | Did you describe the correct manuscript? |
+
+Every entry in the right column is a fact about a physical object, and a schema has never seen a physical object. It sees a tree.
+
+So "zero errors" means the file is *well built*. It says nothing about whether the file is *true*. A completely fabricated description of a manuscript that does not exist can pass at zero errors, and later in this lesson you will watch one do exactly that.
+
+Hold on to the distinction. Once a machine is generating the markup, the gap between well built and true is where all your work lives.
+
+**Takeaway:** A schema certifies that a file is well built, never that it is true, and every fact about the physical manuscript falls outside what it can see.
+
+---
+
+## **05 Content**
+
+**Why Your Own Header Is the Measuring Stick**
+
+A system cannot grade itself. To say anything precise about an AI header, you need an independent reference — and you built one this week without being told that was the point.
+
+Tuesday's hand-authored header is your ground truth: made by someone who looked at the actual object. Wednesday's validated file is your structural baseline: certified at zero errors. Together they are the standard the machine gets measured against.
+
+This matters more than it sounds. Without a baseline, all you can say about an AI header is that it looks impressive — worth nothing, because looking impressive is the one thing these systems are guaranteed to do. With a baseline you can say something a marker can check: it invented a shelfmark, it missed two hands, it got the material right.
+
+Your workshop grade turns on this. "The AI made some mistakes" is not an audit. "The AI assigned Diktyon 12345 to a manuscript whose actual Diktyon number is different, and the wrong number resolves to a different codex entirely" is an audit. The second sentence is only available to someone holding a verified reference.
+
+Keep your Tuesday file open beside the AI output all through today's lab. The comparison is not a step at the end. It is the work.
+
+**Takeaway:** Your verified header is what converts an impression of the AI's cleverness into a specific, checkable claim about what it got wrong.
+
+---
+
+## **06 Content**
+
+**Why VIAF and Pleiades Are Not Enough Here**
+
+On Wednesday you linked your repository to VIAF and your place of origin to Pleiades. Both are excellent, and neither will carry your workshop submission.
+
+VIAF identifies *people and institutions*. Pleiades identifies *ancient places*. Your witness is neither. It is a specific physical codex, holding specific texts, sitting in a specific library — and none of those three facts has an identifier in either system.
+
+This is a real gap, and Greek manuscript scholarship built its own tools to fill it. Three of them appear in your workshop instructions, and you are graded on using them accurately.
+
+| Question about your witness | The register that answers it |
+| --- | --- |
+| Which ancient text is this, as a text? | Trismegistos |
+| Which work is this, and which manuscripts carry it? | Pinakes |
+| Which physical Greek codex is this? | Diktyon |
+
+The next three sections take these one at a time. Learn them for a practical reason as well as a scholarly one: they are worth three of the ten points on your workshop, and they are the identifiers a model is most likely to fabricate, because they are far rarer in its training data than VIAF numbers.
+
+**Takeaway:** VIAF identifies people and Pleiades identifies places, so Greek manuscripts need their own registers — Trismegistos, Pinakes, and Diktyon.
+
+---
+
+## **07 Content**
+
+**Trismegistos: An Identifier for the Text Itself**
+
+Trismegistos began as a database of texts from Greco-Roman Egypt and grew into a much wider register of ancient texts and the material that carries them (Clarysse, 2010).
+
+Its core idea is one you have already met in a different form. A CTS URN identifies a *work* as an abstract literary thing. A Trismegistos number identifies a *text* as a documented object of study — this inscription, this papyrus, this document, with its own record, bibliography, and links.
+
+A TM number looks unglamorous: a bare number attached to a record at `trismegistos.org`. Its value is that it is stable and shared. Two scholars who have never met can be certain they are discussing the same text.
+
+Trismegistos also maintains connected registers of places and of ancient persons and their name variants. That second one solves a problem you will recognize from any manuscript: the same person spelled six ways across four centuries.
+
+Look yours up by shelfmark or by text before Friday, and record what you find. If your witness has no TM record, that is a finding worth reporting too, not a failure.
+
+**Takeaway:** A Trismegistos number is a stable public identifier for an ancient text as a documented object, alongside its registers of ancient places and persons.
+
+---
+
+## **08 Content**
+
+**Pinakes: Which Work, and Which Manuscripts Carry It**
+
+Pinakes, maintained by the Institut de recherche et d'histoire des textes, is the reference catalogue for Greek literary works and the manuscripts that transmit them.
+
+Its structure maps neatly onto TEI you already know, which makes it easier to learn than it first appears.
+
+- **Authors** are entries for the writer, real or attributed, gathering everything credited to them.
+- **Works** are entries for the text itself, independent of any one copy. This is the level your `<msItem>` describes.
+- **Witnesses** are the manuscripts carrying that work. Your codex is one of them.
+
+That three-part shape is the same distinction you drew on Tuesday between the work your page transmits and the physical object in front of you. Pinakes simply gives both an identifier.
+
+The practical use for your workshop: find your work in Pinakes, and the record will list the other manuscripts that carry it. You will see immediately that your witness is one member of a family, which is the entire premise of Module 07's collation work.
+
+Pinakes is in French. This is not an obstacle worth worrying about — the field names repeat, and you are reading a database, not an essay.
+
+**Takeaway:** Pinakes catalogues Greek authors, works, and the manuscripts that transmit them, giving identifiers to the same work-versus-object distinction you drew on Tuesday.
+
+---
+
+## **09 Content**
+
+**Diktyon: A Number That Survives a Change of Shelfmark**
+
+Shelfmarks move. Collections are renumbered, libraries reorganize, and a manuscript cited by shelfmark in 1890 may sit under a different call number today. You met this problem on Tuesday and answered it with a permanent identifier.
+
+Diktyon is that answer for Greek manuscripts. It assigns each known Greek codex a stable number that stays fixed regardless of what the holding library later calls it, and it lets catalogues that describe the same manuscript recognize one another.
+
+The reasoning should feel familiar. It is the argument you accepted on Wednesday for CTS URNs, applied to physical objects instead of texts: a citation is only durable if it survives the administrative decisions of institutions.
+
+Here is where this lesson gets an opportunity, so notice what is happening. **This lesson does not print the Diktyon number for the Codex Marchalianus, or for your witness.** Not because it is hard to find, but because a number you have not verified is exactly the failure mode you are being trained to catch. A confident, correctly formatted, unverified identifier is precisely what a model will hand you on Friday.
+
+Look yours up. Then you will know it, rather than having been told it.
+
+**Takeaway:** A Diktyon number identifies a Greek manuscript stably across changes of shelfmark, and this lesson deliberately makes you look yours up rather than supplying it.
+
+---
+
+## **10 Content**
+
+**Putting Authority Identifiers into Your msDesc**
+
+You already know the mechanism, because Wednesday taught it. An identifier goes into your markup as an attribute pointing outward, turning a string into a reference.
+
+```xml
+<msIdentifier>
+  <settlement>Vatican City</settlement>
+  <repository ref="http://viaf.org/viaf/141312782">Biblioteca Apostolica Vaticana</repository>
+  <idno>Vat. gr. 2125</idno>
+  <altIdentifier type="Diktyon">
+    <idno>[the number you looked up]</idno>
+  </altIdentifier>
+</msIdentifier>
+
+<msContents>
+  <msItem n="1" corresp="[your CTS URN]">
+    <title ref="[your Pinakes work record]">Isaiah</title>
+  </msItem>
+</msContents>
+```
+
+Two things to notice.
+
+`<altIdentifier>` is how TEI records a second identifier for the same object alongside the shelfmark. That is precisely what a Diktyon number is, so it belongs there rather than jammed into `<idno>`.
+
+And every bracketed placeholder above is something you must look up. That is not an accident of writing. It is the rule the rest of this lesson defends: an identifier you did not verify is not an identifier, whether a machine supplied it or a lesson did.
+
+**Takeaway:** Authority identifiers attach to your markup through `@ref`, `@corresp`, and `altIdentifier`, and every one of them has to be looked up rather than assumed.
+
+---
+
+## **11 Content**
+
 **Asking Well: How to Prompt for TEI**
 
-If you type "convert this into TEI XML," you will get something disappointing. It will be wrapped in chatty preamble, sprinkled with invented tags, and rejected by the schema on the first line. That is not the model failing. That is the prompt failing.
+Type "convert this into TEI XML" and you will get something poor: chatty preamble, invented tags, rejected on the first line. That is the prompt failing, not the model.
 
-Researchers who do this at scale have converged on a few habits, and you can use all of them today (De Cristofaro & Zilio, 2025).
+Researchers doing this at scale have converged on a few habits, and you can use all of them on Friday (De Cristofaro & Zilio, 2025).
 
-- **Say who the model is.** "You are cataloguing a manuscript in TEI P5" narrows what "usually comes next" means. It is a cheap way to move the model into the right neighbourhood of everything it has read.
-- **Say which tags are allowed.** Paste the element names you expect. The model cannot consult the schema, so the closest substitute is putting part of the schema in front of it.
-- **Show a finished example.** One correct header teaches the model your house style faster than three paragraphs of instruction. Two is better.
+- **Say who the model is.** "You are cataloguing a Greek manuscript in TEI P5" narrows what "usually comes next" means.
+- **Say which tags are allowed.** Paste the element names you expect. The model cannot consult the schema, so putting part of it in the prompt is the closest available substitute.
+- **Show a finished example.** One correct header teaches your house style faster than three paragraphs of instruction.
 - **Demand XML and nothing else.** Otherwise you will spend the lab deleting "Certainly! Here is your TEI header:" from the top of the file.
-- **Turn down the randomness.** Most interfaces expose a setting called temperature. High temperature makes the model more inventive; low temperature makes it more predictable. For markup you want predictable, so set it low, near zero if you can.
+- **Turn down the randomness.** Most interfaces expose a setting called temperature. Higher means more inventive; lower means more predictable. For markup you want predictable.
 
 ```
 A workable system prompt:
 
-"You are cataloguing a manuscript in TEI P5.
+"You are cataloguing a Greek manuscript in TEI P5.
 Rules:
 1. Output only a <TEI> element with the TEI namespace. No commentary.
 2. Follow the hierarchy teiHeader > fileDesc > sourceDesc > msDesc.
@@ -89,415 +251,65 @@ Rules:
 5. Write & as &amp;."
 ```
 
-**Takeaway:** A good TEI prompt names the role, lists the permitted tags, shows a worked example, forbids commentary, and lowers the temperature.
+Keep the prompt you use. Your workshop comparison should quote it, because a result nobody can reproduce is not evidence.
 
----
-
-## **05 Content**
-
-**Why Your Own Header Is the Measuring Stick**
-
-A system cannot grade itself. To say anything meaningful about the AI's output, you need an independent reference to compare it against. You built that reference this week without being told that was what you were doing.
-
-Tuesday's hand-authored header is your ground truth: the version made by someone who looked at the actual object. Wednesday's validated header is your structural baseline: the version certified at zero errors. Together they are the standard the machine gets measured against (De Cristofaro & Zilio, 2025).
-
-This matters more than it might sound. Without a baseline, all you can say about an AI header is that it looks impressive, which is worth nothing, because looking impressive is the one thing these models are guaranteed to do. With a baseline you can say something precise: it invented a shelfmark, it missed two hands, it got the material right.
-
-| What you compare | Your header (Tue/Wed) | The AI header (today) |
-| --- | --- | --- |
-| Well-formed XML | Yes, you fixed it until it was | Usually, but not always |
-| Passes the schema | Yes, certified at 0 errors | This is what you are measuring |
-| Facts about the object | Checked against the image | Confident, and sometimes fictional |
-| Links to VIAF and Pleiades | Chosen by you, verified | Often plausible and dead |
-
-**Takeaway:** Tuesday's header and Wednesday's zero-error file are the independent reference that turns an impression of cleverness into a measurable claim.
-
----
-
-## **06 Content**
-
-**A Real Experiment: The PubCINET Study**
-
-You are not the first to run today's comparison. In 2025, De Cristofaro and Zilio ran it properly, at scale, and published what happened. Their results are the backbone of this lesson.
-
-Their project, PubCINET, was reconstructing the networks of Italian publishing and cinema from the 1950s to the 1980s. That meant thousands of unpublished letters and manuscripts to catalogue, and a backlog like the one described in section 01 (De Cristofaro & Zilio, 2025).
-
-Their method should look familiar, because it is the method you are following today. They gave each model a careful system prompt, a reference file listing the people and places the project had already verified, and the raw transcribed text. They collected the XML that came back. Then they ran every file through automated schema validation and counted the errors (De Cristofaro & Zilio, 2025).
-
-The one difference worth noting is that they tested two models against each other: OpenAI's ChatGPT-4 and Anthropic's Claude 3.5 Sonnet, the two leading systems at the time of the study. What they found was not that one model was better. It was that the two failed in opposite directions, which turned out to be far more useful to know.
-
-**Takeaway:** The PubCINET study ran this same comparison across two models at scale, and found that different models fail in systematically different ways.
-
----
-
-## **07 Content**
-
-**The First Profile: Smart About Meaning, Careless About Structure**
-
-ChatGPT-4, in that study, was remarkably good at understanding what the documents were about (De Cristofaro & Zilio, 2025).
-
-When a letter referred to someone by a nickname, a first name only, or an oblique allusion, the model repeatedly worked out who was actually meant, and connected that person to information the prompt had never supplied. That is genuinely hard. It is the kind of inference you would expect from a research assistant who knows the period.
-
-The structure was another story. The same model routinely failed schema validation. It closed containers before their required children were inside them, nested elements where the schema forbids it, and invented tags that TEI does not define (De Cristofaro & Zilio, 2025).
-
-The pattern behind both results is one thing, not two. The model optimizes for meaning. When capturing the sense of a document and obeying the grammar of a schema pull in different directions, meaning wins, because meaning is what it was built to chase.
-
-```
-Profile 1 (De Cristofaro & Zilio, 2025):
-- Recognizing implied people and places .... strong
-- Reading between the lines ............... strong
-- Well-formed XML ......................... usually
-- Passes the RELAX NG schema .............. often not
-- Internal cross-references intact ........ often not
-```
-
-**Takeaway:** A model that optimizes for meaning will read a document impressively and break the schema doing it.
-
----
-
-## **08 Content**
-
-**Structural Hallucination: Confident XML That Cannot Exist**
-
-You already know that models hallucinate facts. There is a second kind, and it is the kind a schema can actually catch.
-
-A structural hallucination is markup that looks entirely reasonable and is illegal in this schema. The model is not confused about the manuscript. It is confused about the rules, because it never had them (De Cristofaro & Zilio, 2025).
-
-Three kinds show up constantly.
-
-- **Closing a container too early.** The model writes `</profileDesc>` and then keeps going with elements that were supposed to be inside it. The children end up orphaned outside their parent.
-- **Reaching for HTML.** Models have read far more HTML than TEI. Under pressure they reach for `<p>` or `<br>` in places where TEI allows neither. You saw this exact trap on Wednesday, when `<extent>` refused a `<p>` that `<support>` accepts one line above.
-- **Inventing character entities.** `&copy;` and `&nbsp;` are ordinary in HTML and undefined in XML. One of them anywhere in the file is fatal: the parser stops, and you get no validation report at all.
-
-| What the model wrote | Why the schema refuses it |
-| --- | --- |
-| `</profileDesc><langUsage>...</langUsage>` | `langUsage` belongs inside `profileDesc`, not after it |
-| `<closer><p>Yours faithfully,</p></closer>` | `closer` takes phrases, not paragraphs |
-| `<p>Copyright &copy; 2026</p>` | `copy` is an HTML entity; XML has never heard of it |
-| `<supportDesc support="parchment">` | The attribute is `material`, not `support` |
-
-Every one of these is caught by the check you already know how to run.
-
-**Takeaway:** Structural hallucinations are plausible, illegal markup — early closures, stray HTML, undefined entities — and Wednesday's schema catches all of them.
-
----
-
-## **09 Content**
-
-**The Second Profile: Obedient About Structure, Silent About the Rest**
-
-Claude 3.5 Sonnet, in the same study, behaved almost as the mirror image (De Cristofaro & Zilio, 2025).
-
-Its XML was clean. Given the system prompt and the schema constraints, it produced valid TEI on the first attempt, with correct nesting and correctly formatted dates, and without reaching for HTML. Where the other model needed repeated correction, this one usually needed none (De Cristofaro & Zilio, 2025).
-
-The cost appeared elsewhere. It stayed strictly inside what it had been given. If a letter mentioned a person who was not in the project's reference list, the model tended to leave them untagged rather than work out who they were. The markup was flawless and the record was incomplete (De Cristofaro & Zilio, 2025).
-
-That failure is harder to catch than the first one, and worth pausing on. A missing entity produces no error. The schema is satisfied, the file is green, and the omission is invisible unless a human notices something absent. Broken structure announces itself. Silence does not.
-
-```
-Profile 2 (De Cristofaro & Zilio, 2025):
-- Recognizing implied people and places .... cautious; skips the unlisted
-- Reading between the lines ............... rarely attempts it
-- Well-formed XML ......................... clean
-- Passes the RELAX NG schema .............. clean
-- Internal cross-references intact ........ reliable
-```
-
-**Takeaway:** A model that obeys the schema perfectly can still omit entities silently, and omissions produce no error to catch them.
-
----
-
-## **10 Content**
-
-**The Trade-Off, and What to Do About It**
-
-Put the two profiles together and a pattern appears that has held up well beyond this one study (De Cristofaro & Zilio, 2025).
-
-| | Strong at | Weak at | Sensible use |
-| --- | --- | --- | --- |
-| Meaning-first model | Finding entities nobody listed | Obeying the schema | First-pass discovery of what is in the document |
-| Structure-first model | Producing valid TEI directly | Noticing the unlisted | Turning verified facts into correct markup |
-
-The practical conclusion is that a single model working unsupervised is the wrong design, whichever model you choose. One will hand you rich content in broken markup; the other will hand you clean markup missing content. Neither is finished work.
-
-What functions is a pipeline: one pass to find what is there, a second to encode it properly, and the schema gate standing between them and publication (De Cristofaro & Zilio, 2025).
-
-Notice that this is your three-step cycle with the labels changed. Discovery, then structure, then verification. You have been practising the shape of a professional pipeline all week.
-
-**Takeaway:** No single model is both semantically thorough and structurally obedient, so real pipelines combine models and put a schema gate between them and publication.
-
----
-
-## **11 Content**
-
-**Giving the Model a List Instead of Letting It Guess**
-
-Ask a model to add VIAF identifiers and it will produce VIAF identifiers. They will be correctly formatted. Some of them will lead nowhere, and some will lead confidently to the wrong person (De Cristofaro & Zilio, 2025; Koho et al., 2021).
-
-This is worth sitting with, because it is the single most dangerous behaviour in the whole lesson. On Wednesday you looked up your repository's VIAF record yourself and pasted the identifier you found. A model does not look anything up. It produces a string of the right shape, which is what it was asked for.
-
-The fix is disarmingly simple. Stop asking the model to supply identifiers and start asking it to choose from ones you have already verified. Compile a small reference file of the people and places your project has confirmed, each with its checked URI, and put that file in the prompt (De Cristofaro & Zilio, 2025).
-
-```xml
-<!-- A project's verified reference list, supplied with the prompt -->
-<authorityList>
-  <personList>
-    <person xml:id="pers_origen" ref="https://viaf.org/viaf/34454471">
-      <persName>Origen of Alexandria</persName>
-    </person>
-  </personList>
-  <placeList>
-    <place xml:id="place_alexandria" ref="https://pleiades.stoa.org/places/727070">
-      <placeName>Alexandria</placeName>
-    </place>
-  </placeList>
-</authorityList>
-```
-
-Now the instruction is "use only identifiers from this list." An open-ended invention problem has become a matching problem, and matching is something these models do well.
-
-**Takeaway:** Models fabricate authority URIs when asked to supply them, so give them a verified list and let them match instead of invent.
+**Takeaway:** A good TEI prompt names the role, lists permitted tags, shows an example, forbids commentary, and lowers the temperature — and you record it as part of your method.
 
 ---
 
 ## **12 Content**
 
-**Finding Names in Text That Was Not Written for You**
+**Give It a List Instead of Letting It Guess**
 
-Recognizing a name in a historical document and working out which person it refers to is harder than it sounds, and it is where a model's semantic strength genuinely earns its place (Koho et al., 2021; Koho et al., 2023).
+Ask a model for authority identifiers and it will produce authority identifiers. They will be correctly formatted. Some will lead nowhere, and some will lead confidently to the wrong record.
 
-Three difficulties defeat simple search-and-match.
+This is the single most dangerous behaviour in the lesson, and section 06 explained why it is worse for you than for most people. TM, Pinakes, and Diktyon numbers are far rarer in training data than VIAF numbers. The model has seen the *shape* of them and comparatively few real examples, which is the exact recipe for confident invention.
 
-- **Spelling was not standardized.** The same person appears as *Marchalianus*, *Marchal*, and *Marcialis*, depending on the scribe and the century.
-- **Names repeat endlessly.** Dozens of medieval bishops are named Johannes. The name alone identifies nobody.
-- **Scribes often do not use names at all.** A figure may appear only as "the blessed bishop," with the identification assumed to be obvious.
+The fix is unglamorous. Stop asking the model to supply identifiers. Look them up yourself, put the verified ones in the prompt, and instruct the model to use only those (De Cristofaro & Zilio, 2025).
 
-A model handles this kind of ambiguity far better than a keyword search, because resolving it requires context rather than matching (De Cristofaro & Zilio, 2025).
+```xml
+<!-- Verified by you, supplied with the prompt -->
+<authorityList>
+  <place ref="https://pleiades.stoa.org/places/727070">Alexandria</place>
+  <org   ref="http://viaf.org/viaf/141312782">Biblioteca Apostolica Vaticana</org>
+</authorityList>
+```
 
-It also gets it wrong in ways a keyword search never could. Faced with a marginal note crediting a reading to "Theodotion," a model must decide whether that means the second-century translator or a later copyist of the same name. It will decide. It will not tell you it was a decision, and it will sound equally confident either way.
+An open-ended invention problem has become a matching problem, and matching is something these systems do well.
 
-**Takeaway:** Models resolve ambiguous historical names better than keyword matching, and state their guesses with the same confidence as their certainties.
+Note what this implies about the division of labour. The model is useful for structure and phrasing. The identifiers — the part your grade depends on — remain yours.
+
+**Takeaway:** Models fabricate rare identifiers most confidently, so verify them yourself and give the model a list to match against instead of a gap to fill.
 
 ---
 
 ## **13 Content**
 
-**The Failure the Schema Cannot See**
+**The First Validation Pass**
 
-Everything so far has been catchable. This section is the one that is not, and it is the most important idea in the lesson.
+Now the mechanical part, which you can already do. The AI hands you a file. You check it exactly as you checked your own on Wednesday.
 
-Suppose a model is given a thin description: *Vat. gr. 2125: 6th-century prophetic codex, uncial script, damaged at the beginning, provenance Egypt.* You ask it for a full `<history>`. It returns this.
+Add the same `xml-model` line under the XML declaration, save, and open the Problems panel. Nothing here is new except whose work is being judged.
 
-```xml
-<!-- Generated by a model. Every fact in it is invented. -->
-<provenance notBefore="0700" notAfter="0750">
-  <p>Transferred in 722 CE to the Monastery of Saint Catherine at Mount Sinai
-     by the monk Dorotheus, and recorded in the 8th-century library inventory.</p>
-</provenance>
-```
+One instruction matters more than any other, and it is easy to get wrong in the moment. **Write down the error count before you fix anything.**
 
-Look at what this passes. The XML is well-formed. The elements are real TEI. The dates are correctly formatted ISO 8601 and consistent with each other. Run it through Wednesday's schema and it reports zero errors.
+That first number is a measurement, and it is destroyed the moment you start editing. It is also the only number in your workshop that describes the model's unassisted performance. Everything after your first correction describes a collaboration between you and the machine, which is a different and less interesting claim.
 
-Mount Sinai is invented. Dorotheus is invented. The year 722 is invented. The inventory is invented. The model assembled a plausible provenance out of general knowledge about how manuscripts moved, and the result is fiction in perfect TEI.
+So the order is: validate, record, *then* improve.
 
-Nothing in your toolchain will flag this. A schema checks shape, not truth. The only instrument that catches a fabricated provenance is an editor who knows the manuscript — which is the answer to the question of what you are for, once machines can write markup faster than you can.
+While you are reading the errors, sort them as you go. Some tell you the file is broken. Some tell you the file is odd. An `@material` value outside the permitted list is a structural error, but it is also a hint that the model guessed at the physical support — which is a factual question the schema cannot ask. The errors are evidence about the model's reasoning, not just a list of repairs.
 
-**Takeaway:** A schema validates structure and cannot validate facts, so schema-valid output can be entirely fabricated and only a human editor will notice.
+**Takeaway:** Validate the AI file exactly as you validated your own, and record the first-pass error count before touching anything, because correcting destroys the measurement.
 
 ---
 
 ## **14 Content**
 
-**Metadata That Lives in the Image, Not the Text**
-
-Everything so far has assumed the AI is reading text. But a good deal of what you recorded on Tuesday was never written down anywhere. You got it by looking.
-
-Column counts, ruled lines, margin widths, the size and colour of initials, ownership stamps, wormholes and water damage: none of this appears in a catalogue description. It exists in the object, and in the digital image of the object (Ignatowicz et al., 2025).
-
-So a second family of AI works on pixels rather than prose. Computer vision models examine a high-resolution facsimile and try to find and classify physical features directly (Ignatowicz et al., 2025).
-
-| Stage | What happens |
-| --- | --- |
-| Detection | Scan the page image and mark regions that look like stamps, initials, or text columns |
-| Cropping | Cut each marked region out as its own small image |
-| Interpretation | Read or identify what is in each crop |
-| Encoding | Emit the results as TEI, mostly into `<physDesc>` |
-
-The appeal is obvious. Measuring margins by hand across ten thousand folios is not work anyone will fund. Measuring them automatically is a script that runs overnight.
-
-**Takeaway:** Computer vision targets the codicological evidence that exists only in the image — layout, decoration, damage — and never appears in catalogue prose.
-
----
-
-## **15 Content**
-
-**Looking at a Page in Layers**
-
-A page does not decompose into a flat list of things. It nests, the same way your TEI nests, and vision systems that ignore that nesting perform badly (Ignatowicz et al., 2025).
-
-Consider what your own witness looks like. The page contains a text block. The text block contains a decorated initial. The initial contains a small figure. Beside all of it sits an owner's stamp, and inside the stamp is an inscription. Ask a detector for "the objects on this page" and it will return some of these and miss the rest, because several of them are inside each other.
-
-The Metadata Enrichment Model, built by Ignatowicz, Kutt, and Nalepa (2025) for the Jagiellonian Digital Library, addresses this by looking more than once, at different scales.
-
-1. **The wide pass** finds the big architectural pieces: columns, margins, major decorated areas, the block of writing.
-2. **The close pass** crops each of those regions and examines it on its own terms, where a small initial is no longer a speck in a corner but the whole picture.
-3. **The interpretation pass** takes each crop and asks what it actually is — reading an inscription, identifying a motif, matching a coat of arms to a known family (Ignatowicz et al., 2025).
-
-The structure is the same one you use when you catalogue by eye. You take in the page, then look closely at one feature, then decide what that feature means. The system is imitating an order of operations you already perform.
-
-**Takeaway:** Manuscript features nest inside one another, so vision systems examine a page in layers — wide, close, then interpretive — much as a cataloguer does.
-
----
-
-## **16 Content**
-
-**From Pixel Coordinates to TEI Elements**
-
-The point of detecting a region is not the box around it. The point is that each kind of region maps onto a TEI element you already know how to write (Ignatowicz et al., 2025).
-
-- **Ownership stamps** are found by shape, then read, and become part of `<provenance>` — the custodial chain you encoded on Tuesday.
-- **Decorated initials** are outlined, measured in lines of height, and described in `<decoDesc>`.
-- **Ruling and column edges** are traced as lines, which yields the column count and written-line count for `<layoutDesc>`.
-- **Damage** — ink corrosion, wormholes, staining, cropped margins — is detected as a category of its own and becomes `<condition>`.
-
-| Feature on the page | How it is found | Where it lands in TEI |
-| --- | --- | --- |
-| Library ownership stamp | Shape detection, then text reading | `<provenance>` |
-| Decorated initial | Outline and measure in lines | `<decoDesc>` |
-| Column boundaries | Line detection across the page | `<layout columns="1" writtenLines="29">` |
-| Leaf dimensions | Pixel measurement against a known scale | `<extent><dimensions unit="mm">` |
-| Marginal annotation | Region outline beside the text block | `<additions>` |
-
-That right-hand column is the useful part of this section. These are the same elements you filled in by hand on Tuesday. The pipeline is not doing something exotic; it is doing your job, from the image, at speed.
-
-**Takeaway:** Each detected visual region maps onto a TEI element you already write by hand, so vision pipelines populate `physDesc` rather than inventing a new vocabulary.
-
----
-
-## **17 Content**
-
-**Turning a Picture into a Statement**
-
-On Wednesday you learned that linked data is built from three-part statements: something, a relationship, something else. Vision pipelines produce exactly that shape, from images (Ignatowicz et al., 2025; Koho et al., 2023).
-
-The sequence runs like this. The detector finds an oval stamp on the first folio. The interpretation pass reads it and matches the design against known institutional marks. The result is written as a statement in a standard format that any linked-data system can read.
-
-```turtle
-# The stamp on folio 1r, expressed as linked data
-<http://example.org/manuscript/vat_gr_2125>
-    bears_feature  <http://example.org/feature/stamp_001> .
-
-<http://example.org/feature/stamp_001>
-    is_a           <http://vocab.getty.edu/aat/300028744> ;   # "library stamps"
-    identifies     <http://www.wikidata.org/entity/Q213878> ; # the Vatican Library
-    has_note       "Oval ink stamp on fol. 1r" .
-```
-
-Read it as sentences and it is unremarkable. This manuscript bears this feature. This feature is a library stamp. This stamp identifies the Vatican Library.
-
-What has happened is that a mark in a photograph became a claim other systems can find. Someone searching for every manuscript that passed through the Vatican Library can now find this one, without ever opening the image. That is the whole promise of linked data from Wednesday, arriving from an unexpected direction.
-
-**Takeaway:** Vision pipelines convert visual features into the same three-part linked-data statements you met on Wednesday, making a mark in a photograph searchable worldwide.
-
----
-
-## **18 Content**
-
-**Where Vision Models Fail, and Who Pays for It**
-
-Vision models were trained mostly on clean modern documents. Your manuscript is neither (Ignatowicz et al., 2025).
-
-Centuries of handling leave a page full of things that look like features and are not: faded ink, writing showing through from the other side, water stains, mould, insect damage. Three failures follow predictably.
-
-- **Stains read as decoration.** A dark water stain or a grease spot has roughly the shape and contrast of a small illumination, and gets confidently labelled as one.
-- **Damage splits a column.** A tear or a mould patch running down a page can make one continuous text column register as two or three separate fragments.
-- **The training data was European.** Most open image collections come from Western European libraries. Models built on them handle Latin codices well and misread or entirely miss Syriac flourishes, Coptic initials, and Ethiopic decorative headpieces (Ignatowicz et al., 2025).
-
-That third failure deserves more than a technical note. It means these tools work least well on exactly the traditions that are already least well catalogued. Run an unaudited pipeline across a mixed collection and you will widen the gap between the well-described and the neglected, using a tool that appears neutral. That is a scholarly and ethical problem, not a bug report.
-
-**Takeaway:** Vision models misread damage as decoration and perform worst on non-Western material, so unaudited automation deepens exactly the cataloguing inequities it claims to fix.
-
----
-
-## **19 Content**
-
-**Two Numbers That Describe Any Extraction**
-
-You need a way to say how good an AI header was that survives contact with someone who disagrees with you. Two numbers do most of the work, and you can calculate both by hand today (De Cristofaro & Zilio, 2025).
-
-Go field by field — repository, shelfmark, material, extent, number of hands, date — and sort every field into three piles.
-
-- **Right:** the AI supplied it and it matches your verified header.
-- **Wrong or invented:** the AI supplied it and it does not match, or it supplied something that is not true at all.
-- **Missing:** it is in your header, and the AI left it out.
-
-Now the two numbers.
-
-**Precision** asks: of everything the AI claimed, how much was right? Divide the right answers by everything it supplied. Low precision means it makes things up.
-
-**Recall** asks: of everything that should have been found, how much did it find? Divide the right answers by everything in your header. Low recall means it leaves things out.
-
-These measure different failures, and a model can be excellent at one while poor at the other. The structure-first model from section 09 has high precision and lower recall: what it says is right, and it says too little. The meaning-first model from section 07 is the reverse. Report only one number and you have hidden half of what happened (De Cristofaro & Zilio, 2025).
-
-Combine them into a single score if you like — that combined figure is called F1 — but the pair is more informative than the average.
-
-**Takeaway:** Precision measures how much of what the AI said was true, recall measures how much of the truth it found, and the two fail independently.
-
----
-
-## **20 Content**
-
-**Counting Errors Without Reading Them**
-
-Today you will open the AI's file and look at the error count yourself. At a hundred files that stops being possible, so the count gets automated (De Cristofaro & Zilio, 2025).
-
-The idea needs no new concepts. You learned in Lesson 1.1 that Python can do a mechanical job in milliseconds that would take you an afternoon. Checking whether a file is well-formed and whether it satisfies a schema is exactly that kind of job.
-
-```python
-# Score one AI-generated TEI file: is it parseable, and does it satisfy the schema?
-import subprocess
-from lxml import etree
-
-def score(xml_path, schema_path):
-    result = {"well_formed": False, "valid": False, "errors": []}
-
-    try:
-        etree.parse(xml_path)
-        result["well_formed"] = True
-    except etree.XMLSyntaxError as e:
-        result["errors"].append(f"Not well-formed: {e}")
-        return result          # a broken file cannot be schema-checked at all
-
-    check = subprocess.run(["jing", schema_path, xml_path],
-                           capture_output=True, text=True)
-    result["valid"] = (check.returncode == 0)
-    result["errors"] = check.stdout.strip().splitlines()
-    return result
-```
-
-Note the early return. If the XML is not well-formed, the schema check never runs, because there is no tree to check. That is the same order of operations VS Code follows for you: syntax first, then schema.
-
-Run this across a batch and you get one honest number — how many files passed — instead of an impression.
-
-**Takeaway:** A short Python script checks well-formedness and then schema validity, turning a pile of AI files into a countable pass rate.
-
----
-
-## **21 Content**
-
 **Handing the Errors Back**
 
-When the AI's file fails validation, you do not have to repair it yourself. You can show the model its own error messages and ask again (De Cristofaro & Zilio, 2025).
+When the AI's file fails validation, you do not have to repair it by hand. You can show the model its own error messages and ask again (De Cristofaro & Zilio, 2025).
 
-This works better than it has any right to. The reason is section 02: the model never had the schema. An error message is a small, precise piece of the schema, delivered exactly where it is needed. You are supplying the missing rulebook one line at a time.
-
-| Step | What happens |
-| --- | --- |
-| 1 | The model produces a first draft header |
-| 2 | The validator checks it against `msdesc.rng` |
-| 3 | Zero errors, and you are done; otherwise capture the messages |
-| 4 | Paste the messages back to the model and ask for a repair |
-| 5 | The model returns a new file, which goes back through step 2 |
+This works better than it has any right to, and section 02 explains why. The model never had the schema. An error message is a small, precise piece of that schema, delivered exactly where it is needed. You are supplying the missing rulebook one line at a time.
 
 ```
 What you paste back:
@@ -508,68 +320,282 @@ What you paste back:
 Return only the corrected XML."
 ```
 
-Try this today on whatever your model got wrong. It is the fastest way to feel the difference between a system that cannot follow rules and one that was simply never given them.
+Two cautions.
 
-**Takeaway:** Feeding validation errors back to the model supplies the schema knowledge it never had, and repairs most structural failures without your editing a tag.
+**Cap the loop.** Two or three attempts, then finish by hand. Capable models converge in one or two rounds; weaker ones resubmit the same mistake indefinitely, because interpreting a compiler message is itself a reasoning task (De Cristofaro & Zilio, 2025). Without a cap you can lose an afternoon.
+
+**Watch what the repairs cost.** Look closely at the second error above. Asked to fix `ca. 550`, a model will often return `when="0550"` — a precise date replacing an explicitly approximate one. The file now validates. It also now asserts something the source never said. Structural repair can quietly manufacture false precision, which is the subject of section 19.
+
+**Takeaway:** Feeding validation errors back repairs most structural faults, but cap the loop and check whether a repair invented certainty the source never had.
+
+---
+
+## **15 Content**
+
+**Four Kinds of Wrong**
+
+You are now at the centre of the lesson. Everything so far was preparation for a single question: when an AI header is wrong, in what way is it wrong?
+
+Sorting errors into these four kinds is the skill the workshop grades, because the categories differ in who can catch them.
+
+| Kind of error | Example | What catches it |
+| --- | --- | --- |
+| Structural | `<p>` inside `<closer>` | The schema, instantly |
+| Factual, obvious | Says paper; your image plainly shows parchment | You, in seconds, from the image |
+| Factual, subtle | A complete provenance narrative, invented | Only a specialist who knows the manuscript |
+| Authority and citation | A well-formed identifier pointing at the wrong record | Only someone who follows the link |
+
+Read the third column downward. It is a description of how much of you each error requires.
+
+The top row is free. The second is cheap. The bottom two are the reason a human editor still holds this job, and they are where your two subtle hallucinations will come from. A submission reporting two structural errors has reported the two things the machine already told you.
+
+Sections 16 through 22 work through the four kinds in order, spending most of their time on the bottom half.
+
+**Takeaway:** AI errors are structural, obviously factual, subtly factual, or citational, and the categories differ by who is capable of catching them.
+
+---
+
+## **16 Content**
+
+**Structural Errors: The Ones the Schema Hands You**
+
+Start with the easy kind, so you can stop spending attention on it.
+
+A structural hallucination is markup that looks reasonable and is illegal in this schema. The model is not confused about your manuscript. It is confused about rules it never had (De Cristofaro & Zilio, 2025).
+
+Three patterns recur.
+
+- **Closing a container too early.** It writes `</profileDesc>` and keeps going with elements that belonged inside, leaving them orphaned.
+- **Reaching for HTML.** Models have read far more HTML than TEI, so under pressure they reach for `<p>` or `<br>` where TEI allows neither. You watched this exact trap on Wednesday, when `<extent>` refused a `<p>` that `<support>` accepts one line above.
+- **Inventing character entities.** `&copy;` and `&nbsp;` are ordinary in HTML and undefined in XML. One of them anywhere is fatal: the parser stops and you get no report at all.
+
+| What the model wrote | Why the schema refuses it |
+| --- | --- |
+| `</profileDesc><langUsage>...</langUsage>` | `langUsage` belongs inside `profileDesc` |
+| `<closer><p>Yours faithfully,</p></closer>` | `closer` takes phrases, not paragraphs |
+| `<p>Copyright &copy; 2026</p>` | `copy` is an HTML entity; XML has never heard of it |
+| `<supportDesc support="parchment">` | The attribute is `material`, not `support` |
+
+Count these, report the number, and move on. They are the cheapest finding in your audit, and everyone else will report them too.
+
+**Takeaway:** Structural hallucinations are plausible, illegal markup that the schema catches instantly, which makes them the least valuable finding in your audit.
+
+---
+
+## **17 Content**
+
+**Obvious Factual Errors: Check These First**
+
+Now errors the schema cannot see but you can, quickly, by looking at your own file and your image.
+
+Five fields carry most of them.
+
+- **Support.** The model says paper; your image plainly shows parchment. It guessed from a period, or from nothing.
+- **Extent.** A folio count that does not match what you counted.
+- **Hands.** A single hand asserted where you recorded three.
+- **Date.** A century that contradicts your own dating.
+- **Repository.** The wrong library, sometimes a famous one substituted for an obscure one.
+
+That last pattern is worth naming, because it is systematic rather than random. Asked about an unfamiliar manuscript, a model drifts toward the famous: the Vatican rather than the small diocesan collection, the well-known scribe rather than the anonymous one. Its training data contains far more text about famous things, so "what usually comes next" is biased toward them.
+
+This gives you a place to look first. **Check the parts of your description that are unusual.** A witness that is ordinary in every respect will be described well. Whatever makes yours distinctive is exactly where the model will have replaced your manuscript with the average one.
+
+**Takeaway:** Obvious factual errors cluster in support, extent, hands, date, and repository, and models drift toward the famous, so check whatever is distinctive about your witness first.
+
+---
+
+## **18 Content**
+
+**The Subtle One: The Provenance That Never Happened**
+
+Here is the failure that gives this lesson its shape. Read it slowly.
+
+You give a model a thin description: *Vat. gr. 2125: 6th-century prophetic codex, uncial script, damaged at the beginning, provenance Egypt.* You ask for a full `<history>`. It returns this.
+
+```xml
+<!-- Generated by a model. Every fact in it is invented. -->
+<provenance notBefore="0700" notAfter="0750">
+  <p>Transferred in 722 CE to the Monastery of Saint Catherine at Mount Sinai
+     by the monk Dorotheus, and recorded in the 8th-century library inventory.</p>
+</provenance>
+```
+
+Now audit it with everything you own. The XML is well-formed. The elements are real TEI. The dates are correct ISO 8601 and consistent with each other. Run it through Wednesday's schema and it reports zero errors.
+
+Mount Sinai is invented. Dorotheus is invented. The year 722 is invented. The inventory is invented. The model assembled a plausible provenance from general knowledge of how manuscripts moved, and produced fiction in perfect TEI.
+
+Notice what makes it convincing: it is *specific*. Vague output reads as uncertain, and specific output reads as researched. The model has no way to be vague — it produces the most probable continuation, and a probable provenance narrative contains names and dates.
+
+**Specificity is not evidence.** In AI output, it is the opposite: an unexpectedly precise claim about a poorly documented object is the thing to distrust first.
+
+**Takeaway:** A model produces fabricated provenance in flawless TEI that passes the schema at zero errors, and its specificity is a warning sign rather than a mark of research.
+
+---
+
+## **19 Content**
+
+**The Subtle One: Confidence the Source Never Had**
+
+This one is quieter than section 18, and better suited to your workshop, because you can demonstrate it from your own source.
+
+Your evidence is uncertain in ordinary, honest ways. A script is *probably* sixth century. A hand *may* be a later corrector. Damage makes a line count *approximate*. On Tuesday you had to decide how to encode that uncertainty, and TEI has vocabulary for it: `@notBefore` and `@notAfter` for a range, `<certainty>`, a plain "possibly" in a note.
+
+A model tends to erase all of it.
+
+| Your source says | The model writes | What has happened |
+| --- | --- | --- |
+| "ca. 550" | `when="0550"` | A range became a single year |
+| "uncial, possibly two hands" | Two `handNote` elements, no qualification | A maybe became a count |
+| "approximately 29 lines" | `writtenLines="29"` | An estimate became a measurement |
+| "provenance Egypt" | `<origPlace>Alexandria</origPlace>` | A region became a city |
+
+Every row validates. Every row is more confident than the evidence supports.
+
+This matters beyond tidiness. Someone downstream will query these fields as data — Module 07 will collate on them — and a false precision is worse than a recorded uncertainty, because it cannot be seen and cannot be undone.
+
+This is an excellent candidate for one of your two subtle hallucinations. It is easy to demonstrate: put your source description and the AI output side by side and point to a hedge that vanished.
+
+**Takeaway:** Models convert hedged evidence into precise assertions — ranges into years, maybes into counts — producing valid markup that claims more than the source ever did.
+
+---
+
+## **20 Content**
+
+**The Subtle One: What Is Not There**
+
+Every error so far was something written down. This one is the absence of something, and it is the hardest kind to see.
+
+The behaviour was documented at scale. In the PubCINET study, one model produced near-flawless valid TEI and, when a document mentioned a person outside the supplied reference list, simply left them untagged rather than work out who they were (De Cristofaro & Zilio, 2025). The markup was perfect and the record was incomplete.
+
+Think about how invisible that is. A missing hand produces no error. A missing `<msItem>` produces no error. The file is green, the structure is clean, and nothing anywhere signals that something is absent. **A schema can only judge what you gave it.** It has no view of what should have been there.
+
+This is why comparison, not inspection, is the method. Reading the AI file on its own, you will never find an omission — there is nothing to see. Reading it beside your own header, an omission is obvious immediately, because your file has an element theirs does not.
+
+So work through your own header element by element and ask of each: is this present in the AI version? That is a mechanical procedure, it takes a few minutes, and it will find things no validator can.
+
+**Takeaway:** Omissions produce no error and cannot be found by reading the AI file alone, so audit by walking your own header element by element.
+
+---
+
+## **21 Content**
+
+**The Subtle One: The Link That Goes Somewhere Else**
+
+Section 12 warned that models fabricate identifiers. Now look at what that produces in a finished file, because it is a strong candidate for your second subtle hallucination.
+
+A fabricated identifier fails in three different ways, and only one is easy to spot.
+
+- **It resolves to nothing.** The URL is dead. Annoying, but honest: anyone who clicks discovers the problem.
+- **It is correctly formatted and wrong.** The number belongs to a real record for a different manuscript. Nothing looks broken. A reader who trusts it now believes something false about your witness.
+- **It is nearly right.** A Pinakes work identifier for the correct author but the wrong work; a Diktyon number one digit off, landing on a real codex.
+
+The second and third are what to hunt for. They pass every check in your toolchain: valid XML, valid schema, resolvable URL, plausible record. The only test is to follow the link and read what is on the other end.
+
+That is your method, and it takes about a minute per identifier. **Click every one.** If the record that opens is not your manuscript, your work, or your library, you have found a subtle hallucination worth writing up — one your marker can verify by clicking too.
+
+**Takeaway:** Fabricated identifiers most often resolve to a real but wrong record, passing every automatic check, so the only test is following each link and reading what opens.
 
 ---
 
 ## **22 Content**
 
-**How Many Rounds Before It Gives Up**
+**The Subtle One: The Citation That Does Not Resolve**
 
-The correction loop is not magic, and it does not always converge. De Cristofaro and Zilio (2025) measured how many rounds different models needed.
+On Wednesday you built a CTS URN for your passage. It is strict and multi-part, and every part must be right (Blackwell & Smith, 2019; Tiepmar & Heyer, 2014).
 
-| Model | Valid on first try | After one correction | After two | Never converges |
-| --- | --- | --- | --- | --- |
-| Meaning-first (ChatGPT-4) | 35% | 78% | 91% | 9% |
-| Structure-first (Claude 3.5 Sonnet) | 88% | 98% | 100% | 0% |
-| Small open-source model | 5% | 22% | 41% | 59% |
+Ask a model for one and it will produce the right shape. Shape is never the problem. Three things go wrong inside it.
 
-Three things in this table are worth your attention.
+- **Invented namespaces.** `urn:cts:bible:` looks reasonable and does not exist; the real one is `urn:cts:greekLit:`.
+- **Wrong work numbers.** The model half-remembers a TLG number and assigns Homer's identifier to Isaiah. The URN is perfectly formed and points at the wrong text.
+- **Invented word positions.** A sub-reference points to the fifth occurrence of a word that appears three times (Blackwell & Smith, 2019).
 
-The structure-first model was nearly always right immediately and always right by the second round. The meaning-first model improved sharply when corrected but kept a stubborn remainder, where repairing one error introduced another and the loop went in circles.
+Each produces a citation that looks correct in your file and fails when somebody tries to follow it. Since the entire purpose of a canonical URN is to still resolve in fifty years, a fabricated one is worse than none: a broken promise that looks like a kept one.
 
-The small open-source model is the interesting row. It did not merely start badly; it failed to improve. Reading a compiler message and working out what it implies about a tree structure is itself a hard reasoning task, and a model that cannot do it will resubmit the same mistake indefinitely (De Cristofaro & Zilio, 2025).
+The rule from section 12 applies unchanged. Do not accept an identifier from a model. Resolve it against the real service before it enters your file.
 
-The practical lesson: put a limit on your loop. Two or three attempts, then it goes to a human. Without a cap you can burn an afternoon watching a model retype the same error.
-
-**Takeaway:** Correction loops converge in one or two rounds for capable models and never converge for weak ones, so always cap the number of attempts.
+**Takeaway:** Generated CTS URNs are correctly shaped and frequently point at the wrong text, so every one must be resolved against a real service before you commit it.
 
 ---
 
 ## **23 Content**
 
-**Citations the Model Cannot Check**
+**Where Models Are Weakest, and Who That Harms**
 
-On Wednesday you built a CTS URN for your passage. It is a strict, multi-part identifier, and every part must be right for it to resolve (Blackwell & Smith, 2019; Tiepmar & Heyer, 2014).
+One pattern runs underneath sections 17 through 22, and it is worth stating on its own, because it is a scholarly problem rather than a technical one.
 
-Ask a model to build one and you will get something with the right shape. Shape is not the problem. Three specific things go wrong.
+A model is accurate in proportion to how much it has read about something. That is not a flaw to be fixed; it is what the method is. And it means performance is unevenly distributed in a way that follows existing scholarly attention.
 
-- **Invented namespaces.** `urn:cts:bible:` looks reasonable and does not exist; the real one is `urn:cts:greekLit:`.
-- **Wrong work numbers.** The model half-remembers a TLG number and assigns Homer's identifier to Isaiah. The URN is perfectly formed and points at the wrong text.
-- **Invented word positions.** A sub-reference may point to the fifth occurrence of a word that appears three times (Blackwell & Smith, 2019).
+Well-catalogued, frequently-edited, much-discussed material gets described well. Latin and Greek codices in major European collections have been written about for centuries, and models handle them competently. Material outside that centre — Syriac, Coptic, Ethiopic, Armenian, and archival documents in minority languages — is thinly represented, and there the model does not fall silent. It produces the same confident, fluent, plausible output, with far more of it invented.
 
-Every one of these produces a citation that looks correct in your file and fails when someone tries to follow it. Since the entire purpose of a canonical URN is to still resolve in fifty years, a fabricated one is worse than none: it is a broken promise that looks like a kept one.
+Sit with the consequence. **The tool performs worst exactly where the cataloguing backlog is largest.** The collections most in need of the speed are the ones where the output is least trustworthy, and the failure is invisible, because the prose is equally polished either way.
 
-The rule is the same as section 11. Do not accept an identifier from a model. Check it against the actual CTS service before it goes in the file (Tiepmar & Heyer, 2014).
+An unaudited pipeline run across a mixed collection will widen the gap between well-described and neglected traditions, while appearing neutral and efficient. If you work on material outside the well-trodden centre, budget more auditing, not less.
 
-**Takeaway:** Models produce correctly shaped CTS URNs that point nowhere, so every generated identifier must be resolved against a real service before it is committed.
+**Takeaway:** Models are least reliable on the least-studied traditions, so unaudited automation widens existing cataloguing inequities while appearing neutral.
 
 ---
 
 ## **24 Content**
 
+**The Six-Field Scorecard**
+
+Time in Friday's lab is short, so the scoring has to be something you can finish. Six fields, three verdicts.
+
+| Field | Right | Wrong or invented | Missing |
+| --- | --- | --- | --- |
+| Repository | | | |
+| Shelfmark or idno | | | |
+| Support material | | | |
+| Extent | | | |
+| Number of hands | | | |
+| Date of origin | | | |
+
+Mark each against your own validated header, not against your impression. Three minutes, and you leave with a result rather than a feeling.
+
+Two rules keep the scorecard honest.
+
+**A confident, valid, false value counts as wrong**, not as partial credit. If the model asserts a shelfmark that is not yours, the fact that it is well formed is irrelevant.
+
+**Missing is its own column**, kept separate from wrong. Section 20 explained why: omission and invention are different failures with different causes, and averaging them together hides both.
+
+Record two numbers alongside the grid: the AI file's first-pass error count from section 13, and its count after one correction round. Those three items — grid, first count, second count — are the entire evidence base for your workshop comparison.
+
+**Takeaway:** Score six fields as right, wrong, or missing against your verified header, keeping omission separate from invention, and record the error counts before and after correction.
+
+---
+
+## **25 Content**
+
+**Precision and Recall, From Your Own Counts**
+
+Your scorecard already contains two standard measures. They have formal names, and using them correctly will sharpen your comparison (De Cristofaro & Zilio, 2025).
+
+**Precision** asks: of everything the AI claimed, how much was right? Divide the right answers by everything it supplied. Low precision means it makes things up.
+
+**Recall** asks: of everything that should have been found, how much did it find? Divide the right answers by everything in your header. Low recall means it leaves things out.
+
+Work an example. The AI fills five of your six fields and gets four right. Precision is four out of five. Recall is four out of six. Two different numbers describing two different failures, from one grid.
+
+This is why reporting a single score hides what happened. A model with high precision and low recall is cautious and incomplete — say too little, all of it true. A model with high recall and low precision is thorough and unreliable — say everything, some of it invented. Those call for opposite responses: the first needs prompting to be bolder, the second needs stricter verification.
+
+You may combine them into one figure, which is called F1, but the pair tells you more than the average.
+
+**Takeaway:** Precision is how much of what the AI said was true and recall is how much of the truth it found, and the pair distinguishes a cautious model from an unreliable one.
+
+---
+
+## **26 Content**
+
 **Sorting the Differences**
 
-Now the core exercise. Put your validated header beside the AI's and go through the differences one at a time. `git diff` will line them up for you, using the same tool you learned in Lesson 1.1.
+Put your validated header beside the AI's and go through the differences one at a time. `git diff` will line them up, using the tool from Lesson 1.1.
 
-Every difference goes into one of four categories, and choosing the category is the analytical work.
+Each difference falls into one of four categories, and choosing the category *is* the analysis.
 
-1. **Structural error.** Illegal nesting, a bad attribute, a date in the wrong format. The schema found this one for you.
-2. **Factual error.** A fabricated date, a scribal hand that does not exist, a wrong shelfmark. Only you can find this one.
-3. **The AI was right and you were not.** It caught a detail you missed. This happens, it is not embarrassing, and recording it honestly is what makes the exercise research rather than a defence of your own work.
-4. **Legitimate disagreement.** Both descriptions are defensible. A broader date range is not an error just because you chose a narrower one.
+1. **Structural error.** The schema found it for you.
+2. **Factual error.** A fabricated date, a hand that does not exist, a wrong shelfmark. Only you can find it.
+3. **The AI was right and you were not.** It caught something you missed.
+4. **Legitimate disagreement.** Both descriptions defensible. A broader date range is not an error because you chose a narrower one.
 
 ```
 Discrepancy log — worked example:
@@ -579,44 +605,23 @@ Discrepancy log — worked example:
   decoNote     you none         | AI "marginal signs" -> AI was right; verify, then adopt
 ```
 
-Keep the log as you go. It is the evidence for tonight's Comparison Post, and reconstructing it from memory afterwards does not work.
+Category three deserves a word. It happens, it is not embarrassing, and recording it honestly is what makes this research rather than a defence of your own work. A comparison finding zero AI advantages reads as unobserved, not rigorous.
 
-**Takeaway:** Every difference between your header and the AI's is a structural error, a factual error, a genuine AI catch, or a legitimate disagreement — and the sorting is the analysis.
+Keep the log as you go. Reconstructing it from memory afterwards does not work.
 
----
-
-## **25 Content**
-
-**What It Costs**
-
-The case for AI cataloguing is economic before it is intellectual, so the numbers deserve to be stated plainly (De Cristofaro & Zilio, 2025).
-
-| | Manual (Tue) | Deterministic (Wed) | AI-assisted (Fri) |
-| --- | --- | --- | --- |
-| Time per manuscript | 8 to 15 hours | 1 to 2 hours | under a minute |
-| Who has to do it | A trained specialist | A technical editor | Anyone, then a reviewer |
-| Cost per record | Their salary | Nothing; the tools are free | A few cents |
-| Across 10,000 manuscripts | Not fundable | Feasible if structured | Runs overnight |
-| Structural error rate | Some typing errors | Zero; the schema forbids them | 5% to 20% before repair |
-| Factual error rate | Very low | Very low | High; must be audited |
-
-Read the last two rows together, because they carry the argument. AI removes the structural errors cheaply and multiplies the factual ones. The work does not disappear. It changes shape, from writing records to checking them (De Cristofaro & Zilio, 2025).
-
-Whether that is a good trade depends on something the table cannot show: whether the checking actually happens. An audited pipeline is a genuine advance. The same pipeline unaudited is a fast way to fill a catalogue with confident fiction.
-
-**Takeaway:** AI cuts cataloguing from hours to seconds and shifts the human effort from authoring to auditing, which is only an improvement if the auditing is real.
+**Takeaway:** Every difference is a structural error, a factual error, a genuine AI catch, or a legitimate disagreement, and recording the third category honestly is what makes the audit credible.
 
 ---
 
-## **26 Content**
+## **27 Content**
 
-**Saying So in the File**
+**Recording the Machine's Part in the File**
 
-If a model drafted part of your description, the edition must say so. This is not a disclaimer. It is provenance, which you already accept as a scholarly obligation for manuscripts and which applies equally to your own work (De Cristofaro & Zilio, 2025; TEI Consortium, 2025).
+If a model drafted part of your description, the edition must say so. This is not a disclaimer. It is provenance — which you already accept as an obligation for manuscripts, and which applies just as much to your own work.
 
-The argument is straightforward. A future reader needs to know which claims came from an editor who examined the object and which came from a system that predicted plausible text. Those deserve different levels of trust, and the difference is invisible in the finished markup unless you record it.
+The argument is simple. A future reader needs to know which claims came from an editor who examined the object and which from a system predicting plausible text. Those deserve different trust, and the difference is invisible in finished markup unless recorded.
 
-TEI already has the elements, and you met both on Tuesday.
+TEI has the elements, and you met both on Tuesday.
 
 ```xml
 <titleStmt>
@@ -637,87 +642,55 @@ TEI already has the elements, and you met both on Tuesday.
 </revisionDesc>
 ```
 
-Record the model version too. "An AI wrote this" will mean very little in ten years; a version and a date can be checked.
+Record the model version. "An AI wrote this" will mean little in ten years; a version and a date can be checked.
 
-**Takeaway:** Record AI contributions in `<respStmt>` and `<revisionDesc>` with model versions and dates, because algorithmic provenance is provenance.
+This also protects you. A documented AI draft that you audited is methodologically respectable. An undocumented one that a reader later detects is not.
 
----
-
-## **27 Content**
-
-**Making the Check Run Itself**
-
-One last step turns all of this into something that holds up over a long project. The schema check can run automatically, every time anything changes.
-
-You already know the pieces. Git records a commit; a service watches the repository; when a commit arrives, it runs the validator. If the file fails, the change is rejected and the editor is told. Nobody has to remember to check.
-
-```yaml
-# Runs on every commit: validate all TEI files against the schema
-name: TEI Validation Gate
-on: [push, pull_request]
-
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install the RELAX NG validator
-        run: sudo apt-get install -y jing
-      - name: Check every TEI file
-        run: jing schemas/msdesc.rng src/**/*.xml
-```
-
-You do not need to write one of these for this course. You do need to see what it implies (Cummings, 2018).
-
-The gate treats human and machine contributions identically. Neither an AI draft nor a tired editor at midnight can put an invalid file into the published edition, because the rule is enforced by the repository rather than by anyone's vigilance. That is the structural answer to a problem that discipline alone does not solve.
-
-**Takeaway:** An automated validation gate on every commit enforces the schema on human and AI contributions alike, without relying on anyone remembering to check.
+**Takeaway:** Record AI contributions in `respStmt` and `revisionDesc` with model versions and dates, because algorithmic provenance is provenance.
 
 ---
 
 ## **28 Content**
 
-**Today's Lab: Your Passage, Your Comparison**
+**Friday's Lab, Step by Step**
 
-Now run the experiment on your own witness. Work through this in order.
+Now run the experiment on your own witness.
 
-1. **Gather your input.** Put your raw notes and description of the manuscript into a plain text file. Use what you had before you encoded anything — the object, not your header.
-2. **Prompt the model.** Use the structure from section 04: state the role, name the permitted elements, demand XML only, keep the temperature low. Paste your notes at the end.
-3. **Save the output untouched.** Call it `witness_ai.xml`. Do not tidy it. The unedited version is your evidence.
-4. **Validate it and write down the number.** Add the same `xml-model` line you used on Wednesday, open the Problems panel, and record the error count **before fixing anything.** That number is your first result and it cannot be recovered later.
-5. **Try one correction round.** Paste the errors back and ask for a repair, as in section 21. Record the new count.
-6. **Score the six fields.** Repository, shelfmark, material, extent, number of hands, date. Mark each right, wrong or invented, or missing, against your own validated header.
+1. **Look up your identifiers first.** Trismegistos, Pinakes, Diktyon. Do this before any prompting, so you hold verified values the model cannot influence.
+2. **Gather your input.** Put your raw notes and catalogue description into a plain text file — the object as you found it, not your finished header.
+3. **Prompt the model** using section 11. Save the prompt itself; you will quote it.
+4. **Save the output untouched** as `witness_ai.xml`. Do not tidy it. The unedited version is your evidence.
+5. **Validate and record the count** before fixing anything. This is section 13, and it is the step most often lost to enthusiasm.
+6. **Run one correction round** as in section 14, and record the new count.
+7. **Score the six fields** from section 24 against your validated header.
+8. **Click every identifier** the model produced. This is where your subtle hallucinations are most likely to be, and it takes about a minute each.
 
-Commit both files when you are done. If time runs short, steps 1 through 4 are the ones that matter — an unfixed AI file with its error count written down is a complete result on its own.
+Commit both files when you are done.
 
-**Takeaway:** Generate a header for your own witness, record its error count before touching it, then score six fields against your validated file.
+If time runs short, steps 1, 4, 5, and 8 are the ones that matter. An unfixed AI file, its first error count, and one identifier proven wrong is a complete finding.
+
+**Takeaway:** Verify identifiers before prompting, record the untouched output and its first error count, then score six fields and follow every link the model produced.
 
 ---
 
 ## **29 Content**
 
-**Writing It Up**
+**Writing the Comparison**
 
-Your Comparison Post is due tonight, and you now have everything it needs. It draws on all three days, so present them together.
+Your comparison is 300 to 500 words and carries three of the ten workshop points. The rubric asks it to *precisely diagnose model hallucinations* and *explain the methodological necessity of deterministic validation*. Both halves are graded, and the second is the one people forget.
 
-| | Manual (Tue) | Deterministic (Wed) | AI-assisted (Fri) |
-| --- | --- | --- | --- |
-| Time taken | hours | under an hour | seconds |
-| Schema errors, first check | not checked | your Wednesday count | your AI count today |
-| Schema errors after correction | 0 | 0 | your second count |
-| Fields right out of six | reference | reference | your score |
-| Facts that had to be verified by hand | all | all | all |
+A structure that fits the word count.
 
-Then four short sections.
+- **Method, about 60 words.** Your witness, the model, the prompt, the schema. Enough that someone could repeat it.
+- **Numbers, about 60 words.** First-pass error count, count after correction, six-field score. Actual figures.
+- **Your two subtle hallucinations, about 250 words.** This is the substance. For each: quote the AI's markup, state what is actually true and how you verified it, and name why it survived validation.
+- **Why the schema is necessary anyway, about 80 words.** Answer the second half of the rubric.
 
-- **What you did.** Your witness, the model you used, the prompt you gave it.
-- **The numbers.** Error counts before and after correction, and your six-field score. Give the actual figures, not impressions.
-- **What went wrong, specifically.** Name the errors. "It invented a shelfmark" is an argument; "the output had problems" is not.
-- **What you would do next time.** Where in your own project would you let a model draft, and what would you refuse to let it touch? Base the answer on your numbers.
+That last part deserves care, because the obvious answer is wrong. Your own evidence shows the schema catching structural errors and missing every subtle one you reported. So why keep it?
 
-The last row of the table is the one to think hardest about. Every method required a human to check the facts. Nothing today changed that.
+Because it removes an entire class of failure at zero cost, leaving your attention free for the errors only you can catch. A validator that eliminates the cheap errors is what makes it possible to spend your limited attention on the expensive ones. Argue it from your own numbers rather than from conviction.
 
-**Takeaway:** The report presents actual error counts and named failures across all three days, and concludes with a recommendation grounded in your own numbers.
+**Takeaway:** The comparison reports method and figures briefly, spends its length on two verified subtle hallucinations, and argues the schema's necessity from your own numbers.
 
 ---
 
@@ -725,32 +698,34 @@ The last row of the table is the one to think hardest about. Every method requir
 
 **What the Week Was For**
 
-Step back and look at what you built in three days.
+Three days, three ways of producing the same description.
 
 - **Tuesday, by hand.** You wrote a TEI header yourself and found out how much a manuscript demands before it can be described at all (TEI Consortium, 2025).
-- **Wednesday, by rule.** You handed your file to a schema and let it find what you could not see in your own work (Cummings, 2018; Blackwell & Smith, 2019).
-- **Friday, by machine.** You had a model do the same job in seconds, and then you measured it, which is a thing you could only do because of Tuesday and Wednesday (De Cristofaro & Zilio, 2025; Ignatowicz et al., 2025).
+- **Wednesday, by rule.** You gave your file to a schema, which found what you could not see in your own work (Cummings, 2018).
+- **Friday, by machine.** A model did the job in seconds, and you measured it — which you could only do because of Tuesday and Wednesday.
 
 ```
 Topic 02, complete:
-  Tue  manual        hand-authored TEI header          -> your ground truth
-  Wed  deterministic schema validation to 0 errors     -> your structural baseline
-  Fri  AI-assisted   generated header, scored          -> measured against both
+  Tue  manual        hand-authored TEI header       -> your ground truth
+  Wed  deterministic validated to 0 errors          -> your structural baseline
+  Fri  AI-assisted   generated header, audited      -> measured against both
 ```
 
-Here is the conclusion the week has been building toward, and it is not the one people expect. AI does not make schemas less important. It makes them essential.
+Here is the conclusion the week was built toward, and it is not the expected one. AI does not make schemas less important. It makes them essential.
 
-When markup was slow and expensive, structural mistakes were rare because so little got produced. A system that generates plausible TEI in seconds can produce wrong markup faster than any human can read it. The formal schema is what stands between that output and the published record — together with an editor who knows the difference between a valid file and a true one.
+When markup was slow and expensive, errors were rare because so little got produced. A system generating plausible TEI in seconds can produce wrong markup faster than anyone can read it. The schema is what removes the cheap errors automatically — and that is precisely what frees a human editor to spend attention on the expensive ones, the fabricated provenance and the identifier pointing at the wrong codex.
 
-That editor is what this course is training you to be. The machine got faster this week. The judgement did not become less necessary; it became the only part that was ever scarce.
+Notice what changed this week and what did not. The typing got faster. The judgement did not get easier, and it did not get less necessary. It became the only part that was ever scarce.
 
-**Takeaway:** Generative AI makes deterministic schemas and human editorial judgement more necessary, not less, because it can produce plausible errors faster than anyone can read them.
+**Takeaway:** Generative AI makes deterministic schemas and human editorial judgement more necessary, because automating the cheap errors is what frees attention for the ones only a person can catch.
 
 ---
 
 ## References
 
 Blackwell, C., & Smith, N. (2019). The CITE Architecture: A conceptual and practical overview. In M. Berti (Ed.), *Digital Classical Philology: Ancient Greek and Latin in the Digital Revolution* (pp. 73–94). De Gruyter Saur.
+
+Clarysse, W. (2010). The Trismegistos database of ancient texts and manuscripts. *Literary and Linguistic Computing*, 25(3).
 
 Cummings, J. (2018). The Text Encoding Initiative and the study of literature. In R. Siemens & S. Schreibman (Eds.), *A Companion to Digital Literary Studies* (pp. 451–476). Blackwell.
 
@@ -760,9 +735,7 @@ Ignatowicz, J., Kutt, K., & Nalepa, G. J. (2025). Metadata Enrichment Model: Int
 
 Koho, M., Burrows, T., Hyvönen, E., Ikkala, E., Page, K., Ransom, L., ... & Wijsman, H. (2021). Harmonizing and publishing heterogeneous premodern manuscript metadata as Linked Open Data. *Journal of the Association for Information Science and Technology*, 73(2), 240–257. https://doi.org/10.1002/asi.24499
 
-Koho, M., Coladangelo, L. P., Ransom, L., & Emery, D. (2023). Wikibase model for premodern manuscript metadata harmonization, linked data integration, and discovery. *ACM Journal on Computing and Cultural Heritage*, 16(3), Article 56. https://doi.org/10.1145/3594723
-
-Le Bœuf, P. (2012). Modeling rare and unique documents: Using FRBRoo/CIDOC CRM. *Journal of Archival Organization*, 10(2), 96–106.
+Romanello, M., & Gautier, A. (2024). Automatic metadata extraction: Leveraging large language models in digital humanities. *Journal of Open Humanities Data*.
 
 TEI Consortium. (2025). *TEI P5: Guidelines for Electronic Text Encoding and Interchange*. Version 4.8.0. https://tei-c.org/release/doc/tei-p5-doc/en/html/
 
