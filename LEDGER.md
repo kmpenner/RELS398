@@ -55,13 +55,21 @@
   2. Generate companion media for Lesson 3.3 (`brief.m4a`, `detailed.m4a`, `infographic.jpg`).
   3. Compile interactive XML (`03_Interactive_Lesson_3.3.xml`) and HTML player for Lesson 3.3.
   4. Correct `03a_Lesson_2.2_Lesson_Content.md` (Red Hat XML does not validate RELAX NG) and recompile the 2.2 bank/notes before Friday's Meeting #5.
-  5. Redeploy Moodle Section 2 with the rewritten Lesson 2.3 content, bank, notes PDF, and interactive XML before Friday.
+  5. Fix `populate_moodle_topic.py` bank-import ordering: it imports question banks before replacing activities, so purging a category whose quiz still exists loops and aborts.
   6. Regenerate Lesson 2.3 companion media (brief/detailed audio, infographic) once quota allows — the 2026-08-28 versions narrate the pre-redesign text and are now two revisions behind.
   7. Remaining novice rewrites: 17 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13). Modules 03–07 were hand-authored and already read in range.
 
 ---
 
 ## 6. Recent Workstream Ledger
+
+- **[2026-09-09]**: Redeployed **Lesson 2.3 to live Moodle** (course 51185, Section 2) with the redesigned content, and fixed two safety defects found on the way.
+  - **`get_quiz_attempt_count` failed open** (`shared/scripts/moodle_automation.py`): it swallowed every exception and returned 0, and callers treat 0 as permission to delete. An unconnected driver reported "0 attempts" on four quizzes while every request was throwing. Now positively confirms a quiz view page rendered (`body id=page-mod-quiz-view`) and raises `AttemptCheckError` when the count cannot be established; `strict=False` keeps lenient behaviour for reporting only. Also closed two further fail-open paths: `delete_activities` fell back to an empty `cm_map` when `get_course_state()` failed, which made every `modname` empty and skipped the quiz guard for the whole batch, and `delete_activity` warned-and-continued when its pre-check threw. Committed to `shared` (758ae4c).
+  - **The manifest was stale.** cmids 1422956–1423010 predated the 2026-09-04 Section 2 resync; the live section now runs 1428505–1428528. `dump_moodle_manifest.py` re-run and committed. Attempts then verified genuinely at **0** for Lessons 2.1, 2.2, 2.3 and the Weekly Quiz before anything was deleted.
+  - **Purging a question category fails while its quiz still exists.** Moodle will not hard-delete questions in use, so `purge_question_categories_for_import` reported "deleted 60 question(s)" ten times over and aborted. Order must be: delete the quiz activity first, then purge and re-import, then create the replacement. `populate_moodle_topic.py` imports banks *before* replacing activities (line ~185), so a full topic run will hit this on any section whose quizzes already exist — worth fixing there.
+  - **Deployed:** Notes PDF replaced (cmid 1428521 → 1430835); Interactive Quiz rebuilt from the re-imported bank (cmid 1428520 → 1430839), verified at 60 slots with content/question pairs correctly interleaved, 1 question per page, `immediatefeedback` behaviour, 19 review options enabled, sequential navigation, completion require-grade.
+  - **Repaired a side effect:** deleting the old quiz left the Notes PDF's completion restriction pointing at a dead cmid (`{"type":"completion","cm":0}` with `error_selectcmid`). Re-pointed at 1430839 and verified.
+  - **Still stale on Moodle:** Lesson 2.3 Brief/Detailed audio (cmid 1428519, 1428522) and the Infographic (1428518) all date from 2026-08-28 and narrate the pre-redesign lesson.
 
 - **[2026-09-09]**: **Redesigned Lesson 2.3 from the module's learning objectives rather than revising the inherited section list**, on the instruction not to treat the previous structure as a constraint. Retitled *Auditing AI-Generated Manuscript Metadata*. All 30 section topics are new; readability holds at grade 8.7 (14.0 words per sentence, 4.9% four-syllable).
   - **Gap found and closed:** the workshop rubric awards 3 of 10 points for authority control using **Trismegistos, Pinakes, and Diktyon**, and no lesson in the course had ever taught them — 2.2 taught VIAF, Pleiades, and Getty AAT, which identify people and places, not texts, works, or Greek codices. Sections 06–10 now cover the three registers and how they attach to `msDesc` via `@ref`, `@corresp`, and `altIdentifier`. Section 09 deliberately withholds the example Diktyon number so students look it up: an unverified identifier is the exact failure the lesson trains against.
