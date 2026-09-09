@@ -9,27 +9,19 @@
 
 ---
 
-## 0. Read this first: what is in flight RIGHT NOW
+## 0. Companion media: regenerated, NOT yet on Moodle
 
-**A background job is running.** `generate_lesson_media.py --topic 2 --lesson 2.3 --force`, started 2026-09-09 ~15:45 local, regenerating Lesson 2.3's companion media from the redesigned content.
+The media job finished at 19:22 on 2026-09-09. All three artifacts rebuilt from the redesigned Lesson 2.3, verified by file dates rather than exit code:
 
-- `brief.m4a` — **done** (0.8 MB, 1:39, titled *"Catching AI lies in manuscript XML"* — that title is the tell that it built from the NEW text; the old one was about metadata enrichment).
-- `detailed.m4a` — **in progress** when this was written. Deep Dive / Long; expect 20–45 minutes of audio and a long generation.
-- `infographic.jpg` — queued behind it.
+| File | Size | Evidence it came from the NEW text |
+|---|---|---|
+| `brief.m4a` | 0.8 MB, 1:39 | Titled *"Catching AI lies in manuscript XML"* |
+| `detailed.m4a` | 26.7 MB, 55:18 | Titled *"Subtle AI Hallucinations in TEI Headers"* |
+| `infographic.jpg` | 246 KB, 1600px | Contains the Tue/Wed/Fri cycle, "well-built is not true", the four kinds of error, the six-field scorecard, and a **Trismegistos / Pinakes / Diktyon** panel — all sections that exist only in the redesign |
 
-**Before doing anything else:** check whether it finished, and whether it finished *honestly*.
+Audio is gitignored course-wide (`*.m4a`) and reaches Drive through the mirror; `infographic.jpg` is tracked and committed.
 
-```bash
-pgrep -f generate_lesson_media && echo RUNNING || echo done
-ls -la src/modules/Module_02_Cataloguing/03d_Lesson_2.3_Media/
-```
-
-Files dated **2026-08-28** are the pre-redesign versions and mean the run did not replace them. A backup of those August originals is at
-`/tmp/claude-1000/-home-kmpenner-projects-RELS/790417dd-.../scratchpad/l23_media_backup/` — **that path is session-scoped and will not survive; copy it somewhere durable if you want the comparison, otherwise ignore it.**
-
-If the run died partway, re-run the same command. It is idempotent with `--force`. If Gemini reports an account limit it raises `UsageLimitError` and stops rather than producing junk.
-
-**When the media is regenerated, it still has to reach Moodle.** The three activities in Section 2 still serve the August files:
+**What remains: pushing all three to Moodle.** Section 2 still serves the August files.
 
 | Activity | cmid | State |
 |---|---|---|
@@ -37,9 +29,11 @@ If the run died partway, re-run the same command. It is idempotent with `--force
 | Lesson 2.3 Detailed Audio Discussion | 1428522 | stale (Aug 28) |
 | Lesson 2.3: Infographic (label) | 1428518 | stale (Aug 28) |
 
-Audio and infographic go up with `update_moodle_item.py --topic 2 --item "<exact activity name>"`. The infographic is a **label with the image embedded in intro HTML** — there is no file field, so it must be deleted and recreated (`swap_banner.py` is the worked example).
+Audio goes up with `update_moodle_item.py --topic 2 --item "<exact activity name>"`. **The infographic is a label with the image embedded in intro HTML** — there is no file field, so it must be deleted and recreated (`swap_banner.py` is the worked example). `detailed.m4a` is 26.7 MB; use the `large=True` path.
 
----
+Re-read §5 before deploying: refresh `moodle_manifest.json` first, because those cmids are already a few hours old and Section 2 has been rebuilt twice today.
+
+The pre-redesign August media was backed up only to a session-scoped scratch directory that no longer persists. If a comparison was wanted, it is gone — the Drive mirror's previous state is the remaining copy.
 
 ## 1. Where the work stands
 
