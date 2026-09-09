@@ -55,10 +55,21 @@
   2. Generate companion media for Lesson 3.3 (`brief.m4a`, `detailed.m4a`, `infographic.jpg`).
   3. Compile interactive XML (`03_Interactive_Lesson_3.3.xml`) and HTML player for Lesson 3.3.
   4. Correct `03a_Lesson_2.2_Lesson_Content.md` (Red Hat XML does not validate RELAX NG) and recompile the 2.2 bank/notes before Friday's Meeting #5.
+  5. Redeploy Moodle Section 2 with the rewritten Lesson 2.3 content, bank, notes PDF, and interactive XML before Friday.
+  6. Regenerate Lesson 2.3 companion media (brief/detailed audio, infographic) once quota allows — the 2026-08-28 versions narrate the pre-rewrite text.
+  7. Remaining novice rewrites: 17 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13). Modules 03–07 were hand-authored and already read in range.
 
 ---
 
 ## 6. Recent Workstream Ledger
+
+- **[2026-09-09]**: Rewrote **Lesson 2.3** (*AI-Assisted Metadata Enrichment, Entity Extraction, and Validation Auditing*) into the novice-accessible register, and rebuilt every downstream deliverable. Readability moved from **Flesch–Kincaid grade 19.1 to 8.8** (23.3 → 14.3 words per sentence; 16.8% → 4.8% four-syllable words), bringing it below the 12.1/13.0 of the already-rewritten 2.1 and 2.2.
+  - **Prior-knowledge constraint applied:** the rewrite assumes only what Lessons 1.1, 1.2, 2.1, and 2.2 actually taught. Transformer/token/embedding theory, the F1 formula, the CV model zoo (YOLOv11, Detectron2, BLIP-2, Mistral-7B), and CI/CD jargon are gone; precision and recall are now derived from the six-field scorecard students fill in by hand, and every remaining term is defined at first use. Callbacks to Wednesday's schema, Tuesday's `msDesc`, Lesson 1.1's Git and Python, and 2.2's RDF triples carry the load instead.
+  - **Section topics preserved 1:1** across all 30 pages, so the existing 30 slide illustrations in `03c_Lesson_2.3_Images/` remain valid and were not regenerated (Gemini quota preserved).
+  - **Question bank rewritten** (`scripts/banks/lesson_2_3.py`): all 30 stems, options, and feedback re-authored against the new sections; names and `note=` fields verified equal to the new headings and takeaways by script. Absurdist distractors ("3D holographic wireframes", "time-travel short story") replaced with plausible wrong answers targeting real misconceptions, so the checks actually test comprehension.
+  - **Rebuilt in pipeline order** (content → bank → PDF notes → images → interactive XML → HTML player): `03b_Lesson_2.3_Questions.xml` (30 Q), `04_Lesson_2.3_Notes.pdf`, `03_Interactive_Lesson_2.3.xml` (3.21 MB, images embedded), `03_Interactive_Lesson_2.3.html`. `src/modules/` and `dist/moodle/` verified byte-identical. Lint clean, 36/36 lessons, 0 issues.
+  - **Not regenerated:** companion media in `03d_Lesson_2.3_Media/` (`brief.m4a`, `detailed.m4a`, `infographic.jpg`, dated 2026-08-28) still narrate the pre-rewrite text. Nothing in the lesson or interactive XML references them, so no build is broken, but the audio is now out of step with the prose.
+  - **Also open:** Moodle Section 2 still serves the old 2.3 lesson and bank; redeploy before Friday.
 
 - **[2026-09-09]**: Resolved the schedule slip by **combining Lessons 2.2 and 2.3 into Friday's Meeting #5** rather than pushing 2.3 into the following week — the Module 02 Workshop Comparison Post is due Friday 11:00 PM and requires the AI-audit step, so 2.3 could not slip.
   - Authored `src/modules/Module_02_Cataloguing/Lesson_2.2_2.3_Combined_Teaching_Plan_2026-09-11.html`: 6 min Scholarly XML install and framing, 8 min projector demo linking `msdesc.rng`, **16 min Lab A (validate the human file to 0 errors)**, **12 min Lab B (generate an AI header, run it through the same gate, score it)**, 6 min pooling results at the board, 2 min commit.

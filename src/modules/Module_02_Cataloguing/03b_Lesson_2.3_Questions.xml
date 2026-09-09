@@ -14,13 +14,13 @@
   <!-- 01 Question -->
   <question type="multichoice">
     <name>
-      <text>01 Question: The Promise and the Peril of Automated Metadata Generation</text>
+      <text>01 Question: Why Anyone Would Let a Machine Catalogue a Manuscript</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does the scaling crisis in manuscript cataloguing prompt the adoption of AI, and what is its primary epistemological peril?</p>]]></text>
+      <text><![CDATA[<p>Manual cataloguing runs at hours per folio, and archives hold hundreds of thousands of uncatalogued items. What does that make the central question about AI cataloguing?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Artificial intelligence offers unprecedented speed in manuscript metadata extraction, but its probabilistic nature introduces hallucinations that demand rigorous schema-based auditing.</p>]]></text>
+      <text><![CDATA[<p>AI can generate manuscript metadata thousands of times faster than a human, but because it predicts rather than knows, the real skill is measuring and auditing what it produces.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -29,27 +29,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>AI processes backlogs in seconds, but its probabilistic nature can generate hallucinated facts and invalid XML structures that require strict auditing.</p>]]></text>
+      <text><![CDATA[<p>Not whether AI can generate metadata, which it plainly can, but how you measure its output and catch what it invented.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. While AI overcomes the severe manual labor bottleneck, its statistical predictions risk injecting hallucinations without formal validation.</p>]]></text>
+        <text><![CDATA[<p>Correct. Speed is not in dispute. The scholarly problem is verification.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>AI completely eliminates the need for human editors and schema validators in archival repositories.</p>]]></text>
+      <text><![CDATA[<p>Whether AI can generate TEI markup quickly enough to be worth using at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. AI shifts human labor from manual entry to critical auditing; schemas remain essential gates.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Speed is the one thing already settled: a model produces a header in seconds.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>AI models refuse to catalogue manuscripts unless they have already been published in modern print editions.</p>]]></text>
+      <text><![CDATA[<p>Whether archives should stop digitizing manuscripts until better models exist.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. AI models can ingest raw archival notes or images of uncatalogued materials.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The backlog argument runs the other way; the scale is why automation is attractive.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>AI cataloguing is legally prohibited by international archival preservation treaties.</p>]]></text>
+      <text><![CDATA[<p>Whether human cataloguers should be retrained as programmers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. AI is actively researched and deployed in digital humanities projects worldwide.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The shift is from authoring records to auditing them, which is editorial work, not software work.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -57,13 +57,13 @@
   <!-- 02 Question -->
   <question type="multichoice">
     <name>
-      <text>02 Question: How Large Language Models Process Codicological Information</text>
+      <text>02 Question: What the Model Is Actually Doing When It Writes TEI</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How do Large Language Models (LLMs) generate TEI XML metadata from unstructured catalogue notes?</p>]]></text>
+      <text><![CDATA[<p>A model has read thousands of real TEI headers. What follows about how it produces your header?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Large Language Models generate XML metadata via probabilistic next-token prediction, producing fluent surface structures without an innate understanding of formal schema constraints.</p>]]></text>
+      <text><![CDATA[<p>An LLM writes TEI by predicting what usually comes next, which makes its output fluent and plausible without making it valid.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -72,27 +72,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>By computing probability distributions over tokens to predict statistically probable next words and tags, without innate awareness of formal schema rules.</p>]]></text>
+      <text><![CDATA[<p>It answers what usually comes next, so its output is fluent and plausible without being checked against any schema.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. LLMs operate via probabilistic token prediction based on patterns learned during training, not deterministic grammar execution.</p>]]></text>
+        <text><![CDATA[<p>Correct. It has a strong sense of what TEI tends to look like and no access to what this schema permits.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By executing a compiled C++ parser that checks RELAX NG tree grammars before outputting each character.</p>]]></text>
+      <text><![CDATA[<p>It consults the TEI Guidelines while generating, which is why its markup is usually valid.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. LLMs do not execute external schema validators internally during next-token prediction.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The model holds no rulebook and performs no lookup during generation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By physically consulting archival records in European library vaults via optical fiber networks.</p>]]></text>
+      <text><![CDATA[<p>It reproduces one of the headers it memorized during training, with the names swapped.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. LLMs generate text from weights learned during pretraining and the supplied prompt.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It predicts token by token rather than retrieving a stored document.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By converting all text into high-resolution 3D holographic wireframes.</p>]]></text>
+      <text><![CDATA[<p>It runs an internal RELAX NG check and revises before returning output.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. LLMs generate textual token sequences, not 3D holograms.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No validation happens unless you run it yourself afterwards.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -100,13 +100,13 @@
   <!-- 03 Question -->
   <question type="multichoice">
     <name>
-      <text>03 Question: The Epistemological Tension: Probabilistic Prediction vs. Deterministic Validation</text>
+      <text>03 Question: Two Ways of Being Right</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What fundamental tension exists between probabilistic AI generation and deterministic schema validation?</p>]]></text>
+      <text><![CDATA[<p>How do a schema and a language model differ in the kind of correctness each can deliver?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Codicological cataloguing requires reconciling probabilistic AI text generation with the unyielding, deterministic constraints of XML schemas.</p>]]></text>
+      <text><![CDATA[<p>Schemas are consistent but meaningless, while models are meaningful but inconsistent, so a serious pipeline uses each to cover the other's blind spot.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -115,27 +115,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>AI prioritizes semantic plausibility and associative patterns, whereas schema validators enforce rigid mathematical tree structures and exact datatypes.</p>]]></text>
+      <text><![CDATA[<p>The schema is consistent but indifferent to meaning; the model grasps meaning but gives no guarantee of consistency.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. An LLM may generate a semantically clear but schema-invalid tag, which a deterministic parser will reject immediately.</p>]]></text>
+        <text><![CDATA[<p>Correct. They fail in opposite directions, which is why a pipeline uses each to cover the other's blind spot.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>AI models only generate binary code, while XML validators only accept handwritten calligraphy.</p>]]></text>
+      <text><![CDATA[<p>The schema is more accurate than the model in every respect, so the model adds nothing.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Both operate on digital text, but with fundamentally different computational paradigms.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A schema cannot read messy prose and find the meaning in it; a model genuinely can.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Validation engines use neural networks to guess whether an editor intended to close a tag.</p>]]></text>
+      <text><![CDATA[<p>Both are deterministic, but the schema is faster.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schema validators use deterministic logic, not probabilistic guessing.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The model is probabilistic and may answer differently to the same prompt twice.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Probabilistic models reject all historical texts written before the invention of the printing press.</p>]]></text>
+      <text><![CDATA[<p>The model checks facts while the schema checks spelling.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. LLMs process historical and premodern texts readily based on training data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The model does not check facts at all, and a schema checks structure rather than spelling.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -143,13 +143,13 @@
   <!-- 04 Question -->
   <question type="multichoice">
     <name>
-      <text>04 Question: Prompt Engineering for Structured XML-TEI Output</text>
+      <text>04 Question: Asking Well: How to Prompt for TEI</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Which combination of prompt engineering strategies best constrains an LLM to produce schema-valid TEI XML?</p>]]></text>
+      <text><![CDATA[<p>Which set of prompt choices reflects current practice for generating schema-valid TEI?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Effective TEI prompt engineering requires explicit system constraints, few-shot schema exemplars, low temperature settings, and strict XML output modes.</p>]]></text>
+      <text><![CDATA[<p>A good TEI prompt names the role, lists the permitted tags, shows a worked example, forbids commentary, and lowers the temperature.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -158,27 +158,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Explicit system role constraints, few-shot schema exemplars, strict XML output formatting, and a low temperature setting (e.g., 0.0 to 0.2).</p>]]></text>
+      <text><![CDATA[<p>Name the role, list the permitted elements, show a worked example, forbid commentary, and lower the temperature.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Low temperature suppresses random divergence, while few-shot examples and schema rules enforce structural replication.</p>]]></text>
+        <text><![CDATA[<p>Correct. Each one narrows the model's prediction toward the markup you actually want.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>High temperature (1.5), conversational open-ended prompts, and requesting output in unformatted Markdown prose.</p>]]></text>
+      <text><![CDATA[<p>Keep the prompt short and general so the model is free to choose the best encoding.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. High temperature and open prose encourage creative divergence and invalid XML syntax.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. An open prompt produces chatty preamble and invented tags that fail validation immediately.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Asking the model to invent new XML tags whenever it encounters an unfamiliar manuscript feature.</p>]]></text>
+      <text><![CDATA[<p>Raise the temperature so the model considers more encoding possibilities.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Inventing tags causes instant RELAX NG validation failure.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. High temperature increases invention, which is the opposite of what markup needs.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Omitting the XML declaration and forbidding the model from using closing tags.</p>]]></text>
+      <text><![CDATA[<p>Ask for an explanation alongside the XML so you can check the reasoning.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Omission of closing tags violates XML well-formedness.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Mixed output has to be stripped by hand before it can be parsed; ask for XML only.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -186,13 +186,13 @@
   <!-- 05 Question -->
   <question type="multichoice">
     <name>
-      <text>05 Question: The Ground-Truth Benchmark: Evaluating AI Against the Manual Header</text>
+      <text>05 Question: Why Your Own Header Is the Measuring Stick</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must AI-generated TEI metadata be evaluated against a human-authored, validated ground truth rather than evaluated in isolation?</p>]]></text>
+      <text><![CDATA[<p>Why can an AI-generated header not be evaluated on its own terms?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Tuesday's manual header and Wednesday's schema validation serve as the gold-standard benchmark against which automated AI outputs are quantitatively scored.</p>]]></text>
+      <text><![CDATA[<p>Tuesday's header and Wednesday's zero-error file are the independent reference that turns an impression of cleverness into a measurable claim.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -201,27 +201,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>An automated model cannot objectively grade its own accuracy; human-certified baselines provide the authoritative reference standard for error scoring.</p>]]></text>
+      <text><![CDATA[<p>A system cannot grade itself; without your independent verified header there is no reference to measure against.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Scientific evaluation requires comparing probabilistic outputs against certified, deterministic human baselines.</p>]]></text>
+        <text><![CDATA[<p>Correct. Your Tuesday and Wednesday files are what turn an impression into a measurable claim.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because AI models automatically delete their own outputs if no human reviews them within five minutes.</p>]]></text>
+      <text><![CDATA[<p>Because AI output is always wrong, so it needs correcting rather than measuring.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Outputs persist in files; the issue is scientific validity and error measurement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is often right, which is precisely why an impression is not good enough.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because schema validators refuse to parse files generated by computers.</p>]]></text>
+      <text><![CDATA[<p>Because schema validation alone already proves the header is correct.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Parsers are indifferent to text authorship; they test mathematical syntax and schema rules.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Validation proves structure, not that the facts describe your manuscript.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To ensure that AI models are trained exclusively on 19th-century German print editions.</p>]]></text>
+      <text><![CDATA[<p>Because the model refuses to disclose which parts it was unsure about.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Ground truth benchmarking evaluates modern digital extraction against verified manuscript facts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The problem is the absence of a reference standard, not the model's disclosure.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -229,13 +229,13 @@
   <!-- 06 Question -->
   <question type="multichoice">
     <name>
-      <text>06 Question: Empirical Benchmarks: The PubCINET Project Case Study</text>
+      <text>06 Question: A Real Experiment: The PubCINET Study</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What was the experimental objective of De Cristofaro and Zilio's PubCINET benchmark study?</p>]]></text>
+      <text><![CDATA[<p>What did De Cristofaro and Zilio (2025) find most useful in their comparison of two models on TEI encoding?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The PubCINET project established an empirical benchmark comparing ChatGPT-4 and Claude 3.5 in automated TEI encoding, measuring schema compliance and entity extraction.</p>]]></text>
+      <text><![CDATA[<p>The PubCINET study ran this same comparison across two models at scale, and found that different models fail in systematically different ways.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>To evaluate and compare how effectively ChatGPT-4 and Claude 3.5 Sonnet automate TEI encoding of archival correspondence under formal schema validation.</p>]]></text>
+      <text><![CDATA[<p>Not that one model was better overall, but that the two failed in systematically opposite ways.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The study measured schema validity, entity recognition, and structural errors across both frontier models.</p>]]></text>
+        <text><![CDATA[<p>Correct. Knowing the shape of each failure is more useful for pipeline design than a single ranking.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To prove that archival letters should be destroyed once they have been scanned.</p>]]></text>
+      <text><![CDATA[<p>That both models performed identically once given the same system prompt.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Archival preservation is paramount; the study focused on cataloguing efficiency.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Their behaviour diverged sharply on both structure and entity recognition.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To develop a commercial streaming platform for classic Italian cinema.</p>]]></text>
+      <text><![CDATA[<p>That neither model produced usable TEI under any conditions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. PubCINET is an academic digital humanities project studying cultural networks through correspondence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. One produced clean, valid TEI on the first pass.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To replace XML with proprietary binary database formats across Italian universities.</p>]]></text>
+      <text><![CDATA[<p>That model choice matters less than the size of the training corpus.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The project standardized on TEI XML and Linked Open Data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The study compared behavioural profiles, not corpus size.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -272,13 +272,13 @@
   <!-- 07 Question -->
   <question type="multichoice">
     <name>
-      <text>07 Question: Behavioral Profile of ChatGPT-4 in TEI Encoding</text>
+      <text>07 Question: The First Profile: Smart About Meaning, Careless About Structure</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In the PubCINET benchmark, what distinct behavioral profile did ChatGPT-4 exhibit during TEI XML generation?</p>]]></text>
+      <text><![CDATA[<p>The meaning-first model inferred people from nicknames and oblique references, yet routinely failed schema validation. What single explanation accounts for both?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>ChatGPT-4 excels at inferring implicit historical entities from context, but frequently fails deterministic XML schema validation through illegal element nesting.</p>]]></text>
+      <text><![CDATA[<p>A model that optimizes for meaning will read a document impressively and break the schema doing it.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -287,27 +287,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>High semantic competence in recognizing implicit entities and nicknames, paired with frequent failures in XML schema hierarchy and nesting.</p>]]></text>
+      <text><![CDATA[<p>It optimizes for meaning, so when capturing sense and obeying schema grammar conflict, meaning wins.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. ChatGPT-4 excelled at contextual deduction, but struggled with rigid structural containment rules.</p>]]></text>
+        <text><![CDATA[<p>Correct. Its strength and its weakness are one behaviour observed from two directions.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>100% flawless schema validation accompanied by complete refusal to tag any historical names.</p>]]></text>
+      <text><![CDATA[<p>It was given a weaker system prompt than the other model in the study.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Flawless structure with conservative entity tagging was the profile of Claude 3.5, not ChatGPT-4.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Both models received the same prompt and reference file.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Inability to output English or Italian words, emitting only random numerical noise.</p>]]></text>
+      <text><![CDATA[<p>It had not been trained on any TEI, so it guessed at the element names.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. ChatGPT-4 produced fluent, sophisticated Italian and English text.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It produced recognizable TEI; the failures were nesting and legality, not vocabulary.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Automatic conversion of all text into relational SQL database tables.</p>]]></text>
+      <text><![CDATA[<p>Its context window was too small to hold the schema.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The model generated TEI XML, albeit with structural nesting defects.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Neither model holds the schema during generation regardless of window size.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -315,13 +315,13 @@
   <!-- 08 Question -->
   <question type="multichoice">
     <name>
-      <text>08 Question: Structural Hallucinations: Invalid Nesting, Premature Tag Closure, and Bad Entities</text>
+      <text>08 Question: Structural Hallucination: Confident XML That Cannot Exist</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Which error represents a typical <em>structural hallucination</em> generated by an LLM during XML-TEI encoding?</p>]]></text>
+      <text><![CDATA[<p>What is a structural hallucination, as distinct from a factual one?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Structural hallucinations—such as premature tag closure, illegal HTML tags, and undefined character entities—are the primary cause of LLM validation failures.</p>]]></text>
+      <text><![CDATA[<p>Structural hallucinations are plausible, illegal markup — early closures, stray HTML, undefined entities — and Wednesday's schema catches all of them.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -330,27 +330,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Closing a container prematurely (e.g., <code>&lt;/profileDesc&gt;</code>) and then placing mandatory child elements like <code>&lt;langUsage&gt;</code> outside it.</p>]]></text>
+      <text><![CDATA[<p>Markup that looks reasonable but is illegal in this schema, such as an early container closure or a stray HTML tag.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Structural hallucinations violate parent-child hierarchy, inject illegal HTML tags, or use undeclared character entities.</p>]]></text>
+        <text><![CDATA[<p>Correct. The model is not confused about the manuscript; it is confused about rules it never had.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Accurately formatting an ISO 8601 date as <code>@when="1968-05-12"</code>.</p>]]></text>
+      <text><![CDATA[<p>A fabricated provenance narrative written in valid TEI.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Proper ISO dates represent correct schema compliance, not hallucinations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is a factual hallucination, and the schema cannot detect it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Using standard TEI elements declared in the active RELAX NG schema.</p>]]></text>
+      <text><![CDATA[<p>Any XML file that fails to open in a web browser.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Using authorized elements conforms to schema rules.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The category is about schema legality, not browser rendering.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Correctly escaping an ampersand as <code>&amp;amp;</code> in text content.</p>]]></text>
+      <text><![CDATA[<p>A tag whose name is spelled correctly but capitalized wrongly.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Escaping ampersands is required for XML well-formedness.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is an ordinary well-formedness or case error, not the pattern described.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -358,13 +358,13 @@
   <!-- 09 Question -->
   <question type="multichoice">
     <name>
-      <text>09 Question: Behavioral Profile of Claude 3.5 Sonnet in TEI Encoding</text>
+      <text>09 Question: The Second Profile: Obedient About Structure, Silent About the Rest</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What characterized Claude 3.5 Sonnet's performance profile in the PubCINET automated encoding experiments?</p>]]></text>
+      <text><![CDATA[<p>The structure-first model produced valid TEI but left unlisted people untagged. Why is that failure harder to catch than broken markup?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Claude 3.5 Sonnet produces near-flawless schema-valid XML markup, but its semantic literalism causes it to omit historical entities not pre-defined in reference files.</p>]]></text>
+      <text><![CDATA[<p>A model that obeys the schema perfectly can still omit entities silently, and omissions produce no error to catch them.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -373,27 +373,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Near-perfect adherence to XML well-formedness and RELAX NG schema validity, accompanied by conservative literalism that missed uncatalogued entities.</p>]]></text>
+      <text><![CDATA[<p>An omission produces no error, so the file validates cleanly and the gap is invisible unless a human notices something absent.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Claude 3.5 produced clean, valid XML trees on initial passes, but adhered strictly to pre-defined dictionaries and omitted implicit entities.</p>]]></text>
+        <text><![CDATA[<p>Correct. Broken structure announces itself; silence does not.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Frequent injection of invalid HTML tags and complete disregard for ISO date formatting.</p>]]></text>
+      <text><![CDATA[<p>Because omissions corrupt the XML tree in ways validators cannot parse.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Claude 3.5 excelled at schema hierarchy, valid tags, and ISO dates.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The tree is perfectly well formed, which is exactly the difficulty.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Autonomous deduction of dozens of obscure historical figures not mentioned in reference files.</p>]]></text>
+      <text><![CDATA[<p>Because the model deletes the entities from your ground truth file as well.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Autonomous deduction was a strength of ChatGPT-4; Claude was strictly literal.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It never touches your file; it simply does not tag the entity in its own output.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Total failure to parse plain text files, resulting in zero valid XML documents.</p>]]></text>
+      <text><![CDATA[<p>Because Schematron reports omissions only as warnings, not errors.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Claude achieved an initial schema validity rate of nearly 90%.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No rule fires at all, because nothing invalid was written.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -401,13 +401,13 @@
   <!-- 10 Question -->
   <question type="multichoice">
     <name>
-      <text>10 Question: The Semantic-Structural Trade-Off in LLM Architectures</text>
+      <text>10 Question: The Trade-Off, and What to Do About It</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How should an editorial workflow navigate the semantic-structural trade-off between ChatGPT-4 and Claude 3.5 Sonnet?</p>]]></text>
+      <text><![CDATA[<p>Given the two profiles, why is a single unsupervised model the wrong design whichever one you pick?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Digital editors must navigate a trade-off between ChatGPT-4's semantic discovery and Claude 3.5's structural obedience, combining models strategically within audited pipelines.</p>]]></text>
+      <text><![CDATA[<p>No single model is both semantically thorough and structurally obedient, so real pipelines combine models and put a schema gate between them and publication.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -416,27 +416,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Deploy ChatGPT-4 for initial semantic entity discovery and contextual deduction, and Claude 3.5 for schema-compliant XML structuring, audited by deterministic validation.</p>]]></text>
+      <text><![CDATA[<p>One yields rich content in broken markup and the other clean markup missing content, so neither alone produces finished work.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Combining the complementary strengths of both models within an audited pipeline maximizes both semantic richness and structural validity.</p>]]></text>
+        <text><![CDATA[<p>Correct. The practical answer is a pipeline: discovery, then encoding, with the schema gate between them and publication.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Rely exclusively on one model and disable all schema validation tools to avoid seeing compiler errors.</p>]]></text>
+      <text><![CDATA[<p>Because running two models halves the API cost per record.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Disabling validation allows structural defects and corrupted data to enter production.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Two passes cost more, not less; the argument is about coverage, not price.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Abandon digital text encoding entirely and revert to paper card catalogues.</p>]]></text>
+      <text><![CDATA[<p>Because a single model cannot process images and text at the same time.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The objective is to design robust hybrid computational pipelines, not abandon digital methods.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The trade-off described concerns meaning versus structure in text, not modality.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Force both models to run simultaneously on a single CPU core to merge their weights.</p>]]></text>
+      <text><![CDATA[<p>Because unsupervised models refuse to output TEI without a reference file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Models are combined through sequential pipeline stages, not physical neural weight merging.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They will happily output TEI; the question is what is wrong with it.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -444,13 +444,13 @@
   <!-- 11 Question -->
   <question type="multichoice">
     <name>
-      <text>11 Question: Authority File Integration: Supplying Context via macro.xml</text>
+      <text>11 Question: Giving the Model a List Instead of Letting It Guess</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is injecting a pre-compiled <code>macro.xml</code> reference dictionary into the LLM context prompt essential for Linked Open Data integration?</p>]]></text>
+      <text><![CDATA[<p>Asked to add VIAF identifiers, a model returns correctly formatted URIs, some of which lead nowhere or to the wrong person. What is the fix?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Providing LLMs with pre-compiled `macro.xml` authority dictionaries constrains entity linking and eliminates hallucinated LOD URIs.</p>]]></text>
+      <text><![CDATA[<p>Models fabricate authority URIs when asked to supply them, so give them a verified list and let them match instead of invent.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -459,27 +459,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It provides a closed vocabulary of verified LOD URIs, preventing the model from hallucinating non-existent URLs or misattributing historical identities.</p>]]></text>
+      <text><![CDATA[<p>Supply a reference list of already-verified entities and URIs, and instruct the model to use only identifiers from it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Grounding the LLM with an authoritative entity dictionary constrains prediction to verified VIAF, Wikidata, or Pleiades URIs.</p>]]></text>
+        <text><![CDATA[<p>Correct. This converts an open-ended invention problem into a matching problem, which models do well.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It encrypts the prompt so that external API providers cannot read the text of the manuscript.</p>]]></text>
+      <text><![CDATA[<p>Ask the model to double-check each URI before including it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <code>macro.xml</code> supplies entity context; it is not an encryption mechanism.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It has no ability to resolve a URL; asking it to check produces another confident prediction.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It automatically translates Greek text into Italian prose.</p>]]></text>
+      <text><![CDATA[<p>Accept the URIs and repair the broken ones after publication.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <code>macro.xml</code> catalogues entities and identifiers, not linguistic translations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A wrong authority link asserts a false identity in the scholarly record.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It bypasses the need for XML opening and closing tags in the output.</p>]]></text>
+      <text><![CDATA[<p>Use a larger model, which memorizes authority files more accurately.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The output must still be well-formed, valid XML.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Scale reduces but does not remove fabrication, and offers no guarantee for any given URI.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -487,13 +487,13 @@
   <!-- 12 Question -->
   <question type="multichoice">
     <name>
-      <text>12 Question: Automated Named Entity Recognition and Disambiguation (NERD)</text>
+      <text>12 Question: Finding Names in Text That Was Not Written for You</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why do premodern manuscript transcriptions pose unique challenges for automated Named Entity Recognition and Disambiguation (NERD)?</p>]]></text>
+      <text><![CDATA[<p>Why does identifying historical persons in manuscripts defeat simple keyword matching?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Automated NERD leverages LLM semantic reasoning to resolve ambiguous historical names, but requires human verification to prevent identity misattributions.</p>]]></text>
+      <text><![CDATA[<p>Models resolve ambiguous historical names better than keyword matching, and state their guesses with the same confidence as their certainties.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -502,27 +502,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>They feature extreme orthographic variation, historical homonyms, and oblique scribal honorifics rather than standardized modern names.</p>]]></text>
+      <text><![CDATA[<p>Spelling was unstandardized, names repeat across many individuals, and scribes often use titles instead of names.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Disambiguating scribes or authors with identical names or ecclesiastical titles requires complex semantic and contextual reasoning.</p>]]></text>
+        <text><![CDATA[<p>Correct. Resolving these requires context, which is where a model's semantic strength genuinely helps.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because ancient languages did not contain proper nouns for people or cities.</p>]]></text>
+      <text><![CDATA[<p>Because most historical names were never written in the documents at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Ancient texts abound with proper names, but lack standardized modern spelling.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They appear, but in variable, ambiguous, or oblique forms.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because premodern texts were written without consonants.</p>]]></text>
+      <text><![CDATA[<p>Because manuscript transcriptions cannot be searched by computer.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Greek and Latin texts contain consonants; the issue is spelling variance and homonyms.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They are plain text and fully searchable; the difficulty is in the variation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because digital computers cannot process Greek or Latin alphabets.</p>]]></text>
+      <text><![CDATA[<p>Because authority files such as VIAF do not cover premodern people.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Unicode fully supports polytonic Greek, Latin, Syriac, and other historical scripts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. VIAF covers premodern figures; the problem is matching the text to the right record.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -530,13 +530,13 @@
   <!-- 13 Question -->
   <question type="multichoice">
     <name>
-      <text>13 Question: Hallucination of Historical Facts and Chronologies</text>
+      <text>13 Question: The Failure the Schema Cannot See</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What makes historical fact hallucination by Large Language Models particularly insidious in manuscript cataloguing?</p>]]></text>
+      <text><![CDATA[<p>A model invents a complete provenance: a named monk, a dated transfer, a library inventory. It is well-formed, uses real TEI elements, and passes the schema at zero errors. What does this prove?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>LLMs can generate schema-valid but completely fabricated historical narratives, underscoring that structural validity does not equal historical truth.</p>]]></text>
+      <text><![CDATA[<p>A schema validates structure and cannot validate facts, so schema-valid output can be entirely fabricated and only a human editor will notice.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -545,27 +545,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The fabricated narratives are syntactically well-formed and schema-valid, passing automated validation gates despite being historically false.</p>]]></text>
+      <text><![CDATA[<p>That schema validation tests structure only, so a fully fabricated record can pass, and only an editor who knows the manuscript will catch it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Schema validators test structural grammar, not historical truth; plausible fictions can easily evade automated linters.</p>]]></text>
+        <text><![CDATA[<p>Correct. This is the sharpest limit on automated auditing and the clearest statement of what the human editor is for.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The hallucinated text is always written in reverse alphabetical order, making it unreadable.</p>]]></text>
+      <text><![CDATA[<p>That the schema used was incorrectly configured and should be replaced.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Hallucinated text is typically fluent and deceptive prose.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema performed exactly as designed; truth was never within its scope.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Hallucinations cause the physical parchment in library vaults to degrade faster.</p>]]></text>
+      <text><![CDATA[<p>That Schematron rules would have caught the fabrication.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. AI text generation has no physical effect on archival parchment.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron checks internal consistency and cross-references, not historical fact.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The model always inserts explicit warnings stating 'THIS IS A FICTION' inside every tag.</p>]]></text>
+      <text><![CDATA[<p>That the model needs a lower temperature setting.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. LLMs do not flag their own hallucinations; they present them with equal statistical confidence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Lower temperature reduces stylistic variation, not the invention of plausible history.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -573,13 +573,13 @@
   <!-- 14 Question -->
   <question type="multichoice">
     <name>
-      <text>14 Question: Computer Vision in Codicological Metadata Extraction</text>
+      <text>14 Question: Metadata That Lives in the Image, Not the Text</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What role does Computer Vision (CV) play in automated manuscript cataloguing beyond optical text recognition?</p>]]></text>
+      <text><![CDATA[<p>Why does a second family of AI work on page images rather than catalogue prose?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Computer vision neural networks extract codicological metadata directly from manuscript image pixels, automating layout segmentation and visual feature detection.</p>]]></text>
+      <text><![CDATA[<p>Computer vision targets the codicological evidence that exists only in the image — layout, decoration, damage — and never appears in catalogue prose.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -588,27 +588,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It extracts physical codicological features—page geometry, ruling lines, layout columns, decorated initials, and physical damage—directly from image pixels.</p>]]></text>
+      <text><![CDATA[<p>Layout, ruling, decoration, and damage exist only in the object and its image, and appear in no textual description.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. CV neural networks analyze visual materiality to populate <code>&lt;physDesc&gt;</code> and <code>&lt;layoutDesc&gt;</code> elements.</p>]]></text>
+        <text><![CDATA[<p>Correct. Much of what you recorded on Tuesday you obtained by looking, not by reading.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It physically repairs torn parchment folios using automated robotic arms.</p>]]></text>
+      <text><![CDATA[<p>Because image processing is faster than text processing for large collections.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CV models analyze digital pixels, not physical restorative conservation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The motivation is what kind of evidence is available, not processing speed.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It translates ancient Greek theological treatises into modern English verse.</p>]]></text>
+      <text><![CDATA[<p>Because catalogue prose is usually written in Latin, which models handle poorly.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Linguistic translation is handled by NLP/LLM models, not computer vision object detectors.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Models handle Latin adequately; the issue is that the information is simply absent.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It converts digital images into low-resolution 8-bit black-and-white graphics.</p>]]></text>
+      <text><![CDATA[<p>Because IIIF images cannot be converted into text for models to read.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CV processes high-resolution IIIF facsimiles to extract structured metadata.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Transcription is possible; the point is that layout and damage are not textual facts at all.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -616,13 +616,13 @@
   <!-- 15 Question -->
   <question type="multichoice">
     <name>
-      <text>15 Question: The Metadata Enrichment Model (MEM) and Multilayer Vision</text>
+      <text>15 Question: Looking at a Page in Layers</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does the Metadata Enrichment Model (MEM) overcome the challenge of deeply nested codicological features on manuscript leaves?</p>]]></text>
+      <text><![CDATA[<p>Why does the Metadata Enrichment Model examine a page in several passes at different scales?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The MEM framework uses Multilayer Vision Mechanisms (YOLOv11 + multimodal LLMs) to hierarchically segment and enrich nested visual manuscript metadata.</p>]]></text>
+      <text><![CDATA[<p>Manuscript features nest inside one another, so vision systems examine a page in layers — wide, close, then interpretive — much as a cataloguer does.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -631,27 +631,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>By deploying a Multilayer Vision Mechanism: Layer 1 for macro page segmentation, Layer 2 for micro ROI cropping, and Layer 3 for multimodal semantic and LOD mapping.</p>]]></text>
+      <text><![CDATA[<p>Manuscript features nest inside one another, so a single flat detection pass finds some and misses the rest.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Hierarchical vision pipelines allow nested objects (such as an armorial shield inside an initial inside a column) to be segmented and analyzed systematically.</p>]]></text>
+        <text><![CDATA[<p>Correct. A page holds a text block, holding an initial, holding a figure, beside a stamp holding an inscription.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By flattening the entire image into a single 1D audio waveform.</p>]]></text>
+      <text><![CDATA[<p>Because a single pass would exceed the memory available on standard hardware.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The pipeline uses hierarchical 2D computer vision and multimodal models.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The reason is the nested structure of the evidence, not a hardware limit.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By discarding all images that contain more than one color of ink.</p>]]></text>
+      <text><![CDATA[<p>Because each pass uses a different image from the IIIF server.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. MEM is specifically designed to analyze multi-colored illuminations and inks.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The passes operate on the same image at different scales and crops.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By requiring human cataloguers to trace every letter by hand on a graphics tablet.</p>]]></text>
+      <text><![CDATA[<p>Because the first pass transcribes text and the second translates it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. MEM automates region detection and feature extraction using neural networks.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The passes move from wide detection to close cropping to interpretation.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -659,13 +659,13 @@
   <!-- 16 Question -->
   <question type="multichoice">
     <name>
-      <text>16 Question: Detecting Codicological Regions of Interest (ROI)</text>
+      <text>16 Question: From Pixel Coordinates to TEI Elements</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Which mapping between a visual Region of Interest (ROI) detected by computer vision and a TEI XML container is correct?</p>]]></text>
+      <text><![CDATA[<p>What is the significant result of detecting a region such as an ownership stamp or a ruled column?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Computer vision models segment specific manuscript ROIs—stamps, initials, layouts, and damage—mapping visual coordinates directly to TEI elements.</p>]]></text>
+      <text><![CDATA[<p>Each detected visual region maps onto a TEI element you already write by hand, so vision pipelines populate `physDesc` rather than inventing a new vocabulary.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -674,27 +674,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Library ownership stamps map to <code>&lt;sealDesc&gt;</code> or <code>&lt;provenance&gt;</code>; text column ruling boundaries map to <code>&lt;layoutDesc&gt;</code>.</p>]]></text>
+      <text><![CDATA[<p>Each detected region maps onto a TEI element you already write by hand, such as provenance, decoDesc, or layoutDesc.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Visual bounding boxes and features correspond directly to dedicated TEI physical description modules.</p>]]></text>
+        <text><![CDATA[<p>Correct. The pipeline populates the same vocabulary you used on Tuesday, from the image, at speed.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Decorated uncial initials map to <code>&lt;publicationStmt&gt;</code>.</p>]]></text>
+      <text><![CDATA[<p>The bounding box coordinates are themselves the metadata to be published.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Initials map to <code>&lt;decoDesc&gt;&lt;decoNote&gt;</code>, not the digital edition's publication statement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Coordinates are intermediate; the deliverable is the TEI element they populate.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Water stains and mold damage map to <code>&lt;titleStmt&gt;</code>.</p>]]></text>
+      <text><![CDATA[<p>Detection replaces the need for a physDesc section in the header.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Physical damage maps to <code>&lt;condition&gt;</code> in <code>&lt;supportDesc&gt;</code>.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Detection fills physDesc rather than removing it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Foliation numbers map to <code>&lt;encodingDesc&gt;</code>.</p>]]></text>
+      <text><![CDATA[<p>Each region receives a new element defined specifically for computer vision output.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Foliation systems map to <code>&lt;foliation&gt;</code> in <code>&lt;objectDesc&gt;</code>.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No new vocabulary is invented; existing TEI elements are used.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -702,13 +702,13 @@
   <!-- 17 Question -->
   <question type="multichoice">
     <name>
-      <text>17 Question: Multimodal Entity Mapping to Knowledge Graphs</text>
+      <text>17 Question: Turning a Picture into a Statement</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How do multimodal vision-language models convert visual heraldic devices on manuscript folios into Linked Open Data?</p>]]></text>
+      <text><![CDATA[<p>A vision pipeline detects an oval stamp on folio 1r and emits linked data about it. What has been achieved?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Multimodal AI translates visual heraldic stamps and illuminations into RDF semantic triples, connecting manuscript images directly to Wikidata knowledge graphs.</p>]]></text>
+      <text><![CDATA[<p>Vision pipelines convert visual features into the same three-part linked-data statements you met on Wednesday, making a mark in a photograph searchable worldwide.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -717,27 +717,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>They identify the iconographic motifs in cropped stamp images and generate RDF triples linking the feature to Wikidata and Getty AAT URIs.</p>]]></text>
+      <text><![CDATA[<p>A mark in a photograph has become a three-part statement other systems can search, without anyone opening the image.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Multimodal models bridge image patches and semantic graphs by emitting structured RDF statements with authority identifiers.</p>]]></text>
+        <text><![CDATA[<p>Correct. This is Wednesday's linked data arriving from the image rather than from the text.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They compress the image into a JPEG file and email it to the Vatican Library.</p>]]></text>
+      <text><![CDATA[<p>The stamp has been transcribed into the transcription layer of the edition.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The pipeline generates structured RDF graph data and Linked Data links automatically.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is described as metadata about the object, not as part of the text.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They erase the heraldic mark from the image facsimile to improve OCR accuracy.</p>]]></text>
+      <text><![CDATA[<p>The image file has been permanently attached to the Wikidata record.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Historical marks are vital provenance evidence that must be catalogued, not deleted.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A statement referencing the entity is created; the image is not uploaded anywhere.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They replace the image with a generic clip-art shield icon.</p>]]></text>
+      <text><![CDATA[<p>The manuscript has been automatically assigned a CTS URN.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The system models the genuine historical artifact and links its metadata to knowledge bases.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. CTS URNs cite text passages and are unrelated to visual feature detection.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -745,13 +745,13 @@
   <!-- 18 Question -->
   <question type="multichoice">
     <name>
-      <text>18 Question: Vision Model Failure Modes: Degradation, Noise, and Eurocentric Bias</text>
+      <text>18 Question: Where Vision Models Fail, and Who Pays for It</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why do computer vision models frequently misclassify visual features on premodern non-Western manuscripts?</p>]]></text>
+      <text><![CDATA[<p>Vision models are trained largely on Western European collections. Why is that more than a technical limitation?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Vision models suffer from physical noise misclassification, column fragmentation, and Eurocentric training bias, requiring rigorous manual filtering.</p>]]></text>
+      <text><![CDATA[<p>Vision models misread damage as decoration and perform worst on non-Western material, so unaudited automation deepens exactly the cataloguing inequities it claims to fix.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -760,27 +760,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Physical noise (water stains, bleed-through) mimics decorative marks, and training corpora are heavily biased toward Western Latin incunabula.</p>]]></text>
+      <text><![CDATA[<p>They perform worst on traditions that are already least catalogued, so unaudited automation widens an existing gap while appearing neutral.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Training bias and material degradation lead to false-positive decorations and failure to recognize non-Latin script flourishes.</p>]]></text>
+        <text><![CDATA[<p>Correct. Syriac, Coptic, and Ethiopic material is misread or missed by tools that look impartial.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because non-Western manuscripts were never photographed in digital resolution.</p>]]></text>
+      <text><![CDATA[<p>It slows processing on non-Western manuscripts, raising the cost per record.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Thousands of digitized Ethiopic, Syriac, and Arabic codices exist, but training sets remain unbalanced.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The consequence is misclassification and omission, not processing time.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because computer vision algorithms can only process square pixels, not rectangular folios.</p>]]></text>
+      <text><![CDATA[<p>It means non-Western manuscripts must be photographed at higher resolution.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Aspect ratio is easily handled by vision models; the failure is in classification and segmentation training.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The deficit is in the training data, not the image quality.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because non-Latin scripts do not reflect light in the visible spectrum.</p>]]></text>
+      <text><![CDATA[<p>It causes the model to refuse to process unfamiliar scripts.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Ink on parchment reflects visible light; the challenge is neural network training and script recognition.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It does not refuse; it produces confident, wrong output, which is worse.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -788,13 +788,13 @@
   <!-- 19 Question -->
   <question type="multichoice">
     <name>
-      <text>19 Question: Designing an Automated Evaluation Metric for Header Metadata</text>
+      <text>19 Question: Two Numbers That Describe Any Extraction</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In evaluating AI-generated TEI metadata, what do high Precision and low Recall indicate about a model's performance?</p>]]></text>
+      <text><![CDATA[<p>What is the difference between precision and recall when scoring an AI-generated header?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Information retrieval metrics—Precision, Recall, and F1-Score—quantify the trade-off between AI metadata completeness and accuracy against human ground truth.</p>]]></text>
+      <text><![CDATA[<p>Precision measures how much of what the AI said was true, recall measures how much of the truth it found, and the two fail independently.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -803,27 +803,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The metadata attributes extracted by the model are highly accurate, but it omitted many mandatory fields present in the ground truth.</p>]]></text>
+      <text><![CDATA[<p>Precision asks how much of what the AI claimed was right; recall asks how much of what should have been found it found.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Precision measures the accuracy of generated claims, while Recall measures the completeness of extracted features relative to ground truth.</p>]]></text>
+        <text><![CDATA[<p>Correct. They measure different failures, so a model can score well on one and poorly on the other.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The model hallucinated numerous false facts while capturing every single ground-truth feature.</p>]]></text>
+      <text><![CDATA[<p>Precision measures structural validity and recall measures factual accuracy.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. That describes low Precision and high Recall.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Both are scored on content fields, against your verified header.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The model failed syntactic well-formedness on every single test file.</p>]]></text>
+      <text><![CDATA[<p>They are two names for the same ratio, reported to different audiences.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Precision and Recall evaluate semantic and attribute accuracy, not binary syntax parsing.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Their denominators differ, and models routinely score high on one and low on the other.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The model successfully predicted future historical events in the 22nd century.</p>]]></text>
+      <text><![CDATA[<p>Precision applies to text extraction and recall to image extraction.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Evaluation metrics benchmark historical metadata extraction against human baselines.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Both apply to any extraction task regardless of the input type.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -831,13 +831,13 @@
   <!-- 20 Question -->
   <question type="multichoice">
     <name>
-      <text>20 Question: Scoring XML Structural Validity Programmatically</text>
+      <text>20 Question: Counting Errors Without Reading Them</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does an automated validation script calculate the Schema Validity Rate (SVR) for a corpus of AI-generated TEI documents?</p>]]></text>
+      <text><![CDATA[<p>In the scoring script, why does the function return early when a file is not well-formed?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Programmatic validation scripts running Jing and lxml calculate objective Schema Validity Rates for AI-generated XML documents.</p>]]></text>
+      <text><![CDATA[<p>A short Python script checks well-formedness and then schema validity, turning a pile of AI files into a countable pass rate.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -846,27 +846,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>By executing CLI parsers (such as Jing for RNG and lxml for syntax) across all files and dividing the number of zero-error documents by the total count.</p>]]></text>
+      <text><![CDATA[<p>A file that cannot be parsed has no tree to check, so schema validation cannot run at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Programmatic validation pipelines provide an objective, mathematical metric (SVR = Valid Files / Total Files) for model reliability.</p>]]></text>
+        <text><![CDATA[<p>Correct. Syntax first, then schema — the same order VS Code follows in the Problems panel.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By counting the total number of words in the XML document and dividing by the file size in kilobytes.</p>]]></text>
+      <text><![CDATA[<p>Because badly formed files are automatically excluded from the published edition.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. SVR measures schema conformance, not word count or file size.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Exclusion is a separate decision; the early return is about what is technically possible.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By surveying human students to ask their subjective opinions of the AI's prose style.</p>]]></text>
+      <text><![CDATA[<p>Because the schema check would take too long on a malformed file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. SVR is an automated, deterministic compiler measurement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is impossible rather than slow.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By checking whether the files can be opened in Microsoft Word without a password.</p>]]></text>
+      <text><![CDATA[<p>Because the model should be re-prompted before any further checking.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI validation uses formal XML parsers (Jing, Saxon, lxml), not office word processors.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Re-prompting may follow, but the return exists because there is nothing to validate.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -874,13 +874,13 @@
   <!-- 21 Question -->
   <question type="multichoice">
     <name>
-      <text>21 Question: The Self-Correction Loop: Compiler Error Reflection Prompts</text>
+      <text>21 Question: Handing the Errors Back</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does an automated self-correction loop repair invalid TEI XML generated by an LLM?</p>]]></text>
+      <text><![CDATA[<p>Why does pasting validation errors back to the model repair most structural failures?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Feeding compiler error logs back into LLMs in an automated reflection loop enables neural models to self-correct structural schema violations.</p>]]></text>
+      <text><![CDATA[<p>Feeding validation errors back to the model supplies the schema knowledge it never had, and repairs most structural failures without your editing a tag.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -889,27 +889,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It captures the compiler error logs from Jing or Schematron and feeds them back into the LLM as a reflection prompt to generate a corrected draft.</p>]]></text>
+      <text><![CDATA[<p>An error message is a precise fragment of the schema, delivered exactly where it is needed, supplying the rulebook the model never had.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Reflection loops leverage the model's reasoning capabilities to fix specific syntax and nesting errors identified by deterministic parsers.</p>]]></text>
+        <text><![CDATA[<p>Correct. The model was not incapable of following the rule; it was never given the rule.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It deletes the invalid file and instructs the student to write the entire edition by hand.</p>]]></text>
+      <text><![CDATA[<p>Because the model remembers its previous attempt and avoids repeating it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The self-correction loop automates the repair pass using the compiler error feedback.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The repair works because of the information in the message, not memory of the attempt.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It modifies the RELAX NG schema to make whatever the AI generated considered valid.</p>]]></text>
+      <text><![CDATA[<p>Because error messages lower the model's temperature automatically.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Relaxing schema rules destroys data standards; the document must conform to the schema, not vice versa.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Temperature is a setting you control and is unaffected by the prompt content.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It converts the invalid XML document into a plain text file without tags.</p>]]></text>
+      <text><![CDATA[<p>Because the validator rewrites the file and the model merely confirms it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The goal is to produce valid, structured TEI XML.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The validator only reports; the model produces the corrected file.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -917,13 +917,13 @@
   <!-- 22 Question -->
   <question type="multichoice">
     <name>
-      <text>22 Question: Benchmarking Self-Correction: How Many Passes to Reach Schema Validity?</text>
+      <text>22 Question: How Many Rounds Before It Gives Up</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What do empirical benchmarks reveal about how frontier LLMs converge to schema validity in self-correction loops?</p>]]></text>
+      <text><![CDATA[<p>Why should a self-correction loop always be capped at two or three attempts?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Claude 3.5 converges to schema validity in 1–2 reflection passes, whereas ChatGPT-4 requires multiple passes and smaller models frequently fail to converge.</p>]]></text>
+      <text><![CDATA[<p>Correction loops converge in one or two rounds for capable models and never converge for weak ones, so always cap the number of attempts.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -932,27 +932,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Claude 3.5 Sonnet converges to near 100% validity within 1–2 reflection passes, while ChatGPT-4 requires more iterations and smaller models often fail to converge.</p>]]></text>
+      <text><![CDATA[<p>Weak models fail to improve and resubmit the same error indefinitely, and even strong ones can circle where one fix introduces another.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Frontier models with strong structural reasoning rapidly repair syntax errors, whereas smaller models often repeat identical defects.</p>]]></text>
+        <text><![CDATA[<p>Correct. Interpreting a compiler message is itself a reasoning task some models cannot perform.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>All models reach 100% validity on the zero-shot initial pass without needing reflection.</p>]]></text>
+      <text><![CDATA[<p>Because each attempt degrades the quality of the surrounding markup.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Initial pass validity varies widely (35% for GPT-4, 88% for Claude 3.5).</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Attempts do not accumulate damage; they simply fail to converge.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Self-correction loops increase the number of validation errors on every successive pass for all models.</p>]]></text>
+      <text><![CDATA[<p>Because validators refuse to check the same file more than three times.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Error counts decrease significantly on reflection passes in capable frontier models.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No such limit exists in any validator.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Smaller 8B parameter models outperform frontier models in resolving complex Schematron errors.</p>]]></text>
+      <text><![CDATA[<p>Because the schema changes slightly on each validation run.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Smaller models struggle with compiler logs and exhibit high permanent failure rates.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema is fixed; only the model's output changes.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -960,13 +960,13 @@
   <!-- 23 Question -->
   <question type="multichoice">
     <name>
-      <text>23 Question: Cross-Walking AI Outputs into Canonical Identifiers (CTS / CITE)</text>
+      <text>23 Question: Citations the Model Cannot Check</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must AI-generated Canonical Text Services (CTS) URNs be cross-walked against authoritative service inventories?</p>]]></text>
+      <text><![CDATA[<p>Why is a fabricated CTS URN worse than no URN at all?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>AI-generated CTS URNs must be validated against authoritative CTS capability inventories to prevent hallucinated work IDs and token index drift.</p>]]></text>
+      <text><![CDATA[<p>Models produce correctly shaped CTS URNs that point nowhere, so every generated identifier must be resolved against a real service before it is committed.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -975,27 +975,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>LLMs frequently hallucinate invalid namespace prefixes, misremember author TLG numbers, or drift on word token sub-reference indices.</p>]]></text>
+      <text><![CDATA[<p>A canonical URN promises to resolve indefinitely, so a well-formed one pointing nowhere is a broken promise that looks like a kept one.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Validating URNs against live CTS <code>GetCapabilities</code> endpoints ensures that canonical links resolve to genuine works and passages.</p>]]></text>
+        <text><![CDATA[<p>Correct. Namespace invention, wrong work numbers, and invented word positions all produce citations that fail only when followed.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because CTS URNs are secret commercial passwords that cannot be stored in plain text.</p>]]></text>
+      <text><![CDATA[<p>Because an invalid URN causes the TEI file to fail schema validation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CTS URNs are open, standardized academic identifiers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A correctly shaped URN passes validation regardless of whether it resolves.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because XML schemas prohibit attributes from containing colon characters.</p>]]></text>
+      <text><![CDATA[<p>Because CTS URNs cannot be corrected once they have been committed to Git.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Colons are standard in attribute values and URN strings.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Git history is editable in principle; the problem is that nobody realizes it is wrong.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because URNs expire after 24 hours if not renewed by a centralized authority.</p>]]></text>
+      <text><![CDATA[<p>Because fabricated URNs consume identifiers that real passages need.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. URNs are persistent, permanent identifiers; cross-walking verifies initial construction accuracy.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The identifier space is not exhaustible in that way.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1003,13 +1003,13 @@
   <!-- 24 Question -->
   <question type="multichoice">
     <name>
-      <text>24 Question: Reconciling AI Discrepancies with the Manual Ground Truth</text>
+      <text>24 Question: Sorting the Differences</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When reconciling discrepancies between AI-generated metadata and your manual ground truth, what does an "AI Superiority (Completeness)" finding represent?</p>]]></text>
+      <text><![CDATA[<p>When comparing your header with the AI's, why does the category “the AI was right and you were not” matter?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Reconciling AI outputs against human ground truth reveals AI errors, omissions, and occasional surprising discoveries, providing empirical data for editorial evaluation.</p>]]></text>
+      <text><![CDATA[<p>Every difference between your header and the AI's is a structural error, a factual error, a genuine AI catch, or a legitimate disagreement — and the sorting is the analysis.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1018,27 +1018,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>An instance where the AI correctly identified a subtle historical detail or bibliographic link that the human editor overlooked during manual inspection.</p>]]></text>
+      <text><![CDATA[<p>Recording it honestly is what makes the exercise research rather than a defence of your own work.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Discrepancy audits occasionally reveal valid features caught by AI broad associative recall, enriching the final edition.</p>]]></text>
+        <text><![CDATA[<p>Correct. The AI does sometimes catch a detail you missed, and the log must be able to say so.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>An instance where the AI successfully proved that the physical manuscript is a modern forgery.</p>]]></text>
+      <text><![CDATA[<p>It never occurs in practice, but is listed for completeness.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. AI completeness refers to uncovering overlooked cataloguing details, not forgery claims.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It occurs regularly, which is precisely why the category exists.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A state where the AI generated valid XML that completely contradicted the laws of physics.</p>]]></text>
+      <text><![CDATA[<p>It determines whether you are permitted to submit the Comparison Post.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Discrepancies evaluate codicological accuracy and bibliographic completeness.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is an analytical category, not a submission requirement.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A case where the human editor deliberately introduced syntax errors to confuse the validator.</p>]]></text>
+      <text><![CDATA[<p>It indicates that your schema validation on Wednesday was incomplete.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Ground truth is certified error-free; reconciliation compares genuine editorial observations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A missed detail is a factual gap, unrelated to structural validation.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1046,13 +1046,13 @@
   <!-- 25 Question -->
   <question type="multichoice">
     <name>
-      <text>25 Question: The Economics and Scalability of AI Cataloguing</text>
+      <text>25 Question: What It Costs</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does the integration of AI alter the economics and division of human labor in large-scale manuscript cataloguing projects?</p>]]></text>
+      <text><![CDATA[<p>AI cataloguing removes structural errors cheaply and multiplies factual ones. What follows for the human role?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>AI cataloguing reduces processing time from hours to seconds, shifting human expertise from manual data entry to critical schema auditing and fact-checking.</p>]]></text>
+      <text><![CDATA[<p>AI cuts cataloguing from hours to seconds and shifts the human effort from authoring to auditing, which is only an improvement if the auditing is real.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1061,27 +1061,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It reduces initial data entry time from hours to seconds per codex, shifting expert human labor from manual drafting to schema auditing and error reconciliation.</p>]]></text>
+      <text><![CDATA[<p>The work changes shape rather than disappearing, moving from writing records to checking them — which only helps if the checking actually happens.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. AI accelerates production at minimal API cost, but demands skilled human editorial review to certify data integrity.</p>]]></text>
+        <text><![CDATA[<p>Correct. An audited pipeline is an advance; the same pipeline unaudited fills a catalogue with confident fiction.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It makes manuscript cataloguing 100 times more expensive by requiring supercomputers in every library.</p>]]></text>
+      <text><![CDATA[<p>Human involvement can be reduced proportionally to the drop in cost per record.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. API calls cost pennies per record, radically reducing data entry expenses.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The factual error rate rises, so the auditing burden increases as generation gets cheaper.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It eliminates the need for human scholars to possess knowledge of ancient languages or palaeography.</p>]]></text>
+      <text><![CDATA[<p>The savings should be spent on larger models rather than on staff.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Auditing AI outputs requires deep palaeographical and philological expertise.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No model removes the need for factual verification against the object.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It slows down cataloguing workflows because computers process text slower than human scribes.</p>]]></text>
+      <text><![CDATA[<p>Structural and factual errors fall together once a schema gate is added.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. AI generates draft records in seconds, accelerating throughput dramatically.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The gate catches structure only and leaves factual errors untouched.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1089,13 +1089,13 @@
   <!-- 26 Question -->
   <question type="multichoice">
     <name>
-      <text>26 Question: Ethics, Provenance, and AI Attribution in Digital Editions</text>
+      <text>26 Question: Saying So in the File</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How should a scholarly digital edition ethically document the involvement of artificial intelligence in metadata creation?</p>]]></text>
+      <text><![CDATA[<p>Why must AI contributions be recorded in respStmt and revisionDesc, with the model version and date?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Transparency requires documenting AI models in `<respStmt>` and recording automated drafting steps in `<revisionDesc>` change logs.</p>]]></text>
+      <text><![CDATA[<p>Record AI contributions in `<respStmt>` and `<revisionDesc>` with model versions and dates, because algorithmic provenance is provenance.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1104,27 +1104,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>By formally declaring the AI model and version in <code>&lt;respStmt&gt;</code> and recording automated drafting actions in <code>&lt;revisionDesc&gt;</code> change logs.</p>]]></text>
+      <text><![CDATA[<p>A future reader must be able to tell which claims came from an editor who examined the object and which from a system predicting plausible text.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Academic integrity and provenance transparency require explicit attribution of algorithmic contributions in TEI metadata headers.</p>]]></text>
+        <text><![CDATA[<p>Correct. Algorithmic provenance is provenance, and the distinction is invisible in finished markup unless recorded.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By deleting all commit history and claiming that all text was authored exclusively by ancient scribes.</p>]]></text>
+      <text><![CDATA[<p>Because TEI validation fails if an AI-generated file has no respStmt.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Concealing machine contributions violates scholarly transparency and provenance standards.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema does not require it; the obligation is scholarly.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By attributing all AI-generated text to anonymous medieval monks.</p>]]></text>
+      <text><![CDATA[<p>Because publishers require an AI disclaimer on all digital editions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Attributing modern computational output to historical figures is an unethical falsification.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. This is provenance recorded in the file, not a legal disclaimer.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By encoding the entire digital edition in encrypted binary format to prevent external auditing.</p>]]></text>
+      <text><![CDATA[<p>Because it allows the model to be billed for its share of the work.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Digital humanities editions prioritize open-access transparency and verifiable data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The purpose is the integrity of the scholarly record.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1132,13 +1132,13 @@
   <!-- 27 Question -->
   <question type="multichoice">
     <name>
-      <text>27 Question: Building the Production Pipeline: CI/CD for Human-in-the-Loop Cataloguing</text>
+      <text>27 Question: Making the Check Run Itself</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the function of an automated Continuous Integration (CI/CD) validation gate in a collaborative manuscript cataloguing repository?</p>]]></text>
+      <text><![CDATA[<p>What does an automated validation gate on every commit achieve that individual discipline does not?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>CI/CD pipelines automate RELAX NG and Schematron validation on every Git commit, creating an automated gate that prevents invalid AI markup from entering production.</p>]]></text>
+      <text><![CDATA[<p>An automated validation gate on every commit enforces the schema on human and AI contributions alike, without relying on anyone remembering to check.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1147,27 +1147,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It runs Jing RELAX NG and Schematron checks on every Git commit or pull request, automatically blocking invalid AI or human markup from entering production.</p>]]></text>
+      <text><![CDATA[<p>It enforces the schema on human and AI contributions alike, so no invalid file enters the edition regardless of anyone's vigilance.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. CI/CD pipelines automate quality assurance, ensuring that only certified, schema-compliant files are merged.</p>]]></text>
+        <text><![CDATA[<p>Correct. The rule is enforced by the repository rather than by remembering to check.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It automatically pushes unreviewed AI drafts directly to public web servers without testing.</p>]]></text>
+      <text><![CDATA[<p>It repairs invalid files automatically before they are merged.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CI/CD acts as an automated gatekeeper to prevent unvalidated files from reaching production.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It rejects and reports; repair remains a human or model task.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It deletes any Git repository that contains more than ten commits.</p>]]></text>
+      <text><![CDATA[<p>It removes the need for editors to read AI output at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git repositories store permanent version history; CI/CD executes automated testing suites.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It checks structure only, and factual auditing still requires an editor.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It translates all XML files into proprietary closed-source binary databases.</p>]]></text>
+      <text><![CDATA[<p>It guarantees that committed files describe the manuscript accurately.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CI/CD validates and builds open standard TEI XML and RDF files.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No automated gate can certify historical truth.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1175,13 +1175,13 @@
   <!-- 28 Question -->
   <question type="multichoice">
     <name>
-      <text>28 Question: Hands-On: Running the AI Metadata Extraction on Your Passage</text>
+      <text>28 Question: Today's Lab: Your Passage, Your Comparison</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What are the primary operational phases of the comparative AI laboratory experiment in Lesson 2.3?</p>]]></text>
+      <text><![CDATA[<p>In today's lab, why must you record the AI file's error count before fixing anything?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The hands-on lab executes structured AI metadata extractions across ChatGPT-4 and Claude 3.5, scoring raw outputs, self-correction passes, and F1 metrics against ground truth.</p>]]></text>
+      <text><![CDATA[<p>Generate a header for your own witness, record its error count before touching it, then score six fields against your validated file.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1190,27 +1190,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Prompting ChatGPT-4 and Claude 3.5, scoring raw XML outputs, executing compiler error self-correction loops, and calculating F1-scores against ground truth.</p>]]></text>
+      <text><![CDATA[<p>The first-pass count is the measurement, and once you begin correcting the file it cannot be recovered.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. This protocol systematically benchmarks generation quality, error recovery, and codicological accuracy.</p>]]></text>
+        <text><![CDATA[<p>Correct. An unfixed AI file with its error count written down is a complete result on its own.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Training a new 100-billion-parameter neural network from scratch on a home laptop.</p>]]></text>
+      <text><![CDATA[<p>Because the Problems panel clears its history when the file is saved.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The lab prompts existing frontier models via APIs or interfaces using structured protocols.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The reason is methodological: the raw count is the datum you are collecting.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Deleting the Tuesday and Wednesday lab files to save disk storage space.</p>]]></text>
+      <text><![CDATA[<p>Because fixing errors before counting would violate the schema.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Prior lab files serve as the indispensable ground truth against which AI outputs are scored.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Fixing is encouraged, but only after the first count is recorded.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Manually translating the entire Greek Septuagint into modern French prose.</p>]]></text>
+      <text><![CDATA[<p>Because the count determines which model you should have used.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The lab focuses on codicological metadata extraction and validation auditing for the chosen witness passage.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is evidence for your comparison, not a tool-selection rule.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1218,13 +1218,13 @@
   <!-- 29 Question -->
   <question type="multichoice">
     <name>
-      <text>29 Question: Compiling the Topic 02 Comparative Evaluation Report</text>
+      <text>29 Question: Writing It Up</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What core components must be synthesized in the Topic 02 Comparative Evaluation Report?</p>]]></text>
+      <text><![CDATA[<p>What distinguishes a usable error analysis in the Comparison Post from an unusable one?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The comparative evaluation report synthesizes quantitative error rates, F1-scores, and qualitative analyses across the manual, deterministic, and AI passes.</p>]]></text>
+      <text><![CDATA[<p>The report presents actual error counts and named failures across all three days, and concludes with a recommendation grounded in your own numbers.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1233,27 +1233,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A methodological overview, quantitative validation error counts and F1-scores, qualitative analysis of structural/factual errors, and editorial pipeline recommendations.</p>]]></text>
+      <text><![CDATA[<p>Naming the specific failure, such as an invented shelfmark, rather than reporting that the output had problems.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The report synthesizes empirical data from all three days into a rigorous scholarly evaluation.</p>]]></text>
+        <text><![CDATA[<p>Correct. A named failure is an argument; a general impression is not.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A creative short story about medieval scribes traveling through time.</p>]]></text>
+      <text><![CDATA[<p>Reporting the overall impression of which model felt more capable.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The report is an empirical, scientific evaluation of text encoding and metadata extraction methods.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Impressions are exactly what the week's measurements were designed to replace.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A list of commercial advertising sponsors for the course website.</p>]]></text>
+      <text><![CDATA[<p>Listing every element the AI produced, whether or not it differed from yours.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The report documents scholarly methodology and error analyses.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The analysis is about the differences and how they are classified.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A single sentence declaring that all AI models are completely infallible.</p>]]></text>
+      <text><![CDATA[<p>Presenting only the final corrected file, since earlier drafts are superseded.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The report presents nuanced, quantitative data highlighting both capabilities and failure modes.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The first-pass counts are the evidence and must be reported.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1261,13 +1261,13 @@
   <!-- 30 Question -->
   <question type="multichoice">
     <name>
-      <text>30 Question: Synthesis: The Schema as the Indispensable Anchor of AI Philology</text>
+      <text>30 Question: What the Week Was For</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does the proliferation of generative artificial intelligence make deterministic XML schemas more vital than ever in digital scholarship?</p>]]></text>
+      <text><![CDATA[<p>Why does the ability to generate plausible TEI in seconds make deterministic schemas more necessary rather than less?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Generative AI accelerates cataloguing, but deterministic schemas and human editorial judgement remain the indispensable anchors of scholarly integrity.</p>]]></text>
+      <text><![CDATA[<p>Generative AI makes deterministic schemas and human editorial judgement more necessary, not less, because it can produce plausible errors faster than anyone can read them.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1276,27 +1276,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Because in an era of infinite probabilistic text generation, formal schemas and human editorial oversight provide the sole verifiable anchor for structural integrity and truth.</p>]]></text>
+      <text><![CDATA[<p>A system can now produce wrong markup faster than any human can read it, so the schema and the editor are what stand between that output and the record.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Deterministic schemas ensure that computational editions remain accurate, reproducible, and grounded in scholarly reality.</p>]]></text>
+        <text><![CDATA[<p>Correct. When markup was slow, errors were rare because so little was produced; that constraint is gone.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because schemas are legally required to pay royalties to artificial intelligence companies.</p>]]></text>
+      <text><![CDATA[<p>Because models generate markup that no existing schema can parse.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schemas are open humanistic standards, not commercial royalty systems.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The output parses readily; the problem is its volume and its confidence.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because AI models will permanently crash the global internet unless every file on earth is formatted in TEI XML.</p>]]></text>
+      <text><![CDATA[<p>Because schemas are the only tool that can detect fabricated provenance.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The necessity is epistemological and methodological within scholarship, not a global network collapse.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schemas cannot detect fabrication at all, as section 13 demonstrated.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because schemas allow computers to replace the need for historical evidence entirely.</p>]]></text>
+      <text><![CDATA[<p>Because generated files are larger and need stricter compression.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schemas structure and verify evidence; they never replace historical reality.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The argument concerns verification, not file size.</p>]]></text>
       </feedback>
     </answer>
   </question>

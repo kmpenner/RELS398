@@ -2,753 +2,749 @@
 
 *RELS 398 / ENGL 398 · Topic 2: Cataloguing · Meeting #5 (Fri Sep 11)*
 
-***Step 3 of the three-step cycle: AI-assisted.** Today you prompt large language models and multimodal vision pipelines to extract codicological metadata, generate TEI headers, and reconcile entities, scoring their outputs directly against Tuesday's hand-written ground truth and Wednesday's schema constraints.*
+***Step 3 of the three-step cycle: AI-assisted.** On Tuesday you wrote a TEI header by hand. On Wednesday you made a schema check it. Today you ask a machine to write the same header, put its work through the same schema, and score it against yours. The comparison is the lesson.*
 
 ---
 
 ## **01 Content**
 
-**The Promise and the Peril of Automated Metadata Generation**
+**Why Anyone Would Let a Machine Catalogue a Manuscript**
 
-The global landscape of manuscript archives is defined by a profound scaling crisis. Across national libraries, monastic collections, and university archives worldwide, hundreds of thousands of premodern handwritten codices, fragments, and archival documents remain uncatalogued or described only in fragmentary nineteenth-century registers (De Cristofaro & Zilio, 2025). Manual codicological cataloguing—the meticulous hand-encoding you practiced on Tuesday—requires immense domain expertise in palaeography, codicology, ancient languages, and XML markup. It is an editorial process that measures progress in hours per folio, making the comprehensive manual cataloguing of global cultural heritage economically and temporally impossible (De Cristofaro & Zilio, 2025; Koho et al., 2021).
+Start with the size of the problem. Libraries, monasteries, and university archives around the world hold hundreds of thousands of handwritten books and documents that have never been properly catalogued. Many are described only in handwritten registers from the nineteenth century. Some are described nowhere at all.
 
-In response to this bottleneck, the digital humanities community has increasingly turned to Artificial Intelligence (AI), specifically Large Language Models (LLMs) and computer vision architectures, to automate metadata extraction, entity recognition, and TEI-XML generation (De Cristofaro & Zilio, 2025; Ignatowicz et al., 2025). Generative neural networks can ingest thousands of pages of raw archival text or digital catalogue prose and produce richly tagged XML headers in seconds.
+You now know why this backlog is so hard to clear, because on Tuesday you cleared exactly one page of it. Writing a good `<msDesc>` takes a person who can read the script, recognize the material, count the hands, and encode all of it in TEI. That person works in hours per folio. At that rate, cataloguing the world's manuscripts is not slow. It is impossible (De Cristofaro & Zilio, 2025).
 
-However, this computational acceleration introduces a critical epistemological peril. Generative AI models are statistical prediction engines, not deterministic logic processors. When tasked with producing structured archival metadata, neural networks frequently invent plausible-sounding historical facts, hallucinate non-existent scribal hands, and generate syntactically broken XML markup (De Cristofaro & Zilio, 2025). The central question of today's meeting is not whether AI can catalogue manuscripts, but how scholarly editors can rigorously measure, constrain, and audit AI-generated metadata using deterministic schema validation.
+So researchers have started handing the job to AI. Large language models can read a page of catalogue prose and return a tagged TEI header in seconds. That is roughly ten thousand times faster than you were on Tuesday.
 
-**Takeaway:** Artificial intelligence offers unprecedented speed in manuscript metadata extraction, but its probabilistic nature introduces hallucinations that demand rigorous schema-based auditing.
+The catch is the one you met in Lesson 1.1: these models are prediction engines, not truth engines. They invent scribal hands that never existed, dates that were never recorded, and XML tags that no schema allows (De Cristofaro & Zilio, 2025). Today's question is not "can AI catalogue manuscripts." It plainly can. The question is how you measure what it produced, and how you catch what it made up.
+
+**Takeaway:** AI can generate manuscript metadata thousands of times faster than a human, but because it predicts rather than knows, the real skill is measuring and auditing what it produces.
 
 ---
 
 ## **02 Content**
 
-**How Large Language Models Process Codicological Information**
+**What the Model Is Actually Doing When It Writes TEI**
 
-To evaluate AI-generated metadata effectively, an editor must understand the underlying computational mechanisms of Large Language Models. Modern LLMs are autoregressive transformer architectures trained on vast corpora of multilingual text, code, and structured data. Their fundamental operational objective is *next-token prediction*: given a sequence of preceding tokens (a prompt), the model calculates a probability distribution across its vocabulary to predict the most statistically probable next token.
+Lesson 1.1 told you that a large language model predicts likely text. It is worth being precise about what that means when the text is XML.
 
-When an LLM processes a prompt containing Latin catalogue prose or an uncial Greek transcription, it does not "read" the document as a human scholar does. It transforms text strings into high-dimensional numerical vectors (embeddings). Within its latent attention layers, the model activates associative patterns between words like *membranaceus*, *saeculo VI*, *Alexandria*, and the corresponding TEI tags `<supportDesc material="parchment">`, `<origDate>`, and `<origPlace>` (De Cristofaro & Zilio, 2025).
+The model has read enormous amounts of writing, including a great deal of public TEI. It has seen thousands of real `<teiHeader>` elements. So when you give it a manuscript description, it is not consulting a rulebook about TEI. It is answering a much simpler question, over and over: given everything so far, what usually comes next?
 
-Because the training corpora of models like GPT-4 and Claude 3.5 contain thousands of public TEI-XML files, GitHub repositories, and open-access library catalogues, these models possess an impressive surface familiarity with XML grammar. They can effortlessly generate standard XML opening and closing tags, populate common `<teiHeader>` containers, and mimic the discursive tone of professional archivists. However, because this generation is driven by statistical probability rather than formal grammar rules, the model has no innate awareness of whether its generated XML tree actually satisfies a project's specific RELAX NG schema (De Cristofaro & Zilio, 2025).
+After `<msIdentifier>`, a `<repository>` usually comes next. After a description mentioning animal skin, `material="parchment"` usually comes next. The model is very good at "usually."
 
-**Takeaway:** Large Language Models generate XML metadata via probabilistic next-token prediction, producing fluent surface structures without an innate understanding of formal schema constraints.
+This explains both its strength and its weakness. Its strength is fluency: it produces TEI that looks right immediately, because it has seen so much TEI that looks right. Its weakness is that "usually correct" and "valid" are different standards. The model has no copy of `msdesc.rng` in its head and no way to check itself against one (De Cristofaro & Zilio, 2025). It has a strong sense of what TEI tends to look like and no knowledge of what this schema actually permits.
+
+Keep that distinction in view all day. Fluency is not knowledge, and the machine has plenty of the first.
+
+**Takeaway:** An LLM writes TEI by predicting what usually comes next, which makes its output fluent and plausible without making it valid.
 
 ---
 
 ## **03 Content**
 
-**The Epistemological Tension: Probabilistic Prediction vs. Deterministic Validation**
+**Two Ways of Being Right**
 
-The integration of artificial intelligence into textual scholarship brings two fundamentally incompatible computational philosophies into direct conflict:
+Wednesday and Friday put two very different kinds of tool side by side, and they disagree about what "correct" means.
 
-1. **The Probabilistic Paradigm (AI/LLM):** Operates on statistical likelihood, semantic association, and pattern generalization. It excels at fuzzy semantic reasoning, translating languages, and recognizing implied entities in messy, unstructured prose (De Cristofaro & Zilio, 2025).
-2. **The Deterministic Paradigm (XML/RNG/Schematron):** Operates on formal grammars, tree automata, and Boolean logic. It demands absolute structural precision, rigid parent-child containment, strict datatype compliance, and perfect internal cross-referencing (Cummings, 2018; TEI Consortium, 2025).
+The schema you used on Wednesday is deterministic. Give it the same file twice and you get the same answer twice. It has a fixed list of what may appear, in what order, inside what parent. It does not care what your manuscript means. It has one question: does this tree obey the rules?
 
-| Dimension | Probabilistic AI Generation (LLMs) | Deterministic Schema Gate (RNG & Schematron) |
+The model you use today is probabilistic. Give it the same prompt twice and you may get two different headers. It has no fixed rules at all. What it has is a sense of meaning: it can tell that a phrase about a leaf's height belongs somewhere near the physical description, even if nobody told it so.
+
+| What you want done | The schema (Wednesday) | The model (Friday) |
 | --- | --- | --- |
-| Operational Goal | Predict statistically probable next tokens | Enforce rigid mathematical tree grammar |
-| Semantic Handling | Recognizes implied entities and nicknames | Ignores narrative meaning; validates markup types |
-| Structural Rigor | Hallucinates invalid nesting and bad tags | Rejects broken hierarchies with compiler errors |
-| Data Typing | Generates conversational date strings | Mandates strict ISO 8601 datatypes (`YYYY-MM-DD`) |
+| Enforce element order and nesting | Reliable; this is its entire job | Approximate; obeys when it happens to |
+| Read messy prose and find the meaning | Cannot do this at all | Genuinely good at it |
+| Give the same answer every time | Always | Not guaranteed |
+| Notice that a date is not really a date | Catches the format, not the fact | Will happily invent a plausible one |
 
-When an LLM generates a `<teiHeader>`, it prioritizes semantic plausibility over structural grammar. It may recognize that a paragraph discusses the physical dimensions of a leaf and spontaneously invent a tag like `<leafDimensions height="305" width="240"/>`—a tag that is semantically clear to a human reader, but completely illegal under the official TEI P5 schema (TEI Consortium, 2025). Deterministic schema validation is the indispensable auditor that exposes and corrects these probabilistic deviations.
+Neither tool is the smarter one. They fail in opposite directions, which is exactly why they work well together: the model proposes, and the schema refuses.
 
-**Takeaway:** Codicological cataloguing requires reconciling probabilistic AI text generation with the unyielding, deterministic constraints of XML schemas.
+**Takeaway:** Schemas are consistent but meaningless, while models are meaningful but inconsistent, so a serious pipeline uses each to cover the other's blind spot.
 
 ---
 
 ## **04 Content**
 
-**Prompt Engineering for Structured XML-TEI Output**
+**Asking Well: How to Prompt for TEI**
 
-To extract usable metadata from Large Language Models, digital editors must design sophisticated prompt engineering strategies. A naive prompt (such as "Convert this catalogue into TEI XML") produces disorganized, hallucinated markup that fails basic schema validation immediately.
+If you type "convert this into TEI XML," you will get something disappointing. It will be wrapped in chatty preamble, sprinkled with invented tags, and rejected by the schema on the first line. That is not the model failing. That is the prompt failing.
 
-Modern prompt architectures for TEI metadata extraction deploy structured multi-turn instructions and explicit operational constraints (De Cristofaro & Zilio, 2025):
+Researchers who do this at scale have converged on a few habits, and you can use all of them today (De Cristofaro & Zilio, 2025).
 
-- **System Role Definition:** Establish the model's persona as an expert codicologist and TEI P5 text encoder adhering strictly to ISO standards.
-- **Explicit Schema Ingestion:** Provide the model with the exact RELAX NG element list and hierarchy rules governing `<fileDesc>`, `<msContents>`, and `<physDesc>`.
-- **Few-Shot Exemplars:** Supply two or three complete, certified, schema-valid TEI Header examples showing the exact desired encoding patterns.
-- **Structured Output Formatting:** Instruct the model to operate in strict XML mode, prohibiting conversational preamble, markdown code ticks, or unescaped HTML characters.
-- **Temperature Minimization:** Lower the model's sampling temperature (e.g., `temperature=0.0` or `0.2`) to suppress creative divergence and maximize deterministic pattern replication (De Cristofaro & Zilio, 2025).
+- **Say who the model is.** "You are cataloguing a manuscript in TEI P5" narrows what "usually comes next" means. It is a cheap way to move the model into the right neighbourhood of everything it has read.
+- **Say which tags are allowed.** Paste the element names you expect. The model cannot consult the schema, so the closest substitute is putting part of the schema in front of it.
+- **Show a finished example.** One correct header teaches the model your house style faster than three paragraphs of instruction. Two is better.
+- **Demand XML and nothing else.** Otherwise you will spend the lab deleting "Certainly! Here is your TEI header:" from the top of the file.
+- **Turn down the randomness.** Most interfaces expose a setting called temperature. High temperature makes the model more inventive; low temperature makes it more predictable. For markup you want predictable, so set it low, near zero if you can.
 
 ```
-System Prompt Excerpt for Codicological Extraction:
-"You are an expert digital philologist specializing in TEI P5 manuscript cataloguing.
-Your task is to convert raw archival catalogue descriptions into valid TEI XML.
+A workable system prompt:
+
+"You are cataloguing a manuscript in TEI P5.
 Rules:
-1. Output ONLY a valid <teiHeader> element enclosed in <TEI xmlns='http://www.tei-c.org/ns/1.0'>.
-2. Follow strict TEI P5 hierarchy: teiHeader -> fileDesc -> sourceDesc -> msDesc.
-3. Every date attribute (@when, @notBefore, @notAfter) MUST conform to ISO 8601 (YYYY or YYYY-MM-DD).
-4. Do NOT invent elements outside the TEI msdescription module.
-5. Escape all ampersands as &amp;."
+1. Output only a <TEI> element with the TEI namespace. No commentary.
+2. Follow the hierarchy teiHeader > fileDesc > sourceDesc > msDesc.
+3. Dates in @when, @notBefore, @notAfter must be YYYY or YYYY-MM-DD.
+4. Use only elements from the TEI manuscript description module.
+5. Write & as &amp;."
 ```
 
-**Takeaway:** Effective TEI prompt engineering requires explicit system constraints, few-shot schema exemplars, low temperature settings, and strict XML output modes.
+**Takeaway:** A good TEI prompt names the role, lists the permitted tags, shows a worked example, forbids commentary, and lowers the temperature.
 
 ---
 
 ## **05 Content**
 
-**The Ground-Truth Benchmark: Evaluating AI Against the Manual Header**
+**Why Your Own Header Is the Measuring Stick**
 
-In scientific experimentation, an automated system cannot evaluate itself; it must be measured against an authoritative, independent reference standard. In our course methodology, that reference standard is the hand-written, validated header you produced on Tuesday and certified on Wednesday (De Cristofaro & Zilio, 2025).
+A system cannot grade itself. To say anything meaningful about the AI's output, you need an independent reference to compare it against. You built that reference this week without being told that was what you were doing.
 
-Today, you will feed the raw cataloguing notes for your chosen manuscript passage into two state-of-the-art LLMs (OpenAI's ChatGPT-4 and Anthropic's Claude 3.5 Sonnet). You will capture their raw XML outputs and score them directly against your manual ground truth.
+Tuesday's hand-authored header is your ground truth: the version made by someone who looked at the actual object. Wednesday's validated header is your structural baseline: the version certified at zero errors. Together they are the standard the machine gets measured against (De Cristofaro & Zilio, 2025).
 
-| Evaluation Dimension | Manual Ground Truth (Tue/Wed) | AI-Generated Metadata (Fri) | Scoring Metric |
-| --- | --- | --- | --- |
-| Syntactic Well-Formedness | 100% (Certified in VS Code) | Variable (Prone to quote/entity defects) | Binary Pass/Fail |
-| RELAX NG Schema Validity | 100% (0 errors in Jing) | Variable (Prone to illegal nesting) | Total Validation Error Count |
-| Schematron Rule Compliance | 100% (0 pointer errors) | High Failure Rate (Broken `@hand` IDs) | Cross-Reference Error Count |
-| Codicological Precision | Verified against facsimiles | Statistical approximation of notes | Precision, Recall, F1-Score |
-| Entity Disambiguation | Manually linked to VIAF/TGN | Probabilistic entity linking | % Correct LOD URIs |
+This matters more than it might sound. Without a baseline, all you can say about an AI header is that it looks impressive, which is worth nothing, because looking impressive is the one thing these models are guaranteed to do. With a baseline you can say something precise: it invented a shelfmark, it missed two hands, it got the material right.
 
-By establishing this rigorous scoring protocol, you transform subjective impressions of "how smart the AI seems" into quantitative, reproducible engineering data (De Cristofaro & Zilio, 2025).
+| What you compare | Your header (Tue/Wed) | The AI header (today) |
+| --- | --- | --- |
+| Well-formed XML | Yes, you fixed it until it was | Usually, but not always |
+| Passes the schema | Yes, certified at 0 errors | This is what you are measuring |
+| Facts about the object | Checked against the image | Confident, and sometimes fictional |
+| Links to VIAF and Pleiades | Chosen by you, verified | Often plausible and dead |
 
-**Takeaway:** Tuesday's manual header and Wednesday's schema validation serve as the gold-standard benchmark against which automated AI outputs are quantitatively scored.
+**Takeaway:** Tuesday's header and Wednesday's zero-error file are the independent reference that turns an impression of cleverness into a measurable claim.
 
 ---
 
 ## **06 Content**
 
-**Empirical Benchmarks: The PubCINET Project Case Study**
+**A Real Experiment: The PubCINET Study**
 
-To ground our analysis in contemporary computational literature, we examine the landmark empirical study conducted by De Cristofaro and Zilio (2025) for the PubCINET project. PubCINET is a digital humanities initiative reconstructing the intellectual networks of Italian publishing and cinema between the 1950s and 1980s by digitizing thousands of unpublished archival letters and manuscripts (De Cristofaro & Zilio, 2025).
+You are not the first to run today's comparison. In 2025, De Cristofaro and Zilio ran it properly, at scale, and published what happened. Their results are the backbone of this lesson.
 
-Faced with a massive cataloguing backlog, De Cristofaro and Zilio designed a rigorous comparative benchmark to evaluate how effectively OpenAI's ChatGPT-4 and Anthropic's Claude 3.5 Sonnet could automate the XML-TEI encoding of unpublished archival correspondence (De Cristofaro & Zilio, 2025).
+Their project, PubCINET, was reconstructing the networks of Italian publishing and cinema from the 1950s to the 1980s. That meant thousands of unpublished letters and manuscripts to catalogue, and a backlog like the one described in section 01 (De Cristofaro & Zilio, 2025).
 
-The authors established a strict experimental pipeline: each LLM was provided with a detailed system prompt, a reference file (`macro.xml`) containing authorized project entities and URIs, and the raw transcribed text of the letters. The resulting XML files were programmatically ingested into an automated validation pipeline running RELAX NG and Schematron parsers, scoring both models across structural validity, entity recognition, and semantic fidelity (De Cristofaro & Zilio, 2025).
+Their method should look familiar, because it is the method you are following today. They gave each model a careful system prompt, a reference file listing the people and places the project had already verified, and the raw transcribed text. They collected the XML that came back. Then they ran every file through automated schema validation and counted the errors (De Cristofaro & Zilio, 2025).
 
-The findings of the PubCINET study revealed dramatic, systematic divergences in how different neural architectures handle structured XML schemas, exposing the core behavioral profiles of modern frontier models (De Cristofaro & Zilio, 2025).
+The one difference worth noting is that they tested two models against each other: OpenAI's ChatGPT-4 and Anthropic's Claude 3.5 Sonnet, the two leading systems at the time of the study. What they found was not that one model was better. It was that the two failed in opposite directions, which turned out to be far more useful to know.
 
-**Takeaway:** The PubCINET project established an empirical benchmark comparing ChatGPT-4 and Claude 3.5 in automated TEI encoding, measuring schema compliance and entity extraction.
+**Takeaway:** The PubCINET study ran this same comparison across two models at scale, and found that different models fail in systematically different ways.
 
 ---
 
 ## **07 Content**
 
-**Behavioral Profile of ChatGPT-4 in TEI Encoding**
+**The First Profile: Smart About Meaning, Careless About Structure**
 
-The PubCINET benchmark revealed that OpenAI's ChatGPT-4 exhibits a distinct behavioral profile characterized by high semantic autonomy and low structural discipline (De Cristofaro & Zilio, 2025).
+ChatGPT-4, in that study, was remarkably good at understanding what the documents were about (De Cristofaro & Zilio, 2025).
 
-ChatGPT-4 demonstrated remarkable capability in recognizing implied historical entities. When an archival letter mentioned a person only by a nickname, an informal first name, or an oblique cultural reference, ChatGPT-4 successfully deduced the individual's full historical identity and correctly linked them to external biographical knowledge, even when that entity was not explicitly pre-defined in the prompt's reference dictionary (De Cristofaro & Zilio, 2025).
+When a letter referred to someone by a nickname, a first name only, or an oblique allusion, the model repeatedly worked out who was actually meant, and connected that person to information the prompt had never supplied. That is genuinely hard. It is the kind of inference you would expect from a research assistant who knows the period.
 
-However, this semantic brilliance was accompanied by severe structural fragility. ChatGPT-4 routinely failed deterministic XML schema validation. It frequently broke hierarchical containment rules, closed structural containers prematurely, and hallucinated unauthorized XML elements (De Cristofaro & Zilio, 2025). ChatGPT-4 prioritized capturing the *meaning* of the archival narrative at the expense of obeying the mathematical grammar of the RELAX NG schema.
+The structure was another story. The same model routinely failed schema validation. It closed containers before their required children were inside them, nested elements where the schema forbids it, and invented tags that TEI does not define (De Cristofaro & Zilio, 2025).
+
+The pattern behind both results is one thing, not two. The model optimizes for meaning. When capturing the sense of a document and obeying the grammar of a schema pull in different directions, meaning wins, because meaning is what it was built to chase.
 
 ```
-ChatGPT-4 Performance Summary (De Cristofaro & Zilio, 2025):
-- Semantic Entity Recognition: HIGH (Successfully infers unlisted historical figures)
-- Contextual Deduction: HIGH (Maps nicknames to formal historical identities)
-- XML Well-Formedness: MODERATE (Occasional quote and entity defects)
-- RELAX NG Schema Validity: POOR (Frequent illegal nesting and premature tag closure)
-- Schematron Compliance: POOR (Generates broken internal @target pointers)
+Profile 1 (De Cristofaro & Zilio, 2025):
+- Recognizing implied people and places .... strong
+- Reading between the lines ............... strong
+- Well-formed XML ......................... usually
+- Passes the RELAX NG schema .............. often not
+- Internal cross-references intact ........ often not
 ```
 
-**Takeaway:** ChatGPT-4 excels at inferring implicit historical entities from context, but frequently fails deterministic XML schema validation through illegal element nesting.
+**Takeaway:** A model that optimizes for meaning will read a document impressively and break the schema doing it.
 
 ---
 
 ## **08 Content**
 
-**Structural Hallucinations: Invalid Nesting, Premature Tag Closure, and Bad Entities**
+**Structural Hallucination: Confident XML That Cannot Exist**
 
-Analyzing the specific failure modes of ChatGPT-4 in the PubCINET study reveals the precise nature of *structural hallucinations* in LLM text generation (De Cristofaro & Zilio, 2025).
+You already know that models hallucinate facts. There is a second kind, and it is the kind a schema can actually catch.
 
-A structural hallucination occurs when a model generates an XML sequence that is plausible in general text but violates the formal grammar of the active schema. De Cristofaro and Zilio (2025) identified several recurring structural error typologies:
+A structural hallucination is markup that looks entirely reasonable and is illegal in this schema. The model is not confused about the manuscript. It is confused about the rules, because it never had them (De Cristofaro & Zilio, 2025).
 
-- **Premature Container Closure:** The model frequently closed parent containers before inserting mandatory child elements. For example, it would generate `</profileDesc>` and then immediately output `<langUsage><language ident="grc">Greek</language></langUsage>`, creating orphaned elements outside their required container (De Cristofaro & Zilio, 2025).
-- **Illegal Tag Insertion:** The model repeatedly injected standard HTML tags into TEI contexts, such as inserting `<p>` or `<br>` inside `<closer>` or `<signed>`, where the TEI schema strictly permits only phrasing elements (De Cristofaro & Zilio, 2025).
-- **Unauthorized Character Entities:** The model hallucinated HTML-style named entities (such as `&copy;`, `&nbsp;`, or `&eacute;`) that are valid in HTML5 but completely undefined in standard XML without an explicit DTD declaration, causing instant fatal parsing crashes (De Cristofaro & Zilio, 2025).
+Three kinds show up constantly.
 
-| Structural Hallucination Type | Invalid LLM Output | RELAX NG Error Diagnosis |
-| --- | --- | --- |
-| Premature container closure | `</profileDesc><langUsage>...</langUsage>` | Element `langUsage` not allowed outside `profileDesc` |
-| Illegal child tag | `<closer><p>Yours faithfully,</p></closer>` | Element `p` not permitted inside `closer` |
-| Undefined entity | `<p>Copyright &copy; 2026</p>` | Entity `copy` not declared; fatal well-formedness crash |
-| Attribute type hallucination | `<supportDesc support="parchment">` | Attribute `support` is invalid; expected `material` |
+- **Closing a container too early.** The model writes `</profileDesc>` and then keeps going with elements that were supposed to be inside it. The children end up orphaned outside their parent.
+- **Reaching for HTML.** Models have read far more HTML than TEI. Under pressure they reach for `<p>` or `<br>` in places where TEI allows neither. You saw this exact trap on Wednesday, when `<extent>` refused a `<p>` that `<support>` accepts one line above.
+- **Inventing character entities.** `&copy;` and `&nbsp;` are ordinary in HTML and undefined in XML. One of them anywhere in the file is fatal: the parser stops, and you get no validation report at all.
 
-**Takeaway:** Structural hallucinations—such as premature tag closure, illegal HTML tags, and undefined character entities—are the primary cause of LLM validation failures.
+| What the model wrote | Why the schema refuses it |
+| --- | --- |
+| `</profileDesc><langUsage>...</langUsage>` | `langUsage` belongs inside `profileDesc`, not after it |
+| `<closer><p>Yours faithfully,</p></closer>` | `closer` takes phrases, not paragraphs |
+| `<p>Copyright &copy; 2026</p>` | `copy` is an HTML entity; XML has never heard of it |
+| `<supportDesc support="parchment">` | The attribute is `material`, not `support` |
+
+Every one of these is caught by the check you already know how to run.
+
+**Takeaway:** Structural hallucinations are plausible, illegal markup — early closures, stray HTML, undefined entities — and Wednesday's schema catches all of them.
 
 ---
 
 ## **09 Content**
 
-**Behavioral Profile of Claude 3.5 Sonnet in TEI Encoding**
+**The Second Profile: Obedient About Structure, Silent About the Rest**
 
-In stark contrast to ChatGPT-4, Anthropic's Claude 3.5 Sonnet demonstrated an opposing behavioral profile in the PubCINET evaluation: exceptional structural discipline paired with conservative semantic literalism (De Cristofaro & Zilio, 2025).
+Claude 3.5 Sonnet, in the same study, behaved almost as the mirror image (De Cristofaro & Zilio, 2025).
 
-Claude 3.5 Sonnet exhibited near-perfect adherence to XML well-formedness and RELAX NG schema validation rules. When provided with the project's system prompt and schema constraints, Claude 3.5 produced clean, valid TEI documents on its first generation pass, without requiring secondary correction prompts (De Cristofaro & Zilio, 2025). It strictly respected parent-child hierarchies, formatted ISO 8601 dates flawlessly, and avoided illegal HTML tag injections.
+Its XML was clean. Given the system prompt and the schema constraints, it produced valid TEI on the first attempt, with correct nesting and correctly formatted dates, and without reaching for HTML. Where the other model needed repeated correction, this one usually needed none (De Cristofaro & Zilio, 2025).
 
-However, Claude 3.5 displayed significant semantic limitations. It operated with rigid literalism, refusing to extrapolate beyond the provided reference file (`macro.xml`). If an archival text mentioned an unpublished draft work or an obscure historical figure not explicitly catalogued in the reference dictionary, Claude 3.5 frequently ignored the entity entirely or tagged it as generic text, resulting in substantial data omissions (De Cristofaro & Zilio, 2025).
+The cost appeared elsewhere. It stayed strictly inside what it had been given. If a letter mentioned a person who was not in the project's reference list, the model tended to leave them untagged rather than work out who they were. The markup was flawless and the record was incomplete (De Cristofaro & Zilio, 2025).
+
+That failure is harder to catch than the first one, and worth pausing on. A missing entity produces no error. The schema is satisfied, the file is green, and the omission is invisible unless a human notices something absent. Broken structure announces itself. Silence does not.
 
 ```
-Claude 3.5 Sonnet Performance Summary (De Cristofaro & Zilio, 2025):
-- Semantic Entity Recognition: MODERATE (Conservative; misses unlisted entities)
-- Contextual Deduction: LOW (Strictly literal; avoids autonomous extrapolation)
-- XML Well-Formedness: EXCELLENT (100% clean syntactic output)
-- RELAX NG Schema Validity: EXCELLENT (Flawless element hierarchy and containment)
-- Schematron Compliance: HIGH (Strictly adheres to authorized URI dictionaries)
+Profile 2 (De Cristofaro & Zilio, 2025):
+- Recognizing implied people and places .... cautious; skips the unlisted
+- Reading between the lines ............... rarely attempts it
+- Well-formed XML ......................... clean
+- Passes the RELAX NG schema .............. clean
+- Internal cross-references intact ........ reliable
 ```
 
-**Takeaway:** Claude 3.5 Sonnet produces near-flawless schema-valid XML markup, but its semantic literalism causes it to omit historical entities not pre-defined in reference files.
+**Takeaway:** A model that obeys the schema perfectly can still omit entities silently, and omissions produce no error to catch them.
 
 ---
 
 ## **10 Content**
 
-**The Semantic-Structural Trade-Off in LLM Architectures**
+**The Trade-Off, and What to Do About It**
 
-The empirical findings of the PubCINET project expose a fundamental **semantic-structural trade-off** in the application of generative AI to textual scholarship (De Cristofaro & Zilio, 2025).
+Put the two profiles together and a pattern appears that has held up well beyond this one study (De Cristofaro & Zilio, 2025).
 
-No single current frontier model excels simultaneously at autonomous semantic deduction and rigid grammatical compliance. Editors are forced to navigate a structural dichotomy:
-
-| Model Architecture | Primary Core Competence | Primary Vulnerability | Optimal Editorial Role |
+| | Strong at | Weak at | Sensible use |
 | --- | --- | --- | --- |
-| **ChatGPT-4** | Deep semantic reasoning, contextual entity deduction | High rate of schema validation failures, broken XML trees | Draft entity discovery, fuzzy prosopographical linking |
-| **Claude 3.5 Sonnet** | Rigid schema compliance, precise structural hierarchy | Omission of implicit or uncatalogued entities | Direct TEI Header generation, structured data transformation |
+| Meaning-first model | Finding entities nobody listed | Obeying the schema | First-pass discovery of what is in the document |
+| Structure-first model | Producing valid TEI directly | Noticing the unlisted | Turning verified facts into correct markup |
 
-This specialization gap demonstrates why automated metadata pipelines cannot rely on a single unmonitored LLM. A robust digital editing workflow must combine the semantic discovery strengths of one model with the structural precision of another, governed at every step by deterministic schema validation (De Cristofaro & Zilio, 2025).
+The practical conclusion is that a single model working unsupervised is the wrong design, whichever model you choose. One will hand you rich content in broken markup; the other will hand you clean markup missing content. Neither is finished work.
 
-**Takeaway:** Digital editors must navigate a trade-off between ChatGPT-4's semantic discovery and Claude 3.5's structural obedience, combining models strategically within audited pipelines.
+What functions is a pipeline: one pass to find what is there, a second to encode it properly, and the schema gate standing between them and publication (De Cristofaro & Zilio, 2025).
+
+Notice that this is your three-step cycle with the labels changed. Discovery, then structure, then verification. You have been practising the shape of a professional pipeline all week.
+
+**Takeaway:** No single model is both semantically thorough and structurally obedient, so real pipelines combine models and put a schema gate between them and publication.
 
 ---
 
 ## **11 Content**
 
-**Authority File Integration: Supplying Context via `macro.xml`**
+**Giving the Model a List Instead of Letting It Guess**
 
-A critical finding in automated cataloguing research is that LLMs cannot accurately link entities to Linked Open Data (LOD) authorities without external reference scaffolding (De Cristofaro & Zilio, 2025; Koho et al., 2021). If an LLM is simply asked to "add VIAF URIs," it will frequently hallucinate plausible-looking URL strings that lead to dead pages or point to entirely wrong historical persons.
+Ask a model to add VIAF identifiers and it will produce VIAF identifiers. They will be correctly formatted. Some of them will lead nowhere, and some will lead confidently to the wrong person (De Cristofaro & Zilio, 2025; Koho et al., 2021).
 
-To solve this, De Cristofaro and Zilio (2025) developed the **`macro.xml` reference architecture**. Before prompting the LLM, the project compiles an authoritative reference XML document containing controlled vocabulary registers:
+This is worth sitting with, because it is the single most dangerous behaviour in the whole lesson. On Wednesday you looked up your repository's VIAF record yourself and pasted the identifier you found. A model does not look anything up. It produces a string of the right shape, which is what it was asked for.
+
+The fix is disarmingly simple. Stop asking the model to supply identifiers and start asking it to choose from ones you have already verified. Compile a small reference file of the people and places your project has confirmed, each with its checked URI, and put that file in the prompt (De Cristofaro & Zilio, 2025).
 
 ```xml
-<!-- Excerpt of a project macro.xml reference file -->
+<!-- A project's verified reference list, supplied with the prompt -->
 <authorityList>
   <personList>
     <person xml:id="pers_origen" ref="https://viaf.org/viaf/34454471">
       <persName>Origen of Alexandria</persName>
-      <floruit notBefore="0210" notAfter="0254"/>
-    </person>
-    <person xml:id="pers_marchal" ref="https://viaf.org/viaf/88890041">
-      <persName>René Marchal</persName>
-      <role>Abbot of Saint-Nom, Collector</role>
     </person>
   </personList>
-  
   <placeList>
     <place xml:id="place_alexandria" ref="https://pleiades.stoa.org/places/727070">
-      <placeName>Alexandria (Egypt)</placeName>
-    </place>
-    <place xml:id="place_rome" ref="https://vocab.getty.edu/tgn/7001303">
-      <placeName>Rome (Vatican City)</placeName>
+      <placeName>Alexandria</placeName>
     </place>
   </placeList>
 </authorityList>
 ```
 
-When this `macro.xml` file is injected into the LLM's prompt context, the model is instructed to retrieve entity URIs *exclusively* from this pre-verified list (De Cristofaro & Zilio, 2025). This technique eliminates URI hallucination, transforming open-ended generative prediction into a constrained entity-matching operation.
+Now the instruction is "use only identifiers from this list." An open-ended invention problem has become a matching problem, and matching is something these models do well.
 
-**Takeaway:** Providing LLMs with pre-compiled `macro.xml` authority dictionaries constrains entity linking and eliminates hallucinated LOD URIs.
+**Takeaway:** Models fabricate authority URIs when asked to supply them, so give them a verified list and let them match instead of invent.
 
 ---
 
 ## **12 Content**
 
-**Automated Named Entity Recognition and Disambiguation (NERD)**
+**Finding Names in Text That Was Not Written for You**
 
-Named Entity Recognition and Disambiguation (NERD) is the computational process of locating proper names in unstructured text and mapping them to unambiguous unique identifiers (Koho et al., 2021; Koho et al., 2023).
+Recognizing a name in a historical document and working out which person it refers to is harder than it sounds, and it is where a model's semantic strength genuinely earns its place (Koho et al., 2021; Koho et al., 2023).
 
-In historical manuscript cataloguing, NERD presents severe challenges that defeat traditional rule-based Natural Language Processing (NLP) tools:
+Three difficulties defeat simple search-and-match.
 
-- **Archaic Spelling Variants:** Scribes spell names idiosyncratically across Latin, Greek, and vernacular dialects (e.g., *Marchalianus*, *Marchal*, *Marcialis*).
-- **Palaeographical Homonyms:** Multiple historical figures share identical names (e.g., dozens of medieval bishops named *Johannes* or *Theodorus*).
-- **Oblique Scribal Attributions:** Scribes frequently omit formal names entirely, referring to authors by ecclesiastical titles (*«ὁ μακάριος ἐπίσκοπος»*).
+- **Spelling was not standardized.** The same person appears as *Marchalianus*, *Marchal*, and *Marcialis*, depending on the scribe and the century.
+- **Names repeat endlessly.** Dozens of medieval bishops are named Johannes. The name alone identifies nobody.
+- **Scribes often do not use names at all.** A figure may appear only as "the blessed bishop," with the identification assumed to be obvious.
 
-While LLMs demonstrate powerful semantic reasoning in resolving these ambiguous phrases (De Cristofaro & Zilio, 2025), their entity disambiguations must be verified. If an LLM encounters a note attributing a marginal reading to "Theodotion," it must correctly determine whether the text refers to the 2nd-century Jewish translator of the Old Testament (VIAF 59880157) or a later Byzantine copyist.
+A model handles this kind of ambiguity far better than a keyword search, because resolving it requires context rather than matching (De Cristofaro & Zilio, 2025).
 
-**Takeaway:** Automated NERD leverages LLM semantic reasoning to resolve ambiguous historical names, but requires human verification to prevent identity misattributions.
+It also gets it wrong in ways a keyword search never could. Faced with a marginal note crediting a reading to "Theodotion," a model must decide whether that means the second-century translator or a later copyist of the same name. It will decide. It will not tell you it was a decision, and it will sound equally confident either way.
+
+**Takeaway:** Models resolve ambiguous historical names better than keyword matching, and state their guesses with the same confidence as their certainties.
 
 ---
 
 ## **13 Content**
 
-**Hallucination of Historical Facts and Chronologies**
+**The Failure the Schema Cannot See**
 
-Beyond structural XML defects, generative AI models pose a severe risk of **historical fact hallucination**. Because LLMs operate via probabilistic pattern completion, they are prone to filling gaps in archival records with fictional historical narratives that appear extraordinarily convincing (De Cristofaro & Zilio, 2025).
+Everything so far has been catchable. This section is the one that is not, and it is the most important idea in the lesson.
 
-Consider a practical example from manuscript cataloguing. If an LLM is provided with a fragmentary catalogue description stating:
-
-`"Vat. gr. 2125: 6th-century prophetic codex, uncial script, damaged at beginning, provenance Egypt."`
-
-A generative model prompted to write a full `<history>` element may fabricate an elaborate, plausible provenance narrative:
+Suppose a model is given a thin description: *Vat. gr. 2125: 6th-century prophetic codex, uncial script, damaged at the beginning, provenance Egypt.* You ask it for a full `<history>`. It returns this.
 
 ```xml
-<!-- HALLUCINATED PROVENANCE GENERATED BY LLM -->
+<!-- Generated by a model. Every fact in it is invented. -->
 <provenance notBefore="0700" notAfter="0750">
-  <p>Transferred in 722 CE to the Monastery of Saint Catherine at Mount Sinai by the monk Dorotheus, where it was recorded in the 8th-century library inventory.</p>
+  <p>Transferred in 722 CE to the Monastery of Saint Catherine at Mount Sinai
+     by the monk Dorotheus, and recorded in the 8th-century library inventory.</p>
 </provenance>
 ```
 
-This output is syntactically well-formed and schema-valid XML. It uses proper TEI elements and valid ISO dates. Yet every historical detail—Mount Sinai, the monk Dorotheus, the date 722 CE—is a complete computational fiction synthesized from the model's general knowledge of monastic manuscript history.
+Look at what this passes. The XML is well-formed. The elements are real TEI. The dates are correctly formatted ISO 8601 and consistent with each other. Run it through Wednesday's schema and it reports zero errors.
 
-This hazard illustrates why schema validation alone is insufficient: a schema tests *structural validity*, but only human editorial expertise can certify *historical truth*.
+Mount Sinai is invented. Dorotheus is invented. The year 722 is invented. The inventory is invented. The model assembled a plausible provenance out of general knowledge about how manuscripts moved, and the result is fiction in perfect TEI.
 
-**Takeaway:** LLMs can generate schema-valid but completely fabricated historical narratives, underscoring that structural validity does not equal historical truth.
+Nothing in your toolchain will flag this. A schema checks shape, not truth. The only instrument that catches a fabricated provenance is an editor who knows the manuscript — which is the answer to the question of what you are for, once machines can write markup faster than you can.
+
+**Takeaway:** A schema validates structure and cannot validate facts, so schema-valid output can be entirely fabricated and only a human editor will notice.
 
 ---
 
 ## **14 Content**
 
-**Computer Vision in Codicological Metadata Extraction**
+**Metadata That Lives in the Image, Not the Text**
 
-Textual catalogue descriptions provide only a fraction of codicological knowledge. A manuscript is a physical, visual artifact whose most vital metadata—layout geometry, ruling patterns, decorative initials, binding stamps, and physical damage—resides entirely in its visual materiality (Ignatowicz et al., 2025).
+Everything so far has assumed the AI is reading text. But a good deal of what you recorded on Tuesday was never written down anywhere. You got it by looking.
 
-To extract metadata directly from digital facsimiles, the digital humanities community is deploying advanced Computer Vision (CV) neural networks (Ignatowicz et al., 2025). Rather than relying on transcribed text, visual models process high-resolution IIIF image pixels to identify, segment, and classify physical codicological features.
+Column counts, ruled lines, margin widths, the size and colour of initials, ownership stamps, wormholes and water damage: none of this appears in a catalogue description. It exists in the object, and in the digital image of the object (Ignatowicz et al., 2025).
 
-| Pipeline Stage | Computational Engine | Input / Output Representation |
-| --- | --- | --- |
-| Visual Segmentation | YOLOv11 / Detectron2 | Scans IIIF facsimile to detect ROIs (stamps, initials, columns) |
-| Micro Analysis & OCR | Bounding Polygon Crop | Isolates cropped image patches of initials and text lines |
-| Semantic Transcription | BLIP-2 / Mistral-7B | Transcribes text, identifies iconography, maps to Wikidata URIs |
-| Schema Integration | TEI Header Generator | Emits valid `<physDesc>` XML and RDF semantic triples |
+So a second family of AI works on pixels rather than prose. Computer vision models examine a high-resolution facsimile and try to find and classify physical features directly (Ignatowicz et al., 2025).
 
-Visual AI pipelines bridge the gap between image pixels and structured metadata, automating the extraction of layout dimensions, ink colors, and decorative elements (Ignatowicz et al., 2025).
+| Stage | What happens |
+| --- | --- |
+| Detection | Scan the page image and mark regions that look like stamps, initials, or text columns |
+| Cropping | Cut each marked region out as its own small image |
+| Interpretation | Read or identify what is in each crop |
+| Encoding | Emit the results as TEI, mostly into `<physDesc>` |
 
-**Takeaway:** Computer vision neural networks extract codicological metadata directly from manuscript image pixels, automating layout segmentation and visual feature detection.
+The appeal is obvious. Measuring margins by hand across ten thousand folios is not work anyone will fund. Measuring them automatically is a script that runs overnight.
+
+**Takeaway:** Computer vision targets the codicological evidence that exists only in the image — layout, decoration, damage — and never appears in catalogue prose.
 
 ---
 
 ## **15 Content**
 
-**The Metadata Enrichment Model (MEM) and Multilayer Vision**
+**Looking at a Page in Layers**
 
-A leading state-of-the-art framework for visual manuscript metadata extraction is the **Metadata Enrichment Model (MEM)**, developed by Ignatowicz, Kutt, and Nalepa (2025) for the digitized incunabula and medieval manuscripts of the Jagiellonian Digital Library.
+A page does not decompose into a flat list of things. It nests, the same way your TEI nests, and vision systems that ignore that nesting perform badly (Ignatowicz et al., 2025).
 
-In cultural heritage collections, standard flat object detection fails because codicological features are deeply nested: a manuscript page contains a text block, which contains a decorated initial, which contains an embedded figurative icon, surrounded by an owner's stamp containing an ink inscription (Ignatowicz et al., 2025).
+Consider what your own witness looks like. The page contains a text block. The text block contains a decorated initial. The initial contains a small figure. Beside all of it sits an owner's stamp, and inside the stamp is an inscription. Ask a detector for "the objects on this page" and it will return some of these and miss the rest, because several of them are inside each other.
 
-To overcome this, the MEM architecture introduces a **Multilayer Vision Mechanism (MVM)** (Ignatowicz et al., 2025):
+The Metadata Enrichment Model, built by Ignatowicz, Kutt, and Nalepa (2025) for the Jagiellonian Digital Library, addresses this by looking more than once, at different scales.
 
-1. **Layer 1 (Macro Segmentation):** Fine-tuned object detection networks (such as YOLOv11 and Detectron2) scan the entire folio to detect high-level architectural components: text columns, bounding boxes, marginal gloss regions, and major decorative blocks.
-2. **Layer 2 (Micro Cropping & Extraction):** The detected regions of interest (ROIs) are programmatically cropped and passed to specialized neural models.
-3. **Layer 3 (Multimodal Semantic Fusion):** Multimodal vision-language models (such as BLIP-2 or fine-tuned Mistral-7B) analyze the cropped ROIs, transcribe embedded text, evaluate iconographic motifs, and map the visual data to RDF knowledge graphs linked to Wikidata (Ignatowicz et al., 2025).
+1. **The wide pass** finds the big architectural pieces: columns, margins, major decorated areas, the block of writing.
+2. **The close pass** crops each of those regions and examines it on its own terms, where a small initial is no longer a speck in a corner but the whole picture.
+3. **The interpretation pass** takes each crop and asks what it actually is — reading an inscription, identifying a motif, matching a coat of arms to a known family (Ignatowicz et al., 2025).
 
-**Takeaway:** The MEM framework uses Multilayer Vision Mechanisms (YOLOv11 + multimodal LLMs) to hierarchically segment and enrich nested visual manuscript metadata.
+The structure is the same one you use when you catalogue by eye. You take in the page, then look closely at one feature, then decide what that feature means. The system is imitating an order of operations you already perform.
+
+**Takeaway:** Manuscript features nest inside one another, so vision systems examine a page in layers — wide, close, then interpretive — much as a cataloguer does.
 
 ---
 
 ## **16 Content**
 
-**Detecting Codicological Regions of Interest (ROI)**
+**From Pixel Coordinates to TEI Elements**
 
-In the MEM pipeline, the computer vision engine is trained on specialized cultural heritage datasets to detect distinct codicological Regions of Interest (ROIs) (Ignatowicz et al., 2025).
+The point of detecting a region is not the box around it. The point is that each kind of region maps onto a TEI element you already know how to write (Ignatowicz et al., 2025).
 
-These visual ROIs map directly to specific TEI `<physDesc>` and `<decoDesc>` elements:
+- **Ownership stamps** are found by shape, then read, and become part of `<provenance>` — the custodial chain you encoded on Tuesday.
+- **Decorated initials** are outlined, measured in lines of height, and described in `<decoDesc>`.
+- **Ruling and column edges** are traced as lines, which yields the column count and written-line count for `<layoutDesc>`.
+- **Damage** — ink corrosion, wormholes, staining, cropped margins — is detected as a category of its own and becomes `<condition>`.
 
-- **Institutional Stamps & Armorial Marks:** Detected via bounding boxes and classified by shape (circular, oval, shield). The cropped image is passed to OCR to extract institutional shelfmarks, mapping to `<provenance>` and `<sealDesc>`.
-- **Illuminated Initials & Miniatures:** Segmented by bounding polygon, measuring height in lines and identifying pigment palettes, mapping to `<decoNote type="initials">` (Ignatowicz et al., 2025).
-- **Ruling Patterns & Bounding Boxes:** Edge-detection algorithms trace dry-point or lead ruling lines, calculating column widths and margin proportions for `<layoutDesc>`.
-- **Physical Damage & Flaws:** Neural networks detect ink corrosion, wormholes, moisture stains, and trimming losses, automatically generating machine-readable `<condition>` assessments.
-
-| Visual Manuscript Feature | CV Detection Mechanism | Mapped TEI XML Element |
+| Feature on the page | How it is found | Where it lands in TEI |
 | --- | --- | --- |
-| Library ownership stamp | YOLOv11 Bounding Box + OCR | `<sealDesc>` / `<provenance>` |
-| Decorated uncial initial | Detectron2 Instance Segmentation | `<decoDesc><decoNote type="initials">` |
-| Text column boundaries | Line-segmentation Hough transform | `<layout columns="1" writtenLines="29">` |
-| Parchment leaf dimensions | Pixel-to-millimeter scale calibration | `<extent><dimensions unit="mm">` |
-| Margin annotations | Bounding polygon extraction | `<additions><p>Marginal glosses...</p></additions>` |
+| Library ownership stamp | Shape detection, then text reading | `<provenance>` |
+| Decorated initial | Outline and measure in lines | `<decoDesc>` |
+| Column boundaries | Line detection across the page | `<layout columns="1" writtenLines="29">` |
+| Leaf dimensions | Pixel measurement against a known scale | `<extent><dimensions unit="mm">` |
+| Marginal annotation | Region outline beside the text block | `<additions>` |
 
-**Takeaway:** Computer vision models segment specific manuscript ROIs—stamps, initials, layouts, and damage—mapping visual coordinates directly to TEI elements.
+That right-hand column is the useful part of this section. These are the same elements you filled in by hand on Tuesday. The pipeline is not doing something exotic; it is doing your job, from the image, at speed.
+
+**Takeaway:** Each detected visual region maps onto a TEI element you already write by hand, so vision pipelines populate `physDesc` rather than inventing a new vocabulary.
 
 ---
 
 ## **17 Content**
 
-**Multimodal Entity Mapping to Knowledge Graphs**
+**Turning a Picture into a Statement**
 
-Once visual ROIs are cropped, the MEM architecture uses multimodal LLMs to transform visual features into Linked Open Data knowledge graphs (Ignatowicz et al., 2025; Koho et al., 2023).
+On Wednesday you learned that linked data is built from three-part statements: something, a relationship, something else. Vision pipelines produce exactly that shape, from images (Ignatowicz et al., 2025; Koho et al., 2023).
 
-When the vision pipeline detects an owner's stamp or heraldic coat of arms on a manuscript leaf, the multimodal model analyzes the image, identifies the heraldic devices (e.g., "three fleurs-de-lis under a cardinal's hat"), and matches the visual pattern against Wikidata and Getty AAT authority files (Ignatowicz et al., 2025).
-
-The pipeline automatically outputs verified RDF semantic triples:
+The sequence runs like this. The detector finds an oval stamp on the first folio. The interpretation pass reads it and matches the design against known institutional marks. The result is written as a statement in a standard format that any linked-data system can read.
 
 ```turtle
-# RDF Triples Generated Automatically by Multimodal MEM Pipeline
-@prefix crm: <http://erlangen-crm.org/current/> .
-@prefix wd: <http://www.wikidata.org/entity/> .
-@prefix aat: <http://vocab.getty.edu/aat/> .
-
-<http://example.org/manuscript/vat_gr_2125> 
-    crm:P56_bears_feature <http://example.org/feature/stamp_001> .
+# The stamp on folio 1r, expressed as linked data
+<http://example.org/manuscript/vat_gr_2125>
+    bears_feature  <http://example.org/feature/stamp_001> .
 
 <http://example.org/feature/stamp_001>
-    a aat:300028744 ; # Getty AAT concept for "library stamps"
-    crm:P2_has_type wd:Q213878 ; # Wikidata URI for Biblioteca Apostolica Vaticana
-    crm:P3_has_note "Oval ink stamp of the Vatican Library on fol. 1r" .
+    is_a           <http://vocab.getty.edu/aat/300028744> ;   # "library stamps"
+    identifies     <http://www.wikidata.org/entity/Q213878> ; # the Vatican Library
+    has_note       "Oval ink stamp on fol. 1r" .
 ```
 
-This multimodal fusion transforms inert digital images into dynamic, machine-queryable nodes within global Linked Open Data networks (Ignatowicz et al., 2025; Koho et al., 2021).
+Read it as sentences and it is unremarkable. This manuscript bears this feature. This feature is a library stamp. This stamp identifies the Vatican Library.
 
-**Takeaway:** Multimodal AI translates visual heraldic stamps and illuminations into RDF semantic triples, connecting manuscript images directly to Wikidata knowledge graphs.
+What has happened is that a mark in a photograph became a claim other systems can find. Someone searching for every manuscript that passed through the Vatican Library can now find this one, without ever opening the image. That is the whole promise of linked data from Wednesday, arriving from an unexpected direction.
+
+**Takeaway:** Vision pipelines convert visual features into the same three-part linked-data statements you met on Wednesday, making a mark in a photograph searchable worldwide.
 
 ---
 
 ## **18 Content**
 
-**Vision Model Failure Modes: Degradation, Noise, and Eurocentric Bias**
+**Where Vision Models Fail, and Who Pays for It**
 
-Despite their extraordinary capabilities, computer vision models exhibit severe failure modes when applied to historical manuscripts (Ignatowicz et al., 2025).
+Vision models were trained mostly on clean modern documents. Your manuscript is neither (Ignatowicz et al., 2025).
 
-Historical codices are degraded physical objects. Over centuries of use, manuscripts accumulate physical noise—faded ink, bleed-through from verso pages, water stains, mold spots, and worm damage. Computer vision models trained primarily on modern documents or clean print incunabula frequently misinterpret these anomalies (Ignatowicz et al., 2025):
+Centuries of handling leave a page full of things that look like features and are not: faded ink, writing showing through from the other side, water stains, mould, insect damage. Three failures follow predictably.
 
-- **False Positive Decorations:** CV models frequently misclassify dark water stains, grease spots, or clusters of ink bleed-through as decorative miniatures or historical ownership stamps.
-- **Bounding Box Fragmentation:** Severe mold damage or parchment tearing can cause segmentation models to split a single continuous text column into multiple disconnected fragments.
-- **Eurocentric Iconographic Bias:** Because the majority of open-access training datasets originate from Western European collections, vision models frequently misclassify or completely fail to recognize non-Western script structures, Syriac estrangela flourishes, Coptic initials, or Ethiopic decorative headpieces (*harag*) (Ignatowicz et al., 2025).
+- **Stains read as decoration.** A dark water stain or a grease spot has roughly the shape and contrast of a small illumination, and gets confidently labelled as one.
+- **Damage splits a column.** A tear or a mould patch running down a page can make one continuous text column register as two or three separate fragments.
+- **The training data was European.** Most open image collections come from Western European libraries. Models built on them handle Latin codices well and misread or entirely miss Syriac flourishes, Coptic initials, and Ethiopic decorative headpieces (Ignatowicz et al., 2025).
 
-These vulnerabilities demonstrate why automated computer vision outputs must never be ingested directly into archival databases without systematic human review.
+That third failure deserves more than a technical note. It means these tools work least well on exactly the traditions that are already least well catalogued. Run an unaudited pipeline across a mixed collection and you will widen the gap between the well-described and the neglected, using a tool that appears neutral. That is a scholarly and ethical problem, not a bug report.
 
-**Takeaway:** Vision models suffer from physical noise misclassification, column fragmentation, and Eurocentric training bias, requiring rigorous manual filtering.
+**Takeaway:** Vision models misread damage as decoration and perform worst on non-Western material, so unaudited automation deepens exactly the cataloguing inequities it claims to fix.
 
 ---
 
 ## **19 Content**
 
-**Designing an Automated Evaluation Metric for Header Metadata**
+**Two Numbers That Describe Any Extraction**
 
-To evaluate AI-generated metadata scientifically, digital philologists deploy formal statistical metrics borrowed from information retrieval: **Precision**, **Recall**, and the harmonic **F1-Score** (De Cristofaro & Zilio, 2025).
+You need a way to say how good an AI header was that survives contact with someone who disagrees with you. Two numbers do most of the work, and you can calculate both by hand today (De Cristofaro & Zilio, 2025).
 
-When an AI model extracts codicological metadata from an archival description, its outputs are compared against the human ground truth across discrete metadata attributes (e.g., shelfmark, date of origin, support material, leaf height, line count, and scribal hands):
+Go field by field — repository, shelfmark, material, extent, number of hands, date — and sort every field into three piles.
 
-$$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}$$
+- **Right:** the AI supplied it and it matches your verified header.
+- **Wrong or invented:** the AI supplied it and it does not match, or it supplied something that is not true at all.
+- **Missing:** it is in your header, and the AI left it out.
 
-$$\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}$$
+Now the two numbers.
 
-$$F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+**Precision** asks: of everything the AI claimed, how much was right? Divide the right answers by everything it supplied. Low precision means it makes things up.
 
-- **True Positive (TP):** An attribute correctly extracted and formatted by the AI (e.g., `@notBefore="0550"` matching ground truth).
-- **False Positive (FP):** An attribute hallucinated or incorrectly assigned by the AI (e.g., `@material="paper"` when the manuscript is parchment).
-- **False Negative (FN):** A mandatory attribute present in the ground truth that the AI omitted entirely (e.g., failing to extract the shelfmark or quire formula).
+**Recall** asks: of everything that should have been found, how much did it find? Divide the right answers by everything in your header. Low recall means it leaves things out.
 
-A model with high Precision but low Recall (like Claude 3.5 Sonnet) produces highly accurate data but leaves significant omissions. A model with high Recall but low Precision (like ChatGPT-4) captures every detail but injects numerous hallucinations and formatting errors (De Cristofaro & Zilio, 2025).
+These measure different failures, and a model can be excellent at one while poor at the other. The structure-first model from section 09 has high precision and lower recall: what it says is right, and it says too little. The meaning-first model from section 07 is the reverse. Report only one number and you have hidden half of what happened (De Cristofaro & Zilio, 2025).
 
-**Takeaway:** Information retrieval metrics—Precision, Recall, and F1-Score—quantify the trade-off between AI metadata completeness and accuracy against human ground truth.
+Combine them into a single score if you like — that combined figure is called F1 — but the pair is more informative than the average.
+
+**Takeaway:** Precision measures how much of what the AI said was true, recall measures how much of the truth it found, and the two fail independently.
 
 ---
 
 ## **20 Content**
 
-**Scoring XML Structural Validity Programmatically**
+**Counting Errors Without Reading Them**
 
-In addition to evaluating semantic accuracy, an automated cataloguing pipeline must evaluate **structural validity** (De Cristofaro & Zilio, 2025).
+Today you will open the AI's file and look at the error count yourself. At a hundred files that stops being possible, so the count gets automated (De Cristofaro & Zilio, 2025).
 
-In production environments, structural validity is scored automatically using Python scripts wrapping standard XML validation libraries (`lxml` for well-formedness and XML Schema, `jing` for RELAX NG, and `saxon` for ISO Schematron).
+The idea needs no new concepts. You learned in Lesson 1.1 that Python can do a mechanical job in milliseconds that would take you an afternoon. Checking whether a file is well-formed and whether it satisfies a schema is exactly that kind of job.
 
 ```python
-#!/usr/bin/env python3
-"""Programmatic validation scoring script for AI-generated TEI files."""
-import subprocess, sys
-from pathlib import Path
+# Score one AI-generated TEI file: is it parseable, and does it satisfy the schema?
+import subprocess
 from lxml import etree
 
-def score_tei_document(xml_path: Path, rng_path: Path) -> dict:
-    results = {"well_formed": False, "rng_valid": False, "rng_errors": []}
-    
-    # 1. Test Well-Formedness
+def score(xml_path, schema_path):
+    result = {"well_formed": False, "valid": False, "errors": []}
+
     try:
-        doc = etree.parse(str(xml_path))
-        results["well_formed"] = True
+        etree.parse(xml_path)
+        result["well_formed"] = True
     except etree.XMLSyntaxError as e:
-        results["rng_errors"].append(f"Fatal XML Syntax Error: {e}")
-        return results
-    
-    # 2. Test RELAX NG Schema Validity via Jing
-    cmd = ["jing", str(rng_path), str(xml_path)]
-    proc = subprocess.run(cmd, capture_output=True, text=True)
-    if proc.returncode == 0:
-        results["rng_valid"] = True
-    else:
-        results["rng_errors"] = proc.stdout.strip().splitlines()
-        
-    return results
+        result["errors"].append(f"Not well-formed: {e}")
+        return result          # a broken file cannot be schema-checked at all
+
+    check = subprocess.run(["jing", schema_path, xml_path],
+                           capture_output=True, text=True)
+    result["valid"] = (check.returncode == 0)
+    result["errors"] = check.stdout.strip().splitlines()
+    return result
 ```
 
-Executing this script across hundreds of AI-generated files produces a quantitative **Schema Validity Rate** ($\text{SVR} = \frac{\text{Valid Files}}{\text{Total Files}}$), providing an unvarnished mathematical measure of model reliability (De Cristofaro & Zilio, 2025).
+Note the early return. If the XML is not well-formed, the schema check never runs, because there is no tree to check. That is the same order of operations VS Code follows for you: syntax first, then schema.
 
-**Takeaway:** Programmatic validation scripts running Jing and lxml calculate objective Schema Validity Rates for AI-generated XML documents.
+Run this across a batch and you get one honest number — how many files passed — instead of an impression.
+
+**Takeaway:** A short Python script checks well-formedness and then schema validity, turning a pile of AI files into a countable pass rate.
 
 ---
 
 ## **21 Content**
 
-**The Self-Correction Loop: Compiler Error Reflection Prompts**
+**Handing the Errors Back**
 
-When an LLM produces an invalid XML document, human editors do not need to fix every tag manually. Instead, the computational pipeline can deploy a **self-correction reflection loop** (De Cristofaro & Zilio, 2025).
+When the AI's file fails validation, you do not have to repair it yourself. You can show the model its own error messages and ask again (De Cristofaro & Zilio, 2025).
 
-In a self-correction loop, the automated validation script captures the exact compiler error logs raised by Jing or Schematron and feeds those errors back into the LLM as a high-priority reflection prompt:
+This works better than it has any right to. The reason is section 02: the model never had the schema. An error message is a small, precise piece of the schema, delivered exactly where it is needed. You are supplying the missing rulebook one line at a time.
 
-| Step | Pipeline Stage | Operational Action in Self-Correction Loop |
-| --- | --- | --- |
-| 1 | Initial Generation | LLM converts raw catalogue notes into initial TEI XML draft |
-| 2 | Automated Audit | Jing parser tests draft against RELAX NG schema (`msdesc.rng`) |
-| 3 | Decision Gate | If 0 errors, commit file; if errors detected, capture compiler error log |
-| 4 | Reflection Prompt | Feed exact error log back into LLM with repair instructions |
-| 5 | Re-Generation | LLM outputs repaired XML file and resubmits to validation gate |
+| Step | What happens |
+| --- | --- |
+| 1 | The model produces a first draft header |
+| 2 | The validator checks it against `msdesc.rng` |
+| 3 | Zero errors, and you are done; otherwise capture the messages |
+| 4 | Paste the messages back to the model and ask for a repair |
+| 5 | The model returns a new file, which goes back through step 2 |
 
 ```
-Reflection Prompt Example:
-"Your previous TEI generation failed RELAX NG validation with the following 2 errors:
-1. line 14: element 'supportDesc' not allowed here; expected child of 'objectDesc'
-2. line 28: value 'ca. 550' does not conform to datatype xsd:date
-Please correct these errors and return ONLY the repaired, valid XML file."
+What you paste back:
+
+"Your TEI failed validation with these 2 errors:
+ 1. line 14: element 'supportDesc' not allowed here; expected inside 'objectDesc'
+ 2. line 28: value 'ca. 550' is not a valid date
+Return only the corrected XML."
 ```
 
-Research demonstrates that frontier LLMs can resolve over 80% of their structural syntax errors when provided with explicit compiler error reflection prompts (De Cristofaro & Zilio, 2025).
+Try this today on whatever your model got wrong. It is the fastest way to feel the difference between a system that cannot follow rules and one that was simply never given them.
 
-**Takeaway:** Feeding compiler error logs back into LLMs in an automated reflection loop enables neural models to self-correct structural schema violations.
+**Takeaway:** Feeding validation errors back to the model supplies the schema knowledge it never had, and repairs most structural failures without your editing a tag.
 
 ---
 
 ## **22 Content**
 
-**Benchmarking Self-Correction: How Many Passes to Reach Schema Validity?**
+**How Many Rounds Before It Gives Up**
 
-While self-correction loops are powerful, they are not infinite. De Cristofaro and Zilio (2025) benchmarked how many iterative self-correction passes are required for different LLM architectures to reach schema validity.
+The correction loop is not magic, and it does not always converge. De Cristofaro and Zilio (2025) measured how many rounds different models needed.
 
-The empirical data demonstrates distinct convergence trajectories:
-
-| Model Architecture | Pass 1 Validity (Zero-Shot) | Pass 2 Validity (1st Reflection) | Pass 3 Validity (2nd Reflection) | Permanent Failure Rate |
+| Model | Valid on first try | After one correction | After two | Never converges |
 | --- | --- | --- | --- | --- |
-| **ChatGPT-4** | 35% | 78% | 91% | 9% (Infinite loop on complex nesting) |
-| **Claude 3.5 Sonnet** | 88% | 98% | 100% | 0% (Rapid convergence) |
-| **Open-Source 8B Model**| 5% | 22% | 41% | 59% (Repeats identical syntax errors) |
+| Meaning-first (ChatGPT-4) | 35% | 78% | 91% | 9% |
+| Structure-first (Claude 3.5 Sonnet) | 88% | 98% | 100% | 0% |
+| Small open-source model | 5% | 22% | 41% | 59% |
 
-Claude 3.5 Sonnet converges to 100% validity within two reflection passes, making it exceptionally cost-effective in automated pipelines (De Cristofaro & Zilio, 2025). ChatGPT-4 improves dramatically on Pass 2, but occasionally enters degenerative loops where fixing one nesting error introduces another illegal HTML tag. Smaller open-source models lack the latent reasoning depth to interpret complex compiler logs, failing to converge even after multiple iterations.
+Three things in this table are worth your attention.
 
-**Takeaway:** Claude 3.5 converges to schema validity in 1–2 reflection passes, whereas ChatGPT-4 requires multiple passes and smaller models frequently fail to converge.
+The structure-first model was nearly always right immediately and always right by the second round. The meaning-first model improved sharply when corrected but kept a stubborn remainder, where repairing one error introduced another and the loop went in circles.
+
+The small open-source model is the interesting row. It did not merely start badly; it failed to improve. Reading a compiler message and working out what it implies about a tree structure is itself a hard reasoning task, and a model that cannot do it will resubmit the same mistake indefinitely (De Cristofaro & Zilio, 2025).
+
+The practical lesson: put a limit on your loop. Two or three attempts, then it goes to a human. Without a cap you can burn an afternoon watching a model retype the same error.
+
+**Takeaway:** Correction loops converge in one or two rounds for capable models and never converge for weak ones, so always cap the number of attempts.
 
 ---
 
 ## **23 Content**
 
-**Cross-Walking AI Outputs into Canonical Identifiers (CTS / CITE)**
+**Citations the Model Cannot Check**
 
-A critical test of AI capability in textual scholarship is whether neural models can generate valid Canonical Text Services (CTS) URNs and CITE identifiers (Blackwell & Smith, 2019; Tiepmar & Heyer, 2014).
+On Wednesday you built a CTS URN for your passage. It is a strict, multi-part identifier, and every part must be right for it to resolve (Blackwell & Smith, 2019; Tiepmar & Heyer, 2014).
 
-When an LLM is prompted to assign a CTS URN to an extracted biblical passage, it must correctly construct the multi-part identifier (`urn:cts:greekLit:tlg0527.tlg001.vat-gr-2125:1.1-1.5`).
+Ask a model to build one and you will get something with the right shape. Shape is not the problem. Three specific things go wrong.
 
-Common AI failure modes in canonical citation include:
+- **Invented namespaces.** `urn:cts:bible:` looks reasonable and does not exist; the real one is `urn:cts:greekLit:`.
+- **Wrong work numbers.** The model half-remembers a TLG number and assigns Homer's identifier to Isaiah. The URN is perfectly formed and points at the wrong text.
+- **Invented word positions.** A sub-reference may point to the fifth occurrence of a word that appears three times (Blackwell & Smith, 2019).
 
-- **Namespace Confusion:** Inventing fictional namespaces (e.g., `urn:cts:bible:` instead of `urn:cts:greekLit:`).
-- **Work ID Hallucination:** Misremembering TLG (Thesaurus Linguae Graecae) numbers (e.g., assigning `tlg0012` [Homer] to Isaiah).
-- **Sub-Reference Drift:** Hallucinating word token indices in sub-references (e.g., generating `@καὶ[5]` when the word *καὶ* occurs only three times in the verse) (Blackwell & Smith, 2019).
+Every one of these produces a citation that looks correct in your file and fails when someone tries to follow it. Since the entire purpose of a canonical URN is to still resolve in fifty years, a fabricated one is worse than none: it is a broken promise that looks like a kept one.
 
-To prevent citation drift, automated pipelines must cross-walk AI-generated URNs against authoritative CTS service inventories (`GetCapabilities` endpoints) before committing records to publication (Tiepmar & Heyer, 2014).
+The rule is the same as section 11. Do not accept an identifier from a model. Check it against the actual CTS service before it goes in the file (Tiepmar & Heyer, 2014).
 
-**Takeaway:** AI-generated CTS URNs must be validated against authoritative CTS capability inventories to prevent hallucinated work IDs and token index drift.
+**Takeaway:** Models produce correctly shaped CTS URNs that point nowhere, so every generated identifier must be resolved against a real service before it is committed.
 
 ---
 
 ## **24 Content**
 
-**Reconciling AI Discrepancies with the Manual Ground Truth**
+**Sorting the Differences**
 
-Today's central analytical exercise is performing a systematic discrepancy reconciliation between your manual ground truth and the AI-generated metadata records.
+Now the core exercise. Put your validated header beside the AI's and go through the differences one at a time. `git diff` will line them up for you, using the same tool you learned in Lesson 1.1.
 
-Using computational diff tools (such as `git diff` or Python's `difflib`), you will align your validated Tuesday/Wednesday XML against the AI output and classify every discrepancy into one of four categories:
+Every difference goes into one of four categories, and choosing the category is the analytical work.
 
-1. **AI Error (Structural):** Illegal XML nesting, unquoted attributes, bad entity escaping, or non-ISO dates.
-2. **AI Error (Factual):** Fabricated historical dates, false scribal attributions, or incorrect physical dimensions.
-3. **AI Superiority (Completeness):** Instances where the AI successfully recognized a subtle historical detail or bibliographic cross-reference that you overlooked during manual inspection.
-4. **Valid Editorial Divergence:** Differences in descriptive wording where both the human and AI interpretations are defensible.
+1. **Structural error.** Illegal nesting, a bad attribute, a date in the wrong format. The schema found this one for you.
+2. **Factual error.** A fabricated date, a scribal hand that does not exist, a wrong shelfmark. Only you can find this one.
+3. **The AI was right and you were not.** It caught a detail you missed. This happens, it is not embarrassing, and recording it honestly is what makes the exercise research rather than a defence of your own work.
+4. **Legitimate disagreement.** Both descriptions are defensible. A broader date range is not an error just because you chose a narrower one.
 
 ```
-Discrepancy Audit Log Example:
-- Line 42 (<origDate>): Human="0550-0599" | AI="0500-0600" -> [Valid Divergence: AI used broader century range]
-- Line 58 (<supportDesc>): Human="parchment" | AI="parchment" -> [Match: 100% Agreement]
-- Line 89 (<handNote>): Human="h1, h2, h3" | AI="h1" -> [AI Error: Omission of marginal hands h2 and h3]
-- Line 112 (<decoNote>): Human="None" | AI="Hexaplaric asterisks" -> [AI Superiority: AI caught marginal signs]
+Discrepancy log — worked example:
+  origDate     you "0550-0599"  | AI "0500-0600"      -> legitimate disagreement
+  supportDesc  you "parchment"  | AI "parchment"      -> match
+  handNote     you "h1, h2, h3" | AI "h1"             -> factual error: two hands missed
+  decoNote     you none         | AI "marginal signs" -> AI was right; verify, then adopt
 ```
 
-Documenting these discrepancies produces the empirical data required for your Topic 02 comparative report.
+Keep the log as you go. It is the evidence for tonight's Comparison Post, and reconstructing it from memory afterwards does not work.
 
-**Takeaway:** Reconciling AI outputs against human ground truth reveals AI errors, omissions, and occasional surprising discoveries, providing empirical data for editorial evaluation.
+**Takeaway:** Every difference between your header and the AI's is a structural error, a factual error, a genuine AI catch, or a legitimate disagreement — and the sorting is the analysis.
 
 ---
 
 ## **25 Content**
 
-**The Economics and Scalability of AI Cataloguing**
+**What It Costs**
 
-Beyond philological fidelity, scholarly editors must evaluate the practical economics and computational scalability of AI-assisted cataloguing pipelines (De Cristofaro & Zilio, 2025).
+The case for AI cataloguing is economic before it is intellectual, so the numbers deserve to be stated plainly (De Cristofaro & Zilio, 2025).
 
-A comprehensive economic assessment balances API infrastructure costs against human labor hours:
-
-| Workflow Phase | Manual Method (Tue) | Deterministic Method (Wed) | AI-Assisted Method (Fri) |
+| | Manual (Tue) | Deterministic (Wed) | AI-assisted (Fri) |
 | --- | --- | --- | --- |
-| **Cataloguing Time per Codex** | 8–15 Hours | 1–2 Hours (Validation & Linking) | 30–60 Seconds (Generation) |
-| **Human Labor Cost** | High (Expert Postdoc/Faculty) | Moderate (Technical Editor) | Low (Review & Audit Only) |
-| **Computational API Cost** | $0.00 | $0.00 (Open-source tools) | ~$0.05–$0.20 per record |
-| **Scalability across 10,000 MSS** | Impossible without massive grants | Highly scalable if structured | Instantaneous batch processing |
-| **Error Rate (Structural)** | Moderate (Human typographical) | 0% (Enforced by schema gate) | Variable (5–20% without self-repair) |
-| **Error Rate (Factual)** | Very Low (Expert verification) | Very Low (Authoritative LOD) | High (Requires human audit) |
+| Time per manuscript | 8 to 15 hours | 1 to 2 hours | under a minute |
+| Who has to do it | A trained specialist | A technical editor | Anyone, then a reviewer |
+| Cost per record | Their salary | Nothing; the tools are free | A few cents |
+| Across 10,000 manuscripts | Not fundable | Feasible if structured | Runs overnight |
+| Structural error rate | Some typing errors | Zero; the schema forbids them | 5% to 20% before repair |
+| Factual error rate | Very low | Very low | High; must be audited |
 
-AI-assisted cataloguing dramatically reduces data entry costs, but shifts the human labor burden from *authoring* to *auditing and error reconciliation* (De Cristofaro & Zilio, 2025).
+Read the last two rows together, because they carry the argument. AI removes the structural errors cheaply and multiplies the factual ones. The work does not disappear. It changes shape, from writing records to checking them (De Cristofaro & Zilio, 2025).
 
-**Takeaway:** AI cataloguing reduces processing time from hours to seconds, shifting human expertise from manual data entry to critical schema auditing and fact-checking.
+Whether that is a good trade depends on something the table cannot show: whether the checking actually happens. An audited pipeline is a genuine advance. The same pipeline unaudited is a fast way to fill a catalogue with confident fiction.
+
+**Takeaway:** AI cuts cataloguing from hours to seconds and shifts the human effort from authoring to auditing, which is only an improvement if the auditing is real.
 
 ---
 
 ## **26 Content**
 
-**Ethics, Provenance, and AI Attribution in Digital Editions**
+**Saying So in the File**
 
-When artificial intelligence models contribute to the generation of cultural heritage metadata, intellectual transparency demands explicit documentation of algorithmic provenance (De Cristofaro & Zilio, 2025; TEI Consortium, 2025).
+If a model drafted part of your description, the edition must say so. This is not a disclaimer. It is provenance, which you already accept as a scholarly obligation for manuscripts and which applies equally to your own work (De Cristofaro & Zilio, 2025; TEI Consortium, 2025).
 
-A scholarly digital edition must never conceal the role of AI. If an LLM generated the initial manuscript description or extracted entities, this contribution must be formally recorded in the `<teiHeader>` using `<respStmt>` and `<change>` audit logs:
+The argument is straightforward. A future reader needs to know which claims came from an editor who examined the object and which came from a system that predicted plausible text. Those deserve different levels of trust, and the difference is invisible in the finished markup unless you record it.
+
+TEI already has the elements, and you met both on Tuesday.
 
 ```xml
-<teiHeader>
-  <fileDesc>
-    <titleStmt>
-      <title>Diplomatic Edition of Codex Marchalianus (Vat. gr. 2125)</title>
-      <respStmt>
-        <resp>Manual codicological ground truth and human editorial audit</resp>
-        <name xml:id="JD">Jane Doe</name>
-      </respStmt>
-      <respStmt>
-        <resp>AI-assisted metadata extraction and entity linking</resp>
-        <orgName xml:id="AI_Claude">Anthropic Claude 3.5 Sonnet (API Version 2024-10-22)</orgName>
-      </respStmt>
-    </titleStmt>
-  </fileDesc>
-  
-  <revisionDesc>
-    <change when="2026-09-11" who="#AI_Claude">
-      Initial automated draft of msDesc generated via Claude 3.5 Sonnet using system prompt v2.1.
-    </change>
-    <change when="2026-09-11" who="#JD">
-      Manual audit, error reconciliation, and RELAX NG schema validation certification.
-    </change>
-  </revisionDesc>
-</teiHeader>
+<titleStmt>
+  <title>Diplomatic Edition of Codex Marchalianus (Vat. gr. 2125)</title>
+  <respStmt>
+    <resp>Codicological description and editorial audit</resp>
+    <name xml:id="JD">Jane Doe</name>
+  </respStmt>
+  <respStmt>
+    <resp>AI-assisted metadata extraction</resp>
+    <orgName xml:id="AI_model">Claude 3.5 Sonnet (version 2024-10-22)</orgName>
+  </respStmt>
+</titleStmt>
+
+<revisionDesc>
+  <change when="2026-09-11" who="#AI_model">Initial automated draft of msDesc.</change>
+  <change when="2026-09-11" who="#JD">Audited, corrected, and validated against msdesc.rng.</change>
+</revisionDesc>
 ```
 
-Explicit algorithmic attribution preserves the historical integrity of the scholarly record, ensuring future researchers know exactly which assertions were generated by neural networks and verified by human editors (De Cristofaro & Zilio, 2025).
+Record the model version too. "An AI wrote this" will mean very little in ten years; a version and a date can be checked.
 
-**Takeaway:** Transparency requires documenting AI models in `<respStmt>` and recording automated drafting steps in `<revisionDesc>` change logs.
+**Takeaway:** Record AI contributions in `<respStmt>` and `<revisionDesc>` with model versions and dates, because algorithmic provenance is provenance.
 
 ---
 
 ## **27 Content**
 
-**Building the Production Pipeline: CI/CD for Human-in-the-Loop Cataloguing**
+**Making the Check Run Itself**
 
-The culmination of this week's technical learning is the design of an automated **Continuous Integration / Continuous Deployment (CI/CD)** pipeline for hybrid, human-in-the-loop manuscript cataloguing (De Cristofaro & Zilio, 2025; Cummings, 2018).
+One last step turns all of this into something that holds up over a long project. The schema check can run automatically, every time anything changes.
 
-In modern digital publishing, repositories use automated workflows (such as GitHub Actions) to govern the cataloguing lifecycle:
+You already know the pieces. Git records a commit; a service watches the repository; when a commit arrives, it runs the validator. If the file fails, the change is rejected and the editor is told. Nobody has to remember to check.
 
 ```yaml
-# Conceptual GitHub Actions CI/CD Workflow for Automated TEI Auditing
-name: TEI Metadata Validation Gate
+# Runs on every commit: validate all TEI files against the schema
+name: TEI Validation Gate
 on: [push, pull_request]
 
 jobs:
-  validate-tei:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Install Jing RELAX NG Validator
+      - uses: actions/checkout@v4
+      - name: Install the RELAX NG validator
         run: sudo apt-get install -y jing
-
-      - name: Validate AI-Generated TEI Files
-        run: |
-          echo "Auditing TEI XML files against msdesc.rng..."
-          jing schemas/msdesc.rng src/modules/Topic_02_Cataloguing/*.xml
-
-      - name: Audit Schematron Cross-References
-        run: |
-          python3 scripts/audit_schematron.py --dir src/modules/Topic_02_Cataloguing/
+      - name: Check every TEI file
+        run: jing schemas/msdesc.rng src/**/*.xml
 ```
 
-When an AI model commits an updated manuscript description to Git, the CI/CD pipeline immediately executes the Jing RELAX NG validator and Schematron scripts. If the AI commit violates schema rules, the build fails automatically, blocking publication and notifying the human editor to intervene (Cummings, 2018).
+You do not need to write one of these for this course. You do need to see what it implies (Cummings, 2018).
 
-**Takeaway:** CI/CD pipelines automate RELAX NG and Schematron validation on every Git commit, creating an automated gate that prevents invalid AI markup from entering production.
+The gate treats human and machine contributions identically. Neither an AI draft nor a tired editor at midnight can put an invalid file into the published edition, because the rule is enforced by the repository rather than by anyone's vigilance. That is the structural answer to a problem that discipline alone does not solve.
+
+**Takeaway:** An automated validation gate on every commit enforces the schema on human and AI contributions alike, without relying on anyone remembering to check.
 
 ---
 
 ## **28 Content**
 
-**Hands-On: Running the AI Metadata Extraction on Your Passage**
+**Today's Lab: Your Passage, Your Comparison**
 
-Now you execute the comparative AI laboratory experiment for Meeting #5.
+Now run the experiment on your own witness. Work through this in order.
 
-Follow this experimental protocol:
+1. **Gather your input.** Put your raw notes and description of the manuscript into a plain text file. Use what you had before you encoded anything — the object, not your header.
+2. **Prompt the model.** Use the structure from section 04: state the role, name the permitted elements, demand XML only, keep the temperature low. Paste your notes at the end.
+3. **Save the output untouched.** Call it `witness_ai.xml`. Do not tidy it. The unedited version is your evidence.
+4. **Validate it and write down the number.** Add the same `xml-model` line you used on Wednesday, open the Problems panel, and record the error count **before fixing anything.** That number is your first result and it cannot be recovered later.
+5. **Try one correction round.** Paste the errors back and ask for a repair, as in section 21. Record the new count.
+6. **Score the six fields.** Repository, shelfmark, material, extent, number of hands, date. Mark each right, wrong or invented, or missing, against your own validated header.
 
-1. **Prepare Raw Input:** Extract the raw, unformatted cataloguing notes and Latin/English description for your primary witness into a plain text file.
-2. **Execute Prompting:** Run the extraction prompt across two frontier models:
-   - **Pass A (ChatGPT-4):** Execute the structured codicological prompt with `temperature=0.2`.
-   - **Pass B (Claude 3.5 Sonnet):** Execute the identical prompt and `macro.xml` reference dictionary.
-3. **Capture Raw Outputs:** Save the unedited XML outputs as:
-   - `03a_Lesson_2.3_AI_Draft_GPT4.xml`
-   - `03a_Lesson_2.3_AI_Draft_Claude35.xml`
-4. **Execute Validation Scoring:** Run the programmatic validation script against both files, recording well-formedness errors, RELAX NG schema violations, and Schematron warnings.
-5. **Execute Self-Correction Pass:** For any file that failed validation, feed the compiler error logs back into the model in a reflection prompt and capture the repaired output.
-6. **Score Precision & Recall:** Compare the final AI files against your Tuesday manual ground truth, calculating the F1-score across core metadata fields.
+Commit both files when you are done. If time runs short, steps 1 through 4 are the ones that matter — an unfixed AI file with its error count written down is a complete result on its own.
 
-Save all test files and your scoring matrix in your personal Git branch.
-
-**Takeaway:** The hands-on lab executes structured AI metadata extractions across ChatGPT-4 and Claude 3.5, scoring raw outputs, self-correction passes, and F1 metrics against ground truth.
+**Takeaway:** Generate a header for your own witness, record its error count before touching it, then score six fields against your validated file.
 
 ---
 
 ## **29 Content**
 
-**Compiling the Topic 02 Comparative Evaluation Report**
+**Writing It Up**
 
-Before concluding today's session, you will synthesize your findings from Tuesday, Wednesday, and Friday into the **Topic 02 Comparative Evaluation Report**.
+Your Comparison Post is due tonight, and you now have everything it needs. It draws on all three days, so present them together.
 
-Your report must present a clear, quantitative comparison across the three steps of the cycle:
-
-| Metric / Dimension | Manual Method (Tue) | Deterministic Method (Wed) | AI-Assisted Method (Fri) |
+| | Manual (Tue) | Deterministic (Wed) | AI-assisted (Fri) |
 | --- | --- | --- | --- |
-| Authoring / Execution Time | 4.5 Hours | 45 Minutes | 45 Seconds |
-| Initial Schema Validity Rate | N/A (Unvalidated) | 100% (After manual fix) | Pass 1: 60% / Pass 2: 95% |
-| RELAX NG Error Count (Initial) | 7 Errors | 0 Errors | 12 Errors (GPT) / 1 (Claude) |
-| Schematron Pointer Broken Rate | 3 Broken IDs | 0 Broken IDs | 4 Broken IDs |
-| Entity Disambiguation Precision | 100% (Manual VIAF) | 100% (Certified LOD) | 85% (Factual hallucinations) |
-| F1 Codicological Score | 1.00 (Reference) | 1.00 (Ground Truth) | 0.88 (Composite F1) |
+| Time taken | hours | under an hour | seconds |
+| Schema errors, first check | not checked | your Wednesday count | your AI count today |
+| Schema errors after correction | 0 | 0 | your second count |
+| Fields right out of six | reference | reference | your score |
+| Facts that had to be verified by hand | all | all | all |
 
-Follow the standard RELS 398 analytical structure:
+Then four short sections.
 
-- **§1 Methodological Overview:** State the passage, witness, and tools evaluated.
-- **§2 Quantitative Results:** Present the validation error counts, F1-scores, and convergence passes.
-- **§3 Qualitative Error Analysis:** Detail specific structural hallucinations and factual misattributions.
-- **§4 Editorial Recommendation:** Formulate an evidence-based recommendation on how your project will deploy AI tools responsibly within a schema-governed pipeline.
+- **What you did.** Your witness, the model you used, the prompt you gave it.
+- **The numbers.** Error counts before and after correction, and your six-field score. Give the actual figures, not impressions.
+- **What went wrong, specifically.** Name the errors. "It invented a shelfmark" is an argument; "the output had problems" is not.
+- **What you would do next time.** Where in your own project would you let a model draft, and what would you refuse to let it touch? Base the answer on your numbers.
 
-**Takeaway:** The comparative evaluation report synthesizes quantitative error rates, F1-scores, and qualitative analyses across the manual, deterministic, and AI passes.
+The last row of the table is the one to think hardest about. Every method required a human to check the facts. Nothing today changed that.
+
+**Takeaway:** The report presents actual error counts and named failures across all three days, and concludes with a recommendation grounded in your own numbers.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: The Schema as the Indispensable Anchor of AI Philology**
+**What the Week Was For**
 
-This week has walked you through the full arc of computational manuscript cataloguing:
+Step back and look at what you built in three days.
 
-- **Tuesday (Manual):** You hand-authored a complete TEI Header, confronting the material complexities of physical codices and establishing an authoritative human ground truth (Le Bœuf, 2012; TEI Consortium, 2025).
-- **Wednesday (Deterministic):** You subjected your markup to the uncompromising gate of RELAX NG and Schematron validation in VS Code, linked your entities to RDF knowledge graphs, and established persistent CTS URNs (Cummings, 2018; Koho et al., 2021; Blackwell & Smith, 2019).
-- **Friday (AI-Assisted):** You deployed frontier Large Language Models and computer vision pipelines to automate cataloguing, discovering both the immense speed of neural generation and the critical necessity of schema auditing (De Cristofaro & Zilio, 2025; Ignatowicz et al., 2025).
+- **Tuesday, by hand.** You wrote a TEI header yourself and found out how much a manuscript demands before it can be described at all (TEI Consortium, 2025).
+- **Wednesday, by rule.** You handed your file to a schema and let it find what you could not see in your own work (Cummings, 2018; Blackwell & Smith, 2019).
+- **Friday, by machine.** You had a model do the same job in seconds, and then you measured it, which is a thing you could only do because of Tuesday and Wednesday (De Cristofaro & Zilio, 2025; Ignatowicz et al., 2025).
 
 ```
-The Complete Three-Step Comparative Cycle — Topic 02:
-[X] Tue: Manual — Hand-written TEI Header and msDesc in VS Code (Human Ground Truth)
-[X] Wed: Deterministic — RELAX NG & Schematron validation in VS Code, RDF LOD, CTS URNs
-[X] Fri: AI-Assisted — LLM metadata extraction scored against your manual baseline
+Topic 02, complete:
+  Tue  manual        hand-authored TEI header          -> your ground truth
+  Wed  deterministic schema validation to 0 errors     -> your structural baseline
+  Fri  AI-assisted   generated header, scored          -> measured against both
 ```
 
-The grand conclusion of Topic 02 is that **Artificial Intelligence does not replace text encoding schemas; it makes them more essential than ever.** In an era where neural networks can generate infinite volumes of plausible, probabilistic text, the formal, deterministic schema—enforced by RELAX NG, Schematron, and rigorous human editorial judgement—is the sole anchor that preserves academic truth, structural integrity, and historical reality in digital scholarship.
+Here is the conclusion the week has been building toward, and it is not the one people expect. AI does not make schemas less important. It makes them essential.
 
-**Takeaway:** Generative AI accelerates cataloguing, but deterministic schemas and human editorial judgement remain the indispensable anchors of scholarly integrity.
+When markup was slow and expensive, structural mistakes were rare because so little got produced. A system that generates plausible TEI in seconds can produce wrong markup faster than any human can read it. The formal schema is what stands between that output and the published record — together with an editor who knows the difference between a valid file and a true one.
+
+That editor is what this course is training you to be. The machine got faster this week. The judgement did not become less necessary; it became the only part that was ever scarce.
+
+**Takeaway:** Generative AI makes deterministic schemas and human editorial judgement more necessary, not less, because it can produce plausible errors faster than anyone can read them.
 
 ---
 
