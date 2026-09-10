@@ -65,7 +65,29 @@
   8. **`labs/` is a nested git repo with no remote.** `witness.xml` and the new demo generator/schema are committed there but unbacked-up. Decide: give it a remote, gitignore it from 398, or move it out of the tree.
   9. **Regenerate slide images for Lessons 2.2 and 2.3.** The 30 images per lesson date from 2026-08-26 and depict superseded content — 2.2's image 20 is titled "CTS URN Anatomy", a section that no longer exists. In flight as of 2026-09-10 evening.
   10. **`lesson_2_1.py`'s question names do not match its markdown section titles** (they use loose thematic names), unlike 1.1, 2.2 and 2.3 which now follow the strict one-to-one convention. Worth normalising.
-  11. **The 2.3 infographic is now stale** — it was regenerated 2026-09-09 for the *previous* 2.3, and its "Greek Register" panel (Trismegistos/Pinakes/Diktyon) no longer matches the rebuilt lesson. Needs regenerating after the images.
+  11. ~~**The 2.3 infographic is now stale**~~ — **DONE 2026-09-10**: regenerated for the rebuilt lesson and deployed (commit 73114db). Verified live by hash.
+  12. **Sandbox blocks Chrome downloads.** See the note below before running any media generation.
+  13. ~~**The 2.3 infographic is now stale**~~ — it was regenerated 2026-09-09 for the *previous* 2.3, and its "Greek Register" panel (Trismegistos/Pinakes/Diktyon) no longer matches the rebuilt lesson. Needs regenerating after the images.
+
+### Sandbox caveat: Chrome cannot download to ~/Downloads
+
+The workspace sandbox mounts everything outside `~/projects/RELS` **read-only**, including `~/Downloads`. Chrome's default download target is therefore unwritable, and any media-generation script that relies on a browser download will report an empty or missing file **even though generation succeeded**.
+
+Symptom seen 2026-09-10: `generate_lesson_media.py` printed "infographic.png downloaded empty; refusing to keep it" after the infographic had already been generated and paid for in quota.
+
+Fix: redirect Chrome's download path into the workspace on the **same CDP session** as the download:
+
+```python
+cdp = ctx.new_cdp_session(page)
+cdp.send("Browser.setDownloadBehavior",
+         {"behavior": "allow",
+          "downloadPath": "/home/kmpenner/projects/RELS/398/scratch/chrome-downloads",
+          "eventsEnabled": True})
+```
+
+The setting does not persist across separate `connect_over_cdp` calls, so it must be set each time. `notebook_ui._download_from_card`'s fallback then searches `~/Downloads` and `/tmp` only, so it will not find the file — check the redirect directory directly.
+
+Chrome itself also had to be launched with `danger-full-access`: it needs to write its profile lock in `~/.gemini/scholar_profile`, which is likewise outside the workspace.
 
 ### 2026-09-10 — Lessons 2.2 and 2.3 rebuilt away from the Greek-manuscript model
 
