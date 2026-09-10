@@ -22,9 +22,9 @@ Course 51185, Section 2. Verified against the rendered pages after deploy, not a
 
 | Item | cmid | State |
 |---|---|---|
-| Lesson 2.2 Notes (PDF) | 1431218 | rebuilt |
+| Lesson 2.2 Notes (PDF) | 1431288 | rebuilt (1791 correction) |
 | Lesson 2.3 Notes (PDF) | 1431219 | rebuilt |
-| Lesson 2.2: Interactive Quiz | 1431227 | rebuilt bank, 30 slots |
+| Lesson 2.2: Interactive Quiz | 1431287 | rebuilt bank, 30 slots |
 | Lesson 2.3: Interactive Quiz | 1431229 | rebuilt bank, 30 slots |
 | Lesson 2.3: Infographic (label) | 1431247 | regenerated |
 | Authority Control Guide (label) | 1431174 | live |
@@ -48,7 +48,7 @@ Ken: *"We need full content rebuild before Friday."*
 The cohort is three students, none on a Greek literary manuscript:
 
 - **Jay** — an Emily Dickinson manuscript
-- **Olyvia** — an 18th-century French royal act
+- **Olyvia** — a French decree of **1791** (Revolutionary, post-1789)
 - **Andromeda** — the 1752 Peace and Friendship Treaty
 
 Both lessons taught Greek sources as *the* authority tools and CTS URNs as *the* citation system. Neither applies to any of the three, and Module 2's workshop rubric — already rewritten this session — grades authority differently.
@@ -159,6 +159,25 @@ Researched this session; full reports in `private/student_projects/` (gitignored
 - Slide images are titled with rendered section headings, so **any lesson rewrite invalidates its images.**
 
 ---
+
+## 8b. Correction made late in the session: Olyvia's date
+
+Ken noted the decree is **1791**, not "18th century". That is substantive, not cosmetic: 1791 sits past the 1789 line that divides the Archives nationales' two reading rooms and two documentary regimes, so her guidance was wrong in kind.
+
+Corrected and redeployed (commit `a693994`): the workshop description, the Authority Control card, 2.2's content, 2.2's bank, the notes PDF, and the 2.2 quiz (new cmid **1431287**; notes **1431288**).
+
+Summary of what is now taught for her document:
+
+- **Pierrefitte**, not Paris/Caran — post-1789. For her case the two sources finally agree, unlike pre-1789 material where they conflict.
+- **Série D**, *Comité des décrets, procès-verbaux et archives (1789–an II)*, cotes `D/I§1/1`–`D/I§1/39`. Finding aid `FRAN_IR_002914`, kept at `private/student_projects/research_sources/`.
+- **Genre**: the instrument is a *décret*, and under the 1791 constitution it required the king's *sanction* to become law. The Ancien Régime terms and their wax/lace material tells do **not** apply.
+- **Dating**: the Ancien Régime year-start trap cannot reach 1791; the era's live trap is the Republican calendar.
+
+The same pass propagated a correction that had been known since the research but never reached the live materials: **Jay cannot do a letter** (Houghton's Dickinson letters are network-restricted; the poems are open access). The workshop description had still said "a letter of Emily Dickinson".
+
+### Verification trap found while doing this
+
+**Moodle question text and label intros live in textareas / TinyMCE, so `inner_text()` returns false negatives for them.** I twice concluded that 1791 was missing from the deployed quiz when it was present. Reading `textarea.value` showed all five probes immediately. Probe form fields, not rendered text, for anything inside an editor. This is the fourth time this session that a verification method, not the underlying operation, produced the wrong answer.
 
 ## 9. If you only do one thing
 
