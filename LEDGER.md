@@ -60,14 +60,14 @@
   3. Compile interactive XML (`03_Interactive_Lesson_3.3.xml`) and HTML player for Lesson 3.3.
   4. ~~Correct `03a_Lesson_2.2_Lesson_Content.md` (Red Hat XML does not validate RELAX NG)~~ — **done 2026-09-10**, lint clean.
   5. ~~Fix `populate_moodle_topic.py` bank-import ordering~~ — **done 2026-09-10** (`shared` a3584b3): restructured into 3a sync content → 3b delete quizzes → 3c purge+import → 3d create quizzes. Also fixed the same bug on the Weekly Quiz path and moved Notes-PDF restrictions to after quiz recreation, and excluded attempt-protected quizzes from the purge.
-  6. ~~Regenerate Lesson 2.3 companion media~~ — **done**: regenerated 2026-09-09, deployed to live Moodle 2026-09-10 (infographic cmid 1431118, brief audio 1431119, detailed audio 1431121; new cmids because labels/resources are delete-and-recreate).
+  6. ~~Regenerate Lesson 2.3 companion media~~ — **done**: regenerated 2026-09-09, deployed to live Moodle 2026-09-10 (brief audio 1431119, detailed audio 1431121; new cmids because labels/resources are delete-and-recreate). **The infographic was later regenerated again for the rebuilt 2.3 — see item 11 — and its live cmid is now 1431247 (1431118 is dead).**
   7. Remaining novice rewrites: 16 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13). Modules 03–07 were hand-authored and already read in range. (1.1, 2.1, 2.2, 2.3 rewritten.)
   8. **`labs/` is a nested git repo with no remote.** `witness.xml` and the new demo generator/schema are committed there but unbacked-up. Decide: give it a remote, gitignore it from 398, or move it out of the tree.
-  9. **Regenerate slide images for Lessons 2.2 and 2.3.** The 30 images per lesson date from 2026-08-26 and depict superseded content — 2.2's image 20 is titled "CTS URN Anatomy", a section that no longer exists. In flight as of 2026-09-10 evening.
+  9. **Regenerate slide images for Lessons 2.2 and 2.3.** The 30 images per lesson date from 2026-08-26 and depict superseded content — 2.2's image 20 is titled "CTS URN Anatomy", a section that no longer exists. NOT in flight; stopped at Ken's instruction. ~15 images of quota remain unspent, and Ken asked for **2.3 to be prioritised**. Fix the notebook sources first (see the source-staleness note). Both lessons are currently deployed text-only.
   10. **`lesson_2_1.py`'s question names do not match its markdown section titles** (they use loose thematic names), unlike 1.1, 2.2 and 2.3 which now follow the strict one-to-one convention. Worth normalising.
   11. ~~**The 2.3 infographic is now stale**~~ — **DONE 2026-09-10**: regenerated for the rebuilt lesson and deployed (commit 73114db). Verified live by hash.
   12. **Sandbox blocks Chrome downloads.** See the note below before running any media generation.
-  13. ~~**The 2.3 infographic is now stale**~~ — it was regenerated 2026-09-09 for the *previous* 2.3, and its "Greek Register" panel (Trismegistos/Pinakes/Diktyon) no longer matches the rebuilt lesson. Needs regenerating after the images.
+  14. **The 2.2 infographic is stale** — still the 2026-09-09 build for the previous 2.2, and it is live.
 
 ### Sandbox caveat: Chrome cannot download to ~/Downloads
 
