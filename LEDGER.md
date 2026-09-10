@@ -63,6 +63,23 @@
   6. ~~Regenerate Lesson 2.3 companion media~~ — **done**: regenerated 2026-09-09, deployed to live Moodle 2026-09-10 (infographic cmid 1431118, brief audio 1431119, detailed audio 1431121; new cmids because labels/resources are delete-and-recreate).
   7. Remaining novice rewrites: 16 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13). Modules 03–07 were hand-authored and already read in range. (1.1, 2.1, 2.2, 2.3 rewritten.)
   8. **`labs/` is a nested git repo with no remote.** `witness.xml` and the new demo generator/schema are committed there but unbacked-up. Decide: give it a remote, gitignore it from 398, or move it out of the tree.
+  9. **Regenerate slide images for Lessons 2.2 and 2.3.** The 30 images per lesson date from 2026-08-26 and depict superseded content — 2.2's image 20 is titled "CTS URN Anatomy", a section that no longer exists. In flight as of 2026-09-10 evening.
+  10. **`lesson_2_1.py`'s question names do not match its markdown section titles** (they use loose thematic names), unlike 1.1, 2.2 and 2.3 which now follow the strict one-to-one convention. Worth normalising.
+  11. **The 2.3 infographic is now stale** — it was regenerated 2026-09-09 for the *previous* 2.3, and its "Greek Register" panel (Trismegistos/Pinakes/Diktyon) no longer matches the rebuilt lesson. Needs regenerating after the images.
+
+### 2026-09-10 — Lessons 2.2 and 2.3 rebuilt away from the Greek-manuscript model
+
+Ken: "We need full content rebuild before Friday." The course enrols three students, none on a Greek literary manuscript, and both lessons taught Greek sources as *the* authority tools. See `private/student_projects/WORKSHOP_REVISION_PLAN.md`.
+
+Settled by Ken: authority teaching belongs in **2.2** (where authority control is introduced); **2.3** covers only its four objectives — find the information, record it in the header, generate it with an LLM, compare machine against manual; both keep the 30-section model; trim the extraneous.
+
+Done: content, question banks, notes PDFs, interactive XML and HTML players for both lessons, all rebuilt and verified. Commits `5143aa1`, `24a58c0`, `6b68bc9`.
+
+Two findings worth carrying forward:
+
+- **The 2.2 question bank was already stale before this work** — 25 of 30 question titles mismatched the lesson, dating from `220b5e7`, which rewrote the content without rebuilding the bank. Several old questions tested sections that had ceased to exist. Any lesson rewrite must rebuild its bank in the same commit.
+- **The image pipeline's staleness guard works, and `--replace-source` is the wrong lever for it.** `generate_lesson_images.py` refused to run because the notebook still held the old 2.2 text, warning the deck would illustrate superseded content. `--replace-source` means "deliberately reuse the stale upload" — exactly backwards. The correct fix is `notebook_ui.replace_source()` to refresh the notebook, then reconcile the `.sources.json` digest, which records the hash of what is actually in the notebook.
+
 
 ---
 
