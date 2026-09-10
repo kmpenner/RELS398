@@ -815,8 +815,8 @@
 <td style="text-align: left;"><strong>Trismegistos</strong> (the text as a documented object), <strong>Pinakes</strong> (the work and the manuscripts carrying it), <strong>Diktyon</strong> (the physical Greek codex), and <strong>Pleiades</strong> for ancient places.</td>
 </tr>
 <tr>
-<td style="text-align: left;">An <strong>18th-century French royal act</strong></td>
-<td style="text-align: left;"><strong>Archives nationales</strong> cotes; <strong>Gallica / BnF ARK</strong> identifiers of the form <code>ark:/12148/...</code>; <strong>FranceArchives</strong>.</td>
+<td style="text-align: left;">A <strong>French act</strong> (Ancien Régime or Revolutionary)</td>
+<td style="text-align: left;"><strong>Archives nationales</strong> cotes; <strong>Gallica / BnF ARK</strong> identifiers of the form <code>ark:/12148/...</code>; <strong>FranceArchives</strong>. The series differs by era — Y (Châtelet) for pre-1789 police acts, D (Comité des décrets) for 1789–an II.</td>
 </tr>
 <tr>
 <td style="text-align: left;">A <strong>Peace and Friendship Treaty document</strong></td>
@@ -1002,7 +1002,7 @@
 <p>What happens in three years when the library updates its web server? What happens when the library renames its website, reorganizes its digital collections, or goes through a rebranding campaign?</p>
 <p><strong>404 Not Found. The link dies.</strong></p>
 <p>This disease is known as <strong>link rot</strong>. In computational scholarship, relying on standard web URLs is fatal. If the citations in your digital edition break after five years, your scholarship is useless to the next generation of researchers.</p>
-<p>Ancient texts have survived for thousands of years. Homer's <em>Iliad</em> has been read for nearly three millennia; the Greek Septuagint for over two thousand years. How can we build digital citations that last as long as the manuscripts themselves? We need citation systems that are independent of temporary web server addresses.</p>
+<p>Your three documents have survived two to three centuries, and some have outlived every catalogue that ever described them. The Emily Dickinson poem survived because Houghton has kept it; the 1791 decree survives in the Archives nationales; the 1752 treaty survives in a printed copy because no original does. Each will need to be citable in another century. How do you build a citation that lasts as long as the object? Not with a web address.</p>
 <p><strong>Vocabulary.</strong> <em>Link rot</em> — the phenomenon where web links become broken and point to missing resources (404 errors) as servers and website structures change over time. <em>Ephemerality</em> — the fragile, short-lived nature of standard web URLs.</p>
 <p><strong>Takeaway:</strong> Standard web URLs are fragile and prone to link rot; scholarly editions require persistent, location-independent citation architectures that outlive server reboots.</p>
 <hr />
@@ -1057,7 +1057,7 @@
 <p>Consider any document you might edit:</p>
 <ul>
 <li>A <strong>treaty</strong> has articles and clauses, and it exists in several exemplars — a printed proclamation, manuscript copies in council registers, a transcription sent to London. The <em>text</em> of the treaty is one thing; each <em>carrier</em> is another.</li>
-<li>A <strong>French royal act</strong> has a preamble, a dispositif, and a dating clause. It may survive as a sealed parchment original, as a registration in a court's register, and as a printed piece in a <em>recueil</em>. Three carriers, one act.</li>
+<li>A <strong>French act</strong> has a preamble, a dispositif, and a dating clause. Before 1789 a royal <em>édit</em> or <em>ordonnance</em> might survive as a sealed parchment original, as a registration in a court's register, and as a printed piece in a <em>recueil</em>. After 1789 the instrument is a <em>décret</em> of the Assemblée, and it may survive as a printed placard, an entry in the <em>procès-verbaux</em>, or a ministerial circular. Either way: three carriers, one act.</li>
 <li>A <strong>Dickinson poem</strong> has stanzas and lines. It may exist as a pencil draft on wrapping paper, a fair copy, and a transcription in a printed edition. The poem is not the paper.</li>
 </ul>
 <p>The principle this illustrates — that a text has a structure independent of the object carrying it — is what makes durable citation possible. If your citation points at the <em>structure</em> (article 3 of the treaty, verse 4 of the poem) rather than at <em>this file on this server</em>, the citation survives the server being reorganised.</p>
@@ -1207,7 +1207,7 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;The French royal act with an ARK such as &lt;code&gt;ark:/12148/bpt6k9690620k&lt;/code&gt;, the Dickinson manuscript with a Houghton call number, and the treaty with a Nova Scotia Archives record-group reference.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The French act with an Archives nationales cote and, if digitised, a Gallica ARK such as &lt;code&gt;ark:/12148/...&lt;/code&gt;; the Dickinson manuscript with a Houghton call number; and the treaty with a Nova Scotia Archives record-group reference.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Correct. Three traditions, three systems, and in each case the identifier is copied in the syntax the issuing institution writes.&lt;/p&gt;</text>
       </feedback>
@@ -1237,7 +1237,7 @@
   <question type="description"><name><text>21 Content: Reading a Record, Not Just Finding It</text></name><questiontext format="html"><text><![CDATA[
 <h3>Reading a Record, Not Just Finding It</h3>
 <p>Finding an identifier is not the same as verifying one. A record has to be read.</p>
-<p>Take the Gallica item you may be using this term. Its ARK is <code>ark:/12148/bpt6k9690620k</code>. Open the record and you find:</p>
+<p>Here is a worked example, from an Ancien Régime source (it is an illustration of the method, not one of your three documents). Its ARK is <code>ark:/12148/bpt6k9690620k</code>. Open the record and you find:</p>
 <table>
 <thead>
 <tr>
@@ -1265,6 +1265,7 @@
 </tbody>
 </table>
 <p>Every one of those fields is a fact you can put in a TEI header — and every one is a fact you can check. Does the date match what you expected? Is the creator the person you thought? Does "67 pièces en 1 vol." describe one document or sixty-seven bound together? That last question matters: a <em>recueil</em> is a collected volume, and cataloguing it as though it were a single act would be a mistake.</p>
+<p><strong>Note what the record tells you about its own era.</strong> <em>Creator: Louis XV</em>, <em>Date: 1771</em>, and a title listing <em>édits, arrêts, lettres patentes, déclarations</em> — those fields describe Ancien Régime royal legislation. A 1791 décret would show a different creator (the Assemblée nationale, or the king under the constitution) and a different instrument name. Reading the record is partly how you establish which era you are dealing with, which in turn tells you which conventions apply.</p>
 <p><strong>The same discipline applies to every register.</strong> A Dickinson call number tells you which series the item sits in, which tells you whether it is a poem or a letter. A treaty reference number tells you the volume but not the status. Reading the record is what converts an identifier into knowledge.</p>
 <p><strong>Vocabulary.</strong> <em>Recueil</em> — a collected volume; in French archival and library practice, a set of pieces bound together, each with its own date, which may be catalogued as one item or many.</p>
 <p><strong>Takeaway:</strong> An identifier is a pointer, not a fact. Open the record and read its fields, because the metadata inside is what goes into your header — and mismatches between the record and your expectations are findings, not obstacles.</p>
@@ -1318,7 +1319,8 @@
 <h3>Dating: Where Records Mislead</h3>
 <p>Dates in catalogue records are not neutral facts, and this is the single most productive place to catch a subtle error.</p>
 <p><strong>Editorial attribution.</strong> The Emily Dickinson Archive states plainly that Dickinson "very rarely dated her poems," and that the libraries and editions "often give approximate dates." A date in a Dickinson record is therefore an <em>editorial attribution</em>, not an authorial statement — frequently with the attributing scholar named in brackets. Recording it as a certain date in your header would overstate the evidence. TEI gives you the vocabulary to be honest about this, and Module 02's <code>&lt;origin&gt;</code> work is where you apply it.</p>
-<p><strong>Calendar style.</strong> France adopted the Gregorian calendar in December 1582, so no Julian day-shift applies to an 18th-century French document. Do not "correct" one. The trap that <em>does</em> apply is <strong>year-start style</strong>: before the <em>édit de Roussillon</em> (1564) took full effect in 1567, the year was reckoned from Easter or Christmas in various usages, so a document dated between 1 January and Easter is often <strong>one year later</strong> in modern reckoning.</p>
+<p><strong>Calendar style.</strong> France adopted the Gregorian calendar in December 1582, so no Julian day-shift applies to an 18th-century French document. Do not "correct" one.</p>
+<p><strong>But check which traps your date can even reach.</strong> The famous Ancien Régime trap is <strong>year-start style</strong>: before the <em>édit de Roussillon</em> (1564) took full effect in 1567, the year was reckoned from Easter or Christmas in some usages, so a document dated between 1 January and Easter is often <strong>one year later</strong> in modern reckoning. That trap cannot touch a document of 1791, because the year had begun on 1 January for over two centuries by then. What <em>does</em> bear on the Revolutionary era is the <strong>Republican calendar</strong>: an I began 22 September 1792, it was in force from 6 October 1793, and it was abolished from 1 January 1806 — so a 1791 document predates it, but a later copy or a retrospective register entry may carry both eras. <strong>Knowing which period your document belongs to tells you which trap is live.</strong> Applying a rule from the wrong century is its own kind of error, and a confident one.</p>
 <p><strong>Printed vs manuscript date.</strong> A printed proclamation carries a date of printing. That is not necessarily the date of the event it records, and it is certainly not the date of the agreement it publishes.</p>
 <p><strong>Vocabulary.</strong> <em>Editorial attribution</em> — a date supplied by a modern editor rather than stated by the document. <em>Year-start style</em> — the convention determining which day begins the year, which varied by place and period.</p>
 <p><strong>Takeaway:</strong> Ask of every date whether it is authorial, editorial, or a record of something else — and record the uncertainty rather than flattening it, because a confident wrong date is exactly the failure your workshop is about.</p>
@@ -1329,7 +1331,7 @@
       <text>22 Question: Dating: Where Records Mislead</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;You are dating a Dickinson poem and an 18th-century French act, and a watermark on the paper reads 1771. Which statement reflects the lesson's caution about dates?&lt;/p&gt;</text>
+      <text>&lt;p&gt;You are dating a Dickinson poem and a French act of 1791, and a watermark on the paper reads 1771. Which statement reflects the lesson's caution about dates?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
       <text>&lt;p&gt;Ask of every date whether it is authorial, editorial, or a record of something else — and record the uncertainty rather than flattening it, because a confident wrong date is exactly the failure your workshop is about.&lt;/p&gt;</text>
@@ -1353,9 +1355,9 @@
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;No Julian to Gregorian correction applies to either document, so both dates may be taken as stated.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The Ancien Régime year-start-style trap applies to the 1791 act, so its year may need adjusting.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. That is true of the 18th-century French act, since France adopted the Gregorian calendar in 1582, but it says nothing about the Dickinson attribution.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. That trap cannot reach a document of 1791: the French year had begun on 1 January since the édit de Roussillon took full effect in 1567. Knowing the period tells you which trap is live — applying a rule from the wrong century is its own kind of confident error.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -1631,7 +1633,7 @@
 <p>Now add your witness's identifiers to your header.</p>
 <p><strong>Step 1 — identify what kind of identifier your holding institution uses.</strong> This depends on your document:</p>
 <ul>
-<li><strong>A French act</strong> → an ARK, e.g. <code>ark:/12148/bpt6k9690620k</code>, found in the Gallica record.</li>
+<li><strong>A French act</strong> → an Archives nationales cote (the series depends on the era) and, if digitised, a Gallica ARK of the form <code>ark:/12148/...</code></li>
 <li><strong>A Dickinson manuscript</strong> → a Houghton call number, e.g. <code>MS Am 1118.3 [338]</code>, from the finding aid or the Emily Dickinson Archive.</li>
 <li><strong>A treaty document</strong> → a Nova Scotia Archives reference, e.g. <code>RG 1 volume 430 number 2</code>.</li>
 </ul>

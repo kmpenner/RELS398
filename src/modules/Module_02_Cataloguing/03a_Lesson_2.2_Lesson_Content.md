@@ -351,7 +351,7 @@ Where do you find these URIs for your document's entities? You look them up in r
 | Your document | The registers that actually govern it |
 | :--- | :--- |
 | A **Greek literary manuscript** | **Trismegistos** (the text as a documented object), **Pinakes** (the work and the manuscripts carrying it), **Diktyon** (the physical Greek codex), and **Pleiades** for ancient places. |
-| An **18th-century French royal act** | **Archives nationales** cotes; **Gallica / BnF ARK** identifiers of the form `ark:/12148/...`; **FranceArchives**. |
+| A **French act** (Ancien Régime or Revolutionary) | **Archives nationales** cotes; **Gallica / BnF ARK** identifiers of the form `ark:/12148/...`; **FranceArchives**. The series differs by era — Y (Châtelet) for pre-1789 police acts, D (Comité des décrets) for 1789–an II. |
 | A **Peace and Friendship Treaty document** | **Nova Scotia Archives** references (`RG 1 volume ... number ...`); **Library and Archives Canada**; the **National Archives (UK)**, Colonial Office papers `CO 217`. |
 | A **19th-century American literary manuscript** | **Emily Dickinson Archive**; **Houghton Library** call numbers in the `MS Am 1118.x` series; **Amherst College** `AC` accession numbers. |
 
@@ -426,7 +426,7 @@ What happens in three years when the library updates its web server? What happen
 
 This disease is known as **link rot**. In computational scholarship, relying on standard web URLs is fatal. If the citations in your digital edition break after five years, your scholarship is useless to the next generation of researchers.
 
-Ancient texts have survived for thousands of years. Homer's *Iliad* has been read for nearly three millennia; the Greek Septuagint for over two thousand years. How can we build digital citations that last as long as the manuscripts themselves? We need citation systems that are independent of temporary web server addresses.
+Your three documents have survived two to three centuries, and some have outlived every catalogue that ever described them. The Emily Dickinson poem survived because Houghton has kept it; the 1791 decree survives in the Archives nationales; the 1752 treaty survives in a printed copy because no original does. Each will need to be citable in another century. How do you build a citation that lasts as long as the object? Not with a web address.
 
 **Vocabulary.** *Link rot* — the phenomenon where web links become broken and point to missing resources (404 errors) as servers and website structures change over time. *Ephemerality* — the fragile, short-lived nature of standard web URLs.
 
@@ -443,7 +443,7 @@ To understand why canonical citation matters, separate two things that are easy 
 Consider any document you might edit:
 
 - A **treaty** has articles and clauses, and it exists in several exemplars — a printed proclamation, manuscript copies in council registers, a transcription sent to London. The *text* of the treaty is one thing; each *carrier* is another.
-- A **French royal act** has a preamble, a dispositif, and a dating clause. It may survive as a sealed parchment original, as a registration in a court's register, and as a printed piece in a *recueil*. Three carriers, one act.
+- A **French act** has a preamble, a dispositif, and a dating clause. Before 1789 a royal *édit* or *ordonnance* might survive as a sealed parchment original, as a registration in a court's register, and as a printed piece in a *recueil*. After 1789 the instrument is a *décret* of the Assemblée, and it may survive as a printed placard, an entry in the *procès-verbaux*, or a ministerial circular. Either way: three carriers, one act.
 - A **Dickinson poem** has stanzas and lines. It may exist as a pencil draft on wrapping paper, a fair copy, and a transcription in a printed edition. The poem is not the paper.
 
 The principle this illustrates — that a text has a structure independent of the object carrying it — is what makes durable citation possible. If your citation points at the *structure* (article 3 of the treaty, verse 4 of the poem) rather than at *this file on this server*, the citation survives the server being reorganised.
@@ -524,7 +524,7 @@ Oversize items get a separate form, `O/S number 511`. Note what this citation do
 
 Finding an identifier is not the same as verifying one. A record has to be read.
 
-Take the Gallica item you may be using this term. Its ARK is `ark:/12148/bpt6k9690620k`. Open the record and you find:
+Here is a worked example, from an Ancien Régime source (it is an illustration of the method, not one of your three documents). Its ARK is `ark:/12148/bpt6k9690620k`. Open the record and you find:
 
 | Field | Value |
 | :--- | :--- |
@@ -534,6 +534,8 @@ Take the Gallica item you may be using this term. Its ARK is `ark:/12148/bpt6k96
 | Creator | Louis XV (1710-1774 ; roi de France) |
 
 Every one of those fields is a fact you can put in a TEI header — and every one is a fact you can check. Does the date match what you expected? Is the creator the person you thought? Does "67 pièces en 1 vol." describe one document or sixty-seven bound together? That last question matters: a *recueil* is a collected volume, and cataloguing it as though it were a single act would be a mistake.
+
+**Note what the record tells you about its own era.** *Creator: Louis XV*, *Date: 1771*, and a title listing *édits, arrêts, lettres patentes, déclarations* — those fields describe Ancien Régime royal legislation. A 1791 décret would show a different creator (the Assemblée nationale, or the king under the constitution) and a different instrument name. Reading the record is partly how you establish which era you are dealing with, which in turn tells you which conventions apply.
 
 **The same discipline applies to every register.** A Dickinson call number tells you which series the item sits in, which tells you whether it is a poem or a letter. A treaty reference number tells you the volume but not the status. Reading the record is what converts an identifier into knowledge.
 
@@ -551,7 +553,9 @@ Dates in catalogue records are not neutral facts, and this is the single most pr
 
 **Editorial attribution.** The Emily Dickinson Archive states plainly that Dickinson "very rarely dated her poems," and that the libraries and editions "often give approximate dates." A date in a Dickinson record is therefore an *editorial attribution*, not an authorial statement — frequently with the attributing scholar named in brackets. Recording it as a certain date in your header would overstate the evidence. TEI gives you the vocabulary to be honest about this, and Module 02's `<origin>` work is where you apply it.
 
-**Calendar style.** France adopted the Gregorian calendar in December 1582, so no Julian day-shift applies to an 18th-century French document. Do not "correct" one. The trap that *does* apply is **year-start style**: before the *édit de Roussillon* (1564) took full effect in 1567, the year was reckoned from Easter or Christmas in various usages, so a document dated between 1 January and Easter is often **one year later** in modern reckoning.
+**Calendar style.** France adopted the Gregorian calendar in December 1582, so no Julian day-shift applies to an 18th-century French document. Do not "correct" one.
+
+**But check which traps your date can even reach.** The famous Ancien Régime trap is **year-start style**: before the *édit de Roussillon* (1564) took full effect in 1567, the year was reckoned from Easter or Christmas in some usages, so a document dated between 1 January and Easter is often **one year later** in modern reckoning. That trap cannot touch a document of 1791, because the year had begun on 1 January for over two centuries by then. What *does* bear on the Revolutionary era is the **Republican calendar**: an I began 22 September 1792, it was in force from 6 October 1793, and it was abolished from 1 January 1806 — so a 1791 document predates it, but a later copy or a retrospective register entry may carry both eras. **Knowing which period your document belongs to tells you which trap is live.** Applying a rule from the wrong century is its own kind of error, and a confident one.
 
 **Printed vs manuscript date.** A printed proclamation carries a date of printing. That is not necessarily the date of the event it records, and it is certainly not the date of the agreement it publishes.
 
@@ -688,7 +692,7 @@ Now add your witness's identifiers to your header.
 
 **Step 1 — identify what kind of identifier your holding institution uses.** This depends on your document:
 
-- **A French act** → an ARK, e.g. `ark:/12148/bpt6k9690620k`, found in the Gallica record.
+- **A French act** → an Archives nationales cote (the series depends on the era) and, if digitised, a Gallica ARK of the form `ark:/12148/...`
 - **A Dickinson manuscript** → a Houghton call number, e.g. `MS Am 1118.3 [338]`, from the finding aid or the Emily Dickinson Archive.
 - **A treaty document** → a Nova Scotia Archives reference, e.g. `RG 1 volume 430 number 2`.
 
