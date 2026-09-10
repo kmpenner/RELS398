@@ -247,7 +247,7 @@ The hardest part of writing a header is not syntax. It is deciding which element
 | Who wrote or printed it | `<handNote>` / `<typeDesc>` | Asserting scribal hands on a printed document |
 | When | `<origin><date>` | Stating an editorial attribution as if the document said it |
 
-**Three of these traps are specific to documents outside the codex tradition**, which is where all three of you are working:
+**Three of these traps are specific to documents outside the codex tradition**, which is where all four of you are working:
 
 - A **printed broadside** has no quires and no scribal hand. Describe the type and the impression, not hands.
 - A **single-sheet document** is not measured in folios. Use the extent vocabulary that fits.

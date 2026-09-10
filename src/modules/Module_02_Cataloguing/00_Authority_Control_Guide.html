@@ -10,7 +10,7 @@
         <li><strong>GeoNames</strong> / <strong>GeoNames</strong>-style place registries &mdash; for the <code>&lt;origPlace&gt;</code> and <code>&lt;settlement&gt;</code> values in your header.</li>
     </ul>
 
-    <p style="margin-bottom:0.5rem;"><strong>Then the tradition-specific layer. Here is where your three documents diverge:</strong></p>
+    <p style="margin-bottom:0.5rem;"><strong>Then the tradition-specific layer. Here is where your four documents diverge:</strong></p>
 
     <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
         <thead>
@@ -43,7 +43,7 @@
                     <em>Two traps in the material evidence.</em> (1) <strong>A watermark dates the paper, not the document.</strong> It gives you a <em>terminus post quem</em> at best &mdash; stock could sit unused for years. (2) From <strong>1742</strong> a watermark or countermark was <em>compulsory</em> on French paper, so its absence after that date is itself informative.
                 </td>
             </tr>
-            <tr>
+            <tr style="border-bottom:1px solid #cbd5e1;">
                 <td style="padding:0.5rem; vertical-align:top;"><strong>Olyvia</strong><br>Letter by Maud Lewis</td>
                 <td style="padding:0.5rem;">
                     <strong>Person Authority:</strong> VIAF <code>58273619</code>; Wikidata <code>Q3300114</code>; LCCN <code>n92056262</code> (Lewis, Maud, 1903&ndash;1970); Canadian Heritage Information Network (CHIN) <em>Artists in Canada</em>.<br>
@@ -54,6 +54,17 @@
                     <strong>Envelopes, Stamps, and Postal Markings:</strong> If an envelope survives with the letter, postmarks (e.g. Digby Post Office) provide critical <em>terminus a quo</em> dates and postal route evidence. Record cancellations in a <code>&lt;note type="postal"&gt;</code>.<br>
                     <em>Item vs. Person Authority:</em> VIAF and Wikidata identify Maud Lewis <em>the artist</em>, not a single individual personal letter. The letter's identifier comes from the holding institution's call number, accession number, or archival fonds reference.<br>
                     <em>Not applicable here:</em> Classical/medieval registries (Trismegistos, Pinakes, Diktyon, Pleiades) and French national archives tools have no jurisdiction over 20th-century Nova Scotia folk artists.
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:0.5rem; vertical-align:top;"><strong>Andromeda</strong><br>Peace and Friendship treaty, 1752</td>
+                <td style="padding:0.5rem;">
+                    <strong>Nova Scotia Archives</strong> reference numbers, cited as <code>RG 1 volume 430 number 2</code> (printed bilingual proclamation), or <code>O/S number 511</code> / <code>512</code> for earlier treaty parchment rolls (1725/1749). Search the <a href="https://archives.novascotia.ca/mikmaq/results/?Search=AR5&amp;SearchList1=all&amp;TABLE2=on" target="_blank">Mi'kmaq Holdings Resource Guide</a>.<br>
+                    <strong>Library and Archives Canada (LAC)</strong> &mdash; Treaties, Surrenders and Agreements database. <em>Search tip:</em> the database requires historical spellings &mdash; try <em>&ldquo;Micmac&rdquo;</em> as well as <em>&ldquo;Mi'kmaq&rdquo;</em>.<br>
+                    <strong>National Archives (UK) / TNA</strong>, Colonial Office papers <code>CO 217</code> (e.g. <code>CO 217 Vol 40 Item 209</code>) &mdash; imperial administrative copies held in London.<br>
+                    <strong>ATRIS</strong> (Aboriginal and Treaty Rights Information System) for modern legal and territorial context.<br>
+                    <strong>Genre and Codicology in TEI:</strong> The 1752 treaty survives not as a manuscript original, but as a printed bilingual broadside (Halifax: John Bushell, 1752; English and French in parallel columns). Encode as <code>&lt;objectDesc form="sheet"&gt;</code> or <code>form="broadside"</code> with <code>&lt;supportDesc material="paper"&gt;</code>. It has no quires and no scribal hands &mdash; do not fabricate <code>&lt;handNote&gt;</code> or <code>&lt;collation&gt;</code> elements; describe the letterpress typography and parallel-column layout in <code>&lt;layoutDesc&gt;</code>.<br>
+                    <em>Not applicable here:</em> Classical/medieval registries (Trismegistos, Pinakes, Diktyon, Pleiades) and French national archives tools do not govern 18th-century Maritime colonial treaties.
                 </td>
             </tr>
         </tbody>
