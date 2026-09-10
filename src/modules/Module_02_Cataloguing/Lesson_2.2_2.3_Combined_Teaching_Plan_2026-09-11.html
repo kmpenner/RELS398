@@ -289,8 +289,8 @@
             <strong>STUDENT ENTRY STATE (after Wednesday's rescheduled 2.1 lab):</strong><br>
             &bull; Each student has a hand-authored <code>witness.xml</code> with a <code>&lt;teiHeader&gt;</code>, committed to Git &mdash; some at Minimum Viable Header only.<br>
             &bull; <strong>Red Hat XML installed; Scholarly XML was assigned as homework</strong> and will not be on every machine.<br>
-            &bull; No file has met a schema. Nobody has run an LLM against their artifact yet.<br>
-            &bull; Antigravity is still disabled at the workspace level from Wednesday.
+            &bull; No file has met a schema yet. Nobody has run an LLM against their artifact yet.<br>
+            &bull; AI accounts (GitHub, Google, Anthropic, or OpenAI) and extensions (Copilot, Claude Code, Codex, Antigravity) were prepared for today's Step 3.
         </div>
         <div>
             <strong>TODAY'S OPERATIONAL TARGET (Steps 2 and 3 in one sitting):</strong><br>
@@ -303,7 +303,7 @@
 
     <div class="requirement-callout">
         <h3>THE COMBINING PRINCIPLE: TWO STEPS, ONE INSTRUMENT</h3>
-        <p>These two lessons fit in one meeting only because they share an instrument. The schema is not a 2.2 topic that 2.3 moves past &mdash; it is the measuring device that makes Step 3 an experiment rather than a vibe. Teach it once at 9:36, then use it twice: first on the student's own header, then on the machine's. <strong>What gets cut is everything that does not pass through the Problems panel:</strong> the VIAF/Pleiades/CTS enrichment block moves to the workshop, and the whole theoretical apparatus of 2.3 (semantic&ndash;structural trade-off, <code>macro.xml</code> authority architecture, NERD theory) stays on Moodle, where it already lives inside the interactive lesson quizzes. In class today, students <em>do</em> the comparison; they <em>read</em> the theory tonight.</p>
+        <p>These two lessons fit in one meeting only because they share an instrument. The schema is not a 2.2 topic that 2.3 moves past &mdash; it is the measuring device that makes Step 3 an experiment rather than a vibe. Teach it once at 9:36, then use it twice: first on the student's own header, then on the machine's. <strong>What gets cut is everything that does not pass through the Problems panel:</strong> authority enrichment (VIAF/Wikidata/archives) moves to the workshop, and the theoretical apparatus of 2.3 stays on Moodle, where it lives inside the interactive lesson quizzes. In class today, students <em>do</em> the comparison; they <em>read</em> the theory tonight.</p>
     </div>
 
     <h3 class="section-header">Class Schedule &amp; Pedagogical Flow (50 Minutes)</h3>
@@ -324,7 +324,7 @@
                 </td>
                 <td>
                     &bull; <strong>Install first, talk over it:</strong> Extensions (<code>Cmd+Shift+X</code>) &rarr; <em>Scholarly XML</em> (publisher: Raff Viglianti) &rarr; Install. Ask for a show of hands on who did it as homework.<br>
-                    &bull; <strong>Say plainly why:</strong> Red Hat XML validates DTD and XSD; TEI's <code>msdesc.rng</code> is <strong>RELAX NG</strong>, which only Scholarly XML checks. <em>"If you skip this install, your file will report zero errors because nothing is looking at it."</em> That sentence is the whole reason the install is not optional.<br>
+                    &bull; <strong>Say plainly why:</strong> Red Hat XML validates DTD and XSD; TEI's <code>msdesc.rng</code> is <strong>RELAX NG</strong>, which only Scholarly XML checks (without requiring Java). <em>"If you skip this install, your file will report zero errors because nothing is looking at it."</em> That sentence is the whole reason the install is not optional.<br>
                     &bull; <strong>Frame the 50 minutes:</strong> <em>"One instrument, two subjects. First the schema judges you. Then it judges the machine. The second reading is only meaningful because you earned the first."</em>
                 </td>
             </tr>
@@ -338,7 +338,7 @@
                     &bull; <strong>Project <code>labs/witness_demo_INVALID.xml</code></strong> &mdash; a copy of the diary header the class built on Wednesday, with three errors seeded into it. Paste the <code>xml-model</code> instruction directly under the XML declaration (code box, right) and save.<br>
                     &bull; <strong>Narrate the download:</strong> the language server fetches the schema and audits live. Open the Problems panel (<code>Cmd+Shift+M</code>).<br>
                     &bull; <strong>Work the first error live:</strong> <code>line 36: Did not expect element objectDesc there</code> &mdash; <code>&lt;handDesc&gt;</code> has been moved above <code>&lt;objectDesc&gt;</code>, which the schema's sequence forbids. Move it back on screen; re-save and watch the count fall to the next error.<br>
-                    &bull; <strong>Name the three RELAX NG constraint types on the board</strong> as the errors surface: <em>Sequence</em> (this one), <em>Choice</em> (the invented <code>&lt;leafDimensions&gt;</code> at line 44), and <em>content model</em> (<code>&lt;extent&gt;</code> wrapping a <code>&lt;p&gt;</code> at line 41). Nearly every error they will hit is one of these three.<br>
+                    &bull; <strong>Name the three RELAX NG constraint types on the board</strong> as the errors surface: <em>Sequence</em> (this one), <em>Choice</em> (the invented <code>&lt;leafDimensions&gt;</code> at line 44), and <em>content model</em> (<code>&lt;extent&gt;</code> wrapping a <code>&lt;p&gt;</code> at line 41). Contrast DTD (no datatypes), XSD (verbose), and RELAX NG (concise, TEI's standard).<br>
                     &bull; <strong>Do not fix all three yourself.</strong> Fix the first, then hand the room the pattern: click the error, jump to the line, fix one, re-save, read the new count. The validator reports one failure per pass, which is exactly the loop they are about to run for 16 minutes.
                 </td>
             </tr>
@@ -350,8 +350,8 @@
                 </td>
                 <td>
                     &bull; <strong>Student Action:</strong> work in <em>your own</em> <code>witness.xml</code> &mdash; copy it to <code>witness_validated.xml</code>, add the <code>xml-model</code> instruction, save, open the Problems panel, and fix errors one at a time &mdash; click an error to jump to the line, fix, re-save, watch the count fall. Do not attempt a mass rewrite.<br>
-                    &bull; <strong>Do NOT copy the projected demo file.</strong> <code>labs/witness_demo_INVALID.xml</code> is a seeded teaching copy with three deliberate errors; your own file is the one being validated.
-                    &bull; <strong>Instructor Roaming:</strong> triage against the three common messages in the "Reading Validator Messages" card. Students who stopped at a Minimum Viable Header on Wednesday will hit <em>fewer</em> errors, not more &mdash; do not let them conclude their thinner header was better.<br>
+                    &bull; <strong>Do NOT copy the projected demo file.</strong> <code>labs/witness_demo_INVALID.xml</code> is a seeded teaching copy with three deliberate errors; your own file is the one being validated.<br>
+                    &bull; <strong>Instructor Roaming:</strong> triage against the common messages in the "Reading Validator Messages" card. Students who stopped at a Minimum Viable Header on Wednesday will hit <em>fewer</em> errors, not more &mdash; do not let them conclude their thinner header was better.<br>
                     &bull; <strong>Hard checkpoint at 09:58:</strong> anyone not at 0 errors pairs with a neighbour who is. Everyone must reach the gate, because Lab B is a comparison and needs a clean baseline on both sides.
                 </td>
             </tr>
@@ -359,13 +359,13 @@
                 <td class="time-col">10:00 &ndash; 10:12<br><small>(12 mins)</small></td>
                 <td>
                     <strong>4. Lab B &mdash; Step 3: Put the Machine Through the Same Gate</strong><br>
-                    <small style="color:var(--stfx-slate);">Re-enable AI, generate, validate, score</small>
+                    <small style="color:var(--stfx-slate);">Activate AI, generate, validate, score</small>
                 </td>
                 <td>
-                    &bull; <strong>Re-enable Antigravity</strong> (Extensions &rarr; Enable (Workspace)) &mdash; Wednesday's ban is lifted, and say so explicitly: <em>"You have earned the right to use it, because now you can check it."</em><br>
-                    &bull; <strong>Student Action:</strong> paste the standard prompt (card at right) with their own artifact's description, save the model's output as <code>witness_ai.xml</code>, add the same <code>xml-model</code> line, and <strong>read the error count aloud to their neighbour before fixing anything.</strong> That raw number is the datum.<br>
+                    &bull; <strong>Engage AI tools:</strong> Wednesday's manual-only restriction is lifted: <em>"You have earned the right to use it, because now you can check it."</em> Check that each student is logged in to their AI account and has their tool active &mdash; GitHub Copilot extension in VS Code, an agent (Claude Code, Codex), Antigravity, or browser chat.<br>
+                    &bull; <strong>Student Action:</strong> prompt their model (card at right) with their own artifact's description notes to draft header elements (or complete header), save the model's output as <code>witness_ai.xml</code>, add the same <code>xml-model</code> line, and <strong>read the error count aloud to their neighbour before fixing anything.</strong> That raw number is the datum.<br>
                     &bull; <strong>Then score the content</strong>, not just the structure, on the 6-field scorecard: repository, <code>idno</code>, material, extent, number of hands, date. Mark each <em>correct / wrong / invented / missing</em> against their own hand-authored file.<br>
-                    &bull; <strong>Watch for the classic three:</strong> invented tags that no schema allows (<code>&lt;leafDimensions&gt;</code> and friends), hallucinated VIAF URIs that resolve to nothing or to the wrong person, and conversational dates where the schema demands ISO 8601.
+                    &bull; <strong>Watch for the classic three:</strong> invented tags that no schema allows (<code>&lt;leafDimensions&gt;</code> and friends), hallucinated authority URIs that resolve to nothing or to the wrong entity, and conversational dates where the schema demands ISO 8601.
                 </td>
             </tr>
             <tr>
@@ -432,14 +432,19 @@ Project the seeded demo copy instead. Three errors:</span><br>
                 <li><strong>Regenerate the demo copy any time</strong> with <code>python3 labs/make_demo_error.py</code>. It re-derives the file from <code>labs/witness.xml</code> and re-verifies both that the class artifact is valid and that the demo is not, so this card cannot silently go stale again.</li>
             </ul>
 
-            <h4 style="margin-top:0.6rem;">Standard Prompt for Lab B</h4>
+            <h4 style="margin-top:0.6rem;">Prompts for Lab B (Full Header or Single Element)</h4>
             <div class="code-box">
+<span class="comment">&lt;!-- Option 1: Single Element (Lesson 2.3 &sect;12 loop) --&gt;</span><br>
+Draft a TEI &lt;physDesc&gt; for the document described below.<br>
+Use &lt;objectDesc&gt; with @form, &lt;supportDesc&gt; with @material, and &lt;extent&gt;.<br>
+Return only the XML fragment, no explanation.<br>
+Description: <span class="highlight">[paste your artifact physical notes]</span><br>
+<br>
+<span class="comment">&lt;!-- Option 2: Full Header (Step 3 Comparison baseline) --&gt;</span><br>
 Generate a TEI P5 teiHeader for this manuscript,<br>
 valid against the msdesc RELAX NG schema.<br>
-Include msIdentifier, physDesc with material<br>
-and extent, and handDesc. Output only XML.<br>
-<br>
-Description: <span class="highlight">[paste your own artifact notes]</span>
+Include msIdentifier, physDesc with material and extent, and handDesc. Output only XML.<br>
+Description: <span class="highlight">[paste your full artifact notes]</span>
             </div>
         </div>
 
@@ -462,9 +467,9 @@ Description: <span class="highlight">[paste your own artifact notes]</span>
 
             <h4 style="margin-top:0.6rem;">Deferred Out of Class &mdash; Assign Tonight</h4>
             <ul>
-                <li><strong>Linked Data enrichment:</strong> <code>&lt;repository ref="viaf.org/..."&gt;</code> and <code>&lt;origPlace ref="pleiades.stoa.org/..."&gt;</code>. Belongs with the workshop's Trismegistos/Pinakes authority reconciliation anyway.</li>
-                <li><strong>CTS URN</strong> on <code>&lt;msItem corresp="..."&gt;</code> &mdash; demonstrate only if Lab A somehow finishes early; otherwise it is workshop work.</li>
-                <li><strong>Rule for both:</strong> re-validate after enriching. Enrichment must not break validation.</li>
+                <li><strong>Linked Data enrichment:</strong> <code>&lt;repository ref="viaf.org/..."&gt;</code>, <code>&lt;settlement ref="wikidata.org/..."&gt;</code>, and regional archival finding aids (Nova Scotia Archives, Archives nationales, Amherst/Harvard). Belongs with the workshop's authority reconciliation anyway.</li>
+                <li><strong>Authority justification:</strong> Document why each registry was chosen (or why a standard registry had no record). A verified absence is a legitimate result.</li>
+                <li><strong>Rule for all edits:</strong> re-validate after enriching. Enrichment must not break schema validity.</li>
                 <li><strong>Moodle:</strong> the interactive lessons for 2.2 and 2.3 carry the theory not lectured today. These <em>are</em> the quiz activities &mdash; 30 auto-graded questions each, one per content section in page order, with the section takeaway as general feedback. There is no separate lesson-player activity; point students at the quizzes.</li>
             </ul>
 

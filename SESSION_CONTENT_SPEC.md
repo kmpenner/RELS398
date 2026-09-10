@@ -14,6 +14,12 @@
 > **2.2** VS Code, Red Hat XML extension, schemas, DTDs, Relax NG, TEI validator extension for VS Code
 >
 > **2.3** AI accounts, AI extensions for VS Code: Antigravity/Claude Code/GitHub Copilot/Codex, AI assistance making TEI header element
+>
+> **3.1** The manual lesson: TEI spec for facsimile, surface, and zone; considerations and techniques when making digital images of historical documents (epigraphs, papyri, scrolls, manuscripts, codices, books, maps, illustrations, etc.); preparing students to photograph or scan a historical document; advanced imaging (multispectral, infrared, raking light, RTI).
+>
+> **3.2** The deterministic/algorithmic computer-assisted lesson: the IIIF standard; open source image editing software (GIMP, ImageMagick, libvips); operations (cropping, contrast, colour adjustment, masking, deskewing, sharpening); file storage formats (JPEG, GIF, PNG, TIFF, PDF, etc. — compression, colour spaces, bit depth, archival masters vs web derivatives).
+>
+> **3.3** The AI-assisted imaging lesson: how AI can make the activities in lesson 3.1 and 3.2 more efficient — adding bounding boxes for zones (layout analysis, segmenting text lines/regions), organizing & naming images (automated metadata extraction, sequence ordering), inserting and aligning facsimile elements with text.
 
 ## What the spec implies structurally
 
@@ -89,7 +95,42 @@ Also note **1.1's spec is the pipeline**, which currently lives in **1.2** (s10�
 - **None of the four extensions is mentioned.** Zero occurrences of Antigravity, Claude Code, or Copilot. ("Codex" matches five times, all the manuscript sense of *codex*.)
 - **"AI assistance making TEI header element"** is covered *methodologically* (prompt → output → audit) but not as a tooling task in the editor.
 
-**Needed:** add the accounts step and the extension survey, and connect the audit to generating header elements inside VS Code rather than in a chat window.
+**Needed:** add the accounts step and the extension survey, and connect the audit to generating header elements inside VS Code rather than in a chat window. *(Closed in commits 3669c39 and dd391e1).*
+
+### 3.1 — spec: Manual imaging, TEI facsimile/surface/zone, photography/scanning across media, advanced imaging
+
+**Current:** "IIIF Foundations: The Image API, the Presentation API, and the Canvas". Has a front banner claiming "Infrastructure week — the three-step comparative cycle does not apply."
+
+**Gap:**
+- Does **not** teach the TEI `<facsimile>`, `<surface>`, and `<zone>` specifications.
+- Does **not** prepare students for photographing or scanning physical historical documents (lighting, geometry, color checkers, scale bars, document supports, handling precautions).
+- Covers historical media inadequately (epigraphs, papyri, scrolls, manuscripts, codices, books, maps, illustrations).
+- Advanced imaging (multispectral, infrared, raking light, RTI) was misplaced into 3.2.
+
+**Needed:** Rebuild 3.1 as the foundational manual lesson: TEI facsimile elements (`<facsimile>`, `<surface>`, `<zone>`), document photography and scanning field techniques across diverse physical media, and physical/optical recovery methods (multispectral, infrared, raking light, RTI).
+
+### 3.2 — spec: Deterministic/algorithmic computer-assisted imaging, IIIF standard, open-source software, image operations, file storage formats
+
+**Current:** "Raking Light, Multispectral Imaging, and Computational Palaeography".
+
+**Gap:**
+- The IIIF standard (Image API, Presentation API, Manifest, Canvas) was misplaced in 3.1 instead of 3.2.
+- Missing coverage of open-source image editing software (GIMP, ImageMagick, libvips).
+- Missing deterministic/algorithmic operations: cropping, contrast, colour adjustment / white balance, masking, deskewing, sharpening.
+- Missing comprehensive file storage formats: JPEG, GIF, PNG, TIFF, PDF (compression lossy vs lossless, bit depth, colour spaces, archival master vs derivative web delivery).
+
+**Needed:** Rebuild 3.2 as the deterministic computer-assisted lesson: bring the IIIF standard here, teach open-source tools (ImageMagick CLI, GIMP, libvips), programmatic image operations, and archival/web file storage formats.
+
+### 3.3 — spec: AI-assisted imaging, automated bounding boxes, organizing/naming images, aligning facsimile with text
+
+**Current:** "Building the Manifest and Binding It to TEI". Hand-crafts JSON-LD manifests and manual canvas binding.
+
+**Gap:**
+- Does **not** teach AI-assisted layout analysis or automated bounding boxes for `<zone>` elements.
+- Does **not** teach AI-driven organization, naming pipelines, or sequence ordering for document images.
+- Does **not** teach AI assistance in inserting and aligning `<facsimile>` elements with transcribed text.
+
+**Needed:** Rebuild 3.3 as the AI-assisted imaging lesson: automated bounding boxes and layout analysis (detecting blocks, lines, marginalia), AI-assisted image organization and naming, and aligning `<facsimile>` elements to text.
 
 ## The extension question — verified
 
