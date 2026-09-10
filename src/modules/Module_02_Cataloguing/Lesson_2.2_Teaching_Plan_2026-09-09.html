@@ -408,7 +408,8 @@
             <ul>
                 <li><strong>"Element 'xyz' is not allowed here":</strong> wrong order or wrong parent container — check whether <code>&lt;titleStmt&gt;</code> precedes <code>&lt;publicationStmt&gt;</code> precedes <code>&lt;sourceDesc&gt;</code>.</li>
                 <li><strong>"...must be terminated by the matching end-tag":</strong> a missing closing slash or an unclosed tag — scan for the open bracket without a partner.</li>
-                <li><strong>"Attribute 'material' has invalid value":</strong> a value outside the schema's enumeration — e.g. <code>material="vellum"</code> must become <code>material="parchment"</code>.</li>
+                <li><strong>"Invalid attribute scope for element handNote":</strong> a value outside a closed list — <code>scope="main"</code> must become <code>scope="major"</code> (permitted: <code>sole / major / minor</code>). Read the permitted values out of the schema; do not substitute a synonym.</li>
+                <li><strong>The error that never fires:</strong> <code>supportDesc/@material</code> accepts <code>paper</code>, <code>vellum</code>, and even nonsense without complaint — its enumeration is documented but <em>not</em> enforced. Teach the gap rather than a <code>vellum</code>&rarr;<code>parchment</code> rule. Verified against <code>msdesc.rng</code>.</li>
                 <li><strong>Workflow:</strong> click an error in the Problems panel to jump to the offending line; fix one at a time and watch the count drop — do not try to fix everything before re-saving.</li>
                 <li><strong>Stage gate:</strong> the bottom-left Problems counter must read <strong>0 Errors, 0 Warnings</strong> before enrichment or commit.</li>
             </ul>

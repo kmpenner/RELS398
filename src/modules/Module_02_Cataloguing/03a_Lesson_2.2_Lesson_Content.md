@@ -119,7 +119,7 @@ In computer science, unformatted text is called a "string". If a computer asks f
 Schemas enforce **datatypes**:
 
 1. **ISO 8601 Dates**: In attributes like `when="1050"`, `notBefore="1000"`, or `notAfter="1099"`, the schema demands standard numerical formats (`YYYY` or `YYYY-MM-DD`). If you write `when="about 1050"`, validation fails.
-2. **Enumerated Lists**: For certain attributes, the schema restricts you to a closed list of legal keywords. In `<supportDesc material="...">`, you must choose from authorized values like `"parchment"`, `"papyrus"`, or `"paper"`. If you type `material="animal_skin"`, the validator flags it because it violates the enumeration.
+2. **Enumerated Lists**: For certain attributes, the schema restricts you to a closed list of legal keywords. `handNote/@scope` accepts only `sole`, `major`, or `minor`; write `scope="main"` and the validator refuses it. But not every list in the documentation is enforced. The `material` attribute on `<supportDesc>` documents seven suggested values — `perg` (parchment or vellum), `chart` (paper), `papyrus`, `palm`, `mixed`, `other`, `unknown` — and yet our schema accepts `material="vellum"` and even `material="animal_skin"` without a word of complaint. Whether an enumeration bites is a property of the schema, not of its documentation, so test the values you actually care about.
 3. **URIs and URLs**: In `ref="..."` or `target="..."`, the schema checks that the value is a properly formatted web address or persistent identifier.
 
 By enforcing strict datatypes, the schema ensures that your edition can be filtered, sorted, and calculated by automated algorithms worldwide.
@@ -433,12 +433,12 @@ When your TEI Header includes Wikidata identifiers (`ref="https://www.wikidata.o
 ## **17 Content**
 
 
-**Link Rot and 404s: Why Regular Web Links Fail Ancient Documents**
+**Link Rot and 404s: Why Regular Web Links Fail Historical Documents**
 
 Now let us tackle a second great danger in digital scholarship: **the crisis of broken citations**.
 
 Suppose you are writing a research paper and you cite an online manuscript image like this:
-`https://www.somelibrary.edu/special-collections/greek/mss/box4/image23.jpg`
+`https://www.somelibrary.edu/special-collections/manuscripts/box4/image23.jpg`
 
 What happens in three years when the library updates its web server? What happens when the library renames its website, reorganizes its digital collections, or goes through a rebranding campaign?
 
@@ -675,7 +675,9 @@ Here are the three most common error messages you will encounter today, and how 
 
 1. **"Element 'xyz' is not allowed here"**: You put a tag in the wrong container or out of sequence. Check the order! Does `<publicationStmt>` come before `<sourceDesc>`? Did you accidentally put `<supportDesc>` outside of `<objectDesc>`?
 2. **"The element type 'xyz' must be terminated by the matching end-tag"**: You forgot the closing slash `/` in your end tag, or you forgot to close a tag altogether.
-3. **"Attribute 'material' has invalid value"**: You typed a value that violates the schema enumeration. For example, you typed `material="vellum"`, but the schema only permits `material="parchment"`. Change it to `"parchment"`!
+3. **"Invalid attribute scope for element handNote"**: You typed a value outside an attribute's closed list. `handNote/@scope` allows only `sole`, `major`, or `minor`, so `scope="main"` is refused; change it to `scope="major"`. When this fires, read the permitted values out of the schema rather than substituting the synonym you think ought to be there.
+
+There is also a fourth case, and it is the dangerous one: **the error that never fires.** Write `material="vellum"` on `<supportDesc>` and nothing happens, because our schema does not check that value at all. Silence is not approval. It means the schema has nothing to say about it — and that gap is where tomorrow's lesson lives.
 
 Work through the Problems panel one line at a time. Click on an error in the panel, and VS Code will jump directly to the offending line in your code. Fix the issue, save the file, and watch the error count drop.
 

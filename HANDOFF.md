@@ -22,14 +22,18 @@ Course 51185, Section 2. Verified against the rendered pages after deploy, not a
 
 | Item | cmid | State |
 |---|---|---|
-| Lesson 2.2 Notes (PDF) | 1431288 | rebuilt (1791 correction) |
-| Lesson 2.3 Notes (PDF) | 1431219 | rebuilt |
-| Lesson 2.2: Interactive Quiz | 1431287 | rebuilt bank, 30 slots |
-| Lesson 2.3: Interactive Quiz | 1431229 | rebuilt bank, 30 slots |
-| Lesson 2.3: Infographic (label) | 1431247 | regenerated |
+| Lesson 2.2 Notes (PDF) | 1431316 | rebuilt (schema-enumeration correction) |
+| Lesson 2.3 Notes (PDF) | 1431317 | rebuilt (de-Greeked examples) |
+| Lesson 2.2: Interactive Quiz | 1431312 | rebuilt bank, 60 slots verified in page order |
+| Lesson 2.3: Interactive Quiz | 1431315 | rebuilt bank, 60 slots verified in page order |
+| Lesson 2.3: Infographic (label) | 1431247 | regenerated (still the 2026-09-09-era build) |
 | Authority Control Guide (label) | 1431174 | live |
 
-Notes PDFs are restricted until their quiz is complete. `moodle_manifest.json` is current.
+Notes PDFs are restricted until their quiz is complete. All four Module 02 quizzes report **0 attempts**.
+
+**Both live quizzes were serving superseded banks until this deploy.** 2.2 still asked "The Rulebook: How Schemas (RELAX NG) Police Your Markup", and 2.3 still had "What the Model Is Doing When It Writes Your Header" as its *second* section. Every earlier deploy had reported success, so read the linked question names off the live quiz; never trust the deploy log.
+
+**`moodle_manifest.json` is current** (re-dumped 2026-09-10 after this deploy).
 
 **New cmids exist because labels, resources and quizzes are delete-and-recreate on this Moodle.** The old ones (1428514/1428515/1430835/1430839, and infographic 1431118) are dead and 404.
 
@@ -142,6 +146,8 @@ It does not persist across separate `connect_over_cdp` calls. `notebook_ui._down
 4. **The 2.2 question bank was stale before this session** — 25 of 30 titles mismatched, dating from `220b5e7`, which rewrote the lesson and never rebuilt its bank. Worth a sweep of the other 32 banks for the same pattern.
 5. **Remaining novice rewrites:** 16 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13).
 6. **Course is still hidden from students**; Modules 4–13 are empty shells.
+7. **`populate_moodle_topic.py --item` cannot update a quiz.** It delegates to `update_moodle_item.py`, whose heuristics only cover notes/infographic/audio/banner/objectives — a `--item "Lesson 2.2: Interactive Quiz"` fails with `FileNotFoundError`. With no per-lesson switch, changing one lesson's bank means either a full `--topic 2` run (which re-purges the Weekly Quiz bank and churns every activity in the section) or a targeted script. **Recommended shared-script fix:** give `update_moodle_item.py` a quiz branch that reuses the proven 3b–3d ordering (delete quiz → purge both category sets → import → create against the imported category id). Ken has not asked for this yet.
+8. **Two parallel question categories still exist for every lesson** — the bank XML's `course/03_Interactive_Lesson_N.N` and an older `Module_NN_*/Lesson_N.N_Interactive`. `create_quiz` used to resolve the latter first, which is how a stale bank reached students. The 2.2/2.3 duplicate questions were emptied in this deploy, but the *categories* remain (empty) for 2.1 and every other lesson, and the collision is still latent in the deployment path.
 
 ---
 

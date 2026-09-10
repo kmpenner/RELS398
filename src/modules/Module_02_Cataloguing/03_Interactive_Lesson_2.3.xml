@@ -54,7 +54,157 @@
 
 
   
-  <question type="description"><name><text>02 Content: What the Model Is Doing When It Writes Your Header</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>02 Content: Creating Your AI Accounts</text></name><questiontext format="html"><text><![CDATA[
+<h3>Creating Your AI Accounts</h3>
+<p>Before you can compare a machine's header against your own, you need access to a machine. This is the setup step, and it is worth doing properly rather than at the last minute — account verification sometimes takes a day.</p>
+<p><strong>What you actually need.</strong> At minimum, one account that gives you access to a capable model through a coding tool. In practice that means one of:</p>
+<ul>
+<li><strong>A GitHub account</strong> — required for GitHub Copilot, and the one most likely to be free to you.</li>
+<li><strong>A Google account</strong> — for Gemini, and for Antigravity.</li>
+<li><strong>An Anthropic account</strong> — for Claude Code.</li>
+<li><strong>An OpenAI account</strong> — for Codex.</li>
+</ul>
+<p><strong>Check for academic or student access before paying for anything.</strong> GitHub Copilot offers a free tier, and free Pro access for verified teachers, students, and open-source maintainers. Several vendors also run education programmes. The exact terms change, so check each vendor's own current page rather than relying on a course handout from last term — and if you are unsure whether you qualify, ask.</p>
+<p><strong>A caution that matters for this course.</strong> Your project involves unpublished or rights-restricted material. Before you paste any catalogue description into a hosted model, ask two questions:</p>
+<ol>
+<li><strong>Is this text public?</strong> A published shelfmark or a public catalogue record is fine. A photograph you took of a manuscript, or a private finding aid, may not be.</li>
+<li><strong>Does the tool train on my input?</strong> Free tiers frequently do, paid tiers frequently do not, and the setting is often buried. If it does, treat anything you paste as published.</li>
+</ol>
+<p><strong>Record what you used.</strong> Note which account, which tool, and which model version you generated your comparison with. An audit that cannot say what produced the output is not reproducible, and reproducibility is one of the FAIR principles from Lesson 1.2.</p>
+<p><strong>Takeaway:</strong> Set up one working AI account before the lab, check for student or academic access first, and decide what you are willing to paste into a hosted model — because training terms and rights restrictions both bite here.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Creating Your AI Accounts</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;You are getting set up before the lab. Which statement correctly matches the accounts to the tools and states the caution the lesson attaches to hosted models?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Set up one working AI account before the lab, check for student or academic access first, and decide what you are willing to paste into a hosted model — because training terms and rights restrictions both bite here.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;GitHub for Copilot, Google for Gemini and Antigravity, Anthropic for Claude Code, and OpenAI for Codex — and before pasting your own notes, ask whether the text is public and whether the tool trains on your input.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Each vendor's tool needs that vendor's account, and rights restrictions plus training terms together govern what you may paste into a hosted model.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;One GitHub account covers all four tools, since Copilot, Claude Code, Codex and Antigravity all run inside VS Code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Claude Code is Anthropic's, Codex is OpenAI's, and Antigravity is Google's; running in or alongside an editor does not make them one vendor's products.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Any account will do because these tools are free to students, so there is no need to check each vendor's current academic terms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Free and education terms vary by vendor and change over time; the lesson says to check the vendor's current page and ask if you are unsure whether you qualify.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Public catalogue records are always safe to paste, and free tiers never train on the text you enter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Free tiers frequently do train on input, and even a public text requires you to check the tool's training terms before pasting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The AI Extensions for VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>The AI Extensions for VS Code</h3>
+<p>Four tools come up constantly in this space, and they are not interchangeable. Learn what each is for, then pick one.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tool</th>
+<th style="text-align: left;">What it is</th>
+<th style="text-align: left;">Where it runs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>GitHub Copilot</strong></td>
+<td style="text-align: left;">Inline code completion and chat, integrated into the editor. The oldest and most deeply integrated of the four.</td>
+<td style="text-align: left;">VS Code extension</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Claude Code</strong></td>
+<td style="text-align: left;">An agentic coding tool: you describe a task and it reads and edits files in your project. Has an official VS Code integration as well as a command-line form.</td>
+<td style="text-align: left;">VS Code integration, CLI, web</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Codex</strong></td>
+<td style="text-align: left;">OpenAI's coding agent, with editor integration. Task-oriented, like Claude Code.</td>
+<td style="text-align: left;">VS Code extension, CLI</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Antigravity</strong></td>
+<td style="text-align: left;">Google's agent-first development environment. It is a <strong>standalone editor built on VS Code</strong>, not an extension you add to VS Code — so choosing it means working in a different application.</td>
+<td style="text-align: left;">Separate application</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Two distinctions worth holding on to.</strong></p>
+<p><strong>Completion versus agency.</strong> Copilot began as completion: it suggests the next line while you type. Claude Code, Codex and Antigravity are <em>agentic</em> — you hand over a task and they read, write and run things. Agency is more powerful and less predictable, which matters when the artifact is a scholarly record rather than a program.</p>
+<p><strong>Extension versus environment.</strong> Three of these are things you add to VS Code. Antigravity replaces it. If you have already set up VS Code with an XML validator for this module, adding an agent to that editor keeps one working environment; moving to Antigravity means configuring a second one.</p>
+<p><strong>Which to pick.</strong> Any of them can draft a TEI header. Choose on access, since that is the binding constraint: whichever you can get a working account for is the right one for you. If you have several, Copilot is the gentlest introduction, and Claude Code or Codex the more capable for whole-file work.</p>
+<p><strong>Whatever you choose, the discipline does not change.</strong> The tool drafts; you verify. Nothing later in this lesson depends on which one produced the text.</p>
+<p><strong>Takeaway:</strong> Copilot, Claude Code, Codex and Antigravity are four different tools — three extend VS Code and one replaces it — and any of them will serve, so choose on which account you can actually get.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The AI Extensions for VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which statement correctly distinguishes the four AI coding tools discussed in this section?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Copilot, Claude Code, Codex and Antigravity are four different tools — three extend VS Code and one replaces it — and any of them will serve, so choose on which account you can actually get.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Copilot offers inline completion inside a VS Code extension, while Claude Code, Codex and Antigravity are agentic; Antigravity differs again because it is a standalone editor built on VS Code rather than an extension.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The two distinctions are completion versus agency and extension versus environment: three tools extend VS Code, and Antigravity replaces it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All four are VS Code extensions, and the only real difference is which vendor supplies the underlying model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Antigravity is a separate application built on VS Code, not an extension you add to it; choosing it means working in a different editor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Copilot is the agentic tool, while Claude Code and Codex merely complete the next line as you type.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This inverts the distinction: Copilot began as completion, and Claude Code and Codex are the agentic tools you hand a task to.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Antigravity is Google's VS Code extension for Gemini, so it runs inside the editor you have already configured for XML validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is a standalone, agent-first editor built on VS Code; adopting it means configuring a second working environment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: What the Model Is Doing When It Writes Your Header</text></name><questiontext format="html"><text><![CDATA[
 <h3>What the Model Is Doing When It Writes Your Header</h3>
 <p>Lesson 1.1 told you that a large language model predicts likely text. It is worth being exact about what that means when the text is TEI.</p>
 <p>The model has read enormous amounts of writing, including a great deal of public TEI. It has seen thousands of real <code>&lt;teiHeader&gt;</code> elements. So when you hand it a catalogue description, it is not consulting the TEI Guidelines. It is answering one question repeatedly: given everything so far, what usually comes next?</p>
@@ -67,7 +217,7 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>02 Question: What the Model Is Doing When It Writes Your Header</text>
+      <text>04 Question: What the Model Is Doing When It Writes Your Header</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;A model predicts what usually comes next. What does that imply about where its description of your witness will be weakest?&lt;/p&gt;</text>
@@ -109,7 +259,7 @@
 
 
   
-  <question type="description"><name><text>03 Content: Two Ways of Being Right</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>05 Content: Two Ways of Being Right</text></name><questiontext format="html"><text><![CDATA[
 <h3>Two Ways of Being Right</h3>
 <p>Wednesday and Friday put two very different tools side by side, and they disagree about what "correct" means.</p>
 <p>The schema is deterministic. Give it the same file twice and you get the same answer twice. It holds a fixed list of what may appear, in what order, inside what parent. It does not care what your manuscript means. It has one question: does this tree obey the rules?</p>
@@ -151,7 +301,7 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>03 Question: Two Ways of Being Right</text>
+      <text>05 Question: Two Ways of Being Right</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;How do a schema and a language model differ in the kind of correctness each delivers?&lt;/p&gt;</text>
@@ -193,7 +343,7 @@
 
 
   
-  <question type="description"><name><text>04 Content: What a Schema Can and Cannot See</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>06 Content: What a Schema Can and Cannot See</text></name><questiontext format="html"><text><![CDATA[
 <h3>What a Schema Can and Cannot See</h3>
 <p>This is the most important idea in the lesson, and everything from section 15 onward depends on it. Take a moment with it.</p>
 <p>On Wednesday you drove the Problems panel to zero errors and it felt like proof. It was proof of something quite narrow. A RELAX NG schema answers one question: is this tree built out of permitted elements, in a permitted order, with permitted attribute values?</p>
@@ -229,53 +379,6 @@
 <p>Hold on to the distinction. Once a machine is generating the markup, the gap between well built and true is where all your work lives.</p>
 <p><strong>Takeaway:</strong> A schema certifies that a file is well built, never that it is true, and every fact about the physical manuscript falls outside what it can see.</p>
 <hr />
-]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
-<question type="multichoice">
-    <name>
-      <text>04 Question: What a Schema Can and Cannot See</text>
-    </name>
-    <questiontext format="html">
-      <text>&lt;p&gt;Your file validates at zero errors. What exactly has been certified?&lt;/p&gt;</text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text>&lt;p&gt;A schema certifies that a file is well built, never that it is true, and every fact about the physical manuscript falls outside what it can see.&lt;/p&gt;</text>
-    </generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text>&lt;p&gt;That the file is well built — permitted elements, permitted order, permitted attribute values — and nothing about whether it is true.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Correct. Every fact about the physical manuscript lies outside what a schema can examine.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;That the file describes the manuscript accurately, since the schema checks attribute values.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The schema checks that a value is of a permitted type, never that it is the right value.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;That the file is both well-formed and factually consistent with its sources.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Source consistency is not something a schema has any access to.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;That the file will import into Moodle and other systems without error.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Import compatibility is a separate concern from schema validity.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-  </question>
-
-
-  
-  <question type="description"><name><text>05 Content: Why Your Own Header Is the Measuring Stick</text></name><questiontext format="html"><text><![CDATA[
-<h3>Why Your Own Header Is the Measuring Stick</h3>
 <p>A system cannot grade itself. To say anything precise about an AI header, you need an independent reference — and you built one this week without being told that was the point.</p>
 <p>Tuesday's hand-authored header is your ground truth: made by someone who looked at the actual object. Wednesday's validated file is your structural baseline: certified at zero errors. Together they are the standard the machine gets measured against.</p>
 <p>This matters more than it sounds. Without a baseline, all you can say about an AI header is that it looks impressive — worth nothing, because looking impressive is the one thing these systems are guaranteed to do. With a baseline you can say something a marker can check: it invented a shelfmark, it missed two hands, it got the material right.</p>
@@ -286,13 +389,13 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>05 Question: Why Your Own Header Is the Measuring Stick</text>
+      <text>06 Question: What a Schema Can and Cannot See</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Why is a verified header of your own required before the AI output can be audited at all?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Your file validates at zero errors. What has that certified, and what do you still need before you can audit an AI header?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Your verified header is what converts an impression of the AI's cleverness into a specific, checkable claim about what it got wrong.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A schema certifies that a file is well built, never that it is true, and every fact about the physical manuscript falls outside what it can see. Your verified header is what converts an impression of the AI's cleverness into a specific, checkable claim about what it got wrong.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -301,34 +404,34 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;Without an independent reference you can only report impressions; with one you can make specific claims a marker can check.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It certifies only that the file is well built; auditing still requires your own verified header as an independent reference, without which you can report impressions but not checkable claims.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. “The AI made mistakes” is not an audit; naming a wrong identifier and how you verified it is.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. The schema is blind to every fact about the physical manuscript, and your Tuesday header is the ground truth the AI output is measured against.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because the AI refuses to generate a header unless given an example first.&lt;/p&gt;</text>
+      <text>&lt;p&gt;That the file describes the manuscript accurately, and that no independent reference is therefore needed.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. It will generate one readily; the issue is having something to measure it against.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. The schema checks that values are of permitted types, never whether a shelfmark, date, or material is the right one.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because schema validation cannot run without a reference file to compare to.&lt;/p&gt;</text>
+      <text>&lt;p&gt;That the file is well built and factually consistent with its sources, so the AI output can be audited against the schema alone.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Validation compares a file to the schema, not to another file.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Source consistency is outside what a schema can see; without your own verified header you have no independent standard.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because the workshop rubric awards points for submitting two headers.&lt;/p&gt;</text>
+      <text>&lt;p&gt;That the file will import into Moodle without error, which is enough to compare the AI output against the schema.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The rubric rewards a precise diagnosis, which requires a baseline to be possible.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Import compatibility is not validity, and neither certifies truth; the comparison needs your own verified header as the reference.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
 
 
   
-  <question type="description"><name><text>06 Content: Finding the Information: Where Your Facts Come From</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>07 Content: Finding the Information: Where Your Facts Come From</text></name><questiontext format="html"><text><![CDATA[
 <h3>Finding the Information: Where Your Facts Come From</h3>
 <p>An AI header can only be as good as the facts you feed it, and you cannot check its output against facts you never established yourself. So before you generate anything, you need a verified dossier on your own document.</p>
 <p><strong>In practice, four things have to be pinned down:</strong></p>
@@ -366,7 +469,7 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>06 Question: Finding the Information: Where Your Facts Come From</text>
+      <text>07 Question: Finding the Information: Where Your Facts Come From</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Before generating an AI header, why must you assemble a verified dossier on your own document?&lt;/p&gt;</text>
@@ -408,7 +511,7 @@
 
 
   
-  <question type="description"><name><text>07 Content: Recording What You Found in the Header</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>08 Content: Recording What You Found in the Header</text></name><questiontext format="html"><text><![CDATA[
 <h3>Recording What You Found in the Header</h3>
 <p>Now the facts become markup. Wednesday taught you the elements; today the question is which element carries which kind of fact, and how to be honest about uncertainty.</p>
 <p>Here is a worked header for a printed proclamation, with the identifications that matter marked:</p>
@@ -440,7 +543,7 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>07 Question: Recording What You Found in the Header</text>
+      <text>08 Question: Recording What You Found in the Header</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;You are describing a document whose surviving exemplar is a printed proclamation with no original. How should the header record that?&lt;/p&gt;</text>
@@ -482,7 +585,7 @@
 
 
   
-  <question type="description"><name><text>08 Content: Choosing the Right Element for the Right Fact</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>09 Content: Choosing the Right Element for the Right Fact</text></name><questiontext format="html"><text><![CDATA[
 <h3>Choosing the Right Element for the Right Fact</h3>
 <p>The hardest part of writing a header is not syntax. It is deciding which element carries a given fact — and getting it wrong asserts something false without any tool complaining.</p>
 <p><strong>Work through the decisions your own document forces:</strong></p>
@@ -544,7 +647,7 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>08 Question: Choosing the Right Element for the Right Fact</text>
+      <text>09 Question: Choosing the Right Element for the Right Fact</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;You are cataloguing a single-sheet printed broadside. Why is &lt;code&gt;&amp;lt;handDesc&amp;gt;&lt;/code&gt; the wrong element for it?&lt;/p&gt;</text>
@@ -586,7 +689,7 @@
 
 
   
-  <question type="description"><name><text>09 Content: What Your Dossier Must Cover Before You Generate</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>10 Content: What Your Dossier Must Cover Before You Generate</text></name><questiontext format="html"><text><![CDATA[
 <h3>What Your Dossier Must Cover Before You Generate</h3>
 <p>You cannot audit what you did not establish. Here is the checklist, and you should be able to point to a source for every line.</p>
 <p><strong>About the object:</strong></p>
@@ -616,7 +719,7 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>09 Question: What Your Dossier Must Cover Before You Generate</text>
+      <text>10 Question: What Your Dossier Must Cover Before You Generate</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Your dossier has a field you could not verify from any source. What should you do with it?&lt;/p&gt;</text>
@@ -658,7 +761,7 @@
 
 
   
-  <question type="description"><name><text>10 Content: Working With a Model That Cannot See Your Document</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>11 Content: Working With a Model That Cannot See Your Document</text></name><questiontext format="html"><text><![CDATA[
 <h3>Working With a Model That Cannot See Your Document</h3>
 <p>A language model has never handled a manuscript. It has read descriptions of them. That single fact predicts where it will succeed and where it will fail, and it is worth stating plainly before you start.</p>
 <p><strong>Where it will do well:</strong> prose that sounds like a catalogue record. Recurring structures. Standard formulas and boilerplate. Anything well represented in the writing it has read.</p>
@@ -670,7 +773,7 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>10 Question: Working With a Model That Cannot See Your Document</text>
+      <text>11 Question: Working With a Model That Cannot See Your Document</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;A model has never handled a physical manuscript. Where will its description be weakest?&lt;/p&gt;</text>
@@ -712,7 +815,73 @@
 
 
   
-  <question type="description"><name><text>11 Content: Asking the Model for a Header</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>12 Content: Getting AI to Draft a Header Element</text></name><questiontext format="html"><text><![CDATA[
+<h3>Getting AI to Draft a Header Element</h3>
+<p>This is the practical centre of the session: using a model to produce a <em>piece</em> of your header, inside your editor, where you can check it immediately.</p>
+<p><strong>Work element by element, not file by file.</strong> Asking for a whole <code>&lt;msDesc&gt;</code> at once produces something impressive and hard to check. Asking for one element produces something small enough to verify against your dossier in a few seconds:</p>
+<pre><code class="language-text">Draft a TEI &lt;physDesc&gt; for the document described below.
+Use &lt;objectDesc&gt; with @form, &lt;supportDesc&gt; with @material, and &lt;extent&gt;.
+Return only the XML fragment, no explanation.
+
+Description: [your own catalogue notes for this element]
+</code></pre>
+<p><strong>The four-step loop, and it is the same loop every time:</strong></p>
+<ol>
+<li><strong>Ask for one element</strong>, supplying the real facts you established.</li>
+<li><strong>Read it against your dossier</strong> before it goes anywhere near the file — does the material match? The extent? The form?</li>
+<li><strong>Validate</strong> once it is in the file. Structural errors surface here.</li>
+<li><strong>Keep the correction.</strong> If the model got <code>@form</code> wrong, know <em>why</em> it was wrong, because the same mistake will recur on the next element.</li>
+</ol>
+<p><strong>Why one element at a time matters more than it sounds.</strong> A whole-file request hides its errors inside a large plausible block; a single-element request exposes them. It also keeps you in the position of knowing what each line does — which is the entire point of having written the header by hand first.</p>
+<p><strong>And note what you are building.</strong> By Friday you will have a hand-authored header, a schema-validated header, and an AI-drafted header. The first is your ground truth, the second your structural baseline, and the third the thing under audit. Generating the third element by element is what makes it auditable at all.</p>
+<p><strong>Takeaway:</strong> Prompt for one element at a time with your own verified facts, check it against your dossier before it enters the file, and validate after it does — small enough to verify is the rule.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Getting AI to Draft a Header Element</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does this section insist on prompting for one element at a time rather than asking the model for the whole &lt;code&gt;&amp;lt;msDesc&amp;gt;&lt;/code&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Prompt for one element at a time with your own verified facts, check it against your dossier before it enters the file, and validate after it does — small enough to verify is the rule.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A whole-file request hides its errors inside a large plausible block, while a single element is small enough to check against your dossier in seconds — and it keeps you knowing what each line does.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That is why the loop is: ask for one element using verified facts, check it against the dossier, validate once it is in the file, and keep the correction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the model cannot produce a valid &lt;code&gt;&amp;lt;msDesc&amp;gt;&lt;/code&gt; in a single response.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It produces one readily; the problem is that a whole-file answer is impressive and hard to verify, not that it is impossible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the schema will only validate one element at a time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The schema validates the whole file; the one-element rule is about making the output checkable, not about what the validator accepts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because asking for one element is faster and uses fewer tokens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The reason is verifiability, not speed; the same mistake can recur, so you must understand why the element was wrong.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Asking the Model for a Header</text></name><questiontext format="html"><text><![CDATA[
 <h3>Asking the Model for a Header</h3>
 <p>Now you generate the machine's version.</p>
 <p><strong>Give it your raw material and ask for a header.</strong> The prompt below is deliberately plain. Note what it does and does not do.</p>
@@ -738,7 +907,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>11 Question: Asking the Model for a Header</text>
+      <text>13 Question: Asking the Model for a Header</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;What should your prompt to the model contain?&lt;/p&gt;</text>
@@ -780,7 +949,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>12 Content: Holding Both to the Same Gate</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>14 Content: Holding Both to the Same Gate</text></name><questiontext format="html"><text><![CDATA[
 <h3>Holding Both to the Same Gate</h3>
 <p>Both headers now go through the same validator. That symmetry is what makes the comparison an experiment.</p>
 <p><strong>Run the schema against the AI output first, before fixing anything, and write down the raw error count.</strong> That number is a datum. An error count of zero is a perfectly interesting result — it means the model produced well-built markup, which is the one thing it is reliably good at, and it tells you the audit has to happen somewhere other than the Problems panel.</p>
@@ -795,7 +964,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>12 Question: Holding Both to the Same Gate</text>
+      <text>14 Question: Holding Both to the Same Gate</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;You run the validator on the AI output. Why must you record the error count before fixing anything?&lt;/p&gt;</text>
@@ -837,7 +1006,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>13 Content: The Audit: Comparing Content, Not Just Structure</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>15 Content: The Audit: Comparing Content, Not Just Structure</text></name><questiontext format="html"><text><![CDATA[
 <h3>The Audit: Comparing Content, Not Just Structure</h3>
 <p>Now the part the workshop actually grades.</p>
 <p>Go field by field through your dossier and mark what the machine produced:</p>
@@ -876,14 +1045,14 @@ Description: [paste your own catalogue notes here]
 </tbody>
 </table>
 <p><strong>"Invented" is the category that matters most.</strong> A shelfmark that is well-formed, correctly formatted, and simply false counts as invented — and it will have passed the schema. So will a reference number that belongs to a different volume, or a repository URI that resolves to a different institution. Make sure you can point to the specific thing that is false, not merely that something feels off.</p>
-<p><strong>Record two numbers:</strong> the raw schema error count from section 09, and how many of the six fields were wrong or invented.</p>
+<p><strong>Record two numbers:</strong> the raw schema error count from section 14, and how many of the six fields were wrong or invented.</p>
 <p><strong>Then ask the question the numbers raise.</strong> Where did the machine beat you? Where did it lie to you? The failures tend to cluster on facts requiring access to the physical object or to a trustworthy register — the things a language model has no way to consult and every incentive to produce fluently anyway.</p>
 <p><strong>Takeaway:</strong> Audit the machine field by field against your verified dossier, count both the schema errors and the wrong-or-invented fields, and be able to name the specific falsehood rather than a general impression of error.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>13 Question: The Audit: Comparing Content, Not Just Structure</text>
+      <text>15 Question: The Audit: Comparing Content, Not Just Structure</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;The AI produced a well-formed shelfmark that is simply false, and it passed validation. How should you mark it?&lt;/p&gt;</text>
@@ -925,7 +1094,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>14 Content: Four Kinds of Wrong</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>16 Content: Four Kinds of Wrong</text></name><questiontext format="html"><text><![CDATA[
 <h3>Four Kinds of Wrong</h3>
 <p>You are now at the centre of the lesson. Everything so far was preparation for a single question: when an AI header is wrong, in what way is it wrong?</p>
 <p>Sorting errors into these four kinds is the skill the workshop grades, because the categories differ in who can catch them.</p>
@@ -962,13 +1131,13 @@ Description: [paste your own catalogue notes here]
 </table>
 <p>Read the third column downward. It is a description of how much of you each error requires.</p>
 <p>The top row is free. The second is cheap. The bottom two are the reason a human editor still holds this job, and they are where your two subtle hallucinations will come from. A submission reporting two structural errors has reported the two things the machine already told you.</p>
-<p>Sections 16 through 22 work through the four kinds in order, spending most of their time on the bottom half.</p>
+<p>Sections 17 through 23 work through the four kinds in order, spending most of their time on the bottom half.</p>
 <p><strong>Takeaway:</strong> AI errors are structural, obviously factual, subtly factual, or citational, and the categories differ by who is capable of catching them.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>14 Question: Four Kinds of Wrong</text>
+      <text>16 Question: Four Kinds of Wrong</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Why does the four-part classification of AI errors matter for your audit?&lt;/p&gt;</text>
@@ -1010,7 +1179,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>15 Content: Structural Errors: The Ones the Schema Hands You</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>17 Content: Structural Errors: The Ones the Schema Hands You</text></name><questiontext format="html"><text><![CDATA[
 <h3>Structural Errors: The Ones the Schema Hands You</h3>
 <p>Start with the easy kind, so you can stop spending attention on it.</p>
 <p>A structural hallucination is markup that looks reasonable and is illegal in this schema. The model is not confused about your manuscript. It is confused about rules it never had (De Cristofaro &amp; Zilio, 2025).</p>
@@ -1041,7 +1210,7 @@ Description: [paste your own catalogue notes here]
 <td><code>copy</code> is an HTML entity; XML has never heard of it</td>
 </tr>
 <tr>
-<td><code>&lt;supportDesc support="parchment"&gt;</code></td>
+<td><code>&lt;supportDesc support="paper"&gt;</code></td>
 <td>The attribute is <code>material</code>, not <code>support</code></td>
 </tr>
 </tbody>
@@ -1052,7 +1221,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>15 Question: Structural Errors: The Ones the Schema Hands You</text>
+      <text>17 Question: Structural Errors: The Ones the Schema Hands You</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Why are structural hallucinations the least valuable finding to report in your workshop comparison?&lt;/p&gt;</text>
@@ -1094,12 +1263,12 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>16 Content: Obvious Factual Errors: Check These First</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>18 Content: Obvious Factual Errors: Check These First</text></name><questiontext format="html"><text><![CDATA[
 <h3>Obvious Factual Errors: Check These First</h3>
 <p>Now errors the schema cannot see but you can, quickly, by looking at your own file and your image.</p>
 <p>Five fields carry most of them.</p>
 <ul>
-<li><strong>Support.</strong> The model says paper; your image plainly shows parchment. It guessed from a period, or from nothing.</li>
+<li><strong>Support.</strong> The model says parchment; your image plainly shows paper. It guessed from a period, or from nothing.</li>
 <li><strong>Extent.</strong> A folio count that does not match what you counted.</li>
 <li><strong>Hands.</strong> A single hand asserted where you recorded three.</li>
 <li><strong>Date.</strong> A century that contradicts your own dating.</li>
@@ -1112,7 +1281,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>16 Question: Obvious Factual Errors: Check These First</text>
+      <text>18 Question: Obvious Factual Errors: Check These First</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Models drift toward the famous when describing an unfamiliar manuscript. What auditing strategy follows?&lt;/p&gt;</text>
@@ -1154,18 +1323,18 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>17 Content: The Subtle One: The Provenance That Never Happened</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>19 Content: The Subtle One: The Provenance That Never Happened</text></name><questiontext format="html"><text><![CDATA[
 <h3>The Subtle One: The Provenance That Never Happened</h3>
 <p>Here is the failure that gives this lesson its shape. Read it slowly.</p>
 <p>You give a model a thin description: <em>Halifax, 1752: printed proclamation in English and French, single sheet, damaged along one fold, issued by the governor.</em> You ask for a full <code>&lt;history&gt;</code>. It returns this.</p>
 <pre><code class="language-xml">&lt;!-- Generated by a model. Every fact in it is invented. --&gt;
-&lt;provenance notBefore=&quot;0700&quot; notAfter=&quot;0750&quot;&gt;
-  &lt;p&gt;Transferred in 722 CE to the Monastery of Saint Catherine at Mount Sinai
-     and entered in the Council register for that year.&lt;/p&gt;
+&lt;provenance notBefore=&quot;1850&quot; notAfter=&quot;1900&quot;&gt;
+  &lt;p&gt;Transferred to the Provincial Archives in 1878 from the records of the
+     Board of Trade, and entered in the accession register for that year.&lt;/p&gt;
 &lt;/provenance&gt;
 </code></pre>
 <p>Now audit it with everything you own. The XML is well-formed. The elements are real TEI. The dates are correct ISO 8601 and consistent with each other. Run it through Wednesday's schema and it reports zero errors.</p>
-<p>Mount Sinai is invented. Dorotheus is invented. The year 722 is invented. The inventory is invented. The model assembled a plausible provenance from general knowledge of how manuscripts moved, and produced fiction in perfect TEI.</p>
+<p>The 1878 transfer is invented. The accession register is invented. The Board of Trade, by contrast, is a real body whose records really do contain colonial correspondence — and that single anchor of truth is what makes the rest convincing. The model assembled a plausible provenance from general knowledge of how such documents move, and produced fiction in perfect TEI.</p>
 <p>Notice what makes it convincing: it is <em>specific</em>. Vague output reads as uncertain, and specific output reads as researched. The model has no way to be vague — it produces the most probable continuation, and a probable provenance narrative contains names and dates.</p>
 <p><strong>Specificity is not evidence.</strong> In AI output, it is the opposite: an unexpectedly precise claim about a poorly documented object is the thing to distrust first.</p>
 <p><strong>Takeaway:</strong> A model produces fabricated provenance in flawless TEI that passes the schema at zero errors, and its specificity is a warning sign rather than a mark of research.</p>
@@ -1173,10 +1342,10 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>17 Question: The Subtle One: The Provenance That Never Happened</text>
+      <text>19 Question: The Subtle One: The Provenance That Never Happened</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;A model invents a provenance naming a monastery, a monk, and a year, in valid TEI that passes at zero errors. What should you conclude from how specific it is?&lt;/p&gt;</text>
+      <text>&lt;p&gt;A model invents a transfer to the Provincial Archives in 1878, complete with an accession register, in valid TEI that passes at zero errors. What should you conclude from how specific it is?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
       <text>&lt;p&gt;A model produces fabricated provenance in flawless TEI that passes the schema at zero errors, and its specificity is a warning sign rather than a mark of research.&lt;/p&gt;</text>
@@ -1215,10 +1384,10 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>18 Content: The Subtle One: Confidence the Source Never Had</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>20 Content: The Subtle One: Confidence the Source Never Had</text></name><questiontext format="html"><text><![CDATA[
 <h3>The Subtle One: Confidence the Source Never Had</h3>
 <p>This one is quieter than section 18, and better suited to your workshop, because you can demonstrate it from your own source.</p>
-<p>Your evidence is uncertain in ordinary, honest ways. A script is <em>probably</em> sixth century. A hand <em>may</em> be a later corrector. Damage makes a line count <em>approximate</em>. On Tuesday you had to decide how to encode that uncertainty, and TEI has vocabulary for it: <code>@notBefore</code> and <code>@notAfter</code> for a range, <code>&lt;certainty&gt;</code>, a plain "possibly" in a note.</p>
+<p>Your evidence is uncertain in ordinary, honest ways. A document is <em>probably</em> from the 1790s. A hand <em>may</em> be a later correction. Damage makes a line count <em>approximate</em>. On Tuesday you had to decide how to encode that uncertainty, and TEI has vocabulary for it: <code>@notBefore</code> and <code>@notAfter</code> for a range, <code>&lt;certainty&gt;</code>, a plain "possibly" in a note.</p>
 <p>A model tends to erase all of it.</p>
 <table>
 <thead>
@@ -1230,23 +1399,23 @@ Description: [paste your own catalogue notes here]
 </thead>
 <tbody>
 <tr>
-<td>"ca. 550"</td>
-<td><code>when="0550"</code></td>
+<td>"ca. 1791"</td>
+<td><code>when="1791"</code></td>
 <td>A range became a single year</td>
 </tr>
 <tr>
-<td>"uncial, possibly two hands"</td>
+<td>"one hand, possibly two"</td>
 <td>Two <code>handNote</code> elements, no qualification</td>
 <td>A maybe became a count</td>
 </tr>
 <tr>
-<td>"approximately 29 lines"</td>
-<td><code>writtenLines="29"</code></td>
+<td>"approximately 30 lines"</td>
+<td><code>writtenLines="30"</code></td>
 <td>An estimate became a measurement</td>
 </tr>
 <tr>
-<td>"provenance Egypt"</td>
-<td><code>&lt;origPlace&gt;Alexandria&lt;/origPlace&gt;</code></td>
+<td>"printed in the province"</td>
+<td><code>&lt;origPlace&gt;Halifax&lt;/origPlace&gt;</code></td>
 <td>A region became a city</td>
 </tr>
 </tbody>
@@ -1259,10 +1428,10 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>18 Question: The Subtle One: Confidence the Source Never Had</text>
+      <text>20 Question: The Subtle One: Confidence the Source Never Had</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Your source says “approximately 29 lines” and the AI writes writtenLines="29". Why does this matter beyond tidiness?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Your source says “approximately 30 lines” and the AI writes writtenLines="30". Why does this matter beyond tidiness?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
       <text>&lt;p&gt;Models convert hedged evidence into precise assertions — ranges into years, maybes into counts — producing valid markup that claims more than the source ever did.&lt;/p&gt;</text>
@@ -1286,7 +1455,7 @@ Description: [paste your own catalogue notes here]
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because 29 is likely to be the wrong number in most manuscripts.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Because 30 is likely to be the wrong number in most manuscripts.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Incorrect. It may well be right; the problem is asserting certainty the source withheld.&lt;/p&gt;</text>
       </feedback>
@@ -1301,7 +1470,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>19 Content: The Subtle One: What Is Not There</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>21 Content: The Subtle One: What Is Not There</text></name><questiontext format="html"><text><![CDATA[
 <h3>The Subtle One: What Is Not There</h3>
 <p>Every error so far was something written down. This one is the absence of something, and it is the hardest kind to see.</p>
 <p>The behaviour was documented at scale. In the PubCINET study, one model produced near-flawless valid TEI and, when a document mentioned a person outside the supplied reference list, simply left them untagged rather than work out who they were (De Cristofaro &amp; Zilio, 2025). The markup was perfect and the record was incomplete.</p>
@@ -1313,7 +1482,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>19 Question: The Subtle One: What Is Not There</text>
+      <text>21 Question: The Subtle One: What Is Not There</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Why can an omission never be found by reading the AI file on its own?&lt;/p&gt;</text>
@@ -1355,9 +1524,9 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>20 Content: The Subtle One: The Link That Goes Somewhere Else</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>22 Content: The Subtle One: The Link That Goes Somewhere Else</text></name><questiontext format="html"><text><![CDATA[
 <h3>The Subtle One: The Link That Goes Somewhere Else</h3>
-<p>Section 12 warned that models fabricate identifiers. Now look at what that produces in a finished file, because it is a strong candidate for your second subtle hallucination.</p>
+<p>Section 13 warned that models invent confident specifics. Now look at what that produces in a finished file, because it is a strong candidate for your second subtle hallucination.</p>
 <p>A fabricated identifier fails in three different ways, and only one is easy to spot.</p>
 <ul>
 <li><strong>It resolves to nothing.</strong> The URL is dead. Annoying, but honest: anyone who clicks discovers the problem.</li>
@@ -1371,7 +1540,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>20 Question: The Subtle One: The Link That Goes Somewhere Else</text>
+      <text>22 Question: The Subtle One: The Link That Goes Somewhere Else</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Which kind of fabricated identifier is most dangerous, and what is the only test for it?&lt;/p&gt;</text>
@@ -1413,23 +1582,23 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>21 Content: The Subtle One: The Citation That Does Not Resolve</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>23 Content: The Subtle One: The Citation That Does Not Resolve</text></name><questiontext format="html"><text><![CDATA[
 <h3>The Subtle One: The Citation That Does Not Resolve</h3>
 <p>On Wednesday you recorded a persistent identifier for your object — an ARK, a call number, or an archival reference. Each has a strict internal syntax, and every part must be right.</p>
 <p>Ask a model for one and it will produce the right shape. Shape is never the problem. Three things go wrong inside it.</p>
 <ul>
 <li><strong>Right shape, wrong authority.</strong> A plausible-looking ARK whose NAAN belongs to a different institution, or a call number in a series that does not exist.</li>
-<li><strong>Wrong work numbers.</strong> The model half-remembers a TLG number and assigns Homer's identifier to Isaiah. The URN is perfectly formed and points at the wrong text.</li>
+<li><strong>Wrong work numbers.</strong> The model half-remembers a citation number and attaches it to the wrong work — giving one poem the standard edition's number for another, or a <em>numéro</em> from the wrong series in the Archives nationales. The URN is perfectly formed and points at the wrong text.</li>
 <li><strong>An identifier that resolves to something else.</strong> The syntax is correct and the link works — but it opens a different document, which is worse than a dead link because it looks like verification.</li>
 </ul>
 <p>Each produces a citation that looks correct in your file and fails when somebody tries to follow it. Since the entire purpose of a canonical URN is to still resolve in fifty years, a fabricated one is worse than none: a broken promise that looks like a kept one.</p>
-<p>The rule from section 06 applies unchanged. Do not accept an identifier from a model. Resolve it against the real service before it enters your file.</p>
+<p>The rule from section 07 applies unchanged. Do not accept an identifier from a model. Resolve it against the real service before it enters your file.</p>
 <p><strong>Takeaway:</strong> Generated identifiers are correctly shaped and frequently point at the wrong object, so every one must be resolved and read before you commit it.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>21 Question: The Subtle One: The Citation That Does Not Resolve</text>
+      <text>23 Question: The Subtle One: The Citation That Does Not Resolve</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Why is a fabricated persistent identifier worse than no identifier at all?&lt;/p&gt;</text>
@@ -1471,7 +1640,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>22 Content: Sorting the Differences, and What the Pattern Shows</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>24 Content: Sorting the Differences, and What the Pattern Shows</text></name><questiontext format="html"><text><![CDATA[
 <h3>Sorting the Differences, and What the Pattern Shows</h3>
 <p>You now have two headers and two numbers. Put them side by side — <code>git diff</code> will line them up, using the tool from Lesson 1.1 — and classify every difference. Choosing the category <em>is</em> the analysis, and there are four:</p>
 <ol>
@@ -1488,13 +1657,13 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>22 Question: Sorting the Differences, and What the Pattern Shows</text>
+      <text>24 Question: Sorting the Differences, and What the Pattern Shows</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Model accuracy tracks how much has been written about a subject. What is the scholarly consequence for cataloguing?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Models are least reliable on the least-studied traditions, so unaudited automation widens existing cataloguing inequities while appearing neutral.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Classify every difference, name precision and recall from your own counts, and state the pattern — structural errors where the schema could reach, invented specifics where only the object could answer.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1530,7 +1699,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>23 Content: From Counts to a Defensible Claim</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>25 Content: From Counts to a Defensible Claim</text></name><questiontext format="html"><text><![CDATA[
 <h3>From Counts to a Defensible Claim</h3>
 <p>You have two numbers: the raw schema error count, and how many of the six fields were wrong or invented. Neither is a finding on its own. A finding is a claim the numbers support.</p>
 <p><strong>Weak:</strong> "The AI made several errors." Unfalsifiable, and it describes every AI output ever produced.</p>
@@ -1548,13 +1717,13 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>23 Question: From Counts to a Defensible Claim</text>
+      <text>25 Question: From Counts to a Defensible Claim</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Why is “missing” kept as a separate column from “wrong or invented” on the scorecard?&lt;/p&gt;</text>
+      <text>&lt;p&gt;You have two counts: the raw schema error count and how many of the six fields were wrong or invented. What turns them into the kind of finding the comparison is graded on?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Score six fields as right, wrong, or missing against your verified header, keeping omission separate from invention, and record the error counts before and after correction.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Convert your counts into a specific, checkable claim that separates structural from factual performance and explains why those fields in particular failed.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1563,34 +1732,34 @@ Description: [paste your own catalogue notes here]
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;Omission and invention are different failures with different causes, and combining them hides both.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A specific, checkable claim that separates structural from factual performance, names the specific field and error, and explains why those fields in particular failed.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. A cautious model omits; an unreliable one invents, and the responses to each are opposite.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. A marker must be able to check the claim against your files; otherwise it is an impression rather than a finding.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because missing fields are penalized more heavily in the workshop rubric.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A general statement that the AI made several errors, which is unfalsifiable and describes every AI output.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The distinction is analytical, not a marking scheme.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. That is the weak example the section rejects: it neither separates structural from factual performance nor names anything specific.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because missing fields can be filled in later while wrong ones cannot.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A tally of the structural errors the schema caught, since those are the errors you can prove.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Both are correctable; the distinction concerns what they reveal about the model.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Structural errors are the cheap findings the machine already announced; they say nothing about what only you can catch.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because the schema reports missing fields but not wrong ones.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A reflection on how much effort you put into building the dossier, framed as a diary of the week.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The schema reports neither, since both may be perfectly valid.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. The section's third test asks whether the sentence says something about the machine rather than about your own effort.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
 
 
   
-  <question type="description"><name><text>24 Content: Recording the Machine's Part in the File</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>26 Content: Recording the Machine's Part in the File</text></name><questiontext format="html"><text><![CDATA[
 <h3>Recording the Machine's Part in the File</h3>
 <p>If a model drafted part of your description, the edition must say so. This is not a disclaimer. It is provenance — which you already accept as an obligation for manuscripts, and which applies just as much to your own work.</p>
 <p>The argument is simple. A future reader needs to know which claims came from an editor who examined the object and which from a system predicting plausible text. Those deserve different trust, and the difference is invisible in finished markup unless recorded.</p>
@@ -1619,7 +1788,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>24 Question: Recording the Machine's Part in the File</text>
+      <text>26 Question: Recording the Machine's Part in the File</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Why record the model's version and date in respStmt and revisionDesc?&lt;/p&gt;</text>
@@ -1661,17 +1830,17 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>25 Content: Friday's Lab, Step by Step</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>27 Content: Friday's Lab, Step by Step</text></name><questiontext format="html"><text><![CDATA[
 <h3>Friday's Lab, Step by Step</h3>
 <p>Now run the experiment on your own witness.</p>
 <ol>
-<li><strong>Look up your identifiers first.</strong> The registers that govern your own document, from section 06. Do this before any prompting, so you hold verified values the model cannot influence.</li>
+<li><strong>Look up your identifiers first.</strong> The registers that govern your own document, from section 07. Do this before any prompting, so you hold verified values the model cannot influence.</li>
 <li><strong>Gather your input.</strong> Put your raw notes and catalogue description into a plain text file — the object as you found it, not your finished header.</li>
-<li><strong>Prompt the model</strong> using section 08. Save the prompt itself; you will quote it.</li>
+<li><strong>Prompt the model</strong> using section 13. Save the prompt itself; you will quote it.</li>
 <li><strong>Save the output untouched</strong> as <code>witness_ai.xml</code>. Do not tidy it. The unedited version is your evidence.</li>
-<li><strong>Validate and record the count</strong> before fixing anything. This is section 13, and it is the step most often lost to enthusiasm.</li>
+<li><strong>Validate and record the count</strong> before fixing anything. This is section 14, and it is the step most often lost to enthusiasm.</li>
 <li><strong>Run one correction round</strong> as in section 14, and record the new count.</li>
-<li><strong>Score the six fields</strong> from section 24 against your validated header.</li>
+<li><strong>Score the six fields</strong> from section 15 against your validated header.</li>
 <li><strong>Click every identifier</strong> the model produced. This is where your subtle hallucinations are most likely to be, and it takes about a minute each.</li>
 </ol>
 <p>Commit both files when you are done.</p>
@@ -1681,7 +1850,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>25 Question: Friday's Lab, Step by Step</text>
+      <text>27 Question: Friday's Lab, Step by Step</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Why does the lab have you look up your own document's authority identifiers BEFORE prompting the model?&lt;/p&gt;</text>
@@ -1723,7 +1892,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>26 Content: Writing the Comparison</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>28 Content: Writing the Comparison</text></name><questiontext format="html"><text><![CDATA[
 <h3>Writing the Comparison</h3>
 <p>Your comparison is 300 to 500 words and carries three of the ten workshop points. The rubric asks it to <em>precisely diagnose model hallucinations</em> and <em>explain the methodological necessity of deterministic validation</em>. Both halves are graded, and the second is the one people forget.</p>
 <p>A structure that fits the word count.</p>
@@ -1737,16 +1906,36 @@ Description: [paste your own catalogue notes here]
 <p>Because it removes an entire class of failure at zero cost, leaving your attention free for the errors only you can catch. A validator that eliminates the cheap errors is what makes it possible to spend your limited attention on the expensive ones. Argue it from your own numbers rather than from conviction.</p>
 <p><strong>Takeaway:</strong> The comparison reports method and figures briefly, spends its length on two verified subtle hallucinations, and argues the schema's necessity from your own numbers.</p>
 <hr />
+<p><strong>How the comparison is marked.</strong></p>
+<p>Your comparison is 300 to 500 words, and it is worth being explicit about how it is read.</p>
+<p><strong>What earns credit:</strong></p>
+<ul>
+<li>Two <em>subtle</em> hallucinations, named specifically, with the field and the false value</li>
+<li>Evidence that they passed validation — this is what makes them subtle</li>
+<li>Your two counts, used with their correct names</li>
+<li>A claim about why those fields failed, not just that they did</li>
+<li>Correct attribution of authority identifiers to the sources you actually used</li>
+</ul>
+<p><strong>What does not:</strong></p>
+<ul>
+<li>A general account of AI limitations. The lesson already gave you that; reproducing it shows nothing.</li>
+<li>Errors the schema caught. These are cheap and every student will have them.</li>
+<li>Claims you cannot point to a file for.</li>
+<li>Padding toward the word count. Five hundred words of specificity beats five hundred words of reflection.</li>
+</ul>
+<p><strong>The one-sentence summary of the assignment:</strong> show that a schema-valid description can be false, name the specific ways yours was, and explain what that implies about relying on structure as a guarantee.</p>
+<p><strong>Takeaway:</strong> Name two specific schema-valid falsehoods, supply your counts, and explain why those fields failed — specificity about your own files is what the mark rewards.</p>
+<hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>26 Question: Writing the Comparison</text>
+      <text>28 Question: Writing the Comparison</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Your own evidence shows the schema catching structural errors and missing every subtle one. How should the comparison then argue for deterministic validation?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Your evidence shows the schema catching structural errors and missing every subtle one. How should the comparison argue for deterministic validation, and what content actually earns the marks?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;The comparison reports method and figures briefly, spends its length on two verified subtle hallucinations, and argues the schema's necessity from your own numbers.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The comparison reports method and figures briefly, spends its length on two verified subtle hallucinations, and argues the schema's necessity from your own numbers. Name two specific schema-valid falsehoods, supply your counts, and explain why those fields failed — specificity about your own files is what the mark rewards.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1755,34 +1944,34 @@ Description: [paste your own catalogue notes here]
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;That it removes an entire class of failure at no cost, freeing your limited attention for the errors only a person can catch.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Argue from your own numbers that validation removes an entire class of failure at no cost, freeing attention for two subtle hallucinations you name specifically, with the field, the false value, and evidence that they passed validation.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. The argument runs from your own numbers rather than from conviction.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. The schema's necessity is argued from your counts, and credit goes to specific schema-valid falsehoods rather than to a general account of AI limits.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;That the schema catches most hallucinations, so it remains the primary safeguard.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Argue that the schema catches most hallucinations and remains the primary safeguard, and report the structural errors it caught as your findings.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Your own findings contradict this, and the marker will notice.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Your own evidence contradicts that claim, and the errors the schema caught are cheap findings every student will have.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;That schemas will eventually detect factual errors as they improve.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Argue that better prompts will eventually remove the need for auditing, and spend the word count on the ethics of machine cataloguing.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Factual verification is outside what any grammar-based schema can do.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. No prompt removes the need for independent verification, and the rubric grades your audit rather than your position on machine cataloguing.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;That validation matters mainly because Moodle requires valid XML on import.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Argue that validation matters mainly because Moodle requires valid XML on import, and describe the model's general limitations.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. This is a technical convenience, not a methodological argument.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Import validity is a technical convenience rather than a methodological argument, and a general account of AI limits reproduces what the lesson already supplied.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
 
 
   
-  <question type="description"><name><text>27 Content: Where This Method Transfers</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>29 Content: Where This Method Transfers</text></name><questiontext format="html"><text><![CDATA[
 <h3>Where This Method Transfers</h3>
 <p>The audit you are learning is not specific to TEI headers, and it is worth naming what it actually is, because it is the most durable thing in this module.</p>
 <p><strong>The pattern is: establish ground truth independently, generate with a machine, compare against the ground truth rather than against plausibility, and classify the differences by kind.</strong></p>
@@ -1799,7 +1988,7 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>27 Question: Where This Method Transfers</text>
+      <text>29 Question: Where This Method Transfers</text>
     </name>
     <questiontext format="html">
       <text>&lt;p&gt;Which part of this three-step method transfers beyond TEI headers?&lt;/p&gt;</text>
@@ -1841,7 +2030,7 @@ Description: [paste your own catalogue notes here]
 
 
   
-  <question type="description"><name><text>28 Content: The Three-Step Cycle, Completed</text></name><questiontext format="html"><text><![CDATA[
+  <question type="description"><name><text>30 Content: The Three-Step Cycle, Completed</text></name><questiontext format="html"><text><![CDATA[
 <h3>The Three-Step Cycle, Completed</h3>
 <p>Step back and look at what the three meetings of this cycle built.</p>
 <p><strong>Tuesday — the manual baseline.</strong> You read a document and wrote a header by hand. Slow, and the only step where a human looked at the object and decided what was true.</p>
@@ -1851,119 +2040,6 @@ Description: [paste your own catalogue notes here]
 <p>That is the argument this course is making, and this week is the first place you have made it with evidence of your own rather than taking it on faith.</p>
 <p><strong>Takeaway:</strong> Manual authorship gives truth without scale, schema validation gives structure without truth, and machine generation gives scale without either — the audit is what makes the combination defensible.</p>
 <hr />
-]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
-<question type="multichoice">
-    <name>
-      <text>28 Question: The Three-Step Cycle, Completed</text>
-    </name>
-    <questiontext format="html">
-      <text>&lt;p&gt;What does each step of the three-step cycle contribute that the others cannot?&lt;/p&gt;</text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text>&lt;p&gt;Manual authorship gives truth without scale, schema validation gives structure without truth, and machine generation gives scale without either — the audit is what makes the combination defensible.&lt;/p&gt;</text>
-    </generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text>&lt;p&gt;Manual authorship gives truth without scale, schema validation gives structure without truth, machine generation gives scale without either.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Correct. The audit is what makes the combination defensible.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;Manual authorship is the fastest and the schema makes it reliable.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Hand-authoring is the slowest step; its value is that a human checked the object.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;Schema validation checks the facts and the model supplies the structure.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. This inverts both roles: the schema checks structure, the model supplies fluent text that may be false.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;Machine generation is authoritative once the output validates.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Validation certifies construction, never truth.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-  </question>
-
-
-  
-  <question type="description"><name><text>29 Content: Writing It Up: What Your Marker Is Looking For</text></name><questiontext format="html"><text><![CDATA[
-<h3>Writing It Up: What Your Marker Is Looking For</h3>
-<p>Your comparison is 300 to 500 words, and it is worth being explicit about how it is read.</p>
-<p><strong>What earns credit:</strong></p>
-<ul>
-<li>Two <em>subtle</em> hallucinations, named specifically, with the field and the false value</li>
-<li>Evidence that they passed validation — this is what makes them subtle</li>
-<li>Your two counts, used with their correct names</li>
-<li>A claim about why those fields failed, not just that they did</li>
-<li>Correct attribution of authority identifiers to the sources you actually used</li>
-</ul>
-<p><strong>What does not:</strong></p>
-<ul>
-<li>A general account of AI limitations. The lesson already gave you that; reproducing it shows nothing.</li>
-<li>Errors the schema caught. These are cheap and every student will have them.</li>
-<li>Claims you cannot point to a file for.</li>
-<li>Padding toward the word count. Five hundred words of specificity beats five hundred words of reflection.</li>
-</ul>
-<p><strong>The one-sentence summary of the assignment:</strong> show that a schema-valid description can be false, name the specific ways yours was, and explain what that implies about relying on structure as a guarantee.</p>
-<p><strong>Takeaway:</strong> Name two specific schema-valid falsehoods, supply your counts, and explain why those fields failed — specificity about your own files is what the mark rewards.</p>
-<hr />
-]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
-<question type="multichoice">
-    <name>
-      <text>29 Question: Writing It Up: What Your Marker Is Looking For</text>
-    </name>
-    <questiontext format="html">
-      <text>&lt;p&gt;Which of these earns credit in the comparison write-up?&lt;/p&gt;</text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text>&lt;p&gt;Name two specific schema-valid falsehoods, supply your counts, and explain why those fields failed — specificity about your own files is what the mark rewards.&lt;/p&gt;</text>
-    </generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text>&lt;p&gt;Two specific subtle hallucinations, with the field and the false value, and evidence they passed validation.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Correct. Specificity about your own files is what the mark rewards.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;A general account of the known limitations of large language models.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The lesson already supplied that; reproducing it demonstrates nothing.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;The structural errors the schema caught during validation.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Those are cheap, and every student will have them.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text>&lt;p&gt;A thorough reflection on the ethics of machine cataloguing.&lt;/p&gt;</text>
-      <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Interesting, but it is not what this comparison is graded on.&lt;/p&gt;</text>
-      </feedback>
-    </answer>
-  </question>
-
-
-  
-  <question type="description"><name><text>30 Content: What the Week Was For</text></name><questiontext format="html"><text><![CDATA[
-<h3>What the Week Was For</h3>
 <p>Three days, three ways of producing the same description.</p>
 <ul>
 <li><strong>Tuesday, by hand.</strong> You wrote a TEI header yourself and found out how much a manuscript demands before it can be described at all (TEI Consortium, 2025).</li>
@@ -1990,13 +2066,13 @@ Description: [paste your own catalogue notes here]
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>30 Question: What the Week Was For</text>
+      <text>30 Question: The Three-Step Cycle, Completed</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Why does the ability to generate plausible TEI in seconds make deterministic schemas more necessary rather than less?&lt;/p&gt;</text>
+      <text>&lt;p&gt;What does each step of the three-step cycle contribute that the others cannot, and why does machine generation make schemas more necessary rather than less?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Generative AI makes deterministic schemas and human editorial judgement more necessary, because automating the cheap errors is what frees attention for the ones only a person can catch.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Manual authorship gives truth without scale, schema validation gives structure without truth, and machine generation gives scale without either — the audit is what makes the combination defensible. Generative AI makes deterministic schemas and human editorial judgement more necessary, because automating the cheap errors is what frees attention for the ones only a person can catch.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -2005,27 +2081,27 @@ Description: [paste your own catalogue notes here]
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;Automating away the cheap errors is what frees a human editor's attention for the expensive ones only a person can catch.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Manual authorship gives truth without scale, schema validation gives structure without truth, and machine generation gives scale without either; automating away the cheap errors is what frees a person's attention for the ones only a person can catch.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. When markup was slow, errors were rare because so little was produced; that constraint is gone.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. Each step exists because the previous one is insufficient, and only the combination plus the human comparison produces a record you can defend.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because models generate markup that existing schemas cannot parse.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Manual authorship is the fastest step, the schema makes it reliable, and generation becomes authoritative once its output validates.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The output parses readily; the problem is its volume and confidence.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Hand-authoring is the slowest step, validation certifies construction and never truth, and validating output does not make it authoritative.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because schemas are the only tool capable of detecting fabricated provenance.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The schema checks the facts while the model supplies the structure, so generation makes schemas less necessary as models improve.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Schemas cannot detect fabrication at all, as section 18 demonstrated.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. This inverts both roles, and the argument runs the other way: errors removed automatically leave attention for the expensive ones.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because generated files are larger and require stricter storage rules.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Each step replaces the one before it, so a validated AI header no longer needs the hand-authored baseline.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The argument concerns verification, not file size.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Each step exists because the previous one is insufficient; without Tuesday's ground truth you cannot audit what the machine produced.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>

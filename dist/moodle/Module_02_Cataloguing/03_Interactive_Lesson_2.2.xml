@@ -282,7 +282,7 @@
 <p>Schemas enforce <strong>datatypes</strong>:</p>
 <ol>
 <li><strong>ISO 8601 Dates</strong>: In attributes like <code>when="1050"</code>, <code>notBefore="1000"</code>, or <code>notAfter="1099"</code>, the schema demands standard numerical formats (<code>YYYY</code> or <code>YYYY-MM-DD</code>). If you write <code>when="about 1050"</code>, validation fails.</li>
-<li><strong>Enumerated Lists</strong>: For certain attributes, the schema restricts you to a closed list of legal keywords. In <code>&lt;supportDesc material="..."&gt;</code>, you must choose from authorized values like <code>"parchment"</code>, <code>"papyrus"</code>, or <code>"paper"</code>. If you type <code>material="animal_skin"</code>, the validator flags it because it violates the enumeration.</li>
+<li><strong>Enumerated Lists</strong>: For certain attributes, the schema restricts you to a closed list of legal keywords. <code>handNote/@scope</code> accepts only <code>sole</code>, <code>major</code>, or <code>minor</code>; write <code>scope="main"</code> and the validator refuses it. But not every list in the documentation is enforced. The <code>material</code> attribute on <code>&lt;supportDesc&gt;</code> documents seven suggested values — <code>perg</code> (parchment or vellum), <code>chart</code> (paper), <code>papyrus</code>, <code>palm</code>, <code>mixed</code>, <code>other</code>, <code>unknown</code> — and yet our schema accepts <code>material="vellum"</code> and even <code>material="animal_skin"</code> without a word of complaint. Whether an enumeration bites is a property of the schema, not of its documentation, so test the values you actually care about.</li>
 <li><strong>URIs and URLs</strong>: In <code>ref="..."</code> or <code>target="..."</code>, the schema checks that the value is a properly formatted web address or persistent identifier.</li>
 </ol>
 <p>By enforcing strict datatypes, the schema ensures that your edition can be filtered, sorted, and calculated by automated algorithms worldwide.</p>
@@ -1028,11 +1028,11 @@
 
 
   
-  <question type="description"><name><text>17 Content: Link Rot and 404s: Why Regular Web Links Fail Ancient Documents</text></name><questiontext format="html"><text><![CDATA[
-<h3>Link Rot and 404s: Why Regular Web Links Fail Ancient Documents</h3>
+  <question type="description"><name><text>17 Content: Link Rot and 404s: Why Regular Web Links Fail Historical Documents</text></name><questiontext format="html"><text><![CDATA[
+<h3>Link Rot and 404s: Why Regular Web Links Fail Historical Documents</h3>
 <p>Now let us tackle a second great danger in digital scholarship: <strong>the crisis of broken citations</strong>.</p>
 <p>Suppose you are writing a research paper and you cite an online manuscript image like this:
-<code>https://www.somelibrary.edu/special-collections/greek/mss/box4/image23.jpg</code></p>
+<code>https://www.somelibrary.edu/special-collections/manuscripts/box4/image23.jpg</code></p>
 <p>What happens in three years when the library updates its web server? What happens when the library renames its website, reorganizes its digital collections, or goes through a rebranding campaign?</p>
 <p><strong>404 Not Found. The link dies.</strong></p>
 <p>This disease is known as <strong>link rot</strong>. In computational scholarship, relying on standard web URLs is fatal. If the citations in your digital edition break after five years, your scholarship is useless to the next generation of researchers.</p>
@@ -1043,10 +1043,10 @@
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>17 Question: Link Rot and 404s: Why Regular Web Links Fail Ancient Documents</text>
+      <text>17 Question: Link Rot and 404s: Why Regular Web Links Fail Historical Documents</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Your edition cites a facsimile at &lt;code&gt;https://www.somelibrary.edu/special-collections/greek/mss/box4/image23.jpg&lt;/code&gt;. Why is this an unacceptable citation for scholarship that should last?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Your edition cites a facsimile at &lt;code&gt;https://www.somelibrary.edu/special-collections/manuscripts/box4/image23.jpg&lt;/code&gt;. Why is this an unacceptable citation for scholarship that should last?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
       <text>&lt;p&gt;Standard web URLs are fragile and prone to link rot; scholarly editions require persistent, location-independent citation architectures that outlive server reboots.&lt;/p&gt;</text>
@@ -1545,8 +1545,9 @@
 <ol>
 <li><strong>"Element 'xyz' is not allowed here"</strong>: You put a tag in the wrong container or out of sequence. Check the order! Does <code>&lt;publicationStmt&gt;</code> come before <code>&lt;sourceDesc&gt;</code>? Did you accidentally put <code>&lt;supportDesc&gt;</code> outside of <code>&lt;objectDesc&gt;</code>?</li>
 <li><strong>"The element type 'xyz' must be terminated by the matching end-tag"</strong>: You forgot the closing slash <code>/</code> in your end tag, or you forgot to close a tag altogether.</li>
-<li><strong>"Attribute 'material' has invalid value"</strong>: You typed a value that violates the schema enumeration. For example, you typed <code>material="vellum"</code>, but the schema only permits <code>material="parchment"</code>. Change it to <code>"parchment"</code>!</li>
+<li><strong>"Invalid attribute scope for element handNote"</strong>: You typed a value outside an attribute's closed list. <code>handNote/@scope</code> allows only <code>sole</code>, <code>major</code>, or <code>minor</code>, so <code>scope="main"</code> is refused; change it to <code>scope="major"</code>. When this fires, read the permitted values out of the schema rather than substituting the synonym you think ought to be there.</li>
 </ol>
+<p>There is also a fourth case, and it is the dangerous one: <strong>the error that never fires.</strong> Write <code>material="vellum"</code> on <code>&lt;supportDesc&gt;</code> and nothing happens, because our schema does not check that value at all. Silence is not approval. It means the schema has nothing to say about it — and that gap is where tomorrow's lesson lives.</p>
 <p>Work through the Problems panel one line at a time. Click on an error in the panel, and VS Code will jump directly to the offending line in your code. Fix the issue, save the file, and watch the error count drop.</p>
 <p><strong>Vocabulary.</strong> <em>Debugging</em> — the process of identifying, analyzing, and removing errors from computer code or markup. <em>Problems panel</em> — the VS Code interface displaying active errors, warnings, and schema diagnostic messages.</p>
 <p><strong>Takeaway:</strong> Read schema error messages carefully to identify sequence mistakes, unclosed tags, or illegal attribute values, resolving them one by one.</p>

@@ -200,8 +200,8 @@ QUESTIONS = [
               "Incorrect. Entities and properties in a knowledge graph are identified, which is what makes the claims queryable and linkable.")],
       note="Knowledge graphs represent complex, interconnected manuscript histories as living networks of entities and relationships, easily enriched by TEI metadata."),
 
-    Q("Link Rot and 404s: Why Regular Web Links Fail Ancient Documents",
-      "Your edition cites a facsimile at <code>https://www.somelibrary.edu/special-collections/greek/mss/box4/image23.jpg</code>. Why is this an unacceptable citation for scholarship that should last?",
+    Q("Link Rot and 404s: Why Regular Web Links Fail Historical Documents",
+      "Your edition cites a facsimile at <code>https://www.somelibrary.edu/special-collections/manuscripts/box4/image23.jpg</code>. Why is this an unacceptable citation for scholarship that should last?",
       correct=("The URL names a location on one server, so a reorganization, rename, or rebranding turns the citation into a 404 with nothing to fall back on.",
                "Correct. Link rot is the predictable consequence of citing a temporary address rather than an identifier independent of it."),
       wrong=[("The URL is too long and complex to be printed accurately in a journal article.",
