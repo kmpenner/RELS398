@@ -335,7 +335,7 @@
                     <small style="color:var(--stfx-slate);">A real error, from our own class file</small>
                 </td>
                 <td>
-                    &bull; <strong>Project <code>scratch/witness_demo_INVALID.xml</code></strong> &mdash; a copy of the diary header the class built on Wednesday, with three errors seeded into it. Paste the <code>xml-model</code> instruction directly under the XML declaration (code box, right) and save.<br>
+                    &bull; <strong>Project <code>labs/witness_demo_INVALID.xml</code></strong> &mdash; a copy of the diary header the class built on Wednesday, with three errors seeded into it. Paste the <code>xml-model</code> instruction directly under the XML declaration (code box, right) and save.<br>
                     &bull; <strong>Narrate the download:</strong> the language server fetches the schema and audits live. Open the Problems panel (<code>Cmd+Shift+M</code>).<br>
                     &bull; <strong>Work the first error live:</strong> <code>line 36: Did not expect element objectDesc there</code> &mdash; <code>&lt;handDesc&gt;</code> has been moved above <code>&lt;objectDesc&gt;</code>, which the schema's sequence forbids. Move it back on screen; re-save and watch the count fall to the next error.<br>
                     &bull; <strong>Name the three RELAX NG constraint types on the board</strong> as the errors surface: <em>Sequence</em> (this one), <em>Choice</em> (the invented <code>&lt;leafDimensions&gt;</code> at line 44), and <em>content model</em> (<code>&lt;extent&gt;</code> wrapping a <code>&lt;p&gt;</code> at line 41). Nearly every error they will hit is one of these three.<br>
@@ -350,7 +350,7 @@
                 </td>
                 <td>
                     &bull; <strong>Student Action:</strong> work in <em>your own</em> <code>witness.xml</code> &mdash; copy it to <code>witness_validated.xml</code>, add the <code>xml-model</code> instruction, save, open the Problems panel, and fix errors one at a time &mdash; click an error to jump to the line, fix, re-save, watch the count fall. Do not attempt a mass rewrite.<br>
-                    &bull; <strong>Do NOT copy the projected demo file.</strong> <code>scratch/witness_demo_INVALID.xml</code> is a seeded teaching copy with three deliberate errors; your own file is the one being validated.
+                    &bull; <strong>Do NOT copy the projected demo file.</strong> <code>labs/witness_demo_INVALID.xml</code> is a seeded teaching copy with three deliberate errors; your own file is the one being validated.
                     &bull; <strong>Instructor Roaming:</strong> triage against the three common messages in the "Reading Validator Messages" card. Students who stopped at a Minimum Viable Header on Wednesday will hit <em>fewer</em> errors, not more &mdash; do not let them conclude their thinner header was better.<br>
                     &bull; <strong>Hard checkpoint at 09:58:</strong> anyone not at 0 errors pairs with a neighbour who is. Everyone must reach the gate, because Lab B is a comparison and needs a clean baseline on both sides.
                 </td>
@@ -409,7 +409,7 @@
 &lt;/TEI&gt;
             </div>
 
-            <h4 style="margin-top:0.6rem;">Live Demo Errors &mdash; from <code>scratch/witness_demo_INVALID.xml</code></h4>
+            <h4 style="margin-top:0.6rem;">Live Demo Errors &mdash; from <code>labs/witness_demo_INVALID.xml</code></h4>
             <div class="code-box">
 <span class="comment">The committed class artifact (labs/witness.xml) now
 PASSES validation - do not project it expecting errors.
@@ -429,7 +429,7 @@ Project the seeded demo copy instead. Three errors:</span><br>
             </div>
             <ul>
                 <li>Note for the room: <code>&lt;support&gt;</code> at line 39 <em>does</em> take a <code>&lt;p&gt;</code>, while <code>&lt;extent&gt;</code> two lines below does not. Two sibling elements, two different content models &mdash; this is exactly why you cannot reason your way to validity and must ask the schema.</li>
-                <li><strong>Regenerate the demo copy any time</strong> with <code>python3 scratch/make_demo_error.py</code>. It re-derives the file from <code>labs/witness.xml</code> and re-verifies both that the class artifact is valid and that the demo is not, so this card cannot silently go stale again.</li>
+                <li><strong>Regenerate the demo copy any time</strong> with <code>python3 labs/make_demo_error.py</code>. It re-derives the file from <code>labs/witness.xml</code> and re-verifies both that the class artifact is valid and that the demo is not, so this card cannot silently go stale again.</li>
             </ul>
 
             <h4 style="margin-top:0.6rem;">Standard Prompt for Lab B</h4>
