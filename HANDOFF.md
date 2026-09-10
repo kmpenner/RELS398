@@ -74,7 +74,14 @@ Full detail in commit messages `5143aa1`, `24a58c0`, `6b68bc9`, and in `LEDGER.m
 
 ## 4. The one unfinished thing: slide images
 
-**Every slide image in both lessons is stale.** The 30 files per lesson date from 2026-08-26 and carry rendered section headings, so the rewrite invalidated all of them. 2.2's image 20 is literally titled "CTS URN Anatomy" and now sits above text retitled "Three Citation Systems, Three Traditions".
+**Every slide image in both lessons is stale**, though the two differ in degree — check the dates rather than trusting a summary:
+
+| Lesson | Image dates | Why stale |
+|---|---|---|
+| **2.2** | **2026-08-26** | Predates the whole rewrite. Image 20 is literally titled "CTS URN Anatomy" and now sits above text retitled "Three Citation Systems, Three Traditions". Badly stale. |
+| **2.3** | **2026-09-09** | Regenerated yesterday for the *pre-trim* 2.3, so it still illustrates "Where Models Are Weakest", "The Six-Field Scorecard" and "Precision and Recall" — sections the rebuild merged or cut. Stale by one revision. |
+
+Both carry rendered section headings, so any rewrite invalidates them.
 
 **The deployment is text-only because of this.** Both interactive XMLs were compiled with `--no-images` (2.2 3.24 MB → 0.14 MB, 2.3 → 0.13 MB, all 61 question elements intact). Ken chose this over shipping mismatched art.
 
