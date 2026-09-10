@@ -229,13 +229,13 @@
   <!-- 06 Question -->
   <question type="multichoice">
     <name>
-      <text>06 Question: Why VIAF and Pleiades Are Not Enough Here</text>
+      <text>06 Question: Finding the Information: Where Your Facts Come From</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>You linked your repository to VIAF and your place of origin to Pleiades on Wednesday. Why is that insufficient for this workshop?</p>]]></text>
+      <text><![CDATA[<p>Before generating an AI header, why must you assemble a verified dossier on your own document?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>VIAF identifies people and Pleiades identifies places, so Greek manuscripts need their own registers — Trismegistos, Pinakes, and Diktyon.</p>]]></text>
+      <text><![CDATA[<p>Build a verified dossier — object identity, physical description, responsible agents and places, and textual content — before generating anything, because you cannot audit the machine against facts you never established.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>VIAF identifies people and institutions and Pleiades identifies ancient places, but neither identifies a text, a work, or a physical Greek codex.</p>]]></text>
+      <text><![CDATA[<p>Because you cannot audit the machine against facts you never established yourself.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Those three needs are what Trismegistos, Pinakes, and Diktyon exist to serve.</p>]]></text>
+        <text><![CDATA[<p>Correct. The comparison is only possible if you hold verified values independently of the model.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>VIAF and Pleiades do not cover material earlier than the medieval period.</p>]]></text>
+      <text><![CDATA[<p>Because the model requires structured input to produce valid XML.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Both cover ancient material; the gap is in what kind of thing they identify.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The model will produce valid-looking XML from almost any input; the dossier exists for your audit, not its convenience.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Their identifiers are not stable enough for scholarly citation.</p>]]></text>
+      <text><![CDATA[<p>Because authority registers will not accept requests without a shelfmark.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Both are stable and widely cited; they simply identify different categories of thing.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Registers are searchable by name and other fields; no dossier is required to query them.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They cannot be recorded in TEI using the ref attribute.</p>]]></text>
+      <text><![CDATA[<p>Because the schema validates the dossier rather than the header.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. You already recorded both that way on Wednesday.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema validates the XML header; the dossier is your reference material.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -272,13 +272,13 @@
   <!-- 07 Question -->
   <question type="multichoice">
     <name>
-      <text>07 Question: Trismegistos: An Identifier for the Text Itself</text>
+      <text>07 Question: Recording What You Found in the Header</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What does a Trismegistos number identify?</p>]]></text>
+      <text><![CDATA[<p>You are describing a document whose surviving exemplar is a printed proclamation with no original. How should the header record that?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A Trismegistos number is a stable public identifier for an ancient text as a documented object, alongside its registers of ancient places and persons.</p>]]></text>
+      <text><![CDATA[<p>Put each fact in the element whose meaning actually fits it — typed `<idno>`, `ref` on the identified element, an accurate `@form`, status in a `<note>` — and record uncertainty rather than concealing it.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -287,27 +287,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>An ancient text as a documented object of study, with its own record, bibliography, and links.</p>]]></text>
+      <text><![CDATA[<p>In a <code>&lt;note&gt;</code> stating the object's status, because a reference number alone does not say whether you hold an original, a copy, or a print.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. It complements a CTS URN, which identifies a work as an abstract literary entity.</p>]]></text>
+        <text><![CDATA[<p>Correct. Without it a reader will assume an original, which is exactly the error to avoid.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The physical Greek codex, stable across changes of shelfmark.</p>]]></text>
+      <text><![CDATA[<p>By omitting the identifier, since no original means nothing to cite.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. That is what a Diktyon number does.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The surviving exemplar is precisely what you cite; the absence of an original is information about it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The modern library that currently holds the manuscript.</p>]]></text>
+      <text><![CDATA[<p>By using <code>@n</code> on <code>&lt;msItem&gt;</code> to mark it as a copy.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Institutions are identified in VIAF.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. <code>@n</code> numbers items within a manuscript; it does not record the object's status.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The scribal hand responsible for a section of the text.</p>]]></text>
+      <text><![CDATA[<p>In the <code>&lt;publicationStmt&gt;</code>, since printing is a publication act.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Hands are identified locally in your own file with xml:id.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. <code>&lt;publicationStmt&gt;</code> describes your edition, not the historical object.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -315,13 +315,13 @@
   <!-- 08 Question -->
   <question type="multichoice">
     <name>
-      <text>08 Question: Pinakes: Which Work, and Which Manuscripts Carry It</text>
+      <text>08 Question: Choosing the Right Element for the Right Fact</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Pinakes organizes its records around authors, works, and witnesses. Which distinction from Tuesday does that mirror?</p>]]></text>
+      <text><![CDATA[<p>You are cataloguing a single-sheet printed broadside. Why is <code>&lt;handDesc&gt;</code> the wrong element for it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Pinakes catalogues Greek authors, works, and the manuscripts that transmit them, giving identifiers to the same work-versus-object distinction you drew on Tuesday.</p>]]></text>
+      <text><![CDATA[<p>Choose the element whose meaning actually matches your object, use the categories that honestly apply, and record the misfit in a note rather than forcing a category that asserts something untrue.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -330,27 +330,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The distinction between the work your page transmits and the physical object in front of you.</p>]]></text>
+      <text><![CDATA[<p>A printed document has no scribal hands, so asserting one states something false about the object — and no schema will stop you.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Pinakes gives an identifier to each level of that distinction.</p>]]></text>
+        <text><![CDATA[<p>Correct. The schema permits the element; only your knowledge of the object tells you it does not apply.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The distinction between the teiHeader and the text element.</p>]]></text>
+      <text><![CDATA[<p>Because <code>&lt;handDesc&gt;</code> is not permitted inside <code>&lt;physDesc&gt;</code>.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. That is a division of your own file, not of the bibliographic record.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is permitted there, which is exactly why the error survives validation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The distinction between recto and verso of a folio.</p>]]></text>
+      <text><![CDATA[<p>Because printed documents require <code>&lt;decoDesc&gt;</code> instead.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. That is a physical description detail, unrelated to the catalogue's structure.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Decoration is a separate matter; the issue is that hands do not apply at all.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The distinction between well-formed and valid XML.</p>]]></text>
+      <text><![CDATA[<p>Because the schema's enumeration of hands excludes printed work.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. That is a markup distinction with no bearing on Pinakes' organization.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. There is no such enumeration; the mismatch is conceptual, not schema-enforced.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -358,13 +358,13 @@
   <!-- 09 Question -->
   <question type="multichoice">
     <name>
-      <text>09 Question: Diktyon: A Number That Survives a Change of Shelfmark</text>
+      <text>09 Question: What Your Dossier Must Cover Before You Generate</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does this lesson deliberately refuse to print the Diktyon number for the example manuscript?</p>]]></text>
+      <text><![CDATA[<p>Your dossier has a field you could not verify from any source. What should you do with it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A Diktyon number identifies a Greek manuscript stably across changes of shelfmark, and this lesson deliberately makes you look yours up rather than supplying it.</p>]]></text>
+      <text><![CDATA[<p>Assemble a sourced dossier covering object, physical form, content, agents, places, and date before generating — marking what you could not verify, because unmarked gaps are where fabrication hides.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -373,27 +373,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Because an unverified identifier is exactly the failure the lesson trains you to catch, whether a model or a lesson supplied it.</p>]]></text>
+      <text><![CDATA[<p>Mark it explicitly as unverified, rather than omitting it silently.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Looking it up yourself is the point; being told it would defeat the exercise.</p>]]></text>
+        <text><![CDATA[<p>Correct. An omission you know about is safe; a forgotten one is where the machine's invention goes unnoticed.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because Diktyon numbers are restricted and cannot be republished.</p>]]></text>
+      <text><![CDATA[<p>Omit it, so the AI cannot reproduce a wrong value.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. They are open and freely citable.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Omitting it removes your ability to notice when the model invents something for that field.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the number changes whenever the holding library renumbers its collection.</p>]]></text>
+      <text><![CDATA[<p>Fill it with the most likely value and check it later.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Stability across renumbering is precisely what Diktyon provides.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That seeds your own fabrication into the ground truth you will audit against.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because TEI has no element in which to record it.</p>]]></text>
+      <text><![CDATA[<p>Include it and let the schema flag it as uncertain.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is recorded in altIdentifier, as section 10 demonstrates.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A schema has no way to represent or detect uncertainty about a fact.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -401,13 +401,13 @@
   <!-- 10 Question -->
   <question type="multichoice">
     <name>
-      <text>10 Question: Putting Authority Identifiers into Your msDesc</text>
+      <text>10 Question: Working With a Model That Cannot See Your Document</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Where does a Diktyon number belong in your msIdentifier, and why?</p>]]></text>
+      <text><![CDATA[<p>A model has never handled a physical manuscript. Where will its description be weakest?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Authority identifiers attach to your markup through `@ref`, `@corresp`, and `altIdentifier`, and every one of them has to be looked up rather than assumed.</p>]]></text>
+      <text><![CDATA[<p>A model's knowledge comes from descriptions rather than objects, so its failures cluster on facts requiring physical access or a queryable register — which is exactly the ground your dossier covers.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -416,27 +416,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Inside altIdentifier, because TEI uses that element for a second identifier of the same object alongside the shelfmark.</p>]]></text>
+      <text><![CDATA[<p>On facts requiring physical access or a queryable register — hand counts, dimensions, condition, shelfmarks.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Forcing it into idno would conflate two different identifiers of the manuscript.</p>]]></text>
+        <text><![CDATA[<p>Correct. Those are exactly the fields your dossier covers and the schema cannot check.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Inside idno, since both are numbers identifying the manuscript.</p>]]></text>
+      <text><![CDATA[<p>On long descriptive prose, where it loses coherence.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. idno holds the shelfmark; a second identifier needs its own container.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Fluent prose is its strength; the failures are factual, not stylistic.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Inside repository, as an attribute on the holding institution.</p>]]></text>
+      <text><![CDATA[<p>On rare TEI elements it has seen infrequently.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The number identifies the manuscript, not the library.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Structural markup is what it has read most about, and what the schema checks.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Inside msContents, alongside the CTS URN on msItem.</p>]]></text>
+      <text><![CDATA[<p>On dates, because calendars are arithmetically complex.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. msContents describes the works carried; the Diktyon number identifies the object.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It handles date formats well; it fails on the date the specific object actually carries.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -444,13 +444,13 @@
   <!-- 11 Question -->
   <question type="multichoice">
     <name>
-      <text>11 Question: Asking Well: How to Prompt for TEI</text>
+      <text>11 Question: Asking the Model for a Header</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Which set of prompt choices reflects current practice for generating schema-valid TEI?</p>]]></text>
+      <text><![CDATA[<p>What should your prompt to the model contain?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A good TEI prompt names the role, lists permitted tags, shows an example, forbids commentary, and lowers the temperature — and you record it as part of your method.</p>]]></text>
+      <text><![CDATA[<p>Prompt with real source material and the schema, withhold the answers, and save the model's output unedited so the comparison measures the machine rather than your corrections.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -459,27 +459,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Name the role, list the permitted elements, show a worked example, forbid commentary, and lower the temperature.</p>]]></text>
+      <text><![CDATA[<p>Your raw source material and the schema requirement, with the correct answers withheld.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Each narrows the model's prediction toward the markup you actually want.</p>]]></text>
+        <text><![CDATA[<p>Correct. Withholding them is what makes the comparison measure the machine rather than your corrections.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Keep the prompt short and general so the model can choose the best encoding.</p>]]></text>
+      <text><![CDATA[<p>Your finished header, so the model can produce a matching version.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. An open prompt yields preamble and invented tags that fail validation immediately.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That measures reproduction, not extraction; the audit becomes meaningless.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Raise the temperature so the model considers more encoding possibilities.</p>]]></text>
+      <text><![CDATA[<p>Only the element names, so the model cannot be misled by detail.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Higher temperature increases invention, the opposite of what markup needs.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Without source material it has nothing to extract and will invent everything.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Ask for an explanation beside the XML so the reasoning can be checked.</p>]]></text>
+      <text><![CDATA[<p>Your header plus a list of its errors, so the model can fix them.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Mixed output must be stripped by hand before it will parse.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That measures the model plus your supervision, and destroys the baseline.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -487,13 +487,13 @@
   <!-- 12 Question -->
   <question type="multichoice">
     <name>
-      <text>12 Question: Give It a List Instead of Letting It Guess</text>
+      <text>12 Question: Holding Both to the Same Gate</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why are Trismegistos, Pinakes, and Diktyon numbers especially likely to be fabricated, compared with VIAF numbers?</p>]]></text>
+      <text><![CDATA[<p>You run the validator on the AI output. Why must you record the error count before fixing anything?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Models fabricate rare identifiers most confidently, so verify them yourself and give the model a list to match against instead of a gap to fill.</p>]]></text>
+      <text><![CDATA[<p>Validate the AI header unedited and record its raw error count before any repair, because that first number is the measurement and everything after it is remediation.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -502,27 +502,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>They are far rarer in training data, so the model has learned their shape while seeing comparatively few real examples.</p>]]></text>
+      <text><![CDATA[<p>Because that first count is the measurement, and everything after it is remediation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Familiar shape plus thin evidence is the exact recipe for confident invention.</p>]]></text>
+        <text><![CDATA[<p>Correct. Repair without a recorded baseline measures nothing about the model.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They use a numeric format that models cannot reproduce accurately.</p>]]></text>
+      <text><![CDATA[<p>Because the schema may report different errors on a second run.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The format is reproduced correctly; it is the value that is wrong.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schema validation is deterministic; the same file yields the same result.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They are hosted on sites that block automated access.</p>]]></text>
+      <text><![CDATA[<p>Because the count determines your workshop grade directly.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The model is not retrieving anything at generation time in any case.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The count is evidence for your comparison, not a score in itself.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They change frequently, so any stored value is soon out of date.</p>]]></text>
+      <text><![CDATA[<p>Because fixing errors first makes the file too large to validate.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Stability is the reason these identifiers exist.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. File size is irrelevant to validation.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -530,13 +530,13 @@
   <!-- 13 Question -->
   <question type="multichoice">
     <name>
-      <text>13 Question: The First Validation Pass</text>
+      <text>13 Question: The Audit: Comparing Content, Not Just Structure</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must the AI file's error count be recorded before you fix anything?</p>]]></text>
+      <text><![CDATA[<p>The AI produced a well-formed shelfmark that is simply false, and it passed validation. How should you mark it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Validate the AI file exactly as you validated your own, and record the first-pass error count before touching anything, because correcting destroys the measurement.</p>]]></text>
+      <text><![CDATA[<p>Audit the machine field by field against your verified dossier, count both the schema errors and the wrong-or-invented fields, and be able to name the specific falsehood rather than a general impression of error.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -545,27 +545,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It is the only number describing the model's unassisted performance, and correcting the file destroys it.</p>]]></text>
+      <text><![CDATA[<p>Invented — a confident, valid, false value counts as invented, and the schema passing it is the point.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Counts taken after your first edit describe a collaboration, which is a different and weaker claim.</p>]]></text>
+        <text><![CDATA[<p>Correct. This is the single most important category in the audit.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the Problems panel discards its history when a file is saved.</p>]]></text>
+      <text><![CDATA[<p>Wrong, but only worth a partial deduction since the format is correct.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The reason is methodological rather than a limitation of the editor.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Correct formatting of a false value is what makes it dangerous, not what excuses it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because fixing errors before counting would itself violate the schema.</p>]]></text>
+      <text><![CDATA[<p>Acceptable, since the schema is the agreed standard of correctness.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Fixing is encouraged, but only after the measurement is taken.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema is the agreed standard of construction, not of truth.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the count determines which model you should have chosen.</p>]]></text>
+      <text><![CDATA[<p>Missing, because the correct value was never supplied to the model.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is evidence for your comparison, not a tool-selection rule.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It supplied a value; the value is false, which is invention rather than omission.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -573,50 +573,7 @@
   <!-- 14 Question -->
   <question type="multichoice">
     <name>
-      <text>14 Question: Handing the Errors Back</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>Asked to repair the invalid date “ca. 550”, a model returns when="0550" and the file now validates. What has gone wrong?</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>Feeding validation errors back repairs most structural faults, but cap the loop and check whether a repair invented certainty the source never had.</p>]]></text>
-    </generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text><![CDATA[<p>A structural repair manufactured false precision: an explicitly approximate date became an exact assertion the source never made.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Correct. Repairs can introduce factual errors while removing structural ones, so each repair needs checking.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>Nothing; the date is now correctly formatted and the file is valid.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Validity was achieved by asserting something the source did not support.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>The model should have used notBefore and notAfter, which the schema requires for all dates.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The schema permits when; the problem is the evidence, not the attribute choice.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>The error message was too vague for the model to act on correctly.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The message was precise; the model acted on it and overstepped.</p>]]></text>
-      </feedback>
-    </answer>
-  </question>
-
-  <!-- 15 Question -->
-  <question type="multichoice">
-    <name>
-      <text>15 Question: Four Kinds of Wrong</text>
+      <text>14 Question: Four Kinds of Wrong</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Why does the four-part classification of AI errors matter for your audit?</p>]]></text>
@@ -656,10 +613,10 @@
     </answer>
   </question>
 
-  <!-- 16 Question -->
+  <!-- 15 Question -->
   <question type="multichoice">
     <name>
-      <text>16 Question: Structural Errors: The Ones the Schema Hands You</text>
+      <text>15 Question: Structural Errors: The Ones the Schema Hands You</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Why are structural hallucinations the least valuable finding to report in your workshop comparison?</p>]]></text>
@@ -699,10 +656,10 @@
     </answer>
   </question>
 
-  <!-- 17 Question -->
+  <!-- 16 Question -->
   <question type="multichoice">
     <name>
-      <text>17 Question: Obvious Factual Errors: Check These First</text>
+      <text>16 Question: Obvious Factual Errors: Check These First</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Models drift toward the famous when describing an unfamiliar manuscript. What auditing strategy follows?</p>]]></text>
@@ -742,10 +699,10 @@
     </answer>
   </question>
 
-  <!-- 18 Question -->
+  <!-- 17 Question -->
   <question type="multichoice">
     <name>
-      <text>18 Question: The Subtle One: The Provenance That Never Happened</text>
+      <text>17 Question: The Subtle One: The Provenance That Never Happened</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>A model invents a provenance naming a monastery, a monk, and a year, in valid TEI that passes at zero errors. What should you conclude from how specific it is?</p>]]></text>
@@ -785,10 +742,10 @@
     </answer>
   </question>
 
-  <!-- 19 Question -->
+  <!-- 18 Question -->
   <question type="multichoice">
     <name>
-      <text>19 Question: The Subtle One: Confidence the Source Never Had</text>
+      <text>18 Question: The Subtle One: Confidence the Source Never Had</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Your source says “approximately 29 lines” and the AI writes writtenLines="29". Why does this matter beyond tidiness?</p>]]></text>
@@ -828,10 +785,10 @@
     </answer>
   </question>
 
-  <!-- 20 Question -->
+  <!-- 19 Question -->
   <question type="multichoice">
     <name>
-      <text>20 Question: The Subtle One: What Is Not There</text>
+      <text>19 Question: The Subtle One: What Is Not There</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Why can an omission never be found by reading the AI file on its own?</p>]]></text>
@@ -871,10 +828,10 @@
     </answer>
   </question>
 
-  <!-- 21 Question -->
+  <!-- 20 Question -->
   <question type="multichoice">
     <name>
-      <text>21 Question: The Subtle One: The Link That Goes Somewhere Else</text>
+      <text>20 Question: The Subtle One: The Link That Goes Somewhere Else</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Which kind of fabricated identifier is most dangerous, and what is the only test for it?</p>]]></text>
@@ -914,16 +871,16 @@
     </answer>
   </question>
 
-  <!-- 22 Question -->
+  <!-- 21 Question -->
   <question type="multichoice">
     <name>
-      <text>22 Question: The Subtle One: The Citation That Does Not Resolve</text>
+      <text>21 Question: The Subtle One: The Citation That Does Not Resolve</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is a fabricated CTS URN worse than no URN at all?</p>]]></text>
+      <text><![CDATA[<p>Why is a fabricated persistent identifier worse than no identifier at all?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Generated CTS URNs are correctly shaped and frequently point at the wrong text, so every one must be resolved against a real service before you commit it.</p>]]></text>
+      <text><![CDATA[<p>Generated identifiers are correctly shaped and frequently point at the wrong object, so every one must be resolved and read before you commit it.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -932,35 +889,35 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A canonical URN promises to resolve indefinitely, so a well-formed one pointing nowhere is a broken promise that looks like a kept one.</p>]]></text>
+      <text><![CDATA[<p>A persistent identifier promises to resolve indefinitely, so a well-formed one pointing at the wrong object is a broken promise that looks like a kept one.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Invented namespaces, wrong work numbers, and invented word positions all fail only when followed.</p>]]></text>
+        <text><![CDATA[<p>Correct. An ARK off by a character, or a call number in a series that does not exist, fails only when someone follows it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because an invalid URN causes the file to fail schema validation.</p>]]></text>
+      <text><![CDATA[<p>Because an invalid identifier causes the file to fail schema validation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A correctly shaped URN validates whether or not it resolves.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A correctly shaped identifier validates whether or not it resolves to the right object.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because CTS URNs cannot be corrected once committed to Git.</p>]]></text>
+      <text><![CDATA[<p>Because identifiers cannot be corrected once committed to Git.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. They can be corrected; the difficulty is that nobody realizes they are wrong.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because fabricated URNs consume identifiers that real passages need.</p>]]></text>
+      <text><![CDATA[<p>Because fabricated identifiers consume names that real objects need.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. The identifier space is not exhaustible in that way.</p>]]></text>
       </feedback>
     </answer>
   </question>
 
-  <!-- 23 Question -->
+  <!-- 22 Question -->
   <question type="multichoice">
     <name>
-      <text>23 Question: Where Models Are Weakest, and Who That Harms</text>
+      <text>22 Question: Sorting the Differences, and What the Pattern Shows</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Model accuracy tracks how much has been written about a subject. What is the scholarly consequence for cataloguing?</p>]]></text>
@@ -1000,10 +957,10 @@
     </answer>
   </question>
 
-  <!-- 24 Question -->
+  <!-- 23 Question -->
   <question type="multichoice">
     <name>
-      <text>24 Question: The Six-Field Scorecard</text>
+      <text>23 Question: From Counts to a Defensible Claim</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Why is “missing” kept as a separate column from “wrong or invented” on the scorecard?</p>]]></text>
@@ -1043,96 +1000,10 @@
     </answer>
   </question>
 
-  <!-- 25 Question -->
+  <!-- 24 Question -->
   <question type="multichoice">
     <name>
-      <text>25 Question: Precision and Recall, From Your Own Counts</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>The AI fills five of your six fields and gets four right. What are its precision and recall?</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>Precision is how much of what the AI said was true and recall is how much of the truth it found, and the pair distinguishes a cautious model from an unreliable one.</p>]]></text>
-    </generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text><![CDATA[<p>Precision is four out of five, and recall is four out of six.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Correct. Precision divides by what it supplied; recall divides by what should have been found.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>Precision is four out of six, and recall is four out of five.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The denominators are reversed.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>Both are four out of six, since the same four fields are correct.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The measures differ precisely because their denominators differ.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>Precision is five out of six, and recall is four out of five.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Precision counts correct answers, not attempted ones, in its numerator.</p>]]></text>
-      </feedback>
-    </answer>
-  </question>
-
-  <!-- 26 Question -->
-  <question type="multichoice">
-    <name>
-      <text>26 Question: Sorting the Differences</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>Why should a comparison record the cases where the AI was right and you were not?</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>Every difference is a structural error, a factual error, a genuine AI catch, or a legitimate disagreement, and recording the third category honestly is what makes the audit credible.</p>]]></text>
-    </generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text><![CDATA[<p>Recording them honestly is what makes the exercise research rather than a defence of your own work.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Correct. A comparison finding zero AI advantages reads as unobserved rather than rigorous.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>It is required before the submission can be accepted.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is an analytical category, not a submission rule.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>It shows that your Wednesday validation was incomplete.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A missed detail is a factual gap, unrelated to structural validation.</p>]]></text>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<p>It never actually occurs, but is listed for completeness.</p>]]></text>
-      <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It occurs regularly, which is why the category exists.</p>]]></text>
-      </feedback>
-    </answer>
-  </question>
-
-  <!-- 27 Question -->
-  <question type="multichoice">
-    <name>
-      <text>27 Question: Recording the Machine's Part in the File</text>
+      <text>24 Question: Recording the Machine's Part in the File</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Why record the model's version and date in respStmt and revisionDesc?</p>]]></text>
@@ -1172,13 +1043,13 @@
     </answer>
   </question>
 
-  <!-- 28 Question -->
+  <!-- 25 Question -->
   <question type="multichoice">
     <name>
-      <text>28 Question: Friday's Lab, Step by Step</text>
+      <text>25 Question: Friday's Lab, Step by Step</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does the lab have you look up Trismegistos, Pinakes, and Diktyon identifiers BEFORE prompting the model?</p>]]></text>
+      <text><![CDATA[<p>Why does the lab have you look up your own document's authority identifiers BEFORE prompting the model?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Verify identifiers before prompting, record the untouched output and its first error count, then score six fields and follow every link the model produced.</p>]]></text>
@@ -1190,19 +1061,19 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>So you hold verified values the model cannot influence, giving you an independent standard for its identifiers.</p>]]></text>
+      <text><![CDATA[<p>So you hold verified values the model cannot influence, giving you an independent standard to audit its identifiers against.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Correct. Looking them up afterwards risks anchoring your search on what the model already asserted.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the prompt will not function without identifiers included in it.</p>]]></text>
+      <text><![CDATA[<p>Because the prompt will not function unless identifiers are included in it.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. The model will generate output regardless; the concern is independence.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the authority sites are unavailable later in the day.</p>]]></text>
+      <text><![CDATA[<p>Because the authority registers are unavailable later in the day.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. Availability is not the reason for the ordering.</p>]]></text>
       </feedback>
@@ -1215,10 +1086,10 @@
     </answer>
   </question>
 
-  <!-- 29 Question -->
+  <!-- 26 Question -->
   <question type="multichoice">
     <name>
-      <text>29 Question: Writing the Comparison</text>
+      <text>26 Question: Writing the Comparison</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>Your own evidence shows the schema catching structural errors and missing every subtle one. How should the comparison then argue for deterministic validation?</p>]]></text>
@@ -1254,6 +1125,135 @@
       <text><![CDATA[<p>That validation matters mainly because Moodle requires valid XML on import.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. This is a technical convenience, not a methodological argument.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Where This Method Transfers</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which part of this three-step method transfers beyond TEI headers?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The method — independent ground truth, generation, comparison against truth rather than plausibility, classification of differences — transfers to any structured output a model produces about real objects.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The sequence: establish ground truth independently, generate, compare against truth rather than plausibility, and classify the differences.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. That pattern works wherever a model produces structured output about real objects.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The specific TEI elements and schema used in this module.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Elements are discipline-specific; the method is what generalises.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The prompting technique alone, since better prompts remove the need to audit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. No prompt eliminates the need for independent verification.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The scorecard's six fields, which apply to any document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The fields are chosen for this assignment; the comparison discipline is the transferable part.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: The Three-Step Cycle, Completed</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does each step of the three-step cycle contribute that the others cannot?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Manual authorship gives truth without scale, schema validation gives structure without truth, and machine generation gives scale without either — the audit is what makes the combination defensible.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Manual authorship gives truth without scale, schema validation gives structure without truth, machine generation gives scale without either.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The audit is what makes the combination defensible.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual authorship is the fastest and the schema makes it reliable.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hand-authoring is the slowest step; its value is that a human checked the object.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Schema validation checks the facts and the model supplies the structure.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This inverts both roles: the schema checks structure, the model supplies fluent text that may be false.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Machine generation is authoritative once the output validates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validation certifies construction, never truth.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Writing It Up: What Your Marker Is Looking For</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which of these earns credit in the comparison write-up?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Name two specific schema-valid falsehoods, supply your counts, and explain why those fields failed — specificity about your own files is what the mark rewards.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Two specific subtle hallucinations, with the field and the false value, and evidence they passed validation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Specificity about your own files is what the mark rewards.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A general account of the known limitations of large language models.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The lesson already supplied that; reproducing it demonstrates nothing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The structural errors the schema caught during validation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Those are cheap, and every student will have them.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A thorough reflection on the ethics of machine cataloguing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Interesting, but it is not what this comparison is graded on.</p>]]></text>
       </feedback>
     </answer>
   </question>

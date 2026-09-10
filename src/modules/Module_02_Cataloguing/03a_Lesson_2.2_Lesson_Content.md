@@ -2,7 +2,7 @@
 
 *RELS 398 / ENGL 398 · Topic 2: Cataloguing · Meeting #4 (Wed Sep 9)*
 
-*Step 2 of the three-step cycle: deterministic computation. Yesterday you hand-wrote a complete TEI Header in VS Code without software help. Today you introduce that draft to the machine: you configure real-time schema validation in VS Code, slay the red squiggly lines, link your manuscript entities to global authority files using RDF triples, and assign Canonical Text Services (CTS) URNs. The validator is an uncompromising structural gatekeeper, turning human typing into verified, interoperable data.*
+*Step 2 of the three-step cycle: deterministic computation. Yesterday you hand-wrote a complete TEI Header in VS Code without software help. Today you introduce that draft to the machine: you configure real-time schema validation in VS Code, slay the red squiggly lines, link your document's entities to global authority files using RDF triples, and record a persistent identifier that survives a shelfmark change. The validator is an uncompromising structural gatekeeper, turning human typing into verified, interoperable data.*
 
 ---
 
@@ -255,12 +255,12 @@ But it has one major limitation: **it is an isolated island**.
 
 If your XML file says:
 ```xml
-<origPlace>Constantinople</origPlace>
-<author>John Chrysostom</author>
+<origPlace>Halifax</origPlace>
+<author>Thomas Hopson</author>
 ```
-A computer knows that "Constantinople" is a place name and "John Chrysostom" is an author name. But to the computer, those words are just dumb sequences of text characters (strings). 
+A computer knows that "Halifax" is a place name and "Thomas Hopson" is a person's name. But to the computer, those words are just dumb sequences of text characters (strings). 
 
-What if another scholar writes `<origPlace>Byzantium</origPlace>` or `<origPlace>Istanbul</origPlace>`? What if a French scholar writes `<author>Jean Chrysostome</author>`? To an automated search engine, those look like entirely different people and completely different cities!
+What if another scholar writes `<origPlace>Kjipuktuk</origPlace>` or `<settlement>Halifax, N.S.</settlement>`? What if a French source writes `<author>Thomas Hopsonn</author>`? To an automated search engine, those look like entirely different people and completely different cities!
 
 To connect our scholarship to the rest of the world, we must move **from strings to things**. We must connect text names to permanent entities in global knowledge graphs. This is the world of **Linked Open Data (LOD)**.
 
@@ -284,15 +284,15 @@ Think of it like basic English grammar:
 
 - **Subject**: What are we talking about? (*This Manuscript Page*)
 - **Predicate**: What is its relationship or property? (*was copied in*)
-- **Object**: What is the target value? (*Constantinople*)
+- **Object**: What is the target value? (*Halifax*)
 
 In RDF, however, we don't use fuzzy English words; we use permanent web addresses (URIs) for each of the three pieces:
 
-- **Subject**: `https://digi.vatlib.it/view/MSS_Vat.gr.2121`
+- **Subject**: `https://archives.novascotia.ca/mikmaq/archives/?ID=623`
 - **Predicate**: `http://purl.org/dc/terms/spatial`
 - **Object**: `https://pleiades.stoa.org/places/520998`
 
-When computers read this triple, there is zero ambiguity. A machine in Tokyo and a machine in Antigonish know with mathematical precision that this exact manuscript in Rome was created at the geographic coordinates of ancient Constantinople.
+When computers read this triple, there is zero ambiguity. A machine in Tokyo and a machine in Antigonish both resolve that identifier to the same place, with no ambiguity about which Halifax is meant.
 
 **Vocabulary.** *RDF (Resource Description Framework)* — a standard data model for representing information about resources on the web as semantic graphs. *Semantic triple* — a foundational knowledge statement composed of a Subject, a Predicate, and an Object.
 
@@ -755,7 +755,7 @@ Once your file passes with zero errors, stage and commit it to Git:
 
 ```bash
 git add 03a_Lesson_2.2_Validated_Witness_Header.xml
-git commit -m "Topic 02 (Cataloguing): Pass deterministic schema validation in VS Code with LOD & CTS enrichment [0 errors]"
+git commit -m "Topic 02 (Cataloguing): Pass deterministic schema validation in VS Code with LOD enrichment [0 errors]"
 git push origin main
 ```
 
