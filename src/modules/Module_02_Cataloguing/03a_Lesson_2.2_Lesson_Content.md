@@ -112,7 +112,7 @@ Schemas enforce **datatypes**:
 
 1. **ISO 8601 Dates**: In attributes like `when="1050"`, `notBefore="1000"`, or `notAfter="1099"`, the schema demands standard numerical formats (`YYYY` or `YYYY-MM-DD`). If you write `when="about 1050"`, validation fails.
 2. **Enumerated Lists**: For certain attributes, the schema restricts you to a closed list of legal keywords. In `<supportDesc material="...">`, you must choose from authorized values like `"parchment"`, `"papyrus"`, or `"paper"`. If you type `material="animal_skin"`, the validator flags it because it violates the enumeration.
-3. **URIs and URLs**: In `ref="..."` or `target="..."`, the schema checks that the value is a properly formatted web address or CTS URN.
+3. **URIs and URLs**: In `ref="..."` or `target="..."`, the schema checks that the value is a properly formatted web address or persistent identifier.
 
 By enforcing strict datatypes, the schema ensures that your edition can be filtered, sorted, and calculated by automated algorithms worldwide.
 
@@ -311,18 +311,18 @@ We use **authority control attributes**, primarily `ref="..."` and `key="..."`.
 Look at how we transform plain text into Linked Data:
 
 ```xml
-<!-- Before: Dumb strings in a silo -->
-<settlement>Vatican City</settlement>
-<repository>Biblioteca Apostolica Vaticana</repository>
-<origPlace>Constantinople</origPlace>
+<!-- Before: plain strings with no external reference -->
+<settlement>Antigonish</settlement>
+<repository>Nova Scotia Archives</repository>
+<origPlace>Halifax</origPlace>
 
-<!-- After: Linked Open Data connected to global entities -->
-<settlement ref="https://www.wikidata.org/wiki/Q237">Vatican City</settlement>
-<repository ref="http://viaf.org/viaf/141312782">Biblioteca Apostolica Vaticana</repository>
-<origPlace ref="https://pleiades.stoa.org/places/520998">Constantinople</origPlace>
+<!-- After: connected to authority records -->
+<settlement ref="https://www.wikidata.org/wiki/Q3350">Antigonish</settlement>
+<repository ref="http://viaf.org/viaf/...">Nova Scotia Archives</repository>
+<origPlace ref="https://www.geonames.org/...">Halifax</origPlace>
 ```
 
-Look at the difference. The human reader still sees the familiar English words "Vatican City" and "Constantinople". But underneath, the computer follows the `ref` attribute directly to Wikidata and Pleiades! Automated scripts can now crawl your edition, pull geographic coordinates, and automatically plot your manuscript on an interactive historical map!
+Look at the difference. The human reader still sees the familiar words. But underneath, the computer follows the `ref` attribute straight to the authority record. Automated tools can then crawl your edition, pull the coordinates or the institutional identity, and connect your document to everything else described by the same registers.
 
 **Vocabulary.** *Authority control* — the practice of linking variant names and terms to a single standardized identifier in an established cultural register. *`ref` attribute* — the TEI attribute used to point directly to a canonical URI or authority record.
 
@@ -332,22 +332,38 @@ Look at the difference. The human reader still sees the familiar English words "
 
 ## **14 Content**
 
-**The Global Authority Registers: VIAF, Pleiades, and Wikidata**
+**The Authority Registers: A General Layer and a Tradition-Specific Layer**
 
-Where do you find these magical URIs for your manuscript entities? You look them up in recognized global authority registers:
+Where do you find these URIs for your document's entities? You look them up in recognized authority registers — but there are two layers, and only the first is universal.
 
-1. **VIAF (Virtual International Authority File)** (`viaf.org`): The gold standard for historical people and cultural institutions. It combines authority files from the Library of Congress, the British Library, the Bibliothèque nationale de France, and the Vatican Library into a single universal ID.
-2. **Pleiades Gazetteer** (`pleiades.stoa.org`): The premier authority for ancient and medieval geography. It provides permanent URIs, historical name variants, and precise GPS coordinates for ancient cities, provinces, and monasteries.
-3. **Getty Vocabularies** (`getty.edu/research/tools/vocabularies/`):
-   - **TGN (Thesaurus of Geographic Names)**: Global geographic authority.
-   - **AAT (Art & Architecture Thesaurus)**: Standard terms for materials, scripts, and bookbinding techniques (e.g. "vellum", "minuscule", "rubrication").
-4. **Wikidata** (`wikidata.org`): The open, multilingual knowledge graph that connects millions of historical entities, institutions, and texts.
+**The general layer applies to almost any historical document:**
 
-In your lab work today, you will look up the VIAF record for your holding library and the Pleiades ID for your manuscript's place of origin.
+1. **VIAF (Virtual International Authority File)** (`viaf.org`): The gold standard for historical people and corporate bodies. It combines authority files from the Library of Congress, the British Library, the Bibliothèque nationale de France, and many others into a single identifier for a person or institution.
+2. **Wikidata** (`wikidata.org`): The open, multilingual knowledge graph. A `Q` number identifies a person, place, work, or institution, and it links out to every other register.
+3. **Library of Congress authorities** (`id.loc.gov`): LCCN and name/title authorities. Strong for printed material and for American imprints in particular.
+4. **Getty Vocabularies** (`getty.edu/research/tools/vocabularies/`):
+   - **TGN (Thesaurus of Geographic Names)**: global geographic authority, for `<origPlace>` and `<settlement>`.
+   - **AAT (Art & Architecture Thesaurus)**: standard terms for materials, scripts, and techniques — for example "parchment", "laid paper", "cursive".
+5. **GeoNames** (`geonames.org`): a general gazetteer, useful for modern place names when TGN has no entry.
 
-**Vocabulary.** *VIAF* — Virtual International Authority File, linking personal and institutional identities across national libraries. *Pleiades* — open digital gazetteer of the premodern Greek and Roman world. *Getty AAT* — structured thesaurus of terms for cultural heritage materials and techniques.
+**The tradition-specific layer is where documents diverge.** A register built for one scholarly tradition will not describe a document from another, and choosing the wrong register is a methodological error rather than a harmless one:
 
-**Takeaway:** Digital editors link their entities to trusted global registers like VIAF for people and institutions, Pleiades for ancient places, and Getty AAT for materials.
+| Your document | The registers that actually govern it |
+| :--- | :--- |
+| A **Greek literary manuscript** | **Trismegistos** (the text as a documented object), **Pinakes** (the work and the manuscripts carrying it), **Diktyon** (the physical Greek codex), and **Pleiades** for ancient places. |
+| An **18th-century French royal act** | **Archives nationales** cotes; **Gallica / BnF ARK** identifiers of the form `ark:/12148/...`; **FranceArchives**. |
+| A **Peace and Friendship Treaty document** | **Nova Scotia Archives** references (`RG 1 volume ... number ...`); **Library and Archives Canada**; the **National Archives (UK)**, Colonial Office papers `CO 217`. |
+| A **19th-century American literary manuscript** | **Emily Dickinson Archive**; **Houghton Library** call numbers in the `MS Am 1118.x` series; **Amherst College** `AC` accession numbers. |
+
+Neither Trismegistos nor Pleiades will help you with a French decree, a treaty, or a Dickinson poem. That does not mean those documents lack authority control; it means their authority lives in different registers, and **finding out which is part of the scholarly work**.
+
+**In your lab work today**, identify the general-layer record for the person or institution attached to your document, then find at least one tradition-specific identifier and confirm it resolves to the right object.
+
+**A warning about verification.** Some registers return a success response for identifiers that do not exist. A VIAF URL with an invented number still loads a page. **Do not validate an identifier by checking that the link opens** — open the record and read its content against an independent source. A live link is not evidence.
+
+**Vocabulary.** *Authority control* — linking variant names and terms to a single standardized identifier in an established register. *VIAF* — Virtual International Authority File, linking personal and corporate identities across national libraries. *Gazetteer* — a geographical dictionary or register; TGN and GeoNames are gazetteers.
+
+**Takeaway:** Authority control has a general layer (VIAF, Wikidata, LC, Getty) that works for almost anything, and a tradition-specific layer that does not transfer between traditions. Identify both, justify why each register governs your document, and verify by reading the record rather than by checking that the link loads.
 
 ---
 
@@ -420,168 +436,164 @@ Ancient texts have survived for thousands of years. Homer's *Iliad* has been rea
 
 ## **18 Content**
 
-**The CITE Architecture and the OHCO2 Text Model**
+**Citing a Structure, Not a File**
 
-To solve the crisis of broken links, classical philologists developed the **CITE Architecture** (Collections, Indices, Text, and Extensions) and the **OHCO2 Text Model**.
+To understand why canonical citation matters, separate two things that are easy to confuse: the **logical structure** of a text, and the **physical carrier** it happens to sit on.
 
-The OHCO2 model asserts a profound humanistic principle:
-**An ancient text is an Ordered Hierarchy of Content Objects.**
+Consider any document you might edit:
 
-What does that mean in plain English?
+- A **treaty** has articles and clauses, and it exists in several exemplars — a printed proclamation, manuscript copies in council registers, a transcription sent to London. The *text* of the treaty is one thing; each *carrier* is another.
+- A **French royal act** has a preamble, a dispositif, and a dating clause. It may survive as a sealed parchment original, as a registration in a court's register, and as a printed piece in a *recueil*. Three carriers, one act.
+- A **Dickinson poem** has stanzas and lines. It may exist as a pencil draft on wrapping paper, a fair copy, and a transcription in a printed edition. The poem is not the paper.
 
-It means that an ancient text is not defined by the physical paper or modern web server it happens to be viewed on. When you read the Gospel of Mark or Homer's *Odyssey*, the text has a stable, logical structure that has existed for centuries:
+The principle this illustrates — that a text has a structure independent of the object carrying it — is what makes durable citation possible. If your citation points at the *structure* (article 3 of the treaty, verse 4 of the poem) rather than at *this file on this server*, the citation survives the server being reorganised.
 
-- A text consists of Books.
-- Books consist of Chapters.
-- Chapters consist of Verses or Lines.
+Different traditions formalise this differently. Classical philology built the **CITE Architecture** and the **OHCO2 model** ("Ordered Hierarchy of Content Objects") for Greek and Latin texts, and **CTS URNs** to address them. Modern archival practice uses persistent identifiers like **ARK**. Library cataloguing uses call numbers plus series structure. The implementations differ; the underlying insight is the same.
 
-This logical hierarchy exists independently of whether the text is written on 4th-century Egyptian papyrus, printed in a 19th-century German book, or displayed on an iPhone screen. If our citation system points to the *logical structure* of the text rather than a *server file path*, the citation will never rot!
+**Vocabulary.** *Logical structure* — the internal organisation of a text (articles, chapters, lines) as distinct from its physical carrier. *Carrier* — the physical object or file that transmits a text. *CITE Architecture* — a framework from classical philology for persistent, machine-actionable citation. *OHCO2* — Ordered Hierarchy of Content Objects; the model treating texts as stable structural hierarchies.
 
-**Vocabulary.** *CITE Architecture* — a digital framework designed for persistent, machine-actionable scholarly citations in classical philology. *OHCO2* — Ordered Hierarchy of Content Objects, a theoretical model treating texts as stable structural hierarchies of books, chapters, and lines.
-
-**Takeaway:** The OHCO2 text model treats literature as an ordered hierarchy of logical units (books, chapters, lines) rather than physical pages or server file paths.
+**Takeaway:** Distinguish the text's logical structure from the physical carrier that transmits it — that distinction is what lets a citation outlive the shelfmark, the server, and the file path.
 
 ---
 
 ## **19 Content**
 
-**GPS Coordinates for Texts: The Anatomy of a CTS URN**
+**Canonical Citation: Giving Your Object a Stable Address**
 
-The primary tool of the CITE Architecture is the **Canonical Text Services (CTS) URN (Uniform Resource Name)**.
+A citation that depends on a shelfmark is fragile. Shelfmarks change: libraries reclassify, collections move, and a manuscript catalogued as one shelfmark today can be renumbered in the next revision. If your edition cites the shelfmark alone, your citation breaks the moment the holding library reorganises.
 
-Think of a CTS URN as **permanent GPS coordinates for ancient texts**. Just as a latitude/longitude coordinate points to an exact physical spot on Earth regardless of whether you look at Google Maps, Apple Maps, or a paper atlas, a CTS URN points to an exact text passage regardless of what website displays it.
+**Canonical citation** solves this by giving your object an identifier that survives such changes.
 
-Here is what a complete CTS URN looks like:
+The general principle is the same in every tradition: an identifier is assigned by some authority, it is persistent, and it resolves to the object regardless of where the object currently sits.
 
-```text
-urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14
-```
+**Vocabulary.** *Persistent identifier* — an identifier designed to keep resolving to the same object even when URLs, systems, or shelfmarks change. *Canonical citation* — citing an object by such an identifier rather than by a location-dependent label.
 
-Let us dissect this string piece by piece. It consists of five colon-separated zones:
-
-1. `urn:cts`: Declares that this is a Canonical Text Service identifier.
-2. `greekLit`: The text group or cultural corpus (Ancient Greek literature).
-3. `tlg0527`: The author identifier in the Thesaurus Linguae Graecae registry (Septuagint).
-4. `tlg001.opp-grc1`: The work and specific edition/witness expression (Book of Genesis, Greek text edition 1).
-5. `1.1-1.14`: The precise passage citation (Chapter 1, verses 1 through 14).
-
-Notice that there is no `http://`, no `.html`, and no website server name. This identifier will remain mathematically true and valid in the year 2526, long after today's web hosting companies have turned to dust.
-
-**Vocabulary.** *CTS URN* — Canonical Text Services Uniform Resource Name, a permanent, syntax-governed identifier for text passages that functions independently of web hosting infrastructure. *Canonical citation* — a standardized citation format traditionally used by scholars to cite a work by its internal structure (chapter, verse, line).
-
-**Takeaway:** A CTS URN acts as permanent GPS coordinates for literature, citing text passages by their logical structure rather than temporary website URLs.
+**Takeaway:** Cite your object by a persistent identifier as well as by its shelfmark, because shelfmarks change and scholarship has to outlast them.
 
 ---
 
 ## **20 Content**
 
-**Granular Passage Addressing in CTS URNs**
+**Three Citation Systems, Three Traditions**
 
-One of the greatest features of CTS URNs is their incredible flexibility in citation granularity. You can cite as broadly as an entire author's corpus, or as specifically as a single word on a manuscript page!
+The identifier that works for your document depends on its tradition. Here are the three in play this term.
 
-Look at how the citation zooms in:
+**1. ARK — for the French decree (and a great deal else).**
 
-| Granularity Level | CTS URN Syntax | What It Identifies |
-| :--- | :--- | :--- |
-| Corpus Level | `urn:cts:greekLit:tlg0527` | The entire Greek Septuagint corpus |
-| Work Level | `urn:cts:greekLit:tlg0527.tlg001` | The Book of Genesis |
-| Edition Level | `urn:cts:greekLit:tlg0527.tlg001.opp-grc1` | The specific digital Greek edition |
-| Chapter Level | `urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1` | Genesis Chapter 1 |
-| Verse Range | `urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14` | Genesis 1:1 through 1:14 (Your full-page witness!) |
-| Single Verse | `urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1` | Genesis Chapter 1, verse 1 |
+An **ARK** (Archival Resource Key) is a persistent identifier designed for archival and cultural objects. It takes the form:
 
-Because the syntax is strictly standardized, any automated script can parse this string, calculate that verse `1.1` is contained inside chapter `1`, and fetch the exact XML fragment on demand.
+```text
+ark:/12148/bpt6k9690620k
+```
 
-**Vocabulary.** *Citation granularity* — the level of structural specificity (corpus, work, book, chapter, verse, word) targeted by a citation identifier. *Range expression* — citing an unbroken sequence of text units using a hyphen (`from-to`).
+- `ark:` declares the scheme.
+- `12148` is the **NAAN** — the Name Assigning Authority Number. BnF's is `12148`.
+- `bpt6k9690620k` is the object name.
 
-**Takeaway:** CTS URNs support scalable granularity, allowing scholars to reference an entire work, a chapter, or an exact verse range with identical mathematical syntax.
+The point of ARK is that the **Name Mapping Authority** — the organisation currently serving the object — can change while the ARK name stays fixed. That is why it persists. Note the syntax: `ark:/` takes a **single** slash; the NAAN is separated from the name by a further slash.
+
+**2. Library call numbers — for the Dickinson manuscript.**
+
+Harvard's Houghton Library identifies Dickinson material by a call number in a fixed series:
+
+```text
+MS Am 1118.3 [338]
+```
+
+`MS Am` denotes an American manuscript; `1118.3` is the series (poems — fascicles and loose sheets, as distinct from `1118.2`, the Holland letters); `[338]` is the item. This is not a persistent identifier in the ARK sense — it is a shelfmark — but it is the citable reference the holding library requires, and it is stable in practice because Houghton maintains it.
+
+**3. Archival reference numbers — for the treaty.**
+
+The Nova Scotia Archives cites by record group, volume, and number:
+
+```text
+RG 1 volume 430 number 2
+```
+
+Oversize items get a separate form, `O/S number 511`. Note what this citation does *not* tell you: whether you are looking at an original, a copy, or a printed edition. Two documents in the same volume can differ in status entirely, so the reference number must be paired with a statement of what the object actually is.
+
+**Vocabulary.** *ARK* — Archival Resource Key; a persistent identifier for archival objects. *NAAN* — Name Assigning Authority Number, the numeric prefix identifying which institution minted the ARK. *Record group* — an archival arrangement unit, here abbreviated `RG`.
+
+**Takeaway:** ARK, library call number, and archival reference number are three different citation systems serving three different traditions — use the one your holding institution uses, and copy its syntax exactly rather than normalising it.
 
 ---
 
 ## **21 Content**
 
-**Sub-Reference Syntax: Targeting the Individual Word**
+**Reading a Record, Not Just Finding It**
 
-What happens if you want to cite a single specific word in your manuscript that contains an unusual scribal spelling?
+Finding an identifier is not the same as verifying one. A record has to be read.
 
-Ancient texts do not have word numbers. But the CTS standard includes a brilliant mechanism called **sub-reference syntax** using the `@` symbol:
+Take the Gallica item you may be using this term. Its ARK is `ark:/12148/bpt6k9690620k`. Open the record and you find:
 
-```text
-urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1@ἀρχῇ
-```
+| Field | Value |
+| :--- | :--- |
+| Shelfmark | Bibliothèque nationale de France, département Droit, économie, politique, F-21718 |
+| Date | 1771 |
+| Format | 67 pièces en 1 vol. in-4° |
+| Creator | Louis XV (1710-1774 ; roi de France) |
 
-This URN targets the specific word **ἀρχῇ** ("beginning") inside Genesis 1:1!
+Every one of those fields is a fact you can put in a TEI header — and every one is a fact you can check. Does the date match what you expected? Is the creator the person you thought? Does "67 pièces en 1 vol." describe one document or sixty-seven bound together? That last question matters: a *recueil* is a collected volume, and cataloguing it as though it were a single act would be a mistake.
 
-What if a word appears multiple times in the same verse? (For example, the Greek conjunction **καί** might appear four times in a single line). You simply add an ordinal index in brackets:
+**The same discipline applies to every register.** A Dickinson call number tells you which series the item sits in, which tells you whether it is a poem or a letter. A treaty reference number tells you the volume but not the status. Reading the record is what converts an identifier into knowledge.
 
-```text
-urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1@καί[2]
-```
+**Vocabulary.** *Recueil* — a collected volume; in French archival and library practice, a set of pieces bound together, each with its own date, which may be catalogued as one item or many.
 
-This specifies the *second* occurrence of the word *καί* in verse 1! With sub-references, scholars can create digital footnotes, grammatical tags, and paleographical notes that point directly to an individual word on a parchment leaf with mathematical precision.
-
-**Vocabulary.** *Sub-reference (`@`)* — CTS syntax used to identify a specific word or token within a cited passage by its textual string. *Ordinal indexing (`[n]`)* — specifying which instance of a repeated word is targeted within a passage.
-
-**Takeaway:** Sub-reference syntax allows CTS URNs to pinpoint individual words within a verse, providing exact targets for textual variants and linguistic commentary.
+**Takeaway:** An identifier is a pointer, not a fact. Open the record and read its fields, because the metadata inside is what goes into your header — and mismatches between the record and your expectations are findings, not obstacles.
 
 ---
 
 ## **22 Content**
 
-**CITE URNs for Physical Objects: Folios, Images, and Papyri**
+**Dating: Where Records Mislead**
 
-Texts are logical entities, but manuscripts are physical objects. What if you want to cite the physical leaf itself rather than the abstract literary work?
+Dates in catalogue records are not neutral facts, and this is the single most productive place to catch a subtle error.
 
-The CITE Architecture includes a companion standard called the **CITE Object URN**:
+**Editorial attribution.** The Emily Dickinson Archive states plainly that Dickinson "very rarely dated her poems," and that the libraries and editions "often give approximate dates." A date in a Dickinson record is therefore an *editorial attribution*, not an authorial statement — frequently with the attributing scholar named in brackets. Recording it as a certain date in your header would overstate the evidence. TEI gives you the vocabulary to be honest about this, and Module 02's `<origin>` work is where you apply it.
 
-```text
-urn:cite2:rels398:manuscripts.v1:vat_gr_2121_f213r
-```
+**Calendar style.** France adopted the Gregorian calendar in December 1582, so no Julian day-shift applies to an 18th-century French document. Do not "correct" one. The trap that *does* apply is **year-start style**: before the *édit de Roussillon* (1564) took full effect in 1567, the year was reckoned from Easter or Christmas in various usages, so a document dated between 1 January and Easter is often **one year later** in modern reckoning.
 
-Notice the syntax:
+**Printed vs manuscript date.** A printed proclamation carries a date of printing. That is not necessarily the date of the event it records, and it is certainly not the date of the agreement it publishes.
 
-- `urn:cite2`: Declares a CITE Object collection.
-- `rels398`: The project namespace (our course repository!).
-- `manuscripts.v1`: The collection name (manuscript leaves, version 1).
-- `vat_gr_2121_f213r`: The unique object identifier (Vatican Greek 2121, folio 213 recto).
+**Vocabulary.** *Editorial attribution* — a date supplied by a modern editor rather than stated by the document. *Year-start style* — the convention determining which day begins the year, which varied by place and period.
 
-By pairing CTS URNs (for texts) with CITE Object URNs (for physical leaves), your digital edition creates a perfect semantic bridge between literature and codicology. You can formally assert: *"The text identified by `urn:cts:...:1.1-1.14` is inscribed on the physical artifact identified by `urn:cite2:...:vat_gr_2121_f213r`."*
-
-**Vocabulary.** *CITE Object URN* — a persistent identifier used to cite physical artifacts, museum objects, and digital images independently of text hierarchies. *Semantic bridge* — linking physical artifact records directly to literary text passages.
-
-**Takeaway:** While CTS URNs cite text passages, CITE Object URNs cite physical manuscript leaves and images, creating a permanent bridge between text and physical artifact.
+**Takeaway:** Ask of every date whether it is authorial, editorial, or a record of something else — and record the uncertainty rather than flattening it, because a confident wrong date is exactly the failure your workshop is about.
 
 ---
 
 ## **23 Content**
 
-**Embedding CTS URNs into the TEI Header**
+**Recording the Citation in Your Header**
 
-How do you formally record the CTS URN of your witness inside your TEI Header?
+How do you put all of this into your TEI header?
 
-You place it directly inside the `<msContents>` block that you authored yesterday, using the `n` or `corresp` attribute:
+The `ref` attribute carries the identifier, on whichever element describes the thing being identified:
 
 ```xml
-<msContents>
-    <msItem n="1" corresp="urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14">
-        <locus from="213r" to="213r">f. 213r</locus>
-        <title xml:lang="grc">Γένεσις</title>
-        <title xml:lang="en">Book of Genesis</title>
-        <textLang mainLang="grc">Ancient Greek</textLang>
-    </msItem>
-</msContents>
+<msIdentifier>
+    <settlement ref="https://www.wikidata.org/wiki/Q3350">Antigonish</settlement>
+    <repository ref="http://viaf.org/viaf/...">Nova Scotia Archives</repository>
+    <idno type="reference">RG 1 volume 430 number 2</idno>
+    <idno type="ARK">ark:/12148/bpt6k9690620k</idno>
+</msIdentifier>
 ```
 
-Look at what this accomplishes:
+Three things to notice:
 
-1. `<locus>` records the **physical coordinates** on the parchment (`f. 213r`).
-2. `corresp="..."` records the **canonical literary coordinates** in the global CTS network (`Genesis 1:1-1.14`).
+1. **`<idno>` takes a `type` attribute.** Use it. A reference number, an ARK, and a call number are different kinds of identifier, and `type` is how you say which is which. A bare `<idno>` with no type tells a reader nothing about what they are looking at.
+2. **`ref` goes on the element it identifies**, not on the header as a whole. A repository name gets a repository's authority URI; a settlement gets a place's.
+3. **The human-readable text stays human-readable.** The reader sees "Nova Scotia Archives"; the machine follows the URI. That is the whole point of authority control.
 
-Any modern digital humanities tool can now ingest your header and immediately connect your physical transcription to every other edition, translation, and commentary of Genesis Chapter 1 across the globe.
+For the status of the object — original, copy, transcript, or printed edition — use `<note>` inside or beside the identifier, because the reference number alone will not tell you:
 
-**Vocabulary.** *`corresp` attribute* — a TEI attribute used to declare a correspondence or link between an element and an external resource or URN. *Dual citation* — anchoring both physical page location and canonical literary chapter/verse coordinates simultaneously.
+```xml
+<idno type="reference">RG 1 volume 430 number 2</idno>
+<note type="status">Printed proclamation; no original signed copy is known to survive.</note>
+```
 
-**Takeaway:** Embedding CTS URNs into `<msItem corresp="...">` links the physical folio of your manuscript to the global literary citation network.
+**Vocabulary.** *`ref` attribute* — the TEI attribute pointing to a canonical URI or authority record. *`idno`* — the TEI element for a formal identifier, qualified by `type`.
+
+**Takeaway:** Record each identifier in its own `<idno>` with a `type`, put authority URIs in `ref` on the element they identify, and state the object's status separately — because the identifier alone does not say what kind of thing you are holding.
 
 ---
 
@@ -643,95 +655,88 @@ Work through the Problems panel one line at a time. Click on an error in the pan
 
 ## **26 Content**
 
-**Enriching with Linked Open Data: VIAF and Pleiades**
+**Enriching Your Header with Authority URIs**
 
-Once your file has zero grammatical errors, our next task is to enrich your header with Linked Open Data authority URIs.
+Once your file validates with zero errors, the next task is to enrich your header with authority URIs.
 
-Open your browser and look up two global identifiers for your witness:
+Open your browser and look up two identifiers for your document:
 
-1. **Holding Repository**: Go to `viaf.org` and search for your holding library (e.g. "Biblioteca Apostolica Vaticana" or "British Library"). Copy the canonical VIAF URL (e.g., `http://viaf.org/viaf/141312782`). Add it to `<repository>`:
+1. **Holding repository.** Search `viaf.org` or `wikidata.org` for the institution that holds your document — the Nova Scotia Archives, the Houghton Library, the Bibliothèque nationale de France. Copy the canonical URI and put it on `<repository>`:
    ```xml
-   <repository ref="http://viaf.org/viaf/141312782">Biblioteca Apostolica Vaticana</repository>
+   <repository ref="http://viaf.org/viaf/...">Nova Scotia Archives</repository>
+   ```
+   If the institution has no authority record, say so in a `<note>` — a verified absence is a finding, and it is honest.
+
+2. **Place of origin or place of issue.** Use the register that fits your document. **TGN** (`getty.edu`) or **GeoNames** work for most modern and early-modern places. **Pleiades** is the right tool only for ancient Greek and Roman geography — it will not help you with Halifax, Amherst, or Paris.
+   ```xml
+   <origPlace ref="https://www.geonames.org/...">Halifax</origPlace>
    ```
 
-2. **Place of Origin**: Go to `pleiades.stoa.org` and search for the ancient city where your manuscript was produced (e.g., "Constantinople" or "Alexandria"). Copy the Pleiades URL (e.g., `https://pleiades.stoa.org/places/520998`). Add it to `<origPlace>`:
-   ```xml
-   <origPlace ref="https://pleiades.stoa.org/places/520998">Constantinople</origPlace>
-   ```
+**Verify by reading the record, not by checking the link.** Open each URI and confirm that the name, dates, and description match the entity you intend. Some registers return a page even for identifiers that do not exist, so a link that loads proves nothing.
 
-Now, your edition is no longer an isolated file; it is an active node connected to international library and geographical authority networks.
+**Vocabulary.** *Entity enrichment* — adding external authority identifiers to plain-text names in a document. *Canonical record* — the authoritative master entry for an entity in a shared register.
 
-**Vocabulary.** *Entity enrichment* — adding external authority identifiers (URIs) to plain text names in an electronic document. *Canonical record* — the authoritative master entry representing an entity in a shared database.
-
-**Takeaway:** Enrich your repository with its VIAF identifier and your place of origin with its Pleiades URI to connect your edition to global authority networks.
+**Takeaway:** Enrich your repository and place of issue with authority URIs from the register appropriate to your document's tradition, and verify each by reading the record's content rather than by confirming the link resolves.
 
 ---
 
 ## **27 Content**
 
-**Adding Your Canonical Citation: Minting Your CTS URN**
+**Adding Your Canonical Citation**
 
-Now add your witness's canonical citation.
+Now add your witness's identifiers to your header.
 
-Look at your chosen manuscript page. Identify the exact book, chapter, and verse range inscribed on the parchment (e.g., Genesis 1:1–14, or Iliad 1:1–25).
+**Step 1 — identify what kind of identifier your holding institution uses.** This depends on your document:
 
-In your `03a_Lesson_2.2_Validated_Witness_Header.xml` file, update `<msContents>`:
+- **A French act** → an ARK, e.g. `ark:/12148/bpt6k9690620k`, found in the Gallica record.
+- **A Dickinson manuscript** → a Houghton call number, e.g. `MS Am 1118.3 [338]`, from the finding aid or the Emily Dickinson Archive.
+- **A treaty document** → a Nova Scotia Archives reference, e.g. `RG 1 volume 430 number 2`.
 
-1. Construct the CTS URN according to standard syntax:
-   - Septuagint Greek: `urn:cts:greekLit:tlg0527.tlg001.opp-grc1:CHAPTER.VERSE_START-CHAPTER.VERSE_END`
-   - New Testament Greek: `urn:cts:greekLit:tlg0031.tlg001.opp-grc1:...`
-2. Insert this URN into the `corresp` attribute of `<msItem>`:
-   ```xml
-   <msContents>
-       <msItem n="1" corresp="urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14">
-           <locus>f. 213r</locus>
-           <title>Book of Genesis</title>
-           <textLang mainLang="grc">Greek</textLang>
-       </msItem>
-   </msContents>
-   ```
+**Step 2 — find the general-layer authority URI** for the holding institution or the person chiefly responsible. This is usually a VIAF or Wikidata URI, and it is frequently provided on the institution's own record page.
 
-Save the file. Verify that VS Code accepts the attribute without schema warnings.
+**Step 3 — write them into `<msIdentifier>`**, each in its own `<idno>` with a `type`, and add a `<note>` recording the object's status:
 
-**Vocabulary.** *URN minting* — generating and assigning a standardized uniform resource name according to established syntactic domain rules. *Corpus coordinates* — identifying a text passage by its standard author and work registry numbers.
+```xml
+<msIdentifier>
+    <settlement ref="https://www.wikidata.org/wiki/Q3350">Antigonish</settlement>
+    <repository ref="http://viaf.org/viaf/...">Nova Scotia Archives</repository>
+    <idno type="reference">RG 1 volume 430 number 2</idno>
+    <note type="status">Printed proclamation; no original signed copy is known to survive.</note>
+</msIdentifier>
+```
 
-**Takeaway:** Construct the CTS URN for your full-page passage and attach it via `<msItem corresp="...">`, permanently indexing your witness in the global classical corpus.
+Save the file and verify that VS Code accepts the attributes without schema warnings.
+
+**One rule above all:** copy the identifier in the **exact syntax** you found it. Do not normalise `ark:/` to `ark://`, do not convert `RG 1 volume 430 number 2` into `RG1/430/2`, and do not add or remove brackets in a call number. An identifier is a name, and renaming it breaks it.
+
+**Vocabulary.** *`idno`* — the TEI element for a formal identifier, qualified by a `type` attribute. *`ref`* — the attribute carrying a canonical URI for the element it sits on.
+
+**Takeaway:** Put each identifier in its own typed `<idno>`, add the object's status as a `<note>`, and copy the syntax exactly as the issuing institution writes it.
 
 ---
 
 ## **28 Content**
 
-**Extracting RDF Triples: Seeing Your Header as Linked Data**
+**Seeing Your Header as Linked Data**
 
-To verify that your Linked Data markup actually works, how does a computer read it?
+How does a computer read the markup you just wrote?
 
-When semantic web tools (like Apache Jena or Python's `rdflib`) ingest your TEI Header, they automatically extract RDF triples from your tags and attributes. 
+When semantic tools ingest your TEI header, they extract the identifiers and URIs you recorded and turn them into statements a machine can follow. Conceptually, your header becomes a set of assertions:
 
-From the tags you just authored, the computer generates clean semantic statements:
-
-```turtle
-@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-
-<https://digi.vatlib.it/view/MSS_Vat.gr.2121>
-    dct:title "Vat. gr. 2121" ;
-    crm:P53_has_former_or_current_location <http://viaf.org/viaf/141312782> ;
-    crm:P7_took_place_at <https://pleiades.stoa.org/places/520998> ;
-    dct:relation <urn:cts:greekLit:tlg0527.tlg001.opp-grc1:1.1-1.14> .
+```text
+<your document>  has holding institution  <Nova Scotia Archives>
+<your document>  has reference number     "RG 1 volume 430 number 2"
+<your document>  has status               "printed proclamation"
+<Nova Scotia Archives>  is identified by  <its VIAF URI>
 ```
 
-Look at how clear that is to a computer! 
+That is the payoff of authority control: your plain XML file has become a set of queryable claims about real-world entities, and each claim is traceable to a source.
 
-- The manuscript volume has a title `"Vat. gr. 2121"`.
-- It is located at the Vatican Library (`viaf...141312782`).
-- It was created at Constantinople (`pleiades...520998`).
-- It carries the text of Genesis 1:1–14 (`urn:cts...`).
+**And here is where the lesson connects to your workshop.** Every one of those claims is checkable, which means every one can be *false*. A model can produce a well-formed header asserting a repository URI that resolves to a different institution, or a reference number that belongs to a different volume. The structure will validate. Only a human comparing the claim against the record catches it.
 
-Your plain text XML file has officially become a queryable knowledge graph.
+**Vocabulary.** *Triple* — a subject-predicate-object statement; the unit of Linked Data. *Triple extraction* — deriving such statements from structured markup.
 
-**Vocabulary.** *Turtle (`.ttl`)* — a human-readable text syntax used to write and serialize RDF semantic graphs. *Triple extraction* — the algorithmic translation of structured XML elements and attributes into semantic Subject-Predicate-Object statements.
-
-**Takeaway:** Automated parsers extract clean RDF triples from your TEI tags and `ref` attributes, transforming your XML file into a queryable semantic knowledge graph.
+**Takeaway:** Your header is a set of checkable claims about real entities — which is exactly why an AI-generated header can be confidently, structurally valid, and wrong.
 
 ---
 
@@ -769,7 +774,7 @@ Notice the commit message: `[0 errors]`. You are documenting that your work pass
 Look back at what you have accomplished across the first two days of Module 02:
 
 1. **Tuesday (Manual Ground Truth)**: You hand-wrote your manuscript description in raw XML. You made human decisions about ink, parchment, and scribal hands, discovering firsthand the tactile complexity of the artifact.
-2. **Wednesday (Deterministic Validation)**: You introduced your draft to the machine. You ran it against the official TEI RELAX NG schema in VS Code, slayed the syntax errors, enriched your entities with VIAF and Pleiades URIs, and minted a permanent CTS URN.
+2. **Wednesday (Deterministic Validation)**: You introduced your draft to the machine. You ran it against the official TEI RELAX NG schema in VS Code, slayed the syntax errors, enriched your entities with authority URIs from the registers appropriate to your document, and recorded its persistent identifier.
 
 You now possess an authoritative, certified baseline. 
 
