@@ -179,6 +179,14 @@ The same pass propagated a correction that had been known since the research but
 
 **Moodle question text and label intros live in textareas / TinyMCE, so `inner_text()` returns false negatives for them.** I twice concluded that 1791 was missing from the deployed quiz when it was present. Reading `textarea.value` showed all five probes immediately. Probe form fields, not rendered text, for anything inside an editor. This is the fourth time this session that a verification method, not the underlying operation, produced the wrong answer.
 
+## 8b-ii. Two corrections from Ken, late in the session
+
+**(1) Jay is they/them.** I had used he/him throughout this session's notes, the handoff, and the drafted reply. All corrected, and recorded in `LEDGER.md` as a settled convention so it survives into future sessions.
+
+**(2) The project is one page of one document.** This is not stated anywhere in the workshop materials — it exists as a settled course standard (`LEDGER.md` 2026-09-03) taught only in Lesson 2.1, which states it in **codex** terms: "a complete *recto* or a complete *verso* (e.g. `f. 213r` or `f. 45v`)". That fits none of the three enrolled documents. Now stated explicitly in the workshop description and the submission instructions, with a note on what "one page" means for a loose sheet, a broadside, or a page of a printed decree, and an instruction that a fragment must be justified as describable or replaced.
+
+Consequence for the reply to Jay: the multi-document suggestion is **removed**, and **H 338 is downgraded from primary to qualified** — it is catalogued as "1 fragment" with a torn right edge, so it may not satisfy "one complete page." **H 159** (a complete leaf, ink, fair hand, Carson's Congress stationery) is the safer fit. The draft gives both with the trade-off stated.
+
 ## 8c. Jay's email — an action, not a correction
 
 Jay wrote: *"I am looking into some historical documents from Emily Dickinson currently, would this be a good start?"*
