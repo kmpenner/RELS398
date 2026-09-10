@@ -54,31 +54,52 @@
 
 
   
-  <question type="description"><name><text>02 Content: The Rulebook: How Schemas (RELAX NG) Police Your Markup</text></name><questiontext format="html"><text><![CDATA[
-<h3>The Rulebook: How Schemas (RELAX NG) Police Your Markup</h3>
-<p>In Lesson 1.1, you learned the difference between well-formed XML and valid XML. </p>
-<p>Anyone can write <em>well-formed</em> XML: as long as your tags nest properly and attribute values are wrapped in quotes, the syntax is technically correct. You could invent a tag called <code>&lt;cheeseburger price="5"&gt;</code> or <code>&lt;alienSpaceship&gt;</code>, and basic XML wouldn't complain. </p>
-<p>But a scholarly community cannot function on made-up tags. If one scholar invents <code>&lt;parchment&gt;</code>, another writes <code>&lt;animalSkin&gt;</code>, and a third writes <code>&lt;vellum&gt;</code>, no search engine on Earth can connect their research. To collaborate globally, we need a shared rulebook that defines:</p>
-<ol>
-<li>Exactly which tags are legally permitted.</li>
-<li>Exactly where each tag is allowed to appear (parent-child relationships).</li>
-<li>How many times an element can be repeated.</li>
-<li>What format attribute values must follow (e.g., must dates look like <code>YYYY-MM-DD</code>?).</li>
-</ol>
-<p>In modern digital philology, the premier schema language is <strong>RELAX NG</strong> (REgular LAnguage for XML Next Generation). RELAX NG treats your document as a tree structure, using regular expressions to define valid branching patterns. It is lightweight, flexible, and fully supports the massive international standard maintained by the Text Encoding Initiative (TEI).</p>
-<p><strong>Vocabulary.</strong> <em>Schema</em> — a formal machine-readable document specifying the structural rules, legal elements, and allowable attributes of an XML language. <em>RELAX NG (RNG)</em> — the schema standard used by the TEI to define document structure and grammar.</p>
-<p><strong>Takeaway:</strong> Basic XML syntax prevents computer crashes, but schemas (like RELAX NG) enforce the shared scholarly vocabulary that makes digital editions interoperable.</p>
+  <question type="description"><name><text>02 Content: The Rulebook: Schema Languages, and Why TEI Uses RELAX NG</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Rulebook: Schema Languages, and Why TEI Uses RELAX NG</h3>
+<p>In Lesson 1.1 you met the difference between well-formed XML and valid XML. Anyone can write <em>well-formed</em> XML: tags nest properly and attribute values sit in quotes, so the syntax is correct even if you invent <code>&lt;cheeseburger price="5"&gt;</code>.</p>
+<p>A scholarly community cannot function on invented tags. If one scholar writes <code>&lt;parchment&gt;</code>, another <code>&lt;animalSkin&gt;</code>, and a third <code>&lt;vellum&gt;</code>, no search engine can connect their research. Collaboration needs a shared rulebook defining which tags are permitted, where each may appear, how often each may repeat, and what format attribute values must follow.</p>
+<p><strong>That rulebook is written in a schema language, and there are three you should be able to name.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Language</th>
+<th style="text-align: left;">What it is</th>
+<th style="text-align: left;">Strengths and limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>DTD</strong> (Document Type Definition)</td>
+<td style="text-align: left;">The oldest, inherited from SGML. Declares elements, their order, cardinality and attributes.</td>
+<td style="text-align: left;">Simple and widely supported. <strong>No datatypes</strong> — it cannot say "this must be a valid date". Not namespace-aware.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>XSD</strong> (XML Schema Definition)</td>
+<td style="text-align: left;">The W3C standard. Adds a rich system of datatypes and full namespace support.</td>
+<td style="text-align: left;">Very expressive and very verbose. Common in publishing, government and finance.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RELAX NG</strong> (RNG)</td>
+<td style="text-align: left;">An ISO/IEC standard schema language. Describes permitted structures as patterns over a tree.</td>
+<td style="text-align: left;">Concise, namespace-aware, and supports datatypes. <strong>This is what TEI uses.</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why RELAX NG for TEI?</strong> TEI is enormous — over 500 elements and thousands of attributes — and it is <em>customised</em>: every project selects the subset it needs. RELAX NG handles that scale while staying readable, and it interoperates cleanly with the ODD system you will meet later in this lesson, where a single customization file generates the schema. TEI also pairs RELAX NG with <strong>Schematron</strong> for rules a grammar cannot express.</p>
+<p><strong>A DTD is not a lesser curiosity.</strong> You will meet them constantly in older digital editions and in library systems, and many archival formats still ship one. Knowing which language a document's schema is written in tells you which tool can check it — which is the subject of the next section.</p>
+<p><strong>Vocabulary.</strong> <em>DTD</em> — Document Type Definition; the original XML schema language, without datatypes. <em>XSD</em> — XML Schema Definition; the W3C schema language. <em>RELAX NG</em> — the ISO schema language TEI uses. <em>Schematron</em> — a rule-based assertion language for constraints a grammar cannot state.</p>
+<p><strong>Takeaway:</strong> Three schema languages matter — DTD (oldest, no datatypes), XSD (W3C, rich but verbose), and RELAX NG (concise, namespace-aware, and TEI's choice) — and identifying which one a document uses tells you which tool can validate it.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>02 Question: The Rulebook: How Schemas (RELAX NG) Police Your Markup</text>
+      <text>02 Question: The Rulebook: Schema Languages, and Why TEI Uses RELAX NG</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Anyone can invent &lt;code&gt;&amp;lt;vellum&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;animalSkin&amp;gt;&lt;/code&gt; and still have well-formed XML. What does a schema such as RELAX NG add to that?&lt;/p&gt;</text>
+      <text>&lt;p&gt;TEI writes its schemas in RELAX NG rather than DTD or XSD. What is the main reason?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Basic XML syntax prevents computer crashes, but schemas (like RELAX NG) enforce the shared scholarly vocabulary that makes digital editions interoperable.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Three schema languages matter — DTD (oldest, no datatypes), XSD (W3C, rich but verbose), and RELAX NG (concise, namespace-aware, and TEI's choice) — and identifying which one a document uses tells you which tool can validate it.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -87,67 +108,80 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;It defines which tags are legal, where each may appear, how often it may repeat, and what format its attribute values must follow.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It is concise, namespace-aware and supports datatypes, which suits TEI's scale and its customisable subsets — unlike DTD, which has no datatypes, or XSD, which is far more verbose.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. Well-formedness only guarantees the syntax parses; the schema supplies the shared scholarly vocabulary that makes records interoperable.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. All three languages can state which tags are legal and where; the choice turns on datatypes, namespaces and readability at TEI's scale.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It checks that every opening tag has a matching closing tag and that attribute values are quoted.&lt;/p&gt;</text>
+      <text>&lt;p&gt;RELAX NG is the only schema language that can express element order and cardinality.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Those are well-formedness rules enforced by any XML parser, and they are exactly what the invented tag already satisfies.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. DTD and XSD can both constrain order and repetition; that is not what distinguishes them.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It stores a canonical list of approved manuscript descriptions that editors must copy from.&lt;/p&gt;</text>
+      <text>&lt;p&gt;DTD and XSD are proprietary, so TEI had to adopt an open standard.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. A schema is a machine-readable grammar, not a catalogue of approved content; it constrains structure and vocabulary, not the facts you record.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. DTD came from SGML and XSD is a W3C Recommendation — both open. The reasons are technical, not licensing.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It translates tags into a neutral human-readable language so that non-specialists can read the record.&lt;/p&gt;</text>
+      <text>&lt;p&gt;RELAX NG is the only one that can be generated automatically from a single customization file.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. A schema governs validation; rendering for human readers is the job of stylesheets and publication tools.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. The ODD system can generate other schema formats too; RELAX NG is simply TEI's default output.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
 
 
   
-  <question type="description"><name><text>03 Content: Validating Your Hand-Written Header in VS Code</text></name><questiontext format="html"><text><![CDATA[
-<h3>Validating Your Hand-Written Header in VS Code</h3>
-<p>Forget expensive, proprietary software. Today, you will perform industrial-grade XML schema validation directly inside <strong>Visual Studio Code</strong>.</p>
-<p>To connect your XML file to an official online schema, you add a special processing instruction called <code>xml-model</code> at the very top of your document, immediately beneath the <code>&lt;?xml version="1.0"?&gt;</code> declaration:</p>
+  <question type="description"><name><text>03 Content: Setting Up VS Code, and Which Extension Checks What</text></name><questiontext format="html"><text><![CDATA[
+<h3>Setting Up VS Code, and Which Extension Checks What</h3>
+<p>You wrote your header in the shell. Now you get an editor, and the editor is where validation becomes continuous rather than a thing you run and read.</p>
+<p><strong>Install two extensions, because they do different jobs.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Extension</th>
+<th style="text-align: left;">Marketplace id</th>
+<th style="text-align: left;">What it validates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Red Hat XML</strong></td>
+<td style="text-align: left;"><code>redhat.vscode-xml</code></td>
+<td style="text-align: left;">The general-purpose XML extension. Handles <strong>DTD and XSD</strong>, and gives you completion, formatting and navigation for XML generally.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scholarly XML</strong></td>
+<td style="text-align: left;"><code>raffazizzi.sxml</code></td>
+<td style="text-align: left;">Purpose-built for academic encoding: a <strong>RELAX NG and Schematron validator</strong> with schema-aware autocomplete. This is the one that checks TEI.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scholarly XML is the tool this module depends on</strong>, and it is worth knowing why it is the right choice for a course rather than a research workstation. It <strong>does not require Java</strong> — it is built on a TypeScript RELAX NG implementation — which its publisher notes makes it <em>"easy to install for use with students, in workshops, and in minimal computing projects."</em> It won the <strong>Rahtz Prize for TEI Ingenuity</strong> in 2024 and is maintained by Raff Viglianti.</p>
+<p><strong>Connect your file to the schema.</strong> To make either extension check your document, add a processing instruction called <code>xml-model</code> at the very top, immediately beneath the XML declaration:</p>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;?xml-model href=&quot;https://raw.githubusercontent.com/msdesc/consolidated-tei-schema/master/msdesc.rng&quot; 
             type=&quot;application/xml&quot; 
             schematypens=&quot;http://relaxng.org/ns/structure/1.0&quot;?&gt;
 &lt;TEI xmlns=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
 </code></pre>
-<p>When you open this file in VS Code with the right XML extension installed, the following happens automatically:</p>
-<blockquote>
-<p><strong>Install Scholarly XML, not just Red Hat XML.</strong> These two extensions are <em>not</em> interchangeable for this step. Red Hat XML validates <strong>DTD and XSD</strong> schemas. TEI's <code>msdesc.rng</code> is a <strong>RELAX NG</strong> schema, and only <strong>Scholarly XML</strong> (publisher: Raff Viglianti) checks RELAX NG. If you have only Red Hat XML installed, you will see <strong>zero errors</strong> — not because your file is correct, but because nothing is inspecting it. A clean Problems panel from the wrong extension is a false negative, and it is the single most common way students are misled in this module.</p>
-</blockquote>
-<ol>
-<li>VS Code reads the <code>xml-model</code> line and automatically downloads the official RELAX NG schema in the background.</li>
-<li>The language server audits your document in real time as you type.</li>
-<li>If an element is illegal, misspelled, or out of order, a red squiggly line appears instantly beneath the offending code.</li>
-<li>The <strong>Problems panel</strong> at the bottom of your VS Code window (<code>Ctrl+Shift+M</code> or <code>Cmd+Shift+M</code>) gives you a line-by-line list of every defect.</li>
-</ol>
-<p>You do not need to click "Compile" or upload your file to an external server. The machine gives you continuous, instant feedback.</p>
-<p><strong>Vocabulary.</strong> <em><code>xml-model</code></em> — an XML processing instruction that links a document directly to its validation schema and schema language. <em>Language server</em> — background software inside an editor that analyzes code in real time and reports diagnostics.</p>
-<p><strong>Takeaway:</strong> By adding an <code>xml-model</code> processing instruction in VS Code, the editor downloads the schema and validates your markup in real time with line-by-line diagnostics.</p>
+<p>Note the <code>schematypens</code> value: it declares which <em>schema language</em> the target is written in. That attribute is how the editor knows it is being asked to apply RELAX NG rather than a DTD.</p>
+<p><strong>The trap, and it is the most dangerous one in this module.</strong> If you have only Red Hat XML installed and no RELAX NG validator, your file will report <strong>zero errors</strong> — not because it is correct, but because nothing is inspecting it. A clean Problems panel from the wrong tool is a false negative, and it looks exactly like success. <strong>Confirm which extension is doing the checking before you trust a green tick.</strong></p>
+<p><strong>Takeaway:</strong> Install Red Hat XML for general XML work and Scholarly XML for RELAX NG and Schematron, connect the file with <code>xml-model</code> and its <code>schematypens</code>, and never trust a clean Problems panel until you know which extension produced it.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>03 Question: Validating Your Hand-Written Header in VS Code</text>
+      <text>03 Question: Setting Up VS Code, and Which Extension Checks What</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;You open your header in VS Code after adding an &lt;code&gt;xml-model&lt;/code&gt; instruction, and the Problems panel stays empty. Why can an empty panel be a false negative?&lt;/p&gt;</text>
+      <text>&lt;p&gt;You have only the Red Hat XML extension installed, open your TEI header, and the Problems panel reports zero errors. Why is that not good news?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;By adding an `xml-model` processing instruction in VS Code, the editor downloads the schema and validates your markup in real time with line-by-line diagnostics.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Install Red Hat XML for general XML work and Scholarly XML for RELAX NG and Schematron, connect the file with `xml-model` and its `schematypens`, and never trust a clean Problems panel until you know which extension produced it.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -156,27 +190,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;It is empty because nothing inspected the file: if only Red Hat XML is installed, the RELAX NG schema is never checked.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Red Hat XML is the general XML extension; the RELAX NG validation TEI needs comes from Scholarly XML, so nothing may have been checking your file at all.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. Red Hat XML validates DTD and XSD, not RELAX NG, so silence from the wrong extension proves nothing about your markup.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. Scholarly XML is the RELAX NG and Schematron validator; a clean panel from the wrong tool is a false negative, and it looks exactly like success.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It is empty because VS Code suppresses schema diagnostics until the file is saved and committed to Git.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Red Hat XML suppresses errors until you save the file manually.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The language server audits as you type; a save is not what triggers validation.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. The extension validates on open and on change; the issue is which schema language it is applying, not when.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It is empty because the &lt;code&gt;xml-model&lt;/code&gt; instruction tells VS Code to skip validation for hand-written files.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The schema is cached, so the first run after installing an extension always reports clean.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The instruction is precisely what requests validation, by naming the schema and its schema language.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. A schema may be downloaded on first use, but a successful download does not produce a false clean result.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It is empty because the schema is downloaded only when you click Compile or upload the file to a server.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Zero errors means the header is valid, so no further check is needed.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. There is no compile step and no upload; the editor fetches the schema in the background and checks continuously.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. That is the assumption this section exists to break — validity claims are only as good as the tool that made them.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>

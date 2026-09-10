@@ -8,6 +8,7 @@
 
 ## **01 Content**
 
+
 **What Today Actually Asks of You**
 
 By Monday you owe a workshop submission with three parts: a validated `<msDesc>` for your own witness, authority identifiers that resolve to the right records, and a 300 to 500 word comparison in which you name **at least two subtle hallucinations** in an AI-generated version of the same description.
@@ -25,6 +26,58 @@ That skill is the whole of this lesson, and most of what the module is assessing
 ---
 
 ## **02 Content**
+**Creating Your AI Accounts**
+
+Before you can compare a machine's header against your own, you need access to a machine. This is the setup step, and it is worth doing properly rather than at the last minute — account verification sometimes takes a day.
+
+**What you actually need.** At minimum, one account that gives you access to a capable model through a coding tool. In practice that means one of:
+
+- **A GitHub account** — required for GitHub Copilot, and the one most likely to be free to you.
+- **A Google account** — for Gemini, and for Antigravity.
+- **An Anthropic account** — for Claude Code.
+- **An OpenAI account** — for Codex.
+
+**Check for academic or student access before paying for anything.** GitHub Copilot offers a free tier, and free Pro access for verified teachers, students, and open-source maintainers. Several vendors also run education programmes. The exact terms change, so check each vendor's own current page rather than relying on a course handout from last term — and if you are unsure whether you qualify, ask.
+
+**A caution that matters for this course.** Your project involves unpublished or rights-restricted material. Before you paste any catalogue description into a hosted model, ask two questions:
+
+1. **Is this text public?** A published shelfmark or a public catalogue record is fine. A photograph you took of a manuscript, or a private finding aid, may not be.
+2. **Does the tool train on my input?** Free tiers frequently do, paid tiers frequently do not, and the setting is often buried. If it does, treat anything you paste as published.
+
+**Record what you used.** Note which account, which tool, and which model version you generated your comparison with. An audit that cannot say what produced the output is not reproducible, and reproducibility is one of the FAIR principles from Lesson 1.2.
+
+**Takeaway:** Set up one working AI account before the lab, check for student or academic access first, and decide what you are willing to paste into a hosted model — because training terms and rights restrictions both bite here.
+
+---
+
+## **03 Content**
+**The AI Extensions for VS Code**
+
+Four tools come up constantly in this space, and they are not interchangeable. Learn what each is for, then pick one.
+
+| Tool | What it is | Where it runs |
+| :--- | :--- | :--- |
+| **GitHub Copilot** | Inline code completion and chat, integrated into the editor. The oldest and most deeply integrated of the four. | VS Code extension |
+| **Claude Code** | An agentic coding tool: you describe a task and it reads and edits files in your project. Has an official VS Code integration as well as a command-line form. | VS Code integration, CLI, web |
+| **Codex** | OpenAI's coding agent, with editor integration. Task-oriented, like Claude Code. | VS Code extension, CLI |
+| **Antigravity** | Google's agent-first development environment. It is a **standalone editor built on VS Code**, not an extension you add to VS Code — so choosing it means working in a different application. | Separate application |
+
+**Two distinctions worth holding on to.**
+
+**Completion versus agency.** Copilot began as completion: it suggests the next line while you type. Claude Code, Codex and Antigravity are *agentic* — you hand over a task and they read, write and run things. Agency is more powerful and less predictable, which matters when the artifact is a scholarly record rather than a program.
+
+**Extension versus environment.** Three of these are things you add to VS Code. Antigravity replaces it. If you have already set up VS Code with an XML validator for this module, adding an agent to that editor keeps one working environment; moving to Antigravity means configuring a second one.
+
+**Which to pick.** Any of them can draft a TEI header. Choose on access, since that is the binding constraint: whichever you can get a working account for is the right one for you. If you have several, Copilot is the gentlest introduction, and Claude Code or Codex the more capable for whole-file work.
+
+**Whatever you choose, the discipline does not change.** The tool drafts; you verify. Nothing later in this lesson depends on which one produced the text.
+
+**Takeaway:** Copilot, Claude Code, Codex and Antigravity are four different tools — three extend VS Code and one replaces it — and any of them will serve, so choose on which account you can actually get.
+
+---
+
+## **04 Content**
+
 
 **What the Model Is Doing When It Writes Your Header**
 
@@ -44,7 +97,8 @@ There is a third consequence, and it is the one that matters most for the audit.
 
 ---
 
-## **03 Content**
+## **05 Content**
+
 
 **Two Ways of Being Right**
 
@@ -67,7 +121,8 @@ Neither is the smarter tool. They fail in opposite directions, which is why they
 
 ---
 
-## **04 Content**
+## **06 Content**
+
 
 **What a Schema Can and Cannot See**
 
@@ -94,10 +149,6 @@ Hold on to the distinction. Once a machine is generating the markup, the gap bet
 
 ---
 
-## **05 Content**
-
-**Why Your Own Header Is the Measuring Stick**
-
 A system cannot grade itself. To say anything precise about an AI header, you need an independent reference — and you built one this week without being told that was the point.
 
 Tuesday's hand-authored header is your ground truth: made by someone who looked at the actual object. Wednesday's validated file is your structural baseline: certified at zero errors. Together they are the standard the machine gets measured against.
@@ -112,7 +163,8 @@ Keep your Tuesday file open beside the AI output all through today's lab. The co
 
 ---
 
-## **06 Content**
+## **07 Content**
+
 
 **Finding the Information: Where Your Facts Come From**
 
@@ -137,7 +189,8 @@ An AI header can only be as good as the facts you feed it, and you cannot check 
 
 ---
 
-## **07 Content**
+## **08 Content**
+
 
 **Recording What You Found in the Header**
 
@@ -175,7 +228,8 @@ Here is a worked header for a printed proclamation, with the identifications tha
 
 ---
 
-## **08 Content**
+## **09 Content**
+
 
 **Choosing the Right Element for the Right Fact**
 
@@ -205,7 +259,8 @@ The hardest part of writing a header is not syntax. It is deciding which element
 
 ---
 
-## **09 Content**
+## **10 Content**
+
 
 **What Your Dossier Must Cover Before You Generate**
 
@@ -238,7 +293,8 @@ You cannot audit what you did not establish. Here is the checklist, and you shou
 
 ---
 
-## **10 Content**
+## **11 Content**
+
 
 **Working With a Model That Cannot See Your Document**
 
@@ -256,7 +312,38 @@ This is also why a low schema error count tells you almost nothing. Structural m
 
 ---
 
-## **11 Content**
+## **12 Content**
+**Getting AI to Draft a Header Element**
+
+This is the practical centre of the session: using a model to produce a *piece* of your header, inside your editor, where you can check it immediately.
+
+**Work element by element, not file by file.** Asking for a whole `<msDesc>` at once produces something impressive and hard to check. Asking for one element produces something small enough to verify against your dossier in a few seconds:
+
+```text
+Draft a TEI <physDesc> for the document described below.
+Use <objectDesc> with @form, <supportDesc> with @material, and <extent>.
+Return only the XML fragment, no explanation.
+
+Description: [your own catalogue notes for this element]
+```
+
+**The four-step loop, and it is the same loop every time:**
+
+1. **Ask for one element**, supplying the real facts you established.
+2. **Read it against your dossier** before it goes anywhere near the file — does the material match? The extent? The form?
+3. **Validate** once it is in the file. Structural errors surface here.
+4. **Keep the correction.** If the model got `@form` wrong, know *why* it was wrong, because the same mistake will recur on the next element.
+
+**Why one element at a time matters more than it sounds.** A whole-file request hides its errors inside a large plausible block; a single-element request exposes them. It also keeps you in the position of knowing what each line does — which is the entire point of having written the header by hand first.
+
+**And note what you are building.** By Friday you will have a hand-authored header, a schema-validated header, and an AI-drafted header. The first is your ground truth, the second your structural baseline, and the third the thing under audit. Generating the third element by element is what makes it auditable at all.
+
+**Takeaway:** Prompt for one element at a time with your own verified facts, check it against your dossier before it enters the file, and validate after it does — small enough to verify is the rule.
+
+---
+
+## **13 Content**
+
 
 **Asking the Model for a Header**
 
@@ -290,7 +377,8 @@ Description: [paste your own catalogue notes here]
 
 ---
 
-## **12 Content**
+## **14 Content**
+
 
 **Holding Both to the Same Gate**
 
@@ -309,7 +397,8 @@ Then work the errors the way you did on Wednesday: one at a time, re-saving and 
 
 ---
 
-## **13 Content**
+## **15 Content**
+
 
 **The Audit: Comparing Content, Not Just Structure**
 
@@ -336,7 +425,8 @@ Go field by field through your dossier and mark what the machine produced:
 
 ---
 
-## **14 Content**
+## **16 Content**
+
 
 **Four Kinds of Wrong**
 
@@ -361,7 +451,8 @@ Sections 16 through 22 work through the four kinds in order, spending most of th
 
 ---
 
-## **15 Content**
+## **17 Content**
+
 
 **Structural Errors: The Ones the Schema Hands You**
 
@@ -388,7 +479,8 @@ Count these, report the number, and move on. They are the cheapest finding in yo
 
 ---
 
-## **16 Content**
+## **18 Content**
+
 
 **Obvious Factual Errors: Check These First**
 
@@ -410,7 +502,8 @@ This gives you a place to look first. **Check the parts of your description that
 
 ---
 
-## **17 Content**
+## **19 Content**
+
 
 **The Subtle One: The Provenance That Never Happened**
 
@@ -438,7 +531,8 @@ Notice what makes it convincing: it is *specific*. Vague output reads as uncerta
 
 ---
 
-## **18 Content**
+## **20 Content**
+
 
 **The Subtle One: Confidence the Source Never Had**
 
@@ -465,7 +559,8 @@ This is an excellent candidate for one of your two subtle hallucinations. It is 
 
 ---
 
-## **19 Content**
+## **21 Content**
+
 
 **The Subtle One: What Is Not There**
 
@@ -483,7 +578,8 @@ So work through your own header element by element and ask of each: is this pres
 
 ---
 
-## **20 Content**
+## **22 Content**
+
 
 **The Subtle One: The Link That Goes Somewhere Else**
 
@@ -503,7 +599,8 @@ That is your method, and it takes about a minute per identifier. **Click every o
 
 ---
 
-## **21 Content**
+## **23 Content**
+
 
 **The Subtle One: The Citation That Does Not Resolve**
 
@@ -523,7 +620,8 @@ The rule from section 06 applies unchanged. Do not accept an identifier from a m
 
 ---
 
-## **22 Content**
+## **24 Content**
+
 
 **Sorting the Differences, and What the Pattern Shows**
 
@@ -544,7 +642,8 @@ That last point is worth one sentence in your comparison, and it is a scholarly 
 
 ---
 
-## **23 Content**
+## **25 Content**
+
 
 **From Counts to a Defensible Claim**
 
@@ -568,7 +667,8 @@ The second sentence does three things the first does not. It separates structura
 
 ---
 
-## **24 Content**
+## **26 Content**
+
 
 **Recording the Machine's Part in the File**
 
@@ -605,7 +705,8 @@ This also protects you. A documented AI draft that you audited is methodological
 
 ---
 
-## **25 Content**
+## **27 Content**
+
 
 **Friday's Lab, Step by Step**
 
@@ -628,7 +729,8 @@ If time runs short, steps 1, 4, 5, and 8 are the ones that matter. An unfixed AI
 
 ---
 
-## **26 Content**
+## **28 Content**
+
 
 **Writing the Comparison**
 
@@ -649,50 +751,7 @@ Because it removes an entire class of failure at zero cost, leaving your attenti
 
 ---
 
-## **27 Content**
-
-**Where This Method Transfers**
-
-The audit you are learning is not specific to TEI headers, and it is worth naming what it actually is, because it is the most durable thing in this module.
-
-**The pattern is: establish ground truth independently, generate with a machine, compare against the ground truth rather than against plausibility, and classify the differences by kind.**
-
-That sequence works anywhere a language model produces structured output that must correspond to something real:
-
-- Extracting metadata from a digitised collection at scale — where no human can check every record, so you sample and audit.
-- Converting legacy finding aids into structured data — where the model's fluency makes errors hard to spot.
-- Generating catalogue records for uncatalogued material — the case where its confident inventions are most dangerous, because no existing record contradicts them.
-- Any downstream pipeline where a wrong identifier silently attaches to the wrong object.
-
-**What does not transfer is the shortcut.** There is no version of this where you accept the output because it looks right, and there is no version where the schema checking it is sufficient. The schema checks construction. You check truth. That division of labour is the lesson.
-
-**Takeaway:** The method — independent ground truth, generation, comparison against truth rather than plausibility, classification of differences — transfers to any structured output a model produces about real objects.
-
----
-
-## **28 Content**
-
-**The Three-Step Cycle, Completed**
-
-Step back and look at what the three meetings of this cycle built.
-
-**Tuesday — the manual baseline.** You read a document and wrote a header by hand. Slow, and the only step where a human looked at the object and decided what was true.
-
-**Wednesday — the deterministic gate.** You linked a schema and drove the errors to zero. This did not make your header true; it made it well built, and it gave you a machine-checkable standard.
-
-**Friday — the measured audit.** A model wrote the same header in seconds. You put it through the same gate, then through the comparison the gate cannot perform, and you came out with numbers and a claim about where machine description fails and why.
-
-Each step exists because the previous one is insufficient. Hand-authoring does not scale and cannot self-check. Schema validation checks form and is blind to fact. Machine generation is fast and fluent and cannot be trusted. **Only the combination produces a record you can defend**, and the part that makes it defensible is the human comparison at the end.
-
-That is the argument this course is making, and this week is the first place you have made it with evidence of your own rather than taking it on faith.
-
-**Takeaway:** Manual authorship gives truth without scale, schema validation gives structure without truth, and machine generation gives scale without either — the audit is what makes the combination defensible.
-
----
-
-## **29 Content**
-
-**Writing It Up: What Your Marker Is Looking For**
+**How the comparison is marked.**
 
 Your comparison is 300 to 500 words, and it is worth being explicit about how it is read.
 
@@ -717,9 +776,48 @@ Your comparison is 300 to 500 words, and it is worth being explicit about how it
 
 ---
 
+## **29 Content**
+
+
+**Where This Method Transfers**
+
+The audit you are learning is not specific to TEI headers, and it is worth naming what it actually is, because it is the most durable thing in this module.
+
+**The pattern is: establish ground truth independently, generate with a machine, compare against the ground truth rather than against plausibility, and classify the differences by kind.**
+
+That sequence works anywhere a language model produces structured output that must correspond to something real:
+
+- Extracting metadata from a digitised collection at scale — where no human can check every record, so you sample and audit.
+- Converting legacy finding aids into structured data — where the model's fluency makes errors hard to spot.
+- Generating catalogue records for uncatalogued material — the case where its confident inventions are most dangerous, because no existing record contradicts them.
+- Any downstream pipeline where a wrong identifier silently attaches to the wrong object.
+
+**What does not transfer is the shortcut.** There is no version of this where you accept the output because it looks right, and there is no version where the schema checking it is sufficient. The schema checks construction. You check truth. That division of labour is the lesson.
+
+**Takeaway:** The method — independent ground truth, generation, comparison against truth rather than plausibility, classification of differences — transfers to any structured output a model produces about real objects.
+
+---
+
 ## **30 Content**
 
-**What the Week Was For**
+
+**The Three-Step Cycle, Completed**
+
+Step back and look at what the three meetings of this cycle built.
+
+**Tuesday — the manual baseline.** You read a document and wrote a header by hand. Slow, and the only step where a human looked at the object and decided what was true.
+
+**Wednesday — the deterministic gate.** You linked a schema and drove the errors to zero. This did not make your header true; it made it well built, and it gave you a machine-checkable standard.
+
+**Friday — the measured audit.** A model wrote the same header in seconds. You put it through the same gate, then through the comparison the gate cannot perform, and you came out with numbers and a claim about where machine description fails and why.
+
+Each step exists because the previous one is insufficient. Hand-authoring does not scale and cannot self-check. Schema validation checks form and is blind to fact. Machine generation is fast and fluent and cannot be trusted. **Only the combination produces a record you can defend**, and the part that makes it defensible is the human comparison at the end.
+
+That is the argument this course is making, and this week is the first place you have made it with evidence of your own rather than taking it on faith.
+
+**Takeaway:** Manual authorship gives truth without scale, schema validation gives structure without truth, and machine generation gives scale without either — the audit is what makes the combination defensible.
+
+---
 
 Three days, three ways of producing the same description.
 

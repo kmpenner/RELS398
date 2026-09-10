@@ -8,6 +8,7 @@
 
 ## **01 Content**
 
+
 **The Rule of the Machine: What "Deterministic" Really Means**
 
 Yesterday, you sat at your keyboard and made human, interpretive decisions. You looked at a high-resolution photograph of ancient parchment and decided how to describe ink colors, margin widths, and scribal handwriting in TEI XML. That was humanistic intuition at work.
@@ -26,34 +27,48 @@ When you validate your hand-written TEI XML document today, the software will no
 
 ## **02 Content**
 
-**The Rulebook: How Schemas (RELAX NG) Police Your Markup**
 
-In Lesson 1.1, you learned the difference between well-formed XML and valid XML. 
+**The Rulebook: Schema Languages, and Why TEI Uses RELAX NG**
 
-Anyone can write *well-formed* XML: as long as your tags nest properly and attribute values are wrapped in quotes, the syntax is technically correct. You could invent a tag called `<cheeseburger price="5">` or `<alienSpaceship>`, and basic XML wouldn't complain. 
+In Lesson 1.1 you met the difference between well-formed XML and valid XML. Anyone can write *well-formed* XML: tags nest properly and attribute values sit in quotes, so the syntax is correct even if you invent `<cheeseburger price="5">`.
 
-But a scholarly community cannot function on made-up tags. If one scholar invents `<parchment>`, another writes `<animalSkin>`, and a third writes `<vellum>`, no search engine on Earth can connect their research. To collaborate globally, we need a shared rulebook that defines:
+A scholarly community cannot function on invented tags. If one scholar writes `<parchment>`, another `<animalSkin>`, and a third `<vellum>`, no search engine can connect their research. Collaboration needs a shared rulebook defining which tags are permitted, where each may appear, how often each may repeat, and what format attribute values must follow.
 
-1. Exactly which tags are legally permitted.
-2. Exactly where each tag is allowed to appear (parent-child relationships).
-3. How many times an element can be repeated.
-4. What format attribute values must follow (e.g., must dates look like `YYYY-MM-DD`?).
+**That rulebook is written in a schema language, and there are three you should be able to name.**
 
-In modern digital philology, the premier schema language is **RELAX NG** (REgular LAnguage for XML Next Generation). RELAX NG treats your document as a tree structure, using regular expressions to define valid branching patterns. It is lightweight, flexible, and fully supports the massive international standard maintained by the Text Encoding Initiative (TEI).
+| Language | What it is | Strengths and limits |
+| :--- | :--- | :--- |
+| **DTD** (Document Type Definition) | The oldest, inherited from SGML. Declares elements, their order, cardinality and attributes. | Simple and widely supported. **No datatypes** — it cannot say "this must be a valid date". Not namespace-aware. |
+| **XSD** (XML Schema Definition) | The W3C standard. Adds a rich system of datatypes and full namespace support. | Very expressive and very verbose. Common in publishing, government and finance. |
+| **RELAX NG** (RNG) | An ISO/IEC standard schema language. Describes permitted structures as patterns over a tree. | Concise, namespace-aware, and supports datatypes. **This is what TEI uses.** |
 
-**Vocabulary.** *Schema* — a formal machine-readable document specifying the structural rules, legal elements, and allowable attributes of an XML language. *RELAX NG (RNG)* — the schema standard used by the TEI to define document structure and grammar.
+**Why RELAX NG for TEI?** TEI is enormous — over 500 elements and thousands of attributes — and it is *customised*: every project selects the subset it needs. RELAX NG handles that scale while staying readable, and it interoperates cleanly with the ODD system you will meet later in this lesson, where a single customization file generates the schema. TEI also pairs RELAX NG with **Schematron** for rules a grammar cannot express.
 
-**Takeaway:** Basic XML syntax prevents computer crashes, but schemas (like RELAX NG) enforce the shared scholarly vocabulary that makes digital editions interoperable.
+**A DTD is not a lesser curiosity.** You will meet them constantly in older digital editions and in library systems, and many archival formats still ship one. Knowing which language a document's schema is written in tells you which tool can check it — which is the subject of the next section.
+
+**Vocabulary.** *DTD* — Document Type Definition; the original XML schema language, without datatypes. *XSD* — XML Schema Definition; the W3C schema language. *RELAX NG* — the ISO schema language TEI uses. *Schematron* — a rule-based assertion language for constraints a grammar cannot state.
+
+**Takeaway:** Three schema languages matter — DTD (oldest, no datatypes), XSD (W3C, rich but verbose), and RELAX NG (concise, namespace-aware, and TEI's choice) — and identifying which one a document uses tells you which tool can validate it.
 
 ---
 
 ## **03 Content**
 
-**Validating Your Hand-Written Header in VS Code**
 
-Forget expensive, proprietary software. Today, you will perform industrial-grade XML schema validation directly inside **Visual Studio Code**.
+**Setting Up VS Code, and Which Extension Checks What**
 
-To connect your XML file to an official online schema, you add a special processing instruction called `xml-model` at the very top of your document, immediately beneath the `<?xml version="1.0"?>` declaration:
+You wrote your header in the shell. Now you get an editor, and the editor is where validation becomes continuous rather than a thing you run and read.
+
+**Install two extensions, because they do different jobs.**
+
+| Extension | Marketplace id | What it validates |
+| :--- | :--- | :--- |
+| **Red Hat XML** | `redhat.vscode-xml` | The general-purpose XML extension. Handles **DTD and XSD**, and gives you completion, formatting and navigation for XML generally. |
+| **Scholarly XML** | `raffazizzi.sxml` | Purpose-built for academic encoding: a **RELAX NG and Schematron validator** with schema-aware autocomplete. This is the one that checks TEI. |
+
+**Scholarly XML is the tool this module depends on**, and it is worth knowing why it is the right choice for a course rather than a research workstation. It **does not require Java** — it is built on a TypeScript RELAX NG implementation — which its publisher notes makes it *"easy to install for use with students, in workshops, and in minimal computing projects."* It won the **Rahtz Prize for TEI Ingenuity** in 2024 and is maintained by Raff Viglianti.
+
+**Connect your file to the schema.** To make either extension check your document, add a processing instruction called `xml-model` at the very top, immediately beneath the XML declaration:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -63,24 +78,16 @@ To connect your XML file to an official online schema, you add a special process
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
 ```
 
-When you open this file in VS Code with the right XML extension installed, the following happens automatically:
+Note the `schematypens` value: it declares which *schema language* the target is written in. That attribute is how the editor knows it is being asked to apply RELAX NG rather than a DTD.
 
-> **Install Scholarly XML, not just Red Hat XML.** These two extensions are *not* interchangeable for this step. Red Hat XML validates **DTD and XSD** schemas. TEI's `msdesc.rng` is a **RELAX NG** schema, and only **Scholarly XML** (publisher: Raff Viglianti) checks RELAX NG. If you have only Red Hat XML installed, you will see **zero errors** — not because your file is correct, but because nothing is inspecting it. A clean Problems panel from the wrong extension is a false negative, and it is the single most common way students are misled in this module.
+**The trap, and it is the most dangerous one in this module.** If you have only Red Hat XML installed and no RELAX NG validator, your file will report **zero errors** — not because it is correct, but because nothing is inspecting it. A clean Problems panel from the wrong tool is a false negative, and it looks exactly like success. **Confirm which extension is doing the checking before you trust a green tick.**
 
-1. VS Code reads the `xml-model` line and automatically downloads the official RELAX NG schema in the background.
-2. The language server audits your document in real time as you type.
-3. If an element is illegal, misspelled, or out of order, a red squiggly line appears instantly beneath the offending code.
-4. The **Problems panel** at the bottom of your VS Code window (`Ctrl+Shift+M` or `Cmd+Shift+M`) gives you a line-by-line list of every defect.
-
-You do not need to click "Compile" or upload your file to an external server. The machine gives you continuous, instant feedback.
-
-**Vocabulary.** *`xml-model`* — an XML processing instruction that links a document directly to its validation schema and schema language. *Language server* — background software inside an editor that analyzes code in real time and reports diagnostics.
-
-**Takeaway:** By adding an `xml-model` processing instruction in VS Code, the editor downloads the schema and validates your markup in real time with line-by-line diagnostics.
+**Takeaway:** Install Red Hat XML for general XML work and Scholarly XML for RELAX NG and Schematron, connect the file with `xml-model` and its `schematypens`, and never trust a clean Problems panel until you know which extension produced it.
 
 ---
 
 ## **04 Content**
+
 
 **Structural Rules and Element Hierarchy in RNG**
 
@@ -101,6 +108,7 @@ When you see a validation error that says *"Element 'sourceDesc' is not allowed 
 ---
 
 ## **05 Content**
+
 
 **Data Typing, Enumerations, and Attribute Constraints**
 
@@ -123,6 +131,7 @@ By enforcing strict datatypes, the schema ensures that your edition can be filte
 ---
 
 ## **06 Content**
+
 
 **Beyond Grammar: The Necessity of Schematron Business Logic**
 
@@ -150,6 +159,7 @@ To catch these logical contradictions, digital editors use a complementary techn
 ---
 
 ## **07 Content**
+
 
 **Writing Schematron Rules for Cross-References**
 
@@ -181,6 +191,7 @@ If a reference breaks, Schematron prints a clear, human-readable error message i
 
 ## **08 Content**
 
+
 **Customizing the TEI: The ODD (One Document Does-It-All) Philosophy**
 
 The complete Text Encoding Initiative Guidelines contain over 500 different elements and thousands of attributes. It covers everything from ancient Greek papyri to 19th-century poetry to speech corpora.
@@ -206,6 +217,7 @@ From this single ODD file, automated compilers generate both human-readable HTML
 
 ## **09 Content**
 
+
 **Case Study: The Bodleian `msdesc.odd` Consolidated Schema**
 
 To see how world-class institutions use this workflow, look at the **Bodleian Libraries at the University of Oxford**.
@@ -229,6 +241,7 @@ The schema we link to in this course (`msdesc.rng`) is directly derived from the
 
 ## **10 Content**
 
+
 **Case Study: Bibliotheca Laureshamensis and the ENRICH Schema**
 
 Another landmark case study in digital codicology is the **Bibliotheca Laureshamensis** (the virtual reconstruction of the medieval monastic library of Lorsch, Germany).
@@ -246,6 +259,7 @@ By using the **ENRICH (European Network for Research on Information and Cultural
 ---
 
 ## **11 Content**
+
 
 **Breaking Out of the Silo: Why XML Needs Linked Open Data**
 
@@ -271,6 +285,7 @@ To connect our scholarship to the rest of the world, we must move **from strings
 ---
 
 ## **12 Content**
+
 
 **Speaking in Triples: The Resource Description Framework (RDF)**
 
@@ -302,6 +317,7 @@ When computers read this triple, there is zero ambiguity. A machine in Tokyo and
 
 ## **13 Content**
 
+
 **From Strings to Real Things: Authority Control in TEI**
 
 How do we embed these global Linked Data identifiers directly into our hand-authored TEI Header?
@@ -331,6 +347,7 @@ Look at the difference. The human reader still sees the familiar words. But unde
 ---
 
 ## **14 Content**
+
 
 **The Authority Registers: A General Layer and a Tradition-Specific Layer**
 
@@ -369,6 +386,7 @@ Neither Trismegistos nor Pleiades will help you with a French decree, a treaty, 
 
 ## **15 Content**
 
+
 **Mapping Manuscript Migrations (MMM): Harmonizing Global Data**
 
 To see the staggering power of Linked Open Data in codicology, consider the **Mapping Manuscript Migrations (MMM)** project.
@@ -388,6 +406,7 @@ An interactive computational platform (`mappingmanuscriptmigrations.org`) where 
 ---
 
 ## **16 Content**
+
 
 **Wikibase and Knowledge Graphs for Codicology**
 
@@ -413,6 +432,7 @@ When your TEI Header includes Wikidata identifiers (`ref="https://www.wikidata.o
 
 ## **17 Content**
 
+
 **Link Rot and 404s: Why Regular Web Links Fail Ancient Documents**
 
 Now let us tackle a second great danger in digital scholarship: **the crisis of broken citations**.
@@ -436,6 +456,7 @@ Your three documents have survived two to three centuries, and some have outlive
 
 ## **18 Content**
 
+
 **Citing a Structure, Not a File**
 
 To understand why canonical citation matters, separate two things that are easy to confuse: the **logical structure** of a text, and the **physical carrier** it happens to sit on.
@@ -458,6 +479,7 @@ Different traditions formalise this differently. Classical philology built the *
 
 ## **19 Content**
 
+
 **Canonical Citation: Giving Your Object a Stable Address**
 
 A citation that depends on a shelfmark is fragile. Shelfmarks change: libraries reclassify, collections move, and a manuscript catalogued as one shelfmark today can be renumbered in the next revision. If your edition cites the shelfmark alone, your citation breaks the moment the holding library reorganises.
@@ -473,6 +495,7 @@ The general principle is the same in every tradition: an identifier is assigned 
 ---
 
 ## **20 Content**
+
 
 **Three Citation Systems, Three Traditions**
 
@@ -520,6 +543,7 @@ Oversize items get a separate form, `O/S number 511`. Note what this citation do
 
 ## **21 Content**
 
+
 **Reading a Record, Not Just Finding It**
 
 Finding an identifier is not the same as verifying one. A record has to be read.
@@ -547,6 +571,7 @@ Every one of those fields is a fact you can put in a TEI header — and every on
 
 ## **22 Content**
 
+
 **Dating: Where Records Mislead**
 
 Dates in catalogue records are not neutral facts, and this is the single most productive place to catch a subtle error.
@@ -566,6 +591,7 @@ Dates in catalogue records are not neutral facts, and this is the single most pr
 ---
 
 ## **23 Content**
+
 
 **Recording the Citation in Your Header**
 
@@ -603,6 +629,7 @@ For the status of the object — original, copy, transcript, or printed edition 
 
 ## **24 Content**
 
+
 **Hands-On in VS Code: Connecting to the Schema**
 
 Now it is time for today's practical lab work. 
@@ -637,6 +664,7 @@ Watch your editor. Within two seconds, the background XML language server in VS 
 
 ## **25 Content**
 
+
 **Slaying the Red Squiggles: Reading Validator Error Messages**
 
 When red squiggly lines light up your screen, do not panic! Every programmer and digital editor in the world spends their days debugging errors. The secret to debugging is learning how to read what the validator is trying to tell you.
@@ -658,6 +686,7 @@ Work through the Problems panel one line at a time. Click on an error in the pan
 ---
 
 ## **26 Content**
+
 
 **Enriching Your Header with Authority URIs**
 
@@ -685,6 +714,7 @@ Open your browser and look up two identifiers for your document:
 ---
 
 ## **27 Content**
+
 
 **Adding Your Canonical Citation**
 
@@ -721,6 +751,7 @@ Save the file and verify that VS Code accepts the attributes without schema warn
 
 ## **28 Content**
 
+
 **Seeing Your Header as Linked Data**
 
 How does a computer read the markup you just wrote?
@@ -745,6 +776,7 @@ That is the payoff of authority control: your plain XML file has become a set of
 ---
 
 ## **29 Content**
+
 
 **The Stage Gate: Achieving a Zero-Error Audit in Git**
 
@@ -772,6 +804,7 @@ Notice the commit message: `[0 errors]`. You are documenting that your work pass
 ---
 
 ## **30 Content**
+
 
 **Synthesis: The Three-Step Cycle in Action**
 
@@ -813,3 +846,4 @@ Hyvönen, E., et al. (2021). Mapping Manuscript Migrations: A knowledge graph an
 Smith, N., & Blackwell, C. W. (2012). *The Canonical Text Services protocol*. Harvard University Center for Hellenic Studies.
 
 TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and interchange* (Version 4.12.0). https://tei-c.org/guidelines/p5/
+
