@@ -142,7 +142,7 @@ It does not persist across separate `connect_over_cdp` calls. `notebook_ui._down
 
 Researched this session; full reports in `private/student_projects/` (gitignored — it names students).
 
-- **Jay cannot do "a letter".** Houghton's Dickinson *letters* are restricted to the Harvard network; only the poetry manuscripts are open access. Verified four times on Houghton's own collection page. Recommended substitute: `MS Am 1118.3 [338]`, a wrapping-paper draft. **He may already have started on a letter — worth telling him.**
+- **Jay has not chosen anything yet — he asked a question.** His email says he is "looking into some historical documents from Emily Dickinson" and asks "would this be a good start?" The earlier note that he had "selected a letter" was a paraphrase and is wrong. **A drafted reply is waiting at `private/student_projects/REPLY_to_Jay_dickinson.md`** — read and send it. The one thing that matters: Houghton's Dickinson *letters* are network-restricted while the *poems* are open access, so the object must be a poem (or a poem enclosed in a letter). Recommended starting point `MS Am 1118.3 [338]`, a wrapping-paper rough draft. EDA's own front page confirms it is "an Open-Access Website for the Manuscripts" — poems, not letters.
 - **Andromeda's object is the 1752 treaty.** Ken confirmed the "1753" was his misremembering; the research independently found no 1753 treaty exists.
 - **Fabricated authority identifiers return HTTP 200.** Verified for VIAF. A student link-checking will certify a hallucination. Now in the Authority Control card.
 
@@ -178,6 +178,24 @@ The same pass propagated a correction that had been known since the research but
 ### Verification trap found while doing this
 
 **Moodle question text and label intros live in textareas / TinyMCE, so `inner_text()` returns false negatives for them.** I twice concluded that 1791 was missing from the deployed quiz when it was present. Reading `textarea.value` showed all five probes immediately. Probe form fields, not rendered text, for anything inside an editor. This is the fourth time this session that a verification method, not the underlying operation, produced the wrong answer.
+
+## 8c. Jay's email — an action, not a correction
+
+Jay wrote: *"I am looking into some historical documents from Emily Dickinson currently, would this be a good start?"*
+
+That is a question, and "documents" is plural. **He has not selected a letter, and has not selected anything.** The earlier working assumption that he "has selected a letter" was a paraphrase, and it reached two successive versions of the workshop description before being caught.
+
+**There is a drafted reply waiting at `private/student_projects/REPLY_to_Jay_dickinson.md`.** It needs reading and sending; it is written in your voice and signed Ken.
+
+What it says:
+
+- **Yes, Dickinson is a good choice** — with one constraint that shapes the pick.
+- **Houghton's Dickinson letters are network-restricted; the poems are open access.** So the object must be a poem, or a poem enclosed in a letter. A prose letter will strand him mid-project. Verified on Houghton's collection page and independently on EDA's own front page ("an Open-Access Website for the **Manuscripts** of Emily Dickinson").
+- **Recommended object:** `MS Am 1118.3 [338]` — off-white wrapping paper, 180 × 100 mm, pencil, rough hand, right edge torn, folded in half, text sideways, cancellations and variants, catalogue disposition "chaotic". A rich `physDesc`/`handDesc` exercise. Contrast piece: `MS Am 1118.3 [159–164]`, a fair copy in ink on Carson's Congress stationery. If he wants more than one document: the *"Safe in their Alabaster Chambers"* exchange with Susan Dickinson, with four alternative second stanzas.
+- **Rights:** EDA permits coursework use without permission, credit line required to the owning institution; the licence bars derivatives, so no cropping or annotating. Cite as *MS Am 1118.3 [338]. Houghton Library, Harvard University.*
+- **One thing for him to check:** that the item opens in EDA. I could not verify that individual item page — EDA's search is client-rendered — so the draft asks him to confirm before committing.
+
+Also worth noting from this: **three student details this session arrived as paraphrase and were each wrong in a way that changed the work** — the treaty date, Olyvia's era, and now Jay's object. When a student detail drives course material, read the student's own words before authoring. Recorded in `LEDGER.md`.
 
 ## 9. If you only do one thing
 
