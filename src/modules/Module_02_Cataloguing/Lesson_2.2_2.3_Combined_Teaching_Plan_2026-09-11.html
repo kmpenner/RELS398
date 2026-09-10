@@ -271,8 +271,6 @@
 </head>
 <body>
 
-<body>
-
     <div class="header-box">
         <div class="header-title">
             <h1>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h1>
@@ -337,10 +335,11 @@
                     <small style="color:var(--stfx-slate);">A real error, from our own class file</small>
                 </td>
                 <td>
-                    &bull; <strong>Project <code>labs/witness.xml</code></strong> &mdash; the diary header the class built together on Wednesday. Paste the <code>xml-model</code> instruction directly under the XML declaration (code box, right) and save.<br>
+                    &bull; <strong>Project <code>scratch/witness_demo_INVALID.xml</code></strong> &mdash; a copy of the diary header the class built on Wednesday, with three errors seeded into it. Paste the <code>xml-model</code> instruction directly under the XML declaration (code box, right) and save.<br>
                     &bull; <strong>Narrate the download:</strong> the language server fetches the schema and audits live. Open the Problems panel (<code>Cmd+Shift+M</code>).<br>
-                    &bull; <strong>Use the error we actually have</strong> (see the "Live Demo Error" card at right) &mdash; <code>&lt;extent&gt;</code> wrapping a <code>&lt;p&gt;</code>. It is a genuine Sequence/Choice violation from our own file, not a contrived one. Fix it on screen; watch the counter drop to 0.<br>
-                    &bull; <strong>Name the three RELAX NG constraint types on the board:</strong> <em>Sequence</em>, <em>Choice</em>, <em>Cardinality</em>. Nearly every error they will hit is one of these three.
+                    &bull; <strong>Work the first error live:</strong> <code>line 36: Did not expect element objectDesc there</code> &mdash; <code>&lt;handDesc&gt;</code> has been moved above <code>&lt;objectDesc&gt;</code>, which the schema's sequence forbids. Move it back on screen; re-save and watch the count fall to the next error.<br>
+                    &bull; <strong>Name the three RELAX NG constraint types on the board</strong> as the errors surface: <em>Sequence</em> (this one), <em>Choice</em> (the invented <code>&lt;leafDimensions&gt;</code> at line 44), and <em>content model</em> (<code>&lt;extent&gt;</code> wrapping a <code>&lt;p&gt;</code> at line 41). Nearly every error they will hit is one of these three.<br>
+                    &bull; <strong>Do not fix all three yourself.</strong> Fix the first, then hand the room the pattern: click the error, jump to the line, fix one, re-save, read the new count. The validator reports one failure per pass, which is exactly the loop they are about to run for 16 minutes.
                 </td>
             </tr>
             <tr>
@@ -350,7 +349,8 @@
                     <small style="color:var(--stfx-slate);">Drive your own file to zero</small>
                 </td>
                 <td>
-                    &bull; <strong>Student Action:</strong> copy <code>witness.xml</code> to <code>witness_validated.xml</code>, add the <code>xml-model</code> instruction, save, open the Problems panel, and fix errors one at a time &mdash; click an error to jump to the line, fix, re-save, watch the count fall. Do not attempt a mass rewrite.<br>
+                    &bull; <strong>Student Action:</strong> work in <em>your own</em> <code>witness.xml</code> &mdash; copy it to <code>witness_validated.xml</code>, add the <code>xml-model</code> instruction, save, open the Problems panel, and fix errors one at a time &mdash; click an error to jump to the line, fix, re-save, watch the count fall. Do not attempt a mass rewrite.<br>
+                    &bull; <strong>Do NOT copy the projected demo file.</strong> <code>scratch/witness_demo_INVALID.xml</code> is a seeded teaching copy with three deliberate errors; your own file is the one being validated.
                     &bull; <strong>Instructor Roaming:</strong> triage against the three common messages in the "Reading Validator Messages" card. Students who stopped at a Minimum Viable Header on Wednesday will hit <em>fewer</em> errors, not more &mdash; do not let them conclude their thinner header was better.<br>
                     &bull; <strong>Hard checkpoint at 09:58:</strong> anyone not at 0 errors pairs with a neighbour who is. Everyone must reach the gate, because Lab B is a comparison and needs a clean baseline on both sides.
                 </td>
@@ -409,20 +409,27 @@
 &lt;/TEI&gt;
             </div>
 
-            <h4 style="margin-top:0.6rem;">Live Demo Error &mdash; from our own <code>labs/witness.xml</code></h4>
+            <h4 style="margin-top:0.6rem;">Live Demo Errors &mdash; from <code>scratch/witness_demo_INVALID.xml</code></h4>
             <div class="code-box">
-<span class="comment">&lt;!-- REJECTED: extent takes prose, not a block --&gt;</span><br>
+<span class="comment">The committed class artifact (labs/witness.xml) now
+PASSES validation - do not project it expecting errors.
+Project the seeded demo copy instead. Three errors:</span><br>
+<br>
+<span class="comment">1. SEQUENCE &mdash; handDesc before objectDesc</span><br>
+<span class="comment">line 36: Did not expect element objectDesc there</span><br>
+<span class="comment">FIX: move &lt;handDesc&gt; back below &lt;objectDesc&gt;.</span><br>
+<br>
+<span class="comment">2. CONTENT MODEL &mdash; extent takes prose, not a block</span><br>
 &lt;extent&gt;<span class="highlight">&lt;p&gt;</span>2 volumes.<span class="highlight">&lt;/p&gt;</span>&lt;/extent&gt;<br>
+<span class="comment">FIX: &lt;extent&gt;2 volumes.&lt;/extent&gt;</span><br>
 <br>
-<span class="comment">witness.xml:39: element p:</span><br>
-<span class="comment">Relax-NG validity error :</span><br>
-<span class="comment">Did not expect element p there</span><br>
-<br>
-<span class="comment">&lt;!-- ACCEPTED --&gt;</span><br>
-&lt;extent&gt;2 volumes.&lt;/extent&gt;
+<span class="comment">3. CHOICE &mdash; an element no branch allows</span><br>
+<span class="highlight">&lt;leafDimensions&gt;</span>210 x 148 mm<span class="highlight">&lt;/leafDimensions&gt;</span><br>
+<span class="comment">FIX: delete it; use &lt;dimensions&gt; if size is wanted.</span>
             </div>
             <ul>
-                <li>Note for the room: <code>&lt;support&gt;</code> one line above <em>does</em> take a <code>&lt;p&gt;</code>. Two sibling elements, two different content models &mdash; this is exactly why you cannot reason your way to validity and must ask the schema.</li>
+                <li>Note for the room: <code>&lt;support&gt;</code> at line 39 <em>does</em> take a <code>&lt;p&gt;</code>, while <code>&lt;extent&gt;</code> two lines below does not. Two sibling elements, two different content models &mdash; this is exactly why you cannot reason your way to validity and must ask the schema.</li>
+                <li><strong>Regenerate the demo copy any time</strong> with <code>python3 scratch/make_demo_error.py</code>. It re-derives the file from <code>labs/witness.xml</code> and re-verifies both that the class artifact is valid and that the demo is not, so this card cannot silently go stale again.</li>
             </ul>
 
             <h4 style="margin-top:0.6rem;">Standard Prompt for Lab B</h4>
@@ -441,7 +448,7 @@ Description: <span class="highlight">[paste your own artifact notes]</span>
             <ul>
                 <li><strong>"Element 'xyz' is not allowed here"</strong> &mdash; wrong order or wrong parent. Check that <code>&lt;titleStmt&gt;</code> precedes <code>&lt;publicationStmt&gt;</code> precedes <code>&lt;sourceDesc&gt;</code>.</li>
                 <li><strong>"...must be terminated by the matching end-tag"</strong> &mdash; a missing slash or unclosed tag. Scan for the open bracket without a partner.</li>
-                <li><strong>"Attribute 'material' has invalid value"</strong> &mdash; outside the schema's enumeration; <code>material="vellum"</code> must become <code>material="parchment"</code>.</li>
+                <li><strong>"Attribute 'material' has invalid value"</strong> &mdash; if a student sees this, read the enumeration in the message and pick a listed value. <em>Do not teach <code>vellum</code>&rarr;<code>parchment</code> as a rule:</em> this schema's <code>supportDesc/@material</code> is declared inside a <code>&lt;choice&gt;</code> of alternatives and accepts <code>paper</code>, <code>vellum</code>, and even nonsense values without complaint. Verified against <code>msdesc.rng</code> on 2026-09-10. The real enumeration is <code>perg / chart / papyrus / palm / mixed / other / unknown</code>, and it is <em>not</em> enforced here.</li>
                 <li><strong>Workflow:</strong> click the error to jump to the line, fix one at a time, re-save, watch the count drop. Never batch-rewrite.</li>
             </ul>
 

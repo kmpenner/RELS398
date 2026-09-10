@@ -63,7 +63,9 @@ To connect your XML file to an official online schema, you add a special process
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
 ```
 
-When you open this file in VS Code with an XML extension (such as Red Hat XML or Scholarly XML) installed:
+When you open this file in VS Code with the right XML extension installed, the following happens automatically:
+
+> **Install Scholarly XML, not just Red Hat XML.** These two extensions are *not* interchangeable for this step. Red Hat XML validates **DTD and XSD** schemas. TEI's `msdesc.rng` is a **RELAX NG** schema, and only **Scholarly XML** (publisher: Raff Viglianti) checks RELAX NG. If you have only Red Hat XML installed, you will see **zero errors** — not because your file is correct, but because nothing is inspecting it. A clean Problems panel from the wrong extension is a false negative, and it is the single most common way students are misled in this module.
 
 1. VS Code reads the `xml-model` line and automatically downloads the official RELAX NG schema in the background.
 2. The language server audits your document in real time as you type.
