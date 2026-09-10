@@ -778,7 +778,7 @@ In Topic 12, you established a four-tiered taxonomy for scholarly commentary: ph
 | **Intertextual** | Scripture citations, classical echoes | CiTO Ontological Properties / Tesserae Scores |
 | **Structural** | Rhetorical figures, chiasms, discourse units | Lausberg Rhetoric Manuals / Pericope IDs |
 
-Documenting these explicit thresholds ensures that your commentary is recognized as a disciplined scholarly tool rather than an arbitrary collection of personal observations (Berti, 2026; Bartalesi et al., 2018).
+Documenting these explicit thresholds ensures that your commentary is recognized as a disciplined scholarly tool rather than an arbitrary collection of personal observations (Berti, 2026; Tafdrup et al., 2026).
 
 **Vocabulary.** `<interpretation>` — TEI element describing the scope of interpretive and analytic annotations. *Annotation threshold* — the objective criteria determining whether a textual phenomenon warrants an explanatory note. *Stand-off annotation* — commentary stored externally from the base text and linked via persistent pointers.
 
