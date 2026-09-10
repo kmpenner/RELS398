@@ -1,0 +1,56 @@
+<div class="card p-3 mb-3" style="border-left: 5px solid #002D62; background-color: #f8fafc; border-radius: 6px; padding: 1.25rem;">
+    <h4 style="color: #002D62; margin-top: 0;">Authority Control &mdash; Finding the Registries That Actually Govern Your Document</h4>
+    <p>Authority control means identifying your object in the shared registries that scholarship uses to disambiguate books, manuscripts, people, and places. The <em>specific</em> registries differ by tradition, and choosing the wrong one is a methodological error, not a harmless one.</p>
+
+    <p><strong>Start with the general-purpose layer, which applies to almost everything:</strong></p>
+    <ul>
+        <li><strong>VIAF</strong> (<code>viaf.org</code>) &mdash; international authority file for <em>names</em> (authors, scribes, printers, recipients). Aggregates national library authorities.</li>
+        <li><strong>Wikidata</strong> (<code>wikidata.org</code>) &mdash; structured identifiers for persons, works, places, and institutions. Use the <code>Q</code> number.</li>
+        <li><strong>Library of Congress authorities</strong> (<code>id.loc.gov</code>) &mdash; LCCN and name/title authorities; strong for printed material and American imprints.</li>
+        <li><strong>GeoNames</strong> / <strong>GeoNames</strong>-style place registries &mdash; for the <code>&lt;origPlace&gt;</code> and <code>&lt;settlement&gt;</code> values in your header.</li>
+    </ul>
+
+    <p style="margin-bottom:0.5rem;"><strong>Then the tradition-specific layer. Here is where your three documents diverge:</strong></p>
+
+    <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+        <thead>
+            <tr style="background:#002D62; color:#fff;">
+                <th style="text-align:left; padding:0.4rem 0.5rem;">Project</th>
+                <th style="text-align:left; padding:0.4rem 0.5rem;">Registries and identifier forms that apply</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom:1px solid #cbd5e1;">
+                <td style="padding:0.5rem; vertical-align:top;"><strong>Jay</strong><br>Dickinson manuscript</td>
+                <td style="padding:0.5rem;">
+                    <strong>Emily Dickinson Archive</strong> (<code>edickinson.org</code>) &mdash; the primary image and transcription registry; CC BY-NC-ND 3.0, with permission-free use for coursework.<br>
+                    <strong>Houghton Library call numbers</strong>, in the <code>MS Am 1118.x</code> series: <code>MS Am 1118.3</code> = poems (fascicles + loose sheets); <code>MS Am 1118.2</code> = Holland letters; <code>MS Am 1118.4</code> = letters to various correspondents. Item form: <code>MS Am 1118.3 [338]</code>.<br>
+                    <strong>Amherst College</strong> uses an <code>AC</code> accession scheme (e.g. <code>AC 88-12</code>).<br>
+                    <strong>Person authority:</strong> VIAF <code>31995584</code>; Wikidata <code>Q4441</code>; LCCN <code>n79054166</code>.<br>
+                    <em>Note:</em> identifiers attach to the <em>person</em>, not to individual manuscripts. There is no item-level VIAF record for a single Dickinson poem.
+                </td>
+            </tr>
+            <tr style="border-bottom:1px solid #cbd5e1;">
+                <td style="padding:0.5rem; vertical-align:top;"><strong>Olyvia</strong><br>French decree</td>
+                <td style="padding:0.5rem;">
+                    <strong>Archives nationales</strong> cotes (shelfmarks), cited by series letter and article number.<br>
+                    <strong>Gallica / BnF ARK identifiers</strong> &mdash; the form <code>ark:/12148/&lt;identifier&gt;</code>. An ARK is a persistent identifier: it names the object, not its current URL, so it survives the site being reorganised.<br>
+                    <strong>CALAMES</strong> for finding aids; <strong>FranceArchives</strong> as the cross-institutional portal.<br>
+                    <em>Watch the genre vocabulary:</em> <em>édit</em>, <em>ordonnance</em>, <em>arrêt du Conseil</em>, <em>lettre patente</em>, and <em>déclaration</em> are different instruments with different issuing authorities. Naming yours correctly <em>is</em> the authority work.
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:0.5rem; vertical-align:top;"><strong>Andromeda</strong><br>Peace and Friendship treaty</td>
+                <td style="padding:0.5rem;">
+                    <strong>Nova Scotia Archives</strong> reference numbers, cited as <code>RG 1 volume 430 number 2</code>, or <code>O/S number 511</code> for oversize items. Search the <a href="https://archives.novascotia.ca/mikmaq/results/?Search=AR5&SearchList1=all&TABLE2=on">Mi'kmaq Holdings Resource Guide</a>.<br>
+                    <strong>Library and Archives Canada</strong> &mdash; Treaties, Surrenders and Agreements database. <em>Search tip:</em> the database requires historical spellings &mdash; try <em>"Micmac"</em> as well as <em>"Mi'kmaq"</em>.<br>
+                    <strong>National Archives (UK)</strong>, Colonial Office papers <code>CO 217</code> &mdash; many surviving copies are here rather than in Canada.<br>
+                    <strong>ATRIS</strong> (Aboriginal and Treaty Rights Information System) for the modern rights context.<br>
+                    <em>Note:</em> Trismegistos, Pinakes, and Diktyon are <strong>Greek literary</strong> registries. They do not describe this document, and citing them would be an error.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="margin-top:0.75rem; margin-bottom:0;"><strong>The rule that makes this gradeable:</strong> name the registries that apply, record identifiers <em>in the exact syntax you found them</em>, and state why each registry governs your document. If you check a standard registry and find <em>no</em> record for your object, that is a legitimate and creditable finding &mdash; provided you show the search you made. <strong>A verified absence beats a padded citation list.</strong></p>
+</div>
