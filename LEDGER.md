@@ -26,6 +26,7 @@
 - **[2026-08-28] Moodle Quiz Configuration:** Formative interactive quizzes and weekly knowledge check quizzes configure `behaviour=immediatefeedback`, `navmethod=sequential`, 1 question/page, and 19 review checkboxes.
 - **[2026-09-03] Text & XML Editing Standard:** Visual Studio Code (VS Code) with XML tooling is the sole official editing environment across all course modules, completely replacing Oxygen XML Editor.
 - **[2026-09-03] Full-Page Witness Standard:** Primary textual witnesses chosen by students must be an entire full page (one complete folio recto or verso, or complete epigraphic surface) of the artifact to ensure full codicological evidence.
+- **[2026-09-10] Interactive Lesson = Quiz (terminology):** The "Moodle interactive lesson" *is* the interactive quiz activity — one auto-graded question per content section, 30 per lesson, in page order, each carrying the section's takeaway as `generalfeedback` plus diagnostic `feedback` on every distractor. There is no separate lesson-player activity on Moodle; the standalone HTML player under `src/modules/` and `dist/moodle/` is an offline artifact only. Module 02 satisfies this: both banks are 30/30 with full feedback coverage. Confirmed by Ken 2026-09-10.
 
 ---
 
@@ -40,9 +41,10 @@
 
 ## 4. Open Questions & Unresolved Issues
 
-- ⚠️ **[OPEN - CONTENT CORRECTION NEEDED]:** `src/modules/Module_02_Cataloguing/03a_Lesson_2.2_Lesson_Content.md` tells students to use "Red Hat XML **or** Scholarly XML" for the `xml-model` step as if the two are interchangeable. They are not: Red Hat XML validates DTD and XSD, while RELAX NG (`msdesc.rng`) requires **Scholarly XML**. As written, a student with only Red Hat XML installed reaches "0 errors" because nothing is being checked — a silent failure at the Lesson 2.2 stage gate. Correct the lesson content and recompile the 2.2 question bank/notes before the validation lab runs.
+- ✅ **[RESOLVED 2026-09-10]:** `03a_Lesson_2.2_Lesson_Content.md` told students to use "Red Hat XML **or** Scholarly XML" for the `xml-model` step as if interchangeable. Corrected: the lesson now states that Red Hat XML validates DTD and XSD while `msdesc.rng` is RELAX NG and requires **Scholarly XML**, and names the false "0 errors" as the trap it is. Bank alignment re-verified (30 sections ↔ 30 questions); 2.2 lints clean. Full bank/notes recompile not required, since no section heading or takeaway changed.
 - ⚠️ **[OPEN - AWAITING 5-HOUR QUOTA RESET]:** Slide deck generation for Lesson 3.3 (artifact count reached 66; prompt submitted cleanly after fixing picker toggle, but generation timed out waiting for new artifact). Resume when quota window refreshes (~16:53 local time).
 - ⚠️ **[OPEN - NEXT ACTION]:** Resume image generation for Lesson 3.3 and proceed to companion media (brief, detailed, infographic) once quota refreshes, completing Module 03.
+- ⚠️ **[OPEN - DEMO FRAGILITY]:** The Friday 2026-09-11 teaching plan demos a live validator error. It originally projected `labs/witness.xml`, which was later committed *valid* (labs `89d8396`) and can no longer reproduce one. The plan now projects `labs/witness_demo_INVALID.xml`, regenerated and re-verified by `labs/make_demo_error.py`. **Any future edit to `labs/witness.xml` must be followed by re-running that script**, or the demo silently stops matching the plan.
 
 ---
 
@@ -54,14 +56,22 @@
   1. Re-run `generate_lesson_images.py --topic 3 --lesson 3.3` once Gemini Notebook quota refreshes.
   2. Generate companion media for Lesson 3.3 (`brief.m4a`, `detailed.m4a`, `infographic.jpg`).
   3. Compile interactive XML (`03_Interactive_Lesson_3.3.xml`) and HTML player for Lesson 3.3.
-  4. Correct `03a_Lesson_2.2_Lesson_Content.md` (Red Hat XML does not validate RELAX NG) and recompile the 2.2 bank/notes before Friday's Meeting #5.
-  5. Fix `populate_moodle_topic.py` bank-import ordering: it imports question banks before replacing activities, so purging a category whose quiz still exists loops and aborts.
-  6. Regenerate Lesson 2.3 companion media (brief/detailed audio, infographic) once quota allows — the 2026-08-28 versions narrate the pre-redesign text and are now two revisions behind.
-  7. Remaining novice rewrites: 17 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13). Modules 03–07 were hand-authored and already read in range.
+  4. ~~Correct `03a_Lesson_2.2_Lesson_Content.md` (Red Hat XML does not validate RELAX NG)~~ — **done 2026-09-10**, lint clean.
+  5. ~~Fix `populate_moodle_topic.py` bank-import ordering~~ — **done 2026-09-10** (`shared` a3584b3): restructured into 3a sync content → 3b delete quizzes → 3c purge+import → 3d create quizzes. Also fixed the same bug on the Weekly Quiz path and moved Notes-PDF restrictions to after quiz recreation, and excluded attempt-protected quizzes from the purge.
+  6. ~~Regenerate Lesson 2.3 companion media~~ — **done**: regenerated 2026-09-09, deployed to live Moodle 2026-09-10 (infographic cmid 1431118, brief audio 1431119, detailed audio 1431121; new cmids because labels/resources are delete-and-recreate).
+  7. Remaining novice rewrites: 16 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13). Modules 03–07 were hand-authored and already read in range. (1.1, 2.1, 2.2, 2.3 rewritten.)
+  8. **`labs/` is a nested git repo with no remote.** `witness.xml` and the new demo generator/schema are committed there but unbacked-up. Decide: give it a remote, gitignore it from 398, or move it out of the tree.
 
 ---
 
 ## 6. Recent Workstream Ledger
+
+- **[2026-09-10]**: Prepared **Meeting #5 (Fri 2026-09-11, Lessons 2.2 + 2.3 combined)** and closed three open items.
+  - **The plan's live demo could not fire.** `Lesson_2.2_2.3_Combined_Teaching_Plan_2026-09-11.html` projected a Relax-NG error from `labs/witness.xml`, but that file was committed *valid* in labs `89d8396`, so the 09:36 "watch the counter drop to 0" beat had nothing to show. Replaced with a seeded copy, `labs/witness_demo_INVALID.xml`, carrying three errors verified against the real `msdesc.rng` — one per constraint type the plan names: Sequence (`handDesc` before `objectDesc`), Choice (invented `<leafDimensions>`), content model (`<p>` inside `<extent>`). `labs/make_demo_error.py` regenerates and re-verifies it, asserting both that `witness.xml` is VALID and the demo is INVALID. `msdesc.rng` is vendored so the check runs offline.
+  - **Corrected false advice in the same plan.** The "Reading Validator Error Messages" card taught `material="vellum"` → `"parchment"` as a schema rule. Validated against `msdesc.rng`: `supportDesc/@material` is declared inside a `<choice>` of alternatives and accepts `paper`, `vellum`, `parchment`, and arbitrary nonsense alike. The real enumeration (`perg/chart/papyrus/palm/mixed/other/unknown`) is **not enforced**. Card now says so and warns against teaching it as a rule.
+  - **Deployed Lesson 2.3 companion media** to live Moodle (Section 2), the last inconsistency in Module 2. All three had been serving 2026-08-28 files that narrated the pre-redesign text. Infographic `1428518→1431118`, brief audio `1428519→1431119`, detailed audio `1428522→1431121` (labels and resources are delete-and-recreate, hence new cmids). Verified by fetching live bytes and viewing the rendered image — the first two screenshots showed cached stale pluginfile URLs, so only a hash comparison against the source settled it.
+  - **Verified the banks are complete** rather than assuming: 30 questions per lesson for 2.2 and 2.3, every one carrying `generalfeedback` (the section takeaway) and diagnostic `feedback` on every distractor. This satisfies the working agreement; note the handoff's `note=` refers to the `generalfeedback` field, not a literal attribute.
+  - Attempts confirmed at **0** on all four Module 02 quizzes through the repaired guard before any delete.
 
 - **[2026-09-09]**: Redeployed **Lesson 2.3 to live Moodle** (course 51185, Section 2) with the redesigned content, and fixed two safety defects found on the way.
   - **`get_quiz_attempt_count` failed open** (`shared/scripts/moodle_automation.py`): it swallowed every exception and returned 0, and callers treat 0 as permission to delete. An unconnected driver reported "0 attempts" on four quizzes while every request was throwing. Now positively confirms a quiz view page rendered (`body id=page-mod-quiz-view`) and raises `AttemptCheckError` when the count cannot be established; `strict=False` keeps lenient behaviour for reporting only. Also closed two further fail-open paths: `delete_activities` fell back to an empty `cm_map` when `get_course_state()` failed, which made every `modname` empty and skipped the quiz guard for the whole batch, and `delete_activity` warned-and-continued when its pre-check threw. Committed to `shared` (758ae4c).
