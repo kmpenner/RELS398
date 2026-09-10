@@ -212,6 +212,34 @@ What it says:
 
 Also worth noting from this: **three student details this session arrived as paraphrase and were each wrong in a way that changed the work** — the treaty date, Olyvia's era, and now Jay's object. When a student detail drives course material, read the student's own words before authoring. Recorded in `LEDGER.md`.
 
+## 8d. Quota: what it actually is, and the deferred-deck mechanism
+
+Ken asked whether it was time to check the quota. It was, and the answer is documented in the Gemini Studio panel rather than anywhere in the scripts.
+
+**What I found (2026-09-10, 18:45):** the notebook's Studio panel contains a Slide Deck card reading **"Digital Methods — Scheduled for after 11pm"**. Gemini has **queued** the slide generation rather than refusing it. That is why `generate_lesson_images.py` appears to hang: it polls for an artifact that will not exist until after 11pm.
+
+**Consequences:**
+
+1. **The Slides bucket is done for today.** Audio and Infographic are separate buckets and still work — that is why the 2.3 infographic generated fine at 15:37 while the slide batch stalled at 14:30. (Documented in `shared/skills/rels-gemini-media-pipeline/references/quota-and-rerun.md`, measured on RELS 117.)
+2. **Do not babysit the slide job.** It will wait hours. Kill it.
+3. **The queued deck may still be recoverable for free.** Once Gemini has produced it after 11pm, `recover_decks.py` sweeps the notebook, reads each deck's recorded source, and writes its slides to the right sections — **at zero quota cost**.
+   ```bash
+   python3 scripts/recover_decks.py            # report only
+   python3 scripts/recover_decks.py --write    # download + write images
+   ```
+4. **Check Studio before spending anything on slides.** If "Scheduled for after 11pm" appears, the work is already queued and paying for it again is waste.
+
+**Sources are now genuinely in sync**, which they were not before. My earlier reconciliation used halves I had split by hand, and the script splits them differently, so the staleness guard kept firing. Both halves were regenerated using the script's own `split_sections` + `chunk`, uploaded, and the digests recorded:
+
+| Half | Sections | Digest |
+|---|---|---|
+| part1 | 1–15 | `3b10b462b1d1` |
+| part2 | 16–30 | `4ffe7ac5f7ec` |
+
+Lesson 2.2's sources were reconciled the same way earlier and are current.
+
+**The image-date correction, again worth stating:** 2.2's images are from **2026-08-26** (pre-rewrite), 2.3's from **2026-09-09** (pre-trim). Both stale, differently.
+
 ## 9. If you only do one thing
 
 **Regenerate the 2.3 slide images.** Fifteen are affordable and Ken asked for 2.3 to be prioritised. Fix the notebook sources first (§5), then run `generate_lesson_images.py --topic 2 --lesson 2.3 --force`. Recompile the interactive lesson *with* images afterwards, and redeploy the quiz.
