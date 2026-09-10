@@ -1,171 +1,167 @@
 # RELS 398 — Session Handoff
 
-**Date:** 2026-09-09
+**Date:** 2026-09-10 (evening)
 **Repo:** `~/projects/RELS/398` (remote `https://github.com/kmpenner/RELS398.git`)
-**HEAD at handoff:** `a4bd7a5` (pushed)
-**Also touched this session:** `~/projects/RELS/shared` (3 commits, pushed), `~/projects/RELS/117` (2 commits, pushed), `~/projects/RELS/114` (backlog pushed)
-**Read first:** `~/projects/RELS/shared/LESSON_PIPELINE.md` — the single end-to-end procedure. This records where 398 sits inside it.
-**Supersedes** the 2026-09-02 handoff. §2 of that document (traps) is carried forward below with two entries now obsolete — read §3 here before trusting anything you remember about the notebook or the Moodle safety guard.
+**Also touched this session:** `~/projects/RELS/shared` (2 commits), `~/projects/RELS/398/labs` (1 commit)
+**Read first:** `LEDGER.md` — it is current as of this session and carries the settled decisions plus several traps.
+**Supersedes** the 2026-09-09 handoff. That document's §0 (companion media) and §6 (next steps) are now largely done; read §3 below for what replaced them.
 
 ---
 
-## 0. Companion media: regenerated, NOT yet on Moodle
+## 1. The short version
 
-The media job finished at 19:22 on 2026-09-09. All three artifacts rebuilt from the redesigned Lesson 2.3, verified by file dates rather than exit code:
+Everything needed for **Friday's Meeting #5 (Fri 11 Sep, 9:30–10:20, MULH 3032)** is live on Moodle and verified. The bigger job — rebuilding Lessons 2.2 and 2.3 away from their Greek-manuscript assumptions for a cohort of three students working on non-Greek documents — is done through the full build chain **except slide images**.
 
-| File | Size | Evidence it came from the NEW text |
+One thing is genuinely unfinished and needs a decision: **30 slide images per lesson are stale**, and the deployment is deliberately text-only to avoid shipping pictures that contradict the text.
+
+---
+
+## 2. What is deployed and verified live
+
+Course 51185, Section 2. Verified against the rendered pages after deploy, not against script output.
+
+| Item | cmid | State |
 |---|---|---|
-| `brief.m4a` | 0.8 MB, 1:39 | Titled *"Catching AI lies in manuscript XML"* |
-| `detailed.m4a` | 26.7 MB, 55:18 | Titled *"Subtle AI Hallucinations in TEI Headers"* |
-| `infographic.jpg` | 246 KB, 1600px | Contains the Tue/Wed/Fri cycle, "well-built is not true", the four kinds of error, the six-field scorecard, and a **Trismegistos / Pinakes / Diktyon** panel — all sections that exist only in the redesign |
+| Lesson 2.2 Notes (PDF) | 1431218 | rebuilt |
+| Lesson 2.3 Notes (PDF) | 1431219 | rebuilt |
+| Lesson 2.2: Interactive Quiz | 1431227 | rebuilt bank, 30 slots |
+| Lesson 2.3: Interactive Quiz | 1431229 | rebuilt bank, 30 slots |
+| Lesson 2.3: Infographic (label) | 1431247 | regenerated |
+| Authority Control Guide (label) | 1431174 | live |
 
-Audio is gitignored course-wide (`*.m4a`) and reaches Drive through the mirror; `infographic.jpg` is tracked and committed.
+Notes PDFs are restricted until their quiz is complete. `moodle_manifest.json` is current.
 
-**What remains: pushing all three to Moodle.** Section 2 still serves the August files.
+**New cmids exist because labels, resources and quizzes are delete-and-recreate on this Moodle.** The old ones (1428514/1428515/1430835/1430839, and infographic 1431118) are dead and 404.
 
-| Activity | cmid | State |
+**A verification note worth keeping.** Checking the section by iterating `li.activity` undercounts it, because labels do not always render as `li.activity` — the 2.3 infographic appeared as a blank line and looked missing. Count `[id^="module-"]` instead, and to find a specific item's cmid walk up from its `<img>` to the ancestor whose id is `module-<cmid>`. `replace_activity` also returns `None` for label recreation while still creating the module, so never treat a `None` return as failure — confirm against the page.
+
+### The quizzes *are* the interactive lessons
+
+Confirmed by Ken, and recorded in the ledger as settled terminology. Each quiz holds 60 slots: 30 content pages plus 30 questions, one pair per section, in page order. There is no separate lesson-player activity, and do not go looking for one. When someone says "deploy the lesson", they mean the quiz.
+
+---
+
+## 3. What was rebuilt, and why
+
+Ken: *"We need full content rebuild before Friday."*
+
+The cohort is three students, none on a Greek literary manuscript:
+
+- **Jay** — an Emily Dickinson manuscript
+- **Olyvia** — an 18th-century French royal act
+- **Andromeda** — the 1752 Peace and Friendship Treaty
+
+Both lessons taught Greek sources as *the* authority tools and CTS URNs as *the* citation system. Neither applies to any of the three, and Module 2's workshop rubric — already rewritten this session — grades authority differently.
+
+**Settled scope (Ken):** authority teaching belongs in **2.2**, where authority control is introduced. **2.3** covers only four objectives: find the information, record it in the header, generate it with an LLM, compare machine against manual. Both keep the 30-section house model. Trim the extraneous.
+
+| | 2.2 | 2.3 |
 |---|---|---|
-| Lesson 2.3 Brief Audio Overview | 1428519 | stale (Aug 28) |
-| Lesson 2.3 Detailed Audio Discussion | 1428522 | stale (Aug 28) |
-| Lesson 2.3: Infographic (label) | 1428518 | stale (Aug 28) |
+| Content | 30 sections, 8,117 words | 30 sections, 8,211 words |
+| Bank | 30/30 aligned | 30/30 aligned |
+| Notes PDF | rebuilt | rebuilt |
+| Interactive XML | rebuilt, text-only | rebuilt, text-only |
+| Infographic | stale (see §4) | **regenerated** |
+| Slide images | stale (see §4) | stale (see §4) |
 
-Audio goes up with `update_moodle_item.py --topic 2 --item "<exact activity name>"`. **The infographic is a label with the image embedded in intro HTML** — there is no file field, so it must be deleted and recreated (`swap_banner.py` is the worked example). `detailed.m4a` is 26.7 MB; use the `large=True` path.
+**2.2** keeps its schema/validation spine. §14 became a two-layer authority treatment (general layer: VIAF, Wikidata, LC, Getty, GeoNames; tradition-specific layer that does *not* transfer, with a per-project table). The five CTS-URN sections that had students mint URNs for Genesis 1:1–1:14 became citation teaching serving all three documents: ARK vs call number vs archival reference, reading a record, dating traps.
 
-Re-read §5 before deploying: refresh `moodle_manifest.json` first, because those cmids are already a few hours old and Section 2 has been rebuilt twice today.
+**2.3** was cut to the four objectives. Removed: the ethics digression, and four prompting/validation sections that duplicated the rewritten block. Merged: the six-field scorecard, precision/recall, and difference-sorting sections into one. Added seven sections where the objectives were thinnest — the dossier checklist, choosing the right element, converting counts into a defensible claim, and what the marker looks for.
 
-The pre-redesign August media was backed up only to a session-scoped scratch directory that no longer persists. If a comparison was wanted, it is gone — the Drive mirror's previous state is the remaining copy.
+Full detail in commit messages `5143aa1`, `24a58c0`, `6b68bc9`, and in `LEDGER.md` §5.
 
-## 1. Where the work stands
+---
 
-Live board: `python3 scripts/status.py`.
+## 4. The one unfinished thing: slide images
 
-| Stage | Progress | Notes |
-|---|---|---|
-| Content markdown | **36 / 36** | Lint 36/36, 0 issues |
-| Question banks | 36 / 36 | 2.3's re-authored twice this session |
-| PDF notes | 36 / 36 | 2.3's rebuilt from the redesign |
-| Slide images | 7 / 36 (1.1, 1.2, 2.1, 2.2, 2.3, 3.1, 3.2) | 2.3's 30 regenerated this session — see §4 |
-| Interactive XML / HTML | 7 / 36 | 2.3 recompiled after the image refresh |
-| Moodle deployment | Modules 0–3 live; 4–13 empty | Module 2 Lesson 2.3 redeployed this session |
+**Every slide image in both lessons is stale.** The 30 files per lesson date from 2026-08-26 and carry rendered section headings, so the rewrite invalidated all of them. 2.2's image 20 is literally titled "CTS URN Anatomy" and now sits above text retitled "Three Citation Systems, Three Traditions".
 
-### The novice-rewrite programme
+**The deployment is text-only because of this.** Both interactive XMLs were compiled with `--no-images` (2.2 3.24 MB → 0.14 MB, 2.3 → 0.13 MB, all 61 question elements intact). Ken chose this over shipping mismatched art.
 
-The course has two authoring cohorts, and this is the map of what still needs rewriting:
+**Quota:** Ken mentioned ~15 slide images available. One infographic was spent this session, so the 15 remain unspent. Ken's instruction: **prioritise 2.3.** Decide whether to spend all 15 there (the rewritten block is roughly sections 6–13 and 22–29) or split with 2.2.
 
-- **Hand-authored per topic, 2026-08-24/25** — Modules 1, 3, 4, 5, 6, 7 (17 lessons). Flesch–Kincaid grade **11.7–13.4**. These read fine and need nothing.
-- **Bulk-authored in one commit, 2026-08-26** — Modules 2, 8, 9, 10, 11, 12, 13 (19 lessons). Grade **15.8–19.5**. This cohort is the rewrite target.
+**Before spending any quota, fix the notebook sources** — see §5. The media and image scripts select sources *by filename* from the notebook, so a stale upload silently produces art for the superseded lesson.
 
-Rewritten so far: **1.1, 2.1, 2.2, and 2.3** (2.3 twice — see §2). **Remaining: 16 lessons, all of Modules 08–13.**
+**The 2.2 infographic is also stale** — it was regenerated 2026-09-09 for the previous 2.2 and has not been redone. It is currently live.
 
-Measure before and after; it is a fast, honest check:
+---
+
+## 5. Traps — read before touching the media pipeline
+
+### Stale notebook sources
+
+The notebook holds `Lesson_2.2_part1/2.md` and `Lesson_2.3_part1/2.md`. `generate_lesson_images.py` refuses to run when the on-disk text differs from what was uploaded, warning the deck would illustrate superseded content. **That guard is correct and must not be bypassed with `--replace-source`** — on the images script that flag means "deliberately reuse the stale upload", the opposite of what is wanted.
+
+The correct fix:
+
+1. Generate the staging halves (`generate_lesson_images.py --topic 2 --lesson X --force`; it writes `.staging_LX.Y/` and stops).
+2. Refresh each source with `notebook_ui.replace_source(page, md_path)`.
+3. **Reconcile `03c_Lesson_X.Y_Images/.sources.json`** — it holds the SHA-256 of the text actually in the notebook. `replace_source` updates the notebook but not this file, so the guard keeps firing until you set it to the new digest.
+
+Both 2.2 and 2.3 were refreshed this session, so the sources are current as of now.
+
+### Sandbox blocks Chrome downloads
+
+Chrome's default download target is `~/Downloads`, which the workspace sandbox mounts **read-only**. Any browser-download-based media script will report an empty file **even though generation succeeded**. This cost several attempts on the infographic.
+
+Redirect the download into the workspace on the **same CDP session**:
 
 ```python
-# grade = 0.39*(words/sentence) + 11.8*(syllables/word) - 15.59
-# strip code fences and tables first; rewritten lessons land 8.7–13.0
+cdp = ctx.new_cdp_session(page)
+cdp.send("Browser.setDownloadBehavior",
+         {"behavior": "allow",
+          "downloadPath": "/home/kmpenner/projects/RELS/398/scratch/chrome-downloads",
+          "eventsEnabled": True})
 ```
 
----
+It does not persist across separate `connect_over_cdp` calls. `notebook_ui._download_from_card`'s fallback searches only `~/Downloads` and `/tmp`, so it will not find the file — check the redirect directory directly. Recorded in `LEDGER.md`.
 
-## 2. What happened to Lesson 2.3 (read before touching Module 2)
+### Other traps carried forward
 
-Lesson 2.3 was rewritten **twice** on 2026-09-09, and the second pass replaced the first entirely.
-
-1. **Pass 1** — register-only rewrite, same 30 section topics, grade 19.1 → 8.8.
-2. **Pass 2 (current)** — on Ken's instruction not to treat the old structure as a constraint, redesigned from the **module learning objectives and the workshop rubric**. Retitled **"Auditing AI-Generated Manuscript Metadata"**. All 30 sections new. Grade 8.7.
-
-**Why pass 2 matters, and the finding that drove it:** the workshop rubric awards **3 of 10 points for authority control using Trismegistos, Pinakes, and Diktyon**, and *no lesson in the course had ever taught them*. Lesson 2.2 taught VIAF, Pleiades, and Getty AAT — which identify people and places, not texts, works, or Greek codices. Sections 06–10 now close that gap. Section 09 deliberately withholds the example Diktyon number so students look it up.
-
-The lesson is now built around the graded verb: the submission asks for **at least two *subtle* hallucinations** (errors that pass validation), so sections 18–22 are five worked subtle failures. Cut as serving no objective: five computer-vision sections, two-model behavioural profiling, CI/CD, the economics table. The Eurocentric-bias argument was kept and relocated to §23.
-
-**If you revise 2.3 again, the full downstream chain is:** content → question bank (`scripts/banks/lesson_2_3.py`) → bank XML → PDF notes → **notebook sources** → images → interactive XML → HTML player → Moodle. Verify bank alignment with a script; do not eyeball it:
-
-```python
-# headings and takeaways from the md must equal Q.name and Q.note, in order
-```
+- **`--no-images` was broken** in both lesson compilers and is now fixed (`shared` f8ed8fa). In `compile_interactive_lesson.py` it only suppressed the safety check and then embedded images anyway; `generate_interactive_html_lesson.py` had no flag at all. If a text-only build ever ships illustrated again, suspect a regression here.
+- **Parallel Moodle question categories.** Module 2 had *both* `course/03_Interactive_Lesson_2.2|2.3` (originals) and `Module_02_Cataloguing/Lesson_2.2|2.3_Interactive` (freshly imported). `create_quiz` resolves the `03_Interactive_Lesson_X` name first, so a new quiz can silently link to the *old* questions. This happened — the first deploy served pre-rebuild questions and reported success. Purge **both** sets before importing. **After any quiz deploy, read the linked question names off the live quiz**; do not trust the script output.
+- **A quiz holding questions blocks the hard-delete of those questions.** Delete the quiz, then purge, then import, then create. `populate_moodle_topic.py` is fixed (`shared` a3584b3) but direct driver calls must respect the order.
+- **Deleting a quiz orphans anything restricted on it.** Notes PDF restrictions must be re-pointed at the new cmid.
+- **`generate_lesson_media.py` exits 0 without doing anything when outputs exist.** Use `--force`.
+- **Verify the signal, not the proxy.** Three separate times this session an operation reported success while the live state disagreed, and once a verification read a stale page and reported a failure that had not happened. Check rendered pages, byte hashes, and live cmids.
 
 ---
 
-## 3. Traps — two of them NEW, and two now obsolete
+## 6. Loose ends outside the immediate work
 
-### New this session
-
-- **The Moodle quiz attempt guard used to fail open.** `get_quiz_attempt_count` swallowed every exception and returned `0`, and callers treat `0` as permission to delete. An unconnected driver reported "0 attempts" on four quizzes while every request was throwing. **Fixed** (`shared` 758ae4c): it now confirms a quiz view page actually rendered and raises `AttemptCheckError` when the count cannot be established. Two further fail-open paths closed — `delete_activities` fell back to an empty `cm_map` when `get_course_state()` failed, which disabled the guard for the whole batch, and `delete_activity` warned-and-continued on a failed pre-check. **Do not reintroduce a bare `return 0` in that function.**
-- **A question category cannot be purged while its quiz still exists.** Moodle will not hard-delete questions in use, so `purge_question_categories_for_import` reports "deleted 60 question(s)" ten times and aborts. Correct order is **delete quiz → purge → import → create**. `populate_moodle_topic.py` imports banks at line ~185, *before* replacing activities, so a full topic run hits this on any section whose quizzes already exist. **Not yet fixed — see §6.**
-- **Deleting a quiz orphans anything restricted on it.** Replacing Lesson 2.3's quiz left the Notes PDF's completion restriction at `{"type":"completion","cm":0}` with `error_selectcmid` — a broken condition students would see. After any quiz replacement, re-point restrictions with `add_completion_restriction` and verify the JSON.
-- **`generate_lesson_media.py` exits 0 without doing anything** when the output files already exist. It printed `all requested media already present` and returned success. Use `--force`, and check file mtimes rather than the exit code.
-
-### Now obsolete — the old handoff's advice has been superseded
-
-- **Stale notebook sources.** The 2026-09-02 handoff said to delete `Lesson_X_partN.md` by hand in the notebook UI first. That is now automated: `notebook_ui.delete_source()` and `replace_source()` (`shared` 1ff6206). `replace_source` deletes the same-named source then uploads, so the notebook ends with exactly one copy holding current text. It refuses to act if more than one source matches, since deleting the wrong half produces media built from half a lesson. **The trap itself is unchanged and still the most dangerous one in the pipeline** — `--replace-source` on the *images* script still means "reuse the stale upload deliberately", which is the opposite of what you want.
-- **Image generation is not limited to Gemini.** See §4.
-
-### Carried forward unchanged from 2026-09-02
-
-- Question-bank duplicates: Moodle dedupes by full question name within a category; the populator purges each target category before importing. Do not bypass.
-- `create_resource` cannot recover cmids on this Moodle; restrictions are set afterwards.
-- Quiz completion lives in `course/bulkcompletion.php`, not the modedit form.
-- Banner labels embed the image in intro HTML — swap = delete + recreate.
-- Moodle AJAX `core_course_edit_module` move rejects every parameter shape tried; but `move_activity()` via `_call_courseformat_action("cm_move")` **does** work and was used successfully this session.
+1. **`labs/` is a nested git repo with no remote.** It holds `witness.xml`, the seeded demo file and `msdesc.rng`. Committed but **unbacked-up**. Decide: give it a remote, gitignore it from 398, or move it out of the tree.
+2. **`.staging_L3.3/Lesson_3.3_part1.md` is still tracked** from earlier work. `.staging_*/` is now gitignored so it will not recur, but this one is already in history — remove it when convenient.
+3. **`lesson_2_1.py` question names do not match its markdown section titles.** 1.1, 2.2 and 2.3 now follow the strict one-to-one convention; 2.1 uses loose thematic names.
+4. **The 2.2 question bank was stale before this session** — 25 of 30 titles mismatched, dating from `220b5e7`, which rewrote the lesson and never rebuilt its bank. Worth a sweep of the other 32 banks for the same pattern.
+5. **Remaining novice rewrites:** 16 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13).
+6. **Course is still hidden from students**; Modules 4–13 are empty shells.
 
 ---
 
-## 4. Slide images — two pipelines now, and a billing decision
+## 7. Student project findings that may affect teaching
 
-Lesson 2.3's 30 slides were regenerated this session **via OpenRouter**, not Gemini Notebook.
+Researched this session; full reports in `private/student_projects/` (gitignored — it names students).
 
-**This was the wrong call and Ken said so.** Gemini Notebook images are free and rate-limited (quota returns); OpenRouter costs real credits per image. Trading money for a wait was not the right trade and should not have been made unilaterally. Cost was not recorded — my script omitted `usage.cost`, which the stock skill script does capture. **Default to Gemini Notebook.** Use OpenRouter only when Ken has said so for that job.
-
-Two things worth keeping from the episode:
-
-- **The slide images are not abstract illustrations.** They are titled slides with rendered text carrying the section heading. So they go stale the moment a heading changes — an easy thing to overlook, and I asserted the opposite earlier in the session before checking. Any lesson rewrite invalidates its images.
-- **`shared/skills/generate_lesson_images_openrouter/scripts/generate_course_styled_images.py`** exists if it is ever wanted: it reads the real thematic headings (the stock skill script reads the `## **NN Content**` marker and produces slides titled "01 Content"), reuses the course `.style` clause, and writes `NN.jpg` at the 80 KB budget. Note `.style` ends "no text, lettering, or labels" — written for the Gemini deck generator, which added titles itself — so the script strips that clause.
-
----
-
-## 5. Moodle state (course 51185)
-
-- Course still **hidden from students**; Section 0 and Modules 1–3 populated, 4–13 empty shells.
-- **The manifest goes stale fast.** `moodle_manifest.json` was five days old this session and every cmid in it was dead (Section 2 was resynced 2026-09-04). **Run `dump_moodle_manifest.py` before any deploy**, and never trust remembered cmids.
-- **Module 2 current cmids** (refreshed 2026-09-09): banner 1428505, objectives 1428506; Lesson 2.1 — 1428507/1428508/1428509/1428510/1428511; Lesson 2.2 — 1428512/1428513/1428514/1428515/1428517; **Lesson 2.3 — infographic 1428518, brief audio 1428519, quiz 1430839, notes 1430835, detailed audio 1428522**; readings 1428523–1428525; workshop 1428527; weekly quiz 1428528.
-- **Attempts verified at 0** on all four Module 02 quizzes as of 2026-09-09 — a real reading through the repaired guard, not the old fallback.
-- Lesson 2.3's quiz was rebuilt and verified: 60 slots, content/question pairs interleaved, 1 question/page, `immediatefeedback`, 19 review options, sequential navigation, completion require-grade.
-
----
-
-## 6. Next steps
-
-1. **Finish the in-flight media run** (§0), then push the three Lesson 2.3 media activities to Moodle. This is the last inconsistency in Module 2.
-2. **Fix `populate_moodle_topic.py` bank-import ordering** — it imports banks before replacing activities, so purging a category whose quiz still exists loops and aborts (§3). Any full topic redeploy will hit this.
-3. **Correct `03a_Lesson_2.2_Lesson_Content.md`**: it presents Red Hat XML and Scholarly XML as interchangeable for the `xml-model` step. Red Hat XML validates DTD and XSD; **RELAX NG is Scholarly XML only**, so a student with just Red Hat XML sees "0 errors" because nothing is checking. Recompile 2.2's bank and notes after.
-4. **Continue the novice rewrite**: 16 lessons left, all Modules 08–13 (§1). Work from each module's learning objectives and workshop rubric, as 2.3 pass 2 did — that is what surfaced the untaught-but-graded authority files.
-5. **Phase D images for Modules 4–13** as Gemini quota allows, then compile per lesson.
-6. **Phase F module assembly** for Modules 4–13, then Moodle deploys.
-7. Before making the course visible: review as a student, decide the fate of empty sections 4–13, finalize course image/banner.
-
-### Two loose ends outside 398
-
-- **`398/labs/` is a nested git repo with no remote.** It holds `witness.xml`, the TEI header built with the class and completed this session (validates clean against `msdesc.rng`; the `<extent>` rejecting a `<p>` that `<support>` accepts is Friday's live demo error). Nothing in it is backed up, and 398 cannot track it as-is. Decide: gitignore in 398, give it its own remote, or move it out of the tree.
-- **`117/.gitignore` re-admits reading PDFs.** `raw/lit/*` followed by `!raw/lit/*/` leaves the PDFs inside matching no rule, which is how 53 got tracked. The next `git add -A` pulls in 75 files / 71 MB. A `raw/lit/**/*.pdf` line closes it. Left alone this session because it is a policy call.
-
----
-
-## 7. Teaching plans written this session (Module 2 is one meeting behind)
-
-Meeting #3 (Tue Sep 8) reached only bash, launching VS Code, and opening the project folder, so Lesson 2.1's authoring block slipped a day and the whole module shifted.
-
-- `Lesson_2.1_Teaching_Plan_Compressed_2026-09-09.html` — Lesson 2.1 compressed into Wednesday's slot, protecting 23 minutes of hands-on authoring.
-- `Lesson_2.2_2.3_Combined_Teaching_Plan_2026-09-11.html` — 2.2 and 2.3 combined into Friday's Meeting #5, because the Workshop Comparison Post is due Friday 11:00 PM and depends on the Step 3 AI audit, so 2.3 could not slip a week.
-
-Friday's plan deliberately moves 2.3's theory out of class and onto Moodle as self-study. **That is why 2.3's readability was worth the two passes** — the prose has to carry itself without a lecture behind it.
+- **Jay cannot do "a letter".** Houghton's Dickinson *letters* are restricted to the Harvard network; only the poetry manuscripts are open access. Verified four times on Houghton's own collection page. Recommended substitute: `MS Am 1118.3 [338]`, a wrapping-paper draft. **He may already have started on a letter — worth telling him.**
+- **Andromeda's object is the 1752 treaty.** Ken confirmed the "1753" was his misremembering; the research independently found no 1753 treaty exists.
+- **Fabricated authority identifiers return HTTP 200.** Verified for VIAF. A student link-checking will certify a hallucination. Now in the Authority Control card.
 
 ---
 
 ## 8. Working agreements (unchanged)
 
-- Lint before every commit; check the exit code directly.
+- Lint before every commit: `python3 ../shared/scripts/lint_lesson_content.py --course-dir .` — currently **1 issue**, the pre-existing dangling citation in 13.1.
 - Commit per repo, per topic; substantive messages; lint status noted.
-- Never fork shared scripts into `398/scripts/` — thin wrappers only.
+- Never fork shared scripts into `398/scripts/` — thin `runpy` wrappers only.
 - `/sit` is read-only on remotes; `/stand` is the only push.
 - `private/` holds student PII; gitignored; nothing moves out of it.
-- Question banks: one question per section in page order, diagnostic feedback on every distractor, `note=` restates that section's takeaway. Distractors should be plausible and target real misconceptions — the absurdist ones inherited from the original banks make questions guessable without reading.
-- **Verify the signal, not the proxy.** Three separate times this session an exit code, a returned `0`, or an absent error message reported success while nothing had happened. Check mtimes, counts, and rendered pages.
+- Question banks: one question per section in page order, diagnostic feedback on every distractor, `note=` restates that section's takeaway. **Rebuild the bank in the same commit as any content change** — that is the failure mode from `220b5e7`.
+- Slide images are titled with rendered section headings, so **any lesson rewrite invalidates its images.**
+
+---
+
+## 9. If you only do one thing
+
+**Regenerate the 2.3 slide images.** Fifteen are affordable and Ken asked for 2.3 to be prioritised. Fix the notebook sources first (§5), then run `generate_lesson_images.py --topic 2 --lesson 2.3 --force`. Recompile the interactive lesson *with* images afterwards, and redeploy the quiz.
+
+The second priority is the 2.2 infographic, which is live and stale.
