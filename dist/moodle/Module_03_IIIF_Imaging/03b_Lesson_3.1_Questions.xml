@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_03_IIIF_Imaging/Lesson_3.1_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 3.1: Manual Imaging, TEI Facsimile, and Document Autopsy.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: From Text to Image: Why Digital Editions Require Facsimiles</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is incorporating high-resolution digital facsimiles considered a methodological necessity for digital scholarly editions rather than a cosmetic enhancement?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Digital facsimiles transform scholarly editions from unverifiable assertions into testable arguments by providing the visual evidence needed to audit transcriptions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Facsimiles provide primary visual evidence that allows readers to independently verify editorial decisions, readings, and physical context.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Facsimiles transform transcriptions from unverifiable claims into testable hypotheses by supplying the visual evidence behind editorial choices.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Digital images eliminate the need for editorial transcriptions because optical character recognition decodes all historical scripts without error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. OCR and transcription cannot replace editorial analysis; facsimiles provide evidence for human critical evaluation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Displaying image files automatically secures open-access copyright exemptions across international legal jurisdictions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Including images has no bearing on copyright or licensing law.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Images allow digital editions to bypass XML schema validation requirements by embedding visual evidence directly into web browsers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Facsimiles complement structured text encoding; they do not alter XML schema validation rules.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The TEI `&lt;facsimile&gt;` Element: Structure and Placement</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In a canonical TEI P5 document, where is the `<facsimile>` element positioned within the document hierarchy?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The `<facsimile>` element sits inside `<TEI>` alongside `<teiHeader>` and `<text>`, separating physical surface representation from transcribed linguistic content.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Directly as a child of the root `<TEI>` element, positioned as a sibling to `<teiHeader>` and `<text>`.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In the TEI document grammar, `<facsimile>` sits directly inside `<TEI>`, separating visual representation from transcribed text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Inside `<teiHeader>` within the `<sourceDesc>` element alongside `<msDesc>`.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Physical description metadata sits in `<msDesc>`, but visual facsimile representations are declared in `<facsimile>` outside the header.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Inside `<body>` within the `<text>` element, wrapping every paragraph.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Placing facsimile elements inside `<body>` conflates physical surface layout with linguistic reading order.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In an external standoff XML file that cannot be linked to the primary TEI root.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI allows `<facsimile>` to reside directly within the root `<TEI>` container.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Modeling Surfaces: The `&lt;surface&gt;` Element</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the TEI `<surface>` element conceptualize a physical document?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The `<surface>` element models a single physical two-dimensional writing face, providing the foundational container for digital images and spatial zones.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It models a single, discrete two-dimensional physical writing face (such as a folio recto, verso, or broadside face) independently of textual units.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Each distinct physical writing plane is modeled as a `<surface>`, providing a container for images and coordinates.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It defines an abstract editorial chapter or narrative division across multiple manuscript quires.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial and narrative divisions belong in `<div type='chapter'>` within `<text>`, not `<surface>`.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It measures the chemical thickness and leather tanning quality of an animal membrane in micrometers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Chemical and material attributes are recorded in `<physDesc>`, whereas `<surface>` represents two-dimensional visual space.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It functions as a proprietary binary container for storing compressed JPEG pixel data directly in XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML does not store raw binary image data; `<surface>` references external image files via `<graphic>`.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Coordinates and Space: Declaring Coordinate Systems in `&lt;surface&gt;`</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the TEI `<surface>` coordinate system defined by `@ulx`, `@uly`, `@lrx`, and `@lry`, what do the coordinates `ulx='0' uly='0' lrx='4800' lry='6400'` establish?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Declaring `@ulx`, `@uly`, `@lrx`, and `@lry` on `<surface>` establishes an upper-left origin coordinate space for defining precise sub-regions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A two-dimensional grid measuring 4800 units wide by 6400 units high, with the origin (0,0) located at the upper-left corner.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In computer graphics and TEI conventions, (0,0) represents the upper-left corner, with positive X moving right and positive Y moving downward.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A Cartesian mathematical coordinate space where the origin (0,0) is located at the bottom-left corner and Y increases upward.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI surface geometry follows digital image raster conventions where the origin is at the top-left, not Cartesian bottom-left.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A 3D photogrammetric bounding box defining physical paper thickness between 0 and 4800 micrometers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The four attributes define a planar two-dimensional rectangular space, not volumetric depth.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A percentage-based coordinate space where the values must sum to 10,000.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These attributes represent absolute coordinates (such as pixels), not percentage sums.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Defining Regions: The `&lt;zone&gt;` Element</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary function of the `<zone>` element within a TEI `<surface>`?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The `<zone>` element identifies and measures specific rectangular or polygonal sub-regions on a surface, enabling fine-grained spatial targeting.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To delineate a specific rectangular or polygonal sub-region (such as a column, marginal gloss, or initial) using surface coordinates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. `<zone>` isolates meaningful spatial sub-areas on a physical face, enabling fine-grained alignment with text and annotations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To declare the geographic location where the manuscript was physically copied in Europe.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Geographic origin is encoded using `<origPlace>` inside `<history>`, not `<zone>`.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To convert analog audio recordings of oral poetry into phonetic text characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. `<zone>` is a visual and spatial facsimile element, not an audio transcription tool.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To apply copyright watermarks over high-resolution images when displayed in public web portals.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI markup models document structure and scholarship, not digital rights management watermarking.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Grouping Features: The `&lt;surfaceGrp&gt;` and Sub-surfaces</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why would an encoder use `<surfaceGrp>` or nested `<surface>` elements instead of a flat sequence of individual surfaces?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>`<surfaceGrp>` organizes related surfaces into openings, bifolia, or assemblies, while nested surfaces model physical attachments and corrections.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To model physical codicological relationships, such as grouping facing pages into an opening, bifolia, or representing tipped-in slips attached to a leaf.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. `<surfaceGrp>` and nesting preserve complex physical relationships like openings, folded bifolia, and pasted correction slips.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To reduce the file size of digital images by compressing adjacent XML nodes into ZIP archives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Grouping elements organize spatial semantics; they do not perform file compression.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the TEI schema forbids having more than two `<surface>` elements directly inside `<facsimile>`.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The TEI schema allows any number of `<surface>` elements directly within `<facsimile>`.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To automatically translate medieval vernacular dialects into standard modern English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Facsimile grouping tags represent physical geometry and codicology, not linguistic translation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Linking Facsimile to Text: The `@facs` Attribute</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In a TEI edition, how does the `@facs` attribute establish a link between textual elements and visual facsimiles?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The `@facs` attribute binds textual elements like `<pb>`, `<div>`, `<p>`, or `<lb>` directly to `<surface>` or `<zone>` identifiers in the facsimile.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It carries a URI pointing to the target `<surface>` or `<zone>` identifier (e.g. `facs='#z_col1'`), binding the text to that exact image region.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The global `@facs` attribute references the unique `@xml:id` of a `<surface>` or `<zone>` to connect text with visual evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It embeds base64-encoded binary image pixels directly inside the text paragraph.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. `@facs` is a pointer reference attribute; it does not store binary image data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It invokes an external artificial intelligence model to automatically generate translations of Latin abbreviations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. `@facs` is a standard XML linking mechanism, not an AI prompt or model invocation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires all paragraphs to be exactly identical in word count to the pixel height of the bounding box.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual length and pixel dimensions are independent; `@facs` links semantic units to spatial areas regardless of word count.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Two-Way Alignment: `&lt;zone&gt;` Pointing to Text and Text Pointing to `&lt;zone&gt;`</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does TEI support reciprocal linking where `<zone>` can point to text via `@corresp` and text can point to `<zone>` via `@facs`?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Two-way linking via `@facs` and `@corresp` allows flexible alignment whether an edition is organized primarily around textual structure or physical topography.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It accommodates both text-centric editions and image-centric projects, while flexibly handling irregular reading paths, marginalia, and out-of-order text additions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Two-way pointers allow editions to prioritize either textual flow or spatial topography without compromising the alignment between them.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because XML syntax requires every closing tag to have an identical opening pointer to avoid parser crashes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML requires well-formedness and schema compliance, not redundant bi-directional attribute linking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows search engines to replace transcribed words with randomly generated image coordinates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Bi-directional linking preserves scholarly mapping; it does not randomize or delete textual content.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because web browsers cannot render digital images unless the image file contains an embedded copy of the TEI XML file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Web browsers render standard image formats via HTML; reciprocal linking is a TEI data modeling standard.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: The Materiality of the Witness: Media Diversity Across History</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must a digitization workflow begin with a material autopsy of the historical witness rather than applying a standardized scanning protocol?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Every historical medium imposes distinct physical constraints; digitizers must tailor capture methods to the specific material properties of the witness.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Different writing media (parchment, papyrus, rag paper, stone) possess unique physical and optical properties that dictate specific lighting, handling, and camera techniques.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Material properties like parchment cockling, papyrus fiber texture, and incised stone relief require distinct optical setups to capture faithfully.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because modern archival laws mandate that paper documents cannot be photographed with digital sensors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital photography is standard across all archival media.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because all historical documents become chemically unstable if photographed under LED lighting.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cold LED lighting is safe for manuscripts; material autopsy identifies physical constraints, not an aversion to photography.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because hand-written documents can only be catalogued if their chemical elemental breakdown is published in the local newspaper.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Material autopsy informs digitization and conservation protocols; it is not a public newspaper requirement.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Epigraphs and Inscriptions: Stone, Metal, and Three-Dimensional Surfaces</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does flat, direct, perpendicular lighting frequently fail when photographing epigraphic stone inscriptions or bronze plaques?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Epigraphic inscriptions rely on carved surface depth rather than ink pigment, requiring low-angle raking illumination to create high-contrast shadows inside incisions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Inscriptions communicate text through three-dimensional carved depth rather than ink pigment, so flat lighting eliminates the shadows needed to make incisions visible.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Without shadows cast across incised grooves by angled raking light, carved letterforms blend invisibly into the stone surface.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Flat lighting causes marble and limestone to chemically dissolve through photochemical erosion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Stone does not dissolve under photographic lighting; the problem is purely optical lack of shadow contrast.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Camera sensors cannot record stone surfaces unless the camera is positioned at an acute 45-degree angle.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cameras can record any surface; the critical variable is the angle of the illumination relative to the relief.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ancient stone inscriptions were coated with invisible polarization filters that repel perpendicular light rays.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Epigraphic incisions rely on geometric surface topography, not artificial polarizing coatings.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Papyri, Ostraca, and Fragile Organic Supports</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is a primary optical challenge when digitizing ancient papyrus fragments mounted between protective glass plates?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Papyrological imaging must manage surface glare from protective glass encapsulation and use cross-polarization to suppress distracting fiber shadows.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Specularity and glare from the glass plates obscure the text, while prominent horizontal and vertical plant fibers create distracting visual patterns.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Glass encapsulation causes reflections and glare, and papyrus fiber texture can mimic or obscure faint carbon ink strokes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Papyrus absorbs 100% of visible light, causing all photographic sensors to output pitch-black images.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Papyrus reflects visible light across brown and yellow wavelengths; it does not absorb all light.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Glass encapsulation generates ionizing radiation that permanently destroys camera CMOS sensors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Glass is inert; it introduces optical reflections, not sensor-destroying radiation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ancient carbon ink evaporates into gas when exposed to camera shutter actuation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Carbon ink is physically stable and non-volatile; it does not evaporate under camera shutters.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Scrolls and Rotuli: Continuous Writing Surfaces</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must historical scrolls and rotuli be digitized using specialized tension-relieved cradles rather than being pressed flat under glass?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Scrolls require continuous or overlapping segmented capture using tension-relieved cradles to prevent mechanical damage to rolled membranes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Ancient rolled parchment and papyrus retain mechanical memory of their rolled shape, and forcing them flat risks cracking brittle fibers and detaching ink.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Flattening rolls under glass causes mechanical stress and fiber fracture; specialized cradles support the membrane safely.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because flattening a scroll under glass automatically reverses the sequence of the encoded Hebrew or Greek alphabet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Physical flattening cannot alter linguistic character order.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because scrolls can only be digitized using magnetic resonance imaging rather than optical cameras.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Optical digital photography is the primary method for digitizing unrolled scrolls.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because international archival regulations require all scrolls to be cut into individual rectangular pages before scanning.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cutting a historical scroll would be catastrophic vandalism; archives preserve continuous physical membranes.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Codices, Manuscripts, and Bound Books: Structure and Gutter Shadows</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What physical and optical defect occurs when an early bound manuscript is photographed without an appropriate conservation book cradle?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Bound codices must be digitized on conservation book cradles at limited opening angles to prevent spine fracture and eliminate gutter shadow distortion.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The page curves steeply into the gutter, causing geometric text distortion and deep gutter shadows that obscure text near the spine.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Limited opening angles create steep curvature and gutter shadows that book cradles are designed to mitigate.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The ink on the recto face immediately bleeds through the parchment onto the verso face.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Physical opening angles do not cause ink strike-through or chemical bleeding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The binding cords automatically tighten and sever the parchment leaves into loose sheets.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Over-opening breaks sewing threads; it does not spontaneously tighten them to cut leaves.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The camera sensor loses its color calibration due to magnetic interference from the book boards.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Book boards do not emit magnetic fields that affect camera color calibration.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Broadside Documents, Maps, Prints, and Oversize Sheets</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When digitizing oversize documents such as large maps or colonial printed broadsides, why is multi-frame tiled stitching often preferred over a single distant exposure?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Oversize sheets and broadsides require high-resolution single-capture or tiled stitching workflows, controlled with non-destructive weights on flat copyboards.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Photographing an oversize document in a single exposure from a great distance drastically lowers spatial resolution (PPI) across fine text and line details.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Capturing overlapping high-resolution tiles preserves the archival 400-600 PPI standard across massive surface areas.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Single exposures invert the color spectrum of printed letterpress inks from black to bright green.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Distance has no effect on ink color spectrum; it affects spatial resolution and detail capture.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Overhead camera lenses cannot focus on paper sheets larger than standard letter size.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lenses can focus on any size; the limitation is sensor pixel density spread over large physical areas.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tiled stitching is legally required by international cartographic copyright registries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tiled stitching is an optical and technical engineering choice, not a legal requirement.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Document Handling and Preservation Ethics in the Studio</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why do modern archival conservation guidelines generally recommend handling historical paper and parchment with clean, dry bare hands rather than white cotton gloves?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Conservation ethics dictate that the physical safety of the artifact always supersedes image capture; clean hands, unforced bindings, and deliberate handling are mandatory.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Cotton gloves drastically reduce tactile sensitivity, making handlers clumsy and significantly more likely to tear brittle paper edges or crease parchment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Tactile feedback is essential for sensing resistance and fragility; clean bare hands protect delicate paper and parchment better than bulky gloves.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Cotton fibers emit toxic acid fumes that corrode iron-gall ink upon direct contact.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cotton is chemically benign, but gloves compromise tactile sensitivity and dexterity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Gloves transfer synthetic digital viruses to manuscript pages that corrupt subsequent digital scans.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Physical gloves cannot transmit software or digital computer viruses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Cotton gloves generate intense magnetic charges that erase carbon ink from medieval documents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cotton does not produce magnetic charges that strip ink from parchment.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Supporting the Binding: Book Cradles, Foam Wedges, and Straps</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the function of self-balancing plates and archival polyester straps in a conservation book cradle setup?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Conservation book cradles and foam wedges support delicate bindings at safe opening angles, using inert polyester straps to hold pages planar without stress.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They maintain the open page at a constant, planar focal distance without straining the spine, using gentle contact to hold leaves steady during exposure.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Self-balancing cradles adjust for shifting text-block weight, while transparent inert straps hold pages planar without stress.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They heat the book binding to 100 degrees Celsius to melt old glue and facilitate easy disassembly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Heat destroys historic bindings; cradles maintain ambient temperature and physical support.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They apply high-pressure suction to extract embedded dirt from the paper fibers during photography.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Suction is used on specialized conservation tables for paper washing, not standard photographic book cradles.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They permanently clamp the manuscript closed so that only modern facsimile copies can be opened.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cradles support books during open inspection and imaging; they do not clamp them permanently shut.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Camera Geometry: Sensor Alignment, Focal Plane, and Lens Selection</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are macro flat-field prime lenses stopped down to f/8-f/11 preferred over standard zoom lenses for archival document photography?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Archival capture requires macro flat-field prime lenses aligned perfectly parallel to the document plane, stopped down to f/8-f/11 for edge-to-edge sharpness.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Flat-field lenses eliminate optical distortion and edge softness across a planar surface, while f/8-f/11 achieves optimal sharpness without diffraction blur.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Macro flat-field lenses provide true planar focus, and f/8-f/11 avoids both shallow-depth blur and optical diffraction softening.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Zoom lenses emit dangerous ultraviolet radiation from their internal glass elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lenses do not emit radiation; zoom lenses suffer from geometric distortion and chromatic aberration.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Stopping down to f/8 causes the camera sensor to overheat and produce synthetic color artifacts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Aperture is a physical mechanical iris inside the lens; stopping down does not overheat the sensor.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Flat-field lenses automatically translate non-Latin alphabets into machine-readable Unicode text during exposure.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lenses focus optical light onto a sensor; they do not perform character translation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Controlled Illumination: Balanced Studio Lighting and Glare Reduction</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does cross-polarization eliminate blinding specular reflections (glare) from gilded illuminations or glossy inks in document photography?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Balanced 45-degree bilateral illumination provides uniform luminance, while cross-polarization eliminates blinding specular glare from glossy inks and gold leaf.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Linear polarizers on the lights align emitted light waves, while an orthogonal polarizer on the lens blocks specular bounce while passing diffuse reflected light.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Cross-polarization blocks polarized direct specular reflections, allowing only depolarized diffuse reflection from the ink and substrate to enter the lens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It floods the document with infrared heat to evaporate surface gloss from the ink.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Heat damages artifacts; cross-polarization is an optical wave-filtering technique using cool light.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It darkens the entire room so that the camera records only the radioactive decay of the parchment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cross-polarization works under bright illumination to eliminate specular glare.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It uses high-speed strobe flashes to blind the human eye while leaving the camera sensor unaffected.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cross-polarization filters light waves geometrically; it is not a human-blinding strobe trick.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Flatbed and Overhead Planetary Scanners: Mechanics and Constraints</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are traditional flatbed scanners strictly prohibited for bound historical codices and rare books in archival institutions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Flatbed scanners endanger historical bindings and must never be used on rare books; overhead planetary scanners safely capture upward-facing documents on cradles.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Placing a bound codex face-down on a flatbed glass forces the spine flat under pressure, risking broken sewing cords, cracked glue, and leaf abrasion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Flatbed scanning subjects tight bindings to mechanical stress and friction, causing severe structural damage.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Flatbed scanners produce black-and-white images that cannot be rendered on color computer monitors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Flatbeds scan in full color, but their mechanical handling destroys historic bindings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The glass platen of a flatbed scanner magnetizes parchment and permanently erases iron-gall ink.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Glass is non-magnetic and does not erase ink; the danger is purely mechanical spine damage.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Flatbed scanners operate at scan speeds so high that paper catches fire from atmospheric friction.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Flatbeds operate at normal speeds; the risk is physical structural failure from pressing the book flat.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Metric Calibration: Scale Bars and Spatial Resolution (DPI / PPI)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must a calibrated metric scale bar be placed coplanar with the document surface rather than resting on the baseboard below?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Every capture must include a coplanar metric scale bar to establish physical dimensions and verify spatial resolution against archival standards (400-600 PPI).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Perspective perspective causes objects at different heights to appear at different scales, distorting the spatial resolution (PPI) calculation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A scale bar at a different focal plane from the document introduces optical perspective error, falsifying physical measurement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Placing the scale on the baseboard causes electrical short circuits in modern camera copy stands.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scale bars are passive measuring tools made of plastic or paper; they do not cause electrical faults.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Archival rules state that scale bars resting on baseboards become legally invalid for patent applications.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The issue is optical geometry and metric accuracy, not patent law.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Digital sensors can only read millimeter markings if they are positioned at the exact geographical center of the lens.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scale bars can be placed anywhere in the margin, provided they are on the same focal plane as the document.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Color Fidelity: Color Calibration Targets and Color Management</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the role of an ICC color profile generated from a standardized color target (such as a ColorChecker) in an archival imaging workflow?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Color calibration targets and custom ICC profiles mathematically correct sensor chromatic bias, guaranteeing objective color fidelity across the digital edition.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It mathematically maps the camera sensor's native chromatic responses to standardized color values, correcting sensor bias and lighting temperature shifts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. ICC profiling provides objective, device-independent color management based on known physical color reference patches.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It compresses high-resolution TIFF images into low-resolution GIF animations for social media distribution.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. ICC profiles govern color fidelity and chromatic calibration, not GIF compression.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically detects and deletes spelling errors in the manuscript text during photographic capture.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Color profiles calibrate color reproduction; they do not read or edit text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It physically repaints fading manuscript pigments using synthetic chemical nanoparticles.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digitization is non-contact and non-destructive; ICC profiling is digital color calibration.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Environmental Stability: Temperature, Relative Humidity, and Light Exposure</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do rapid fluctuations in relative humidity (RH) in an imaging studio affect parchment manuscripts?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Imaging studios must maintain stable temperature and 45-55% relative humidity while using cold LED illumination to prevent thermal shock and photochemical damage.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Parchment is hygroscopic and rapidly absorbs or releases moisture, causing planar buckling, cockling, and shearing forces that detach ink flakes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Parchment responds dramatically to humidity shifts by curling, shrinking, or cockling, endangering fragile ink layers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Humidity fluctuations alter the gravitational weight of the manuscript by several hundred kilograms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Moisture absorption changes weight slightly, but not by hundreds of kilograms; the damage is physical cockling and ink flaking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dry air causes parchment to transform permanently into synthetic cellulose plastic.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Parchment is animal skin collagen; it does not turn into plant cellulose or plastic.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>High humidity causes camera lenses to permanently lose their ability to record light in the green spectrum.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Studio climate control protects the manuscript, not camera sensor color channels.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: The Electromagnetic Spectrum in Manuscript Autopsy</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What physical phenomenon occurs when a historical document undergoes ultraviolet fluorescence (photoluminescence)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Physical documents interact with radiation beyond the visible 400-700 nm band; exploiting reflection, absorption, and fluorescence across the spectrum reveals hidden text.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Molecules absorb high-energy, short-wavelength ultraviolet radiation and re-emit lower-energy, longer-wavelength photons in the visible spectrum.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Fluorescence absorbs non-visible UV photons and emits visible light, revealing chemical variations on the document surface.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The document reflects UV radiation at exactly double its original frequency into the gamma ray spectrum.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Emitted fluorescence is always of lower energy and longer wavelength (Stokes shift) than excitation light.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Parchment completely neutralizes all incoming photons, cooling the imaging room by several degrees.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Energy is conserved; absorbed photons are converted to fluorescence and heat.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The manuscript emits an audible radio signal that can be decoded with FM radio antennas.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Photoluminescence is an optical electromagnetic emission, not an acoustic or radio wave.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Raking Light: Revealing Dry-Point, Ruling, and Surface Topography</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does raking light reveal dry-point glosses, pricking, and erased ruling that contain no ink pigment?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Raking light illuminates surfaces at shallow grazing angles, casting sharp shadows inside inkless depressions to reveal dry-point glosses, ruling, and erased topography.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Directing light at a shallow grazing angle casts high-contrast shadows inside surface depressions and creates bright highlights on raised edges.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Low-angle grazing light converts three-dimensional surface relief into high-contrast two-dimensional shadow patterns.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Grazing light excites radioactive fluorescence in calcium carbonate particles within parchment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Raking light uses visible light and optical shadow contrast; it does not rely on radioactivity or fluorescence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The shallow light angle chemically burns away the top layer of paper fibers to expose the under-text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Raking light is completely non-invasive and non-destructive.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Raking light magnetizes iron ions in ancient ink to draw them upward to the surface.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dry-point glosses contain no ink; raking light reveals physical geometric indentation through shadow.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Reflectance Transformation Imaging (RTI): Mathematical Surface Normal Modeling</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does Reflectance Transformation Imaging (RTI) create an interactive, relightable 3D surface model of a historical artifact?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>RTI calculates mathematical surface normal vectors from dozens of known light angles, generating an interactive, relightable 3D surface model of the document.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It captures exposures from multiple known light angles and fits a mathematical polynomial to luminance variation per pixel, computing surface normal vectors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. RTI derives mathematical surface normal vectors from a stationary camera and moving light source, allowing synthetic relighting in software.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It uses a laser scanner to carve a physical replica of the manuscript out of solid acrylic plastic.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. RTI is computational imaging, not physical 3D printing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It generates synthetic textures using a generative text-to-image neural network trained on unrelated artwork.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. RTI measures true physical surface reflectance polynomials; it does not hallucinate synthetic textures.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It rotates the manuscript continuously on an electric turntable at 500 revolutions per minute.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The manuscript and camera remain completely stationary during RTI capture; only the light source moves.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Ultraviolet (UV) Fluorescence: Recovering Erased Iron-Gall Inks and Palimpsests</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does erased iron-gall ink in a palimpsest appear as dark text against a brightly glowing background under UV-A illumination?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>UV-A radiation excites bright fluorescence in parchment collagen while residual iron-gall ink quenches it, causing erased palimpsest text to reappear as dark strokes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Parchment collagen fluoresces bright greenish-blue under UV, but residual iron compounds in the erased ink quench and absorb the fluorescence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Collagen glows while iron tannate complexes absorb UV and quench fluorescence, making erased strokes stand out as dark lines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Iron-gall ink reflects 100% of UV rays, blinding the camera sensor wherever words were written.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Iron compounds absorb UV radiation and quench emission rather than reflecting it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Erased ink ignites in tiny microscopic flames that appear black on digital sensors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. UV imaging does not ignite manuscripts; quenching is a non-destructive quantum photophysical process.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The UV light chemically restores erased ink back into its original liquid black dye state.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. UV imaging does not chemically restore ink; it creates optical contrast between glowing parchment and quenching residues.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Infrared (IR) Reflectography: Penetrating Over-Inking, Soot, and Pigments</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does infrared reflectography allow scholars to read carbon-ink text that has been crossed out or obscured with iron-gall ink or soot?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Infrared reflectography exploits the transparency of iron-gall inks and organic pigments at longer wavelengths to penetrate stains, redactions, and charring.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Iron-gall ink and organic stains become transparent at infrared wavelengths above 800 nm, while carbon ink remains completely opaque and absorptive.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Carbon absorbs infrared radiation while iron-gall ink and soot become transparent, revealing the underlying carbon strokes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Infrared light heats the iron-gall ink until it physically evaporates from the document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Infrared imaging is non-destructive and non-thermal; it exploits optical transmission differences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Carbon ink emits bright green laser beams when illuminated by infrared wavelengths.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Carbon ink simply absorbs infrared radiation; it does not emit lasers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Infrared radiation converts modern ballpoint pen ink into ancient Roman imperial purple dye.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Infrared imaging is an analytical diagnostic tool; it does not alter ink chemistry.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Multispectral and Hyperspectral Imaging: Multi-Band Capture and Spectral Stacks</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is an 'image cube' in multispectral imaging, and how is it used to recover lost manuscript text?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Multispectral imaging captures aligned narrow-band exposures from UV to IR, producing an image cube that mathematical algorithms process to separate illegible inks.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A stack of coregistered images across narrow UV, visible, and IR bands, where algorithms process per-pixel spectral curves to mathematically separate inks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The image cube records spatial coordinates $(x,y)$ and spectral wavelength $(\lambda)$, enabling statistical algorithms (like PCA) to isolate faint inks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A cubic glass display case designed to protect illuminated manuscripts from cosmic radiation in museum vaults.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An image cube is a multi-dimensional digital data structure, not a physical museum display case.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A 3D spatial model that renders the manuscript as an unreadable geometric cube in virtual reality.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The image cube represents a multi-band data stack, not an unreadable geometric shape.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A hardware memory chip installed inside cameras that prevents students from downloading copyright-protected images.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Image cube refers to the $(x,y,\lambda)$ spectral dataset, not digital rights hardware.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Archival Capture Workflows: From Sensor to Unprocessed Master</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why do preservation digitization standards mandate capturing in uncompressed RAW sensor format and exporting uncompressed TIFF master files?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Archival workflows capture uncompressed RAW sensor data, exporting uncompressed TIFF masters with embedded technical metadata and systematic shelfmark file naming.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>RAW capture preserves unmanipulated linear sensor data, and uncompressed TIFF masters prevent irreversible lossy compression artifacts from degrading evidence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Archival preservation requires uncompressed linear data and lossless master storage to preserve every pixel of historical evidence intact.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because JPEG files automatically delete all metadata headers after twenty-four hours.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. JPEGs retain EXIF metadata, but their lossy 8-bit discrete cosine transform compression permanently discards fine visual detail.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because RAW sensor files are small enough to be sent via SMS text messaging to student smartphones.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. RAW files are very large multi-megabyte files; the mandate ensures quality, not compact transmission.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because international archival agreements require all digital images to be encrypted with 256-bit military passwords.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Preservation standards emphasize open, unencrypted, accessible formats like uncompressed TIFF and DNG.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: The Digital Surrogate: Integrating Physical Capture into the TEI Edition</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In a completed digital scholarly edition, how do the results of physical document autopsy and high-resolution imaging connect to the TEI XML markup?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A mature digital edition integrates physical autopsy findings into the `<teiHeader>` and anchors photographic surrogates directly into `<facsimile>` zones and coordinates.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Physical metrics and capture parameters are documented in `<physDesc>` and `<encodingDesc>`, while photographic surrogates and zones are anchored in `<facsimile>`.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A mature digital edition documents physical autopsy in the header and binds digital images and spatial zones in `<facsimile>` to transcribed text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All digital photographs are deleted after encoding to ensure that the edition exists purely as unverified abstract text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital editions unite visual surrogates with encoded transcriptions; deleting images would eliminate primary evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI XML file replaces all physical manuscript originals, which are routinely destroyed by archives after digitization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Archives preserve physical artifacts permanently; digital surrogates provide access and protection, not destruction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Physical autopsy data must be kept secret by editors to prevent readers from discovering scribal errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly editing values complete transparency, making autopsy findings and facsimiles accessible to all researchers.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

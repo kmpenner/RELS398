@@ -66,11 +66,11 @@
 - **Current Phase:** Phase C/D Content & Bank Rebuild for Week 3 (Module 03: IIIF and Imaging) per Ken's 2026-09-10 Triad Specification.
 - **Verification Gate:** `python3 scripts/lint_lesson_content.py --course-dir .` (36/36 clean, 0 issues) & `python3 scripts/status.py`.
 - **Immediate Next Steps:**
-  1. Author 30-section content for **Lesson 3.1 (Manual)**: TEI `<facsimile>`, `<surface>`, `<zone>`; physical document photography/scanning across media (epigraphs, papyri, scrolls, codices, maps, etc.); scale/color targets; advanced physical/optical recovery (multispectral, infrared, raking light, RTI).
+  1. ~~Author 30-section content for **Lesson 3.1 (Manual)**~~ — **done 2026-09-11**: TEI `<facsimile>`, `<surface>`, `<zone>`; physical document photography/scanning across media (epigraphs, papyri, scrolls, codices, maps, etc.); scale/color targets; advanced physical/optical recovery (multispectral, infrared, raking light, RTI). Question bank rebuilt 30/30, Notes PDF (cmid 1431331) and Interactive Quiz (cmid 1431379) deployed live to Moodle Section 3.
   2. Author 30-section content for **Lesson 3.2 (Deterministic / Algorithmic)**: IIIF standard (Image API, Presentation API, Manifest, Canvas); open-source editing software (GIMP, ImageMagick, libvips); deterministic image operations (cropping, contrast, color adjustment, masking, deskewing, sharpening); file storage formats (JPEG, GIF, PNG, TIFF, PDF).
   3. Author 30-section content for **Lesson 3.3 (AI-Assisted Imaging)**: AI layout analysis and automated bounding boxes for zones; AI image organization and sequence naming; AI alignment of `<facsimile>` elements with transcribed text.
-  4. Align question banks (`scripts/banks/lesson_3_1.py`, `3_2.py`, `3_3.py`) 30/30 in page order.
-  5. Compile notes PDFs, interactive XML, and HTML players.
+  4. Align question banks (`scripts/banks/lesson_3_2.py`, `3_3.py`) 30/30 in page order.
+  5. Compile notes PDFs, interactive XML, and HTML players for 3.2 and 3.3.
   4. ~~Correct `03a_Lesson_2.2_Lesson_Content.md` (Red Hat XML does not validate RELAX NG)~~ — **done 2026-09-10**, lint clean.
   5. ~~Fix `populate_moodle_topic.py` bank-import ordering~~ — **done 2026-09-10** (`shared` a3584b3): restructured into 3a sync content → 3b delete quizzes → 3c purge+import → 3d create quizzes. Also fixed the same bug on the Weekly Quiz path and moved Notes-PDF restrictions to after quiz recreation, and excluded attempt-protected quizzes from the purge.
   6. ~~Regenerate Lesson 2.3 companion media~~ — **done**: regenerated 2026-09-09, deployed to live Moodle 2026-09-10 (brief audio 1431119, detailed audio 1431121; new cmids because labels/resources are delete-and-recreate). **The infographic was later regenerated again for the rebuilt 2.3 — see item 11 — and its live cmid is now 1431247 (1431118 is dead).**
