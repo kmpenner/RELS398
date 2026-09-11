@@ -7,20 +7,20 @@
       <text>$course$/Module_03_IIIF_Imaging/Lesson_3.2_Interactive</text>
     </category>
     <info format="html">
-      <text><![CDATA[<p>Interactive check questions for Lesson 3.2: Raking Light, Multispectral Imaging, and Computational Palaeography.</p>]]></text>
+      <text><![CDATA[<p>Interactive check questions for Lesson 3.2: Deterministic Computer-Assisted Imaging, IIIF, and File Storage.</p>]]></text>
     </info>
   </question>
 
   <!-- 01 Question -->
   <question type="multichoice">
     <name>
-      <text>01 Question: What the Eye Cannot See</text>
+      <text>01 Question: The IIIF Vision: Solving the Image Silo Problem</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is human vision inherently limited when examining erased or degraded manuscript inks?</p>]]></text>
+      <text><![CDATA[<p>What core problem in digital manuscript scholarship was the International Image Interoperability Framework (IIIF) designed to solve?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Materials that look identical to the eye respond differently outside the visible range, and multispectral imaging samples those differences.</p>]]></text>
+      <text><![CDATA[<p>IIIF eliminates institutional image silos by establishing shared, open network protocols that enable researchers to view, compare, and manipulate images across different repositories in a single interface.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -29,27 +29,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The human eye integrates wavelengths between 400 and 700 nm into three broad color channels, making chemically distinct materials appear identical if they produce the same tristimulus response.</p>]]></text>
+      <text><![CDATA[<p>Institutional image silos, where digital surrogates could only be inspected within incompatible, proprietary institutional web viewers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Materials with completely different spectral behaviors outside 400-700 nm (or across narrow bands) appear indistinguishable to human vision.</p>]]></text>
+        <text><![CDATA[<p>Correct. IIIF eliminated closed institutional silos by establishing open network protocols allowing cross-repository image access in unified viewers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The human retina cannot resolve details smaller than one centimeter without electronic magnification.</p>]]></text>
+      <text><![CDATA[<p>The inability of web servers to store uncompressed TIFF master files due to cloud hosting restrictions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Human visual acuity resolves fine detail, but optical color vision cannot distinguish narrow-band spectral differences outside 400-700 nm.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Servers could always store TIFF files; the problem was how to deliver, share, and compare images across repositories over the web.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Parchment collagen emits ionizing gamma radiation that temporarily blinds human photoreceptors.</p>]]></text>
+      <text><![CDATA[<p>The legal ban on sharing high-resolution photographs of public-domain cultural heritage objects.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Parchment emits non-ionizing fluorescence in the visible spectrum when excited by UV, not gamma rays.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. IIIF addresses technical software interoperability and standardized network delivery, not copyright law.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Ancient iron-gall inks were deliberately formulated with invisible light-polarizing filters to thwart reading.</p>]]></text>
+      <text><![CDATA[<p>The requirement that digital humanists hand-code custom browser graphics engines in assembly language.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Inks were ordinary writing materials; their spectral properties are natural chemical phenomena.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Browser engines handle standard web formats; the issue was proprietary viewer architectures and lack of shared APIs.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -57,13 +57,13 @@
   <!-- 02 Question -->
   <question type="multichoice">
     <name>
-      <text>02 Question: Raking Light and Surface Relief</text>
+      <text>02 Question: The IIIF Image API: The Canonical Request URI Syntax</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does raking light reveal codicological evidence (such as ruling, pricking, and dry-point glosses) that contains no ink pigment?</p>]]></text>
+      <text><![CDATA[<p>In the standard IIIF Image API request URI `{scheme}://{server}/{prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}`, which parameter determines whether a specific rectangular sub-crop or the complete image is returned?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Raking light reveals evidence that has no colour — ruling, erasure, and dry-point annotation — by turning depth into shadow.</p>]]></text>
+      <text><![CDATA[<p>The IIIF Image API URL syntax standardizes region cropping, resolution scaling, rotation, color quality, and file formats into a predictable HTTP request path.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -72,27 +72,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Illuminating the page at a shallow, grazing angle nearly parallel to the surface casts shadows in surface depressions proportional to their depth.</p>]]></text>
+      <text><![CDATA[<p>`{region}`</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Raking light converts 3D surface topography into high-contrast 2D shadow patterns.</p>]]></text>
+        <text><![CDATA[<p>Correct. The `{region}` parameter defines the rectangular sub-area of the source image to extract, specified as `full`, `square`, or pixel/percentage coordinates.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Grazing light heats the parchment, causing residual chemical salts to combust into glowing embers.</p>]]></text>
+      <text><![CDATA[<p>`{size}`</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Raking light is a purely optical technique using low-angle illumination without thermal combustion.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `{size}` controls the scaling or resolution dimensions of the extracted area, not its boundary selection.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Low-angle light excites ultraviolet fluorescence in parchment collagen.</p>]]></text>
+      <text><![CDATA[<p>`{quality}`</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Fluorescence is stimulated by UV radiation, whereas raking light uses directional visible illumination.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `{quality}` determines color mode, such as full color, grayscale, or bitonal.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Raking light dissolves the top layer of gelatin, revealing the sub-surface grain structure.</p>]]></text>
+      <text><![CDATA[<p>`{format}`</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Raking light is non-invasive and non-destructive; it does not dissolve parchment.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `{format}` determines the file container format, such as jpg or png.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -100,13 +100,13 @@
   <!-- 03 Question -->
   <question type="multichoice">
     <name>
-      <text>03 Question: Reflectance Transformation Imaging</text>
+      <text>03 Question: Deep Zoom and Image Tiling</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does Reflectance Transformation Imaging (RTI / Polynomial Texture Mapping) model a manuscript's surface?</p>]]></text>
+      <text><![CDATA[<p>How does deep zoom architecture allow web browsers to smoothly display gigapixel manuscript images without downloading multi-gigabyte master files?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>RTI fits a polynomial per pixel to many illumination angles, producing a relightable surface model rather than a fixed photograph.</p>]]></text>
+      <text><![CDATA[<p>Deep zoom uses pyramidal image tiling to deliver only the small image tiles visible within the user's screen viewport, enabling instantaneous inspection of massive files without latency.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -115,27 +115,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It captures images under multiple known light directions and fits a biquadratic polynomial per pixel to luminance variation, creating an interactive, relightable surface model.</p>]]></text>
+      <text><![CDATA[<p>By pre-computing an image pyramid and fetching only the small resolution-specific square grid tiles currently visible in the user's viewport.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Fitting a mathematical polynomial to per-pixel luminance under varying light angles allows synthetic relighting from any direction.</p>]]></text>
+        <text><![CDATA[<p>Correct. Pyramidal tiling delivers only the small (e.g., 256x256 pixel) tiles needed for the active screen area, keeping memory and bandwidth minimal.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It stitches together a series of aerial photographs taken at varying altitudes above the manuscript.</p>]]></text>
+      <text><![CDATA[<p>By running real-time generative compression on the client computer using neural network prediction.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. RTI uses a fixed camera and a stationary object illuminated from multiple known angles.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Deep zoom uses pre-computed multi-resolution pyramids and deterministic tile delivery, not client-side generative hallucination.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It calculates the radioactive half-life of carbon atoms across the manuscript page.</p>]]></text>
+      <text><![CDATA[<p>By reducing the image to an 8-bit color palette and discarding all background margins.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. RTI is an optical surface relief modelling technique, not radiocarbon dating.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Deep zoom preserves full fidelity and original margins by tiling at multiple zoom levels rather than destroying color bit depth.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It replaces photographic pixels with generic 3D polygon meshes extracted from modern font libraries.</p>]]></text>
+      <text><![CDATA[<p>By converting the raster image into scalable vector curves (SVG) before transmission.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. RTI derives per-pixel surface normals and reflectance polynomials from real photographic stacks.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Manuscript photographs are continuous-tone rasters, not vector curves; deep zoom serves raster image tiles.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -143,13 +143,13 @@
   <!-- 04 Question -->
   <question type="multichoice">
     <name>
-      <text>04 Question: What RTI Makes Visible</text>
+      <text>04 Question: The Image Information Document (`info.json`)</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does RTI mathematical enhancement (such as diffuse gain or specular enhancement) exceed what direct visual autopsy can achieve with a lamp?</p>]]></text>
+      <text><![CDATA[<p>What is the primary role of the `info.json` endpoint in the IIIF Image API ecosystem?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>RTI's derived surface normals allow enhancements that exceed any physically achievable lighting, recovering writing whose ink is entirely lost.</p>]]></text>
+      <text><![CDATA[<p>The `info.json` document supplies the essential technical metadata (dimensions, tile sizes, zoom scales) that allows web viewers to dynamically calculate and fetch image tiles.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -158,27 +158,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It computes surface normals and mathematically exaggerates surface curvature beyond what any physically achievable lighting angle could produce.</p>]]></text>
+      <text><![CDATA[<p>It supplies technical metadata about the source image—including full pixel dimensions, supported scale factors, and tile sizes—to configure the viewer.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Diffuse gain amplifies mathematical surface curvature, rendering shallow impressions visible that cannot be seen under physical lighting.</p>]]></text>
+        <text><![CDATA[<p>Correct. The `info.json` document negotiates capabilities between the server and client before any image tiles are requested.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It uses deep learning to hallucinate missing words based on statistical n-gram frequencies.</p>]]></text>
+      <text><![CDATA[<p>It stores the scholarly textual transcription and critical apparatus footnotes for the manuscript page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. RTI enhancements amplify measured geometric surface normals, not generative text prediction.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Textual transcriptions and apparatus notes belong in the TEI XML or IIIF Presentation manifest annotations, not the Image API `info.json`.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It physically polishes the parchment surface until it reflects light like a mirror.</p>]]></text>
+      <text><![CDATA[<p>It contains the user's personal bookmarking history and web session credentials.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. RTI is non-contact and non-destructive; specular enhancement is a mathematical rendering mode.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `info.json` is a stateless technical descriptor of the image asset on the server.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It generates synthetic audio recordings of scribal pen strokes during writing.</p>]]></text>
+      <text><![CDATA[<p>It lists the names and email addresses of all conservators who handled the physical membrane.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. RTI produces visual surface models, not acoustic simulations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Curatorial provenance belongs in catalog records or TEI `<msDesc>`, not the low-level image service descriptor.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -186,13 +186,13 @@
   <!-- 05 Question -->
   <question type="multichoice">
     <name>
-      <text>05 Question: The Physics of Multispectral Recovery</text>
+      <text>05 Question: The IIIF Presentation API: The Shared Canvas Model</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why do iron-gall ink and parchment exhibit high contrast under ultraviolet (~365 nm) illumination?</p>]]></text>
+      <text><![CDATA[<p>In the IIIF Presentation API, what is a 'Canvas'?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Parchment fluoresces under UV while iron-gall ink does not, and carbon ink absorbs infrared while stains become transparent — two different physical mechanisms for two different recovery problems.</p>]]></text>
+      <text><![CDATA[<p>The IIIF Canvas is an abstract two-dimensional coordinate space representing a physical surface, separating the abstract page from concrete image files, transcriptions, and commentary.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -201,27 +201,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Parchment collagen fluoresces strongly under UV, emitting visible light, while iron-gall ink absorbs UV and does not fluoresce, appearing as dark text against a glowing background.</p>]]></text>
+      <text><![CDATA[<p>An abstract, virtual two-dimensional coordinate space representing a physical surface upon which digital images, transcriptions, and annotations are projected.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. UV fluorescence creates sharp contrast because the parchment substrate glows while ink residue suppresses that emission.</p>]]></text>
+        <text><![CDATA[<p>Correct. A Canvas is not an image file itself; it is a coordinate frame that models a physical page or surface onto which media resources are targeted.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Both iron-gall ink and parchment fluoresce with identical green light, causing ink to reflect into the camera.</p>]]></text>
+      <text><![CDATA[<p>A physical HTML5 `<canvas>` DOM element embedded directly into the browser's JavaScript memory.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Iron-gall ink absorbs UV and does not fluoresce, creating contrast against the fluorescing parchment.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The IIIF Canvas is an abstract conceptual model defined in JSON-LD, distinct from browser rendering elements.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Ultraviolet light heats iron atoms until they emit yellow incandescent light.</p>]]></text>
+      <text><![CDATA[<p>A compressed raster bitmap storing master TIFF image bytes on an archival disk.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The mechanism is optical luminescence (fluorescence), not thermal incandescence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The Canvas has no pixels of its own; it defines dimensions and serves as an anchor for image annotations.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Parchment turns completely black under UV, while iron-gall ink glows with bright white light.</p>]]></text>
+      <text><![CDATA[<p>A proprietary file format developed by commercial graphics software vendors for vector illustration.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Parchment fluoresces (glows), whereas iron-gall ink absorbs UV and appears dark.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. IIIF Canvas is an open, consensus standard created by cultural heritage consortia.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -229,13 +229,13 @@
   <!-- 06 Question -->
   <question type="multichoice">
     <name>
-      <text>06 Question: Acquisition: Building a Datacube</text>
+      <text>06 Question: Anatomy of a IIIF Manifest: Structure and JSON-LD</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What constitutes the three-dimensional 'datacube' produced during multispectral manuscript acquisition?</p>]]></text>
+      <text><![CDATA[<p>Why does a IIIF Manifest use JSON-LD (JavaScript Object Notation for Linked Data) rather than plain JSON or raw relational database tables?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A datacube gives every pixel a spectrum rather than a colour, and pixel-perfect registration across bands is what makes it processable.</p>]]></text>
+      <text><![CDATA[<p>A IIIF Manifest is a structured JSON-LD document that packages metadata, viewing direction, and Canvas sequences into a single shareable URL for digital editions.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A spatial grid (x and y pixel dimensions) where the third axis (z) represents registered narrow-band spectral wavelengths, giving each pixel a reflectance spectrum.</p>]]></text>
+      <text><![CDATA[<p>To bind structural document properties and descriptive metadata to globally disambiguated web URIs and semantic ontologies.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A datacube stores a 2D spatial array where each pixel contains a vector of reflectance values across 12 to 30+ narrow spectral bands.</p>]]></text>
+        <text><![CDATA[<p>Correct. JSON-LD links terms like label, metadata, and canvas to semantic web vocabularies, ensuring global interoperability across systems.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A cubic block of crystal into which 3D holographic laser scans of the manuscript are burned.</p>]]></text>
+      <text><![CDATA[<p>Because JSON-LD encrypts manuscript photographs with digital rights management (DRM) keys.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A datacube is a digital multi-dimensional array of image matrices across wavelengths.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. IIIF manifests are open linked data documents, not DRM encryption wrappers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A 3D spatial voxel model representing the physical thickness of the binding boards and leather.</p>]]></text>
+      <text><![CDATA[<p>Because web browsers cannot parse plain JSON documents that exceed 500 lines of code.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The z-axis of a multispectral datacube represents wavelength bands, not physical depth in millimeters.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Browsers parse standard JSON easily; JSON-LD provides semantic graph context via `@context`.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>An encrypted relational database holding the cataloguing records of three collaborating libraries.</p>]]></text>
+      <text><![CDATA[<p>To force all digital humanists to write their transcriptions in Python instead of XML.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The datacube is an array of registered greyscale images captured across discrete wavelengths.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. JSON-LD is language-agnostic data formatting for linked web resources.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -272,13 +272,13 @@
   <!-- 07 Question -->
   <question type="multichoice">
     <name>
-      <text>07 Question: Why Raw Bands Are Rarely Enough</text>
+      <text>07 Question: Multi-Page Structures: Sequences, Ranges, and Structures</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does an erased under-text rarely appear clearly in a single raw multispectral band?</p>]]></text>
+      <text><![CDATA[<p>In a IIIF Manifest, how does a scholar represent non-linear or hierarchical intellectual structures—such as chapters, quires, or documentary appendices?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Erased text is identified by its pattern across bands rather than its brightness in any one, so recovery is a statistical operation and its output is not a photograph.</p>]]></text>
+      <text><![CDATA[<p>IIIF Ranges and the `structures` property organize linear Canvas sequences into navigable intellectual hierarchies, such as quires, chapters, and poetic groupings.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -287,27 +287,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The faint reflectance signal of ink residue is obscured by large variations in parchment thickness, staining, and over-text, requiring statistical analysis of patterns across all bands.</p>]]></text>
+      <text><![CDATA[<p>By defining `Range` objects within the manifest's `structures` property that group and nest specific Canvases.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Single bands are dominated by illumination and substrate variations; recovery requires extracting spectral patterns across the entire datacube.</p>]]></text>
+        <text><![CDATA[<p>Correct. While Canvases represent the sequential physical pages, `Range` objects in `structures` represent intellectual and codicological hierarchies.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Digital cameras cannot capture more than 8 bits of dynamic range in a single exposure.</p>]]></text>
+      <text><![CDATA[<p>By creating separate isolated manifests for each paragraph and preventing cross-linking.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scientific cameras capture 16-bit data; the issue is separating subtle chemical signals from overall variance.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A manifest represents the complete bibliographic unit; ranges organize its internal hierarchy.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Raw spectral bands are automatically corrupted by optical distortion during lens refraction.</p>]]></text>
+      <text><![CDATA[<p>By altering the pixel values of the master TIFF files to embed chapter titles into the manuscript margins.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Chromatic aberration is corrected during registration; the limitation is signal-to-noise ratio in individual bands.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Master images are never altered with burned-in text; structures are modeled non-destructively in manifest metadata.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Erased ink only reflects light when all spectral LED lights are turned on simultaneously.</p>]]></text>
+      <text><![CDATA[<p>By concatenating all pages into an uncompressed single-layer GIF animation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Narrow-band capture illuminates one band at a time; combining information happens mathematically during processing.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. GIF animations are unsuited for multi-page manuscripts and provide no structural navigation.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -315,13 +315,13 @@
   <!-- 08 Question -->
   <question type="multichoice">
     <name>
-      <text>08 Question: Principal Component Analysis</text>
+      <text>08 Question: Interoperable Juxtaposition: Comparing Witnesses in Mirador</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In Principal Component Analysis (PCA) of a multispectral datacube, why does erased under-text typically appear in intermediate components (e.g., PC3–PC5) rather than PC1?</p>]]></text>
+      <text><![CDATA[<p>What architectural feature of IIIF allows a user in the Mirador viewer to display an Amherst College Dickinson manuscript alongside a Harvard variant leaf in synchronized side-by-side panels?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>PCA reorders spectral data by variance, and the erased under-text usually emerges in the middle components rather than the first.</p>]]></text>
+      <text><![CDATA[<p>Advanced IIIF viewers like Mirador exploit shared standards to allow synchronized, multi-repository collation and annotation in a single web workspace.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -330,27 +330,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>PC1 captures the dominant source of variance (overall page brightness and illumination gradients), while subtler material differences like ink residue concentrate in subsequent orthogonal components.</p>]]></text>
+      <text><![CDATA[<p>Both institutions publish compliant IIIF Manifests and Image API services that the viewer can dynamically load into multi-panel workspaces.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. PCA orders components by total variance; because lighting and parchment tone dominate total variance, faint ink residue emerges in intermediate components.</p>]]></text>
+        <text><![CDATA[<p>Correct. Because both repositories conform to the shared IIIF standard, any IIIF client can load both manifests into a unified comparative workspace.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>PC1 is reserved by the PCA algorithm for copyright watermarks and metadata.</p>]]></text>
+      <text><![CDATA[<p>The viewer downloads all master files to a central proprietary server hosted in Silicon Valley before rendering.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. PCA is an unguided statistical transformation that orders components strictly by mathematical variance.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. IIIF is decentralized; clients fetch tiles directly from each institution's independent servers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Intermediate components are automatically filtered by machine learning models trained on Greek fonts.</p>]]></text>
+      <text><![CDATA[<p>Both universities share a single synchronized relational database running on the same local network.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. PCA is an unsupervised linear transformation with no concept of fonts or language.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Institutions maintain completely independent infrastructure; interoperability occurs at the open API level.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>PC3 to PC5 represent the highest-frequency optical noise produced by digital camera sensor heating.</p>]]></text>
+      <text><![CDATA[<p>The images must be merged into a single composite Photoshop document prior to publication.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Sensor noise concentrates in the highest components (e.g. PC12+), whereas material signals appear earlier.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Mirador performs dynamic client-side juxtaposition without modifying or merging source files.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -358,13 +358,13 @@
   <!-- 09 Question -->
   <question type="multichoice">
     <name>
-      <text>09 Question: Independent Component Analysis</text>
+      <text>09 Question: The Open-Source Imperative in Scholarly Imaging</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is Independent Component Analysis (ICA) particularly well-suited for separating texts on a palimpsest folio?</p>]]></text>
+      <text><![CDATA[<p>Why is reliance on open-source, scriptable tools (such as ImageMagick and libvips) considered an ethical and methodological necessity for academic digital editions?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>ICA separates overlapping texts into distinct outputs by recovering statistically independent sources, which suits palimpsests precisely.</p>]]></text>
+      <text><![CDATA[<p>Scholarly imaging demands open-source software to guarantee reproducibility, algorithm transparency, and long-term platform independence without vendor lock-in.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -373,27 +373,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It models the datacube as a linear mixture of statistically independent source signals, separating parchment, under-text (<em>scriptio inferior</em>), and over-text (<em>scriptio superior</em>) into distinct output bands.</p>]]></text>
+      <text><![CDATA[<p>Open-source tools provide transparent, auditable algorithms and command-line scripts that ensure reproducible, verifiable processing pipelines.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. ICA solves the 'cocktail party problem' by isolating independent physical sources created by different scribes at different times.</p>]]></text>
+        <text><![CDATA[<p>Correct. Proprietary commercial software uses closed, black-box algorithms that cannot be independently audited or programmatically reproduced across platforms.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It automatically orders components by linguistic frequency using a Greek corpus dictionary.</p>]]></text>
+      <text><![CDATA[<p>Open-source tools are legally exempt from all national copyright laws and institutional licensing requirements.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. ICA operates strictly on statistical independence of pixel signals, not linguistic dictionaries.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Software licensing does not override copyright on digitized archival materials.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It converts palimpsest text into editable Unicode strings without generating raster images.</p>]]></text>
+      <text><![CDATA[<p>Proprietary commercial software cannot export images in standard formats like JPEG or TIFF.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. ICA outputs raster image components isolating source signals.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Commercial software supports standard formats, but its internal operations and licensing restrict reproducibility and automation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It requires only a single visible-light photograph to isolate overlapping ink layers perfectly.</p>]]></text>
+      <text><![CDATA[<p>Open-source command-line tools execute automatically without requiring human editors to specify parameters.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. ICA requires a multi-band datacube (multiple sensors) to separate mixed sources.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Open-source scripts require explicit human editorial parameter declarations, ensuring full transparency.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -401,13 +401,13 @@
   <!-- 10 Question -->
   <question type="multichoice">
     <name>
-      <text>10 Question: Minimum Noise Fraction</text>
+      <text>10 Question: Interactive Editing with GIMP: Manual Adjustments and Layer Inspection</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What distinct advantage does the Minimum Noise Fraction (MNF) transform offer when processing heavily degraded manuscript images?</p>]]></text>
+      <text><![CDATA[<p>What is the primary scholarly role of interactive desktop raster software like GIMP in a digital edition workflow?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>MNF orders components by signal-to-noise rather than variance, which is what makes very degraded material tractable.</p>]]></text>
+      <text><![CDATA[<p>GIMP provides an interactive open-source environment for manual prototyping, visual verification, and layer inspection before formalizing batch scripts.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -416,27 +416,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It applies cascaded PCAs to whiten and normalize noise, ordering components by signal-to-noise ratio rather than raw variance and identifying the data's inherent dimensionality.</p>]]></text>
+      <text><![CDATA[<p>Visual exploratory analysis, prototyping correction values, and inspecting layer masks prior to automated batch scripting.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. MNF prevents sensor noise from dominating high-variance components, ordering outputs by SNR to isolate faint signals in degraded materials.</p>]]></text>
+        <text><![CDATA[<p>Correct. Interactive GUI tools allow editors to test parameters, evaluate curves, and inspect micro-details visually before scripting batch runs.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It reduces the file size of the datacube by 99% using lossy JPEG compression.</p>]]></text>
+      <text><![CDATA[<p>Performing repetitive manual cropping on thousands of archival images one file at a time.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. MNF is a linear statistical signal processing transformation, not a lossy compression format.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Manual repetitive GUI processing is error-prone and non-reproducible; batch automation is required for scale.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It removes all human handwriting to leave a pristine view of raw parchment fibers.</p>]]></text>
+      <text><![CDATA[<p>Serving deep-zoom image tiles dynamically over the web to multiple simultaneous remote users.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. MNF preserves and isolates subtle textual and material signals by segregating noise.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. GIMP is a desktop image editor, not a networked tile server.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It synthesizes missing parchment fragments using diffusion-based inpainting.</p>]]></text>
+      <text><![CDATA[<p>Creating authoritative TEI XML schemas by validating element hierarchies.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. MNF does not generate synthetic content; it separates signal from noise across real sensor measurements.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. GIMP processes raster graphics, not XML markup structures.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -444,13 +444,13 @@
   <!-- 11 Question -->
   <question type="multichoice">
     <name>
-      <text>11 Question: False-Colour Composites</text>
+      <text>11 Question: Scripting with ImageMagick: Command-Line Batch Automation</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is it essential to document the exact channel assignments (e.g., component to Red, Green, Blue) when publishing a false-colour composite of a manuscript?</p>]]></text>
+      <text><![CDATA[<p>Why is command-line batch processing with ImageMagick superior to manual desktop manipulation for digitizing historical archives?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>False-colour composites encode computed quantities as colour, so the channel assignments must be documented or the image cannot be evaluated as evidence.</p>]]></text>
+      <text><![CDATA[<p>ImageMagick enables automated, scriptable batch processing, ensuring consistent parameters and complete documentation across hundreds of archival images.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -459,27 +459,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>False colour displays computed statistical values or non-visible wavelengths rather than true reflected light, making the image uninterpretable as evidence without knowing what each channel represents.</p>]]></text>
+      <text><![CDATA[<p>It applies identical, mathematically rigorous transformations across entire collections while recording exact parameters in reproducible scripts.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. False-colour images encode assigned mathematical components, so viewers must know channel mappings to evaluate the evidence.</p>]]></text>
+        <text><![CDATA[<p>Correct. Command-line scripting ensures consistency, prevents human fatigue errors, and creates an audit trail of all transformations.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Web browsers will refuse to decode JPEG files unless RGB channels contain calibrated sRGB visible light.</p>]]></text>
+      <text><![CDATA[<p>It permanently deletes original master TIFFs to minimize local server hard drive consumption.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Browsers display any valid RGB image; documentation is required for scholarly interpretation of the evidence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Archival workflows strictly preserve raw master files; derivative scripts run non-destructively.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Failure to document RGB channels triggers automatic copyright forfeiture under international law.</p>]]></text>
+      <text><![CDATA[<p>It uses artificial intelligence to invent missing textual letters obscured by water stains.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Channel documentation is a scientific and methodological necessity, not a copyright penalty.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. ImageMagick applies deterministic mathematical pixel filters; it does not hallucinate missing text.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Uncalibrated false-colour channels can permanently damage digital monitors through pixel burnout.</p>]]></text>
+      <text><![CDATA[<p>It requires zero computational memory and runs instantaneously on files of infinite size.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. False-colour composites are standard digital images with no monitor hardware risk.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. ImageMagick loads images into memory; massive gigapixel files require streaming tools like libvips.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -487,13 +487,13 @@
   <!-- 12 Question -->
   <question type="multichoice">
     <name>
-      <text>12 Question: Case Study: The Archimedes Palimpsest</text>
+      <text>12 Question: High-Performance Processing with libvips: Memory Efficiency and Tiling</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How was the tenth-century text of Archimedes read beneath twentieth-century forged gold-leaf portraits on several folios?</p>]]></text>
+      <text><![CDATA[<p>What architectural design allows `libvips` to process multi-gigabyte manuscript images drastically faster than ImageMagick while using very little RAM?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The Archimedes Palimpsest required optical multispectral imaging, statistical separation, and finally X-ray fluorescence to read text through gold leaf — no single technique sufficed.</p>]]></text>
+      <text><![CDATA[<p>Libvips uses a streaming pipeline to process massive gigapixel images in small memory footprints, making it the premier tool for building pyramidal IIIF tiles.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -502,27 +502,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>X-ray fluorescence (XRF) imaging at the Stanford Synchrotron excited iron atoms in the underlying iron-gall ink, which fluoresced through the opaque gold leaf.</p>]]></text>
+      <text><![CDATA[<p>A demand-driven streaming pipeline that processes images in small horizontal scanline bands rather than loading the entire uncompressed image into RAM.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. High-energy X-rays penetrated the gold foil to excite the iron atoms of the tenth-century ink, mapping letterforms by elemental composition.</p>]]></text>
+        <text><![CDATA[<p>Correct. Libvips uses horizontally striped streaming and multithreading, allowing it to process massive images in negligible memory footprints.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Curators applied chemical solvents to dissolve the gold leaf and scrape it off the parchment.</p>]]></text>
+      <text><![CDATA[<p>It automatically downsamples all images to 72 DPI before opening them.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Physical dissolution would have destroyed the fragile manuscript; non-destructive XRF was used.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Libvips processes full-resolution master pixels without lossy downsampling.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Infrared lasers burned away the gold paint without affecting the underlying parchment.</p>]]></text>
+      <text><![CDATA[<p>It converts 16-bit color images into 1-bit black and white bitmaps during import.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Laser ablation would cause catastrophic damage; XRF imaging is non-destructive.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Libvips supports high bit depths and complete multichannel color spaces.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Scholars used high-magnification optical microscopes to peer through microscopic pinholes in the gold leaf.</p>]]></text>
+      <text><![CDATA[<p>It offloads all mathematical image operations to remote third-party cloud servers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Gold leaf is completely opaque to optical wavelengths; synchrotron XRF imaging was required.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Libvips runs locally and natively, maximizing local CPU core utilization.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -530,13 +530,13 @@
   <!-- 13 Question -->
   <question type="multichoice">
     <name>
-      <text>13 Question: What the Archimedes Project Established</text>
+      <text>13 Question: Reproducible Processing: Logging Parameters and Scripting Pipelines</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does successful recovery of erased manuscripts require an active interdisciplinary collaboration between imaging scientists and philologists?</p>]]></text>
+      <text><![CDATA[<p>In a scholarly digital edition, why is it essential to archive the exact bash/Python scripts used to generate image derivatives alongside the files themselves?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Recovery requires imaging scientists and philologists together — only a palaeographer can judge whether a recovered form is a letter.</p>]]></text>
+      <text><![CDATA[<p>True scholarship requires reproducible pipelines; editors must log every software version, flag, and numerical parameter used to produce derivative images.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -545,27 +545,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Scientists produce mathematically transformed candidate images, but only a palaeographer can judge whether a visual pattern is a letterform and only a philologist can evaluate whether the sequence is linguistically plausible.</p>]]></text>
+      <text><![CDATA[<p>To maintain scholarly accountability by allowing peer reviewers and future researchers to inspect, audit, and reproduce the exact processing transformations.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Statistical algorithms do not know language or palaeography; evaluating candidate components requires expert philological judgement.</p>]]></text>
+        <text><![CDATA[<p>Correct. Recording exact code commands, software versions, and parameter flags ensures that derivative images remain scientifically verifiable.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Philologists must write the low-level device drivers for synchrotron particle accelerators.</p>]]></text>
+      <text><![CDATA[<p>Because digital image files will corrupt and become unreadable unless their source code script is executed daily.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scientists operate hardware while philologists provide domain expertise in reading and language.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Image files remain stable; scripts document editorial methodology and ensure reproducibility.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Imaging scientists are legally required to verify the religious orthodoxy of ancient texts before publication.</p>]]></text>
+      <text><![CDATA[<p>To prevent copyright offices from claiming ownership over the digital edition.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Recovery is a secular scholarly and scientific collaboration.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Processing scripts do not affect intellectual property status.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Philologists are solely responsible for calibrating optical sensors and focal plane arrays.</p>]]></text>
+      <text><![CDATA[<p>Because TEI guidelines forbid the use of images unless accompanied by at least 1,000 lines of Python code.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Sensor calibration is handled by imaging scientists.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TEI requires methodological rigor, but has no arbitrary code line count mandate.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -573,13 +573,13 @@
   <!-- 14 Question -->
   <question type="multichoice">
     <name>
-      <text>14 Question: Case Study: Princeton Garrett Ms. 24</text>
+      <text>14 Question: Coordinate-Based Cropping: Isolating Folios and Zones</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What key lesson did Princeton University's Garrett Ms. 24 project provide regarding the dissemination of multispectral data?</p>]]></text>
+      <text><![CDATA[<p>Why must editors prefer programmatic coordinate-based cropping over manual, mouse-guided freehand cropping in an archival workflow?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Recovery is not access; Princeton's contribution was packaging multispectral results into an interface a philologist could actually use.</p>]]></text>
+      <text><![CDATA[<p>Coordinate-based cropping extracts precise sub-regions using exact pixel geometries, maintaining alignment with TEI `<zone>` coordinates and eliminating human error.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -588,27 +588,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Providing true scholarly access requires interface design (such as IIIF layer-toggling viewers) that allows philologists to navigate processed results without needing specialized scientific software.</p>]]></text>
+      <text><![CDATA[<p>Coordinate cropping ensures mathematical precision, eliminates subjective human jitter, and maintains a strict 1-to-1 mapping with TEI `<zone>` coordinates.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Hosting raw multi-gigabyte datacubes is ineffective; integrating IIIF Choice layers into library viewers makes spectral recovery accessible.</p>]]></text>
+        <text><![CDATA[<p>Correct. Programmatic cropping uses explicit pixel coordinates that align perfectly with TEI surface markup and reproducible scripts.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>All multispectral datasets should be encrypted and sold exclusively on physical DVD-ROMs.</p>]]></text>
+      <text><![CDATA[<p>Mouse-guided cropping automatically converts continuous-tone photographs into compressed vector graphics.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Princeton integrated open web-based IIIF viewers directly into its online library catalogue.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Mouse selection does not convert raster files into vectors.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Palimpsest texts should be translated into modern English before being made available to researchers.</p>]]></text>
+      <text><![CDATA[<p>Coordinate cropping automatically repairs physical paper tears and chemical oxidation stains.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The project provided direct visual access to the original multilingual manuscript layers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Cropping only changes the bounding canvas; it does not alter paper chemistry.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Institutions should only release visible-light images to prevent non-specialists from seeing under-texts.</p>]]></text>
+      <text><![CDATA[<p>Programmatic cropping guarantees that the resulting image file size is exactly zero bytes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Princeton made both narrow-band and PCA composites accessible via viewer layer toggles.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Cropped raster images retain standard pixel payloads.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -616,13 +616,13 @@
   <!-- 15 Question -->
   <question type="multichoice">
     <name>
-      <text>15 Question: The Choice Construct</text>
+      <text>15 Question: Deskewing and Geometric Alignment: Rectifying Rotational Drift</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In IIIF Presentation API 3.0, how is a <code>Choice</code> construct structured within a painting annotation?</p>]]></text>
+      <text><![CDATA[<p>In historical manuscript processing, why must rotational deskewing angles be kept to minor corrections (e.g., under 1 to 2 degrees) and clearly documented?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Choice lists alternative images for one canvas, and its labels are where the imaging conditions are documented.</p>]]></text>
+      <text><![CDATA[<p>Skew degrades automated transcription and zone mapping; deterministic deskewing calculates and rectifies rotational drift while documenting applied angles.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -631,27 +631,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The annotation <code>body</code> is of type <code>Choice</code>, containing an <code>items</code> array of alternative <code>Image</code> resources, allowing viewers to render them as toggleable layers.</p>]]></text>
+      <text><![CDATA[<p>Digital rotation requires pixel interpolation that slightly softens fine stroke edges, and historical margins often exhibit natural non-parallel variation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A Choice body lists alternative image resources for a single canvas, which compliant viewers like Mirador render as a layer selector.</p>]]></text>
+        <text><![CDATA[<p>Correct. Rotating raster grids resamples pixels through interpolation filters; excessive or arbitrary rotation alters documentary evidence.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The canvas contains multiple root manifest files nested inside an XML choice tag.</p>]]></text>
+      <text><![CDATA[<p>Any rotation of an image file inverts its RGB color channels into CMYK print separations.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Choice is a JSON-LD object within an annotation body in IIIF Presentation 3.0.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Color spaces are not altered simply by geometric rotation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The Choice element randomly selects one image per user session based on server load balancing.</p>]]></text>
+      <text><![CDATA[<p>Rotated images cannot be stored in the TIFF file format.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Choice provides a user-selectable list of alternative representations for the same canvas.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TIFF supports any rectangular pixel matrix regardless of rotation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A Choice object deletes all lower-resolution images once the highest-resolution image is loaded.</p>]]></text>
+      <text><![CDATA[<p>Web browsers are incapable of displaying images that have been rotated by fractional degrees.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Choice holds alternative spectral or processed layers, preserving all defined resources.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Browsers display standard rectangular image files regardless of prior deskewing transformations.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -659,13 +659,13 @@
   <!-- 16 Question -->
   <question type="multichoice">
     <name>
-      <text>16 Question: Why Layering Changes the Workflow</text>
+      <text>16 Question: Contrast Adjustment and Dynamic Range Optimization</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does the ability to toggle and cross-fade spectral layers in a IIIF viewer alter the evidential standard of textual scholarship?</p>]]></text>
+      <text><![CDATA[<p>What is the danger of applying an aggressive 'Auto-Contrast' or global histogram equalization filter to a photograph of faded iron gall ink on aged paper?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Layered canvases make multi-spectral verification cheap enough to be routine, which raises the evidential standard for a reading.</p>]]></text>
+      <text><![CDATA[<p>Contrast optimization stretches the luminance histogram using controlled transfer curves without clipping highlight or shadow data essential for legibility.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -674,27 +674,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Because comparing multiple spectral conditions takes seconds on a fixed canvas rather than minutes of manual alignment, checking ambiguous readings across all layers becomes routine rather than exceptional.</p>]]></text>
+      <text><![CDATA[<p>It risks 'clipping' subtle tonal highlights and shadows, obliterating delicate hair-strokes, ink washes, and faint watermarks into solid black or pure white.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Lowering the cost of comparison turns multi-spectral verification into a routine default, raising the standard of evidence.</p>]]></text>
+        <text><![CDATA[<p>Correct. Unchecked histogram stretching clips extreme values, destroying delicate pale ink strokes and paper texture evidence.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It allows scholars to bypass peer review by publishing unverified transcriptions directly to social media.</p>]]></text>
+      <text><![CDATA[<p>It permanently locks the image file so that it can never be opened in GIMP again.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Layering improves the rigor of evidence verification prior to publication.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Contrast adjustments modify pixel values, not file access permissions.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It guarantees that all erased palimpsest texts can be automatically transcribed without error.</p>]]></text>
+      <text><![CDATA[<p>It converts the manuscript's textual language into a different alphabet.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Layering facilitates human verification; it does not guarantee automatic error-free recovery.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Pixel filters alter luminance and color, not linguistic alphabets.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It eliminates the need for editors to cite manuscript shelfmarks or folio numbers in editions.</p>]]></text>
+      <text><![CDATA[<p>It decreases the pixel resolution of the image sensor by 50 percent.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scholarly citations and provenance remain mandatory.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Contrast adjustments do not alter the image grid dimensions or sensor resolution.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -702,13 +702,13 @@
   <!-- 17 Question -->
   <question type="multichoice">
     <name>
-      <text>17 Question: Documenting Provenance of Processed Images</text>
+      <text>17 Question: White Balance and Color Calibration: Applying ICC Profiles and Neutral Ramps</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Which minimum set of parameters must be recorded to ensure a processed multispectral image can be evaluated as scholarly evidence?</p>]]></text>
+      <text><![CDATA[<p>In scientific digitization, how does an editor verify that white balance and color calibration transformations have accurately represented physical reality?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A processed image without its processing parameters cannot be evaluated as evidence, so record wavelengths, method, components, and channel assignments.</p>]]></text>
+      <text><![CDATA[<p>White balancing neutralizes studio lamp color casts against standardized gray patches, and ICC color profiles map device-specific RGB values into standardized color spaces.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -717,27 +717,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Capture wavelengths, hardware/lighting, registration method, transformation algorithm (e.g., PCA/ICA), components used, channel assignments, and software version.</p>]]></text>
+      <text><![CDATA[<p>By measuring the known reflectance values and neutral RGB balances of the calibrated color target photographed within the scene.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Without recording capture wavelengths, algorithm, component selection, and RGB assignments, an image's evidential claims cannot be evaluated or reproduced.</p>]]></text>
+        <text><![CDATA[<p>Correct. A standardized target (e.g., ColorChecker) provides objective reference patches to calculate and verify color transformations.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Only the filename and the personal email address of the library director.</p>]]></text>
+      <text><![CDATA[<p>By adjusting the colors until the parchment paper matches the editor's personal aesthetic preference on an uncalibrated office monitor.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scientific provenance requires capture wavelengths, processing algorithms, and channel mappings.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Subjective aesthetic adjustments violate scientific fidelity; objective color targets must guide calibration.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The retail price of the camera lens and the electrical wattage of the laboratory lighting.</p>]]></text>
+      <text><![CDATA[<p>By converting the image into an 8-bit web-safe color palette.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Relevant provenance encompasses spectral bands, mathematical transforms, and processing software.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. 8-bit web palettes destroy color fidelity rather than calibrating it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The geographical coordinates of the scriptorium and the local weather on the day of transcription.</p>]]></text>
+      <text><![CDATA[<p>By ensuring that all pixels in the document have identical red, green, and blue values.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Provenance documentation records empirical capture and computational processing metadata.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Equalizing all RGB values turns the entire image into a flat, monochromatic gray field.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -745,13 +745,13 @@
   <!-- 18 Question -->
   <question type="multichoice">
     <name>
-      <text>18 Question: Interpretive Risk: Seeing What Is Not There</text>
+      <text>18 Question: Spatial Filtering: Sharpening and Unsharp Masking</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is a recovered reading that confirms an editor's prior hypothesis subject to greater methodological scepticism than an unexpected reading?</p>]]></text>
+      <text><![CDATA[<p>How does the classical 'Unsharp Masking' (USM) algorithm enhance the apparent sharpness of fuzzy scribal letterforms?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Statistical enhancement amplifies noise as readily as signal, and expectation makes false letterforms easy to see — so require persistence across methods and parameters.</p>]]></text>
+      <text><![CDATA[<p>Unsharp masking enhances edge contrast along letterforms; careful radius and threshold controls prevent the amplification of paper grain noise.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -760,27 +760,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Statistical enhancements amplify noise as well as signal, and human pattern recognition under strong prior expectations is prone to pareidolia (seeing expected letterforms in random artifacts).</p>]]></text>
+      <text><![CDATA[<p>By subtracting a blurred copy from the original image to generate a high-frequency edge mask, then boosting contrast specifically along detected edges.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Confirmation bias combined with noise amplification makes expected readings vulnerable to false identification.</p>]]></text>
+        <text><![CDATA[<p>Correct. Unsharp masking accentuates acutance by creating local contrast fringes (halos) along luminance boundaries.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Ancient scribes never wrote words that conformed to standard Greek grammar or vocabulary.</p>]]></text>
+      <text><![CDATA[<p>By scanning the document with an ultraviolet laser to chemically harden the iron gall ink crystals.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Ancient texts follow linguistic rules; the risk is the editor projecting expected readings onto noise.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Software spatial filters operate purely on digital pixel arrays, not physical manuscript chemistry.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Statistical algorithms are programmed to invert the meaning of texts that match editorial hypotheses.</p>]]></text>
+      <text><![CDATA[<p>By deleting every second pixel row across the image matrix to increase apparent contrast.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Algorithms are neutral mathematical transforms; the vulnerability lies in human subjective interpretation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Deleting pixel rows introduces severe aliasing artifacts and halves vertical resolution.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Unexpected readings are automatically rejected by TEI validation schemas.</p>]]></text>
+      <text><![CDATA[<p>By using optical character recognition to replace degraded handwritten strokes with modern TrueType digital fonts.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI schemas validate structural syntax, not semantic or lexical plausibility.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Sharpening filters enhance existing raster edge contrast; they do not replace cursive script with fonts.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -788,13 +788,13 @@
   <!-- 19 Question -->
   <question type="multichoice">
     <name>
-      <text>19 Question: Recording Confidence in the Transcription</text>
+      <text>19 Question: Noise Reduction and Defect Masking</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In a TEI XML transcription of a recovered palimpsest passage, what is the purpose of combining <code>&lt;unclear&gt;</code> with <code>@source</code>?</p>]]></text>
+      <text><![CDATA[<p>Why must editors exercise extreme caution when applying digital noise reduction (such as median or bilateral filters) to high-resolution manuscript scans?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Encode recovered readings with <unclear>, @cert, @resp, and a @source pointing at the imaging condition that supports them.</p>]]></text>
+      <text><![CDATA[<p>Noise reduction must use edge-preserving algorithms (such as bilateral filtering) sparingly to eliminate sensor grain without softening critical ink boundaries.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -803,27 +803,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It marks an ambiguous reading, states the degree of certainty, and cites the specific imaging layer (e.g., <code>#uv365</code> or <code>#pca24</code>) supporting that reading.</p>]]></text>
+      <text><![CDATA[<p>Aggressive noise filtering cannot distinguish between random sensor grain and genuine historical micro-features, such as tiny punctuation dots or delicate pen nib splatters.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. <unclear> with @source links an uncertain reading directly to the documented evidentiary image layer.</p>]]></text>
+        <text><![CDATA[<p>Correct. Heavy denoising smooths out high-frequency detail, frequently erasing punctuation marks, diacritics, and faint ink traits.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It instructs the web browser to hide the word from undergraduate students.</p>]]></text>
+      <text><![CDATA[<p>Noise reduction algorithms invert the grammatical case of transcribed historical words.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI encoding documents scholarly evidence for all readers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Image processing filters alter pixel values, not textual transcription files.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It triggers an automated script to delete the disputed line from the manuscript database.</p>]]></text>
+      <text><![CDATA[<p>Noise filters will cause the TIFF file container to explode in file size by 500 percent.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI records editorial claims, it does not delete database records.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Denoising typically increases compressibility and reduces compressed file sizes.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It proves that the scribe made a deliberate spelling error in the fourth century.</p>]]></text>
+      <text><![CDATA[<p>Operating systems refuse to display denoised images on color monitors.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <unclear> indicates contemporary editorial uncertainty, not ancient scribal intent.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Denoised images are standard raster files fully supported by all modern operating systems.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -831,13 +831,13 @@
   <!-- 20 Question -->
   <question type="multichoice">
     <name>
-      <text>20 Question: Imaging and Handwritten Text Recognition</text>
+      <text>20 Question: Thresholding and Binarization: From Grayscale to Pure Black and White</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does the YALTAi layout analysis engine in eScriptorium differ from traditional region segmentation in HTR pipelines?</p>]]></text>
+      <text><![CDATA[<p>Why does local adaptive thresholding (such as the Sauvola or Niblack method) succeed on unevenly stained historical documents where global Otsu thresholding fails?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>HTR platforms ingest manifests directly and emit coordinate-bound ALTO or PAGE XML, so Friday's manifest is Week 4's input.</p>]]></text>
+      <text><![CDATA[<p>Global thresholding fails on aged, stained documents; local adaptive thresholding (e.g., Sauvola) calculates dynamic cutoffs per neighborhood to cleanly isolate text.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -846,27 +846,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It uses deep learning object detection to identify text zones and baselines simultaneously on complex historical layouts rather than relying on rigid geometric rule-based slicing.</p>]]></text>
+      <text><![CDATA[<p>Adaptive methods compute dynamic threshold values for small local neighborhoods based on local mean and standard deviation, accommodating foxing and uneven lighting.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. YALTAi applies object detection to robustly identify baselines and complex zones on historical pages.</p>]]></text>
+        <text><![CDATA[<p>Correct. Global thresholds pick one cutoff for the whole image, blacking out shadowed areas; local adaptive methods adjust to local contrast.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It requires all manuscripts to be printed in modern standard typefaces.</p>]]></text>
+      <text><![CDATA[<p>Adaptive methods use proprietary cloud neural networks that require commercial licensing.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. YALTAi is designed specifically for complex historical manuscripts and handwriting.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Sauvola and Niblack are classical, deterministic, open-source mathematical algorithms.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It physically flattens wrinkled parchment folios using robotic vacuum presses.</p>]]></text>
+      <text><![CDATA[<p>Global Otsu thresholding converts the image into a 24-bit full-color PNG file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. YALTAi is a software-based computational computer vision framework.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Otsu is a binarization algorithm that produces a 1-bit black and white output.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It translates Greek handwriting directly into modern Latin without detecting line baselines.</p>]]></text>
+      <text><![CDATA[<p>Adaptive thresholding physically bleaches the organic cellulose fibers in the historical paper.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Layout analysis identifies zones and baselines as the spatial foundation for HTR recognition.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Computational algorithms operate exclusively on digital matrices, not physical paper.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -874,13 +874,13 @@
   <!-- 21 Question -->
   <question type="multichoice">
     <name>
-      <text>21 Question: Which Images to Transcribe From</text>
+      <text>21 Question: Masking and Layer Compositing: Isolating Text from Background</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When multiple spectral and processed layers are available, what is the defensible scholarly practice for conducting transcription?</p>]]></text>
+      <text><![CDATA[<p>In advanced document enhancement, how does digital layer compositing assist scholars studying badly damaged or bleed-through manuscripts?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Transcribe from the most legible layer, verify against the others, and always record which layer supported a contested reading.</p>]]></text>
+      <text><![CDATA[<p>Masking and layer compositing use aligned stencils and mathematical channel operations to isolate legible text from parchment stains or show-through.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -889,27 +889,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Transcribe primarily from the most legible layer, verify uncertain readings across alternative layers, and explicitly record in the TEI which layer supported each contested reading.</p>]]></text>
+      <text><![CDATA[<p>It allows mathematical operations (such as subtraction, division, or opacity blending) between registered multispectral or multi-light layers to separate ink from stains.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Using the most legible composite while verifying against other layers and documenting the source layer ensures transparent, verifiable scholarship.</p>]]></text>
+        <text><![CDATA[<p>Correct. Multi-layer compositing lets editors isolate text strokes, subtract verso bleed-through, or highlight faded traces through algorithmic channel blending.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transcribe exclusively from a low-resolution thumbnail without consulting the multi-spectral layers.</p>]]></text>
+      <text><![CDATA[<p>It permanently glues the original manuscript leaves together with chemical synthetic resin.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Transcribers should utilize the highest-resolution and most informative layers available.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Compositing is a non-destructive digital image operation, completely independent of physical paper handling.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Silently transcribe from an uncalibrated ICA composite while claiming the reading was made from visible light autopsy.</p>]]></text>
+      <text><![CDATA[<p>It replaces historical handwriting with standardized modern machine-readable Unicode strings directly inside the TIFF raster.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Concealing the evidentiary basis of a reading is methodologically indefensible.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Layer compositing blends pixel arrays; text encoding is managed separately in TEI XML.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Generate a random composite using graphic design filters and discard all raw capture data.</p>]]></text>
+      <text><![CDATA[<p>It forces web browsers to display the document exclusively in reverse chronological order.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scholarly transcription requires calibrated data and verifiable documentation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Compositing controls visual pixel layers, not document sequencing.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -917,13 +917,13 @@
   <!-- 22 Question -->
   <question type="multichoice">
     <name>
-      <text>22 Question: Practical Access to Multispectral Data</text>
+      <text>22 Question: The Taxonomy of Digital Image Formats</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>If an institution's public web catalogue displays only visible-light images, where can a researcher look to find existing multispectral captures for a manuscript?</p>]]></text>
+      <text><![CDATA[<p>What three core technical characteristics define the taxonomy and scholarly suitability of a digital image file format?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Check your manifest for unlisted spectral layers, and ask curators directly; if none exists, the course proceeds from visible light.</p>]]></text>
+      <text><![CDATA[<p>Image formats are defined by bit depth, color space, compression mechanism (lossless vs lossy), and metadata support, dictating their role as preservation masters or web derivatives.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -932,27 +932,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Inspect the IIIF manifest JSON for unlisted <code>Choice</code> items or canvases, check dedicated project portals (e.g., Sinai Palimpsests Project), or contact curators directly.</p>]]></text>
+      <text><![CDATA[<p>Bit depth per channel, supported color spaces, and compression mechanism (lossless versus lossy).</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Spectral data is often present in manifest data, specialized portals, or institutional archives even when omitted from basic catalogue viewers.</p>]]></text>
+        <text><![CDATA[<p>Correct. Bit depth (8 vs 16-bit), color space (sRGB, Adobe RGB, CIE L*a*b*), and compression determine archival fidelity and derivative utility.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Attempt to hack the institution's private cloud servers to download raw sensor logs.</p>]]></text>
+      <text><![CDATA[<p>The year the software developer was born, the screen aspect ratio of the monitor, and the mouse sensitivity.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Legitimate discovery relies on manifest inspection, published project repositories, and polite direct curator enquiry.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. These environmental factors have no bearing on the technical architecture of image containers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Assume that no manuscript digitized before 2025 could ever have undergone multispectral capture.</p>]]></text>
+      <text><![CDATA[<p>The alphabetical sorting order of the document's file name on the operating system desktop.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Major multispectral imaging campaigns have operated since the late 1990s.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. File naming is a filesystem convention, not an inherent image format property.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Purchase commercial satellite imaging subscriptions to photograph the library building from orbit.</p>]]></text>
+      <text><![CDATA[<p>Whether the image contains watermarks, decorative clip art, or animated sound effects.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Satellite photography cannot image indoor manuscript vaults.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. These are content embellishments, not technical container specifications.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -960,13 +960,13 @@
   <!-- 23 Question -->
   <question type="multichoice">
     <name>
-      <text>23 Question: Beyond Optics: XRF and Materials Analysis</text>
+      <text>23 Question: TIFF: The Gold Standard for Archival Preservation</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does X-ray Fluorescence (XRF) spectroscopy differ fundamentally from multispectral optical imaging?</p>]]></text>
+      <text><![CDATA[<p>Why do archival standards bodies (such as FADGI and Metamorfoze) mandate uncompressed or losslessly compressed TIFF as the required format for master preservation files?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>XRF maps elemental composition rather than appearance, and the canvas is what lets chemical and textual observations refer to the same place on the page.</p>]]></text>
+      <text><![CDATA[<p>Uncompressed or losslessly compressed 16-bit TIFF is the mandatory archival master format, preserving maximum color depth, spatial resolution, and embedded metadata.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -975,27 +975,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>XRF measures secondary X-ray emissions characteristic of specific chemical elements (e.g., iron, copper) rather than reflected optical photons, mapping elemental composition.</p>]]></text>
+      <text><![CDATA[<p>TIFF supports 16-bit depth, embeds complex ICC color profiles and EXIF/IPTC metadata, and introduces zero compression artifacts that degrade image fidelity.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. XRF is an elemental analysis technique mapping specific atoms, whereas multispectral imaging measures optical reflectance and fluorescence.</p>]]></text>
+        <text><![CDATA[<p>Correct. TIFF preserves every raw sensor pixel and bit of dynamic range losslessly, making it the undisputed standard for long-term preservation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>XRF measures the optical color temperature of ambient room lighting in Kelvin.</p>]]></text>
+      <text><![CDATA[<p>TIFF files are so small that millions of pages can fit onto a standard 1.44-megabyte floppy disk.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. XRF measures characteristic elemental X-ray emissions, not room lighting.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Master TIFF files are massive (often 100 to 500 megabytes each) because they retain uncompressed pixel data.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>XRF destroys the manuscript by vaporizing small sections of parchment with a thermal laser.</p>]]></text>
+      <text><![CDATA[<p>TIFF is a proprietary format owned exclusively by Microsoft that cannot be opened on Linux or Mac computers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. XRF is a non-destructive spectroscopic imaging method.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TIFF is an open, widely supported standard with complete cross-platform support.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>XRF only works on modern synthetic plastic substrates produced after 1950.</p>]]></text>
+      <text><![CDATA[<p>TIFF automatically translates handwritten 18th-century French cursive into modern English prose.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. XRF is widely used on historical manuscripts, pigments, and metallic inks.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TIFF is a raster image container; it does not perform language translation.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1003,13 +1003,13 @@
   <!-- 24 Question -->
   <question type="multichoice">
     <name>
-      <text>24 Question: The Manuscript as Data</text>
+      <text>24 Question: Pyramidal TIFF: The Foundation of Local IIIF Servers</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does computational palaeography reframe the relationship between a physical manuscript and its textual content?</p>]]></text>
+      <text><![CDATA[<p>How is a Pyramidal TIFF structurally organized internally compared to a conventional single-image TIFF file?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Recovery techniques treat the manuscript as a dataset with many projections rather than a surface bearing text, which changes what can count as evidence for a reading.</p>]]></text>
+      <text><![CDATA[<p>Pyramidal TIFFs store pre-computed multi-resolution tiled layers within a single file, enabling IIIF servers to deliver deep-zoom tiles instantly with minimal CPU overhead.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1018,27 +1018,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It treats the manuscript as a multi-dimensional physical and chemical dataset of which the visible text is only one projection among several (topographic, spectral, elemental).</p>]]></text>
+      <text><![CDATA[<p>It contains a multi-resolution image pyramid stored in separate directory headers, where each sub-resolution level is pre-divided into independent square tiles.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The manuscript is understood as a rich material matrix carrying multiple recoverable data signals, rather than a mere passive surface for writing.</p>]]></text>
+        <text><![CDATA[<p>Correct. Pyramidal TIFFs embed multiple downsampled resolution layers, each organized into small tiles (e.g., 256x256), enabling instantaneous server random access.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It asserts that physical manuscripts have zero historical value once converted into text strings.</p>]]></text>
+      <text><![CDATA[<p>It stacks images in a chronological triangular spiral that requires special 3D holographic glasses to view.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Computational palaeography emphasizes the physical and material matrix of the object.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The 'pyramid' refers to a mathematical hierarchy of 2D resolution levels, not a 3D visual object.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It claims that texts were generated by ancient computer algorithms rather than human scribes.</p>]]></text>
+      <text><![CDATA[<p>It strips away all metadata and reduces image resolution to a thumbnail to save disk space.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The framework applies modern computational analysis to historical human artifacts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Pyramidal TIFFs include the full master resolution at their base layer and are slightly larger than conventional TIFFs.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It restricts manuscript studies strictly to financial accounting and inventory management.</p>]]></text>
+      <text><![CDATA[<p>It converts all raster pixels into an encrypted relational database query.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The paradigm enriches philological, codicological, and historical analysis.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Pyramidal TIFFs remain standard raster TIFF files conforming to the baseline TIFF 6.0 specification.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1046,13 +1046,13 @@
   <!-- 25 Question -->
   <question type="multichoice">
     <name>
-      <text>25 Question: Limits and Honest Reporting</text>
+      <text>25 Question: JPEG: Discrete Cosine Transform and the Cost of Lossy Compression</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is the reporting of negative results (e.g., imaging techniques that failed to resolve erased text) essential in manuscript scholarship?</p>]]></text>
+      <text><![CDATA[<p>Why is standard JPEG compression strictly unacceptable for archival master preservation of historical documents?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Recovery often fails, and a documented negative result is a real finding — record what you consulted even when it resolved nothing.</p>]]></text>
+      <text><![CDATA[<p>JPEG achieves compact file sizes through lossy Discrete Cosine Transform compression, but discarding high-frequency data and generational loss make it unfit for archival masters.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1061,27 +1061,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Documenting failed attempts prevents redundant reimaging of unresponsive folios, constrains methodological claims, and provides an honest record of evidence.</p>]]></text>
+      <text><![CDATA[<p>JPEG uses lossy Discrete Cosine Transform compression that permanently discards subtle high-frequency image data, creating blocking and ringing artifacts around ink strokes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Documenting negative findings bounds what is recoverable and prevents wasted effort, providing transparent scholarly evidence.</p>]]></text>
+        <text><![CDATA[<p>Correct. Lossy compression irreversible discards pixel data, and repeated edits/re-savings cause cumulative generational degradation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Negative results automatically void the academic credentials of the research team.</p>]]></text>
+      <text><![CDATA[<p>JPEG files cannot be viewed in standard web browsers or on mobile devices.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Negative results are normal, valuable scientific findings.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. JPEG is universally supported on web browsers; that is why it is used for delivery, not preservation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Journals are legally required to fine researchers who publish unreadable manuscript images.</p>]]></text>
+      <text><![CDATA[<p>JPEG files are limited to a maximum resolution of 100 by 100 pixels.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Transparent reporting of negative findings is standard scholarly best practice.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. JPEGs can support up to 65,535 pixels in each dimension.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Negative results prove that the manuscript is a modern forgery.</p>]]></text>
+      <text><![CDATA[<p>The JPEG standard was declared illegal by international intellectual property courts in 2015.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Severe physical erasure, substrate degradation, or carbon ink can defeat UV recovery on authentic manuscripts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The JPEG standard is widely used and legally free for standard digital operations.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1089,13 +1089,13 @@
   <!-- 26 Question -->
   <question type="multichoice">
     <name>
-      <text>26 Question: An Exercise for This Meeting</text>
+      <text>26 Question: PNG: Lossless Web Delivery and Alpha Transparency</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When assessing the least legible region of your chosen manuscript, what should you do if no multispectral layers are available?</p>]]></text>
+      <text><![CDATA[<p>In what digital edition scenario is PNG preferred over JPEG for web delivery?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Assess the least legible region of your passage against every layer available, and record what remains unresolved.</p>]]></text>
+      <text><![CDATA[<p>PNG provides lossless Deflate compression and 8-bit alpha transparency, making it the preferred web derivative format for isolated text zones, stamps, and diagrams.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1104,27 +1104,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Document the specific ambiguities under visible light, analyze the ink type and damage, and formulate a methodological hypothesis about which spectral technique would be appropriate.</p>]]></text>
+      <text><![CDATA[<p>When displaying cropped manuscript zones, seal cutouts, or line segments that require an 8-bit alpha transparency channel to overlay cleanly on web backgrounds.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Assessing visible-light ambiguities and determining suitable imaging modalities is authentic scholarly work that informs <unclear> encoding.</p>]]></text>
+        <text><![CDATA[<p>Correct. PNG supports true lossless Deflate compression and 8-bit alpha transparency channels, making it ideal for cutouts, diagrams, and overlay masks.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Invent fictional Greek readings to fill in all missing words without notation.</p>]]></text>
+      <text><![CDATA[<p>When serving multi-gigabyte continuous-tone photograph albums over slow mobile internet connections.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scholarly editions document uncertainty rather than fabricating readings.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Full photographic PNGs are significantly larger than JPEGs; JPEG is preferred for standard photographic delivery.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Immediately abandon your passage and select a modern twentieth-century printed book instead.</p>]]></text>
+      <text><![CDATA[<p>When creating multi-page searchable PDF document binders for library loans.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Course editions proceed from visible-light images with proper encoding of illegibility.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Multi-page document delivery belongs in PDF or IIIF, not standalone PNG files.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Apply graphic design blur filters to make the rest of the manuscript equally illegible.</p>]]></text>
+      <text><![CDATA[<p>When embedding uncompressed audio recordings of oral history interviews into image headers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The exercise requires rigorous assessment of illegibility, not degrading clean data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. PNG is a raster image format, not an audio container.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1132,13 +1132,13 @@
   <!-- 27 Question -->
   <question type="multichoice">
     <name>
-      <text>27 Question: Reading Imaging Scholarship Critically</text>
+      <text>27 Question: GIF and Modern Web Formats: WebP, AVIF, and 8-Bit Palettes</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What constitutes a critical weakness in a published article claiming to have recovered an erased historical reading through multispectral imaging?</p>]]></text>
+      <text><![CDATA[<p>Why is the legacy GIF format obsolete for digitizing historical manuscripts?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Evaluate published recoveries by whether the imaging and processing are described well enough for you to assess them, and cite them with their qualifications intact.</p>]]></text>
+      <text><![CDATA[<p>Legacy GIF's 256-color palette is obsolete for manuscripts; modern formats like WebP and AVIF offer superior lossless and lossy compression for high-performance delivery.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1147,27 +1147,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Failing to state capture wavelengths, transformation methods, component selection, channel assignments, or whether independent palaeographical verification was performed.</p>]]></text>
+      <text><![CDATA[<p>GIF is restricted to a maximum indexed palette of 256 colors, causing severe color quantization banding across subtle parchment tones and ink washes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Without capture and processing parameters, published recoveries cannot be independently tested, evaluated, or verified.</p>]]></text>
+        <text><![CDATA[<p>Correct. 8-bit indexed palettes cannot accurately reproduce continuous-tone historical manuscripts, destroying color subtleties.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The authors published their findings in a peer-reviewed open-access journal.</p>]]></text>
+      <text><![CDATA[<p>GIF files cannot be rendered on any modern computer built after 1995.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Open-access publication is standard; the weakness is omission of technical processing parameters.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. GIF files are universally supported across all browsers, but are unsuited for continuous-tone scholarship.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The manuscript was written in ancient Greek rather than modern English.</p>]]></text>
+      <text><![CDATA[<p>GIF requires a mandatory monthly subscription fee paid to the United Nations.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Historical texts are the standard objects of study in this field.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The legacy Unisys LZW patents on GIF expired decades ago.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The authors included high-resolution color figures alongside their transcription.</p>]]></text>
+      <text><![CDATA[<p>GIF images cannot be displayed if the operating system language is set to English.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. High-resolution figures are desirable; omitting processing provenance is the defect.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Image formats are language-independent binary protocols.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1175,13 +1175,13 @@
   <!-- 28 Question -->
   <question type="multichoice">
     <name>
-      <text>28 Question: Preparing for Lesson 3.3</text>
+      <text>28 Question: PDF as an Archival Wrapper: PDF/A Standards and Pitfalls</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must a student ensure their Week 2 TEI header is valid before beginning Friday's Lesson 3.3 meeting?</p>]]></text>
+      <text><![CDATA[<p>Why does standard, consumer-grade PDF fail as an archival preservation format for historical document masters unless restricted to PDF/A?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Friday joins the structural and imaging models to your TEI, and the cataloguing assignment is due the same day — validate your header beforehand.</p>]]></text>
+      <text><![CDATA[<p>Standard PDFs risk font obsolescence and lossy compression; preservation requires PDF/A standards that enforce self-containment, embedded fonts, and device-independent color.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1190,27 +1190,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Lesson 3.3 binds canvas coordinates directly to the TEI document; debugging schema errors during binding creation disrupts the workflow for the Cataloguing Assignment due that day.</p>]]></text>
+      <text><![CDATA[<p>Standard PDFs can embed proprietary fonts, dynamic JavaScript, and lossy-compressed images, whereas PDF/A mandates device-independent color, font embedding, and static self-containment.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Coordinate binding builds directly upon a valid TEI document; pre-validating the header ensures focus remains on spatial integration.</p>]]></text>
+        <text><![CDATA[<p>Correct. Standard PDFs permit external dependencies and lossy compression; PDF/A enforces strict self-containment and ISO-standard preservation rules.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Invalid TEI headers cause permanent hard drive data corruption during Git commits.</p>]]></text>
+      <text><![CDATA[<p>PDF files cannot be opened on computers unless the user possesses an Adobe enterprise license.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schema validation errors cause validation failures, not hardware corruption.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Many free and open-source readers open PDFs; the issue is long-term format obsolescence and dependency drift.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>TEI schemas automatically delete all image files stored on remote university servers.</p>]]></text>
+      <text><![CDATA[<p>Standard PDFs automatically erase all textual metadata whenever a file is closed.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI validation operates locally on XML files.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Standard PDFs store metadata, but non-archival forms risk unsearchable or detached metadata.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Friday's session requires converting all TEI documents into raw binary PostScript files.</p>]]></text>
+      <text><![CDATA[<p>PDF/A files are restricted to displaying only black and white text without any images.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Lesson 3.3 works with TEI XML <facsimile> and <surface> elements.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. PDF/A supports full-color, high-resolution master and derivative images.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1218,13 +1218,13 @@
   <!-- 29 Question -->
   <question type="multichoice">
     <name>
-      <text>29 Question: Consolidating the Week's Concepts</text>
+      <text>29 Question: The Conversion Pipeline: From Master TIFF to Tiled IIIF Pyramid</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What core concept unifies the Image API, Presentation API, multispectral imaging, and TEI facsimile encoding?</p>]]></text>
+      <text><![CDATA[<p>What are the sequential transformation steps in converting a raw studio camera capture into an active IIIF service asset?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Every technique this week produces something that targets a canvas region, which is what makes the imaging, transcription, and apparatus one object.</p>]]></text>
+      <text><![CDATA[<p>The archival conversion pipeline normalizes raw TIFF masters, generates pyramidal tiled derivatives using `vips`, and deploys them to compliant IIIF image servers.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1233,27 +1233,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The IIIF Canvas serves as a shared coordinate space that image layers, spectral alternatives, annotations, and transcribed text lines all target simultaneously.</p>]]></text>
+      <text><![CDATA[<p>Calibrate raw sensor data, export uncompressed 16-bit master TIFF, generate a pyramidal tiled TIFF derivative with `vips`, and configure the IIIF server image directory.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The canvas coordinate space is the central spine connecting pixel delivery, spectral evidence, and textual transcription.</p>]]></text>
+        <text><![CDATA[<p>Correct. The canonical pipeline preserves the master TIFF, builds an optimized pyramidal tiled derivative with libvips, and exposes it via an Image API server.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>All digital humanities tools must be written in the Java programming language.</p>]]></text>
+      <text><![CDATA[<p>Compress the raw file to a low-res JPEG, delete the original, and email it as an unformatted attachment to Moodle.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Tools span Python, JavaScript, XML, and JSON-LD across open web standards.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Archival standards require maintaining pristine lossless masters and generating high-resolution pyramidal pyramids.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Manuscripts must be physically destroyed after digitization to reduce library storage costs.</p>]]></text>
+      <text><![CDATA[<p>Print the photograph onto physical glossy paper, scan it with a flatbed scanner, and save it as a GIF.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Preservation of original codices is paramount; digital surrogates serve research and access.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Re-photographing or re-scanning introduces catastrophic generational analog noise.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Digital editions are prohibited from citing printed scholarly editions or catalogues.</p>]]></text>
+      <text><![CDATA[<p>Convert all pixel values into Roman numerals and paste them into an unformatted plain text document.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Digital editions engage with and incorporate print scholarship and catalogue traditions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Image pyramids are binary tiled raster structures, not text transcriptions.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1261,13 +1261,13 @@
   <!-- 30 Question -->
   <question type="multichoice">
     <name>
-      <text>30 Question: Synthesis: Instruments, Not Photographs</text>
+      <text>30 Question: The Deterministic Contract: Transparent Surrogates in the Digital Edition</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is a digital surrogate considered the output of a scientific instrument rather than a passive photograph?</p>]]></text>
+      <text><![CDATA[<p>What constitutes the 'deterministic contract' between the digital editor and the scholarly public when publishing processed document facsimiles?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Every manuscript image is an instrument's output, which is why it can show more than the eye and why it cannot be evaluated without its documentation.</p>]]></text>
+      <text><![CDATA[<p>Deterministic image processing establishes an ethical scholarly contract: digital surrogates must be transparent, verifiable, and algorithmically accountable.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1276,27 +1276,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Every surrogate reflects sensor responses, illumination physics, and statistical transformations that can exceed visual limits but require explicit documentation to be evaluated as evidence.</p>]]></text>
+      <text><![CDATA[<p>A methodological guarantee that all image adjustments are documented, reproducible, non-destructive to masters, and designed to clarify rather than falsify physical evidence.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Digital images are scientific datasets whose evidential validity depends on documenting how optical and computational instruments generated them.</p>]]></text>
+        <text><![CDATA[<p>Correct. Scholarly integrity requires transparent algorithms, archived processing scripts, preserved masters, and honest disclosure of any transformations.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Digital cameras take pictures using mechanical film that is chemically developed in darkrooms.</p>]]></text>
+      <text><![CDATA[<p>A legal contract signing over all commercial rights of the historical manuscript to the lead programmer.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Digital imaging uses optoelectronic sensors and computational processing pipelines.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Scholarly ethics and public trust have nothing to do with commercial copyright transfers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Digital surrogates are legally classified as medical diagnostic equipment under health regulations.</p>]]></text>
+      <text><![CDATA[<p>A pledge to never allow readers to inspect the original physical document under any circumstances.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The classification is epistemological and methodological within textual science.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Digital facsimiles invite and enrich physical autopsy; they never seek to ban physical inspection.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Scientific instruments can never be used to study humanities objects like literary manuscripts.</p>]]></text>
+      <text><![CDATA[<p>An agreement that all digital editions must look identical to printed 19th-century facsimile volumes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Modern philology actively uses imaging physics, spectroscopy, and statistical computing.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Digital editions offer interactive dynamic capabilities that far exceed static print facsimiles.</p>]]></text>
       </feedback>
     </answer>
   </question>

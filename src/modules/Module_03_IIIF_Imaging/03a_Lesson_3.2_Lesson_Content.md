@@ -1,1217 +1,830 @@
-# Lesson 3.2 — Raking Light, Multispectral Imaging, and Computational Palaeography
+# Lesson 3.2 — Deterministic Computer-Assisted Imaging: IIIF, Image Processing, and File Storage
 
 *RELS 398 / ENGL 398 · Topic 3: IIIF Imaging · Meeting #7 (Wed Sep 16)*
 
-*Infrastructure week — the three-step comparative cycle does not apply. Yesterday
-covered how images are delivered; today covers how they are made, and what can be
-recovered from a manuscript that ordinary photography cannot show.*
+*The deterministic/algorithmic computer-assisted baseline: the IIIF standard (Image and Presentation APIs), open-source image editing software, algorithmic image processing operations, and archival file storage formats.*
 
 ---
 
 ## **01 Content**
 
-**What the Eye Cannot See**
+**The IIIF Vision: Solving the Image Silo Problem**
 
-A manuscript page is not a text with some damage. It is a physical object whose
-materials — parchment, iron-gall ink, carbon ink, pigments, binding media,
-adhesives, and the products of centuries of chemical change — each interact with
-light in their own way.
+Before the widespread adoption of the International Image Interoperability Framework (IIIF) beginning in 2011, digital scholarship faced a fundamental infrastructure crisis. Major memory institutions—including the British Library, the Bibliothèque nationale de France, the Vatican Library, and Harvard University—had invested millions of dollars in digitizing rare manuscripts, maps, and historical prints. However, each institution developed its own proprietary software architecture, unique zoom controls, private image file storage formats, and isolated web viewer interfaces.
 
-Human vision samples that interaction very coarsely. The eye responds to
-wavelengths between roughly 400 and 700 nanometres, integrating everything in
-that range into three broad channels. Any two materials that happen to produce
-the same response in those three channels are, to the eye, the same colour —
-regardless of how different they are chemically.
+This institutional fragmentation created what digital humanists termed "image silos." An image silo is a closed repository where digitized cultural heritage assets can be viewed and analyzed only through that single institution's bespoke web portal. If a textual critic wanted to compare an early draft of an Emily Dickinson poem held at Amherst College with a variant manuscript leaf held at Harvard, the scholar had to open two separate browser windows running incompatible viewers. Neither viewer could import the other institution's images, let alone enable side-by-side panning, synchronized zooming, or computational collation.
 
-That limitation is the opening this lesson exploits. Iron-gall ink that has faded
-to near-invisibility in visible light may absorb ultraviolet radiation strongly
-while the surrounding parchment fluoresces under it. Carbon ink that is
-indistinguishable from a stain to the eye remains strongly absorbent in the
-near-infrared while the stain becomes transparent. The information was always
-present in the object; it was inaccessible only because human vision does not
-sample the wavelengths that carry it (Easton et al., 2003).
+The traditional workaround was deeply inefficient. Scholars downloaded massive, uncompressed image files—often gigabytes per witness—to their local hard drives to manipulate them in desktop graphics software. This practice reintroduced the friction of physical access through bandwidth limitations, produced unversioned local copies detached from institutional catalog metadata, and placed an unsustainable burden on independent researchers.
 
-Multispectral imaging is the practice of sampling those wavelengths
-systematically and then combining the results computationally. It is
-non-destructive and non-invasive — the manuscript is illuminated and photographed,
-nothing more — which is what makes it applicable to objects of extreme value
-(Clausen et al., 2026).
+IIIF was conceived to eliminate this friction by turning the digital image into a standardized, addressable network resource. Rather than downloading monolithic files, IIIF defines open, consensus protocols that allow any compliant web client to request precisely the image regions, sizes, and formats needed on demand.
 
-**Vocabulary.** *Nanometre (nm)* — one billionth of a metre; the unit of
-wavelength. *Fluorescence* — absorption of radiation at one wavelength followed by
-emission at a longer one. *Non-destructive* — leaving the object unaltered.
-
-**Takeaway:** Materials that look identical to the eye respond
-differently outside the visible range, and multispectral imaging samples those
-differences.
+**Takeaway:** IIIF eliminates institutional image silos by establishing shared, open network protocols that enable researchers to view, compare, and manipulate images across different repositories in a single interface.
 
 ---
 
 ## **02 Content**
 
-**Raking Light and Surface Relief**
+**The IIIF Image API: The Canonical Request URI Syntax**
 
-Before any spectral technique, the simplest intervention is to change the *angle*
-of illumination rather than its wavelength.
+At the foundation of IIIF lies the Image API, a specification that standardizes how image servers receive requests and deliver pixel data over standard HTTP. Instead of serving an entire 150-megabyte photograph when a user only wants to inspect an illuminated initial, the Image API allows the client to request specific sub-regions, scales, rotations, and color depths through a predictable URL structure.
 
-**Raking light** means illuminating the page from a very low angle, nearly
-parallel to its surface, rather than from the front. Frontal illumination
-minimizes shadow, which is what makes it good for reading ink. Grazing
-illumination maximizes shadow, and every deviation in the surface — a ruling
-furrow, an erasure, a dry-point gloss, a crease, a mould-made feature of the
-parchment — casts a shadow proportional to its depth.
+The canonical Image API request URI follows a strict mathematical template:
 
-This recovers a class of evidence that carries no ink at all:
+`{scheme}://{server}/{prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}`
 
-| Feature | Made by | Visible in frontal light? | Visible in raking light? |
-| --- | --- | --- | --- |
-| Ruling and pricking | Scoring or puncturing before writing | Rarely | Clearly |
-| Dry-point gloss | Writing with a stylus, no ink | Almost never | Often |
-| Erasure or scraping | Removing ink mechanically | Sometimes as discoloration | As surface disturbance |
-| Blind tooling | Impressing a binding without pigment | No | Yes |
-| Creases and cockling | Handling and humidity | Faintly | Clearly |
+Each component of this path serves a precise geometric and technical function:
 
-Dry-point glosses are the striking case. A reader annotating a manuscript with a
-stylus rather than ink leaves an impression in the parchment and no colour at
-all. Under ordinary illumination such annotations are effectively invisible, and
-entire layers of medieval readership went unrecorded until raking light was
-applied systematically.
+- **`{region}`:** Specifies the rectangular area of the source image to extract. It can be declared as `full` (the complete image), absolute pixel coordinates `x,y,w,h` (e.g., `400,600,1200,800`), or percentage coordinates `pct:x,y,w,h` (e.g., `pct:10,20,50,40`).
+- **`{size}`:** Specifies the pixel dimensions of the returned derivative. Common syntax includes `max` (full original resolution), `w,` (constrained by width, maintaining aspect ratio), `,h` (constrained by height), `pct:n` (scaled by percentage), or `!w,h` (fitted within a bounding box without distorting aspect ratio).
+- **`{rotation}`:** Specifies clockwise rotation in degrees (e.g., `0`, `90`, `180`, `270`, or fractional floating-point angles like `1.5`), optionally preceded by an exclamation mark `!rotation` to mirror the image horizontally.
+- **`{quality}`:** Determines the color reproduction, supporting `default` (server default), `color` (full RGB), `gray` (8-bit grayscale), or `bitonal` (1-bit pure black and white).
+- **`{format}`:** Specifies the file container format, typically `jpg`, `png`, `webp`, or `tif`.
 
-Raking light requires no special equipment beyond a controllable light source,
-which makes it the technique you are most likely to be able to apply yourself. If
-your manuscript's repository offers raking-light captures, seek them out; they
-frequently reveal ruling patterns that inform codicological description.
+Learning to read and write this URL template manually gives scholars direct programmatic control over primary sources without requiring local image editing software.
 
-**Takeaway:** Raking light reveals evidence that has no colour —
-ruling, erasure, and dry-point annotation — by turning depth into shadow.
+**Takeaway:** The IIIF Image API URL syntax standardizes region cropping, resolution scaling, rotation, color quality, and file formats into a predictable HTTP request path.
 
 ---
 
 ## **03 Content**
 
-**Reflectance Transformation Imaging**
+**Deep Zoom and Image Tiling**
 
-Raking light has a limitation: one illumination angle reveals features
-perpendicular to it and conceals features parallel to it. A furrow running
-towards the light casts no shadow. The obvious remedy — many photographs from
-many angles — produces a pile of images that a scholar must mentally combine.
+A primary technical triumph of the IIIF Image API is enabling fluid "deep zoom" across gigapixel manuscript images on standard web browsers and mobile devices. A master archival photograph of an oversize colonial broadside or a multi-column parchment folio can easily measure 12,000 pixels wide by 18,000 pixels high, resulting in an uncompressed image payload exceeding 600 megabytes. If a browser had to download this entire file before displaying the page, web portals would be unacceptably slow and crash consumer hardware.
 
-**Reflectance Transformation Imaging** (RTI), developed at Hewlett-Packard
-Laboratories as Polynomial Texture Mapping, automates that combination
-(Malzbender et al., 2001). The manuscript is placed at the centre of a
-hemispherical dome carrying many individually controllable lights, with the
-camera fixed. Each light fires in turn, producing an image stack in which every
-pixel has been recorded under many known illumination directions.
+Deep zoom solves this problem using a technique called **pyramidal tiling**:
 
-The computational step is what makes RTI more than a slideshow. For each pixel,
-the sequence of luminance values is fitted — by least-squares approximation using
-singular value decomposition — to a biquadratic polynomial in the light
-direction. Six coefficients per pixel are stored, alongside unscaled colour
-values (Malzbender et al., 2001).
+- When an archival master image is ingested by a IIIF image server, it is pre-processed into an image pyramid: a stack of derivative resolutions, each half the size of the layer beneath it.
+- Each resolution layer in the pyramid is subdivided into a grid of small, manageable square image tiles (typically 256x256 or 512x512 pixels).
+- When a user views a document in an interactive web viewer like OpenSeadragon or Mirador, the client viewer calculates the user's exact screen viewport and current zoom level.
+- The viewer requests only the specific grid tiles needed to fill the visible screen at that precise scale factor, loading half a dozen tiny 30-kilobyte JPEG tiles instead of the 600-megabyte master.
 
-Those six coefficients constitute a *model* of how that point on the surface
-responds to light from any direction, including directions never photographed.
-The viewer can therefore interpolate: the user drags a virtual light source
-around the hemisphere and the surface re-renders continuously, in real time.
+As the user pans across the page or zooms into a tiny scribal marginal gloss, the client viewer dynamically dispatches HTTP Image API requests for the newly visible tiles, discarding off-screen tiles from browser memory. This architecture provides seamless, instantaneous exploration of ultra-high-resolution primary sources across ordinary broadband connections.
 
-The result is not a photograph but an interactive surface model. A palaeographer
-examining a suspected erasure can sweep the light through every angle and watch
-how the disturbance responds — which is far more informative than any single
-static image, and closer to what an examiner does when tilting a physical object
-under a lamp.
-
-**Takeaway:** RTI fits a polynomial per pixel to many
-illumination angles, producing a relightable surface model rather than a fixed
-photograph.
+**Takeaway:** Deep zoom uses pyramidal image tiling to deliver only the small image tiles visible within the user's screen viewport, enabling instantaneous inspection of massive files without latency.
 
 ---
 
 ## **04 Content**
 
-**What RTI Makes Visible**
+**The Image Information Document (`info.json`)**
 
-Beyond relighting, the polynomial model supports mathematical enhancements that
-have no photographic equivalent.
+Before a web client can request image tiles or display zoom controls, it must understand the physical and technical capabilities of the remote image. How wide is the source image in pixels? What is its maximum height? What tile sizes does the server prefer, and which zoom scale factors are available? In the IIIF ecosystem, this technical negotiation is handled by the **Image Information document**, accessible at `{identifier}/info.json`.
 
-Because the polynomial describes how luminance varies with light direction, its
-derivatives yield the **surface normal** at each pixel — the direction the
-surface faces. Once normals are known, the software can exaggerate them
-(Malzbender et al., 2001).
+When a IIIF viewer loads an image identifier, its very first action is to fetch `info.json`. The server responds with a lightweight, structured JSON document:
 
-| Enhancement | Operation | Reveals |
-| --- | --- | --- |
-| Specular enhancement | Renders the surface as if glossy | Faint incisions and tooling |
-| Diffuse gain | Amplifies the polynomial's curvature term | Shallow relief, invisible at any real angle |
-| Normals visualization | Colour-maps surface direction | Surface structure independent of colour |
-| Normals unsharp masking | Sharpens the normal field | Fine detail in worn or abraded surfaces |
+```json
+{
+  "@context": "http://iiif.io/api/image/3/context.json",
+  "id": "https://example.org/iiif/3/manuscript_f01r",
+  "type": "ImageService3",
+  "protocol": "http://iiif.io/api/image",
+  "profile": "level2",
+  "width": 8400,
+  "height": 11200,
+  "tiles": [
+    {
+      "width": 512,
+      "scaleFactors": [1, 2, 4, 8, 16, 32]
+    }
+  ],
+  "sizes": [
+    {"width": 262, "height": 350},
+    {"width": 525, "height": 700},
+    {"width": 1050, "height": 1400}
+  ]
+}
+```
 
-The point about diffuse gain deserves emphasis. It does not simulate a lighting
-condition that could be physically arranged; it exaggerates the surface's
-geometry beyond what any real illumination would produce. RTI can therefore make
-visible what would remain invisible under direct examination with any lamp, at
-any angle. This is a case where the digital surrogate exceeds autopsy outright.
+The `info.json` payload provides the blueprint that drives client-side rendering:
 
-For palaeographers the applications are specific: dry-point glosses, blind
-tooling on bindings, and the topography of degraded parchment where ink has been
-lost but the writing has left an impression. In severely deteriorated material
-the surface may retain the trace of writing whose ink is entirely gone, and RTI
-can recover it (Malzbender et al., 2001).
+- **`width` and `height`:** The absolute dimensions of the master image at full 1:1 resolution.
+- **`tiles`:** Declares the preferred tile dimension (e.g., 512 pixels) and the mathematical `scaleFactors` (powers of 2) supported for pyramidal deep zoom.
+- **`sizes`:** Pre-computed thumbnail and preview dimensions that clients can request instantly without server-side scaling delays.
+- **`profile`:** Declares the server's compliance level (Level 0, Level 1, or Level 2), signaling whether features like arbitrary rotation or sub-region extraction are supported.
 
-RTI equipment is not available to this course, but RTI datasets exist for many
-manuscripts and viewers are freely available. If your manuscript has been imaged
-this way, it is worth pursuing.
+By automating this technical handshake through `info.json`, IIIF viewers configure their coordinate viewports dynamically without human intervention.
 
-**Takeaway:** RTI's derived surface normals allow enhancements
-that exceed any physically achievable lighting, recovering writing whose ink is
-entirely lost.
+**Takeaway:** The `info.json` document supplies the essential technical metadata—dimensions, tile sizes, scale factors, and supported features—that client viewers need to initialize deep zoom.
 
 ---
 
 ## **05 Content**
 
-**The Physics of Multispectral Recovery**
+**The IIIF Presentation API: The Shared Canvas Model**
 
-Returning to wavelength. The recovery of erased text rests on a straightforward
-physical fact: parchment and historical inks respond differently to radiation
-outside the visible range, and those differences are large.
+While the Image API handles the mechanics of pixel delivery, scholarship does not study isolated pixels. Scholarship studies books, rolls, letters, and albums. A book is an intellectual and physical assembly: it has a reading sequence, page numbers, quire structures, table of contents divisions, and facing pages. To represent this structural and contextual reality, IIIF developed the **Presentation API**.
 
-Under **ultraviolet** illumination, parchment collagen fluoresces strongly,
-absorbing UV and re-emitting visible light — the page glows. Iron-gall ink
-absorbs UV and does not fluoresce. Where ink is present, even ink scraped away
-centuries ago leaving only a chemical residue, the fluorescence is suppressed.
-The residue appears as dark text against a glowing page, at a contrast far
-exceeding anything visible under ordinary light (Easton et al., 2003).
+The intellectual core of the Presentation API is the **Canvas**:
 
-In the **near-infrared**, the relationship differs. Carbon-based inks remain
-strongly absorbent well into the infrared, while many organic dyes, stains, and
-later overwriting become progressively transparent. Imaging at these wavelengths
-can therefore see *through* an obscuring layer to carbon ink beneath (Clausen et
-al., 2026).
+- A Canvas is an abstract, virtual two-dimensional coordinate space representing a single physical surface (such as a folio recto or a map sheet).
+- Crucially, a Canvas is *not* an image file. A Canvas is an empty digital plane that possesses width, height, and an aspect ratio, but no intrinsic pixels.
+- Content—such as photographic exposures, multispectral layers, transcription text, or audio recordings—is **annotated** onto the Canvas.
 
-| Wavelength range | Behaviour of parchment | Behaviour of ink | Application |
-| --- | --- | --- | --- |
-| UV, ~365 nm | Fluoresces strongly | Iron-gall absorbs, no fluorescence | Erased iron-gall text |
-| Visible, 400–700 nm | Reflects broadly | Both ink types absorb | Baseline reference image |
-| NIR, 700–940 nm | Increasingly transparent | Carbon remains absorbent | Seeing through stains and overwriting |
-| IR, 900–1700 nm | Largely transparent | Carbon strongly absorbent | Carbon ink under heavy obscuration |
+This distinction between the virtual Canvas and the digital image is one of the most powerful theoretical abstractions in digital humanities. Because the Canvas is an independent coordinate surface, multiple visual resources can be bound to the exact same physical space. For example, a single folio Canvas can have an ordinary visible light photograph annotated as its base layer, an ultraviolet fluorescence image annotated as a semi-transparent overlay, and an infrared reflectogram registered alongside it.
 
-The palimpsest is the paradigm case. A **palimpsest** is a manuscript whose
-original text — the *scriptio inferior* — was scraped or washed off so the
-parchment could be reused for a new text, the *scriptio superior*. The lower text
-is invisible not because it was destroyed but because too little remains for the
-eye to detect against the parchment and the overwriting. Spectral imaging
-recovers the contrast that the eye cannot (Easton et al., 2003).
+Furthermore, transcribed text encoded in TEI can be aligned directly to Canvas coordinates. The Canvas serves as the universal digital surrogate upon which all physical, visual, and textual evidence converges.
 
-**Vocabulary.** *Scriptio inferior* — the erased under-text of a palimpsest.
-*Scriptio superior* — the later text written over it. *Iron-gall ink* — the
-standard European ink, made from iron salts and tannins.
-
-**Takeaway:** Parchment fluoresces under UV while iron-gall ink
-does not, and carbon ink absorbs infrared while stains become transparent — two
-different physical mechanisms for two different recovery problems.
+**Takeaway:** The IIIF Canvas is an abstract two-dimensional coordinate space modeling a physical surface, allowing multiple images, spectral layers, and transcriptions to be annotated onto the same plane.
 
 ---
 
 ## **06 Content**
 
-**Acquisition: Building a Datacube**
+**Anatomy of a IIIF Manifest: Structure and JSON-LD**
 
-A multispectral capture is a controlled procedure, and understanding it tells you
-what the resulting data can and cannot support.
+To present a complete historical object to a reader, an institution publishes a **IIIF Manifest**. A Manifest is a structured digital package that gathers all the metadata, canvases, sequences, and structural divisions of an artifact into a single, standardized JSON-LD (JavaScript Object Notation for Linked Data) document.
 
-The manuscript is placed under a fixed high-resolution achromatic camera —
-achromatic because a colour sensor's filter array would confound the narrow-band
-measurements. Illumination comes from multispectral LED panels emitting narrow
-bands from roughly 365 nm in the ultraviolet through to about 940 nm in the
-near-infrared. Where carbon ink beneath heavy obscuration is the target, dedicated
-infrared cameras operating between 900 and 1700 nm are used (Clausen et al.,
-2026).
+When a researcher pastes a URL into a IIIF viewer like Mirador or Universal Viewer, they are providing the URL of a Manifest. The viewer parses the Manifest to assemble the entire reading experience:
 
-Each band is captured in turn, with the object and camera stationary. The output
-is a stack of registered greyscale images — one per wavelength — collectively
-called a **datacube**: a three-dimensional array whose x and y axes are spatial
-position and whose z axis is wavelength (Easton et al., 2003).
+```json
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://example.org/manifests/dickinson_poem_338.json",
+  "type": "Manifest",
+  "label": { "en": [ "Emily Dickinson, MS Am 1118.3 (338)" ] },
+  "metadata": [
+    {
+      "label": { "en": [ "Creator" ] },
+      "value": { "en": [ "Emily Dickinson (1830–1886)" ] }
+    },
+    {
+      "label": { "en": [ "Repository" ] },
+      "value": { "en": [ "Houghton Library, Harvard University" ] }
+    }
+  ],
+  "items": [
+    {
+      "id": "https://example.org/canvases/c1",
+      "type": "Canvas",
+      "label": { "en": [ "Folio 1 Recto" ] },
+      "width": 3200,
+      "height": 4800,
+      "items": [
+        {
+          "id": "https://example.org/annotations/page1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://example.org/annotations/image1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://example.org/iiif/image1/full/max/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "service": [
+                  {
+                    "id": "https://example.org/iiif/image1",
+                    "type": "ImageService3",
+                    "profile": "level2"
+                  }
+                ]
+              },
+              "target": "https://example.org/canvases/c1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
-| Axis | Represents | Typical extent |
-| --- | --- | --- |
-| x | Horizontal pixel position | Several thousand pixels |
-| y | Vertical pixel position | Several thousand pixels |
-| z | Spectral band | 12 to 30 bands |
+The top-level `metadata` array presents cataloguing facts to the reader. The `items` array contains the ordered list of Canvases. Inside each Canvas, an Annotation with `motivation: painting` paints the Image API service directly onto the virtual space.
 
-The crucial property is that each pixel has a **spectrum** rather than a colour —
-a vector of reflectance values across the sampled bands. Two points that are
-identical in visible colour may have entirely different spectra, and it is that
-difference the subsequent processing exploits.
-
-Registration matters more than it sounds. The bands must align to the pixel, or
-every subsequent operation combines misaligned data. Because different
-wavelengths refract differently through the lens, chromatic aberration displaces
-them slightly, and registration algorithms correct this along with any residual
-distortion before processing begins (Clausen et al., 2026).
-
-**Takeaway:** A datacube gives every pixel a spectrum rather
-than a colour, and pixel-perfect registration across bands is what makes it
-processable.
+**Takeaway:** A IIIF Manifest is a structured JSON-LD document that packages descriptive metadata, ordered Canvases, and image annotations into an interoperable digital edition.
 
 ---
 
 ## **07 Content**
 
-**Why Raw Bands Are Rarely Enough**
+**Multi-Page Structures: Sequences, Ranges, and Structures**
 
-Students meeting multispectral data for the first time often expect that one
-band will simply show the erased text. Occasionally it does. Usually it does not,
-and the reason is instructive.
+Simple broadsides and single letters require only one or two Canvases. However, complex historical codices, legal registers, and printed books consist of hundreds of leaves structured into quires, chapters, indexes, and appendices. To allow users to navigate these complex hierarchies without endlessly scrolling, the IIIF Presentation API provides **Ranges** within its `structures` property.
 
-Any single band is one measurement per pixel. The erased under-text is present as
-a small difference in reflectance, and that difference competes with everything
-else varying across the page: parchment thickness, staining, cockling,
-illumination gradients, the over-text, and sensor noise. In any individual band
-the signal is real but small relative to that variation.
+A IIIF `Range` defines an intellectual grouping of Canvases. Ranges can be nested hierarchically to represent complex tables of contents:
 
-What distinguishes the under-text is not its magnitude in any one band but its
-*pattern across bands*. Ink residue and clean parchment differ in how their
-reflectance changes from 365 nm to 940 nm, even where they are similar at each
-individual wavelength. That pattern is a property of the whole spectrum and is
-invisible in any single slice of it.
+- A top-level Range might represent a major division, such as "Book I" or "Appendix".
+- Child Ranges represent sub-sections, such as "Chapter 1: Initial Invocations" or "Index of Signatories".
+- Each Range specifies its target Canvases using an array of Canvas URIs, optionally defining sub-regions (`xywh`) on specific canvases.
 
-The processing problem is therefore **signal separation**: mathematically
-distinguishing ink from parchment, stains, and over-text by exploiting spectral
-pattern rather than raw brightness (Easton et al., 2003). This is a statistical
-operation across the z axis of the datacube, and it is where the real recovery
-happens.
+In viewer interfaces, the `structures` block populates an interactive tree-view navigation sidebar. When a reader clicks "Chapter 4" in the table of contents sidebar, the viewer immediately jumps to the opening Canvas of that section.
 
-The corollary matters for how you interpret results. A processed composite is not
-a photograph of the manuscript. It is the output of a statistical transformation,
-in which apparent brightness corresponds to a computed quantity rather than to
-reflected light. Reading it requires knowing what was computed — which is why the
-processing must be documented alongside the image.
+Furthermore, Ranges allow institutions to document codicological collation:
 
-**Takeaway:** Erased text is identified by its pattern across
-bands rather than its brightness in any one, so recovery is a statistical
-operation and its output is not a photograph.
+- Grouping Canvases into specific quires (e.g., Quire 1, Quire 2).
+- Marking structural anomalies, such as excised leaves, cancel slips, or misplaced gatherings.
+- Linking disparate Canvases that were historically separated during rebinding into a single reconstructed virtual reading sequence.
+
+By separating intellectual structure from raw physical sequence, IIIF Ranges give digital editors the tools to present both how the document is physically constructed and how its contents are intellectually organized.
+
+**Takeaway:** IIIF Ranges and the `structures` property organize linear Canvases into interactive, hierarchical tables of contents and codicological quire structures.
 
 ---
 
 ## **08 Content**
 
-**Principal Component Analysis**
+**Interoperable Juxtaposition: Comparing Witnesses in Mirador**
 
-The first and most widely used separation method is **Principal Component
-Analysis** (PCA), an orthogonal linear transformation that projects correlated
-spectral bands into a new set of uncorrelated variables ordered by the variance
-they capture (Easton et al., 2003).
+The true test of the IIIF framework occurs when a scholar opens an advanced multi-window viewer such as **Mirador**. Built as an open-source collaborative project by Stanford, Harvard, Oxford, and the digital humanities community, Mirador is designed specifically for deep comparative textual scholarship.
 
-The intuition: the spectral bands are highly redundant, since most of what varies
-across a manuscript page — overall illumination, parchment tone — affects all
-bands together. PCA finds the direction in spectral space along which the data
-varies most, calls that the first principal component, then finds the direction
-of greatest remaining variance orthogonal to it, and so on.
+Because Mirador speaks the universal language of IIIF Presentation and Image APIs, it breaks institutional borders:
 
-| Component | Typically captures | Palaeographic usefulness |
-| --- | --- | --- |
-| PC1 | Overall brightness and illumination | Usually little; dominated by lighting |
-| PC2 | Major material contrast, often the over-text | Moderate |
-| PC3–PC5 | Subtler material differences | Frequently where the under-text emerges |
-| Higher | Progressively more noise | Occasionally useful; usually discarded |
+1. **Multi-Up Grid Layouts:** A scholar can divide the screen into two, four, or eight independent viewing slots. In slot one, the user loads a 15th-century Gutenberg Bible from the Library of Congress. In slot two, they load a copy of the same passage from the Bibliothèque nationale de France.
+2. **Synchronized Panning and Zooming:** Mirador allows users to lock viewing slots together. When the scholar zooms into a specific line of text or pans across a column on the Paris witness, the Washington witness pans and zooms synchronously to the identical spatial coordinates.
+3. **Cross-Institutional Collation:** Editorial collation—comparing variant readings, checking punctuation marks, and noting scribal corrections—can be performed directly on high-resolution primary evidence without traveling to multiple continents or maintaining massive local disk arrays.
+4. **Annotation Integration:** Mirador displays transcription overlays, scholarly commentary, and TEI-aligned bounding boxes directly over the images, retrieving annotations published across separate institutional servers.
 
-The pattern in that table is the practical lesson. The under-text rarely appears
-in the first component, because it is not the largest source of variance on the
-page — illumination is. It typically emerges in the middle components, where
-large-scale variation has already been captured and removed, leaving the material
-differences that distinguish ink residue from parchment.
+Interoperable juxtaposition transforms digital manuscript research from solitary viewing into connected, networked scholarship.
 
-PCA maximizes variance, which is a good proxy for information but is not the same
-thing. It has no concept of "ink" and cannot be directed at the under-text; it
-simply reorganizes the data so that structure concentrates in early components.
-Finding the under-text means inspecting the components and recognizing it.
-
-**Takeaway:** PCA reorders spectral data by variance, and the
-erased under-text usually emerges in the middle components rather than the first.
+**Takeaway:** Advanced IIIF viewers like Mirador exploit shared standards to enable synchronized side-by-side juxtaposition and collation of witnesses held across different institutions.
 
 ---
 
 ## **09 Content**
 
-**Independent Component Analysis**
+**The Open-Source Imperative in Scholarly Imaging**
 
-Where PCA maximizes variance, **Independent Component Analysis** (ICA) pursues a
-different and, for palimpsests, more apt objective. ICA models the datacube as a
-linear mixture of statistically independent, non-Gaussian source signals, and
-recovers those sources (Easton et al., 2003).
+In commercial design and consumer photography, proprietary software ecosystems like Adobe Creative Cloud (Photoshop, Lightroom) dominate the market. However, in academic research, digital humanities, and cultural heritage preservation, reliance on closed, proprietary image manipulation software presents grave methodological and ethical risks.
 
-The assumption fits the palimpsest exactly. A palimpsest folio genuinely *is* a
-mixture of independent sources: the parchment substrate, the *scriptio inferior*,
-and the *scriptio superior* were produced at different times by different hands
-with different materials, and their spatial patterns are unrelated. What the
-camera records at each pixel is a sum of their contributions.
+The **open-source imperative** in scholarly imaging rests on four core principles:
 
-This is the "cocktail party problem" of signal processing — several conversations
-recorded by several microphones, each capturing a different mixture, from which
-independent voices can be recovered given enough microphones. Here the spectral
-bands are the microphones and the textual layers are the voices.
+- **Reproducibility:** Scientific and scholarly standards require that any claim made in an edition must be verifiable by other researchers. Proprietary software uses opaque, black-box algorithms whose mathematical parameters are hidden trade secrets. If an editor adjusts manuscript contrast using an undocumented proprietary filter, no other scholar can replicate the exact transformation.
+- **Sustainability and Longevity:** Digital humanities projects must remain viable for decades. Closed software companies change licensing terms, alter internal rendering engines, or discontinue products entirely. An open-source toolchain can be archived, compiled on future operating systems, and maintained indefinitely.
+- **Scriptability and Automation:** Archival digitization campaigns handle thousands of folios. Interactive point-and-click graphical interfaces are error-prone and unscalable. Open-source command-line tools enable automated, deterministic batch pipelines where every image receives identical, auditable processing.
+- **Universal Accessibility:** Software requiring expensive monthly commercial subscriptions erects financial barriers that exclude students, independent scholars, and institutions in the Global South. Open-source tools ensure equitable access to digital methods.
 
-| Method | Objective | Best suited to |
-| --- | --- | --- |
-| PCA | Maximize variance in orthogonal components | General contrast enhancement; finding structure |
-| ICA | Maximize statistical independence of sources | Separating overlapping texts into distinct outputs |
-| MNF | Segregate noise from signal via cascaded PCAs | Very degraded material with high noise |
+The foundational open-source toolchain for historical document processing comprises **GIMP** for interactive exploratory autopsy, **ImageMagick** for command-line batch scripting, and **libvips** for high-performance gigapixel tiling.
 
-ICA is therefore exceptionally effective at cleanly separating *scriptio inferior*
-from *scriptio superior* into distinct output bands — which is what a palimpsest
-scholar actually wants, as opposed to a single image in which both texts are
-visible and superimposed (Easton et al., 2003).
-
-Its limitation is that it requires an assumption about the number of independent
-sources and can produce components in an arbitrary order and sign. Interpretation
-is required; the algorithm does not label its outputs.
-
-**Takeaway:** ICA separates overlapping texts into distinct
-outputs by recovering statistically independent sources, which suits palimpsests
-precisely.
+**Takeaway:** Scholarly imaging demands open-source software to guarantee mathematical reproducibility, long-term sustainability, automated batch scripting, and equitable academic access.
 
 ---
 
 ## **10 Content**
 
-**Minimum Noise Fraction**
+**Interactive Editing with GIMP: Manual Adjustments and Layer Inspection**
 
-A third transformation addresses a problem the other two handle poorly. In
-severely degraded material the signal of interest may be weaker than the sensor
-noise in some bands, and PCA — which maximizes variance without distinguishing
-signal from noise — will happily rank a noisy band highly.
+While automated command-line scripts execute final production batches, the initial phase of document autopsy often requires interactive, exploratory visual inspection. The **GNU Image Manipulation Program (GIMP)** is the premier open-source desktop image workbench, providing professional-grade tools for forensic examination of historical documents.
 
-**Minimum Noise Fraction** (MNF) applies two cascaded principal component
-analyses. The first estimates and normalizes the noise, transforming the data so
-that noise has unit variance and is uncorrelated between bands. The second
-performs a standard PCA on that noise-whitened data. The result orders components
-by *signal-to-noise ratio* rather than by raw variance (Easton et al., 2003).
+In manuscript autopsy, GIMP serves three primary functions:
 
-The practical consequence is that MNF also estimates the data's inherent
-dimensionality: it reveals how many components carry real signal before the
-remainder degenerates into noise. That is useful information in itself, since it
-tells you how many components are worth examining.
+1. **Color Curve Analysis:** The Curves tool (`Colors > Curves`) allows scholars to manipulate the tonal transfer function interactively. By steepening the curve in shadows while flattening midtones, an editor can visually separate faded iron-gall ink strokes from darkened parchment backgrounds, checking real-time visual feedback before committing mathematical values to a batch script.
+2. **Channel Inspection:** Historical inks and stains separate distinctly across individual color channels. In GIMP's Channels dialog (`Windows > Dockable Dialogs > Channels`), a researcher can disable the Red and Green channels to inspect the Blue channel in isolation. Because iron-gall ink absorbs blue light strongly while parchment reflects it, the isolated Blue channel frequently reveals erased writing that appears illegible in full RGB color.
+3. **Non-Destructive Layer Masks:** When experimenting with contrast enhancement or binarization, scholars use Layer Masks. A layer mask allows selective opacity adjustments without permanently erasing pixel data. Areas of heavy bleed-through or water staining can be masked on an upper layer while preserving the unaltered master on the base layer.
 
-MNF is particularly effective for extracting trace elemental fluorescence in
-heavily degraded palimpsests, where the residue is faint enough that noise
-normalization is the difference between recovery and failure.
+GIMP acts as the digital scholar's laboratory microscope: an interactive environment for testing hypotheses and determining exact numerical parameters before automating production pipelines.
 
-In practice the three methods are complementary rather than competing, and a
-serious imaging project runs all of them. PCA gives a rapid overview of where
-structure lies. MNF establishes how much real signal exists and suppresses noise.
-ICA separates the layers once the signal is known to be there. The scholar
-inspects outputs from each and selects what proves legible.
-
-**Takeaway:** MNF orders components by signal-to-noise rather
-than variance, which is what makes very degraded material tractable.
+**Takeaway:** GIMP provides an interactive open-source environment for manuscript autopsy, using color curve adjustments, channel decomposition, and non-destructive layer masks to reveal hidden text.
 
 ---
 
 ## **11 Content**
 
-**False-Colour Composites**
+**Scripting with ImageMagick: Command-Line Batch Automation**
 
-Statistical components emerge as greyscale images, and a scholar comparing five
-of them is doing difficult visual work. The standard presentation combines them
-into a **false-colour composite**.
+When processing an archival run of three hundred manuscript folios or an entire run of a Revolutionary French newspaper, opening each file manually in an interactive GUI is impossible. Human operators make variable adjustments, tire easily, and introduce clerical errors. The solution is deterministic batch processing using **ImageMagick**.
 
-The method is simple: assign three chosen components to the red, green, and blue
-display channels of a monitor. The result is a colour image in which colour
-encodes computed quantities rather than reflected light. With appropriate
-selection, the erased under-text appears vividly coloured — bright red or blue —
-against a neutral background (Easton et al., 2003).
+ImageMagick is a powerful, open-source command-line software suite for creating, editing, composing, and converting raster images. In modern versions (ImageMagick 7), the unified `magick` binary replaces legacy commands, providing an expressive syntax for programmatic image manipulation:
 
-Practitioners typically build these in ENVI or Photoshop, using channel splitting,
-blending modes, and opacity adjustment to tune the result. These enhanced images
-then serve as the primary resource for transcription: the scholar transcribes
-from the composite, not from the visible-light photograph.
+```bash
+# Basic conversion and format transformation
+magick input_master.tif -quality 85 output_web.jpg
 
-| Channel | Commonly assigned | Effect |
-| --- | --- | --- |
-| Red | A component isolating the under-text | Under-text appears red |
-| Green | A visible-light or reference band | Provides page context |
-| Blue | A component isolating the over-text | Over-text appears blue |
+# Automated batch normalization across an entire directory
+magick mogrify -format png -resize 2000x -auto-orient *.tif
+```
 
-The term "false colour" is doing important work and should be taken literally.
-The colours are assigned, not measured. A red letterform in such an image does
-not indicate red ink; it indicates that the pixel scored highly on whichever
-component was assigned to the red channel. Presenting a false-colour composite
-without stating what its channels contain is close to unintelligible, and in a
-scholarly context it is misleading — a reader cannot evaluate the evidence
-without knowing what they are looking at.
+The true power of ImageMagick lies in **pipeline chaining**: executing multiple complex geometric, optical, and tonal operations in a single atomic command without writing intermediate temporary files to disk:
 
-Whenever you cite such an image, record the processing: which method, which
-components, which channel assignments.
+```bash
+magick input_raw.tif \
+  -deskew 40% \
+  -crop 3800x5400+250+300 \
+  -level 12%,88%,1.1 \
+  -unsharp 0x1.2+1.0+0.05 \
+  -colorspace Gray \
+  output_processed.tif
+```
 
-**Takeaway:** False-colour composites encode computed
-quantities as colour, so the channel assignments must be documented or the image
-cannot be evaluated as evidence.
+In this single command line, the software detects rotational skew, crops the document using precise coordinate offsets, stretches the tonal contrast histogram, sharpens fine ink strokes with an unsharp mask, and converts the color space to 8-bit grayscale.
+
+Embedding ImageMagick commands in shell scripts ensures that every folio in a digital edition receives mathematically identical treatment, providing complete experimental transparency.
+
+**Takeaway:** ImageMagick enables automated, scriptable batch processing, chaining complex operations like deskewing, cropping, leveling, and sharpening into single auditable commands.
 
 ---
 
 ## **12 Content**
 
-**Case Study: The Archimedes Palimpsest**
+**High-Performance Processing with libvips: Memory Efficiency and Tiling**
 
-The Archimedes Palimpsest is the field's defining demonstration and repays close
-study, because every technique above appears in it.
+While ImageMagick excels at flexible operations and complex filters, it has a significant architectural limitation: it typically loads entire uncompressed image bitmaps into active RAM. When handling ultra-high-resolution files—such as a 1.2-gigabyte 16-bit TIFF of an oversize nautical chart or a 150-megapixel capture of a colonial treaty—ImageMagick can exhaust system memory, trigger disk swapping, or crash the server.
 
-The object is a tenth-century Byzantine parchment manuscript containing unique
-Greek copies of seven treatises by Archimedes — including the only surviving
-witness to the *Method of Mechanical Theorems* and to *On Floating Bodies* in
-Greek. In the thirteenth century the codex was unbound, its ink scraped away, the
-leaves cut in half, rotated, and overwritten with a Euchologion, a Christian
-prayer book, to reuse the valuable parchment (Easton et al., 2003).
+For high-throughput, memory-constrained environments and pyramidal tiling, the digital humanities standard is **libvips**. Libvips is an ultra-fast, multi-threaded image processing library engineered specifically for large images.
 
-Every possible obstacle was present. The under-text had been deliberately erased.
-The leaves had been physically cut and reoriented, so the Archimedes text runs
-perpendicular to the prayer book. Centuries of mould had damaged the parchment.
-And, worst, in the twentieth century a forger had painted Byzantine-style gold-leaf
-portraits onto several folios to raise the manuscript's sale value — completely
-obscuring the parchment beneath.
+The secret to libvips's performance is its **streaming architecture**:
 
-The decade-long project applied multispectral imaging from ultraviolet through
-near-infrared, then PCA and ICA to separate the layers, generating pseudocoloured
-composites in which the thirteenth-century prayers were suppressed and Archimedes'
-text and mathematical diagrams appeared in clarity (Easton et al., 2003).
+- Rather than allocating memory for an entire image at once, libvips processes pixels in narrow horizontal strips ("scanlines") as they stream from disk to output.
+- Because only a few scanlines reside in memory at any millisecond, libvips can process a 10-gigabyte image using as little as 50 megabytes of RAM.
+- It automatically utilizes all available CPU cores, outperforming traditional image tools by factors of four to ten while consuming a fraction of the memory.
 
-For the gold-leaf folios even that failed, since no optical wavelength penetrates
-metal foil. The solution was X-ray fluorescence imaging at the Stanford
-Synchrotron Radiation Lightsource: an intense X-ray beam excited the iron atoms in
-the tenth-century iron-gall ink, causing them to fluoresce through the gold leaf
-and revealing the text beneath by its elemental composition rather than its
-optical properties (Easton et al., 2003).
+In IIIF workflows, libvips is the tool of choice for generating deep-zoom pyramids via its command-line tool `vips`:
 
-**Takeaway:** The Archimedes Palimpsest required optical
-multispectral imaging, statistical separation, and finally X-ray fluorescence to
-read text through gold leaf — no single technique sufficed.
+```bash
+# Generate a Deep Zoom pyramidal tile folder from a master TIFF
+vips dzsave master_sheet.tif output_deepzoom --tile-size 512 --overlap 0
+
+# Convert a flat TIFF into an optimized Pyramidal IIIF TIFF
+vips tiffsave master_sheet.tif pyramid_master.tif \
+  --tile --tile-width 512 --tile-height 512 \
+  --pyramid --compression deflate
+```
+
+Understanding libvips enables digital humanists to build scalable institutional image repositories that handle massive collections without requiring expensive supercomputing infrastructure.
+
+**Takeaway:** Libvips uses a streaming pipeline to process massive gigapixel images with minimal memory footprint, serving as the standard engine for generating pyramidal IIIF tiles.
 
 ---
 
 ## **13 Content**
 
-**What the Archimedes Project Established**
+**Reproducible Processing: Logging Parameters and Scripting Pipelines**
 
-Three consequences followed from that project, and each shapes practice today.
+A central tenet of the scientific method is **reproducibility**: given the same raw data and the same processing steps, an independent researcher must be able to reproduce the exact same output. Historically, digital editions frequently failed this test because editors applied ad-hoc image enhancements in desktop software without recording the exact tools, version numbers, or mathematical parameters used.
 
-First, it demonstrated that historical documents must be treated as **multi-layered
-chemical and topological matrices** rather than as surfaces bearing text. The
-Archimedes text was recovered not by reading it but by identifying the chemical
-signature of the ink that had once formed it. That reframing — the manuscript as
-a material object with measurable properties, of which the visible text is only
-one expression — underlies all of computational palaeography (Easton et al.,
-2003).
+A professional digital humanities workflow enforces reproducible processing through scripted pipelines and auditable logs:
 
-Second, it created the requirement that IIIF later answered. The project produced
-dozens of images per folio: raw bands, statistical components, composites,
-XRF elemental maps. These are not alternative photographs to choose among; they
-are complementary evidence, and a scholar needs to move between them freely while
-looking at the same place on the page. That need is precisely what the canvas
-abstraction and the `Choice` construct were designed for, and the palimpsest
-projects drove their development (Easton et al., 2003).
+1. **Zero Destructive Editing:** The original RAW files and uncompressed master TIFFs captured in the studio are treated as permanent, immutable archival assets. They are stored in read-only directories and never overwritten.
+2. **Explicit Code Repositories:** All transformations—cropping, deskewing, color corrections, thresholding—are written as version-controlled Bash or Python scripts stored directly in the edition repository alongside the TEI markup.
+3. **Execution Metadata Logs:** Whenever an image pipeline executes, it generates an accompanying machine-readable log (JSON or YAML) recording the execution environment:
+   - Operating system and library versions (e.g., ImageMagick 7.1.1, libvips 8.15.1).
+   - Exact input file hashes (SHA-256) and output file hashes.
+   - Complete command-line strings and mathematical argument flags.
+   - Timestamps and executing user.
 
-Third, it established that recovery is a *collaboration* between imaging
-scientists and philologists, neither of whom can complete the work alone. The
-scientists produce candidate images; only a palaeographer can judge whether a
-recovered form is a letter, and only a philologist can judge whether the resulting
-sequence is plausible Greek. Where the two are separated, the imaging is
-undirected and the interpretation is uncontrolled.
+```json
+{
+  "pipeline": "batch_manuscript_prep.sh",
+  "version": "1.2.0",
+  "timestamp": "2026-09-11T10:15:00Z",
+  "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "operations": [
+    { "step": "deskew", "angle": -1.42, "algorithm": "radon" },
+    { "step": "crop", "geometry": "4200x6100+180+220" },
+    { "step": "level", "black_point": "10%", "white_point": "90%", "gamma": 1.05 }
+  ]
+}
+```
 
-That third point is a live methodological issue for you. When you evaluate a
-processed image this term, you are performing the philologist's half of that
-collaboration, and the judgement required is palaeographic rather than technical.
+By packaging raw masters, executable scripts, and transformation logs together, the edition creates a completely transparent, verifiable chain of custody from archival sensor to published pixels.
 
-**Takeaway:** Recovery requires imaging scientists and
-philologists together — only a palaeographer can judge whether a recovered form
-is a letter.
+**Takeaway:** True scholarship requires reproducible pipelines; editors must preserve immutable raw masters and commit version-controlled processing scripts with execution logs.
 
 ---
 
 ## **14 Content**
 
-**Case Study: Princeton Garrett Ms. 24**
+**Coordinate-Based Cropping: Isolating Folios and Zones**
 
-If Archimedes demonstrated what recovery can achieve, Princeton's Garrett Ms. 24
-demonstrates the problem that follows success: making the results *usable*.
+When historical documents are photographed on a copy stand or book cradle, the camera's rectangular sensor inevitably captures peripheral objects beyond the document boundary: the black felt background of the copyboard, foam wedges, edge-holding snake weights, and calibrated metric scale bars. While these elements are essential for physical calibration, downstream transcription, web display, and automated machine learning require clean, cropped images focused strictly on the manuscript leaf.
 
-Garrett Ms. 24 is a tenth-century Greek palimpsest whose under-texts include
-sixth- to ninth-century Greek and Christian Palestinian Aramaic material —
-linguistically significant, since Christian Palestinian Aramaic is attested in a
-small corpus and every additional witness matters. Multispectral capture and
-processing generated dozens of processed images per folio, isolating different
-scripts and material anomalies.
+Deterministic cropping replaces manual, subjective dragging of marquee boxes with precise coordinate mathematics. In ImageMagick, the `-crop` operator defines extraction boundaries:
 
-At that point Princeton faced a distribution problem rather than a recovery
-problem. The data existed. Publishing it as downloadable datacubes would have
-served almost nobody: the files are enormous, and interpreting them requires
-software and expertise that most philologists do not have. The recovery would have
-been real and effectively inaccessible.
+`-crop {width}x{height}+{x_offset}+{y_offset}`
 
-Princeton's response was to host the enhanced images under IIIF and integrate a
-compliant viewer directly into the online library catalogue. The viewer presents a
-dropdown by which a researcher toggles between narrow-band captures at specific UV
-or IR wavelengths and algorithmically processed PCA composites — all registered to
-the same canvas, so the view does not shift when the layer changes.
+Consider an archival master image measuring 6,000 pixels wide by 8,000 pixels high. A calibrated autopsy establishes that the document begins 450 pixels from the left margin, 600 pixels from the top margin, and occupies a rectangular area of 5,100 pixels wide by 7,000 pixels high:
 
-The lesson the case is usually cited for is that **providing access to
-multispectral data requires interface design as much as it requires imaging**.
-Hosting raw datacubes is not access. Packaging complex optical physics into a
-dropdown that a philologist can use without understanding PCA is what converts a
-recovery into a usable scholarly resource — and IIIF `Choice` annotations are the
-mechanism.
+```bash
+magick master_f04r.tif -crop 5100x7000+450+600 +repage cropped_f04r.tif
+```
 
-**Takeaway:** Recovery is not access; Princeton's contribution
-was packaging multispectral results into an interface a philologist could actually
-use.
+Notice the vital `+repage` operator. By default, standard TIFF and GIF formats preserve the image's original virtual canvas offsets inside their metadata headers even after cropping. If `+repage` is omitted, subsequent web viewers or tiling tools may continue to render the cropped image offset within an invisible 6000x8000 canvas. The `+repage` operator resets the virtual canvas to match the new image boundaries exactly.
+
+Furthermore, coordinate cropping connects directly to the TEI facsimile framework. The pixel coordinates `(450, 600)` and dimensions `(5100, 7000)` correspond directly to the values encoded in `<surface ulx="450" uly="600" lrx="5550" lry="7600">`, creating seamless bi-directional mapping between markup and processed derivatives.
+
+**Takeaway:** Coordinate-based cropping extracts precise sub-regions using mathematical offsets, where the `+repage` operator resets virtual canvas boundaries to prevent rendering errors.
 
 ---
 
 ## **15 Content**
 
-**The `Choice` Construct**
+**Deskewing and Geometric Alignment: Rectifying Rotational Drift**
 
-Lesson 3.1 established that a canvas is a coordinate space onto which content is
-painted. `Choice` is the construct that exploits it for spectral layering, and it
-is available only in Presentation API 3.0 (IIIF Consortium, 2020).
+Even with professional copy stands and laser alignment tools, physical documents rarely sit at an absolute zero-degree mathematical angle. A manuscript leaf may be bound slightly crooked in its quire; an unmounted paper broadside may drift during exposure; or an 18th-century clerk may have written text lines at a diagonal tilt across the page.
 
-When a folio has been imaged under natural colour, UV fluorescence, and as a PCA
-composite, all three represent the identical physical space. The canvas is
-instantiated with the dimensions of the highest-resolution image. The
-AnnotationPage targeting that canvas holds an Annotation whose `body` is not a
-single Image but a `Choice` object listing several Image resources as alternatives.
+This slight rotational misalignment is known as **skew**. While human readers easily accommodate a skew of one or two degrees, skew severely degrades computational processing:
 
-```json
-{
-  "type": "Annotation",
-  "motivation": "painting",
-  "body": {
-    "type": "Choice",
-    "items": [
-      { "id": "https://example.edu/iiif/42r-color/full/max/0/default.jpg",
-        "type": "Image", "label": { "en": ["Natural colour"] } },
-      { "id": "https://example.edu/iiif/42r-uv/full/max/0/default.jpg",
-        "type": "Image", "label": { "en": ["UV fluorescence, 365 nm"] } },
-      { "id": "https://example.edu/iiif/42r-pca/full/max/0/default.jpg",
-        "type": "Image", "label": { "en": ["PCA composite, components 2-4"] } }
-    ]
-  },
-  "target": "https://example.edu/iiif/canvas/42r"
-}
+- It causes horizontal text lines to wander across row boundaries, breaking layout analysis and OCR line segmentation.
+- It prevents rectangular coordinate bounding boxes in TEI `<zone>` from fitting tightly around text columns.
+- It introduces irregular wedge-shaped margins when cropped.
+
+**Deterministic Deskewing Algorithms:**
+Automated deskewing algorithms detect the dominant orientation of text lines or page edges and apply an opposite rotational transform to restore perfect horizontal alignment.
+
+ImageMagick provides the `-deskew` operator, which uses a Radon transform or projection profile analysis to measure text slope:
+
+```bash
+# Automatically detect and correct skew, up to a 40% threshold
+magick crooked_page.tif -deskew 40% straightened_page.tif
 ```
 
-A compliant viewer such as Mirador 3 renders this as a layer selector, letting
-the scholar toggle between representations, or blend them with an opacity
-control, directly in the browser.
+Under the hood, rotating a digital raster image by a fractional angle (such as -1.35 degrees) cannot be accomplished by simply rearranging existing pixels. Rotating an image requires **resampling and spatial interpolation**:
 
-Two details of practice. The labels are the scholarly documentation and should
-state the imaging condition precisely — "UV fluorescence, 365 nm" rather than
-"UV". And the first item in the list is what a viewer displays by default;
-put the natural-colour image first unless there is a reason not to.
+- **Bilinear or Bicubic Interpolation:** The software recalculates the color value of each new pixel by taking a weighted average of surrounding pixels.
+- Digitizers must avoid "nearest neighbor" interpolation, which creates jagged, pixelated stair-stepping along thin letter strokes.
+- High-quality bicubic or Lanczos filtering preserves smooth pen strokes while realigning the text grid to perfect horizontality.
 
-**Takeaway:** `Choice` lists alternative images for one canvas,
-and its labels are where the imaging conditions are documented.
+**Takeaway:** Skew degrades automated transcription and zone mapping; deterministic deskewing algorithms calculate text slope and apply bicubic rotational interpolation to restore horizontal alignment.
 
 ---
 
 ## **16 Content**
 
-**Why Layering Changes the Workflow**
+**Contrast Adjustment and Dynamic Range Optimization**
 
-The ability to cross-fade spectral layers in real time is not merely convenient;
-it changes how a questionable reading is verified.
+Historical documents frequently suffer from poor contrast. Iron-gall ink fades from crisp black to pale brown, carbon inks wash out, and acidic paper or parchment darkens with age, narrowing the tonal separation between ink and substrate. If an image is published with flat, muddy contrast, readers struggle to decipher faint characters, and automated character recognition models fail entirely.
 
-Consider the pre-IIIF procedure. A scholar uncertain about a letterform obtains
-the UV image, opens it in image software, locates the relevant region, compares it
-mentally with the visible-light image open in another window, then perhaps
-consults a PCA composite in a third. Each transition costs minutes and requires
-re-locating the same spot in a differently sized image. In practice, most readings
-were checked against one image because checking against four was too expensive.
+Digital contrast optimization is grounded in the analysis of the **luminance histogram**:
 
-With layered canvases, the scholar zooms to the letterform once and toggles. The
-region stays fixed because all layers share the canvas coordinate space. Comparing
-four spectral conditions costs seconds, so it happens routinely rather than
-exceptionally.
+- A histogram is a graphical plot showing the distribution of pixel brightness values across a scale from pure black (value 0) to pure white (value 255 in 8-bit depth).
+- A low-contrast, aged manuscript displays a compressed histogram: all pixel values cluster tightly in a narrow hump in the mid-gray region, with zero pixels in true shadows and zero pixels in bright highlights.
 
-| Aspect | Pre-IIIF workflow | Layered canvas workflow |
-| --- | --- | --- |
-| Data transfer | Download full datacubes | Tiles for the current viewport |
-| Locating a region | Re-find it in each image | Fixed; the canvas does not move |
-| Cost of one comparison | Minutes | Seconds |
-| Practical consequence | Check against one image | Check against all, routinely |
+**Deterministic Contrast Operations:**
+Rather than relying on vague "brightness" sliders, editors employ deterministic histogram stretching via the `-level` operator in ImageMagick:
 
-The last row is the substantive change. When verification is cheap it becomes the
-default, and readings get checked that previously would have been accepted on the
-strength of a single image. That is a change in evidential standards produced by
-an infrastructural improvement — which is a recurring pattern in this course, and
-worth noticing as such.
+`magick input.tif -level {black_point}%,{white_point}%,{gamma} output.tif`
 
-**Takeaway:** Layered canvases make multi-spectral verification
-cheap enough to be routine, which raises the evidential standard for a reading.
+Consider an example designed for an aged 18th-century printed proclamation:
+```bash
+magick treaty_page.tif -level 15%,85%,1.2 contrast_enhanced.tif
+```
+
+- **`15%` (Black Point):** Maps all dark pixels at or below 15% luminance to absolute black (0), darkening faded ink strokes.
+- **`85%` (White Point):** Maps all light pixels at or above 85% luminance to absolute white (255), brightening the yellowed paper background.
+- **`1.2` (Gamma):** A non-linear power curve that adjusts midtone brightness without clipping extreme shadows or highlights.
+
+Crucially, contrast adjustment must avoid **clipping**: pushing the black point too high crushes delicate pen flourishes into solid black blobs, while pushing the white point too low blows out paper texture, watermarks, and faint dry-point annotations.
+
+**Takeaway:** Contrast optimization stretches the luminance histogram using explicit black point, white point, and non-linear gamma parameters, enhancing ink legibility without clipping data.
 
 ---
 
 ## **17 Content**
 
-**Documenting Provenance of Processed Images**
+**White Balance and Color Calibration: Applying ICC Profiles and Neutral Ramps**
 
-A processed image is a scientific result, and the standards that apply to
-scientific results apply to it. Yet processed manuscript images circulate
-constantly with no record of how they were made, which makes them uninterpretable
-as evidence.
+When digital cameras photograph documents under artificial studio lighting, the raw sensor records colors influenced heavily by the color temperature of the lamps. Even high-grade LED or halogen lamps exhibit subtle chromatic biases, imparting an unnatural warm yellow or cool blue cast over the entire document. If images are published uncalibrated, scholars cannot distinguish between ancient parchment yellowing and modern studio lamp temperature.
 
-Consider what is unrecoverable from a bare composite image: which bands were
-captured and at what wavelengths, which transformation was applied, which
-components were selected, how they were assigned to channels, what contrast
-adjustments followed. Two composites of the same folio produced with different
-choices can support different readings, and a scholar shown only the images has no
-way to adjudicate.
+**White Balance Calibration:**
+White balance neutralizes unwanted color casts by calculating the mathematical color temperature (in Kelvins) and tint offsets needed to make a known neutral object appear completely achromatic ($R = G = B$):
 
-Record at minimum:
+- In studio capture, a calibrated 18% neutral gray card or ColorChecker patch is photographed under identical lighting.
+- In software, the pixel values of the neutral gray patch are sampled. If the patch measures $R=195, G=180, B=165$, the software identifies a heavy yellow-red color cast.
+- A balancing transformation matrix scales the color channels ($R \times 0.92, G \times 1.0, B \times 1.09$) until the neutral patch renders with exactly equal red, green, and blue values.
 
-| Field | Example |
-| --- | --- |
-| Capture wavelengths | 365, 450, 505, 592, 625, 700, 780, 850, 940 nm |
-| Camera and illumination | Phase One IQ260; multispectral LED panel |
-| Registration method | Applied; chromatic aberration corrected |
-| Transformation | ICA, 6 components assumed |
-| Components used | IC2 to red, visible 592 nm to green, IC4 to blue |
-| Post-processing | Contrast stretch; no sharpening |
-| Software and version | ENVI 5.6 |
-| Operator and date | Name; 2026-09-16 |
+**Applying ICC Color Profiles:**
+Beyond basic white balance, camera sensors possess non-linear chromatic biases across saturated pigments. Complete color fidelity requires applying an **ICC profile**—a standardized binary file describing the exact color transformation between the camera's sensor color space and device-independent CIE $L^*a^*b^*$ color space.
 
-Clausen et al. (2026), arguing for open repositories integrating manuscript
-research data, treat exactly this linkage as the core requirement: material
-analyses must remain connected to the structural and textual encodings they
-inform, rather than circulating as detached images.
+In ImageMagick, profiles are applied deterministically via the `-profile` operator:
 
-The IIIF `metadata` block on a canvas or annotation is the natural home for this,
-and the `Choice` labels carry the summary. Your Week 1 commit discipline is the
-other half: when you use a processed image, record in the commit body which layer
-you read from.
+```bash
+magick raw_capture.tif \
+  -profile Camera_Custom_DNG.icc \
+  -profile sRGB_v4.icc \
+  calibrated_display.jpg
+```
 
-**Takeaway:** A processed image without its processing
-parameters cannot be evaluated as evidence, so record wavelengths, method,
-components, and channel assignments.
+The first `-profile` call embeds the camera's specific input calibration profile, while the second `-profile` transforms the pixels into the standardized `sRGB` color space for web delivery. This ensures that every monitor renders parchment tones and vermilion rubrics with objective fidelity.
+
+**Takeaway:** White balancing neutralizes studio lamp color casts against gray targets, while ICC profiles mathematically correct sensor chromatic biases for truthful color rendering.
 
 ---
 
 ## **18 Content**
 
-**Interpretive Risk: Seeing What Is Not There**
+**Spatial Filtering: Sharpening and Unsharp Masking**
 
-A caution that belongs in the middle of this lesson rather than at its end,
-because it qualifies everything preceding.
+Even with high-precision macro lenses and rigid camera stands, raw digital captures suffer from subtle optical softness. The physics of optical light transmission, camera anti-aliasing filters, and sensor Bayer interpolation naturally diffuse sharp edges across adjacent pixels. In manuscript scholarship, where deciphering a broken letter stroke or an ink dot depends on edge definition, controlled spatial sharpening is essential.
 
-Statistical transformations amplify differences. That is their purpose, and they
-amplify whatever differences exist — including differences arising from noise,
-staining, parchment texture, mould, and the transformation's own artefacts. A PCA
-component can present structure that resembles letterforms and originates in none.
+The archival standard for edge enhancement is **Unsharp Masking (USM)**:
 
-The risk is compounded by expectation. A scholar processing a palimpsest is
-looking for text, knows roughly what script to expect, and often has a hypothesis
-about the content. Human pattern recognition is extraordinarily willing to find
-letterforms in noise under those conditions, and the willingness increases with
-the strength of the prior expectation.
+- Despite its paradoxical name, unsharp masking sharpens an image. The name originates in traditional darkroom photography, where a slightly blurred ("unsharp") negative copy was sandwiched with the original positive print to boost edge contrast.
+- In digital mathematics, the algorithm creates a Gaussian-blurred duplicate of the image, subtracts the blurred copy from the original to generate an "edge mask," and then adds a scaled percentage of that edge mask back into the original image.
 
-Controls that constrain this:
+In ImageMagick, unsharp masking is governed by the `-unsharp` operator:
 
-- **Multiple methods.** A reading that appears under PCA, ICA, and MNF is more credible than one appearing under a single transformation.
-- **Multiple parameterizations.** A reading that persists across different component selections is more credible than one that depends on a specific choice.
-- **Palaeographic plausibility.** Recovered letterforms must be consistent with a real script executed by a real hand, with plausible ductus and proportion.
-- **Linguistic plausibility.** The result must be possible in the language, and *un*expected readings are stronger evidence than expected ones.
-- **Independent verification.** Another scholar, ideally without knowledge of the expected reading, should see it too.
+`magick input.tif -unsharp {radius}x{sigma}+{amount}+{threshold} output.tif`
 
-The fourth point deserves care. A recovered reading that confirms what you
-expected is weaker evidence than one that surprises you, because the confirming
-case is exactly the one your expectation could have produced. Treat readings that
-conveniently support your hypothesis with more scepticism than readings that
-complicate it.
+Each parameter controls a specific aspect of the spatial convolution filter:
 
-**Takeaway:** Statistical enhancement amplifies noise as readily
-as signal, and expectation makes false letterforms easy to see — so require
-persistence across methods and parameters.
+- **`radius`:** The size of the Gaussian blur kernel in pixels (typically set to 0 for automatic calculation).
+- **`sigma`:** The standard deviation of the blur kernel, defining how wide an edge zone is affected (typically 0.5 to 1.5 pixels for fine handwriting).
+- **`amount`:** The strength of the sharpening boost added back to edges (typically 0.8 to 1.5, representing 80% to 150% gain).
+- **`threshold`:** The minimum luminance difference required before an edge is sharpened (typically 0.03 to 0.05). Setting a sensible threshold is critical: it prevents the algorithm from sharpening microscopic parchment grain or paper noise into distracting speckled artifacts.
+
+Over-sharpening is an unforgivable defect in digital facsimile production. It creates ugly bright white "halos" around dark ink strokes, thickening letterforms and distorting palaeographical evidence.
+
+**Takeaway:** Unsharp masking enhances edge contrast along letterforms; careful tuning of sigma, amount, and threshold avoids introducing artificial edge halos or amplifying paper noise.
 
 ---
 
 ## **19 Content**
 
-**Recording Confidence in the Transcription**
+**Noise Reduction and Defect Masking**
 
-If some recovered readings are less certain than others, the transcription must
-say so. TEI provides the apparatus (TEI Consortium, 2026).
+Digital photographs of historical documents frequently contain unwanted visual noise. Noise arises from two distinct sources:
 
-| Element or attribute | Records | Use here |
-| --- | --- | --- |
-| `<unclear>` | Text that cannot be read with confidence | A letterform visible but ambiguous |
-| `@reason` | Why it is unclear | `reason="faded"`, `reason="palimpsest"` |
-| `@cert` | Degree of certainty | `cert="low"`, `cert="medium"`, `cert="high"` |
-| `@resp` | Who is responsible for the reading | Points to an editor in the header |
-| `<supplied>` | Text supplied by the editor, not in the witness | Restoration of a lacuna |
-| `<gap>` | Material that is missing or illegible | With `@extent` and `@unit` |
-| `<damage>` | A physical region affected by damage | Documents the material cause |
+1. **Sensor Noise:** High ISO amplification, thermal sensor noise during long exposures, and electrical fluctuations in low-light archival reading rooms.
+2. **Substrate Artifacts:** Microscopic paper fiber irregularities, dust particles, foxing spots, insect damage, and parchment hair-follicle speckling.
 
-A worked example:
+While noise reduction can improve legibility, heavy-handed spatial filtering can destroy delicate historical evidence. If an algorithm aggressively smooths an image, faint punctuation marks (like Greek middle points or Hebrew accents) are erased, and thin pen strokes lose their characteristic nib-pressure texture.
 
-```xml
-<unclear reason="palimpsest" cert="medium" resp="#KMP"
-         source="#uv365">ἐγένετο</unclear>
+**Deterministic Spatial Filtering:**
+Image processing offers several mathematical noise filters with distinct characteristics:
+
+- **Gaussian Blur:** Replaces each pixel with a weighted average of its neighbors based on a bell curve. While effective at smoothing noise, Gaussian filtering blurs all sharp edges indiscriminately. It is rarely used directly on text except when generating masks.
+- **Median Filter:** Sorts all pixel values within a local window (e.g., 3x3 pixels) and replaces the center pixel with the median value. Median filters are exceptionally effective at removing isolated "salt-and-pepper" sensor noise or tiny dust specks without blurring linear edges.
+- **Bilateral Filtering:** An advanced edge-preserving filter that averages pixels only if they are both spatially close *and* similar in luminance value. Bilateral filtering smooths uniform paper backgrounds while leaving sharp, high-contrast ink boundaries untouched.
+
+```bash
+# Apply a selective median filter to eliminate dust speckles without blurring ink
+magick dusty_page.tif -statistic Median 3x3 cleaned_page.tif
 ```
 
-The `@source` attribute pointing at a documented imaging condition is the move
-that connects this lesson to your edition. It states not merely that the reading
-is uncertain but *what evidence it rests on* — a reader can go to the UV image and
-evaluate the claim.
+Scholarly editors must apply noise reduction conservatively, ensuring that the filter threshold never exceeds the spatial dimensions of the finest meaningful scribal strokes.
 
-This is the concrete difference between a transcription and a scholarly
-transcription. The first asserts what the text says; the second asserts what the
-text says, how confident the editor is, who is responsible, and what evidence
-supports it. Where recovery is involved, the second is the only defensible form.
-
-**Takeaway:** Encode recovered readings with `<unclear>`,
-`@cert`, `@resp`, and a `@source` pointing at the imaging condition that supports
-them.
+**Takeaway:** Noise reduction must use edge-preserving algorithms (such as median or bilateral filters) to eliminate sensor speckles and dust without smoothing away delicate punctuation or ink stroke edges.
 
 ---
 
 ## **20 Content**
 
-**Imaging and Handwritten Text Recognition**
+**Thresholding and Binarization: From Grayscale to Pure Black and White**
 
-The imaging layer feeds directly into next week's transcription work, and the
-connection runs through IIIF.
+For human reading and aesthetic facsimile viewing, full-color or continuous-tone grayscale images are indispensable. However, for downstream computational tasks—such as automated Optical Character Recognition (OCR), Handwritten Text Recognition (HTR), and layout segmentation—algorithms require **binarization**: converting an image into pure black (text) and pure white (background) pixels.
 
-HTR platforms — Transkribus and eScriptorium prominently — ingest manuscript
-images via manifest URI rather than by file upload, which eliminates transferring
-gigabytes of TIFFs by hand (eScriptorium/Kraken, 2024). The manifest you build on
-Friday is therefore literally the input to Week 4.
+Binarizing historical documents is notoriously difficult due to uneven aging, ink bleed-through, faded strokes, and non-uniform lighting:
 
-Within eScriptorium, imported images undergo automatic layout analysis. The
-platform builds on the Kraken OCR/HTR engine and the YALTAi object detection
-framework, which takes an object-detection approach to layout rather than
-traditional region segmentation, achieving accurate baseline identification on
-complex historical manuscripts (eScriptorium/Kraken, 2024).
+- **Global Thresholding (Otsu's Algorithm):** Otsu's method calculates a single, uniform threshold value for the entire image by minimizing intra-class luminance variance. While Otsu works well on pristine modern laser-printed sheets, it fails catastrophically on historical documents. If one corner of a medieval manuscript is stained or shaded by a gutter curve, a global threshold renders the entire stained region as a solid black blob while completely erasing faint text in bright areas.
+- **Local Adaptive Thresholding (Sauvola Algorithm):** Modern document analysis relies on local adaptive thresholding. The Sauvola algorithm calculates an independent threshold for every individual pixel based on the mean and standard deviation of luminance in its immediate neighborhood ($W \times W$ window):
 
-| Stage | Operation | Output |
-| --- | --- | --- |
-| Ingestion | Import images by manifest URI | Images registered in the platform |
-| Layout analysis | YALTAi object detection; baseline identification | Zones and baselines per page |
-| Ground truth | Manual transcription of a training sample | Aligned text and image regions |
-| Model training | Neural network trained on the ground truth | A model specific to this scribe |
-| Prediction | Apply the model to remaining folios | ALTO or PAGE XML with coordinates |
+$$T(x, y) = m(x, y) \left[ 1 + k \left( \frac{s(x, y)}{R} - 1 \right) \right]$$
 
-Custom models can be trained on relatively small samples of manually transcribed
-ground truth — often as few as fifty pages — after which the model generates
-bounding boxes and text predictions for the remainder (eScriptorium/Kraken,
-2024). Output is ALTO XML or PAGE XML, formats that have structural equivalence to
-TEI and, critically, preserve the pixel-coordinate bindings established during
-layout analysis.
+Where $m(x,y)$ is the local mean, $s(x,y)$ is the local standard deviation, $R$ is the maximum standard deviation (128 for 8-bit), and $k$ is a tuning parameter (typically 0.2 to 0.5).
 
-That coordinate preservation is what makes the pipeline coherent: the
-transcription arrives already bound to positions on the page, which is exactly the
-binding Lesson 3.3 builds by hand.
+```bash
+# Example of adaptive local thresholding in ImageMagick
+magick manuscript.tif -colorspace Gray -negate -lat 25x25+10% -negate binarized.png
+```
 
-**Takeaway:** HTR platforms ingest manifests directly and emit
-coordinate-bound ALTO or PAGE XML, so Friday's manifest is Week 4's input.
+Adaptive thresholding dynamically adjusts for dark gutter shadows and water stains, cleanly segmenting ink strokes even across severely discolored parchment.
+
+**Takeaway:** Global thresholding fails on aged, stained documents; local adaptive thresholding (such as Sauvola's algorithm) dynamically calculates thresholds per pixel to isolate ink strokes cleanly.
 
 ---
 
 ## **21 Content**
 
-**Which Images to Transcribe From**
+**Masking and Layer Compositing: Isolating Text from Background**
 
-A decision that must be made explicitly, because it is otherwise made by default
-and never recorded.
+In heavily damaged witnesses, simple global filters cannot separate text from severe physical degradation. When a manuscript suffers from heavy mold blooms, catastrophic water stains, or severe **ink bleed-through** (where acidic iron-gall ink on the verso face has eaten through the paper and appears as ghost text on the recto), editors must deploy **masking and layer compositing**.
 
-When several representations of a folio exist, transcription proceeds from one of
-them — and different choices produce different transcriptions. The visible-light
-image is the conservative default: it shows the manuscript as a reader would have
-seen it, and readings taken from it require no methodological defence. A processed
-composite may show more, and for a palimpsest it may show the only legible form of
-the text at all.
+A digital mask is an auxiliary grayscale or binary image that acts as a selective transparency stencil:
 
-| Source | Advantage | Cost |
-| --- | --- | --- |
-| Visible light | Uncontroversial; matches direct examination | May not show the text at all |
-| Single narrow band | Direct measurement; simple to document | Often insufficient alone |
-| PCA or ICA composite | Maximum legibility for erased text | Interpretation depends on processing |
-| Several, compared | Strongest evidential basis | Slower |
+- Where the mask is white, the underlying image or filter is 100% visible.
+- Where the mask is black, the underlying layer is completely blocked.
+- Where the mask is gray, transformations are blended proportionally.
 
-The defensible practice is the last: transcribe from the composite that renders
-the text most legible, verify each uncertain reading against other layers, and
-record which layer supported each contested reading. The layer toggle described
-in section 16 is what makes this affordable.
+**Bleed-Through Removal via Compositing:**
+To eliminate ghost text leaking from the reverse side of a thin paper leaf, scholars use multi-image alignment and subtraction:
 
-What is not defensible is transcribing from a processed image without saying so.
-A transcription presented as a reading of the manuscript, silently derived from an
-ICA composite whose parameters are unrecorded, makes a claim its reader cannot
-assess — and, in the palimpsest case, a claim that could not have been made from
-the object itself under any illumination.
+1. The recto and verso faces of the leaf are photographed at identical resolutions.
+2. The verso image is flipped horizontally (`-flop`) and geometrically registered over the recto image.
+3. Because bleed-through on the recto corresponds geometrically to the heavy primary text on the verso, the registered verso image serves as a luminance mask.
+4. ImageMagick composites the layers using mathematical blending modes:
 
-Record your choice in your repository now, before Week 4 begins, so that the
-decision is deliberate.
+```bash
+magick recto.tif \
+  \( verso_flipped.tif -colorspace Gray -level 20%,80% \) \
+  -compose Screen -composite \
+  recto_cleaned.tif
+```
 
-**Takeaway:** Transcribe from the most legible layer, verify
-against the others, and always record which layer supported a contested reading.
+The mathematical blending cancels out the bleed-through pixels while leaving the primary recto text intact. Because masking operates through transparent, auditable mathematical compositing rather than generative guessing, it preserves textual integrity without hallucinating missing strokes.
+
+**Takeaway:** Masking and layer compositing use aligned stencils and mathematical blending modes to isolate primary text from severe mold stains and reverse-side ink bleed-through.
 
 ---
 
 ## **22 Content**
 
-**Practical Access to Multispectral Data**
+**The Taxonomy of Digital Image Formats**
 
-You will not produce multispectral images this term — the equipment is not
-available. You may well be able to *use* them, and the distinction matters for
-your own edition.
+A digital image is not merely a grid of colors; it is a structured data file governed by specific encoding algorithms, compression schemes, bit depths, and container architectures. Choosing the wrong image file format can permanently destroy historical evidence or render a digital repository unusable due to bandwidth costs.
 
-Where to look:
+Understanding digital image taxonomy requires mastering four technical dimensions:
 
-- **The manifest itself.** Additional captures frequently appear as extra canvases or as `Choice` alternatives, without being surfaced in the default viewer. Search the JSON for `ultraviolet`, `infrared`, `UV`, `IR`, `processed`, `PCA`, or `multispectral`.
-- **Dedicated project sites.** Major palimpsest projects publish separately from the holding library's catalogue.
-- **The Sinai Palimpsests Project**, which has published extensive multispectral data for St Catherine's Monastery manuscripts.
-- **Institutional imaging labs**, whose datasets sometimes exist but are not linked from the catalogue record.
-- **Direct enquiry.** Curators frequently hold imaging data that has never been published, and a polite, specific request from a student with a clear purpose is often answered.
+- **Bit Depth:** Defines the number of binary bits used to store color information per pixel. 1-bit images are strictly black and white (bitonal). 8-bit grayscale offers 256 levels of gray. 24-bit color uses 8 bits each for Red, Green, and Blue, producing 16.7 million colors. 48-bit color uses 16 bits per channel (65,536 tones per channel), providing the extreme dynamic range required for archival master captures.
+- **Color Spaces:** The mathematical model describing color values. Common spaces include device-dependent RGB, printer-oriented CMYK, and device-independent CIE $L^*a^*b^*$. Archival preservation captures in wide-gamut spaces like ProPhoto RGB or Adobe RGB (1998), while web delivery requires sRGB.
+- **Compression (Lossless vs. Lossy):** Lossless compression (LZW, Deflate) reduces file size by identifying redundancy without altering a single bit of pixel data. Lossy compression (JPEG) permanently discards visual data deemed less noticeable to human perception to achieve massive size reductions.
+- **Metadata Encodings:** Archival formats must support embedded metadata containers (EXIF, IPTC, XMP) to preserve camera settings, copyright, and provenance alongside pixels.
 
-The last route is worth attempting if your passage has damaged or erased regions.
-An email stating the manuscript, the folios, your purpose, and your institutional
-affiliation costs nothing and occasionally yields a dataset.
+Navigating this taxonomy ensures that digital editors select the correct format for each stage of the lifecycle: preservation, processing, and delivery.
 
-If no multispectral data exists for your manuscript — which is the common case —
-you are not disadvantaged for this course. Weeks 4 through 13 proceed from
-visible-light images. This week's content remains necessary because it is what
-lets you read the imaging literature on your manuscript, evaluate published
-recovered readings, and understand what the images in your edition are and are not.
-
-**Takeaway:** Check your manifest for unlisted spectral layers,
-and ask curators directly; if none exists, the course proceeds from visible light.
+**Takeaway:** Image formats are defined by bit depth, color space, compression type, and metadata support; editors must choose formats appropriately for preservation versus web delivery.
 
 ---
 
 ## **23 Content**
 
-**Beyond Optics: XRF and Materials Analysis**
+**TIFF: The Gold Standard for Archival Preservation**
 
-The Archimedes gold-leaf problem introduced a technique that goes beyond
-photography, and it is worth situating within the wider range of manuscript
-analysis.
+In the world of cultural heritage preservation, library standards—such as FADGI (Federal Agencies Digital Guidelines Initiative) and Metamorfoze—universally mandate the **Tagged Image File Format (TIFF)** as the gold standard for archival preservation masters.
 
-**X-ray fluorescence** (XRF) imaging does not measure reflected light. An X-ray
-beam excites atoms in the sample, which emit characteristic X-rays at energies
-specific to each element. Mapping those emissions produces an image of *elemental
-distribution* — where the iron is, where the copper is — rather than an image of
-appearance (Easton et al., 2003).
+Originally developed by Aldus and now maintained by Adobe, TIFF is an open, non-proprietary raster container engineered for maximum fidelity and extensibility:
 
-For iron-gall ink this is decisive: the ink contains iron, the parchment does not,
-and iron's characteristic emission passes through overlying material that stops
-visible light entirely. Hence the recovery of Archimedes text beneath gold leaf.
+1. **Uncompressed or Lossless Compression:** TIFF supports completely uncompressed linear data or standardized lossless compression algorithms, primarily **LZW (Lempel-Ziv-Welch)** and **Deflate (ZIP)**. Lossless compression reduces file size by 30% to 50% without altering a single pixel value. When decompressed, the image is bit-for-bit identical to the raw sensor capture.
+2. **Deep Bit Depth Support:** Unlike consumer formats limited to 8 bits per channel, TIFF natively supports 16-bit and 32-bit floating-point channel depths. Capturing in 16-bit TIFF preserves subtle tonal gradients in parchment and faint ink residues that 8-bit formats crush.
+3. **Comprehensive Metadata Tags:** TIFF's "tagged" architecture allows arbitrary technical, descriptive, and administrative metadata to be embedded directly inside the file header, including spatial resolution (DPI/PPI), colorimetric interpretation, and ICC color profiles.
 
-| Technique | Measures | Reveals |
-| --- | --- | --- |
-| Multispectral imaging | Reflectance across wavelengths | Ink residue; layered texts |
-| RTI | Surface response to light direction | Relief; dry-point; erasure |
-| XRF | Elemental composition | Ink chemistry through obscuring layers |
-| Raman spectroscopy | Molecular vibration | Pigment identification |
-| Fibre optic reflectance | Reflectance spectra at points | Pigment and binder characterization |
+The primary disadvantage of TIFF is its massive file size. An uncompressed 16-bit RGB TIFF from a 100-megapixel medium-format camera weighs approximately 600 megabytes. Consequently, TIFF files are never served directly to end users over the open web; they are held securely in dark storage as the permanent archival master from which web derivatives are generated.
 
-Clausen et al. (2026) argue that these heterogeneous datasets — multispectral,
-XRF, Raman — belong in a unified repository alongside the TEI encoding and
-structural metadata, because the questions worth asking span them. Dating an ink
-by its chemistry bears on the dating of a hand; identifying a pigment bears on
-localization; and both bear on the textual argument.
-
-This is where the canvas abstraction pays off most fully. An elemental map, a
-spectral composite, and a transcribed line can all target the same canvas region —
-which is what allows a chemical observation and a palaeographic one to be stated
-about the same place.
-
-**Takeaway:** XRF maps elemental composition rather than
-appearance, and the canvas is what lets chemical and textual observations refer to
-the same place on the page.
+**Takeaway:** Uncompressed or losslessly compressed 16-bit TIFF is the mandatory archival master format, preserving complete mathematical fidelity and technical metadata for long-term storage.
 
 ---
 
 ## **24 Content**
 
-**The Manuscript as Data**
+**Pyramidal TIFF: The Foundation of Local IIIF Servers**
 
-Step back to the conceptual claim these techniques collectively support, because
-it reframes what your edition is.
+While standard flat TIFF files are ideal for archival preservation in cold storage, they cannot be served efficiently by web servers. If a IIIF server (such as Cantaloupe, Loris, or IIPImage) had to open a flat 600-megabyte TIFF file and parse its entire pixel raster just to extract a single 512x512 tile for a user's browser, server CPUs would saturate immediately.
 
-The traditional model treats a manuscript as a *carrier* of text. The text is the
-object of study; the parchment is the medium that conveys it; and the editor's job
-is to extract the text and present it accurately. Codicological description
-belongs to the introduction, as context.
+The operational backbone of high-performance IIIF image delivery is the **Pyramidal TIFF** (often formatted as BigTIFF):
 
-The techniques in this lesson do not fit that model. They recover text from
-chemical residue, from surface topography, from elemental distribution — from
-properties of the object that are not text at all, and would be discarded as
-irrelevant medium under the traditional view. The Archimedes recovery worked
-precisely because the manuscript was treated as a chemical and topological matrix
-rather than as a surface bearing writing (Easton et al., 2003).
+- A Pyramidal TIFF is a single, valid TIFF file that internally contains multiple pre-computed sub-resolution images arranged in a hierarchical pyramid.
+- Crucially, every resolution level within the file is pre-segmented into a grid of independent, losslessly compressed square tiles (e.g., 256x256 or 512x512 pixels).
+- When a IIIF server receives a request for `.../region/400,600,512,512/...`, the server does not decode the entire image. Instead, it reads the TIFF header's tile offset table, seeks directly to the exact byte offset of that single tile, reads the compressed byte stream, and serves it to the network in milliseconds.
 
-The alternative model treats the manuscript as a *dataset* of which the visible
-text is one projection. Other projections — spectral, topographic, elemental —
-carry information that is often complementary and occasionally the only surviving
-witness to the text.
+Generating Pyramidal TIFFs is executed via `libvips` or ImageMagick:
 
-This is not merely a technical shift. It changes what counts as evidence in a
-textual argument. A claim about a reading may now be supported by an elemental
-map or a spectral component rather than by an appeal to what an examiner can see,
-and evaluating such a claim requires understanding how the evidence was produced —
-which is why this lesson exists in a philology course.
+```bash
+# Convert an archival master TIFF into a high-performance Pyramidal TIFF
+vips tiffsave master_folio.tif p_folio.tif \
+  --tile --tile-width 512 --tile-height 512 \
+  --pyramid --compression deflate --bigtiff
+```
 
-**Takeaway:** Recovery techniques treat the manuscript as a
-dataset with many projections rather than a surface bearing text, which changes
-what can count as evidence for a reading.
+The `--bigtiff` flag is critical: it removes the legacy 4-gigabyte file size limit of standard 32-bit TIFF, allowing massive multispectral image cubes and gigapixel broadsides to be stored safely in a single tiled container.
+
+**Takeaway:** Pyramidal TIFFs store pre-computed multi-resolution tiled layers internally, allowing IIIF servers to seek directly to byte offsets and deliver tiles in milliseconds.
 
 ---
 
 ## **25 Content**
 
-**Limits and Honest Reporting**
+**JPEG: Discrete Cosine Transform and the Cost of Lossy Compression**
 
-Balance is owed. The cases in this lesson are the celebrated successes, and
-success is not the usual outcome.
+Introduced in 1992 by the Joint Photographic Experts Group, the **JPEG** format (`.jpg`) revolutionized the consumer internet by drastically reducing image file sizes. An archival master TIFF that occupies 100 megabytes can be compressed into a 3-megabyte JPEG, enabling rapid transmission across web networks. However, this dramatic compression comes at an irreversible cost: **lossy compression**.
 
-Multispectral imaging fails frequently. Where erasure was thorough, no residue may
-remain. Where the substrate is papyrus rather than parchment, fluorescence
-behaviour differs and UV recovery is often ineffective. Where ink was
-carbon-based, the UV mechanism does not apply, since carbon does not present the
-fluorescence contrast that iron-gall does. Where damage is severe enough, the
-signal is simply absent.
+The mechanics of JPEG compression explain why it is strictly forbidden for archival preservation masters:
 
-| Condition | Likelihood of recovery | Reason |
-| --- | --- | --- |
-| Iron-gall on parchment, lightly washed | Good | Residue remains; strong UV contrast |
-| Iron-gall on parchment, thoroughly scraped | Variable | Depends on penetration into the substrate |
-| Carbon ink, obscured by stains | Good with IR | Carbon absorbs; stains become transparent |
-| Carbon ink, erased | Poor | Sits on the surface; leaves little residue |
-| Any ink on papyrus | Variable | Different fluorescence behaviour |
-| Fire or water damage, severe | Poor | Substrate structure destroyed |
+1. **Color Downsampling (Chroma Subsampling):** Human vision is far more sensitive to luminance (brightness) than to chrominance (color). JPEG converts RGB data into $YC_bC_r$ (Luminance, Blue-difference, Red-difference) and immediately discards half or three-quarters of the color data (e.g., 4:2:0 subsampling).
+2. **Discrete Cosine Transform (DCT):** The image is subdivided into rigid 8x8 pixel blocks. The algorithm applies a Fourier-related DCT to convert spatial pixel values into frequency domain coefficients, discarding high-frequency components deemed less noticeable to human eyes.
+3. **Quantization and Loss:** High-frequency coefficients are divided by a quantization matrix and rounded to integers. This rounding step permanently discards fine visual data.
+4. **Generation Loss:** Every time a JPEG file is opened, edited, and re-saved, the lossy DCT algorithm executes again. Over successive saves, image quality degrades exponentially, introducing blocky artifacts, color ringing, and blur around text stroke boundaries.
+5. **Bit Depth Limit:** Standard JPEG is strictly limited to 8 bits per channel (256 tonal levels), eliminating the wide dynamic range of 16-bit captures.
 
-Reporting failure is part of the method. A project that images a palimpsest and
-recovers nothing has produced a real result — the negative finding constrains what
-future work should attempt, and prevents the same folios being reimaged
-repeatedly. In practice negative results are underreported, which means the
-literature overstates the technique's reliability.
+While JPEG is the standard format for final derivative delivery to web browsers and IIIF viewports, it must never serve as an archival master.
 
-Apply the same standard in your own edition. If you attempt to resolve a
-questionable reading against a spectral layer and it remains unresolved, record
-that. An `<unclear>` element with `@cert="low"` and a note that UV was consulted
-without resolution is a more useful scholarly statement than a confident reading
-or a silent omission.
-
-**Takeaway:** Recovery often fails, and a documented negative
-result is a real finding — record what you consulted even when it resolved
-nothing.
+**Takeaway:** JPEG achieves compact file sizes through lossy Discrete Cosine Transform compression, but irreversible data loss and generation degradation make it unacceptable for archival masters.
 
 ---
 
 ## **26 Content**
 
-**An Exercise for This Meeting**
+**PNG: Lossless Web Delivery and Alpha Transparency**
 
-Work through the following on your own manuscript.
+Developed in 1995 as an open-source, patent-free alternative to the proprietary GIF format, the **Portable Network Graphics (PNG)** format (`.png`) occupies a vital middle ground in digital scholarly workflows. PNG is designed for lossless, compressed network transmission.
 
-- Search both witnesses' manifests for non-visible-light or processed images, using the search terms in section 22.
-- If any exist, load the manifest into Mirador and confirm whether a layer selector appears.
-- If a `Choice` is present, examine its labels and record what imaging conditions are documented.
-- Identify the most damaged or least legible region of your passage.
-- Compare that region across every available layer, at full zoom.
-- Record what each layer does and does not resolve.
-- Search the scholarly literature for imaging work on your manuscript.
-- Commit your findings as a note in your repository.
+Key architectural features of PNG include:
 
-If no additional layers exist, do the second half anyway. Identify the least
-legible region of your passage under visible light, record precisely what is
-uncertain about it, and note what imaging technique would be appropriate given the
-ink type and damage. That is a real scholarly assessment, and it will inform your
-`<unclear>` encoding in Week 4.
+- **Lossless Deflate Compression:** PNG uses an open, unpatented variation of the LZ77/Huffman Deflate algorithm. Unlike JPEG, saving an image as a PNG never alters a single pixel value, eliminates compression artifacts, and produces zero generation loss upon repeated saves.
+- **Deep Color Support:** While often used in standard 24-bit RGB mode, PNG fully supports 48-bit truecolor (16 bits per channel) and 16-bit grayscale, making it suitable for high-precision technical derivatives.
+- **Full Alpha Channel Transparency:** The crowning feature of PNG is its support for an 8-bit **alpha channel**, providing 256 levels of smooth, anti-aliased transparency.
 
-Add the results to `images/SOURCES.md` alongside yesterday's record and commit
-with a Conventional Commits message. By Friday this file documents your edition's
-entire image basis.
+In digital editions and manuscript portals, PNG's alpha transparency is indispensable for extracting and compositing non-rectangular physical features:
 
-**Takeaway:** Assess the least legible region of your passage
-against every layer available, and record what remains unresolved.
+- Isolating irregular fragments of papyrus from a studio copyboard.
+- Extracting wax seals, heraldic stamps, or illuminated drop-caps so they can be rendered seamlessly over arbitrary web page backgrounds.
+- Generating semi-transparent annotation overlays, such as color-coded highlighting of scribal hands, that sit cleanly atop base IIIF canvases.
+
+While PNG files are larger than equivalent JPEGs, their lossless fidelity and transparent compositing make them the premier derivative format for high-precision scholarly web elements.
+
+**Takeaway:** PNG provides lossless Deflate compression and 8-bit alpha transparency, making it ideal for web delivery of isolated fragments, wax seals, and non-destructive overlays.
 
 ---
 
 ## **27 Content**
 
-**Reading Imaging Scholarship Critically**
+**GIF and Modern Web Formats: WebP, AVIF, and 8-Bit Palettes**
 
-You will encounter published recovered readings, and you need to be able to
-evaluate them rather than accept them.
+The evolution of digital imaging formats reflects a continuous quest for higher visual fidelity at smaller file sizes. Understanding both legacy web formats and modern next-generation containers allows digital humanists to optimize delivery architectures.
 
-Questions to ask of any published recovery:
+**The Legacy of GIF (Graphics Interchange Format):**
+Introduced in 1987, GIF (`.gif`) was an early web pioneer. However, GIF has severe structural limitations:
 
-| Question | What a weak answer looks like |
-| --- | --- |
-| What wavelengths were captured? | Unspecified, or "multispectral imaging was used" |
-| What transformation produced this image? | Not stated |
-| Which components, and how assigned to channels? | Not stated |
-| Was the reading confirmed by another method? | Only one composite is shown |
-| Who read it, and with what expertise? | No palaeographer involved |
-| Was the reading expected in advance? | Confirms a prior hypothesis, with no discussion |
-| Are negative results reported? | Only successful folios are shown |
+- It is strictly restricted to an **indexed palette of 256 colors** (8-bit color depth).
+- When a full-color manuscript photograph is converted to GIF, the software must discard millions of colors and apply dither patterns, severely degrading tonal fidelity.
+- Its transparency is binary (1-bit): a pixel is either 100% opaque or 100% transparent, creating jagged, ugly "halos" along curved edges.
+- Outside of simple animated figures or diagrams, GIF is completely obsolete for historical document reproduction.
 
-Publications answering most of these poorly should be treated as preliminary
-reports rather than as established readings. This is not scepticism about the
-techniques, which are sound; it is the ordinary requirement that a method be
-described sufficiently for a reader to evaluate its application.
+**Next-Generation Web Formats: WebP and AVIF:**
+In recent years, modern internet standards have introduced advanced formats engineered to replace both JPEG and PNG:
 
-The sixth row is the subtle one and connects to section 18. A recovery that
-confirms an expected reading is the case where confirmation bias operates most
-strongly, and a careful publication acknowledges this — typically by having the
-reading confirmed by someone unaware of the expectation.
+- **WebP:** Developed by Google, WebP supports both lossy and lossless compression, 8-bit alpha transparency, and ICC profiles. At equivalent visual quality, lossy WebP files are 25% to 34% smaller than standard JPEGs, drastically reducing bandwidth on high-traffic IIIF servers.
+- **AVIF (AV1 Image File Format):** Based on the open-source AV1 video codec, AVIF represents the state of the art in image compression. It supports 10-bit and 12-bit color depths, high dynamic range (HDR), lossless compression, and alpha channels, achieving up to 50% smaller sizes than JPEG with virtually zero visible artifacts.
 
-Where a published recovery bears on your own passage, cite it with its
-qualifications intact. "Smith reads X, from an ICA composite; components and
-parameters unreported" is honest and lets your reader weigh it. Repeating the
-reading as established fact passes along a confidence the evidence may not support.
+Modern IIIF servers increasingly negotiate format support via HTTP `Accept` headers, serving next-generation WebP or AVIF streams to supported modern browsers while falling back to JPEG for legacy clients.
 
-**Takeaway:** Evaluate published recoveries by whether the
-imaging and processing are described well enough for you to assess them, and cite
-them with their qualifications intact.
+**Takeaway:** Legacy GIF's 256-color palette is obsolete for manuscripts; modern WebP and AVIF formats offer superior compression, wide color depths, and alpha channels for web delivery.
 
 ---
 
 ## **28 Content**
 
-**Preparing for Lesson 3.3**
+**PDF as an Archival Wrapper: PDF/A Standards and Pitfalls**
 
-Friday assembles both meetings into a working artefact: the IIIF manifest for
-your passage, bound to your TEI transcription by canvas coordinates.
+In academic publishing and archival administration, the **Portable Document Format (PDF)** is ubiquitous. Scholars frequently download complete digitized books or multi-page archival dossiers as single PDF files. However, treating a standard PDF as a permanent archival preservation format is a dangerous methodological trap.
 
-Everything so far is input to it. Lesson 3.1 gave the structural model — manifest,
-canvas, annotation, fragment selector. This lesson gave the imaging model — what
-the images are, how they were produced, and how alternatives are expressed as a
-`Choice`. Friday joins them and connects the result to your TEI.
+A standard commercial PDF is not an image format; it is a complex, composite digital container. It can contain embedded raster images, vector line art, proprietary PostScript fonts, interactive form fields, JavaScript automation, multimedia audio, and external network links:
 
-Bring the following:
+- Standard PDFs frequently apply aggressive, lossy JPEG compression to embedded page images to reduce file size, permanently degrading manuscript resolution.
+- External font dependencies or un-embedded color profiles mean that a PDF viewed ten years later on a different computer may render typography and colors completely differently.
 
-- Manifest URLs for both witnesses, recorded and verified.
-- Canvas identifiers and dimensions for every folio of your passage.
-- Rights statements and required attribution text.
-- A record of any additional spectral layers and what they show.
-- Your Week 2 TEI header, in a valid state.
-- Your assessment of the least legible region of your passage.
+**The PDF/A Archival Standard:**
+To solve these preservation hazards, the International Organization for Standardization established **PDF/A (ISO 19005)**:
 
-The TEI header is required because Friday binds the manifest to the encoding, and
-that is also **the Cataloguing & Metadata Assignment, due Friday September 18** —
-the same day. Ensure the header validates before Friday's meeting; debugging
-schema errors while attempting to build coordinate bindings is a poor use of the
-session.
+- **Self-Containment:** PDF/A strictly forbids external font dependencies; all fonts must be 100% embedded within the file.
+- **Prohibited Features:** Interactive JavaScript, embedded audio/video, executable code, and encryption are completely banned to ensure files cannot become obsolete or unreadable.
+- **Color Management:** Device-independent color spaces (via embedded ICC profiles) are mandatory.
 
-**Takeaway:** Friday joins the structural and imaging models to
-your TEI, and the cataloguing assignment is due the same day — validate your
-header beforehand.
+**The OCR/Text Layer Trap:**
+A common defect in library digitization is the uncalibrated "sandwich PDF": a high-resolution image layer placed on top of a hidden, uncorrected OCR text layer. If researchers copy text from the PDF, they extract raw, uncorrected OCR errors without realizing the underlying transcription was never proofread. Digital editions must maintain strict separation between audited TEI text encoding and visual image surrogates.
+
+**Takeaway:** Standard PDFs risk font obsolescence and lossy compression; preservation requires self-contained PDF/A standards while avoiding uncorrected hidden OCR text layers.
 
 ---
 
 ## **29 Content**
 
-**Consolidating the Week's Concepts**
+**The Conversion Pipeline: From Master TIFF to Tiled IIIF Pyramid**
 
-A summary table of what has been established across both meetings, which is worth
-holding as a whole before Friday.
+Having surveyed the landscape of deterministic tools, operations, and file formats, we can now assemble an end-to-end production pipeline. How does an uncompressed, archival master capture produced in the photographic studio transform into an interoperable, high-performance IIIF image service ready for worldwide scholarly access?
 
-| Concept | Established in | Function in your edition |
-| --- | --- | --- |
-| Image API | 3.1 | Retrieve any region of any folio at any size |
-| Presentation API | 3.1 | Describe your passage as a structured object |
-| Canvas | 3.1 | The coordinate space every layer and annotation targets |
-| Fragment selector | 3.1 | Address the exact region supporting a reading |
-| Raking light | 3.2 | Reveal ruling, erasure, and dry-point |
-| RTI | 3.2 | Model surface relief; recover ink-less writing |
-| Multispectral imaging | 3.2 | Recover erased or obscured text |
-| PCA, ICA, MNF | 3.2 | Separate ink from parchment and over-text |
-| False-colour composite | 3.2 | Present computed components legibly |
-| `Choice` | 3.2 | Express spectral alternatives on one canvas |
-| Provenance documentation | 3.2 | Make processed images evaluable as evidence |
+The complete deterministic conversion pipeline follows five automated stages:
 
-The unifying idea is that the canvas is a shared coordinate space. Every technique
-in the right-hand column ultimately produces something that targets a region of a
-canvas — an image painted onto it, an annotation attached to it, a transcription
-bound to it. That is what allows the imaging, the transcription, the apparatus,
-and the commentary to be parts of one object rather than four separate documents
-about the same manuscript (Clausen et al., 2026).
+1. **Ingest and Integrity Verification:** The master RAW capture is developed into an uncompressed 16-bit TIFF master. The file's SHA-256 cryptographic hash is calculated and recorded in the repository ledger to guarantee future bit-level integrity.
+2. **Deterministic Geometric and Optical Normalization:** Using ImageMagick in a shell script, the image undergoes automated deskewing, coordinate cropping to remove copyboard edges, white balance correction against an ICC target, and conservative unsharp masking:
+   ```bash
+   magick raw_f01r.tif \
+     -deskew 40% \
+     -crop 4800x6400+200+250 +repage \
+     -profile custom_camera.icc -profile sRGB_v4.icc \
+     -unsharp 0x1.0+1.0+0.05 \
+     norm_f01r.tif
+   ```
 
-Keep that in view on Friday. The manifest you build is not a container for
-pictures; it is the coordinate framework the rest of your edition attaches to.
+3. **High-Performance Pyramidal Generation:** The normalized TIFF is converted into a multi-resolution, tiled Pyramidal TIFF using `libvips`:
+   ```bash
+   vips tiffsave norm_f01r.tif iiif_f01r.tif \
+     --tile --tile-width 512 --tile-height 512 \
+     --pyramid --compression deflate --bigtiff
+   ```
 
-**Takeaway:** Every technique this week produces something that
-targets a canvas region, which is what makes the imaging, transcription, and
-apparatus one object.
+4. **Server Deployment:** The resulting Pyramidal TIFF is placed in the storage directory of a compliant IIIF server (such as Cantaloupe). The server automatically parses the file, exposes the `info.json` endpoint, and begins serving Deep Zoom tiles.
+5. **Manifest Registration:** The image service URI (`https://example.org/iiif/3/f01r`) is registered inside the edition's IIIF Presentation Manifest, binding the physical capture directly to the corresponding TEI Canvas.
+
+This automated pipeline transforms raw photographic data into an enterprise-grade digital scholarly asset in seconds.
+
+**Takeaway:** The archival conversion pipeline normalizes raw TIFF masters via ImageMagick, builds pyramidal tiles with libvips, and registers the endpoints inside IIIF manifests.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: Instruments, Not Photographs**
+**The Deterministic Contract: Transparent Surrogates in the Digital Edition**
 
-The claim this meeting has developed is that the digital surrogate is not a
-picture of the manuscript but the output of an instrument applied to it.
+We conclude this lesson by reflecting on the epistemological contract between the digital editor, the machine, and the scholarly reader. Throughout this lesson, every tool and technique examined—IIIF APIs, ImageMagick command lines, GIMP layer masks, libvips streaming, and lossless format standards—shares a defining characteristic: they are **deterministic**.
 
-A visible-light photograph is already an instrument's output, with a spectral
-response, a dynamic range, and a colour rendering that are properties of the
-camera rather than the object. A UV fluorescence capture is more obviously so. An
-ICA composite is unambiguously so: nothing in it corresponds to what any eye could
-see under any illumination, and its brightness values represent computed
-statistical quantities (Easton et al., 2003).
+A deterministic process is one in which a given set of inputs and parameters will *always* produce the exact same mathematical output. There is no probabilistic guessing, no neural-network hallucination, and no black-box generative interpolation. If an editor runs an unsharp mask with `sigma=1.0` and `amount=1.2` across a line of handwriting, the resulting pixel values are the direct, auditable consequence of established mathematical convolution equations.
 
-Two consequences follow, and they pull in opposite directions.
+This determinism constitutes the ethical bedrock of digital scholarly editing:
 
-The first is expansive. Instruments can exceed the eye. Erased text becomes
-legible; ink-less writing is recovered from surface relief; text is read through
-gold leaf by elemental fluorescence. Readings that were permanently lost become
-available, and the Archimedes treatises are the demonstration (Easton et al.,
-2003).
+- When a reader inspects a digitized manuscript on a screen, they are viewing a surrogate. If that surrogate was created through undocumented, proprietary, or probabilistic manipulation, the reader cannot know whether an observable ink mark reflects historical reality or digital artifacting.
+- By adhering to open standards (IIIF), open-source software (ImageMagick, libvips), lossless preservation masters (TIFF), and version-controlled execution scripts, the digital editor offers a transparent contract.
+- Any researcher in the world can inspect the processing logs, run the exact same scripts against the raw master files, and verify the visual evidence independently.
 
-The second is restrictive. An instrument's output must be interpreted in light of
-how it was produced, and an image whose production is undocumented cannot be
-evaluated. Statistical enhancement amplifies noise as readily as signal, and
-expectation makes false letterforms easy to see. The discipline that makes
-recovery trustworthy is documentation and cross-verification, not the technique
-itself.
+Deterministic computer assistance does not replace human scholarly judgement. It empowers the scholar to handle vast physical collections with mathematical precision, transforming raw optical captures into rigorous, verifiable historical evidence.
 
-Both are why this lesson sits in a philology course rather than a physics course.
-You will not operate this equipment. You will read, cite, and rely on its output,
-and doing that responsibly requires knowing what the output is.
-
-**For Friday.** Bring the six items listed in section 28. **The Cataloguing &
-Metadata Assignment is due Friday September 18**, and Friday's meeting builds your
-manifest and binds it to your TEI.
-
-**Takeaway:** Every manuscript image is an instrument's output,
-which is why it can show more than the eye and why it cannot be evaluated without
-its documentation.
-
----
-
-## References
-
-Clausen, H., Brenner, S., Schreiner, M., & Vetter, W. (2026). Multimodal
-manuscript representation: Toward an open repository for manuscript research
-data. *The European Physical Journal Plus*.
-https://doi.org/10.1140/epjp/s13360-025-07133-y
-
-Easton, R. L., Knox, K. T., & Christens-Barry, W. A. (2003). Multispectral
-imaging of the Archimedes palimpsest. In *32nd Applied Imagery Pattern
-Recognition Workshop*. https://doi.org/10.1109/AIPR.2003.1284258
-
-eScriptorium/Kraken. (2024). *eScriptorium platform documentation*.
-https://escriptorium.eu/about
-
-Griffin, S. M. (2023). Digital libraries, epigraphy and paleography: Bringing
-records from the distant past to the present. *International Journal on Digital
-Libraries*. https://doi.org/10.1007/s00799-023-00381-2
-
-IIIF Consortium. (2020). *IIIF Presentation API 3.0 specification*.
-https://iiif.io/api/presentation/3.0/
-
-Malzbender, T., Gelb, D., & Wolters, H. (2001). *Polynomial texture maps*.
-Hewlett-Packard Laboratories.
-
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and
-interchange*. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/
+**Takeaway:** Deterministic image processing establishes an ethical scholarly contract, ensuring that every visual surrogate is the transparent, auditable, and mathematically reproducible result of explicit parameters.

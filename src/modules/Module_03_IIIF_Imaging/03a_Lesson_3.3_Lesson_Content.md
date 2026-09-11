@@ -1,1205 +1,538 @@
-# Lesson 3.3 — Building the Manifest and Binding It to TEI
+# Lesson 3.3 — AI-Assisted Imaging in Historical Document Studies
 
 *RELS 398 / ENGL 398 · Topic 3: IIIF Imaging · Meeting #8 (Fri Sep 18)*
 
-*Infrastructure week — the three-step comparative cycle does not apply. Today
-assembles the week into a working artefact: the manifest for your passage, bound
-to your TEI encoding by canvas coordinates. **The Cataloguing & Metadata
-Assignment is due today.***
+*The AI-assisted imaging frontier: accelerating manual and deterministic workflows through automated bounding boxes, document layout analysis, smart image organization, and text-image facsimile alignment.*
 
 ---
 
 ## **01 Content**
 
-**What Today Produces**
+**The AI Paradigm Shift: From Deterministic Filters to Statistical Vision Models**
 
-Two meetings of theory converge on one deliverable. By the end of today you will
-have a IIIF manifest describing your passage, and a TEI document whose
-transcription is bound to regions of that manifest's canvases.
+In the preceding two lessons, we established two foundational approaches to historical document imaging: manual capture and encoding (Lesson 3.1) and deterministic algorithmic processing (Lesson 3.2). Manual encoding gives scholars complete control over every coordinate and semantic tag, but it requires painstaking, line-by-line human effort. Deterministic image processing with tools like ImageMagick and libvips provides automated, scriptable batch transformations, but it relies on rigid mathematical pixel formulas that cannot interpret the semantic meaning of visual elements.
 
-Stated plainly, the artefact does this: a reader looking at a line of your
-transcription can be taken to the exact patch of parchment that line transcribes,
-and a reader looking at a region of the parchment can be taken to what you
-transcribed there. The link runs both ways, and it is machine-actionable rather
-than a matter of a reader consulting a plate number.
+Artificial intelligence introduces a fundamental paradigm shift: statistical computer vision models. Unlike an unsharp mask or a contrast lookup table, deep learning vision models do not merely transform pixel values; they infer high-level meaning from visual patterns. A convolutional neural network (CNN) or vision transformer (ViT) does not see an image merely as a grid of numbers. It recognizes textures, strokes, contours, baselines, paragraph blocks, decorative flourishes, physical seals, and handwritten characters.
 
-That capability is the difference between a transcription and a digital edition.
-A printed edition asserts that folio 42r line 8 reads thus, and a reader wanting
-to check must obtain a facsimile and count lines. A bound edition makes the
-evidence one click away from the claim, which changes the standard a reader can
-hold you to — and, more importantly, the standard you can hold yourself to while
-working (Griffin, 2023).
+For digital editors, this capability bridges the gap between raw pixels and structured TEI XML. AI does not replace scholarly judgment; rather, it performs high-speed semantic perception, generating proposed bounding boxes, preliminary reading orders, and candidate alignments that scholars can verify, correct, and formalize.
 
-The components are already in place. Lesson 3.1 established the manifest,
-canvas, annotation, and fragment selector. Lesson 3.2 established what the images
-are and how alternatives are expressed as a `Choice`. Week 2 produced your TEI
-header. Today joins them.
-
-**Takeaway:** Today's artefact links each transcribed line to the
-exact region of parchment it transcribes, in both directions and machine-actionably.
+**Takeaway:** Statistical vision models shift imaging from rigid mathematical pixel transformations to semantic visual perception, enabling automated recognition of document structures, text lines, and artifacts.
 
 ---
 
 ## **02 Content**
 
-**Two Manifests, Two Situations**
+**Overcoming the Manual Bottleneck: Why AI in Archival Imaging?**
 
-Before building anything, determine which situation you are in, because it
-determines what you build.
+The traditional bottleneck of digital scholarly editing is the sheer volume of manual labor required to prepare primary source facsimiles. To build an interactive, deep-zoom facsimile edition of an archival collection, an editor traditionally had to:
 
-**Situation A: your institution publishes a manifest.** This is the common case
-and the simpler one. The manifest exists, the images are served by the
-institution, and your work is to *reference* it — recording canvas URIs and
-building your TEI bindings against them. You do not build a manifest at all.
+- Manually measure or click the bounding coordinates for every text line, heading, marginal gloss, and physical stamp.
+- Name and organize hundreds or thousands of raw photographic captures into standardized directory hierarchies.
+- Manually enter `@ulx`, `@uly`, `@lrx`, and `@lry` coordinates into TEI `<surface>` and `<zone>` elements.
+- Map transcribed text elements to their corresponding pixel regions one line at a time.
 
-**Situation B: you need your own manifest.** This arises when your passage spans
-witnesses in different institutions and you want them as one object; when the
-institution serves images but no manifest; or when you are adding your own
-derived images. Here you author a manifest that references images served
-elsewhere.
+For an individual scholar working on a compact archive—such as Olyvia transcribing a personal handwritten letter by Nova Scotia folk artist Maud Lewis—manual coordinate entry is physically feasible for a four-page document, but still tedious. For Ace working on a multi-page 1791 French revolutionary decree with multi-column legal articles, or an archival project handling hundreds of colonial treaties, manual bounding box creation becomes an overwhelming barrier to publication.
 
-| | Situation A | Situation B |
-| --- | --- | --- |
-| Who serves the images | The institution | The institution, still |
-| Who authors the manifest | The institution | You |
-| What you record | Canvas URIs from their manifest | Your own manifest, referencing their images |
-| Where your manifest lives | Not applicable | Your repository, published in Week 13 |
-| Main risk | Their URIs change | Your manifest drifts from their images |
+AI-assisted imaging automates these repetitive perceptual tasks. By delegating baseline detection, zone extraction, and image naming to trained models, scholars can redirect their limited time and expertise toward textual criticism, philological commentary, and historical interpretation.
 
-Note what is true of both: **the images are served by the institution**. Situation
-B does not mean hosting images yourself. You are authoring a description that
-points at their Image API endpoints — which, as Lesson 3.1 established, is
-referencing rather than republication, and therefore does not depend on the
-licence permitting redistribution.
-
-Most of you are in Situation A for your primary witness and Situation B for the
-combined view of both witnesses. Today covers both.
-
-**Takeaway:** Authoring a manifest does not mean hosting images
-— you describe an object that references the institution's Image API endpoints.
+**Takeaway:** AI-assisted imaging removes the traditional labor bottleneck of manual zone tracing and coordinate encoding, allowing editors to scale digital editions efficiently.
 
 ---
 
 ## **03 Content**
 
-**Recording Canvas Identifiers**
+**Computer Vision Foundations: Convolutional Networks, Vision Transformers, and Multimodal LLMs**
 
-Whichever situation applies, the foundation is an accurate record of the canvases
-your passage occupies. Build it now, carefully, because every binding today
-depends on it and an error propagates into all of them.
+To effectively employ AI imaging tools, scholars must understand the underlying technical architectures that power modern document vision:
 
-For each folio, extract from the institution's manifest:
+- **Convolutional Neural Networks (CNNs):** The historical workhorse of computer vision. CNNs apply hierarchical mathematical spatial filters (kernels) across an image, extracting low-level features (edges, ink strokes, corners) in early layers and synthesizing them into complex structures (characters, baselines, layout blocks) in deeper layers. Architectures like U-Net and ResNet remain standard for pixel-level segmentation.
+- **Vision Transformers (ViTs):** Adapted from natural language processing, ViTs divide an image into a grid of non-overlapping patches (tokens) and use self-attention mechanisms to model relationships across the entire document page simultaneously. This enables ViTs to recognize long-range spatial context—such as understanding that an isolated marginal note at the bottom of a page relates directly to a superscript numeral in the top header.
+- **Multimodal Large Language Models (MLLMs):** Cutting-edge models (such as GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Pro) combine visual encoders with large-scale language decoders. They can simultaneously inspect high-resolution document images, understand textual content in multiple historical languages, output structured JSON coordinate bounding boxes, and transcribe complex scripts in a single unified inference step.
 
-| Field | Source in the manifest | Why needed |
-| --- | --- | --- |
-| Canvas `id` | The canvas object's `id` | The target of every binding |
-| `height` and `width` | The canvas object | Coordinates are in canvas units |
-| Label | The canvas `label` | Human-readable folio identification |
-| Image `id` | The painting annotation's `body.id` | The Image API endpoint |
-| Image service | `body.service` | Determines whether arbitrary regions are available |
-| Image dimensions | `body.height`, `body.width` | May differ from canvas dimensions |
+Understanding these architectures helps editors select the right tool: lightweight CNNs for local batch segmentation, ViTs for complex layouts, and MLLMs for integrated transcription and spatial reasoning.
 
-A script beats doing this by hand and is worth writing once:
-
-```python
-import json, urllib.request
-
-url = "https://digi.vatlib.it/iiif/MSS_Vat.gr.1209/manifest.json"
-m = json.load(urllib.request.urlopen(url))
-
-for canvas in m["items"]:
-    label = canvas.get("label", {}).get("en", ["?"])[0]
-    body = canvas["items"][0]["items"][0]["body"]
-    print(f"{label}\t{canvas['id']}\t{canvas['width']}x{canvas['height']}"
-          f"\timg {body.get('width')}x{body.get('height')}")
-```
-
-Run it and read the output rather than trusting it. The last column exists to
-surface the trap from Lesson 3.1 section 28: where image dimensions differ from
-canvas dimensions, coordinates computed from the image are wrong by a scale
-factor. If the two differ, note the ratio now.
-
-Commit the output to `images/CANVASES.md`.
-
-**Takeaway:** Record canvas ids, canvas dimensions, and image
-dimensions together — where the last two differ, every coordinate needs scaling.
+**Takeaway:** Modern document vision relies on CNNs for local feature extraction, Vision Transformers for global spatial context, and Multimodal LLMs for integrated visual-textual reasoning.
 
 ---
 
 ## **04 Content**
 
-**Determining Coordinates for a Region**
+**Machine-Readable Layout Analysis: Document Image Analysis (DIA)**
 
-To bind a line of transcription to the parchment, you need the rectangle it
-occupies in canvas coordinates. Several routes exist, of differing precision and
-labour.
+Document Image Analysis (DIA) is the subfield of computer science dedicated to converting raw document images into structured, machine-readable representations of their physical and logical architecture.
 
-| Method | Precision | Effort | Best for |
-| --- | --- | --- | --- |
-| Mirador region selection | Good | Low | A handful of regions by hand |
-| Image editor with coordinate readout | High | Moderate | Careful individual bindings |
-| Annotation tool (Annotorious, Recogito) | High | Low per region | Many regions systematically |
-| HTR layout analysis | High | Very low per line | Every line at once, from Week 4 |
-| Arithmetic from line count | Rough | Very low | Provisional first pass |
+DIA operates across two primary levels of abstraction:
 
-The fourth row is the one that will do most of your work, and it is the reason
-today's binding exercise is deliberately small. Next week's HTR layout analysis
-emits a bounding box for every detected line automatically, in ALTO or PAGE XML,
-already in image coordinates (eScriptorium/Kraken, 2024). Rather than hand-measuring
-three hundred lines, you will transform that output.
+- **Physical Layout Analysis:** Detects the physical regions of a page without interpreting their linguistic meaning. It segments the image into background parchment, foreground ink strokes, photographic noise, illustration zones, tables, decorative initials, and text blocks.
+- **Logical Layout Analysis:** Assigns semantic and structural roles to the detected physical regions. It identifies whether a specific text block is a running header, a page number (folio mark), a primary textual column, an authorial marginal addition, a scribal correction, or a postal cancellation stamp.
 
-Today you bind a few regions by hand, for two reasons. You need to understand what
-the coordinates mean before accepting a machine's version of them, and you need at
-least one hand-verified binding against which to check the automated ones next
-week. A systematic offset in the transform is invisible unless you have a known-good
-case to compare against.
+In historical documents, physical and logical layouts often conflict. For instance, in Emily Dickinson's manuscripts (studied by Jay), a line of poetry may physically wrap onto a second line due to the narrow width of the stationery leaf, but logically constitutes a single metric verse line. AI-driven DIA tools must be configured to separate physical line boundaries from logical poetic structures.
 
-For hand measurement, the arithmetic approach is a reasonable start: if a text
-block runs from y=400 to y=3600 across 24 lines, each line occupies roughly 133
-units, and line 8 begins near y=400+7×133=1331. Refine by inspection.
-
-**Takeaway:** Bind a few regions by hand today so that you can
-verify next week's automated line coordinates against a known-good case.
+**Takeaway:** Document Image Analysis establishes the physical boundaries and logical semantic roles of visual regions, separating geometric layout from intellectual structure.
 
 ---
 
 ## **05 Content**
 
-**The TEI Facsimile Module**
+**Automated Page Segmentation: Distinguishing Margins, Headers, and Text Blocks**
 
-TEI provides a dedicated structure for describing a document's physical surfaces
-and the regions on them: the `<facsimile>` element and its children (TEI
-Consortium, 2026).
+Before an algorithm can read or align individual words, it must segment the full page image into coarse functional blocks. Automated page segmentation tools use semantic segmentation architectures (such as Mask R-CNN or YOLO) trained on vast corpuses of historical documents to classify every pixel into predefined layout categories.
 
-| TEI element | Represents | IIIF equivalent |
-| --- | --- | --- |
-| `<facsimile>` | The set of surfaces constituting the document | The manifest |
-| `<surface>` | One writing surface — a page or an opening | A canvas |
-| `<zone>` | A region on a surface | A fragment selector on a canvas |
-| `<graphic>` | An image of a surface or zone | An Image API endpoint |
+A standard historical document segmentation model identifies:
 
-The correspondence is close enough to be genuinely useful. A TEI `<surface>` maps
-conceptually to a IIIF Canvas, and a `<zone>` corresponds to a bounding box on
-that canvas — which is precisely the alignment that makes coordinate binding
-possible (TEI Consortium, 2026).
+- **Main Text Area:** The primary writing grid or print column holding continuous prose or verse.
+- **Running Headers and Folio Numbers:** Peripheral navigational markers, such as the 18th-century printed page numbers and session titles in Ace's 1791 French decree.
+- **Marginal Annotations:** Interlinear or marginal commentary, scribal glosses, or institutional archival shelfmarks.
+- **Ornamentation and Vignettes:** Woodcut illustrations, republican seals, heraldic crests, or decorative borders.
+- **Empty Margins:** The physical substrate surrounding the text, essential for preserving the visual proportions of the original artifact.
 
-The structure separates the *physical* description of the document from the
-*textual* transcription. `<facsimile>` describes surfaces and regions; `<text>`
-holds the transcription; and attributes link the two. This separation is
-deliberate and important: it means the same transcription can be bound to
-different image sets, and the same images can carry different transcriptions.
+Modern segmentation models output labeled polygon masks or rectangular bounding boxes. These coordinates can be serialized directly into TEI `<zone>` elements or IIIF canvas regions, automating what once required hours of manual tracing in desktop graphics software.
 
-```xml
-<facsimile>
-  <surface xml:id="f42r" ulx="0" uly="0" lrx="3000" lry="4000">
-    <graphic url="https://digi.vatlib.it/iiif/.../full/max/0/default.jpg"/>
-    <zone xml:id="f42r_l01" ulx="420" uly="512" lrx="2580" lry="640"/>
-    <zone xml:id="f42r_l02" ulx="420" uly="645" lrx="2580" lry="773"/>
-  </surface>
-</facsimile>
-```
-
-Note that TEI's native coordinate attributes name two corners — upper-left x and
-y, lower-right x and y — whereas IIIF names a corner plus dimensions. Converting
-between them is straightforward arithmetic, and the next section handles it.
-
-**Takeaway:** `<facsimile>` describes surfaces and zones
-separately from the transcription, and TEI `<surface>` maps to a IIIF canvas.
+**Takeaway:** Automated page segmentation identifies and delineates functional regions (text bodies, headers, marginalia, decorations), providing the spatial foundation for TEI surface encoding.
 
 ---
 
 ## **06 Content**
 
-**Two Coordinate Conventions**
+**Baseline Detection and Text-Line Segmentation: Kraken, dhSegment, and Transkribus**
 
-TEI and IIIF express rectangles differently, and confusing them is the most common
-source of misplaced bindings.
+For centuries, scribes ruled horizontal guidelines onto parchment to keep their writing straight. In computer vision, a **baseline** is the virtual line along which cursive or printed letters sit, ignoring descending strokes (such as the tails of 'p', 'q', or 'y').
 
-| | TEI zone attributes | IIIF fragment selector |
-| --- | --- | --- |
-| Form | `ulx`, `uly`, `lrx`, `lry` | `#xywh=x,y,w,h` |
-| Specifies | Two opposite corners | One corner plus width and height |
-| Example | `ulx="420" uly="512" lrx="2580" lry="640"` | `#xywh=420,512,2160,128` |
+Baseline detection has superseded traditional bounding-box line segmentation for historical manuscripts:
 
-Converting between them:
+- **The Bounding Box Failure:** In tightly spaced cursive handwriting—such as Emily Dickinson's looping ascenders and descenders or Maud Lewis's personal letters—adjacent lines frequently overlap and interlock. A simple rectangular bounding box drawn around Line 2 inevitably captures ascenders from Line 3 and descenders from Line 1, confusing downstream optical character recognition.
+- **The Baseline Advantage:** A baseline is modeled as a continuous polygonal polyline tracing the bottom of the letter bodies. Dedicated open-source historical document tools—including Kraken, dhSegment, and Transkribus—predict baselines with sub-pixel precision using recurrent neural networks and spatial attention.
+- **Line Polygons:** From the detected baseline, the software computes an enveloping polygon that follows the precise wavy contour of the line, cleanly separating interlocking ascenders and descenders without clipping.
 
-```python
-def tei_to_iiif(ulx, uly, lrx, lry):
-    """TEI corner pair -> IIIF xywh."""
-    return f"#xywh={ulx},{uly},{lrx - ulx},{lry - uly}"
+Exporting these line polygons provides exact coordinates for TEI `<zone type="line">` elements, enabling readers to hover over individual transcribed lines and highlight the exact scribal stroke on the manuscript facsimile.
 
-def iiif_to_tei(x, y, w, h):
-    """IIIF xywh -> TEI corner pair."""
-    return {"ulx": x, "uly": y, "lrx": x + w, "lry": y + h}
-```
-
-The error to watch for is treating IIIF's third and fourth values as a second
-corner. Doing so produces a region that starts in the right place and extends far
-too far — and because the origin is correct, the binding looks plausible at low
-zoom and is obviously wrong only when examined closely. If your zones are
-consistently too large and overlap their neighbours, this is the cause.
-
-Both conventions place the origin at the top-left with y increasing downwards, so
-that at least is consistent. Both are also in *canvas* units, subject to the
-scaling caveat from section 03.
-
-Write the conversion once, as a tested function, and use it everywhere. Ad-hoc
-arithmetic performed inline is where sign and ordering errors enter.
-
-**Takeaway:** TEI names two corners and IIIF names a corner plus
-dimensions; treating IIIF's last two values as a corner produces regions that are
-too large.
+**Takeaway:** Baseline detection models lines as flexible polylines rather than rigid rectangles, cleanly isolating interlocking handwritten text lines in historical manuscripts.
 
 ---
 
 ## **07 Content**
 
-**Binding Transcription to Zones with `@facs`**
+**Generating TEI `<zone>` Coordinates with AI: From Polygons to Bounding Boxes**
 
-With zones defined, the transcription is linked to them by the `@facs` attribute,
-available globally in TEI (TEI Consortium, 2026).
+Once an AI model has segmented a page into regions and lines, how do we transform its mathematical output into valid TEI XML?
 
-```xml
-<facsimile>
-  <surface xml:id="f42r">
-    <graphic url="https://example.edu/iiif/42r/full/max/0/default.jpg"/>
-    <zone xml:id="f42r_l01" ulx="420" uly="512" lrx="2580" lry="640"/>
-  </surface>
-</facsimile>
+Standard vision models output coordinates in various coordinate formats:
 
-<text>
-  <body>
-    <div type="passage">
-      <pb n="42r" facs="#f42r"/>
-      <lb n="1" facs="#f42r_l01"/>ἐν ἀρχῇ ἦν ὁ λόγος
-    </div>
-  </body>
-</text>
-```
+- Normalized floating-point values between 0.0 and 1.0 (relative to page width and height).
+- Absolute pixel coordinates `[x, y, w, h]` (origin at top-left).
+- Arbitrary multi-point polygonal coordinate strings `[(x1, y1), (x2, y2), ...]`.
 
-The `<pb>` (page beginning) carries `facs="#f42r"`, declaring that what follows is
-on that surface. Each `<lb>` (line beginning) carries a `@facs` pointing at its
-zone. A processor reading this knows, for every line of transcription, which
-region of which surface it transcribes.
+To ingest these coordinates into TEI P5, a Python script translates the model output into standard TEI `<zone>` attributes:
 
-`@facs` can point in two ways, and the distinction matters:
+- For rectangular zones, the script calculates `@ulx` (upper-left X), `@uly` (upper-left Y), `@lrx` (lower-right X), and `@lry` (lower-right Y).
+- For complex irregular shapes (such as an unevenly placed wax seal or a diagonal marginal gloss), TEI supports the `@points` attribute, which takes a space-separated sequence of coordinate pairs: `points="x1,y1 x2,y2 x3,y3 ..."`.
 
-| Form | Points to | Use when |
-| --- | --- | --- |
-| `facs="#f42r_l01"` | A `<zone>` in this document | Zones are declared locally, as above |
-| `facs="https://…/canvas/p42#xywh=420,512,2160,128"` | A IIIF canvas region directly | Referencing an external manifest |
+By establishing a programmatic bridge between vision model JSON outputs and TEI XML templates, editors can generate hundreds of fully attributed `<surface>` and `<zone>` structures in seconds, complete with automated `@xml:id` identifiers matching transcribed lines.
 
-The first is more maintainable, since coordinates live in one place and can be
-corrected without touching the transcription. The second is more portable, since
-the transcription carries its own image references and needs no accompanying
-`<facsimile>`.
-
-The recommended practice for this course is the first, with `<surface>` carrying
-the canvas URI — which the next section covers.
-
-**Takeaway:** `@facs` on `<pb>` and `<lb>` binds transcription to
-zones; declare zones locally so coordinates can be corrected in one place.
+**Takeaway:** Automated scripts convert vision model coordinate predictions into standardized TEI `@ulx`, `@uly`, `@lrx`, `@lry`, or `@points` attributes, bridging AI predictions and XML standards.
 
 ---
 
 ## **08 Content**
 
-**Connecting `<surface>` to the IIIF Canvas**
+**Addressing Complex Layouts: Multi-Column Broadsides and Interlinear Additions**
 
-The remaining link is between your TEI surfaces and the institution's canvases.
-Carry the canvas URI on the `<surface>` itself:
+Historical documents frequently defy simple top-to-bottom, single-column reading orders. Two student projects in our cohort illustrate these structural complexities:
 
-```xml
-<surface xml:id="f42r"
-         facs="https://digi.vatlib.it/iiif/MSS_Vat.gr.1209/canvas/p42"
-         ulx="0" uly="0" lrx="3000" lry="4000">
-  <graphic url="https://digi.vatlib.it/iiif/MSS_Vat.gr.1209/full/max/0/default.jpg"
-           width="3000" height="4000"/>
-  <zone xml:id="f42r_l01" ulx="420" uly="512" lrx="2580" lry="640"/>
-</surface>
-```
+- **Ace's 1791 French Revolutionary Decree:** Printed decrees of the French National Assembly were often formatted as multi-column broadsides or octavo pamphlets with prominent centered titles, parallel French legal columns, italicized enactments, and bottom printer colophons. A naive vision model that reads strictly by vertical Y-coordinate will interleave text across Column 1 and Column 2, producing garbled gibberish.
+- **Jay's Emily Dickinson Manuscripts:** Dickinson's poems feature interlinear variant word choices written directly above or below lines, marginal stanzas, and ambiguous line wraps. A standard line-segmentation model may mistake an interlinear variant for an independent verse line or clip it into the adjacent line's polygon.
 
-Now the chain is complete in both directions. A line carries `facs="#f42r_l01"`,
-which resolves to a zone, which sits within a surface, which carries the canvas
-URI and the surface dimensions. A processor can compute the full IIIF fragment
-URI for any line by combining the canvas URI with the zone's coordinates converted
-to `xywh` form.
+To resolve these challenges, modern layout analysis employs **reading order algorithms** (such as topological sorting and graph neural networks). The model establishes spatial relationship graphs between text blocks, distinguishing between primary reading flows and secondary annotations. Human editors inspect the predicted reading tree and correct edge connections, ensuring that legal columns and poetic variants are serialized logically in TEI `<body>`.
 
-Two details make this robust. Declaring `ulx`/`uly`/`lrx`/`lry` on the `<surface>`
-records the coordinate space the zones are expressed in, so a processor can detect
-and correct a mismatch with the canvas dimensions rather than silently producing
-wrong regions. And declaring `width` and `height` on `<graphic>` records the
-image's own dimensions, making the scaling relationship from section 03 explicit
-in the document.
-
-This is a case where slight redundancy is worth its cost. Coordinate systems
-misalign silently, and recording the dimensions at each level is what lets a
-mismatch be caught by a check rather than discovered by a reader.
-
-**Takeaway:** Put the canvas URI on `<surface>` and record
-dimensions at every level, so coordinate mismatches can be detected rather than
-silently misplacing regions.
+**Takeaway:** Complex multi-column broadsides and interlinear manuscript additions require topological reading-order modeling to prevent erroneous text interleaving across columns and variants.
 
 ---
 
 ## **09 Content**
 
-**Generating the Fragment URI**
+**Vernacular and Irregular Handwriting: Overcoming Folk Script Challenges**
 
-With the structure in place, a short transform produces a resolvable IIIF URI for
-any line — which is what a viewer or a published edition consumes.
+While formal scribal hands (such as Carolingian minuscule or 18th-century chancery scripts) adhere to strict geometric proportions, informal personal correspondence presents distinct challenges for computer vision.
 
-```python
-import xml.etree.ElementTree as ET
+Olyvia's project—a personal letter written by renowned Nova Scotia folk artist Maud Lewis (1903–1970)—exemplifies the complexities of 20th-century vernacular handwriting:
 
-TEI = {"t": "http://www.tei-c.org/ns/1.0"}
+- Maud Lewis lived with severe rheumatoid arthritis, which significantly influenced her physical motor control and handwriting posture.
+- Her writing exhibits non-linear baselines, irregular letter sizing, varying pen pressure, drifting word spacing, and occasional uphill or downhill line tilts across unlined writing paper.
+- Standard commercial OCR engines trained on uniform business correspondence or clean printed books fail dramatically on such hands, producing fragmented line segments or misclassifying entire paragraphs as background noise.
 
-def line_uri(tree, line_id):
-    """Full IIIF fragment URI for a zone id such as 'f42r_l01'."""
-    zone = tree.find(f".//t:zone[@xml:id='{line_id}']", TEI)
-    surface = tree.find(f".//t:zone[@xml:id='{line_id}']/..", TEI)
-    canvas = surface.get("facs")
-    ulx, uly = int(zone.get("ulx")), int(zone.get("uly"))
-    lrx, lry = int(zone.get("lrx")), int(zone.get("lry"))
-    return f"{canvas}#xywh={ulx},{uly},{lrx - ulx},{lry - uly}"
-```
+To overcome these challenges, scholars apply specialized handwriting models (such as PyLaia or customized Kraken models) trained or fine-tuned on non-standard, vernacular hands. The model learns to follow dynamic, undulating baselines rather than assuming rigid horizontal strokes. Furthermore, multimodal LLMs equipped with high visual resolution can be prompted with context about the author's physical hand, allowing for accurate holistic line detection and zone attribution.
 
-Test it against a region you measured by hand, and verify by constructing the
-equivalent Image API URL and opening it:
-
-```text
-https://digi.vatlib.it/iiif/MSS_Vat.gr.1209/420,512,2160,128/full/0/default.jpg
-```
-
-If that returns the line you expected, the binding is correct. If it returns a
-different line, or part of two lines, your coordinates or your conversion are
-wrong — and this check is how you find out now rather than in Week 13.
-
-Make this verification a habit. Every binding you create should be checkable by
-constructing an Image API URL and looking at what comes back. It takes seconds,
-it requires no tooling beyond a browser, and it is the only direct test that a
-coordinate is right.
-
-**Takeaway:** Verify every binding by constructing the Image API
-URL for its region and confirming the returned image shows what you expected.
+**Takeaway:** Vernacular and folk handwriting with undulating baselines and motor-affected letterforms requires adaptive, fine-tuned models capable of tracking irregular, organic strokes.
 
 ---
 
 ## **10 Content**
 
-**Authoring a Manifest: The Skeleton**
+**Non-Textual Feature Detection: Identifying Seals, Signatures, and Totemic Marks**
 
-For Situation B, author a manifest. Build it as a Python script rather than by
-hand — you will regenerate it many times, and hand-editing JSON invites the errors
-catalogued in Lesson 3.1 section 20.
+Archival documents are multimodal physical artifacts containing visual elements that are not words, but carry supreme legal, political, and cultural authority.
 
-```python
-import json
+In Andromeda's project—the Peace and Friendship Treaty of 1752 between the British colonial government and the Mi'kmaq—the non-textual features are foundational to the document's legal and historical integrity:
 
-def manifest(base, label, canvases):
-    return {
-        "@context": "http://iiif.io/api/presentation/3/context.json",
-        "id": f"{base}/manifest.json",
-        "type": "Manifest",
-        "label": {"en": [label]},
-        "rights": "http://creativecommons.org/licenses/by/4.0/",
-        "requiredStatement": {
-            "label": {"en": ["Attribution"]},
-            "value": {"en": ["Biblioteca Apostolica Vaticana"]},
-        },
-        "items": canvases,
-    }
-```
+- **Colonial Wax and Paper Seals:** Raised or embossed official seals marking imperial authority.
+- **British Signatures:** The cursive signatures of colonial Governor Peregrine Hopson and council members.
+- **Indigenous Totemic Marks:** The pictorial or symbolic marks (doodems / totemic glyphs) drawn by Mi'kmaw delegates (such as Chief Jean-Baptiste Cope). These marks are not alphabetic cursive, but sacred cultural signifiers of sovereign agreement.
 
-The properties above are the ones a manifest should always carry. `id` must be the
-HTTP URI at which the manifest will actually be retrievable — not a placeholder,
-because viewers resolve it. `label` must be a language map holding an array.
-`rights` and `requiredStatement` carry the licensing you recorded in Lesson 3.1
-(IIIF Consortium, 2020).
+Standard OCR models either completely ignore these marks as photographic artifacts or generate nonsense characters trying to force them into ASCII letters. Computer vision object detection models (such as YOLOv8 or Faster R-CNN) can be specifically trained on classes such as `seal`, `signature`, `stamp`, and `pictorial_mark`. The detected bounding boxes are mapped directly into TEI `<zone type="seal">` or `<zone type="mark">` elements, preserving these vital cultural features as first-class visual objects in the digital edition.
 
-Add descriptive properties as well: `summary` for a short description, `metadata`
-for structured fields such as shelfmark, date, and material, and `homepage`
-pointing at the institution's catalogue record. These are what make your manifest
-a scholarly document rather than a bare pointer list.
-
-Generate, validate, and commit the generator alongside the output. The script is
-the reproducible artefact; the JSON is its product.
-
-**Takeaway:** Generate manifests from a script rather than
-hand-editing JSON, and commit the generator alongside its output.
+**Takeaway:** Object detection models locate and delineate non-alphabetic elements (seals, signatures, and Indigenous totemic marks), ensuring legal and cultural artifacts are properly encoded in TEI.
 
 ---
 
 ## **11 Content**
 
-**Authoring a Manifest: Canvases**
+**Automated Image Organization: Clustering, Duplicate Detection, and Sorting**
 
-Each canvas is constructed from a folio's image endpoint and dimensions.
+Large-scale digitization projects frequently suffer from organizational chaos. Photographers capture multiple shots of the same folio, capture color calibration targets in separate frames, produce test exposures, and accidentally misnumber file sequences. Sorting through 5,000 raw camera files manually to identify which image corresponds to which folio is an exhausting, error-prone chore.
 
-```python
-def canvas(base, ident, label, image_url, w, h):
-    return {
-        "id": f"{base}/canvas/{ident}",
-        "type": "Canvas",
-        "label": {"en": [label]},
-        "height": h,
-        "width": w,
-        "items": [{
-            "id": f"{base}/page/{ident}/1",
-            "type": "AnnotationPage",
-            "items": [{
-                "id": f"{base}/annotation/{ident}-image",
-                "type": "Annotation",
-                "motivation": "painting",
-                "body": {
-                    "id": image_url,
-                    "type": "Image",
-                    "format": "image/jpeg",
-                    "height": h,
-                    "width": w,
-                    "service": [{
-                        "id": image_url.rsplit("/full/", 1)[0],
-                        "type": "ImageService3",
-                        "profile": "level2",
-                    }],
-                },
-                "target": f"{base}/canvas/{ident}",
-            }],
-        }],
-    }
-```
+AI image clustering techniques bring automated order to raw image directories:
 
-The `service` block is what enables deep zoom. Without it a viewer treats the
-image as a single static file and cannot request tiles, so zooming degrades to
-scaling one downloaded image. Include it whenever the source offers a Level 2
-service, and set `profile` to match what the source actually provides — claiming
-`level2` for a Level 0 service produces failures that are hard to diagnose.
+- **Feature Embedding Extraction:** A pre-trained visual neural network (such as CLIP or DINOv2) processes every image in the directory and generates a dense mathematical vector (embedding) representing its visual content.
+- **Near-Duplicate and Exposure Detection:** By computing the cosine similarity between image embeddings, algorithms instantly identify duplicate captures of the same leaf, bracketing shots, or near-identical exposures. The system can flag the sharper or better-exposed image and quarantine redundant shots.
+- **Document Type Clustering:** Unsupervised clustering algorithms (such as k-means or DBSCAN) automatically group files into functional categories: full folio spreads, close-up binding details, color calibration charts, and blank flyleaves.
+- **Sequence Verification:** By analyzing visual transitions across consecutive folios (such as tracking binding gutters or page numbers), AI models can detect missing pages or swapped sequences before images enter the production pipeline.
 
-Set `height` and `width` on the canvas from the *image's* dimensions unless you
-have a reason to do otherwise. Choosing arbitrary canvas dimensions is legal and
-creates exactly the scaling mismatch discussed throughout this week.
-
-**Takeaway:** Include the `service` block or deep zoom will not
-work, and set canvas dimensions from the image's own dimensions.
+**Takeaway:** Visual feature embeddings (CLIP/DINOv2) enable automated clustering, duplicate detection, and sequence validation across large collections of unorganized scans.
 
 ---
 
 ## **12 Content**
 
-**Adding a `Choice` for Spectral Layers**
+**Smart Image Naming: Deriving Standardized File Names from Document Content**
 
-Where your manuscript has multiple imaging conditions, express them as
-alternatives on one canvas rather than as separate canvases (IIIF Consortium,
-2020).
+A common archival curse is cryptic camera filenames like `IMG_4829.CR2` or `DSC_0091.NEF`. As established in our course conventions, digital assets must follow strict, human-readable, and machine-parseable naming schemes (e.g., `amherst_ms1118_3_f01r.tif` or `archives_nat_1791_decret_p01.tif`).
 
-```python
-def choice_body(layers):
-    """layers: list of (image_url, label, width, height)."""
-    return {
-        "type": "Choice",
-        "items": [
-            {"id": url, "type": "Image", "format": "image/jpeg",
-             "width": w, "height": h, "label": {"en": [label]}}
-            for url, label, w, h in layers
-        ],
-    }
-```
+AI enables automated "smart renaming" pipelines that inspect the visual content of each photograph and derive canonical filenames:
 
-Substituting this for the single image body gives a canvas whose painting
-annotation offers alternatives, which Mirador renders as a layer selector.
+- **Folio Number Recognition:** The model detects and reads handwritten or printed folio marks (e.g., "fol. 14v", "p. 3", "leaf 2").
+- **Verso/Recto Classification:** Image classification models trained on book structures recognize whether a page is a recto (right-hand leaf with gutter on the left) or a verso (left-hand leaf with gutter on the right) based on gutter shadow, marginal width, and text geometry.
+- **Metadata Extraction and Renaming Scripts:** A Python script queries the vision model for page type, folio number, and leaf orientation, then programmatically renames the file according to institutional archival standards:
+  `mv IMG_4829.tif archives_nat_1791_decret_f01r.tif`
 
-Two points of practice carry over from Lesson 3.2. The first item is the viewer's
-default, so put the natural-colour image first. And the labels are your scholarly
-documentation of the imaging conditions — state them precisely:
+This automated pipeline eliminates hours of manual filename editing and guarantees absolute consistency across thousands of digital assets.
 
-| Poor label | Better label |
-| --- | --- |
-| `UV` | `UV fluorescence, 365 nm` |
-| `Processed` | `ICA composite, IC2/visible 592 nm/IC4` |
-| `Infrared` | `Near-infrared, 940 nm` |
-| `Enhanced` | `PCA components 2-4, contrast stretched` |
-
-The right-hand column lets a reader evaluate what they are looking at, which is
-exactly the requirement established in Lesson 3.2 section 17. A `Choice` whose
-labels say "UV" and "Processed" reproduces the failure of undocumented processing
-inside a structure designed to prevent it.
-
-If your manuscript has only visible-light imaging, omit the `Choice` — a single
-image body is correct and simpler.
-
-**Takeaway:** A `Choice` expresses spectral alternatives on one
-canvas, and its labels must state the imaging conditions precisely enough to be
-evaluated.
+**Takeaway:** Smart renaming pipelines use AI to read folio numbers and classify recto/verso orientations, automatically transforming raw camera filenames into canonical archival identifiers.
 
 ---
 
 ## **13 Content**
 
-**Ranges: Identifying Your Passage Within the Codex**
+**Metadata Extraction at Scale: Reading Dates, Archival Stamps, and Catalog Numbers**
 
-Your passage is part of a larger manuscript, and a **Range** expresses that
-relationship without disturbing the canvas sequence (IIIF Consortium, 2020).
+Historical documents accumulate layers of bureaucratic metadata across centuries of custodial handling. Archival rubber stamps, accession numbers, library shelfmarks, pencil dates added by 19th-century cataloguers, and colonial tax stamps appear across document margins.
 
-```json
-"structures": [{
-  "id": "https://example.edu/iiif/range/passage",
-  "type": "Range",
-  "label": { "en": ["Selected passage, ff. 42r-43v"] },
-  "items": [
-    { "id": "https://example.edu/iiif/canvas/42r", "type": "Canvas" },
-    { "id": "https://example.edu/iiif/canvas/42v", "type": "Canvas" },
-    { "id": "https://example.edu/iiif/canvas/43r", "type": "Canvas" },
-    { "id": "https://example.edu/iiif/canvas/43v", "type": "Canvas" }
-  ]
-}]
-```
+Capturing this metadata is critical for the TEI `<teiHeader>` and provenance history (`<provenance>`), but transcribing each stamp manually is slow:
 
-A viewer renders this as a table of contents entry, so a reader can navigate
-directly to your passage within the full codex. Ranges may nest, so a
-manuscript's quire structure, its constituent works, and your selected passage can
-coexist as different groupings of the same canvases.
+- **Multimodal MLLM Inspection:** A multimodal model can be prompted to inspect document margins and extract structured metadata: "Identify all archival stamps, handwritten accession numbers, and pencil dates on this leaf. Return the result as a JSON object containing the text, estimated date of the stamp, and bounding box coordinates."
+- **Institutional Stamp Recognition:** Vision models can classify institutional ownership stamps—such as the distinctive red oval stamp of the Bibliothèque nationale de France or the StFX University Archives accession ink—verifying document custody without physical handling.
+- **Automated Catalog Synchronization:** The extracted accession strings are programmatically validated against institutional catalog databases via authority APIs (such as VIAF or Wikidata), populating the TEI `<sourceDesc>` and `<msIdentifier>` blocks automatically.
 
-This matters more than it may seem for the scholarly presentation of your edition.
-Publishing your passage as an isolated set of images detaches it from its
-codicological context — and the Week 2 cataloguing work established that context
-as evidence, not background. A range keeps the passage identified *within* the
-manuscript, which is the accurate representation of what it is.
-
-Where the institution's manifest already carries ranges, check whether one
-corresponds to your passage; you may be able to reference it rather than
-constructing your own.
-
-**Takeaway:** A range identifies your passage within the full
-codex rather than detaching it, preserving the codicological context as part of the
-edition.
+**Takeaway:** Multimodal AI extracts peripheral administrative metadata (stamps, shelfmarks, accession numbers) from document margins, automatically enriching TEI provenance records.
 
 ---
 
 ## **14 Content**
 
-**Validating What You Have Built**
+**Automated Quality Control: Detecting Blur, Glare, Incomplete Scans, and Cropping Errors**
 
-Run the full validation sequence from Lesson 3.1 section 20 before committing, and
-in that order.
+In any large digitization campaign, human photographers inevitably make errors. A camera may slip out of focus, studio lamps may create specular reflection glare across glossy inks or varnished seals, or a document edge may be clipped outside the camera frame. Discovering these defects months later during transcription requires costly re-digitization trips to remote archives.
 
-| Step | Command or tool | Catches |
-| --- | --- | --- |
-| 1. Well-formed JSON | `python3 -m json.tool manifest.json` | Syntax errors |
-| 2. IIIF conformance | IIIF Presentation Validator | Missing or wrongly typed properties |
-| 3. Image endpoints resolve | `curl -I` on each image `id` | Broken or moved URLs |
-| 4. Renders in a viewer | Load into Mirador | Structural problems validators permit |
-| 5. Regions are correct | Open Image API URLs for your zones | Coordinate errors |
-| 6. TEI validates | `xmllint --relaxng` against the TEI schema | Encoding errors |
-| 7. Bindings resolve | Your `line_uri` function, spot-checked | Broken `@facs` references |
+AI quality control (QC) models provide automated, instantaneous auditing at the point of capture:
 
-Steps 5 and 7 are the ones specific to today and the ones most likely to fail
-silently. A manifest can be perfectly conformant and render beautifully while
-every one of its coordinates points at the wrong place — validators check
-structure, not meaning.
+- **Defocus Blur Detection:** Deep learning classification models evaluate spatial frequency spectra across the document, detecting local or global motion blur and lens defocus that would impede reading fine scribal strokes.
+- **Specular Glare and Reflection Masking:** Convolutional segmentation models identify hot spots where direct studio lighting has washed out underlying text, flagging the capture for lighting re-adjustment.
+- **Boundary and Edge Completeness Verification:** Object detection models verify that all four deckle edges or binding margins of the leaf are fully visible within the frame, ensuring that marginal glosses or folio numbers have not been cut off.
+- **Target Presence Verification:** Automated scripts confirm that a standardized color calibration target (e.g., ColorChecker) and metric scale bar are present in the reference shots for each capture batch.
 
-A checking script for step 7:
+Deploying automated QC scripts ensures that every image passing into the digital edition pipeline meets rigorous archival standards before the physical witness is returned to the vault.
 
-```python
-for lb in tree.findall(".//t:lb", TEI):
-    ref = lb.get("facs", "")
-    if ref.startswith("#") and tree.find(
-            f".//t:zone[@xml:id='{ref[1:]}']", TEI) is None:
-        print(f"broken facs reference: {ref}")
-```
-
-Add steps 1, 2, and 6 to your pre-commit hook. Steps 5 and 7 are worth running
-manually today and scripting as your edition grows.
-
-**Takeaway:** Validators check structure, not meaning — a
-conformant manifest can have every coordinate wrong, so verify regions visually.
+**Takeaway:** Automated AI quality control instantly detects defocus blur, specular glare, and clipped document margins at capture time, preventing costly digitization errors.
 
 ---
 
 ## **15 Content**
 
-**Preparing for HTR Ingestion**
+**AI-Assisted Super-Resolution and Denoising: Opportunities and Hallucination Risks**
 
-Next Tuesday begins transcription, and Wednesday's HTR work ingests what you build
-today. Make sure it is ingestible.
+Digital editors frequently encounter legacy scans captured in the 1990s or early 2000s at low resolutions (e.g., 100 to 150 DPI) or compressed with aggressive JPEG loss. Modern computer vision offers deep learning super-resolution models (such as Real-ESRGAN or SwinIR) that can computationally upscale images by 2x or 4x while synthesizing apparent fine detail.
 
-HTR platforms accept manifests by URI and import the images they reference
-(eScriptorium/Kraken, 2024). For that to work:
+However, in scholarly editing, super-resolution carries catastrophic methodological risks:
 
-- The manifest must be retrievable over HTTP by the platform, not merely a local file.
-- Image endpoints must be publicly reachable, without authentication.
-- Canvas dimensions must be declared, since layout analysis works in that space.
-- The `service` block should be present so tiles can be requested efficiently.
-- The manifest must be conformant, since platforms are less tolerant than viewers.
+- **The Generative Hallucination Trap:** Super-resolution neural networks are trained on large image datasets to predict what missing pixels 'ought' to look like. When applied to an ambiguous, low-resolution scribal stroke, the model does not recover historical reality; it invents plausible-looking pixel data based on statistical probability.
+- **Inventing Punctuation and Diacritics:** A super-resolution model may transform a random speck of paper foxing into a distinct Greek acute accent, or convert a faint scribal dash into an English hyphen, fabricating textual evidence that never existed on the physical leaf.
+- **Scholarly Best Practice:** Generative super-resolution must **never** be applied to archival preservation masters or used as the basis for critical transcription. If super-resolution is used solely for visual presentation in a public web viewer, its presence must be explicitly documented and flagged with a visible surrogate disclosure label.
 
-The first requirement catches people. A manifest sitting in your repository as a
-local file cannot be ingested by an external platform. If you built one in
-Situation B, it must be published somewhere reachable — GitHub Pages serves this
-purpose adequately and is what most of you will use.
-
-If your primary witness is Situation A, you can ingest the institution's manifest
-directly, which is simpler and is the recommended route for Week 4. Reserve your
-own manifest for the combined multi-witness view, which matters from Week 7.
-
-Test ingestion today if you can. Discovering on Wednesday that a manifest cannot
-be imported costs a session; discovering it now costs ten minutes.
-
-**Takeaway:** HTR platforms fetch manifests over HTTP, so a
-manifest that exists only as a local file cannot be ingested.
+**Takeaway:** Deep learning super-resolution creates plausible synthetic pixels through generative prediction; it must never be used on archival masters due to the fatal risk of hallucinating textual evidence.
 
 ---
 
 ## **16 Content**
 
-**From ALTO to TEI: What Next Week Produces**
+**Automated Contrast and Ink Recovery: Deep Learning for Faded and Stained Inks**
 
-Understanding the format HTR emits tells you what Week 4 will hand you and why
-today's structure matters.
+Centuries of environmental exposure cause severe ink degradation. Iron gall inks oxidize and fade to pale tan, water immersion washes pigments across fibers, and chemical mold stains darken surrounding paper. While deterministic contrast stretching (Lesson 3.2) can boost dynamic range, it often fails when the luminance of faded ink matches the luminance of adjacent paper stains.
 
-ALTO XML and PAGE XML both describe a page as a hierarchy of regions, lines, and
-words, each with coordinates, each carrying recognized text (eScriptorium/Kraken,
-2024). Structurally this is very close to TEI's `<surface>`/`<zone>` model — which
-is why conversion is a transformation rather than a re-encoding.
+Deep learning ink recovery networks offer sophisticated non-linear separation:
 
-| ALTO element | Corresponds to | TEI equivalent |
-| --- | --- | --- |
-| `<Page>` | One page image | `<surface>` |
-| `<TextBlock>` | A block of text | `<zone type="block">` |
-| `<TextLine>` | One line, with a baseline | `<zone type="line">` |
-| `<String>` | One word, with coordinates | `<w>` with `@facs` |
+- **CycleGAN and Image-to-Image Translation:** Generative adversarial networks (GANs) trained on paired degraded and pristine document samples learn to map stained, faded manuscript patches into high-contrast, normalized images where faint ink strokes are perceptually amplified.
+- **Multi-Channel Spectral Fusion:** When multispectral captures (UV, visible, IR) are available, neural fusion networks combine spectral bands dynamically, highlighting chemical ink traces that are completely invisible in standard visible light photographs.
+- **Preserving Originality via Difference Layers:** To maintain scholarly integrity, the recovered ink layer should be stored as an analytical overlay mask (in PNG or IIIF annotation format) rather than overwriting the raw facsimile. Readers can toggle between the original degraded photograph and the AI-enhanced view.
 
-The coordinates in ALTO are in *image pixel* space, which is the scaling issue
-from section 03 arriving in practical form. If your canvas dimensions differ from
-your image dimensions, every ALTO coordinate needs scaling before it becomes a TEI
-zone, and the scale factor is the ratio you recorded.
-
-This is precisely why today's hand-built bindings matter. When you transform ALTO
-output next week, you will have a small number of hand-verified zones to check the
-result against. If the transformed coordinates agree with your hand measurements,
-the transform is right. If they are consistently off by a constant factor, you
-have found the scaling error — and you found it because you had a control.
-
-**Takeaway:** ALTO coordinates are in image pixels, so today's
-hand-verified zones are the control that will catch a scaling error in next week's
-transform.
+**Takeaway:** Deep learning ink recovery amplifies faded strokes beyond deterministic limits, but must be deployed as an analytical overlay rather than overwriting the unaltered master facsimile.
 
 ---
 
 ## **17 Content**
 
-**What Belongs in the Repository**
+**Verso Show-Through and Bleed-Through Removal via Neural Image Separation**
 
-Consolidate the week's outputs into a structure that will still make sense in
-December.
+A pervasive visual obstacle in historical manuscripts is **bleed-through** (where iron gall ink eats through paper fibers to the opposite side) and **show-through** (where thin paper allows the reverse side's writing to be seen through the translucent leaf). This problem appears frequently in 18th- and 19th-century personal letters and broadsides, such as Emily Dickinson's letters or Maud Lewis's correspondence.
 
-| Path | Contents |
-| --- | --- |
-| `images/SOURCES.md` | Manifest URLs, rights, attribution, spectral layers |
-| `images/CANVASES.md` | Canvas ids, dimensions, image dimensions, scale factors |
-| `images/manifest.json` | Your own manifest, if Situation B |
-| `images/build_manifest.py` | The generator that produced it |
-| `edition/edition.xml` | TEI with `<facsimile>` and bound transcription |
-| `tools/line_uri.py` | The binding-resolution helper |
-| `tools/check_facs.py` | The broken-reference checker |
+When reading the recto, show-through from the verso appears as faint, mirrored cursive that visually interferes with the foreground text:
 
-Two principles govern this. Generated artefacts are committed *alongside their
-generators*, so that anyone — including you in December — can see how the JSON was
-produced and regenerate it. And recorded facts about external resources are
-committed as documents, because external resources change and your record of what
-they were at the time is the only durable evidence.
+- **Dual-Sided Registration:** High-precision computer vision algorithms first register (geometrically align) high-resolution scans of both the recto and verso, flipping the verso horizontally so that the bleed-through patterns align perfectly in coordinate space.
+- **Independent Component Analysis (ICA) and Neural Blind Source Separation:** Deep learning models treat the photographed leaf as a linear mixture of two independent visual sources: the foreground recto ink and the background verso show-through. By analyzing the aligned recto-verso pair, the model mathematically separates the two signals, subtracting the mirrored verso ink without degrading the faint foreground strokes.
+- **Preserving Documentary Evidence:** Complete removal of bleed-through can alter the reader's perception of paper thickness and ink acidity. The clean derivative should be presented as an optional reading aid alongside the unaltered archival photograph.
 
-That second principle is the one students skip. A manifest URL that resolved in
-September and was never written down is genuinely difficult to recover in
-December, and canvas dimensions that changed after a rescan will silently
-invalidate every coordinate you computed unless you recorded the originals.
-
-Commit with a Conventional Commits message, and tag the state you submit for
-today's assignment as discussed in Lesson 1.1.
-
-**Takeaway:** Commit generators alongside generated files, and
-record external resources as documents because they change without notice.
+**Takeaway:** Neural blind source separation registers recto and verso captures to algorithmically isolate and subtract distracting show-through ink while preserving primary strokes.
 
 ---
 
 ## **18 Content**
 
-**The Cataloguing & Metadata Assignment**
+**Aligning Images with Transcriptions: The Text-Image Alignment Problem**
 
-Today's assignment, due at the standard deadline, draws on Week 2 and this week
-together.
+A central objective of the TEI Guidelines is establishing an explicit, verifiable link between the visual pixels of a document facsimile and the machine-readable characters of an encoded transcription. Traditionally, this link required an editor to manually create a `<zone>` element for every line, copy its `@xml:id`, and paste it into the transcribed text: `<lb facs="#zone_line_01"/>`. Doing this for a 300-page manuscript requires thousands of repetitive editorial operations.
 
-Expected components:
+The **Text-Image Alignment (TIA)** problem asks: Given a digital image of a document and a known, human-verified transcription of its text, can an algorithm automatically find the exact pixel coordinates corresponding to each transcribed word or line?
 
-| Component | Source | Requirement |
-| --- | --- | --- |
-| TEI header | Week 2 | Valid against the TEI schema |
-| Manuscript description | Weeks 1–2 | Repository, shelfmark, date, material, extent, hand |
-| RDF triples | Week 2 | Correctly formed; identifiers resolvable |
-| Image documentation | This week | Manifest URLs, rights, attribution |
-| Canvas record | This week | Ids and dimensions for every folio |
-| At least one binding | Today | A `<zone>` and an `@facs` reference that resolves |
-| Commit history | Weeks 1–3 | Atomic, typed, with rationale in bodies |
+Modern AI solves TIA using **Forced Alignment** architectures:
 
-The last row is assessed, as Lesson 1.1 stated. A submission with correct content
-and a commit log reading "updates," "more work," and "final" has not met the
-course's requirements, because the process record is part of the deliverable.
+- The vision model runs optical character recognition (OCR) or handwriting text recognition (HTR) across the image, generating a matrix of character probabilities (logits) for every pixel region.
+- The alignment algorithm uses Connectionist Temporal Classification (CTC) or Dynamic Time Warping (DTW) to match the known, authoritative transcription against the visual probability matrix.
+- Because the algorithm already knows the true text, it does not need to guess ambiguous characters; it only needs to find the most probable spatial location where each known word was written.
 
-The `<msDesc>` component is where the codicological vocabulary from Lesson 1.2
-section 24 is exercised. Describe the object as an object: support, extent,
-layout, hand, decoration, binding, provenance. Where your description differs from
-the institution's catalogue, say so and say why — that divergence is a scholarly
-claim and one of the more interesting things you can contribute at this stage.
+The result is a fully automated, pixel-perfect alignment between human transcriptions and manuscript facsimiles.
 
-Verify against the schema before submitting. An invalid header is the most common
-avoidable failure on this assignment.
-
-**Takeaway:** The commit history is assessed alongside the
-content, and an invalid TEI header is the most common avoidable failure.
+**Takeaway:** Text-Image Alignment uses forced alignment algorithms (CTC/DTW) to automatically map known editorial transcriptions to their precise visual pixel coordinates on the page.
 
 ---
 
 ## **19 Content**
 
-**Common Errors in Today's Work**
+**Automated Insertion of `<facsimile>`, `<surface>`, and `<graphic>` in TEI XML**
 
-The failures that recur, so you can recognize rather than rediscover them.
+Once an AI pipeline has calculated page dimensions and line coordinates, it can construct the entire TEI `<facsimile>` tree automatically.
 
-| Symptom | Cause | Fix |
-| --- | --- | --- |
-| Region is right place, far too large | IIIF `w,h` treated as a second corner | Use the conversion function |
-| Every region offset by a constant factor | Canvas and image dimensions differ | Apply the scale factor from section 03 |
-| Regions correct on one folio, wrong on others | Coordinates copied without adjusting per folio | Measure per surface |
-| `@facs` resolves to nothing | Zone `xml:id` typo | Run the checker in section 14 |
-| Manifest renders, images blank | Wrong image URI, or authentication required | `curl -I` each endpoint |
-| No deep zoom | `service` block omitted or wrong profile | Add it; verify the level |
-| Viewer shows `[object Object]` | Label given as a string, not a language map | Use `{"en": ["..."]}` |
-| Validator passes, viewer shows nothing | `target` names a canvas id that does not exist | Check for typos in ids |
+A specialized Python automation script executes the following assembly pipeline:
 
-The second row is worth dwelling on because it is systematic rather than random.
-Every region is wrong by the same ratio, which means the bindings look internally
-consistent — they are all shifted and scaled together — and nothing looks obviously
-broken until you compare one against the image. This is exactly the class of error
-that a single hand-verified control catches immediately and that no amount of
-internal consistency checking will reveal.
+- **Reading Image Information:** The script inspects the master image files using `vips` or `Pillow` to determine absolute pixel dimensions (e.g., width 4800, height 6400).
+- **Generating `<surface>` Elements:** For each page, the script creates a `<surface>` element with `@ulx="0"`, `@uly="0"`, `@lrx="4800"`, and `@lry="6400"`, accompanied by a human-readable `@xml:id` (e.g., `surface_f01r`).
+- **Inserting `<graphic>` Elements:** Inside `<surface>`, the script generates `<graphic url="facsimiles/f01r.tif" width="4800px" height="6400px"/>`, linking the coordinate space to the physical image file.
+- **Generating Child `<zone>` Elements:** The script iterates through the AI-detected baselines and bounding boxes, creating `<zone>` elements with corresponding `@xml:id` attributes (e.g., `zone_f01r_l01`, `zone_f01r_l02`) and precise coordinate attributes.
+- **Injecting into TEI Root:** The compiled `<facsimile>` tree is inserted directly as a child of `<TEI>`, positioned correctly between `<teiHeader>` and `<text>`.
 
-Check one binding visually before trusting a hundred computed ones.
+This automated pipeline converts raw camera directories and vision model predictions into valid, schema-compliant TEI XML in a matter of seconds.
 
-**Takeaway:** A scaling error makes every binding wrong by the
-same ratio, so it looks internally consistent — only visual comparison catches it.
+**Takeaway:** Python automation scripts assemble vision model predictions into complete TEI `<facsimile>`, `<surface>`, and `<zone>` structures, eliminating manual XML coordinate authoring.
 
 ---
 
 ## **20 Content**
 
-**Exercise: Build the Binding**
+**Linking Text Elements to Image Zones: Automating `@facs` and `@corresp`**
 
-Complete the following before leaving today's meeting.
+With the `<facsimile>` coordinate tree constructed, the final step in building an interactive digital edition is linking the transcribed text inside `<text><body>` back to the visual zones.
 
-- Extract canvas ids and dimensions for every folio of your passage into `images/CANVASES.md`.
-- Note the ratio between canvas and image dimensions, if they differ.
-- Write the `<facsimile>` element with a `<surface>` per folio, each carrying its canvas URI.
-- Measure the first three lines of your first folio and declare a `<zone>` for each.
-- Transcribe those three lines, with `<lb>` elements carrying `@facs`.
-- Verify each zone by constructing its Image API URL and confirming what it returns.
-- Run the broken-reference checker.
-- Validate the TEI against the schema.
-- Commit with a Conventional Commits message and a body recording how you measured.
+TEI P5 provides two primary linking mechanisms:
 
-Three lines is deliberately small. The purpose is not volume but a verified,
-understood binding you can check next week's automated output against.
+- **The `@facs` Attribute:** The most direct and common method. An editor attaches `@facs` to any text element—such as a line beginning `<lb facs="#zone_f01r_l01"/>`, a paragraph `<p facs="#zone_p01"/>`, or an individual word `<w facs="#zone_w01"/>`—pointing to the URI of the corresponding `<zone>`.
+- **The `@corresp` Attribute:** Used for bidirectional semantic correspondence, linking complex editorial commentary or variant readings to specific physical zones.
 
-If your passage's second witness is available, repeat the first two steps for it.
-Week 7's collation needs both witnesses' canvas records, and gathering them now
-while the procedure is fresh is cheaper than reconstructing it in October.
+Automating this linkage:
 
-**Takeaway:** Three verified lines are worth more than three
-hundred unverified ones — the point is a control you understand.
+- Because the Text-Image Alignment algorithm (Section 18) identifies which transcribed line matches which detected zone, an automated post-processing script simply injects the corresponding `@facs` attribute into each `<lb/>` or `<p>` tag in the transcribed TEI file.
+- When rendered in an interactive web edition (such as TEI Publisher or a custom Mirador viewer), clicking a line of transcribed poetry instantly highlights the corresponding bounding box on the manuscript image, and clicking a zone on the image highlights the transcribed verse.
+
+**Takeaway:** Automated post-processors insert `@facs` pointers into transcribed `<lb>` and `<p>` tags, linking textual markup to image zones for interactive two-way highlighting.
 
 ---
 
 ## **21 Content**
 
-**Bidirectionality and What It Enables**
+**Multi-Witness Alignment: Cross-Referencing Manuscript Variants**
 
-A note on why the binding is worth the effort, since three lines of coordinates
-can feel like a lot of work for a small return.
+In genetic criticism and scholarly editing, authors frequently produce multiple draft witnesses of a single work. Jay's project on Emily Dickinson's poem `MS Am 1118.3 [338]` perfectly illustrates this challenge: Dickinson composed multiple variant manuscript copies of her poems, sending one draft to her sister-in-law Susan Gilbert Dickinson while retaining another draft in her personal fascicles, often with significant word variations and line arrangement differences.
 
-The binding is bidirectional. Given a line of text, a processor can find its
-region; given a region, it can find the text. Neither direction is available from
-a printed edition, and each supports operations that were previously impractical.
+AI accelerates multi-witness alignment across variant manuscripts:
 
-| Direction | Operation | Where it matters |
-| --- | --- | --- |
-| Text to image | Click a reading, see the parchment | Weeks 8, 12: apparatus and commentary |
-| Image to text | Select a region, see the transcription | Weeks 4, 5: verification |
-| Text to image | Reproduce the exact region in an argument | Week 12: commentary |
-| Image to text | Search the text, jump to the page | Week 13: the published edition |
-| Both | Align witnesses by region | Week 7: collation |
+- **Visual Collation:** Computer vision algorithms register and compare high-resolution facsimiles of Witness A (Amherst) and Witness B (Harvard), detecting physical differences in stanza layout, line breaks, and marginal notes.
+- **Automated Textual Collation Alignment:** Collation algorithms (such as CollateX combined with vision embeddings) align the transcribed text of both witnesses, linking corresponding lines across disparate physical surfaces.
+- **Synchronized IIIF Workspaces:** In a IIIF-compliant viewer like Mirador, multi-witness alignment data enables synchronized panning and zooming: when a reader zooms into Stanza 2 on the Amherst manuscript, the adjacent panel automatically centers and zooms into the corresponding Stanza 2 on the Harvard manuscript leaf.
 
-The Week 5 case is the immediate one. Reconciling your manual transcription
-against HTR output means, repeatedly, asking what the manuscript actually shows at
-a given point. With a binding that question is one click; without it, it is a hunt
-through a facsimile. The difference determines how many uncertain readings you
-actually check, which determines the quality of your ground truth, which
-determines whether Week 5's error rates mean anything.
+This computational synthesis of visual alignment and textual collation transforms multi-witness analysis from an arduous manual task into a dynamic, interactive research experience.
 
-That is the recurring pattern: infrastructure that makes verification cheap raises
-the standard of the work, because verification that is cheap actually happens.
-
-**Takeaway:** The binding makes verification cheap, and cheap
-verification is verification that actually happens.
+**Takeaway:** AI-assisted visual and textual collation aligns variant manuscript witnesses, powering synchronized multi-panel juxtaposition in interactive IIIF editions.
 
 ---
 
 ## **22 Content**
 
-**Coordinate Stability Over the Term**
+**IIIF Annotation Generation: Producing Web Annotation Data Model JSON-LD with AI**
 
-Your coordinates must survive until December, and several things can invalidate
-them.
+While TEI XML models documents primarily from a textual hierarchy perspective, the International Image Interoperability Framework models them through the **W3C Web Annotation Data Model**. In IIIF, every visual callout, transcribed line, or scholarly commentary is modeled as an independent **Annotation** that targets a specific region of a IIIF Canvas.
 
-| Risk | Effect | Mitigation |
-| --- | --- | --- |
-| Institution rescans at new dimensions | Every coordinate wrong by a factor | Record canvas dimensions with coordinates |
-| Manifest restructured; canvas ids change | Bindings resolve to nothing | Record canvas ids and access date |
-| You switch to a different image source | Coordinates may not transfer | Re-verify a control region |
-| Percentage versus absolute confusion | Regions in the wrong place | Use one convention; state it |
-| Zone ids renumbered | `@facs` references break | Run the checker after any renumbering |
+An automated AI imaging pipeline can translate detected zones directly into standardized IIIF Annotation Lists:
 
-The first is the most damaging and the least detectable. If a library rescans a
-manuscript and republishes with different canvas dimensions, your coordinates
-silently address the wrong regions — nothing errors, and every binding continues
-to resolve to *something*. The mitigation is to record the dimensions you computed
-against, so that a mismatch can be detected and a correction factor applied.
+- **The Annotation Structure:** Each annotation is expressed as a JSON-LD object containing a `motivation` (e.g., `supplementing` for transcription, `commenting` for editorial notes), a `body` (the transcribed text or HTML markup), and a `target` (the Canvas URI with a media fragment coordinate selector: `#xywh=400,600,1200,80`).
+- **Automated Pipeline Output:** During Text-Image Alignment, the script simultaneously emits both TEI `<zone>` XML and IIIF Web Annotation JSON-LD.
+- **Universal Interoperability:** Because the annotations conform to W3C standards, they can be ingested by any IIIF-compliant tool—including Mirador, OpenSeadragon, or Recogito—allowing remote scholars to search, highlight, and annotate the manuscript across the global semantic web.
 
-Consider recording percentage coordinates alongside absolute ones for a few
-control regions. Percentages survive rescaling and give you a way to recover if
-absolute coordinates are invalidated:
-
-```python
-def to_percent(x, y, w, h, canvas_w, canvas_h):
-    return (f"#xywh=pct:{100*x/canvas_w:.4f},{100*y/canvas_h:.4f},"
-            f"{100*w/canvas_w:.4f},{100*h/canvas_h:.4f}")
-```
-
-This is defensive work, and most of you will never need it. The cost is a few
-lines in a record file, and the alternative failure is silent.
-
-**Takeaway:** Record the canvas dimensions your coordinates were
-computed against, because a rescan invalidates them silently.
+**Takeaway:** AI pipelines export detected zones as W3C Web Annotations targeting IIIF Canvases, enabling interoperable search, transcription, and annotation across web platforms.
 
 ---
 
 ## **23 Content**
 
-**Looking Ahead: Week 4 and the Three-Step Cycle**
+**Fine-Tuning Vision Models on Historical Hands and Document Types**
 
-This week was an infrastructure week without the three-step cycle. Next week the
-cycle begins in earnest, and today's work is its precondition.
+Off-the-shelf, general-purpose computer vision models frequently fail when applied to specialized historical corpuses. A vision model trained on modern English print cannot reliably segment 18th-century French revolutionary typography with historical ligatures (Ace's project), nor can it follow the delicate, idiosyncratic handwriting of Emily Dickinson or Maud Lewis.
 
-| Meeting | Step | Activity | Depends on today |
-| --- | --- | --- | --- |
-| Tue Sep 22 (#9) | Manual | Diplomatic transcription by hand — your ground truth | Reading from the image at full zoom |
-| Wed Sep 23 (#10) | Deterministic | Baseline detection and HTR training in Transkribus | Manifest ingestion |
-| Fri Sep 25 (#11) | AI-assisted | LLM-assisted transcription and correction | Comparison against ground truth |
+To achieve high scholarly accuracy, editors must **fine-tune** pre-trained models on representative samples of their specific corpus:
 
-Tuesday's manual transcription is the foundation of everything measured
-afterwards. It is the ground truth against which Wednesday's HTR and Friday's LLM
-output are scored in Week 5, which means its accuracy determines whether those
-measurements mean anything. Transcribe carefully, at full zoom, checking uncertain
-readings against every available layer.
+- **The Pre-Trained Foundation:** Rather than training a neural network from scratch (which requires hundreds of thousands of images), scholars begin with a pre-trained document foundation model (such as a base Kraken model or LayoutLM) that already understands general document geometries.
+- **Ground Truth Creation:** The editor manually encodes a small, representative "ground truth" sample—typically 10 to 20 carefully annotated pages—providing perfect baseline coordinates and line transcriptions.
+- **Transfer Learning:** The pre-trained model is fine-tuned on this ground truth dataset for several epochs. The network adjusts its internal weights to recognize the specific letterforms, ink characteristics, and layout quirks of the target author.
+- **Evaluation and Deployment:** The fine-tuned model is evaluated on unseen test pages; once it achieves low character error rates (CER) and high boundary intersection-over-union (IoU), it is deployed across the remaining hundreds of archival pages in the collection.
 
-Note also that Friday September 25 is a remote delivery session. Ensure your
-environment works away from campus: the manifest must be reachable, your
-repository must be pushed, and your tooling must run on the machine you will
-actually use.
-
-Today's binding supports Tuesday directly. Transcribing with `<lb>` elements
-already bound to zones means each line's region can be brought up as you work,
-which is materially faster than locating lines by eye and substantially reduces
-line-skip errors.
-
-**Takeaway:** Tuesday's manual transcription is the ground truth
-that every later measurement depends on, and today's binding is what makes
-transcribing accurately affordable.
+**Takeaway:** Fine-tuning pre-trained foundation models on small, curated ground-truth samples (10-20 pages) adapts vision algorithms to specific historical hands and print styles.
 
 ---
 
 ## **24 Content**
 
-**Publishing the Manifest**
+**Active Learning and Human-in-the-Loop: Correcting AI Predictions Iteratively**
 
-If you authored a manifest, it must eventually be reachable at its declared `id`.
-Setting this up now saves difficulty later.
+The most effective scholarly AI workflows do not treat artificial intelligence as an autonomous, hands-off black box. Instead, they implement an **Active Learning** framework with a **Human-in-the-Loop (HITL)** architecture.
 
-The simplest route is GitHub Pages, which serves static files from your repository
-over HTTPS at a predictable URL. Placing `manifest.json` in a `docs/` directory and
-enabling Pages makes it available at
-`https://<username>.github.io/<repository>/manifest.json`.
+The active learning lifecycle operates as an iterative feedback loop:
 
-Two requirements are specific to IIIF and are easy to miss:
+- **Initial Batch Prediction:** A baseline model predicts layout zones and text baselines for a batch of newly digitized documents.
+- **Confidence Sorting:** The system evaluates its own predictions, ranking them by mathematical confidence scores. Pages with ambiguous layouts or low-confidence baselines are flagged and pushed to the top of the review queue.
+- **Human Editorial Correction:** The scholar opens an interactive review interface (such as eScriptorium, Transkribus, or a custom web dashboard) and rapidly corrects misaligned baselines, adjusts clipped bounding boxes, and fixes reading order connections.
+- **Incremental Retraining:** The corrected pages are added to the training set, and the model undergoes incremental fine-tuning. With each review cycle, the model becomes more accurate, requiring fewer human corrections on subsequent batches.
 
-The `id` in the manifest must equal the URL at which it is served. A manifest
-declaring one `id` and living at another is non-conformant, and some viewers
-reject it. Set the `id` from the publication URL in your generator rather than
-hard-coding a placeholder.
+This collaborative dynamic harnesses the high processing speed of AI while anchoring editorial authority firmly in human scholarly expertise.
 
-CORS headers must permit cross-origin requests, or viewers hosted elsewhere cannot
-load it — the accidental-silo failure from Lesson 3.1 section 27, this time
-produced by you. GitHub Pages sets permissive CORS headers by default, which is
-one reason to prefer it over hosting you configure yourself.
-
-| Host | Suitable | Note |
-| --- | --- | --- |
-| GitHub Pages | Yes | Free, HTTPS, permissive CORS by default |
-| Netlify or Vercel | Yes | Free tiers; CORS configurable |
-| University web space | Usually | Confirm HTTPS and CORS |
-| A local file | No | Not retrievable by viewers or HTR platforms |
-
-Test by loading the published URL into Mirador from a different machine. If it
-renders, it is genuinely reachable; if it renders only locally, something is
-serving it that will not be available in Week 13.
-
-**Takeaway:** The manifest's `id` must equal its actual URL, and
-CORS must permit cross-origin loading or only your own machine can use it.
+**Takeaway:** Active learning implements an iterative human-in-the-loop workflow where scholars correct low-confidence AI predictions, continually improving model accuracy.
 
 ---
 
 ## **25 Content**
 
-**The Week in the Arc of the Course**
+**Confidence Scoring and Error Detection: When Does the Vision Model Fail?**
 
-Situating this week within the whole, now that it is complete.
+A critical methodological requirement for academic digital editions is knowing when an automated algorithm's output can be trusted and when it must be flagged for human audit. Deep learning vision models provide internal **confidence scores** (softmax probabilities between 0.0 and 1.0) for every predicted bounding box, baseline, and recognized character.
 
-Week 1 established how work is *recorded* — version control, atomic commits,
-provenance. Week 2 established how the manuscript is *described* — the TEI header,
-metadata, RDF. Week 3 established how the manuscript is *seen* — image delivery,
-imaging techniques, coordinate binding.
+Common failure modes in historical document vision include:
 
-Those three are the infrastructure. Everything remaining is the edition itself,
-and each layer attaches to what this week built:
+- **Gutter Shadow Hallucinations:** In bound codices or thick pamphlets, deep shadows in the central gutter can be misclassified as dark text blocks or column dividers.
+- **Stain and Foxing False Positives:** Dark water stains, iron gall ink acid burnouts, or grease spots frequently trigger false-positive zone detections, causing the model to draw boxes around blank, discolored paper.
+- **Wavy Baseline Drift:** When text curves dramatically across distorted parchment or warped paper leaves, models with insufficient spatial attention may drop the baseline mid-sentence or jump to an adjacent line.
+- **Automated Triage Pipelines:** Editors write threshold validation scripts: any predicted zone with a confidence score below a specified cutoff (e.g., 0.85) is automatically tagged with `@cert="low"` in TEI XML and routed to a dedicated human review queue before publication.
 
-| Week | Layer | Attaches via |
-| --- | --- | --- |
-| 4 | Transcription | Zones bound to lines |
-| 5 | Reconciliation | Comparison against the image |
-| 6 | Normalization | `<orig>`/`<reg>` over bound text |
-| 7 | Collation | Witnesses aligned by canvas region |
-| 8 | Apparatus | Variants anchored to regions in each witness |
-| 9 | Lemmatization | Linguistic annotation over bound text |
-| 11 | Alignment | Translation aligned to bound text |
-| 12 | Commentary | Argument citing exact regions |
-| 13 | Publication | Viewer over the manifest and TEI |
-
-Read down the "attaches via" column and the point is visible: nearly every entry
-refers to something established this week. The canvas coordinate space is what the
-entire edition hangs on, which is why an infrastructure week sits this early and
-why today's small binding exercise matters more than its size suggests.
-
-**Takeaway:** Nearly every remaining layer of the edition
-attaches to the canvas coordinate space built this week.
+**Takeaway:** Confidence scoring enables automated quality triage, flagging ambiguous zones, gutter shadows, and false positives for mandatory human editorial review.
 
 ---
 
 ## **26 Content**
 
-**Interoperability as a Scholarly Value**
+**Ethical and Scholarly Integrity: The Risk of Generative Hallucination in Archival Images**
 
-A closing conceptual point, returning to where Tuesday began.
+The rapid emergence of generative artificial intelligence (including diffusion models and generative adversarial networks) introduces profound ethical hazards for historical disciplines. While generative models can remove stains, restore missing parchment fragments, or synthesize photorealistic text, their use in documentary editing threatens the core foundation of scholarly truth.
 
-IIIF is a technical standard, but the argument for it is not primarily technical.
-Standards make cooperation possible without coordination. The Vatican did not
-negotiate with Leipzig about how to make their manuscripts comparable; both
-implemented the same specification, and comparability followed (Griffin, 2023).
+Key ethical principles for AI imaging in historical scholarship:
 
-This has a scholarly analogue that is worth making explicit. Citation conventions,
-critical sigla, and the apparatus criticus are all standards in the same sense:
-they let scholars who have never communicated read one another's work precisely.
-An edition using idiosyncratic sigla with no key is exactly analogous to an image
-in a proprietary viewer — the content exists and cannot be used by anyone else.
+- **The Prohibition on Generative Reconstruction:** Generative models must **never** be used to 'repair' torn paper or synthesize missing ink strokes in published archival facsimiles. To publish a generative reconstruction as a primary surrogate is to commit documentary falsification.
+- **Analytical Derivatives vs. Master Records:** AI enhancements (such as contrast boosting, bleed-through removal, or color classification) must always be categorized as *analytical derivatives* or *interpretive layers*. The unaltered raw camera capture must remain permanently accessible as the primary witness.
+- **Transparency and Methodological Disclosure:** Every digital edition that employs AI image processing or layout analysis must include an explicit methodology statement in the TEI `<teiHeader>` (`<encodingDesc>`), disclosing the exact models, software versions, training datasets, and post-processing scripts utilized.
 
-Your edition should be interoperable in both senses. Its images should be
-addressable by standard URIs; its encoding should follow TEI rather than a private
-scheme; its metadata should use shared vocabularies; its identifiers should be
-resolvable. None of this is about convenience. It is about whether your work can
-be used by anyone who did not build it — which is a reasonable definition of
-whether it is scholarship at all.
-
-Clausen et al. (2026) make the same argument for research data: heterogeneous
-analyses of a manuscript are worth far more when they can be related to one
-another than when each sits in its own repository, and relating them requires
-shared standards rather than shared institutions.
-
-**Takeaway:** Standards let scholars cooperate without
-coordinating, and an edition that only its author can use is not yet scholarship.
+**Takeaway:** Scholarly integrity strictly forbids generative fabrication of missing historical evidence; AI derivatives must be transparently disclosed, and raw masters must remain accessible.
 
 ---
 
 ## **27 Content**
 
-**A Checklist Before You Leave**
+**The Black Box Problem: Explainability and Reproducibility in AI Imaging Workflows**
 
-Verify each item now rather than assuming it.
+In Lesson 3.2, we emphasized that deterministic tools like ImageMagick and libvips are fully reproducible: the exact same bash script executed on the same TIFF master will yield the exact same pixel matrix on any computer, indefinitely. Deep neural networks, however, introduce the **black box problem**: complex models contain hundreds of millions of parameters whose internal decision pathways cannot be fully scrutinized or explained.
 
-- Manifest URLs for both witnesses recorded in `images/SOURCES.md`.
-- Rights statement and required attribution recorded for each.
-- Canvas ids and dimensions for every folio in `images/CANVASES.md`.
-- Canvas-to-image scale factor noted where they differ.
-- `<facsimile>` written, with one `<surface>` per folio carrying its canvas URI.
-- At least three `<zone>` elements declared with measured coordinates.
-- At least three `<lb>` elements carrying `@facs` references.
-- Each zone verified by opening its Image API URL.
-- Broken-reference checker run and clean.
-- TEI validated against the schema.
-- Manifest validated, if you authored one.
-- Manifest published and reachable, if you authored one.
-- Everything committed with typed messages and informative bodies.
-- Submission state tagged.
-- Cataloguing & Metadata Assignment submitted.
+Furthermore, AI workflows face severe **reproducibility crises**:
 
-The item most often skipped is the eighth, and it is the one that catches the
-errors the others cannot. Structural validation confirms your document is
-well-formed; only opening the image confirms your coordinates mean what you
-intended.
+- **Model Drift and Deprecation:** Commercial cloud APIs (such as closed multimodal LLM endpoints) are frequently updated or deprecated by vendors without notice. A script calling a proprietary cloud model in 2026 may produce completely different bounding boxes or fail entirely when executed in 2028.
+- **Hardware and Dependency Variations:** Differences in CUDA drivers, floating-point GPU architectures, or deep learning library versions (e.g., PyTorch) can introduce subtle variations in model inference.
+- **Scholarly Countermeasures:** To ensure long-term reproducibility, academic projects should:
+  - Prefer open-weight models (such as open-source Hugging Face models or Kraken weights) that can be archived locally.
+  - Pin all software dependencies in containerized environments (Docker or Singularity).
+  - Archive the exact model weights, random seeds, and configuration parameters alongside the digital edition.
 
-**Takeaway:** Verify zones by opening their Image API URLs —
-structural validation cannot tell you whether a coordinate is right.
+**Takeaway:** The black box nature of neural networks threatens scholarly reproducibility; editors must prioritize open-weight models, containerized pipelines, and archived model checkpoints.
 
 ---
 
 ## **28 Content**
 
-**If Your Manuscript Lacks IIIF**
+**Integrating AI Pipelines with Open-Source Deterministic Tools**
 
-A contingency, since a minority of you will find your chosen manuscript is not
-served through IIIF at all.
+AI does not operate in isolation; the most robust and efficient digital imaging workflows combine the perceptual intelligence of deep learning with the high-speed mathematical rigor of deterministic command-line utilities.
 
-Options, in order of preference:
+A production-grade hybrid imaging pipeline leverages the complementary strengths of both paradigms:
 
-| Option | Approach | Cost |
-| --- | --- | --- |
-| Find another digitization | The same manuscript elsewhere, or a IIIF-served witness | Low; often available |
-| Build a Level 0 service | Generate a static tile pyramid from downloaded images | Moderate; needs permission |
-| Use plain images with TEI zones | `<graphic>` and `<zone>` without canvas URIs | Low; loses deep zoom |
-| Change witnesses | Select a different manuscript | High this late; possible |
+- **Pre-Processing with Deterministic Tools:** Raw camera files are normalized, calibrated against ICC profiles, and deskewed using deterministic tools like ImageMagick and libvips before being fed to AI vision models. Feeding clean, uniform images to neural networks drastically reduces inference errors.
+- **AI-Powered Perception and Coordinate Generation:** The normalized images are processed by vision models to detect text baselines, identify marginal stamps, extract bounding boxes, and align transcriptions.
+- **Deterministic Post-Processing and Tiling:** The detected coordinates are passed to `vips` to crop high-resolution regional derivatives or generate deep-zoom pyramidal TIFFs for IIIF image servers.
+- **Glue Code in Python:** A lightweight Python controller orchestrates the entire flow, executing shell commands, passing JSON coordinate payloads between tools, and validating final outputs against XML schemas.
 
-The second deserves explanation. A Level 0 IIIF service can be generated from
-ordinary images with a tool such as `iiif_static.py`, producing a directory of
-pre-rendered tiles that can be served as static files from GitHub Pages. This
-gives genuine deep zoom without running a server. The constraint is that it
-requires a downloaded copy of the images, which requires the licence to permit it
-— so check `rights` before going this route.
+This hybrid architecture achieves maximum computational performance, absolute mathematical precision, and semantic intelligence.
 
-The third option is a legitimate fallback. TEI's `<facsimile>` model works with
-plain images: `<graphic>` points at an image file and `<zone>` gives coordinates
-in its pixel space. You lose deep zoom and interoperability, and you keep the
-coordinate binding, which is the part the rest of the course depends on.
-
-Raise this today if it applies to you. It is workable, but it changes what Week 13
-can publish and is much easier to address now than in November.
-
-**Takeaway:** Without IIIF you can still bind coordinates using
-plain images and TEI zones — you lose deep zoom, not the binding the course depends
-on.
+**Takeaway:** Production imaging combines deterministic tools (ImageMagick/libvips) for pre-processing and tiling with deep learning models for semantic perception and zone extraction.
 
 ---
 
 ## **29 Content**
 
-**What Good Work Looks Like Here**
+**Building an End-to-End AI Imaging Pipeline: From Raw Scans to Validated TEI/IIIF**
 
-A standard to measure your own submission against, since "valid" and "good" are
-different.
+To synthesize all the concepts mastered across this module, let us trace the complete end-to-end journey of an archival document through a state-of-the-art digital imaging pipeline:
 
-A minimally acceptable submission has a valid TEI header, records the manifest
-URL, and demonstrates one working binding.
+- **1. Ingest and Quality Audit:** Raw camera captures are validated for focus and completeness using automated quality control scripts (Section 14).
+- **2. Deterministic Normalization:** Images are calibrated against color targets and converted to archival 16-bit TIFF masters with embedded ICC profiles.
+- **3. Smart Sorting and Renaming:** Unsupervised clustering and folio-recognition models sort files and apply standardized archival filenames (Section 12).
+- **4. Document Layout Analysis:** Semantic segmentation models identify text bodies, running headers, seals, and marginalia, generating high-precision baseline polylines (Sections 05-06).
+- **5. Forced Text-Image Alignment:** Pre-existing human transcriptions are aligned with visual ink strokes using CTC forced alignment (Section 18).
+- **6. TEI Facsimile Construction:** Python automation scripts assemble page dimensions, `<surface>` containers, and `<zone>` coordinates into schema-valid TEI XML, injecting `@facs` pointers into the transcribed body (Sections 19-20).
+- **7. IIIF Derivative Compilation:** Libvips generates pyramidal tiled TIFFs, and metadata scripts emit IIIF Presentation Manifests and W3C Web Annotation lists (Sections 22, 28).
+- **8. Human Verification and Publication:** The digital edition is deployed to interactive viewers (Mirador / TEI Publisher) for final editorial audit and public scholarly research.
 
-A good submission additionally:
-
-- Describes the manuscript in its own terms, noting where the description diverges from the institution's catalogue and why.
-- Records image provenance completely, including any spectral layers and what they show.
-- Documents the coordinate system used and the canvas-to-image relationship.
-- Verifies bindings visually and says so in the commit record.
-- Identifies the least legible regions of the passage and assesses what would be needed to resolve them.
-- Carries a commit history in which each decision is a typed commit with rationale.
-- Notes what was attempted and did not work, including negative results.
-
-The last two are what distinguish scholarship from completion. An edition that
-records only successes presents a false picture of how it was made, and the
-failures are frequently the more informative record — they tell a later reader
-what has already been tried.
-
-This is the standard the whole course is oriented toward. The assignments are
-occasions for producing a defensible scholarly artefact, and the criterion is
-whether a reader can evaluate your claims from what you have recorded.
-
-**Takeaway:** A good submission records divergences, negative
-results, and the reasoning behind decisions — not only what worked.
+**Takeaway:** The end-to-end imaging pipeline automates ingestion, normalization, segmentation, alignment, TEI authoring, and IIIF compilation while preserving human verification gates.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: The Coordinate Space as the Edition's Spine**
+**The Methodological Triad: Synthesizing Manual, Deterministic, and AI-Assisted Imaging**
 
-Three meetings have built one thing: a coordinate space that everything else
-attaches to.
+As we conclude Topic 3: IIIF Imaging, we can now appreciate the profound methodological synergy uniting the three lessons of this comparative cycle:
 
-Tuesday established that images become scholarly resources when they are
-*addressable* — when any region of any folio can be requested by a rule anyone can
-apply, and when structure is described in a shared vocabulary so any viewer can
-render it. The canvas emerged as the central abstraction: not a picture, but a
-coordinate space standing for the page (IIIF Consortium, 2020).
+- **Lesson 3.1 (Manual):** Taught us the foundational architecture of the TEI Guidelines—the conceptual rigor of `<facsimile>`, `<surface>`, and `<zone>`—and the physical realities of camera optics, cradles, raking light, and multispectral imaging. Without understanding physical materiality and spatial coordinates, an editor cannot evaluate digital representations.
+- **Lesson 3.2 (Deterministic):** Introduced us to the open protocols of the International Image Interoperability Framework (IIIF) and the mathematical transparency of open-source command-line tools like GIMP, ImageMagick, and libvips. Deterministic algorithms guarantee verifiable, reproducible pixel transformations and efficient pyramidal deep zoom.
+- **Lesson 3.3 (AI-Assisted):** Demonstrated how statistical computer vision models overcome the manual labor bottleneck by automating layout segmentation, baseline tracing, image naming, and text-image alignment under human-in-the-loop supervision.
 
-Wednesday established what the images are. They are instruments' outputs, not
-photographs — sometimes showing more than the eye could see under any
-illumination, always requiring documentation of how they were produced before they
-can be evaluated as evidence (Easton et al., 2003; Malzbender et al., 2001).
+Neither manual tracing, deterministic scripting, nor artificial intelligence is sufficient on its own. The modern digital humanist operates at the intersection of all three: using manual expertise to define standards and verify truth, deterministic tools to guarantee reproducibility and speed, and AI models to scale deep scholarship across the world's documentary heritage.
 
-Today bound the two to the text. `<surface>` to canvas, `<zone>` to region,
-`@facs` from transcription to zone — a chain that lets a reading and its evidence
-be brought together in one click, in either direction (TEI Consortium, 2026).
-
-What remains is to build the edition on that spine. Every subsequent layer —
-transcription, normalization, collation, apparatus, lemmatization, translation,
-commentary — attaches to the same coordinates, which is what will make them one
-object rather than seven documents about the same manuscript (Clausen et al.,
-2026).
-
-**Due today.** The Cataloguing & Metadata Assignment, per section 18.
-
-**For Tuesday.** Week 4 begins the three-step cycle with manual diplomatic
-transcription — your ground truth for everything measured thereafter. Come with
-your bindings working and your images loading at full zoom.
-
-**Takeaway:** The canvas coordinate space is the spine of the
-edition; every layer from transcription to commentary attaches to it, which is what
-makes them one object.
-
----
-
-## References
-
-Clausen, H., Brenner, S., Schreiner, M., & Vetter, W. (2026). Multimodal
-manuscript representation: Toward an open repository for manuscript research
-data. *The European Physical Journal Plus*.
-https://doi.org/10.1140/epjp/s13360-025-07133-y
-
-Easton, R. L., Knox, K. T., & Christens-Barry, W. A. (2003). Multispectral
-imaging of the Archimedes palimpsest. In *32nd Applied Imagery Pattern
-Recognition Workshop*. https://doi.org/10.1109/AIPR.2003.1284258
-
-eScriptorium/Kraken. (2024). *eScriptorium platform documentation*.
-https://escriptorium.eu/about
-
-Griffin, S. M. (2023). Digital libraries, epigraphy and paleography: Bringing
-records from the distant past to the present. *International Journal on Digital
-Libraries*. https://doi.org/10.1007/s00799-023-00381-2
-
-IIIF Consortium. (2020). *IIIF Presentation API 3.0 specification*.
-https://iiif.io/api/presentation/3.0/
-
-Malzbender, T., Gelb, D., & Wolters, H. (2001). *Polynomial texture maps*.
-Hewlett-Packard Laboratories.
-
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and
-interchange*. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/
+**Takeaway:** The complete digital edition synthesizes manual encoding standards, deterministic mathematical reproducibility, and AI-driven perceptual automation under human scholarly governance.

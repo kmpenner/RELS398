@@ -1,0 +1,1718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_3.3</text></category></question>
+<question type="description"><name><text>01 Content: The AI Paradigm Shift: From Deterministic Filters to Statistical Vision Models</text></name><questiontext format="html"><text><![CDATA[
+<h3>The AI Paradigm Shift: From Deterministic Filters to Statistical Vision Models</h3>
+<p>In the preceding two lessons, we established two foundational approaches to historical document imaging: manual capture and encoding (Lesson 3.1) and deterministic algorithmic processing (Lesson 3.2). Manual encoding gives scholars complete control over every coordinate and semantic tag, but it requires painstaking, line-by-line human effort. Deterministic image processing with tools like ImageMagick and libvips provides automated, scriptable batch transformations, but it relies on rigid mathematical pixel formulas that cannot interpret the semantic meaning of visual elements.</p>
+<p>Artificial intelligence introduces a fundamental paradigm shift: statistical computer vision models. Unlike an unsharp mask or a contrast lookup table, deep learning vision models do not merely transform pixel values; they infer high-level meaning from visual patterns. A convolutional neural network (CNN) or vision transformer (ViT) does not see an image merely as a grid of numbers. It recognizes textures, strokes, contours, baselines, paragraph blocks, decorative flourishes, physical seals, and handwritten characters.</p>
+<p>For digital editors, this capability bridges the gap between raw pixels and structured TEI XML. AI does not replace scholarly judgment; rather, it performs high-speed semantic perception, generating proposed bounding boxes, preliminary reading orders, and candidate alignments that scholars can verify, correct, and formalize.</p>
+<p><strong>Takeaway:</strong> Statistical vision models shift imaging from rigid mathematical pixel transformations to semantic visual perception, enabling automated recognition of document structures, text lines, and artifacts.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The AI Paradigm Shift: From Deterministic Filters to Statistical Vision Models</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do statistical deep learning vision models fundamentally differ from deterministic image processing filters (such as contrast stretching or unsharp masking)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Statistical vision models shift imaging from rigid mathematical pixel transformations to semantic visual perception, enabling automated recognition of document structures, text lines, and artifacts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Vision models perform semantic perception by inferring structural meaning, baselines, and layout elements rather than merely recalculating pixel values via fixed mathematical formulas.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deep learning models recognize high-level semantic structures (like text blocks, baselines, and seals) rather than applying uniform pixel math across a matrix.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Vision models physically repair damaged parchment by 3D printing fresh collagen fibers onto the historical artifact.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Vision models operate exclusively on digital image rasters in computational memory, not physical parchment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deterministic filters can read handwritten cursive script, whereas vision models can only measure color temperatures.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic filters calculate mathematical pixel values; vision models are the tools capable of reading and segmenting script.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Vision models eliminate the need for human editors because neural networks never make interpretative errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Vision models require active human oversight, verification, and correction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: Overcoming the Manual Bottleneck: Why AI in Archival Imaging?</text></name><questiontext format="html"><text><![CDATA[
+<h3>Overcoming the Manual Bottleneck: Why AI in Archival Imaging?</h3>
+<p>The traditional bottleneck of digital scholarly editing is the sheer volume of manual labor required to prepare primary source facsimiles. To build an interactive, deep-zoom facsimile edition of an archival collection, an editor traditionally had to:</p>
+<ul>
+<li>Manually measure or click the bounding coordinates for every text line, heading, marginal gloss, and physical stamp.</li>
+<li>Name and organize hundreds or thousands of raw photographic captures into standardized directory hierarchies.</li>
+<li>Manually enter <code>@ulx</code>, <code>@uly</code>, <code>@lrx</code>, and <code>@lry</code> coordinates into TEI <code>&lt;surface&gt;</code> and <code>&lt;zone&gt;</code> elements.</li>
+<li>Map transcribed text elements to their corresponding pixel regions one line at a time.</li>
+</ul>
+<p>For an individual scholar working on a compact archive—such as Olyvia transcribing a personal handwritten letter by Nova Scotia folk artist Maud Lewis—manual coordinate entry is physically feasible for a four-page document, but still tedious. For Ace working on a multi-page 1791 French revolutionary decree with multi-column legal articles, or an archival project handling hundreds of colonial treaties, manual bounding box creation becomes an overwhelming barrier to publication.</p>
+<p>AI-assisted imaging automates these repetitive perceptual tasks. By delegating baseline detection, zone extraction, and image naming to trained models, scholars can redirect their limited time and expertise toward textual criticism, philological commentary, and historical interpretation.</p>
+<p><strong>Takeaway:</strong> AI-assisted imaging removes the traditional labor bottleneck of manual zone tracing and coordinate encoding, allowing editors to scale digital editions efficiently.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Overcoming the Manual Bottleneck: Why AI in Archival Imaging?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary manual bottleneck in building high-resolution interactive facsimile editions that AI assists in eliminating?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI-assisted imaging removes the traditional labor bottleneck of manual zone tracing and coordinate encoding, allowing editors to scale digital editions efficiently.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The time-consuming, repetitive manual labor of measuring, tracing, and encoding bounding coordinates for every text line, heading, and marginal zone.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Tracing thousands of line coordinates manually creates a severe production bottleneck; AI automates zone and baseline extraction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The inability of modern computer monitors to render color images without human intervention.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hardware displays render standard images automatically; the bottleneck is scholarly coordinate and layout encoding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The legal requirement that every digitized manuscript leaf be hand-signed by an accredited archivist before upload.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Archival workflows have no such legal signature requirement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The necessity of converting all digital photographs into 35mm film negatives before creating an XML edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editions process direct digital camera captures; analog conversion is obsolete.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: Computer Vision Foundations: Convolutional Networks, Vision Transformers, and Multimodal LLMs</text></name><questiontext format="html"><text><![CDATA[
+<h3>Computer Vision Foundations: Convolutional Networks, Vision Transformers, and Multimodal LLMs</h3>
+<p>To effectively employ AI imaging tools, scholars must understand the underlying technical architectures that power modern document vision:</p>
+<ul>
+<li><strong>Convolutional Neural Networks (CNNs):</strong> The historical workhorse of computer vision. CNNs apply hierarchical mathematical spatial filters (kernels) across an image, extracting low-level features (edges, ink strokes, corners) in early layers and synthesizing them into complex structures (characters, baselines, layout blocks) in deeper layers. Architectures like U-Net and ResNet remain standard for pixel-level segmentation.</li>
+<li><strong>Vision Transformers (ViTs):</strong> Adapted from natural language processing, ViTs divide an image into a grid of non-overlapping patches (tokens) and use self-attention mechanisms to model relationships across the entire document page simultaneously. This enables ViTs to recognize long-range spatial context—such as understanding that an isolated marginal note at the bottom of a page relates directly to a superscript numeral in the top header.</li>
+<li><strong>Multimodal Large Language Models (MLLMs):</strong> Cutting-edge models (such as GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Pro) combine visual encoders with large-scale language decoders. They can simultaneously inspect high-resolution document images, understand textual content in multiple historical languages, output structured JSON coordinate bounding boxes, and transcribe complex scripts in a single unified inference step.</li>
+</ul>
+<p>Understanding these architectures helps editors select the right tool: lightweight CNNs for local batch segmentation, ViTs for complex layouts, and MLLMs for integrated transcription and spatial reasoning.</p>
+<p><strong>Takeaway:</strong> Modern document vision relies on CNNs for local feature extraction, Vision Transformers for global spatial context, and Multimodal LLMs for integrated visual-textual reasoning.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: Computer Vision Foundations: Convolutional Networks, Vision Transformers, and Multimodal LLMs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are Vision Transformers (ViTs) and Multimodal LLMs particularly advantageous for complex historical document analysis compared to traditional early CNNs?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Modern document vision relies on CNNs for local feature extraction, Vision Transformers for global spatial context, and Multimodal LLMs for integrated visual-textual reasoning.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They model global spatial context and long-range relationships across the entire page, linking distant headers, marginal notes, and footnotes to primary text blocks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Self-attention mechanisms allow ViTs and multimodal LLMs to integrate full-page context rather than analyzing isolated local pixel patches.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They operate without using electricity or computational processor cycles.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transformers require substantial GPU compute power.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They completely prevent any possibility of optical or transcription errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All statistical models can make errors; global attention improves structural context modeling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are restricted to reading only modern machine-printed English texts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Vision transformers and MLLMs excel across multilingual historical hands and complex layouts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Machine-Readable Layout Analysis: Document Image Analysis (DIA)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Machine-Readable Layout Analysis: Document Image Analysis (DIA)</h3>
+<p>Document Image Analysis (DIA) is the subfield of computer science dedicated to converting raw document images into structured, machine-readable representations of their physical and logical architecture.</p>
+<p>DIA operates across two primary levels of abstraction:</p>
+<ul>
+<li><strong>Physical Layout Analysis:</strong> Detects the physical regions of a page without interpreting their linguistic meaning. It segments the image into background parchment, foreground ink strokes, photographic noise, illustration zones, tables, decorative initials, and text blocks.</li>
+<li><strong>Logical Layout Analysis:</strong> Assigns semantic and structural roles to the detected physical regions. It identifies whether a specific text block is a running header, a page number (folio mark), a primary textual column, an authorial marginal addition, a scribal correction, or a postal cancellation stamp.</li>
+</ul>
+<p>In historical documents, physical and logical layouts often conflict. For instance, in Emily Dickinson's manuscripts (studied by Jay), a line of poetry may physically wrap onto a second line due to the narrow width of the stationery leaf, but logically constitutes a single metric verse line. AI-driven DIA tools must be configured to separate physical line boundaries from logical poetic structures.</p>
+<p><strong>Takeaway:</strong> Document Image Analysis establishes the physical boundaries and logical semantic roles of visual regions, separating geometric layout from intellectual structure.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Machine-Readable Layout Analysis: Document Image Analysis (DIA)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Document Image Analysis (DIA), what is the distinction between 'Physical Layout Analysis' and 'Logical Layout Analysis'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Document Image Analysis establishes the physical boundaries and logical semantic roles of visual regions, separating geometric layout from intellectual structure.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Physical layout analysis detects geometric pixel regions (e.g., text blocks, margins, illustrations), while logical layout analysis assigns semantic roles (e.g., heading, running header, footnote).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Physical analysis identifies the spatial boundaries of shapes; logical analysis assigns intellectual meaning and reading order to those shapes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Physical layout analysis requires touching the manuscript with cotton gloves, while logical analysis is done from memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both are computational operations performed on digitized document rasters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Physical layout analysis measures file size on disk, while logical layout analysis encrypts the image file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These refer to spatial geometry and intellectual structure, not filesystem storage or encryption.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Logical layout analysis is performed exclusively by ImageMagick, while physical layout analysis requires GIMP.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both analyses are performed by modern DIA neural network pipelines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Automated Page Segmentation: Distinguishing Margins, Headers, and Text Blocks</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automated Page Segmentation: Distinguishing Margins, Headers, and Text Blocks</h3>
+<p>Before an algorithm can read or align individual words, it must segment the full page image into coarse functional blocks. Automated page segmentation tools use semantic segmentation architectures (such as Mask R-CNN or YOLO) trained on vast corpuses of historical documents to classify every pixel into predefined layout categories.</p>
+<p>A standard historical document segmentation model identifies:</p>
+<ul>
+<li><strong>Main Text Area:</strong> The primary writing grid or print column holding continuous prose or verse.</li>
+<li><strong>Running Headers and Folio Numbers:</strong> Peripheral navigational markers, such as the 18th-century printed page numbers and session titles in Ace's 1791 French decree.</li>
+<li><strong>Marginal Annotations:</strong> Interlinear or marginal commentary, scribal glosses, or institutional archival shelfmarks.</li>
+<li><strong>Ornamentation and Vignettes:</strong> Woodcut illustrations, republican seals, heraldic crests, or decorative borders.</li>
+<li><strong>Empty Margins:</strong> The physical substrate surrounding the text, essential for preserving the visual proportions of the original artifact.</li>
+</ul>
+<p>Modern segmentation models output labeled polygon masks or rectangular bounding boxes. These coordinates can be serialized directly into TEI <code>&lt;zone&gt;</code> elements or IIIF canvas regions, automating what once required hours of manual tracing in desktop graphics software.</p>
+<p><strong>Takeaway:</strong> Automated page segmentation identifies and delineates functional regions (text bodies, headers, marginalia, decorations), providing the spatial foundation for TEI surface encoding.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Automated Page Segmentation: Distinguishing Margins, Headers, and Text Blocks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does automated page segmentation support the generation of TEI P5 digital editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated page segmentation identifies and delineates functional regions (text bodies, headers, marginalia, decorations), providing the spatial foundation for TEI surface encoding.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It outputs labeled spatial bounding coordinates that directly populate TEI `&lt;surface&gt;` and `&lt;zone&gt;` elements for text bodies, headers, and marginalia.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Automated segmentation delineates functional regions and provides the coordinate parameters needed for TEI surface encoding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It permanently deletes margins from the archival master TIFFs to save web server bandwidth.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Archival standards preserve complete margins; segmentation identifies coordinates non-destructively.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates Latin and French text into modern English prose automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Page segmentation identifies spatial regions; translation is a separate linguistic task.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces the need for a `&lt;teiHeader&gt;` by embedding catalog metadata into the camera lens EXIF data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The `&lt;teiHeader&gt;` remains necessary for bibliographic and custodial metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Baseline Detection and Text-Line Segmentation: Kraken, dhSegment, and Transkribus</text></name><questiontext format="html"><text><![CDATA[
+<h3>Baseline Detection and Text-Line Segmentation: Kraken, dhSegment, and Transkribus</h3>
+<p>For centuries, scribes ruled horizontal guidelines onto parchment to keep their writing straight. In computer vision, a <strong>baseline</strong> is the virtual line along which cursive or printed letters sit, ignoring descending strokes (such as the tails of 'p', 'q', or 'y').</p>
+<p>Baseline detection has superseded traditional bounding-box line segmentation for historical manuscripts:</p>
+<ul>
+<li><strong>The Bounding Box Failure:</strong> In tightly spaced cursive handwriting—such as Emily Dickinson's looping ascenders and descenders or Maud Lewis's personal letters—adjacent lines frequently overlap and interlock. A simple rectangular bounding box drawn around Line 2 inevitably captures ascenders from Line 3 and descenders from Line 1, confusing downstream optical character recognition.</li>
+<li><strong>The Baseline Advantage:</strong> A baseline is modeled as a continuous polygonal polyline tracing the bottom of the letter bodies. Dedicated open-source historical document tools—including Kraken, dhSegment, and Transkribus—predict baselines with sub-pixel precision using recurrent neural networks and spatial attention.</li>
+<li><strong>Line Polygons:</strong> From the detected baseline, the software computes an enveloping polygon that follows the precise wavy contour of the line, cleanly separating interlocking ascenders and descenders without clipping.</li>
+</ul>
+<p>Exporting these line polygons provides exact coordinates for TEI <code>&lt;zone type="line"&gt;</code> elements, enabling readers to hover over individual transcribed lines and highlight the exact scribal stroke on the manuscript facsimile.</p>
+<p><strong>Takeaway:</strong> Baseline detection models lines as flexible polylines rather than rigid rectangles, cleanly isolating interlocking handwritten text lines in historical manuscripts.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Baseline Detection and Text-Line Segmentation: Kraken, dhSegment, and Transkribus</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why has baseline detection superseded rectangular bounding boxes for segmenting handwritten manuscript lines?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Baseline detection models lines as flexible polylines rather than rigid rectangles, cleanly isolating interlocking handwritten text lines in historical manuscripts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Cursive ascenders and descenders frequently interlock between lines; baselines and polygonal contours isolate lines without clipping adjacent strokes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Rectangular bounding boxes overlap in dense cursive, capturing strokes from adjacent lines; baselines track the true line contour.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Rectangular bounding boxes are technically forbidden by the W3C and TEI XML specifications.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI supports rectangular `@ulx`/`@uly` coordinates, but polygons and baselines offer far superior precision for cursive script.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Baselines convert continuous-tone photographs into pure vector SVG files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Baseline detection models the path of text lines; it does not vectorize raster photography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Transkribus and Kraken only operate on machine-printed 20th-century typewritten documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both platforms were specifically engineered for complex historical handwritten manuscripts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Generating TEI `&lt;zone&gt;` Coordinates with AI: From Polygons to Bounding Boxes</text></name><questiontext format="html"><text><![CDATA[
+<h3>Generating TEI `<zone>` Coordinates with AI: From Polygons to Bounding Boxes</h3>
+<p>Once an AI model has segmented a page into regions and lines, how do we transform its mathematical output into valid TEI XML?</p>
+<p>Standard vision models output coordinates in various coordinate formats:</p>
+<ul>
+<li>Normalized floating-point values between 0.0 and 1.0 (relative to page width and height).</li>
+<li>Absolute pixel coordinates <code>[x, y, w, h]</code> (origin at top-left).</li>
+<li>Arbitrary multi-point polygonal coordinate strings <code>[(x1, y1), (x2, y2), ...]</code>.</li>
+</ul>
+<p>To ingest these coordinates into TEI P5, a Python script translates the model output into standard TEI <code>&lt;zone&gt;</code> attributes:</p>
+<ul>
+<li>For rectangular zones, the script calculates <code>@ulx</code> (upper-left X), <code>@uly</code> (upper-left Y), <code>@lrx</code> (lower-right X), and <code>@lry</code> (lower-right Y).</li>
+<li>For complex irregular shapes (such as an unevenly placed wax seal or a diagonal marginal gloss), TEI supports the <code>@points</code> attribute, which takes a space-separated sequence of coordinate pairs: <code>points="x1,y1 x2,y2 x3,y3 ..."</code>.</li>
+</ul>
+<p>By establishing a programmatic bridge between vision model JSON outputs and TEI XML templates, editors can generate hundreds of fully attributed <code>&lt;surface&gt;</code> and <code>&lt;zone&gt;</code> structures in seconds, complete with automated <code>@xml:id</code> identifiers matching transcribed lines.</p>
+<p><strong>Takeaway:</strong> Automated scripts convert vision model coordinate predictions into standardized TEI <code>@ulx</code>, <code>@uly</code>, <code>@lrx</code>, <code>@lry</code>, or <code>@points</code> attributes, bridging AI predictions and XML standards.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Generating TEI `&lt;zone&gt;` Coordinates with AI: From Polygons to Bounding Boxes</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When mapping an irregular, multi-point AI-detected baseline polygon into TEI XML, which TEI attribute should be used instead of simple `@ulx` and `@lrx`?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated scripts convert vision model coordinate predictions into standardized TEI `@ulx`, `@uly`, `@lrx`, `@lry`, or `@points` attributes, bridging AI predictions and XML standards.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The `@points` attribute, which records a space-separated sequence of coordinate pairs tracing the polygon boundary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. For non-rectangular zones, TEI provides `@points='x1,y1 x2,y2 x3,y3 ...'` to capture complex geometric contours.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The `@rendition` attribute, which specifies the font size in typographic points.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `@rendition` controls CSS visual styling, not geographic coordinate polygons.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The `@xml:lang` attribute, which identifies the ISO language code of the polygon.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `@xml:lang` specifies linguistic language, not spatial geometry.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The `@n` attribute, which stores the serial number of the camera lens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `@n` is an arbitrary numbering attribute, not a coordinate container.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Addressing Complex Layouts: Multi-Column Broadsides and Interlinear Additions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Addressing Complex Layouts: Multi-Column Broadsides and Interlinear Additions</h3>
+<p>Historical documents frequently defy simple top-to-bottom, single-column reading orders. Two student projects in our cohort illustrate these structural complexities:</p>
+<ul>
+<li><strong>Ace's 1791 French Revolutionary Decree:</strong> Printed decrees of the French National Assembly were often formatted as multi-column broadsides or octavo pamphlets with prominent centered titles, parallel French legal columns, italicized enactments, and bottom printer colophons. A naive vision model that reads strictly by vertical Y-coordinate will interleave text across Column 1 and Column 2, producing garbled gibberish.</li>
+<li><strong>Jay's Emily Dickinson Manuscripts:</strong> Dickinson's poems feature interlinear variant word choices written directly above or below lines, marginal stanzas, and ambiguous line wraps. A standard line-segmentation model may mistake an interlinear variant for an independent verse line or clip it into the adjacent line's polygon.</li>
+</ul>
+<p>To resolve these challenges, modern layout analysis employs <strong>reading order algorithms</strong> (such as topological sorting and graph neural networks). The model establishes spatial relationship graphs between text blocks, distinguishing between primary reading flows and secondary annotations. Human editors inspect the predicted reading tree and correct edge connections, ensuring that legal columns and poetic variants are serialized logically in TEI <code>&lt;body&gt;</code>.</p>
+<p><strong>Takeaway:</strong> Complex multi-column broadsides and interlinear manuscript additions require topological reading-order modeling to prevent erroneous text interleaving across columns and variants.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Addressing Complex Layouts: Multi-Column Broadsides and Interlinear Additions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does a naive top-to-bottom reading order algorithm fail on documents like Ace's 1791 French revolutionary decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Complex multi-column broadsides and interlinear manuscript additions require topological reading-order modeling to prevent erroneous text interleaving across columns and variants.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It sorts strictly by vertical Y-coordinates, erroneously interleaving text horizontally across parallel legal columns instead of reading each column sequentially.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Multi-column layouts require topological reading-order modeling to read down Column 1 before proceeding to Column 2.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because 18th-century French printing presses always printed text in reverse mirror-image order.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. French revolutionary decrees were printed in standard Western left-to-right reading order.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because revolutionary decrees were printed exclusively in circular concentric rings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Decrees used traditional columnar typography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because vision models cannot read any text published during the French Revolution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Vision models can read historical French typography when guided by proper layout analysis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Vernacular and Irregular Handwriting: Overcoming Folk Script Challenges</text></name><questiontext format="html"><text><![CDATA[
+<h3>Vernacular and Irregular Handwriting: Overcoming Folk Script Challenges</h3>
+<p>While formal scribal hands (such as Carolingian minuscule or 18th-century chancery scripts) adhere to strict geometric proportions, informal personal correspondence presents distinct challenges for computer vision.</p>
+<p>Olyvia's project—a personal letter written by renowned Nova Scotia folk artist Maud Lewis (1903–1970)—exemplifies the complexities of 20th-century vernacular handwriting:</p>
+<ul>
+<li>Maud Lewis lived with severe rheumatoid arthritis, which significantly influenced her physical motor control and handwriting posture.</li>
+<li>Her writing exhibits non-linear baselines, irregular letter sizing, varying pen pressure, drifting word spacing, and occasional uphill or downhill line tilts across unlined writing paper.</li>
+<li>Standard commercial OCR engines trained on uniform business correspondence or clean printed books fail dramatically on such hands, producing fragmented line segments or misclassifying entire paragraphs as background noise.</li>
+</ul>
+<p>To overcome these challenges, scholars apply specialized handwriting models (such as PyLaia or customized Kraken models) trained or fine-tuned on non-standard, vernacular hands. The model learns to follow dynamic, undulating baselines rather than assuming rigid horizontal strokes. Furthermore, multimodal LLMs equipped with high visual resolution can be prompted with context about the author's physical hand, allowing for accurate holistic line detection and zone attribution.</p>
+<p><strong>Takeaway:</strong> Vernacular and folk handwriting with undulating baselines and motor-affected letterforms requires adaptive, fine-tuned models capable of tracking irregular, organic strokes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Vernacular and Irregular Handwriting: Overcoming Folk Script Challenges</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do commercial OCR engines fail on personal correspondence like Maud Lewis's letters (studied by Olyvia), and how do specialized models solve this?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Vernacular and folk handwriting with undulating baselines and motor-affected letterforms requires adaptive, fine-tuned models capable of tracking irregular, organic strokes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Motor-affected, irregular vernacular handwriting lacks uniform baselines and letterforms; adaptive models trained on dynamic strokes track undulating baselines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Standard OCR assumes uniform spacing and straight lines; specialized models track organic, non-linear folk handwriting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Maud Lewis wrote in an encrypted military cipher that cannot be decoded without government permission.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Maud Lewis wrote in everyday English vernacular script.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Commercial OCR engines refuse to process images that contain blue or black fountain pen ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. OCR engines process standard inks; failure stems from irregular cursive geometry.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Adaptive models automatically replace Maud Lewis's handwriting with standard Shakespearean sonnet text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model transcribes the authentic historical text, not unrelated literary works.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Non-Textual Feature Detection: Identifying Seals, Signatures, and Totemic Marks</text></name><questiontext format="html"><text><![CDATA[
+<h3>Non-Textual Feature Detection: Identifying Seals, Signatures, and Totemic Marks</h3>
+<p>Archival documents are multimodal physical artifacts containing visual elements that are not words, but carry supreme legal, political, and cultural authority.</p>
+<p>In Andromeda's project—the Peace and Friendship Treaty of 1752 between the British colonial government and the Mi'kmaq—the non-textual features are foundational to the document's legal and historical integrity:</p>
+<ul>
+<li><strong>Colonial Wax and Paper Seals:</strong> Raised or embossed official seals marking imperial authority.</li>
+<li><strong>British Signatures:</strong> The cursive signatures of colonial Governor Peregrine Hopson and council members.</li>
+<li><strong>Indigenous Totemic Marks:</strong> The pictorial or symbolic marks (doodems / totemic glyphs) drawn by Mi'kmaw delegates (such as Chief Jean-Baptiste Cope). These marks are not alphabetic cursive, but sacred cultural signifiers of sovereign agreement.</li>
+</ul>
+<p>Standard OCR models either completely ignore these marks as photographic artifacts or generate nonsense characters trying to force them into ASCII letters. Computer vision object detection models (such as YOLOv8 or Faster R-CNN) can be specifically trained on classes such as <code>seal</code>, <code>signature</code>, <code>stamp</code>, and <code>pictorial_mark</code>. The detected bounding boxes are mapped directly into TEI <code>&lt;zone type="seal"&gt;</code> or <code>&lt;zone type="mark"&gt;</code> elements, preserving these vital cultural features as first-class visual objects in the digital edition.</p>
+<p><strong>Takeaway:</strong> Object detection models locate and delineate non-alphabetic elements (seals, signatures, and Indigenous totemic marks), ensuring legal and cultural artifacts are properly encoded in TEI.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Non-Textual Feature Detection: Identifying Seals, Signatures, and Totemic Marks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Andromeda's project on the 1752 Peace and Friendship Treaty, why must computer vision object detection models be trained on Indigenous totemic marks (doodems)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Object detection models locate and delineate non-alphabetic elements (seals, signatures, and Indigenous totemic marks), ensuring legal and cultural artifacts are properly encoded in TEI.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Totemic marks are sovereign cultural and legal signifiers that OCR engines misclassify as random noise or misinterpret as corrupted alphabetic letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Pictorial marks carry critical legal authority and must be detected as distinct visual objects rather than forced into alphabetic text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Totemic marks were stamped using radioactive ink that requires specialized Geiger counter imaging.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The marks were drawn using standard quill and iron gall or carbon ink.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because British colonial treaties were written without using any written text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty contains bilingual or English legal text accompanied by seals, signatures, and marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Object detection models automatically erase Indigenous marks to clean up the parchment image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editions aim to preserve, isolate, and foreground these vital cultural marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Automated Image Organization: Clustering, Duplicate Detection, and Sorting</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automated Image Organization: Clustering, Duplicate Detection, and Sorting</h3>
+<p>Large-scale digitization projects frequently suffer from organizational chaos. Photographers capture multiple shots of the same folio, capture color calibration targets in separate frames, produce test exposures, and accidentally misnumber file sequences. Sorting through 5,000 raw camera files manually to identify which image corresponds to which folio is an exhausting, error-prone chore.</p>
+<p>AI image clustering techniques bring automated order to raw image directories:</p>
+<ul>
+<li><strong>Feature Embedding Extraction:</strong> A pre-trained visual neural network (such as CLIP or DINOv2) processes every image in the directory and generates a dense mathematical vector (embedding) representing its visual content.</li>
+<li><strong>Near-Duplicate and Exposure Detection:</strong> By computing the cosine similarity between image embeddings, algorithms instantly identify duplicate captures of the same leaf, bracketing shots, or near-identical exposures. The system can flag the sharper or better-exposed image and quarantine redundant shots.</li>
+<li><strong>Document Type Clustering:</strong> Unsupervised clustering algorithms (such as k-means or DBSCAN) automatically group files into functional categories: full folio spreads, close-up binding details, color calibration charts, and blank flyleaves.</li>
+<li><strong>Sequence Verification:</strong> By analyzing visual transitions across consecutive folios (such as tracking binding gutters or page numbers), AI models can detect missing pages or swapped sequences before images enter the production pipeline.</li>
+</ul>
+<p><strong>Takeaway:</strong> Visual feature embeddings (CLIP/DINOv2) enable automated clustering, duplicate detection, and sequence validation across large collections of unorganized scans.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Automated Image Organization: Clustering, Duplicate Detection, and Sorting</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do visual feature embeddings (such as CLIP or DINOv2 vectors) enable automated sorting of thousands of raw archival photographs?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Visual feature embeddings (CLIP/DINOv2) enable automated clustering, duplicate detection, and sequence validation across large collections of unorganized scans.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They map each image into a mathematical vector space where visually similar images (duplicates, color targets, folio spreads) cluster together by cosine similarity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deep visual embeddings capture overall image features, allowing algorithms to group, sort, and detect duplicate captures automatically.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They read the photographer's personal diary entries to find where each photograph was taken.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Embeddings analyze visual pixel features directly from the image files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They compress the entire archival collection into a single 8-bit monochromatic thumbnail.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Embeddings are compact mathematical feature vectors, not lossy image thumbnails.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They alter the file creation date of the operating system to force alphabetical sorting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Embeddings perform semantic visual clustering independent of filesystem metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Smart Image Naming: Deriving Standardized File Names from Document Content</text></name><questiontext format="html"><text><![CDATA[
+<h3>Smart Image Naming: Deriving Standardized File Names from Document Content</h3>
+<p>A common archival curse is cryptic camera filenames like <code>IMG_4829.CR2</code> or <code>DSC_0091.NEF</code>. As established in our course conventions, digital assets must follow strict, human-readable, and machine-parseable naming schemes (e.g., <code>amherst_ms1118_3_f01r.tif</code> or <code>archives_nat_1791_decret_p01.tif</code>).</p>
+<p>AI enables automated "smart renaming" pipelines that inspect the visual content of each photograph and derive canonical filenames:</p>
+<ul>
+<li><strong>Folio Number Recognition:</strong> The model detects and reads handwritten or printed folio marks (e.g., "fol. 14v", "p. 3", "leaf 2").</li>
+<li><strong>Verso/Recto Classification:</strong> Image classification models trained on book structures recognize whether a page is a recto (right-hand leaf with gutter on the left) or a verso (left-hand leaf with gutter on the right) based on gutter shadow, marginal width, and text geometry.</li>
+<li><strong>Metadata Extraction and Renaming Scripts:</strong> A Python script queries the vision model for page type, folio number, and leaf orientation, then programmatically renames the file according to institutional archival standards:
+  <code>mv IMG_4829.tif archives_nat_1791_decret_f01r.tif</code></li>
+</ul>
+<p>This automated pipeline eliminates hours of manual filename editing and guarantees absolute consistency across thousands of digital assets.</p>
+<p><strong>Takeaway:</strong> Smart renaming pipelines use AI to read folio numbers and classify recto/verso orientations, automatically transforming raw camera filenames into canonical archival identifiers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Smart Image Naming: Deriving Standardized File Names from Document Content</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the function of a 'smart image renaming' pipeline in an archival digitization project?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Smart renaming pipelines use AI to read folio numbers and classify recto/verso orientations, automatically transforming raw camera filenames into canonical archival identifiers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It uses vision models to identify folio numbers and classify recto/verso orientations, automatically replacing camera IDs with canonical archival filenames.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Reading folio indicators and page orientations allows automated scripts to rename generic camera files into structured archival names.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It renames all image files to match the personal username of the computer operator.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Archival naming requires standardized, project-specific bibliographic identifiers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It encrypts the filenames so that remote scholars cannot discover which manuscript is being viewed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Archival naming enhances transparency and accessibility.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all file extensions to prevent web browsers from caching the image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Standard file extensions (e.g., .tif, .jpg) are strictly required for web and server operations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Metadata Extraction at Scale: Reading Dates, Archival Stamps, and Catalog Numbers</text></name><questiontext format="html"><text><![CDATA[
+<h3>Metadata Extraction at Scale: Reading Dates, Archival Stamps, and Catalog Numbers</h3>
+<p>Historical documents accumulate layers of bureaucratic metadata across centuries of custodial handling. Archival rubber stamps, accession numbers, library shelfmarks, pencil dates added by 19th-century cataloguers, and colonial tax stamps appear across document margins.</p>
+<p>Capturing this metadata is critical for the TEI <code>&lt;teiHeader&gt;</code> and provenance history (<code>&lt;provenance&gt;</code>), but transcribing each stamp manually is slow:</p>
+<ul>
+<li><strong>Multimodal MLLM Inspection:</strong> A multimodal model can be prompted to inspect document margins and extract structured metadata: "Identify all archival stamps, handwritten accession numbers, and pencil dates on this leaf. Return the result as a JSON object containing the text, estimated date of the stamp, and bounding box coordinates."</li>
+<li><strong>Institutional Stamp Recognition:</strong> Vision models can classify institutional ownership stamps—such as the distinctive red oval stamp of the Bibliothèque nationale de France or the StFX University Archives accession ink—verifying document custody without physical handling.</li>
+<li><strong>Automated Catalog Synchronization:</strong> The extracted accession strings are programmatically validated against institutional catalog databases via authority APIs (such as VIAF or Wikidata), populating the TEI <code>&lt;sourceDesc&gt;</code> and <code>&lt;msIdentifier&gt;</code> blocks automatically.</li>
+</ul>
+<p><strong>Takeaway:</strong> Multimodal AI extracts peripheral administrative metadata (stamps, shelfmarks, accession numbers) from document margins, automatically enriching TEI provenance records.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Metadata Extraction at Scale: Reading Dates, Archival Stamps, and Catalog Numbers</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do multimodal large language models assist digital editors in populating the TEI `&lt;sourceDesc&gt;` and `&lt;provenance&gt;` elements?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Multimodal AI extracts peripheral administrative metadata (stamps, shelfmarks, accession numbers) from document margins, automatically enriching TEI provenance records.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By inspecting peripheral margins to extract accession numbers, institutional rubber stamps, and cataloguer pencil notes into structured JSON.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. MLLMs can locate and read marginal administrative notations, converting provenance traces into structured XML metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By inventing plausible historical dates for documents whose origins are completely unknown.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editing requires reporting physical evidence, not fabricating unverified historical dates.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By automatically filing legal copyright lawsuits against archives that possess the physical manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Metadata extraction supports cataloguing and provenance research, not litigation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting institutional rubber stamps from the manuscript image to restore its 18th-century appearance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Physical provenance stamps are historical evidence and must be preserved.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Automated Quality Control: Detecting Blur, Glare, Incomplete Scans, and Cropping Errors</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automated Quality Control: Detecting Blur, Glare, Incomplete Scans, and Cropping Errors</h3>
+<p>In any large digitization campaign, human photographers inevitably make errors. A camera may slip out of focus, studio lamps may create specular reflection glare across glossy inks or varnished seals, or a document edge may be clipped outside the camera frame. Discovering these defects months later during transcription requires costly re-digitization trips to remote archives.</p>
+<p>AI quality control (QC) models provide automated, instantaneous auditing at the point of capture:</p>
+<ul>
+<li><strong>Defocus Blur Detection:</strong> Deep learning classification models evaluate spatial frequency spectra across the document, detecting local or global motion blur and lens defocus that would impede reading fine scribal strokes.</li>
+<li><strong>Specular Glare and Reflection Masking:</strong> Convolutional segmentation models identify hot spots where direct studio lighting has washed out underlying text, flagging the capture for lighting re-adjustment.</li>
+<li><strong>Boundary and Edge Completeness Verification:</strong> Object detection models verify that all four deckle edges or binding margins of the leaf are fully visible within the frame, ensuring that marginal glosses or folio numbers have not been cut off.</li>
+<li><strong>Target Presence Verification:</strong> Automated scripts confirm that a standardized color calibration target (e.g., ColorChecker) and metric scale bar are present in the reference shots for each capture batch.</li>
+</ul>
+<p>Deploying automated QC scripts ensures that every image passing into the digital edition pipeline meets rigorous archival standards before the physical witness is returned to the vault.</p>
+<p><strong>Takeaway:</strong> Automated AI quality control instantly detects defocus blur, specular glare, and clipped document margins at capture time, preventing costly digitization errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Automated Quality Control: Detecting Blur, Glare, Incomplete Scans, and Cropping Errors</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is it essential to run automated AI quality control checks immediately at the point of photographic capture in an archive?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated AI quality control instantly detects defocus blur, specular glare, and clipped document margins at capture time, preventing costly digitization errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To catch defocus blur, lighting glare, or clipped leaf edges before the manuscript is returned to the vault, avoiding costly re-digitization trips.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Immediate automated auditing prevents the discovery of flawed captures months later when physical access is no longer possible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because digital cameras permanently lock their memory cards if an image is blurry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cameras record whatever is shot; quality control software audits the output.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To guarantee that every photograph is compressed into a lossy 50-kilobyte JPEG.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Archival capture prioritizes lossless, high-resolution master files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because international law mandates that un-audited images be confiscated by customs border agents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Quality auditing is an internal archival methodological standard, not a customs regulation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: AI-Assisted Super-Resolution and Denoising: Opportunities and Hallucination Risks</text></name><questiontext format="html"><text><![CDATA[
+<h3>AI-Assisted Super-Resolution and Denoising: Opportunities and Hallucination Risks</h3>
+<p>Digital editors frequently encounter legacy scans captured in the 1990s or early 2000s at low resolutions (e.g., 100 to 150 DPI) or compressed with aggressive JPEG loss. Modern computer vision offers deep learning super-resolution models (such as Real-ESRGAN or SwinIR) that can computationally upscale images by 2x or 4x while synthesizing apparent fine detail.</p>
+<p>However, in scholarly editing, super-resolution carries catastrophic methodological risks:</p>
+<ul>
+<li><strong>The Generative Hallucination Trap:</strong> Super-resolution neural networks are trained on large image datasets to predict what missing pixels 'ought' to look like. When applied to an ambiguous, low-resolution scribal stroke, the model does not recover historical reality; it invents plausible-looking pixel data based on statistical probability.</li>
+<li><strong>Inventing Punctuation and Diacritics:</strong> A super-resolution model may transform a random speck of paper foxing into a distinct Greek acute accent, or convert a faint scribal dash into an English hyphen, fabricating textual evidence that never existed on the physical leaf.</li>
+<li><strong>Scholarly Best Practice:</strong> Generative super-resolution must <strong>never</strong> be applied to archival preservation masters or used as the basis for critical transcription. If super-resolution is used solely for visual presentation in a public web viewer, its presence must be explicitly documented and flagged with a visible surrogate disclosure label.</li>
+</ul>
+<p><strong>Takeaway:</strong> Deep learning super-resolution creates plausible synthetic pixels through generative prediction; it must never be used on archival masters due to the fatal risk of hallucinating textual evidence.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: AI-Assisted Super-Resolution and Denoising: Opportunities and Hallucination Risks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the application of deep learning super-resolution (e.g., Real-ESRGAN) strictly prohibited for archival preservation masters of historical documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Deep learning super-resolution creates plausible synthetic pixels through generative prediction; it must never be used on archival masters due to the fatal risk of hallucinating textual evidence.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Super-resolution models synthesize plausible new pixels based on training probabilities, risking the hallucination of non-existent diacritics, punctuation, or strokes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Generative upscaling invents synthetic pixel details, corrupting primary textual evidence with algorithmic hallucinations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Super-resolution models produce files that can only be viewed on supercomputers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Super-resolution outputs are standard raster images viewable on normal hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Super-resolution algorithms permanently erase all ink from the digital file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The danger is not erasure, but the synthetic invention of false detail.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI Consortium requires all digital images to have a resolution of exactly 72 DPI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI places no arbitrary restriction on image resolution; preservation standards mandate authentic, un-hallucinated captures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Automated Contrast and Ink Recovery: Deep Learning for Faded and Stained Inks</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automated Contrast and Ink Recovery: Deep Learning for Faded and Stained Inks</h3>
+<p>Centuries of environmental exposure cause severe ink degradation. Iron gall inks oxidize and fade to pale tan, water immersion washes pigments across fibers, and chemical mold stains darken surrounding paper. While deterministic contrast stretching (Lesson 3.2) can boost dynamic range, it often fails when the luminance of faded ink matches the luminance of adjacent paper stains.</p>
+<p>Deep learning ink recovery networks offer sophisticated non-linear separation:</p>
+<ul>
+<li><strong>CycleGAN and Image-to-Image Translation:</strong> Generative adversarial networks (GANs) trained on paired degraded and pristine document samples learn to map stained, faded manuscript patches into high-contrast, normalized images where faint ink strokes are perceptually amplified.</li>
+<li><strong>Multi-Channel Spectral Fusion:</strong> When multispectral captures (UV, visible, IR) are available, neural fusion networks combine spectral bands dynamically, highlighting chemical ink traces that are completely invisible in standard visible light photographs.</li>
+<li><strong>Preserving Originality via Difference Layers:</strong> To maintain scholarly integrity, the recovered ink layer should be stored as an analytical overlay mask (in PNG or IIIF annotation format) rather than overwriting the raw facsimile. Readers can toggle between the original degraded photograph and the AI-enhanced view.</li>
+</ul>
+<p><strong>Takeaway:</strong> Deep learning ink recovery amplifies faded strokes beyond deterministic limits, but must be deployed as an analytical overlay rather than overwriting the unaltered master facsimile.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Automated Contrast and Ink Recovery: Deep Learning for Faded and Stained Inks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When using deep learning models to amplify severely faded or water-damaged inks, what is the recommended scholarly practice for presenting the result?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Deep learning ink recovery amplifies faded strokes beyond deterministic limits, but must be deployed as an analytical overlay rather than overwriting the unaltered master facsimile.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Present the enhanced image as an analytical overlay layer (e.g., a IIIF annotation or toggleable view) while preserving the raw, unaltered photograph as the base master.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Scholars must always maintain access to the authentic raw capture so readers can audit the enhanced interpretation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Permanently overwrite and delete the original camera capture to prevent confusion.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Overwriting the master destroys irreplaceable primary photographic evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Claim that the AI-enhanced image was photographed in the year the author wrote the manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors must transparently document all modern computational enhancements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Print the enhanced image onto antique paper and age it in an oven to verify authenticity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Physical forgery violates all historical and digital humanities ethics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Verso Show-Through and Bleed-Through Removal via Neural Image Separation</text></name><questiontext format="html"><text><![CDATA[
+<h3>Verso Show-Through and Bleed-Through Removal via Neural Image Separation</h3>
+<p>A pervasive visual obstacle in historical manuscripts is <strong>bleed-through</strong> (where iron gall ink eats through paper fibers to the opposite side) and <strong>show-through</strong> (where thin paper allows the reverse side's writing to be seen through the translucent leaf). This problem appears frequently in 18th- and 19th-century personal letters and broadsides, such as Emily Dickinson's letters or Maud Lewis's correspondence.</p>
+<p>When reading the recto, show-through from the verso appears as faint, mirrored cursive that visually interferes with the foreground text:</p>
+<ul>
+<li><strong>Dual-Sided Registration:</strong> High-precision computer vision algorithms first register (geometrically align) high-resolution scans of both the recto and verso, flipping the verso horizontally so that the bleed-through patterns align perfectly in coordinate space.</li>
+<li><strong>Independent Component Analysis (ICA) and Neural Blind Source Separation:</strong> Deep learning models treat the photographed leaf as a linear mixture of two independent visual sources: the foreground recto ink and the background verso show-through. By analyzing the aligned recto-verso pair, the model mathematically separates the two signals, subtracting the mirrored verso ink without degrading the faint foreground strokes.</li>
+<li><strong>Preserving Documentary Evidence:</strong> Complete removal of bleed-through can alter the reader's perception of paper thickness and ink acidity. The clean derivative should be presented as an optional reading aid alongside the unaltered archival photograph.</li>
+</ul>
+<p><strong>Takeaway:</strong> Neural blind source separation registers recto and verso captures to algorithmically isolate and subtract distracting show-through ink while preserving primary strokes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Verso Show-Through and Bleed-Through Removal via Neural Image Separation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does neural blind source separation remove distracting show-through ink from historical letters written on thin paper?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Neural blind source separation registers recto and verso captures to algorithmically isolate and subtract distracting show-through ink while preserving primary strokes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By registering aligned high-resolution scans of both recto and verso, mathematically isolating and subtracting the mirrored verso ink signal from the recto image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Aligned dual-sided imaging allows algorithms to separate the foreground text signal from the background show-through signal.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By physically peeling the front layer of the historical paper away from the back layer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Document separation is purely digital; physical splitting destroys paper artifacts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By converting the image into a grayscale 1-bit bitmap and discarding all vowels.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Source separation preserves continuous tones and complete texts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By asking an AI chatbot to rewrite the letter from memory without looking at the scan.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Image processing algorithms operate directly on pixel matrices, not text generation prompts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Aligning Images with Transcriptions: The Text-Image Alignment Problem</text></name><questiontext format="html"><text><![CDATA[
+<h3>Aligning Images with Transcriptions: The Text-Image Alignment Problem</h3>
+<p>A central objective of the TEI Guidelines is establishing an explicit, verifiable link between the visual pixels of a document facsimile and the machine-readable characters of an encoded transcription. Traditionally, this link required an editor to manually create a <code>&lt;zone&gt;</code> element for every line, copy its <code>@xml:id</code>, and paste it into the transcribed text: <code>&lt;lb facs="#zone_line_01"/&gt;</code>. Doing this for a 300-page manuscript requires thousands of repetitive editorial operations.</p>
+<p>The <strong>Text-Image Alignment (TIA)</strong> problem asks: Given a digital image of a document and a known, human-verified transcription of its text, can an algorithm automatically find the exact pixel coordinates corresponding to each transcribed word or line?</p>
+<p>Modern AI solves TIA using <strong>Forced Alignment</strong> architectures:</p>
+<ul>
+<li>The vision model runs optical character recognition (OCR) or handwriting text recognition (HTR) across the image, generating a matrix of character probabilities (logits) for every pixel region.</li>
+<li>The alignment algorithm uses Connectionist Temporal Classification (CTC) or Dynamic Time Warping (DTW) to match the known, authoritative transcription against the visual probability matrix.</li>
+<li>Because the algorithm already knows the true text, it does not need to guess ambiguous characters; it only needs to find the most probable spatial location where each known word was written.</li>
+</ul>
+<p>The result is a fully automated, pixel-perfect alignment between human transcriptions and manuscript facsimiles.</p>
+<p><strong>Takeaway:</strong> Text-Image Alignment uses forced alignment algorithms (CTC/DTW) to automatically map known editorial transcriptions to their precise visual pixel coordinates on the page.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Aligning Images with Transcriptions: The Text-Image Alignment Problem</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is 'Forced Alignment' in the context of connecting historical document images to scholarly transcriptions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Text-Image Alignment uses forced alignment algorithms (CTC/DTW) to automatically map known editorial transcriptions to their precise visual pixel coordinates on the page.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;An algorithm that matches an authoritative, known transcription against a visual character probability matrix to locate the precise pixel coordinates of each line.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Forced alignment uses existing verified text to find corresponding image regions, bypassing the need for unconstrained OCR guessing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A legal agreement forcing library archives to surrender high-resolution scans to commercial tech companies.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Forced alignment is a computational algorithm, not a legal contract.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A mechanical clamp that holds parchment completely flat during photographic exposure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Mechanical clamps relate to studio cradles, not digital text-image alignment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A software filter that forces all fonts to render in Helvetica Neue.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Forced alignment maps transcription text to handwriting pixel coordinates.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Automated Insertion of `&lt;facsimile&gt;`, `&lt;surface&gt;`, and `&lt;graphic&gt;` in TEI XML</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automated Insertion of `<facsimile>`, `<surface>`, and `<graphic>` in TEI XML</h3>
+<p>Once an AI pipeline has calculated page dimensions and line coordinates, it can construct the entire TEI <code>&lt;facsimile&gt;</code> tree automatically.</p>
+<p>A specialized Python automation script executes the following assembly pipeline:</p>
+<ul>
+<li><strong>Reading Image Information:</strong> The script inspects the master image files using <code>vips</code> or <code>Pillow</code> to determine absolute pixel dimensions (e.g., width 4800, height 6400).</li>
+<li><strong>Generating <code>&lt;surface&gt;</code> Elements:</strong> For each page, the script creates a <code>&lt;surface&gt;</code> element with <code>@ulx="0"</code>, <code>@uly="0"</code>, <code>@lrx="4800"</code>, and <code>@lry="6400"</code>, accompanied by a human-readable <code>@xml:id</code> (e.g., <code>surface_f01r</code>).</li>
+<li><strong>Inserting <code>&lt;graphic&gt;</code> Elements:</strong> Inside <code>&lt;surface&gt;</code>, the script generates <code>&lt;graphic url="facsimiles/f01r.tif" width="4800px" height="6400px"/&gt;</code>, linking the coordinate space to the physical image file.</li>
+<li><strong>Generating Child <code>&lt;zone&gt;</code> Elements:</strong> The script iterates through the AI-detected baselines and bounding boxes, creating <code>&lt;zone&gt;</code> elements with corresponding <code>@xml:id</code> attributes (e.g., <code>zone_f01r_l01</code>, <code>zone_f01r_l02</code>) and precise coordinate attributes.</li>
+<li><strong>Injecting into TEI Root:</strong> The compiled <code>&lt;facsimile&gt;</code> tree is inserted directly as a child of <code>&lt;TEI&gt;</code>, positioned correctly between <code>&lt;teiHeader&gt;</code> and <code>&lt;text&gt;</code>.</li>
+</ul>
+<p>This automated pipeline converts raw camera directories and vision model predictions into valid, schema-compliant TEI XML in a matter of seconds.</p>
+<p><strong>Takeaway:</strong> Python automation scripts assemble vision model predictions into complete TEI <code>&lt;facsimile&gt;</code>, <code>&lt;surface&gt;</code>, and <code>&lt;zone&gt;</code> structures, eliminating manual XML coordinate authoring.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Automated Insertion of `&lt;facsimile&gt;`, `&lt;surface&gt;`, and `&lt;graphic&gt;` in TEI XML</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In an automated TEI publishing pipeline, what role does a Python assembly script play after computer vision processing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Python automation scripts assemble vision model predictions into complete TEI `&lt;facsimile&gt;`, `&lt;surface&gt;`, and `&lt;zone&gt;` structures, eliminating manual XML coordinate authoring.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It reads image dimensions and predicted zone coordinates, programmatically generating schema-compliant `&lt;surface&gt;`, `&lt;graphic&gt;`, and `&lt;zone&gt;` XML trees.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Automation scripts synthesize image metadata and vision model coordinates into structured TEI facsimile markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts the TEI XML into an unformatted Microsoft Word document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital edition pipelines maintain structured XML for archival preservation and web presentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all XML tags to reduce file size for email delivery.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI tags provide the essential semantic and spatial markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It manually re-types the entire transcription by simulating keystrokes in a word processor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Automated scripts parse data structures directly in memory without manual typing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Linking Text Elements to Image Zones: Automating `@facs` and `@corresp`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Linking Text Elements to Image Zones: Automating `@facs` and `@corresp`</h3>
+<p>With the <code>&lt;facsimile&gt;</code> coordinate tree constructed, the final step in building an interactive digital edition is linking the transcribed text inside <code>&lt;text&gt;&lt;body&gt;</code> back to the visual zones.</p>
+<p>TEI P5 provides two primary linking mechanisms:</p>
+<ul>
+<li><strong>The <code>@facs</code> Attribute:</strong> The most direct and common method. An editor attaches <code>@facs</code> to any text element—such as a line beginning <code>&lt;lb facs="#zone_f01r_l01"/&gt;</code>, a paragraph <code>&lt;p facs="#zone_p01"/&gt;</code>, or an individual word <code>&lt;w facs="#zone_w01"/&gt;</code>—pointing to the URI of the corresponding <code>&lt;zone&gt;</code>.</li>
+<li><strong>The <code>@corresp</code> Attribute:</strong> Used for bidirectional semantic correspondence, linking complex editorial commentary or variant readings to specific physical zones.</li>
+</ul>
+<p>Automating this linkage:</p>
+<ul>
+<li>Because the Text-Image Alignment algorithm (Section 18) identifies which transcribed line matches which detected zone, an automated post-processing script simply injects the corresponding <code>@facs</code> attribute into each <code>&lt;lb/&gt;</code> or <code>&lt;p&gt;</code> tag in the transcribed TEI file.</li>
+<li>When rendered in an interactive web edition (such as TEI Publisher or a custom Mirador viewer), clicking a line of transcribed poetry instantly highlights the corresponding bounding box on the manuscript image, and clicking a zone on the image highlights the transcribed verse.</li>
+</ul>
+<p><strong>Takeaway:</strong> Automated post-processors insert <code>@facs</code> pointers into transcribed <code>&lt;lb&gt;</code> and <code>&lt;p&gt;</code> tags, linking textual markup to image zones for interactive two-way highlighting.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Linking Text Elements to Image Zones: Automating `@facs` and `@corresp`</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does an automated pipeline link a transcribed line of verse in TEI `&lt;body&gt;` to its physical pixel bounding box in `&lt;facsimile&gt;`?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated post-processors insert `@facs` pointers into transcribed `&lt;lb&gt;` and `&lt;p&gt;` tags, linking textual markup to image zones for interactive two-way highlighting.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By inserting a `@facs` attribute on the line element pointing to the unique `@xml:id` of the corresponding `&lt;zone&gt;` (e.g., `&lt;lb facs='#zone_l01'/&gt;`).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The `@facs` attribute creates a direct URI pointer linking text elements to spatial coordinate zones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By embedding the full 150-megabyte raw TIFF image inside the `&lt;lb&gt;` element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML does not store raw binary images; pointers link text to external surface zones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By translating the verse into hexadecimal machine code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI encodes human-readable text and standard XML attributes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By printing the verse onto physical photographic paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The linkage exists in digital data structures for interactive screen presentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Multi-Witness Alignment: Cross-Referencing Manuscript Variants</text></name><questiontext format="html"><text><![CDATA[
+<h3>Multi-Witness Alignment: Cross-Referencing Manuscript Variants</h3>
+<p>In genetic criticism and scholarly editing, authors frequently produce multiple draft witnesses of a single work. Jay's project on Emily Dickinson's poem <code>MS Am 1118.3 [338]</code> perfectly illustrates this challenge: Dickinson composed multiple variant manuscript copies of her poems, sending one draft to her sister-in-law Susan Gilbert Dickinson while retaining another draft in her personal fascicles, often with significant word variations and line arrangement differences.</p>
+<p>AI accelerates multi-witness alignment across variant manuscripts:</p>
+<ul>
+<li><strong>Visual Collation:</strong> Computer vision algorithms register and compare high-resolution facsimiles of Witness A (Amherst) and Witness B (Harvard), detecting physical differences in stanza layout, line breaks, and marginal notes.</li>
+<li><strong>Automated Textual Collation Alignment:</strong> Collation algorithms (such as CollateX combined with vision embeddings) align the transcribed text of both witnesses, linking corresponding lines across disparate physical surfaces.</li>
+<li><strong>Synchronized IIIF Workspaces:</strong> In a IIIF-compliant viewer like Mirador, multi-witness alignment data enables synchronized panning and zooming: when a reader zooms into Stanza 2 on the Amherst manuscript, the adjacent panel automatically centers and zooms into the corresponding Stanza 2 on the Harvard manuscript leaf.</li>
+</ul>
+<p>This computational synthesis of visual alignment and textual collation transforms multi-witness analysis from an arduous manual task into a dynamic, interactive research experience.</p>
+<p><strong>Takeaway:</strong> AI-assisted visual and textual collation aligns variant manuscript witnesses, powering synchronized multi-panel juxtaposition in interactive IIIF editions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Multi-Witness Alignment: Cross-Referencing Manuscript Variants</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In genetic criticism of complex manuscript corpuses—such as Emily Dickinson's poems studied by Jay—how does AI multi-witness alignment enrich the edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI-assisted visual and textual collation aligns variant manuscript witnesses, powering synchronized multi-panel juxtaposition in interactive IIIF editions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It aligns corresponding stanzas and variant lines across disparate physical manuscripts, enabling synchronized multi-panel viewing and automated collation in IIIF viewers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Multi-witness alignment links variant draft leaves, powering synchronized side-by-side exploration of authorial revision processes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It merges all manuscript drafts into a single composite image and permanently deletes the individual witnesses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Genetic editing preserves every distinct witness; witnesses are never merged or deleted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It determines which draft is 'objectively best' using a secret literary popularity algorithm.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions present the full historical evidence of variation without arbitrary ranking.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It proves that Emily Dickinson never wrote handwritten manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dickinson's physical manuscripts are among the most famous autograph treasures in American literature.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: IIIF Annotation Generation: Producing Web Annotation Data Model JSON-LD with AI</text></name><questiontext format="html"><text><![CDATA[
+<h3>IIIF Annotation Generation: Producing Web Annotation Data Model JSON-LD with AI</h3>
+<p>While TEI XML models documents primarily from a textual hierarchy perspective, the International Image Interoperability Framework models them through the <strong>W3C Web Annotation Data Model</strong>. In IIIF, every visual callout, transcribed line, or scholarly commentary is modeled as an independent <strong>Annotation</strong> that targets a specific region of a IIIF Canvas.</p>
+<p>An automated AI imaging pipeline can translate detected zones directly into standardized IIIF Annotation Lists:</p>
+<ul>
+<li><strong>The Annotation Structure:</strong> Each annotation is expressed as a JSON-LD object containing a <code>motivation</code> (e.g., <code>supplementing</code> for transcription, <code>commenting</code> for editorial notes), a <code>body</code> (the transcribed text or HTML markup), and a <code>target</code> (the Canvas URI with a media fragment coordinate selector: <code>#xywh=400,600,1200,80</code>).</li>
+<li><strong>Automated Pipeline Output:</strong> During Text-Image Alignment, the script simultaneously emits both TEI <code>&lt;zone&gt;</code> XML and IIIF Web Annotation JSON-LD.</li>
+<li><strong>Universal Interoperability:</strong> Because the annotations conform to W3C standards, they can be ingested by any IIIF-compliant tool—including Mirador, OpenSeadragon, or Recogito—allowing remote scholars to search, highlight, and annotate the manuscript across the global semantic web.</li>
+</ul>
+<p><strong>Takeaway:</strong> AI pipelines export detected zones as W3C Web Annotations targeting IIIF Canvases, enabling interoperable search, transcription, and annotation across web platforms.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: IIIF Annotation Generation: Producing Web Annotation Data Model JSON-LD with AI</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Under the W3C Web Annotation Data Model used by IIIF, what three core components comprise an automated manuscript transcription annotation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI pipelines export detected zones as W3C Web Annotations targeting IIIF Canvases, enabling interoperable search, transcription, and annotation across web platforms.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A `motivation` (e.g., `supplementing`), a `body` (transcribed text), and a `target` (a Canvas URI with an `#xywh` spatial media fragment).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A W3C Web Annotation links a body (text/commentary) to a target (canvas coordinate region) with an explicit motivation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A username, a credit card number, and an expiration date.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web annotations are open linked open data structures, not commercial payment tokens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A pixel width, a color saturation level, and a lens aperture value.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are low-level photographic parameters, not annotation data model components.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A TEI header, a SQL database table, and an uncompressed audio WAV file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. W3C Web Annotations follow a distinct JSON-LD specification independent of SQL or audio.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Fine-Tuning Vision Models on Historical Hands and Document Types</text></name><questiontext format="html"><text><![CDATA[
+<h3>Fine-Tuning Vision Models on Historical Hands and Document Types</h3>
+<p>Off-the-shelf, general-purpose computer vision models frequently fail when applied to specialized historical corpuses. A vision model trained on modern English print cannot reliably segment 18th-century French revolutionary typography with historical ligatures (Ace's project), nor can it follow the delicate, idiosyncratic handwriting of Emily Dickinson or Maud Lewis.</p>
+<p>To achieve high scholarly accuracy, editors must <strong>fine-tune</strong> pre-trained models on representative samples of their specific corpus:</p>
+<ul>
+<li><strong>The Pre-Trained Foundation:</strong> Rather than training a neural network from scratch (which requires hundreds of thousands of images), scholars begin with a pre-trained document foundation model (such as a base Kraken model or LayoutLM) that already understands general document geometries.</li>
+<li><strong>Ground Truth Creation:</strong> The editor manually encodes a small, representative "ground truth" sample—typically 10 to 20 carefully annotated pages—providing perfect baseline coordinates and line transcriptions.</li>
+<li><strong>Transfer Learning:</strong> The pre-trained model is fine-tuned on this ground truth dataset for several epochs. The network adjusts its internal weights to recognize the specific letterforms, ink characteristics, and layout quirks of the target author.</li>
+<li><strong>Evaluation and Deployment:</strong> The fine-tuned model is evaluated on unseen test pages; once it achieves low character error rates (CER) and high boundary intersection-over-union (IoU), it is deployed across the remaining hundreds of archival pages in the collection.</li>
+</ul>
+<p><strong>Takeaway:</strong> Fine-tuning pre-trained foundation models on small, curated ground-truth samples (10-20 pages) adapts vision algorithms to specific historical hands and print styles.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Fine-Tuning Vision Models on Historical Hands and Document Types</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is 'transfer learning' (fine-tuning a pre-trained model on 10–20 curated pages) preferred over training a document vision model from scratch?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Fine-tuning pre-trained foundation models on small, curated ground-truth samples (10-20 pages) adapts vision algorithms to specific historical hands and print styles.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Training from scratch requires hundreds of thousands of annotated historical images, whereas fine-tuning leverages existing general feature representations efficiently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Fine-tuning adapts rich pre-trained visual filters to specialized historical hands using only a small, feasible scholarly ground-truth dataset.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because training from scratch is prohibited by international software copyright treaties.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Training from scratch is legally permitted, but practically infeasible due to data and compute requirements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because pre-trained models can only be run on commercial mainframe computers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Fine-tuned models run on standard modern desktop computers and laptops with GPUs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because fine-tuning permanently deletes the model's ability to read English words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transfer learning retains general character and language understanding while specializing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Active Learning and Human-in-the-Loop: Correcting AI Predictions Iteratively</text></name><questiontext format="html"><text><![CDATA[
+<h3>Active Learning and Human-in-the-Loop: Correcting AI Predictions Iteratively</h3>
+<p>The most effective scholarly AI workflows do not treat artificial intelligence as an autonomous, hands-off black box. Instead, they implement an <strong>Active Learning</strong> framework with a <strong>Human-in-the-Loop (HITL)</strong> architecture.</p>
+<p>The active learning lifecycle operates as an iterative feedback loop:</p>
+<ul>
+<li><strong>Initial Batch Prediction:</strong> A baseline model predicts layout zones and text baselines for a batch of newly digitized documents.</li>
+<li><strong>Confidence Sorting:</strong> The system evaluates its own predictions, ranking them by mathematical confidence scores. Pages with ambiguous layouts or low-confidence baselines are flagged and pushed to the top of the review queue.</li>
+<li><strong>Human Editorial Correction:</strong> The scholar opens an interactive review interface (such as eScriptorium, Transkribus, or a custom web dashboard) and rapidly corrects misaligned baselines, adjusts clipped bounding boxes, and fixes reading order connections.</li>
+<li><strong>Incremental Retraining:</strong> The corrected pages are added to the training set, and the model undergoes incremental fine-tuning. With each review cycle, the model becomes more accurate, requiring fewer human corrections on subsequent batches.</li>
+</ul>
+<p>This collaborative dynamic harnesses the high processing speed of AI while anchoring editorial authority firmly in human scholarly expertise.</p>
+<p><strong>Takeaway:</strong> Active learning implements an iterative human-in-the-loop workflow where scholars correct low-confidence AI predictions, continually improving model accuracy.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Active Learning and Human-in-the-Loop: Correcting AI Predictions Iteratively</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does an Active Learning framework optimize the human editor's time during a large-scale transcription and layout project?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Active learning implements an iterative human-in-the-loop workflow where scholars correct low-confidence AI predictions, continually improving model accuracy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The model ranks predictions by uncertainty, presenting only the most ambiguous, low-confidence pages for human review while retraining incrementally on corrections.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Active learning focuses human expertise strictly on difficult or error-prone pages, maximizing model improvement with minimal human effort.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces human scholars with fully autonomous AI agents that publish editions without human review.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Active learning is fundamentally built on human-in-the-loop validation and governance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires the human editor to inspect every single pixel on every page using an analog magnifying glass.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Active learning avoids redundant manual inspection by triaging high-confidence predictions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the editor to write 100 lines of assembly code before opening each image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Active learning uses user-friendly graphical interfaces (like eScriptorium or Transkribus).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Confidence Scoring and Error Detection: When Does the Vision Model Fail?</text></name><questiontext format="html"><text><![CDATA[
+<h3>Confidence Scoring and Error Detection: When Does the Vision Model Fail?</h3>
+<p>A critical methodological requirement for academic digital editions is knowing when an automated algorithm's output can be trusted and when it must be flagged for human audit. Deep learning vision models provide internal <strong>confidence scores</strong> (softmax probabilities between 0.0 and 1.0) for every predicted bounding box, baseline, and recognized character.</p>
+<p>Common failure modes in historical document vision include:</p>
+<ul>
+<li><strong>Gutter Shadow Hallucinations:</strong> In bound codices or thick pamphlets, deep shadows in the central gutter can be misclassified as dark text blocks or column dividers.</li>
+<li><strong>Stain and Foxing False Positives:</strong> Dark water stains, iron gall ink acid burnouts, or grease spots frequently trigger false-positive zone detections, causing the model to draw boxes around blank, discolored paper.</li>
+<li><strong>Wavy Baseline Drift:</strong> When text curves dramatically across distorted parchment or warped paper leaves, models with insufficient spatial attention may drop the baseline mid-sentence or jump to an adjacent line.</li>
+<li><strong>Automated Triage Pipelines:</strong> Editors write threshold validation scripts: any predicted zone with a confidence score below a specified cutoff (e.g., 0.85) is automatically tagged with <code>@cert="low"</code> in TEI XML and routed to a dedicated human review queue before publication.</li>
+</ul>
+<p><strong>Takeaway:</strong> Confidence scoring enables automated quality triage, flagging ambiguous zones, gutter shadows, and false positives for mandatory human editorial review.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Confidence Scoring and Error Detection: When Does the Vision Model Fail?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What automated quality assurance mechanism can digital edition pipelines implement using model confidence scores?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Confidence scoring enables automated quality triage, flagging ambiguous zones, gutter shadows, and false positives for mandatory human editorial review.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Triage pipelines that automatically attach `@cert='low'` to predicted zones below a probability threshold and route them to a human editorial audit queue.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Confidence thresholds allow pipelines to isolate uncertain predictions for mandatory human review before publication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Pipelines that automatically delete any document page containing difficult handwriting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Difficult pages must be preserved and transcribed carefully by human scholars, never deleted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Algorithms that increase the brightness of the computer screen whenever confidence is low.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Screen brightness does not solve algorithmic layout uncertainty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Scripts that penalize the student's grade if the machine learning model makes an inference error.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Model errors are normal computational probabilities, not student errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Ethical and Scholarly Integrity: The Risk of Generative Hallucination in Archival Images</text></name><questiontext format="html"><text><![CDATA[
+<h3>Ethical and Scholarly Integrity: The Risk of Generative Hallucination in Archival Images</h3>
+<p>The rapid emergence of generative artificial intelligence (including diffusion models and generative adversarial networks) introduces profound ethical hazards for historical disciplines. While generative models can remove stains, restore missing parchment fragments, or synthesize photorealistic text, their use in documentary editing threatens the core foundation of scholarly truth.</p>
+<p>Key ethical principles for AI imaging in historical scholarship:</p>
+<ul>
+<li><strong>The Prohibition on Generative Reconstruction:</strong> Generative models must <strong>never</strong> be used to 'repair' torn paper or synthesize missing ink strokes in published archival facsimiles. To publish a generative reconstruction as a primary surrogate is to commit documentary falsification.</li>
+<li><strong>Analytical Derivatives vs. Master Records:</strong> AI enhancements (such as contrast boosting, bleed-through removal, or color classification) must always be categorized as <em>analytical derivatives</em> or <em>interpretive layers</em>. The unaltered raw camera capture must remain permanently accessible as the primary witness.</li>
+<li><strong>Transparency and Methodological Disclosure:</strong> Every digital edition that employs AI image processing or layout analysis must include an explicit methodology statement in the TEI <code>&lt;teiHeader&gt;</code> (<code>&lt;encodingDesc&gt;</code>), disclosing the exact models, software versions, training datasets, and post-processing scripts utilized.</li>
+</ul>
+<p><strong>Takeaway:</strong> Scholarly integrity strictly forbids generative fabrication of missing historical evidence; AI derivatives must be transparently disclosed, and raw masters must remain accessible.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Ethical and Scholarly Integrity: The Risk of Generative Hallucination in Archival Images</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the use of generative AI to digitally 'fill in' missing paper fragments or restore faded text considered documentary falsification in scholarly editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Scholarly integrity strictly forbids generative fabrication of missing historical evidence; AI derivatives must be transparently disclosed, and raw masters must remain accessible.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Generative models fabricate statistically probable content rather than recovering historical reality, presenting synthetic invention as authentic documentary evidence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Fabricating missing historical text or paper violates scholarly ethics; editions must document lacunae truthfully.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because generative models use too much internet bandwidth to be downloaded.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ethical objection is epistemological and documentary, not bandwidth-related.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because all generative AI models are legally owned by foreign governments.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The prohibition is an ethical scholarly standard, independent of foreign legal claims.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because historical documents are legally required to remain illegible.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editions strive for legibility, but only through verifiable historical evidence and transparent editorial argumentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: The Black Box Problem: Explainability and Reproducibility in AI Imaging Workflows</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Black Box Problem: Explainability and Reproducibility in AI Imaging Workflows</h3>
+<p>In Lesson 3.2, we emphasized that deterministic tools like ImageMagick and libvips are fully reproducible: the exact same bash script executed on the same TIFF master will yield the exact same pixel matrix on any computer, indefinitely. Deep neural networks, however, introduce the <strong>black box problem</strong>: complex models contain hundreds of millions of parameters whose internal decision pathways cannot be fully scrutinized or explained.</p>
+<p>Furthermore, AI workflows face severe <strong>reproducibility crises</strong>:</p>
+<ul>
+<li><strong>Model Drift and Deprecation:</strong> Commercial cloud APIs (such as closed multimodal LLM endpoints) are frequently updated or deprecated by vendors without notice. A script calling a proprietary cloud model in 2026 may produce completely different bounding boxes or fail entirely when executed in 2028.</li>
+<li><strong>Hardware and Dependency Variations:</strong> Differences in CUDA drivers, floating-point GPU architectures, or deep learning library versions (e.g., PyTorch) can introduce subtle variations in model inference.</li>
+<li><strong>Scholarly Countermeasures:</strong> To ensure long-term reproducibility, academic projects should:</li>
+<li>Prefer open-weight models (such as open-source Hugging Face models or Kraken weights) that can be archived locally.</li>
+<li>Pin all software dependencies in containerized environments (Docker or Singularity).</li>
+<li>Archive the exact model weights, random seeds, and configuration parameters alongside the digital edition.</li>
+</ul>
+<p><strong>Takeaway:</strong> The black box nature of neural networks threatens scholarly reproducibility; editors must prioritize open-weight models, containerized pipelines, and archived model checkpoints.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: The Black Box Problem: Explainability and Reproducibility in AI Imaging Workflows</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does reliance on closed, third-party commercial cloud APIs threaten the long-term reproducibility of academic digital editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The black box nature of neural networks threatens scholarly reproducibility; editors must prioritize open-weight models, containerized pipelines, and archived model checkpoints.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Cloud vendors frequently modify, update, or deprecate models without notice, meaning identical code run two years later will produce different, unreproducible results.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Proprietary API drift breaks scientific reproducibility; academic editions should prioritize archived, open-weight models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because commercial cloud APIs only operate during normal North American business hours.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cloud APIs run continuously, but their underlying model weights change without user control.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because cloud models automatically convert all image files into proprietary vector graphics.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cloud models output standard data structures, but their inference algorithms are unstable over time.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because academic libraries refuse to allow computers connected to the internet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editions rely heavily on the internet; stability and open archiving ensure long-term preservation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Integrating AI Pipelines with Open-Source Deterministic Tools</text></name><questiontext format="html"><text><![CDATA[
+<h3>Integrating AI Pipelines with Open-Source Deterministic Tools</h3>
+<p>AI does not operate in isolation; the most robust and efficient digital imaging workflows combine the perceptual intelligence of deep learning with the high-speed mathematical rigor of deterministic command-line utilities.</p>
+<p>A production-grade hybrid imaging pipeline leverages the complementary strengths of both paradigms:</p>
+<ul>
+<li><strong>Pre-Processing with Deterministic Tools:</strong> Raw camera files are normalized, calibrated against ICC profiles, and deskewed using deterministic tools like ImageMagick and libvips before being fed to AI vision models. Feeding clean, uniform images to neural networks drastically reduces inference errors.</li>
+<li><strong>AI-Powered Perception and Coordinate Generation:</strong> The normalized images are processed by vision models to detect text baselines, identify marginal stamps, extract bounding boxes, and align transcriptions.</li>
+<li><strong>Deterministic Post-Processing and Tiling:</strong> The detected coordinates are passed to <code>vips</code> to crop high-resolution regional derivatives or generate deep-zoom pyramidal TIFFs for IIIF image servers.</li>
+<li><strong>Glue Code in Python:</strong> A lightweight Python controller orchestrates the entire flow, executing shell commands, passing JSON coordinate payloads between tools, and validating final outputs against XML schemas.</li>
+</ul>
+<p>This hybrid architecture achieves maximum computational performance, absolute mathematical precision, and semantic intelligence.</p>
+<p><strong>Takeaway:</strong> Production imaging combines deterministic tools (ImageMagick/libvips) for pre-processing and tiling with deep learning models for semantic perception and zone extraction.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Integrating AI Pipelines with Open-Source Deterministic Tools</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a production-grade digital imaging workflow, why are deterministic tools (like libvips and ImageMagick) used in tandem with AI models rather than relying on AI alone?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Production imaging combines deterministic tools (ImageMagick/libvips) for pre-processing and tiling with deep learning models for semantic perception and zone extraction.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Deterministic tools provide ultra-fast, mathematically exact image pre-processing, ICC color calibration, and deep-zoom tiling that neural networks cannot perform efficiently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Hybrid pipelines pair the mathematical precision and speed of deterministic utilities with the semantic perceptual intelligence of deep learning.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because AI models are incapable of opening images larger than 100 pixels wide.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models can process large images, but tiling and color mathematics are far more efficiently handled by tools like libvips.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because ImageMagick is owned by the United Nations Educational, Scientific and Cultural Organization.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ImageMagick is an independent open-source software project.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because deterministic tools automatically translate 18th-century French legal vocabulary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic tools manipulate pixel arrays; language interpretation is handled by human editors or language models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Building an End-to-End AI Imaging Pipeline: From Raw Scans to Validated TEI/IIIF</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building an End-to-End AI Imaging Pipeline: From Raw Scans to Validated TEI/IIIF</h3>
+<p>To synthesize all the concepts mastered across this module, let us trace the complete end-to-end journey of an archival document through a state-of-the-art digital imaging pipeline:</p>
+<ul>
+<li><strong>1. Ingest and Quality Audit:</strong> Raw camera captures are validated for focus and completeness using automated quality control scripts (Section 14).</li>
+<li><strong>2. Deterministic Normalization:</strong> Images are calibrated against color targets and converted to archival 16-bit TIFF masters with embedded ICC profiles.</li>
+<li><strong>3. Smart Sorting and Renaming:</strong> Unsupervised clustering and folio-recognition models sort files and apply standardized archival filenames (Section 12).</li>
+<li><strong>4. Document Layout Analysis:</strong> Semantic segmentation models identify text bodies, running headers, seals, and marginalia, generating high-precision baseline polylines (Sections 05-06).</li>
+<li><strong>5. Forced Text-Image Alignment:</strong> Pre-existing human transcriptions are aligned with visual ink strokes using CTC forced alignment (Section 18).</li>
+<li><strong>6. TEI Facsimile Construction:</strong> Python automation scripts assemble page dimensions, <code>&lt;surface&gt;</code> containers, and <code>&lt;zone&gt;</code> coordinates into schema-valid TEI XML, injecting <code>@facs</code> pointers into the transcribed body (Sections 19-20).</li>
+<li><strong>7. IIIF Derivative Compilation:</strong> Libvips generates pyramidal tiled TIFFs, and metadata scripts emit IIIF Presentation Manifests and W3C Web Annotation lists (Sections 22, 28).</li>
+<li><strong>8. Human Verification and Publication:</strong> The digital edition is deployed to interactive viewers (Mirador / TEI Publisher) for final editorial audit and public scholarly research.</li>
+</ul>
+<p><strong>Takeaway:</strong> The end-to-end imaging pipeline automates ingestion, normalization, segmentation, alignment, TEI authoring, and IIIF compilation while preserving human verification gates.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Building an End-to-End AI Imaging Pipeline: From Raw Scans to Validated TEI/IIIF</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In an end-to-end digital imaging pipeline, at what point does human editorial verification take place?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The end-to-end imaging pipeline automates ingestion, normalization, segmentation, alignment, TEI authoring, and IIIF compilation while preserving human verification gates.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;At critical quality gates throughout the pipeline, particularly during layout triage, reading-order verification, and final digital edition approval.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Scholarly pipelines incorporate deliberate human-in-the-loop verification gates rather than operating as unverified autonomous loops.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Only before the photograph is taken; once digitized, human editors are locked out of the software.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Human editors actively audit and refine predictions throughout the digital lifecycle.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Never; modern digital humanities standards forbid human scholars from modifying computational outputs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Human scholarly judgment is the ultimate authority in critical editing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Only after the digital edition has been printed onto microfilm and buried in an underground vault.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Review occurs interactively during digital preparation and before publication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: The Methodological Triad: Synthesizing Manual, Deterministic, and AI-Assisted Imaging</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Methodological Triad: Synthesizing Manual, Deterministic, and AI-Assisted Imaging</h3>
+<p>As we conclude Topic 3: IIIF Imaging, we can now appreciate the profound methodological synergy uniting the three lessons of this comparative cycle:</p>
+<ul>
+<li><strong>Lesson 3.1 (Manual):</strong> Taught us the foundational architecture of the TEI Guidelines—the conceptual rigor of <code>&lt;facsimile&gt;</code>, <code>&lt;surface&gt;</code>, and <code>&lt;zone&gt;</code>—and the physical realities of camera optics, cradles, raking light, and multispectral imaging. Without understanding physical materiality and spatial coordinates, an editor cannot evaluate digital representations.</li>
+<li><strong>Lesson 3.2 (Deterministic):</strong> Introduced us to the open protocols of the International Image Interoperability Framework (IIIF) and the mathematical transparency of open-source command-line tools like GIMP, ImageMagick, and libvips. Deterministic algorithms guarantee verifiable, reproducible pixel transformations and efficient pyramidal deep zoom.</li>
+<li><strong>Lesson 3.3 (AI-Assisted):</strong> Demonstrated how statistical computer vision models overcome the manual labor bottleneck by automating layout segmentation, baseline tracing, image naming, and text-image alignment under human-in-the-loop supervision.</li>
+</ul>
+<p>Neither manual tracing, deterministic scripting, nor artificial intelligence is sufficient on its own. The modern digital humanist operates at the intersection of all three: using manual expertise to define standards and verify truth, deterministic tools to guarantee reproducibility and speed, and AI models to scale deep scholarship across the world's documentary heritage.</p>
+<p><strong>Takeaway:</strong> The complete digital edition synthesizes manual encoding standards, deterministic mathematical reproducibility, and AI-driven perceptual automation under human scholarly governance.</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: The Methodological Triad: Synthesizing Manual, Deterministic, and AI-Assisted Imaging</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the defining methodological strength of synthesizing manual encoding, deterministic image processing, and AI-assisted automation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The complete digital edition synthesizes manual encoding standards, deterministic mathematical reproducibility, and AI-driven perceptual automation under human scholarly governance.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Manual expertise guarantees scholarly standards and truth; deterministic tools guarantee mathematical reproducibility; AI models provide the speed to scale across large corpuses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Each paradigm addresses the weaknesses of the others, creating a balanced, verifiable, and scalable digital scholarly practice.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It guarantees that the resulting digital edition can only be read on a single brand of tablet computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Open standards (TEI and IIIF) guarantee universal, platform-independent accessibility.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It eliminates the need for physical archives, allowing universities to discard original manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editions complement and celebrate physical manuscripts; they never justify deaccessioning artifacts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It proves that historical manuscripts can be completely understood without reading their text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital methods serve to deepen and enrich our reading of historical texts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>
