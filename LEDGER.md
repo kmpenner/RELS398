@@ -57,7 +57,7 @@
 ## 4. Open Questions & Unresolved Issues
 
 - ⚠️ **[SUPERSEDED / PAUSED]:** Slide deck and media generation for Lesson 3.3 is paused. Ken's 2026-09-10 specification requires a full rewrite of Week 3 (3.1, 3.2, 3.3) to restore the Three-Step Comparative Cycle (Manual photography/scanning & TEI facsimile → Deterministic IIIF & image processing → AI-assisted layout analysis & alignment). Generating media for the old text would produce stale assets.
-- 🎯 **[ACTIVE TARGET - WEEK 3 REWRITE]:** Rewrite Lessons 3.1, 3.2, and 3.3 markdown content and question banks per Ken's specification.
+- ⚠️ **[DONE 2026-09-12]** ~~**[ACTIVE TARGET - WEEK 3 REWRITE]:** Rewrite Lessons 3.1, 3.2, and 3.3 markdown content and question banks per Ken's specification.~~ — completed and deployed 2026-09-11 (see Section 5, items 1–3).
 
 ---
 
@@ -120,6 +120,11 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+
+- **[2026-09-12]**: Slide-image recovery run (Module 04 + 2.3 refresh).
+  - Recovered 4.1, 4.2, 4.3 part-1 decks (15/30 images each) from the NotebookLM queue at zero quota cost; 4.2's deck regenerated fresh in the 9am run. Second quota wall later the same day: the three part-2 decks sit "Scheduled for after 1pm" (generations paid for); one-shot cron `rels-398-image-batch-1pm` (id `15890ccf6a1b`) picks them up.
+  - 2.3's 30 slide images regenerated 2026-09-12 for the rebuilt lesson (previous set dated 2026-09-09 and illustrated the merged-out sections). This partially closes the long-standing "2.3 slide images stale" item — the lesson-2.2 deck and 2.2 infographic remain stale.
+  - `shared/scripts/recover_decks.py` hardened: per-artifact error isolation, already-on-disk duplicate skip, virtualized-list tail tolerated. `.recovered_decks/` staging now gitignored.
 
 - **[2026-09-10]**: Finished the 2.2/2.3 corrections and redeployed both lessons to live Moodle (Section 2) ahead of Meeting #5.
   - **Corrected a false schema claim that survived the earlier fix.** The 2.2 lesson text (§05 "Data Typing, Enumerations, and Attribute Constraints" and §25 "Slaying the Red Squiggles") still taught `material="vellum"` → `"parchment"` as a rule, and the 09-09 teaching plan still carried it. Re-validated against `labs/msdesc.rng`: `supportDesc/@material` and `objectDesc/@form` accept any value, so that advice was wrong in both directions. §05 now uses `handNote/@scope` as the enforced-enumeration example and presents `@material` as the documented-but-unenforced trap; §25 replaces the impossible error message with one the schema really emits and adds "the error that never fires" as the bridge into 2.3. Both plans corrected.
