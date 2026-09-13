@@ -19,9 +19,10 @@
    already-on-disk duplicate skip, virtualized-list tail timeouts tolerated.
    Full 80-item sweep verified completing (items 47+ legitimately unreadable
    — list won't scroll that far; newest items are always at top).
-4. Still pending Ken's call: regenerated lessons' media set — full
-   brief+Deep Dive+infographic, or brief+infographic (113 skips Deep Dive)?
-   Blocks the Week 3 media pass and all 4.x+ media.
+4. **Settled 2026-09-12 (Ken):** Media set for 398 is the **full suite** (brief
+   audio, detailed audio / Deep Dive, and infographic) across all lessons,
+   including rebuilt lessons (unlike 113, which skips Deep Dive). Unblocks the
+   Week 3 media regeneration pass.
 5. Image scoreboard: 7 lessons complete (1.1–3.2), 3 half done (4.1–4.3),
    26 not started (5.1–13.2), 3.3 paused by design. Interactive XML remains
    hard-gated on images.
