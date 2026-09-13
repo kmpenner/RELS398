@@ -123,6 +123,15 @@ Two findings worth carrying forward:
 
 ## 6. Recent Workstream Ledger
 
+- **[2026-09-13]**: Refreshed Module 03 sources and completed full companion media suite for Week 3 (Lessons 3.1, 3.2, 3.3).
+  - **Source alignment:** Replaced all source halves for Lessons 3.1, 3.2, and 3.3 in the course NotebookLM notebook (`baa262c1-2987-4e7b-a213-9cf8dc43460b`) with current rewritten texts; reconciled `.sources.json` digests.
+  - **Full companion media suite generated and verified:**
+    - **Lesson 3.1:** Brief audio ("Mapping physical artifacts to digital editions", 1:28, 0.7 MB), Deep Dive audio ("Mapping Manuscripts From Atoms to XML", 64:56, 31.3 MB), Infographic ("Digital Scholarly Edition Architecture", 244 KB).
+    - **Lesson 3.2:** Brief audio ("Deterministic Imaging with IIIF and Deep Zoom", 1:41, 0.8 MB), Deep Dive audio ("The Deterministic Contract of Digital Manuscripts", 51:43, 25.0 MB), Infographic ("The IIIF Scholarly Pipeline", 244 KB).
+    - **Lesson 3.3:** Brief audio ("Automating Archival Digitization with AI Vision", 1:38, 0.8 MB), Deep Dive audio ("How algorithms see historical manuscripts", 58:27, 28.2 MB), Infographic ("AI Paradigm in Archival Imaging", 245 KB).
+  - **Slides quota gate:** Slide deck generation for 3.3 attempted; verified NotebookLM Slides quota is still exhausted (artifact count remained at 80).
+  - **Pipeline hardening (`shared/scripts/notebook_ui.py`):** Enforced 1920x1080 viewport and Studio tab selection in `open_notebook` to prevent responsive mobile-mode occlusion, and added scroll-into-view handling for Studio tiles.
+
 - **[2026-09-12]**: Slide-image recovery run (Module 04 + 2.3 refresh).
   - Recovered 4.1, 4.2, 4.3 part-1 decks (15/30 images each) from the NotebookLM queue at zero quota cost; 4.2's deck regenerated fresh in the 9am run. Second quota wall later the same day: the three part-2 decks sit "Scheduled for after 1pm" (generations paid for); one-shot cron `rels-398-image-batch-1pm` (id `15890ccf6a1b`) picks them up.
   - 2.3's 30 slide images regenerated 2026-09-12 for the rebuilt lesson (previous set dated 2026-09-09 and illustrated the merged-out sections). This partially closes the long-standing "2.3 slide images stale" item — the lesson-2.2 deck and 2.2 infographic remain stale.

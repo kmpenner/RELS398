@@ -1,6 +1,26 @@
 # NEXT — 398
 
-**Updated 2026-09-12 (morning) by Hermes.** Supersedes the 2026-09-11 version.
+**Updated 2026-09-13 (morning) by Antigravity.**
+
+## State after the 2026-09-13 morning run
+
+1. **Week 3 Companion Media DONE (3.1, 3.2, 3.3):** Full media suite generated
+   against the freshly aligned sources:
+   - **3.1:** Brief audio (1:28), Deep Dive audio (64:56), Infographic (244 KB).
+   - **3.2:** Brief audio (1:41), Deep Dive audio (51:43), Infographic (244 KB).
+   - **3.3:** Brief audio (1:38), Deep Dive audio (58:27), Infographic (245 KB).
+2. **Notebook sources synchronized:** Refreshed all source halves for Lessons 3.1,
+   3.2, and 3.3 in the course Notebook (`baa262c1-2987-4e7b-a213-9cf8dc43460b`)
+   with current rewritten text, and updated `.sources.json` SHA256 digests.
+3. **Slides Quota Status:** Attempted slide deck generation for Lesson 3.3; verified
+   the NotebookLM daily Slides quota is still exhausted (artifact count remained at
+   80). Next slide run will resume when Slides quota resets.
+4. **Tooling Hardened:** `shared/scripts/notebook_ui.py` patched to enforce desktop
+   1920x1080 viewport and Studio tab selection (preventing responsive occlusion of
+   dialog tiles), and added scroll-into-view before tile interactions.
+5. **Next immediate step:** Deploy Week 3 companion media to Moodle Section 3 via
+   `populate_moodle_topic.py` / `update_moodle_item.py`, and prepare Class #5
+   for RELS 216.
 
 ## State after the 2026-09-12 morning run
 
