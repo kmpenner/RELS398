@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Topic_06_Normalization/Lesson_6.1_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 6.1: Iotacism, Orthographic Variation, and Regularizing by Hand.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: The Problem Normalization Solves and Creates</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does standardizing the spelling of a historical manuscript create a scholarly dilemma?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Standardizing spelling makes text searchable and destroys linguistic evidence — TEI resolves this by keeping both layers in parallel.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Standardization makes the text searchable and parsable by lexicons but destroys crucial phonetic, dialectal, and chronological evidence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Variant spellings are vital sociolinguistic data; TEI resolves the dilemma by keeping diplomatic and regularized forms in parallel.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Standardization makes the XML file too large to validate against standard schemas.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. File size and XML validation are unaffected by whether spellings are standardized.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Standardization causes optical character recognition tools to misidentify subsequent folios.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization is an editorial markup process, not an input to OCR or HTR image recognition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Standardization forces the editor to eliminate all abbreviations and punctuation marks from the transcription.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Abbreviations and punctuation are governed by separate markup mechanisms (such as <code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code>).</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Iotacism: The Chain Shift</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is iotacism, and why are its orthographic substitutions important to textual scholars?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Iotacism merged several graphemes into homophones, so the substitutions are systematic evidence about date and provenance rather than random error.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It is a phonological chain shift merging multiple vowels and diphthongs into /i/, producing systematic substitutions that provide evidence of date and provenance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Because the vowel mergers were systematic and chronological, homophonic substitutions reflect when and where the scribe learned to write.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is an arbitrary set of scribal blunders caused by poor lighting in monastic scriptoria.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Iotacistic spellings are phonologically motivated and systematic, not random accidents.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is a deliberate encryption method used by Hellenistic scribes to obscure theological terms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Iotacism is a natural linguistic sound change, not a cryptographic cipher.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is the process of converting polytonic Greek accents into monotonic modern Greek spelling.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Iotacism concerns vowel and diphthong quality mergers, not twentieth-century accent reform.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Language Contact and Phonetic Spelling</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does language contact, such as Egyptian-Coptic influence in Hellenistic Egypt, affect Greek orthography in manuscripts?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ask what kind of variation a form represents before asking what it should be — the answer determines the encoding.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Second-language writers without certain native phonological distinctions produce non-standard spellings that record the contact situation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Phonetic transfer between Egyptian-Coptic and Greek generated distinctive spelling patterns that document regional sociolinguistics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It forced scribes to translate all Greek theological vocabulary into Coptic loanwords.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Language contact influenced phonology and spelling, rather than requiring wholesale lexical replacement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminated iotacism entirely because non-native speakers strictly memorized classical orthography.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Language contact heightened phonetic spelling rather than suppressing it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It caused scribes to adopt the Latin alphabet for writing Greek documentary papyri.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Greek remained in the Greek alphabet; the sound values of graphemes reflected phonetic transfer.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: The Dual Ontology: Document and Work</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does TEI Chapter 11 resolve the tension between treating a manuscript as a physical document versus a witness to an abstract work?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI's parallel layers refuse the choice between documentary and critical editing — both exist in the file with their relationship explicit.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It provides parallel markup structures so that both the physical documentary reading and the regularized work reading coexist with explicit relations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Rather than choosing between a diplomatic facsimile and a critical text, TEI represents both in the same file.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It mandates that the editor choose strictly between a documentary edition or a critical edition before encoding.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI explicitly allows multi-layered encodings that refuse this forced choice.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically discards all scribal variants once a standardized lemma has been assigned.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI preserves the original reading in elements like <code>&lt;orig&gt;</code> alongside <code>&lt;reg&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires all physical document features to be stored in separate external image databases.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Physical layout milestones and diplomatic readings live directly within the TEI XML structure.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: The choice Element</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary function of the TEI <code>&lt;choice&gt;</code> element in normalization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>&lt;choice&gt;</code> holds alternatives rather than deciding between them, which is what lets Week 7 collate on either layer deliberately.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It groups alternative encodings for the same point in the text so downstream processors can select either the diplomatic or regularized layer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <code>&lt;choice&gt;</code> does not choose between alternatives; it holds them in parallel for display, parsing, or collation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically selects the most common reading across a corpus using statistical weighting.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;choice&gt;</code> is a structural container, not an algorithmic decision engine.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It marks deleted text that has been replaced by a later corrector's hand.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scribal alterations are encoded with <code>&lt;subst&gt;</code>, <code>&lt;del&gt;</code>, and <code>&lt;add&gt;</code>, not simple regularization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It flags syntax errors in the XML document that must be resolved prior to schema validation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;choice&gt;</code> is standard TEI markup for valid parallel textual representations.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: orig/reg Versus sic/corr</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the essential editorial distinction between the <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> and <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> element pairs?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> claims a spelling was acceptable then; <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> claims it was a mistake — and which applies is a genuine editorial judgement.]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> is for acceptable historical variants, while <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> is strictly for outright scribal blunders and mechanical slips.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> claims a spelling was acceptable period usage; <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> claims it was an error requiring editorial emendation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> is used only for Latin texts, whereas <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> is used for Greek.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both pairs are language-independent core TEI elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> is applied by automated scripts, while <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> can only be applied by human editors.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both element pairs can be authored manually or proposed by automated tools.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> alters the underlying manuscript witness, whereas <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> preserves it.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both pairs preserve the diplomatic witness in <code>&lt;orig&gt;</code> and <code>&lt;sic&gt;</code> respectively.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Drawing the Line in Practice</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which criterion strongly indicates that a non-standard manuscript form should be encoded with <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> rather than <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A recurring, phonologically motivated form is a variant; an isolated mechanical slip is an error — and grammatically wrong forms may belong in the apparatus instead.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The form is phonologically motivated by historical sound changes and recurs systematically in the scribe's hand or period.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Recurring, phonologically motivated spellings represent legitimate period-normal variation rather than isolated mechanical errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The form contains an accidental dittography of an entire syllable.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dittography is an unambiguous mechanical slip (*lapsus calami*) requiring <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The form appears only once in the manuscript and has no phonetic parallel in contemporary papyri.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An isolated, unmotivated spelling is more likely a scribal slip than a regular phonetic variant.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The form violates the basic grammatical agreement of the sentence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Grammatical disagreements require careful evaluation and may represent substantive variant readings for an apparatus rather than simple orthography.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Case Study: The Duke Databank of Documentary Papyri</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How did the Duke Databank of Documentary Papyri (DDbDP) transform the study of historical Greek orthography?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The DDbDP's inline markup turned what print editions discarded as scribal error into a queryable corpus for studying language change.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By encoding regularizations inline with Leiden+ and EpiDoc, preserving original phonetic spellings while enabling quantitative corpus queries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The DDbDP replaced print apparatus footnotes with inline <code>&lt;choice&gt;</code> markup, turning discarded scribal spellings into a searchable sociolinguistic corpus.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By correcting all papyrological texts to Attic standards and permanently deleting non-standard readings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The DDbDP explicitly preserves the original readings in EpiDoc markup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By proving that Hellenistic papyri contain zero orthographic variation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Documentary papyri are saturated with iotacism and phonetic variation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By restricting database searches strictly to diplomatic characters without lemmatization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Leiden+ regularizations allow searches on both diplomatic spellings and standardized lemmas.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Case Study: Codex Sinaiticus and the Dictation Theory</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is preserving diplomatic orthography without silent normalization crucial for the Codex Sinaiticus dictation debate?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Whether Sinaiticus was copied by ear or by eye is decided by orthographic evidence — which a regularized edition would have destroyed.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The debate turns on distinguishing errors of the eye (visual confusion) from errors of the ear (homophonic iotacistic substitutions).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Copying from dictation produces homophonic substitutions from vowel mergers, whereas visual copying produces letterform confusion and line skips.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dictation produces perfect Attic Greek spelling that never requires regularization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dictation heightens phonetic and homophonic spelling variants.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Silent normalization would make it impossible to measure the physical dimensions of the parchment folios.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization affects textual characters, not codicological measurements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sinaiticus was written entirely in Latin, so Greek iotacism rules do not apply.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Codex Sinaiticus is a fourth-century Greek biblical manuscript.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Beginning the Decision Log</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the dual purpose of creating <code>transcription/ORTHOGRAPHY.md</code> at the start of normalization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Today's decision log is tomorrow's specification — a rule you cannot state here cannot be implemented as a script.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It enforces consistent editorial policy across the text and serves as the formal specification for subsequent automated scripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A documented policy ensures human consistency and defines the exact rules that deterministic scripts will execute.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It serves as a legal copyright declaration for the transcribed digital edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Copyright and licensing belong in the TEI header <code>&lt;publicationStmt&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces the need to include any XML tags in the transcription files.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The markdown log documents policy; the transcription still requires full TEI XML markup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is used exclusively to record the financial costs of computational processing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>ORTHOGRAPHY.md</code> is a philological policy document and case register.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Surveying Your Text</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should an editor survey and count substitution frequencies before establishing normalization policies?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Count how often each substitution pattern occurs — frequency is often the best evidence for whether it is practice or slip.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Frequency distinguishes systematic scribal practice from isolated slips of the pen, providing evidence for the <code>&lt;orig&gt;</code> versus <code>&lt;sic&gt;</code> decision.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A pattern occurring eleven times represents deliberate scribal practice, whereas a singleton is likely a mechanical slip.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Surveying frequencies allows the editor to delete low-frequency words from the consensus text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An editor must never delete authentic text based on word frequency.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Frequency counting is required to ensure the TEI document does not exceed Moodle's XML upload limit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Moodle question banks and TEI XML are not constrained by letter substitution counts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Counting variants determines whether the manuscript should be classified as poetry or prose.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Genre is determined by literary form and metre, not by orthographic substitution counts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Encoding the Regularizations</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is a critical encoding rule when marking regularizations in TEI XML?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Encode at the word level with complete forms in both layers, and never regularize inside an <code>&lt;unclear&gt;</code> reading.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Encode at the word level with complete forms in both layers, and never regularize inside <code>&lt;unclear&gt;</code> readings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Phrase-level markup obscures alignment, incomplete word fragments break parsing, and regularizing uncertain readings compounds inferences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Encode only the individual differing letters inside <code>&lt;choice&gt;</code> to save file storage.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Incomplete word fragments make token alignment and automated processing unusable.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Always wrap entire sentences inside a single <code>&lt;choice&gt;</code> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Sentence-level wrapping prevents word-by-word alignment and morphological parsing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Regularize ambiguous readings inside <code>&lt;unclear&gt;</code> before confirming the diplomatic letters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Regularizing inside <code>&lt;unclear&gt;</code> stacks one uncertain hypothesis on top of another.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: What Not to Regularize</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must proper names, dialectal morphology, and genuine textual variants be excluded from orthographic regularization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Normalization is orthographic only — altering morphology, resolving names, or fixing variant readings all destroy evidence other weeks need.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They represent substantive historical, onomastic, and transmission data rather than simple spelling variations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Normalizing morphology alters grammar, standardizing names asserts unproven identifications, and fixing variants pre-empts critical collation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI XML schemas strictly prohibit placing proper names inside any XML tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI has dedicated elements like <code>&lt;name&gt;</code> and <code>&lt;persName&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Proper names and dialectal forms are automatically corrected by the TEI header parser.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Parsers do not modify textual content.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Excluding these forms allows the editor to bypass schema validation gates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validation checks XML syntax and structure, not the exclusion of names.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Silent Correction and What It Cost</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What historical lesson does nineteenth-century silent correction offer digital editors?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Editions that discarded orthographic evidence foreclosed questions nobody had yet asked — which is the argument for recording both layers.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Discarding orthographic evidence to produce a clean text permanently foreclosed research questions that scholars had not yet formulated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When historical linguists later sought to study the pronunciation of post-classical Greek, print editions lacked the discarded evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Silent correction made nineteenth-century editions unreadable to general audiences.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Silent correction produced highly readable texts at the expense of primary evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Early editors avoided silent correction because paper and ink were too expensive.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Print economics favoured short, standardized texts over complex apparatus records.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Silent correction proved that ancient authors wrote with perfect orthographic uniformity.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ancient orthography was fluid; uniformity was an editorial illusion created by silent correction.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Documenting the Policy in the TEI Header</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Where and why should normalization and correction policies be formally recorded in a TEI file?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A future researcher must be able to tell whether a <code>&lt;reg&gt;</code> came from a human, a script, or a model — which needs <code>@resp</code>, the header, and commit trailers together.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>In <code>&lt;encodingDesc&gt;</code> under <code>&lt;editorialDecl&gt;</code>, so future researchers know whether a regularization came from a human, script, or model.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Declaring policies in the header ensures transparency and establishes the evidentiary reliability of the regularized layer.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In the <code>&lt;titleStmt&gt;</code>, so web browsers can display the policy as the webpage title.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;titleStmt&gt;</code> contains work titles and author statements, not editorial declarations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In an external CSS stylesheet linked to the HTML rendering engine.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CSS controls visual styling, not TEI editorial provenance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In the <code>&lt;sourceDesc&gt;</code> element, replacing the physical description of the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;sourceDesc&gt;</code> describes the source document, while <code>&lt;encodingDesc&gt;</code> records editorial methods.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: The Recommended Workflow</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the five-stage normalization workflow, why must manual regularization precede automated script execution?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Today produces the policy that Wednesday must state formally enough for a script — 'regularize where appropriate' cannot be implemented.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The manual step establishes the reference policy and ground-truth decisions against which automated scripts are built and evaluated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A script cannot implement a policy that has not been defined, nor can its accuracy be measured without a human baseline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual normalization directly compiles the final PDF notes without requiring Python scripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The PDF notes pipeline is an automated compilation step independent of normalization order.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated scripts are unable to run on computers unless a human has typed every XML tag first.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scripts process text files programmatically once rules are defined.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI Consortium requires all digital editions to be completed entirely by hand before tool development.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI guidelines do not mandate manual project workflows; pedagogy and verification require this sequence.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Writing Rules a Script Could Follow</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What essential component must accompany a character rewrite rule (e.g., ει → ι) to prevent it from corrupting valid words?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Formal rules need a context condition, and rule order changes the result — cases needing syntax are what Friday's step is for.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An explicit context condition, such as requiring the candidate output to exist in a standard lexicon while the input does not.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Without context conditions, unconditional character substitutions destroy legitimate words that correctly contain those graphemes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A global regular expression flag that applies the change to every word in the document simultaneously.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unconditional global substitution causes massive over-application errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An XML schema declaration that disables Unicode character validation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schema validation ensures structural XML correctness and does not govern regex logic.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A Python try-except block that ignores all standard dictionary lookups.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lexicon lookups are essential for verifying whether a candidate word is legitimate.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Ambiguity That Rules Cannot Resolve</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why can character-level rewrite rules fail to resolve ambiguous historical spellings like historical English <em>ther</em> or Greek <em>αυτου</em>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Cases needing syntax to resolve are the boundary between Wednesday's method and Friday's — resolve them by hand today as the reference.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The correct regularization depends on sentence syntax and semantic context, which character-level rules processing isolated tokens cannot evaluate.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When an ambiguous form maps to multiple valid lemmas (e.g., <em>their</em> vs. <em>there</em>), token-level rules lack the syntactic context needed to decide.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Greek and English alphabets have too few letters to represent ambiguous sounds.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ambiguity arises from homophony and syntax, not alphabet size.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The words are corrupted by XML encoding tags that hide character boundaries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tokenization strips markup; the ambiguity is linguistic.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Character rules only work on capital letters and fail on lowercase polytonic Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Rule engines handle Unicode casing; the limitation is lack of syntactic context.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Morphological Complexity Beyond Spelling</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What lesson does the Old Hungarian <em>Lament of Mary</em> case study provide regarding historical text normalization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A failed morphological normalization shifted a poem's theological emphasis — normalization errors propagate into meaning, not just searchability.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Misidentifying complex historical morphology during normalization can distort the substantive meaning and theological emphasis of a text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Normalization errors are not mere spelling typos; failing to recognize a root alters literary and theological interpretation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hungarian scribes always followed classical Latin orthography without variation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Hungarian text shows complex historical phonology and suffix assimilation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Morphological parsing should always be executed prior to transcription double-keying.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Diplomatic transcription must be completed before morphological analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Rule-based transducers are completely incapable of handling suffix assimilation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transducers excel at deterministic morphological transformations when properly designed.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Working Through Your Text</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is sweeping through a folio phenomenon by phenomenon more effective than regularizing line by line?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Work one phenomenon at a time across the whole folio — consistency follows almost automatically, and line-by-line work does not produce it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Handling one phenomenon at a time ensures consistent editorial judgement across the whole text, whereas line-by-line editing invites inconsistency.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Applying the same rule repeatedly reinforces focus and consistency, whereas constantly switching rules across lines leads to arbitrary decisions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Line-by-line editing causes Git to reject commit diffs that span multiple lines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git handles arbitrary line diffs without difficulty.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI XML schemas require all instances of iotacism to appear before missing accents in the file tree.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI element ordering is determined by document text flow, not phenomenon type.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Working phenomenon by phenomenon allows the editor to skip schema validation entirely.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validation is always necessary regardless of editing strategy.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Counting for Tomorrow</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it essential to record tokens that were deliberately left unregularized when establishing a baseline?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Record what you deliberately left alone — a script is evaluated on precision as well as recall, and over-application is the worse failure.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Evaluating a script requires measuring precision (avoiding false positives on valid forms) as well as recall (finding true variants).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A script that aggressively over-applies rules may achieve high recall while destroying precision on tokens that should remain untouched.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Unchanged tokens must be billed at a higher computational rate during automated processing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Computational cost is negligible; the issue is statistical evaluation of accuracy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Leaving tokens unregularized is an editorial error that must be penalized in the TEI header.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standard forms should be left unregularized; touching them is a false positive.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Python compiler crashes if the number of unchanged tokens exceeds the number of regularized tokens.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python data structures handle arbitrary token counts effortlessly.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Checklist Before You Leave</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should today's manual normalization state be tagged in Git (e.g., <code>norm-manual-f42r</code>)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Tag today's state — Wednesday's script is measured against it, and it must remain retrievable after the script modifies the text.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It creates an immutable reference milestone so Wednesday's script output can be measured directly against the manual baseline.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A Git tag preserves the exact ground-truth state before subsequent scripts modify the working tree.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git tags are required to push code to GitHub remotes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pushing branches does not depend on creating tags.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tagging automatically compiles all lesson markdown files into final PDF notes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. PDF compilation is executed by dedicated build scripts, not Git tagging.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Untagged commits are automatically deleted by Git after 24 hours.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git commits persist indefinitely in the repository DAG.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Common Problems Today</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What should an editor do if they realize they have regularized dialectal morphology or resolved a genuine variant reading?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Changing morphology or resolving variant readings both exceed what normalization licenses — revert rather than patch.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Revert the changes from the tagged consensus and restore the original form with a note, rather than applying an ad-hoc patch.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Normalization is strictly orthographic; altering grammar or resolving textual variants exceeds its licence and should be reverted cleanly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete the entire repository and re-transcribe the manuscript from scratch.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git allows clean reversion to the tagged consensus without deleting the project.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Change the TEI header to declare that the manuscript was written in standard classical Attic Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Misrepresenting historical dialect in the header violates philological integrity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Convert all <code>&lt;choice&gt;</code> elements into <code>&lt;unclear&gt;</code> tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>&lt;unclear&gt;</code> is for illegible ink, not for masking editorial over-reach.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Preparing for Wednesday</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the intellectual benefit of discovering that an orthographic policy cannot be implemented directly by a script?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Formalizing your rules will expose imprecision in them — that discovery is the point, and the remedy is fixing the text rather than weakening the rule.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It exposes hidden imprecision and unstated conditions in the policy, revealing where editorial practice was inconsistent.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Translating prose policy into formal code audits the editor's thinking, surfacing tacit assumptions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It proves that historical manuscripts are entirely random and cannot be studied computationally.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Systematic variation can be modelled; difficulty in formalization reflects policy ambiguity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It demonstrates that human editors should never attempt to write Python scripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Building computational tools is a core method of digital textual scholarship.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows the editor to abandon the decision log and rely on intuitive ad-hoc corrections.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The remedy is sharpening the policy and fixing inconsistencies, not abandoning rigor.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: What Good Work Looks Like Here</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does a conservative normalization policy with documented boundaries represent superior scholarship compared to aggressive regularization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Conservative regularization with documented boundaries produces a weaker-looking text and a stronger claim.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It preserves verifiable primary evidence and makes editorial claims explicit, whereas aggressive regularization produces an apparently clean but untrustworthy text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Conservative, documented regularization allows readers to evaluate and audit every decision, whereas over-cleaning erases vital data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Conservative regularization requires fewer XML tags, keeping file size under 10 kilobytes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly quality is measured by methodological rigor, not minimal file size.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Aggressive regularization is strictly illegal under international digital heritage treaties.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial methodology is governed by scholarly discipline, not international law.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Conservative normalization guarantees that no software will ever need to be updated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Software maintenance is unrelated to editorial conservatism.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Why the Manual Step Is First, Again</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must normalization policy be authored deliberately by a human rather than emerging ad-hoc from an automated tool?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Normalization policy has corpus-wide consequences, so it should be authored deliberately rather than emerging from whatever a script or model happens to do.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Normalization decisions have corpus-wide theoretical consequences that define the edition's standard, which only an editor can establish.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An automated tool cannot formulate editorial policy; allowing policy to emerge from tool defaults abdicates editorial responsibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated tools cannot run on computers until a human has authored at least 1,000 lines of XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Software execution is not constrained by arbitrary human line counts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Human editors have memorized every Greek word, whereas digital lexicons contain only modern English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital Greek lexicons and morphological databases are extensive.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Human normalization produces faster rendering speeds in web browsers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Browser rendering performance depends on HTML/DOM structure, not editorial provenance.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Connecting to the Weeks Around It</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How will Week 7's automated collation depend on the regularized layer created this week?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Next week's collation must choose a layer — <code>&lt;reg&gt;</code> for substantive variants, <code>&lt;orig&gt;</code> for evidence of shared descent — and the choice exists only because both layers do.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Collation can align on <code>&lt;reg&gt;</code> to isolate substantive textual variants, while analyzing <code>&lt;orig&gt;</code> separately for scribal transmission patterns.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Having both layers lets editors filter out orthographic noise during collation while preserving phonetic data for stemmatic analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Collation software refuses to process any XML document that does not contain <code>&lt;choice&gt;</code> tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Collation tools like CollateX accept plain text or XML, but dual layers allow flexible alignment strategies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Collation automatically deletes all <code>&lt;reg&gt;</code> elements and restores print apparatus footnotes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Collation tools compare witnesses and output alignment tables without deleting TEI layers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The regularized layer is used exclusively to generate visual heatmaps of manuscript damage.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Normalization addresses textual orthography, not multispectral damage mapping.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: A Note on Scale</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the fundamental trade-off between manual philology and rule-based computational normalization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Rule-based normalization is transparent and neural normalization is not — which makes the rule baseline the check on the model, not merely a weaker alternative.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Manual philology offers the highest precision and contextual understanding but cannot scale, whereas rule-based scripts scale with full transparency.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Manual normalization is unscalable for large corpora; rule-based scripts provide a fast, mathematically verifiable baseline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual philology is completely free of errors, whereas rule-based scripts always produce 50% false positives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Human editors suffer from fatigue and inconsistency; well-crafted rules can achieve high precision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Rule-based scripts can only run on supercomputers, whereas manual editing requires no equipment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Rule-based Python scripts run on ordinary laptops in seconds.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual philology produces machine-readable JSON, whereas scripts only produce printed text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scripts generate structured data formats like JSON and XML.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: The Log as a Scholarly Document</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does a digital orthographic decision log improve upon traditional printed editorial introductions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The decision log is your edition's editorial introduction, written as you work rather than reconstructed afterwards — and queryable in a way a printed one is not.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It is maintained live during transcription, records individual case reasoning, and provides a queryable register of decisions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Unlike static print introductions written retrospectively, a digital log is a searchable, line-referenced record of working editorial logic.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces the need for any peer review or academic publication.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A decision log enhances peer review by making methods auditable; it does not eliminate it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It can only be read by search engine web crawlers and is hidden from human readers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>ORTHOGRAPHY.md</code> is a transparent markdown document intended for human scholars and students.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically corrects any syntax mistakes in the TEI XML file upon saving.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Documentation does not perform automated XML syntax correction.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: Both Layers, Explicitly Related</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the central synthesis of Topic 6 regarding orthographic variation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI keeps both layers, but deciding which variation is usage and which is error is editorial judgement no standard supplies — that judgement is today's product.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>TEI provides the parallel architecture to preserve evidence and enable search, but human editorial judgement is required to distinguish acceptable usage from scribal error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The parallel <code>&lt;choice&gt;</code> structure holds both layers, but only informed editorial policy can draw the line between variation and blunder.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All Greek manuscripts should be silently standardized to classical Attic spelling to simplify digital processing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Silent standardization destroys vital sociolinguistic and phonetic transmission evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Scribal errors should always be ignored and omitted from digital transcriptions entirely.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Diplomatic transcriptions must record exactly what is on the page, capturing errors in <code>&lt;sic&gt;</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated machine learning models should be allowed to define editorial policy without human oversight.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial policy must be authored and governed by human philological judgement.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

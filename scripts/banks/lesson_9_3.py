@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Module_09_Lemmatization"
+TOPIC = "Topic_09_Lemmatization"
 TITLE = "AI-Assisted Lemmatization and Morphological Disambiguation"
 
 QUESTIONS = [

@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Module_01_Orientation"
+TOPIC = "Topic_01_Orientation"
 TITLE = "Local Git Version Control for Textual Scholarship"
 
 QUESTIONS = [

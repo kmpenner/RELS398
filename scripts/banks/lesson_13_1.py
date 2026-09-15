@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Module_13_Publication"
+TOPIC = "Topic_13_Publication"
 TITLE = "Constructing the Stemma Codicum and Formulating Editorial Principles"
 
 QUESTIONS = [

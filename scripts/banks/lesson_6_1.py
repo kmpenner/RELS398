@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Module_06_Normalization"
+TOPIC = "Topic_06_Normalization"
 TITLE = "Iotacism, Orthographic Variation, and Regularizing by Hand"
 
 QUESTIONS = [

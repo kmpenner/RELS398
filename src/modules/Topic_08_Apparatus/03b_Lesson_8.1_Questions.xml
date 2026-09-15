@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Topic_08_Apparatus/Lesson_8.1_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 8.1: Constructing Positive and Negative Apparatus by Hand.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: The Function of the Apparatus Criticus</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In digital scholarly editing, what fundamental ontological shift does the critical apparatus undergo relative to traditional print editions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The critical apparatus is not an ornamental footnote but a structured data model recording evidence of historical transmission.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It ceases to be a static typographical footnote and becomes a machine-actionable data model of historical textual transmission.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Digital apparatuses model textual variation as an intrinsic, computable graph of historical transmission rather than compressed page footnotes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is replaced by automated spell-checking algorithms that eliminate the need to record scribal variation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual criticism records variation as historical evidence; digital editing enriches rather than eliminates apparatus records.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It serves exclusively as a graphic visual display without underlying machine-readable markup.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The core transformation is precisely that the digital apparatus becomes structured, machine-actionable XML data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It merges all historical manuscript variants into a single standardized text without recording witness differences.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The apparatus exists specifically to document differences across witnesses, preserving the evidence of transmission.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Positive vs. Negative Apparatus in Print Tradition</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What distinguishes a positive critical apparatus from a negative critical apparatus in classical print philology?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A positive apparatus explicitly attests every witness for both lemma and variants, whereas a negative apparatus records only deviating witnesses to economize space.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A positive apparatus explicitly lists witness support for both the lemma and all variant readings, whereas a negative apparatus explicitly lists only diverging witnesses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In a positive apparatus, support for the lemma is affirmatively declared (e.g. 'λόγος] A B ; νόμος C'), while a negative apparatus omits lemma witnesses to save print space (e.g. 'νόμος C').</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A positive apparatus records only authentic readings, while a negative apparatus records only scribal errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 'Positive' and 'negative' refer to whether witness attestation for the lemma is explicitly printed or left implicit, not to editorial value judgements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A positive apparatus is encoded in TEI XML, whereas a negative apparatus is generated automatically by CollateX.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both terms originate in print philology centuries before digital markup and computational collation existed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A positive apparatus evaluates grammar, whereas a negative apparatus evaluates paleographical script.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The distinction relates strictly to explicit versus implicit witness attestation for the lemma.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: The Epistemological Danger of the Negative Apparatus</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the negative apparatus pose a severe epistemological danger when ingested by computational stemmatology algorithms?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Silent agreement in a negative apparatus conflates witness presence with physical absence, introducing fatal errors into automated stemmatic analysis.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It relies on silence to imply agreement, causing algorithms to falsely score physically damaged, missing, or uncollated witnesses as agreeing with the lemma.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In a negative apparatus, silence is interpreted as assent. Algorithms reading omitted witnesses generate false positives for the base reading, distorting statistical distance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It uses overly verbose XML markup that causes computational parsers to run out of memory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Negative apparatuses are compressed and terse; the problem is ambiguous silence, not XML verbosity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It prevents human readers from understanding the linguistic meaning of the accepted lemma.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The danger is algorithmic and evidentiary: conflating physical absence (lacunae) with active witness agreement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It forces editors to use Latin abbreviations that modern character encodings cannot represent.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unicode can represent all Latin abbreviations; the flaw is the unrecorded status of damaged or omitted manuscripts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: The TEI P5 Critical Apparatus Module (textcrit)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary function of the TEI P5 textcrit module (Chapter 13)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The TEI P5 textcrit module provides a standardized XML vocabulary that converts textual variation from static print footnotes into machine-actionable data.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To provide a standardized, interoperable XML vocabulary that encodes complex multi-witness textual variation as structured, machine-actionable data.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The textcrit module provides dedicated elements like <app>, <lem>, <rdg>, and <listWit> to model textual variation independently of proprietary software.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To automatically correct Greek and Latin spelling errors in digitized transcriptions without human oversight.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The textcrit module provides markup structures for representing variation, not automatic text correction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To convert scanned manuscript images directly into searchable PDF documents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Optical character recognition and image handling belong to other tools and modules, not textcrit.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To restrict digital editions to traditional negative print footnotes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The module is specifically designed to overcome print limitations by supporting rich, multi-tiered positive apparatus architectures.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Core Elements: app, lem, and rdg</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the TEI textcrit module, how are the atomic components of a variation unit structured within an apparatus entry?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>An <app> container encloses the variation unit, using <lem> for the preferred reading and <rdg> for variant alternatives.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An <app> element encapsulates the variation unit, containing an optional <lem> for the base or preferred reading and one or more <rdg> elements for variant readings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The <app> container wraps the variation locus, using <lem> for the lemma and <rdg> for competing variants attested across witnesses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A <lem> element acts as the outermost parent container, wrapping nested <app> and <rdg> tags inside it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <app> is the parent container for the variation unit; <lem> and <rdg> are child elements inside <app>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An <app> element must contain at least two <lem> elements to represent competing editorial choices.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An <app> may contain zero or one <lem>; competing variants are encoded in multiple <rdg> elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The <rdg> element contains editorial metadata, while the <lem> element stores the list of manuscript shelfmarks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both <lem> and <rdg> contain textual readings, with witness metadata recorded in attributes like @wit.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Witness Sigla and the wit Attribute</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the @wit attribute in TEI XML establish referential integrity between apparatus readings and manuscript witnesses?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The @wit attribute uses space-separated #sigla pointers to link readings directly to authoritative manuscript identifiers declared in the TEI Header.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It contains a whitespace-separated list of private URI pointers (e.g. wit="#CodexA #CodexB") targeting unique xml:id values declared in the witness list.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Each token in @wit is an IDREF prefixed with '#' pointing to a specific <witness xml:id="..."> declared in the document header.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It stores a free-text citation giving the shelfmark and city of the manuscript in plain prose.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Shelfmarks and repository data belong in <witness> metadata; @wit uses compact IDREF URI pointers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It uses comma-separated integers representing the chronological date of each manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. @wit contains space-separated URI pointers to witness identifiers, not dates.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is an optional boolean flag indicating whether the reading was witnessed by the primary editor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. @wit explicitly identifies the historical witnesses (manuscripts, papyri, print editions) supporting the reading.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: Documenting the Witnesses: listWit and witness</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Where are manuscript sigla formally declared in a TEI critical edition, and how can witness groups be represented?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The <listWit> element in the TEI Header defines authoritative @xml:id identifiers, nested families, and metadata for every manuscript cited in the edition.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Inside <listWit> in the <teiHeader> or front matter, where individual <witness> elements define unique @xml:id attributes and nested <listWit> elements group manuscript families.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The <listWit> element defines authoritative manuscript metadata and can be nested to assign group sigla to entire manuscript families.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Inside the <body> text as inline comments before each paragraph.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Witness declarations belong in structured metadata (<listWit>), not in informal body comments.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In an external CSS stylesheet linked to the HTML output page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Stylesheets control presentation, not the semantic declaration and validation of manuscript witnesses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Within each <rdg> element as child <msDesc> tags repeated at every variation unit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manuscript descriptions are declared once centrally in <listWit> and referenced via @wit pointers to avoid massive redundancy.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Nested and Hierarchical Variants: rdgGrp</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary advantage of using the <rdgGrp> element within an <app> variation unit?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The <rdgGrp> element structures complex variations hierarchically, grouping minor orthographic sub-variants beneath major lexical or stemmatic divergences.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It allows editors to organize complex variants hierarchically, grouping minor orthographic sub-variants under major substantive or stemmatic branches.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <rdgGrp> prevents variation flattening, allowing algorithms to analyze major lexical divergences while clustering itacisms or spelling corruptions beneath them.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically generates digital facsimiles of the grouped manuscripts from online digital libraries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <rdgGrp> structures textual data in XML; it does not fetch image facsimiles.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It forces all grouped witnesses to be treated as a single unified manuscript in the <listWit>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Grouped readings retain individual witness citations via @wit on their child <rdg> tags.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes non-substantive readings from the XML file during schema validation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <rdgGrp> preserves sub-variants within a structured hierarchy rather than deleting them.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Codicological and Paleographical Context: witDetail</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the <witDetail> element enrich a critical apparatus entry in TEI XML?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The <witDetail> element captures essential paleographical and codicological context—such as erasures, corrections, and marginal additions—tied directly to specific witness readings.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It records specific paleographical, codicological, or physical details about a reading (such as erasures or corrections) linked via @wit and @target.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <witDetail> captures physical manuscript context—such as text written in rasura or added in margins—tied directly to specific witness readings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It translates the Greek or Latin reading into modern vernacular prose.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Translations are encoded in <gloss> or <equiv>, whereas <witDetail> records codicological and paleographical notes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It computes the statistical probability that a scribal reading is authentic.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <witDetail> provides descriptive physical context, not statistical authenticity calculations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces the <witness> declaration in the <teiHeader>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <witDetail> annotates specific apparatus readings in the text, while <witness> defines repository metadata in the header.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Handling Physical Damage: lacunaStart and lacunaEnd</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are milestone elements <lacunaStart/> and <lacunaEnd/> essential in computational textual criticism?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Milestone elements <lacunaStart/> and <lacunaEnd/> explicitly define spans of physical destruction, preventing algorithms from misclassifying physical loss as intentional omission.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They explicitly delimit spans of physical damage for specific witnesses, preventing collation algorithms from treating physical loss as intentional scribal omission.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Milestone lacuna tags maintain an accurate state of witness availability, ensuring damaged witnesses are not penalized as omissions or falsely scored as agreeing with the lemma.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They automatically reconstruct the destroyed text using neural language models.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Conjectural reconstructions are tagged with <supplied>, while lacuna milestones mark physical absence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They instruct the XML parser to skip schema validation for damaged sections.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lacuna milestones are fully valid TEI elements and do not disable validation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They convert positive apparatus entries into negative apparatus entries dynamically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lacuna tags explicitly document physical gaps regardless of whether the presentation is positive or negative.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: The OHCO Problem in Textual Criticism</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the Ordered Hierarchy of Content Objects (OHCO) problem when encoding critical apparatuses in XML?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The OHCO model of XML forbids overlapping tags, requiring specialized TEI linking architectures to handle variants that cross structural boundaries.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>XML enforces strict tree nesting without tag overlap, making it impossible for inline <app> elements to naturally cross structural boundaries like sentences, verses, or lines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Textual variation in manuscripts frequently crosses structural XML boundaries (e.g. spanning two sentences or verse lines), causing overlapping tag errors in basic XML trees.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>XML files cannot store non-Latin character sets such as Greek, Hebrew, or Cyrillic.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML supports full Unicode (UTF-8); the OHCO problem is strictly an architectural limitation regarding overlapping hierarchical trees.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Collation software cannot process files larger than a single paragraph.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. File size is not the issue; the constraint is XML's syntactic prohibition against overlapping elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manuscript sigla must be sorted in strict alphabetical order within the <listWit>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Sigla ordering is an editorial choice, not related to the OHCO hierarchical overlap problem.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Declaration of Linking Method: variantEncoding</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the purpose of the <variantEncoding> element in the TEI Header's <encodingDesc>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The <variantEncoding> element in the TEI Header declares the project's chosen apparatus architecture (method and location) for all downstream software tools.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It formally declares the apparatus linking architecture by specifying the linking method (@method) and storage location (@location) for processing tools.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. <variantEncoding> specifies whether the edition uses parallel-segmentation, location-referenced, or double-endpoint-attachment, and whether apparatus entries are internal or external.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It defines the font encodings and character glyph tables used in the PDF edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Typography and font settings belong to publishing stylesheets, not <variantEncoding>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It lists all known scribal hands and ink formulations across the collated manuscripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scribal hands are defined in <handNotes> inside <sourceDesc>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It sets the access permissions and open-access licensing terms for the digital edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Licensing information is declared in <publicationStmt> via <licence>.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Method 1: Parallel Segmentation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What characterizes the Parallel Segmentation method in TEI critical apparatus encoding?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Parallel segmentation embeds <app> directly inline, making it ideal for XSLT transformation and automated collation, but unable to handle overlapping hierarchies.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The <app> element is embedded directly inline in the text stream, with invariant text surrounding it and variant readings enclosed in <lem> and <rdg> tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In parallel segmentation, the apparatus is the text: variation units are inline, making XSLT transformation and CollateX export straightforward, though overlapping hierarchies are unsupported.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Apparatus entries are stored in a separate database and referenced only by line numbers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That describes the location-referenced method; parallel segmentation embeds <app> directly inline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All variant readings are stripped from the main XML file and published in an appendix.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Parallel segmentation keeps all readings inline within the main text flow.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires every manuscript to be encoded as an independent, standalone XML file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Parallel segmentation merges multi-witness variation into a single inline TEI stream.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Drafting Parallel Segmentation by Hand</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When drafting a parallel segmentation apparatus by hand, how are textual additions and omissions explicitly encoded?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>In parallel segmentation, omissions and additions are explicitly encoded using empty <lem/> or <rdg/> tags embedded directly within the inline token stream.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Additions and omissions are represented using empty <lem/> or <rdg/> tags for witnesses where the text is absent, paired with populated tags for witnesses where it is present.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An empty <lem/> or <rdg/> explicitly marks the absence of text in specific witnesses while maintaining positive attestation across the inline token stream.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Omissions are silently deleted from the file without leaving any tag in the apparatus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Silently omitting witnesses converts the entry into an ambiguous negative record; an empty element explicitly records the omission.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Additions must be encoded as external footnotes using the <note> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. In parallel segmentation, additions are encoded directly inside <app> as <rdg> elements containing the added text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The entire paragraph must be duplicated for each witness that contains an omission.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Duplicating paragraphs defeats the purpose of inline parallel segmentation; only the divergent token span is enclosed in <app>.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Method 2: Location-Referenced</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the chief operational limitation of the Location-Referenced apparatus method in digital editing?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Location-referenced apparatuses cleanly separate base text from variants using @loc coordinates, but their informal linkage makes automated computational processing exceedingly difficult.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Its informal @loc coordinates (e.g. loc="line 14") make it extremely difficult for automated software to determine exact word boundaries or dynamically reconstruct witnesses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Location-referenced apparatuses cleanly separate base text from variants, but informal coordinates prevent exact computational alignment and algorithmic witness reconstruction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It cannot be validated against any TEI P5 Relax NG schema.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The location-referenced method is fully standard and valid in TEI P5 Chapter 13.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires all manuscript images to be embedded directly inside the XML body.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Image facsimiles are linked via standard URIs and are independent of the apparatus linking method.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is impossible for human classicists to read in print layouts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Location-referenced apparatuses directly mimic traditional print layouts, making them easy for humans to read but hard for algorithms to parse.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Drafting Location-Referenced Apparatus by Hand</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is an explicit <lem> element mandatory in every entry of a location-referenced apparatus?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Location-referenced apparatuses require explicit lemmas to identify the target phrase within the referenced line or verse coordinate.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because the external apparatus entry must quote the specific target phrase in the referenced line to identify which words are subject to variation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Since the apparatus is stored externally and linked only by line or verse number, the lemma is required to identify the exact contested words in that line.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because TEI schemas reject any XML document that contains <rdg> without a <lem>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI allows un-lemmatized <app> in parallel segmentation; the requirement in location-referenced encoding is functional and disambiguating.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the lemma determines the font size of the footnote in print output.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Styling is controlled by stylesheets, not by element semantics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because witness sigla can only be attached to <lem> tags in this method.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Witness sigla are attached to both <lem> and <rdg> elements via @wit.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Method 3: Double-Endpoint Attachment</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the Double-Endpoint Attachment method resolve the OHCO overlapping hierarchy problem in TEI apparatus encoding?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Double-endpoint attachment uses external <app> elements pointing to <anchor/> milestones via @from and @to, solving overlapping hierarchies with exact computational precision.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It places empty <anchor/> milestones with unique IDs in the base text and links external <app> entries to exact start and end spans via @from and @to attributes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Because <anchor/> milestones are empty, they can sit anywhere across structural boundaries, while external <app> entries reference their exact IDs via @from and @to.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It stores each word in an external SQL database and queries it via HTTP requests.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-endpoint attachment is a native TEI XML structure using <anchor/> and <app from="..." to="...">, not a SQL database requirement.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It duplicates the entire text stream for every combination of overlapping tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-endpoint attachment maintains a single base text with milestone anchors, avoiding text duplication.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It disables XML schema validation to allow overlapping start and end tags in the body.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-endpoint attachment maintains strict XML well-formedness and schema validity by using empty milestone elements.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Drafting Double-Endpoint Attachment by Hand</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What practical overhead does an editor encounter when drafting double-endpoint attachment markup by hand?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Double-endpoint attachment easily spans structural tags like line and stanza boundaries, but demands meticulous maintenance of anchor identifiers.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The editor must invent, insert, and meticulously maintain unique anchor IDs across the entire text, ensuring every @from and @to pointer resolves correctly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Double-endpoint attachment provides total structural flexibility across boundaries, but requires high manual overhead to manage hundreds of anchor identifiers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The editor must translate all manuscript readings into Classical Latin before encoding.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Double-endpoint attachment works in any language and does not require translation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The editor is prohibited from recording more than one variant reading per chapter.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Any number of <rdg> elements can be attached to a double-endpoint <app> entry.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The editor cannot include witness sigla in external apparatus entries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. External apparatus entries in double-endpoint attachment use standard @wit attributes on <lem> and <rdg>.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Comparing the Three TEI Linking Methods</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which pair correctly matches the TEI apparatus linking method with its primary practical strength?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Choose Parallel Segmentation for automated collation workflows, and Double-Endpoint Attachment when managing overlapping structural hierarchies and complex transpositions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Parallel Segmentation provides seamless compatibility with automated collation tools, while Double-Endpoint Attachment fully supports overlapping structural hierarchies.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. CollateX natively exports parallel segmentation, while double-endpoint attachment solves overlapping structures like verse lines and transpositions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Location-Referenced enables exact algorithmic witness reconstruction, while Parallel Segmentation is used only for print.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Location-referenced makes algorithmic reconstruction difficult; parallel segmentation is the primary digital format.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Double-Endpoint Attachment eliminates the need for manuscript sigla, while Location-Referenced requires no base text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. All methods require sigla, and location-referenced relies heavily on a base text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Parallel Segmentation is restricted to single-witness editions, while Double-Endpoint Attachment is restricted to modern poetry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both methods support multi-witness traditions across all historical genres.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Editorial Judgement and Lemma Selection</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In critical editing, what theoretical commitment is reflected when choosing what reading to place in the <lem> element versus an <rdg> element?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The <lem> element embodies editorial judgement—whether designating a historical copy-text reading or an eclectically reconstructed original.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Designating a copy-text places historical readings of a single witness in <lem>, whereas an eclectic edition places an editorially reconstructed archetype in <lem>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The <lem> reflects editorial theory: in copy-text editing it represents a specific physical document, while in eclectic editing it represents a critically reconstructed reading.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The <lem> must always be the reading found in the latest printed edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual critics prioritize early manuscript evidence or reconstructed archetypes, not modern reprints.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The <lem> is automatically assigned by XML schema validators based on word length.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lemma selection is a critical philological decision, not an automated schema function.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An editor is prohibited from recording personal conjectures or emendations in the <lem> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial conjectures can be placed in <lem>, documented transparently using the @resp attribute.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Typology of Readings: The type and cause Attributes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do the @type and @cause attributes on <rdg> transform a critical apparatus into a dataset for historical linguistics and scribal studies?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Use @type to classify the linguistic category of a variant and @cause to record the paleographical mechanism behind the scribal divergence.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>@type classifies the linguistic category (e.g. substantive, orthographic, transposition), while @cause records the paleographical or psychological mechanism (e.g. homoioteleuton, itacism).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Explicit taxonomy allows scholars to filter out phonetic noise, analyze scribal copying habits, and trace dialectal evolution across centuries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They record the physical dimensions and parchment thickness of the manuscript folios.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Physical manuscript dimensions belong in <supportDesc> in the header, not in apparatus attributes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They automatically delete ungrammatical readings from the published edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual criticism preserves ungrammatical readings as crucial evidence of transmission.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They assign legal copyright licenses to individual scribal variations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ancient and medieval manuscript readings are public domain; attributes describe linguistic and paleographical properties.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Scribal Hands and Layers: hand and add / del</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does TEI XML distinguish between an original scribe's reading and subsequent corrections made by later hands in the same manuscript?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The @hand attribute and embedded <add>/<del> elements precisely record multi-layered scribal corrections across different historical hands within a single witness.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By combining the manuscript's @wit siglum with the @hand attribute (targeting declared <handNote> IDs) and embedding genetic tags like <add>, <del>, or <subst>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Combining @wit with @hand (e.g. wit="#SinaitGr" hand="#Sinait_corr") and tags like <add>/<del> documents multi-layered corrections within a single witness.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By creating a completely new manuscript shelfmark in the <listWit> for every scribal correction.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The physical manuscript retains its unique identifier, with hands distinguished via @hand and <handNote>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By converting the original reading into an external footnote and overwriting the XML text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital editing preserves all historical layers in structured markup rather than overwriting text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By deleting the corrector's reading if it disagrees with the primary editor's preference.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An apparatus records historical evidence objectively, including all identifiable correction layers.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Case Study: St. Francis Xavier University Special Collections</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What do the Gaelic manuscripts in the StFX Special Collections illustrate about the necessity of positive digital apparatus encoding?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Physical archival holdings—such as StFX's Gaelic manuscripts—demonstrate that positive digital apparatus encoding is essential for capturing dialectal and performance variance without editorial distortion.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>In fluid oral-formulaic traditions with non-standardized orthography, positive apparatus encoding preserves authentic dialectal, performance, and regional variants without editorial flattening.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Ridge Manuscripts and Nova Scotian Gaelic poetry exhibit extreme orthographic and performance fluidity that a rigid print negative apparatus would obscure.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Gaelic poetry can only be collated using proprietary closed-source software.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Standard open-source TEI XML and CollateX tools handle Gaelic poetry effectively.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Oral poetry contains zero textual variation because bards memorized texts perfectly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Oral and manuscript transmission produced widespread lexical, phonological, and structural variations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Eighteenth-century Scottish Gaelic manuscripts conform strictly to Lachmannian stemma rules.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Oral-formulaic and regional traditions involve horizontal transmission and performance variance that resist rigid Lachmannian family trees.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Case Study: The Homer Multitext (HMT) and Venetus A</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why did the Homer Multitext project reject traditional Lachmannian base-text apparatuses in favor of a multi-text digital architecture?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Homer Multitext proves that print apparatuses frequently suppress vital physical evidence, demonstrating the need for multi-text digital architectures.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because Homeric epic evolved through oral-formulaic performance without a single original autograph, and print apparatuses suppressed crucial physical data like scholia and erasures.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The HMT treats every manuscript (such as Venetus A) as an autonomous performance witness, using CTS URNs and stand-off markup to represent text, scholia, and physical images equally.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the Iliad was written in Latin and could not be encoded in Greek TEI XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Iliad is in ancient Greek and is richly encoded in TEI XML within the HMT project.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because digital editions are prohibited from citing manuscripts earlier than the tenth century.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The HMT specifically centers on the 10th-century Venetus A codex and earlier papyri.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because print apparatuses were found to contain zero typographical abbreviations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Print apparatuses were densely abbreviated, which often concealed vital physical and contextual evidence.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Case Study: Editio Critica Maior (ECM) of the Greek New Testament</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the Editio Critica Maior (ECM) utilize exhaustive TEI apparatus encoding to solve the problem of contaminated manuscript traditions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The ECM demonstrates how exhaustive TEI apparatus encoding provides the mathematical dataset required for modern phylogenetic methods like the CBGM.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Every variation unit is encoded with full positive attestation in TEI XML, providing the machine-readable dataset required for the Coherence-Based Genealogical Method (CBGM).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The CBGM calculates statistical coherence and pre-genealogical flow across thousands of variation units, which requires exhaustively validated positive TEI apparatus data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The ECM uses machine learning to automatically delete 90% of surviving New Testament manuscripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The ECM collates hundreds of intensive Greek witnesses without deleting manuscript evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The ECM replaces all Greek manuscript evidence with Latin Vulgate readings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The ECM focuses on reconstructing the Ausgangstext (Initial Text) of the Greek New Testament.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The ECM relies exclusively on negative apparatus footnotes to minimize computer file sizes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The ECM requires comprehensive positive apparatus datasets to feed its mathematical algorithms.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Manual Encoding Exercises: The Three Passages</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What critical editorial discipline is reinforced when manually encoding complex multi-word transpositions and physical lacunae?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Manual encoding of multi-word variants and lacunae forces the editor to define precise variation unit boundaries and handle physical damage explicitly.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The editor is forced to explicitly define variation unit boundaries, account for every active witness, and distinguish physical absence from intentional omission.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Manual encoding reveals the exact boundaries of variation units, forces positive accountability across witnesses, and ensures lacunae are not mistaken for omissions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The editor learns to let automated software make all lemma and boundary decisions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual exercises train human editorial judgement, which serves as the ground truth for evaluating software.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The editor is trained to discard damaged manuscripts rather than encoding lacuna milestones.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The exercise explicitly trains editors to encode lacuna milestones (<lacunaStart/>/<lacunaEnd/>).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The editor memorizes standard XML tags so that schema validation can be bypassed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schema validation is a mandatory quality gate, not something to be bypassed.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Common Syntax Pitfalls in Manual TEI XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which of the following represents a fatal syntax error that prevents a TEI critical apparatus file from validating?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Strict vigilance over IDREF pointers, URI # prefixes, XML entity escaping, and milestone closure prevents fatal validation failures in hand-crafted TEI.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Using a bare ampersand (&) instead of &amp;, or omitting the '#' prefix in a @wit attribute value.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Bare ampersands violate XML well-formedness, and omitting the '#' prefix creates an invalid URI reference in @wit IDREF validation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nesting an <rdg> element inside an <app> container.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Nesting <rdg> inside <app> is standard, valid TEI syntax.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Including Greek Unicode characters in the text content of a <lem> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI XML natively supports all Unicode scripts and characters.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Declaring manuscript identifiers with unique xml:id values in the <listWit>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Declaring unique xml:id attributes in <listWit> is required for referential integrity.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Building the Method Reference Document</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary function of a Method Reference Document in a collaborative digital critical edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A Method Reference Document formalizes project rules for linking methods, lemma selection, variant classification, and witness sigla.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To establish a binding editorial constitution defining project rules for linking methods, lemma selection, variant classification taxonomies, and sigla authority.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Method Reference Document records explicit project standards, ensuring consistency across editors and providing formal specifications for automated pipelines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To serve as a public marketing brochure for attracting private edition sponsors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The document is an internal technical and editorial specification, not marketing material.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To list the personal biographies and academic degrees of all student transcribers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The document defines editorial rules, encoding standards, and taxonomies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To automatically generate Relax NG schemas from natural language paragraphs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schemas are authored formally; the reference document guides editorial consistency and pipeline configuration.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Preparation for Wednesday's Deterministic Transformation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is hand-crafted TEI apparatus encoding designated as the 'ground truth' for the entire apparatus pipeline?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Today's hand-crafted TEI apparatus serves as the ground-truth benchmark against which tomorrow's automated CollateX export will be measured.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because it embodies verified, expert human philological decisions, providing the baseline benchmark against which automated collation algorithms are evaluated.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Hand-crafted markup establishes the gold standard of editorial accuracy, allowing scholars to quantify the precision, recall, and edge-case errors of automated tools.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because manual hand-encoding is the fastest way to process hundreds of thousands of lines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual encoding is slow and laborious; its value lies in high philological precision, not speed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because automated tools like CollateX are incapable of outputting valid XML syntax.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX outputs valid XML, but may make algorithmic boundary or alignment errors that ground truth tests expose.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because funding agencies refuse to accept digital editions created with computational software.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital humanities projects rely heavily on computational tools; ground truth is an engineering and validation standard.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Summary and the Ground Truth Milestone</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What core insight unites the transition from print-based negative apparatuses to hand-crafted TEI XML in Step 1 of the apparatus cycle?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Manual TEI apparatus construction makes every philological assumption explicit, establishing the baseline ground truth for the entire apparatus pipeline.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Manual TEI encoding makes every philological assumption, witness attestation, and variation boundary explicit, transforming static footnotes into a verified data model.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. By replacing implicit print silence with explicit XML structures (<app>, <lem>, <rdg>, @wit), manual encoding establishes the rigorous baseline for the entire digital pipeline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Print negative apparatuses should be directly scanned and converted to plain text without added markup.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scanned text without markup perpetuates the ambiguities of negative apparatuses and lacks machine-actionability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Digital editions should eliminate variant readings to present a single unambiguous reading text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual scholarship is built upon preserving and analyzing variation across witnesses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual encoding eliminates the need for subsequent deterministic collation or algorithmic analysis.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual encoding is Step 1 of a three-step cycle, establishing the ground truth needed to calibrate automated and AI tools.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

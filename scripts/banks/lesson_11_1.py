@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Module_11_Alignment"
+TOPIC = "Topic_11_Alignment"
 TITLE = "Aligning Translation Sentences and Authoring Interlinear Glosses by Hand"
 
 QUESTIONS = [

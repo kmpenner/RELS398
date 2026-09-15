@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Module_04_Transcription"
+TOPIC = "Topic_04_Transcription"
 TITLE = "Diplomatic Transcription by Hand: Building the Ground Truth"
 
 QUESTIONS = [

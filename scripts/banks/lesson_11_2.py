@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Module_11_Alignment"
+TOPIC = "Topic_11_Alignment"
 TITLE = "Automated Sentence and Word Alignment Tools: From Gale-Church to fast_align and Ugarit"
 
 QUESTIONS = [
