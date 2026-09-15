@@ -122,6 +122,11 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+- **[2026-09-15]**: Tuesday class #6 went to VIAF (`@ref`s for institutions and people in the teiHeader) instead of Lesson 3.1; Workshop 2 reopened by Ken. Consequences handled the same day:
+  - **Lesson 3.2 teaching plan for Wed Sep 16 (#7)** authored at `src/modules/Module_03_IIIF_Imaging/Lesson_3.2_Teaching_Plan_2026-09-16.html`. It carries the missed 3.1 manual half (`<facsimile>`/`<surface>`/`<zone>`/`@facs`, hand-typed and validated against `msdesc.rng`, which does admit those elements) plus document photography/scanning basics, then the deterministic half: `file`, `identify`, IIIF `info.json`, GIMP rectangle-select, and `labs/make_surface.py`. The manual and tool-measured blocks are diffed against each other in class — the week's Step 1 vs Step 2 in miniature.
+  - **`labs/make_surface.py` added** (Pillow): reads real pixel dimensions and emits a `<facsimile>` block, converting GIMP/IIIF `x,y,w,h` to TEI corner attributes. Verified against a known 1200x300 PNG.
+  - **Workshop 1 rewritten and deployed** (cmid 1427946, course 51185). The Greek multi-branch-scriptorium Git exercise (Codex A/B, Unicode NFC) was unearnable for this cohort, the same defect fixed in Module 2 on 2026-09-10. Replaced with "Your Project Repository & Witness README": shell repo construction, witness identification, the five verification checks from Lesson 1.2, object-rights vs image-licence, atomic commits, and a FAIR statement. Rubric grades traceable identifiers, commit granularity, and concrete FAIR decisions. Previous versions saved to `scratch/w1_old/`.
+  - Deployed via a `fetch()` POST of the modedit form, not the editor UI — per the endpoints-over-UI rule.
 
 - **[2026-09-13]**: Refreshed Module 03 sources and completed full companion media suite for Week 3 (Lessons 3.1, 3.2, 3.3).
   - **Source alignment:** Replaced all source halves for Lessons 3.1, 3.2, and 3.3 in the course NotebookLM notebook (`baa262c1-2987-4e7b-a213-9cf8dc43460b`) with current rewritten texts; reconciled `.sources.json` digests.

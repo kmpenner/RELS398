@@ -1,18 +1,36 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Initialize a clean Git repository: <code>git init scriptorium_workshop</code></li>
-        <li>On the <code>main</code> branch, commit the base transcription text for the assigned excerpt from <em>Athenaze</em> / Greek Gospel of Mark.</li>
-        <li>Create and checkout branch <code>witness-alpha</code>; introduce three scribal corrections / variants with clear commit messages.</li>
-        <li>Create and checkout branch <code>witness-beta</code> from <code>main</code>; introduce two distinct variants and ensure text is normalized using Unicode NFC (<code>unicodedata.normalize('NFC\, text)</code>).</li>
-        <li>Merge <code>witness-alpha</code> into <code>main</code>, then merge <code>witness-beta</code> into <code>main</code>, deliberately resolving the merge conflict in the editor.</li>
-        <li>Generate your formatted graph log: <code>git log --graph --oneline --all</code>.</li>
-        <li>Write a <strong>300–500 word reflection</strong> addressing:
+        <li><strong>Build the repository in the shell.</strong> If you already have a course repository, use it and skip to step 2. Otherwise:
+            <pre style="background:#f1f5f9;padding:0.5rem;border-radius:4px;">mkdir my-edition
+cd my-edition
+git init
+echo "# [Short title of your document]" &gt; README.md
+git add README.md
+git commit -m "Start edition repository with README title"</pre>
+        </li>
+        <li><strong>Identify your witness in <code>README.md</code>.</strong> Under a heading <code>## Witness</code>, record:
             <ul>
-                <li>How does the Git commit graph document editorial deliberation compared to traditional apparatus notation?</li>
-                <li>Why is NFC normalization essential before attempting automatic text collation?</li>
+                <li>the holding institution and the shelfmark, call number, or reference number, exactly as the institution writes it;</li>
+                <li>what the object is: original manuscript, contemporary copy, later transcript, or printed item. If no original survives, say so and name the oldest extant exemplar;</li>
+                <li>the <strong>one page</strong> you are editing (recto/verso, sheet, or printed page) and what text it contains;</li>
+                <li>the URL of the image you are using, and whether it is a IIIF resource.</li>
             </ul>
         </li>
-        <li>Paste your formatted Git log and reflection into the submission box below.</li>
+        <li><strong>Record the five checks.</strong> Under <code>## Checks</code>, write one or two sentences for each, with the evidence you found:
+            <ol type="a">
+                <li><em>Image:</em> is it legible at 100% zoom, and does it show the whole page with its edges?</li>
+                <li><em>Identity:</em> which catalogue or finding-aid record confirms the shelfmark? Give its link.</li>
+                <li><em>Text:</em> is there a published edition, transcription, or translation to compare against? If not, say so.</li>
+                <li><em>Boundaries:</em> does your page start and end at a describable point?</li>
+                <li><em>Difficulty:</em> in one sentence, what will be hard (hand, damage, language, layout)?</li>
+            </ol>
+            A check that fails is still a valid result. Record it honestly, together with what you will do about it.
+        </li>
+        <li><strong>Record rights and reuse.</strong> Under <code>## Rights</code>, separate the rights in the <em>object</em> from the licence on the <em>digital image</em>. These often differ. Quote the licence or terms of use, and the credit line the institution asks for.</li>
+        <li><strong>Commit atomically.</strong> Commit after each of steps 2, 3, and 4, so your log shows <strong>at least three commits</strong> after the first. Each message should say what changed, specifically enough that someone reading only the log understands it (e.g. <code>Record shelfmark and finding-aid link for witness</code>, not <code>update</code>).</li>
+        <li><strong>Write your FAIR statement</strong> (200&ndash;300 words), in the submission box or under <code>## FAIR</code>. For each of Findable, Accessible, Interoperable, and Reusable, name <em>one concrete decision</em> in your project that serves it, and one way your particular document makes that principle harder.</li>
+        <li><strong>Submit:</strong> paste the full text of <code>README.md</code>, the output of <code>git log --oneline</code>, and your FAIR statement. If your repository is on GitHub, add the link as well.</li>
     </ol>
+    <p style="margin-bottom:0;"><strong>Note.</strong> Your document is not a Greek manuscript, and some standard fields won't fit it. Where you make a judgement call, such as what counts as "one page" or whether an item is a copy, write one sentence saying why. Those sentences are what the reviewers grade most closely.</p>
 </div>
