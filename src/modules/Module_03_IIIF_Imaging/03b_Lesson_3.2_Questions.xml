@@ -7,7 +7,7 @@
       <text>$course$/Module_03_IIIF_Imaging/Lesson_3.2_Interactive</text>
     </category>
     <info format="html">
-      <text><![CDATA[<p>Interactive check questions for Lesson 3.2: Deterministic Computer-Assisted Imaging, IIIF, and File Storage.</p>]]></text>
+      <text><![CDATA[<p>Interactive check questions for Lesson 3.2: Deterministic Computer-Assisted Imaging: IIIF, Image Processing, and File Storage.</p>]]></text>
     </info>
   </question>
 
@@ -17,10 +17,10 @@
       <text>01 Question: The IIIF Vision: Solving the Image Silo Problem</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What core problem in digital manuscript scholarship was the International Image Interoperability Framework (IIIF) designed to solve?</p>]]></text>
+      <text><![CDATA[<p>What problem was IIIF created to solve?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>IIIF eliminates institutional image silos by establishing shared, open network protocols that enable researchers to view, compare, and manipulate images across different repositories in a single interface.</p>]]></text>
+      <text><![CDATA[<p>IIIF replaces one-library-one-viewer silos with shared rules, so images from different institutions can be used in the same tool.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -29,27 +29,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Institutional image silos, where digital surrogates could only be inspected within incompatible, proprietary institutional web viewers.</p>]]></text>
+      <text><![CDATA[<p>Digitized images were locked to each library's own website and viewer, so material from different institutions could not be used together.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. IIIF eliminated closed institutional silos by establishing open network protocols allowing cross-repository image access in unified viewers.</p>]]></text>
+        <text><![CDATA[<p>Correct. That lock-in is what the lesson calls an image silo, and shared rules are what break it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The inability of web servers to store uncompressed TIFF master files due to cloud hosting restrictions.</p>]]></text>
+      <text><![CDATA[<p>Libraries had not yet digitized enough manuscripts to make comparison worthwhile.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Servers could always store TIFF files; the problem was how to deliver, share, and compare images across repositories over the web.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The images existed; the problem was that each institution published them in an incompatible way.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The legal ban on sharing high-resolution photographs of public-domain cultural heritage objects.</p>]]></text>
+      <text><![CDATA[<p>Digital images degraded over time and needed a format that would not fade.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. IIIF addresses technical software interoperability and standardized network delivery, not copyright law.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Digital files do not fade; the problem was access and compatibility, not decay.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The requirement that digital humanists hand-code custom browser graphics engines in assembly language.</p>]]></text>
+      <text><![CDATA[<p>Copyright law prevented scholars from viewing manuscripts held in other countries.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Browser engines handle standard web formats; the issue was proprietary viewer architectures and lack of shared APIs.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. IIIF is a technical standard and does not change the rights in an image.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -60,10 +60,10 @@
       <text>02 Question: The IIIF Image API: The Canonical Request URI Syntax</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In the standard IIIF Image API request URI `{scheme}://{server}/{prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}`, which parameter determines whether a specific rectangular sub-crop or the complete image is returned?</p>]]></text>
+      <text><![CDATA[<p>In a IIIF image address, what does the part of the path immediately after the identifier specify?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The IIIF Image API URL syntax standardizes region cropping, resolution scaling, rotation, color quality, and file formats into a predictable HTTP request path.</p>]]></text>
+      <text><![CDATA[<p>A IIIF image address is a readable recipe: region, size, rotation, quality, format — so you can crop and resize a page by editing a URL.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -72,27 +72,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>`{region}`</p>]]></text>
+      <text><![CDATA[<p>The region: which rectangle of the source image to return, either `full` or pixel coordinates.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The `{region}` parameter defines the rectangular sub-area of the source image to extract, specified as `full`, `square`, or pixel/percentage coordinates.</p>]]></text>
+        <text><![CDATA[<p>Correct. The order is region, then size, then rotation, then quality and format.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>`{size}`</p>]]></text>
+      <text><![CDATA[<p>The size in pixels of the image that will be returned.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `{size}` controls the scaling or resolution dimensions of the extracted area, not its boundary selection.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Size comes after region; the two are separate parts of the path.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>`{quality}`</p>]]></text>
+      <text><![CDATA[<p>The compression quality, from 1 to 100.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `{quality}` determines color mode, such as full color, grayscale, or bitonal.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `quality` in IIIF means colour treatment (default, gray, bitonal), and it comes later in the path.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>`{format}`</p>]]></text>
+      <text><![CDATA[<p>The identifier of the manifest the image belongs to.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `{format}` determines the file container format, such as jpg or png.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Manifests belong to the Presentation API; the Image API path describes pixels only.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -103,10 +103,10 @@
       <text>03 Question: Deep Zoom and Image Tiling</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does deep zoom architecture allow web browsers to smoothly display gigapixel manuscript images without downloading multi-gigabyte master files?</p>]]></text>
+      <text><![CDATA[<p>Why can a browser display a 12,000-pixel-wide manuscript image almost instantly?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Deep zoom uses pyramidal image tiling to deliver only the small image tiles visible within the user's screen viewport, enabling instantaneous inspection of massive files without latency.</p>]]></text>
+      <text><![CDATA[<p>Deep zoom works by sending only the small tiles currently on screen, which is why a gigantic manuscript image opens instantly.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -115,27 +115,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>By pre-computing an image pyramid and fetching only the small resolution-specific square grid tiles currently visible in the user's viewport.</p>]]></text>
+      <text><![CDATA[<p>The server has pre-cut the image into small tiles at several sizes, and the viewer downloads only the tiles currently on screen.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Pyramidal tiling delivers only the small (e.g., 256x256 pixel) tiles needed for the active screen area, keeping memory and bandwidth minimal.</p>]]></text>
+        <text><![CDATA[<p>Correct. You are never downloading the whole image, only the few small squares you can actually see.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By running real-time generative compression on the client computer using neural network prediction.</p>]]></text>
+      <text><![CDATA[<p>The image is compressed so heavily that the full file is only a few hundred kilobytes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Deep zoom uses pre-computed multi-resolution pyramids and deterministic tile delivery, not client-side generative hallucination.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The master stays large; tiling avoids sending it rather than shrinking it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By reducing the image to an 8-bit color palette and discarding all background margins.</p>]]></text>
+      <text><![CDATA[<p>The browser downloads the entire image in the background while showing a placeholder.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Deep zoom preserves full fidelity and original margins by tiling at multiple zoom levels rather than destroying color bit depth.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. With tiling there is no need to transfer the whole file at all.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By converting the raster image into scalable vector curves (SVG) before transmission.</p>]]></text>
+      <text><![CDATA[<p>Modern connections are fast enough to transfer several hundred megabytes before the page renders.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Manuscript photographs are continuous-tone rasters, not vector curves; deep zoom serves raster image tiles.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That transfer would be slow and wasteful, which is precisely why tiling exists.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -146,10 +146,10 @@
       <text>04 Question: The Image Information Document (`info.json`)</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the primary role of the `info.json` endpoint in the IIIF Image API ecosystem?</p>]]></text>
+      <text><![CDATA[<p>Why does `info.json` matter when you are writing TEI `<surface>` coordinates?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The `info.json` document supplies the essential technical metadata (dimensions, tile sizes, zoom scales) that allows web viewers to dynamically calculate and fetch image tiles.</p>]]></text>
+      <text><![CDATA[<p>Fetch `info.json` to learn an image's true dimensions, and record which version your coordinates actually describe.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -158,27 +158,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It supplies technical metadata about the source image—including full pixel dimensions, supported scale factors, and tile sizes—to configure the viewer.</p>]]></text>
+      <text><![CDATA[<p>It reports the true dimensions of the institution's master, which may be far larger than the copy you downloaded and measured.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The `info.json` document negotiates capabilities between the server and client before any image tiles are requested.</p>]]></text>
+        <text><![CDATA[<p>Correct. Coordinates describe one specific image, so you must know which version yours describe.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It stores the scholarly textual transcription and critical apparatus footnotes for the manuscript page.</p>]]></text>
+      <text><![CDATA[<p>It contains the rights statement that determines whether you may crop the image.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Textual transcriptions and apparatus notes belong in the TEI XML or IIIF Presentation manifest annotations, not the Image API `info.json`.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Licence information may appear elsewhere; info.json is technical description.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It contains the user's personal bookmarking history and web session credentials.</p>]]></text>
+      <text><![CDATA[<p>It lists the zones the institution has already defined on the page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `info.json` is a stateless technical descriptor of the image asset on the server.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. info.json describes the image service, not the content of the page.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It lists the names and email addresses of all conservators who handled the physical membrane.</p>]]></text>
+      <text><![CDATA[<p>It converts your pixel coordinates into TEI corner attributes automatically.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Curatorial provenance belongs in catalog records or TEI `<msDesc>`, not the low-level image service descriptor.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That conversion is something you or a script must do.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -189,10 +189,10 @@
       <text>05 Question: The IIIF Presentation API: The Shared Canvas Model</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In the IIIF Presentation API, what is a 'Canvas'?</p>]]></text>
+      <text><![CDATA[<p>What is a IIIF Canvas?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The IIIF Canvas is an abstract two-dimensional coordinate space representing a physical surface, separating the abstract page from concrete image files, transcriptions, and commentary.</p>]]></text>
+      <text><![CDATA[<p>A IIIF Canvas represents the physical surface, not a file, so several images and a transcription can all be anchored to the same page.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -201,27 +201,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>An abstract, virtual two-dimensional coordinate space representing a physical surface upon which digital images, transcriptions, and annotations are projected.</p>]]></text>
+      <text><![CDATA[<p>An abstract rectangle standing for one physical surface, to which images and transcriptions are attached.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A Canvas is not an image file itself; it is a coordinate frame that models a physical page or surface onto which media resources are targeted.</p>]]></text>
+        <text><![CDATA[<p>Correct. Because the Canvas is not a file, several images of the same page can be anchored to it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A physical HTML5 `<canvas>` DOM element embedded directly into the browser's JavaScript memory.</p>]]></text>
+      <text><![CDATA[<p>The highest-resolution image file an institution holds for a page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The IIIF Canvas is an abstract conceptual model defined in JSON-LD, distinct from browser rendering elements.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is the master image; a Canvas is not a file at all.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A compressed raster bitmap storing master TIFF image bytes on an archival disk.</p>]]></text>
+      <text><![CDATA[<p>The viewer window in which a manuscript is displayed.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The Canvas has no pixels of its own; it defines dimensions and serves as an anchor for image annotations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The Canvas is part of the data model, not part of the interface.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A proprietary file format developed by commercial graphics software vendors for vector illustration.</p>]]></text>
+      <text><![CDATA[<p>A drawing surface on which scholars sketch annotations by hand.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. IIIF Canvas is an open, consensus standard created by cultural heritage consortia.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Annotations are data attached to a Canvas, not freehand drawing.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -232,10 +232,10 @@
       <text>06 Question: Anatomy of a IIIF Manifest: Structure and JSON-LD</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does a IIIF Manifest use JSON-LD (JavaScript Object Notation for Linked Data) rather than plain JSON or raw relational database tables?</p>]]></text>
+      <text><![CDATA[<p>Someone sends you 'a IIIF link' for a document. What are you most likely being given, and what should you do with it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A IIIF Manifest is a structured JSON-LD document that packages metadata, viewing direction, and Canvas sequences into a single shareable URL for digital editions.</p>]]></text>
+      <text><![CDATA[<p>A Manifest is the package a viewer reads, and being able to open one and see what an institution published (and omitted) is a research skill.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>To bind structural document properties and descriptive metadata to globally disambiguated web URIs and semantic ontologies.</p>]]></text>
+      <text><![CDATA[<p>A Manifest URL, which you can open to see the object's metadata, how many Canvases it has, and what the institution chose to publish.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. JSON-LD links terms like label, metadata, and canvas to semantic web vocabularies, ensuring global interoperability across systems.</p>]]></text>
+        <text><![CDATA[<p>Correct. Reading a manifest critically — including noticing what is missing — is a research skill.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because JSON-LD encrypts manuscript photographs with digital rights management (DRM) keys.</p>]]></text>
+      <text><![CDATA[<p>A single JPEG of the first page, which you should download and crop.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. IIIF manifests are open linked data documents, not DRM encryption wrappers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A manifest describes the whole object rather than delivering one image.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because web browsers cannot parse plain JSON documents that exceed 500 lines of code.</p>]]></text>
+      <text><![CDATA[<p>A login page for the institution's reading room booking system.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Browsers parse standard JSON easily; JSON-LD provides semantic graph context via `@context`.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Manifests are public data files, not access controls.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To force all digital humanists to write their transcriptions in Python instead of XML.</p>]]></text>
+      <text><![CDATA[<p>A TEI file you can validate against `msdesc.rng`.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. JSON-LD is language-agnostic data formatting for linked web resources.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Manifests are JSON; TEI is XML, and the two use different schemas.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -275,10 +275,10 @@
       <text>07 Question: Multi-Page Structures: Sequences, Ranges, and Structures</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In a IIIF Manifest, how does a scholar represent non-linear or hierarchical intellectual structures—such as chapters, quires, or documentary appendices?</p>]]></text>
+      <text><![CDATA[<p>What do IIIF Ranges let a manifest express that a plain list of Canvases cannot?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>IIIF Ranges and the `structures` property organize linear Canvas sequences into navigable intellectual hierarchies, such as quires, chapters, and poetic groupings.</p>]]></text>
+      <text><![CDATA[<p>Ranges group Canvases into a table of contents or into physical gatherings, letting a manifest record both how a book reads and how it was made.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -287,27 +287,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>By defining `Range` objects within the manifest's `structures` property that group and nest specific Canvases.</p>]]></text>
+      <text><![CDATA[<p>Named groupings of Canvases, such as a table of contents or the quires a volume was built from.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. While Canvases represent the sequential physical pages, `Range` objects in `structures` represent intellectual and codicological hierarchies.</p>]]></text>
+        <text><![CDATA[<p>Correct. Ranges can record both how a book reads and how it was physically assembled.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By creating separate isolated manifests for each paragraph and preventing cross-linking.</p>]]></text>
+      <text><![CDATA[<p>The pixel dimensions of each page image.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A manifest represents the complete bibliographic unit; ranges organize its internal hierarchy.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Dimensions belong to the Canvas and the image service.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By altering the pixel values of the master TIFF files to embed chapter titles into the manuscript margins.</p>]]></text>
+      <text><![CDATA[<p>The licence attached to each individual image.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Master images are never altered with burned-in text; structures are modeled non-destructively in manifest metadata.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Rights information is separate from structural grouping.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By concatenating all pages into an uncompressed single-layer GIF animation.</p>]]></text>
+      <text><![CDATA[<p>The order in which pages were digitized.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. GIF animations are unsuited for multi-page manuscripts and provide no structural navigation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Ranges describe intellectual and physical structure, not capture history.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -318,10 +318,10 @@
       <text>08 Question: Interoperable Juxtaposition: Comparing Witnesses in Mirador</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What architectural feature of IIIF allows a user in the Mirador viewer to display an Amherst College Dickinson manuscript alongside a Harvard variant leaf in synchronized side-by-side panels?</p>]]></text>
+      <text><![CDATA[<p>What does Mirador make possible, and what is its precondition?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Advanced IIIF viewers like Mirador exploit shared standards to allow synchronized, multi-repository collation and annotation in a single web workspace.</p>]]></text>
+      <text><![CDATA[<p>Mirador puts witnesses from different institutions side by side with synchronized zoom, but only when each institution publishes IIIF.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -330,27 +330,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Both institutions publish compliant IIIF Manifests and Image API services that the viewer can dynamically load into multi-panel workspaces.</p>]]></text>
+      <text><![CDATA[<p>Side-by-side comparison of witnesses from different institutions with synchronized zoom, provided each institution publishes IIIF.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Because both repositories conform to the shared IIIF standard, any IIIF client can load both manifests into a unified comparative workspace.</p>]]></text>
+        <text><![CDATA[<p>Correct. Where an institution does not publish IIIF, that absence is itself a finding about your document.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The viewer downloads all master files to a central proprietary server hosted in Silicon Valley before rendering.</p>]]></text>
+      <text><![CDATA[<p>Automatic collation of two texts, producing a list of variants without human reading.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. IIIF is decentralized; clients fetch tiles directly from each institution's independent servers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Mirador displays images; collation is a separate process covered in Module 7.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Both universities share a single synchronized relational database running on the same local network.</p>]]></text>
+      <text><![CDATA[<p>Downloading complete high-resolution images from any library for offline use.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Institutions maintain completely independent infrastructure; interoperability occurs at the open API level.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Mirador streams tiles and does not override an institution's access terms.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The images must be merged into a single composite Photoshop document prior to publication.</p>]]></text>
+      <text><![CDATA[<p>Editing and correcting the images held by an institution.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Mirador performs dynamic client-side juxtaposition without modifying or merging source files.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Viewers do not alter the institution's files.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -361,10 +361,10 @@
       <text>09 Question: The Open-Source Imperative in Scholarly Imaging</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is reliance on open-source, scriptable tools (such as ImageMagick and libvips) considered an ethical and methodological necessity for academic digital editions?</p>]]></text>
+      <text><![CDATA[<p>Why does this course treat open-source imaging tools as a scholarly requirement rather than a budget preference?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Scholarly imaging demands open-source software to guarantee reproducibility, algorithm transparency, and long-term platform independence without vendor lock-in.</p>]]></text>
+      <text><![CDATA[<p>Scholarly imaging uses open-source tools because a claim about an image is only verifiable if someone else can rerun the exact operation.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -373,27 +373,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Open-source tools provide transparent, auditable algorithms and command-line scripts that ensure reproducible, verifiable processing pipelines.</p>]]></text>
+      <text><![CDATA[<p>A claim about an image is only verifiable if another scholar can rerun the exact operation and get the same pixels.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Proprietary commercial software uses closed, black-box algorithms that cannot be independently audited or programmatically reproduced across platforms.</p>]]></text>
+        <text><![CDATA[<p>Correct. A secret algorithm cannot be checked, and an unverifiable image is weak evidence.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Open-source tools are legally exempt from all national copyright laws and institutional licensing requirements.</p>]]></text>
+      <text><![CDATA[<p>Open-source tools produce higher-quality images than commercial ones.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Software licensing does not override copyright on digitized archival materials.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The argument is about verifiability and durability, not image quality.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Proprietary commercial software cannot export images in standard formats like JPEG or TIFF.</p>]]></text>
+      <text><![CDATA[<p>Commercial software is not permitted in university work.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Commercial software supports standard formats, but its internal operations and licensing restrict reproducibility and automation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is permitted; the objection is to undocumented, unrepeatable processing.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Open-source command-line tools execute automatically without requiring human editors to specify parameters.</p>]]></text>
+      <text><![CDATA[<p>Open-source tools are the only software that can read TIFF files.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Open-source scripts require explicit human editorial parameter declarations, ensuring full transparency.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Many programs read TIFF; the issue is transparency of the operations.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -404,10 +404,10 @@
       <text>10 Question: Interactive Editing with GIMP: Manual Adjustments and Layer Inspection</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the primary scholarly role of interactive desktop raster software like GIMP in a digital edition workflow?</p>]]></text>
+      <text><![CDATA[<p>What role does GIMP play in the workflow this lesson recommends?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>GIMP provides an interactive open-source environment for manual prototyping, visual verification, and layer inspection before formalizing batch scripts.</p>]]></text>
+      <text><![CDATA[<p>GIMP is for exploring an image and finding the right settings; the settings you find then go into a script that can be rerun and audited.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -416,27 +416,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Visual exploratory analysis, prototyping correction values, and inspecting layer masks prior to automated batch scripting.</p>]]></text>
+      <text><![CDATA[<p>It is where you explore an image and find the right settings, which then go into a script that can be rerun and audited.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Interactive GUI tools allow editors to test parameters, evaluate curves, and inspect micro-details visually before scripting batch runs.</p>]]></text>
+        <text><![CDATA[<p>Correct. Explore interactively, then record the decision as a command.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Performing repetitive manual cropping on thousands of archival images one file at a time.</p>]]></text>
+      <text><![CDATA[<p>It is the final production tool, because hand-adjusting each page gives the best results.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Manual repetitive GUI processing is error-prone and non-reproducible; batch automation is required for scale.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Hand-adjusting many pages introduces drift and leaves no record.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Serving deep-zoom image tiles dynamically over the web to multiple simultaneous remote users.</p>]]></text>
+      <text><![CDATA[<p>It converts images into TEI facsimile markup automatically.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. GIMP is a desktop image editor, not a networked tile server.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. GIMP is an image editor; the markup is written or scripted separately.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Creating authoritative TEI XML schemas by validating element hierarchies.</p>]]></text>
+      <text><![CDATA[<p>It is used only for cropping, since its other tools are not accurate enough.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. GIMP processes raster graphics, not XML markup structures.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Its curve and channel tools are exactly what make it useful for inspection.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -447,10 +447,10 @@
       <text>11 Question: Scripting with ImageMagick: Command-Line Batch Automation</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is command-line batch processing with ImageMagick superior to manual desktop manipulation for digitizing historical archives?</p>]]></text>
+      <text><![CDATA[<p>Besides speed, what is the scholarly advantage of processing images with an ImageMagick command?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>ImageMagick enables automated, scriptable batch processing, ensuring consistent parameters and complete documentation across hundreds of archival images.</p>]]></text>
+      <text><![CDATA[<p>An ImageMagick command applies identical treatment to every page and doubles as the written record of what was done.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -459,27 +459,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It applies identical, mathematically rigorous transformations across entire collections while recording exact parameters in reproducible scripts.</p>]]></text>
+      <text><![CDATA[<p>The command itself is the record of what was done, so anyone can reproduce the result exactly.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Command-line scripting ensures consistency, prevents human fatigue errors, and creates an audit trail of all transformations.</p>]]></text>
+        <text><![CDATA[<p>Correct. A written command is documentation and instruction at the same time.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It permanently deletes original master TIFFs to minimize local server hard drive consumption.</p>]]></text>
+      <text><![CDATA[<p>Commands produce higher-resolution output than graphical editors.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Archival workflows strictly preserve raw master files; derivative scripts run non-destructively.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Resolution comes from the capture, not from the interface used to process it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It uses artificial intelligence to invent missing textual letters obscured by water stains.</p>]]></text>
+      <text><![CDATA[<p>Commands avoid any loss of quality, whatever operations are chained.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. ImageMagick applies deterministic mathematical pixel filters; it does not hallucinate missing text.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Lossy saves and repeated rotation still cost quality, whatever tool is used.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It requires zero computational memory and runs instantaneously on files of infinite size.</p>]]></text>
+      <text><![CDATA[<p>Command-line tools are the only software that can deskew an image.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. ImageMagick loads images into memory; massive gigapixel files require streaming tools like libvips.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Many tools deskew; the advantage here is the auditable record.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -490,10 +490,10 @@
       <text>12 Question: High-Performance Processing with libvips: Memory Efficiency and Tiling</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What architectural design allows `libvips` to process multi-gigabyte manuscript images drastically faster than ImageMagick while using very little RAM?</p>]]></text>
+      <text><![CDATA[<p>What problem does libvips solve that ImageMagick typically does not?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Libvips uses a streaming pipeline to process massive gigapixel images in small memory footprints, making it the premier tool for building pyramidal IIIF tiles.</p>]]></text>
+      <text><![CDATA[<p>libvips streams large images in strips, so gigapixel files can be processed and tiled on ordinary hardware.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -502,27 +502,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A demand-driven streaming pipeline that processes images in small horizontal scanline bands rather than loading the entire uncompressed image into RAM.</p>]]></text>
+      <text><![CDATA[<p>It streams very large images in narrow strips, so gigapixel files can be processed without exhausting memory.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Libvips uses horizontally striped streaming and multithreading, allowing it to process massive images in negligible memory footprints.</p>]]></text>
+        <text><![CDATA[<p>Correct. It is also the standard tool for generating deep-zoom tile pyramids.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It automatically downsamples all images to 72 DPI before opening them.</p>]]></text>
+      <text><![CDATA[<p>It corrects colour more accurately than other tools.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Libvips processes full-resolution master pixels without lossy downsampling.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Colour correction depends on profiles and targets, not on this tool.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It converts 16-bit color images into 1-bit black and white bitmaps during import.</p>]]></text>
+      <text><![CDATA[<p>It can read formats that ImageMagick cannot open at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Libvips supports high bit depths and complete multichannel color spaces.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The difference is memory handling and speed, not format support.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It offloads all mathematical image operations to remote third-party cloud servers.</p>]]></text>
+      <text><![CDATA[<p>It recovers detail from low-resolution images.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Libvips runs locally and natively, maximizing local CPU core utilization.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No deterministic tool adds detail that was never captured.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -533,10 +533,10 @@
       <text>13 Question: Reproducible Processing: Logging Parameters and Scripting Pipelines</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In a scholarly digital edition, why is it essential to archive the exact bash/Python scripts used to generate image derivatives alongside the files themselves?</p>]]></text>
+      <text><![CDATA[<p>Which pair of habits makes image processing reproducible?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>True scholarship requires reproducible pipelines; editors must log every software version, flag, and numerical parameter used to produce derivative images.</p>]]></text>
+      <text><![CDATA[<p>Keep originals unedited and commit the commands you ran, so every published image can be traced back to the file it came from.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -545,27 +545,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>To maintain scholarly accountability by allowing peer reviewers and future researchers to inspect, audit, and reproduce the exact processing transformations.</p>]]></text>
+      <text><![CDATA[<p>Never edit the original in place, and commit the commands you ran alongside your edition.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Recording exact code commands, software versions, and parameter flags ensures that derivative images remain scientifically verifiable.</p>]]></text>
+        <text><![CDATA[<p>Correct. This is the same discipline as your Git history, applied to pixels.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because digital image files will corrupt and become unreadable unless their source code script is executed daily.</p>]]></text>
+      <text><![CDATA[<p>Save every intermediate version as a JPEG, and note the date of each.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Image files remain stable; scripts document editorial methodology and ensure reproducibility.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Repeated JPEG saves lose data, and dates do not record what was done.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To prevent copyright offices from claiming ownership over the digital edition.</p>]]></text>
+      <text><![CDATA[<p>Use the same software version as your institution, and avoid scripts.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Processing scripts do not affect intellectual property status.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Scripts are what make the process repeatable; avoiding them defeats the purpose.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because TEI guidelines forbid the use of images unless accompanied by at least 1,000 lines of Python code.</p>]]></text>
+      <text><![CDATA[<p>Work only in a graphical editor so the changes can be seen as they are made.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI requires methodological rigor, but has no arbitrary code line count mandate.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Watching a change happen does not record the parameters that produced it.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -576,10 +576,10 @@
       <text>14 Question: Coordinate-Based Cropping: Isolating Folios and Zones</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must editors prefer programmatic coordinate-based cropping over manual, mouse-guided freehand cropping in an archival workflow?</p>]]></text>
+      <text><![CDATA[<p>A crop is specified as `-crop 5100x7000+450+600`. What do those four numbers mean?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Coordinate-based cropping extracts precise sub-regions using exact pixel geometries, maintaining alignment with TEI `<zone>` coordinates and eliminating human error.</p>]]></text>
+      <text><![CDATA[<p>Cropping is specified as x, y, width, height — convert carefully, because TEI's `ulx/uly/lrx/lry` are corners instead.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -588,27 +588,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Coordinate cropping ensures mathematical precision, eliminates subjective human jitter, and maintains a strict 1-to-1 mapping with TEI `<zone>` coordinates.</p>]]></text>
+      <text><![CDATA[<p>A rectangle 5100 wide and 7000 tall, starting 450 pixels from the left edge and 600 from the top.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Programmatic cropping uses explicit pixel coordinates that align perfectly with TEI surface markup and reproducible scripts.</p>]]></text>
+        <text><![CDATA[<p>Correct. Tools use width, height, and offsets, whereas TEI uses two corners — converting between them is where errors happen.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Mouse-guided cropping automatically converts continuous-tone photographs into compressed vector graphics.</p>]]></text>
+      <text><![CDATA[<p>The corners of the rectangle, at (5100, 7000) and (450, 600).</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Mouse selection does not convert raster files into vectors.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is TEI's convention, not ImageMagick's.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Coordinate cropping automatically repairs physical paper tears and chemical oxidation stains.</p>]]></text>
+      <text><![CDATA[<p>A rectangle 450 wide and 600 tall, positioned at 5100, 7000.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Cropping only changes the bounding canvas; it does not alter paper chemistry.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The size comes first and the offsets follow the plus signs.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Programmatic cropping guarantees that the resulting image file size is exactly zero bytes.</p>]]></text>
+      <text><![CDATA[<p>A resize to 5100x7000 followed by a 450-pixel border of 600 pixels' opacity.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Cropped raster images retain standard pixel payloads.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `-crop` cuts a region; it does not resize or add borders.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -619,10 +619,10 @@
       <text>15 Question: Deskewing and Geometric Alignment: Rectifying Rotational Drift</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In historical manuscript processing, why must rotational deskewing angles be kept to minor corrections (e.g., under 1 to 2 degrees) and clearly documented?</p>]]></text>
+      <text><![CDATA[<p>Why should a page be deskewed once, from the original, rather than repeatedly?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Skew degrades automated transcription and zone mapping; deterministic deskewing calculates and rectifies rotational drift while documenting applied angles.</p>]]></text>
+      <text><![CDATA[<p>Deskewing straightens a tilted page so lines and zones align, but rotate once from the original, because each rotation costs sharpness.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -631,27 +631,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Digital rotation requires pixel interpolation that slightly softens fine stroke edges, and historical margins often exhibit natural non-parallel variation.</p>]]></text>
+      <text><![CDATA[<p>Each rotation recalculates every pixel from its neighbours, so repeated rotation gradually softens fine strokes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Rotating raster grids resamples pixels through interpolation filters; excessive or arbitrary rotation alters documentary evidence.</p>]]></text>
+        <text><![CDATA[<p>Correct. One high-quality rotation from the master is harmless; several accumulate damage.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Any rotation of an image file inverts its RGB color channels into CMYK print separations.</p>]]></text>
+      <text><![CDATA[<p>Each rotation permanently changes the file's dimensions in a way that cannot be undone.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Color spaces are not altered simply by geometric rotation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Dimensions can change, but the real cost is loss of sharpness.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Rotated images cannot be stored in the TIFF file format.</p>]]></text>
+      <text><![CDATA[<p>Deskewing only works correctly the first time it is applied to a file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TIFF supports any rectangular pixel matrix regardless of rotation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It will run repeatedly; the problem is what repeated resampling costs.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Web browsers are incapable of displaying images that have been rotated by fractional degrees.</p>]]></text>
+      <text><![CDATA[<p>Repeated deskewing corrupts the file's embedded metadata.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Browsers display standard rectangular image files regardless of prior deskewing transformations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Metadata loss is a separate concern from resampling.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -662,10 +662,10 @@
       <text>16 Question: Contrast Adjustment and Dynamic Range Optimization</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the danger of applying an aggressive 'Auto-Contrast' or global histogram equalization filter to a photograph of faded iron gall ink on aged paper?</p>]]></text>
+      <text><![CDATA[<p>What is the danger of pushing contrast adjustment too far on a faded document?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Contrast optimization stretches the luminance histogram using controlled transfer curves without clipping highlight or shadow data essential for legibility.</p>]]></text>
+      <text><![CDATA[<p>Contrast stretching separates faded ink from darkened paper, but over-adjusting deletes the faintest evidence entirely.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -674,27 +674,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It risks 'clipping' subtle tonal highlights and shadows, obliterating delicate hair-strokes, ink washes, and faint watermarks into solid black or pure white.</p>]]></text>
+      <text><![CDATA[<p>Clipping: the faintest strokes are crushed to solid black and features like watermarks are blown out to white, destroying evidence.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Unchecked histogram stretching clips extreme values, destroying delicate pale ink strokes and paper texture evidence.</p>]]></text>
+        <text><![CDATA[<p>Correct. Over-adjustment does not enhance the evidence; it deletes it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It permanently locks the image file so that it can never be opened in GIMP again.</p>]]></text>
+      <text><![CDATA[<p>The file size grows to the point where it cannot be served on the web.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Contrast adjustments modify pixel values, not file access permissions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Contrast adjustment does not meaningfully change file size.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It converts the manuscript's textual language into a different alphabet.</p>]]></text>
+      <text><![CDATA[<p>The image's colour profile is discarded, so colours can no longer be corrected.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Pixel filters alter luminance and color, not linguistic alphabets.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Profiles are handled separately from tonal adjustment.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It decreases the pixel resolution of the image sensor by 50 percent.</p>]]></text>
+      <text><![CDATA[<p>The coordinates of previously defined zones shift.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Contrast adjustments do not alter the image grid dimensions or sensor resolution.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Tonal changes do not move pixels; cropping and rotation do.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -705,10 +705,10 @@
       <text>17 Question: White Balance and Color Calibration: Applying ICC Profiles and Neutral Ramps</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In scientific digitization, how does an editor verify that white balance and color calibration transformations have accurately represented physical reality?</p>]]></text>
+      <text><![CDATA[<p>Why is an uncalibrated colour cast a scholarly problem rather than a cosmetic one?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>White balancing neutralizes studio lamp color casts against standardized gray patches, and ICC color profiles map device-specific RGB values into standardized color spaces.</p>]]></text>
+      <text><![CDATA[<p>Photograph a grey or colour reference with the page, so later viewers can tell ageing from lighting.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -717,27 +717,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>By measuring the known reflectance values and neutral RGB balances of the calibrated color target photographed within the scene.</p>]]></text>
+      <text><![CDATA[<p>A reader cannot tell whether the paper yellowed with age or the lamp was warm, so a claim about the object's colour becomes unverifiable.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A standardized target (e.g., ColorChecker) provides objective reference patches to calculate and verify color transformations.</p>]]></text>
+        <text><![CDATA[<p>Correct. This is why a grey or colour reference belongs in the frame at capture time.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By adjusting the colors until the parchment paper matches the editor's personal aesthetic preference on an uncalibrated office monitor.</p>]]></text>
+      <text><![CDATA[<p>Yellow images are harder to compress and produce larger files.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Subjective aesthetic adjustments violate scientific fidelity; objective color targets must guide calibration.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Colour cast has no meaningful effect on compression.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By converting the image into an 8-bit web-safe color palette.</p>]]></text>
+      <text><![CDATA[<p>Colour casts prevent text recognition software from running at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. 8-bit web palettes destroy color fidelity rather than calibrating it.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Recognition may be affected by contrast, but the issue here is evidential.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By ensuring that all pixels in the document have identical red, green, and blue values.</p>]]></text>
+      <text><![CDATA[<p>Moodle rejects images that are not in the sRGB colour space.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Equalizing all RGB values turns the entire image into a flat, monochromatic gray field.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. This is about scholarly accuracy, not platform requirements.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -748,10 +748,10 @@
       <text>18 Question: Spatial Filtering: Sharpening and Unsharp Masking</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does the classical 'Unsharp Masking' (USM) algorithm enhance the apparent sharpness of fuzzy scribal letterforms?</p>]]></text>
+      <text><![CDATA[<p>What does over-sharpening do to a manuscript image?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Unsharp masking enhances edge contrast along letterforms; careful radius and threshold controls prevent the amplification of paper grain noise.</p>]]></text>
+      <text><![CDATA[<p>Modest sharpening clarifies letterforms; heavy sharpening thickens strokes and misrepresents the hand.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -760,27 +760,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>By subtracting a blurred copy from the original image to generate a high-frequency edge mask, then boosting contrast specifically along detected edges.</p>]]></text>
+      <text><![CDATA[<p>It leaves bright halos along strokes and thickens letterforms, misrepresenting the hand.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Unsharp masking accentuates acutance by creating local contrast fringes (halos) along luminance boundaries.</p>]]></text>
+        <text><![CDATA[<p>Correct. For palaeography that is a distortion of the evidence, not just an ugly image.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By scanning the document with an ultraviolet laser to chemically harden the iron gall ink crystals.</p>]]></text>
+      <text><![CDATA[<p>It reveals detail that the lens did not capture.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Software spatial filters operate purely on digital pixel arrays, not physical manuscript chemistry.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Sharpening boosts edge contrast; it cannot add missing detail.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By deleting every second pixel row across the image matrix to increase apparent contrast.</p>]]></text>
+      <text><![CDATA[<p>It removes noise from the paper background.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Deleting pixel rows introduces severe aliasing artifacts and halves vertical resolution.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Sharpening usually amplifies noise rather than removing it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By using optical character recognition to replace degraded handwritten strokes with modern TrueType digital fonts.</p>]]></text>
+      <text><![CDATA[<p>It converts the image to greyscale as a side effect.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Sharpening filters enhance existing raster edge contrast; they do not replace cursive script with fonts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Sharpening does not change the colour mode.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -791,10 +791,10 @@
       <text>19 Question: Noise Reduction and Defect Masking</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must editors exercise extreme caution when applying digital noise reduction (such as median or bilateral filters) to high-resolution manuscript scans?</p>]]></text>
+      <text><![CDATA[<p>What rule governs how strong a noise filter may be on a historical document?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Noise reduction must use edge-preserving algorithms (such as bilateral filtering) sparingly to eliminate sensor grain without softening critical ink boundaries.</p>]]></text>
+      <text><![CDATA[<p>Use the gentlest possible noise filter, because anything that removes dust can also remove the faintest real marks.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -803,27 +803,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Aggressive noise filtering cannot distinguish between random sensor grain and genuine historical micro-features, such as tiny punctuation dots or delicate pen nib splatters.</p>]]></text>
+      <text><![CDATA[<p>The filter must never be larger than the smallest mark that carries meaning, such as a point of punctuation or an accent.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Heavy denoising smooths out high-frequency detail, frequently erasing punctuation marks, diacritics, and faint ink traits.</p>]]></text>
+        <text><![CDATA[<p>Correct. Anything strong enough to erase dust is strong enough to erase the faintest real marks.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Noise reduction algorithms invert the grammatical case of transcribed historical words.</p>]]></text>
+      <text><![CDATA[<p>Noise filters should be applied at maximum strength, then the image resharpened.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Image processing filters alter pixel values, not textual transcription files.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That sequence destroys fine detail and then fakes its edges back.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Noise filters will cause the TIFF file container to explode in file size by 500 percent.</p>]]></text>
+      <text><![CDATA[<p>Noise reduction is safe at any strength because it only affects the background.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Denoising typically increases compressibility and reduces compressed file sizes.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Filters cannot tell background speckle from faint ink.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Operating systems refuse to display denoised images on color monitors.</p>]]></text>
+      <text><![CDATA[<p>Noise filters should be applied only to the archival master, never to derivatives.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Denoised images are standard raster files fully supported by all modern operating systems.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The master must stay unedited; filtering belongs to derivatives.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -834,10 +834,10 @@
       <text>20 Question: Thresholding and Binarization: From Grayscale to Pure Black and White</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does local adaptive thresholding (such as the Sauvola or Niblack method) succeed on unevenly stained historical documents where global Otsu thresholding fails?</p>]]></text>
+      <text><![CDATA[<p>Why does a single whole-page threshold fail on most historical documents?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Global thresholding fails on aged, stained documents; local adaptive thresholding (e.g., Sauvola) calculates dynamic cutoffs per neighborhood to cleanly isolate text.</p>]]></text>
+      <text><![CDATA[<p>Local thresholding handles stains and shadows that a single whole-page cut-off ruins, but always keep the greyscale original.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -846,27 +846,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Adaptive methods compute dynamic threshold values for small local neighborhoods based on local mean and standard deviation, accommodating foxing and uneven lighting.</p>]]></text>
+      <text><![CDATA[<p>Uneven staining and shading mean one cut-off turns a shadowed corner solid black while erasing faint text elsewhere.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Global thresholds pick one cutoff for the whole image, blacking out shadowed areas; local adaptive methods adjust to local contrast.</p>]]></text>
+        <text><![CDATA[<p>Correct. Calculating a threshold locally, for each small area, handles this properly.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Adaptive methods use proprietary cloud neural networks that require commercial licensing.</p>]]></text>
+      <text><![CDATA[<p>Historical inks are brown rather than black, so thresholds cannot be calculated.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Sauvola and Niblack are classical, deterministic, open-source mathematical algorithms.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Brown ink is handled fine; uneven illumination and staining are the problem.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Global Otsu thresholding converts the image into a 24-bit full-color PNG file.</p>]]></text>
+      <text><![CDATA[<p>Thresholding requires a colour profile, which historical scans rarely include.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Otsu is a binarization algorithm that produces a 1-bit black and white output.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Binarization works on brightness and does not require a profile.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Adaptive thresholding physically bleaches the organic cellulose fibers in the historical paper.</p>]]></text>
+      <text><![CDATA[<p>A single threshold makes the file too large for transcription software.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Computational algorithms operate exclusively on digital matrices, not physical paper.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Binarized files are smaller; the problem is accuracy, not size.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -877,10 +877,10 @@
       <text>21 Question: Masking and Layer Compositing: Isolating Text from Background</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In advanced document enhancement, how does digital layer compositing assist scholars studying badly damaged or bleed-through manuscripts?</p>]]></text>
+      <text><![CDATA[<p>In the deterministic method for removing bleed-through, what makes the result defensible?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Masking and layer compositing use aligned stencils and mathematical channel operations to isolate legible text from parchment stains or show-through.</p>]]></text>
+      <text><![CDATA[<p>Bleed-through can be cancelled using a photograph of the other side, removing ghosts with evidence rather than guesswork.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -889,27 +889,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It allows mathematical operations (such as subtraction, division, or opacity blending) between registered multispectral or multi-light layers to separate ink from stains.</p>]]></text>
+      <text><![CDATA[<p>A photograph of the other side of the leaf proves where the ghost text came from, so nothing is invented.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Multi-layer compositing lets editors isolate text strokes, subtract verso bleed-through, or highlight faded traces through algorithmic channel blending.</p>]]></text>
+        <text><![CDATA[<p>Correct. The ghosts are removed using evidence rather than a guess about what lies beneath.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It permanently glues the original manuscript leaves together with chemical synthetic resin.</p>]]></text>
+      <text><![CDATA[<p>The software recognizes which strokes belong to the front and reconstructs the rest.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Compositing is a non-destructive digital image operation, completely independent of physical paper handling.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That describes an inferential method, which is the Friday lesson's territory.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It replaces historical handwriting with standardized modern machine-readable Unicode strings directly inside the TIFF raster.</p>]]></text>
+      <text><![CDATA[<p>The bleed-through is simply brightened until it becomes invisible.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Layer compositing blends pixel arrays; text encoding is managed separately in TEI XML.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That would also brighten the genuine faint strokes on the front.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It forces web browsers to display the document exclusively in reverse chronological order.</p>]]></text>
+      <text><![CDATA[<p>The verso is discarded after alignment, leaving only the original file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Compositing controls visual pixel layers, not document sequencing.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The verso image is the evidence and should be retained.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -920,10 +920,10 @@
       <text>22 Question: The Taxonomy of Digital Image Formats</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What three core technical characteristics define the taxonomy and scholarly suitability of a digital image file format?</p>]]></text>
+      <text><![CDATA[<p>Which four properties determine whether a file format is suitable for a given stage of your workflow?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Image formats are defined by bit depth, color space, compression mechanism (lossless vs lossy), and metadata support, dictating their role as preservation masters or web derivatives.</p>]]></text>
+      <text><![CDATA[<p>Bit depth, colour space, compression, and metadata decide what a format can carry — preserve in one format and publish in another.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -932,27 +932,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Bit depth per channel, supported color spaces, and compression mechanism (lossless versus lossy).</p>]]></text>
+      <text><![CDATA[<p>Bit depth, colour space, compression type, and whether it can carry metadata.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Bit depth (8 vs 16-bit), color space (sRGB, Adobe RGB, CIE L*a*b*), and compression determine archival fidelity and derivative utility.</p>]]></text>
+        <text><![CDATA[<p>Correct. They lead to one principle: preserve in one format and publish in another.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The year the software developer was born, the screen aspect ratio of the monitor, and the mouse sensitivity.</p>]]></text>
+      <text><![CDATA[<p>File extension, file size, resolution, and the software that created it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. These environmental factors have no bearing on the technical architecture of image containers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. These are surface facts rather than the properties that determine suitability.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The alphabetical sorting order of the document's file name on the operating system desktop.</p>]]></text>
+      <text><![CDATA[<p>Width, height, aspect ratio, and orientation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. File naming is a filesystem convention, not an inherent image format property.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Those describe the picture's shape, not the format's capabilities.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Whether the image contains watermarks, decorative clip art, or animated sound effects.</p>]]></text>
+      <text><![CDATA[<p>Licence, provenance, checksum, and storage location.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. These are content embellishments, not technical container specifications.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Those matter for curation but are not properties of the format.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -963,10 +963,10 @@
       <text>23 Question: TIFF: The Gold Standard for Archival Preservation</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why do archival standards bodies (such as FADGI and Metamorfoze) mandate uncompressed or losslessly compressed TIFF as the required format for master preservation files?</p>]]></text>
+      <text><![CDATA[<p>Why is TIFF used for preservation masters even though the files are very large?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Uncompressed or losslessly compressed 16-bit TIFF is the mandatory archival master format, preserving maximum color depth, spatial resolution, and embedded metadata.</p>]]></text>
+      <text><![CDATA[<p>TIFF is the preservation master because it is lossless and deep-toned; derivatives for the web are generated from it, never the reverse.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -975,27 +975,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>TIFF supports 16-bit depth, embeds complex ICC color profiles and EXIF/IPTC metadata, and introduces zero compression artifacts that degrade image fidelity.</p>]]></text>
+      <text><![CDATA[<p>Its compression is lossless, it supports 16-bit depth, and it carries technical metadata inside the file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. TIFF preserves every raw sensor pixel and bit of dynamic range losslessly, making it the undisputed standard for long-term preservation.</p>]]></text>
+        <text><![CDATA[<p>Correct. Web derivatives are then generated from the master, never the other way round.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>TIFF files are so small that millions of pages can fit onto a standard 1.44-megabyte floppy disk.</p>]]></text>
+      <text><![CDATA[<p>It is the only format that can be opened by every operating system.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Master TIFF files are massive (often 100 to 500 megabytes each) because they retain uncompressed pixel data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Portability is not the argument; fidelity is.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>TIFF is a proprietary format owned exclusively by Microsoft that cannot be opened on Linux or Mac computers.</p>]]></text>
+      <text><![CDATA[<p>It compresses better than JPEG at the same visual quality.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TIFF is an open, widely supported standard with complete cross-platform support.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TIFF files are much larger; that is the cost of losing nothing.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>TIFF automatically translates handwritten 18th-century French cursive into modern English prose.</p>]]></text>
+      <text><![CDATA[<p>It can be displayed directly by web browsers at any zoom level.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TIFF is a raster image container; it does not perform language translation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TIFFs are not served to the public; derivatives are.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1006,10 +1006,10 @@
       <text>24 Question: Pyramidal TIFF: The Foundation of Local IIIF Servers</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How is a Pyramidal TIFF structurally organized internally compared to a conventional single-image TIFF file?</p>]]></text>
+      <text><![CDATA[<p>What does a pyramidal TIFF add to an ordinary TIFF?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Pyramidal TIFFs store pre-computed multi-resolution tiled layers within a single file, enabling IIIF servers to deliver deep-zoom tiles instantly with minimal CPU overhead.</p>]]></text>
+      <text><![CDATA[<p>Pyramidal TIFFs let a IIIF server deliver single tiles instantly, bridging archival storage and public zooming.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1018,27 +1018,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It contains a multi-resolution image pyramid stored in separate directory headers, where each sub-resolution level is pre-divided into independent square tiles.</p>]]></text>
+      <text><![CDATA[<p>Several resolutions of the image, already cut into tiles, stored inside one file so a server can send a single tile immediately.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Pyramidal TIFFs embed multiple downsampled resolution layers, each organized into small tiles (e.g., 256x256), enabling instantaneous server random access.</p>]]></text>
+        <text><![CDATA[<p>Correct. It is the bridge between archival storage and public deep zoom.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It stacks images in a chronological triangular spiral that requires special 3D holographic glasses to view.</p>]]></text>
+      <text><![CDATA[<p>Lossy compression, which makes the file small enough to serve over the web.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The 'pyramid' refers to a mathematical hierarchy of 2D resolution levels, not a 3D visual object.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Pyramidal TIFFs remain losslessly compressed.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It strips away all metadata and reduces image resolution to a thumbnail to save disk space.</p>]]></text>
+      <text><![CDATA[<p>An embedded IIIF manifest describing the object.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Pyramidal TIFFs include the full master resolution at their base layer and are slightly larger than conventional TIFFs.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Manifests are separate files in the Presentation API.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It converts all raster pixels into an encrypted relational database query.</p>]]></text>
+      <text><![CDATA[<p>Automatic deskewing and contrast correction of each tile.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Pyramidal TIFFs remain standard raster TIFF files conforming to the baseline TIFF 6.0 specification.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Processing happens before tiling and is unrelated to it.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1049,10 +1049,10 @@
       <text>25 Question: JPEG: Discrete Cosine Transform and the Cost of Lossy Compression</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is standard JPEG compression strictly unacceptable for archival master preservation of historical documents?</p>]]></text>
+      <text><![CDATA[<p>Why is JPEG unacceptable as an archival master?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>JPEG achieves compact file sizes through lossy Discrete Cosine Transform compression, but discarding high-frequency data and generational loss make it unfit for archival masters.</p>]]></text>
+      <text><![CDATA[<p>JPEG is ideal for publishing and unacceptable as a master, because its discarded detail never comes back and repeated saving compounds the loss.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1061,27 +1061,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>JPEG uses lossy Discrete Cosine Transform compression that permanently discards subtle high-frequency image data, creating blocking and ringing artifacts around ink strokes.</p>]]></text>
+      <text><![CDATA[<p>Its compression permanently discards detail, and every re-save discards more.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Lossy compression irreversible discards pixel data, and repeated edits/re-savings cause cumulative generational degradation.</p>]]></text>
+        <text><![CDATA[<p>Correct. Saving at a higher quality later cannot restore what was thrown away.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>JPEG files cannot be viewed in standard web browsers or on mobile devices.</p>]]></text>
+      <text><![CDATA[<p>JPEG files cannot store colour profiles or camera metadata.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. JPEG is universally supported on web browsers; that is why it is used for delivery, not preservation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. JPEG can carry both; the objection is the permanent data loss.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>JPEG files are limited to a maximum resolution of 100 by 100 pixels.</p>]]></text>
+      <text><![CDATA[<p>JPEG images cannot be displayed at high resolution.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. JPEGs can support up to 65,535 pixels in each dimension.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. JPEGs can be very large; the issue is what compression removes.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The JPEG standard was declared illegal by international intellectual property courts in 2015.</p>]]></text>
+      <text><![CDATA[<p>JPEG is a proprietary format that may stop being supported.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The JPEG standard is widely used and legally free for standard digital operations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. JPEG is an open standard in universal use.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1092,10 +1092,10 @@
       <text>26 Question: PNG: Lossless Web Delivery and Alpha Transparency</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In what digital edition scenario is PNG preferred over JPEG for web delivery?</p>]]></text>
+      <text><![CDATA[<p>When is PNG the right choice over JPEG?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>PNG provides lossless Deflate compression and 8-bit alpha transparency, making it the preferred web derivative format for isolated text zones, stamps, and diagrams.</p>]]></text>
+      <text><![CDATA[<p>PNG is lossless and supports transparency, making it right for diagrams, overlays, and cut-out features like seals.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1104,27 +1104,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>When displaying cropped manuscript zones, seal cutouts, or line segments that require an 8-bit alpha transparency channel to overlay cleanly on web backgrounds.</p>]]></text>
+      <text><![CDATA[<p>When edges must stay crisp or parts of the image must be transparent — diagrams, overlays, and cut-out features such as seals.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. PNG supports true lossless Deflate compression and 8-bit alpha transparency channels, making it ideal for cutouts, diagrams, and overlay masks.</p>]]></text>
+        <text><![CDATA[<p>Correct. PNG is lossless, so repeated saving costs nothing, at the price of a larger file.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>When serving multi-gigabyte continuous-tone photograph albums over slow mobile internet connections.</p>]]></text>
+      <text><![CDATA[<p>Whenever the image will be published, since PNG is always higher quality.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Full photographic PNGs are significantly larger than JPEGs; JPEG is preferred for standard photographic delivery.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. For continuous-tone photographs of pages, JPEG delivers acceptable quality at much smaller size.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>When creating multi-page searchable PDF document binders for library loans.</p>]]></text>
+      <text><![CDATA[<p>When the image must carry an embedded colour calibration target.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Multi-page document delivery belongs in PDF or IIIF, not standalone PNG files.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Targets are photographed; they are not a format feature.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>When embedding uncompressed audio recordings of oral history interviews into image headers.</p>]]></text>
+      <text><![CDATA[<p>When the file must be readable by a IIIF server.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. PNG is a raster image format, not an audio container.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. IIIF servers work from pyramidal masters and can deliver several formats.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1135,10 +1135,10 @@
       <text>27 Question: GIF and Modern Web Formats: WebP, AVIF, and 8-Bit Palettes</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is the legacy GIF format obsolete for digitizing historical manuscripts?</p>]]></text>
+      <text><![CDATA[<p>Why is GIF unsuitable for reproducing a document?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Legacy GIF's 256-color palette is obsolete for manuscripts; modern formats like WebP and AVIF offer superior lossless and lossy compression for high-performance delivery.</p>]]></text>
+      <text><![CDATA[<p>GIF's 256-colour palette makes it unsuitable for documents; WebP and AVIF are the modern delivery formats, but JPEG and PNG remain the safe defaults.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1147,27 +1147,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>GIF is restricted to a maximum indexed palette of 256 colors, causing severe color quantization banding across subtle parchment tones and ink washes.</p>]]></text>
+      <text><![CDATA[<p>It allows only 256 colours and all-or-nothing transparency, so a photograph of a page becomes a mottled approximation with jagged edges.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. 8-bit indexed palettes cannot accurately reproduce continuous-tone historical manuscripts, destroying color subtleties.</p>]]></text>
+        <text><![CDATA[<p>Correct. WebP and AVIF are the modern alternatives, though JPEG and PNG remain the safe defaults.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>GIF files cannot be rendered on any modern computer built after 1995.</p>]]></text>
+      <text><![CDATA[<p>It uses lossy compression that discards more data than JPEG.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. GIF files are universally supported across all browsers, but are unsuited for continuous-tone scholarship.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. GIF's compression is lossless; its limitation is the colour palette.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>GIF requires a mandatory monthly subscription fee paid to the United Nations.</p>]]></text>
+      <text><![CDATA[<p>It cannot be displayed by modern browsers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The legacy Unisys LZW patents on GIF expired decades ago.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. GIF is still widely supported; it is simply the wrong tool here.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>GIF images cannot be displayed if the operating system language is set to English.</p>]]></text>
+      <text><![CDATA[<p>It cannot store images larger than 1000 pixels.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Image formats are language-independent binary protocols.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. There is no such limit; colour depth is the problem.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1178,10 +1178,10 @@
       <text>28 Question: PDF as an Archival Wrapper: PDF/A Standards and Pitfalls</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does standard, consumer-grade PDF fail as an archival preservation format for historical document masters unless restricted to PDF/A?</p>]]></text>
+      <text><![CDATA[<p>An archive sends you a PDF of your document. What are the two traps?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Standard PDFs risk font obsolescence and lossy compression; preservation requires PDF/A standards that enforce self-containment, embedded fonts, and device-independent color.</p>]]></text>
+      <text><![CDATA[<p>PDFs recompress images and often hide uncorrected recognition text, so never treat one as your image master or your transcription.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1190,27 +1190,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Standard PDFs can embed proprietary fonts, dynamic JavaScript, and lossy-compressed images, whereas PDF/A mandates device-independent color, font embedding, and static self-containment.</p>]]></text>
+      <text><![CDATA[<p>The images inside are usually recompressed and worse than the institution's master, and a hidden uncorrected text layer may be copied into your edition unnoticed.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Standard PDFs permit external dependencies and lossy compression; PDF/A enforces strict self-containment and ISO-standard preservation rules.</p>]]></text>
+        <text><![CDATA[<p>Correct. Always ask whether a better image exists, and never treat an automatic text layer as a transcription.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>PDF files cannot be opened on computers unless the user possesses an Adobe enterprise license.</p>]]></text>
+      <text><![CDATA[<p>PDFs cannot be opened without proprietary software, and they expire after a set period.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Many free and open-source readers open PDFs; the issue is long-term format obsolescence and dependency drift.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. PDF is an open format and files do not expire.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Standard PDFs automatically erase all textual metadata whenever a file is closed.</p>]]></text>
+      <text><![CDATA[<p>PDFs cannot contain more than one page image, and they discard all metadata.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Standard PDFs store metadata, but non-archival forms risk unsearchable or detached metadata.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. PDFs are multi-page containers and can carry metadata.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>PDF/A files are restricted to displaying only black and white text without any images.</p>]]></text>
+      <text><![CDATA[<p>PDFs store images only in greyscale, and they cannot be cropped.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. PDF/A supports full-color, high-resolution master and derivative images.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. PDFs carry colour images and pages can be extracted.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1221,10 +1221,10 @@
       <text>29 Question: The Conversion Pipeline: From Master TIFF to Tiled IIIF Pyramid</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What are the sequential transformation steps in converting a raw studio camera capture into an active IIIF service asset?</p>]]></text>
+      <text><![CDATA[<p>At what point in the pipeline should you measure coordinates for your TEI facsimile?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The archival conversion pipeline normalizes raw TIFF masters, generates pyramidal tiled derivatives using `vips`, and deploys them to compliant IIIF image servers.</p>]]></text>
+      <text><![CDATA[<p>Process first and measure second: cropping or deskewing an image invalidates every coordinate already written about it.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1233,27 +1233,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Calibrate raw sensor data, export uncompressed 16-bit master TIFF, generate a pyramidal tiled TIFF derivative with `vips`, and configure the IIIF server image directory.</p>]]></text>
+      <text><![CDATA[<p>After processing, because cropping and deskewing change every coordinate on the page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The canonical pipeline preserves the master TIFF, builds an optimized pyramidal tiled derivative with libvips, and exposes it via an Image API server.</p>]]></text>
+        <text><![CDATA[<p>Correct. Process first, then measure the image you actually published.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Compress the raw file to a low-res JPEG, delete the original, and email it as an unformatted attachment to Moodle.</p>]]></text>
+      <text><![CDATA[<p>Before processing, so the coordinates describe the untouched master.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Archival standards require maintaining pristine lossless masters and generating high-resolution pyramidal pyramids.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Your published image is what readers see, and its coordinates differ from the master's.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Print the photograph onto physical glossy paper, scan it with a flatbed scanner, and save it as a GIF.</p>]]></text>
+      <text><![CDATA[<p>At either point, since coordinates are stored as fractions of the page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Re-photographing or re-scanning introduces catastrophic generational analog noise.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TEI coordinates are absolute values describing one specific image.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Convert all pixel values into Roman numerals and paste them into an unformatted plain text document.</p>]]></text>
+      <text><![CDATA[<p>Only after the image is loaded into a IIIF viewer, which recalculates them.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Image pyramids are binary tiled raster structures, not text transcriptions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Viewers display coordinates; they do not correct ones written wrongly.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1264,10 +1264,10 @@
       <text>30 Question: The Deterministic Contract: Transparent Surrogates in the Digital Edition</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What constitutes the 'deterministic contract' between the digital editor and the scholarly public when publishing processed document facsimiles?</p>]]></text>
+      <text><![CDATA[<p>What does it mean to call the tools in this lesson deterministic, and why does it matter to your reader?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Deterministic image processing establishes an ethical scholarly contract: digital surrogates must be transparent, verifiable, and algorithmically accountable.</p>]]></text>
+      <text><![CDATA[<p>Deterministic tools let a reader verify that an image was corrected rather than altered, which is the standard Friday's AI methods will be measured against.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1276,27 +1276,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A methodological guarantee that all image adjustments are documented, reproducible, non-destructive to masters, and designed to clarify rather than falsify physical evidence.</p>]]></text>
+      <text><![CDATA[<p>The same input and settings always produce the same output, so a reader can verify that an image was corrected rather than altered.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Scholarly integrity requires transparent algorithms, archived processing scripts, preserved masters, and honest disclosure of any transformations.</p>]]></text>
+        <text><![CDATA[<p>Correct. That verifiability is the standard against which Friday's AI methods will be measured.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A legal contract signing over all commercial rights of the historical manuscript to the lead programmer.</p>]]></text>
+      <text><![CDATA[<p>They run without any human input, so no editorial bias can enter the image.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scholarly ethics and public trust have nothing to do with commercial copyright transfers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. You choose every parameter; determinism means the choices are repeatable, not absent.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A pledge to never allow readers to inspect the original physical document under any circumstances.</p>]]></text>
+      <text><![CDATA[<p>They never change the pixels of the file they are given.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Digital facsimiles invite and enrich physical autopsy; they never seek to ban physical inspection.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They change pixels extensively; the point is that the change is exactly repeatable.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>An agreement that all digital editions must look identical to printed 19th-century facsimile volumes.</p>]]></text>
+      <text><![CDATA[<p>They guarantee that the resulting image is an accurate record of the object.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Digital editions offer interactive dynamic capabilities that far exceed static print facsimiles.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Accuracy depends on capture and judgement; determinism only guarantees repeatability.</p>]]></text>
       </feedback>
     </answer>
   </question>
