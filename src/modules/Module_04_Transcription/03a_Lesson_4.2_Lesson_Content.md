@@ -67,7 +67,6 @@ Modern software finds the **baseline** instead — the invisible line the letter
 | Rectangle | A straight-sided box | Printed text only |
 | Pixel labelling | A blob of marked pixels | Odd shapes; but merges close lines |
 | Baseline plus shape | A bending line with a cut-out region | Sloping, crowded manuscript lines |
-| Object detection | A detected line "thing" | Complicated historical pages |
 
 Pixel labelling — marking every dot on the page as writing or not — was a step along the way, and it fails predictably. It glues together lines whose tall and low letters touch, and it breaks one line in two where the ink is faint. Both happen constantly in manuscripts.
 
@@ -259,8 +258,6 @@ The upside is that it uses context. It can lean on what it has read so far to ma
 | Are mistakes obvious? | Yes | No |
 | Best for | Steady hands; a first model | Damaged pages; variable hands |
 
-One refinement worth knowing: smaller add-on pieces can be slotted into TrOCR — one for old languages, one for handwriting style — which cuts error rates sharply without retraining the whole thing (AlKendi et al., 2024). That makes these models practical when training examples are scarce, which is the normal situation in manuscript work.
-
 If your scribe writes consistently, start with PyLaia. If the page is a mess, consider the other — but plan to check its output far more carefully.
 
 **Vocabulary.** *Transformer* — a newer design that can attend to any part of its input at once. *Context* — surrounding text used to help interpret an unclear bit.
@@ -315,7 +312,7 @@ Choose on purpose. A badly matched starting point wastes the typing you did yest
 
 Script matters most. A model trained on Latin handwriting has learned Latin letters. It will not help with Greek, however good it is. Date and language come next, because they decide the vocabulary and which short forms appear.
 
-Here is how stark the effect is. On a medieval Latin test set, a small model tuned for medieval Latin got 14.6% of characters wrong. Two large general-purpose commercial systems, on the very same pages, got 63.0% and 84.7% wrong (Mattingly et al., 2024). The small specialist has a tiny fraction of the size and wins because it has actually seen scribal handwriting, odd joined letters, and unusual page layouts.
+Here is how stark the effect is. On a medieval Latin test set, a small model tuned for medieval Latin got 14.6% of characters wrong. A large general-purpose commercial system, on the very same pages, got 84.7% wrong (Mattingly et al., 2024). The small specialist has a tiny fraction of the size and wins because it has actually seen scribal handwriting, odd joined letters, and unusual page layouts.
 
 Bigger is not better. *Matched* is better. This is the most counter-intuitive fact in the whole topic, and Friday will show it to you in a far more dramatic form.
 
@@ -640,7 +637,7 @@ Worth understanding before Friday, because the result goes against instinct.
 
 The general AI models are enormous, trained on staggering amounts of material. Your model is tiny and learned from a few dozen lines of one scribe. Instinct says the big one should win.
 
-On historical manuscripts it usually does not, and the gap is huge. On a medieval Latin test set, a model tuned for medieval Latin got 14.6% of characters wrong, while two large commercial systems scored 63.0% and 84.7% on identical pages (Mattingly et al., 2024). On historical English, GPT-4o got 52.23% wrong; on historical German, 77.42% (AlKendi et al., 2024).
+On historical manuscripts it usually does not, and the gap is huge. On a medieval Latin test set, a model tuned for medieval Latin got 14.6% of characters wrong, while a large commercial system scored 84.7% on identical pages (Mattingly et al., 2024). On historical English, GPT-4o got 52.23% wrong; on historical German, 77.42% (AlKendi et al., 2024).
 
 The same models are superb on *modern* handwriting. GPT-4o gets 1.39% wrong on a modern English test set — as good as purpose-built tools (AlKendi et al., 2024).
 

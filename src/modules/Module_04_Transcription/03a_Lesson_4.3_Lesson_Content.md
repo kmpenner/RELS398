@@ -66,14 +66,12 @@ Have this in front of you before you run your own test.
 | Historical English | GPT-4o | 52.23% | 72.16% |
 | Historical English | Claude 3.5 Sonnet | 40.87% | 59.41% |
 | Historical German | GPT-4o | 77.42% | 97.59% |
-| Historical German | Qwen2-VL-7B | 76.25% | 97.77% |
 | Medieval Latin | Tuned specialist | 14.60% | — |
-| Medieval Latin | DeepSeek-OCR | 63.00% | — |
 | Medieval Latin | Mistral-OCR-3 | 84.70% | — |
 
 Read rows one and three together. The same model. The same language. Nearly forty times worse, and the only thing that changed is the century (AlKendi et al., 2024).
 
-Read the last three rows together. On identical medieval Latin pages, a tuned specialist a fraction of the size got 14.6% wrong, while two large commercial systems got 63.0% and 84.7% wrong (Mattingly et al., 2024).
+Read the last two rows together. On identical medieval Latin pages, a tuned specialist a fraction of the size got 14.6% wrong, while a large commercial system got 84.7% wrong (Mattingly et al., 2024).
 
 Pause on the 97% word error on historical German. A word score near 100% means essentially nothing came out right. That is not weak performance. That is failure — at a job the same model does beautifully on modern material.
 
