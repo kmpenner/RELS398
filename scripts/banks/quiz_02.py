@@ -67,40 +67,57 @@ reading_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #c29b
 
 # 4. Watch List
 watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #3d5a80; background-color: #f8fafc; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #3d5a80; margin-top: 0;">Curated Media & Technical Walkthroughs</h4>
-    <p>Review these video demonstrations before completing your workshop assignment:</p>
-    <ul>
-        <li><strong>Navigating Trismegistos and Pinakes:</strong> Resolving conflicting shelfmarks and cross-referencing TM numbers across international repositories (16 mins).</li>
-        <li><strong>TEI <code>msDesc</code> Encoding Masterclass:</strong> Live encoding of a complex composite codex with multiple quires, hands, and decoration tiers in Oxygen XML (22 mins).</li>
-        <li><strong>Auditing AI Metadata Pipelines:</strong> Constructing Python RelaxNG and Schematron validators to catch hallucinations in LLM-generated TEI headers (18 mins).</li>
-    </ul>
+    <h4 style="color: #3d5a80; margin-top: 0;">Before the Workshop: Three Things to Look At</h4>
+    <p>These are short, and they are not background reading &mdash; each one answers a question you will hit in the workshop. Spend about twenty minutes in total. Come with the notes from step 3.</p>
+    <ol>
+        <li style="margin-bottom:0.6rem;"><strong>Open a real catalogue record and read it slowly.</strong> Find your own document in its holding institution's online catalogue. Do not skim it. For every field you see, ask: <em>is this describing the physical object, or the text written on it?</em> Cataloguers separate those two things, and the TEI elements you will write &mdash; <code>&lt;msContents&gt;</code> for what it says, <code>&lt;physDesc&gt;</code> for what it is &mdash; are that same split. Write down two fields you could not confidently put in one box or the other.</li>
+        <li style="margin-bottom:0.6rem;"><strong>Look at a finished <code>&lt;msDesc&gt;</code> before you write one.</strong> In the TEI Guidelines, Chapter 10 (<em>Manuscript Description</em>) opens with complete worked examples. Read one all the way through without trying to understand every tag. You are looking for the <em>shape</em>: identifier first, then contents, then physical description. <span style="color:#475569;">A <code>&lt;msDesc&gt;</code> is just a catalogue record written in XML &mdash; the same facts a library card holds, tagged so a computer can find each one.</span></li>
+        <li style="margin-bottom:0.6rem;"><strong>Try to look your document up in Trismegistos or VIAF, and expect to fail.</strong> Trismegistos indexes ancient texts; VIAF indexes names. None of your four documents is an ancient Greek manuscript, so at least one of these lookups will come back empty. <strong>That is the exercise, not a mistake.</strong> Note exactly what you searched and what came back, because "I checked this registry and it has no record of my document" is a finding you will be graded on &mdash; and it is the finding most students skip.</li>
+    </ol>
+    <p style="margin-bottom:0; font-size:0.92rem; color:#475569;"><strong>If a term stops you</strong> &mdash; shelfmark, witness, authority file, recto &mdash; it is defined in the lesson text for this module. Nothing here assumes you have met these words before this course.</p>
 </div>"""
 
 # 5. Workshop
 ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #c2593f; background-color: #fdfaf8; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #c2593f; margin-top: 0;">Workshop: Codicological TEI Header & Authority Reconciliation</h4>
-    <p><strong>Overview:</strong> In this workshop, you will catalogue an assigned un-digitized Greek manuscript witness. You will query Trismegistos and Pinakes to identify authority records, construct a complete, validated TEI <code>&lt;msDesc&gt;</code> block, and audit an LLM-generated metadata record for hallucinated codicological data.</p>
-    <p><strong>Deadlines:</strong> Comparison Post due Friday by 11:00 PM; Peer Reviews due Monday by 11:00 PM.</p>
+    <h4 style="color: #c2593f; margin-top: 0;">Workshop: Cataloguing Your Own Document</h4>
+    <p style="font-size:0.95rem; color:#475569;"><strong>In one sentence:</strong> you are going to write a catalogue record for your document &mdash; the kind of description a library writes &mdash; but in XML, and then check whether an AI can do the same job without lying to you.</p>
+    <p><strong>Overview:</strong> In this workshop you will catalogue <em>your own</em> chosen witness &mdash; <strong>one page of one document</strong> &mdash; and there are only four of you, so your upstream research becomes a shared class resource.</p>
+    <p>Each of you has selected a document that falls outside the Greco-Roman manuscript tradition that most cataloguing tools were built for. That is the point of the exercise, not an obstacle to it. You will identify which <em>authority files</em> &mdash; the official registries that give a document a permanent identifier, so two scholars can be certain they mean the same object &mdash; <em>actually</em> govern your document, construct a validated TEI <code>&lt;msDesc&gt;</code> block describing it, and audit an LLM-generated metadata record for hallucinated codicological data.</p>
+    <p><strong>The four witnesses:</strong></p>
+    <ul>
+        <li><strong>Jay</strong> &mdash; a Dickinson manuscript (Amherst, 19th c.; American manuscript tradition). Note: her <em>poems</em> are open access while her <em>letters</em> are network-restricted, so the object has to be a poem or a poem enclosed in a letter.</li>
+        <li><strong>Ace</strong> &mdash; a French declaration or decree of 1791 (Revolutionary France; post-1789 continental archival tradition, Archives nationales / Pierrefitte).</li>
+        <li><strong>Olyvia</strong> &mdash; a handwritten letter by Maud Lewis (Nova Scotia folk artist, 1903&ndash;1970; 20th-century Canadian/Maritime personal correspondence).</li>
+        <li><strong>Andromeda</strong> &mdash; the Peace and Friendship Treaty of 1752 (Mi'kma'ki / Nova Scotia; colonial legal instrument, printed bilingual proclamation, Nova Scotia Archives RG 1 vol 430 no 2).</li>
+    </ul>
+    <p><strong>A caution that applies to all four:</strong> a document is not a "manuscript witness" merely because it is old. Some of these objects are manuscript, some are print, and at least one has no surviving original at all. Deciding what your object <em>is</em> &mdash; and therefore which descriptive categories honestly apply to it &mdash; is the first and hardest part of this assignment.</p>
+    <p><strong>Deliverables:</strong> a validated TEI <code>&lt;msDesc&gt;</code> snippet, plus a 300&ndash;500 word comparison of your manual catalogue against an LLM's attempt at the same task. Post your comparison for peer review.</p>
+    <p><strong>Deadlines:</strong> the submission and assessment dates shown in this workshop's Moodle settings.</p>
 </div>"""
 
 ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
+    <p><strong>Scope &mdash; one page of one document.</strong> Your project describes a <em>single page</em> of a single document: one sheet, leaf, fragment, or printed face, described completely. Do not work across several items.</p>
+    <p style="font-size:0.93rem; color:#475569;"><strong>What &ldquo;one page&rdquo; means for your object</strong>, since the phrase comes from codicology and fits a bound manuscript better than the rest: for a codex it is one complete recto or verso; for a loose sheet, scrap, or broadside it is that one complete sheet; for a printed decree it is one page of the impression. If your object is torn or fragmentary, say so, and state in a sentence why it still counts as a describable whole. If it does not, choose another page &mdash; there is no penalty for switching early, and a fragment that cannot be described completely will cost you later.</p>
     <ol>
-        <li>Select your assigned manuscript shelfmark from the course inventory.</li>
-        <li>Lookup and verify authority IDs in Trismegistos (TM), Pinakes, and Diktyon.</li>
-        <li>Write a valid TEI XML snippet containing <code>&lt;teiHeader&gt;</code> with full <code>&lt;msIdentifier&gt;</code>, <code>&lt;msContents&gt;</code>, and <code>&lt;physDesc&gt;</code> (including support, foliation, layout, and scribal hands).</li>
-        <li>Prompt an LLM (e.g. Claude or GPT-4) to extract the same metadata from a raw library catalogue entry, and identify at least two subtle hallucinations or schema violations.</li>
-        <li>Submit your validated TEI snippet and a <strong>300–500 word comparison</strong> detailing how structured schemas enforce scholarly rigor against probabilistic AI errors.</li>
+        <li><strong>Establish what your object actually is.</strong> Record the holding institution, the shelfmark or reference number, and whether you are looking at the original, a contemporary copy, a later transcript, or a printed edition. If no original survives, say so and name the oldest extant exemplar &mdash; that is a finding, not a gap.</li>
+        <li><strong>Identify the authority files that govern your document, and justify them.</strong> Trismegistos, Pinakes, and Diktyon serve Greek literary manuscripts; they do not describe your four documents. Name the registries that <em>do</em> apply &mdash; see the Authority Control card in the workshop resources for starting points &mdash; and record at least two stable identifiers (ARK, call number, VIAF, or equivalent) with the exact syntax you found them in. If a standard authority file exists but has no record for your object, state that; a verified absence is a legitimate result.</li>
+        <li><strong>Write a valid TEI XML snippet</strong> containing <code>&lt;teiHeader&gt;</code> with full <code>&lt;msIdentifier&gt;</code>, <code>&lt;msContents&gt;</code>, and <code>&lt;physDesc&gt;</code>. Describe the physical object you have: support and material, extent, layout, script or type, hands or printers, seals, watermarks, and condition. <em>Use only the categories that honestly apply.</em> A printed broadside has no quires and no scribal hand; forcing empty elements to fill a template is worse than omitting them, and leaving a category out with a reason is the correct scholarly move.</li>
+        <li><strong>Prompt an LLM</strong> (e.g. Claude or GPT-4) to extract the same metadata from a raw catalogue entry or archival description of your document, and identify <strong>at least two subtle hallucinations or schema violations</strong> &mdash; errors that survive automatic validation. Confident, well-formed, schema-valid metadata that is simply <em>false</em> counts, and is the most important category to catch.</li>
+        <li><strong>Submit your validated TEI snippet and a 300&ndash;500 word comparison</strong> detailing where the machine beat you, where it lied to you, and what that implies for structured schemas as a defence against probabilistic error.</li>
     </ol>
+    <p style="margin-bottom:0;"><strong>Note on the exercise.</strong> Your four documents are not Greek manuscripts, and the standard cataloguing vocabulary will not always fit them. Where you have to make a judgement call &mdash; about genre, about which element to use, about whether to describe something at all &mdash; write one sentence saying why. Those sentences are graded, and they are the part of this assignment that transfers to any future document you catalogue.</p>
 </div>"""
 
 ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
+    <h4 style="margin-top: 0;">Peer Assessment Rubric (10 pts)</h4>
+    <p style="font-size:0.92rem; color:#475569; margin-top:0;">Peer review is blind and constructive: for each criterion, state what earns credit and name one thing that would improve it. "Looks good" earns nothing.</p>
     <ul>
-        <li><strong>TEI XML Validity & Schema Compliance (4 pts):</strong> The <code>msDesc</code> snippet is well-formed XML, validates against the TEI P5 schema, and properly nests codicological elements.</li>
-        <li><strong>Authority Control & Accuracy (3 pts):</strong> The submission correctly cross-references standard authority records (TM, Pinakes) and uses accurate CTS URN syntax.</li>
-        <li><strong>Critical AI Audit (3 pts):</strong> The comparative reflection precisely diagnoses model hallucinations and explains the methodological necessity of deterministic validation.</li>
+        <li><strong>TEI XML Validity &amp; Codicological Fit (4 pts):</strong> The <code>msDesc</code> snippet is well-formed and validates against TEI P5, and the codicological elements it uses <em>actually describe this object</em>. Two failure modes to watch for: (a) malformed or out-of-order markup; (b) a technically valid snippet that has been force-fitted to a template &mdash; empty <code>&lt;handNote&gt;</code> elements on a printed document, invented quite structures, or a <code>&lt;supportDesc&gt;</code> that says nothing verifiable. Omission with a stated reason scores full marks; fabrication scores zero on this criterion.</li>
+        <li><strong>Authority Control &amp; Sourcing (3 pts):</strong> The submission names the authority files that genuinely govern this document and records stable identifiers in their correct syntax (ARK, call number, VIAF, or equivalent). Credit the justification, not the quantity of links. A well-argued statement that a standard registry has <em>no</em> record for the object &mdash; with evidence that it was checked &mdash; earns the same credit as a successful lookup. Citing an irrelevant registry without explaining why it applies does not.</li>
+        <li><strong>Critical AI Audit (3 pts):</strong> The comparison precisely diagnoses at least two <em>subtle</em> model errors &mdash; failures that pass schema validation &mdash; and explains why deterministic validation caught the structural ones but could not catch the false ones. The strongest responses show a case where the schema passed a confident falsehood, and say what a human had to catch instead.</li>
     </ul>
+    <p style="margin-bottom:0; font-size:0.92rem; color:#475569;"><strong>Marking guide:</strong> 9&ndash;10 exceptional; 7&ndash;8 solid and defensible; 5&ndash;6 complete but uncritical (typically: valid markup, real identifiers, but an AI audit that only catches obvious errors); below 5 means a criterion is unaddressed or the markup does not validate.</p>
 </div>"""
 
 quiz_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #3d5a80; background-color: #f8fafc; border-radius: 6px; padding: 1.25rem;">

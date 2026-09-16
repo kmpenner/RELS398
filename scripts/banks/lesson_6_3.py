@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Topic_06_Normalization"
+TOPIC = "Module_06_Normalization"
 TITLE = "AI-Assisted Normalization and the Risk of Over-Normalization"
 
 QUESTIONS = [

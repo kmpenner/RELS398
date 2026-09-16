@@ -78,29 +78,65 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #818cf8
 
 # 5. Workshop
 ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #c2593f; background-color: #fdfaf8; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #c2593f; margin-top: 0;">Workshop: IIIF Manifest Assembly & Canvas Coordinate Mapping</h4>
-    <p><strong>Overview:</strong> In this workshop, you will build a compliant IIIF Presentation 3.0 JSON-LD Manifest for a two-page manuscript opening, construct a corresponding TEI <code>&lt;facsimile&gt;</code> element mapping line zones to pixel bounding boxes, and load both into a local Mirador viewer instance.</p>
-    <p><strong>Deadlines:</strong> Comparison Post due Friday by 11:00 PM; Peer Reviews due Monday by 11:00 PM.</p>
+    <h4 style="color: #c2593f; margin-top: 0;">Workshop: Anchoring Your Page to Its Image</h4>
+    <p><strong>Overview:</strong> Your TEI header describes your document. Nothing in your file yet points at a picture of it. In this workshop you attach the image: you establish which image you are entitled to use, measure it, write a TEI <code>&lt;facsimile&gt;</code> that maps regions of that image, and link those regions to your text.</p>
+    <p>This is the Module 3 version of the three-step cycle. You will get your coordinates twice &mdash; once by eye and once from a tool that measures instead of guessing &mdash; and the difference between the two is part of what you submit.</p>
+    <p><strong>A note on IIIF.</strong> Whether your holding institution publishes IIIF is outside your control and differs for each of your four documents. So the manifest task below is written as a choice: if your repository serves IIIF, examine what it actually gives you; if it does not, that is a finding about the state of your document's digitization, and you write it up as one. Neither path is worth more marks.</p>
+    <p><strong>Deliverables:</strong> a validated TEI <code>&lt;facsimile&gt;</code> block, an image provenance record, your coordinate comparison, and a 300&ndash;500 word reflection. Post them for peer review.</p>
+    <p><strong>Deadlines:</strong> the submission and assessment dates shown in this workshop's Moodle settings.</p>
 </div>"""
 
 ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
+    <p style="font-size:0.93rem; color:#475569;">Work on the <strong>same one page</strong> you catalogued in Workshop 2. Everything below goes in your project repository and gets committed as you work.</p>
     <ol>
-        <li>Construct a valid IIIF 3.0 JSON-LD manifest (<code>manifest.json</code>) defining two Canvases for recto and verso of your assigned manuscript leaf.</li>
-        <li>Extract image coordinates for three distinct textual lines (using pixel coordinates <code>x,y,w,h</code>).</li>
-        <li>Write a TEI <code>&lt;facsimile&gt;</code> block containing <code>&lt;surface&gt;</code> and <code>&lt;zone&gt;</code> elements linked to your TEI <code>&lt;text&gt;</code> lines using <code>@facs</code>.</li>
-        <li>Verify your manifest in the online IIIF Manifest Validator and load it into Mirador.</li>
-        <li>Submit your JSON manifest, TEI snippet, and a <strong>300–500 word reflection</strong> on how IIIF decouples image hosting from scholarly annotation architectures.</li>
+        <li><strong>Get the best image you are allowed to use, and say where it came from.</strong> In most cases this is the holding institution's digitized surrogate. Record, in a file called <code>IMAGE_PROVENANCE.md</code>:
+            <ul>
+                <li>the URL you downloaded it from, and the date;</li>
+                <li>the file name, format, and file size;</li>
+                <li>whether a higher-resolution version exists that you did not take, and why (paywall, login, reading-room only, no larger version offered);</li>
+                <li>if you photographed or scanned the object yourself: the device, the lighting, whether a ruler or colour reference was in frame, and any handling constraint you worked under.</li>
+            </ul>
+        </li>
+        <li><strong>Measure the image twice.</strong>
+            <ul>
+                <li><em>By eye:</em> open it in a viewer and write down the width and height you see reported.</li>
+                <li><em>By tool:</em> run <code>file yourimage.jpg</code>, or <code>identify -format "%w x %h" yourimage.jpg</code> if you have ImageMagick, or <code>python3 labs/make_surface.py yourimage.jpg</code>.</li>
+                <li><em>If your repository serves IIIF:</em> fetch the image service's <code>info.json</code> and record the <code>width</code> and <code>height</code> it reports for the master. Note whether that master is larger than your download. <strong>If it does not serve IIIF, record that you checked and where you looked</strong> &mdash; a verified absence is a result, and it earns the same credit.</li>
+            </ul>
+            Record all the numbers you got, including any that disagreed.
+        </li>
+        <li><strong>Write the TEI <code>&lt;facsimile&gt;</code>.</strong> In your <code>witness.xml</code>, between <code>&lt;/teiHeader&gt;</code> and <code>&lt;text&gt;</code>, add:
+            <ul>
+                <li>one <code>&lt;surface&gt;</code> with an <code>@xml:id</code> and the real <code>@ulx @uly @lrx @lry</code> of your image;</li>
+                <li>a <code>&lt;graphic&gt;</code> pointing at the image (a relative path if the file is in your repository, the full URL if it is not);</li>
+                <li><strong>at least three <code>&lt;zone&gt;</code> elements</strong> marking features that matter on <em>your</em> document &mdash; a heading, a signature, a seal, a stamp, a column, a correction, a printer's line, an area of damage. Give each a <code>@type</code> you can defend;</li>
+                <li>at least one link from your text into the facsimile, using <code>@facs</code> on <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code>, or <code>&lt;div&gt;</code>. The value starts with <code>#</code>.</li>
+            </ul>
+            Validate against <code>msdesc.rng</code> and drive the Problems panel to <strong>0 errors</strong>. Remember that the schema cannot check whether a <code>@facs</code> pointer aims at an id that exists &mdash; check that yourself.
+        </li>
+        <li><strong>Settle the rights question in one short section</strong> of <code>IMAGE_PROVENANCE.md</code>. The rights in the object and the licence on the digital image are separate. State the licence or terms of use, quote the credit line the institution requires, and answer one question: <em>are you permitted to produce a cropped or altered derivative of this image?</em> If you are not, say what that rules out and note that zones point at regions without creating a new file.</li>
+        <li><strong>Choose one and do it:</strong>
+            <ul>
+                <li><em>If your document is served by IIIF:</em> open its manifest, and report what it contains &mdash; how many Canvases, what the labels are, what metadata fields the institution chose to publish, and one thing you would want that is missing.</li>
+                <li><em>If it is not:</em> write the case for what a manifest of your page would need to contain, and describe concretely what is currently lost by its absence &mdash; what can a reader of your edition not do that a reader of a IIIF-served edition can?</li>
+            </ul>
+        </li>
+        <li><strong>Write a 300&ndash;500 word reflection</strong> on this question: <em>where did your eye disagree with the tool, and which of you was wrong?</em> Report your coordinate numbers, say what caused each discrepancy, and then address the part no tool settles &mdash; how you decided which three regions deserved a zone, and what a reader can check because you drew them.</li>
+        <li><strong>Submit:</strong> your <code>&lt;facsimile&gt;</code> block, your <code>IMAGE_PROVENANCE.md</code>, and the reflection. Commit your work as you go, not in one commit at the end.</li>
     </ol>
+    <p style="margin-bottom:0;"><strong>Note on fit.</strong> The vocabulary of this module &mdash; folio, recto, opening, leaf &mdash; comes from bound manuscripts, and most of your documents are not bound manuscripts. Use the terms that honestly describe your object, and where you have to make a judgement call, write one sentence saying why. Those sentences are graded.</p>
 </div>"""
 
 ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
+    <h4 style="margin-top: 0;">Peer Assessment Rubric (10 pts)</h4>
+    <p style="font-size:0.92rem; color:#475569; margin-top:0;">Peer review is blind and constructive: for each criterion, say what earns credit and name one specific improvement. "Looks good" earns nothing.</p>
     <ul>
-        <li><strong>IIIF Manifest Validity (4 pts):</strong> The JSON-LD manifest strictly conforms to the IIIF Presentation 3.0 API schema with valid Canvases and Painting annotations.</li>
-        <li><strong>TEI Facsimile Precision (3 pts):</strong> The <code>&lt;zone&gt;</code> coordinates accurately map bounding boxes to transcription lines without coordinate mismatch.</li>
-        <li><strong>Critical Reflection (3 pts):</strong> The reflection clearly analyzes how the separation of Canvas coordinate space from pixel resolution enables perpetual interoperability.</li>
+        <li><strong>Facsimile Validity &amp; Fit (4 pts):</strong> The block validates, and the coordinates are coherent &mdash; each zone lies inside its surface, and the four attributes are corners rather than width and height. Every <code>@facs</code> points at an <code>xml:id</code> that exists; check this by eye, because the schema does not. The three zones mark features that genuinely exist on <em>this</em> object, with defensible <code>@type</code> values. A zone invented to fill a quota, or a <code>@type</code> borrowed from codicology that does not apply, scores zero on that zone.</li>
+        <li><strong>Image Provenance &amp; Measurement (3 pts):</strong> The source URL, date, format, and dimensions are recorded, and the measurements are reported with any disagreement between them rather than silently reconciled. The IIIF check is answered either way, with evidence of where the student looked. Credit the honesty of the record: "the only public image is 900 px wide and too small to read the marginal note" is a stronger submission than a tidy one that hides the limitation.</li>
+        <li><strong>Rights &amp; Reflection (3 pts):</strong> Object rights and image licence are treated as separate questions, the terms are quoted rather than paraphrased from memory, and the derivative question is answered directly. The reflection reports real numbers, diagnoses the cause of each discrepancy, and says how the zone choices were made. A reflection that only praises the tool's accuracy has missed the point: the tool cannot choose the zones.</li>
     </ul>
+    <p style="margin-bottom:0; font-size:0.92rem; color:#475569;"><strong>Marking guide:</strong> 9&ndash;10 exceptional; 7&ndash;8 solid and defensible; 5&ndash;6 complete but uncritical (typically: a valid block, real numbers, but no account of judgement); below 5 means a criterion is unaddressed or the markup does not validate.</p>
 </div>"""
 
 quiz_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #818cf8; background-color: #f8fafc; border-radius: 6px; padding: 1.25rem;">

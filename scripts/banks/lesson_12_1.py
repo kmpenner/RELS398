@@ -4,7 +4,7 @@ One question per content page, in page order.
 """
 from question_bank import Q
 
-TOPIC = "Topic_12_Commentary"
+TOPIC = "Module_12_Commentary"
 TITLE = "Drafting Scholarly Commentary Notes by Hand: Categories, Anchors, and TEI Encoding"
 
 QUESTIONS = [

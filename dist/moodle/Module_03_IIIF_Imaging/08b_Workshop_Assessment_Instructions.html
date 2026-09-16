@@ -1,8 +1,10 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
+    <h4 style="margin-top: 0;">Peer Assessment Rubric (10 pts)</h4>
+    <p style="font-size:0.92rem; color:#475569; margin-top:0;">Peer review is blind and constructive: for each criterion, say what earns credit and name one specific improvement. "Looks good" earns nothing.</p>
     <ul>
-        <li><strong>IIIF Manifest Validity (4 pts):</strong> The JSON-LD manifest strictly conforms to the IIIF Presentation 3.0 API schema with valid Canvases and Painting annotations.</li>
-        <li><strong>TEI Facsimile Precision (3 pts):</strong> The <code>&lt;zone&gt;</code> coordinates accurately map bounding boxes to transcription lines without coordinate mismatch.</li>
-        <li><strong>Critical Reflection (3 pts):</strong> The reflection clearly analyzes how the separation of Canvas coordinate space from pixel resolution enables perpetual interoperability.</li>
+        <li><strong>Facsimile Validity &amp; Fit (4 pts):</strong> The block validates, and the coordinates are coherent &mdash; each zone lies inside its surface, and the four attributes are corners rather than width and height. Every <code>@facs</code> points at an <code>xml:id</code> that exists; check this by eye, because the schema does not. The three zones mark features that genuinely exist on <em>this</em> object, with defensible <code>@type</code> values. A zone invented to fill a quota, or a <code>@type</code> borrowed from codicology that does not apply, scores zero on that zone.</li>
+        <li><strong>Image Provenance &amp; Measurement (3 pts):</strong> The source URL, date, format, and dimensions are recorded, and the measurements are reported with any disagreement between them rather than silently reconciled. The IIIF check is answered either way, with evidence of where the student looked. Credit the honesty of the record: "the only public image is 900 px wide and too small to read the marginal note" is a stronger submission than a tidy one that hides the limitation.</li>
+        <li><strong>Rights &amp; Reflection (3 pts):</strong> Object rights and image licence are treated as separate questions, the terms are quoted rather than paraphrased from memory, and the derivative question is answered directly. The reflection reports real numbers, diagnoses the cause of each discrepancy, and says how the zone choices were made. A reflection that only praises the tool's accuracy has missed the point: the tool cannot choose the zones.</li>
     </ul>
+    <p style="margin-bottom:0; font-size:0.92rem; color:#475569;"><strong>Marking guide:</strong> 9&ndash;10 exceptional; 7&ndash;8 solid and defensible; 5&ndash;6 complete but uncritical (typically: a valid block, real numbers, but no account of judgement); below 5 means a criterion is unaddressed or the markup does not validate.</p>
 </div>

@@ -1,9 +1,10 @@
 <div class="card p-3 mb-3" style="border-left: 5px solid #3d5a80; background-color: #f8fafc; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #3d5a80; margin-top: 0;">Curated Media & Technical Walkthroughs</h4>
-    <p>Review these video demonstrations before completing your workshop assignment:</p>
-    <ul>
-        <li><strong>Navigating Trismegistos and Pinakes:</strong> Resolving conflicting shelfmarks and cross-referencing TM numbers across international repositories (16 mins).</li>
-        <li><strong>TEI <code>msDesc</code> Encoding Masterclass:</strong> Live encoding of a complex composite codex with multiple quires, hands, and decoration tiers in VS Code (22 mins).</li>
-        <li><strong>Auditing AI Metadata Pipelines:</strong> Constructing Python RelaxNG and Schematron validators to catch hallucinations in LLM-generated TEI headers (18 mins).</li>
-    </ul>
+    <h4 style="color: #3d5a80; margin-top: 0;">Before the Workshop: Three Things to Look At</h4>
+    <p>These are short, and they are not background reading &mdash; each one answers a question you will hit in the workshop. Spend about twenty minutes in total. Come with the notes from step 3.</p>
+    <ol>
+        <li style="margin-bottom:0.6rem;"><strong>Open a real catalogue record and read it slowly.</strong> Find your own document in its holding institution's online catalogue. Do not skim it. For every field you see, ask: <em>is this describing the physical object, or the text written on it?</em> Cataloguers separate those two things, and the TEI elements you will write &mdash; <code>&lt;msContents&gt;</code> for what it says, <code>&lt;physDesc&gt;</code> for what it is &mdash; are that same split. Write down two fields you could not confidently put in one box or the other.</li>
+        <li style="margin-bottom:0.6rem;"><strong>Look at a finished <code>&lt;msDesc&gt;</code> before you write one.</strong> In the TEI Guidelines, Chapter 10 (<em>Manuscript Description</em>) opens with complete worked examples. Read one all the way through without trying to understand every tag. You are looking for the <em>shape</em>: identifier first, then contents, then physical description. <span style="color:#475569;">A <code>&lt;msDesc&gt;</code> is just a catalogue record written in XML &mdash; the same facts a library card holds, tagged so a computer can find each one.</span></li>
+        <li style="margin-bottom:0.6rem;"><strong>Try to look your document up in Trismegistos or VIAF, and expect to fail.</strong> Trismegistos indexes ancient texts; VIAF indexes names. None of your four documents is an ancient Greek manuscript, so at least one of these lookups will come back empty. <strong>That is the exercise, not a mistake.</strong> Note exactly what you searched and what came back, because "I checked this registry and it has no record of my document" is a finding you will be graded on &mdash; and it is the finding most students skip.</li>
+    </ol>
+    <p style="margin-bottom:0; font-size:0.92rem; color:#475569;"><strong>If a term stops you</strong> &mdash; shelfmark, witness, authority file, recto &mdash; it is defined in the lesson text for this module. Nothing here assumes you have met these words before this course.</p>
 </div>
