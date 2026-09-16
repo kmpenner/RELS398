@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 3.3 Teaching Plan (2026-09-18)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+            --accent-green: #065f46;
+            --accent-blue: #1e40af;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.55in 0.55in 0.55in 0.55in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .badge-done {
+            background: #ecfdf5;
+            border-color: #a7f3d0;
+            color: #065f46;
+        }
+
+        .badge-pending {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #1e40af;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong {
+            color: var(--stfx-navy);
+        }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p {
+            font-size: 9.5pt;
+            color: #713f12;
+            line-height: 1.4;
+        }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+        }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .time-col {
+            width: 16%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col {
+            width: 28%;
+            font-weight: 700;
+            color: var(--stfx-dark);
+        }
+
+        .desc-col {
+            width: 56%;
+            color: #334155;
+            line-height: 1.35;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul {
+            padding-left: 1.1rem;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .card li {
+            margin-bottom: 0.25rem;
+        }
+
+        .code-box {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 0.5rem 0.7rem;
+            border-radius: 4px;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            font-size: 8.5pt;
+            margin: 0.35rem 0;
+            line-height: 1.35;
+        }
+
+        .code-box .comment {
+            color: #94a3b8;
+        }
+
+        .code-box .highlight {
+            color: var(--stfx-gold);
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9.5pt;
+            }
+            .header-box {
+                margin-bottom: 0.6rem;
+            }
+            .requirement-callout {
+                background: #fefce8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .schedule-table th {
+                background: #002D62 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .context-banner {
+                background: #f1f5f9 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h1>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h1>
+            <h2>Instructor Teaching Plan: Meeting #8 &mdash; Lesson 3.3 (Step 3: AI-Assisted)</h2>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, September 18, 2026</span>
+                <span class="badge">Time: 10:30 AM &ndash; 11:20 AM (50 mins)</span>
+                <span class="badge">Room: Mulroney Hall 3032 (MULH 3032)</span>
+                <span class="badge">Cataloguing &amp; Metadata Assignment due TODAY</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE (after Wednesday's meeting #7):</strong><br>
+            &bull; Each student has a <code>&lt;facsimile&gt;</code> in their own <code>witness.xml</code>: one <code>&lt;surface&gt;</code>, one <code>&lt;graphic&gt;</code>, <strong>one</strong> hand-typed <code>&lt;zone&gt;</code>, one <code>&lt;pb facs&gt;</code>, validating to 0.<br>
+            &bull; They also have <code>facs_tool.xml</code> from <code>labs/make_surface.py</code> and have diffed it against what they typed.<br>
+            &bull; <strong>Chosen but not yet typed:</strong> zones 2 and 3. They picked them out loud on Wednesday against their own object.<br>
+            &bull; <strong>Homework set:</strong> does my repository serve IIIF (either answer is full credit), and a started <code>IMAGE_PROVENANCE.md</code> with the licence quoted. <em>Expect at least one student not to have it. Have them do it in the lab block rather than sending them away empty-handed.</em>
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL TARGET (Step 3, then the workshop is completable):</strong><br>
+            &bull; <strong>Get an AI to propose zones</strong> for your page, and convert its numbers into TEI.<br>
+            &bull; <strong>Score it</strong> against the hand and tool numbers you already have. Three columns, same eight numbers.<br>
+            &bull; <strong>Finish zones 2 and 3</strong> &mdash; accept, correct, or reject what the model proposed, and be able to say which you did.<br>
+            &bull; Leave with every number the workshop reflection asks for, and commit.
+        </div>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>WHAT THIS HOUR IS FOR: THE MODEL MAKES TWO KINDS OF CLAIM AND ONLY ONE IS CHECKABLE</h3>
+        <p>The teaching content for AI imaging is on Moodle in Lesson 3.3 &mdash; segmentation, baseline detection, super-resolution, hallucination risk, the black-box problem. <strong>Do not lecture it.</strong> This hour is a demo and then student project work, because the workshop is due and it is <em>their own page</em> that has to be finished. The one idea that has to land in the room is this: a model returns <em>measurements</em> (four numbers for a box) and <em>judgements</em> (that this box is a seal, that this region matters) in the same confident sentence, and the students already hold a deterministic answer for the first kind and nothing but their own scholarship for the second. Wednesday gave them the ruler. Today they find out what the model gets wrong when there is a ruler, and then what happens where there is no ruler at all. <strong>What gets cut:</strong> model architectures (&sect;&sect;03, 23), the whole automated-pipeline half (&sect;&sect;11&ndash;17), multi-witness alignment (&sect;21), IIIF annotation JSON-LD (&sect;22). All of it stays on Moodle.</p>
+    </div>
+
+    <h3 class="section-header">Class Schedule &amp; Pedagogical Flow (50 Minutes)</h3>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Timing</th>
+                <th class="activity-col">Phase &amp; Focus</th>
+                <th class="desc-col">Instructor Teaching Cues &amp; In-Class Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 &ndash; 10:35<br><small>(5 mins)</small></td>
+                <td>
+                    <strong>1. Assignment In, IIIF Poll</strong><br>
+                    <small style="color:var(--stfx-slate);">Clears a workshop deliverable in 3 minutes</small>
+                </td>
+                <td>
+                    &bull; <strong>Cataloguing &amp; Metadata Assignment is due today.</strong> Say the submission mechanism and the time; take questions now, not at 11:19.<br>
+                    &bull; <strong>Go round all four and ask one question each:</strong> <em>&ldquo;Does your repository serve IIIF, and how do you know?&rdquo;</em> Write the four answers on the board. With four students this takes three minutes and it <strong>finishes workshop deliverable 3 in class</strong> &mdash; a &ldquo;no, and here is where I looked&rdquo; is full credit, and the write-up is then just recording what is already on the board.<br>
+                    &bull; If someone did not check, pair them with someone who did and have them do it in the lab block.<br>
+                    &bull; <strong>Frame, in one sentence:</strong> <em>&ldquo;You measured this page by hand, then with a tool that cannot guess. Today something guesses &mdash; confidently &mdash; and you are the one who decides whether it was right.&rdquo;</em>
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:35 &ndash; 10:46<br><small>(11 mins)</small></td>
+                <td>
+                    <strong>2. Demo: The Model Proposes Zones</strong><br>
+                    <small style="color:var(--stfx-slate);">Class diary page, projected, live</small>
+                </td>
+                <td>
+                    &bull; <strong>Do it live on the class diary photo</strong>, not on a prepared result. Upload the image to the multimodal model and paste the prompt from the left card. They must see the latency, the confidence, and the format.<br>
+                    &bull; <strong>Read the output aloud as numbers, not as prose.</strong> It will return boxes as <code>x,y,w,h</code> with labels. Convert one with <code>make_surface.py --zone</code>, exactly as Wednesday, and paste it into <code>witness.xml</code>. Validate. <em>The pipeline is identical to Wednesday's; only the source of the numbers changed.</em><br>
+                    &bull; <strong>Now check it against the ruler.</strong> Put the model's four numbers beside Wednesday's tool numbers for the same feature. Expect a real gap &mdash; vision models are trained on photographs, they estimate coordinates rather than measure them, and they are routinely off by tens of pixels and sometimes wildly. <strong>Do not hide a bad result; it is the lesson.</strong><br>
+                    &bull; <strong>Then ask the unanswerable question:</strong> the model also <em>labelled</em> that box &mdash; &ldquo;seal&rdquo;, &ldquo;signature&rdquo;, &ldquo;marginal note&rdquo;. Ask the room: <em>&ldquo;what would you check to find out whether that label is true?&rdquo;</em> There is no <code>identify</code> for this. That is the whole distinction, and it is worth 60 seconds of silence.<br>
+                    &bull; If the model refuses the image or returns no coordinates, say so plainly and use the fallback in the right card. A refusal is also a finding.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">10:46 &ndash; 11:06<br><small>(20 mins)</small></td>
+                <td>
+                    <strong>3. Lab: Your Own Page, Your Own Three Zones</strong><br>
+                    <small style="color:var(--stfx-slate);">This is the workshop, done in the room</small>
+                </td>
+                <td>
+                    &bull; <strong>This block is student project work.</strong> Roam; do not present. Everything below goes into their own repository and is workshop deliverable 1.<br>
+                    &bull; <strong>Step A (8 min):</strong> run the prompt on <em>your own</em> page image. Record what the model returned <em>verbatim</em> in a scratch file before you touch it &mdash; the reflection needs what it said, not what you fixed.<br>
+                    &bull; <strong>Step B (8 min):</strong> finish zones 2 and 3, the ones you chose on Wednesday. For each, do one of three things and <strong>write down which</strong>: <em>accept</em> the model's box, <em>correct</em> it with GIMP or <code>make_surface.py</code>, or <em>reject</em> it and type it yourself. Give each a <code>@type</code> you can defend. Validate to 0.<br>
+                    &bull; <strong>Step C (4 min):</strong> anyone still missing <code>IMAGE_PROVENANCE.md</code> or the IIIF answer finishes it now instead of doing Step A. Deliverables beat enrichment.<br>
+                    &bull; <strong>Roaming, expect three things:</strong> (1) model coordinates that are plausible but 50&ndash;200 px off &mdash; ask how they know; (2) a model-invented feature that is not on the page, which is the hallucination in &sect;26 made concrete, and is worth calling the room's attention to if it appears; (3) a student accepting all three boxes without checking &mdash; ask them to check one against the tool, in front of you.<br>
+                    &bull; <strong>Commit:</strong> <code>git commit -am "Step 3: AI-proposed zones, scored and corrected"</code>
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">11:06 &ndash; 11:14<br><small>(8 mins)</small></td>
+                <td>
+                    <strong>4. Pool the Three Columns</strong><br>
+                    <small style="color:var(--stfx-slate);">Hand / tool / AI on the board</small>
+                </td>
+                <td>
+                    &bull; <strong>Board, three columns, one row per student:</strong> how far was the AI from the tool, in pixels? Did it invent a feature? Did you accept, correct, or reject each zone?<br>
+                    &bull; <strong>Land it, and let them say it rather than saying it for them:</strong> the tool was right about measurement every time and silent about judgement; the model speaks fluently about both and is only reliable about neither. The measurement error is catchable because a ruler exists. <em>The label error is catchable only by someone who has looked at the page</em> &mdash; which is why Tuesday's manual transcription in Module 4 comes before the software.<br>
+                    &bull; <strong>Name what carries forward:</strong> this exact three-way comparison is next week's structure with text instead of coordinates &mdash; hand transcription Tuesday, Transkribus Wednesday, an LLM Friday. Same judgement, harder to check.
+                </td>
+            </tr>
+            <tr>
+                <td class="time-col">11:14 &ndash; 11:20<br><small>(6 mins)</small></td>
+                <td>
+                    <strong>5. Workshop Close-Out</strong><br>
+                    <small style="color:var(--stfx-slate);">Stage gate</small>
+                </td>
+                <td>
+                    &bull; <strong>Check the four deliverables out loud</strong> and have each student say which are done: (1) <code>&lt;facsimile&gt;</code> with three zones, validated; (2) <code>IMAGE_PROVENANCE.md</code> with source, date, dimensions, licence quoted, and the derivative question answered; (3) the IIIF answer, either way; (4) the 300&ndash;500 word reflection. <strong>After this hour, only (4) should be outstanding.</strong><br>
+                    &bull; <strong>Give the reflection prompt verbatim</strong> (right card, bottom). Tell them the numbers are already in their repository &mdash; the reflection is written <em>from</em> the diff and the three-column comparison, not from memory.<br>
+                    &bull; <strong>Say the rubric line that students lose marks on:</strong> a reflection that only praises the tool's accuracy has missed the point. The graded move is naming a case where something was confidently wrong, and saying what caught it.<br>
+                    &bull; <strong>Next week (Module 4, Transcription):</strong> Tuesday #9 is manual diplomatic transcription &mdash; the same Step 1, with letters instead of pixels. Nothing to install over the weekend.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Projection: The Zone Prompt (paste this)</h4>
+            <div class="code-box">
+<span class="comment"># attach the page image, then:</span><br>
+You are looking at one page of a historical<br>
+document. Identify the three most significant<br>
+visual features on the page (for example a<br>
+heading, a signature, a seal, a stamp, a<br>
+correction, or an area of damage).<br>
+<br>
+For each, return ONE line, nothing else:<br>
+&nbsp;&nbsp;label | x,y,w,h | one-sentence reason<br>
+<br>
+Coordinates in pixels, origin top-left,<br>
+y increasing downward, for the image as sent.<br>
+State the pixel dimensions you assumed.
+            </div>
+            <p style="font-size:9pt;color:var(--stfx-slate);margin:0.3rem 0 0;"><strong>Why ask for the assumed dimensions:</strong> models silently work from a resized copy. If it reports a width that is not your file's width, every coordinate is scaled and the comparison is meaningless until you rescale. This is the single most common cause of a &ldquo;wildly wrong&rdquo; box &mdash; check it before concluding the model failed.</p>
+
+            <h4 style="margin-top:0.6rem;">Convert and Score</h4>
+            <div class="code-box">
+<span class="comment"># same tool as Wednesday, AI numbers in</span><br>
+python3 labs/make_surface.py images/diary_p1.jpg \<br>
+&nbsp;&nbsp;--zone 315,255,1170,168 &gt; facs_ai.xml<br>
+<span class="comment"># the ruler, for the same feature</span><br>
+diff facs_tool.xml facs_ai.xml
+            </div>
+            <p style="font-size:9pt;color:var(--stfx-slate);margin:0.3rem 0 0;"><strong>Fallback if the model returns no usable coordinates:</strong> ask it instead to <em>name and describe</em> the three features in words, then have the student locate them in GIMP. The judgement question survives intact, which is the part that is graded.</p>
+        </div>
+        <div class="card">
+            <h4>The Reflection Prompt (give verbatim)</h4>
+            <p style="font-size:9.5pt;margin:0.2rem 0 0.4rem;"><em>300&ndash;500 words. Where did your eye disagree with the tool, and which of you was wrong? Report your coordinate numbers and say what caused each discrepancy. Then address the part no tool settles: how did you decide which three regions deserved a zone, and what can a reader check because you drew them?</em></p>
+            <p style="font-size:9pt;color:var(--stfx-slate);margin:0 0 0.5rem;">Today adds a third column to that question. A strong answer now also says what the model proposed, what was accepted, corrected or rejected, and how that decision was made.</p>
+
+            <h4>Classroom Diagnostics</h4>
+            <ul>
+                <li><strong>Every AI box is off by the same factor</strong> (e.g. all roughly half): the model worked from a resized copy. Compare its stated dimensions to <code>file</code>, then scale. Not a hallucination &mdash; an arithmetic error, and a good one to catch publicly.</li>
+                <li><strong>Boxes returned as <code>ulx,uly,lrx,lry</code> already:</strong> models are inconsistent about this. Check whether the third number is smaller than the first; if it is not, it is probably a corner, not a width.</li>
+                <li><strong>A confident label for a feature that is not there</strong> &mdash; a &ldquo;wax seal&rdquo; on a photocopy, a &ldquo;signature&rdquo; on a printed name. This is &sect;26 in the flesh. Stop the room for it if it happens.</li>
+                <li><strong>Zone extends past the surface:</strong> same failure as Wednesday. <code>lrx</code>/<code>lry</code> cannot exceed the surface's.</li>
+                <li><strong>Student has no digital image at all</strong> (reading-room-only object): they score the model on the class diary page instead, and write the provenance record about why no image exists. That is a legitimate finding and a complete submission.</li>
+                <li><strong>Model refuses the image</strong> (rights, faces, handwriting policy): record the refusal verbatim in the reflection. An unusable tool is a result about the tool.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
