@@ -2,10 +2,7 @@
 
 *RELS 398 / ENGL 398 · Topic 4: Transcription · Meeting #11 (Fri Sep 25)*
 
-***Step 3 of the three-step cycle: AI-assisted. Remote delivery.** Today you run
-the same passage through a general-purpose vision-language model and compare all
-three transcriptions. The finding you are testing is that scale does not
-substitute for exposure to the material.*
+***Step 3 of the three-step cycle: AI-assisted. Remote delivery.** Today you give the same page to a general AI model — the kind you can paste a picture into — and compare all three versions. What you are testing is whether sheer size makes up for never having seen material like yours.*
 
 ---
 
@@ -13,299 +10,205 @@ substitute for exposure to the material.*
 
 **Today's Question**
 
-Three transcriptions of one passage now exist or will by the end of today: yours,
-produced by hand on Tuesday; your fine-tuned HTR model's, produced Wednesday; and a
-general-purpose vision-language model's, produced today.
+By this evening you will have three versions of one page: yours, typed by hand on Tuesday; your trained model's, from Wednesday; and a general AI model's, from today.
 
-The question is not which is best. It is **what each kind of system does, and what
-each kind of error tells you about the system that made it.** A model that fails by
-producing impossible letter sequences and a model that fails by producing fluent
-invented Greek have failed differently, and the difference matters far more to a
-scholarly editor than the aggregate error rate does.
+The question is not which is best. It is **what each kind of system does when it goes wrong, and what that tells you about the system.** A program that fails by producing letter-strings that are not words, and a program that fails by producing smooth invented Greek, have failed in ways that matter very differently to an editor — far more than the overall score does.
 
-You should have an expectation going in, from Wednesday's section 23. Published
-benchmarks show general vision-language models performing excellently on modern
-handwriting and catastrophically on historical scripts — 1.39% CER on modern
-English against 52.23% on historical English, from the same model (AlKendi et al.,
-2024). Today you test whether that pattern holds on your manuscript.
+You should go in with an expectation, from Wednesday's section 23. Published tests show these general models doing superbly on modern handwriting and collapsing on old scripts: 1.39% of characters wrong on modern English, against 52.23% on historical English, from the very same model (AlKendi et al., 2024). Today you check whether that holds for your manuscript.
 
-An expectation is not a conclusion. Run the experiment properly, record what
-happens, and report what you find — including if it contradicts the literature.
-Your manuscript may be unusually well represented in training data, or unusually
-legible. A negative result against the published pattern would be interesting and
-worth reporting.
+An expectation is not a conclusion. Run it properly, record what happens, and report what you find — even if it contradicts the published pattern. That would be interesting and worth reporting.
 
-**Vocabulary.** *Vision-language model (VLM)* — a model accepting images and text
-and producing text. *Zero-shot* — applied without task-specific training.
-*Hallucination* — fluent output not grounded in the input.
+**Vocabulary.** *Vision-language model (VLM)* — an AI that takes pictures as well as words and answers in words. *Zero-shot* — used straight out of the box, with no training on your material. *Hallucination* — confident output that is not based on what was actually there.
 
-**Takeaway:** The question is not which system is best but what
-kind of error each makes — the kinds differ more than the rates.
+**Takeaway:** The question is not which system is best but what kind of error each makes — the kinds differ more than the rates.
 
 ---
 
 ## **02 Content**
 
-**What a Vision-Language Model Is**
+**What These Models Are**
 
-The architectural difference from Wednesday's tool determines everything that
-follows.
+The difference from Wednesday's tool explains everything that follows.
 
-A specialized HTR model is trained on line images paired with transcriptions. Its
-entire competence is the mapping from ink to characters, and its knowledge of
-language is whatever the character-level patterns in its training data implied.
+Your trained model learned from strips of handwriting paired with text. That is all it knows: ink to letters. Whatever it grasps about language it picked up sideways, from patterns in those letters.
 
-A vision-language model is trained on vast heterogeneous internet corpora — text,
-images, and their relationships — and possesses billions of parameters. It can
-ingest an entire high-resolution page and produce a transcription from a natural
-language instruction, with no layout analysis, no fine-tuning, and no ground truth
-(AlKendi et al., 2024).
+A general AI model learned from a colossal sweep of the internet — text, pictures, and how they relate. It can take a whole page and give you a transcription from a plain English instruction. No line-finding, no training, no examples needed (AlKendi et al., 2024).
 
-| | Specialized HTR | Vision-language model |
+| | Your trained model | General AI model |
 | --- | --- | --- |
-| Training data | Line images with transcriptions | Internet-scale text and images |
-| Parameters | Millions | Billions |
-| Setup required | Layout correction, ground truth, training | A prompt |
-| Input | One line image | A full page |
-| Language knowledge | Weak, implicit | Extensive, explicit |
-| Failure mode | Impossible sequences | Fluent invention |
+| Learned from | Line strips with text | The internet |
+| Size | Millions of settings | Billions |
+| Setup needed | Line-fixing, examples, training | A sentence of instruction |
+| Takes | One line strip | A whole page |
+| Knowledge of language | Slight | Enormous |
+| How it fails | Impossible letter strings | Smooth invention |
 
-The third row is the genuine advantage and should not be understated. Wednesday
-cost you a session of layout correction, alignment, and training. Today costs a
-prompt. If quality were comparable, the comparison would be over.
+Row three is a real advantage and should not be brushed aside. Wednesday cost you a whole session. Today costs a sentence. If the quality matched, the argument would be over.
 
-The sixth row is why it is not. A model with extensive language knowledge applies
-that knowledge to ambiguous ink — and applying linguistic expectation to ambiguous
-evidence is precisely what a diplomatic transcription must not do. The model's
-greatest strength on modern text is its principal liability on historical
-manuscripts.
+Row six is why it does not. A model with deep knowledge of language brings that knowledge to bear on unclear ink — and using expectation to settle unclear evidence is exactly what a diplomatic transcription must never do. Its greatest strength on modern text is its worst liability on your manuscript.
 
-**Takeaway:** A VLM's linguistic knowledge is its strength on
-modern text and its liability on manuscripts, because it resolves ambiguous ink by
-expectation.
+**Vocabulary.** *Prompt* — the instruction you type to an AI model. *Parameter* — one of the adjustable settings inside a model; these have billions.
+
+**Takeaway:** A VLM's linguistic knowledge is its strength on modern text and its liability on manuscripts, because it resolves ambiguous ink by expectation.
 
 ---
 
 ## **03 Content**
 
-**The Specialization Gap, Quantified**
+**The Specialization Gap, in Numbers**
 
-The empirical picture, which you should have in front of you before running your
-own test.
+Have this in front of you before you run your own test.
 
-| Dataset and domain | Model | CER | WER |
+| Material | Model | Characters wrong | Words wrong |
 | --- | --- | --- | --- |
-| IAM, modern English | GPT-4o | 1.39% | 3.46% |
-| IAM, modern English | Claude 3.5 Sonnet | 8.55% | 10.28% |
-| Bentham, historical English | GPT-4o | 52.23% | 72.16% |
-| Bentham, historical English | Claude 3.5 Sonnet | 40.87% | 59.41% |
-| READ2016, historical German | GPT-4o | 77.42% | 97.59% |
-| READ2016, historical German | Qwen2-VL-7B | 76.25% | 97.77% |
-| CATMuS, medieval Latin | TrOCR-Medieval-Base | 14.60% | — |
-| CATMuS, medieval Latin | DeepSeek-OCR | 63.00% | — |
-| CATMuS, medieval Latin | Mistral-OCR-3 | 84.70% | — |
+| Modern English | GPT-4o | 1.39% | 3.46% |
+| Modern English | Claude 3.5 Sonnet | 8.55% | 10.28% |
+| Historical English | GPT-4o | 52.23% | 72.16% |
+| Historical English | Claude 3.5 Sonnet | 40.87% | 59.41% |
+| Historical German | GPT-4o | 77.42% | 97.59% |
+| Historical German | Qwen2-VL-7B | 76.25% | 97.77% |
+| Medieval Latin | Tuned specialist | 14.60% | — |
+| Medieval Latin | DeepSeek-OCR | 63.00% | — |
+| Medieval Latin | Mistral-OCR-3 | 84.70% | — |
 
-Read the first and third rows together. The same model, GPT-4o, produces 1.39% CER
-on modern English handwriting and 52.23% on historical English — a nearly fortyfold
-increase from the same system on the same language, differing only in period
-(AlKendi et al., 2024).
+Read rows one and three together. The same model. The same language. Nearly forty times worse, and the only thing that changed is the century (AlKendi et al., 2024).
 
-Read the last three rows together. On identical medieval Latin samples, a
-domain-tuned model with orders of magnitude fewer parameters achieved 14.6% while
-large commercial models produced 63.0% and 84.7% (Mattingly et al., 2024).
+Read the last three rows together. On identical medieval Latin pages, a tuned specialist a fraction of the size got 14.6% wrong, while two large commercial systems got 63.0% and 84.7% wrong (Mattingly et al., 2024).
 
-The 97% word error rates on historical German are worth pausing on. A WER
-approaching 100% means essentially no word is correct. This is not degraded
-performance; it is failure, on a task the same model performs excellently in a
-modern setting.
+Pause on the 97% word error on historical German. A word score near 100% means essentially nothing came out right. That is not weak performance. That is failure — at a job the same model does beautifully on modern material.
 
-This differential is the **specialization gap**. Domain-tuned models succeed
-because they have been directly exposed to palaeographic variation, scribal
-shorthand, idiosyncratic ligatures, and non-standard physical layouts (Mattingly et
-al., 2024). Internet-scale training contains very little Byzantine minuscule.
+This is the **specialization gap**. The specialists win because they have actually been shown scribal handwriting, odd short forms, joined letters, and irregular pages (Mattingly et al., 2024). The internet holds very little Byzantine Greek.
 
-**Takeaway:** The same model achieves 1.39% CER on modern
-handwriting and 52.23% on historical — the gap is period, not language.
+**Vocabulary.** *Benchmark* — a shared test set for comparing tools fairly. *Zero-shot* — applied without any training on this kind of material.
+
+**Takeaway:** The same model achieves 1.39% CER on modern handwriting and 52.23% on historical — the gap is period, not language.
 
 ---
 
 ## **04 Content**
 
-**Over-Historicization**
+**Making Things Look Older Than They Are**
 
-Beyond raw error rates, VLMs exhibit failure modes that specialized models do not,
-and the most striking is documented in detail.
+Beyond simply being wrong, these models fail in ways specialized tools cannot. The strangest is well documented.
 
-**Over-historicization** is the algorithmic insertion of archaic characters that
-are absent from the source document — characters belonging to an *earlier*
-historical period than the manuscript being transcribed. The phenomenon was
-documented in studies of eighteenth-century Russian texts printed in the Civil
-font, where models hallucinated pre-Petrine Church Slavonic graphemes — the little
-yus, omega, monograph uk, ot — that had been explicitly eliminated from the Russian
-alphabet before the period being analyzed (Levchenko, 2024).
+**Over-historicization** means the model inserts old-fashioned characters that are not in the document — letters from an *earlier* period than the manuscript itself. It was found in studies of eighteenth-century Russian printing, where models produced Church Slavonic letters that had been abolished from the alphabet decades before the documents were printed (Levchenko, 2024).
 
-The mechanism is worth reasoning through, because it is not simple error. The
-model has learned an association between "old document" and "archaic
-orthography." Presented with an image it recognizes as historical, it produces
-output matching its statistical expectation of what historical text looks like —
-which may be more archaic than the actual document. The model is not misreading the
-ink; it is reading its own expectation of the period.
+It is worth thinking through why, because this is not a simple slip. The model has learned that old documents go with old-fashioned spelling. Shown a picture it recognizes as historical, it produces what it statistically expects historical text to look like — which can be older than the actual page. It is not misreading the ink. It is reading its own idea of the period.
 
-The measured consequences:
+What that costs:
 
-| Model, full-page mode | Overall CER | Archaic insertions | Over-historicization prevalence |
+| Model, whole-page mode | Characters wrong | Old letters inserted | How often |
 | --- | --- | --- | --- |
-| Fine-tuned TrOCR | 1.83% | None | 0% |
-| Gemini 2.5 Pro | 3.36% | Minimal | Low |
-| Claude 3.5 Sonnet | 6.79% | Moderate | Medium |
-| GPT-4o | 9.23% | High | 59% of processed files |
+| Tuned TrOCR | 1.83% | None | 0% |
+| Gemini 2.5 Pro | 3.36% | Barely any | Low |
+| Claude 3.5 Sonnet | 6.79% | Some | Medium |
+| GPT-4o | 9.23% | Many | 59% of files |
 | Transkribus PyLaia | 26.93% | None | 0% |
 
-Note the fourth row against the fifth. GPT-4o achieved a far better CER than the
-generic PyLaia baseline — 9.23% against 26.93% — while inserting anachronistic
-characters in 59% of processed files. PyLaia performed worse by the metric and
-never once fabricated an archaic grapheme (Levchenko, 2024).
+Compare rows four and five. GPT-4o scored far better than the plain PyLaia model — 9.23% against 26.93% — while inserting anachronistic letters in 59% of files. PyLaia scored much worse and never once invented an old letter (Levchenko, 2024).
 
-**Takeaway:** GPT-4o beat a generic HTR baseline on CER while
-inventing anachronistic characters in 59% of files — the metric and the fidelity
-diverge.
+**Vocabulary.** *Anachronism* — something from the wrong period. *Grapheme* — a single written character of a writing system.
+
+**Takeaway:** GPT-4o beat a generic HTR baseline on CER while inventing anachronistic characters in 59% of files — the metric and the fidelity diverge.
 
 ---
 
 ## **05 Content**
 
-**Why CER Is Insufficient for Historical Text**
+**Why One Score Is Not Enough**
 
-The table in the previous section makes a methodological point that Week 5 will
-build on directly.
+That table makes a point Week 5 builds on directly.
 
-Character error rate treats all differences equally. A model that inserts an
-archaic omega where the document has a plain o has made one substitution, counted
-identically to any other substitution. But that substitution is a different *kind*
-of error: it is not a misreading of ink, it is a fabrication of period-specific
-orthography, and it corrupts precisely the evidence a diplomatic transcription
-exists to preserve.
+The character score treats every difference as equal. A model that puts an old-fashioned omega where the page has a plain o has made one substitution, counted the same as any other. But it is a different *kind* of mistake. It is not a misreading of ink. It is an invention of period spelling, and it wrecks exactly the evidence your transcription exists to hold.
 
-The finding is explicit: standard metrics like CER are insufficient for evaluating
-historical texts, because a model may achieve a low CER while destroying the
-diplomatic fidelity of the transcription through temporal hallucination
-(Levchenko, 2024).
+The finding is stated plainly: the usual scores are not adequate for historical text, because a model can score well while destroying the very faithfulness that makes the transcription worth having (Levchenko, 2024).
 
-Two supplementary metrics have been proposed:
+Two extra measures have been proposed:
 
-| Metric | Measures | Detects |
+| Measure | Counts | Catches |
 | --- | --- | --- |
-| Historical Character Preservation Rate (HCPR) | Proportion of period-specific characters correctly preserved | Silent modernization |
-| Archaic Insertion Rate (AIR) | Frequency of hallucinated characters from earlier epochs | Over-historicization |
+| Historical Character Preservation Rate | Period-specific characters kept correctly | Quiet modernizing |
+| Archaic Insertion Rate | Invented characters from earlier periods | Over-historicization |
 
-HCPR isolates a system's tendency to silently modernize historical text; AIR tracks
-the opposite failure, hallucinating archaism (Levchenko, 2024). A model can score
-well on CER while failing badly on either.
+The first catches a model that tidies the old away; the second catches one that lays old-fashioned spelling on thick (Levchenko, 2024). A model can score well on the usual number and badly on either.
 
-For your Greek manuscript, the analogous questions are concrete. Does the model
-preserve the polytonic diacritics as written, or supply what it expects? Does it
-preserve *scriptio continua*, or impose modern word division? Does it preserve
-abbreviations, or expand them? Does it preserve scribal errors, or correct them?
+For your Greek manuscript the questions are concrete. Does it keep the accents as written, or supply what it expects? Does it keep words run together, or impose modern spacing? Does it keep short forms, or spell them out? Does it keep the scribe's mistakes, or fix them?
 
-Each of those is a modernization that a low CER would not reveal. Plan to check
-them specifically today.
+Every one of those is a modernization the usual score would not reveal. Check them specifically today.
 
-**Takeaway:** A model can score well on CER while silently
-modernizing or hallucinating archaism — check preservation and insertion
-separately.
+**Vocabulary.** *Preservation rate* — how much of the original's own character survives. *Silent modernization* — quietly updating old forms without saying so.
+
+**Takeaway:** A model can score well on CER while silently modernizing or hallucinating archaism — check preservation and insertion separately.
 
 ---
 
 ## **06 Content**
 
-**Structural and Formatting Failures**
+**Mess, Chat, and Confident Gap-Filling**
 
-A third category of VLM failure, distinct from both misreading and hallucination,
-and the one most likely to affect you today.
+A third kind of failure, different from misreading and from invention, and the one most likely to bite you today.
 
-General-purpose models suffer from prompt saturation and formatting
-hallucinations. They may read the underlying text correctly and yet fail to adhere
-to the strict line-break preservation and structural encoding a diplomatic
-transcription requires. They are also prone to injecting external contextual
-metadata, conversational filler, or unprompted historical summaries directly into
-the transcription block (AlKendi et al., 2024).
+These models often read the words correctly and still ignore your instructions about line breaks and structure. They are also inclined to slip chat, background notes, or little history lessons straight into the transcription (AlKendi et al., 2024).
 
-| Failure | What it looks like | Consequence |
+| Failure | What it looks like | Cost |
 | --- | --- | --- |
-| Line breaks not preserved | Text reflowed as continuous prose | Cannot align to zones; unusable for training |
-| Conversational framing | "Here is the transcription of this manuscript:" | Must be stripped before measurement |
-| Unprompted commentary | Historical notes interleaved with text | Corrupts the transcription |
-| Modernized punctuation | Modern marks substituted for scribal ones | Silent normalization |
-| Abbreviations expanded | Nomina sacra written in full | Diplomatic fidelity lost |
-| Word division imposed | Spaces inserted into *scriptio continua* | Unrecorded editorial intervention |
-| Silent gap filling | Damaged text confidently supplied | Invention presented as reading |
+| Line breaks lost | Text run together as paragraphs | Cannot match to your boxes; useless for training |
+| Chat wrapping | "Here is the transcription:" | Must be stripped before scoring |
+| Uninvited commentary | History notes mixed into the text | Corrupts the transcription |
+| Modernized punctuation | Modern marks for scribal ones | Quiet normalizing |
+| Short forms spelled out | Sacred names written in full | Faithfulness lost |
+| Spaces inserted | Gaps put into unspaced writing | An unrecorded editorial act |
+| Gaps quietly filled | Confident text over damage | Invention passed off as reading |
 
-The first row is the practically serious one. Wednesday's model produces
-line-aligned output because it operates on line images; today's model sees a full
-page and produces a block of text. Without preserved line breaks that output cannot
-be aligned to your zones, cannot be used for training, and cannot be compared
-line by line against your ground truth.
+Row one is the practical problem. Wednesday's model produced line-by-line output because it worked on line strips. Today's model sees a whole page and hands back a block of prose. Without line breaks you cannot match it to your boxes, cannot train on it, and cannot compare it line by line against your own version.
 
-The last row is the scholarly serious one. A model asked to transcribe a damaged
-passage will frequently supply plausible text for the damaged region without
-indicating that it has done so — presenting invention as reading, in exactly the
-place where a `<gap/>` or `<unclear>` belongs.
+Row seven is the scholarly problem. Asked to transcribe a damaged passage, these models will often supply plausible text for the damaged part without saying they have done so — inventing, in exactly the place where a `<gap/>` belongs.
 
-Both are things you must check for explicitly, because neither announces itself.
+Neither announces itself. You have to check for both.
 
-**Takeaway:** VLMs reflow lines, add commentary, and fill gaps
-confidently — none of which announces itself in the output.
+**Vocabulary.** *Reflow* — running lines together into continuous prose. *Preamble* — introductory chat before the actual answer.
+
+**Takeaway:** VLMs reflow lines, add commentary, and fill gaps confidently — none of which announces itself in the output.
 
 ---
 
 ## **07 Content**
 
-**Designing the Experiment**
+**Setting Up a Fair Test**
 
-Run this as a measurement, not a demonstration. The design determines whether the
-results mean anything.
+Run this as a measurement, not a demonstration. The setup decides whether your results mean anything.
 
-Controls to hold fixed:
+Hold these fixed:
 
-- **The same passage.** Use exactly the lines you transcribed manually and ran through your HTR model. Comparison across different material is not comparison.
-- **The same images.** The same folios, at the same resolution, from the same source.
-- **Raw output preserved.** Capture the model's output before any correction, exactly as returned.
-- **The prompt recorded.** Verbatim, including any system instruction.
-- **The model and version recorded.** Model behaviour changes between versions.
-- **The date recorded.** Hosted models change without notice.
-- **One variable at a time.** If you test several prompts, change one thing between them.
+- **The same passage.** Exactly the lines you typed on Tuesday and ran on Wednesday. Comparing different material is not comparing.
+- **The same pictures.** Same leaves, same quality, same source.
+- **Raw output kept.** Capture what comes back before you touch it.
+- **The instruction written down.** Word for word.
+- **The model and its version.** Behaviour changes between versions.
+- **The date.** These services change without telling anyone.
+- **One change at a time.** If you try several instructions, change one thing between them.
 
-The fourth and sixth items are what make this reproducible, and they are the ones
-students skip. A result reported as "the LLM produced 34% CER" is not reproducible
-without the prompt and the model version, because a different prompt or a silently
-updated model produces a different number.
+Items four and six are what make this repeatable, and they are what students skip. "The AI got 34% wrong" cannot be checked by anyone without the exact instruction and the version, because a different wording or a quietly updated model gives a different number.
 
-Record your experimental design in `logs/vlm-method-w4.md` before you begin. Then
-run it, and record what actually happened, including anything you changed
-mid-experiment and why.
+Write your plan in `logs/vlm-method-w4.md` before you start. Then run it, and record what actually happened, including anything you changed halfway and why.
 
-Treat unexpected results as findings rather than as mistakes. If the model performs
-far better than the literature predicts, that is worth investigating and reporting —
-but check first whether your passage is from a text so well known that the model
-may be reproducing it from memory rather than reading it. Section 12 addresses that
-possibility.
+Treat surprises as findings, not mistakes. If it does far better than expected, that is worth chasing — but check first whether your passage is famous enough that the model may be reciting it from memory rather than reading it. Section 12 handles that.
 
-**Takeaway:** Record the prompt verbatim, the model version, and
-the date — without them the result is not reproducible.
+**Vocabulary.** *Control* — something held fixed so a comparison is fair. *Reproducible* — able to be repeated by someone else with the same result.
+
+**Takeaway:** Record the prompt verbatim, the model version, and the date — without them the result is not reproducible.
 
 ---
 
 ## **08 Content**
 
-**Prompting for Diplomatic Transcription**
+**Writing the Instruction**
 
-The prompt matters, and a naive prompt guarantees the failures in section 06.
+The wording matters, and a casual instruction guarantees every failure in section 06.
 
-A poor prompt: *"Transcribe this manuscript."* This invites conversational framing,
-reflowed text, expanded abbreviations, modernized orthography, and confident gap
-filling — every failure mode at once.
+A poor instruction: *"Transcribe this manuscript."* That invites chat, run-together lines, spelled-out short forms, modernized spelling, and confidently filled gaps — the whole set at once.
 
-A better prompt states the constraints explicitly:
+A better one states every constraint:
 
 ```text
 Transcribe the Greek text in this manuscript image.
@@ -313,59 +216,52 @@ Transcribe the Greek text in this manuscript image.
 Requirements:
 - Preserve line breaks exactly as in the manuscript. One output line
   per manuscript line.
-- Transcribe diplomatically: preserve the orthography as written,
+- Transcribe diplomatically: preserve the spelling as written,
   including apparent errors. Do not correct or modernize.
-- Do not expand abbreviations. Transcribe the abbreviated form as
+- Do not expand abbreviations. Transcribe the shortened form as
   written.
-- Preserve all polytonic diacritics exactly as written.
-- Preserve word division exactly as in the manuscript. If the text is
-  written without word division, do not insert spaces.
+- Preserve all Greek accents and breathings exactly as written.
+- Preserve word spacing exactly as in the manuscript. If the text is
+  written without spaces, do not insert any.
 - Where text is illegible or damaged, output [ILLEGIBLE] rather than
   supplying a reading.
 - Where you are uncertain, output the reading followed by [?].
 - Output only the transcription. No preamble, commentary, or summary.
 ```
 
-Each line addresses a documented failure mode. Do not omit any of them on the
-grounds that the model probably will not make that mistake.
+Every line there targets a documented failure. Do not drop any of them on the grounds that it probably will not happen.
 
-Two notes. Instructing the model to mark uncertainty gives you a self-report, which
-is useful data and is *not* reliable — models are poorly calibrated about their own
-uncertainty, and section 11 returns to this. And even a well-designed prompt will
-not eliminate these failures; it reduces them. Check the output against every
-requirement regardless.
+Two notes. Asking the model to flag its own doubts gives you useful data but *not* a reliable guide — these models are poor judges of their own uncertainty, and section 11 comes back to this. And even a good instruction only reduces these failures. Check the output against every requirement anyway.
 
-Record the exact prompt in your log.
+Record the exact wording in your log.
 
-**Takeaway:** Every constraint in the prompt addresses a
-documented failure mode, and a good prompt reduces those failures without
-eliminating them.
+**Vocabulary.** *Constraint* — a requirement you state explicitly in the instruction. *Calibration* — whether stated confidence matches actual accuracy.
+
+**Takeaway:** Every constraint in the prompt addresses a documented failure mode, and a good prompt reduces those failures without eliminating them.
 
 ---
 
 ## **09 Content**
 
-**Running the Transcription**
+**Running It**
 
-Execute the experiment.
+Do the experiment.
 
-- Select the same folio you transcribed manually.
-- Supply the image at the highest resolution the interface accepts.
-- Use the prompt from section 08, verbatim.
-- Capture the complete raw output, unedited.
-- Save it to a file before doing anything else.
-- Commit it immediately, with provenance trailers, before correcting anything.
+- Pick the same leaf you typed on Tuesday.
+- Give it the picture at the best quality the interface accepts.
+- Use the instruction from section 08, word for word.
+- Capture the whole raw answer, untouched.
+- Save it to a file before you do anything else.
+- Commit it straight away, with the labels, before correcting anything.
 
-That last step is the discipline from Wednesday's section 21, and it matters
-equally here. Raw output must be committed unmodified, because it is what gets
-scored in Week 5. Correcting before committing destroys the measurement.
+That last step is Wednesday's discipline, and it matters just as much here. Raw output must be committed unchanged, because it is what gets scored in Week 5. Correct before committing and the measurement is gone.
 
 ```text
 feat(transcription): VLM transcription of f. 42r, uncorrected
 
-Zero-shot transcription via [model, version], accessed 2026-09-25.
-Prompt recorded verbatim in logs/vlm-method-w4.md. Raw output, no
-corrections and no reformatting applied.
+Transcribed by [model, version] with no training, accessed 2026-09-25.
+Instruction recorded word for word in logs/vlm-method-w4.md. Raw
+output; nothing corrected and nothing reformatted.
 
 AI-Generated: true
 Model: [model name and version]
@@ -374,154 +270,113 @@ Human-Verified: false
 Ground-Truth-Commit: a3f9c21
 ```
 
-If you test more than one model or more than one prompt, commit each result
-separately with its own trailers. Mixing several runs in one file makes the
-comparison impossible to reconstruct.
+If you try more than one model or instruction, commit each result separately with its own labels. Several runs mixed into one file cannot be untangled afterwards.
 
-Resist the urge to iterate on the prompt until the output looks good. That
-converges on a prompt tuned to this passage, which is not what you are measuring
-and which will not generalize. Run the designed experiment; note separately any
-additional prompts you tried and what changed.
+Resist fiddling with the wording until the output looks good. That just produces an instruction tuned to this one passage, which is not what you set out to measure. Run the planned test; note any extra attempts separately.
 
-**Takeaway:** Commit the raw output before correcting or
-reformatting anything — that state is what Week 5 measures.
+**Vocabulary.** *Raw output* — exactly what came back, before any human touched it. *Trailer* — a labelled line at the end of a commit message.
+
+**Takeaway:** Commit the raw output before correcting or reformatting anything — that state is what Week 5 measures.
 
 ---
 
 ## **10 Content**
 
-**Reading the Output Critically**
+**Reading the Output Sceptically**
 
-Now assess. Work through categories rather than reading impressionistically,
-because impressions here are unreliable — fluent output feels accurate.
+Now judge it. Work through categories rather than by impression, because impressions are useless here — smooth text feels accurate.
 
-Check, in this order:
-
-| Check | Question | Why first |
+| Check | Question | Why it comes where it does |
 | --- | --- | --- |
-| Line count | Does the output have the same number of lines as the manuscript? | Determines whether comparison is possible |
-| Framing | Is there preamble, commentary, or summary? | Must be stripped before measurement |
-| Diacritics | Are polytonic marks present and correct? | The most likely silent loss |
-| Abbreviations | Preserved as written, or expanded? | Silent normalization |
-| Word division | As in the manuscript, or imposed? | Unrecorded intervention |
-| Damaged regions | Marked, or confidently filled? | Invention presented as reading |
-| Orthography | Preserved, including apparent errors? | Silent correction |
-| Plausible wrong words | Does the text match the ink? | Requires image comparison |
+| Line count | Same number of lines as the page? | Decides whether comparison is even possible |
+| Chat | Any preamble, commentary, summary? | Must be stripped before scoring |
+| Accents | Present and correct? | The most likely quiet loss |
+| Short forms | Kept, or spelled out? | Quiet normalizing |
+| Word spacing | As on the page, or imposed? | An unrecorded change |
+| Damaged parts | Marked, or confidently filled? | Invention passed off as reading |
+| Spelling | Kept, including apparent errors? | Quiet correcting |
+| Believable wrong words | Does it match the ink? | Needs the picture |
 
-The last row cannot be checked by reading the output. Fluent text reads as correct,
-and the errors that matter most are the ones that read perfectly. You must compare
-against the image, line by line, at full zoom — the same discipline as Tuesday.
+The last row cannot be checked by reading the output. Smooth text reads as correct, and the mistakes that matter most are the ones that read perfectly. You have to compare against the picture, line by line, zoomed in — Tuesday's discipline again.
 
-The sixth row deserves specific attention. Find the damaged region you identified
-in Lesson 3.2's exercise and look at what the model produced there. If it supplied
-confident text where you recorded a `<gap/>`, you have a documented instance of
-hallucination on your own manuscript, which is worth far more in your Week 5 report
-than any published benchmark.
+Row six deserves special attention. Find the damaged patch you identified back in Lesson 3.2 and look at what the model put there. If it supplied confident text where you recorded a `<gap/>`, you have caught invention on your own manuscript — worth far more in your report than any published figure.
 
-Categorize every error. Counts by category are what Week 5's comparison needs.
+Sort every mistake into a category. Counts by category are what Week 5 needs.
 
-**Takeaway:** Fluent output reads as correct, so check against
-the image — and look specifically at where you recorded damage.
+**Vocabulary.** *Impressionistic* — judging by overall feel rather than by checking. *Taxonomy* — a set of categories for sorting things.
+
+**Takeaway:** Fluent output reads as correct, so check against the image — and look specifically at where you recorded damage.
 
 ---
 
 ## **11 Content**
 
-**Self-Reported Uncertainty Is Unreliable**
+**It Does Not Know What It Does Not Know**
 
-You asked the model to mark uncertainty. Assess whether it did so usefully.
+You asked the model to flag doubts. Now judge whether the flags were any use.
 
-Language models are poorly calibrated about their own uncertainty. A model's
-expressed confidence does not reliably track its accuracy: it will mark uncertainty
-on readings that are correct and produce confident output on readings that are
-fabricated. The `[?]` markers are data about the model's behaviour, not a reliable
-guide to which readings to check.
+These models are poor judges of their own uncertainty. Their stated confidence does not track their accuracy: they will flag readings that are right and state readings confidently that they invented. The `[?]` marks are data about the model's behaviour, not a trustworthy guide to where to look.
 
-Test this directly on your own output. Take the readings the model marked uncertain
-and the readings it produced confidently, and check both against the image.
+Test it on your own output. Take the flagged readings and the confident ones, and check both against the picture.
 
 | What you find | What it means |
 | --- | --- |
-| Marked-uncertain readings are mostly wrong; confident ones mostly right | The model is reasonably calibrated here |
-| Uncertainty markers appear unrelated to accuracy | Self-report is not usable as a guide |
-| Confident output in a damaged region | Hallucination; the most serious finding |
-| No uncertainty markers at all despite damage | The model does not represent its own limits |
+| Flagged ones mostly wrong, confident ones mostly right | Reasonably well judged here |
+| Flags seem unrelated to accuracy | Self-report is useless as a guide |
+| Confident text over a damaged patch | Invention; the most serious finding |
+| No flags at all despite visible damage | It has no sense of its own limits |
 
-The third and fourth rows are the ones to look for specifically, and either is a
-substantial finding for your report. A model that produces confident readings in a
-region you know to be illegible has demonstrated, on your manuscript, that its
-output cannot be trusted where you most need help.
+Rows three and four are what to look for, and either is a substantial finding. A model that reads confidently where you know the page is illegible has shown, on your manuscript, that it cannot be trusted precisely where you most wanted help.
 
-This has a direct methodological consequence. If the model's uncertainty markers do
-not correlate with its errors, then there is no way to identify which parts of the
-output need checking short of checking all of it — which means the tool provides no
-reduction in verification labour, whatever it does for transcription labour.
+There is a hard consequence. If the flags do not line up with the mistakes, there is no way to know which parts need checking short of checking all of it — which means the tool saves you no checking work at all, whatever it saves in typing.
 
-Record what you find. It bears directly on whether this method is usable for your
-manuscript.
+Record what you find. It bears directly on whether this method is usable here.
 
-**Takeaway:** If the model's uncertainty markers do not track its
-errors, you must check everything — and the tool saves no verification labour at
-all.
+**Vocabulary.** *Self-report* — the model's own statement about its confidence. *Verification labour* — the work of checking output against the source.
+
+**Takeaway:** If the model's uncertainty markers do not track its errors, you must check everything — and the tool saves no verification labour at all.
 
 ---
 
 ## **12 Content**
 
-**Memorization Versus Reading**
+**Is It Reading, or Reciting?**
 
-A control that matters if your passage is from a well-known text, and one that
-students almost never think to run.
+A check that matters if your passage is from a well-known text, and one almost nobody thinks to run.
 
-A vision-language model trained on internet-scale data has very likely encountered
-the text of your manuscript — not the manuscript images, but the text, in printed
-editions, digital corpora, and scholarly discussion. A model asked to transcribe a
-famous passage may produce the *edited* text from memory rather than reading the
-ink.
+A model trained on the internet has almost certainly met the *text* of your manuscript — not the pictures, but the words, in printed editions and scholarly discussion. Asked to transcribe a famous passage, it may produce the *edited* text from memory rather than reading the ink.
 
-This would produce excellent-looking output that is scholarly worthless, because
-the model would reproduce a modern critical edition rather than your witness — and
-the differences between them are precisely the variant readings your edition
-exists to record.
+That would give you excellent-looking output that is worthless, because it would be reproducing a modern printed edition rather than your copy — and the differences between those two are exactly the readings your edition exists to record.
 
-Two tests distinguish memorization from reading:
+Two tests tell reading from reciting.
 
-**The variant test.** If your manuscript has a reading that differs from the
-standard printed text, look at what the model produced there. A model reading the
-ink produces the manuscript's reading; a model reciting from memory produces the
-standard text. This is the strongest available test, and it is why you should have
-identified your passage's known variants in advance.
+**The variant test.** If your manuscript has a reading that differs from the standard printed text, look at what the model produced there. Reading the ink gives you your manuscript's reading. Reciting gives you the printed one. This is the strongest test available, and it is why you should know your passage's variants in advance.
 
-**The damage test.** Look at what the model produced in regions you recorded as
-illegible. A model reading the ink cannot read what is not there; a model reciting
-from memory fills the gap fluently and correctly, which is more damning than
-filling it incorrectly.
+**The damage test.** Look at what it produced where you recorded illegible text. A model reading the ink cannot read what is not there. A model reciting fills the gap fluently *and correctly* — which is more damning than filling it wrongly.
 
-| Observation | Interpretation |
+| What you see | What it means |
 | --- | --- |
-| Manuscript's variant reading reproduced | Reading the image |
-| Standard edition's reading where the manuscript differs | Reciting from memory |
-| Illegible region left marked | Reading the image |
-| Illegible region filled with the standard text | Reciting from memory |
-| Illegible region filled with plausible invention | Hallucinating |
+| Your manuscript's odd reading reproduced | Reading the picture |
+| The printed reading where your copy differs | Reciting from memory |
+| Illegible patch left marked | Reading the picture |
+| Illegible patch filled with the standard text | Reciting from memory |
+| Illegible patch filled with plausible invention | Making it up |
 
-Run both tests and report the result. For a well-known text this is the single most
-important check you make today.
+Run both and report the result. For a well-known text this is the most important check you make today.
 
-**Takeaway:** Where your manuscript differs from the printed
-text, a model reciting from memory gives the printed reading — that is the test.
+**Vocabulary.** *Variant* — a place where your copy's wording differs from another's. *Memorization* — reproducing training material rather than working from the input.
+
+**Takeaway:** Where your manuscript differs from the printed text, a model reciting from memory gives the printed reading — that is the test.
 
 ---
 
 ## **13 Content**
 
-**Computing a Preliminary Error Rate**
+**A Rough Score**
 
-Full measurement is Week 5's work, but a rough figure today gives you something to
-compare.
+Proper measurement is Week 5's job, but a rough figure today gives you something to hold up.
 
-Character error rate is the Levenshtein distance between machine output and ground
-truth, normalized by the ground truth's length (AlKendi et al., 2024):
+The character score is the smallest number of single-character changes needed to turn the machine's text into yours, divided by the length of yours (AlKendi et al., 2024):
 
 ```python
 def cer(reference: str, hypothesis: str) -> float:
@@ -529,7 +384,6 @@ def cer(reference: str, hypothesis: str) -> float:
     import unicodedata
     r = unicodedata.normalize("NFC", reference)
     h = unicodedata.normalize("NFC", hypothesis)
-    # Levenshtein distance
     prev = list(range(len(h) + 1))
     for i, rc in enumerate(r, 1):
         cur = [i]
@@ -540,108 +394,74 @@ def cer(reference: str, hypothesis: str) -> float:
     return prev[-1] / len(r) if r else 0.0
 ```
 
-Note the normalization on both inputs. This is Lesson 1.2 section 10 arriving in
-practice: comparing NFC ground truth against NFD model output produces an error
-rate reflecting encoding difference rather than transcription difference, and the
-inflation can be severe. Normalize both, always.
+Notice both texts get normalized first. This is Lesson 1.2 arriving in practice: compare accents stored one way against accents stored the other way, and your score measures storage rather than transcription. The inflation can be huge. Always normalize both.
 
-Two further cautions on today's number. Strip conversational framing before
-comparing, or you will measure the preamble as error. And if line breaks were not
-preserved, a whole-text comparison is the only option available, and the resulting
-figure is not comparable to a line-aligned measurement.
+Two more warnings about today's figure. Strip any chat before comparing, or you score the preamble as error. And if line breaks were lost, you can only compare the whole text at once, and that number is not comparable to a line-by-line one.
 
-Compute the same figure for Wednesday's HTR output against the same ground truth,
-so you have a like-for-like comparison. Record both, with the caveats.
+Work out the same figure for Wednesday's output against the same reference, so the comparison is like for like. Record both, with the caveats.
 
-**Takeaway:** Normalize both strings to NFC before computing CER,
-or you measure encoding difference rather than transcription difference.
+**Vocabulary.** *Edit distance* — the count of single-character changes between two texts. *Normalize* — store accented characters in one consistent way.
+
+**Takeaway:** Normalize both strings to NFC before computing CER, or you measure encoding difference rather than transcription difference.
 
 ---
 
 ## **14 Content**
 
-**Where LLMs Are Genuinely Useful**
+**Where These Tools Genuinely Help**
 
-Balance is owed. The evidence is against zero-shot VLM transcription of historical
-manuscripts; it is not against these tools generally, and dismissing them wholesale
-would be as unexamined as adopting them wholesale.
+Fairness is owed. The evidence is against using a general AI to transcribe old manuscripts cold. It is not against these tools in general, and dismissing them wholesale would be as thoughtless as adopting them wholesale.
 
-| Task | Suitability | Reason |
+| Task | Suitable? | Why |
 | --- | --- | --- |
-| Zero-shot diplomatic transcription of historical MSS | Poor | Specialization gap; hallucination; over-historicization |
-| Transcription of modern handwriting | Good | Well represented in training data |
-| Transcription of printed text in common languages | Good | Very well represented |
-| Translating an established transcription | Good | A language task, not a reading task |
-| Explaining an abbreviation or a palaeographic feature | Useful | Retrieval of documented knowledge |
-| Suggesting parallels for a phrase | Useful, with verification | Broad textual coverage |
-| Drafting code for your pipeline | Good | Well-supported task |
-| Post-correcting OCR output | Counter-productive | Documented to degrade quality |
+| Transcribing historical manuscripts cold | Poor | The specialization gap; invention; false archaism |
+| Transcribing modern handwriting | Good | Well represented in training |
+| Transcribing printed text in common languages | Good | Very well represented |
+| Translating a transcription you already have | Good | A language job, not a reading job |
+| Explaining a short form or a script feature | Useful | Retrieving documented knowledge |
+| Suggesting parallels for a phrase | Useful, if you verify | Broad coverage |
+| Drafting code for your workflow | Good | Very well supported |
+| Tidying up reading output | Harmful | Documented to make things worse |
 
-The guidance is specific: unless the manuscript is a late nineteenth- or
-twentieth-century document in a well-represented language, do not rely on zero-shot
-VLMs for diplomatic transcription. The risk of archaic insertion, silent
-modernization, and structural hallucination outweighs the setup time saved
-(AlKendi et al., 2024).
+The advice is specific: unless your manuscript is a late modern document in a well-represented language, do not rely on a general AI for diplomatic transcription. The risk of false archaism, quiet modernizing, and mangled structure outweighs the setup time you save (AlKendi et al., 2024).
 
-The last row is Wednesday's complexity paradox. Adding LLM-based post-OCR
-correction degrades aggregate quality through prompt saturation and cascading error
-propagation (Mattingly et al., 2024). The correction has no access to the image and
-corrects toward linguistic plausibility — which reliably damages exactly the
-unusual readings that matter.
+The last row is Wednesday's finding again. Adding AI tidying after a reading step makes the overall result worse (Mattingly et al., 2024). The tidying step cannot see the picture, so it corrects toward whatever sounds likely — which reliably damages the unusual readings that matter.
 
-The distinction running through the table: these tools are good at tasks where
-linguistic knowledge is the point, and bad at tasks where linguistic knowledge
-contaminates the evidence. Transcription is the second kind.
+The thread running through the table: these tools are good where knowing language is the point, and bad where knowing language contaminates the evidence. Transcription is the second kind.
 
-**Takeaway:** These tools help where linguistic knowledge is the
-point and harm where it contaminates evidence — transcription is the second kind.
+**Vocabulary.** *Contaminate* — to let outside knowledge alter the evidence. *Wholesale* — accepting or rejecting something entirely, without distinction.
+
+**Takeaway:** These tools help where linguistic knowledge is the point and harm where it contaminates evidence — transcription is the second kind.
 
 ---
 
 ## **15 Content**
 
-**The Human-in-the-Loop Position**
+**Where That Leaves the Method**
 
-Where this leaves the method, stated as a working position rather than a
-prohibition.
+A working position rather than a ban.
 
-HTR and VLMs do not replace the palaeographer; they shift the palaeographer's
-labour from initial decipherment toward validation and semantic enrichment
-(AlKendi et al., 2024). That reallocation is real and valuable — but it holds only
-where the automated output is good enough that validating it costs less than
-transcribing.
+These tools do not replace the person who reads manuscripts. They move that person's effort from deciphering toward checking and interpreting (AlKendi et al., 2024). That shift is real and valuable — but only where the output is good enough that checking it costs less than typing it.
 
-The threshold from Wednesday applies: above roughly 15% CER, post-correction costs
-more than transcribing from scratch (AlKendi et al., 2024). A tool above that
-threshold is not a labour saving with quality costs; it is a labour *increase*.
+Wednesday's threshold applies: past roughly 15% of characters wrong, correcting costs more than typing from scratch (AlKendi et al., 2024). A tool above that line is not a saving with a quality cost. It is extra work.
 
-Today's likely finding is that a general VLM sits above that threshold on your
-manuscript while your fine-tuned HTR model sits below it. If so, the conclusion is
-not that AI is useless but that *the specialized tool is the right one for this
-task*, and that conclusion is now supported by your own measurement rather than by
-assertion.
+Today's likely finding is that the general model sits above that line on your manuscript while your trained model sits below it. If so, the conclusion is not that AI is useless. It is that *the specialized tool is the right one for this job* — and that conclusion now rests on your own measurement rather than on being told.
 
-The three-step cycle is designed to produce exactly this kind of grounded judgement.
-You have now seen what human reading, a bounded specialized model, and an unbounded
-general model each produce on the same lines. That comparison is the basis for
-choosing tools deliberately for the rest of the term — and for defending the choice
-in your Week 12 commentary.
+The three-step cycle exists to produce exactly this kind of grounded judgement. You have now seen what a person, a bounded specialist, and an unbounded generalist each produce on the same lines. That is the basis for choosing tools deliberately for the rest of the term, and for defending the choice in your Week 12 commentary.
 
-**Takeaway:** Automation saves labour only below the threshold
-where correction costs less than transcription — and you have now measured where
-your tools sit.
+**Vocabulary.** *Threshold* — the point at which the sensible choice flips. *Grounded* — supported by evidence you gathered yourself.
+
+**Takeaway:** Automation saves labour only below the threshold where correction costs less than transcription — and you have now measured where your tools sit.
 
 ---
 
 ## **16 Content**
 
-**Documenting AI Use in the Repository**
+**Recording AI Use in the Repository**
 
-Provenance discipline, applied to today's work specifically. The syllabus requires
-disclosure of AI use, and the repository is where disclosure lives.
+The syllabus requires you to disclose AI use, and the repository is where that disclosure lives.
 
-Every commit containing machine-generated content carries trailers recording the
-model, the prompt, and the verification status. For today:
+Every commit holding machine-made content carries labels recording the model, the instruction, and whether a person has checked it. For today:
 
 ```text
 AI-Generated: true
@@ -652,218 +472,176 @@ Human-Verified: false
 Ground-Truth-Commit: a3f9c21
 ```
 
-`Model-Access-Date` matters more for hosted models than for local ones. A hosted
-model can change without notice and without a version number changing, so the date
-is often the only record of which system actually produced the output. A result
-reported without it may not be reproducible even by the same person a month later.
+`Model-Access-Date` matters more than it looks. These services run on someone else's computers and can change overnight without the version number moving, so the date is often the only record of what actually produced your text. A result reported without it may not be repeatable even by you, a month later.
 
-The audit queries from Lesson 1.1 section 25 now return meaningful results:
+The audit commands from Lesson 1.1 now return something meaningful:
 
 | Question | Command |
 | --- | --- |
-| What in my edition is machine-generated? | `git log --grep="AI-Generated: true"` |
-| What remains unverified? | `git log --grep="Human-Verified: false"` |
+| What in my edition was machine-made? | `git log --grep="AI-Generated: true"` |
+| What has nobody checked? | `git log --grep="Human-Verified: false"` |
 | Which models did I use? | `git log --pretty=format:"%(trailers:key=Model)"` |
 | How much is machine-assisted? | `git rev-list --all --grep="AI-Generated: true" --count` |
 
-Run the second one now. It should list Wednesday's raw HTR output and today's raw
-VLM output — the two states in your repository that a machine wrote and you have
-not verified. That is an accurate picture of your edition's current condition, and
-it is exactly the kind of statement a reader of a digital edition should be able to
-obtain.
+Run the second one now. It should list Wednesday's raw output and today's — the two places in your repository where a machine wrote something and nobody has verified it. That is an honest picture of your edition's current state, and it is exactly what a reader of a digital edition should be able to ask for.
 
-**Takeaway:** Record the model access date — a hosted model can
-change without notice, making the date the only record of what produced the output.
+**Vocabulary.** *Disclosure* — stating openly where machine assistance was used. *Audit* — checking a record to see what was actually done.
+
+**Takeaway:** Record the model access date — a hosted model can change without notice, making the date the only record of what produced the output.
 
 ---
 
 ## **17 Content**
 
-**Assembling the Three-Way Comparison**
+**Putting the Three Side by Side**
 
-Bring the three transcriptions together. This is the week's actual product.
+Bring the three versions together. This is the week's real product.
 
-Build a comparison document — `logs/three-way-w4.md` — with a table per line:
+Build `logs/three-way-w4.md` with a row per line:
 
-| Line | Manual (ground truth) | HTR output | VLM output | Notes |
+| Line | Yours (reference) | Trained model | General AI | Notes |
 | --- | --- | --- | --- | --- |
-| 1 | ἐν ἀρχῇ ἦν ὁ λόγος | ἐν ἀρχῇ ἦν ὁ λόγος | ἐν ἀρχῇ ἦν ὁ λόγος | All agree |
-| 2 | θν καὶ θς | θν καὶ θς | θεόν καὶ θεός | VLM expanded abbreviations |
-| 3 | ἦν ὁ λόγος οὗτος | ἦν ὁ λογος οὑτος | ἦν ὁ λόγος οὗτος | HTR dropped diacritics |
-| 4 | [gap, 6 chars] | [nonsense sequence] | διʼ αὐτοῦ πάντα | VLM filled the gap |
+| 1 | ἐν ἀρχῇ ἦν ὁ λόγος | ἐν ἀρχῇ ἦν ὁ λόγος | ἐν ἀρχῇ ἦν ὁ λόγος | All three agree |
+| 2 | θν καὶ θς | θν καὶ θς | θεόν καὶ θεός | AI spelled the short forms out |
+| 3 | ἦν ὁ λόγος οὗτος | ἦν ὁ λογος οὑτος | ἦν ὁ λόγος οὗτος | Trained model dropped accents |
+| 4 | [gap, 6 chars] | [nonsense] | διʼ αὐτοῦ πάντα | AI filled the gap |
 
-That fourth row is the finding. Where the manuscript is damaged, your transcription
-records a measured gap, the HTR model produces something visibly wrong, and the VLM
-produces fluent plausible Greek that is not on the parchment. Three systems, three
-characteristic behaviours, one line.
+Row four is the finding in miniature. Where the page is damaged, you recorded a measured gap, the trained model produced something visibly wrong, and the AI produced fluent plausible Greek that is not on the parchment. Three systems, three characteristic behaviours, one line.
 
-Generating the comparison is easier with a diff:
+A diff makes this easier to build:
 
 ```bash
 git diff gt-f42r:edition/edition.xml htr-w4-raw:edition/htr-output.txt
 ```
 
-This is where the tags from Tuesday and Wednesday earn their keep, and where the
-`diff.algorithm histogram` setting from Lesson 1.1 section 21 makes the output
-readable.
+This is where Tuesday's and Wednesday's tags earn their keep.
 
-Complete the comparison for at least ten lines, including every line where you
-recorded uncertainty or damage. Those lines are the informative ones — agreement on
-easy lines tells you little, and divergence on hard lines tells you what each
-system does when the evidence runs out.
+Do at least ten lines, and make sure they include every line where you recorded doubt or damage. Those are the informative ones. Agreement on easy lines tells you almost nothing; what each system does when the evidence runs out tells you everything.
 
-**Takeaway:** Compare on the lines where you recorded uncertainty
-— agreement on easy lines is uninformative, and divergence on hard lines is the
-finding.
+**Vocabulary.** *Diff* — a comparison showing what differs between two versions. *Three-way comparison* — setting three versions of the same thing against each other.
+
+**Takeaway:** Compare on the lines where you recorded uncertainty — agreement on easy lines is uninformative, and divergence on hard lines is the finding.
 
 ---
 
 ## **18 Content**
 
-**Error Taxonomy Across the Three**
+**Sorting the Mistakes**
 
-Categorize what you found, because the categories are what your Week 5 report
-argues from.
+Categorize what you found, because the categories are what your Week 5 report argues from.
 
-| Error category | Manual | Specialized HTR | Vision-language model |
+| Kind of mistake | You | Trained model | General AI |
 | --- | --- | --- | --- |
-| Misread letterform | Occasional | Common | Common |
-| Dropped diacritics | Rare | Common, often layout-caused | Variable |
-| Expanded abbreviations | Never, if diplomatic | Rare | Common |
-| Modernized orthography | Never, if diplomatic | Rare | Common |
-| Impossible letter sequences | Never | Occasional | Rare |
-| Plausible wrong words | Rare | Rare | Common |
-| Fabricated text in damaged regions | Never | Never | Documented |
+| Misread letter | Occasional | Common | Common |
+| Dropped accents | Rare | Common, usually a strip fault | Varies |
+| Short forms spelled out | Never, if diplomatic | Rare | Common |
+| Spelling modernized | Never, if diplomatic | Rare | Common |
+| Impossible letter strings | Never | Occasional | Rare |
+| Believable wrong words | Rare | Rare | Common |
+| Text invented over damage | Never | Never | Documented |
 | Line breaks lost | Never | Never | Common |
-| Commentary injected | Never | Never | Common |
-| Reading rather than seeing | Occasional | Never | By construction |
+| Commentary inserted | Never | Never | Common |
+| Reading what you expected | Occasional | Never | By design |
 
-Read the last four rows down. The bottom four failure categories are essentially
-exclusive to the vision-language model, and none of them is a *recognition* error —
-they are consequences of the system being a language model applied to a reading
-task. It reformats because it produces prose; it comments because it converses; it
-fabricates because it completes.
+Read the bottom four rows down the columns. Those four failures belong almost entirely to the general AI, and not one of them is a *reading* mistake. They follow from it being a language machine pointed at a reading job. It reformats because it writes prose. It chats because it converses. It invents because it completes.
 
-Read the last row across. Your own characteristic failure — reading what you expect
-rather than what is written, from Lesson 4.1 section 10 — is one the HTR model
-structurally cannot make, because it has no expectations to impose. The VLM makes
-it by construction, since imposing linguistic expectation is what it does.
+Read the last row across. Your own signature failure — reading what you expect rather than what is written — is one the trained model structurally cannot make, because it has no expectations. The general AI makes it by design, since applying expectation is exactly what it does.
 
-That is a genuinely useful symmetry. The specialized model is a check on your
-expectation-driven errors, and you are a check on its ink-level errors. The two
-complement each other, which is what human-in-the-loop actually means in practice.
+That is a useful symmetry. The trained model is a check on your expectation-driven slips, and you are a check on its ink-level slips. That mutual checking is what "human in the loop" actually means in practice.
 
-**Takeaway:** The VLM's distinctive failures are not recognition
-errors but consequences of being a language model — and the HTR model cannot make
-your expectation-driven errors.
+**Vocabulary.** *Failure mode* — a characteristic way a system goes wrong. *By construction* — following necessarily from how something is built.
+
+**Takeaway:** The VLM's distinctive failures are not recognition errors but consequences of being a language model — and the HTR model cannot make your expectation-driven errors.
 
 ---
 
 ## **19 Content**
 
-**Reporting Negative Results**
+**Reporting a Result That Did Not Work**
 
-If today produced poor VLM output, that is a result and should be reported as one.
+If today's AI output was poor, that is a result. Report it as one.
 
-There is a tendency in coursework to treat a failed technique as a failed
-assignment, and to report only what worked. This is the opposite of what is wanted.
-A documented negative result — this model, this prompt, this manuscript, this error
-rate — is a genuine contribution, and it is what lets a future scholar avoid
-repeating the attempt.
+There is a habit in coursework of treating a technique that failed as an assignment that failed, and reporting only the parts that worked. That is the opposite of what is wanted here. A documented negative result — this model, this instruction, this manuscript, this score — is a real contribution, and it saves the next person from repeating the attempt.
 
 Report:
 
-- The model and version, and the date accessed.
-- The exact prompt.
-- The raw output, committed unmodified.
-- The measured error rate, with its caveats.
-- The error categories, with counts.
-- What specifically failed: diacritics, abbreviations, line breaks, damaged regions.
-- Whether memorization was tested for, and what was found.
-- Your assessment of whether the method is usable for this manuscript.
+- The model and version, and the date you used it.
+- The exact instruction.
+- The raw output, committed unchanged.
+- The measured score, with its caveats.
+- The kinds of mistake, with counts.
+- What specifically failed: accents, short forms, line breaks, damaged patches.
+- Whether you tested for reciting, and what you found.
+- Your judgement on whether the method is usable for this manuscript.
 
-That last item is the scholarly judgement. It is not "the model was bad" but
-something like: *for this hand, in this script, at this resolution, zero-shot VLM
-transcription produced a CER of X with systematic expansion of abbreviations and
-fabricated text in damaged regions, and is therefore unsuitable as a primary
-transcription method for this edition; it may remain useful for [specific task].*
+That last item is the scholarly part. Not "the model was bad", but something like: *for this hand, in this script, at this resolution, an untrained general model produced X% character error with systematic spelling-out of short forms and invented text in damaged regions, and is therefore unsuitable as a primary transcription method for this edition, though it may remain useful for [specific task].*
 
-That statement is defensible, specific, and useful. It is also exactly the kind of
-claim the Week 5 reconciliation report asks for.
+That statement is specific, defensible, and useful — and it is exactly what the Week 5 report asks for.
 
-**Takeaway:** A documented failure — this model, this prompt,
-this manuscript, this rate — is a contribution, and vague dismissal is not.
+**Vocabulary.** *Negative result* — a finding that something does not work, which is still a finding. *Defensible* — able to be supported when questioned.
+
+**Takeaway:** A documented failure — this model, this prompt, this manuscript, this rate — is a contribution, and vague dismissal is not.
 
 ---
 
 ## **20 Content**
 
-**Remote Session Practicalities**
+**Working Remotely Today**
 
-Today is remote, and a few things are worth verifying rather than assuming.
+Today is remote. A few things are worth checking rather than assuming.
 
-- Your repository is pushed and your local clone is current.
-- Your manifest is reachable from your current network.
-- Your polytonic input method works on this machine.
-- Your XML editor validates against the TEI schema here.
-- Python and your normalization tooling run here.
-- Your pre-commit hook is installed in this clone.
+- Your repository is pushed, and your local copy is up to date.
+- Your images load from the network you are on.
+- Your Greek keyboard works on this machine.
+- Your XML editor checks against the TEI rulebook here.
+- Python and your accent tools run here.
+- Your pre-commit hook is installed *in this copy*.
 
-The last item is the one that catches people. Hooks live in `.git/hooks/` and are
-**not cloned**, as Lesson 1.1 section 23 established. If you are working from a
-fresh clone today, your NFC normalization hook does not exist here, and every
-commit you make will bypass it.
+The last one catches people. Hooks live in `.git/hooks/`, and that folder is **not copied** when you clone a repository. If you are working from a fresh copy today, your accent-fixing hook does not exist here, and every commit you make will slip past it.
 
-Install it now, from your tracked `tools/` directory, before committing anything:
+Install it now, from your tracked `tools/` folder, before you commit anything:
 
 ```bash
 cp tools/pre-commit .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
 
-Then test it: create a file with decomposed Greek, stage it, commit, and confirm
-the committed bytes are NFC. An untested hook on a new machine is not a control.
+Then test it: make a file with decomposed Greek, stage it, commit, and check the stored bytes. An untested hook on a new machine is not a safeguard.
 
-Push before you finish. Today's work must be available on whatever machine you use
-next week, and a remote session's output left on a laptop is a common way to lose a
-session's work.
+Push before you finish. Today's work has to be available on whatever machine you use next week, and leaving a remote session's output on a laptop is a common way to lose it.
 
-**Takeaway:** Hooks are not cloned — install and test your NFC
-hook on this machine before committing anything today.
+**Vocabulary.** *Clone* — your own copy of a repository. *Hook* — a script git runs automatically at a set moment.
+
+**Takeaway:** Hooks are not cloned — install and test your NFC hook on this machine before committing anything today.
 
 ---
 
 ## **21 Content**
 
-**What Wednesday and Friday Together Established**
+**What This Week Established**
 
-Consolidate the week's empirical findings, since they are what Week 5 argues from.
+Pull the week's findings together, since Week 5 argues from them.
 
 | Finding | Evidence |
 | --- | --- |
-| Transfer learning is decisive | 17.18% CER from scratch versus 3.90% with transfer, same data (Perdiki & Konstantinidou, 2023) |
-| Domain match beats scale | TrOCR-Medieval 14.6% versus Mistral-OCR-3 84.7%, same samples (Mattingly et al., 2024) |
-| VLMs collapse on historical material | GPT-4o 1.39% modern versus 52.23% historical English (AlKendi et al., 2024) |
-| Low CER can hide fidelity loss | GPT-4o 9.23% CER with archaic insertions in 59% of files (Levchenko, 2024) |
-| Layout errors cascade into recognition | Truncated polygons remove Greek diacritics entirely (Perdiki & Konstantinidou, 2023) |
-| Pipeline complexity degrades quality | Simple OCR-to-translator beats RAG and post-correction variants (Mattingly et al., 2024) |
-| Models are brittle to layout change | CMM 5.1% standard versus 13.6% glossed (Geelhaar, 2022) |
-| Above 15% CER, correction costs more than transcription | (AlKendi et al., 2024) |
+| Starting from an existing model is decisive | 17.18% wrong from scratch versus 3.90% with it, same data (Perdiki & Konstantinidou, 2023) |
+| Matching the material beats being big | Tuned specialist 14.6% versus a large model's 84.7%, same pages (Mattingly et al., 2024) |
+| General AI collapses on old material | GPT-4o 1.39% modern versus 52.23% historical English (AlKendi et al., 2024) |
+| A good score can hide lost faithfulness | GPT-4o 9.23% while inserting old letters in 59% of files (Levchenko, 2024) |
+| Line-finding faults ruin the reading | Chopped strips delete Greek accents entirely (Perdiki & Konstantinidou, 2023) |
+| More steps make it worse | Plain workflow beats versions with extra AI stages (Mattingly et al., 2024) |
+| Models break when the layout changes | 5.1% on plain pages versus 13.6% on glossed ones (Geelhaar, 2022) |
+| Past 15% wrong, correcting costs more than typing | (AlKendi et al., 2024) |
 
-These are not opinions about AI. They are measurements, from published benchmarks,
-which you have now partially replicated on your own manuscript.
+These are not opinions about AI. They are measurements, from published tests, which you have now partly repeated on your own manuscript.
 
-The unifying claim is the week's thesis: automated transcription substantially
-accelerates the workflow *and* fundamentally requires human diplomatic
-transcription as an authoritative ground truth, because it is exclusively against
-that baseline that error rates, biases, and hallucinated readings can be measured,
-evaluated, and mitigated (AlKendi et al., 2024).
+The claim that ties them together is the week's thesis: automated transcription genuinely speeds the work *and* absolutely depends on a hand-made diplomatic reference, because that reference is the only thing against which error, bias, and invention can be measured at all (AlKendi et al., 2024).
 
-Every row in that table is a measurement made against a ground truth someone
-produced by hand.
+Every row in that table is a measurement against a reference somebody made by hand.
 
-**Takeaway:** Every finding in the table is a measurement against
-a hand-produced ground truth — which is the week's thesis in operation.
+**Vocabulary.** *Thesis* — the central claim an argument sets out to establish. *Replicate* — repeat a study to see whether the result holds.
+
+**Takeaway:** Every finding in the table is a measurement against a hand-produced ground truth — which is the week's thesis in operation.
 
 ---
 
@@ -871,29 +649,27 @@ a hand-produced ground truth — which is the week's thesis in operation.
 
 **Checklist Before You Finish**
 
-Verify each.
+Check each one.
 
-- VLM transcription run on the same folio as Tuesday and Wednesday.
-- Prompt recorded verbatim in `logs/vlm-method-w4.md`.
-- Model name, version, and access date recorded.
-- Raw output committed unmodified, with provenance trailers.
-- Output checked against every requirement in section 10.
-- Damaged regions specifically examined for fabricated text.
-- Memorization tested, if your text is well known.
-- Self-reported uncertainty assessed against actual accuracy.
-- Preliminary CER computed for both machine outputs, NFC-normalized.
+- AI transcription run on the same leaf as Tuesday and Wednesday.
+- Instruction recorded word for word in `logs/vlm-method-w4.md`.
+- Model name, version, and date recorded.
+- Raw output committed unchanged, with the labels.
+- Output checked against every item in section 10.
+- Damaged patches specifically examined for invented text.
+- Reciting tested for, if your text is well known.
+- The model's own doubt flags checked against actual accuracy.
+- Rough score worked out for both machine versions, both normalized.
 - Three-way comparison table built for at least ten lines.
-- Errors categorized by type, with counts.
-- Time invested recorded for each of the three methods.
+- Mistakes sorted by kind, with counts.
+- Time recorded for all three methods.
 - Everything committed and pushed.
 
-The seventh item applies only to well-known texts but is the most important check
-available when it does apply. A model reproducing a printed edition from memory
-produces excellent-looking output that is worthless as a witness transcription, and
-nothing else in this checklist would detect it.
+Item seven applies only to well-known texts, but where it applies it is the most important check available. A model reproducing a printed edition from memory gives you excellent-looking output that is worthless as a record of *your* copy, and nothing else on this list would catch it.
 
-**Takeaway:** For a well-known text, the memorization test is the
-most important check available — nothing else detects a recited printed edition.
+**Vocabulary.** *Checklist* — a list checked item by item rather than from memory. *Witness* — one manuscript copy of a text, treated as evidence.
+
+**Takeaway:** For a well-known text, the memorization test is the most important check available — nothing else detects a recited printed edition.
 
 ---
 
@@ -901,31 +677,22 @@ most important check available — nothing else detects a recited printed editio
 
 **Looking Ahead to Week 5**
 
-Next week reconciles and measures, and it is a two-step week by design — Wednesday
-September 30 is closed for Truth and Reconciliation, and the schedule notes that
-reconciliation is itself the comparison, so the missing meeting costs nothing.
+Next week reconciles and measures. It is a two-meeting week by design — Wednesday September 30 is closed for Truth and Reconciliation, and nothing is lost, because reconciliation *is* the comparison.
 
-| Meeting | Step | Activity |
+| Meeting | Step | What you do |
 | --- | --- | --- |
-| Tue Sep 29 (#12) | Manual | Double-keying; building a consensus text by hand |
-| Fri Oct 2 (#13) | Measurement | CER and WER for the HTR and AI passes against your ground truth |
+| Tue Sep 29 (#12) | Manual | Type it twice; settle the differences by hand |
+| Fri Oct 2 (#13) | Measurement | Score both machine versions against your reference |
 
-Tuesday's double-keying addresses the problem raised in Lesson 4.1 section 15: your
-ground truth contains errors, and treating it as perfect makes every measurement
-against it partly wrong. Transcribing independently a second time and adjudicating
-the differences produces a substantially more accurate reference.
+Tuesday tackles the problem raised in Lesson 4.1: your reference has mistakes in it, and treating it as perfect makes every measurement partly wrong. Typing it independently a second time and settling the differences gives you a much better reference.
 
-Friday computes the measurements properly — line-aligned, normalized, categorized,
-with the qualitative assessment that section 05 argued CER alone cannot supply.
+Friday does the measuring properly — line by line, normalized, sorted by kind, with the judgement that section 05 argued a single number cannot supply.
 
-**The Transcription Assignment is due Friday October 2**, and it includes the
-reconciliation report. Everything you have recorded this week — methodology,
-comparisons, error categories, timings — is material for it. Students who kept
-those records assemble the report; students who did not, redo the work.
+**The Transcription Assignment is due Friday October 2**, and it includes the reconciliation report. Everything you recorded this week — methods, comparisons, categories, timings — is material for it. Students who kept those records write the report. Students who did not, do the work again.
 
-**Takeaway:** Week 5 double-keys the ground truth and then
-measures against it — and the Transcription Assignment on October 2 includes the
-reconciliation report.
+**Vocabulary.** *Reconciliation* — settling the differences between versions of the same text. *Consensus text* — the agreed version produced after settling them.
+
+**Takeaway:** Week 5 double-keys the ground truth and then measures against it — and the Transcription Assignment on October 2 includes the reconciliation report.
 
 ---
 
@@ -933,140 +700,96 @@ reconciliation report.
 
 **What Good Work Looks Like Here**
 
-The standard for today.
+An acceptable result is an AI transcription, committed, with a score.
 
-A minimally acceptable result is a VLM transcription, committed, with a computed
-error rate.
+Good work also:
 
-Good work additionally:
+- Uses an instruction built against the documented failures, recorded word for word.
+- Keeps the raw output untouched before any judging.
+- Checks against every category in section 10, not by impression.
+- Looks specifically at damaged patches for invention.
+- Tests for reciting where the text is well known.
+- Checks the model's doubt flags against its actual mistakes.
+- Normalizes both texts before working out any score.
+- Reports cost as well as quality, for all three methods.
+- Draws a specific, defensible conclusion about *this* manuscript.
+- Reports failures fully.
 
-- Uses a prompt designed against documented failure modes, recorded verbatim.
-- Preserves the raw output unmodified before any assessment.
-- Checks the output against every category in section 10, not impressionistically.
-- Examines damaged regions specifically for fabrication.
-- Tests for memorization where the text is well known.
-- Assesses self-reported uncertainty against actual accuracy.
-- Normalizes both strings before computing any error rate.
-- Reports cost alongside quality for all three methods.
-- Draws a specific, defensible conclusion about applicability to *this* manuscript.
-- Reports negative results fully.
+The ninth item is what the whole week is for. "AI is unreliable for manuscripts" repeats what you were told. "For this tenth-century Greek minuscule at this resolution, model X produced Y% character error with systematic spelling-out of short forms and invented text in two damaged regions, against my trained model's Z%" is something you established.
 
-The ninth item is what the whole week is for. A conclusion of the form "AI is
-unreliable for manuscripts" is a repetition of what you were told. A conclusion of
-the form "for this tenth-century Greek minuscule at this resolution, model X
-produced a CER of Y with systematic abbreviation expansion and fabricated text in
-two damaged regions, against my fine-tuned model's Z" is a finding you established.
+The difference between those two sentences is the difference between having read about the specialization gap and having measured it.
 
-The difference between them is the difference between having read about the
-specialization gap and having measured it.
+**Vocabulary.** *Deliverable* — the finished thing you are expected to produce. *Specific* — naming the actual material, model, and numbers involved.
 
-**Takeaway:** A specific measured conclusion about *your*
-manuscript is the deliverable; a general claim about AI is a repetition of what you
-were told.
+**Takeaway:** A specific measured conclusion about *your* manuscript is the deliverable; a general claim about AI is a repetition of what you were told.
 
 ---
 
 ## **25 Content**
 
-**A Note on Tool Choice for the Rest of the Term**
+**Choosing Tools for the Rest of the Term**
 
-Today's results should inform how you work from Week 6 onward, and it is worth
-being explicit about how.
+Today's results should shape how you work from Week 6 on.
 
-If your fine-tuned HTR model performs well — under about 10% CER — use it to extend
-your transcription across the remaining folios, correcting its output against the
-images and committing raw and corrected states separately. That is the
-human-in-the-loop workflow operating as intended.
+If your trained model does well — under about 10% wrong — use it to extend your transcription across the remaining leaves, correcting against the pictures and committing raw and corrected states separately. That is the intended workflow, working as intended.
 
-If it performs poorly, diagnose before abandoning it. The order from Wednesday's
-section 14 applies: layout, alignment, training volume, base model. Most poor first
-models are fixable, and the commonest fix is more or better-sampled ground truth.
+If it does badly, diagnose before giving up. Wednesday's order applies: line-finding, alignment, amount of training material, starting model. Most poor first models are fixable, and the usual fix is more or better-chosen examples.
 
-For the VLM, the honest position based on today is likely that it is unsuitable for
-primary transcription of your manuscript, and that it remains useful for other
-tasks — explaining palaeographic features, drafting pipeline code, suggesting
-parallels for verification, translating an established transcription.
+For the general AI, the honest position after today is probably that it is unsuitable for your primary transcription, while remaining useful for other things — explaining script features, drafting workflow code, suggesting parallels you then verify, translating a transcription you already have.
 
-What you should not do, from Wednesday's section 24, is pass your HTR output
-through an LLM for correction. That configuration is documented to degrade quality
-(Mattingly et al., 2024), and it will damage precisely the unusual readings your
-edition exists to record.
+What you should not do, from Wednesday, is pass your trained model's output through an AI to clean up. That setup is documented to make things worse (Mattingly et al., 2024), and it will damage precisely the unusual readings your edition exists to record.
 
-Record your tool decisions and your reasons. Week 12's commentary will need to state
-what methods produced the text, and a decision recorded at the time is worth more
-than one reconstructed in December.
+Write down your tool decisions and your reasons. Week 12's commentary has to state what produced the text, and a reason recorded now is worth far more than one reconstructed in December.
 
-**Takeaway:** Let today's measurement set your tool choices for
-the term, and record the reasons at the time rather than reconstructing them later.
+**Vocabulary.** *Workflow* — the sequence of steps you use to do the work. *Amortize* — spread a one-off cost across enough uses to be worth it.
+
+**Takeaway:** Let today's measurement set your tool choices for the term, and record the reasons at the time rather than reconstructing them later.
 
 ---
 
 ## **26 Content**
 
-**The Broader Methodological Point**
+**The Bigger Point**
 
-Step back from transcription, because the pattern generalizes and will recur every
-week for the rest of the term.
+Step back from transcription, because this pattern returns every week for the rest of the term.
 
-Each week runs the same operation three ways: by hand, with a specialized
-deterministic tool, and with AI assistance. That structure is not about
-transcription specifically. It is a general method for evaluating computational
-tools in a scholarly context, and its logic is the same each time.
+Each week runs the same job three ways: by hand, with a specialized tool, and with AI. That structure is not about transcription. It is a general way of judging computational tools in scholarly work, and the logic is the same each time.
 
-The manual step establishes a reference and, equally, establishes *your*
-understanding of the material. The deterministic step shows what a bounded,
-domain-specific tool produces — fast, consistent, limited to what it was built for.
-The AI step shows what an unbounded general tool produces — faster, more flexible,
-and capable of failure modes the other two structurally cannot exhibit.
+The manual step builds a reference and, just as importantly, builds *your* understanding of the material. The specialized step shows what a bounded, purpose-built tool produces — fast, consistent, limited to what it was made for. The AI step shows what an unbounded general tool produces — faster still, more flexible, and capable of failures the other two structurally cannot commit.
 
-The comparison yields something none of the three yields alone: a measured account
-of what each tool is good for on *this* material, which is the only basis on which
-tools should be chosen.
+Comparing them gives you something none of the three gives alone: a measured account of what each is good for on *this* material. That is the only sound basis for choosing tools.
 
-Notice that this method requires the manual step to come first and to be done
-properly. Every measurement is a distance from the reference, and a compromised
-reference compromises everything computed from it. That is why Tuesday is not a
-warm-up.
+Notice that the method needs the manual step to come first and to be done properly. Every measurement is a distance from the reference, and a damaged reference damages everything computed from it. That is why Tuesday is not a warm-up.
 
-**Takeaway:** The three-step cycle is a general method for
-evaluating tools against material, and it collapses if the manual reference is
-compromised.
+**Vocabulary.** *Bounded* — limited to a defined range. *Unbounded* — not restricted to any particular domain.
+
+**Takeaway:** The three-step cycle is a general method for evaluating tools against material, and it collapses if the manual reference is compromised.
 
 ---
 
 ## **27 Content**
 
-**Honest Assessment of Cost**
+**Counting the Cost Honestly**
 
 One more comparison, because quality without cost is half an argument.
 
-| Method | Setup | Per-folio cost after setup | Quality on your manuscript |
+| Method | Setup | Cost per leaf afterwards | Quality here |
 | --- | --- | --- | --- |
-| Manual transcription | None | Highest | Reference |
-| Fine-tuned HTR | A session: layout, alignment, training | Low, plus correction | Record your figure |
-| Zero-shot VLM | Minutes | Very low, plus correction | Record your figure |
+| By hand | None | Highest | The reference |
+| Trained model | A whole session | Low, plus correcting | Your figure |
+| General AI | Minutes | Very low, plus correcting | Your figure |
 
-Fill in the right-hand column from today's measurements, and the middle column
-from your own timings.
+Fill the right column from today's measurements and the middle from your own timings.
 
-The comparison is genuinely three-dimensional and resists a simple ranking. Manual
-transcription has no setup cost and the highest marginal cost. HTR has a
-substantial setup cost and a low marginal cost, which means it pays off across many
-folios and does not pay off across four. The VLM has almost no cost of either kind
-and, on historical material, quality that may make its output not worth correcting.
+The comparison genuinely has three dimensions and resists a simple ranking. Typing by hand costs nothing to set up and the most per leaf. The trained model costs a session to set up and little per leaf — so it pays off across many leaves and does not pay off across four. The general AI costs almost nothing either way and, on old material, may produce output not worth correcting at all.
 
-The threshold governs: above roughly 15% CER, correction costs more than
-transcription, and a tool's low cost per folio is irrelevant if its output must be
-discarded (AlKendi et al., 2024).
+The threshold governs. Past roughly 15% wrong, correcting costs more than typing, and a tool being cheap per leaf is irrelevant if its output has to be thrown away (AlKendi et al., 2024).
 
-For a passage of twenty to forty lines — your edition — the honest calculation may
-well be that manual transcription is competitive with HTR, because the setup cost
-never amortizes. Say so if you find it. The exercise's value is in having measured
-the trade-off on real material, not in reaching a predetermined conclusion about
-which tool wins.
+For a passage of twenty to forty lines — your edition — the honest sum may well be that typing by hand beats the trained model, because the setup never pays for itself. Say so if you find it. The value of the exercise is in having measured the trade-off on real material, not in reaching a conclusion someone decided in advance.
 
-**Takeaway:** For a short passage, HTR's setup cost may never
-amortize — say so if you find it, because the measurement is the point.
+**Vocabulary.** *Setup cost* — the one-off effort before any output. *Marginal cost* — what each additional unit costs after that.
+
+**Takeaway:** For a short passage, HTR's setup cost may never amortize — say so if you find it, because the measurement is the point.
 
 ---
 
@@ -1074,19 +797,16 @@ amortize — say so if you find it, because the measurement is the point.
 
 **Committing and Pushing**
 
-Close out the week properly.
+Close the week out properly.
 
-Everything committed today should carry complete provenance. Verify with the audit
-queries:
+Everything committed today should carry full provenance. Check with the audit commands:
 
 ```bash
 git log --grep="AI-Generated: true" --oneline
 git log --grep="Human-Verified: false" --oneline
 ```
 
-The second query lists what a machine wrote and you have not verified. If you have
-corrected today's output, commit the corrections separately and the corrected state
-should carry `Human-Verified: true`.
+The second lists what a machine wrote and nobody has checked. If you have corrected today's output, commit the corrections separately, and that commit should say `Human-Verified: true`.
 
 Tag today's raw output:
 
@@ -1095,96 +815,61 @@ git tag -a vlm-w4-raw -m "Raw VLM output, [model/version], before correction"
 git push --tags
 ```
 
-Push everything, including tags. Tags are not pushed by default, and the three
-tagged states from this week — `gt-f42r`, `htr-w4-raw`, `vlm-w4-raw` — are what
-Week 5's measurement retrieves. A tag existing only locally is a tag that Week 5
-cannot use if you work from another machine.
+Push everything, tags included. **Tags are not pushed by default.** The three tagged states from this week — `gt-f42r`, `htr-w4-raw`, `vlm-w4-raw` — are what Week 5's measurement goes and fetches. A tag that exists only on this laptop is a tag Week 5 cannot use if you work from anywhere else.
 
-Verify the push succeeded and the tags are present on the remote before you finish.
-A remote session that ends with unpushed work is a session that may need to be
-repeated.
+Check the push worked and the tags are on the remote before you stop. A remote session that ends with unpushed work is a session you may have to repeat.
 
-**Takeaway:** Push tags explicitly — they are not pushed by
-default, and Week 5's measurement retrieves the tagged states.
+**Vocabulary.** *Remote* — the copy of your repository on the server. *Push* — send your commits to it.
+
+**Takeaway:** Push tags explicitly — they are not pushed by default, and Week 5's measurement retrieves the tagged states.
 
 ---
 
 ## **29 Content**
 
-**Consolidating the Week**
+**Pulling the Week Together**
 
 What Topic 4 established, across three meetings.
 
-Tuesday: diplomatic transcription preserves what the manuscript shows, including
-abbreviations, uncertainty, corrections, and damage; it is produced by hand, at
-full zoom, by someone reading rather than expecting; and it serves as training
-data, comparison reference, verification object, and measurement baseline
-simultaneously.
+Tuesday: a diplomatic transcription keeps what the manuscript shows — short forms, doubts, corrections, damage. It is made by hand, zoomed in, by somebody reading rather than expecting. And it serves at once as training material, as a comparison, as the thing being checked, and as the answer key.
 
-Wednesday: layout analysis precedes recognition and its errors cascade; polygons
-must enclose Greek diacritics or the model never sees them; transfer learning from
-a matched base model is decisive; and a specialized model's bounded competence
-makes it fail conspicuously rather than fluently.
+Wednesday: finding the lines comes before reading them, and faults in the first wreck the second. The strips must include Greek accents or the model never sees them. Starting from a matched existing model is decisive. And a specialist's limited competence makes it fail loudly rather than smoothly.
 
-Friday: general vision-language models collapse on historical material despite
-excelling on modern; they exhibit failure modes specialized models do not —
-over-historicization, fluent fabrication, structural reformatting; and low CER can
-coexist with the destruction of diplomatic fidelity.
+Friday: general AI models collapse on historical material despite excelling on modern. They fail in ways specialists cannot — inventing old spellings, fabricating fluently, mangling the structure. And a good score can sit alongside the destruction of everything that made the transcription faithful.
 
-The connecting thesis: automation accelerates the work and requires a
-hand-produced diplomatic ground truth, because that is the only thing against which
-its errors can be measured (AlKendi et al., 2024).
+The thread: automation speeds the work and depends on a hand-made diplomatic reference, because that is the only thing its errors can be measured against (AlKendi et al., 2024).
 
-Week 5 takes that ground truth, improves it by double-keying, and performs the
-measurement properly.
+Week 5 takes that reference, improves it by typing it twice, and does the measuring properly.
 
-**Takeaway:** Three meetings, one thesis — automation accelerates
-transcription and depends absolutely on a hand-produced reference to be evaluated
-at all.
+**Vocabulary.** *Topic* — one week's unit of this course. *Ground truth* — the hand-made reference everything is scored against.
+
+**Takeaway:** Three meetings, one thesis — automation accelerates transcription and depends absolutely on a hand-produced reference to be evaluated at all.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: Fluency Is Not Fidelity**
+**Synthesis: Reading Well Is Not Reading Right**
 
 The finding worth carrying out of this week.
 
-A vision-language model applied to a historical manuscript produces fluent text.
-It reads well. Its Greek is grammatical, its vocabulary is plausible, its sentences
-complete properly. And on historical material it may be wrong at rates approaching
-80% character error, may insert orthography from centuries earlier than the
-document, and may supply confident readings for parchment that carries no legible
-ink (AlKendi et al., 2024; Levchenko, 2024).
+A general AI model pointed at a historical manuscript produces fluent text. It reads well. The Greek is grammatical, the vocabulary is plausible, the sentences finish properly. And on old material it may be wrong at rates approaching 80% of characters, may insert spellings from centuries before the document, and may supply confident readings for parchment carrying no legible ink at all (AlKendi et al., 2024; Levchenko, 2024).
 
-Fluency and fidelity are independent properties, and the systems that maximize the
-first are not the systems that maximize the second. This is the week's central
-lesson, and it generalizes well beyond transcription: the more a tool can produce
-plausible output, the less its plausibility tells you about its accuracy, and the
-more you must verify against the source.
+Reading well and being right are independent properties. The systems best at the first are not the systems best at the second. That is the week's central lesson, and it reaches well past transcription: the better a tool is at producing plausible output, the less its plausibility tells you about its accuracy — and the more you must check against the source.
 
-This is why the specialized model's conspicuous failures are a virtue. Output that
-announces its own uncertainty by being obviously wrong is safer than output that
-conceals uncertainty by being fluent. A CTC model producing an impossible letter
-sequence has told you something true about the ink; a language model producing a
-perfect word has told you something about its expectations.
+This is why the specialist's loud failures are a virtue. Output that announces its own doubt by being obviously wrong is safer than output that hides its doubt by being smooth. A model producing an impossible letter string has told you something true about the ink. A model producing a perfect word has told you something about its own expectations.
 
-And it is why the manual step is irreducible. Only a person who has read the
-parchment can tell the difference — and having read it, they hold the reference
-against which everything else is measured.
+And it is why the manual step cannot be removed. Only somebody who has read the parchment can tell those apart — and having read it, they hold the reference everything else is measured against.
 
-**Due Friday October 2.** The Transcription Assignment, including the
-reconciliation report, at the end of Week 5.
+**Due Friday October 2.** The Transcription Assignment, including the reconciliation report, at the end of Week 5.
 
-**For Tuesday.** Week 5 begins with double-keying: transcribe your folio again,
-independently, without consulting Tuesday's version. Do not review it beforehand.
-The independence is what makes the comparison informative.
+**For Tuesday.** Week 5 opens with double-keying: type your leaf again, independently, without looking at Tuesday's version first. The independence is what makes the comparison worth anything.
 
-**Takeaway:** Fluency and fidelity are independent, and the more
-plausible a tool's output, the less its plausibility tells you about its accuracy.
+**Vocabulary.** *Fluency* — reading smoothly and naturally. *Fidelity* — matching the source faithfully. They are not the same thing.
+
+**Takeaway:** Fluency and fidelity are independent, and the more plausible a tool's output, the less its plausibility tells you about its accuracy.
 
 ---
-
 ## References
 
 AlKendi, W., Gechter, F., Heyberger, L., & Guyeux, C. (2024). Advancements and

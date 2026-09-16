@@ -2,10 +2,7 @@
 
 *RELS 398 / ENGL 398 · Topic 4: Transcription · Meeting #10 (Wed Sep 23)*
 
-***Step 2 of the three-step cycle: deterministic.** Today you take yesterday's
-ground truth into Transkribus, correct its layout analysis, and train a model
-specific to your scribe. The model is a rule-governed statistical engine, not a
-generative one — and its failure modes differ accordingly.*
+***Step 2 of the three-step cycle: deterministic.** Today you load yesterday's transcription into Transkribus, fix how it divides the page into lines, and train it to read your scribe's handwriting. This kind of program reads the ink and nothing else — which shapes the mistakes it makes.*
 
 ---
 
@@ -13,729 +10,488 @@ generative one — and its failure modes differ accordingly.*
 
 **What "Deterministic" Means This Week**
 
-The Wednesday step of each week uses specialized, rule-based or trained
-computational tools rather than general-purpose generative models. The
-distinction is worth stating precisely, because "deterministic" is doing specific
-work here.
+Every Wednesday this term you use a specialized tool rather than a general AI chatbot. The word *deterministic* is doing real work here, so it is worth pinning down.
 
-An HTR model is not deterministic in the sense of following hand-written rules. It
-is a neural network whose behaviour is learned from data. It is deterministic in
-two senses that matter: the same input produces the same output every time, and
-the model's competence is bounded by what it was trained on. It cannot draw on
-knowledge of the text's content, cannot consult its expectations about what a
-sentence should say, and cannot invent material from outside its training
-distribution.
+Today's program is not deterministic in the sense of following rules a person wrote. It learns from examples. It is deterministic in two ways that matter. The same picture always produces the same answer. And it only knows what its examples taught it.
 
-That boundedness is a limitation and a guarantee simultaneously. A specialized HTR
-model will fail on a hand it has not seen. It will not, in general, fabricate a
-plausible sentence that is not on the page — because it has no model of what
-sentences ought to look like beyond the character-level patterns it learned
-(Puigcerver, 2017).
+That boundary is a weakness and a protection at once. Hand it writing it has never seen and it will do badly. But it will not invent a convincing sentence that is not on the page, because it has no idea what sentences are supposed to look like. It only knows shapes of ink (Puigcerver, 2017).
 
-Friday's tools do have such a model, and that difference is the whole point of the
-three-step cycle. Today establishes what a system that reads *only the image*
-produces. Friday will show what a system that also brings linguistic expectation
-produces, and Week 5 will measure both against yesterday's ground truth.
+Friday's tool does know what sentences look like. That difference is the entire point of the three-step cycle. Today shows you what a program produces when it reads *only the picture*. Friday shows what happens when it also brings expectations about language.
 
-**Vocabulary.** *HTR* — handwritten text recognition. *Model* — a trained set of
-parameters mapping images to characters. *Training* — the process of fitting those
-parameters to labelled examples.
+**Vocabulary.** *HTR* — handwritten text recognition, software that turns handwriting images into typed text. *Model* — the trained program that does the reading. *Training* — showing the program examples until it learns.
 
-**Takeaway:** A specialized HTR model is bounded by its training
-data, which makes it fail rather than fabricate — the opposite of Friday's tools.
+**Takeaway:** A specialized HTR model is bounded by its training data, which makes it fail rather than fabricate — the opposite of Friday's tools.
 
 ---
 
 ## **02 Content**
 
-**The Pipeline: Layout Before Recognition**
+**Finding the Lines Comes Before Reading Them**
 
-Automated transcription is two problems, and conflating them causes most of the
-confusion students have about why HTR fails.
+Automatic transcription is really two jobs, and mixing them up causes most of the confusion about why it fails.
 
-**Document layout analysis** determines *where the text is*: which regions of the
-page contain writing, how those regions divide into lines, and in what order the
-lines should be read. **Recognition** determines *what the text says*, operating on
-individual line images produced by the layout stage.
+The first job is **finding the text**: which parts of the page have writing, how that writing divides into lines, and what order to read them in. The second job is **reading**: working out what each line says.
 
-The order is strict, and so is the dependency. Recognition never sees the page. It
-sees line images that layout analysis produced, and it can only transcribe what
-those images contain.
+The order is strict. The reading step never sees the page. It only ever sees the little strips of image that the first step cut out. It can only read what is in those strips.
 
-| Stage | Input | Output | Failure produces |
+| Stage | Gets | Produces | If it goes wrong |
 | --- | --- | --- | --- |
-| Region detection | Page image | Text regions | Whole passages omitted |
-| Baseline detection | Text regions | Baselines per line | Lines merged or split |
-| Polygon computation | Baselines | Line images | Truncated ascenders or descenders |
-| Reading order | Line set | Sequence | Text in the wrong order |
-| Recognition | Line images | Text per line | Character errors |
+| Find regions | The page picture | Blocks of writing | Whole passages missed |
+| Find lines | Blocks of writing | One line each | Lines merged or split |
+| Cut out strips | Lines | Strip images | Tops or tails chopped off |
+| Decide order | The set of lines | A sequence | Text comes out jumbled |
+| Read | Strip images | Text | Wrong letters |
 
-Errors in spatial segmentation cascade directly into the recognition phase
-(AlKendi et al., 2024). This is the single most important operational fact about
-HTR, and it explains a symptom that otherwise seems inexplicable: a model that
-performs well on most of a page and produces nonsense on part of it usually has a
-layout problem there, not a recognition problem.
+Mistakes in the first job feed straight into the second (AlKendi et al., 2024). This is the most useful thing to know about how these tools fail, and it explains something otherwise baffling: when a program reads most of a page well and produces gibberish on one part, the trouble is almost always in how that part was cut up, not in the reading.
 
-The diagnostic habit that follows: when output is bad, look at the line images
-before blaming the model. If the line image is wrong, no model can fix it.
+So build the habit now. When output is bad, look at the strip images before you blame the program. If the strip is wrong, no amount of cleverness can rescue it.
 
-**Takeaway:** Recognition only ever sees line images that layout
-analysis produced — so when output is bad, inspect the line images first.
+**Vocabulary.** *Layout analysis* — the step that finds the writing and divides it into lines. *Line image* — the strip cut from the page holding one line.
+
+**Takeaway:** Recognition only ever sees line images that layout analysis produced — so when output is bad, inspect the line images first.
 
 ---
 
 ## **03 Content**
 
-**From Bounding Boxes to Baselines**
+**Why Rectangles Do Not Work**
 
-Layout analysis has a history worth knowing, because it explains why current tools
-work as they do.
+A short history, because it explains why today's tools behave as they do.
 
-Early systems drew rectangular **bounding boxes** around perceived paragraphs and
-lines. This works acceptably for printed text in regular columns. It works poorly
-for manuscripts, which routinely have irregular layouts: marginal glosses,
-interlinear additions, multi-column formats, and non-linear reading orders
-(Perdiki & Konstantinidou, 2023). A rectangle cannot describe a line that slopes,
-curves, or interleaves with an interlinear addition.
+Early software drew a **rectangle** around each line. That is fine for printed books, where lines are straight and evenly spaced. It is poor for manuscripts. Manuscript pages have notes crammed in the margins, words squeezed between lines, two columns, and lines that wander (Perdiki & Konstantinidou, 2023). A rectangle cannot describe a line that slopes or curves.
 
-Modern systems instead predict **baselines** — the imaginary line on which
-characters sit. A baseline is a polyline that can slope and curve, following the
-actual course of the writing. From it, the system computes a **polygonal envelope**
-around the ascenders and descenders, producing the line image that recognition
-receives (AlKendi et al., 2024).
+Modern software finds the **baseline** instead — the invisible line the letters sit on. A baseline can bend and slope, following the writing wherever it goes. From it, the program works out a shape around the tall letters and the tails, and cuts out the strip (AlKendi et al., 2024).
 
-| Approach | Represents a line as | Handles |
+| Approach | Describes a line as | Copes with |
 | --- | --- | --- |
-| Bounding box | An axis-aligned rectangle | Regular printed layout only |
-| Pixel-wise segmentation | A labelled region of pixels | Irregular shapes; merges adjacent lines |
-| Baseline plus polygon | A polyline with a computed envelope | Sloping, curving, crowded manuscript lines |
-| Object detection (YALTAi) | Detected line objects | Complex historical layouts robustly |
+| Rectangle | A straight-sided box | Printed text only |
+| Pixel labelling | A blob of marked pixels | Odd shapes; but merges close lines |
+| Baseline plus shape | A bending line with a cut-out region | Sloping, crowded manuscript lines |
+| Object detection | A detected line "thing" | Complicated historical pages |
 
-Pixel-wise semantic segmentation — labelling every pixel as text or not — was an
-intermediate step with a characteristic failure: it merges adjacent lines whose
-ascenders and descenders touch, and splits single lines where writing is faint.
-Both are common in manuscripts.
+Pixel labelling — marking every dot on the page as writing or not — was a step along the way, and it fails predictably. It glues together lines whose tall and low letters touch, and it breaks one line in two where the ink is faint. Both happen constantly in manuscripts.
 
-The object detection approach, exemplified by YALTAi, treats line-finding as
-detecting discrete objects rather than as classifying pixels, and achieves
-accurate baseline identification on complex historical manuscripts
-(eScriptorium/Kraken, 2024; AlKendi et al., 2024). Transkribus and eScriptorium
-both use baseline-oriented approaches, though their implementations differ.
+Transkribus and eScriptorium both work from baselines, though they do it differently.
 
-**Takeaway:** Modern layout analysis predicts sloping baselines
-and computes envelopes around them, because manuscript lines do not fit rectangles.
+**Vocabulary.** *Baseline* — the invisible line letters sit on. *Ascender / descender* — the parts of letters that stick up above or hang below it.
+
+**Takeaway:** Modern layout analysis predicts sloping baselines and computes envelopes around them, because manuscript lines do not fit rectangles.
 
 ---
 
 ## **04 Content**
 
-**Importing Your Manuscript**
+**Loading Your Manuscript In**
 
-Begin the practical work. Transkribus ingests images from IIIF manifests, which is
-why Lesson 3.3 insisted the manifest be reachable over HTTP.
+Time to start. Transkribus pulls your images in from a web address — which is why Lesson 3.3 insisted your image listing had to work over the internet.
 
-The sequence:
+- Make a new collection in Transkribus for your edition.
+- Import using the web address, not by uploading files.
+- Check the right number of pages arrived.
+- Check the images are full size, not thumbnails.
+- Check the pages are in the right order.
 
-- Create a collection in Transkribus for your edition.
-- Import by manifest URI, not by file upload.
-- Confirm the expected number of pages arrived.
-- Confirm the images display at full resolution, not as thumbnails.
-- Check that page order matches the manuscript.
+If the import fails, the causes are the ones Lesson 3.3 warned about: the address is not reachable from outside, the library demands a login, or the listing is slightly malformed in a way that viewers forgive and platforms do not. Test it with `curl` from outside your own network before deciding Transkribus is broken.
 
-If import fails, the causes are the ones Lesson 3.3 section 15 anticipated: the
-manifest is not publicly reachable, image endpoints require authentication, or the
-manifest is non-conformant in a way viewers tolerate and platforms do not. Diagnose
-with `curl` from outside your own network before assuming the platform is at fault.
+Pulling images in by address rather than uploading them has a real advantage. The pictures stay the library's, served from the library's computers, at whatever quality they offer. You are not making a private copy that slowly drifts out of date, and the trail from your training examples back to the original photographs stays unbroken.
 
-Importing by manifest rather than by upload has an advantage worth noticing. The
-images remain the institution's, served from their endpoints, at whatever
-resolution they provide. You are not creating a detached copy that will drift from
-the source, and the provenance chain from your training data back to the
-institutional facsimile stays intact.
+Import only the leaves you will actually work on. A collection holding an entire book when you need four leaves makes everything afterwards slower.
 
-Import only the folios you intend to work on. A collection containing an entire
-codex when you are working on four folios makes every subsequent operation slower
-and every listing harder to read.
+**Vocabulary.** *Collection* — a Transkribus folder holding the pages of one project. *`curl`* — a command-line tool that fetches a web address so you can see what is really there.
 
-**Takeaway:** Import by manifest URI so training data stays
-linked to the institutional source rather than becoming a detached copy.
+**Takeaway:** Import by manifest URI so training data stays linked to the institutional source rather than becoming a detached copy.
 
 ---
 
 ## **05 Content**
 
-**Running and Reading Layout Analysis**
+**Running It, Then Checking It**
 
-Run the platform's automatic layout analysis on your folios, then — before doing
-anything else — inspect the result carefully. This inspection is today's most
-important task.
+Run the automatic line-finding on your pages. Then, before anything else, look hard at what it did. This checking is today's most important task.
 
-Examine, for each page:
+For each page, ask:
 
-- Are all text regions detected? Check margins, headers, and any glosses.
-- Is every line detected? Count against the manuscript.
-- Are any two lines merged into one?
-- Is any single line split into two?
-- Does each baseline follow the writing, or does it drift?
-- Is the reading order correct, particularly around marginalia?
-- Do the polygons enclose the full height of the writing?
+- Did it find all the writing, including margins and headers?
+- Did it find every line? Count them against the manuscript.
+- Did it glue any two lines together?
+- Did it split any line in two?
+- Does each baseline follow the writing, or wander off it?
+- Is the reading order right, especially around margin notes?
+- Do the cut-out strips include the full height of the writing?
 
-The last question is the one specific to Greek and the one you prepared for
-yesterday. Polygons are computed from the baseline plus estimated ascender and
-descender extents, and those estimates come from the general behaviour of the
-script. A hand that places breathings and accents high above the letter body will
-frequently have them fall outside a default polygon.
+That last question is the Greek one, and it is what you prepared for yesterday. The program guesses how tall a line is from how the script usually behaves. A scribe who puts breathing marks and accents high above the letters will often have them fall outside the strip.
 
-Perdiki and Konstantinidou (2023) report exactly this in Byzantine Greek work:
-automated layout analysis frequently omitted breathings and suffix abbreviations
-placed high above the primary line, and reaching a character error rate below 10%
-required manually adjusting the polygon envelopes during ground truth preparation
-so that peripheral diacritics were visually captured.
+Perdiki and Konstantinidou (2023) hit exactly this. Their software kept leaving out breathing marks and high abbreviation signs, and getting the error rate below 10% meant widening those strips by hand.
 
-Zoom in on a line with a high breathing and look at where the polygon boundary
-runs. If the breathing is outside it, every diacritic in your training data is
-being discarded before the model ever sees it.
+Zoom in on a line with a high breathing mark and look at where the strip boundary runs. If the mark is outside it, every accent in your training examples is being thrown away before the program ever sees it.
 
-**Takeaway:** Check whether polygons enclose high-placed
-breathings and accents — if they do not, the model is being trained on Greek with
-the diacritics cut off.
+**Vocabulary.** *Reading order* — the sequence the program will read the lines in. *Region* — a block of the page marked as containing writing.
+
+**Takeaway:** Check whether polygons enclose high-placed breathings and accents — if they do not, the model is being trained on Greek with the diacritics cut off.
 
 ---
 
 ## **06 Content**
 
-**Correcting Layout by Hand**
+**Fixing the Lines by Hand**
 
-Where automatic analysis is wrong, correct it. This is tedious and it is the work
-that determines everything downstream.
+Where the automatic pass got it wrong, fix it. This is dull work and it decides everything that follows.
 
-| Problem | Correction |
+| Problem | Fix |
 | --- | --- |
-| Line not detected | Draw the baseline manually |
-| Two lines merged | Split, then adjust both baselines |
-| One line split | Merge the fragments |
-| Baseline drifts off the writing | Drag control points onto the writing |
-| Polygon truncates accents | Extend the upper boundary |
-| Polygon truncates descenders | Extend the lower boundary |
-| Reading order wrong | Renumber lines or regions |
-| Marginal gloss merged into the main text | Separate into its own region |
+| A line was missed | Draw its baseline yourself |
+| Two lines glued together | Split them, then adjust both |
+| One line broken in two | Merge the pieces |
+| Baseline wanders off the writing | Drag its points back onto the ink |
+| Strip cuts off the accents | Extend the top edge |
+| Strip cuts off letter tails | Extend the bottom edge |
+| Lines in the wrong order | Renumber them |
+| A margin note swallowed into the text | Split it into its own region |
 
-Correct *every* page you intend to use for training. This is not optional
-refinement: training data with truncated polygons teaches the model that Greek is
-written without breathings, and the model will faithfully reproduce what it was
-taught. The error will then appear in Week 5 as a systematically low diacritic
-accuracy, and its cause will be invisible in the output.
+Fix *every* page you plan to train on. This is not tidying. Training examples with chopped-off tops teach the program that Greek has no breathing marks, and it will learn that lesson perfectly. The damage shows up in Week 5 as poor accent accuracy, and nothing in the output will tell you why.
 
-A practical approach that saves time. Correct one page thoroughly, noting how much
-vertical margin this hand actually requires above and below the baseline. If the
-platform permits adjusting the layout analysis parameters, set them from that
-measurement and re-run on the remaining pages — a global parameter change is far
-faster than correcting each page by hand, and it addresses the cause rather than
-the instances.
+A shortcut that saves hours. Fix one page properly, noting how much room this scribe actually needs above and below the baseline. If Transkribus lets you change the line-finding settings, set them from that measurement and re-run the other pages. Changing one setting beats fixing fifty pages, and it treats the cause rather than the symptoms.
 
-Whatever you do, verify by inspecting extracted line images directly. The line
-image is what the model sees, and looking at it is the only direct check that your
-corrections had the intended effect.
+Whichever way you go, check by looking at the cut-out strips themselves. The strip is what the program sees. Looking at it is the only honest test.
 
-**Takeaway:** Adjust the layout parameters from a measurement of
-this hand rather than correcting page by page — and verify by looking at extracted
-line images.
+**Vocabulary.** *Polygon* — the outline marking which part of the page belongs to one line. *Parameter* — a setting you can adjust before re-running a step.
+
+**Takeaway:** Adjust the layout parameters from a measurement of this hand rather than correcting page by page — and verify by looking at extracted line images.
 
 ---
 
 ## **07 Content**
 
-**Aligning Your Ground Truth to Lines**
+**Matching Your Text to the Right Lines**
 
-With layout correct, associate yesterday's transcription with the detected lines.
-Each line image must be paired with the text it contains.
+With the lines correct, you now attach yesterday's typing to them. Each strip of image has to be paired with the words on it.
 
-Two routes:
+You have two options.
 
-The **manual route** is typing or pasting the transcription line by line into the
-platform's editor. It is slow and it is entirely reliable, and for a single folio
-it is often the right choice.
+**By hand**: type or paste your transcription into Transkribus line by line. Slow, and completely reliable. For a single leaf it is often the right choice.
 
-The **import route** uploads a transcription in a supported format and aligns it
-to the detected lines automatically. It is fast and it depends on the line
-divisions in your transcription matching the detected lines exactly — which is
-precisely why yesterday's lesson insisted that `<lb/>` count equal `<zone>` count.
+**By import**: upload your transcription and let Transkribus match it up automatically. Fast, and it depends on your line divisions matching the detected lines *exactly*. That is precisely why yesterday's lesson made you count `<lb/>` against `<zone>`.
 
-| Situation | Route | Risk |
+| Your situation | Use | Risk |
 | --- | --- | --- |
-| One folio, ~25 lines | Manual | Typing errors |
-| Several folios, line divisions verified | Import | Misalignment if counts differ |
-| Line counts do not match | Fix the mismatch first | Silent systematic misalignment |
+| One leaf, about 25 lines | By hand | Typing slips |
+| Several leaves, line counts checked | Import | Everything shifts if counts differ |
+| Counts do not match | Fix that first | Silent, systematic mismatch |
 
-The third row is the important one. If your transcription has 24 lines and layout
-analysis detected 25 — because one line was split — automatic alignment will pair
-each transcription line with the wrong image from the split onwards. Every
-subsequent pairing is off by one.
+The third row is the dangerous one. Suppose your transcription has 24 lines and the program found 25, because it split one. Automatic matching will pair every line after the split with the wrong picture. Everything is off by one.
 
-The resulting training data is not merely noisy; it is systematically wrong, and
-it will produce a model that has learned to associate each line's image with the
-next line's text. Such a model produces fluent-looking nonsense, and the cause is
-extremely hard to diagnose from the output.
+The result is not slightly noisy data. It is systematically wrong, and it teaches the program to match each line's picture to the *next* line's words. That produces output which reads smoothly and is completely wrong, and the cause is very hard to spot afterwards.
 
-Verify alignment by spot-checking: pick three lines at random, look at the image,
-read the paired text. If they match, the alignment is probably right. Do this
-before training, every time.
+So check. Pick three lines at random, look at the picture, read the words paired with it. Do this before every training run.
 
-**Takeaway:** Verify line alignment by spot-checking image
-against text — an off-by-one misalignment produces a model that has learned the
-wrong pairing entirely.
+**Vocabulary.** *Alignment* — pairing each line image with the text belonging to it. *Off-by-one* — an error where everything after a point is shifted by one position.
+
+**Takeaway:** Verify line alignment by spot-checking image against text — an off-by-one misalignment produces a model that has learned the wrong pairing entirely.
 
 ---
 
 ## **08 Content**
 
-**How Recognition Works: CRNN and CTC**
+**How the Reading Step Works**
 
-Understanding the architecture explains the errors you will see. Transkribus has
-long used PyLaia, which exemplifies the convolutional-recurrent paradigm
-(Puigcerver, 2017).
+You do not need the mathematics, but knowing roughly how the program works explains the mistakes you will see. Transkribus has long used a system called PyLaia (Puigcerver, 2017).
 
-A line image passes through a deep **convolutional neural network**, which
-extracts a sequence of localized visual feature maps — effectively, a description
-of what the image looks like at each horizontal position. Those features feed into
-**bidirectional long short-term memory** layers, a recurrent architecture that
-models sequential dependencies in both directions, so that each position is
-interpreted in the context of what precedes and follows it (AlKendi et al., 2024).
+The strip of image goes through three stages.
 
-The mathematical innovation is the loss function. **Connectionist temporal
-classification** (CTC) computes the probability of a target character sequence
-summed over all possible alignments between image slices and output characters,
-using a special "blank" token to handle repeated characters and non-text visual
-noise (AlKendi et al., 2024).
+First, the program scans across the strip from left to right, describing what the ink looks like at each position. Second, it passes that description through a stage that considers each position together with what comes before and after it — so a shape is interpreted in its neighbourhood rather than alone (AlKendi et al., 2024).
 
-Why this matters practically: CTC is **alignment-free**. It does not require you
-to say which pixels correspond to which character. Training data needs only a line
-image paired with the line's text — which is exactly what a diplomatic
-transcription with line divisions provides, and it is why manual transcription is
-directly usable as training data without any further annotation (Puigcerver,
-2017).
+Third comes the clever part. The program does not need to be told which pixels belong to which letter. It considers every possible way of lining up the picture with the letters, and learns from all of them at once (AlKendi et al., 2024).
 
-The architectural consequence is that CTC decoders rely heavily on local visual
-evidence and model broader linguistic context only weakly (AlKendi et al., 2024).
-The model is, in effect, reading the ink rather than reading the language — which
-is what produces the error profile in the next section.
+That is why your work yesterday is directly usable. Training needs only a strip of image and the words on it. Nothing finer. Your line-by-line transcription is exactly that, with no extra labelling required (Puigcerver, 2017).
 
-**Takeaway:** CTC training needs only line images paired with
-line text, which is why your diplomatic transcription is directly usable as
-training data.
+There is a catch, and it shapes everything in the next section. Because the program works from local ink, it barely models language at all. It is reading the ink, not reading Greek.
+
+**Vocabulary.** *PyLaia* — the recognition system Transkribus has long used. *Neural network* — a program that learns patterns from examples rather than following written rules.
+
+**Takeaway:** CTC training needs only line images paired with line text, which is why your diplomatic transcription is directly usable as training data.
 
 ---
 
 ## **09 Content**
 
-**The Error Profile of a CTC Model**
+**What Its Mistakes Look Like**
 
-The architecture determines the *kind* of mistakes, and knowing the kind is what
-lets you correct efficiently.
+How the program works decides what *kind* of mistakes it makes, and knowing the kind is what lets you correct efficiently.
 
-Because CTC maps visual slices to characters with weak linguistic modelling, its
-errors are localized to the visual evidence. It struggles with heavily abbreviated
-words and dense ligatures, where the visual footprints of separate characters
-overlap. But it rarely hallucinates whole words: given ambiguous evidence — faded
-ink, a cross-out — it typically produces an orthographically impossible sequence
-of letters rather than guessing a plausible word (AlKendi et al., 2024).
+Because it reads ink and barely models language, its mistakes stay stuck to the ink. It struggles with heavily shortened words and with letters tangled together, where the shapes overlap. But it rarely invents whole words. Faced with faded ink, it usually produces a string of letters that is not a possible Greek word, rather than guessing a real one (AlKendi et al., 2024).
 
-That behaviour is enormously valuable for post-correction, and it is worth
-appreciating why.
+That behaviour is worth a great deal when you come to correct the output.
 
-| Model type | Behaviour on ambiguous ink | Consequence for the editor |
+| Kind of program | On unclear ink | What that means for you |
 | --- | --- | --- |
-| CTC (PyLaia) | Produces an impossible letter sequence | The error is conspicuous |
-| Transformer (TrOCR) | Produces a plausible wrong word | The error is inconspicuous |
-| Vision-language model | Produces fluent plausible text | The error may be invisible |
+| PyLaia and similar | Impossible string of letters | You spot it instantly |
+| Newer "transformer" models | A real word, wrongly chosen | Easy to miss |
+| AI chatbots (Friday) | Smooth, believable text | You may never notice |
 
-A CTC model that outputs `ἐγενθτο` has flagged its own uncertainty: the sequence is
-not Greek, and you will notice it immediately. A model that outputs `ἐγένετο` where
-the manuscript reads `ἐγένοντο` has produced a perfectly good Greek word that is
-simply not what is written, and you will notice only by checking against the image.
+A program that outputs `ἐγενθτο` has told on itself. That is not Greek, and you will see it at once. A program that outputs `ἐγένετο` where the page reads `ἐγένοντο` has produced a perfectly good Greek word that simply is not there — and you will only catch it by checking against the picture.
 
-This is the central trade-off in model selection. For consistent, formulaic texts
-with minimal degradation, a CRNN-CTC model is computationally cheap, effective,
-and will not hallucinate false words. For heavily damaged texts or extreme scribal
-variance, transformer models offer superior contextual guessing — at the cost of
-requiring exceptional vigilance during post-correction for hallucinated sequences
-(AlKendi et al., 2024).
+This is the real trade-off when choosing a tool. For steady, formulaic writing, a PyLaia-style model is cheap, effective, and will not invent words. For badly damaged pages, the newer models guess better from context — but you must then watch every line for invented readings (AlKendi et al., 2024).
 
-For a first model on a single hand, PyLaia's conspicuous failure mode is the right
-choice.
+For a first model on one scribe, the loud failure mode is the right one to want.
 
-**Takeaway:** A CTC model's errors are conspicuous because it
-produces impossible sequences rather than plausible wrong words — which makes
-post-correction far more reliable.
+**Vocabulary.** *Post-correction* — going through machine output and fixing it. *Ligature* — two or more letters written joined together.
+
+**Takeaway:** A CTC model's errors are conspicuous because it produces impossible sequences rather than plausible wrong words — which makes post-correction far more reliable.
 
 ---
 
 ## **10 Content**
 
-**Transformer Architectures and TrOCR**
+**The Newer Kind of Model**
 
-The alternative paradigm eliminates recurrence entirely, and you should understand
-it because it underlies the "supermodels" you may use as a base.
+There is a second family of programs, and you should know what they are because they may be offered to you as a starting point.
 
-**TrOCR** uses a pre-trained vision transformer to encode the line image into patch
-embeddings, and an autoregressive text transformer to decode characters. The
-decoder's cross-attention lets it attend simultaneously to disparate regions of
-the image and to the text it has already produced (Li et al., 2023).
+**TrOCR** is the best-known. Rather than scanning strictly left to right, it can look at any part of the picture at any moment, and it keeps track of the words it has already produced (Li et al., 2023).
 
-The consequence is strong contextual capability. The model can use what it has
-read so far to interpret ambiguous ink — which produces robust recognition on
-degraded text and complex layouts. It also produces the over-willingness to guess:
-the model's language modelling drives it toward plausible completions, which
-lowers word error rate while sometimes raising character error rate, and yields
-output where the ink and the transcription disagree in ways that read perfectly
-(AlKendi et al., 2024).
+The upside is that it uses context. It can lean on what it has read so far to make sense of unclear ink, which helps on damaged pages. The downside is the same mechanism: it is pulled toward whatever word would be *likely*, so it hands you believable readings that do not match the ink and read perfectly well (AlKendi et al., 2024).
 
-| | PyLaia (CRNN-CTC) | TrOCR (Transformer) |
+| | PyLaia | TrOCR |
 | --- | --- | --- |
-| Context modelling | Weak, local | Strong, global |
-| Computational cost | Low | High |
-| Performance on degraded text | Moderate | Better |
-| Hallucination risk | Low | Meaningful |
-| Error conspicuousness | High | Low |
-| Suitable for | Consistent hands; first models | Damaged text; variable hands |
+| Uses context | Barely | Heavily |
+| Computing cost | Low | High |
+| On damaged pages | Fair | Better |
+| Risk of invented words | Low | Real |
+| Are mistakes obvious? | Yes | No |
+| Best for | Steady hands; a first model | Damaged pages; variable hands |
 
-A refinement worth knowing: **AdapterTrOCR** injects specialized domain adapters —
-one for historical language, one for handwriting style — into the generic TrOCR
-framework, substantially reducing error rates for low-resource historical
-languages without full-parameter fine-tuning (AlKendi et al., 2024). Adapters make
-transformer models practical where training data is limited, which is the normal
-condition in manuscript work.
+One refinement worth knowing: smaller add-on pieces can be slotted into TrOCR — one for old languages, one for handwriting style — which cuts error rates sharply without retraining the whole thing (AlKendi et al., 2024). That makes these models practical when training examples are scarce, which is the normal situation in manuscript work.
 
-If your hand is consistent, start with PyLaia. If it is highly variable or badly
-degraded, a transformer base may serve better — but plan for more careful
-post-correction.
+If your scribe writes consistently, start with PyLaia. If the page is a mess, consider the other — but plan to check its output far more carefully.
 
-**Takeaway:** Transformers read context as well as ink, which
-helps on degraded text and produces plausible wrong words that are hard to catch.
+**Vocabulary.** *Transformer* — a newer design that can attend to any part of its input at once. *Context* — surrounding text used to help interpret an unclear bit.
+
+**Takeaway:** Transformers read context as well as ink, which helps on degraded text and produces plausible wrong words that are hard to catch.
 
 ---
 
 ## **11 Content**
 
-**Transfer Learning: Never Start From Scratch**
+**Never Start From Nothing**
 
-The most consequential decision you make today, and the one with the clearest
-empirical answer.
+This is the biggest decision you make today, and it has a clear answer.
 
-Training a neural network from random initialization requires enormous quantities
-of labelled data. Fine-tuning an existing model requires far less, because the base
-model already encodes general knowledge about letterforms, ink, parchment, and
-line structure; your data only needs to specialize it to your particular hand.
+Teaching a program to read from a completely blank start takes enormous amounts of example material. Starting from a program that already reads *something* takes far less, because it already knows about letters, ink, parchment, and lines. Your examples only have to teach it your particular scribe.
 
-The guidance is unambiguous: never train from random initialization if a
-foundational model exists. Fine-tuning a robust base — Transkribus Titan, a
-Carolingian minuscule model, or `TrOCR-Medieval-Base` — on as few as 50 to 100
-pages of new ground truth can drop the character error rate to usable levels while
-drastically reducing compute time (Geelhaar, 2022; AlKendi et al., 2024).
+The advice is blunt: never start from nothing if any existing model is available. Starting from a solid one and adding 50 to 100 pages of your own can bring the error rate down to something usable, in a fraction of the time (Geelhaar, 2022; AlKendi et al., 2024).
 
-The magnitude of the effect is worth seeing concretely. Perdiki and Konstantinidou
-(2023) trained Byzantine Greek models on manuscripts from geographically distinct
-libraries:
+The size of the effect is worth seeing. Perdiki and Konstantinidou (2023) trained Byzantine Greek models on manuscripts from different libraries:
 
-| Training paradigm | Source | Base model used | Resulting CER |
+| How they trained | Source | Started from an existing model? | Error rate |
 | --- | --- | --- | --- |
-| Single model | Athos, Vatopedi 328 | No | 10.03% |
-| Single model | Munich, Gr. 353 | No | 8.12% |
-| General mixed model | Multi-manuscript | No | 17.18% |
-| General mixed model | Multi-manuscript | Yes, transfer | 3.90% |
+| Single manuscript | Athos, Vatopedi 328 | No | 10.03% |
+| Single manuscript | Munich, Gr. 353 | No | 8.12% |
+| Several manuscripts mixed | Multiple | No | 17.18% |
+| Several manuscripts mixed | Multiple | Yes | 3.90% |
 
-Read the last two rows together. The same mixed multi-manuscript training data
-produced 17.18% CER from scratch and 3.90% with transfer learning — a fourfold
-improvement from the single decision to start from a pre-trained base rather than
-from random weights.
+Read the last two rows together. Identical training material. Starting from nothing: 17.18% wrong. Starting from an existing model: 3.90%. Four times better, from one decision.
 
-Their work also found that mixed-model training across multiple manuscripts
-reduced the manual ground truth required per individual manuscript by up to 80%
-without sacrificing accuracy (Perdiki & Konstantinidou, 2023). Diversity of
-training material substitutes for volume.
+They also found that mixing several manuscripts cut the hand-typing needed per manuscript by up to 80% with no loss of accuracy (Perdiki & Konstantinidou, 2023). Variety substitutes for volume.
 
-**Takeaway:** Transfer learning turned 17.18% CER into 3.90% on
-identical data — always fine-tune from a base model rather than training from
-scratch.
+**Vocabulary.** *Transfer learning* — starting from a model trained on something else and adjusting it. *Fine-tuning* — the adjusting step, using your own examples.
+
+**Takeaway:** Transfer learning turned 17.18% CER into 3.90% on identical data — always fine-tune from a base model rather than training from scratch.
 
 ---
 
 ## **12 Content**
 
-**Selecting a Base Model**
+**Picking What to Start From**
 
-Choose deliberately. The base model determines what your fine-tuned model starts
-from, and a poorly matched base wastes your ground truth.
+Choose on purpose. A badly matched starting point wastes the typing you did yesterday.
 
-| Selection criterion | Preference |
+| What to match | Aim for |
 | --- | --- |
-| Script | The same script — Greek minuscule for Greek minuscule |
-| Period | As close as possible to your manuscript's date |
-| Language | The same language, or a related one |
-| Training volume | Larger, other things being equal |
-| Documented performance | Published CER on comparable material |
-| Availability | Accessible within your platform |
+| Script | The same script — Greek for Greek |
+| Date | As close to your manuscript as possible |
+| Language | The same, or a close relative |
+| Amount of training | More, all else being equal |
+| Published results | A stated error rate on similar material |
+| Availability | Something you can actually use |
 
-Script match matters most. A model trained on Latin Carolingian minuscule has
-learned Latin letterforms, and it will not transfer usefully to Greek regardless
-of how well trained it is. Period and language matter next, because they determine
-vocabulary and abbreviation repertoire.
+Script matters most. A model trained on Latin handwriting has learned Latin letters. It will not help with Greek, however good it is. Date and language come next, because they decide the vocabulary and which short forms appear.
 
-The specialization gap makes this concrete. On the CATMuS medieval Latin dataset,
-the domain-tuned `TrOCR-Medieval-Base` achieved 14.6% CER, while general-purpose
-commercial models on identical samples produced 63.0% and 84.7% (Mattingly et al.,
-2024). The domain-tuned model operates with orders of magnitude fewer parameters
-and succeeds because it has been directly exposed to palaeographic variation,
-scribal shorthand, idiosyncratic ligatures, and non-standard layouts (Mattingly et
-al., 2024).
+Here is how stark the effect is. On a medieval Latin test set, a small model tuned for medieval Latin got 14.6% of characters wrong. Two large general-purpose commercial systems, on the very same pages, got 63.0% and 84.7% wrong (Mattingly et al., 2024). The small specialist has a tiny fraction of the size and wins because it has actually seen scribal handwriting, odd joined letters, and unusual page layouts.
 
-Bigger is not better; *matched* is better. This is the single most counter-intuitive
-fact about applying machine learning to manuscripts, and it recurs on Friday in a
-much starker form.
+Bigger is not better. *Matched* is better. This is the most counter-intuitive fact in the whole topic, and Friday will show it to you in a far more dramatic form.
 
-Record which base model you chose and why, in your repository. It is a
-methodological decision, and Week 5's report should state it.
+Write down which model you started from and why. That is a real methodological decision, and your Week 5 report has to state it.
 
-**Takeaway:** A matched small model beats a large general one —
-script match matters more than parameter count.
+**Vocabulary.** *Base model* — the existing model you start from. *Specialization gap* — the tendency of a small matched model to beat a huge general one on unusual material.
+
+**Takeaway:** A matched small model beats a large general one — script match matters more than parameter count.
 
 ---
 
 ## **13 Content**
 
-**Running the Training**
+**Training the Model**
 
-With ground truth aligned and a base model chosen, train. The parameters that
-matter:
+With your text attached to the right lines and a starting model chosen, train.
 
-| Parameter | Meaning | Typical starting point |
+| Setting | What it is | Where to start |
 | --- | --- | --- |
-| Base model | The starting weights | A script- and period-matched model |
-| Training set | Lines used to fit the model | Your corrected, aligned folios |
-| Validation set | Lines held out to measure performance | 10–20% of your data |
-| Epochs | Passes over the training data | Platform default; watch the curve |
-| Learning rate | Step size in parameter updates | Platform default for fine-tuning |
+| Base model | What you start from | Matched for script and date |
+| Training set | The lines it learns from | Your corrected leaves |
+| Validation set | Lines held back to test it | 10–20% of your lines |
+| Epochs | How many times it reviews the examples | The default; watch the graph |
+| Learning rate | How big each adjustment is | The default |
 
-The **validation set** is the one to understand rather than accept. It is data the
-model is not trained on, used to measure performance on material it has not seen.
-Without it you cannot distinguish a model that has learned your hand from one that
-has memorized your specific lines — and the second performs perfectly on training
-data and badly on everything else.
+The **validation set** is the one to understand rather than just accept. These are lines you keep back so the program never trains on them. They are how you find out whether it learned your scribe's handwriting or merely memorized your specific lines. A program that memorized will look perfect on its own examples and fall apart on anything else.
 
-Ensure the validation set is *representative*. Holding out the last three lines of
-one folio validates on material almost identical to the training data. Holding out
-lines sampled across all your folios, including difficult ones, gives a measurement
-that means something.
+Make the held-back lines *representative*. Holding back the last three lines of one leaf tests it on material nearly identical to what it studied. Holding back lines from across all your leaves, including the ugly ones, gives a number that means something.
 
-Training a fine-tuned model on a modest ground truth typically takes tens of
-minutes rather than hours. Watch the validation error across epochs: it should
-decline and then flatten. If it declines and then *rises*, the model is
-overfitting — learning your specific lines rather than the hand — and training
-should stop at the minimum.
+Training usually takes tens of minutes, not hours. Watch the error on the held-back lines as it goes: it should fall and then level off. If it falls and then starts *rising*, the program has begun memorizing, and you should stop at the lowest point.
 
-Note that model training consumes credits from the course's shared allocation.
-Plan your runs; do not launch speculative training repeatedly.
+Training spends credits from a shared class allowance. Plan your runs.
 
-**Takeaway:** Hold out a representative validation set and stop
-when validation error stops falling — a rising validation curve means the model is
-memorizing your lines.
+**Vocabulary.** *Validation set* — lines held back to test the model honestly. *Overfitting* — memorizing the examples instead of learning the pattern.
+
+**Takeaway:** Hold out a representative validation set and stop when validation error stops falling — a rising validation curve means the model is memorizing your lines.
 
 ---
 
 ## **14 Content**
 
-**Reading the Results**
+**Reading the Score**
 
-Training produces a model and a reported error rate. Interpret both carefully.
+Training gives you a model and a number. Read both carefully.
 
-The reported CER is measured on the validation set — material the model has not
-seen, drawn from the same manuscript and hand. It is a reasonable estimate of
-performance on more of the same manuscript. It is *not* an estimate of performance
-on a different hand, a different manuscript, or a substantially different page
-layout.
+The number is the **character error rate**, or CER — the percentage of characters the model got wrong on the held-back lines. It tells you how the model does on *more of this manuscript, in this hand*. It says nothing about a different scribe, a different book, or a very different page layout.
 
-Thresholds for interpreting the number (AlKendi et al., 2024):
+What the number means (AlKendi et al., 2024):
 
-| CER | Assessment | What it supports |
+| CER | Verdict | What it is good for |
 | --- | --- | --- |
-| Under 5% | Excellent | Minimal correction; suitable for a semi-diplomatic edition after proofreading; reliable for downstream NLP |
-| 5–10% | Good, usable | Localized errors on abbreviations, rare ligatures, punctuation; heavier post-editing for a critical edition; fine for corpus work |
-| 10–15% | Marginal | Substantial correction required |
-| Over 15% | Poor | Post-correction typically costs more than transcribing from scratch |
+| Under 5% | Excellent | Light correction; usable after proofreading |
+| 5–10% | Good | Scattered slips on short forms and punctuation; fine for bulk work |
+| 10–15% | Borderline | Heavy correction needed |
+| Over 15% | Poor | Correcting costs more than typing it yourself |
 
-That last row is the practically decisive one and worth remembering as a rule.
-Above roughly 15% CER, the cognitive load and time required to post-correct exceed
-the time to transcribe manually from the beginning (AlKendi et al., 2024). A model
-in that range is not a slow tool; it is a net loss, and the correct response is to
-improve it or abandon it rather than to work through its output.
+That last row is the one to remember as a rule. Past roughly 15%, fixing the output takes longer than typing the page from scratch (AlKendi et al., 2024). A model in that range is not merely slow. It is a net loss, and the right response is to improve it or abandon it — not to grind through its output.
 
-If your first model lands above 15%, the usual causes in order of likelihood are:
-layout errors producing bad line images, misaligned ground truth, too little
-training data, or a poorly matched base model. Check them in that order.
+If your first model lands above 15%, work through the likely causes in this order: bad line-finding producing bad strips, text attached to the wrong lines, too few examples, a badly matched starting model.
 
-**Takeaway:** Above 15% CER, correcting the output costs more
-than transcribing from scratch — the model is a net loss, not a slow tool.
+**Vocabulary.** *Character error rate (CER)* — the percentage of characters wrong. *Word error rate (WER)* — the same idea counted in whole words.
+
+**Takeaway:** Above 15% CER, correcting the output costs more than transcribing from scratch — the model is a net loss, not a slow tool.
 
 ---
 
 ## **15 Content**
 
-**Error Rates Do Not Tell You Everything**
+**The Score Does Not Tell You Everything**
 
-A caution that Week 5 will develop and that you should carry into today's
-evaluation.
+A warning to carry into today's judging, which Week 5 will develop.
 
-CER is the Levenshtein distance between machine output and ground truth,
-normalized by length — the minimum number of insertions, substitutions, and
-deletions required to turn one into the other (AlKendi et al., 2024). It is a
-single number summarizing every difference equally.
+CER counts the smallest number of single-character fixes needed to turn the machine's output into yours, as a percentage (AlKendi et al., 2024). It is one number that treats every difference as equal.
 
-That equal weighting is the limitation. A substitution that changes an accent and
-a substitution that changes a letter count identically, though their scholarly
-consequences differ enormously. A model that systematically drops breathings
-because of truncated polygons may show a modest CER while being useless for a
-diplomatic edition.
+That equal treatment is the problem. Losing an accent and swapping a letter count exactly the same, though what they cost a scholar is wildly different. A model that drops every breathing mark because the strips were cut too tight might post a respectable CER while being useless for your edition.
 
-Evaluate the *qualitative nature* of errors alongside the number:
+So look at the *kinds* of mistake as well as the number.
 
-| Error type | Effect on CER | Scholarly severity |
+| Kind of mistake | Effect on the score | How bad it really is |
 | --- | --- | --- |
-| Dropped diacritics | Moderate | High for Greek; destroys diplomatic fidelity |
-| Confused similar letters | Moderate | Moderate; usually caught in proofreading |
-| Expanded abbreviations | Low | High; silently normalizes |
-| Impossible letter sequences | Moderate | Low; conspicuous, easily corrected |
-| Plausible wrong words | Low to moderate | High; inconspicuous |
-| Omitted marginalia | Depends on volume | High; whole content lost |
+| Accents dropped | Moderate | Severe for Greek; ruins fidelity |
+| Similar letters confused | Moderate | Moderate; proofreading catches it |
+| Short forms spelled out | Small | Severe; silently modernizes |
+| Impossible letter strings | Moderate | Mild; obvious and easy to fix |
+| Believable wrong words | Small | Severe; nearly invisible |
+| Margin notes skipped | Varies | Severe; whole content lost |
 
-The third row is the one that recurs. A model that silently expands abbreviations
-produces clean readable text with a low CER and has destroyed exactly what a
-diplomatic transcription exists to preserve. A CTC model with 8% CER that strictly
-preserves palaeographic ligatures may be far more valuable to a philologist than a
-model with 4% CER that modernizes (Levchenko, 2024).
+The third row keeps coming back. A model that quietly spells out short forms gives you clean readable text with a good score, having destroyed exactly what a diplomatic transcription exists to protect. A model at 8% that keeps every joined letter may serve a scholar far better than one at 4% that modernizes (Levchenko, 2024).
 
-Look at the errors, not only at the number. Week 5 will formalize this.
+Look at the mistakes, not just the number.
 
-**Takeaway:** CER weights every difference equally, so a model
-that silently drops diacritics or expands abbreviations can score well while being
-useless for a diplomatic edition.
+**Vocabulary.** *Edit distance* — the count of single-character changes between two texts. *Fidelity* — how faithfully the output matches what is on the page.
+
+**Takeaway:** CER weights every difference equally, so a model that silently drops diacritics or expands abbreviations can score well while being useless for a diplomatic edition.
 
 ---
 
 ## **16 Content**
 
-**Applying the Model and Inspecting the Output**
+**Running the Model and Looking at What Comes Back**
 
-Run the trained model over folios you have not transcribed, and examine what comes
-back.
+Turn your trained model loose on leaves you have not typed, and study the result.
 
-Work systematically rather than impressionistically:
+Work through it properly rather than skimming:
 
-- Read the output against the image, line by line, at full zoom.
-- Categorize each error rather than merely correcting it.
-- Note whether errors cluster — by region, by letterform, by feature.
-- Check specifically whether diacritics are present and correct.
-- Check whether abbreviations are preserved or expanded.
-- Note any line where the output is nonsense, and inspect that line's image.
+- Read the output against the picture, line by line, zoomed in.
+- Sort each mistake into a category instead of just fixing it.
+- Notice whether mistakes bunch together — in one area, on one letter, on one feature.
+- Check specifically whether the accents are there and right.
+- Check whether short forms were kept or spelled out.
+- Note any line that comes out as gibberish, and look at that line's strip.
 
-The last item connects to section 02. A line producing nonsense usually has a
-layout problem — a merged line, a truncated polygon, a baseline that drifted. Look
-at the extracted line image before concluding the model failed at recognition.
+That last point goes back to section 02. A gibberish line usually has a line-finding fault behind it — two lines glued, a chopped strip, a wandering baseline. Look at the strip before deciding the model cannot read.
 
-Record the categorized errors in your repository. This categorization is a
-required component of the Week 5 reconciliation report, and doing it now while you
-are looking at the output is far easier than reconstructing it later.
+Keep your sorted list of mistakes in the repository. It is a required part of the Week 5 report, and writing it now while you are staring at the output is much easier than reconstructing it in a fortnight.
 
-Expect specific patterns from a Greek model. Abbreviations and dense ligatures are
-the hardest cases for CTC architectures, since separate characters overlap
-visually (AlKendi et al., 2024). Diacritics will be imperfect even with good
-polygons. And if your manuscript uses *scriptio continua*, expect word boundaries
-to be wrong in ways that make word error rate uninterpretable — the system
-recognizes characters correctly but fuses them into concatenated tokens, so that
-distinct words emerge as a single string (Perdiki & Konstantinidou, 2023).
+Expect certain patterns in Greek. Short forms and tangled letters are hardest, because the shapes overlap (AlKendi et al., 2024). Accents will be imperfect even with good strips. And if your manuscript runs words together, expect word boundaries to be wrong in ways that make the word score meaningless — the letters are right, then glued into one long string (Perdiki & Konstantinidou, 2023).
 
-**Takeaway:** Categorize errors rather than just correcting
-them, and inspect the line image whenever output is nonsense — it is usually a
-layout fault.
+**Vocabulary.** *Error category* — a group of mistakes sharing a cause. *Gibberish* — output that is not a possible word, usually signalling a layout fault.
+
+**Takeaway:** Categorize errors rather than just correcting them, and inspect the line image whenever output is nonsense — it is usually a layout fault.
 
 ---
 
 ## **17 Content**
 
-**Iterating: Correcting and Retraining**
+**Going Round Again**
 
-HTR is iterative. The first model is a starting point, and the standard workflow
-is a loop.
+This work is a loop, not a one-off. Your first model is a starting point.
 
-The cycle: apply the model to new pages, correct its output, add the corrected
-pages to the training set, retrain, apply the improved model to further pages.
-Each iteration produces ground truth more cheaply than the last, because you are
-correcting rather than transcribing — and each iteration improves the model.
+The cycle: run the model on new pages, correct what it produces, add those corrected pages to the training pile, train again, run the better model on more pages. Each time round, getting new material costs less — because you are correcting rather than typing — and each time round the model improves.
 
-| Iteration | Ground truth | Effort per page | Expected CER |
+| Round | Where the text comes from | Effort per page | Expected score |
 | --- | --- | --- | --- |
-| 1 | Manually transcribed | Highest | Baseline |
-| 2 | Model output, corrected | Lower | Improved |
-| 3 | Model output, corrected | Lower still | Improved further |
-| n | Diminishing returns | Low | Plateau |
+| 1 | You typed it | Highest | Baseline |
+| 2 | Model output, corrected | Lower | Better |
+| 3 | Model output, corrected | Lower still | Better again |
+| Later | Diminishing returns | Low | Levels off |
 
-The economics are what make HTR worthwhile: after the initial investment, each
-additional page costs progressively less. This is why the manual transcription in
-Lesson 4.1 is an investment rather than a cost.
+That falling cost is what makes the whole method worth doing, and it is why yesterday's typing is an investment rather than a chore.
 
-Two cautions. Correcting model output is subject to the anchoring problem from
-Lesson 4.1 section 25 — you are judging plausibility rather than reading
-independently. Correct at full zoom against the image, and be especially careful
-with plausible-looking output.
+Two warnings. Correcting output has the anchoring problem from Lesson 4.1 — you are judging whether something looks right rather than reading it fresh. Correct zoomed in, against the picture, and be most suspicious of output that looks fine.
 
-And guard against feedback. If you correct carelessly and retrain, the model learns
-your careless corrections and produces more output with the same errors, which you
-then correct less carefully because it looks familiar. The loop can converge on a
-confidently wrong model. Periodically transcribe a page independently, without
-looking at model output, and compare — that is the check that breaks the loop.
+And beware of a loop that feeds on itself. Correct carelessly, retrain, and the model learns your careless corrections. Its next output carries the same mistakes, which now look familiar, so you correct even less carefully. The loop can settle on a model that is confidently wrong. The fix: every so often, type a page from scratch without looking at the model's version, and compare. That breaks the circle.
 
-**Takeaway:** Each iteration makes ground truth cheaper, but
-correcting model output risks a feedback loop — periodically transcribe a page
-blind to break it.
+**Vocabulary.** *Iteration* — one pass round the correct-and-retrain loop. *Feedback loop* — a cycle where output feeds back in as input and errors compound.
+
+**Takeaway:** Each iteration makes ground truth cheaper, but correcting model output risks a feedback loop — periodically transcribe a page blind to break it.
 
 ---
 
 ## **18 Content**
 
-**Layout Brittleness**
+**Models Are Fragile About Layout**
 
-A limitation to understand before you rely on your model, because it will surprise
-you otherwise.
+Something to understand before you trust your model, because it catches people out.
 
-HTR models are brittle with respect to layout. A model performing well on standard
-pages can degrade sharply on pages whose layout differs, even when the hand and
-language are identical.
+A model that does well on ordinary pages can collapse on pages laid out differently — even when the scribe and the language are identical.
 
-Geelhaar's (2022) Carolingian Minuscule Model, trained on standardized Carolingian
-texts of the ninth to eleventh centuries, achieved 5.1% CER on standard manuscript
-pages. On pages carrying minuscule marginal glosses, the same model degraded to
-13.6% — a shift from excellent to marginal, caused by changed vocabulary, heavier
-localized abbreviation, and reduced effective resolution of the smaller script.
+Geelhaar's (2022) model, trained on ninth- to eleventh-century Latin, got 5.1% of characters wrong on ordinary pages. On pages with small notes in the margins, the very same model got 13.6% wrong. Excellent to borderline, because the vocabulary changed, there were more short forms, and the smaller writing gave it less to work with.
 
-| Layout change | Typical effect | Cause |
+| What changed | Usual effect | Why |
 | --- | --- | --- |
-| Marginal glosses | Substantial degradation | Smaller script; different vocabulary; layout confusion |
-| Interlinear additions | Lines merged | Layout analysis cannot separate them |
-| Column changes | Reading order errors | Region detection |
-| Damaged regions | Local failure | Polygons drawn around damage |
-| Change of hand | Degradation | Outside the training distribution |
+| Notes in the margin | Big drop | Smaller writing; different words |
+| Words added between lines | Lines glued together | Line-finding cannot separate them |
+| Two columns instead of one | Jumbled order | Region detection |
+| Damaged patches | Local failure | Strips drawn around the damage |
+| A different scribe | Drop | Outside what it was trained on |
 
-The practical implication is that CER should be interpreted as *conditional on
-layout*. A model reporting 4% CER reports 4% on pages like the ones it was
-validated on. Applied to a page with a different layout, its performance is
-unknown until measured.
+So read any score as being *about a layout*. A model reporting 4% reports 4% on pages like the ones it was tested on. On a page laid out differently, its performance is simply unknown until you measure it.
 
-For your edition, this means checking whether your passage's pages are
-homogeneous. If some carry glosses, marginalia, or a change of hand, expect the
-model to perform differently there, and validate on those pages specifically rather
-than assuming the general figure applies.
+For your own edition, check whether your pages are alike. If some carry margin notes, or a second scribe takes over, expect different behaviour there — and test on those pages specifically instead of assuming the headline number covers them.
 
-**Takeaway:** A model's CER holds only for layouts like those it
-was validated on — glossed or irregular pages need their own measurement.
+**Vocabulary.** *Brittle* — working well in familiar conditions and failing sharply outside them. *Marginal gloss* — a note written in the margin, usually smaller.
+
+**Takeaway:** A model's CER holds only for layouts like those it was validated on — glossed or irregular pages need their own measurement.
 
 ---
 
@@ -743,108 +499,76 @@ was validated on — glossed or irregular pages need their own measurement.
 
 **Transkribus and eScriptorium**
 
-Two platforms serve this work, and it is worth knowing how they differ, since your
-choice has consequences.
+Two platforms do this work and it is worth knowing how they differ.
 
-**Transkribus** is a commercial platform with a graphical interface, a substantial
-library of pre-trained public models, and a credit-based pricing model for
-training and recognition. **eScriptorium** is open-source, built on the Kraken
-engine with YALTAi object detection for layout, and can be self-hosted
-(eScriptorium/Kraken, 2024).
+**Transkribus** is a commercial product with a polished interface, a big library of ready-made models, and charges credits for training. **eScriptorium** is free and open source, and you can run it on your own computer if you want to (eScriptorium/Kraken, 2024).
 
 | | Transkribus | eScriptorium |
 | --- | --- | --- |
-| Licence | Commercial; credit-based | Open source |
-| Interface | Mature GUI | Web interface |
-| Model library | Large public collection | Smaller; growing |
-| Layout engine | Proprietary | Kraken with YALTAi |
-| Hosting | Hosted service | Hosted or self-hosted |
-| Output formats | PAGE XML, ALTO, TEI | ALTO, PAGE XML |
-| Reproducibility | Limited; proprietary models | High; open models and code |
+| Cost | Commercial; credits | Free, open source |
+| Interface | Polished | Web-based, plainer |
+| Ready-made models | Large library | Smaller |
+| Where it runs | Their computers | Theirs or yours |
+| Can others check your work? | Limited; models are secret | Yes; models and code are open |
 
-The accessibility point is not trivial. Perdiki's work found that command-line
-tools proved computationally inaccessible for many humanities scholars, while the
-Transkribus graphical interface permitted rapid iterative training and visual
-layout correction (Perdiki & Konstantinidou, 2023). The interface is a substantive
-factor in whether the method gets used at all.
+The ease-of-use point is not trivial. Perdiki's work found that command-line tools were simply out of reach for many humanities scholars, while Transkribus's interface let them train and fix layouts quickly (Perdiki & Konstantinidou, 2023). How usable a tool is decides whether the method gets used at all.
 
-Against that, eScriptorium's openness matters for a reproducible edition. A model
-you can inspect, share, and re-run is one a later scholar can verify; a proprietary
-model may not be available in ten years, which makes any claim resting on it
-unverifiable.
+Against that, openness matters for an edition anyone can check. A model you can inspect and re-run is one a later scholar can verify. A secret model might not exist in ten years — and any claim resting on it becomes impossible to check.
 
-This course uses Transkribus for its accessibility and model library. If your work
-continues past this term, eScriptorium is worth learning for the reproducibility.
+This course uses Transkribus, for the interface and the model library. If you carry on past this term, eScriptorium is worth learning.
 
-**Takeaway:** Transkribus is more accessible; eScriptorium is
-reproducible — and a proprietary model makes any claim resting on it unverifiable
-later.
+**Vocabulary.** *Open source* — software whose code anyone may inspect and run. *Reproducibility* — whether someone else can repeat your work and get your result.
+
+**Takeaway:** Transkribus is more accessible; eScriptorium is reproducible — and a proprietary model makes any claim resting on it unverifiable later.
 
 ---
 
 ## **20 Content**
 
-**Exporting: PAGE, ALTO, and TEI**
+**Getting the Text Back Out**
 
-Getting output back out is where today's work rejoins your edition.
+Exporting is where today's work rejoins your edition.
 
-Both platforms export ALTO XML and PAGE XML, formats describing a page as a
-hierarchy of regions, lines, and words with coordinates, each carrying recognized
-text. These formats have structural equivalence to TEI and — critically — preserve
-the pixel-coordinate bindings established during layout analysis
-(eScriptorium/Kraken, 2024).
+Both platforms export formats called **ALTO** and **PAGE**. Both describe a page as regions, lines, and words, each with its position on the image and the text found there. They map onto TEI closely, and — this is the valuable part — they keep the coordinates worked out during line-finding (eScriptorium/Kraken, 2024).
 
-| ALTO element | Contains | TEI equivalent |
+| ALTO element | Holds | TEI equivalent |
 | --- | --- | --- |
 | `<Page>` | One page | `<surface>` |
-| `<TextBlock>` | A region of text | `<zone type="block">` |
-| `<TextLine>` | One line with a baseline | `<zone type="line">` |
-| `<String>` | One word with coordinates | `<w>` with `@facs` |
+| `<TextBlock>` | A block of writing | `<zone type="block">` |
+| `<TextLine>` | One line | `<zone type="line">` |
+| `<String>` | One word, with its position | `<w>` with `@facs` |
 
-That coordinate preservation is the payoff. Rather than measuring line regions by
-hand as you did for three lines in Lesson 3.3, you can transform ALTO's coordinates
-into TEI zones for every line automatically.
+Those kept coordinates are the payoff. In Lesson 3.3 you measured three line boxes by hand. Now you can convert ALTO's coordinates into TEI zones for *every* line automatically.
 
-The transformation requires care about coordinate spaces. ALTO coordinates are in
-*image pixel* space. If your canvas dimensions differ from your image dimensions —
-the ratio you recorded in Lesson 3.3 section 03 — every coordinate needs scaling
-before it becomes a TEI zone.
+One trap. ALTO's numbers are in image pixels. If the viewer's canvas size differs from the image size — the ratio you noted in Lesson 3.3 — every number needs scaling before it becomes a TEI zone.
 
-This is exactly what your hand-measured zones are for. Transform the ALTO
-coordinates, compare the result against the three lines you measured yourself, and
-if they agree the transform is right. If they differ by a constant factor, you have
-found the scaling error — and you found it because you had a control.
+This is exactly what your hand-measured boxes are for. Convert the ALTO numbers, compare against the three lines you measured yourself, and if they agree your conversion is right. If they are out by a consistent factor, you have found the scaling error — and you found it because you had something to check against.
 
-Export today, commit the raw export alongside your transformed TEI, and record the
-scale factor you applied.
+Export today, commit the raw export next to your converted TEI, and record the scale factor you used.
 
-**Takeaway:** ALTO preserves line coordinates in image pixels —
-transform them into TEI zones and check the result against your hand-measured
-control lines.
+**Vocabulary.** *ALTO / PAGE* — XML formats for page layout plus recognized text. *Control* — a known-good measurement used to check an automated one.
+
+**Takeaway:** ALTO preserves line coordinates in image pixels — transform them into TEI zones and check the result against your hand-measured control lines.
 
 ---
 
 ## **21 Content**
 
-**Committing Machine Output**
+**Saving Machine Output to Git**
 
-The provenance discipline from Week 1 applies with full force today, and this is
-the first commit where it does real work.
+The labelling habit from Week 1 does real work today for the first time.
 
-Commit machine output **separately from your corrections**. This is not a stylistic
-preference; it is what makes Week 5's measurement possible. The raw model output
-is what gets scored against the ground truth, and if it is committed already
-corrected, the error rate cannot be computed at all.
+Commit the machine's output **separately from your corrections**. This is not neatness. It is what makes Week 5's measurement possible at all. The raw output is the thing being scored. Commit it already corrected and there is nothing left to score.
 
 ```text
 feat(transcription): HTR output for ff. 43r-44v, uncorrected
 
-Applied model rels398-hand1-v2, fine-tuned from Transkribus Titan on 24
-lines of manual ground truth from f. 42r. Validation CER 6.2%.
+Applied model rels398-hand1-v2, built from Transkribus Titan plus 24
+lines of my own transcription from f. 42r. Score on held-back lines:
+6.2% of characters wrong.
 
-Raw model output, no corrections applied. Corrections follow in a
-separate commit so that raw CER can be measured against this state in
-Week 5.
+Raw output, nothing corrected. Corrections follow in a separate commit
+so the raw score can be measured against this state in Week 5.
 
 AI-Generated: true
 Model: Transkribus / PyLaia, rels398-hand1-v2
@@ -854,151 +578,114 @@ Ground-Truth-Commit: a3f9c21
 Validation-CER: 6.2
 ```
 
-Then correct, and commit the corrections separately:
+Then correct, and commit that separately:
 
 ```text
 fix(transcription): correct HTR output for ff. 43r-44v
 
-Corrected 31 errors against the facsimile at full zoom. Categorized in
-logs/htr-errors-w4.md: 14 diacritic omissions, 9 abbreviation errors,
-5 ligature misreadings, 3 line-final truncations.
+Fixed 31 errors against the photograph at full zoom. Sorted in
+logs/htr-errors-w4.md: 14 dropped accents, 9 short-form errors,
+5 joined-letter misreadings, 3 chopped line ends.
 
 Human-Verified: true
 ```
 
-The `Human-Verified: false` on the first commit is the work queue from Lesson 1.1
-section 24 in action. Between those two commits, your repository contains
-unverified machine text, and the trailer says so.
+The `Human-Verified: false` on the first commit is your to-do list working as designed. Between those two commits your repository holds unchecked machine text, and the label says so out loud.
 
-**Takeaway:** Commit raw model output and your corrections
-separately, or Week 5 cannot compute an error rate at all.
+**Vocabulary.** *Trailer* — a labelled line at the end of a commit message. *Raw output* — machine text before any human correction.
+
+**Takeaway:** Commit raw model output and your corrections separately, or Week 5 cannot compute an error rate at all.
 
 ---
 
 ## **22 Content**
 
-**What Today Establishes for Friday**
+**Setting Friday Up**
 
-Friday runs the same passage through a general-purpose vision-language model, and
-the comparison is the week's actual lesson. Today's results are the baseline for
-it.
+On Friday you run the same passage through a general AI model, and the comparison is the week's real lesson. Today's results are what it gets compared against.
 
-Record clearly, so Friday's comparison is possible:
+Record all of this so that comparison is possible:
 
-| Quantity | Where recorded |
+| What to record | Where |
 | --- | --- |
-| Base model used | Repository note and commit trailer |
-| Training data volume | Lines and folios used |
-| Validation CER | Commit trailer and note |
-| Error categorization | `logs/htr-errors-w4.md` |
-| Layout corrections required | Note; how much manual work |
-| Raw output, uncorrected | Its own commit, tagged |
-| Time invested | Note; setup, correction, training |
+| Which model you started from | Repository note and commit trailer |
+| How much training material | Lines and leaves used |
+| Score on held-back lines | Commit trailer and note |
+| Sorted list of mistakes | `logs/htr-errors-w4.md` |
+| How much line-fixing it took | A note |
+| Raw uncorrected output | Its own commit, tagged |
+| Time spent | A note: setup, fixing, training |
 
-The last row matters more than students expect. Friday's model requires no
-training, no layout correction, and no ground truth — you paste an image and get
-text. Comparing the *quality* of Wednesday's and Friday's output without also
-comparing their *cost* misses half the question, and the honest assessment in Week
-5 needs both.
+That last row matters more than students expect. Friday's tool needs no training, no line-fixing, and no typed examples. You hand it a picture and get text back. Comparing the *quality* of Wednesday's and Friday's output without comparing the *cost* misses half the question.
 
-Tag today's raw output state, so Week 5 can retrieve exactly what was measured:
+Tag today's raw output so Week 5 can retrieve exactly what was measured:
 
 ```bash
 git tag -a htr-w4-raw -m "Raw HTR output, model rels398-hand1-v2, before correction"
 ```
 
-Expect Friday's model to be worse on this material, possibly dramatically. That is
-the finding, not a failure of the exercise — and it will be more convincing for
-having been measured than for having been asserted.
+Expect Friday's output to be worse on this material, possibly much worse. That is the finding, not a failed exercise — and it counts for more having been measured than asserted.
 
-**Takeaway:** Record cost as well as quality — Friday's tool
-needs no training or ground truth, and the comparison is meaningless without that.
+**Vocabulary.** *Baseline result* — the result everything else gets compared against. *Cost* — the time, effort, and money a method actually takes.
+
+**Takeaway:** Record cost as well as quality — Friday's tool needs no training or ground truth, and the comparison is meaningless without that.
 
 ---
 
 ## **23 Content**
 
-**Why the Specialized Model Usually Wins**
+**Why the Small Specialist Usually Wins**
 
-Anticipating Friday, because the result is counter-intuitive and worth
-understanding before you see it.
+Worth understanding before Friday, because the result goes against instinct.
 
-Vision-language models have billions of parameters trained on vast heterogeneous
-corpora. Your fine-tuned HTR model has orders of magnitude fewer and was trained on
-a few dozen lines of your handwriting. Intuition says the larger model should win.
+The general AI models are enormous, trained on staggering amounts of material. Your model is tiny and learned from a few dozen lines of one scribe. Instinct says the big one should win.
 
-It generally does not, on historical material, and the gap is enormous. On the
-CATMuS medieval Latin benchmark, the domain-tuned `TrOCR-Medieval-Base` achieved
-14.6% CER while DeepSeek-OCR scored 63.0% and Mistral-OCR-3 scored 84.7% on
-identical samples (Mattingly et al., 2024). On historical English from the Bentham
-corpus, GPT-4o produced 52.23% CER; on historical German from READ2016, 77.42%
-(AlKendi et al., 2024).
+On historical manuscripts it usually does not, and the gap is huge. On a medieval Latin test set, a model tuned for medieval Latin got 14.6% of characters wrong, while two large commercial systems scored 63.0% and 84.7% on identical pages (Mattingly et al., 2024). On historical English, GPT-4o got 52.23% wrong; on historical German, 77.42% (AlKendi et al., 2024).
 
-The same models are excellent on modern handwriting. GPT-4o achieves 1.39% CER on
-the IAM modern English dataset — competitive with specialized architectures
-operating zero-shot (AlKendi et al., 2024).
+The same models are superb on *modern* handwriting. GPT-4o gets 1.39% wrong on a modern English test set — as good as purpose-built tools (AlKendi et al., 2024).
 
-| Dataset | Model | CER |
+| Material | Model | Wrong |
 | --- | --- | --- |
-| IAM, modern English | GPT-4o | 1.39% |
-| Bentham, historical English | GPT-4o | 52.23% |
-| READ2016, historical German | GPT-4o | 77.42% |
-| CATMuS, medieval Latin | TrOCR-Medieval-Base | 14.6% |
-| CATMuS, medieval Latin | Mistral-OCR-3 | 84.7% |
+| Modern English | GPT-4o | 1.39% |
+| Historical English | GPT-4o | 52.23% |
+| Historical German | GPT-4o | 77.42% |
+| Medieval Latin | Tuned specialist | 14.6% |
+| Medieval Latin | Large general model | 84.7% |
 
-This is the **specialization gap**. Domain-tuned models operate with vastly fewer
-parameters and succeed precisely because they have been directly exposed to
-palaeographic variation, scribal shorthand, idiosyncratic ligatures, and
-non-standard layouts (Mattingly et al., 2024). General models have seen the
-internet, which contains very little Byzantine minuscule.
+This is the **specialization gap**. The specialists are far smaller and win because they have actually been shown scribal handwriting, odd short forms, joined letters, and irregular layouts (Mattingly et al., 2024). The general models have seen the internet, and the internet contains very little Byzantine Greek minuscule.
 
-Scale does not substitute for exposure to the specific material. That is the
-week's central empirical finding, and Friday will let you verify it on your own
-manuscript.
+Size does not substitute for having seen the material. Friday you check this on your own manuscript.
 
-**Takeaway:** General models are excellent on modern handwriting
-and catastrophic on historical scripts — scale does not substitute for exposure to
-the material.
+**Vocabulary.** *Benchmark* — a standard test set used to compare tools fairly. *General-purpose model* — one trained on everything rather than for one job.
+
+**Takeaway:** General models are excellent on modern handwriting and catastrophic on historical scripts — scale does not substitute for exposure to the material.
 
 ---
 
 ## **24 Content**
 
-**The Complexity Paradox**
+**More Steps Can Make It Worse**
 
-A related finding worth knowing before Friday, because it will shape what you try.
+A related finding, worth knowing before Friday because it will shape what you try.
 
-The intuition when building a pipeline is that more components help: an OCR model,
-then a language model to correct its output, perhaps retrieval-augmented generation
-to supply domain knowledge. Each component addresses a real weakness.
+The instinct when assembling a workflow is that more helpers must help: a reading program, then an AI to tidy its mistakes, maybe a lookup step to supply background knowledge. Each addition fixes something real.
 
-Empirically, this fails. A simple pipeline — a specialized OCR model feeding
-directly into a VLM translator — substantially outperforms multi-component variants
-that add retrieval-augmented generation or LLM-based post-OCR correction. The
-additional generative steps introduce prompt saturation and cascading error
-propagation that degrade aggregate quality (Mattingly et al., 2024).
+In practice it backfires. A plain workflow — one specialist reading program feeding one translator — beats versions with extra AI steps bolted on. The extra generative steps introduce their own errors, and those errors then travel downstream unchecked (Mattingly et al., 2024).
 
-| Pipeline | Components | Outcome |
+| Workflow | Extra pieces | Result |
 | --- | --- | --- |
-| Simple | Specialized OCR to VLM translator | Best |
-| With RAG | Adds retrieval-augmented context | Degraded |
-| With LLM post-correction | Adds generative correction of OCR | Degraded |
-| Both | All of the above | Worst |
+| Plain | None | Best |
+| Plus background lookup | One | Worse |
+| Plus AI tidying of the reading | One | Worse |
+| Both | Two | Worst |
 
-The mechanism is that each generative step can introduce errors as well as fix
-them, and errors introduced late in a pipeline are not caught by anything
-downstream. An LLM correcting OCR output has no access to the image; it corrects
-toward linguistic plausibility, which means it will "fix" correct unusual readings
-into incorrect common ones. In a manuscript context, unusual readings are
-frequently the interesting ones.
+The mechanism is simple. Every generative step can break things as well as fix them, and something broken late in the chain has nothing after it to catch the problem. An AI tidying up reading output cannot see the picture. It corrects toward whatever sounds most likely — which means it will "fix" a correct but unusual reading into a wrong but ordinary one. In manuscripts, the unusual readings are frequently the interesting ones.
 
-The lesson for Friday: do not attempt to improve today's HTR output by passing it
-through an LLM for correction. That is precisely the configuration the evidence
-says degrades quality, and you would be degrading the output while feeling you had
-improved it.
+So, for Friday: do not try to improve today's output by passing it through an AI to clean up. That is exactly the setup the evidence says makes things worse, and you would be degrading your text while feeling you had improved it.
 
-**Takeaway:** Adding LLM post-correction to OCR degrades quality
-— it corrects toward plausibility, and unusual readings are the interesting ones.
+**Vocabulary.** *Pipeline* — a chain of processing steps, each feeding the next. *Error propagation* — a mistake made early travelling onward unnoticed.
+
+**Takeaway:** Adding LLM post-correction to OCR degrades quality — it corrects toward plausibility, and unusual readings are the interesting ones.
 
 ---
 
@@ -1006,101 +693,89 @@ improved it.
 
 **Checklist Before You Leave**
 
-Verify each item.
+Check each one.
 
-- Manuscript imported into Transkribus by manifest URI.
-- Layout analysis run on all working folios.
-- Every line detected; no merges or splits remaining.
-- Polygons verified to enclose high-placed diacritics.
-- Ground truth aligned to lines; alignment spot-checked.
-- Base model selected, with the reason recorded.
-- Model trained, with a representative validation set.
-- Validation CER recorded.
-- Model applied to at least one untranscribed folio.
-- Output inspected line by line at full zoom.
-- Errors categorized in `logs/htr-errors-w4.md`.
-- Raw output committed separately, with provenance trailers.
-- Raw output state tagged.
+- Manuscript imported into Transkribus by web address.
+- Line-finding run on every leaf you are using.
+- Every line found; no merges or splits left.
+- Strips checked to include the high accents.
+- Your transcription attached to the right lines, spot-checked.
+- Starting model chosen, with the reason written down.
+- Model trained, with a representative set of lines held back.
+- Score recorded.
+- Model run on at least one untyped leaf.
+- Output read line by line, zoomed in.
+- Mistakes sorted in `logs/htr-errors-w4.md`.
+- Raw output committed on its own, with the labels.
+- Raw output tagged.
 - ALTO or PAGE export committed.
-- Coordinates checked against your Lesson 3.3 control lines.
-- Time invested recorded.
+- Coordinates checked against your Lesson 3.3 measured lines.
+- Time spent recorded.
 
-If your model's validation CER exceeds 15%, do not proceed to correction — the
-output is not worth correcting. Diagnose instead, in the order given in section 14:
-layout, alignment, data volume, base model.
+If your score is worse than 15%, do not start correcting. The output is not worth the effort. Diagnose instead, in the order from section 14: line-finding, then alignment, then how much training material, then the starting model.
 
-**Takeaway:** If validation CER exceeds 15%, diagnose rather than
-correct — check layout, then alignment, then data volume, then base model.
+**Vocabulary.** *Spot-check* — verifying a few samples rather than everything. *Diagnose* — work out the cause before attempting a fix.
+
+**Takeaway:** If validation CER exceeds 15%, diagnose rather than correct — check layout, then alignment, then data volume, then base model.
 
 ---
 
 ## **26 Content**
 
-**Common Problems Today**
+**Things That Go Wrong Today**
 
-Failures that recur, with their diagnoses.
+The failures that keep happening, and what they mean.
 
-| Symptom | Likely cause | Check |
+| Symptom | Likely cause | What to check |
 | --- | --- | --- |
-| Import fails | Manifest not publicly reachable | `curl` from outside your network |
-| Some lines undetected | Faint ink; layout parameters | Inspect and correct manually |
-| Output missing all diacritics | Polygons truncating accents | Look at extracted line images |
-| Output is fluent nonsense | Ground truth misaligned by one line | Spot-check image against text |
-| CER much worse than expected | Base model mismatched to script | Confirm script and period |
-| Model good on one folio, bad on another | Layout differs between them | Validate per layout type |
-| Training error falls, validation error rises | Overfitting | Stop at the validation minimum |
-| Words fused together | *Scriptio continua* | Expected; note for Week 5 |
-| Abbreviations expanded in output | Base model trained on normalized text | Choose a diplomatic base model |
+| Import fails | Address not reachable publicly | `curl` from outside your network |
+| Some lines not found | Faint ink; settings | Look, then fix by hand |
+| No accents at all in the output | Strips cutting them off | Look at the extracted strips |
+| Fluent nonsense | Text attached one line out | Spot-check picture against words |
+| Score far worse than expected | Starting model wrong for the script | Confirm script and date |
+| Good on one leaf, bad on another | Different layouts | Test each layout separately |
+| Training improves, held-back lines worsen | Memorizing | Stop at the low point |
+| Words glued together | Words run together on the page | Expected; note it for Week 5 |
+| Short forms spelled out | Starting model learned tidy text | Pick a diplomatic starting model |
 
-The third and fourth rows are today's characteristic failures and both are
-invisible in the output. Missing diacritics produce text that reads as unaccented
-Greek and looks like a recognition weakness rather than a layout fault. Misaligned
-ground truth produces text that is internally coherent and simply belongs to
-different lines.
+Rows three and four are today's signature failures, and both are invisible in the output itself. Missing accents look like the program being weak at Greek rather than a strip problem. Text attached one line out reads perfectly and simply belongs somewhere else.
 
-The remedy for both is the same and is worth stating as a general principle: when
-output is wrong in a way you cannot explain, look at what the model actually saw.
-The extracted line image is the ground truth about the input, and almost every
-inexplicable failure is visible there.
+The remedy for both is the same, and it is worth keeping as a general rule: when output is wrong in a way you cannot explain, go and look at what the program actually saw. The extracted strip is the truth about the input, and nearly every baffling failure is visible there.
 
-**Takeaway:** When output is inexplicably wrong, look at the
-extracted line image — that is what the model actually saw.
+**Vocabulary.** *Symptom* — what you observe going wrong. *Cause* — the underlying fault, often several steps earlier.
+
+**Takeaway:** When output is inexplicably wrong, look at the extracted line image — that is what the model actually saw.
 
 ---
 
 ## **27 Content**
 
-**Recording the Methodology**
+**Writing Down What You Did**
 
-Your Week 5 report will need a methodological account of today's work, and writing
-it now is easier than reconstructing it.
+Your Week 5 report needs an account of today's work. Writing it now is far easier than reconstructing it later.
 
 Record in `logs/htr-method-w4.md`:
 
-- Platform and version used.
-- Base model, with its documented training material and reported performance.
-- Ground truth: which folios, how many lines, how produced.
-- Layout corrections required, and of what kind.
-- Whether polygon parameters were adjusted, and to what.
-- Training configuration: validation split, epochs, stopping criterion.
-- Validation CER, and what it was measured on.
-- Folios the model was applied to.
-- Error categories observed, with counts.
-- Time invested at each stage.
+- Which platform, and which version.
+- Which model you started from, what it was trained on, how it performs.
+- Your own material: which leaves, how many lines, how produced.
+- What line-fixing was needed, and of what kind.
+- Whether you changed the line-finding settings, and to what.
+- How you trained: how many lines held back, how many passes, when you stopped.
+- The score, and what it was measured on.
+- Which leaves you then ran the model over.
+- The kinds of mistake you saw, with counts.
+- Time spent at each stage.
 
-This is a methods section. Its purpose is to let a reader — or you, in December —
-determine what was done and whether the results mean what they appear to mean. A
-CER of 6.2% is uninterpretable without knowing the base model, the training volume,
-and what the validation set contained.
+This is a methods section. Its job is to let a reader — or you in December — see what was done and judge whether the results mean what they seem to. A score of 6.2% means nothing without knowing the starting model, how much material, and what was in the held-back set.
 
-It also protects you. If your Week 5 results are surprising, this record is what
-lets you diagnose why. Without it, a strange error rate is simply strange, and the
-only remedy is redoing the work.
+It also protects you. If your Week 5 results are surprising, this record is what lets you work out why. Without it, a strange number is simply strange, and your only option is doing the work again.
 
 Commit it with a `docs:` prefix.
 
-**Takeaway:** A CER figure is uninterpretable without its base
-model, training volume, and validation set — record the methodology today.
+**Vocabulary.** *Methods section* — the part of a report saying exactly what was done. *Provenance* — the documented history of how something was made.
+
+**Takeaway:** A CER figure is uninterpretable without its base model, training volume, and validation set — record the methodology today.
 
 ---
 
@@ -1108,34 +783,27 @@ model, training volume, and validation set — record the methodology today.
 
 **Preparing for Friday**
 
-Friday is remote, and it applies vision-language models to the same passage.
+Friday is remote, and it puts the same passage through a general AI model.
 
-Bring, or rather have available from wherever you will be:
+Have all of this available from wherever you will be:
 
 - Your repository, pushed.
-- Yesterday's ground truth, tagged.
-- Today's raw HTR output, tagged.
-- Today's error categorization and methodology notes.
-- Your manifest, reachable from outside your network.
-- Working polytonic input on the machine you will use.
-- Access to a vision-language model.
+- Yesterday's transcription, tagged.
+- Today's raw output, tagged.
+- Today's sorted mistakes and methods notes.
+- Your images, reachable from outside your network.
+- A working Greek keyboard on the machine you will use.
+- Access to an AI model that accepts pictures.
 
-The comparison Friday makes is three-way: your manual transcription, today's
-specialized model, and Friday's general model, all on the same lines. Having all
-three states retrievable by tag is what makes the comparison exact rather than
-approximate.
+Friday's comparison is three-way: your typing, today's specialist model, and Friday's general model, all on the same lines. Having all three saved under tags is what makes that comparison exact rather than roughly right.
 
-Set an expectation now, so the result is a measurement rather than a surprise.
-Based on the published benchmarks in section 23, Friday's output will likely be
-substantially worse than today's on historical Greek — plausibly by a large
-factor. It will also be produced in minutes rather than in a session's work.
-Holding both facts together is what Week 5's assessment requires.
+Set your expectation now, so the result is a measurement rather than a shock. Going by the published figures in section 23, Friday's output will probably be much worse than today's on historical Greek. It will also arrive in minutes instead of a whole session. Week 5 needs you to hold both of those facts at once.
 
-Verify your remote toolchain today, per Lesson 4.1 section 23. Every item on that
-list is quick now and none of them is quick on Friday morning.
+Check your setup today, following Lesson 4.1 section 23. Every item takes two minutes now and none of them takes two minutes on Friday morning.
 
-**Takeaway:** Tag all three states so Friday's three-way
-comparison is exact, and expect the general model to be much worse and much faster.
+**Vocabulary.** *Three-way comparison* — measuring three versions of the same passage against each other. *Tag* — a permanent name on one saved version.
+
+**Takeaway:** Tag all three states so Friday's three-way comparison is exact, and expect the general model to be much worse and much faster.
 
 ---
 
@@ -1143,69 +811,49 @@ comparison is exact, and expect the general model to be much worse and much fast
 
 **What Good Work Looks Like Here**
 
-The standard for today, since "trained a model" and "trained a model well" differ.
+"Trained a model" and "trained a model well" are different achievements.
 
-A minimally acceptable result is a trained model with a recorded CER and inspected
-output.
+An acceptable result is a trained model with a recorded score and output you have looked at.
 
-Good work additionally:
+Good work also:
 
-- Corrects layout thoroughly, including polygon envelopes for diacritics.
-- Verifies ground truth alignment by spot-checking rather than assuming.
-- Chooses a base model deliberately and records the reason.
-- Uses a representative validation set rather than a convenient one.
-- Categorizes errors rather than merely counting them.
-- Distinguishes layout failures from recognition failures.
+- Fixes the line-finding thoroughly, including the strips around accents.
+- Checks that text is attached to the right lines instead of assuming it.
+- Chooses a starting model deliberately and says why.
+- Holds back a representative set of lines, not a convenient one.
+- Sorts mistakes into kinds rather than just counting them.
+- Tells line-finding failures apart from reading failures.
 - Records cost — time and effort — alongside quality.
-- Commits raw output separately from corrections, with full provenance.
-- Notes what the model does badly and hypothesizes why.
+- Commits raw output separately from corrections, fully labelled.
+- Says what the model does badly, and offers a reason.
 
-The last item is what makes this scholarship rather than tool operation. A model
-with 6% CER that drops breathings on a specific letterform, fails on one scribe's
-abbreviation for *kai*, and degrades on the glossed folio is a much more useful
-finding than "6% CER" — because it tells you what to fix, what to check manually,
-and what to say about the method's applicability to this manuscript.
+That last one is what makes this scholarship rather than button-pushing. "6% wrong, and it drops breathings on one particular letter, fails on this scribe's short form for *kai*, and falls apart on the glossed leaf" is far more useful than "6% wrong" — because it tells you what to fix, what to check by hand, and what to say about whether this method suits this manuscript.
 
-**Takeaway:** Reporting *what* the model gets wrong and why is
-the scholarly contribution; the CER number alone is tool operation.
+**Vocabulary.** *Qualitative* — concerning the kind of thing, not the amount. *Hypothesis* — a proposed explanation you can go on to test.
+
+**Takeaway:** Reporting *what* the model gets wrong and why is the scholarly contribution; the CER number alone is tool operation.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: A Bounded Instrument**
+**Synthesis: An Instrument with Edges**
 
-What today established about the deterministic step.
+What today established about the machine step.
 
-A specialized HTR model is a **bounded instrument**. It reads ink and produces
-characters, and its competence extends exactly as far as its training data. Within
-that boundary, on a hand it has seen, it is fast, cheap, consistent, and — because
-its architecture models language weakly — inclined to fail conspicuously rather
-than to fabricate (Puigcerver, 2017; AlKendi et al., 2024).
+A specialized reading model is an instrument with **edges**. It reads ink and produces letters, and it is competent exactly as far as its examples went. Inside that boundary, on handwriting it has seen, it is fast, cheap, consistent, and — because it barely models language — inclined to fail loudly rather than to invent (Puigcerver, 2017; AlKendi et al., 2024).
 
-Its performance depends on things you control. Layout analysis must be corrected,
-because recognition only sees what layout produces, and truncated polygons remove
-Greek diacritics before the model ever sees them (Perdiki & Konstantinidou, 2023).
-Ground truth must be aligned, diplomatic, and consistent. The base model must match
-the script. Transfer learning must be used, because it is the difference between
-17% and 4% CER on identical data (Perdiki & Konstantinidou, 2023).
+How well it works depends on things you control. The line-finding has to be fixed, because the reading step only ever sees what line-finding produced, and chopped strips delete Greek accents before the model lays eyes on them (Perdiki & Konstantinidou, 2023). Your text must be attached to the right lines. The starting model must match the script. And you must start from an existing model, because that alone was the difference between 17% and 4% on identical material (Perdiki & Konstantinidou, 2023).
 
-And its evaluation requires more than a number. A CER figure holds only for layouts
-like those it was validated on, weights every difference equally, and can look
-excellent while the model silently normalizes away the diplomatic fidelity the
-edition exists to preserve (Levchenko, 2024).
+Judging it takes more than a number. A score holds only for pages laid out like the ones it was tested on, treats every difference as equal, and can look excellent while the model quietly modernizes away the very fidelity your edition exists to preserve (Levchenko, 2024).
 
-Friday tests the opposite kind of instrument: unbounded, trained on everything,
-capable of drawing on linguistic expectation — and consequently able to produce
-fluent text that is not on the page. The comparison between the two is the point of
-the week.
+Friday tests the opposite kind of instrument: no edges, trained on everything, able to draw on what language usually does — and therefore able to produce fluent text that is not on the page. Comparing the two is the point of the week.
 
-**For Friday.** Remote delivery. Bring the seven items in section 28, with all three
-states tagged.
+**For Friday.** Remote. Bring the seven items in section 28, with all three versions tagged.
 
-**Takeaway:** An HTR model reads ink within the bounds of its
-training and fails conspicuously; Friday's instrument reads expectation too, and
-fails fluently.
+**Vocabulary.** *Bounded* — limited to a defined range of material. *Fluent* — reading smoothly, which is not the same as being correct.
+
+**Takeaway:** An HTR model reads ink within the bounds of its training and fails conspicuously; Friday's instrument reads expectation too, and fails fluently.
 
 ---
 
@@ -1214,12 +862,6 @@ fails fluently.
 AlKendi, W., Gechter, F., Heyberger, L., & Guyeux, C. (2024). Advancements and
 challenges in handwritten text recognition: A comprehensive survey. *Journal of
 Imaging*.
-
-Clérice, T., Pinche, A., Chagué, A., Camps, J.-B., Vlachou-Efstathiou, M., Levenson,
-M. G., Brisville-Fertin, O., Boschetti, F., & Fischer, F. (2024). CATMuS Medieval:
-A multilingual large-scale cross-century dataset in Latin script for handwritten
-text recognition and beyond. In *International Conference on Document Analysis and
-Recognition (ICDAR)*.
 
 eScriptorium/Kraken. (2024). *eScriptorium platform documentation*.
 https://escriptorium.eu/about
@@ -1242,14 +884,5 @@ Perdiki, E., & Konstantinidou, M. (2023). Preparing big manuscript data for
 hierarchical clustering with minimal HTR training. *Journal of Data Mining &
 Digital Humanities*. https://jdmdh.episciences.org/12664/pdf
 
-Perdiki, E. (2021). Review of Transkribus. *RIDE: A Review Journal for Digital
-Editions and Resources*. https://ride.i-d-e.de/issues/issue-15/transkribus/
-
 Puigcerver, J. (2017). *PyLaia: A deep learning toolkit for handwritten document
 analysis*. https://github.com/jpuigcerver/PyLaia
-
-Romein, C. A., et al. (2025). *Assessing advanced handwritten text recognition
-engines for digitizing historical documents*.
-
-Ströbel, P. B., Clematide, S., Volk, M., & Hodel, T. (2023). *The adaptability of a
-transformer-based OCR model for historical documents*.

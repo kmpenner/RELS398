@@ -2,9 +2,7 @@
 
 *RELS 398 / ENGL 398 · Topic 4: Transcription · Meeting #9 (Tue Sep 22)*
 
-***Step 1 of the three-step cycle: manual.** Today you transcribe by hand, in a
-plain text editor, at full zoom. What you produce is the ground truth against
-which Wednesday's HTR model and Friday's LLM output will be measured in Week 5.*
+***Step 1 of the three-step cycle: manual.** Today you type out a manuscript page by hand, reading it at high magnification. What you produce is the *ground truth* — the correct version that Wednesday's software and Friday's AI will be measured against.*
 
 ---
 
@@ -12,37 +10,15 @@ which Wednesday's HTR model and Friday's LLM output will be measured in Week 5.*
 
 **Why the Manual Step Comes First**
 
-This week runs the same passage three ways: by hand today, through a trained HTR
-model on Wednesday, and with LLM assistance on Friday. The order is not
-arbitrary, and it is not a concession to tradition.
+This week you transcribe the same passage three times. Today by hand. Wednesday with software that learns handwriting. Friday with an AI model.
 
-Wednesday and Friday produce output that must be *evaluated*. Evaluation requires
-a reference — a transcription known to be correct, against which machine output
-can be scored. Without it, an HTR model's output is simply text: plausible,
-possibly accurate, impossible to assess. Character error rate, word error rate,
-and every other metric in Week 5 are computed as a distance from a reference, and
-the reference is what you produce today (AlKendi et al., 2024).
+Doing it by hand first is not old-fashioned caution. Wednesday and Friday produce output that has to be *graded*, and grading needs an answer key. Without one, the software's output is just text on a screen. It might be right. You have no way to tell. Every accuracy score you calculate in Week 5 is measured against the file you build today (AlKendi et al., 2024).
 
-The thesis this week substantiates is that automated transcription — HTR and
-vision-language models alike — fundamentally requires human diplomatic
-transcription as an authoritative baseline. It is exclusively against that
-baseline that error rates, algorithmic biases, and hallucinated readings can be
-measured, evaluated, and mitigated (AlKendi et al., 2024).
+There is a second reason. Typing a page out by hand is how you learn what your manuscript actually holds — how this scribe shapes each letter, which short forms keep appearing, where the page is damaged. Tomorrow you judge whether the software read the page correctly. You cannot judge that if you have never read the page yourself.
 
-There is a second reason, less obvious and equally important. Transcribing by
-hand is how you learn what your manuscript actually contains — which letterforms
-this scribe uses, which abbreviations recur, where the hand becomes difficult,
-where the parchment is damaged. Wednesday you will correct an algorithm's layout
-analysis and judge its output. You cannot do either without having read the page
-yourself first.
+**Vocabulary.** *Ground truth* — a transcription checked and known to be correct, used as the answer key for scoring software. *Transcription* — a typed version of what is written on a page.
 
-**Vocabulary.** *Ground truth* — a transcription verified as correct, used as the
-reference for measuring automated output. *Character error rate (CER)* — the
-proportion of character-level edits needed to transform machine output into the
-ground truth.
-
-**Takeaway:** Today's transcription is the measuring instrument
-for the rest of the term — every error rate you compute is a distance from it.
+**Takeaway:** Today's transcription is the measuring instrument for the rest of the term — every error rate you compute is a distance from it.
 
 ---
 
@@ -50,145 +26,96 @@ for the rest of the term — every error rate you compute is a distance from it.
 
 **Diplomatic Versus Normalized Transcription**
 
-Two transcription conventions serve different purposes, and confusing them
-produces a document that serves neither.
+There are two ways to type out a manuscript, and they serve opposite purposes.
 
-A **diplomatic transcription** reproduces the surface features of the manuscript
-as precisely as the medium allows: original spelling, historical punctuation,
-capitalization as written, word division as written, variant letterforms, line
-divisions, and unexpanded scribal abbreviations. Its commitment is to what is on
-the parchment (AlKendi et al., 2024).
+A **diplomatic** transcription copies what is on the page, exactly: the original spelling, the original punctuation, the line breaks, the odd letter shapes, the abbreviations left short. It is loyal to the parchment.
 
-A **normalized** or **interpretative transcription** modernizes orthography,
-silently expands abbreviations, and regularizes punctuation to make the text
-readable for a contemporary audience. Its commitment is to the text as a
-linguistic object rather than to the page as an artefact (AlKendi et al., 2024).
+A **normalized** transcription tidies all of that up. It fixes the spelling, spells out the abbreviations, and uses modern punctuation. It is loyal to the words, not to the page (AlKendi et al., 2024).
 
 | Feature | Diplomatic | Normalized |
 | --- | --- | --- |
-| Spelling | As written, including errors | Regularized |
-| Abbreviations | Left unexpanded, or marked | Silently expanded |
-| Punctuation | As in the manuscript | Modern conventions |
-| Word division | As written, including *scriptio continua* | Modern word spacing |
-| Line breaks | Preserved and recorded | Not preserved |
-| Letterforms | Variants distinguished | Merged |
-| Serves | Palaeography; HTR training; textual criticism | Reading; translation; teaching |
+| Spelling | As written, errors included | Corrected |
+| Abbreviations | Left short, or marked | Quietly spelled out |
+| Punctuation | As on the page | Modern |
+| Word spacing | As written | Modern |
+| Line breaks | Kept | Dropped |
+| Letter shapes | Variants kept apart | Merged |
+| Good for | Studying the hand; training software | Reading; translating |
 
-Today's transcription must be **diplomatic**. The reason is specific to what it
-will be used for: an HTR model trained on normalized text learns to produce
-normalized text, which means it learns to silently overwrite the historical record
-with modern assumptions. Models trained on normalized ground truth tend to
-over-normalize when they meet new material, and the resulting errors are invisible
-because the output looks like clean text (AlKendi et al., 2024).
+Yours today must be diplomatic. Here is why. Software learns from the examples you give it. Feed it tidied-up text and it learns to tidy up — that is, to quietly replace what the scribe wrote with what a modern editor would write (AlKendi et al., 2024).
 
-Normalization is Week 6's subject, and it is done *from* a diplomatic base, with
-each decision recorded. Doing it now, silently, destroys the evidence Week 6 needs.
+Tidying up is Week 6's job, done *from* a diplomatic copy, with every change written down. Doing it now, silently, destroys what Week 6 needs.
 
-**Takeaway:** Transcribe diplomatically, because a model trained
-on normalized text learns to silently modernize — and Week 6 needs the
-unnormalized base.
+**Vocabulary.** *Diplomatic* — copying the document's own forms exactly. *Normalized* — cleaned up to modern convention.
+
+**Takeaway:** Transcribe diplomatically, because a model trained on normalized text learns to silently modernize — and Week 6 needs the unnormalized base.
 
 ---
 
 ## **03 Content**
 
-**The Ordered Hierarchy and What TEI Assumes**
+**One Text, Two Structures**
 
-Encoding your transcription in TEI commits you to a particular model of what a
-text is, and it is worth knowing what you are committing to.
+TEI is the set of rules you use to mark up a text in XML. Using it commits you to one idea about what a text is, and it helps to know what that idea is.
 
-TEI XML operates on the theoretical model of an **Ordered Hierarchy of Content
-Objects** — the assumption that a text is a single nested tree: a work contains
-divisions, which contain paragraphs, which contain sentences, which contain words
-(AlKendi et al., 2024). XML enforces this: elements must nest properly, and
-overlapping structures cannot be expressed directly.
+TEI assumes a text is a single nested stack of boxes: a work holds chapters, a chapter holds paragraphs, a paragraph holds sentences. XML forces this. Boxes must sit neatly inside other boxes. They may not overlap (AlKendi et al., 2024).
 
-Manuscripts routinely violate the assumption. The physical structure of the page —
-folios, columns, lines — and the logical structure of the text — books, chapters,
-sentences — are both real and they do not nest within each other. A sentence
-begins mid-line and ends on the next page. A verse spans a column break. Neither
-hierarchy contains the other.
+Manuscripts break that rule constantly. A page has a *physical* structure — leaves, columns, lines. The text has a *logical* structure — chapters, sentences. Both are real, and neither fits inside the other. A sentence starts halfway down a line and finishes on the next page.
 
-TEI's solution is the **empty milestone element**. Rather than wrapping content,
-`<pb/>` and `<lb/>` mark points in the stream:
+TEI solves this with an empty tag that marks a *spot* rather than wrapping anything. `<pb/>` marks where a page starts. `<lb/>` marks where a line starts:
 
 ```xml
 <p>ἐν ἀρχῇ ἦν ὁ λόγος καὶ ὁ λόγος<lb n="2"/>
 ἦν πρὸς τὸν θεόν καὶ θεὸς ἦν ὁ<lb n="3"/>
-λόγος οὗτος ἦν ἐν ἀρχῇ<pb n="42v"/>
-πρὸς τὸν θεόν</p>
+λόγος οὗτος ἦν ἐν ἀρχῇ<pb n="42v"/></p>
 ```
 
-The paragraph nests properly as XML requires; the line and page boundaries are
-recorded as points within it. Physical structure is captured without competing
-with the logical hierarchy.
+The paragraph stays one tidy box. The page and line breaks are recorded as points inside it.
 
-This is why line breaks are preserved in a diplomatic transcription rather than
-being treated as typographic accident. The line is a real feature of the artefact,
-it is where HTR operates, and it is where your zone bindings from Lesson 3.3
-attach.
+**Vocabulary.** *Milestone* — an empty tag that marks a point in the text instead of enclosing it. *Nesting* — putting one tag fully inside another, which XML requires.
 
-**Takeaway:** Physical and logical structure both exist and do
-not nest, so TEI records line and page boundaries as empty milestones within the
-logical hierarchy.
+**Takeaway:** Physical and logical structure both exist and do not nest, so TEI records line and page boundaries as empty milestones within the logical hierarchy.
 
 ---
 
 ## **04 Content**
 
-**The Core Encoding Vocabulary**
+**The Tags You Will Actually Use**
 
-A diplomatic transcription needs a small set of TEI elements used consistently.
-Learn these; they cover the great majority of what you will encounter (TEI
-Consortium, 2026; AlKendi et al., 2024).
+You need a small set of tags, used the same way every time. These cover most of what you will meet (TEI Consortium, 2026).
 
-| TEI element | Records | Example |
+| Tag | What it records | Example |
 | --- | --- | --- |
-| `<pb/>` | Page or folio beginning | `<pb n="42v" facs="#f42v"/>` |
-| `<lb/>` | Line beginning | `<lb n="8" facs="#f42r_l08"/>` |
-| `<cb/>` | Column beginning | `<cb n="b"/>` |
-| `<abbr>` | An abbreviation as written | `<abbr>θς</abbr>` |
-| `<expan>` | The expanded form | `<expan>θεός</expan>` |
-| `<choice>` | Wraps alternative encodings | `<choice><abbr/><expan/></choice>` |
-| `<orig>` | The original form | `<orig>ἐγένετο</orig>` |
-| `<reg>` | The regularized form | `<reg>ἐγένοντο</reg>` |
-| `<unclear>` | Text that cannot be read confidently | `<unclear reason="faded"/>` |
-| `<gap/>` | Missing or illegible material | `<gap reason="lacuna" extent="3" unit="chars"/>` |
-| `<damage>` | A physically damaged region | `<damage agent="water"/>` |
-| `<supplied>` | Text supplied by the editor | `<supplied reason="lacuna"/>` |
-| `<del>` | Text deleted by a scribe | `<del rend="strikethrough"/>` |
-| `<add>` | Text added by a scribe | `<add place="above"/>` |
+| `<pb/>` | A page starts here | `<pb n="42v" facs="#f42v"/>` |
+| `<lb/>` | A line starts here | `<lb n="8" facs="#f42r_l08"/>` |
+| `<cb/>` | A column starts here | `<cb n="b"/>` |
+| `<abbr>` | A short form, as written | `<abbr>θς</abbr>` |
+| `<expan>` | The same word, spelled out | `<expan>θεός</expan>` |
+| `<choice>` | Holds two versions side by side | `<choice><abbr/><expan/></choice>` |
+| `<orig>` / `<reg>` | Original / tidied spelling | `<reg>ἐγένοντο</reg>` |
+| `<unclear>` | You can read it, but not confidently | `<unclear reason="faded"/>` |
+| `<gap/>` | Something is missing or unreadable | `<gap reason="lacuna" extent="3"/>` |
+| `<damage>` | The page itself is damaged here | `<damage agent="water"/>` |
+| `<supplied>` | You added text that is not on the page | `<supplied reason="lacuna"/>` |
+| `<del>` / `<add>` | The scribe crossed out / added text | `<add place="above"/>` |
 
-The `<choice>` element is the structurally interesting one and deserves attention.
-It does not *choose*; it holds alternatives so that a processor can select
-according to purpose. A reading view renders the `<expan>`; a palaeographic view
-renders the `<abbr>`; a search index may include both. One encoding serves several
-presentations, which is exactly what separating data from presentation buys you
-(AlKendi et al., 2024).
+`<choice>` is the clever one. It does not pick a winner. It holds both versions so a computer can pick later, depending on the job. A reading edition shows the spelled-out form. A handwriting study shows the short form. You encode once and get both.
 
-Today you will use `<pb/>`, `<lb/>`, `<unclear>`, `<gap/>`, and `<choice>` with
-`<abbr>`/`<expan>` most heavily. Reserve `<orig>`/`<reg>` for Week 6 — recording
-regularizations now would pre-empt decisions that week exists to make deliberately.
+Today you will mostly use `<pb/>`, `<lb/>`, `<unclear>`, `<gap/>`, and `<choice>`. Save `<orig>` and `<reg>` for Week 6.
 
-**Takeaway:** `<choice>` holds alternatives rather than deciding
-between them, so one encoding can serve palaeographic, reading, and search views.
+**Vocabulary.** *Tag* — the angle-bracket label that marks a piece of text, like `<lb/>`. *Attribute* — extra information inside a tag, like the `n="8"` that numbers a line.
+
+**Takeaway:** `<choice>` holds alternatives rather than deciding between them, so one encoding can serve palaeographic, reading, and search views.
 
 ---
 
 ## **05 Content**
 
-**Encoding Abbreviations**
+**Short Forms and How to Record Them**
 
-Scribal abbreviation is pervasive in manuscript culture and is where diplomatic
-transcription is most often done badly. Silently expanding abbreviations is the
-single most common way students destroy the evidential value of a transcription.
+Scribes shortened words constantly, to save time and expensive parchment. Spelling those short forms out without saying so is the most common way students ruin a transcription.
 
-The problem: an abbreviation is a mark on the page, and its expansion is an
-editorial inference. Usually the inference is secure — a *nomen sacrum* with an
-overline is unambiguous. Sometimes it is not, and a given abbreviation may admit
-several expansions whose choice affects the sense.
-
-Encode both:
+Here is the problem. The short form is ink on the page — a fact. The spelled-out version is your guess — usually a safe guess, occasionally not. Record both:
 
 ```xml
 <choice>
@@ -197,98 +124,65 @@ Encode both:
 </choice>
 ```
 
-The `<ex>` element inside `<expan>` marks specifically the characters *supplied by
-the editor* rather than present in the manuscript. This is a real distinction: it
-allows a processor to render the expansion with the supplied letters italicized,
-which is the traditional print convention, and it records exactly where the ink
-stops and the inference begins.
+The `<ex>` tag marks the letters *you* supplied, which the scribe did not write. It lets software print those letters in italics, the traditional convention, and it shows exactly where the ink stops and your guess starts.
 
-| Abbreviation type | Manuscript form | Encoding approach |
+| Kind of short form | What it looks like | How to encode it |
 | --- | --- | --- |
-| Nomen sacrum | Contracted with overline | `<abbr>` plus `<expan>` with `<ex>` |
-| Suspension | Word truncated, mark added | Same |
-| Contraction | Medial letters omitted | Same |
-| Tironian *et* | A symbol standing for a word | `<abbr>` plus `<expan>` |
-| Ambiguous expansion | Several readings possible | `<expan cert="medium">`, note alternatives |
+| Sacred name | Squeezed, with a line above | `<abbr>` plus `<expan>` with `<ex>` |
+| Cut-off word | Word stops, a mark added | Same |
+| Squeezed word | Middle letters dropped | Same |
+| Genuinely ambiguous | Could be two different words | `<expan cert="medium">`, note the other option |
 
-For HTR training this encoding is directly consequential. The model must learn to
-associate the *visual* form with the *diplomatic* characters, not with the
-expansion. Where training data supplies expansions in place of the written form,
-the model learns to hallucinate letters that are not on the page — which is
-precisely the over-normalization failure described in section 02 (AlKendi et al.,
-2024).
+This matters directly for Wednesday. The software has to learn that this *shape* means these *letters on the page*. Give it spelled-out versions instead and it learns to invent letters that were never written (AlKendi et al., 2024).
 
-**Takeaway:** Encode the abbreviation and its expansion
-separately with `<ex>` marking supplied letters, so the model learns what is
-actually on the page.
+**Vocabulary.** *Abbreviation* — a shortened written form. *Expansion* — the full spelling of an abbreviated word. *Nomen sacrum* — a shortened sacred name marked with a line above it.
+
+**Takeaway:** Encode the abbreviation and its expansion separately with `<ex>` marking supplied letters, so the model learns what is actually on the page.
 
 ---
 
 ## **06 Content**
 
-**Encoding Uncertainty and Damage**
+**Saying What You Cannot Read**
 
-A diplomatic transcription must state the limits of decipherment explicitly. A
-reading given without qualification asserts confidence, and asserting confidence
-you do not have is a scholarly error regardless of whether the reading is right
-(AlKendi et al., 2024).
+Your transcription has to admit its own limits. Typing a word plainly is a claim that you read it confidently. Making that claim when it is not true is an error, even if the word turns out to be right.
 
-Four distinct situations require four distinct encodings:
+Four different situations need four different tags.
 
-| Situation | Element | Meaning |
+| Situation | Tag | What it means |
 | --- | --- | --- |
-| I can see marks but cannot read them confidently | `<unclear>` | A reading is offered with reduced confidence |
-| Material is missing or wholly illegible | `<gap/>` | No reading is offered |
-| The support is damaged, whether or not text is lost | `<damage>` | Documents a physical cause |
-| I have supplied text not present in the witness | `<supplied>` | An editorial restoration |
+| I see marks but am unsure | `<unclear>` | Here is my best reading, held loosely |
+| Nothing is there, or nothing readable | `<gap/>` | I offer no reading at all |
+| The page is damaged | `<damage>` | Records a physical cause |
+| I added text that is not there | `<supplied>` | An editor's restoration |
 
-The distinction between `<unclear>` and `<gap/>` is the one to get right.
-`<unclear>` contains a reading — you are proposing text, with reduced confidence.
-`<gap/>` is empty — you are proposing nothing and recording that something is
-missing. Putting a guess inside a `<gap/>` misrepresents an inference as an
-absence; leaving `<unclear>` empty misrepresents a difficult reading as a lacuna.
-
-Qualify richly:
+Getting `<unclear>` and `<gap/>` apart is the important part. `<unclear>` *has words inside it* — you are offering a reading. `<gap/>` is empty — you are offering nothing. Put a guess inside a `<gap/>` and you have disguised a guess as a hole in the page. Leave `<unclear>` empty and you have turned a hard reading into a loss.
 
 ```xml
-<unclear reason="faded" cert="medium" resp="#KMP"
-         source="#uv365">ἐγένετο</unclear>
+<unclear reason="faded" cert="medium" resp="#KMP" source="#uv365">ἐγένετο</unclear>
 <gap reason="lacuna" extent="4" unit="chars"/>
-<damage agent="water" extent="lower margin"/>
 ```
 
-The `@source` attribute connects to Lesson 3.2: it records which imaging condition
-supported the reading. `@resp` records who is responsible. `@extent` on a `<gap/>`
-records how much is missing, which matters for restoration — a four-character
-lacuna constrains the possibilities far more than an unmeasured one.
+`source` records which photograph let you read it, which links back to Lesson 3.2. `extent` records how much is gone. A four-letter hole narrows the possibilities far more than an unmeasured one.
 
-Be honest and be specific. In Week 5 these encodings become the record of which
-readings were genuinely uncertain, and a transcription that marks nothing as
-unclear will produce error rates that are wrong in an uninterpretable direction.
+**Vocabulary.** *Lacuna* — a hole or loss in the page where text is gone. *`cert`* — an attribute stating how confident you are.
 
-**Takeaway:** `<unclear>` proposes a reading with reduced
-confidence and `<gap/>` proposes nothing — conflating them misrepresents inference
-as absence or difficulty as loss.
+**Takeaway:** `<unclear>` proposes a reading with reduced confidence and `<gap/>` proposes nothing — conflating them misrepresents inference as absence or difficulty as loss.
 
 ---
 
 ## **07 Content**
 
-**Scribal Corrections**
+**When the Scribe Corrected Themselves**
 
-Manuscripts record their own editing. Scribes deleted, added, and corrected, and
-those interventions are evidence about transmission — often the most informative
-evidence a single witness offers.
+Manuscripts record their own editing. A scribe crossed a word out and wrote another above it. Somebody later did the same. Those marks are often the most useful evidence a single copy offers.
 
-| Feature | Element | Attributes to record |
+| What happened | Tag | What to record |
 | --- | --- | --- |
-| Deletion | `<del>` | `@rend` — strikethrough, expunction, erasure |
-| Addition | `<add>` | `@place` — above, below, margin, inline |
-| Substitution | `<subst>` wrapping `<del>` and `<add>` | Groups a correction as one act |
-| Correction by another hand | `@hand` on the element | Points to a hand in the header |
-| Text left standing though marked | `<del>` retained in the reading | Note the decision |
-
-A substitution encoded properly:
+| Something crossed out | `<del>` | `rend` — how it was cancelled |
+| Something added | `<add>` | `place` — above, below, in the margin |
+| One swapped for another | `<subst>` around both | Groups them as a single act |
+| A different person wrote it | `hand` | Points to a hand listed in the header |
 
 ```xml
 <subst>
@@ -297,734 +191,480 @@ A substitution encoded properly:
 </subst>
 ```
 
-This records more than the final text. It records that a correction occurred, in
-which direction, and by which hand — and a second hand correcting the first is
-evidence of a reader or a corrector at work, which bears on the manuscript's
-history and possibly on its relation to other witnesses.
+This records more than the final wording. It records that a change happened, which direction it went, and who made it. A second person correcting the first tells you somebody read this copy carefully — which bears on where the manuscript went and which other copies it is related to.
 
-Note what a normalized transcription would produce here: `ἐγένοντο`, with the
-correction invisible. The final text is the same and the evidence is gone. This is
-the concrete cost of normalizing at the transcription stage, and it recurs
-throughout the week.
+A tidied-up transcription would give you `ἐγένοντο` and nothing else. Same final wording. Evidence gone. In Week 7 you compare copies, and a correction in one copy that matches another copy's original reading is exactly what links them.
 
-Record corrections carefully today. In Week 7, when you collate witnesses, a
-correction in one witness that agrees with another witness's uncorrected reading
-is exactly the kind of evidence that establishes a relationship between them.
+**Vocabulary.** *Hand* — one identified writer. A page may carry several. *Substitution* — replacing one reading with another, recorded as a single act.
 
-**Takeaway:** Scribal corrections are transmission evidence, and
-recording only the corrected text destroys it while leaving the reading unchanged.
+**Takeaway:** Scribal corrections are transmission evidence, and recording only the corrected text destroys it while leaving the reading unchanged.
 
 ---
 
 ## **08 Content**
 
-**Line Breaks and Why They Matter Here**
+**Why Line Breaks Matter So Much Here**
 
-In a normalized transcription line breaks are typographic accident. In this
-transcription they are structural, for three separate reasons.
+In an ordinary typed document, where a line ends means nothing. Here it means three things.
 
-First, **HTR operates on lines.** Layout analysis segments the page into lines,
-and recognition runs per line. Training data must therefore be line-aligned:
-each line image paired with its transcribed text (Puigcerver, 2017). A
-transcription without line divisions cannot be used for training at all.
+**The software works line by line.** Tomorrow's program first chops the page into lines, then reads each line separately. So its training examples must be lines — each strip of image paired with the text on it (Puigcerver, 2017). A transcription with no line divisions cannot train anything.
 
-Second, **your zone bindings are per line.** Lesson 3.3 established `<lb>` elements
-carrying `@facs` pointing at zones. Those bindings are what let a reading be
-checked against the parchment, and they presuppose that lines are recorded.
+**Your image links are per line.** In Lesson 3.3 you attached each `<lb>` to a box drawn on the photograph. Those links only work if lines are recorded.
 
-Third, **line division is codicological evidence.** Where a line breaks tells you
-about the scribe's practice, the ruling, and sometimes about the exemplar — a
-scribe copying line-for-line from an exemplar produces breaks that carry
-information about the source.
+**Line breaks are evidence.** Where a line ends tells you about the ruling and the scribe's habits, and a scribe copying line-for-line leaves clues about the book they copied from.
 
 ```xml
 <lb n="1" facs="#f42r_l01"/>ἐν ἀρχῇ ἦν ὁ λόγος καὶ ὁ λό
 <lb n="2" facs="#f42r_l02"/>γος ἦν πρὸς τὸν θεόν
 ```
 
-Note the word broken across lines — `λό` / `γος` — recorded as written, without
-hyphenation and without silently joining. Scribes broke words freely, and the
-break is a fact about the page. Whether to mark the continuation with `@break="no"`
-on the `<lb/>` is a convention decision; make one and apply it consistently, since
-inconsistency here confuses both HTR training and any later tokenization.
+Notice the word split across the two lines — `λό` then `γος`. Type it split, as written. Do not add a hyphen and do not quietly join it up. Whether you also mark the split with `break="no"` is your choice; pick one habit and keep it.
 
-Number your lines from 1 on each folio, matching the numbering in your zones.
-Consistency between the two is what makes the bindings checkable.
+**Vocabulary.** *Layout analysis* — software finding the lines on a page before reading them. *Ruling* — the guide lines scored on the page for the scribe to write along.
 
-**Takeaway:** Line divisions are structural here — HTR trains on
-lines, your zones bind per line, and line breaks are codicological evidence.
+**Takeaway:** Line divisions are structural here — HTR trains on lines, your zones bind per line, and line breaks are codicological evidence.
 
 ---
 
 ## **09 Content**
 
-**Setting Up the Transcription Document**
+**Setting Up the File Before You Type**
 
-Build the file before transcribing. A structure established now saves
-reorganization later.
+Build the empty file first. Sorting out the structure now saves rearranging later.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
-    <!-- Your Week 2 header goes here -->
-  </teiHeader>
-  <facsimile>
-    <!-- Your Lesson 3.3 surfaces and zones go here -->
-  </facsimile>
-  <text>
-    <body>
+  <teiHeader><!-- Your Week 2 header --></teiHeader>
+  <facsimile><!-- Your Lesson 3.3 image boxes --></facsimile>
+  <text><body>
       <div type="passage" n="1">
         <pb n="42r" facs="#f42r"/>
         <lb n="1" facs="#f42r_l01"/>
       </div>
-    </body>
-  </text>
+  </body></text>
 </TEI>
 ```
 
-Three checks before you start typing. Confirm the file is declared UTF-8 and that
-your editor is actually saving UTF-8 — a mismatch here corrupts every Greek
-character and is tedious to repair. Confirm the TEI schema is associated so that
-validation is live. And confirm your pre-commit normalization hook from Week 1 is
-installed, since you are about to generate a large quantity of polytonic Greek and
-you want it normalized to NFC from the start.
+Three checks before you type a single Greek letter.
 
-That last point is not hypothetical. Your input method may produce NFD, as Lesson
-1.2 section 12 discussed, and a ground truth in mixed normalization forms will
-produce meaningless error rates in Week 5. Test the hook now: type a
-multi-diacritic character, commit, and confirm the committed bytes are NFC.
+Check the file says UTF-8 *and* that your editor is really saving UTF-8. If those disagree, every Greek character is corrupted, and fixing it afterwards is miserable.
 
-Commit the skeleton before transcribing, so that the transcription itself appears
-as a clean diff.
+Check the schema is attached, so your editor flags mistakes as you type. A *schema* is the rulebook saying which tags are allowed where.
 
-**Takeaway:** Verify UTF-8, live schema validation, and the NFC
-hook before typing — a mixed-normalization ground truth invalidates Week 5.
+Check your Week 1 pre-commit hook is working. That is the small script that runs automatically when you save to git. It fixes how accented characters are stored. Two different files can store the same accented letter in two different ways, and a mix of both makes Week 5's scores meaningless. Test it now: type an accented character, commit, confirm.
+
+Then commit the empty file, so your typing shows up as a clean change.
+
+**Vocabulary.** *Schema* — a rulebook listing which tags are legal and where. *Pre-commit hook* — a script git runs automatically each time you save work.
+
+**Takeaway:** Verify UTF-8, live schema validation, and the NFC hook before typing — a mixed-normalization ground truth invalidates Week 5.
 
 ---
 
 ## **10 Content**
 
-**Transcription Method: Working at Full Zoom**
+**How to Actually Do It**
 
-The mechanics matter more than students expect, and the commonest source of error
-is working too fast at too low a magnification.
+The physical routine matters more than students expect. Most errors come from working too fast at too small a magnification.
 
-Establish a routine:
+- Zoom in until each letter is unmistakable. This is usually far closer than feels necessary.
+- Do one line at a time. Do not read ahead.
+- Type what you see, not what you expect to be there.
+- Mark anything doubtful straight away. Do not settle it by guessing.
+- Every five lines, check you are still on the line you think you are.
 
-- Open the folio in your IIIF viewer at a zoom where individual letterforms are unambiguous — this is generally much closer than feels necessary.
-- Transcribe one line at a time, left to right, resisting the urge to read ahead.
-- Type what you see, not what you expect the text to say.
-- Mark uncertainty immediately rather than resolving it by guessing.
-- At the end of each line, compare your transcription against the image once more.
-- Every five lines, verify you are still on the line you think you are.
+The third rule is the one that separates transcribing from reading. If you know the passage, you will read what you expect and never notice the difference. That is how real variants get erased.
 
-The third item is the discipline that distinguishes transcription from reading. If
-you know the text — and for a well-known work you may — you will read what you
-expect rather than what is written, and you will not notice. This is precisely how
-genuine variants get transcribed away, and it is the single largest threat to your
-ground truth's accuracy.
+A trick for hard lines: type them backwards, word by word from the end. It is slower, and it stops your brain predicting the next word.
 
-A counter-technique worth using: transcribe a difficult passage backwards, word by
-word from the end of the line. It is slower and it disrupts the linguistic
-prediction that causes expectation errors. Reserve it for lines where you suspect
-you are reading rather than seeing.
+The last rule guards against skipping a line. That is the worst error here. Skip one, and every line after it is attached to the wrong box on the photograph. Because the text still reads perfectly, nothing looks wrong.
 
-The sixth item guards against line skip, which is the error that produces the
-worst downstream consequences. A skipped line puts every subsequent line out of
-alignment with its zone, so all your bindings become wrong from that point.
-Because the transcription still reads correctly, nothing looks broken.
+**Vocabulary.** *Line skip* — missing a line out, which shifts every later line onto the wrong image box. *Variant* — a place where this copy's wording differs from another's.
 
-**Takeaway:** Type what you see rather than what you expect, and
-check your line position regularly — line skip silently invalidates every binding
-after it.
+**Takeaway:** Type what you see rather than what you expect, and check your line position regularly — line skip silently invalidates every binding after it.
 
 ---
 
 ## **11 Content**
 
-**Recognizing the Hand**
+**Getting to Know the Hand**
 
-Before transcribing at volume, spend time characterizing the hand. Fifteen minutes
-here saves hours of misreading.
+Before typing in bulk, spend fifteen minutes studying the handwriting. It saves hours.
 
-Work through the alphabet systematically. For each letter, find several clear
-instances and note how this scribe forms it. Pay particular attention to letters
-that are commonly confused in the script you are reading, and record the
-distinguishing features you can rely on.
+Go through the alphabet. For each letter, find several clear examples and note how this particular scribe draws it. Pay most attention to letters that look alike.
 
-| Feature to characterize | Question to answer |
-| --- | --- |
-| Letterform inventory | How does this scribe form each letter? |
-| Confusable pairs | What distinguishes them in this hand? |
-| Ligatures | Which letter combinations are joined, and how? |
-| Abbreviation repertoire | Which abbreviations recur, and what do they mean? |
-| Punctuation | What marks are used, and what do they signify? |
-| Accent placement | Where are accents placed relative to the letter? |
-| Word division | Is it consistent, absent, or irregular? |
-| Line-end behaviour | Are words broken? Is there compression? |
+| What to look at | Question to answer |
+| --- | --- | 
+| Letter shapes | How does this scribe draw each one? |
+| Look-alike pairs | What tells them apart in this hand? |
+| Joined letters | Which pairs get joined, and how? |
+| Short forms | Which abbreviations keep coming up? |
+| Accents | How high above the letter do they sit? |
+| Word spacing | Regular, absent, or erratic? |
+| Line ends | Are words split? Is writing squeezed? |
 
-Byzantine Greek presents specific difficulties worth anticipating. The script
-frequently uses *scriptio continua*, with no clear word boundaries. It employs
-extensive networks of enclitic ligatures. It has hanging lines, where characters
-descend below the ruled baseline rather than sitting on it. And its polytonic
-accentuation involves at least five distinct accent characters in multiple
-vertical combinations (Perdiki & Konstantinidou, 2023).
+Byzantine Greek is awkward in specific ways. Words often run together with no spaces. Letters are joined into long chains. Some letters hang below the line instead of sitting on it. And the accent system uses at least five different marks, stacked in combinations (Perdiki & Konstantinidou, 2023).
 
-Record your findings as a document in the repository — `transcription/HAND.md` is
-a reasonable location. It serves three purposes: it disciplines your reading, it
-documents your palaeographic reasoning for your Week 12 commentary, and it is what
-you will consult on Wednesday when judging whether an HTR error reflects the model
-or the hand.
+Write what you find into a file called `transcription/HAND.md`. It keeps your reading honest, it documents your thinking for Week 12, and it is what you will check tomorrow when deciding whether a software mistake is the program's fault or the scribe's.
 
-**Takeaway:** Characterize the hand before transcribing at
-volume, and record it — you will consult it on Wednesday to judge HTR errors.
+**Vocabulary.** *Hand* — one scribe's handwriting, treated as a system with its own rules. *Ligature* — two letters joined into one shape.
+
+**Takeaway:** Characterize the hand before transcribing at volume, and record it — you will consult it on Wednesday to judge HTR errors.
 
 ---
 
 ## **12 Content**
 
-**Diacritics and the Polygon Problem**
+**Accents and the Box Problem**
 
-A specific issue that will matter on Wednesday and is worth understanding today.
+Greek accents and breathing marks sit *above* the letter, sometimes well above it. This causes a specific problem tomorrow, and today is when you can prepare for it.
 
-Greek polytonic accents and breathings sit *above* the letter, sometimes well
-above it. In a manuscript hand with generous accent placement, a breathing may
-rise substantially above the main body of the line.
+Tomorrow's software draws a box around each line before reading it. It works out the box from where the letters sit. If it draws that box too tightly, accents floating high above the line fall outside it — and anything outside the box is simply not in the picture the program reads (Perdiki & Konstantinidou, 2023).
 
-HTR layout analysis draws a polygonal envelope around each detected line — a
-boundary computed from the baseline and the extent of ascenders and descenders. If
-that polygon is drawn too tightly, accents and breathings positioned high above
-the line fall outside it and are simply not present in the image the recognizer
-sees (Perdiki & Konstantinidou, 2023).
+The result is baffling the first time you see it. The program gets every letter right and drops every accent. The text looks almost correct, and is wrong in exactly the marks that Lesson 1.2 spent a whole meeting showing were meaningful.
 
-The consequence is systematic and initially baffling: the model reads the letters
-correctly and omits the diacritics, producing text that is right in its
-consonants and vowels and wrong in exactly the features that Lesson 1.2 spent a
-meeting establishing as significant.
+Perdiki and Konstantinidou (2023) hit this directly. Working on Byzantine Greek, their software kept cutting off breathing marks and high abbreviation signs. Getting the error rate under 10% meant widening those boxes by hand.
 
-Perdiki and Konstantinidou (2023) report this directly. In their Byzantine Greek
-work, automated layout analysis frequently omitted breathings and suffix
-abbreviations placed high above the line, and achieving a character error rate
-below 10% required manually adjusting the polygon envelopes during ground truth
-preparation to ensure peripheral diacritics were captured.
+So today: type every accent carefully, because those are what the program will be tested on. And note how high this scribe puts them. Tomorrow you will widen boxes, and that note tells you how much to widen them by.
 
-For today, this means two things. Transcribe every diacritic accurately, since
-they are exactly what the model will be tested on. And note, as you work, how high
-above the line this scribe places accents — because tomorrow you will be adjusting
-polygons, and knowing how much vertical margin the hand requires tells you what to
-adjust them to.
+**Vocabulary.** *Bounding box* — the rectangle software draws around a line before reading it. *Breathing mark* — a Greek sign showing whether a word starts with an h-sound.
 
-**Takeaway:** Layout polygons drawn too tightly cut off Greek
-accents entirely, so note how high this hand places diacritics — you will adjust
-for it tomorrow.
+**Takeaway:** Layout polygons drawn too tightly cut off Greek accents entirely, so note how high this hand places diacritics — you will adjust for it tomorrow.
 
 ---
 
 ## **13 Content**
 
-***Scriptio Continua* and Word Boundaries**
+**When There Are No Spaces Between Words**
 
-If your manuscript is written without word division, a decision must be made
-explicitly today rather than by default.
+Many Greek manuscripts are written with no gaps between words at all. If yours is, decide today how you will handle it. Do not just drift into a habit.
 
-*Scriptio continua* — continuous writing without spaces — is standard in early
-Greek manuscripts and common in Byzantine hands. The text runs as an unbroken
-sequence of letters, and word division is supplied by the reader.
+The practice is called *scriptio continua*, and the reader was expected to work out where words ended. It puts you in a bind. Copying the page faithfully means typing with no spaces. But text with no spaces is nearly useless for comparing copies or looking up words. And adding spaces is an interpretation — the kind a diplomatic transcription is not supposed to make quietly.
 
-This creates a genuine conflict for diplomatic transcription. Reproducing the
-manuscript faithfully means writing without spaces. But an unspaced transcription
-is barely usable for collation, tokenization, or lemmatization — and word division
-is an interpretive act that a diplomatic transcription is supposed to avoid making
-silently.
-
-| Approach | Diplomatic fidelity | Downstream usability |
+| What you could do | Faithful to the page? | Useful later? |
 | --- | --- | --- |
-| Reproduce unspaced | Complete | Poor; requires later segmentation |
-| Insert spaces silently | Compromised; unrecorded intervention | Good |
-| Insert spaces, record the practice in the header | Acceptable; the intervention is declared | Good |
-| Encode both with `<choice>` | Complete | Good; verbose |
+| Type it with no spaces | Completely | Poor; needs splitting later |
+| Add spaces, say nothing | No; a hidden change | Good |
+| Add spaces, say so in the header | Yes; the change is declared | Good |
+| Record both with `<choice>` | Completely | Good, but very wordy |
 
-The third is the standard compromise and what this course recommends: divide
-words, and state in your header that word division has been supplied by the editor
-and is not present in the witness. The intervention is then declared rather than
-concealed, which is the actual requirement.
+Use the third. Put the spaces in, and state in your header that word spacing was added by you and is not on the page. The point is not to avoid intervening. It is to intervene openly.
 
-Be aware of the downstream consequence for HTR. Perdiki and Konstantinidou (2023)
-found that *scriptio continua* confounds automated tokenizer metrics — the system
-correctly recognizes individual characters but fuses them into meaningless
-concatenated tokens, so that ἀλλὰ τί emerges as ἀλλατι. Character error rate
-remains low while word error rate becomes uninterpretable, and downstream
-word-boundary detection is required.
+Expect one knock-on effect. Perdiki and Konstantinidou (2023) found that unspaced text confuses word-counting scores: the program reads every letter correctly, then glues them together, so ἀλλὰ τί comes out as ἀλλατι. The letter score stays good while the word score becomes meaningless.
 
-If this applies to your manuscript, expect Week 5's WER to behave oddly and know
-why.
+**Vocabulary.** *Scriptio continua* — writing with no spaces between words. *Word error rate (WER)* — a score counting how many whole words came out wrong.
 
-**Takeaway:** Supply word division and declare it in the header
-— and expect *scriptio continua* to make word error rate uninterpretable in Week 5.
+**Takeaway:** Supply word division and declare it in the header — and expect *scriptio continua* to make word error rate uninterpretable in Week 5.
 
 ---
 
 ## **14 Content**
 
-**Consistency and the Transcription Convention Document**
+**Write Your Rules Down**
 
-Every transcription requires dozens of small conventional decisions, and the
-danger is not making them badly but making them inconsistently.
+Transcribing throws up dozens of small decisions. The danger is not deciding badly. It is deciding differently on Tuesday than on Thursday.
 
-Questions you will face repeatedly:
+Questions that will keep coming back: Do you keep the two shapes of sigma apart, or type them the same? What do you do with a mark that might be punctuation and might be an accent? How doubtful does a word have to be before it gets `<unclear>`? How do you handle a crossed-out word you cannot read?
 
-- Do you distinguish sigma variants — lunate, medial, final — or normalize them?
-- Do you record accents that are ambiguously placed between two letters?
-- How do you treat a mark that may be punctuation or may be an accent?
-- Do you record scribal punctuation exactly, or map it to modern equivalents?
-- At what confidence threshold does a reading become `<unclear>`?
-- Do you mark word-final breaks across lines with `@break="no"`?
-- How do you handle a correction whose original reading is illegible?
+Answer each one once. Write it in `transcription/CONVENTIONS.md`. Then follow it. That file is part of your edition — in Week 13 it becomes the statement a reader needs to make sense of your text.
 
-Answer each once, write the answer down, and follow it. The document —
-`transcription/CONVENTIONS.md` — is part of your edition, and in Week 13 it becomes
-the editorial statement that a reader needs in order to interpret your text.
+Being inconsistent is worse than any single choice you could make. If you always mark the crescent-shaped sigma, a reader can interpret your text. If you mark it sometimes, they cannot — they have no way to tell whether an unmarked one was a different shape or one you missed. The software has the same problem, and will copy your inconsistency back at you unpredictably.
 
-Inconsistency is more damaging than any particular choice. A transcription that
-records lunate sigma consistently is interpretable; one that records it sometimes
-is not, because a reader cannot tell whether an unmarked instance means the scribe
-used a different form or means you did not notice. The same applies to the HTR
-model, which will learn whatever inconsistency you supply and reproduce it
-unpredictably.
+The CATMuS project shows this at scale. Its value comes from forcing one set of rules across 200 manuscripts (Clérice et al., 2024). That uniformity is what made 160,000 lines usable for training.
 
-The CATMuS project makes exactly this point at scale: its value derives from
-enforcing a uniform framework for semi-diplomatic transcription across 200
-manuscripts, balancing visual diversity by merging variant character
-representations while preserving crucial scribal abbreviations (Clérice et al.,
-2024). Uniformity of convention is what made a 160,000-line dataset trainable.
+**Vocabulary.** *Convention* — a decision about how you will always encode a given feature. *Edition* — the finished scholarly presentation of a text, rules and all.
 
-**Takeaway:** Write your conventions down and follow them —
-inconsistency is worse than any particular choice, for readers and for models
-alike.
+**Takeaway:** Write your conventions down and follow them — inconsistency is worse than any particular choice, for readers and for models alike.
 
 ---
 
 ## **15 Content**
 
-**Double-Keying and Accuracy**
+**How Accurate Is a Hand Transcription?**
 
-How accurate is a hand transcription? Less than transcribers believe, and the
-gap matters because Week 5 treats yours as correct.
+Less accurate than you would think. That matters, because Week 5 treats your file as the correct answer.
 
-Single-pass manual transcription typically contains errors at a low but non-zero
-rate. The errors are not random: they cluster on unfamiliar letterforms,
-abbreviations, damaged regions, and — critically — on passages where the
-transcriber knew the text and read rather than saw.
+Typing a page once produces mistakes at a low but real rate. They are not scattered randomly. They cluster on unfamiliar letter shapes, on short forms, on damaged patches, and on passages you already knew — where you read instead of looking.
 
-The established remedy is **double-keying**: the same text transcribed
-independently twice, with the two versions compared and every difference
-adjudicated. Differences localize errors precisely, since a point where two
-independent transcriptions agree is very likely correct, and a point where they
-disagree is exactly where attention is needed.
+The standard fix is **double-keying**: type the same page twice, independently, then compare the two versions. Wherever they agree, you are almost certainly right. Wherever they differ is exactly where you need to look again.
 
-| Method | Typical accuracy | Cost |
+| Method | Accuracy | Effort |
 | --- | --- | --- |
-| Single pass | Good, with clustered errors | Baseline |
-| Single pass plus proofread | Better | Roughly 1.3× |
-| Double-keyed, differences adjudicated | Substantially better | Roughly 2.2× |
-| Double-keyed by two people | Best | 2× plus coordination |
+| Type once | Good, with clustered errors | Baseline |
+| Type once, then proofread | Better | About 1.3× |
+| Type twice, settle the differences | Much better | About 2.2× |
+| Two people type it | Best | 2×, plus coordinating |
 
-This is Week 5's subject — Tuesday of that week is double-keying and consensus
-text building by hand — so you are not doing it today. Knowing it is coming should
-shape how you work now: transcribe carefully enough that the second pass finds
-few differences, and mark uncertainty honestly so that the adjudication has
-something to work with.
+That is Week 5's work, not today's. But knowing it is coming should shape how you type now: carefully enough that the second pass finds little. It should also make you cautious about Week 5's scores. Some of what looks like a machine error will turn out to be yours.
 
-It should also temper how you interpret Week 5's error rates. A machine transcription
-scored against a ground truth containing errors is scored against a moving target,
-and some apparent machine errors will be your errors. Week 5's reconciliation
-exists partly to find those.
+**Vocabulary.** *Double-keying* — typing the same text twice, independently, and comparing. *Proofreading* — checking a transcription against the original afterwards.
 
-**Takeaway:** Your ground truth will contain errors, which is why
-Week 5 double-keys it — transcribe now so that the second pass finds few
-differences.
+**Takeaway:** Your ground truth will contain errors, which is why Week 5 double-keys it — transcribe now so that the second pass finds few differences.
 
 ---
 
 ## **16 Content**
 
-**How Much to Transcribe Today**
+**How Much to Get Done Today**
 
-A realistic target, since the temptation is to transcribe everything and the
-consequence is transcribing everything badly.
+Aim for **one page, done properly**, fully marked up. If your passage is short and the writing is clear, you may get further.
 
-Aim for **one folio, fully and carefully**, with complete encoding. If your
-passage is short and your hand is clear, you may finish more. Do not sacrifice
-care for coverage: an accurately transcribed folio is a usable ground truth, while
-three carelessly transcribed folios are a liability, because they will teach the
-model your errors.
+Do not trade care for quantity. One carefully typed page is a usable answer key. Three sloppy ones are worse than nothing, because tomorrow the software learns your mistakes.
 
-| Priority | Task | Rationale |
+| Priority | Task | Why |
 | --- | --- | --- |
-| 1 | One folio transcribed completely and accurately | The minimum viable ground truth |
-| 2 | Encoding complete: abbreviations, uncertainty, corrections | What makes it diplomatic |
-| 3 | Zones bound for every line | Enables verification |
-| 4 | Conventions document written | Enables consistency |
-| 5 | Hand characterization recorded | Informs Wednesday's judgements |
-| 6 | Further folios | Useful; not at the cost of 1–5 |
+| 1 | One page typed completely and accurately | The smallest usable answer key |
+| 2 | Markup complete: short forms, doubts, corrections | This is what makes it diplomatic |
+| 3 | Every line linked to its image box | Lets anyone check your reading |
+| 4 | Conventions file written | Keeps you consistent |
+| 5 | Handwriting notes recorded | You need them tomorrow |
+| 6 | More pages | Nice, but not at the cost of 1–5 |
 
-For HTR training you will eventually need more than one folio. Transfer learning
-from an existing base model can reach usable error rates with as few as 50 to 100
-pages of new ground truth, and for a fine-tuning task on a single hand rather
-less — but more than one folio (Geelhaar, 2022; AlKendi et al., 2024). You will
-extend the ground truth through the week and into Week 5.
+Eventually you will need more than one page to train anything. Starting from a model that already knows a similar script, useful results come from roughly 50 to 100 new pages — and less than that when you are tuning it to a single scribe (Geelhaar, 2022). You will add pages through the week.
 
-What matters today is that the first folio is *right*, because it establishes the
-conventions everything after it follows. Errors in convention made today
-propagate into every folio you transcribe subsequently, and correcting them later
-means revisiting all of it.
+What matters today is that the first page is *right*. It sets the habits every later page follows, and fixing a habit later means redoing everything.
 
-**Takeaway:** One accurate folio beats three careless ones —
-today's conventions propagate into everything transcribed afterwards.
+**Vocabulary.** *Folio* — one leaf of a manuscript, with a front and a back. *Markup* — the tags you add around the text.
+
+**Takeaway:** One accurate folio beats three careless ones — today's conventions propagate into everything transcribed afterwards.
 
 ---
 
 ## **17 Content**
 
-**Sampling for Training Data**
+**Which Pages to Pick Later**
 
-A related decision, which matters when you extend beyond today's folio.
+A decision for when you go beyond today's page.
 
-The instinct is to transcribe consecutive folios: finish 42r, do 42v, then 43r.
-For building an edition this is right. For building HTR training data it is
-wrong.
+The obvious approach is to work straight through: finish 42r, then 42v, then 43r. For building an edition, that is right. For teaching software to read, it is wrong.
 
-Neural models struggle with material unlike their training data. A model trained
-on fifty consecutive pages learns those pages' particular vocabulary, ink
-condition, and layout — and degrades on pages that differ. Sampling across the
-corpus exposes the model to the variance it will actually encounter (Geelhaar,
-2022).
+Programs struggle with anything unlike what they were trained on. Train on fifty pages in a row and the program learns that stretch of the book — its particular ink, its particular layout — then stumbles on pages that differ. Spreading your pages across the whole manuscript shows it the variety it will actually face (Geelhaar, 2022).
 
-| Sampling strategy | Exposes the model to | Suitable for |
+| How you pick pages | What it teaches the program | Good for |
 | --- | --- | --- |
-| Consecutive pages | One region's characteristics | Building the edition |
-| Chronologically spread | Changes in hand over time | Multi-scribe manuscripts |
-| Spread across quires | Variation in parchment and ink | Most manuscripts |
-| Deliberately including difficult pages | Damage, glosses, layout shifts | Robustness |
-| Deliberately including clean pages | The typical case | Baseline accuracy |
+| Straight through | One stretch of the book | Building the edition |
+| Spread across the book | Changes in ink and parchment | Most manuscripts |
+| Spread across time | How a hand changes | Books with several scribes |
+| Deliberately awkward pages | Damage, notes, layout shifts | Robustness |
+| Deliberately clean pages | The ordinary case | Baseline accuracy |
 
-The fourth row repays attention. The temptation is to build training data from
-clean, legible pages, because they are faster to transcribe. The result is a model
-that performs well on clean pages and fails on exactly the pages where you needed
-help. Include difficult material deliberately.
+The fourth row is the one people skip. Clean pages are quicker to type, so that is what gets chosen — and the result is a program that works on easy pages and fails on the hard ones, which are the pages you needed help with.
 
-The brittleness is documented. Geelhaar's (2022) Carolingian Minuscule Model
-achieved 5.1% CER on standard manuscript pages, but degraded to 13.6% on pages
-carrying minuscule marginal glosses — a substantial deterioration caused by
-shifting vocabulary, heavier local abbreviation, and reduced effective resolution.
-Even a strong model remains brittle when the layout topography changes.
+This is documented. Geelhaar's (2022) model scored 5.1% error on ordinary pages but 13.6% on pages carrying small marginal notes — because the vocabulary shifted, the abbreviations got heavier, and the writing got smaller.
 
-Plan your sampling now, before transcribing more, so that the ground truth you
-build through the week is diverse by design rather than by accident.
+**Vocabulary.** *Training data* — the example pages a program learns from. *Marginal gloss* — a note written in the margin, often in smaller script.
 
-**Takeaway:** Sample training pages across the corpus and
-deliberately include difficult ones, or the model will fail precisely where you
-need it.
+**Takeaway:** Sample training pages across the corpus and deliberately include difficult ones, or the model will fail precisely where you need it.
 
 ---
 
 ## **18 Content**
 
-**Validating the Transcription**
+**Checking Your Work Before You Save It**
 
-Before committing, validate — structurally and substantively.
+Check two things: that the file is structurally sound, and that the reading is right.
 
-| Check | Method | Catches |
+| Check | How | Catches |
 | --- | --- | --- |
-| Well-formed XML | `xmllint --noout` | Unclosed tags, bad nesting |
-| Schema-valid TEI | `xmllint --relaxng tei_all.rng` | Invalid elements or attributes |
-| NFC normalization | The Lesson 1.2 check | Mixed normalization forms |
-| Line count matches zones | Count `<lb/>` against `<zone>` | Line skip; binding drift |
-| Every `@facs` resolves | The Lesson 3.3 checker | Broken references |
-| Line numbering sequential | Script or inspection | Duplicated or missing numbers |
-| Reading check | Read the transcription aloud against the image | Substantive misreadings |
+| The XML is well formed | `xmllint --noout` | Unclosed or badly nested tags |
+| The TEI is legal | `xmllint --relaxng tei_all.rng` | Tags used in the wrong place |
+| Accents stored consistently | The Lesson 1.2 check | Mixed storage forms |
+| Line count matches box count | Count `<lb/>` against `<zone>` | A skipped line |
+| Every image link resolves | The Lesson 3.3 checker | Links pointing nowhere |
+| Line numbers run in order | Script or eye | Repeated or missing numbers |
+| Read it against the picture | Out loud, slowly | Actual misreadings |
 
-The fourth check is the one that catches the error from section 10. A count
-mismatch between `<lb/>` elements and zones means either a line was skipped or an
-extra was recorded, and either way every binding after that point is wrong. Run it
-every session:
+The fourth check is what catches the line skip from section 10. If the number of lines does not match the number of boxes, either you missed a line or added one — and every link after that point is wrong. Run it every session:
 
 ```bash
-echo "lb:  $(grep -c '<lb ' edition/edition.xml)"
+echo "lb:   $(grep -c '<lb ' edition/edition.xml)"
 echo "zone: $(grep -c '<zone ' edition/edition.xml)"
 ```
 
-The last check has no automation and is the most valuable. Read your transcription
-against the image, line by line, at full zoom, after a break. Fresh eyes on a
-familiar text find errors that no amount of structural validation can, because the
-errors are substantively wrong and structurally perfect.
+The last check cannot be automated and is the most valuable. Read your text against the photograph, line by line, zoomed in, after a break. Those errors are structurally perfect and substantively wrong, so no program will ever flag them.
 
-Commit only after all seven pass.
+Save to git only once all seven pass.
 
-**Takeaway:** Count `<lb/>` against `<zone>` every session — a
-mismatch means line skip, and every binding after it is wrong.
+**Vocabulary.** *Well formed* — XML whose tags are all closed and properly nested. *Valid* — XML that also obeys its schema.
+
+**Takeaway:** Count `<lb/>` against `<zone>` every session — a mismatch means line skip, and every binding after it is wrong.
 
 ---
 
 ## **19 Content**
 
-**Committing the Ground Truth**
+**Saving It to Git Properly**
 
-The commit discipline from Week 1 applies with particular force here, because this
-file becomes the reference for everything measured afterwards.
+The commit habits from Week 1 matter especially here, because this file becomes the reference for everything measured later.
 
 ```text
 feat(transcription): diplomatic transcription of f. 42r, lines 1-24
 
-Transcribed at full zoom from the Vatican IIIF facsimile, natural-light
-image. Word division supplied editorially; recorded in the header and in
-CONVENTIONS.md. Three readings marked unclear: lines 8, 14, 19, all from
-ink loss in the lower-outer corner. Line 14 remains unresolved after
-checking against the UV layer.
+Typed at full zoom from the Vatican photograph, natural light. Word
+spacing added by me; recorded in the header and in CONVENTIONS.md.
+Three readings marked unclear: lines 8, 14, 19, all from ink loss in
+the lower outer corner. Line 14 still unresolved after checking the
+ultraviolet image.
 
-Abbreviations left unexpanded in <abbr> with expansions in <expan>;
-supplied characters marked with <ex>.
+Short forms left in <abbr> with spellings in <expan>; letters I
+supplied marked with <ex>.
 
 Human-Verified: true
 AI-Generated: false
 ```
 
-The trailers matter from this commit onward. This is human-produced text, and
-saying so explicitly is what makes Wednesday's and Friday's machine-produced
-commits distinguishable from it. A repository where only some commits carry
-provenance trailers is one where absence is ambiguous.
+Those last two lines matter from now on. This text is human-made, and saying so is what makes Wednesday's and Friday's machine-made commits tell apart from it. If only some commits carry those labels, their absence means nothing.
 
-Tag this state. It is the ground truth for Week 5's measurement, and being able to
-retrieve exactly the state that was measured — rather than a later corrected
-version — is what makes those measurements reproducible:
+Now tag this state. A tag is a permanent bookmark on one version:
 
 ```bash
-git tag -a gt-f42r -m "Ground truth, f. 42r, manual diplomatic transcription"
+git tag -a gt-f42r -m "Ground truth, f. 42r, typed by hand"
 ```
 
-If you later correct the ground truth — and Week 5 will — the tag preserves what
-was actually used for the original measurement, so the comparison remains valid
-and the correction is visible as a change.
+Week 5 measures against this exact version. If you later correct the file — and you will — the tag still points at what was actually measured, so the old numbers stay meaningful and the correction is visible as a change.
 
-**Takeaway:** Tag the ground truth state, because Week 5's
-measurements are only reproducible against the exact version that was measured.
+**Vocabulary.** *Commit* — one saved snapshot of your work in git. *Tag* — a permanent name attached to one particular commit.
+
+**Takeaway:** Tag the ground truth state, because Week 5's measurements are only reproducible against the exact version that was measured.
 
 ---
 
 ## **20 Content**
 
-**What Ground Truth Quality Determines**
+**What Rides on Getting This Right**
 
-The stakes, stated plainly, since the care today's work requires needs
-justification.
+Every number you report this term is calculated against this one file. If it contains a mistake, three things follow, and each is worse than it sounds.
 
-Every quantitative claim you make for the rest of the term is computed against
-this file. If it contains an error, three things follow, and each is worse than it
-first appears.
+A correct machine reading at that spot gets marked *wrong*, which pushes the error rate up. A program trained on the file *learns* the mistake and repeats it everywhere. And in Week 5, when you compare machine output against your file and find a difference, you will probably "fix" the machine to match your own error — because your file is the reference.
 
-A correct machine reading at that point is scored as an *error*, inflating the
-measured error rate. A model fine-tuned on the flawed ground truth *learns* the
-error and reproduces it systematically. And in Week 5, reconciling machine output
-against the ground truth, you will find a difference and — because the ground
-truth is the reference — likely "correct" the machine toward your own mistake.
-
-| Ground truth condition | Effect on measurement | Effect on training |
+| Your file's condition | Effect on the numbers | Effect on training |
 | --- | --- | --- |
-| Accurate and diplomatic | Error rates reflect model performance | Model learns the manuscript |
-| Contains transcription errors | Error rates inflated; direction unclear | Model learns your errors |
-| Silently normalized | Model appears accurate; diplomatic fidelity destroyed | Model learns to modernize |
-| Inconsistent conventions | Metrics unstable | Model learns inconsistency |
-| Mixed Unicode normalization | Error rates grossly inflated | Model learns contradictory targets |
+| Accurate and diplomatic | Scores reflect the program | It learns the manuscript |
+| Contains typing errors | Scores inflated, direction unclear | It learns your errors |
+| Quietly tidied up | Program looks accurate; fidelity gone | It learns to modernize |
+| Rules applied inconsistently | Scores unstable | It learns the inconsistency |
+| Accents stored two ways | Scores badly inflated | It learns contradictions |
 
-The third row is the insidious one, and it connects directly to section 02. A
-model trained on silently normalized ground truth produces normalized output, and
-because that output is clean, readable, and internally consistent, nothing signals
-that the diplomatic record has been overwritten. Standard metrics do not detect
-it: a model can achieve a low character error rate while systematically destroying
-the historical orthography (Levchenko, 2024).
+The third row is the dangerous one, and it connects back to section 02. A program trained on quietly tidied text produces tidied output — and because that output is clean and readable, nothing signals that the historical spelling has been overwritten. The usual scores will not catch it: a program can post a low error rate while systematically destroying the old orthography (Levchenko, 2024).
 
-That is why the diplomatic requirement is not pedantry. It is the difference
-between a ground truth that measures what you think it measures and one that
-does not.
+That is why the diplomatic rule is not fussiness.
 
-**Takeaway:** A silently normalized ground truth produces a model
-that modernizes invisibly — and standard error metrics will not detect it.
+**Vocabulary.** *Orthography* — the spelling system a text uses. *Fidelity* — how closely a transcription matches the page.
+
+**Takeaway:** A silently normalized ground truth produces a model that modernizes invisibly — and standard error metrics will not detect it.
 
 ---
 
 ## **21 Content**
 
-**Human-in-the-Loop as a Methodological Commitment**
+**Why the Human Stays in the Loop**
 
-Situate today's labour within the week's argument, because "transcribe by hand
-first" can sound like a pedagogical exercise rather than a methodological
-requirement.
+It is worth saying where today's labour sits in the argument, because "do it by hand first" can sound like a classroom exercise.
 
-The human-in-the-loop philosophy holds that HTR does not replace the
-palaeographer but *amplifies* them, shifting their labour from initial
-decipherment to high-level validation and semantic enrichment (AlKendi et al.,
-2024). The palaeographer's judgement remains necessary; what changes is where it
-is applied.
+The idea is that handwriting software does not replace the person who reads manuscripts. It moves their work. Instead of spending hours deciphering, they spend that time checking and interpreting (AlKendi et al., 2024). The judgement is still needed. What changes is where it gets applied.
 
-The pedagogical sequence follows from this. Training begins with manual diplomatic
-transcription in TEI, because encoding abbreviations, layout shifts, and damage
-forces confrontation with the materiality of the manuscript. Only afterwards does
-the student move to Transkribus or eScriptorium, where they must correct
-algorithmic baselines and polygon envelopes before training a model — which
-demystifies the automation, framing it as a statistical engine requiring curated
-domain-specific data rather than as an oracle (AlKendi et al., 2024).
+The teaching order follows from that. You start by typing and marking up by hand, because dealing with short forms, damage, and shifting layout forces you to confront the actual object. Only then do you move to the software, where you have to correct its line-finding before it will train — which shows you it is a statistics engine fed on examples, not an oracle (AlKendi et al., 2024).
 
-That sequence is exactly this week: manual today, algorithmic tomorrow,
-generative Friday. And it is exactly why the order cannot be reversed. A student
-who begins with a machine transcription and corrects it has never read the page
-independently, and has no basis for judging whether the machine's reading is right
-— they can only judge whether it is plausible, which is a different and much
-weaker test.
+That is exactly this week: by hand today, software tomorrow, AI on Friday. And it is why the order cannot be flipped. A student who starts from machine output and corrects it has never read the page alone. They can only judge whether a reading looks plausible, which is a much weaker test than whether it is right.
 
-**Takeaway:** Correcting a machine transcription tests
-plausibility; transcribing independently tests correctness, and only the second
-gives you grounds for judgement.
+**Vocabulary.** *Human-in-the-loop* — a workflow where a person checks and corrects the machine at defined points. *Post-correction* — fixing machine output afterwards.
+
+**Takeaway:** Correcting a machine transcription tests plausibility; transcribing independently tests correctness, and only the second gives you grounds for judgement.
 
 ---
 
 ## **22 Content**
 
-**Preparing for Wednesday**
+**What to Bring Tomorrow**
 
-Tomorrow you take this transcription into Transkribus, correct its layout
-analysis, and train a model. Bring the following.
+Tomorrow you load this transcription into Transkribus — a web program that learns to read handwriting from examples you give it. You will correct how it divides the page into lines, then train it on your page. Bring all of this.
 
-- Today's transcription, validated, committed, and tagged.
-- Line-level zone bindings verified against the images.
-- Your hand characterization document.
-- Your conventions document.
-- A Transkribus account, created in Week 1 and tested.
-- The manifest URI for your witness, confirmed reachable.
-- A note of how high above the line this scribe places diacritics.
+- Today's transcription, checked, saved to git, and tagged.
+- Every line linked to its box on the image, verified.
+- Your handwriting notes.
+- Your conventions file.
+- A Transkribus account, made in Week 1 and actually logged into.
+- The web address of your manuscript images, confirmed working.
+- Your note of how high this scribe puts the accents.
 
-The last item is the specific preparation from section 12. Tomorrow's first
-substantive task is correcting polygon envelopes so that accents and breathings
-fall inside the line images, and knowing how much vertical margin this hand
-requires is what tells you whether the default polygons are adequate.
+That last item is section 12's homework. Tomorrow's first real task is widening the line boxes so accents fall inside them, and your note is what tells you how far.
 
-Two practical points. Ingestion is by manifest URI rather than file upload
-(eScriptorium/Kraken, 2024), so confirm the manifest is reachable from outside
-your machine — a local file will not import. And model training consumes credits;
-the course has a shared allocation, so do not begin speculative training runs
-before Wednesday's session.
+Two practical warnings. Transkribus pulls images in by web address rather than file upload, so check that address works from outside your own machine — a file sitting on your laptop will not load. And training costs credits from a shared class allowance, so do not start practice runs before the session.
 
-**Takeaway:** Bring a validated, tagged transcription and a note
-of this hand's diacritic height — polygon correction is Wednesday's first task.
+**Vocabulary.** *Transkribus* — a web platform that trains software to read a particular handwriting. *Credits* — the paid units Transkribus charges for training.
+
+**Takeaway:** Bring a validated, tagged transcription and a note of this hand's diacritic height — polygon correction is Wednesday's first task.
 
 ---
 
 ## **23 Content**
 
-**Note: Friday Is Remote**
+**Friday Is Remote**
 
-A logistical matter with practical consequences worth settling today.
+**Friday September 25 you work from wherever you are**, on your own machine, without the room's support. Check these before then.
 
-**Friday September 25 is a remote delivery session.** You will work from wherever
-you are, on whatever machine you have, without the room's support.
+- Your work is pushed to git, so you can get at it from any machine.
+- Your images load from outside the campus network.
+- Your XML editor and its schema checking work on that machine.
+- Python and your accent-fixing tools are installed there.
+- Your Greek keyboard is installed there.
+- Your Transkribus login works off campus.
 
-Verify before Friday:
+The keyboard catches people out. A Greek layout installed on a lab machine is not installed on your laptop, and finding that out on Friday morning costs you the session.
 
-- Your repository is pushed, so the work is available from any machine.
-- Your manifest and images are reachable from outside the campus network.
-- Your XML editor and schema validation work on the machine you will use.
-- Python and your normalization tooling are available there.
-- Your polytonic input method is installed there.
-- Your Transkribus and THREAD credentials work from off campus.
+The image point matters if you built your own image listing in Lesson 3.3 and ran it locally. An address starting `localhost` works on the machine serving it and nowhere else — the exact trap Lesson 3.3 described. If yours is not published, publish it before Friday.
 
-The fifth item catches people. A polytonic keyboard layout installed on a lab
-machine is not installed on a personal laptop, and discovering this on Friday
-morning costs the session. Test it now.
+Do this today, not Thursday night. Each item takes two minutes now and none of them takes two minutes in a panic.
 
-The second item matters if you built your own manifest in Lesson 3.3 and served it
-locally. A manifest at `localhost` works on the machine that serves it and nowhere
-else, which is the failure mode Lesson 3.3 section 24 described. If your manifest
-is not published, publish it before Friday.
+**Vocabulary.** *Remote delivery* — a class session held without meeting in the room. *localhost* — an address meaning "this computer", unreachable from anywhere else.
 
-Do this today rather than Thursday evening. Every item is quick when there is time
-and none of them is quick at nine on Friday morning.
-
-**Takeaway:** Test your full toolchain on the machine you will
-use Friday — push your repository, publish your manifest, install your keyboard.
+**Takeaway:** Test your full toolchain on the machine you will use Friday — push your repository, publish your manifest, install your keyboard.
 
 ---
 
 ## **24 Content**
 
-**Reading Your Own Errors**
+**Studying Your Own Mistakes**
 
-A reflective exercise worth doing while today's work is fresh.
+When you finish the page, look back over it — not for individual slips, but for the *kinds* of slip you make. Patterns tell you something single errors do not.
 
-When you finish your folio, review it specifically for the *kinds* of error you
-made rather than for individual mistakes. Patterns are informative in a way that
-individual errors are not.
-
-| Error pattern | Likely cause | Remedy |
+| Pattern | Likely cause | What to do |
 | --- | --- | --- |
-| Confusing a specific letter pair | Unfamiliarity with this hand | Add to the hand document |
-| Missing accents | Working too fast, or too low a zoom | Slow down; zoom in |
-| Reading expected rather than written text | Familiarity with the work | Transcribe backwards on hard lines |
-| Errors clustered in one region | Damage, or fatigue | Re-check that region when rested |
-| Inconsistent abbreviation handling | No convention decided | Decide it; record it |
-| Line skip | Losing position at line ends | Check position every five lines |
+| Mixing up one pair of letters | You do not know this hand yet | Add it to your handwriting notes |
+| Dropped accents | Working too fast, zoomed too far out | Slow down, zoom in |
+| Reading the expected word | You already know the text | Type hard lines backwards |
+| Errors bunched in one patch | Damage, or tiredness | Recheck that patch when rested |
+| Short forms handled differently | No rule decided | Decide one, write it down |
+| A skipped line | Losing your place at line ends | Check position every five lines |
 
-Record what you find. This document is genuinely useful in Week 5, when you
-adjudicate differences between your transcription and machine output: knowing that
-you systematically confuse two particular letterforms in this hand tells you where
-to suspect yourself rather than the machine.
+Write down what you find. It becomes genuinely useful in Week 5, when you are settling differences between your version and the machine's. Knowing that you regularly confuse two particular letters in this hand tells you when to suspect yourself rather than the program.
 
-It also matters for a subtler reason. In Week 5 you will be tempted to treat every
-difference as a machine error, because the ground truth is by definition the
-reference. Having an honest account of your own error patterns is what will let
-you notice the cases where the machine is right and you are not — and those cases
-exist.
+There is a subtler reason too. In Week 5 you will be tempted to call every difference a machine error, because your file is the reference by definition. An honest list of your own habits is what lets you notice the cases where the machine is right and you are not. Those cases exist.
 
-**Takeaway:** Record the patterns in your own errors, because in
-Week 5 they tell you when to suspect yourself rather than the machine.
+**Vocabulary.** *Error pattern* — a mistake you make repeatedly for the same reason. *Reconciliation* — settling differences between two versions of the same text.
+
+**Takeaway:** Record the patterns in your own errors, because in Week 5 they tell you when to suspect yourself rather than the machine.
 
 ---
 
 ## **25 Content**
 
-**Why Not Simply Start with the Machine?**
+**Why Not Just Start with the Machine?**
 
-The obvious objection, addressed directly, since it will occur to you around the
-third hour of transcription.
+A fair question, and one that will occur to you about three hours in. Why not run the software first and fix its output? Correcting is easier than typing from scratch. Three answers, in rising order of importance.
 
-Why not run HTR first and correct the output? It would be faster, and correcting
-is easier than transcribing from scratch. Several reasons, in increasing order of
-importance.
+The practical one: an untrained program on unfamiliar handwriting produces output bad enough that fixing it takes longer than typing would have. Past roughly 15% of characters wrong, correcting costs more effort than starting fresh (AlKendi et al., 2024). A general-purpose program on Byzantine Greek will clear that threshold easily.
 
-The practical reason: an untrained model on an unfamiliar hand produces output
-poor enough that correction is slower than transcription. Above roughly 15% CER,
-the cognitive load of post-correction exceeds the time required to transcribe from
-scratch (AlKendi et al., 2024). A generic model on a Byzantine Greek hand will
-often exceed that threshold comfortably.
+The circular one: the program has to learn from something. Training needs correct examples, and correct examples have to be typed by a person. The question was never whether to type by hand, only how much.
 
-The training reason: the model has to be trained on something. Fine-tuning
-requires ground truth, and ground truth requires manual transcription. The
-question is not whether to transcribe by hand but how much.
+The decisive one: fixing machine output only tests whether a reading is *believable*. You are shown a suggestion and asked if it looks right. Typing it yourself tests whether it is *correct* — you have to work out what is there with nothing prompting you. Those two tests differ most on exactly the hard readings where it matters, because a suggestion anchors your judgement.
 
-The evidential reason, which is decisive: correcting machine output tests only
-whether a reading is *plausible*. You are shown a proposal and asked whether it
-looks right. Transcribing independently tests whether a reading is *correct* —
-you must determine what is there without a suggestion to anchor you. The two
-differ most exactly where it matters most, on genuinely difficult readings, and
-anchoring is a well-documented failure of human judgement.
+There is a specific trap here. These models would rather guess than leave a blank, so they produce believable words that do not match the ink — and a believable wrong word is almost impossible to catch while correcting (AlKendi et al., 2024).
 
-There is also a specific failure this guards against. Transformer models exhibit
-an over-willingness to guess, producing plausible but visually incorrect words —
-errors that are exceptionally difficult for a human editor to catch during
-post-correction, because the hallucinated word reads perfectly and does not match
-the ink (AlKendi et al., 2024). Only an independent reading catches those.
+**Vocabulary.** *Hallucination* — a confident, plausible output that does not match the source. *Anchoring* — letting a suggestion pull your judgement toward it.
 
-**Takeaway:** Correcting machine output tests plausibility and
-anchors your judgement, which is exactly the wrong test on the hard readings.
+**Takeaway:** Correcting machine output tests plausibility and anchors your judgement, which is exactly the wrong test on the hard readings.
 
 ---
 
@@ -1032,7 +672,7 @@ anchors your judgement, which is exactly the wrong test on the hard readings.
 
 **A Worked Example**
 
-A short passage, encoded fully, showing the elements in combination.
+A short passage with everything marked up, so you can see the tags working together.
 
 ```xml
 <pb n="42r" facs="#f42r"/>
@@ -1054,21 +694,13 @@ A short passage, encoded fully, showing the elements in combination.
   διʼ αὐτοῦ ἐγένετο
 ```
 
-Read what this records beyond the text itself. Two *nomina sacra* are preserved as
-written with their expansions marked. One reading is flagged as uncertain, with a
-stated cause, a confidence level, a responsible editor, and the image it was read
-from. A scribal correction by a second hand is recorded in both directions. A
-lacuna is recorded with its measured extent. The word broken across lines 1 and 2
-is left broken.
+Look at what this records besides the words. Two sacred names kept as written, with their spellings attached. One doubtful reading, with a reason, a confidence level, a named editor, and the photograph it was read from. A correction by a second person, recorded in both directions. A hole, with its size measured. A word left split across two lines.
 
-A normalized transcription of the same passage would read cleanly and would
-preserve none of it. Every element above is evidence that Weeks 6 through 12 will
-draw on — the abbreviations for Week 6, the correction for Week 7's collation, the
-uncertain reading and the lacuna for Week 8's apparatus and Week 12's commentary.
+A tidied-up version of the same passage would read beautifully and keep none of it. Every one of those tags is evidence some later week needs — the short forms for Week 6, the correction for Week 7, the doubtful reading and the hole for Weeks 8 and 12.
 
-**Takeaway:** The encoding records abbreviation, uncertainty,
-correction, and loss — all evidence that later weeks need and that a clean
-transcription discards.
+**Vocabulary.** *Worked example* — a complete small case showing the method end to end. *Apparatus* — the record of variant readings printed alongside an edited text.
+
+**Takeaway:** The encoding records abbreviation, uncertainty, correction, and loss — all evidence that later weeks need and that a clean transcription discards.
 
 ---
 
@@ -1076,92 +708,77 @@ transcription discards.
 
 **Checklist Before You Leave**
 
-Verify rather than assume.
+Check these rather than assuming them.
 
-- One folio transcribed completely, at full zoom.
-- Every line carries an `<lb/>` with `@n` and `@facs`.
-- `<lb/>` count equals `<zone>` count.
-- Abbreviations encoded with `<choice>`, `<abbr>`, `<expan>`, and `<ex>`.
-- Uncertain readings marked with `<unclear>`, with `@reason`, `@cert`, `@resp`.
-- Lacunae marked with `<gap/>` and a measured `@extent`.
+- One page typed completely, at full zoom.
+- Every line has an `<lb/>` with a number and an image link.
+- The `<lb/>` count equals the `<zone>` count.
+- Short forms encoded with `<choice>`, `<abbr>`, `<expan>`, `<ex>`.
+- Doubtful readings marked `<unclear>` with a reason and a confidence.
+- Holes marked `<gap/>` with a measured size.
 - Scribal corrections encoded with `<subst>`, `<del>`, `<add>`.
-- File validates against the TEI schema.
-- Text is NFC-normalized; the hook fired.
+- The file passes schema validation.
+- Accents stored consistently; the hook ran.
 - `transcription/CONVENTIONS.md` written and committed.
 - `transcription/HAND.md` written and committed.
-- Diacritic height above the line noted for tomorrow.
-- Committed with provenance trailers.
-- Ground truth state tagged.
+- Accent height noted for tomorrow.
+- Committed with the provenance labels.
+- The ground truth version tagged.
 
-Anything unfinished should be finished before Wednesday rather than carried
-forward. Tomorrow's work builds on this file directly, and an incomplete or
-unvalidated transcription blocks the session.
+Finish anything outstanding before Wednesday rather than carrying it over. Tomorrow's work builds straight on this file, and an unchecked transcription stops the session.
 
-**Takeaway:** Finish and validate before Wednesday — tomorrow's
-work builds directly on this file.
+**Vocabulary.** *Provenance labels* — the commit lines recording whether text was made by a person or a machine. *Validation* — checking a file against its schema.
+
+**Takeaway:** Finish and validate before Wednesday — tomorrow's work builds directly on this file.
 
 ---
 
 ## **28 Content**
 
-**The Week Ahead**
+**Where This Leads**
 
-Where this leads, so today's care has visible purpose.
-
-| Meeting | Step | Activity | Uses today's work as |
+| Meeting | Step | What you do | Today's file serves as |
 | --- | --- | --- | --- |
-| Tue Sep 22 (#9) | Manual | Diplomatic transcription | The product |
-| Wed Sep 23 (#10) | Deterministic | Transkribus layout correction and HTR training | Training data |
-| Fri Sep 25 (#11) | AI-assisted, remote | LLM transcription and correction | Comparison reference |
-| Week 5 Tue (#12) | Manual | Double-keying and consensus building | The text being verified |
-| Week 5 Fri (#13) | Measurement | CER and WER for both machine passes | The reference for scoring |
+| Tue Sep 22 (#9) | Manual | Type it by hand | The product |
+| Wed Sep 23 (#10) | Software | Correct lines, train a model | Training examples |
+| Fri Sep 25 (#11) | AI, remote | LLM transcription and correction | Comparison reference |
+| Week 5 Tue (#12) | Manual | Type it twice, settle differences | The text being checked |
+| Week 5 Fri (#13) | Measurement | Score both machine attempts | The answer key |
 
-Notice that today's transcription plays a different role in each. It is training
-data on Wednesday, a comparison reference on Friday, the object of verification in
-Week 5, and the measurement reference at the end of Week 5. A single artefact
-serving four functions, which is why its quality propagates so widely.
+Notice that today's file does a different job each time. Training examples on Wednesday. A comparison on Friday. The thing being checked in Week 5. The answer key at the end of Week 5. One file, four jobs — which is why its quality spreads so far.
 
-The **Transcription Assignment is due Friday October 2**, at the end of Week 5, and
-includes the reconciliation report. The work of these two weeks is one continuous
-task: transcribe, automate, compare, reconcile, measure, report.
+The **Transcription Assignment is due Friday October 2**, at the end of Week 5, and includes your reconciliation report. These two weeks are really one task: type it, automate it, compare, settle, measure, report.
 
-**Takeaway:** Today's file serves as training data, comparison
-reference, verification object, and measurement reference — four roles, one
-artefact.
+**Vocabulary.** *Reconciliation report* — your written account of the differences between versions and how you settled them. *Model* — the trained program that converts handwriting images into text.
+
+**Takeaway:** Today's file serves as training data, comparison reference, verification object, and measurement reference — four roles, one artefact.
 
 ---
 
 ## **29 Content**
 
-**What Counts as Good Work Here**
+**What Good Work Looks Like Here**
 
-The standard, since "a transcription" and "a good transcription" differ
-substantially.
+"A transcription" and "a good transcription" are different things.
 
-A minimally acceptable transcription is accurate, complete for the folio, and
-validates.
+An acceptable one is accurate, covers the whole page, and passes validation.
 
-A good transcription additionally:
+A good one also:
 
-- Marks uncertainty honestly, including readings the transcriber would rather resolve.
-- Records abbreviations as written rather than expanding them silently.
-- Preserves scribal corrections in both directions.
-- Measures lacunae rather than merely noting them.
-- Documents its own conventions explicitly.
-- Records which image supported each contested reading.
-- Notes what remains unresolved after consulting every available layer.
-- Carries a commit history in which decisions are recorded with rationale.
+- Marks doubt honestly, including where you would rather not admit it.
+- Keeps short forms as written instead of quietly spelling them out.
+- Keeps scribal corrections in both directions.
+- Measures holes rather than just noting them.
+- States its own rules.
+- Records which photograph supported each difficult reading.
+- Says what is still unresolved after checking every image.
+- Has a commit history explaining the decisions.
 
-The first item is the hardest and the most diagnostic. Marking a reading
-`<unclear>` feels like an admission of failure, and the temptation is to resolve
-uncertainty by choosing the more likely reading and presenting it plainly. Resist
-it. An honest `<unclear>` is more useful to every subsequent reader — including
-you in Week 8, building the apparatus — than a confident guess, and it is the
-difference between recording evidence and asserting conclusions.
+The first is the hardest and the most telling. Marking a word `<unclear>` feels like admitting defeat, and the temptation is to pick the likelier reading and type it plainly. Resist that. An honest `<unclear>` is more useful to every later reader — including you in Week 8, building the apparatus — than a confident guess. It is the difference between recording evidence and announcing a conclusion.
 
-**Takeaway:** Marking uncertainty honestly is the hardest and
-most diagnostic part of good transcription — a confident guess destroys the record
-of what was actually legible.
+**Vocabulary.** *Apparatus* — the list of variant and doubtful readings accompanying an edition. *Evidence* — what the page shows, as distinct from what you concluded from it.
+
+**Takeaway:** Marking uncertainty honestly is the hardest and most diagnostic part of good transcription — a confident guess destroys the record of what was actually legible.
 
 ---
 
@@ -1169,35 +786,21 @@ of what was actually legible.
 
 **Synthesis: The Anchor**
 
-One idea underlies today's meeting and the week that follows it.
+One idea holds this meeting and the whole week together.
 
-Automated transcription — HTR and vision-language models alike — is measured
-against something. Character error rate is a distance from a reference. Word error
-rate is a distance from a reference. Every claim that a model is accurate, that
-one model outperforms another, or that automation is viable for a given
-manuscript, is a claim about distance from a reference. Without one, the output is
-text of unknown quality, and no amount of sophistication in the model supplies
-what the reference supplies (AlKendi et al., 2024).
+Automated transcription is always measured *against something*. A character score is a distance from a reference. A word score is a distance from a reference. Every claim that a program is accurate, or better than another program, or good enough for a given manuscript, is a claim about distance from a reference. Without one, the output is text of unknown quality, and no amount of cleverness in the program supplies what the reference supplies (AlKendi et al., 2024).
 
-The reference must be produced by hand, diplomatically, by someone who has read
-the page. That is not a limitation of current technology awaiting a better model.
-It is structural: a measuring instrument cannot be calibrated against itself, and a
-model's own output cannot establish whether the model is right.
+That reference has to be made by hand, diplomatically, by someone who has read the page. This is not a shortcoming of today's technology that a better model will fix one day. It is structural. A ruler cannot be checked against itself, and a program's own output cannot show whether the program is right.
 
-This is what makes the manual step irreducible, and it is why Tuesday comes before
-Wednesday in every week of this course. The three-step cycle is not manual work
-followed by better automated work. It is the construction of a measuring
-instrument, followed by two measurements taken with it.
+That is what makes the manual step unavoidable rather than merely traditional, and why Tuesday comes before Wednesday every week of this course. The three-step cycle is not hand work followed by better machine work. It is building a measuring instrument, then taking two measurements with it.
 
-**For Wednesday.** Bring the seven items in section 22, particularly your note on
-diacritic height. You will correct layout analysis before training anything.
+**For Wednesday.** Bring the seven items in section 22, especially your note on accent height. You will be correcting line boxes before you train anything.
 
-**For Friday.** Remote delivery — verify your full toolchain per section 23 before
-then.
+**For Friday.** Remote. Check your whole setup per section 23 before then.
 
-**Takeaway:** Automation is always measured against a reference,
-and a reference cannot be produced by the thing it measures — which is why the
-manual step is irreducible rather than merely traditional.
+**Vocabulary.** *Reference* — the correct version everything else is scored against. *Three-step cycle* — this course's weekly pattern of manual, then deterministic, then AI-assisted work.
+
+**Takeaway:** Automation is always measured against a reference, and a reference cannot be produced by the thing it measures — which is why the manual step is irreducible rather than merely traditional.
 
 ---
 
@@ -1212,9 +815,6 @@ M. G., Brisville-Fertin, O., Boschetti, F., & Fischer, F. (2024). CATMuS Medieva
 A multilingual large-scale cross-century dataset in Latin script for handwritten
 text recognition and beyond. In *International Conference on Document Analysis and
 Recognition (ICDAR)*.
-
-Colavizza, G., Ehrmann, M., & Bunout, E. (2022). Benchmarking large language
-models for handwritten text recognition. *Journal of Documentation*.
 
 eScriptorium/Kraken. (2024). *eScriptorium platform documentation*.
 https://escriptorium.eu/about
