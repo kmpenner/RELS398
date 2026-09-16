@@ -160,6 +160,7 @@ Two findings worth carrying forward:
   - **Workshop 1 rewritten and deployed** (cmid 1427946, course 51185). The Greek multi-branch-scriptorium Git exercise (Codex A/B, Unicode NFC) was unearnable for this cohort, the same defect fixed in Module 2 on 2026-09-10. Replaced with "Your Project Repository & Witness README": shell repo construction, witness identification, the five verification checks from Lesson 1.2, object-rights vs image-licence, atomic commits, and a FAIR statement. Rubric grades traceable identifiers, commit granularity, and concrete FAIR decisions. Previous versions saved to `scratch/w1_old/`.
   - Deployed via a `fetch()` POST of the modedit form, not the editor UI — per the endpoints-over-UI rule.
 
+- **[2026-09-16]**: Authored in-class instructor teaching plans for Meeting #6 (Lesson 3.1 — Manual Imaging, TEI Facsimile, document autopsy) and Meeting #7 (Lesson 3.2 — IIIF Image/Presentation APIs, ImageMagick processing, archival file formats) following the StFX E5 standard.
 - **[2026-09-13]**: Refreshed Module 03 sources and completed full companion media suite for Week 3 (Lessons 3.1, 3.2, 3.3).
   - **Source alignment:** Replaced all source halves for Lessons 3.1, 3.2, and 3.3 in the course NotebookLM notebook (`baa262c1-2987-4e7b-a213-9cf8dc43460b`) with current rewritten texts; reconciled `.sources.json` digests.
   - **Full companion media suite generated and verified:**
