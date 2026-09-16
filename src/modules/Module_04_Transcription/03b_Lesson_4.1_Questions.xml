@@ -17,7 +17,7 @@
       <text>01 Question: Why the Manual Step Comes First</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does the course require manual diplomatic transcription before running automated HTR or vision-language models?</p>]]></text>
+      <text><![CDATA[<p>Why does this week ask you to type the page out by hand before running any software on it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Today's transcription is the measuring instrument for the rest of the term — every error rate you compute is a distance from it.</p>]]></text>
@@ -29,27 +29,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Automated transcription fundamentally requires an authoritative human baseline against which error rates, algorithmic biases, and hallucinated readings can be measured and evaluated.</p>]]></text>
+      <text><![CDATA[<p>Because the software's output has to be graded, and grading needs an answer key that somebody checked.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Without a verified reference, machine output is simply text of unknown quality that cannot be scored.</p>]]></text>
+        <text><![CDATA[<p>Correct. Without a reference you know to be right, machine output is just text — it might be accurate, and you would have no way to tell.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Manual transcription is a pedagogical prerequisite intended solely to build student palaeographical skills before delegating work to automation.</p>]]></text>
+      <text><![CDATA[<p>Because the software cannot open manuscript images until a person has tagged the vocabulary first.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The reference is a structural methodological requirement for computing CER and WER, not merely a pedagogical exercise.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. These programs take images directly. What they cannot supply is a correct version to be measured against.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Automated models cannot process raw manuscript images unless a human transcriber has first pre-tagged the vocabulary.</p>]]></text>
+      <text><![CDATA[<p>Because typing by hand is more accurate than any software, so the machine passes are really just a demonstration.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Zero-shot VLMs and pre-trained HTR models accept images directly; human ground truth is needed for measurement and training.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Hand transcription contains errors too — that is why Week 5 types the page a second time. The point is that it is the reference, not that it is perfect.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Institutional funding guidelines mandate that digital editions document a minimum number of manual transcription hours.</p>]]></text>
+      <text><![CDATA[<p>Because it is a traditional skill that students should practise before being allowed to use modern tools.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The requirement is methodological and computational, not an administrative mandate.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is a structural requirement: every error rate is a distance from a reference, so the reference has to exist first.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -60,7 +60,7 @@
       <text>02 Question: Diplomatic Versus Normalized Transcription</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must today's ground truth transcription be strictly diplomatic rather than normalized?</p>]]></text>
+      <text><![CDATA[<p>Why must today's transcription copy the page exactly rather than tidy up the spelling and abbreviations?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Transcribe diplomatically, because a model trained on normalized text learns to silently modernize — and Week 6 needs the unnormalized base.</p>]]></text>
@@ -72,27 +72,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>An HTR model trained on normalized text learns to silently overwrite historical orthography with modern assumptions, producing over-normalized errors that look clean and are invisible in standard metrics.</p>]]></text>
+      <text><![CDATA[<p>Software learns from the examples you give it, so tidied-up examples teach it to quietly replace what the scribe wrote with modern forms.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Training on normalized text teaches the statistical model to modernize, destroying the evidence needed for later editorial decisions.</p>]]></text>
+        <text><![CDATA[<p>Correct. And because the tidied output is clean and readable, nothing signals that the historical record has been overwritten.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Diplomatic transcription is faster and less demanding because it ignores scribal abbreviations and punctuation.</p>]]></text>
+      <text><![CDATA[<p>Copying exactly is quicker, because you can ignore the accents and the odd letter shapes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Diplomatic transcription requires careful attention to all surface features, making it more detailed and demanding.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is slower and more demanding — you have to record every surface feature rather than smoothing them away.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>TEI XML schemas prohibit the encoding of regularized orthography in digital editions.</p>]]></text>
+      <text><![CDATA[<p>TEI does not allow tidied-up spelling to be recorded in a digital edition.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI supports normalization via elements like <reg>, but normalization should be applied to a diplomatic base rather than silently during initial transcription.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TEI has `&lt;reg&gt;` for exactly that. The point is that tidying should be done from a faithful base, with each change recorded — which is Week 6's job.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Normalized transcriptions cannot be rendered into HTML or transformed into critical apparatuses.</p>]]></text>
+      <text><![CDATA[<p>Tidied-up transcriptions cannot be turned into web pages or printed editions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Normalized text is easy to render; the problem is that silent normalization destroys historical evidence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They are easy to present. The problem is that the evidence has already been destroyed by then.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -100,10 +100,10 @@
   <!-- 03 Question -->
   <question type="multichoice">
     <name>
-      <text>03 Question: The Ordered Hierarchy and What TEI Assumes</text>
+      <text>03 Question: One Text, Two Structures</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does TEI XML reconcile the conflict between a text's logical hierarchy and a manuscript's physical page structure?</p>]]></text>
+      <text><![CDATA[<p>A sentence starts halfway down a line and finishes on the next page. Why is that a problem for XML, and how does TEI solve it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Physical and logical structure both exist and do not nest, so TEI records line and page boundaries as empty milestones within the logical hierarchy.</p>]]></text>
@@ -115,27 +115,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It represents physical boundaries (pages, lines, columns) as empty milestone elements like <code>&lt;pb/&gt;</code> and <code>&lt;lb/&gt;</code> within the logical hierarchy.</p>]]></text>
+      <text><![CDATA[<p>XML needs tags to nest neatly, and the page's structure and the text's structure overlap instead — so TEI marks page and line starts with empty tags that mark a point rather than wrapping anything.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Milestone elements mark physical points in the character stream without interfering with the proper nesting of logical elements like paragraphs or divisions.</p>]]></text>
+        <text><![CDATA[<p>Correct. `&lt;pb/&gt;` and `&lt;lb/&gt;` sit inside the paragraph as markers, so the paragraph stays one tidy box.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It splits every physical line into an independent XML document and links them via XInclude.</p>]]></text>
+      <text><![CDATA[<p>XML cannot represent pages at all, so line and page breaks are recorded in a separate file and linked back.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI maintains continuous logical elements while recording physical breaks inline using milestones.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They are recorded inline, in the same file, as empty marker tags.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It strictly privileges physical page layout as the primary XML tree, forcing logical elements to be fragmented across line elements.</p>]]></text>
+      <text><![CDATA[<p>TEI solves it by ending the paragraph at the page break and starting a new one on the next page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The OHCO model nests logical content objects; physical layout is marked with milestones.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That would misrepresent the text — one sentence would become two paragraphs. The paragraph continues; only a marker is inserted.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It abandons tree-based XML validation in favor of non-hierarchical property graphs.</p>]]></text>
+      <text><![CDATA[<p>It is not really a problem, because scribes almost always ended sentences at the end of a line.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI XML strictly enforces XML tree well-formedness and uses milestones to handle overlapping physical structures.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They frequently did not, and even a single overlap is enough to break strict nesting.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -143,13 +143,13 @@
   <!-- 04 Question -->
   <question type="multichoice">
     <name>
-      <text>04 Question: The Core Encoding Vocabulary</text>
+      <text>04 Question: The Tags You Will Actually Use</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the structural function of the TEI <code>&lt;choice&gt;</code> element in diplomatic transcription?</p>]]></text>
+      <text><![CDATA[<p>What does `&lt;choice&gt;` do in a diplomatic transcription?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<code>&lt;choice&gt;</code> holds alternatives rather than deciding between them, so one encoding can serve palaeographic, reading, and search views.]]></text>
+      <text><![CDATA[<p>`&lt;choice&gt;` holds alternatives rather than deciding between them, so one encoding can serve palaeographic, reading, and search views.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -158,27 +158,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It groups alternative encodings of the same textual phenomenon (such as an abbreviation and its expansion) without deciding between them, allowing different processors to generate different views.</p>]]></text>
+      <text><![CDATA[<p>It holds two versions of the same text side by side, so a computer can pick whichever suits the job later.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. <code>&lt;choice&gt;</code> preserves both the palaeographical artifact and the editorial interpretation, enabling multiple output presentations from a single data source.</p>]]></text>
+        <text><![CDATA[<p>Correct. A reading edition shows the spelled-out form, a handwriting study shows the short form, and you only encoded it once.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It prompts the XML parser to randomly select one child element each time the document is transformed.</p>]]></text>
+      <text><![CDATA[<p>It picks the more likely of two readings and records that one.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <code>&lt;choice&gt;</code> holds alternatives deterministically for downstream stylesheets or applications to filter based on target audience.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It deliberately does not choose — that is the whole point of the element.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It indicates that the editor is uncertain between two different words in the manuscript.</p>]]></text>
+      <text><![CDATA[<p>It marks a passage where the scribe had a choice of wording and took one.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Textual uncertainty is encoded with <code>&lt;unclear&gt;</code> or <code>&lt;app&gt;</code>, whereas <code>&lt;choice&gt;</code> wraps alternative representations such as <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is about your encoding of the text, not about the scribe's decisions. Scribal changes use `&lt;subst&gt;`.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It automatically validates that an expanded abbreviation conforms to classical lexical norms.</p>]]></text>
+      <text><![CDATA[<p>It flags a reading as uncertain so that a later editor can decide.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. XML elements do not perform lexical validation; <code>&lt;choice&gt;</code> is a container for alternative encodings.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Uncertainty is `&lt;unclear&gt;`. `&lt;choice&gt;` holds alternatives that are both valid, for different purposes.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -186,13 +186,13 @@
   <!-- 05 Question -->
   <question type="multichoice">
     <name>
-      <text>05 Question: Encoding Abbreviations</text>
+      <text>05 Question: Short Forms and How to Record Them</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When encoding an expanded abbreviation with <code>&lt;choice&gt;</code>, what is the specific role of the <code>&lt;ex&gt;</code> element inside <code>&lt;expan&gt;</code>?</p>]]></text>
+      <text><![CDATA[<p>In `&lt;expan&gt;θε&lt;ex&gt;ό&lt;/ex&gt;ς&lt;/expan&gt;`, what is the `&lt;ex&gt;` tag doing?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Encode the abbreviation and its expansion separately with <code>&lt;ex&gt;</code> marking supplied letters, so the model learns what is actually on the page.</p>]]></text>
+      <text><![CDATA[<p>Encode the abbreviation and its expansion separately with `&lt;ex&gt;` marking supplied letters, so the model learns what is actually on the page.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -201,27 +201,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It marks precisely those characters that were supplied by editorial inference rather than written on the parchment.</p>]]></text>
+      <text><![CDATA[<p>Marking the letters you supplied, which the scribe did not actually write.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. <code>&lt;ex&gt;</code> identifies supplied characters so stylesheets can render them in italics and models can distinguish ink from editorial addition.</p>]]></text>
+        <text><![CDATA[<p>Correct. It records exactly where the ink stops and your inference starts, and lets software italicize the supplied letters.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It denotes an abbreviation that has been excluded from the critical apparatus.</p>]]></text>
+      <text><![CDATA[<p>Marking the letters that are hardest to read on the page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <code>&lt;ex&gt;</code> stands for editorial expansion, tagging the specific letters not present in the manuscript.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Difficulty of reading is `&lt;unclear&gt;`. `&lt;ex&gt;` is about what is absent from the page altogether.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It indicates that the scribal abbreviation is an external loanword from Latin or Aramaic.</p>]]></text>
+      <text><![CDATA[<p>Marking an example of the abbreviation for the training data.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <code>&lt;ex&gt;</code> represents supplied expansion characters regardless of language.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is not an annotation for software; it is a statement about which characters are editorial.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It instructs HTR training software to ignore the word during layout segmentation.</p>]]></text>
+      <text><![CDATA[<p>Marking letters that were once there but have since been lost to damage.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <code>&lt;ex&gt;</code> is a TEI markup element for editorial expansion, not an HTR segmentation directive.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Lost material is `&lt;gap/&gt;` or `&lt;supplied&gt;`. `&lt;ex&gt;` concerns letters the scribe never wrote, because the word was shortened.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -229,13 +229,13 @@
   <!-- 06 Question -->
   <question type="multichoice">
     <name>
-      <text>06 Question: Encoding Uncertainty and Damage</text>
+      <text>06 Question: Saying What You Cannot Read</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the crucial methodological distinction between the TEI <code>&lt;unclear&gt;</code> element and the <code>&lt;gap/&gt;</code> element?</p>]]></text>
+      <text><![CDATA[<p>What is the difference between `&lt;unclear&gt;` and `&lt;gap/&gt;`, and why does it matter?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<code>&lt;unclear&gt;</code> proposes a reading with reduced confidence and <code>&lt;gap/&gt;</code> proposes nothing — conflating them misrepresents inference as absence or difficulty as loss.]]></text>
+      <text><![CDATA[<p>`&lt;unclear&gt;` proposes a reading with reduced confidence and `&lt;gap/&gt;` proposes nothing — conflating them misrepresents inference as absence or difficulty as loss.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<code>&lt;unclear&gt;</code> wraps a proposed reading offered with reduced confidence, whereas <code>&lt;gap/&gt;</code> is an empty element recording that material is missing or wholly illegible without offering text.]]></text>
+      <text><![CDATA[<p>`&lt;unclear&gt;` contains a reading you are offering with reduced confidence; `&lt;gap/&gt;` is empty and offers nothing at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Putting text inside <code>&lt;gap/&gt;</code> or leaving <code>&lt;unclear&gt;</code> empty misrepresents inference as absence or difficulty as loss.</p>]]></text>
+        <text><![CDATA[<p>Correct. Putting a guess inside a `&lt;gap/&gt;` disguises inference as a hole in the page, and an empty `&lt;unclear&gt;` turns a hard reading into a loss.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<code>&lt;unclear&gt;</code> is reserved for physical water damage, while <code>&lt;gap/&gt;</code> is used exclusively for faded ink.]]></text>
+      <text><![CDATA[<p>`&lt;unclear&gt;` is for faded ink and `&lt;gap/&gt;` is for water damage — they record different causes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Physical damage is tagged with <code>&lt;damage&gt;</code> or noted via attributes; <code>&lt;unclear&gt;</code> and <code>&lt;gap/&gt;</code> distinguish whether a reading is offered.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Cause is recorded by the `reason` attribute on either. The difference is whether you are offering a reading.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<code>&lt;unclear&gt;</code> indicates text supplied from an external printed edition, while <code>&lt;gap/&gt;</code> marks scribal deletions.]]></text>
+      <text><![CDATA[<p>`&lt;unclear&gt;` is used during transcription and `&lt;gap/&gt;` is added later by the editor.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Supplied text is tagged with <code>&lt;supplied&gt;</code> and deletions with <code>&lt;del&gt;</code>.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Both are used as you transcribe. They describe different situations, not different stages.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<code>&lt;gap/&gt;</code> contains the transcriber's tentative guess, while <code>&lt;unclear&gt;</code> indicates text that is completely unreadable.]]></text>
+      <text><![CDATA[<p>They are interchangeable, so long as you use one of them consistently.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. This reverses their functions: <code>&lt;unclear&gt;</code> contains a tentative reading, while <code>&lt;gap/&gt;</code> is empty.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They make opposite claims, and swapping them misrepresents your evidence.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -272,10 +272,10 @@
   <!-- 07 Question -->
   <question type="multichoice">
     <name>
-      <text>07 Question: Scribal Corrections</text>
+      <text>07 Question: When the Scribe Corrected Themselves</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is it essential to encode scribal corrections using <code>&lt;subst&gt;</code>, <code>&lt;del&gt;</code>, and <code>&lt;add&gt;</code> rather than simply transcribing the final corrected text?</p>]]></text>
+      <text><![CDATA[<p>A scribe crossed out a word and another person wrote a different one above it. Why record both rather than just the final wording?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Scribal corrections are transmission evidence, and recording only the corrected text destroys it while leaving the reading unchanged.</p>]]></text>
@@ -287,27 +287,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Scribal corrections provide critical transmission evidence about readers, correctors, and exemplar relationships that would be completely destroyed by recording only the final text.</p>]]></text>
+      <text><![CDATA[<p>The correction is evidence about the manuscript's history and its relationship to other copies, and recording only the result destroys it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Preserving both the deleted and added text across hands provides essential evidence for textual history and collation.</p>]]></text>
+        <text><![CDATA[<p>Correct. In Week 7 a correction in one copy that matches another copy's original reading is exactly what links them.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>HTR models cannot process lines where characters have been deleted or cancelled on the page.</p>]]></text>
+      <text><![CDATA[<p>Because TEI requires every deletion to be preserved for the file to validate.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. HTR models can process the image, but encoding structure captures the palaeographical history for the digital edition.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema would accept the final wording alone. The reason is evidential, not technical.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>TEI XML requires <code>&lt;subst&gt;</code> for every line break that occurs near a marginal note.</p>]]></text>
+      <text><![CDATA[<p>Because the crossed-out word is usually the correct reading and the correction is usually wrong.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <code>&lt;subst&gt;</code> groups an addition and a deletion that constitute a single act of correction.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Neither is automatically right. What matters is that a change happened, in a direction, by somebody.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Recording only the corrected text invalidates the XML document against the TEI schema.</p>]]></text>
+      <text><![CDATA[<p>Because software cannot process text that has had words removed from it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Plain text is schema-valid, but omitting the correction discards irreplaceable codicological and stemmatic evidence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It processes it fine. The loss is scholarly, not computational.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -315,10 +315,10 @@
   <!-- 08 Question -->
   <question type="multichoice">
     <name>
-      <text>08 Question: Line Breaks and Why They Matter Here</text>
+      <text>08 Question: Why Line Breaks Matter So Much Here</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why are manuscript line breaks treated as structural elements rather than typographical accidents in this transcription pipeline?</p>]]></text>
+      <text><![CDATA[<p>Give one reason line breaks must be recorded in this transcription, when in an ordinary typed document they mean nothing.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Line divisions are structural here — HTR trains on lines, your zones bind per line, and line breaks are codicological evidence.</p>]]></text>
@@ -330,27 +330,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>HTR models train on discrete line images, facsimile zones bind per line, and line division constitutes codicological evidence of scribal practice and exemplars.</p>]]></text>
+      <text><![CDATA[<p>Tomorrow's software reads line by line, so its training examples have to be individual lines paired with their text.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Line divisions are required for pairing line images to text in HTR training and for linking TEI <code>&lt;lb/&gt;</code> milestones to image zones.</p>]]></text>
+        <text><![CDATA[<p>Correct. A transcription without line divisions cannot train anything at all — and your image links from Lesson 3.3 are per line too.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Modern web browsers cannot display Greek text unless every line is manually broken with <code>&lt;lb/&gt;</code>.</p>]]></text>
+      <text><![CDATA[<p>Because TEI files are invalid unless every line carries an `&lt;lb/&gt;` element.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Web browsers handle text reflow automatically; line breaks are preserved for HTR, facsimile binding, and codicological evidence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema does not require it. The requirement comes from what the lines are used for.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>TEI XML rules mandate that no element may contain more than ten consecutive words without a line break.</p>]]></text>
+      <text><![CDATA[<p>Because line breaks are needed to make the transcription display correctly on a web page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. There is no such length restriction in TEI XML.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Display is the least of it. They are needed for training, for image links, and as evidence about the scribe.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Scribes strictly avoided breaking words across lines, so any line break represents a major syntactic pause.</p>]]></text>
+      <text><![CDATA[<p>Because the word count must match the manuscript exactly for scoring in Week 5.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scribes broke words freely across line ends without hyphens.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Scoring compares characters and words, not lines. The line divisions matter for training and for binding to the image.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -358,10 +358,10 @@
   <!-- 09 Question -->
   <question type="multichoice">
     <name>
-      <text>09 Question: Setting Up the Transcription Document</text>
+      <text>09 Question: Setting Up the File Before You Type</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must you verify UTF-8 encoding, schema validation, and the pre-commit NFC normalization hook before transcribing polytonic Greek?</p>]]></text>
+      <text><![CDATA[<p>Why check that your editor really saves UTF-8 and that the normalization hook works *before* you start typing Greek?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Verify UTF-8, live schema validation, and the NFC hook before typing — a mixed-normalization ground truth invalidates Week 5.</p>]]></text>
@@ -373,27 +373,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Inconsistent character encoding or mixed Unicode normalization forms (NFC versus NFD) will corrupt Greek diacritics and produce grossly inflated, meaningless error rates in Week 5.</p>]]></text>
+      <text><![CDATA[<p>A character-encoding mismatch corrupts every Greek character, and accents stored two different ways make Week 5's scores meaningless.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A mixed normalization ground truth means identical-looking characters have different byte sequences, breaking Levenshtein distance calculations.</p>]]></text>
+        <text><![CDATA[<p>Correct. Both are miserable to repair afterwards, and both are a two-minute check now.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Git repositories automatically reject any commit that contains polytonic Greek characters unless an NFC hook is active.</p>]]></text>
+      <text><![CDATA[<p>Because git refuses to commit files that are not UTF-8.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git is content-agnostic and stores arbitrary byte streams; the hook ensures consistency.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Git will happily store the corrupted bytes. Nothing stops you — that is precisely the danger.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>XML schemas cannot validate documents containing Greek unless they are stored in UTF-16 with canonical decomposition.</p>]]></text>
+      <text><![CDATA[<p>Because Transkribus only accepts files that have passed a normalization check.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI schemas work seamlessly with UTF-8 NFC-encoded text.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The problem appears much later, when scores are computed against a reference stored differently.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transkribus can only import files that have been validated against an external DTD rather than RelaxNG.</p>]]></text>
+      <text><![CDATA[<p>Because polytonic Greek cannot be typed at all without the hook installed.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The issue is character normalization and well-formedness, not DTD validation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. You can type it perfectly well. The hook makes sure it is *stored* consistently.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -401,10 +401,10 @@
   <!-- 10 Question -->
   <question type="multichoice">
     <name>
-      <text>10 Question: Transcription Method: Working at Full Zoom</text>
+      <text>10 Question: How to Actually Do It</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the primary cognitive risk when transcribing a familiar historical text, and how is it mitigated?</p>]]></text>
+      <text><![CDATA[<p>Why is "type what you see, not what you expect" the rule that separates transcribing from reading?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Type what you see rather than what you expect, and check your line position regularly — line skip silently invalidates every binding after it.</p>]]></text>
@@ -416,27 +416,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Reading what you expect the text to say rather than what is actually written on the parchment; mitigated by working at high zoom and transcribing difficult lines backwards.</p>]]></text>
+      <text><![CDATA[<p>If you know the passage, you will read the expected wording and never notice the difference — which is how genuine variants get erased.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Expectation bias causes transcribers to overlook genuine scribal variants, which transcribing backwards word-by-word helps disrupt.</p>]]></text>
+        <text><![CDATA[<p>Correct. It is the largest threat to your accuracy, and typing a difficult line backwards is a good defence against it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Over-magnifying the image causes pixel interpolation artifacts that make clear letterforms appear completely illegible.</p>]]></text>
+      <text><![CDATA[<p>Because your memory of the text is probably of a different work altogether.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. High zoom is recommended to disambiguate letterforms and diacritics.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The danger is precisely that you remember the right work — the expectation is plausible, which is why it slips past.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transcribing line-by-line causes editors to accidentally modernize archaic vocabulary.</p>]]></text>
+      <text><![CDATA[<p>Because the software will later compare your text against the printed edition.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Line-by-line transcription at full zoom enforces focus on physical ink rather than modernizing.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is compared against the image, through your transcription. The risk is to the evidence, not to a score.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Using IIIF viewers introduces non-standard colour profiles that distort ink density.</p>]]></text>
+      <text><![CDATA[<p>Because reading ahead is slower than transcribing one line at a time.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. IIIF delivers faithful image tiles; the risk described is human cognitive expectation bias.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Reading ahead is faster, which is exactly why it is tempting and why it produces errors.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -444,10 +444,10 @@
   <!-- 11 Question -->
   <question type="multichoice">
     <name>
-      <text>11 Question: Recognizing the Hand</text>
+      <text>11 Question: Getting to Know the Hand</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why should an editor characterize the scribe's hand and document it in <code>transcription/HAND.md</code> before transcribing at volume?</p>]]></text>
+      <text><![CDATA[<p>What is the point of spending fifteen minutes on `transcription/HAND.md` before transcribing in bulk?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Characterize the hand before transcribing at volume, and record it — you will consult it on Wednesday to judge HTR errors.</p>]]></text>
@@ -459,27 +459,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It establishes an inventory of letterforms, ligatures, and abbreviations, enabling the editor to distinguish between model errors and scribal idiosyncrasies.</p>]]></text>
+      <text><![CDATA[<p>It disciplines your reading now, and tomorrow it tells you whether a software mistake is the program's fault or the scribe's.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Documenting the palaeographical features disciplines your reading and provides the reference needed to evaluate HTR output on Wednesday.</p>]]></text>
+        <text><![CDATA[<p>Correct. It also documents your palaeographic reasoning for the Week 12 commentary.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transkribus requires an uploaded markdown description of the hand before it can initiate layout analysis.</p>]]></text>
+      <text><![CDATA[<p>It is required documentation for submitting the manuscript to Transkribus.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Transkribus does not parse markdown hand descriptions; it is for human editorial reference and error diagnosis.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Transkribus asks for no such thing. The file is for you.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Characterizing the hand allows automated scripts to convert cursive Greek ligatures directly into unaccented Latin text.</p>]]></text>
+      <text><![CDATA[<p>It lets the software learn the letterforms before it sees any images.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The hand document records palaeographical observations to maintain Greek diplomatic accuracy.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The software learns only from images paired with text. It never reads your notes.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It guarantees that the hand will be classified into a recognized international palaeographical registry.</p>]]></text>
+      <text><![CDATA[<p>It records which letters to skip when they are too difficult to read.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The purpose is internal project rigor and diagnostic grounding.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Difficult letters get transcribed and marked, not skipped.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -487,10 +487,10 @@
   <!-- 12 Question -->
   <question type="multichoice">
     <name>
-      <text>12 Question: Diacritics and the Polygon Problem</text>
+      <text>12 Question: Accents and the Box Problem</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What causes an HTR model to transcribe Greek letters accurately while systematically omitting accents and breathings?</p>]]></text>
+      <text><![CDATA[<p>Why should you note how high above the line this scribe places the accents?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Layout polygons drawn too tightly cut off Greek accents entirely, so note how high this hand places diacritics — you will adjust for it tomorrow.</p>]]></text>
@@ -502,27 +502,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The baseline polygon envelope was computed too tightly around the letter body, cutting off high-placed diacritics from the line image seen by the recognizer.</p>]]></text>
+      <text><![CDATA[<p>Tomorrow's software cuts a strip around each line, and if the strip is too tight the accents fall outside it and are never seen.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. If breathings and accents sit above the polygon boundary, they are cropped out of the image fed into the recognition neural network.</p>]]></text>
+        <text><![CDATA[<p>Correct. Your note tells you how far to widen the strips — which is Wednesday's first real task.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The CTC decoder architecture mathematically suppresses non-spacing diacritical characters.</p>]]></text>
+      <text><![CDATA[<p>Because accent height identifies the century in which the manuscript was copied.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CTC can recognize diacritics if they are present in the line image and training data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It may be suggestive, but that is not why you are measuring it here.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Greek polytonic Unicode characters cannot be processed by convolutional neural networks.</p>]]></text>
+      <text><![CDATA[<p>Because accents placed too high are usually later additions by a second hand.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Precomposed or combined polytonic characters are standard targets for HTR models.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Height is a feature of the scribe's habit, not evidence of a different writer.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Faded ink causes the recognition model to mistake circumflexes for paragraph division markers.</p>]]></text>
+      <text><![CDATA[<p>Because the software ignores accents entirely and you will have to add them by hand.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The systematic omission of diacritics across lines is typically caused by truncated layout polygons.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It reads them perfectly well — provided they are inside the strip it was given.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -530,13 +530,13 @@
   <!-- 13 Question -->
   <question type="multichoice">
     <name>
-      <text>13 Question: Scriptio Continua and Word Boundaries</text>
+      <text>13 Question: When There Are No Spaces Between Words</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the recommended diplomatic approach when transcribing a manuscript written in <em>scriptio continua</em>?</p>]]></text>
+      <text><![CDATA[<p>Your manuscript runs its words together. What does this course recommend, and why?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Supply word division and declare it in the header — and expect <em>scriptio continua</em> to make word error rate uninterpretable in Week 5.</p>]]></text>
+      <text><![CDATA[<p>Supply word division and declare it in the header — and expect *scriptio continua* to make word error rate uninterpretable in Week 5.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -545,27 +545,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Insert editorial word spaces to enable downstream collation and analysis, while explicitly declaring in the TEI header that word division was supplied editorially.</p>]]></text>
+      <text><![CDATA[<p>Put the spaces in, and state in your header that the spacing is yours and is not on the page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Declaring the intervention in the header preserves transparency while ensuring the text remains usable for computational tools.</p>]]></text>
+        <text><![CDATA[<p>Correct. The aim is not to avoid intervening — text with no spaces is nearly useless later — but to intervene openly.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Silently insert word spaces without recording the intervention anywhere in the metadata.</p>]]></text>
+      <text><![CDATA[<p>Reproduce it unspaced, since a diplomatic transcription must never add anything.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Silent intervention conceals the manuscript's physical state from readers and downstream researchers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Faithful, but nearly unusable for comparing copies or looking up words — and the course prefers a declared intervention.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Strictly avoid all whitespace in the transcription file, forcing downstream tokenizers to segment words probabilistically.</p>]]></text>
+      <text><![CDATA[<p>Add the spaces silently, since word division is obvious to any competent reader.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. While completely faithful, an unspaced transcription is practically unusable for standard collation and indexing tools unless declared.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is an unrecorded editorial act, which is exactly what a diplomatic transcription is meant to avoid.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Replace all Greek letters with hyphenated syllables to mark theoretical morpheme boundaries.</p>]]></text>
+      <text><![CDATA[<p>Record both versions with `&lt;choice&gt;`, since that is the only fully faithful option.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Editorial syllable hyphenation is not a diplomatic transcription standard.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is faithful and it is legitimate, but it is extremely verbose — the course recommends the declared-spacing option.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -573,10 +573,10 @@
   <!-- 14 Question -->
   <question type="multichoice">
     <name>
-      <text>14 Question: Consistency and the Transcription Convention Document</text>
+      <text>14 Question: Write Your Rules Down</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is editorial inconsistency in applying transcription conventions more damaging than making a suboptimal conventional choice?</p>]]></text>
+      <text><![CDATA[<p>Why is being inconsistent worse than making any particular transcription choice?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Write your conventions down and follow them — inconsistency is worse than any particular choice, for readers and for models alike.</p>]]></text>
@@ -588,27 +588,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Inconsistent practices make it impossible for readers or machine learning models to know whether an unmarked variant reflects the manuscript or transcriber oversight.</p>]]></text>
+      <text><![CDATA[<p>A reader cannot tell whether an unmarked instance means a different form or one you simply missed, so the whole record becomes uninterpretable.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. An HTR model learns inconsistency and reproduces it unpredictably, and human readers cannot interpret erratic encoding.</p>]]></text>
+        <text><![CDATA[<p>Correct. And the software learns your inconsistency and reproduces it unpredictably.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Inconsistent transcriptions trigger fatal validation errors in the TEI RelaxNG schema.</p>]]></text>
+      <text><![CDATA[<p>Because inconsistent files fail schema validation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schemas validate XML structure and allowed tags, not internal editorial consistency of conventions like lunate sigma.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They validate perfectly. The damage is to interpretation, not to structure.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Git merge algorithms cannot resolve branch conflicts in files that contain variable spelling conventions.</p>]]></text>
+      <text><![CDATA[<p>Because the marking scheme penalizes inconsistency more heavily than wrong choices.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git merges text lines regardless of orthographic conventions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. This is about the scholarly usefulness of the result, not about marks.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Inconsistent encoding permanently locks the Transkribus credit balance allocated to the course.</p>]]></text>
+      <text><![CDATA[<p>Because you will forget which convention you used and have to start over.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Credit consumption depends on page and line counts, not editorial consistency.</p>]]></text>
+        <text><![CDATA[<p>Incorrect — or at least, that is the smallest part of it. The real cost is that nobody can interpret the finished text.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -616,10 +616,10 @@
   <!-- 15 Question -->
   <question type="multichoice">
     <name>
-      <text>15 Question: Double-Keying and Accuracy</text>
+      <text>15 Question: How Accurate Is a Hand Transcription?</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is double-keying, and why is it essential for building a reliable ground truth?</p>]]></text>
+      <text><![CDATA[<p>What does double-keying do that simply proofreading once does not?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Your ground truth will contain errors, which is why Week 5 double-keys it — transcribe now so that the second pass finds few differences.</p>]]></text>
@@ -631,27 +631,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Transcribing the same text independently twice and adjudicating differences, which localizes errors and isolates transcriber bias.</p>]]></text>
+      <text><![CDATA[<p>It produces two independent versions, so the places where they disagree pinpoint exactly where attention is needed.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Agreement between independent passes indicates high accuracy, while differences pinpoint exact locations requiring adjudication.</p>]]></text>
+        <text><![CDATA[<p>Correct. Where two independent attempts agree, you are almost certainly right; where they differ is where to look.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transcribing a manuscript simultaneously using a physical keyboard and an on-screen virtual keyboard.</p>]]></text>
+      <text><![CDATA[<p>It doubles the amount of training data available for the software.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Double-keying refers to two independent transcription passes of the same text.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The two versions describe the same lines — the gain is accuracy, not volume.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Running two different OCR engines over the manuscript image and averaging their numerical confidence scores.</p>]]></text>
+      <text><![CDATA[<p>It guarantees an error-free transcription, which is why Week 5 treats it as final.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Double-keying is an independent human transcription verification method.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is substantially better, not perfect. Week 5 still adjudicates the differences by hand.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Typing the Greek text once in Unicode and once in legacy ASCII Beta Code.</p>]]></text>
+      <text><![CDATA[<p>It removes the need to check the transcription against the images.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Double-keying involves independent duplicate entry to eliminate single-pass human transcription errors.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Adjudicating a difference means going back to the image to settle it.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -659,10 +659,10 @@
   <!-- 16 Question -->
   <question type="multichoice">
     <name>
-      <text>16 Question: How Much to Transcribe Today</text>
+      <text>16 Question: How Much to Get Done Today</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the recommended target for today's manual transcription session?</p>]]></text>
+      <text><![CDATA[<p>Why is one carefully transcribed page better than three rushed ones?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>One accurate folio beats three careless ones — today's conventions propagate into everything transcribed afterwards.</p>]]></text>
@@ -674,27 +674,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>One folio transcribed completely and accurately with full TEI encoding, rather than rushing through multiple folios carelessly.</p>]]></text>
+      <text><![CDATA[<p>Three sloppy pages are worse than nothing, because tomorrow the software learns your mistakes from them.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. One accurate, fully encoded folio establishes the conventions and provides a clean ground truth baseline; careless transcription teaches the model errors.</p>]]></text>
+        <text><![CDATA[<p>Correct. And today's habits set the conventions that every later page follows, so errors made now propagate.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The entire codex, using rapid plain-text skimming without diacritics or milestone tags.</p>]]></text>
+      <text><![CDATA[<p>Because the software cannot accept more than one page of training data at a time.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Unencoded, hasty transcription produces corrupt training data and invalid ground truth.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It takes as many as you give it. Quality, not quantity, is the constraint today.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Exactly three lines of text, leaving the remainder of the folio to be generated by automated layout tools.</p>]]></text>
+      <text><![CDATA[<p>Because a single page is all that Week 5's measurement will use.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A full folio is required to establish representative hand conventions and provide sufficient baseline data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. You will extend the transcription through the week. The point is that the first page must be right.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>At least 500 lines of normalized prose across three different unrelated witnesses.</p>]]></text>
+      <text><![CDATA[<p>Because marks are awarded for accuracy on one page rather than for coverage.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The task focuses on your selected witness's specific passage, done diplomatically.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The reason is methodological — careless examples actively damage what you build next.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -702,10 +702,10 @@
   <!-- 17 Question -->
   <question type="multichoice">
     <name>
-      <text>17 Question: Sampling for Training Data</text>
+      <text>17 Question: Which Pages to Pick Later</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is it important to sample training folios across the manuscript and deliberately include difficult or damaged pages rather than only clean consecutive folios?</p>]]></text>
+      <text><![CDATA[<p>Why is working straight through consecutive leaves the wrong way to choose training pages?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Sample training pages across the corpus and deliberately include difficult ones, or the model will fail precisely where you need it.</p>]]></text>
@@ -717,27 +717,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Neural models degrade significantly when encountering unfamiliar layouts, ink variations, or glosses; diverse sampling exposes the model to the variance it will actually encounter.</p>]]></text>
+      <text><![CDATA[<p>The program learns that one stretch of the book — its ink, its layout — and then stumbles on pages that differ.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Models trained solely on pristine pages fail on damaged or glossed pages where assistance is most needed.</p>]]></text>
+        <text><![CDATA[<p>Correct. Spreading your pages across the manuscript shows it the variety it will actually face.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Sampling consecutive pages causes Git merge conflicts when updating the TEI facsimile element.</p>]]></text>
+      <text><![CDATA[<p>Because consecutive pages are usually by the same scribe, and variety of scribes is what matters most.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git handles consecutive lines normally; the issue is machine learning generalization across layout topographies.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Even with one scribe throughout, ink, parchment, and layout vary across a book.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>HTR models cannot learn character transitions unless every quire in the codex is sampled in reverse chronological order.</p>]]></text>
+      <text><![CDATA[<p>Because the software processes pages in a random order anyway, so sequence is meaningless.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Neural networks do not require reverse chronological ordering; they require representative variance.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Order of processing is not the issue; what the examples collectively cover is.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Difficult pages require fewer Transkribus compute credits to process than clean pages.</p>]]></text>
+      <text><![CDATA[<p>Because consecutive transcription takes longer than jumping between leaves.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Compute credits are consumed per page or line regardless of difficulty.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is generally quicker. The problem is what the resulting model can and cannot handle.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -745,13 +745,13 @@
   <!-- 18 Question -->
   <question type="multichoice">
     <name>
-      <text>18 Question: Validating the Transcription</text>
+      <text>18 Question: Checking Your Work Before You Save It</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why should you count <code>&lt;lb/&gt;</code> elements against <code>&lt;zone&gt;</code> elements in your TEI document before committing?</p>]]></text>
+      <text><![CDATA[<p>Why count `&lt;lb/&gt;` elements against `&lt;zone&gt;` elements every session?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Count <code>&lt;lb/&gt;</code> against <code>&lt;zone&gt;</code> every session — a mismatch means line skip, and every binding after it is wrong.</p>]]></text>
+      <text><![CDATA[<p>Count `&lt;lb/&gt;` against `&lt;zone&gt;` every session — a mismatch means line skip, and every binding after it is wrong.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -760,27 +760,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A count mismatch reveals a skipped or extra line, which would silently invalidate every facsimile zone binding after that point.</p>]]></text>
+      <text><![CDATA[<p>If the counts differ you skipped or added a line, and every image link after that point is attached to the wrong strip.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Line skips misalign all subsequent lines with their image zones, making downstream evaluation and HTR training incorrect.</p>]]></text>
+        <text><![CDATA[<p>Correct. The text still reads perfectly, so nothing else would reveal it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The TEI schema mandates that the number of <code>&lt;lb/&gt;</code> elements must always be exactly double the number of <code>&lt;zone&gt;</code> elements.</p>]]></text>
+      <text><![CDATA[<p>Because TEI requires the two counts to match for the file to validate.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. In a one-to-one line binding architecture, the counts should match directly.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The schema does not check it. That is exactly why you have to.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Counting elements is required to calculate the exact monetary cost of Transkribus credit usage.</p>]]></text>
+      <text><![CDATA[<p>Because Transkribus rejects files whose line and zone counts disagree.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Credit usage in Transkribus is calculated per page or processed unit on their platform, not by XML tag counts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It will import them and quietly mismatch your text to the wrong images.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A mismatch causes XML parsers to automatically delete the <code>&lt;teiHeader&gt;</code> metadata block.</p>]]></text>
+      <text><![CDATA[<p>Because the counts are used to calculate the character error rate in Week 5.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. XML parsers do not delete content on mismatch; the error is a silent alignment failure in project bindings.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The score compares text, not counts. This check catches a silent structural fault.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -788,10 +788,10 @@
   <!-- 19 Question -->
   <question type="multichoice">
     <name>
-      <text>19 Question: Committing the Ground Truth</text>
+      <text>19 Question: Saving It to Git Properly</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why should the manual ground truth state be explicitly tagged in Git (e.g. <code>git tag -a gt-f42r</code>)?</p>]]></text>
+      <text><![CDATA[<p>Why tag the transcription rather than just committing it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Tag the ground truth state, because Week 5's measurements are only reproducible against the exact version that was measured.</p>]]></text>
@@ -803,27 +803,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It creates a permanent, immutable reference point for that exact version, ensuring that Week 5's error rate calculations remain reproducible even if the text is later edited.</p>]]></text>
+      <text><![CDATA[<p>Week 5 measures against this exact version, and a tag keeps that version retrievable even after you correct the file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A tag preserves the specific snapshot against which machine outputs were evaluated.</p>]]></text>
+        <text><![CDATA[<p>Correct. The old numbers stay meaningful and the correction shows up as a visible change.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Git tags are required to unlock write permissions for remote collaborators on GitHub.</p>]]></text>
+      <text><![CDATA[<p>Because untagged commits are deleted automatically after a period of time.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git tags mark specific commits in history; they do not control repository permissions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Commits persist. A tag is a convenience for finding one again, not a protection against deletion.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Tagging a commit compresses the XML file so that it can be imported into Transkribus without credit charges.</p>]]></text>
+      <text><![CDATA[<p>Because tagging is what marks the file as human-produced rather than machine-produced.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Tags are metadata pointers in Git and have no effect on file size or platform billing.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is what the `Human-Verified` and `AI-Generated` trailers do.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Untagged commits are automatically purged by Git's garbage collector after 48 hours.</p>]]></text>
+      <text><![CDATA[<p>Because Transkribus imports from tags rather than from the working files.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Commits on active branches are retained; tagging provides a stable scholarly citation point.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Transkribus imports images from a web address and knows nothing about your tags.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -831,10 +831,10 @@
   <!-- 20 Question -->
   <question type="multichoice">
     <name>
-      <text>20 Question: What Ground Truth Quality Determines</text>
+      <text>20 Question: What Rides on Getting This Right</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the consequence of training an HTR model on a ground truth transcription that has been silently normalized?</p>]]></text>
+      <text><![CDATA[<p>Why is a quietly tidied-up reference the most dangerous kind of error in this file?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>A silently normalized ground truth produces a model that modernizes invisibly — and standard error metrics will not detect it.</p>]]></text>
@@ -846,27 +846,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The model learns to produce modernized output, destroying historical orthography while achieving a deceptively low CER that fails to detect the loss of diplomatic fidelity.</p>]]></text>
+      <text><![CDATA[<p>The resulting output is clean and readable, so nothing signals that the historical spelling has been overwritten — and the usual scores will not detect it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Standard CER metrics treat modernized characters as normal text, concealing that the model has learned to overwrite historical evidence.</p>]]></text>
+        <text><![CDATA[<p>Correct. A program can post a low error rate while systematically destroying the old orthography.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The HTR model will crash during the first epoch of neural network backpropagation.</p>]]></text>
+      <text><![CDATA[<p>Because tidied text cannot be compared against machine output at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The model will train successfully, but it will learn modernizing biases.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It compares perfectly well. That is the problem — the comparison looks fine and means the wrong thing.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The resulting CER will immediately jump above 95%, causing the training run to abort.</p>]]></text>
+      <text><![CDATA[<p>Because tidying introduces character-encoding errors that inflate the score.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The CER may appear deceptively low on clean text while masking the destruction of historical features.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is a separate fault. Tidying is dangerous precisely because it does *not* inflate the score.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Silent normalization forces Transkribus to switch from a PyLaia engine to a legacy OCR engine.</p>]]></text>
+      <text><![CDATA[<p>Because tidied text takes longer to produce than a faithful transcription.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The engine architecture does not change; the training data itself is corrupted.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is usually quicker, which is part of the temptation.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -874,10 +874,10 @@
   <!-- 21 Question -->
   <question type="multichoice">
     <name>
-      <text>21 Question: Human-in-the-Loop as a Methodological Commitment</text>
+      <text>21 Question: Why the Human Stays in the Loop</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does the course insist on transcribing by hand before using or correcting machine output?</p>]]></text>
+      <text><![CDATA[<p>Why can the order of the three-step cycle not be reversed?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Correcting a machine transcription tests plausibility; transcribing independently tests correctness, and only the second gives you grounds for judgement.</p>]]></text>
@@ -889,27 +889,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Transcribing independently forces direct engagement with the ink to determine what is correct, whereas correcting machine output merely tests plausibility and anchors human judgement.</p>]]></text>
+      <text><![CDATA[<p>Somebody who starts from machine output and corrects it has never read the page alone, so they can only judge whether a reading looks plausible.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Anchoring bias leads human editors to accept plausible-looking machine guesses; only an independent reading establishes true correctness.</p>]]></text>
+        <text><![CDATA[<p>Correct. Judging plausibility is a much weaker test than working out what is actually there.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Machine transcriptions are legally protected by copyright and cannot be modified without prior manual verification.</p>]]></text>
+      <text><![CDATA[<p>Because the software needs the manual transcription as input before it can run at all.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. There is no copyright barrier; the justification is cognitive and methodological.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It runs on images without any transcription. The manual step is needed for training and for measurement.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Neural networks cannot run on GPU clusters unless an MD5 hash of a human-signed transcription is submitted with the job.</p>]]></text>
+      <text><![CDATA[<p>Because the AI step on Friday would overwrite Wednesday's model if it ran first.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Computational pipelines do not require cryptographic proof of human labour.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They are independent runs. The reason is about the quality of human judgement.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Reading machine output first causes irreversible eye fatigue that prevents high-zoom palaeographical analysis.</p>]]></text>
+      <text><![CDATA[<p>Because marks are awarded in sequence and the assignments must be submitted in order.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The issue is cognitive anchoring and uncritical acceptance of plausible errors.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The sequence is methodological, not administrative.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -917,10 +917,10 @@
   <!-- 22 Question -->
   <question type="multichoice">
     <name>
-      <text>22 Question: Preparing for Wednesday</text>
+      <text>22 Question: What to Bring Tomorrow</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is it important to note how high above the baseline the scribe places diacritics before Wednesday's session?</p>]]></text>
+      <text><![CDATA[<p>Why does your note on accent height matter for tomorrow specifically?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Bring a validated, tagged transcription and a note of this hand's diacritic height — polygon correction is Wednesday's first task.</p>]]></text>
@@ -932,27 +932,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Wednesday begins with correcting layout analysis polygons, and knowing diacritic height determines how much vertical margin is needed to prevent accents from being truncated.</p>]]></text>
+      <text><![CDATA[<p>Wednesday's first task is widening the line strips so accents fall inside them, and the note tells you how far to widen.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Accents that extend above default polygon boundaries are cropped out of line images and lost to the recognition model.</p>]]></text>
+        <text><![CDATA[<p>Correct. Without it you are guessing at a setting that determines whether the model ever sees a breathing mark.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transkribus requires the user to input the exact diacritic height in millimeters during account registration.</p>]]></text>
+      <text><![CDATA[<p>Because Transkribus asks for the accent height when you create a collection.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Transkribus does not require diacritic height at registration; it is needed for visual polygon adjustment.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It asks for no such thing. The measurement informs a correction you make yourself.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Diacritic height determines the number of LSTM recurrent layers allocated during CTC training.</p>]]></text>
+      <text><![CDATA[<p>Because the accent height determines which base model you should start from.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Model network architecture is fixed; polygon dimensions determine image cropping.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Base model choice is about script, date, and language.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Breathings placed higher than 2 mm above a letter indicate that the manuscript was copied in Western Europe.</p>]]></text>
+      <text><![CDATA[<p>Because you will be asked to type the accents again at a different size.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Diacritic height is a palaeographical feature of scribal hand and line spacing, not a geographical proof.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. You will not retype anything — you will adjust the boundaries of the strips.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -960,10 +960,10 @@
   <!-- 23 Question -->
   <question type="multichoice">
     <name>
-      <text>23 Question: Note: Friday Is Remote</text>
+      <text>23 Question: Friday Is Remote</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What critical toolchain components must be tested on your remote machine prior to Friday's session?</p>]]></text>
+      <text><![CDATA[<p>Which item on the Friday checklist most often catches people out, and why?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Test your full toolchain on the machine you will use Friday — push your repository, publish your manifest, install your keyboard.</p>]]></text>
@@ -975,27 +975,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Confirming repository access, remote manifest reachability, XML validation, and local polytonic Greek keyboard layouts.</p>]]></text>
+      <text><![CDATA[<p>The Greek keyboard — a layout installed on a lab machine is not installed on your own laptop.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Missing a polytonic keyboard layout or finding an unshared localhost manifest on Friday morning derails the remote session.</p>]]></text>
+        <text><![CDATA[<p>Correct. Discovering that on Friday morning costs you the session, and installing it today takes two minutes.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Installing an enterprise-grade database engine to cache IIIF image tiles locally.</p>]]></text>
+      <text><![CDATA[<p>The repository push, because pushing from off campus requires a different login.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. IIIF tiles are fetched over standard HTTP; no local database is needed.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The login is the same. Forgetting to push at all is the risk, not the network.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Purchasing a commercial GPU workstation capable of training 70-billion parameter models locally.</p>]]></text>
+      <text><![CDATA[<p>The XML editor, because most editors will not run outside the university network.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Friday uses hosted vision-language model APIs or interfaces; no specialized local GPU is required.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They run fine offline. The schema must be reachable, which is worth checking, but the keyboard is the classic trap.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Converting all XML files into binary Microsoft Word documents for remote compatibility.</p>]]></text>
+      <text><![CDATA[<p>The Transkribus credits, because they are only issued to on-campus machines.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The project strictly maintains TEI XML and markdown in Git.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Credits are tied to the class allowance, not to a location.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1003,10 +1003,10 @@
   <!-- 24 Question -->
   <question type="multichoice">
     <name>
-      <text>24 Question: Reading Your Own Errors</text>
+      <text>24 Question: Studying Your Own Mistakes</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why should you analyze and document the patterns in your own manual transcription errors?</p>]]></text>
+      <text><![CDATA[<p>Why record the *patterns* in your errors rather than just fixing the individual slips?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Record the patterns in your own errors, because in Week 5 they tell you when to suspect yourself rather than the machine.</p>]]></text>
@@ -1018,27 +1018,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>In Week 5 reconciliation, knowing your personal error patterns helps you identify when the machine output is actually correct and your ground truth was mistaken.</p>]]></text>
+      <text><![CDATA[<p>In Week 5 they tell you when to suspect yourself rather than the machine.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Single-pass human ground truth contains errors; recognizing your own blind spots prevents you from erroneously 'correcting' a machine reading to match your mistake.</p>]]></text>
+        <text><![CDATA[<p>Correct. Knowing you regularly confuse two letters in this hand is what lets you spot the cases where the machine is right and you are not.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Recording personal error patterns is required by GitHub's terms of service for academic repositories.</p>]]></text>
+      <text><![CDATA[<p>Because the patterns are submitted as part of the Transcription Assignment mark.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Documenting errors is a scholarly practice for reconciliation, not a platform requirement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They feed the reconciliation report, but the reason to record them is diagnostic.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transkribus uses your documented error patterns to invert its CTC loss function during training.</p>]]></text>
+      <text><![CDATA[<p>Because the software can be trained to avoid the same patterns.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. HTR training uses paired text and image lines, not prose error logs.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It learns from images and text, not from your notes about yourself.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It proves that single-pass manual transcription is always 100% accurate across all scribal hands.</p>]]></text>
+      <text><![CDATA[<p>Because individual slips are usually not worth correcting.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Manual transcription is known to have low but real error rates, which error logs help diagnose.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Fix them all. The patterns are recorded *as well*, because they are informative in a way single errors are not.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1046,10 +1046,10 @@
   <!-- 25 Question -->
   <question type="multichoice">
     <name>
-      <text>25 Question: Why Not Simply Start with the Machine?</text>
+      <text>25 Question: Why Not Just Start with the Machine?</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the primary operational threshold where post-correcting HTR output becomes less efficient than manual transcription?</p>]]></text>
+      <text><![CDATA[<p>What is the decisive argument against running the software first and correcting its output?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Correcting machine output tests plausibility and anchors your judgement, which is exactly the wrong test on the hard readings.</p>]]></text>
@@ -1061,27 +1061,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>When the Character Error Rate (CER) exceeds approximately 15%, the cognitive load of identifying and correcting errors exceeds the time required to transcribe from scratch.</p>]]></text>
+      <text><![CDATA[<p>Correcting only tests whether a reading is believable; typing it yourself tests whether it is correct, and a suggestion anchors your judgement.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Above ~15% CER, post-correction is a net loss in time and effort.</p>]]></text>
+        <text><![CDATA[<p>Correct. The two tests diverge most on exactly the hard readings where it matters.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>When the Word Error Rate (WER) falls below 2%, automated correction tools cease to function.</p>]]></text>
+      <text><![CDATA[<p>Untrained software is too slow to be worth running before a model has been trained.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Low error rates make post-correction fast and viable.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Speed is not the issue — it is fast. The practical argument is that bad output costs more to fix than to retype.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>When a manuscript contains more than three columns of text per page.</p>]]></text>
+      <text><![CDATA[<p>The software cannot produce output at all without first being given a transcription.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Column count affects layout analysis, not the cognitive efficiency threshold of error correction.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A general model produces output immediately. That it needs training data is a separate, weaker argument.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>When the image resolution exceeds 600 DPI, making file sizes too large to view.</p>]]></text>
+      <text><![CDATA[<p>Machine output cannot be committed to git with the correct provenance labels.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Higher resolution generally improves recognition quality.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It can, and Wednesday shows you how.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1092,7 +1092,7 @@
       <text>26 Question: A Worked Example</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In the worked TEI example, what multiple layers of evidence are preserved that a normalized edition would discard?</p>]]></text>
+      <text><![CDATA[<p>Beyond the words themselves, what does the worked example record that a tidied-up transcription would lose?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>The encoding records abbreviation, uncertainty, correction, and loss — all evidence that later weeks need and that a clean transcription discards.</p>]]></text>
@@ -1104,27 +1104,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Scribal abbreviations with explicit supplied characters, uncertain readings qualified with confidence and lighting source, scribal corrections across hands, and measured lacunae.</p>]]></text>
+      <text><![CDATA[<p>Short forms as written, a doubtful reading with its cause and source, a correction by a second hand, and a measured hole.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The diplomatic encoding preserves the physical and historical evidence that later weeks draw upon for collation, apparatus, and commentary.</p>]]></text>
+        <text><![CDATA[<p>Correct. Every one of those is evidence a later week needs — Week 6 for the short forms, Week 7 for the correction, Weeks 8 and 12 for the doubt and the loss.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The complete biographical dictionary of every scribe who worked in the scriptorium.</p>]]></text>
+      <text><![CDATA[<p>The line numbering, which a tidied version would renumber from one.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI encodes textual and codicological evidence on the page, not speculative biographies.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Line numbering survives tidying easily. What is lost is the evidential markup.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Modern syntactic parse trees and automated English translations embedded directly in the <code>&lt;teiHeader&gt;</code>.</p>]]></text>
+      <text><![CDATA[<p>The Greek accents, which tidying always removes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The example demonstrates diplomatic transcription elements like <code>&lt;choice&gt;</code>, <code>&lt;subst&gt;</code>, <code>&lt;unclear&gt;</code>, and <code>&lt;gap/&gt;</code>.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Tidying usually keeps accents — it may even add ones the scribe omitted. The losses are elsewhere.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Automated vector embeddings for semantic search across classical literature.</p>]]></text>
+      <text><![CDATA[<p>The file's character encoding, which changes when text is regularized.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The example focuses on foundational TEI XML structural and palaeographical markup.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Encoding is unrelated to whether the text has been regularized.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1135,7 +1135,7 @@
       <text>27 Question: Checklist Before You Leave</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Which verification step ensures that your diplomatic transcription is structurally linked to the facsimile images from Lesson 3.3?</p>]]></text>
+      <text><![CDATA[<p>Why finish and validate today rather than carrying unfinished work into Wednesday?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Finish and validate before Wednesday — tomorrow's work builds directly on this file.</p>]]></text>
@@ -1147,27 +1147,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Ensuring every line has an <code>&lt;lb/&gt;</code> element with <code>@n</code> and <code>@facs</code> attributes matching the corresponding <code>&lt;zone&gt;</code> elements.</p>]]></text>
+      <text><![CDATA[<p>Tomorrow's work builds directly on this file, so an unchecked transcription stops the session.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Matching line milestones and facsimile zones ensures the image-text binding is intact and checkable.</p>]]></text>
+        <text><![CDATA[<p>Correct. You cannot correct line strips or train anything against a file that is not finished and valid.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Exporting the TEI document into a proprietary binary word processor file.</p>]]></text>
+      <text><![CDATA[<p>Because the file is submitted for marking at the end of Tuesday.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The workflow uses open XML standards and web-ready IIIF manifests.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The Transcription Assignment is due 2 October, at the end of Week 5.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Removing all polytonic accents so the file can be processed as pure ASCII.</p>]]></text>
+      <text><![CDATA[<p>Because git will not let you commit an invalid XML file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The pipeline strictly requires polytonic Greek normalized to NFC.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Git stores whatever you give it. Validation is your responsibility.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Deleting the <code>&lt;facsimile&gt;</code> section to reduce XML file size before committing.</p>]]></text>
+      <text><![CDATA[<p>Because Transkribus validates the file on import and rejects invalid TEI.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The facsimile element holds the coordinate zones required for verification.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It imports images, not your TEI file. The dependency is on your own next steps.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1175,10 +1175,10 @@
   <!-- 28 Question -->
   <question type="multichoice">
     <name>
-      <text>28 Question: The Week Ahead</text>
+      <text>28 Question: Where This Leads</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Across Topic 4 and Week 5, what four distinct roles does today's manual transcription file fulfill?</p>]]></text>
+      <text><![CDATA[<p>Today's file plays four different roles across the next two weeks. Name them.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Today's file serves as training data, comparison reference, verification object, and measurement reference — four roles, one artefact.</p>]]></text>
@@ -1190,27 +1190,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It serves as today's product, Wednesday's HTR training data, Friday's comparison baseline, and Week 5's reference for scoring machine CER and WER.</p>]]></text>
+      <text><![CDATA[<p>Training examples on Wednesday, a comparison on Friday, the thing being checked in Week 5, and the answer key at the end of Week 5.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A single carefully transcribed artifact anchors every subsequent computational stage and evaluation metric.</p>]]></text>
+        <text><![CDATA[<p>Correct. One file doing four jobs is why its quality spreads so far.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A draft syllabus, a grading rubric, a student roster, and a final course transcript.</p>]]></text>
+      <text><![CDATA[<p>A draft, a corrected version, a final version, and a submitted version.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Today's file is a scholarly digital transcription serving specific pipeline roles.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Those are stages of one file, not different roles it plays for different purposes.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>An OCR engine configuration script, an image compression profile, a CSS stylesheet, and a web server config.</p>]]></text>
+      <text><![CDATA[<p>Training data, a backup, a marking record, and an archive copy.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. These are system administration tasks unrelated to the transcribed TEI file.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Backup and archiving are not roles in the methodology.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A replacement for the original codex, a legal copyright declaration, a grant application, and a print publisher contract.</p>]]></text>
+      <text><![CDATA[<p>An answer key on Wednesday, training data on Friday, and a draft in Week 5.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The file is a scholarly encoding serving training, reference, and measurement roles.</p>]]></text>
+        <text><![CDATA[<p>Incorrect — the order is reversed. It is training data on Wednesday and the answer key at the end of Week 5.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1218,10 +1218,10 @@
   <!-- 29 Question -->
   <question type="multichoice">
     <name>
-      <text>29 Question: What Counts as Good Work Here</text>
+      <text>29 Question: What Good Work Looks Like Here</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is marking a difficult reading as <code>&lt;unclear&gt;</code> considered a hallmark of good scholarly transcription rather than an editorial failure?</p>]]></text>
+      <text><![CDATA[<p>Which part of good transcription is described as both the hardest and the most telling?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Marking uncertainty honestly is the hardest and most diagnostic part of good transcription — a confident guess destroys the record of what was actually legible.</p>]]></text>
@@ -1233,27 +1233,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It honestly records the limits of decipherment from the ink, preserving evidence of ambiguity rather than presenting a confident guess as an established fact.</p>]]></text>
+      <text><![CDATA[<p>Marking doubt honestly, including where you would rather resolve it and move on.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A confident guess destroys the record of what was actually legible, misleading subsequent readers and distorting error rates.</p>]]></text>
+        <text><![CDATA[<p>Correct. An honest `&lt;unclear&gt;` is more useful to every later reader than a confident guess — it is the difference between recording evidence and announcing a conclusion.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Marking readings as <code>&lt;unclear&gt;</code> automatically triggers Transkribus to allocate extra compute credits.</p>]]></text>
+      <text><![CDATA[<p>Keeping the line numbering consistent across every folio.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Transkribus does not alter credit billing based on XML uncertainty tags.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Necessary and worth checking, but mechanical rather than difficult.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The TEI schema rejects any transcription that does not mark at least 15% of its words as <code>&lt;unclear&gt;</code>.</p>]]></text>
+      <text><![CDATA[<p>Encoding every abbreviation with the full `&lt;choice&gt;` structure.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI schemas have no minimum requirement for uncertainty elements.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Laborious, but it is a rule you can simply follow. Admitting doubt is a judgement you must resist avoiding.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It indicates that the editor has delegated the transcription of that word to an external commercial service.</p>]]></text>
+      <text><![CDATA[<p>Producing enough folios to train a usable model.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. <code>&lt;unclear&gt;</code> is a scholarly qualification of reduced confidence by the transcriber.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Volume comes later in the week and is explicitly not today's priority.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1264,7 +1264,7 @@
       <text>30 Question: Synthesis: The Anchor</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is the manual diplomatic transcription step considered irreducible in computational philology?</p>]]></text>
+      <text><![CDATA[<p>Why is the manual step described as unavoidable rather than merely traditional?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Automation is always measured against a reference, and a reference cannot be produced by the thing it measures — which is why the manual step is irreducible rather than merely traditional.</p>]]></text>
@@ -1276,27 +1276,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A measuring instrument cannot calibrate itself; automated models cannot evaluate their own accuracy, so an independent human ground truth is structurally necessary as a baseline.</p>]]></text>
+      <text><![CDATA[<p>A ruler cannot be checked against itself, so a program's own output cannot show whether the program is right.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Machine output is just text of unquantified quality until measured against an independently produced reference.</p>]]></text>
+        <text><![CDATA[<p>Correct. This is structural, not a shortcoming of current technology that a better model will one day fix.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Manual transcription is required because neural networks are incapable of learning non-Latin alphabets.</p>]]></text>
+      <text><![CDATA[<p>Because no software currently reaches an acceptable error rate on Greek manuscripts.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Neural models learn non-Latin scripts effectively given adequate training data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Some do very well. Even a perfect program would still need an independent reference to be shown to be perfect.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>International copyright laws forbid computers from processing historical manuscripts without prior human transcription.</p>]]></text>
+      <text><![CDATA[<p>Because copyright rules require a human-produced transcription in a scholarly edition.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. There is no such legal prohibition.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The argument is about measurement, not about rights.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Computing CER requires proprietary hardware that only human transcribers can operate.</p>]]></text>
+      <text><![CDATA[<p>Because the manual step is the only one that produces valid TEI.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CER is a mathematical calculation (Levenshtein distance) requiring a reference text.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Machine output can be encoded as valid TEI. The issue is what it can be measured against.</p>]]></text>
       </feedback>
     </answer>
   </question>

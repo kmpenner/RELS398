@@ -17,7 +17,7 @@
       <text>01 Question: Today's Question</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the primary objective of comparing manual, specialized HTR, and vision-language model transcriptions today?</p>]]></text>
+      <text><![CDATA[<p>What is today's comparison actually asking about the three transcriptions?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>The question is not which system is best but what kind of error each makes — the kinds differ more than the rates.</p>]]></text>
@@ -29,27 +29,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>To understand what each kind of system does and what its characteristic failure modes reveal about its underlying architecture.</p>]]></text>
+      <text><![CDATA[<p>What each system does when it goes wrong, and what that reveals about the kind of system it is.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The differences in error types — conspicuous letter sequences vs. fluent invented Greek — matter far more to a scholarly editor than simple aggregate error rates.</p>]]></text>
+        <text><![CDATA[<p>Correct. A program producing letter-strings that are not words and one producing smooth invented Greek have failed very differently.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To declare a single permanent software winner that will replace all human transcribers for the remainder of the course.</p>]]></text>
+      <text><![CDATA[<p>Which of the three produced the lowest error rate.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The goal is evaluating different tools against specific material rather than picking a universal winner.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The rate is part of it, but the kinds of failure matter more to an editor than the totals.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To test whether vision-language models can automatically grade student assignments without instructor oversight.</p>]]></text>
+      <text><![CDATA[<p>Whether the AI model can replace the manual step entirely.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The focus is diplomatic transcription and error characterization on historical manuscripts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The manual step is needed as a reference regardless — that was Tuesday's argument.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To prove that computer vision algorithms should never be applied to humanities research.</p>]]></text>
+      <text><![CDATA[<p>Which system is fastest to set up and run.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The exercise establishes where each tool is viable and where it fails.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Cost is recorded and does matter, but it is not what the comparison is *for*.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -57,10 +57,10 @@
   <!-- 02 Question -->
   <question type="multichoice">
     <name>
-      <text>02 Question: What a Vision-Language Model Is</text>
+      <text>02 Question: What These Models Are</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does a vision-language model's extensive linguistic knowledge become a liability when transcribing historical manuscripts?</p>]]></text>
+      <text><![CDATA[<p>Why is a general AI model's deep knowledge of language a liability when transcribing a manuscript?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>A VLM's linguistic knowledge is its strength on modern text and its liability on manuscripts, because it resolves ambiguous ink by expectation.</p>]]></text>
@@ -72,27 +72,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It resolves ambiguous or damaged visual evidence by applying its statistical expectation of language, leading to fluent inventions rather than faithful diplomatic records.</p>]]></text>
+      <text><![CDATA[<p>It brings that knowledge to bear on unclear ink, and settling unclear evidence by expectation is exactly what a diplomatic transcription must not do.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A diplomatic transcription must record the physical ink as written, whereas a VLM's language model tends to complete text based on plausible expectation.</p>]]></text>
+        <text><![CDATA[<p>Correct. Its greatest strength on modern text is its worst liability on your page.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Its linguistic knowledge slows down token generation speeds on GPU servers.</p>]]></text>
+      <text><![CDATA[<p>It makes the model slower, because it checks every reading against its vocabulary.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Generation speed is high; the liability is cognitive and evidential distortion.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Speed is one of its advantages, not a cost.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It forces the model to reject any image containing Greek polytonic diacritics.</p>]]></text>
+      <text><![CDATA[<p>It causes the model to refuse readings it considers ungrammatical.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The model attempts to transcribe Greek, but it over-applies linguistic priors to ambiguous ink.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It does not refuse — it supplies something plausible instead, which is worse.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It causes the model to automatically delete the TEI header from the repository.</p>]]></text>
+      <text><![CDATA[<p>It restricts the model to languages well represented in modern writing.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The issue is text generation behaviour during zero-shot transcription.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It will attempt any language. The problem is what it produces when the ink is unclear.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -100,10 +100,10 @@
   <!-- 03 Question -->
   <question type="multichoice">
     <name>
-      <text>03 Question: The Specialization Gap, Quantified</text>
+      <text>03 Question: The Specialization Gap, in Numbers</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What empirical finding demonstrates that the specialization gap in vision-language models is driven by historical period rather than language?</p>]]></text>
+      <text><![CDATA[<p>What is the most striking thing about GPT-4o's 1.39% on modern English and 52.23% on historical English?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>The same model achieves 1.39% CER on modern handwriting and 52.23% on historical — the gap is period, not language.</p>]]></text>
@@ -115,27 +115,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The same model (GPT-4o) achieved 1.39% CER on modern English handwriting but 52.23% CER on historical English handwriting from the Bentham corpus.</p>]]></text>
+      <text><![CDATA[<p>It is the same model on the same language — only the century differs.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The fortyfold performance degradation occurs on the same language, proving that lack of exposure to historical scripts and conventions is the root cause.</p>]]></text>
+        <text><![CDATA[<p>Correct. That isolates the cause: the training material contains a great deal of modern handwriting and very little old handwriting.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Models perform identically on modern and medieval Latin texts regardless of parameter scale.</p>]]></text>
+      <text><![CDATA[<p>It shows historical English is harder to read than modern English for anyone, human or machine.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. On medieval Latin, general commercial models produced 63–84% CER compared to 14.6% for domain-tuned models.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Palaeographers read it well. The gap is about what the model was exposed to.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Vision-language models achieve 0.00% Word Error Rate on all 18th-century German manuscripts.</p>]]></text>
+      <text><![CDATA[<p>It shows the historical sample was photographed at a lower resolution.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Models reached ~97% WER on historical German, indicating complete failure.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Nothing indicates that, and the pattern holds across several datasets.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>English manuscripts show no performance difference across eight centuries of transmission.</p>]]></text>
+      <text><![CDATA[<p>It shows the model performs better when given more context to work with.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Historical English showed a drastic jump in error rate compared to modern English.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It had a full page in both cases.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -143,10 +143,10 @@
   <!-- 04 Question -->
   <question type="multichoice">
     <name>
-      <text>04 Question: Over-Historicization</text>
+      <text>04 Question: Making Things Look Older Than They Are</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is 'over-historicization' in the context of vision-language model transcription?</p>]]></text>
+      <text><![CDATA[<p>What is over-historicization, and why is it not a simple misreading?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>GPT-4o beat a generic HTR baseline on CER while inventing anachronistic characters in 59% of files — the metric and the fidelity diverge.</p>]]></text>
@@ -158,27 +158,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The algorithmic insertion of archaic characters or graphemes from an earlier historical epoch that are not present in the source manuscript.</p>]]></text>
+      <text><![CDATA[<p>The model inserts characters from an *earlier* period than the document, because it has learned that old documents go with old spelling.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The model associates 'old document' with archaic orthography and hallucinates obsolete characters (e.g. pre-Petrine Cyrillic in 18th-century texts).</p>]]></text>
+        <text><![CDATA[<p>Correct. It is not misreading the ink; it is reading its own expectation of the period.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The tendency of human historians to overestimate the age of a manuscript based on watermarks.</p>]]></text>
+      <text><![CDATA[<p>The model refuses to modernize spelling even when asked to, producing archaic output.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Over-historicization is an algorithmic hallucination of archaic characters by AI models.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That would at least be faithful to the page. Here it invents forms that are on no page at all.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The automatic removal of all historical punctuation by modern OCR software.</p>]]></text>
+      <text><![CDATA[<p>The model dates the manuscript too early in any commentary it produces.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. That is silent modernization; over-historicization is the insertion of anachronistic archaic characters.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The problem is in the transcription itself, not in dating.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A database error that overwrites manuscript creation dates with random timestamps.</p>]]></text>
+      <text><![CDATA[<p>The model preserves archaic characters that a specialist model would drop.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is a specific generative hallucination phenomenon in historical OCR/HTR.</p>]]></text>
+        <text><![CDATA[<p>Incorrect — it is the opposite. It adds characters that were never there.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -186,10 +186,10 @@
   <!-- 05 Question -->
   <question type="multichoice">
     <name>
-      <text>05 Question: Why CER Is Insufficient for Historical Text</text>
+      <text>05 Question: Why One Score Is Not Enough</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why do researchers use supplementary metrics like Historical Character Preservation Rate (HCPR) and Archaic Insertion Rate (AIR) alongside CER?</p>]]></text>
+      <text><![CDATA[<p>Why is the usual character score inadequate for judging a historical transcription?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>A model can score well on CER while silently modernizing or hallucinating archaism — check preservation and insertion separately.</p>]]></text>
@@ -201,27 +201,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Because a model can achieve a deceptively low CER while systematically destroying diplomatic fidelity through silent modernization or hallucinated archaisms.</p>]]></text>
+      <text><![CDATA[<p>It treats every difference as equal, so inventing a period spelling counts the same as any other substitution.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. CER treats all character substitutions identically, failing to distinguish harmless minor typos from severe temporal or orthographic corruption.</p>]]></text>
+        <text><![CDATA[<p>Correct. A model can score well while wrecking precisely the evidence the transcription exists to hold.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>CER can only be computed for Latin characters, requiring HCPR for Greek and Cyrillic.</p>]]></text>
+      <text><![CDATA[<p>It cannot be computed at all when line breaks have been lost.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CER is calculated on any script; HCPR and AIR measure specific qualitative historical fidelity.</p>]]></text>
+        <text><![CDATA[<p>Incorrect — that is a practical difficulty, and a real one, but not the argument here.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because CER requires manual double-keying by three independent certified archivists.</p>]]></text>
+      <text><![CDATA[<p>It is calculated on words rather than characters, which hides letter-level errors.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CER is an automated Levenshtein edit distance; HCPR/AIR measure historical preservation specifically.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is calculated on characters. The word-level figure is a separate measure.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because international copyright registries reject papers that report standard CER.</p>]]></text>
+      <text><![CDATA[<p>It only works when both texts are in the same language.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The justification is philological and methodological rigor.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is a string comparison and is indifferent to language.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -229,10 +229,10 @@
   <!-- 06 Question -->
   <question type="multichoice">
     <name>
-      <text>06 Question: Structural and Formatting Failures</text>
+      <text>06 Question: Mess, Chat, and Confident Gap-Filling</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the consequence of a vision-language model reflowing transcribed text as continuous prose rather than preserving line breaks?</p>]]></text>
+      <text><![CDATA[<p>Why is losing the line breaks a practical disaster and not just untidy?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>VLMs reflow lines, add commentary, and fill gaps confidently — none of which announces itself in the output.</p>]]></text>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The output cannot be aligned to facsimile image zones, cannot be used for line-level HTR training, and prevents direct line-by-line error comparison.</p>]]></text>
+      <text><![CDATA[<p>Without them you cannot match the output to your image boxes, cannot train on it, and cannot compare it line by line against your own version.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Preserving manuscript line breaks is structural; without them, image-text bindings and granular verification collapse.</p>]]></text>
+        <text><![CDATA[<p>Correct. Wednesday's model produced line-by-line output because it worked on line strips; today's sees a whole page and hands back prose.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The output is automatically encrypted and locked by the API server.</p>]]></text>
+      <text><![CDATA[<p>Because TEI cannot encode a paragraph that has no line breaks in it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The text is readable prose, but structurally detached from the physical manuscript layout.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It encodes continuous prose perfectly well. The loss is in what you can do with it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Continuous prose causes web browsers to display the text in reverse character order.</p>]]></text>
+      <text><![CDATA[<p>Because the line breaks carry the accents, which are lost with them.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Text displays normally, but cannot link to line zones or serve as line training data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Accents are unaffected by reflowing.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Reflowing text reduces the token cost of the API call by 90%.</p>]]></text>
+      <text><![CDATA[<p>Because the word count changes when lines are run together.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. API token cost is based on prompt and output token count, not line break count.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The words are the same; only the arrangement changes.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -272,10 +272,10 @@
   <!-- 07 Question -->
   <question type="multichoice">
     <name>
-      <text>07 Question: Designing the Experiment</text>
+      <text>07 Question: Setting Up a Fair Test</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must you record the exact prompt verbatim, model version, and access date when running transcription experiments with hosted VLMs?</p>]]></text>
+      <text><![CDATA[<p>Why record the exact instruction and the model version, not just the result?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Record the prompt verbatim, the model version, and the date — without them the result is not reproducible.</p>]]></text>
@@ -287,27 +287,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Hosted models are updated without notice and respond differently to slight prompt variations, making full documentation essential for scientific reproducibility.</p>]]></text>
+      <text><![CDATA[<p>A different wording or a quietly updated model gives a different number, so without them nobody — including you — can repeat the result.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A reported error rate without exact prompt, version, and date cannot be verified or replicated by future researchers.</p>]]></text>
+        <text><![CDATA[<p>Correct. These services change without announcing it, which is why the date matters too.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Commercial API providers require this metadata to issue academic research grants.</p>]]></text>
+      <text><![CDATA[<p>Because the instruction must be submitted for approval before the assignment is marked.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Provenance documentation is a standard scholarly reproducibility requirement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No approval step exists. The reason is reproducibility.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Recording the date prevents the model from generating conversational framing text.</p>]]></text>
+      <text><![CDATA[<p>Because the model will refuse to run twice with the same instruction.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Prompt constraints reduce conversational filler; recording metadata ensures reproducibility.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It will run as often as you like.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The TEI schema rejects XML documents unless the model access date is validated via RelaxNG.</p>]]></text>
+      <text><![CDATA[<p>Because the version number determines which credits are charged.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI schemas validate document structure, while metadata records experimental provenance.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. No credits are involved on Friday, and that is part of the cost comparison.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -315,10 +315,10 @@
   <!-- 08 Question -->
   <question type="multichoice">
     <name>
-      <text>08 Question: Prompting for Diplomatic Transcription</text>
+      <text>08 Question: Writing the Instruction</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does a good transcription prompt include explicit constraints against modernizing, expanding abbreviations, and filling gaps?</p>]]></text>
+      <text><![CDATA[<p>Why does the recommended instruction spell out every constraint, rather than just asking for a transcription?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Every constraint in the prompt addresses a documented failure mode, and a good prompt reduces those failures without eliminating them.</p>]]></text>
@@ -330,27 +330,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Each constraint addresses a documented default failure mode of general-purpose models, reducing unwanted generative intervention.</p>]]></text>
+      <text><![CDATA[<p>Each line addresses a documented failure — chat, reflowed lines, spelled-out short forms, modernized spelling, confidently filled gaps.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Without explicit constraints, models default to conversational prose, expanded abbreviations, normalized spelling, and silent gap filling.</p>]]></text>
+        <text><![CDATA[<p>Correct. And even so it only reduces those failures; you still check the output against every requirement.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Adding negative constraints guarantees 0% character error rate on all Greek minuscule texts.</p>]]></text>
+      <text><![CDATA[<p>Because longer instructions always produce more accurate output from these models.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Constraints reduce but do not eliminate hallucination and formatting failures; verification is still required.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Length is not the virtue — targeting known failures is.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Negative constraints reduce the memory consumption of the vision transformer during image tokenization.</p>]]></text>
+      <text><![CDATA[<p>Because the model will otherwise refuse to transcribe Greek.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Prompt text guides autoregressive decoding; it does not reduce vision transformer patch memory.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It will attempt it readily. The problem is the form the attempt takes.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Prompts without negative constraints are automatically rejected by LLM safety classifiers.</p>]]></text>
+      <text><![CDATA[<p>Because the constraints are required for the output to validate as TEI.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Prompts without constraints simply produce unconstrained, normalized, or conversational output.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The output is plain text; encoding it comes later.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -358,10 +358,10 @@
   <!-- 09 Question -->
   <question type="multichoice">
     <name>
-      <text>09 Question: Running the Transcription</text>
+      <text>09 Question: Running It</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must you save and commit the raw, unedited output of the VLM before making any corrections or reformatting?</p>]]></text>
+      <text><![CDATA[<p>Why resist adjusting the wording until the output looks good?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Commit the raw output before correcting or reformatting anything — that state is what Week 5 measures.</p>]]></text>
@@ -373,27 +373,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The raw output represents the exact empirical state that must be measured and scored against the ground truth in Week 5.</p>]]></text>
+      <text><![CDATA[<p>You would end up with an instruction tuned to this one passage, which is not what you set out to measure.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Correcting or reformatting raw output prior to committing destroys the measurement baseline and obscures true model performance.</p>]]></text>
+        <text><![CDATA[<p>Correct. Run the planned test, and note any extra attempts separately.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Git will corrupt the repository history if a machine-generated file is edited before its initial commit.</p>]]></text>
+      <text><![CDATA[<p>Because each attempt consumes credits from the shared class allowance.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git tracks whatever text is committed; preserving raw output is an experimental discipline.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Friday's tool needs no credits — that is part of why it looks cheap.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To ensure that the API provider does not charge for tokens generated during human post-editing.</p>]]></text>
+      <text><![CDATA[<p>Because the model performs worse each time it is asked the same thing.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Token billing occurs during the API call, regardless of local Git operations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It does not degrade with repetition.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Raw commits are automatically converted into TEI apparatus entries by GitHub Actions.</p>]]></text>
+      <text><![CDATA[<p>Because only the first attempt may be committed to the repository.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Preserving raw commits provides the audit baseline for error analysis.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Commit each separately, with its own labels.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -401,10 +401,10 @@
   <!-- 10 Question -->
   <question type="multichoice">
     <name>
-      <text>10 Question: Reading the Output Critically</text>
+      <text>10 Question: Reading the Output Sceptically</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why can you not evaluate the accuracy of a VLM transcription simply by reading through the generated text?</p>]]></text>
+      <text><![CDATA[<p>Why can the most serious errors not be found by reading the output carefully?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Fluent output reads as correct, so check against the image — and look specifically at where you recorded damage.</p>]]></text>
@@ -416,27 +416,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The model produces fluent, grammatically correct text that reads perfectly while potentially disagreeing completely with the actual ink on the parchment.</p>]]></text>
+      <text><![CDATA[<p>Smooth text reads as correct, and the mistakes that matter most are the ones that read perfectly — you have to compare against the picture.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Plausible wrong words and fabricated readings cannot be detected by reading the prose; they can only be identified by comparing against the image at full zoom.</p>]]></text>
+        <text><![CDATA[<p>Correct. Look especially at the damaged patch you identified in Lesson 3.2.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>VLM outputs are written in an encrypted dialect of Greek that only neural networks can parse.</p>]]></text>
+      <text><![CDATA[<p>Because the output is too long to read carefully in one session.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The output is standard Greek text, which is deceptively fluent.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Length is not the obstacle; plausibility is.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Reading VLM text causes transcribers to lose their active Git session credentials.</p>]]></text>
+      <text><![CDATA[<p>Because the errors are concentrated in the accents, which are hard to see on screen.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The risk is cognitive confirmation bias and accepting plausible hallucinations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Accent loss is one problem among several, and it is visible once you look.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Reading without an automated XML parser triggers fatal syntax exceptions in the terminal.</p>]]></text>
+      <text><![CDATA[<p>Because the model marks its own errors, so reading is unnecessary.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Text reading is a human cognitive task; image verification is required.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Its self-marking is unreliable, as the next section shows.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -444,10 +444,10 @@
   <!-- 11 Question -->
   <question type="multichoice">
     <name>
-      <text>11 Question: Self-Reported Uncertainty Is Unreliable</text>
+      <text>11 Question: It Does Not Know What It Does Not Know</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the methodological implication of finding that a VLM's self-reported uncertainty markers (e.g. <code>[?]</code>) do not correlate with its actual errors?</p>]]></text>
+      <text><![CDATA[<p>Suppose the model's uncertainty flags turn out to be unrelated to where it actually went wrong. What follows?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>If the model's uncertainty markers do not track its errors, you must check everything — and the tool saves no verification labour at all.</p>]]></text>
@@ -459,27 +459,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>You cannot rely on uncertainty markers to direct your review, meaning you must check every single word against the image and save no verification labour.</p>]]></text>
+      <text><![CDATA[<p>You must check all of it, so the tool saves you no checking work at all — whatever it saves in typing.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Poor calibration means the tool provides no selective reduction in human verification effort.</p>]]></text>
+        <text><![CDATA[<p>Correct. That bears directly on whether the method is usable for your manuscript.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The model should immediately be retrained with a higher temperature parameter.</p>]]></text>
+      <text><![CDATA[<p>You should re-run it with a stricter instruction about marking uncertainty.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Raising temperature increases randomness and hallucination; poor calibration is an inherent model property.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The problem is that these models judge their own confidence poorly, not that the instruction was too loose.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The transcriber should automatically delete all lines containing question marks.</p>]]></text>
+      <text><![CDATA[<p>The flags can be ignored and the confident readings trusted.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Unreliable markers mean all lines must be checked against the manuscript image.</p>]]></text>
+        <text><![CDATA[<p>Incorrect — that is precisely backwards. Confident readings over damage are the most serious finding.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transkribus credits can be refunded by submitting the miscalibrated output to customer support.</p>]]></text>
+      <text><![CDATA[<p>It means the image resolution was too low for the model to judge.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. LLM uncertainty calibration is an active research challenge, not a billing defect.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Poor self-assessment is a property of these models, not of your images.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -487,10 +487,10 @@
   <!-- 12 Question -->
   <question type="multichoice">
     <name>
-      <text>12 Question: Memorization Versus Reading</text>
+      <text>12 Question: Is It Reading, or Reciting?</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How can an editor determine whether a vision-language model is actually reading the manuscript image or reciting a well-known text from memory?</p>]]></text>
+      <text><![CDATA[<p>How can you tell whether the model read your page or recited a printed edition from memory?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Where your manuscript differs from the printed text, a model reciting from memory gives the printed reading — that is the test.</p>]]></text>
@@ -502,27 +502,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Check what the model outputs at known manuscript variant readings and in physically damaged lacunae.</p>]]></text>
+      <text><![CDATA[<p>Look at a place where your copy differs from the standard text — reading gives your copy's reading, reciting gives the printed one.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. If the model outputs the standard printed text where the witness has a variant, or fills a damaged lacuna fluently, it is reciting from training memory.</p>]]></text>
+        <text><![CDATA[<p>Correct. The damage test supports it: filling an illegible patch fluently *and correctly* is more damning than filling it wrongly.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Prompt the model to state its training dataset copyright licenses.</p>]]></text>
+      <text><![CDATA[<p>Ask the model whether it has seen the text before.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Models cannot provide reliable internal data provenance via zero-shot prompts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Its self-report is unreliable, as section 11 established.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Measure the inference latency in milliseconds between consecutive output tokens.</p>]]></text>
+      <text><![CDATA[<p>Compare the output's length against your transcription's.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Token generation speed does not distinguish image attention from memory retrieval.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Length tells you nothing about the source of the words.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Check whether the output contains modern English punctuation marks.</p>]]></text>
+      <text><![CDATA[<p>Check whether the output preserves the line breaks.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Punctuation reflects prompt adherence; variant readings and lacunae test reading vs. memorization.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That tests whether it followed instructions, not whether it read the ink.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -530,10 +530,10 @@
   <!-- 13 Question -->
   <question type="multichoice">
     <name>
-      <text>13 Question: Computing a Preliminary Error Rate</text>
+      <text>13 Question: A Rough Score</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must both the reference ground truth and the hypothesis text be normalized to Unicode NFC before computing Character Error Rate?</p>]]></text>
+      <text><![CDATA[<p>Why normalize both texts before working out a score?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Normalize both strings to NFC before computing CER, or you measure encoding difference rather than transcription difference.</p>]]></text>
@@ -545,27 +545,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>If one string is NFC (precomposed) and the other is NFD (decomposed), Levenshtein distance will compare byte sequences and grossly inflate the error rate despite identical visual text.</p>]]></text>
+      <text><![CDATA[<p>Accents can be stored in two different ways, and comparing one storage form against the other measures storage rather than transcription.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Normalizing both strings ensures you measure true transcription differences rather than character composition encoding differences.</p>]]></text>
+        <text><![CDATA[<p>Correct. The inflation can be severe, and it has nothing to do with how well anything was read.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Python's <code>unicodedata</code> module cannot process Greek polytonic characters in NFD format.</p>]]></text>
+      <text><![CDATA[<p>Because the score requires both texts to be the same length.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Python handles both, but comparing NFC against NFD computes character edit mismatches on identical graphemes.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It handles different lengths by design — that is what the edit count is for.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>NFC normalization automatically translates medieval abbreviations into modern Greek.</p>]]></text>
+      <text><![CDATA[<p>Because Greek cannot be compared character by character without normalization.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Unicode normalization standardizes code point representation; it does not alter lexical content.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It can; the risk is that identical-looking characters are stored differently.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Git merge tools will corrupt files that contain NFC-normalized polytonic vowels.</p>]]></text>
+      <text><![CDATA[<p>Because normalization removes the chat and preamble automatically.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. NFC is the standard canonical normalization form recommended across the pipeline.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Stripping the chat is a separate step you do yourself.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -573,10 +573,10 @@
   <!-- 14 Question -->
   <question type="multichoice">
     <name>
-      <text>14 Question: Where LLMs Are Genuinely Useful</text>
+      <text>14 Question: Where These Tools Genuinely Help</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What general principle distinguishes the tasks where LLMs are genuinely effective in textual scholarship from those where they fail?</p>]]></text>
+      <text><![CDATA[<p>What distinguishes the tasks these models are good at from the ones they are bad at?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>These tools help where linguistic knowledge is the point and harm where it contaminates evidence — transcription is the second kind.</p>]]></text>
@@ -588,27 +588,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>They succeed at tasks where broad linguistic knowledge is the goal (translation, explaining palaeography, code drafting) and fail where linguistic priors contaminate historical evidence (diplomatic transcription).</p>]]></text>
+      <text><![CDATA[<p>They help where knowing language is the point, and harm where knowing language contaminates the evidence.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Linguistic priors help in synthesis and language tasks, but corrupt diplomatic transcription by imposing statistical expectations onto unique artifacts.</p>]]></text>
+        <text><![CDATA[<p>Correct. Transcription is the second kind — which is why translating a transcription you already have is a perfectly good use.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They succeed exclusively on numerical calculation tasks and fail on all natural language processing.</p>]]></text>
+      <text><![CDATA[<p>They help with short tasks and struggle with long ones.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. LLMs excel at language tasks, but historical transcription requires faithful image-to-text fidelity.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Length is not the dividing line — a whole-page translation is fine.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They are effective only when run on local microcontrollers without internet access.</p>]]></text>
+      <text><![CDATA[<p>They help with modern material and struggle with anything written by hand.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Modern VLMs require substantial server infrastructure.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They do very well on modern handwriting. The difficulty is historical material.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They succeed at OCR post-correction while failing at translation.</p>]]></text>
+      <text><![CDATA[<p>They help when given examples and struggle without them.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Studies prove LLM post-correction degrades OCR quality, while translation of established text is effective.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The problem is structural, not a matter of how many examples are supplied.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -616,10 +616,10 @@
   <!-- 15 Question -->
   <question type="multichoice">
     <name>
-      <text>15 Question: The Human-in-the-Loop Position</text>
+      <text>15 Question: Where That Leaves the Method</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Under what specific condition does an automated transcription tool genuinely save scholarly labour in a human-in-the-loop workflow?</p>]]></text>
+      <text><![CDATA[<p>If the general model scores above 15% and your trained model below it, what is the right conclusion?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Automation saves labour only below the threshold where correction costs less than transcription — and you have now measured where your tools sit.</p>]]></text>
@@ -631,27 +631,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Only when the model's accuracy is high enough (e.g. CER below ~15%) that validating and correcting its output requires less time and cognitive effort than transcribing by hand.</p>]]></text>
+      <text><![CDATA[<p>That the specialized tool is the right one for this job — and you now have your own measurement to say so.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. If error rates exceed that threshold, post-correction is slower and more cognitively demanding than transcribing from scratch.</p>]]></text>
+        <text><![CDATA[<p>Correct. Not that AI is useless, but that this task, on this material, is better served by the specialist.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Whenever the model is branded as an 'artificial intelligence' system.</p>]]></text>
+      <text><![CDATA[<p>That AI models are unsuitable for humanities research generally.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Marketing labels do not alter empirical workflow economics.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is a sweeping claim your measurement does not support.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Only when the human transcriber is completely removed from the editorial loop.</p>]]></text>
+      <text><![CDATA[<p>That the general model needs a better instruction and should be re-run until it improves.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Human verification remains essential for diplomatic fidelity; automation shifts labour to validation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Tuning until it looks good is the trap section 09 warned about.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Whenever the software is funded by an external university research grant.</p>]]></text>
+      <text><![CDATA[<p>That your trained model is accurate enough to use without correction.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Labour savings depend on empirical error rates and verification costs.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Below 15% means correcting is worthwhile, not that correcting is unnecessary.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -659,10 +659,10 @@
   <!-- 16 Question -->
   <question type="multichoice">
     <name>
-      <text>16 Question: Documenting AI Use in the Repository</text>
+      <text>16 Question: Recording AI Use in the Repository</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is the <code>Model-Access-Date</code> trailer specifically necessary when documenting output generated by commercial hosted VLMs?</p>]]></text>
+      <text><![CDATA[<p>Why does the date you used the model matter as much as its version number?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Record the model access date — a hosted model can change without notice, making the date the only record of what produced the output.</p>]]></text>
@@ -674,27 +674,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Hosted models can be updated or replaced behind an unchanging API endpoint without notice, making the date the only stable record of what system produced the text.</p>]]></text>
+      <text><![CDATA[<p>These services run on somebody else's computers and can change overnight without the version number moving.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Unannounced backend model updates mean an experiment run in September may not be reproducible in December without the access date.</p>]]></text>
+        <text><![CDATA[<p>Correct. The date is often the only record of what actually produced your text.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To allow Git to automatically bill the user's credit card on the monthly anniversary.</p>]]></text>
+      <text><![CDATA[<p>Because the assignment requires all work to be dated for marking purposes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git trailers are text metadata for provenance, not billing mechanisms.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The reason is reproducibility, not administration.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because hosted model licenses expire 24 hours after text generation.</p>]]></text>
+      <text><![CDATA[<p>Because model output is only valid for a limited period after generation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Generated text does not expire, but model reproducibility requires date tracking.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The output does not expire. What changes is the system behind it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To ensure the commit complies with the Unicode Consortium's calendar specification.</p>]]></text>
+      <text><![CDATA[<p>Because the date determines which version of TEI the output conforms to.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Date tracking is a scholarly provenance requirement for ephemeral hosted APIs.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The output is plain text and conforms to nothing until you encode it.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -702,10 +702,10 @@
   <!-- 17 Question -->
   <question type="multichoice">
     <name>
-      <text>17 Question: Assembling the Three-Way Comparison</text>
+      <text>17 Question: Putting the Three Side by Side</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When building the three-way comparison table (<code>logs/three-way-w4.md</code>), why must you specifically include lines containing uncertainty or physical damage?</p>]]></text>
+      <text><![CDATA[<p>Which lines should the three-way comparison concentrate on, and why?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Compare on the lines where you recorded uncertainty — agreement on easy lines is uninformative, and divergence on hard lines is the finding.</p>]]></text>
@@ -717,27 +717,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Agreement on clear, easy lines reveals little, whereas divergence on damaged or difficult lines exposes how each system behaves when visual evidence is ambiguous.</p>]]></text>
+      <text><![CDATA[<p>The lines where you recorded doubt or damage, because what each system does when the evidence runs out is the finding.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Hard lines highlight the contrast between human caution (<code>&lt;gap/&gt;</code>), HTR breakdown (impossible characters), and VLM hallucination (fluent invention).</p>]]></text>
+        <text><![CDATA[<p>Correct. Agreement on easy lines tells you almost nothing.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the TEI validator requires damaged lines to be highlighted in bold red text.</p>]]></text>
+      <text><![CDATA[<p>The first ten lines, so the sample is consistent across students.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Markdown comparison tables are analytical research tools, not TEI validation scripts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A fixed position is arbitrary; the informative lines are the difficult ones.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To demonstrate that human transcribers make more errors on damaged text than vision-language models.</p>]]></text>
+      <text><![CDATA[<p>The lines where all three agree, since agreement confirms the reading.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Human transcribers properly record gaps, whereas models tend to fabricate text.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Agreement on easy lines is exactly the uninformative case.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because undamaged lines cannot be rendered in GitHub flavored markdown tables.</p>]]></text>
+      <text><![CDATA[<p>The lines with the most abbreviations, since those dominate the score.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. All lines can be rendered; damaged lines provide the most diagnostic evidence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Worth including, but the criterion is where *you* recorded uncertainty.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -745,10 +745,10 @@
   <!-- 18 Question -->
   <question type="multichoice">
     <name>
-      <text>18 Question: Error Taxonomy Across the Three</text>
+      <text>18 Question: Sorting the Mistakes</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What fundamental difference between specialized HTR and vision-language models is revealed by their error taxonomy?</p>]]></text>
+      <text><![CDATA[<p>Four kinds of failure belong almost entirely to the general AI. What do they have in common?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>The VLM's distinctive failures are not recognition errors but consequences of being a language model — and the HTR model cannot make your expectation-driven errors.</p>]]></text>
@@ -760,27 +760,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>VLM failures (commentary, lost line breaks, fluent fabrication) are consequences of being a generative language model, whereas HTR models are bounded to ink and cannot make expectation-driven errors.</p>]]></text>
+      <text><![CDATA[<p>None of them is a reading mistake — they follow from it being a language machine pointed at a reading job.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. HTR errors are image-mapping failures, while VLM errors stem from imposing linguistic and conversational priors onto a reading task.</p>]]></text>
+        <text><![CDATA[<p>Correct. It reformats because it writes prose, chats because it converses, and invents because it completes.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Specialized HTR models make more formatting errors because they lack recurrent neural layers.</p>]]></text>
+      <text><![CDATA[<p>They all come from the image being supplied at too low a resolution.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. HTR models preserve line structure because they operate on segmented line images.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They occur at any resolution, because they arise from what the system is.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Vision-language models make no errors on Greek abbreviations because their vocabulary is infinite.</p>]]></text>
+      <text><![CDATA[<p>They all appear only when the instruction was poorly written.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. VLMs frequently expand abbreviations silently or hallucinate expansions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A good instruction reduces them; it does not remove them.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Human transcribers never suffer from expectation bias when reading familiar literature.</p>]]></text>
+      <text><![CDATA[<p>They are all caused by the model having seen the printed text before.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Transcribers frequently suffer from expectation bias, which HTR models structurally avoid.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Reciting from memory is a separate failure, tested for separately.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -788,10 +788,10 @@
   <!-- 19 Question -->
   <question type="multichoice">
     <name>
-      <text>19 Question: Reporting Negative Results</text>
+      <text>19 Question: Reporting a Result That Did Not Work</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is a carefully documented negative result (e.g. a VLM producing high CER and fabricating readings) valuable in scholarly digital humanities?</p>]]></text>
+      <text><![CDATA[<p>Why is a documented failure a contribution rather than a failed assignment?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>A documented failure — this model, this prompt, this manuscript, this rate — is a contribution, and vague dismissal is not.</p>]]></text>
@@ -803,27 +803,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It establishes an empirical boundary on what a specific tool can and cannot do on historical material, preventing future researchers from repeating the failure.</p>]]></text>
+      <text><![CDATA[<p>This model, this instruction, this manuscript, this score — that record saves the next person from repeating the attempt.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Transparent negative results with documented models, prompts, and error rates provide essential evidence for scholarly tool selection.</p>]]></text>
+        <text><![CDATA[<p>Correct. Reporting only what worked is the opposite of what is wanted.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It automatically qualifies the researcher for compensation from the AI software vendor.</p>]]></text>
+      <text><![CDATA[<p>Because negative results are marked more generously than positive ones.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scientific reporting serves academic scholarship, not commercial vendor disputes.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The value is scholarly, not a marking concession.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It proves that digital methods are fundamentally incompatible with all historical manuscripts.</p>]]></text>
+      <text><![CDATA[<p>Because a failed attempt proves the tool should never be used for anything.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It clarifies which specific tools are suitable for which specific palaeographical tasks.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The honest conclusion is narrow and specific, not a blanket judgement.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It allows the researcher to omit the methodology section from the final project report.</p>]]></text>
+      <text><![CDATA[<p>Because the assignment only requires that something was attempted.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Documenting negative results requires thorough methodological reporting.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It requires a specific, defensible conclusion about your own material.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -831,10 +831,10 @@
   <!-- 20 Question -->
   <question type="multichoice">
     <name>
-      <text>20 Question: Remote Session Practicalities</text>
+      <text>20 Question: Working Remotely Today</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must you explicitly reinstall and test your Git pre-commit hooks when working from a fresh clone during a remote session?</p>]]></text>
+      <text><![CDATA[<p>Why might your accent-fixing hook not run today, even though it worked all week?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Hooks are not cloned — install and test your NFC hook on this machine before committing anything today.</p>]]></text>
@@ -846,27 +846,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Git hooks live in <code>.git/hooks/</code> and are never copied during a clone or pull, so uninstalled hooks will silently fail to enforce NFC normalization.</p>]]></text>
+      <text><![CDATA[<p>Hooks live in `.git/hooks/`, which is not copied when you clone — so a fresh copy has none.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Hooks are local to a clone; without manual installation from <code>tools/</code>, commits made on a remote machine can introduce decomposed NFD Greek.</p>]]></text>
+        <text><![CDATA[<p>Correct. Install it from your tracked `tools/` folder and test it before committing anything.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Fresh clones disable write permissions on all markdown files until a hook is compiled.</p>]]></text>
+      <text><![CDATA[<p>Hooks are disabled automatically when git runs outside the campus network.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git allows commits without hooks; the danger is silent loss of normalization enforcement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Git neither knows nor cares which network you are on.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Git pre-commit hooks are automatically downloaded and executed by GitHub on push.</p>]]></text>
+      <text><![CDATA[<p>Hooks expire after a set number of commits and must be reinstalled.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Pre-commit hooks run locally prior to commit creation, not remotely on GitHub.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They do not expire. They were simply never copied across.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transkribus will reject API calls originating from IP addresses without pre-commit hooks.</p>]]></text>
+      <text><![CDATA[<p>Hooks only run on files that have been pushed to the remote.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Transkribus has no knowledge of local client Git hooks.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They run before a commit is recorded, locally.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -874,10 +874,10 @@
   <!-- 21 Question -->
   <question type="multichoice">
     <name>
-      <text>21 Question: What Wednesday and Friday Together Established</text>
+      <text>21 Question: What This Week Established</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What central thesis connects all empirical findings across Topic 4 (transfer learning, specialization gap, over-historicization, layout cascading)?</p>]]></text>
+      <text><![CDATA[<p>What do all eight of the week's findings have in common?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Every finding in the table is a measurement against a hand-produced ground truth — which is the week's thesis in operation.</p>]]></text>
@@ -889,27 +889,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Automated transcription accelerates workflow but fundamentally requires human diplomatic transcription as an authoritative baseline to measure, evaluate, and mitigate errors.</p>]]></text>
+      <text><![CDATA[<p>Every one is a measurement taken against a reference that somebody made by hand.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Every computational claim and error metric is a distance measured against an authoritative hand-produced ground truth.</p>]]></text>
+        <text><![CDATA[<p>Correct. That is the week's thesis in operation — automation speeds the work and depends absolutely on the hand-made reference.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Neural networks have rendered human palaeographical expertise entirely obsolete for historical editing.</p>]]></text>
+      <text><![CDATA[<p>Every one shows that specialized tools outperform general ones.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Automation amplifies human judgment, which remains necessary for ground truth and validation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Several do, but others concern transfer learning, layout, and pipeline design.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Vision-language models will achieve 0% error rates on all medieval manuscripts once parameter counts exceed 1 trillion.</p>]]></text>
+      <text><![CDATA[<p>Every one was produced by this course rather than drawn from published work.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Parameter scale without domain exposure does not resolve the specialization gap.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They are published findings, which you have now partly repeated yourself.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Digital editions should avoid all forms of automation to preserve traditional scholarly authority.</p>]]></text>
+      <text><![CDATA[<p>Every one concerns Greek manuscripts specifically.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The thesis demonstrates how to integrate automation rigorously with human baseline controls.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They span Latin, English, German, and Russian material.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -920,7 +920,7 @@
       <text>22 Question: Checklist Before You Finish</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>For a well-known classical or biblical text, which checklist verification item is most critical for detecting an unfaithful VLM transcription?</p>]]></text>
+      <text><![CDATA[<p>Which check on today's list would catch a failure that nothing else on it would?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>For a well-known text, the memorization test is the most important check available — nothing else detects a recited printed edition.</p>]]></text>
@@ -932,27 +932,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Testing for memorization at known variant reading locations and damaged lacunae.</p>]]></text>
+      <text><![CDATA[<p>The test for reciting — a model reproducing a printed edition from memory produces excellent-looking output that is worthless as a record of your copy.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A model reciting a standard printed edition from memory will produce beautiful output that completely falsifies the witness's unique textual evidence.</p>]]></text>
+        <text><![CDATA[<p>Correct. It applies only to well-known texts, but where it applies nothing else detects it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Checking whether the file size of the raw output is an exact multiple of 64 bytes.</p>]]></text>
+      <text><![CDATA[<p>The line count, since a mismatch invalidates every later comparison.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. File size has no bearing on textual fidelity or memorization.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Serious, but it is conspicuous — you notice immediately.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Running a sentiment analysis classifier over the transcribed Greek prose.</p>]]></text>
+      <text><![CDATA[<p>The score calculation, since an unnormalized comparison inflates the figure.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Sentiment analysis is irrelevant to diplomatic transcription fidelity.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Also serious, and also detectable by other means.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Confirming that the VLM output contains no mentions of 21st-century technology.</p>]]></text>
+      <text><![CDATA[<p>The provenance labels, since unlabelled machine text cannot be identified later.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The critical failure is subtle recitation of printed editions rather than overt anachronisms.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Important, but the audit commands would reveal a missing label.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -963,7 +963,7 @@
       <text>23 Question: Looking Ahead to Week 5</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the primary activity of Meeting #12 (Tuesday of Week 5) before quantitative CER and WER measurements are computed?</p>]]></text>
+      <text><![CDATA[<p>Why does Week 5 lose nothing by having only two meetings?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Week 5 double-keys the ground truth and then measures against it — and the Transcription Assignment on October 2 includes the reconciliation report.</p>]]></text>
@@ -975,27 +975,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Double-keying the manual ground truth to produce a verified consensus text by adjudicating differences between independent passes.</p>]]></text>
+      <text><![CDATA[<p>Reconciliation *is* the comparison, so the two meetings — typing it twice, then measuring — cover the week's work.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Double-keying refines the human ground truth so that machine outputs are scored against a truly accurate reference.</p>]]></text>
+        <text><![CDATA[<p>Correct. Wednesday 30 September is closed for Truth and Reconciliation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Retraining the HTR model from scratch using a commercial supercomputer cluster.</p>]]></text>
+      <text><![CDATA[<p>Because the measurement is done automatically and needs no meeting.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Week 5 focuses on double-keying consensus and quantitative measurement.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Friday's meeting is the measurement, done properly and line by line.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Deleting all raw machine outputs to save disk space in the Git repository.</p>]]></text>
+      <text><![CDATA[<p>Because the Transcription Assignment is due before the missing meeting.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Raw machine outputs must be preserved to compute error rates.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It is due Friday 2 October, at the end of that week.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Writing a grant proposal to license proprietary OCR software for the department.</p>]]></text>
+      <text><![CDATA[<p>Because Week 5 repeats Week 4 and can be shortened safely.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Meeting #12 is an editorial consensus session.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It does new work: improving the reference, then measuring against it.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1006,10 +1006,10 @@
       <text>24 Question: What Good Work Looks Like Here</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What distinguishes a high-quality analysis of AI-assisted transcription in a digital edition report?</p>]]></text>
+      <text><![CDATA[<p>What separates a good conclusion from a poor one in today's report?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A specific measured conclusion about <em>your</em> manuscript is the deliverable; a general claim about AI is a repetition of what you were told.</p>]]></text>
+      <text><![CDATA[<p>A specific measured conclusion about *your* manuscript is the deliverable; a general claim about AI is a repetition of what you were told.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1018,27 +1018,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Formulating a specific, measured conclusion about model performance on your particular manuscript rather than repeating general assertions about AI.</p>]]></text>
+      <text><![CDATA[<p>Naming the actual script, resolution, model, and figures, rather than making a general claim about AI.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Scholarly digital editing requires grounded empirical findings (rates, failure types, specific hand behaviors) tailored to the witness.</p>]]></text>
+        <text><![CDATA[<p>Correct. The general claim repeats what you were told; the specific one is something you established.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Claiming that the vision-language model performed flawlessly without checking the manuscript image.</p>]]></text>
+      <text><![CDATA[<p>Reaching a conclusion that agrees with the published benchmarks.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Unchecked acceptance of fluent output is an uncritical failure.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Agreement is not the standard — a result that contradicts them, properly measured, is more interesting.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Writing an abstract philosophical essay on whether machines can truly 'read' literature.</p>]]></text>
+      <text><![CDATA[<p>Recommending that the specialized tool be used for the rest of the term.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The deliverable is an empirical, evidence-based assessment of tool performance.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That may well follow, but the recommendation is not what makes the conclusion good.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Relying entirely on published third-party benchmark figures without testing your own document.</p>]]></text>
+      <text><![CDATA[<p>Keeping the conclusion short enough to fit the report's word limit.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Replicating measurements on your specific manuscript is the central objective.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Specificity, not brevity, is what is being asked for.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1046,10 +1046,10 @@
   <!-- 25 Question -->
   <question type="multichoice">
     <name>
-      <text>25 Question: A Note on Tool Choice for the Rest of the Term</text>
+      <text>25 Question: Choosing Tools for the Rest of the Term</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Based on Week 4's findings, how should you proceed if your fine-tuned HTR model achieves under 10% CER while your VLM exhibits high error and hallucinations?</p>]]></text>
+      <text><![CDATA[<p>What should you not do with your trained model's output from Week 6 onward?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Let today's measurement set your tool choices for the term, and record the reasons at the time rather than reconstructing them later.</p>]]></text>
@@ -1061,27 +1061,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Use the fine-tuned HTR model for primary transcription across remaining folios (correcting its output against images), and restrict VLM use to secondary tasks like translation and code drafting.</p>]]></text>
+      <text><![CDATA[<p>Pass it through an AI to clean up, which is documented to make the result worse.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. This applies the right tool to the right task based on measured empirical capabilities.</p>]]></text>
+        <text><![CDATA[<p>Correct. It cannot see the picture, so it corrects toward the ordinary — damaging precisely the unusual readings you are recording.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Abandon HTR entirely and generate the rest of the edition using zero-shot VLM prompts.</p>]]></text>
+      <text><![CDATA[<p>Correct it by hand, since corrections introduce your own expectation errors.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Using a hallucinating tool for primary transcription destroys editorial fidelity.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Correcting by hand against the image is exactly the intended workflow.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Pass the HTR output through the VLM to automatically correct spelling and grammar.</p>]]></text>
+      <text><![CDATA[<p>Commit it to the repository before it has been checked.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. As established in Lesson 4.2 section 24, LLM post-correction degrades OCR quality.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is required — raw output must be committed unchecked so it can be scored.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Transcribe the remaining 200 pages exclusively by hand without ever opening Transkribus again.</p>]]></text>
+      <text><![CDATA[<p>Use it to extend the transcription onto further leaves.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. An HTR model under 10% CER is viable and saves significant labour in a human-in-the-loop workflow.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. That is the point of having trained it, provided it scores well enough.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1089,10 +1089,10 @@
   <!-- 26 Question -->
   <question type="multichoice">
     <name>
-      <text>26 Question: The Broader Methodological Point</text>
+      <text>26 Question: The Bigger Point</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does the three-step cycle (manual reference, deterministic tool, AI-assisted tool) generalize across digital humanities research?</p>]]></text>
+      <text><![CDATA[<p>Why does the three-step cycle collapse if the manual step is done badly?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>The three-step cycle is a general method for evaluating tools against material, and it collapses if the manual reference is compromised.</p>]]></text>
@@ -1104,27 +1104,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>It provides a structured comparative methodology for evaluating computational tools against specific materials, anchored by an independent human reference.</p>]]></text>
+      <text><![CDATA[<p>Every measurement is a distance from the reference, so a damaged reference damages everything computed from it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Comparing manual, bounded deterministic, and unbounded generative approaches reveals the true strengths and failure modes of each method.</p>]]></text>
+        <text><![CDATA[<p>Correct. That is why Tuesday is not a warm-up.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It is a legal framework mandated by international digital copyright treaties.</p>]]></text>
+      <text><![CDATA[<p>Because the specialized tool cannot be trained without a perfect transcription.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It is a scholarly and empirical evaluation method, not a legal treaty.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It trains on imperfect material readily — the problem is what the results then mean.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It proves that automated algorithms will always outperform human domain specialists within three iterations.</p>]]></text>
+      <text><![CDATA[<p>Because the AI step is run first and depends on the manual output.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The method often demonstrates where automation fails on complex cultural artifacts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The AI step is last, and needs no input from you but a picture.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It eliminates the need to validate XML schemas or maintain version-controlled repositories.</p>]]></text>
+      <text><![CDATA[<p>Because the comparison requires all three to have the same error rate.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Strict validation and version control are essential pillars of the workflow.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They will differ enormously, and that difference is the finding.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1132,10 +1132,10 @@
   <!-- 27 Question -->
   <question type="multichoice">
     <name>
-      <text>27 Question: Honest Assessment of Cost</text>
+      <text>27 Question: Counting the Cost Honestly</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why might manual transcription be more economical than HTR model training for an edition of a short passage (e.g. 25 lines)?</p>]]></text>
+      <text><![CDATA[<p>Why might typing by hand beat the trained model for a passage of twenty to forty lines?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>For a short passage, HTR's setup cost may never amortize — say so if you find it, because the measurement is the point.</p>]]></text>
@@ -1147,27 +1147,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The substantial setup cost of HTR (layout analysis, polygon correction, ground truth alignment, and training) may never amortize over a small number of lines.</p>]]></text>
+      <text><![CDATA[<p>The trained model costs a whole session to set up, and across so few leaves that setup never pays for itself.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. HTR becomes cost-effective across large volumes of text, whereas a single short folio can be transcribed manually in less time than configuring an HTR pipeline.</p>]]></text>
+        <text><![CDATA[<p>Correct. Say so if you find it — the value is in having measured the trade-off on real material.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because Transkribus charges a flat fee of $10,000 for any project with fewer than 50 lines.</p>]]></text>
+      <text><![CDATA[<p>Because the trained model is less accurate than a person on short passages.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Platform billing is credit-based per page, but human setup time is the major cost factor.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Accuracy does not depend on passage length. The argument is about setup cost.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because manual transcription requires zero cognitive attention from the editor.</p>]]></text>
+      <text><![CDATA[<p>Because short passages cannot supply enough examples to train anything.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Manual transcription requires intense cognitive concentration, but zero toolchain setup overhead.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. One leaf is enough for a first model — the issue is whether the effort repays.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because HTR models cannot process text passages that contain fewer than 500 unique Greek words.</p>]]></text>
+      <text><![CDATA[<p>Because the platform charges a minimum fee regardless of passage length.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Models can process any length, but the human setup effort does not amortize on short texts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The cost being counted is your time, not a fee.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1178,7 +1178,7 @@
       <text>28 Question: Committing and Pushing</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why must Git tags created during Week 4 (e.g. <code>vlm-w4-raw</code>) be explicitly pushed with <code>git push --tags</code>?</p>]]></text>
+      <text><![CDATA[<p>What is easy to forget when pushing at the end of today, and why does it matter?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Push tags explicitly — they are not pushed by default, and Week 5's measurement retrieves the tagged states.</p>]]></text>
@@ -1190,27 +1190,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Git does not push tags by default during a standard <code>git push</code>, and unpushed tags will be inaccessible on other machines during Week 5's measurement sessions.</p>]]></text>
+      <text><![CDATA[<p>Tags are not pushed by default, and Week 5's measurement fetches the three tagged versions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Explicitly pushing tags ensures that repository snapshots are available across machines and to collaborators.</p>]]></text>
+        <text><![CDATA[<p>Correct. A tag that exists only on this laptop is one Week 5 cannot use from anywhere else.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Pushing tags automatically triggers a remote rebuild of the IIIF image server.</p>]]></text>
+      <text><![CDATA[<p>Commits are not pushed unless each is pushed individually.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git tags are repository references; they do not control remote IIIF image servers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A single push sends all commits on the branch.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Unpushed tags cause Git to automatically revert all commits created in the last 24 hours.</p>]]></text>
+      <text><![CDATA[<p>The provenance labels must be added again after pushing.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Commits remain safe on the branch, but unpushed tags remain local.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They are part of the commit message and travel with it.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Tags must be pushed to prevent GitHub from marking the repository as inactive.</p>]]></text>
+      <text><![CDATA[<p>Raw output must be pushed to a separate branch from corrections.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Repository activity is determined by commits, but pushing tags is essential for sharing milestones.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Separate commits, not separate branches.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1218,10 +1218,10 @@
   <!-- 29 Question -->
   <question type="multichoice">
     <name>
-      <text>29 Question: Consolidating the Week</text>
+      <text>29 Question: Pulling the Week Together</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How do the findings of Tuesday (manual), Wednesday (HTR), and Friday (VLM) synthesize into a single cohesive argument?</p>]]></text>
+      <text><![CDATA[<p>State the thesis that ties all three meetings of this week together.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Three meetings, one thesis — automation accelerates transcription and depends absolutely on a hand-produced reference to be evaluated at all.</p>]]></text>
@@ -1233,27 +1233,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Automation accelerates transcription but fundamentally requires a hand-produced diplomatic ground truth as an authoritative anchor to evaluate and interpret its outputs.</p>]]></text>
+      <text><![CDATA[<p>Automation genuinely speeds the work and depends absolutely on a hand-made reference, because that is the only thing its errors can be measured against.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Neither bounded HTR nor generative VLMs can calibrate or validate themselves; human diplomatic transcription provides the essential measuring instrument.</p>]]></text>
+        <text><![CDATA[<p>Correct. Tuesday built the reference, Wednesday measured a bounded tool against it, Friday an unbounded one.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They demonstrate that computer vision should be completely replaced by statistical word embeddings.</p>]]></text>
+      <text><![CDATA[<p>Automated transcription is not yet good enough for scholarly work and should be avoided.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The three steps evaluate complementary computational and manual methods.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The specialized model may do very well. The claim is about what makes evaluation possible.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They show that all three methods produce identical character error rates on damaged Byzantine manuscripts.</p>]]></text>
+      <text><![CDATA[<p>Specialized tools are always better than general ones for every task.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The three methods exhibit drastically different error rates and error categories.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. General models excel at several tasks, including translating an existing transcription.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They prove that historical manuscripts can be transcribed without ever looking at the physical parchment images.</p>]]></text>
+      <text><![CDATA[<p>Manual transcription is the most accurate method available.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. High-resolution facsimile inspection is fundamental to all three stages.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. It contains errors too — which is why Week 5 types the page a second time.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1261,10 +1261,10 @@
   <!-- 30 Question -->
   <question type="multichoice">
     <name>
-      <text>30 Question: Synthesis: Fluency Is Not Fidelity</text>
+      <text>30 Question: Synthesis: Reading Well Is Not Reading Right</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the overarching theoretical lesson of Topic 4 regarding generative AI in digital textual scholarship?</p>]]></text>
+      <text><![CDATA[<p>Why are the specialized model's loud, obvious failures described as a virtue?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Fluency and fidelity are independent, and the more plausible a tool's output, the less its plausibility tells you about its accuracy.</p>]]></text>
@@ -1276,27 +1276,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Fluency and fidelity are independent properties; the more plausible and grammatical an automated model's output appears, the less its fluency guarantees accuracy against the historical source.</p>]]></text>
+      <text><![CDATA[<p>Output that announces its own doubt by being obviously wrong is safer than output that hides its doubt by being smooth.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Generative models excel at linguistic fluency while disguising severe factual errors; fidelity can only be established by human verification against the artifact.</p>]]></text>
+        <text><![CDATA[<p>Correct. An impossible letter string tells you something true about the ink; a perfect word tells you about the model's expectations.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Any text that is grammatically fluent in Greek is mathematically guaranteed to be historically accurate.</p>]]></text>
+      <text><![CDATA[<p>Because obvious failures are easier for the platform to correct automatically.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Grammatical fluency is an internal linguistic property that frequently disguises hallucinations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Nothing corrects them automatically — they are easy for *you* to see.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Generative AI models should only be evaluated on the basis of typography and font rendering.</p>]]></text>
+      <text><![CDATA[<p>Because they occur less often than the general model's failures.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Evaluation must focus on textual fidelity, character preservation, and error profiles.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They may occur more often. Conspicuousness, not frequency, is the virtue.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Conspicuous errors in specialized HTR models prove that statistical computing has no place in philology.</p>]]></text>
+      <text><![CDATA[<p>Because they indicate the model is close to the right reading.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Conspicuous errors are advantageous because they are easily detected and corrected without deceiving the editor.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. They indicate the ink was genuinely unclear, not that the answer is nearly right.</p>]]></text>
       </feedback>
     </answer>
   </question>
