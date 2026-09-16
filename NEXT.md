@@ -1,6 +1,58 @@
 # NEXT — 398
 
-**Updated 2026-09-13 (morning) by Antigravity.**
+**Updated 2026-09-16 (morning) by Claude.**
+
+## State after the 2026-09-16 morning run
+
+1. **Today's class is ready.** `Lesson_3.2_Teaching_Plan_2026-09-16.html` (Meeting
+   #7, 10:30, MULH 3032) carries the 3.1 facsimile carry-over Tuesday missed, and
+   now hands off Workshop 3 explicitly: students leave having *chosen* three zones,
+   with two concrete homework tasks (does my repository serve IIIF? start
+   `IMAGE_PROVENANCE.md`) and the rights question quoted verbatim. Commit `4ed08aa`.
+2. **Module 4 content is done; images are the only thing outstanding.** Lessons
+   4.1-4.3 rewritten for novices and lint-clean, 90 bank questions re-authored,
+   notes PDFs rebuilt (17/18/19 pp), interactive XML and HTML players built
+   **`--no-images` on purpose** (`4235296`).
+3. **THE OPEN ITEM — Module 4 slide images.** All three lessons still hold the
+   **old 15 images from 12 Sep, which illustrate pre-rewrite text and burn the
+   removed jargon into the artwork** ("Overlapping Realities / Empty Milestones",
+   "CRNN / CTC"). Fresh sources ARE uploaded and their digests match the current
+   text, so nothing needs re-uploading. The decks were deferred by the Slides
+   quota ("Scheduled for after 2pm") and the run was stopped at 08:20.
+   - One-shot **system crontab** entry fires `scratch/recover_module4_decks.sh`
+     at **14:08 today**; it removes its own crontab line so it cannot repeat, and
+     logs to `scratch/recover_module4_<stamp>.log`. It needs CDP Chrome on 9222,
+     signed in, and aborts cleanly saying so if that is missing.
+   - It deliberately **does not rebuild or commit**: verifying the new slides no
+     longer carry the old jargon is a visual check no script can make.
+   - If it was missed: `python3 scripts/recover_decks.py --course-dir .` (report),
+     then `--write`, then `generate_lesson_images.py --topic 4 --lesson <id>` for
+     any lesson under 30 images.
+4. **After the images land:** rebuild interactive XML and players **without**
+   `--no-images` (replacing `4235296`), confirm 30 embedded images per player
+   instead of 0, then commit. Then deploy Module 4 to Moodle Section 4.
+5. **Tooling fixed today (shared):** `--replace-source` now actually replaces a
+   changed source instead of reusing the stale one (`893697d`) - it previously
+   meant the opposite of its name and would have built decks from superseded
+   prose. Queue deferrals are now detected (`30cb34a`) instead of hanging a
+   30-minute wait per lesson.
+6. **26 question banks unblocked** (`cd57d63`): `TOPIC` corrected from the deleted
+   `Topic_NN_*` tree to live `Module_NN_*` dirs, so Modules 5-13 can build again.
+   The Syncthing conflict copies under `scripts/banks/` are now redundant.
+7. **Drive mirror current** as of 08:18 (27m, 67 files, `EXIT=0`).
+
+### Known stale / open judgement calls
+- **Module 3 companion media** (audio, infographic, 13 Sep) narrates pre-rewrite
+  text. Nothing is broken by it; nothing references it.
+- **Module 4 length**: 4.2 and 4.3 grew slightly in the rewrite. Cutting to the
+  2.5 h target needs an editorial decision (suggested: 4.2 s10, 4.3 s04-05).
+- **Five uncited references in 4.3** (Clerice, Colavizza, Puigcerver, Romein,
+  Strobel) - pre-existing, possibly deliberate further reading. The linter only
+  checks body->references, so it never fires.
+- **222 repo**: 171 untracked files, 626 MB, one 127 MB PDF over GitHub's limit;
+  needs a `.gitignore` modelled on 398's.
+- One stray `src/modules/Module_03_IIIF_Imaging/04_Lesson_3.1_Notes.pdf`; notes
+  PDFs are otherwise dist-only.
 
 ## State after the 2026-09-13 morning run
 
