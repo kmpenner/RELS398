@@ -1,0 +1,2452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_4.2</text></category></question>
+<question type="description"><name><text>01 Content: What "Deterministic" Means This Week</text></name><questiontext format="html"><text><![CDATA[
+<h3>What "Deterministic" Means This Week</h3>
+<p>Every Wednesday this term you use a specialized tool rather than a general AI chatbot. The word <em>deterministic</em> is doing real work here, so it is worth pinning down.</p>
+<p>Today's program is not deterministic in the sense of following rules a person wrote. It learns from examples. It is deterministic in two ways that matter. The same picture always produces the same answer. And it only knows what its examples taught it.</p>
+<p>That boundary is a weakness and a protection at once. Hand it writing it has never seen and it will do badly. But it will not invent a convincing sentence that is not on the page, because it has no idea what sentences are supposed to look like. It only knows shapes of ink (Puigcerver, 2017).</p>
+<p>Friday's tool does know what sentences look like. That difference is the entire point of the three-step cycle. Today shows you what a program produces when it reads <em>only the picture</em>. Friday shows what happens when it also brings expectations about language.</p>
+<p><strong>Vocabulary.</strong> <em>HTR</em> — handwritten text recognition, software that turns handwriting images into typed text. <em>Model</em> — the trained program that does the reading. <em>Training</em> — showing the program examples until it learns.</p>
+<p><strong>Takeaway:</strong> A specialized HTR model is bounded by its training data, which makes it fail rather than fabricate — the opposite of Friday's tools.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: What "Deterministic" Means This Week</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In what sense is today's handwriting program "deterministic", given that it learns from examples rather than following written rules?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A specialized HTR model is bounded by its training data, which makes it fail rather than fabricate — the opposite of Friday's tools.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The same picture always gives the same answer, and it only knows what its examples taught it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That boundary is a weakness and a protection at once — it will fail on unfamiliar writing, but it will not invent a convincing sentence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A person wrote out the rules for recognizing each Greek letter, so its behaviour is fully predictable.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Nobody wrote those rules; it learned the shapes from examples. The determinism is about repeatability and boundedness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It produces a different answer each time and averages them, which makes the result stable.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It does not vary between runs at all — that is part of what makes it deterministic.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It can be made deterministic by turning off a randomness setting before each run.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. There is no such switch in play here. The term describes the kind of system it is.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: Finding the Lines Comes Before Reading Them</text></name><questiontext format="html"><text><![CDATA[
+<h3>Finding the Lines Comes Before Reading Them</h3>
+<p>Automatic transcription is really two jobs, and mixing them up causes most of the confusion about why it fails.</p>
+<p>The first job is <strong>finding the text</strong>: which parts of the page have writing, how that writing divides into lines, and what order to read them in. The second job is <strong>reading</strong>: working out what each line says.</p>
+<p>The order is strict. The reading step never sees the page. It only ever sees the little strips of image that the first step cut out. It can only read what is in those strips.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Gets</th>
+<th>Produces</th>
+<th>If it goes wrong</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Find regions</td>
+<td>The page picture</td>
+<td>Blocks of writing</td>
+<td>Whole passages missed</td>
+</tr>
+<tr>
+<td>Find lines</td>
+<td>Blocks of writing</td>
+<td>One line each</td>
+<td>Lines merged or split</td>
+</tr>
+<tr>
+<td>Cut out strips</td>
+<td>Lines</td>
+<td>Strip images</td>
+<td>Tops or tails chopped off</td>
+</tr>
+<tr>
+<td>Decide order</td>
+<td>The set of lines</td>
+<td>A sequence</td>
+<td>Text comes out jumbled</td>
+</tr>
+<tr>
+<td>Read</td>
+<td>Strip images</td>
+<td>Text</td>
+<td>Wrong letters</td>
+</tr>
+</tbody>
+</table>
+<p>Mistakes in the first job feed straight into the second (AlKendi et al., 2024). This is the most useful thing to know about how these tools fail, and it explains something otherwise baffling: when a program reads most of a page well and produces gibberish on one part, the trouble is almost always in how that part was cut up, not in the reading.</p>
+<p>So build the habit now. When output is bad, look at the strip images before you blame the program. If the strip is wrong, no amount of cleverness can rescue it.</p>
+<p><strong>Vocabulary.</strong> <em>Layout analysis</em> — the step that finds the writing and divides it into lines. <em>Line image</em> — the strip cut from the page holding one line.</p>
+<p><strong>Takeaway:</strong> Recognition only ever sees line images that layout analysis produced — so when output is bad, inspect the line images first.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Finding the Lines Comes Before Reading Them</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;The program reads most of a page well but produces gibberish on one part. Where should you look first?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Recognition only ever sees line images that layout analysis produced — so when output is bad, inspect the line images first.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;At the strip of image cut out for that line, because the reading step never sees the page — only the strips.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. If the strip is wrong, no amount of cleverness in the reading step can rescue it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;At the base model, since gibberish means the script does not match what it was trained on.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A mismatched base model degrades the whole page evenly, not one patch of it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;At your transcription, since gibberish means the training text contained errors there.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Worth checking eventually, but a localized failure points at how that area was cut up.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;At the number of training passes, since too few produces unstable output in places.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Undertraining affects everything, not one region.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: Why Rectangles Do Not Work</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why Rectangles Do Not Work</h3>
+<p>A short history, because it explains why today's tools behave as they do.</p>
+<p>Early software drew a <strong>rectangle</strong> around each line. That is fine for printed books, where lines are straight and evenly spaced. It is poor for manuscripts. Manuscript pages have notes crammed in the margins, words squeezed between lines, two columns, and lines that wander (Perdiki &amp; Konstantinidou, 2023). A rectangle cannot describe a line that slopes or curves.</p>
+<p>Modern software finds the <strong>baseline</strong> instead — the invisible line the letters sit on. A baseline can bend and slope, following the writing wherever it goes. From it, the program works out a shape around the tall letters and the tails, and cuts out the strip (AlKendi et al., 2024).</p>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Describes a line as</th>
+<th>Copes with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rectangle</td>
+<td>A straight-sided box</td>
+<td>Printed text only</td>
+</tr>
+<tr>
+<td>Pixel labelling</td>
+<td>A blob of marked pixels</td>
+<td>Odd shapes; but merges close lines</td>
+</tr>
+<tr>
+<td>Baseline plus shape</td>
+<td>A bending line with a cut-out region</td>
+<td>Sloping, crowded manuscript lines</td>
+</tr>
+</tbody>
+</table>
+<p>Pixel labelling — marking every dot on the page as writing or not — was a step along the way, and it fails predictably. It glues together lines whose tall and low letters touch, and it breaks one line in two where the ink is faint. Both happen constantly in manuscripts.</p>
+<p>Transkribus and eScriptorium both work from baselines, though they do it differently.</p>
+<p><strong>Vocabulary.</strong> <em>Baseline</em> — the invisible line letters sit on. <em>Ascender / descender</em> — the parts of letters that stick up above or hang below it.</p>
+<p><strong>Takeaway:</strong> Modern layout analysis predicts sloping baselines and computes envelopes around them, because manuscript lines do not fit rectangles.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: Why Rectangles Do Not Work</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did line-finding move from drawing rectangles to following baselines?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Modern layout analysis predicts sloping baselines and computes envelopes around them, because manuscript lines do not fit rectangles.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A rectangle cannot describe a line that slopes or curves, and manuscript lines routinely do both.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A baseline can bend and follow the writing, and the strip is then worked out from it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Rectangles are slower to compute than baselines on large images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are cheaper to compute. They are simply wrong for the shape of manuscript writing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Rectangles cannot be stored in ALTO or PAGE XML, which require baselines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both formats can hold either. The change was driven by accuracy, not by file formats.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Baselines allow the program to read the line in both directions at once.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Direction of reading is unrelated. Baselines describe the line's actual course.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Loading Your Manuscript In</text></name><questiontext format="html"><text><![CDATA[
+<h3>Loading Your Manuscript In</h3>
+<p>Time to start. Transkribus pulls your images in from a web address — which is why Lesson 3.3 insisted your image listing had to work over the internet.</p>
+<ul>
+<li>Make a new collection in Transkribus for your edition.</li>
+<li>Import using the web address, not by uploading files.</li>
+<li>Check the right number of pages arrived.</li>
+<li>Check the images are full size, not thumbnails.</li>
+<li>Check the pages are in the right order.</li>
+</ul>
+<p>If the import fails, the causes are the ones Lesson 3.3 warned about: the address is not reachable from outside, the library demands a login, or the listing is slightly malformed in a way that viewers forgive and platforms do not. Test it with <code>curl</code> from outside your own network before deciding Transkribus is broken.</p>
+<p>Pulling images in by address rather than uploading them has a real advantage. The pictures stay the library's, served from the library's computers, at whatever quality they offer. You are not making a private copy that slowly drifts out of date, and the trail from your training examples back to the original photographs stays unbroken.</p>
+<p>Import only the leaves you will actually work on. A collection holding an entire book when you need four leaves makes everything afterwards slower.</p>
+<p><strong>Vocabulary.</strong> <em>Collection</em> — a Transkribus folder holding the pages of one project. <em><code>curl</code></em> — a command-line tool that fetches a web address so you can see what is really there.</p>
+<p><strong>Takeaway:</strong> Import by manifest URI so training data stays linked to the institutional source rather than becoming a detached copy.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Loading Your Manuscript In</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why import images by web address rather than uploading copies of the files?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Import by manifest URI so training data stays linked to the institutional source rather than becoming a detached copy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The pictures stay the library's, served at their quality, so the trail from your training examples back to the original is unbroken.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. You avoid making a private copy that quietly drifts out of date.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Uploaded files are compressed by the platform and lose too much detail.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is not the reason given. The point is provenance — keeping the link to the institutional source.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Transkribus has no facility for uploading files at all.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The argument is about why the address route is better, not about what is possible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Web addresses let several students share one collection without duplicating storage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Convenient perhaps, but not the reason. The reason is that the source stays authoritative.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Running It, Then Checking It</text></name><questiontext format="html"><text><![CDATA[
+<h3>Running It, Then Checking It</h3>
+<p>Run the automatic line-finding on your pages. Then, before anything else, look hard at what it did. This checking is today's most important task.</p>
+<p>For each page, ask:</p>
+<ul>
+<li>Did it find all the writing, including margins and headers?</li>
+<li>Did it find every line? Count them against the manuscript.</li>
+<li>Did it glue any two lines together?</li>
+<li>Did it split any line in two?</li>
+<li>Does each baseline follow the writing, or wander off it?</li>
+<li>Is the reading order right, especially around margin notes?</li>
+<li>Do the cut-out strips include the full height of the writing?</li>
+</ul>
+<p>That last question is the Greek one, and it is what you prepared for yesterday. The program guesses how tall a line is from how the script usually behaves. A scribe who puts breathing marks and accents high above the letters will often have them fall outside the strip.</p>
+<p>Perdiki and Konstantinidou (2023) hit exactly this. Their software kept leaving out breathing marks and high abbreviation signs, and getting the error rate below 10% meant widening those strips by hand.</p>
+<p>Zoom in on a line with a high breathing mark and look at where the strip boundary runs. If the mark is outside it, every accent in your training examples is being thrown away before the program ever sees it.</p>
+<p><strong>Vocabulary.</strong> <em>Reading order</em> — the sequence the program will read the lines in. <em>Region</em> — a block of the page marked as containing writing.</p>
+<p><strong>Takeaway:</strong> Check whether polygons enclose high-placed breathings and accents — if they do not, the model is being trained on Greek with the diacritics cut off.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Running It, Then Checking It</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;You zoom in on a line with a high breathing mark and find it sits outside the strip boundary. What follows?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Check whether polygons enclose high-placed breathings and accents — if they do not, the model is being trained on Greek with the diacritics cut off.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Every accent in your training examples is being thrown away before the program ever sees it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The model will then learn that Greek has no breathing marks, and reproduce that faithfully.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The breathing mark will be read as belonging to the line above.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is not reassigned — it is simply absent from the image handed to the reading step.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The program will automatically widen the strip when it detects a mark outside it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It does not know the mark is there. That is precisely why you have to check.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Nothing follows, since accents are added separately after recognition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are read from the image like everything else.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Fixing the Lines by Hand</text></name><questiontext format="html"><text><![CDATA[
+<h3>Fixing the Lines by Hand</h3>
+<p>Where the automatic pass got it wrong, fix it. This is dull work and it decides everything that follows.</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A line was missed</td>
+<td>Draw its baseline yourself</td>
+</tr>
+<tr>
+<td>Two lines glued together</td>
+<td>Split them, then adjust both</td>
+</tr>
+<tr>
+<td>One line broken in two</td>
+<td>Merge the pieces</td>
+</tr>
+<tr>
+<td>Baseline wanders off the writing</td>
+<td>Drag its points back onto the ink</td>
+</tr>
+<tr>
+<td>Strip cuts off the accents</td>
+<td>Extend the top edge</td>
+</tr>
+<tr>
+<td>Strip cuts off letter tails</td>
+<td>Extend the bottom edge</td>
+</tr>
+<tr>
+<td>Lines in the wrong order</td>
+<td>Renumber them</td>
+</tr>
+<tr>
+<td>A margin note swallowed into the text</td>
+<td>Split it into its own region</td>
+</tr>
+</tbody>
+</table>
+<p>Fix <em>every</em> page you plan to train on. This is not tidying. Training examples with chopped-off tops teach the program that Greek has no breathing marks, and it will learn that lesson perfectly. The damage shows up in Week 5 as poor accent accuracy, and nothing in the output will tell you why.</p>
+<p>A shortcut that saves hours. Fix one page properly, noting how much room this scribe actually needs above and below the baseline. If Transkribus lets you change the line-finding settings, set them from that measurement and re-run the other pages. Changing one setting beats fixing fifty pages, and it treats the cause rather than the symptoms.</p>
+<p>Whichever way you go, check by looking at the cut-out strips themselves. The strip is what the program sees. Looking at it is the only honest test.</p>
+<p><strong>Vocabulary.</strong> <em>Polygon</em> — the outline marking which part of the page belongs to one line. <em>Parameter</em> — a setting you can adjust before re-running a step.</p>
+<p><strong>Takeaway:</strong> Adjust the layout parameters from a measurement of this hand rather than correcting page by page — and verify by looking at extracted line images.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Fixing the Lines by Hand</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the time-saving approach to correcting strips that cut off accents across many pages?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Adjust the layout parameters from a measurement of this hand rather than correcting page by page — and verify by looking at extracted line images.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Fix one page properly, measure how much room this hand needs, then change the line-finding settings and re-run the rest.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Changing one setting beats fixing fifty pages, and it treats the cause rather than the symptoms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Train a first model on the uncorrected pages and let it learn to compensate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It cannot compensate for marks that are not in the image it was given.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Crop every page more generously before importing, so the strips have room.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cropping the page does not change where the strip boundary is drawn around a line.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Skip the affected lines and train on the ones whose strips are already correct.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That discards exactly the material with the high accents, which is what you need it to learn.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Matching Your Text to the Right Lines</text></name><questiontext format="html"><text><![CDATA[
+<h3>Matching Your Text to the Right Lines</h3>
+<p>With the lines correct, you now attach yesterday's typing to them. Each strip of image has to be paired with the words on it.</p>
+<p>You have two options.</p>
+<p><strong>By hand</strong>: type or paste your transcription into Transkribus line by line. Slow, and completely reliable. For a single leaf it is often the right choice.</p>
+<p><strong>By import</strong>: upload your transcription and let Transkribus match it up automatically. Fast, and it depends on your line divisions matching the detected lines <em>exactly</em>. That is precisely why yesterday's lesson made you count <code>&lt;lb/&gt;</code> against <code>&lt;zone&gt;</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Your situation</th>
+<th>Use</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One leaf, about 25 lines</td>
+<td>By hand</td>
+<td>Typing slips</td>
+</tr>
+<tr>
+<td>Several leaves, line counts checked</td>
+<td>Import</td>
+<td>Everything shifts if counts differ</td>
+</tr>
+<tr>
+<td>Counts do not match</td>
+<td>Fix that first</td>
+<td>Silent, systematic mismatch</td>
+</tr>
+</tbody>
+</table>
+<p>The third row is the dangerous one. Suppose your transcription has 24 lines and the program found 25, because it split one. Automatic matching will pair every line after the split with the wrong picture. Everything is off by one.</p>
+<p>The result is not slightly noisy data. It is systematically wrong, and it teaches the program to match each line's picture to the <em>next</em> line's words. That produces output which reads smoothly and is completely wrong, and the cause is very hard to spot afterwards.</p>
+<p>So check. Pick three lines at random, look at the picture, read the words paired with it. Do this before every training run.</p>
+<p><strong>Vocabulary.</strong> <em>Alignment</em> — pairing each line image with the text belonging to it. <em>Off-by-one</em> — an error where everything after a point is shifted by one position.</p>
+<p><strong>Takeaway:</strong> Verify line alignment by spot-checking image against text — an off-by-one misalignment produces a model that has learned the wrong pairing entirely.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Matching Your Text to the Right Lines</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your transcription has 24 lines; the program found 25, having split one. What happens if you let it match them up automatically?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Verify line alignment by spot-checking image against text — an off-by-one misalignment produces a model that has learned the wrong pairing entirely.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Every line after the split is paired with the wrong picture, teaching the program to match each line's image to the next line's words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The output then reads smoothly and is entirely wrong, and the cause is very hard to spot afterwards.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The extra line is left unpaired and simply ignored during training.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Matching proceeds in order, so everything after the split shifts by one.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The platform refuses to proceed until the counts agree.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It will proceed, which is why the check is yours to make.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model trains normally but with slightly noisier data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This is not noise — it is a systematic, consistent mismatch, which is far worse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: How the Reading Step Works</text></name><questiontext format="html"><text><![CDATA[
+<h3>How the Reading Step Works</h3>
+<p>You do not need the mathematics, but knowing roughly how the program works explains the mistakes you will see. Transkribus has long used a system called PyLaia (Puigcerver, 2017).</p>
+<p>The strip of image goes through three stages.</p>
+<p>First, the program scans across the strip from left to right, describing what the ink looks like at each position. Second, it passes that description through a stage that considers each position together with what comes before and after it — so a shape is interpreted in its neighbourhood rather than alone (AlKendi et al., 2024).</p>
+<p>Third comes the clever part. The program does not need to be told which pixels belong to which letter. It considers every possible way of lining up the picture with the letters, and learns from all of them at once (AlKendi et al., 2024).</p>
+<p>That is why your work yesterday is directly usable. Training needs only a strip of image and the words on it. Nothing finer. Your line-by-line transcription is exactly that, with no extra labelling required (Puigcerver, 2017).</p>
+<p>There is a catch, and it shapes everything in the next section. Because the program works from local ink, it barely models language at all. It is reading the ink, not reading Greek.</p>
+<p><strong>Vocabulary.</strong> <em>PyLaia</em> — the recognition system Transkribus has long used. <em>Neural network</em> — a program that learns patterns from examples rather than following written rules.</p>
+<p><strong>Takeaway:</strong> CTC training needs only line images paired with line text, which is why your diplomatic transcription is directly usable as training data.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: How the Reading Step Works</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is your line-by-line transcription directly usable as training material, with no further annotation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CTC training needs only line images paired with line text, which is why your diplomatic transcription is directly usable as training data.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The program does not need to be told which pixels belong to which letter — a strip of image paired with its text is enough.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It considers every possible way of lining the picture up with the letters and learns from all of them at once.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because you already marked each letter's position when you drew the zones in Lesson 3.3.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those zones are per line, not per letter — and the program does not use them for training.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the program infers letter positions from the accents, which are evenly spaced.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accent spacing plays no such role.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI markup tells the program where each character begins and ends.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It never sees your TEI. It sees a strip and a string of text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: What Its Mistakes Look Like</text></name><questiontext format="html"><text><![CDATA[
+<h3>What Its Mistakes Look Like</h3>
+<p>How the program works decides what <em>kind</em> of mistakes it makes, and knowing the kind is what lets you correct efficiently.</p>
+<p>Because it reads ink and barely models language, its mistakes stay stuck to the ink. It struggles with heavily shortened words and with letters tangled together, where the shapes overlap. But it rarely invents whole words. Faced with faded ink, it usually produces a string of letters that is not a possible Greek word, rather than guessing a real one (AlKendi et al., 2024).</p>
+<p>That behaviour is worth a great deal when you come to correct the output.</p>
+<table>
+<thead>
+<tr>
+<th>Kind of program</th>
+<th>On unclear ink</th>
+<th>What that means for you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyLaia and similar</td>
+<td>Impossible string of letters</td>
+<td>You spot it instantly</td>
+</tr>
+<tr>
+<td>Newer "transformer" models</td>
+<td>A real word, wrongly chosen</td>
+<td>Easy to miss</td>
+</tr>
+<tr>
+<td>AI chatbots (Friday)</td>
+<td>Smooth, believable text</td>
+<td>You may never notice</td>
+</tr>
+</tbody>
+</table>
+<p>A program that outputs <code>ἐγενθτο</code> has told on itself. That is not Greek, and you will see it at once. A program that outputs <code>ἐγένετο</code> where the page reads <code>ἐγένοντο</code> has produced a perfectly good Greek word that simply is not there — and you will only catch it by checking against the picture.</p>
+<p>This is the real trade-off when choosing a tool. For steady, formulaic writing, a PyLaia-style model is cheap, effective, and will not invent words. For badly damaged pages, the newer models guess better from context — but you must then watch every line for invented readings (AlKendi et al., 2024).</p>
+<p>For a first model on one scribe, the loud failure mode is the right one to want.</p>
+<p><strong>Vocabulary.</strong> <em>Post-correction</em> — going through machine output and fixing it. <em>Ligature</em> — two or more letters written joined together.</p>
+<p><strong>Takeaway:</strong> A CTC model's errors are conspicuous because it produces impossible sequences rather than plausible wrong words — which makes post-correction far more reliable.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: What Its Mistakes Look Like</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is it an advantage that this kind of program outputs `ἐγενθτο` rather than a real Greek word?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A CTC model's errors are conspicuous because it produces impossible sequences rather than plausible wrong words — which makes post-correction far more reliable.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;An impossible string of letters announces itself, so you spot the error instantly when correcting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A program that outputs a perfectly good word which is simply not on the page is far more dangerous.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because impossible strings are automatically flagged by the platform for review.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Nothing flags them. They are conspicuous to *you*, which is the point.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because impossible strings indicate the line strip was cut incorrectly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They usually indicate genuinely unclear ink. Gibberish across a whole line is the layout signal.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because they can be corrected automatically by a spellchecker.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Correcting toward plausible words is exactly the behaviour the course warns against.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: The Newer Kind of Model</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Newer Kind of Model</h3>
+<p>There is a second family of programs, and you should know what they are because they may be offered to you as a starting point.</p>
+<p><strong>TrOCR</strong> is the best-known. Rather than scanning strictly left to right, it can look at any part of the picture at any moment, and it keeps track of the words it has already produced (Li et al., 2023).</p>
+<p>The upside is that it uses context. It can lean on what it has read so far to make sense of unclear ink, which helps on damaged pages. The downside is the same mechanism: it is pulled toward whatever word would be <em>likely</em>, so it hands you believable readings that do not match the ink and read perfectly well (AlKendi et al., 2024).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>PyLaia</th>
+<th>TrOCR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uses context</td>
+<td>Barely</td>
+<td>Heavily</td>
+</tr>
+<tr>
+<td>Computing cost</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>On damaged pages</td>
+<td>Fair</td>
+<td>Better</td>
+</tr>
+<tr>
+<td>Risk of invented words</td>
+<td>Low</td>
+<td>Real</td>
+</tr>
+<tr>
+<td>Are mistakes obvious?</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Steady hands; a first model</td>
+<td>Damaged pages; variable hands</td>
+</tr>
+</tbody>
+</table>
+<p>If your scribe writes consistently, start with PyLaia. If the page is a mess, consider the other — but plan to check its output far more carefully.</p>
+<p><strong>Vocabulary.</strong> <em>Transformer</em> — a newer design that can attend to any part of its input at once. <em>Context</em> — surrounding text used to help interpret an unclear bit.</p>
+<p><strong>Takeaway:</strong> Transformers read context as well as ink, which helps on degraded text and produces plausible wrong words that are hard to catch.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: The Newer Kind of Model</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;TrOCR uses context to interpret unclear ink. Why is that both an advantage and a liability?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Transformers read context as well as ink, which helps on degraded text and produces plausible wrong words that are hard to catch.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It reads damaged pages better, and it is pulled toward whatever word is likely, so it hands you believable readings that do not match the ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The same mechanism produces both effects, which is why you must check its output far more carefully.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is faster but needs far more training examples than a simpler model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Speed and data volume are not the trade-off described here — the trade-off is between context and invention.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It reads accents better but loses the letters underneath them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. There is no such trade. The issue is invented words, not lost marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It works well on Greek but poorly on Latin scripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The difference is not between scripts but between reading ink and predicting language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Never Start From Nothing</text></name><questiontext format="html"><text><![CDATA[
+<h3>Never Start From Nothing</h3>
+<p>This is the biggest decision you make today, and it has a clear answer.</p>
+<p>Teaching a program to read from a completely blank start takes enormous amounts of example material. Starting from a program that already reads <em>something</em> takes far less, because it already knows about letters, ink, parchment, and lines. Your examples only have to teach it your particular scribe.</p>
+<p>The advice is blunt: never start from nothing if any existing model is available. Starting from a solid one and adding 50 to 100 pages of your own can bring the error rate down to something usable, in a fraction of the time (Geelhaar, 2022; AlKendi et al., 2024).</p>
+<p>The size of the effect is worth seeing. Perdiki and Konstantinidou (2023) trained Byzantine Greek models on manuscripts from different libraries:</p>
+<table>
+<thead>
+<tr>
+<th>How they trained</th>
+<th>Source</th>
+<th>Started from an existing model?</th>
+<th>Error rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single manuscript</td>
+<td>Athos, Vatopedi 328</td>
+<td>No</td>
+<td>10.03%</td>
+</tr>
+<tr>
+<td>Single manuscript</td>
+<td>Munich, Gr. 353</td>
+<td>No</td>
+<td>8.12%</td>
+</tr>
+<tr>
+<td>Several manuscripts mixed</td>
+<td>Multiple</td>
+<td>No</td>
+<td>17.18%</td>
+</tr>
+<tr>
+<td>Several manuscripts mixed</td>
+<td>Multiple</td>
+<td>Yes</td>
+<td>3.90%</td>
+</tr>
+</tbody>
+</table>
+<p>Read the last two rows together. Identical training material. Starting from nothing: 17.18% wrong. Starting from an existing model: 3.90%. Four times better, from one decision.</p>
+<p>They also found that mixing several manuscripts cut the hand-typing needed per manuscript by up to 80% with no loss of accuracy (Perdiki &amp; Konstantinidou, 2023). Variety substitutes for volume.</p>
+<p><strong>Vocabulary.</strong> <em>Transfer learning</em> — starting from a model trained on something else and adjusting it. <em>Fine-tuning</em> — the adjusting step, using your own examples.</p>
+<p><strong>Takeaway:</strong> Transfer learning turned 17.18% CER into 3.90% on identical data — always fine-tune from a base model rather than training from scratch.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Never Start From Nothing</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Perdiki and Konstantinidou trained on identical mixed-manuscript material two ways. What did they find?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Transfer learning turned 17.18% CER into 3.90% on identical data — always fine-tune from a base model rather than training from scratch.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;From nothing, 17.18% of characters wrong; starting from an existing model, 3.90%.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Four times better, from the single decision to start from a trained base rather than from scratch.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;From nothing, 3.90%; starting from an existing model, 17.18%, because the base model's habits interfered.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect — the figures are the other way round. Starting from an existing model helped enormously.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Both approaches converged on about 8% once training ran long enough.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They did not converge; the gap was fourfold and persisted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Starting from an existing model was faster but slightly less accurate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It was both faster and dramatically more accurate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Picking What to Start From</text></name><questiontext format="html"><text><![CDATA[
+<h3>Picking What to Start From</h3>
+<p>Choose on purpose. A badly matched starting point wastes the typing you did yesterday.</p>
+<table>
+<thead>
+<tr>
+<th>What to match</th>
+<th>Aim for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Script</td>
+<td>The same script — Greek for Greek</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>As close to your manuscript as possible</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>The same, or a close relative</td>
+</tr>
+<tr>
+<td>Amount of training</td>
+<td>More, all else being equal</td>
+</tr>
+<tr>
+<td>Published results</td>
+<td>A stated error rate on similar material</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Something you can actually use</td>
+</tr>
+</tbody>
+</table>
+<p>Script matters most. A model trained on Latin handwriting has learned Latin letters. It will not help with Greek, however good it is. Date and language come next, because they decide the vocabulary and which short forms appear.</p>
+<p>Here is how stark the effect is. On a medieval Latin test set, a small model tuned for medieval Latin got 14.6% of characters wrong. A large general-purpose commercial system, on the very same pages, got 84.7% wrong (Mattingly et al., 2024). The small specialist has a tiny fraction of the size and wins because it has actually seen scribal handwriting, odd joined letters, and unusual page layouts.</p>
+<p>Bigger is not better. <em>Matched</em> is better. This is the most counter-intuitive fact in the whole topic, and Friday will show it to you in a far more dramatic form.</p>
+<p>Write down which model you started from and why. That is a real methodological decision, and your Week 5 report has to state it.</p>
+<p><strong>Vocabulary.</strong> <em>Base model</em> — the existing model you start from. <em>Specialization gap</em> — the tendency of a small matched model to beat a huge general one on unusual material.</p>
+<p><strong>Takeaway:</strong> A matched small model beats a large general one — script match matters more than parameter count.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Picking What to Start From</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which matters most when choosing the model you start from, and why?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A matched small model beats a large general one — script match matters more than parameter count.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The script — a model trained on Latin handwriting has learned Latin letters and will not help with Greek, however large it is.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Bigger is not better; matched is better. Date and language come next, because they set the vocabulary and short forms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The number of settings inside the model, since larger models generalize better.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This is the counter-intuitive part: a small matched model beat large general ones by a wide margin.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;How recently the model was published, since newer models supersede older ones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Recency is no guide at all. A recent general model performed far worse than an older specialist.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the model is free, since paid models cannot be cited in a scholarly edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cost bears on reproducibility, which is a separate matter discussed later.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Training the Model</text></name><questiontext format="html"><text><![CDATA[
+<h3>Training the Model</h3>
+<p>With your text attached to the right lines and a starting model chosen, train.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What it is</th>
+<th>Where to start</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base model</td>
+<td>What you start from</td>
+<td>Matched for script and date</td>
+</tr>
+<tr>
+<td>Training set</td>
+<td>The lines it learns from</td>
+<td>Your corrected leaves</td>
+</tr>
+<tr>
+<td>Validation set</td>
+<td>Lines held back to test it</td>
+<td>10–20% of your lines</td>
+</tr>
+<tr>
+<td>Epochs</td>
+<td>How many times it reviews the examples</td>
+<td>The default; watch the graph</td>
+</tr>
+<tr>
+<td>Learning rate</td>
+<td>How big each adjustment is</td>
+<td>The default</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>validation set</strong> is the one to understand rather than just accept. These are lines you keep back so the program never trains on them. They are how you find out whether it learned your scribe's handwriting or merely memorized your specific lines. A program that memorized will look perfect on its own examples and fall apart on anything else.</p>
+<p>Make the held-back lines <em>representative</em>. Holding back the last three lines of one leaf tests it on material nearly identical to what it studied. Holding back lines from across all your leaves, including the ugly ones, gives a number that means something.</p>
+<p>Training usually takes tens of minutes, not hours. Watch the error on the held-back lines as it goes: it should fall and then level off. If it falls and then starts <em>rising</em>, the program has begun memorizing, and you should stop at the lowest point.</p>
+<p>Training spends credits from a shared class allowance. Plan your runs.</p>
+<p><strong>Vocabulary.</strong> <em>Validation set</em> — lines held back to test the model honestly. <em>Overfitting</em> — memorizing the examples instead of learning the pattern.</p>
+<p><strong>Takeaway:</strong> Hold out a representative validation set and stop when validation error stops falling — a rising validation curve means the model is memorizing your lines.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Training the Model</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the held-back lines for, and what does it mean if the error on them starts rising?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Hold out a representative validation set and stop when validation error stops falling — a rising validation curve means the model is memorizing your lines.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They test whether the program learned the handwriting or merely memorized your lines; a rising error means it has begun memorizing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Stop at the lowest point — training further makes it worse on anything it has not already seen.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are extra training material added at the end to improve the final score.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They must never be trained on, or they cannot test anything.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They measure how fast the program runs, and a rising figure means it is running out of memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The figure is an error rate, not a speed or a memory measure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A rising error means the base model was mismatched and training should restart.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That would show as poor results throughout, not as a curve that falls and then rises.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Reading the Score</text></name><questiontext format="html"><text><![CDATA[
+<h3>Reading the Score</h3>
+<p>Training gives you a model and a number. Read both carefully.</p>
+<p>The number is the <strong>character error rate</strong>, or CER — the percentage of characters the model got wrong on the held-back lines. It tells you how the model does on <em>more of this manuscript, in this hand</em>. It says nothing about a different scribe, a different book, or a very different page layout.</p>
+<p>What the number means (AlKendi et al., 2024):</p>
+<table>
+<thead>
+<tr>
+<th>CER</th>
+<th>Verdict</th>
+<th>What it is good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Under 5%</td>
+<td>Excellent</td>
+<td>Light correction; usable after proofreading</td>
+</tr>
+<tr>
+<td>5–10%</td>
+<td>Good</td>
+<td>Scattered slips on short forms and punctuation; fine for bulk work</td>
+</tr>
+<tr>
+<td>10–15%</td>
+<td>Borderline</td>
+<td>Heavy correction needed</td>
+</tr>
+<tr>
+<td>Over 15%</td>
+<td>Poor</td>
+<td>Correcting costs more than typing it yourself</td>
+</tr>
+</tbody>
+</table>
+<p>That last row is the one to remember as a rule. Past roughly 15%, fixing the output takes longer than typing the page from scratch (AlKendi et al., 2024). A model in that range is not merely slow. It is a net loss, and the right response is to improve it or abandon it — not to grind through its output.</p>
+<p>If your first model lands above 15%, work through the likely causes in this order: bad line-finding producing bad strips, text attached to the wrong lines, too few examples, a badly matched starting model.</p>
+<p><strong>Vocabulary.</strong> <em>Character error rate (CER)</em> — the percentage of characters wrong. <em>Word error rate (WER)</em> — the same idea counted in whole words.</p>
+<p><strong>Takeaway:</strong> Above 15% CER, correcting the output costs more than transcribing from scratch — the model is a net loss, not a slow tool.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Reading the Score</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your model scores 18% of characters wrong. What should you do?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Above 15% CER, correcting the output costs more than transcribing from scratch — the model is a net loss, not a slow tool.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Diagnose rather than correct — past roughly 15%, fixing the output takes longer than typing the page from scratch.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Check line-finding, then alignment, then how much training material, then the starting model.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Correct the output anyway, since any machine help is faster than typing from nothing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Above that threshold it is a net loss, not a slow tool.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Accept it, since under 20% is regarded as usable for bulk corpus work.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 5–10% is good and 10–15% is borderline. 18% is poor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Train for more passes, since a high score always means undertraining.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Undertraining is one possibility among several, and not the first to check.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: The Score Does Not Tell You Everything</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Score Does Not Tell You Everything</h3>
+<p>A warning to carry into today's judging, which Week 5 will develop.</p>
+<p>CER counts the smallest number of single-character fixes needed to turn the machine's output into yours, as a percentage (AlKendi et al., 2024). It is one number that treats every difference as equal.</p>
+<p>That equal treatment is the problem. Losing an accent and swapping a letter count exactly the same, though what they cost a scholar is wildly different. A model that drops every breathing mark because the strips were cut too tight might post a respectable CER while being useless for your edition.</p>
+<p>So look at the <em>kinds</em> of mistake as well as the number.</p>
+<table>
+<thead>
+<tr>
+<th>Kind of mistake</th>
+<th>Effect on the score</th>
+<th>How bad it really is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accents dropped</td>
+<td>Moderate</td>
+<td>Severe for Greek; ruins fidelity</td>
+</tr>
+<tr>
+<td>Similar letters confused</td>
+<td>Moderate</td>
+<td>Moderate; proofreading catches it</td>
+</tr>
+<tr>
+<td>Short forms spelled out</td>
+<td>Small</td>
+<td>Severe; silently modernizes</td>
+</tr>
+<tr>
+<td>Impossible letter strings</td>
+<td>Moderate</td>
+<td>Mild; obvious and easy to fix</td>
+</tr>
+<tr>
+<td>Believable wrong words</td>
+<td>Small</td>
+<td>Severe; nearly invisible</td>
+</tr>
+<tr>
+<td>Margin notes skipped</td>
+<td>Varies</td>
+<td>Severe; whole content lost</td>
+</tr>
+</tbody>
+</table>
+<p>The third row keeps coming back. A model that quietly spells out short forms gives you clean readable text with a good score, having destroyed exactly what a diplomatic transcription exists to protect. A model at 8% that keeps every joined letter may serve a scholar far better than one at 4% that modernizes (Levchenko, 2024).</p>
+<p>Look at the mistakes, not just the number.</p>
+<p><strong>Vocabulary.</strong> <em>Edit distance</em> — the count of single-character changes between two texts. <em>Fidelity</em> — how faithfully the output matches what is on the page.</p>
+<p><strong>Takeaway:</strong> CER weights every difference equally, so a model that silently drops diacritics or expands abbreviations can score well while being useless for a diplomatic edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: The Score Does Not Tell You Everything</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why might a model scoring 8% be more useful to a scholar than one scoring 4%?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CER weights every difference equally, so a model that silently drops diacritics or expands abbreviations can score well while being useless for a diplomatic edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the 4% model may be quietly spelling out short forms — clean, readable, and destroying what the transcription exists to preserve.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The score treats every difference as equal, though what they cost a scholar differs enormously.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because a higher score means the model is being more careful with difficult passages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A higher score simply means more characters wrong. The argument is about *which* characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because 8% models run faster and use less computing time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Speed is not the issue here.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because scores below 5% are considered unreliable and are usually measurement errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Under 5% is excellent, and genuine. The caution is about what the number conceals.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Running the Model and Looking at What Comes Back</text></name><questiontext format="html"><text><![CDATA[
+<h3>Running the Model and Looking at What Comes Back</h3>
+<p>Turn your trained model loose on leaves you have not typed, and study the result.</p>
+<p>Work through it properly rather than skimming:</p>
+<ul>
+<li>Read the output against the picture, line by line, zoomed in.</li>
+<li>Sort each mistake into a category instead of just fixing it.</li>
+<li>Notice whether mistakes bunch together — in one area, on one letter, on one feature.</li>
+<li>Check specifically whether the accents are there and right.</li>
+<li>Check whether short forms were kept or spelled out.</li>
+<li>Note any line that comes out as gibberish, and look at that line's strip.</li>
+</ul>
+<p>That last point goes back to section 02. A gibberish line usually has a line-finding fault behind it — two lines glued, a chopped strip, a wandering baseline. Look at the strip before deciding the model cannot read.</p>
+<p>Keep your sorted list of mistakes in the repository. It is a required part of the Week 5 report, and writing it now while you are staring at the output is much easier than reconstructing it in a fortnight.</p>
+<p>Expect certain patterns in Greek. Short forms and tangled letters are hardest, because the shapes overlap (AlKendi et al., 2024). Accents will be imperfect even with good strips. And if your manuscript runs words together, expect word boundaries to be wrong in ways that make the word score meaningless — the letters are right, then glued into one long string (Perdiki &amp; Konstantinidou, 2023).</p>
+<p><strong>Vocabulary.</strong> <em>Error category</em> — a group of mistakes sharing a cause. <em>Gibberish</em> — output that is not a possible word, usually signalling a layout fault.</p>
+<p><strong>Takeaway:</strong> Categorize errors rather than just correcting them, and inspect the line image whenever output is nonsense — it is usually a layout fault.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Running the Model and Looking at What Comes Back</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why sort the mistakes into categories rather than simply correcting them as you go?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Categorize errors rather than just correcting them, and inspect the line image whenever output is nonsense — it is usually a layout fault.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The sorted counts are a required part of the Week 5 report, and they are far easier to produce now than to reconstruct later.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Categories also reveal whether mistakes bunch by region, by letter, or by feature — which tells you the cause.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because correcting them now would invalidate the raw output for scoring.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect — but only if you correct before committing. Commit the raw output first, then correct freely.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the platform can retrain automatically from categorized errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It retrains from corrected text, not from your categories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because uncategorized corrections cannot be committed to git.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They can. The reason is analytical, not technical.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Going Round Again</text></name><questiontext format="html"><text><![CDATA[
+<h3>Going Round Again</h3>
+<p>This work is a loop, not a one-off. Your first model is a starting point.</p>
+<p>The cycle: run the model on new pages, correct what it produces, add those corrected pages to the training pile, train again, run the better model on more pages. Each time round, getting new material costs less — because you are correcting rather than typing — and each time round the model improves.</p>
+<table>
+<thead>
+<tr>
+<th>Round</th>
+<th>Where the text comes from</th>
+<th>Effort per page</th>
+<th>Expected score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>You typed it</td>
+<td>Highest</td>
+<td>Baseline</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Model output, corrected</td>
+<td>Lower</td>
+<td>Better</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Model output, corrected</td>
+<td>Lower still</td>
+<td>Better again</td>
+</tr>
+<tr>
+<td>Later</td>
+<td>Diminishing returns</td>
+<td>Low</td>
+<td>Levels off</td>
+</tr>
+</tbody>
+</table>
+<p>That falling cost is what makes the whole method worth doing, and it is why yesterday's typing is an investment rather than a chore.</p>
+<p>Two warnings. Correcting output has the anchoring problem from Lesson 4.1 — you are judging whether something looks right rather than reading it fresh. Correct zoomed in, against the picture, and be most suspicious of output that looks fine.</p>
+<p>And beware of a loop that feeds on itself. Correct carelessly, retrain, and the model learns your careless corrections. Its next output carries the same mistakes, which now look familiar, so you correct even less carefully. The loop can settle on a model that is confidently wrong. The fix: every so often, type a page from scratch without looking at the model's version, and compare. That breaks the circle.</p>
+<p><strong>Vocabulary.</strong> <em>Iteration</em> — one pass round the correct-and-retrain loop. <em>Feedback loop</em> — a cycle where output feeds back in as input and errors compound.</p>
+<p><strong>Takeaway:</strong> Each iteration makes ground truth cheaper, but correcting model output risks a feedback loop — periodically transcribe a page blind to break it.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Going Round Again</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the feedback trap in the correct-and-retrain loop, and how do you break it?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Each iteration makes ground truth cheaper, but correcting model output risks a feedback loop — periodically transcribe a page blind to break it.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Careless corrections get learned and reproduced, then look familiar and are corrected even less carefully — so type a page from scratch occasionally and compare.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The loop can otherwise settle on a model that is confidently wrong.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model forgets earlier pages as new ones are added, so keep the training set small.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adding material generally helps. The danger is the quality of what you add.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Each round takes longer than the last, so stop after three iterations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Each round takes *less* effort per page — that is what makes the method worthwhile.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The score improves on held-back lines but worsens on training lines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is backwards, and describes nothing that happens here.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Models Are Fragile About Layout</text></name><questiontext format="html"><text><![CDATA[
+<h3>Models Are Fragile About Layout</h3>
+<p>Something to understand before you trust your model, because it catches people out.</p>
+<p>A model that does well on ordinary pages can collapse on pages laid out differently — even when the scribe and the language are identical.</p>
+<p>Geelhaar's (2022) model, trained on ninth- to eleventh-century Latin, got 5.1% of characters wrong on ordinary pages. On pages with small notes in the margins, the very same model got 13.6% wrong. Excellent to borderline, because the vocabulary changed, there were more short forms, and the smaller writing gave it less to work with.</p>
+<table>
+<thead>
+<tr>
+<th>What changed</th>
+<th>Usual effect</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notes in the margin</td>
+<td>Big drop</td>
+<td>Smaller writing; different words</td>
+</tr>
+<tr>
+<td>Words added between lines</td>
+<td>Lines glued together</td>
+<td>Line-finding cannot separate them</td>
+</tr>
+<tr>
+<td>Two columns instead of one</td>
+<td>Jumbled order</td>
+<td>Region detection</td>
+</tr>
+<tr>
+<td>Damaged patches</td>
+<td>Local failure</td>
+<td>Strips drawn around the damage</td>
+</tr>
+<tr>
+<td>A different scribe</td>
+<td>Drop</td>
+<td>Outside what it was trained on</td>
+</tr>
+</tbody>
+</table>
+<p>So read any score as being <em>about a layout</em>. A model reporting 4% reports 4% on pages like the ones it was tested on. On a page laid out differently, its performance is simply unknown until you measure it.</p>
+<p>For your own edition, check whether your pages are alike. If some carry margin notes, or a second scribe takes over, expect different behaviour there — and test on those pages specifically instead of assuming the headline number covers them.</p>
+<p><strong>Vocabulary.</strong> <em>Brittle</em> — working well in familiar conditions and failing sharply outside them. <em>Marginal gloss</em> — a note written in the margin, usually smaller.</p>
+<p><strong>Takeaway:</strong> A model's CER holds only for layouts like those it was validated on — glossed or irregular pages need their own measurement.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Models Are Fragile About Layout</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Geelhaar's model scored 5.1% on ordinary pages and 13.6% on glossed ones, with the same scribe and language. What does that teach you?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A model's CER holds only for layouts like those it was validated on — glossed or irregular pages need their own measurement.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A score describes a layout, so pages laid out differently need measuring separately.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Smaller writing, different vocabulary, and heavier short forms were enough to take it from excellent to borderline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That marginal notes are usually written by a different scribe.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The scribe and language were identical. Layout alone accounted for it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the model had been undertrained and needed more passes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It performed excellently on standard pages — it was not undertrained.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That glossed pages should always be excluded from an edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They should be measured separately and, for training, deliberately included.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Transkribus and eScriptorium</text></name><questiontext format="html"><text><![CDATA[
+<h3>Transkribus and eScriptorium</h3>
+<p>Two platforms do this work and it is worth knowing how they differ.</p>
+<p><strong>Transkribus</strong> is a commercial product with a polished interface, a big library of ready-made models, and charges credits for training. <strong>eScriptorium</strong> is free and open source, and you can run it on your own computer if you want to (eScriptorium/Kraken, 2024).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Transkribus</th>
+<th>eScriptorium</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost</td>
+<td>Commercial; credits</td>
+<td>Free, open source</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td>Polished</td>
+<td>Web-based, plainer</td>
+</tr>
+<tr>
+<td>Ready-made models</td>
+<td>Large library</td>
+<td>Smaller</td>
+</tr>
+<tr>
+<td>Where it runs</td>
+<td>Their computers</td>
+<td>Theirs or yours</td>
+</tr>
+<tr>
+<td>Can others check your work?</td>
+<td>Limited; models are secret</td>
+<td>Yes; models and code are open</td>
+</tr>
+</tbody>
+</table>
+<p>The ease-of-use point is not trivial. Perdiki's work found that command-line tools were simply out of reach for many humanities scholars, while Transkribus's interface let them train and fix layouts quickly (Perdiki &amp; Konstantinidou, 2023). How usable a tool is decides whether the method gets used at all.</p>
+<p>Against that, openness matters for an edition anyone can check. A model you can inspect and re-run is one a later scholar can verify. A secret model might not exist in ten years — and any claim resting on it becomes impossible to check.</p>
+<p>This course uses Transkribus, for the interface and the model library. If you carry on past this term, eScriptorium is worth learning.</p>
+<p><strong>Vocabulary.</strong> <em>Open source</em> — software whose code anyone may inspect and run. <em>Reproducibility</em> — whether someone else can repeat your work and get your result.</p>
+<p><strong>Takeaway:</strong> Transkribus is more accessible; eScriptorium is reproducible — and a proprietary model makes any claim resting on it unverifiable later.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Transkribus and eScriptorium</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does an open platform offer that a commercial one does not, for a scholarly edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Transkribus is more accessible; eScriptorium is reproducible — and a proprietary model makes any claim resting on it unverifiable later.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A model others can inspect and re-run, so a later scholar can verify your result.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A secret model might not exist in ten years, and any claim resting on it then becomes impossible to check.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Better accuracy, since open models are trained on more material.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accuracy is not the distinction. Transkribus has the larger ready-made library.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A friendlier interface, which is why it is recommended for beginners.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The opposite — ease of use is the commercial platform's advantage, and it matters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Free credits for training, which commercial platforms charge for.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Costs differ, but the argument here is about whether your work can be checked.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Getting the Text Back Out</text></name><questiontext format="html"><text><![CDATA[
+<h3>Getting the Text Back Out</h3>
+<p>Exporting is where today's work rejoins your edition.</p>
+<p>Both platforms export formats called <strong>ALTO</strong> and <strong>PAGE</strong>. Both describe a page as regions, lines, and words, each with its position on the image and the text found there. They map onto TEI closely, and — this is the valuable part — they keep the coordinates worked out during line-finding (eScriptorium/Kraken, 2024).</p>
+<table>
+<thead>
+<tr>
+<th>ALTO element</th>
+<th>Holds</th>
+<th>TEI equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;Page&gt;</code></td>
+<td>One page</td>
+<td><code>&lt;surface&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;TextBlock&gt;</code></td>
+<td>A block of writing</td>
+<td><code>&lt;zone type="block"&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;TextLine&gt;</code></td>
+<td>One line</td>
+<td><code>&lt;zone type="line"&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;String&gt;</code></td>
+<td>One word, with its position</td>
+<td><code>&lt;w&gt;</code> with <code>@facs</code></td>
+</tr>
+</tbody>
+</table>
+<p>Those kept coordinates are the payoff. In Lesson 3.3 you measured three line boxes by hand. Now you can convert ALTO's coordinates into TEI zones for <em>every</em> line automatically.</p>
+<p>One trap. ALTO's numbers are in image pixels. If the viewer's canvas size differs from the image size — the ratio you noted in Lesson 3.3 — every number needs scaling before it becomes a TEI zone.</p>
+<p>This is exactly what your hand-measured boxes are for. Convert the ALTO numbers, compare against the three lines you measured yourself, and if they agree your conversion is right. If they are out by a consistent factor, you have found the scaling error — and you found it because you had something to check against.</p>
+<p>Export today, commit the raw export next to your converted TEI, and record the scale factor you used.</p>
+<p><strong>Vocabulary.</strong> <em>ALTO / PAGE</em> — XML formats for page layout plus recognized text. <em>Control</em> — a known-good measurement used to check an automated one.</p>
+<p><strong>Takeaway:</strong> ALTO preserves line coordinates in image pixels — transform them into TEI zones and check the result against your hand-measured control lines.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Getting the Text Back Out</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do the three line boxes you measured by hand in Lesson 3.3 earn their keep today?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;ALTO preserves line coordinates in image pixels — transform them into TEI zones and check the result against your hand-measured control lines.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They are a known-good control: convert the exported coordinates and compare, and a consistent discrepancy reveals a scaling error.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Exported coordinates are in image pixels, so they need scaling if the viewer's canvas size differs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are added to the export to fill in lines the program failed to detect.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are a check on the conversion, not a supplement to the output.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They tell the platform what size to make the line strips.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Strip size comes from the baseline and the settings, not from your TEI.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are required by ALTO, which cannot record coordinates without a reference box.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ALTO records coordinates directly. The control is yours, for verification.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Saving Machine Output to Git</text></name><questiontext format="html"><text><![CDATA[
+<h3>Saving Machine Output to Git</h3>
+<p>The labelling habit from Week 1 does real work today for the first time.</p>
+<p>Commit the machine's output <strong>separately from your corrections</strong>. This is not neatness. It is what makes Week 5's measurement possible at all. The raw output is the thing being scored. Commit it already corrected and there is nothing left to score.</p>
+<pre><code class="language-text">feat(transcription): HTR output for ff. 43r-44v, uncorrected
+
+Applied model rels398-hand1-v2, built from Transkribus Titan plus 24
+lines of my own transcription from f. 42r. Score on held-back lines:
+6.2% of characters wrong.
+
+Raw output, nothing corrected. Corrections follow in a separate commit
+so the raw score can be measured against this state in Week 5.
+
+AI-Generated: true
+Model: Transkribus / PyLaia, rels398-hand1-v2
+Base-Model: Transkribus Titan I
+Human-Verified: false
+Ground-Truth-Commit: a3f9c21
+Validation-CER: 6.2
+</code></pre>
+<p>Then correct, and commit that separately:</p>
+<pre><code class="language-text">fix(transcription): correct HTR output for ff. 43r-44v
+
+Fixed 31 errors against the photograph at full zoom. Sorted in
+logs/htr-errors-w4.md: 14 dropped accents, 9 short-form errors,
+5 joined-letter misreadings, 3 chopped line ends.
+
+Human-Verified: true
+</code></pre>
+<p>The <code>Human-Verified: false</code> on the first commit is your to-do list working as designed. Between those two commits your repository holds unchecked machine text, and the label says so out loud.</p>
+<p><strong>Vocabulary.</strong> <em>Trailer</em> — a labelled line at the end of a commit message. <em>Raw output</em> — machine text before any human correction.</p>
+<p><strong>Takeaway:</strong> Commit raw model output and your corrections separately, or Week 5 cannot compute an error rate at all.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Saving Machine Output to Git</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must the raw output be committed separately, before you correct anything?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Commit raw model output and your corrections separately, or Week 5 cannot compute an error rate at all.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The raw output is what gets scored in Week 5 — commit it already corrected and there is nothing left to score.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It is not neatness; it is what makes the measurement possible at all.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because corrections must be reviewed by another student before being committed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. No such review step exists.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because git cannot record two kinds of change in one commit.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It can. The separation is required by the methodology, not by the tool.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the labels only apply to commits containing no human edits.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect — that is a consequence of the rule, not its reason. The reason is that the raw state must survive.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Setting Friday Up</text></name><questiontext format="html"><text><![CDATA[
+<h3>Setting Friday Up</h3>
+<p>On Friday you run the same passage through a general AI model, and the comparison is the week's real lesson. Today's results are what it gets compared against.</p>
+<p>Record all of this so that comparison is possible:</p>
+<table>
+<thead>
+<tr>
+<th>What to record</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Which model you started from</td>
+<td>Repository note and commit trailer</td>
+</tr>
+<tr>
+<td>How much training material</td>
+<td>Lines and leaves used</td>
+</tr>
+<tr>
+<td>Score on held-back lines</td>
+<td>Commit trailer and note</td>
+</tr>
+<tr>
+<td>Sorted list of mistakes</td>
+<td><code>logs/htr-errors-w4.md</code></td>
+</tr>
+<tr>
+<td>How much line-fixing it took</td>
+<td>A note</td>
+</tr>
+<tr>
+<td>Raw uncorrected output</td>
+<td>Its own commit, tagged</td>
+</tr>
+<tr>
+<td>Time spent</td>
+<td>A note: setup, fixing, training</td>
+</tr>
+</tbody>
+</table>
+<p>That last row matters more than students expect. Friday's tool needs no training, no line-fixing, and no typed examples. You hand it a picture and get text back. Comparing the <em>quality</em> of Wednesday's and Friday's output without comparing the <em>cost</em> misses half the question.</p>
+<p>Tag today's raw output so Week 5 can retrieve exactly what was measured:</p>
+<pre><code class="language-bash">git tag -a htr-w4-raw -m &quot;Raw HTR output, model rels398-hand1-v2, before correction&quot;
+</code></pre>
+<p>Expect Friday's output to be worse on this material, possibly much worse. That is the finding, not a failed exercise — and it counts for more having been measured than asserted.</p>
+<p><strong>Vocabulary.</strong> <em>Baseline result</em> — the result everything else gets compared against. <em>Cost</em> — the time, effort, and money a method actually takes.</p>
+<p><strong>Takeaway:</strong> Record cost as well as quality — Friday's tool needs no training or ground truth, and the comparison is meaningless without that.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Setting Friday Up</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why record the time you spent today, as well as the score?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Record cost as well as quality — Friday's tool needs no training or ground truth, and the comparison is meaningless without that.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Friday's tool needs no training, no line-fixing, and no examples, so comparing quality without comparing cost misses half the question.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The honest Week 5 assessment needs both figures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the time spent is part of the mark for the Transcription Assignment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It feeds the report's argument, not a time-based mark.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Transkribus bills credits by the hour and you must report usage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Credits are consumed by training runs, and that is not why the time is recorded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because slower training indicates a mismatched base model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The timing being recorded is your effort, not the machine's.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Why the Small Specialist Usually Wins</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why the Small Specialist Usually Wins</h3>
+<p>Worth understanding before Friday, because the result goes against instinct.</p>
+<p>The general AI models are enormous, trained on staggering amounts of material. Your model is tiny and learned from a few dozen lines of one scribe. Instinct says the big one should win.</p>
+<p>On historical manuscripts it usually does not, and the gap is huge. On a medieval Latin test set, a model tuned for medieval Latin got 14.6% of characters wrong, while a large commercial system scored 84.7% on identical pages (Mattingly et al., 2024). On historical English, GPT-4o got 52.23% wrong; on historical German, 77.42% (AlKendi et al., 2024).</p>
+<p>The same models are superb on <em>modern</em> handwriting. GPT-4o gets 1.39% wrong on a modern English test set — as good as purpose-built tools (AlKendi et al., 2024).</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Model</th>
+<th>Wrong</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modern English</td>
+<td>GPT-4o</td>
+<td>1.39%</td>
+</tr>
+<tr>
+<td>Historical English</td>
+<td>GPT-4o</td>
+<td>52.23%</td>
+</tr>
+<tr>
+<td>Historical German</td>
+<td>GPT-4o</td>
+<td>77.42%</td>
+</tr>
+<tr>
+<td>Medieval Latin</td>
+<td>Tuned specialist</td>
+<td>14.6%</td>
+</tr>
+<tr>
+<td>Medieval Latin</td>
+<td>Large general model</td>
+<td>84.7%</td>
+</tr>
+</tbody>
+</table>
+<p>This is the <strong>specialization gap</strong>. The specialists are far smaller and win because they have actually been shown scribal handwriting, odd short forms, joined letters, and irregular layouts (Mattingly et al., 2024). The general models have seen the internet, and the internet contains very little Byzantine Greek minuscule.</p>
+<p>Size does not substitute for having seen the material. Friday you check this on your own manuscript.</p>
+<p><strong>Vocabulary.</strong> <em>Benchmark</em> — a standard test set used to compare tools fairly. <em>General-purpose model</em> — one trained on everything rather than for one job.</p>
+<p><strong>Takeaway:</strong> General models are excellent on modern handwriting and catastrophic on historical scripts — scale does not substitute for exposure to the material.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Why the Small Specialist Usually Wins</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;GPT-4o gets 1.39% wrong on modern English handwriting and 52.23% on historical English. What does the gap show?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;General models are excellent on modern handwriting and catastrophic on historical scripts — scale does not substitute for exposure to the material.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Sheer size does not substitute for having been shown the actual material — the internet holds very little old handwriting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Same model, same language; only the century changed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That historical English is a fundamentally harder language than modern English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is the same language. What differs is how well represented the handwriting is.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the historical test set was too small to give a reliable figure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Nothing suggests that, and the pattern repeats across several datasets and models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the model needs a larger image resolution for historical documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Resolution is not what accounts for a fortyfold difference.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: More Steps Can Make It Worse</text></name><questiontext format="html"><text><![CDATA[
+<h3>More Steps Can Make It Worse</h3>
+<p>A related finding, worth knowing before Friday because it will shape what you try.</p>
+<p>The instinct when assembling a workflow is that more helpers must help: a reading program, then an AI to tidy its mistakes, maybe a lookup step to supply background knowledge. Each addition fixes something real.</p>
+<p>In practice it backfires. A plain workflow — one specialist reading program feeding one translator — beats versions with extra AI steps bolted on. The extra generative steps introduce their own errors, and those errors then travel downstream unchecked (Mattingly et al., 2024).</p>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Extra pieces</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plain</td>
+<td>None</td>
+<td>Best</td>
+</tr>
+<tr>
+<td>Plus background lookup</td>
+<td>One</td>
+<td>Worse</td>
+</tr>
+<tr>
+<td>Plus AI tidying of the reading</td>
+<td>One</td>
+<td>Worse</td>
+</tr>
+<tr>
+<td>Both</td>
+<td>Two</td>
+<td>Worst</td>
+</tr>
+</tbody>
+</table>
+<p>The mechanism is simple. Every generative step can break things as well as fix them, and something broken late in the chain has nothing after it to catch the problem. An AI tidying up reading output cannot see the picture. It corrects toward whatever sounds most likely — which means it will "fix" a correct but unusual reading into a wrong but ordinary one. In manuscripts, the unusual readings are frequently the interesting ones.</p>
+<p>So, for Friday: do not try to improve today's output by passing it through an AI to clean up. That is exactly the setup the evidence says makes things worse, and you would be degrading your text while feeling you had improved it.</p>
+<p><strong>Vocabulary.</strong> <em>Pipeline</em> — a chain of processing steps, each feeding the next. <em>Error propagation</em> — a mistake made early travelling onward unnoticed.</p>
+<p><strong>Takeaway:</strong> Adding LLM post-correction to OCR degrades quality — it corrects toward plausibility, and unusual readings are the interesting ones.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: More Steps Can Make It Worse</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does adding an AI step to tidy up reading output make the result worse rather than better?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Adding LLM post-correction to OCR degrades quality — it corrects toward plausibility, and unusual readings are the interesting ones.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The tidying step cannot see the picture, so it corrects toward whatever sounds likely — and unusual readings are often the interesting ones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Anything broken late in the chain has nothing after it to catch the problem.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the extra step doubles the processing time for no gain.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The cost is quality, not time.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the two programs use incompatible character encodings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Encoding is not the issue — the issue is correcting toward plausibility without seeing the source.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the tidying step overwrites the raw output, so nothing can be measured.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. You can keep both. The finding is that the tidied text is genuinely worse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Checklist Before You Leave</text></name><questiontext format="html"><text><![CDATA[
+<h3>Checklist Before You Leave</h3>
+<p>Check each one.</p>
+<ul>
+<li>Manuscript imported into Transkribus by web address.</li>
+<li>Line-finding run on every leaf you are using.</li>
+<li>Every line found; no merges or splits left.</li>
+<li>Strips checked to include the high accents.</li>
+<li>Your transcription attached to the right lines, spot-checked.</li>
+<li>Starting model chosen, with the reason written down.</li>
+<li>Model trained, with a representative set of lines held back.</li>
+<li>Score recorded.</li>
+<li>Model run on at least one untyped leaf.</li>
+<li>Output read line by line, zoomed in.</li>
+<li>Mistakes sorted in <code>logs/htr-errors-w4.md</code>.</li>
+<li>Raw output committed on its own, with the labels.</li>
+<li>Raw output tagged.</li>
+<li>ALTO or PAGE export committed.</li>
+<li>Coordinates checked against your Lesson 3.3 measured lines.</li>
+<li>Time spent recorded.</li>
+</ul>
+<p>If your score is worse than 15%, do not start correcting. The output is not worth the effort. Diagnose instead, in the order from section 14: line-finding, then alignment, then how much training material, then the starting model.</p>
+<p><strong>Vocabulary.</strong> <em>Spot-check</em> — verifying a few samples rather than everything. <em>Diagnose</em> — work out the cause before attempting a fix.</p>
+<p><strong>Takeaway:</strong> If validation CER exceeds 15%, diagnose rather than correct — check layout, then alignment, then data volume, then base model.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Checklist Before You Leave</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In what order should you diagnose a model that scored worse than 15%?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;If validation CER exceeds 15%, diagnose rather than correct — check layout, then alignment, then data volume, then base model.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Line-finding, then alignment, then how much training material, then the starting model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Most first models are fixable, and the order runs from the most likely cause to the least.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Starting model, then training passes, then image resolution, then alignment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The starting model is checked last, not first — line-finding faults are far more common.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Retrain immediately with more passes before investigating anything.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. More passes will not fix bad strips or mismatched text, and it spends shared credits.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Correct the output first, then retrain on the corrections.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Above 15% the output is not worth correcting — that is the whole point of the threshold.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Things That Go Wrong Today</text></name><questiontext format="html"><text><![CDATA[
+<h3>Things That Go Wrong Today</h3>
+<p>The failures that keep happening, and what they mean.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>What to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import fails</td>
+<td>Address not reachable publicly</td>
+<td><code>curl</code> from outside your network</td>
+</tr>
+<tr>
+<td>Some lines not found</td>
+<td>Faint ink; settings</td>
+<td>Look, then fix by hand</td>
+</tr>
+<tr>
+<td>No accents at all in the output</td>
+<td>Strips cutting them off</td>
+<td>Look at the extracted strips</td>
+</tr>
+<tr>
+<td>Fluent nonsense</td>
+<td>Text attached one line out</td>
+<td>Spot-check picture against words</td>
+</tr>
+<tr>
+<td>Score far worse than expected</td>
+<td>Starting model wrong for the script</td>
+<td>Confirm script and date</td>
+</tr>
+<tr>
+<td>Good on one leaf, bad on another</td>
+<td>Different layouts</td>
+<td>Test each layout separately</td>
+</tr>
+<tr>
+<td>Training improves, held-back lines worsen</td>
+<td>Memorizing</td>
+<td>Stop at the low point</td>
+</tr>
+<tr>
+<td>Words glued together</td>
+<td>Words run together on the page</td>
+<td>Expected; note it for Week 5</td>
+</tr>
+<tr>
+<td>Short forms spelled out</td>
+<td>Starting model learned tidy text</td>
+<td>Pick a diplomatic starting model</td>
+</tr>
+</tbody>
+</table>
+<p>Rows three and four are today's signature failures, and both are invisible in the output itself. Missing accents look like the program being weak at Greek rather than a strip problem. Text attached one line out reads perfectly and simply belongs somewhere else.</p>
+<p>The remedy for both is the same, and it is worth keeping as a general rule: when output is wrong in a way you cannot explain, go and look at what the program actually saw. The extracted strip is the truth about the input, and nearly every baffling failure is visible there.</p>
+<p><strong>Vocabulary.</strong> <em>Symptom</em> — what you observe going wrong. <em>Cause</em> — the underlying fault, often several steps earlier.</p>
+<p><strong>Takeaway:</strong> When output is inexplicably wrong, look at the extracted line image — that is what the model actually saw.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Things That Go Wrong Today</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;The output is fluent and reads coherently, but it does not match the page. What is the likely cause?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;When output is inexplicably wrong, look at the extracted line image — that is what the model actually saw.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Your transcription was attached one line out, so the model learned each line's picture with the next line's words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The text is internally coherent and simply belongs somewhere else — spot-check picture against words to confirm.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The strips were cut too tightly, removing the accents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That produces text missing its accents, not coherent text belonging elsewhere.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The base model was trained on tidied text and is spelling short forms out.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That shows as expanded abbreviations, not as wholesale displacement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model overfitted and is reproducing memorized training lines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Memorized lines would match the page they came from. Here the pairing itself is wrong.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Writing Down What You Did</text></name><questiontext format="html"><text><![CDATA[
+<h3>Writing Down What You Did</h3>
+<p>Your Week 5 report needs an account of today's work. Writing it now is far easier than reconstructing it later.</p>
+<p>Record in <code>logs/htr-method-w4.md</code>:</p>
+<ul>
+<li>Which platform, and which version.</li>
+<li>Which model you started from, what it was trained on, how it performs.</li>
+<li>Your own material: which leaves, how many lines, how produced.</li>
+<li>What line-fixing was needed, and of what kind.</li>
+<li>Whether you changed the line-finding settings, and to what.</li>
+<li>How you trained: how many lines held back, how many passes, when you stopped.</li>
+<li>The score, and what it was measured on.</li>
+<li>Which leaves you then ran the model over.</li>
+<li>The kinds of mistake you saw, with counts.</li>
+<li>Time spent at each stage.</li>
+</ul>
+<p>This is a methods section. Its job is to let a reader — or you in December — see what was done and judge whether the results mean what they seem to. A score of 6.2% means nothing without knowing the starting model, how much material, and what was in the held-back set.</p>
+<p>It also protects you. If your Week 5 results are surprising, this record is what lets you work out why. Without it, a strange number is simply strange, and your only option is doing the work again.</p>
+<p>Commit it with a <code>docs:</code> prefix.</p>
+<p><strong>Vocabulary.</strong> <em>Methods section</em> — the part of a report saying exactly what was done. <em>Provenance</em> — the documented history of how something was made.</p>
+<p><strong>Takeaway:</strong> A CER figure is uninterpretable without its base model, training volume, and validation set — record the methodology today.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Writing Down What You Did</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is a score of 6.2% meaningless on its own?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A CER figure is uninterpretable without its base model, training volume, and validation set — record the methodology today.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Without the starting model, the amount of training material, and what was in the held-back set, nobody can tell what it measures.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Record it now — if Week 5's results surprise you, this is what lets you work out why.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because scores must always be reported alongside a word-level figure as well.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A word-level figure helps, but it is not what makes the character figure interpretable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because 6.2% is within the margin of error for any small test set.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Nothing in the lesson suggests that. The problem is missing context, not statistical noise.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because scores are only comparable between students using the same manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are not comparable between manuscripts, but that is not why the methodology is recorded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Preparing for Friday</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing for Friday</h3>
+<p>Friday is remote, and it puts the same passage through a general AI model.</p>
+<p>Have all of this available from wherever you will be:</p>
+<ul>
+<li>Your repository, pushed.</li>
+<li>Yesterday's transcription, tagged.</li>
+<li>Today's raw output, tagged.</li>
+<li>Today's sorted mistakes and methods notes.</li>
+<li>Your images, reachable from outside your network.</li>
+<li>A working Greek keyboard on the machine you will use.</li>
+<li>Access to an AI model that accepts pictures.</li>
+</ul>
+<p>Friday's comparison is three-way: your typing, today's specialist model, and Friday's general model, all on the same lines. Having all three saved under tags is what makes that comparison exact rather than roughly right.</p>
+<p>Set your expectation now, so the result is a measurement rather than a shock. Going by the published figures in section 23, Friday's output will probably be much worse than today's on historical Greek. It will also arrive in minutes instead of a whole session. Week 5 needs you to hold both of those facts at once.</p>
+<p>Check your setup today, following Lesson 4.1 section 23. Every item takes two minutes now and none of them takes two minutes on Friday morning.</p>
+<p><strong>Vocabulary.</strong> <em>Three-way comparison</em> — measuring three versions of the same passage against each other. <em>Tag</em> — a permanent name on one saved version.</p>
+<p><strong>Takeaway:</strong> Tag all three states so Friday's three-way comparison is exact, and expect the general model to be much worse and much faster.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Preparing for Friday</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must all three versions be saved under tags before Friday?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Tag all three states so Friday's three-way comparison is exact, and expect the general model to be much worse and much faster.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Friday compares your typing, today's model, and the general AI on the same lines, and tags make that comparison exact rather than approximate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A tag is a permanent name for one particular version, retrievable from anywhere.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because tagged versions are the only ones that can be pushed from off campus.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Any commit can be pushed. Tags do need pushing explicitly, which is a separate trap.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the AI model reads the tags to know which version to compare against.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It reads a picture. The tags are for you and for Week 5.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because untagged work is not eligible for the Transcription Assignment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The requirement is methodological — exact retrieval of the state that was measured.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: What Good Work Looks Like Here</text></name><questiontext format="html"><text><![CDATA[
+<h3>What Good Work Looks Like Here</h3>
+<p>"Trained a model" and "trained a model well" are different achievements.</p>
+<p>An acceptable result is a trained model with a recorded score and output you have looked at.</p>
+<p>Good work also:</p>
+<ul>
+<li>Fixes the line-finding thoroughly, including the strips around accents.</li>
+<li>Checks that text is attached to the right lines instead of assuming it.</li>
+<li>Chooses a starting model deliberately and says why.</li>
+<li>Holds back a representative set of lines, not a convenient one.</li>
+<li>Sorts mistakes into kinds rather than just counting them.</li>
+<li>Tells line-finding failures apart from reading failures.</li>
+<li>Records cost — time and effort — alongside quality.</li>
+<li>Commits raw output separately from corrections, fully labelled.</li>
+<li>Says what the model does badly, and offers a reason.</li>
+</ul>
+<p>That last one is what makes this scholarship rather than button-pushing. "6% wrong, and it drops breathings on one particular letter, fails on this scribe's short form for <em>kai</em>, and falls apart on the glossed leaf" is far more useful than "6% wrong" — because it tells you what to fix, what to check by hand, and what to say about whether this method suits this manuscript.</p>
+<p><strong>Vocabulary.</strong> <em>Qualitative</em> — concerning the kind of thing, not the amount. <em>Hypothesis</em> — a proposed explanation you can go on to test.</p>
+<p><strong>Takeaway:</strong> Reporting <em>what</em> the model gets wrong and why is the scholarly contribution; the CER number alone is tool operation.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: What Good Work Looks Like Here</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What turns today's work from button-pushing into scholarship?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Reporting *what* the model gets wrong and why is the scholarly contribution; the CER number alone is tool operation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Saying what the model gets wrong and why — which letterform, which short form, which kind of page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That tells you what to fix, what to check by hand, and whether the method suits this manuscript. A bare score does none of it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Reaching a score below 5%, which is the threshold for a publishable model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. There is no such threshold, and a low score can conceal serious damage.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Training several models and reporting the best score achieved.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Reporting only the best run hides more than it shows.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Using the largest available base model, to rule out undertraining.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Larger is not better here — matched is better.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Synthesis: An Instrument with Edges</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesis: An Instrument with Edges</h3>
+<p>What today established about the machine step.</p>
+<p>A specialized reading model is an instrument with <strong>edges</strong>. It reads ink and produces letters, and it is competent exactly as far as its examples went. Inside that boundary, on handwriting it has seen, it is fast, cheap, consistent, and — because it barely models language — inclined to fail loudly rather than to invent (Puigcerver, 2017; AlKendi et al., 2024).</p>
+<p>How well it works depends on things you control. The line-finding has to be fixed, because the reading step only ever sees what line-finding produced, and chopped strips delete Greek accents before the model lays eyes on them (Perdiki &amp; Konstantinidou, 2023). Your text must be attached to the right lines. The starting model must match the script. And you must start from an existing model, because that alone was the difference between 17% and 4% on identical material (Perdiki &amp; Konstantinidou, 2023).</p>
+<p>Judging it takes more than a number. A score holds only for pages laid out like the ones it was tested on, treats every difference as equal, and can look excellent while the model quietly modernizes away the very fidelity your edition exists to preserve (Levchenko, 2024).</p>
+<p>Friday tests the opposite kind of instrument: no edges, trained on everything, able to draw on what language usually does — and therefore able to produce fluent text that is not on the page. Comparing the two is the point of the week.</p>
+<p><strong>For Friday.</strong> Remote. Bring the seven items in section 28, with all three versions tagged.</p>
+<p><strong>Vocabulary.</strong> <em>Bounded</em> — limited to a defined range of material. <em>Fluent</em> — reading smoothly, which is not the same as being correct.</p>
+<p><strong>Takeaway:</strong> An HTR model reads ink within the bounds of its training and fails conspicuously; Friday's instrument reads expectation too, and fails fluently.</p>
+<hr />
+<h2>References</h2>
+<p>AlKendi, W., Gechter, F., Heyberger, L., &amp; Guyeux, C. (2024). Advancements and
+challenges in handwritten text recognition: A comprehensive survey. <em>Journal of
+Imaging</em>.</p>
+<p>eScriptorium/Kraken. (2024). <em>eScriptorium platform documentation</em>.
+https://escriptorium.eu/about</p>
+<p>Geelhaar, T. (2022). <em>Carolingian minuscule model CMM 9th–11th c.</em> Transkribus
+Model. https://www.transkribus.org/models/latin-carolingian-minuscule</p>
+<p>Levchenko, M. A. (2024). <em>Evaluating LLMs for historical document OCR: A
+methodological framework for digital humanities</em>.</p>
+<p>Li, M., Lv, T., Chen, J., Cui, L., Lu, Y., Florencio, D., Zhang, C., Li, Z., &amp; Wei,
+F. (2023). TrOCR: Transformer-based optical character recognition with pre-trained
+models. <em>Proceedings of the AAAI Conference on Artificial Intelligence, 37</em>(11),
+13094–13102.</p>
+<p>Mattingly, W. J. B., et al. (2024). <em>When simpler is better: Evaluating translation
+pipelines for medieval Latin manuscripts</em>.</p>
+<p>Perdiki, E., &amp; Konstantinidou, M. (2023). Preparing big manuscript data for
+hierarchical clustering with minimal HTR training. <em>Journal of Data Mining &amp;
+Digital Humanities</em>. https://jdmdh.episciences.org/12664/pdf</p>
+<p>Puigcerver, J. (2017). <em>PyLaia: A deep learning toolkit for handwritten document
+analysis</em>. https://github.com/jpuigcerver/PyLaia</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: An Instrument with Edges</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does it mean to call a trained reading model "an instrument with edges"?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An HTR model reads ink within the bounds of its training and fails conspicuously; Friday's instrument reads expectation too, and fails fluently.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It reads ink and produces letters, and its competence extends exactly as far as its examples went — no further, and it does not pretend otherwise.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Inside that boundary it is fast, cheap, consistent, and inclined to fail loudly rather than to invent.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It works only on rectangular pages with clearly ruled margins.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The edges are the limits of its training, not a physical constraint on the page.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It has a fixed maximum accuracy that no amount of training can exceed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accuracy improves with better data. The boundary is about what material it can handle.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It must be retrained from scratch whenever the manuscript changes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. You fine-tune it further — starting from scratch is precisely what you should never do.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

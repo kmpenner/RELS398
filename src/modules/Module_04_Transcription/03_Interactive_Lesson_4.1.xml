@@ -1,0 +1,2316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_4.1</text></category></question>
+<question type="description"><name><text>01 Content: Why the Manual Step Comes First</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why the Manual Step Comes First</h3>
+<p>This week you transcribe the same passage three times. Today by hand. Wednesday with software that learns handwriting. Friday with an AI model.</p>
+<p>Doing it by hand first is not old-fashioned caution. Wednesday and Friday produce output that has to be <em>graded</em>, and grading needs an answer key. Without one, the software's output is just text on a screen. It might be right. You have no way to tell. Every accuracy score you calculate in Week 5 is measured against the file you build today (AlKendi et al., 2024).</p>
+<p>There is a second reason. Typing a page out by hand is how you learn what your manuscript actually holds — how this scribe shapes each letter, which short forms keep appearing, where the page is damaged. Tomorrow you judge whether the software read the page correctly. You cannot judge that if you have never read the page yourself.</p>
+<p><strong>Vocabulary.</strong> <em>Ground truth</em> — a transcription checked and known to be correct, used as the answer key for scoring software. <em>Transcription</em> — a typed version of what is written on a page.</p>
+<p><strong>Takeaway:</strong> Today's transcription is the measuring instrument for the rest of the term — every error rate you compute is a distance from it.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Why the Manual Step Comes First</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does this week ask you to type the page out by hand before running any software on it?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Today's transcription is the measuring instrument for the rest of the term — every error rate you compute is a distance from it.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the software's output has to be graded, and grading needs an answer key that somebody checked.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without a reference you know to be right, machine output is just text — it might be accurate, and you would have no way to tell.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the software cannot open manuscript images until a person has tagged the vocabulary first.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These programs take images directly. What they cannot supply is a correct version to be measured against.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because typing by hand is more accurate than any software, so the machine passes are really just a demonstration.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hand transcription contains errors too — that is why Week 5 types the page a second time. The point is that it is the reference, not that it is perfect.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because it is a traditional skill that students should practise before being allowed to use modern tools.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is a structural requirement: every error rate is a distance from a reference, so the reference has to exist first.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: Diplomatic Versus Normalized Transcription</text></name><questiontext format="html"><text><![CDATA[
+<h3>Diplomatic Versus Normalized Transcription</h3>
+<p>There are two ways to type out a manuscript, and they serve opposite purposes.</p>
+<p>A <strong>diplomatic</strong> transcription copies what is on the page, exactly: the original spelling, the original punctuation, the line breaks, the odd letter shapes, the abbreviations left short. It is loyal to the parchment.</p>
+<p>A <strong>normalized</strong> transcription tidies all of that up. It fixes the spelling, spells out the abbreviations, and uses modern punctuation. It is loyal to the words, not to the page (AlKendi et al., 2024).</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Diplomatic</th>
+<th>Normalized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spelling</td>
+<td>As written, errors included</td>
+<td>Corrected</td>
+</tr>
+<tr>
+<td>Abbreviations</td>
+<td>Left short, or marked</td>
+<td>Quietly spelled out</td>
+</tr>
+<tr>
+<td>Punctuation</td>
+<td>As on the page</td>
+<td>Modern</td>
+</tr>
+<tr>
+<td>Word spacing</td>
+<td>As written</td>
+<td>Modern</td>
+</tr>
+<tr>
+<td>Line breaks</td>
+<td>Kept</td>
+<td>Dropped</td>
+</tr>
+<tr>
+<td>Letter shapes</td>
+<td>Variants kept apart</td>
+<td>Merged</td>
+</tr>
+<tr>
+<td>Good for</td>
+<td>Studying the hand; training software</td>
+<td>Reading; translating</td>
+</tr>
+</tbody>
+</table>
+<p>Yours today must be diplomatic. Here is why. Software learns from the examples you give it. Feed it tidied-up text and it learns to tidy up — that is, to quietly replace what the scribe wrote with what a modern editor would write (AlKendi et al., 2024).</p>
+<p>Tidying up is Week 6's job, done <em>from</em> a diplomatic copy, with every change written down. Doing it now, silently, destroys what Week 6 needs.</p>
+<p><strong>Vocabulary.</strong> <em>Diplomatic</em> — copying the document's own forms exactly. <em>Normalized</em> — cleaned up to modern convention.</p>
+<p><strong>Takeaway:</strong> Transcribe diplomatically, because a model trained on normalized text learns to silently modernize — and Week 6 needs the unnormalized base.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Diplomatic Versus Normalized Transcription</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must today's transcription copy the page exactly rather than tidy up the spelling and abbreviations?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Transcribe diplomatically, because a model trained on normalized text learns to silently modernize — and Week 6 needs the unnormalized base.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Software learns from the examples you give it, so tidied-up examples teach it to quietly replace what the scribe wrote with modern forms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. And because the tidied output is clean and readable, nothing signals that the historical record has been overwritten.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Copying exactly is quicker, because you can ignore the accents and the odd letter shapes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is slower and more demanding — you have to record every surface feature rather than smoothing them away.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TEI does not allow tidied-up spelling to be recorded in a digital edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI has `&amp;lt;reg&amp;gt;` for exactly that. The point is that tidying should be done from a faithful base, with each change recorded — which is Week 6's job.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Tidied-up transcriptions cannot be turned into web pages or printed editions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are easy to present. The problem is that the evidence has already been destroyed by then.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: One Text, Two Structures</text></name><questiontext format="html"><text><![CDATA[
+<h3>One Text, Two Structures</h3>
+<p>TEI is the set of rules you use to mark up a text in XML. Using it commits you to one idea about what a text is, and it helps to know what that idea is.</p>
+<p>TEI assumes a text is a single nested stack of boxes: a work holds chapters, a chapter holds paragraphs, a paragraph holds sentences. XML forces this. Boxes must sit neatly inside other boxes. They may not overlap (AlKendi et al., 2024).</p>
+<p>Manuscripts break that rule constantly. A page has a <em>physical</em> structure — leaves, columns, lines. The text has a <em>logical</em> structure — chapters, sentences. Both are real, and neither fits inside the other. A sentence starts halfway down a line and finishes on the next page.</p>
+<p>TEI solves this with an empty tag that marks a <em>spot</em> rather than wrapping anything. <code>&lt;pb/&gt;</code> marks where a page starts. <code>&lt;lb/&gt;</code> marks where a line starts:</p>
+<pre><code class="language-xml">&lt;p&gt;ἐν ἀρχῇ ἦν ὁ λόγος καὶ ὁ λόγος&lt;lb n=&quot;2&quot;/&gt;
+ἦν πρὸς τὸν θεόν καὶ θεὸς ἦν ὁ&lt;lb n=&quot;3&quot;/&gt;
+λόγος οὗτος ἦν ἐν ἀρχῇ&lt;pb n=&quot;42v&quot;/&gt;&lt;/p&gt;
+</code></pre>
+<p>The paragraph stays one tidy box. The page and line breaks are recorded as points inside it.</p>
+<p><strong>Vocabulary.</strong> <em>Milestone</em> — an empty tag that marks a point in the text instead of enclosing it. <em>Nesting</em> — putting one tag fully inside another, which XML requires.</p>
+<p><strong>Takeaway:</strong> Physical and logical structure both exist and do not nest, so TEI records line and page boundaries as empty milestones within the logical hierarchy.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: One Text, Two Structures</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;A sentence starts halfway down a line and finishes on the next page. Why is that a problem for XML, and how does TEI solve it?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Physical and logical structure both exist and do not nest, so TEI records line and page boundaries as empty milestones within the logical hierarchy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;XML needs tags to nest neatly, and the page's structure and the text's structure overlap instead — so TEI marks page and line starts with empty tags that mark a point rather than wrapping anything.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. `&amp;lt;pb/&amp;gt;` and `&amp;lt;lb/&amp;gt;` sit inside the paragraph as markers, so the paragraph stays one tidy box.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XML cannot represent pages at all, so line and page breaks are recorded in a separate file and linked back.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are recorded inline, in the same file, as empty marker tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TEI solves it by ending the paragraph at the page break and starting a new one on the next page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That would misrepresent the text — one sentence would become two paragraphs. The paragraph continues; only a marker is inserted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is not really a problem, because scribes almost always ended sentences at the end of a line.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They frequently did not, and even a single overlap is enough to break strict nesting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: The Tags You Will Actually Use</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Tags You Will Actually Use</h3>
+<p>You need a small set of tags, used the same way every time. These cover most of what you will meet (TEI Consortium, 2026).</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>What it records</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;pb/&gt;</code></td>
+<td>A page starts here</td>
+<td><code>&lt;pb n="42v" facs="#f42v"/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;lb/&gt;</code></td>
+<td>A line starts here</td>
+<td><code>&lt;lb n="8" facs="#f42r_l08"/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;cb/&gt;</code></td>
+<td>A column starts here</td>
+<td><code>&lt;cb n="b"/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;abbr&gt;</code></td>
+<td>A short form, as written</td>
+<td><code>&lt;abbr&gt;θς&lt;/abbr&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;expan&gt;</code></td>
+<td>The same word, spelled out</td>
+<td><code>&lt;expan&gt;θεός&lt;/expan&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;choice&gt;</code></td>
+<td>Holds two versions side by side</td>
+<td><code>&lt;choice&gt;&lt;abbr/&gt;&lt;expan/&gt;&lt;/choice&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;orig&gt;</code> / <code>&lt;reg&gt;</code></td>
+<td>Original / tidied spelling</td>
+<td><code>&lt;reg&gt;ἐγένοντο&lt;/reg&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;unclear&gt;</code></td>
+<td>You can read it, but not confidently</td>
+<td><code>&lt;unclear reason="faded"/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;gap/&gt;</code></td>
+<td>Something is missing or unreadable</td>
+<td><code>&lt;gap reason="lacuna" extent="3"/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;damage&gt;</code></td>
+<td>The page itself is damaged here</td>
+<td><code>&lt;damage agent="water"/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;supplied&gt;</code></td>
+<td>You added text that is not on the page</td>
+<td><code>&lt;supplied reason="lacuna"/&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;del&gt;</code> / <code>&lt;add&gt;</code></td>
+<td>The scribe crossed out / added text</td>
+<td><code>&lt;add place="above"/&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>&lt;choice&gt;</code> is the clever one. It does not pick a winner. It holds both versions so a computer can pick later, depending on the job. A reading edition shows the spelled-out form. A handwriting study shows the short form. You encode once and get both.</p>
+<p>Today you will mostly use <code>&lt;pb/&gt;</code>, <code>&lt;lb/&gt;</code>, <code>&lt;unclear&gt;</code>, <code>&lt;gap/&gt;</code>, and <code>&lt;choice&gt;</code>. Save <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code> for Week 6.</p>
+<p><strong>Vocabulary.</strong> <em>Tag</em> — the angle-bracket label that marks a piece of text, like <code>&lt;lb/&gt;</code>. <em>Attribute</em> — extra information inside a tag, like the <code>n="8"</code> that numbers a line.</p>
+<p><strong>Takeaway:</strong> <code>&lt;choice&gt;</code> holds alternatives rather than deciding between them, so one encoding can serve palaeographic, reading, and search views.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: The Tags You Will Actually Use</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does `&amp;lt;choice&amp;gt;` do in a diplomatic transcription?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;`&amp;lt;choice&amp;gt;` holds alternatives rather than deciding between them, so one encoding can serve palaeographic, reading, and search views.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It holds two versions of the same text side by side, so a computer can pick whichever suits the job later.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A reading edition shows the spelled-out form, a handwriting study shows the short form, and you only encoded it once.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It picks the more likely of two readings and records that one.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It deliberately does not choose — that is the whole point of the element.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It marks a passage where the scribe had a choice of wording and took one.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is about your encoding of the text, not about the scribe's decisions. Scribal changes use `&amp;lt;subst&amp;gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It flags a reading as uncertain so that a later editor can decide.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Uncertainty is `&amp;lt;unclear&amp;gt;`. `&amp;lt;choice&amp;gt;` holds alternatives that are both valid, for different purposes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Short Forms and How to Record Them</text></name><questiontext format="html"><text><![CDATA[
+<h3>Short Forms and How to Record Them</h3>
+<p>Scribes shortened words constantly, to save time and expensive parchment. Spelling those short forms out without saying so is the most common way students ruin a transcription.</p>
+<p>Here is the problem. The short form is ink on the page — a fact. The spelled-out version is your guess — usually a safe guess, occasionally not. Record both:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;abbr&gt;θς&lt;/abbr&gt;
+  &lt;expan&gt;θε&lt;ex&gt;ό&lt;/ex&gt;ς&lt;/expan&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>The <code>&lt;ex&gt;</code> tag marks the letters <em>you</em> supplied, which the scribe did not write. It lets software print those letters in italics, the traditional convention, and it shows exactly where the ink stops and your guess starts.</p>
+<table>
+<thead>
+<tr>
+<th>Kind of short form</th>
+<th>What it looks like</th>
+<th>How to encode it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sacred name</td>
+<td>Squeezed, with a line above</td>
+<td><code>&lt;abbr&gt;</code> plus <code>&lt;expan&gt;</code> with <code>&lt;ex&gt;</code></td>
+</tr>
+<tr>
+<td>Cut-off word</td>
+<td>Word stops, a mark added</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>Squeezed word</td>
+<td>Middle letters dropped</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>Genuinely ambiguous</td>
+<td>Could be two different words</td>
+<td><code>&lt;expan cert="medium"&gt;</code>, note the other option</td>
+</tr>
+</tbody>
+</table>
+<p>This matters directly for Wednesday. The software has to learn that this <em>shape</em> means these <em>letters on the page</em>. Give it spelled-out versions instead and it learns to invent letters that were never written (AlKendi et al., 2024).</p>
+<p><strong>Vocabulary.</strong> <em>Abbreviation</em> — a shortened written form. <em>Expansion</em> — the full spelling of an abbreviated word. <em>Nomen sacrum</em> — a shortened sacred name marked with a line above it.</p>
+<p><strong>Takeaway:</strong> Encode the abbreviation and its expansion separately with <code>&lt;ex&gt;</code> marking supplied letters, so the model learns what is actually on the page.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Short Forms and How to Record Them</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In `&amp;lt;expan&amp;gt;θε&amp;lt;ex&amp;gt;ό&amp;lt;/ex&amp;gt;ς&amp;lt;/expan&amp;gt;`, what is the `&amp;lt;ex&amp;gt;` tag doing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Encode the abbreviation and its expansion separately with `&amp;lt;ex&amp;gt;` marking supplied letters, so the model learns what is actually on the page.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Marking the letters you supplied, which the scribe did not actually write.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It records exactly where the ink stops and your inference starts, and lets software italicize the supplied letters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Marking the letters that are hardest to read on the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Difficulty of reading is `&amp;lt;unclear&amp;gt;`. `&amp;lt;ex&amp;gt;` is about what is absent from the page altogether.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Marking an example of the abbreviation for the training data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is not an annotation for software; it is a statement about which characters are editorial.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Marking letters that were once there but have since been lost to damage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lost material is `&amp;lt;gap/&amp;gt;` or `&amp;lt;supplied&amp;gt;`. `&amp;lt;ex&amp;gt;` concerns letters the scribe never wrote, because the word was shortened.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Saying What You Cannot Read</text></name><questiontext format="html"><text><![CDATA[
+<h3>Saying What You Cannot Read</h3>
+<p>Your transcription has to admit its own limits. Typing a word plainly is a claim that you read it confidently. Making that claim when it is not true is an error, even if the word turns out to be right.</p>
+<p>Four different situations need four different tags.</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Tag</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I see marks but am unsure</td>
+<td><code>&lt;unclear&gt;</code></td>
+<td>Here is my best reading, held loosely</td>
+</tr>
+<tr>
+<td>Nothing is there, or nothing readable</td>
+<td><code>&lt;gap/&gt;</code></td>
+<td>I offer no reading at all</td>
+</tr>
+<tr>
+<td>The page is damaged</td>
+<td><code>&lt;damage&gt;</code></td>
+<td>Records a physical cause</td>
+</tr>
+<tr>
+<td>I added text that is not there</td>
+<td><code>&lt;supplied&gt;</code></td>
+<td>An editor's restoration</td>
+</tr>
+</tbody>
+</table>
+<p>Getting <code>&lt;unclear&gt;</code> and <code>&lt;gap/&gt;</code> apart is the important part. <code>&lt;unclear&gt;</code> <em>has words inside it</em> — you are offering a reading. <code>&lt;gap/&gt;</code> is empty — you are offering nothing. Put a guess inside a <code>&lt;gap/&gt;</code> and you have disguised a guess as a hole in the page. Leave <code>&lt;unclear&gt;</code> empty and you have turned a hard reading into a loss.</p>
+<pre><code class="language-xml">&lt;unclear reason=&quot;faded&quot; cert=&quot;medium&quot; resp=&quot;#KMP&quot; source=&quot;#uv365&quot;&gt;ἐγένετο&lt;/unclear&gt;
+&lt;gap reason=&quot;lacuna&quot; extent=&quot;4&quot; unit=&quot;chars&quot;/&gt;
+</code></pre>
+<p><code>source</code> records which photograph let you read it, which links back to Lesson 3.2. <code>extent</code> records how much is gone. A four-letter hole narrows the possibilities far more than an unmeasured one.</p>
+<p><strong>Vocabulary.</strong> <em>Lacuna</em> — a hole or loss in the page where text is gone. <em><code>cert</code></em> — an attribute stating how confident you are.</p>
+<p><strong>Takeaway:</strong> <code>&lt;unclear&gt;</code> proposes a reading with reduced confidence and <code>&lt;gap/&gt;</code> proposes nothing — conflating them misrepresents inference as absence or difficulty as loss.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Saying What You Cannot Read</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the difference between `&amp;lt;unclear&amp;gt;` and `&amp;lt;gap/&amp;gt;`, and why does it matter?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;`&amp;lt;unclear&amp;gt;` proposes a reading with reduced confidence and `&amp;lt;gap/&amp;gt;` proposes nothing — conflating them misrepresents inference as absence or difficulty as loss.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;`&amp;lt;unclear&amp;gt;` contains a reading you are offering with reduced confidence; `&amp;lt;gap/&amp;gt;` is empty and offers nothing at all.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Putting a guess inside a `&amp;lt;gap/&amp;gt;` disguises inference as a hole in the page, and an empty `&amp;lt;unclear&amp;gt;` turns a hard reading into a loss.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;`&amp;lt;unclear&amp;gt;` is for faded ink and `&amp;lt;gap/&amp;gt;` is for water damage — they record different causes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cause is recorded by the `reason` attribute on either. The difference is whether you are offering a reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;`&amp;lt;unclear&amp;gt;` is used during transcription and `&amp;lt;gap/&amp;gt;` is added later by the editor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both are used as you transcribe. They describe different situations, not different stages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are interchangeable, so long as you use one of them consistently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They make opposite claims, and swapping them misrepresents your evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: When the Scribe Corrected Themselves</text></name><questiontext format="html"><text><![CDATA[
+<h3>When the Scribe Corrected Themselves</h3>
+<p>Manuscripts record their own editing. A scribe crossed a word out and wrote another above it. Somebody later did the same. Those marks are often the most useful evidence a single copy offers.</p>
+<table>
+<thead>
+<tr>
+<th>What happened</th>
+<th>Tag</th>
+<th>What to record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Something crossed out</td>
+<td><code>&lt;del&gt;</code></td>
+<td><code>rend</code> — how it was cancelled</td>
+</tr>
+<tr>
+<td>Something added</td>
+<td><code>&lt;add&gt;</code></td>
+<td><code>place</code> — above, below, in the margin</td>
+</tr>
+<tr>
+<td>One swapped for another</td>
+<td><code>&lt;subst&gt;</code> around both</td>
+<td>Groups them as a single act</td>
+</tr>
+<tr>
+<td>A different person wrote it</td>
+<td><code>hand</code></td>
+<td>Points to a hand listed in the header</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-xml">&lt;subst&gt;
+  &lt;del rend=&quot;strikethrough&quot;&gt;ἐγένετο&lt;/del&gt;
+  &lt;add place=&quot;above&quot; hand=&quot;#hand2&quot;&gt;ἐγένοντο&lt;/add&gt;
+&lt;/subst&gt;
+</code></pre>
+<p>This records more than the final wording. It records that a change happened, which direction it went, and who made it. A second person correcting the first tells you somebody read this copy carefully — which bears on where the manuscript went and which other copies it is related to.</p>
+<p>A tidied-up transcription would give you <code>ἐγένοντο</code> and nothing else. Same final wording. Evidence gone. In Week 7 you compare copies, and a correction in one copy that matches another copy's original reading is exactly what links them.</p>
+<p><strong>Vocabulary.</strong> <em>Hand</em> — one identified writer. A page may carry several. <em>Substitution</em> — replacing one reading with another, recorded as a single act.</p>
+<p><strong>Takeaway:</strong> Scribal corrections are transmission evidence, and recording only the corrected text destroys it while leaving the reading unchanged.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: When the Scribe Corrected Themselves</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;A scribe crossed out a word and another person wrote a different one above it. Why record both rather than just the final wording?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Scribal corrections are transmission evidence, and recording only the corrected text destroys it while leaving the reading unchanged.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The correction is evidence about the manuscript's history and its relationship to other copies, and recording only the result destroys it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. In Week 7 a correction in one copy that matches another copy's original reading is exactly what links them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI requires every deletion to be preserved for the file to validate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The schema would accept the final wording alone. The reason is evidential, not technical.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the crossed-out word is usually the correct reading and the correction is usually wrong.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Neither is automatically right. What matters is that a change happened, in a direction, by somebody.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because software cannot process text that has had words removed from it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It processes it fine. The loss is scholarly, not computational.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Why Line Breaks Matter So Much Here</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why Line Breaks Matter So Much Here</h3>
+<p>In an ordinary typed document, where a line ends means nothing. Here it means three things.</p>
+<p><strong>The software works line by line.</strong> Tomorrow's program first chops the page into lines, then reads each line separately. So its training examples must be lines — each strip of image paired with the text on it (Puigcerver, 2017). A transcription with no line divisions cannot train anything.</p>
+<p><strong>Your image links are per line.</strong> In Lesson 3.3 you attached each <code>&lt;lb&gt;</code> to a box drawn on the photograph. Those links only work if lines are recorded.</p>
+<p><strong>Line breaks are evidence.</strong> Where a line ends tells you about the ruling and the scribe's habits, and a scribe copying line-for-line leaves clues about the book they copied from.</p>
+<pre><code class="language-xml">&lt;lb n=&quot;1&quot; facs=&quot;#f42r_l01&quot;/&gt;ἐν ἀρχῇ ἦν ὁ λόγος καὶ ὁ λό
+&lt;lb n=&quot;2&quot; facs=&quot;#f42r_l02&quot;/&gt;γος ἦν πρὸς τὸν θεόν
+</code></pre>
+<p>Notice the word split across the two lines — <code>λό</code> then <code>γος</code>. Type it split, as written. Do not add a hyphen and do not quietly join it up. Whether you also mark the split with <code>break="no"</code> is your choice; pick one habit and keep it.</p>
+<p><strong>Vocabulary.</strong> <em>Layout analysis</em> — software finding the lines on a page before reading them. <em>Ruling</em> — the guide lines scored on the page for the scribe to write along.</p>
+<p><strong>Takeaway:</strong> Line divisions are structural here — HTR trains on lines, your zones bind per line, and line breaks are codicological evidence.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Why Line Breaks Matter So Much Here</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Give one reason line breaks must be recorded in this transcription, when in an ordinary typed document they mean nothing.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Line divisions are structural here — HTR trains on lines, your zones bind per line, and line breaks are codicological evidence.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tomorrow's software reads line by line, so its training examples have to be individual lines paired with their text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A transcription without line divisions cannot train anything at all — and your image links from Lesson 3.3 are per line too.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI files are invalid unless every line carries an `&amp;lt;lb/&amp;gt;` element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The schema does not require it. The requirement comes from what the lines are used for.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because line breaks are needed to make the transcription display correctly on a web page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Display is the least of it. They are needed for training, for image links, and as evidence about the scribe.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the word count must match the manuscript exactly for scoring in Week 5.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scoring compares characters and words, not lines. The line divisions matter for training and for binding to the image.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Setting Up the File Before You Type</text></name><questiontext format="html"><text><![CDATA[
+<h3>Setting Up the File Before You Type</h3>
+<p>Build the empty file first. Sorting out the structure now saves rearranging later.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;TEI xmlns=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
+  &lt;teiHeader&gt;&lt;!-- Your Week 2 header --&gt;&lt;/teiHeader&gt;
+  &lt;facsimile&gt;&lt;!-- Your Lesson 3.3 image boxes --&gt;&lt;/facsimile&gt;
+  &lt;text&gt;&lt;body&gt;
+      &lt;div type=&quot;passage&quot; n=&quot;1&quot;&gt;
+        &lt;pb n=&quot;42r&quot; facs=&quot;#f42r&quot;/&gt;
+        &lt;lb n=&quot;1&quot; facs=&quot;#f42r_l01&quot;/&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;&lt;/text&gt;
+&lt;/TEI&gt;
+</code></pre>
+<p>Three checks before you type a single Greek letter.</p>
+<p>Check the file says UTF-8 <em>and</em> that your editor is really saving UTF-8. If those disagree, every Greek character is corrupted, and fixing it afterwards is miserable.</p>
+<p>Check the schema is attached, so your editor flags mistakes as you type. A <em>schema</em> is the rulebook saying which tags are allowed where.</p>
+<p>Check your Week 1 pre-commit hook is working. That is the small script that runs automatically when you save to git. It fixes how accented characters are stored. Two different files can store the same accented letter in two different ways, and a mix of both makes Week 5's scores meaningless. Test it now: type an accented character, commit, confirm.</p>
+<p>Then commit the empty file, so your typing shows up as a clean change.</p>
+<p><strong>Vocabulary.</strong> <em>Schema</em> — a rulebook listing which tags are legal and where. <em>Pre-commit hook</em> — a script git runs automatically each time you save work.</p>
+<p><strong>Takeaway:</strong> Verify UTF-8, live schema validation, and the NFC hook before typing — a mixed-normalization ground truth invalidates Week 5.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Setting Up the File Before You Type</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why check that your editor really saves UTF-8 and that the normalization hook works *before* you start typing Greek?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Verify UTF-8, live schema validation, and the NFC hook before typing — a mixed-normalization ground truth invalidates Week 5.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A character-encoding mismatch corrupts every Greek character, and accents stored two different ways make Week 5's scores meaningless.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Both are miserable to repair afterwards, and both are a two-minute check now.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because git refuses to commit files that are not UTF-8.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git will happily store the corrupted bytes. Nothing stops you — that is precisely the danger.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Transkribus only accepts files that have passed a normalization check.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The problem appears much later, when scores are computed against a reference stored differently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because polytonic Greek cannot be typed at all without the hook installed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. You can type it perfectly well. The hook makes sure it is *stored* consistently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: How to Actually Do It</text></name><questiontext format="html"><text><![CDATA[
+<h3>How to Actually Do It</h3>
+<p>The physical routine matters more than students expect. Most errors come from working too fast at too small a magnification.</p>
+<ul>
+<li>Zoom in until each letter is unmistakable. This is usually far closer than feels necessary.</li>
+<li>Do one line at a time. Do not read ahead.</li>
+<li>Type what you see, not what you expect to be there.</li>
+<li>Mark anything doubtful straight away. Do not settle it by guessing.</li>
+<li>Every five lines, check you are still on the line you think you are.</li>
+</ul>
+<p>The third rule is the one that separates transcribing from reading. If you know the passage, you will read what you expect and never notice the difference. That is how real variants get erased.</p>
+<p>A trick for hard lines: type them backwards, word by word from the end. It is slower, and it stops your brain predicting the next word.</p>
+<p>The last rule guards against skipping a line. That is the worst error here. Skip one, and every line after it is attached to the wrong box on the photograph. Because the text still reads perfectly, nothing looks wrong.</p>
+<p><strong>Vocabulary.</strong> <em>Line skip</em> — missing a line out, which shifts every later line onto the wrong image box. <em>Variant</em> — a place where this copy's wording differs from another's.</p>
+<p><strong>Takeaway:</strong> Type what you see rather than what you expect, and check your line position regularly — line skip silently invalidates every binding after it.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: How to Actually Do It</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is "type what you see, not what you expect" the rule that separates transcribing from reading?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Type what you see rather than what you expect, and check your line position regularly — line skip silently invalidates every binding after it.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;If you know the passage, you will read the expected wording and never notice the difference — which is how genuine variants get erased.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It is the largest threat to your accuracy, and typing a difficult line backwards is a good defence against it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because your memory of the text is probably of a different work altogether.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The danger is precisely that you remember the right work — the expectation is plausible, which is why it slips past.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the software will later compare your text against the printed edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is compared against the image, through your transcription. The risk is to the evidence, not to a score.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because reading ahead is slower than transcribing one line at a time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Reading ahead is faster, which is exactly why it is tempting and why it produces errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Getting to Know the Hand</text></name><questiontext format="html"><text><![CDATA[
+<h3>Getting to Know the Hand</h3>
+<p>Before typing in bulk, spend fifteen minutes studying the handwriting. It saves hours.</p>
+<p>Go through the alphabet. For each letter, find several clear examples and note how this particular scribe draws it. Pay most attention to letters that look alike.</p>
+<table>
+<thead>
+<tr>
+<th>What to look at</th>
+<th>Question to answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Letter shapes</td>
+<td>How does this scribe draw each one?</td>
+</tr>
+<tr>
+<td>Look-alike pairs</td>
+<td>What tells them apart in this hand?</td>
+</tr>
+<tr>
+<td>Joined letters</td>
+<td>Which pairs get joined, and how?</td>
+</tr>
+<tr>
+<td>Short forms</td>
+<td>Which abbreviations keep coming up?</td>
+</tr>
+<tr>
+<td>Accents</td>
+<td>How high above the letter do they sit?</td>
+</tr>
+<tr>
+<td>Word spacing</td>
+<td>Regular, absent, or erratic?</td>
+</tr>
+<tr>
+<td>Line ends</td>
+<td>Are words split? Is writing squeezed?</td>
+</tr>
+</tbody>
+</table>
+<p>Byzantine Greek is awkward in specific ways. Words often run together with no spaces. Letters are joined into long chains. Some letters hang below the line instead of sitting on it. And the accent system uses at least five different marks, stacked in combinations (Perdiki &amp; Konstantinidou, 2023).</p>
+<p>Write what you find into a file called <code>transcription/HAND.md</code>. It keeps your reading honest, it documents your thinking for Week 12, and it is what you will check tomorrow when deciding whether a software mistake is the program's fault or the scribe's.</p>
+<p><strong>Vocabulary.</strong> <em>Hand</em> — one scribe's handwriting, treated as a system with its own rules. <em>Ligature</em> — two letters joined into one shape.</p>
+<p><strong>Takeaway:</strong> Characterize the hand before transcribing at volume, and record it — you will consult it on Wednesday to judge HTR errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Getting to Know the Hand</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the point of spending fifteen minutes on `transcription/HAND.md` before transcribing in bulk?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Characterize the hand before transcribing at volume, and record it — you will consult it on Wednesday to judge HTR errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It disciplines your reading now, and tomorrow it tells you whether a software mistake is the program's fault or the scribe's.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It also documents your palaeographic reasoning for the Week 12 commentary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is required documentation for submitting the manuscript to Transkribus.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transkribus asks for no such thing. The file is for you.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It lets the software learn the letterforms before it sees any images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The software learns only from images paired with text. It never reads your notes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It records which letters to skip when they are too difficult to read.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Difficult letters get transcribed and marked, not skipped.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Accents and the Box Problem</text></name><questiontext format="html"><text><![CDATA[
+<h3>Accents and the Box Problem</h3>
+<p>Greek accents and breathing marks sit <em>above</em> the letter, sometimes well above it. This causes a specific problem tomorrow, and today is when you can prepare for it.</p>
+<p>Tomorrow's software draws a box around each line before reading it. It works out the box from where the letters sit. If it draws that box too tightly, accents floating high above the line fall outside it — and anything outside the box is simply not in the picture the program reads (Perdiki &amp; Konstantinidou, 2023).</p>
+<p>The result is baffling the first time you see it. The program gets every letter right and drops every accent. The text looks almost correct, and is wrong in exactly the marks that Lesson 1.2 spent a whole meeting showing were meaningful.</p>
+<p>Perdiki and Konstantinidou (2023) hit this directly. Working on Byzantine Greek, their software kept cutting off breathing marks and high abbreviation signs. Getting the error rate under 10% meant widening those boxes by hand.</p>
+<p>So today: type every accent carefully, because those are what the program will be tested on. And note how high this scribe puts them. Tomorrow you will widen boxes, and that note tells you how much to widen them by.</p>
+<p><strong>Vocabulary.</strong> <em>Bounding box</em> — the rectangle software draws around a line before reading it. <em>Breathing mark</em> — a Greek sign showing whether a word starts with an h-sound.</p>
+<p><strong>Takeaway:</strong> Layout polygons drawn too tightly cut off Greek accents entirely, so note how high this hand places diacritics — you will adjust for it tomorrow.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Accents and the Box Problem</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should you note how high above the line this scribe places the accents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Layout polygons drawn too tightly cut off Greek accents entirely, so note how high this hand places diacritics — you will adjust for it tomorrow.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tomorrow's software cuts a strip around each line, and if the strip is too tight the accents fall outside it and are never seen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Your note tells you how far to widen the strips — which is Wednesday's first real task.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because accent height identifies the century in which the manuscript was copied.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It may be suggestive, but that is not why you are measuring it here.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because accents placed too high are usually later additions by a second hand.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Height is a feature of the scribe's habit, not evidence of a different writer.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the software ignores accents entirely and you will have to add them by hand.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It reads them perfectly well — provided they are inside the strip it was given.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: When There Are No Spaces Between Words</text></name><questiontext format="html"><text><![CDATA[
+<h3>When There Are No Spaces Between Words</h3>
+<p>Many Greek manuscripts are written with no gaps between words at all. If yours is, decide today how you will handle it. Do not just drift into a habit.</p>
+<p>The practice is called <em>scriptio continua</em>, and the reader was expected to work out where words ended. It puts you in a bind. Copying the page faithfully means typing with no spaces. But text with no spaces is nearly useless for comparing copies or looking up words. And adding spaces is an interpretation — the kind a diplomatic transcription is not supposed to make quietly.</p>
+<table>
+<thead>
+<tr>
+<th>What you could do</th>
+<th>Faithful to the page?</th>
+<th>Useful later?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type it with no spaces</td>
+<td>Completely</td>
+<td>Poor; needs splitting later</td>
+</tr>
+<tr>
+<td>Add spaces, say nothing</td>
+<td>No; a hidden change</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Add spaces, say so in the header</td>
+<td>Yes; the change is declared</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Record both with <code>&lt;choice&gt;</code></td>
+<td>Completely</td>
+<td>Good, but very wordy</td>
+</tr>
+</tbody>
+</table>
+<p>Use the third. Put the spaces in, and state in your header that word spacing was added by you and is not on the page. The point is not to avoid intervening. It is to intervene openly.</p>
+<p>Expect one knock-on effect. Perdiki and Konstantinidou (2023) found that unspaced text confuses word-counting scores: the program reads every letter correctly, then glues them together, so ἀλλὰ τί comes out as ἀλλατι. The letter score stays good while the word score becomes meaningless.</p>
+<p><strong>Vocabulary.</strong> <em>Scriptio continua</em> — writing with no spaces between words. <em>Word error rate (WER)</em> — a score counting how many whole words came out wrong.</p>
+<p><strong>Takeaway:</strong> Supply word division and declare it in the header — and expect <em>scriptio continua</em> to make word error rate uninterpretable in Week 5.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: When There Are No Spaces Between Words</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your manuscript runs its words together. What does this course recommend, and why?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Supply word division and declare it in the header — and expect *scriptio continua* to make word error rate uninterpretable in Week 5.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Put the spaces in, and state in your header that the spacing is yours and is not on the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The aim is not to avoid intervening — text with no spaces is nearly useless later — but to intervene openly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Reproduce it unspaced, since a diplomatic transcription must never add anything.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Faithful, but nearly unusable for comparing copies or looking up words — and the course prefers a declared intervention.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Add the spaces silently, since word division is obvious to any competent reader.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is an unrecorded editorial act, which is exactly what a diplomatic transcription is meant to avoid.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Record both versions with `&amp;lt;choice&amp;gt;`, since that is the only fully faithful option.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is faithful and it is legitimate, but it is extremely verbose — the course recommends the declared-spacing option.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Write Your Rules Down</text></name><questiontext format="html"><text><![CDATA[
+<h3>Write Your Rules Down</h3>
+<p>Transcribing throws up dozens of small decisions. The danger is not deciding badly. It is deciding differently on Tuesday than on Thursday.</p>
+<p>Questions that will keep coming back: Do you keep the two shapes of sigma apart, or type them the same? What do you do with a mark that might be punctuation and might be an accent? How doubtful does a word have to be before it gets <code>&lt;unclear&gt;</code>? How do you handle a crossed-out word you cannot read?</p>
+<p>Answer each one once. Write it in <code>transcription/CONVENTIONS.md</code>. Then follow it. That file is part of your edition — in Week 13 it becomes the statement a reader needs to make sense of your text.</p>
+<p>Being inconsistent is worse than any single choice you could make. If you always mark the crescent-shaped sigma, a reader can interpret your text. If you mark it sometimes, they cannot — they have no way to tell whether an unmarked one was a different shape or one you missed. The software has the same problem, and will copy your inconsistency back at you unpredictably.</p>
+<p>The CATMuS project shows this at scale. Its value comes from forcing one set of rules across 200 manuscripts (Clérice et al., 2024). That uniformity is what made 160,000 lines usable for training.</p>
+<p><strong>Vocabulary.</strong> <em>Convention</em> — a decision about how you will always encode a given feature. <em>Edition</em> — the finished scholarly presentation of a text, rules and all.</p>
+<p><strong>Takeaway:</strong> Write your conventions down and follow them — inconsistency is worse than any particular choice, for readers and for models alike.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Write Your Rules Down</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is being inconsistent worse than making any particular transcription choice?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Write your conventions down and follow them — inconsistency is worse than any particular choice, for readers and for models alike.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A reader cannot tell whether an unmarked instance means a different form or one you simply missed, so the whole record becomes uninterpretable.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. And the software learns your inconsistency and reproduces it unpredictably.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because inconsistent files fail schema validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They validate perfectly. The damage is to interpretation, not to structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the marking scheme penalizes inconsistency more heavily than wrong choices.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This is about the scholarly usefulness of the result, not about marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because you will forget which convention you used and have to start over.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect — or at least, that is the smallest part of it. The real cost is that nobody can interpret the finished text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: How Accurate Is a Hand Transcription?</text></name><questiontext format="html"><text><![CDATA[
+<h3>How Accurate Is a Hand Transcription?</h3>
+<p>Less accurate than you would think. That matters, because Week 5 treats your file as the correct answer.</p>
+<p>Typing a page once produces mistakes at a low but real rate. They are not scattered randomly. They cluster on unfamiliar letter shapes, on short forms, on damaged patches, and on passages you already knew — where you read instead of looking.</p>
+<p>The standard fix is <strong>double-keying</strong>: type the same page twice, independently, then compare the two versions. Wherever they agree, you are almost certainly right. Wherever they differ is exactly where you need to look again.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Accuracy</th>
+<th>Effort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type once</td>
+<td>Good, with clustered errors</td>
+<td>Baseline</td>
+</tr>
+<tr>
+<td>Type once, then proofread</td>
+<td>Better</td>
+<td>About 1.3×</td>
+</tr>
+<tr>
+<td>Type twice, settle the differences</td>
+<td>Much better</td>
+<td>About 2.2×</td>
+</tr>
+<tr>
+<td>Two people type it</td>
+<td>Best</td>
+<td>2×, plus coordinating</td>
+</tr>
+</tbody>
+</table>
+<p>That is Week 5's work, not today's. But knowing it is coming should shape how you type now: carefully enough that the second pass finds little. It should also make you cautious about Week 5's scores. Some of what looks like a machine error will turn out to be yours.</p>
+<p><strong>Vocabulary.</strong> <em>Double-keying</em> — typing the same text twice, independently, and comparing. <em>Proofreading</em> — checking a transcription against the original afterwards.</p>
+<p><strong>Takeaway:</strong> Your ground truth will contain errors, which is why Week 5 double-keys it — transcribe now so that the second pass finds few differences.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: How Accurate Is a Hand Transcription?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does double-keying do that simply proofreading once does not?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Your ground truth will contain errors, which is why Week 5 double-keys it — transcribe now so that the second pass finds few differences.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It produces two independent versions, so the places where they disagree pinpoint exactly where attention is needed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Where two independent attempts agree, you are almost certainly right; where they differ is where to look.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It doubles the amount of training data available for the software.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The two versions describe the same lines — the gain is accuracy, not volume.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It guarantees an error-free transcription, which is why Week 5 treats it as final.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is substantially better, not perfect. Week 5 still adjudicates the differences by hand.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It removes the need to check the transcription against the images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adjudicating a difference means going back to the image to settle it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: How Much to Get Done Today</text></name><questiontext format="html"><text><![CDATA[
+<h3>How Much to Get Done Today</h3>
+<p>Aim for <strong>one page, done properly</strong>, fully marked up. If your passage is short and the writing is clear, you may get further.</p>
+<p>Do not trade care for quantity. One carefully typed page is a usable answer key. Three sloppy ones are worse than nothing, because tomorrow the software learns your mistakes.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Task</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>One page typed completely and accurately</td>
+<td>The smallest usable answer key</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Markup complete: short forms, doubts, corrections</td>
+<td>This is what makes it diplomatic</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Every line linked to its image box</td>
+<td>Lets anyone check your reading</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Conventions file written</td>
+<td>Keeps you consistent</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Handwriting notes recorded</td>
+<td>You need them tomorrow</td>
+</tr>
+<tr>
+<td>6</td>
+<td>More pages</td>
+<td>Nice, but not at the cost of 1–5</td>
+</tr>
+</tbody>
+</table>
+<p>Eventually you will need more than one page to train anything. Starting from a model that already knows a similar script, useful results come from roughly 50 to 100 new pages — and less than that when you are tuning it to a single scribe (Geelhaar, 2022). You will add pages through the week.</p>
+<p>What matters today is that the first page is <em>right</em>. It sets the habits every later page follows, and fixing a habit later means redoing everything.</p>
+<p><strong>Vocabulary.</strong> <em>Folio</em> — one leaf of a manuscript, with a front and a back. <em>Markup</em> — the tags you add around the text.</p>
+<p><strong>Takeaway:</strong> One accurate folio beats three careless ones — today's conventions propagate into everything transcribed afterwards.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: How Much to Get Done Today</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is one carefully transcribed page better than three rushed ones?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;One accurate folio beats three careless ones — today's conventions propagate into everything transcribed afterwards.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Three sloppy pages are worse than nothing, because tomorrow the software learns your mistakes from them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. And today's habits set the conventions that every later page follows, so errors made now propagate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the software cannot accept more than one page of training data at a time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It takes as many as you give it. Quality, not quantity, is the constraint today.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because a single page is all that Week 5's measurement will use.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. You will extend the transcription through the week. The point is that the first page must be right.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because marks are awarded for accuracy on one page rather than for coverage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The reason is methodological — careless examples actively damage what you build next.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Which Pages to Pick Later</text></name><questiontext format="html"><text><![CDATA[
+<h3>Which Pages to Pick Later</h3>
+<p>A decision for when you go beyond today's page.</p>
+<p>The obvious approach is to work straight through: finish 42r, then 42v, then 43r. For building an edition, that is right. For teaching software to read, it is wrong.</p>
+<p>Programs struggle with anything unlike what they were trained on. Train on fifty pages in a row and the program learns that stretch of the book — its particular ink, its particular layout — then stumbles on pages that differ. Spreading your pages across the whole manuscript shows it the variety it will actually face (Geelhaar, 2022).</p>
+<table>
+<thead>
+<tr>
+<th>How you pick pages</th>
+<th>What it teaches the program</th>
+<th>Good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Straight through</td>
+<td>One stretch of the book</td>
+<td>Building the edition</td>
+</tr>
+<tr>
+<td>Spread across the book</td>
+<td>Changes in ink and parchment</td>
+<td>Most manuscripts</td>
+</tr>
+<tr>
+<td>Spread across time</td>
+<td>How a hand changes</td>
+<td>Books with several scribes</td>
+</tr>
+<tr>
+<td>Deliberately awkward pages</td>
+<td>Damage, notes, layout shifts</td>
+<td>Robustness</td>
+</tr>
+<tr>
+<td>Deliberately clean pages</td>
+<td>The ordinary case</td>
+<td>Baseline accuracy</td>
+</tr>
+</tbody>
+</table>
+<p>The fourth row is the one people skip. Clean pages are quicker to type, so that is what gets chosen — and the result is a program that works on easy pages and fails on the hard ones, which are the pages you needed help with.</p>
+<p>This is documented. Geelhaar's (2022) model scored 5.1% error on ordinary pages but 13.6% on pages carrying small marginal notes — because the vocabulary shifted, the abbreviations got heavier, and the writing got smaller.</p>
+<p><strong>Vocabulary.</strong> <em>Training data</em> — the example pages a program learns from. <em>Marginal gloss</em> — a note written in the margin, often in smaller script.</p>
+<p><strong>Takeaway:</strong> Sample training pages across the corpus and deliberately include difficult ones, or the model will fail precisely where you need it.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Which Pages to Pick Later</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is working straight through consecutive leaves the wrong way to choose training pages?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Sample training pages across the corpus and deliberately include difficult ones, or the model will fail precisely where you need it.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The program learns that one stretch of the book — its ink, its layout — and then stumbles on pages that differ.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Spreading your pages across the manuscript shows it the variety it will actually face.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because consecutive pages are usually by the same scribe, and variety of scribes is what matters most.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Even with one scribe throughout, ink, parchment, and layout vary across a book.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the software processes pages in a random order anyway, so sequence is meaningless.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Order of processing is not the issue; what the examples collectively cover is.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because consecutive transcription takes longer than jumping between leaves.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is generally quicker. The problem is what the resulting model can and cannot handle.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Checking Your Work Before You Save It</text></name><questiontext format="html"><text><![CDATA[
+<h3>Checking Your Work Before You Save It</h3>
+<p>Check two things: that the file is structurally sound, and that the reading is right.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How</th>
+<th>Catches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The XML is well formed</td>
+<td><code>xmllint --noout</code></td>
+<td>Unclosed or badly nested tags</td>
+</tr>
+<tr>
+<td>The TEI is legal</td>
+<td><code>xmllint --relaxng tei_all.rng</code></td>
+<td>Tags used in the wrong place</td>
+</tr>
+<tr>
+<td>Accents stored consistently</td>
+<td>The Lesson 1.2 check</td>
+<td>Mixed storage forms</td>
+</tr>
+<tr>
+<td>Line count matches box count</td>
+<td>Count <code>&lt;lb/&gt;</code> against <code>&lt;zone&gt;</code></td>
+<td>A skipped line</td>
+</tr>
+<tr>
+<td>Every image link resolves</td>
+<td>The Lesson 3.3 checker</td>
+<td>Links pointing nowhere</td>
+</tr>
+<tr>
+<td>Line numbers run in order</td>
+<td>Script or eye</td>
+<td>Repeated or missing numbers</td>
+</tr>
+<tr>
+<td>Read it against the picture</td>
+<td>Out loud, slowly</td>
+<td>Actual misreadings</td>
+</tr>
+</tbody>
+</table>
+<p>The fourth check is what catches the line skip from section 10. If the number of lines does not match the number of boxes, either you missed a line or added one — and every link after that point is wrong. Run it every session:</p>
+<pre><code class="language-bash">echo &quot;lb:   $(grep -c '&lt;lb ' edition/edition.xml)&quot;
+echo &quot;zone: $(grep -c '&lt;zone ' edition/edition.xml)&quot;
+</code></pre>
+<p>The last check cannot be automated and is the most valuable. Read your text against the photograph, line by line, zoomed in, after a break. Those errors are structurally perfect and substantively wrong, so no program will ever flag them.</p>
+<p>Save to git only once all seven pass.</p>
+<p><strong>Vocabulary.</strong> <em>Well formed</em> — XML whose tags are all closed and properly nested. <em>Valid</em> — XML that also obeys its schema.</p>
+<p><strong>Takeaway:</strong> Count <code>&lt;lb/&gt;</code> against <code>&lt;zone&gt;</code> every session — a mismatch means line skip, and every binding after it is wrong.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Checking Your Work Before You Save It</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why count `&amp;lt;lb/&amp;gt;` elements against `&amp;lt;zone&amp;gt;` elements every session?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Count `&amp;lt;lb/&amp;gt;` against `&amp;lt;zone&amp;gt;` every session — a mismatch means line skip, and every binding after it is wrong.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;If the counts differ you skipped or added a line, and every image link after that point is attached to the wrong strip.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The text still reads perfectly, so nothing else would reveal it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI requires the two counts to match for the file to validate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The schema does not check it. That is exactly why you have to.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Transkribus rejects files whose line and zone counts disagree.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It will import them and quietly mismatch your text to the wrong images.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the counts are used to calculate the character error rate in Week 5.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The score compares text, not counts. This check catches a silent structural fault.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Saving It to Git Properly</text></name><questiontext format="html"><text><![CDATA[
+<h3>Saving It to Git Properly</h3>
+<p>The commit habits from Week 1 matter especially here, because this file becomes the reference for everything measured later.</p>
+<pre><code class="language-text">feat(transcription): diplomatic transcription of f. 42r, lines 1-24
+
+Typed at full zoom from the Vatican photograph, natural light. Word
+spacing added by me; recorded in the header and in CONVENTIONS.md.
+Three readings marked unclear: lines 8, 14, 19, all from ink loss in
+the lower outer corner. Line 14 still unresolved after checking the
+ultraviolet image.
+
+Short forms left in &lt;abbr&gt; with spellings in &lt;expan&gt;; letters I
+supplied marked with &lt;ex&gt;.
+
+Human-Verified: true
+AI-Generated: false
+</code></pre>
+<p>Those last two lines matter from now on. This text is human-made, and saying so is what makes Wednesday's and Friday's machine-made commits tell apart from it. If only some commits carry those labels, their absence means nothing.</p>
+<p>Now tag this state. A tag is a permanent bookmark on one version:</p>
+<pre><code class="language-bash">git tag -a gt-f42r -m &quot;Ground truth, f. 42r, typed by hand&quot;
+</code></pre>
+<p>Week 5 measures against this exact version. If you later correct the file — and you will — the tag still points at what was actually measured, so the old numbers stay meaningful and the correction is visible as a change.</p>
+<p><strong>Vocabulary.</strong> <em>Commit</em> — one saved snapshot of your work in git. <em>Tag</em> — a permanent name attached to one particular commit.</p>
+<p><strong>Takeaway:</strong> Tag the ground truth state, because Week 5's measurements are only reproducible against the exact version that was measured.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Saving It to Git Properly</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why tag the transcription rather than just committing it?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Tag the ground truth state, because Week 5's measurements are only reproducible against the exact version that was measured.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Week 5 measures against this exact version, and a tag keeps that version retrievable even after you correct the file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The old numbers stay meaningful and the correction shows up as a visible change.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because untagged commits are deleted automatically after a period of time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commits persist. A tag is a convenience for finding one again, not a protection against deletion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because tagging is what marks the file as human-produced rather than machine-produced.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is what the `Human-Verified` and `AI-Generated` trailers do.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Transkribus imports from tags rather than from the working files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transkribus imports images from a web address and knows nothing about your tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: What Rides on Getting This Right</text></name><questiontext format="html"><text><![CDATA[
+<h3>What Rides on Getting This Right</h3>
+<p>Every number you report this term is calculated against this one file. If it contains a mistake, three things follow, and each is worse than it sounds.</p>
+<p>A correct machine reading at that spot gets marked <em>wrong</em>, which pushes the error rate up. A program trained on the file <em>learns</em> the mistake and repeats it everywhere. And in Week 5, when you compare machine output against your file and find a difference, you will probably "fix" the machine to match your own error — because your file is the reference.</p>
+<table>
+<thead>
+<tr>
+<th>Your file's condition</th>
+<th>Effect on the numbers</th>
+<th>Effect on training</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accurate and diplomatic</td>
+<td>Scores reflect the program</td>
+<td>It learns the manuscript</td>
+</tr>
+<tr>
+<td>Contains typing errors</td>
+<td>Scores inflated, direction unclear</td>
+<td>It learns your errors</td>
+</tr>
+<tr>
+<td>Quietly tidied up</td>
+<td>Program looks accurate; fidelity gone</td>
+<td>It learns to modernize</td>
+</tr>
+<tr>
+<td>Rules applied inconsistently</td>
+<td>Scores unstable</td>
+<td>It learns the inconsistency</td>
+</tr>
+<tr>
+<td>Accents stored two ways</td>
+<td>Scores badly inflated</td>
+<td>It learns contradictions</td>
+</tr>
+</tbody>
+</table>
+<p>The third row is the dangerous one, and it connects back to section 02. A program trained on quietly tidied text produces tidied output — and because that output is clean and readable, nothing signals that the historical spelling has been overwritten. The usual scores will not catch it: a program can post a low error rate while systematically destroying the old orthography (Levchenko, 2024).</p>
+<p>That is why the diplomatic rule is not fussiness.</p>
+<p><strong>Vocabulary.</strong> <em>Orthography</em> — the spelling system a text uses. <em>Fidelity</em> — how closely a transcription matches the page.</p>
+<p><strong>Takeaway:</strong> A silently normalized ground truth produces a model that modernizes invisibly — and standard error metrics will not detect it.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: What Rides on Getting This Right</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is a quietly tidied-up reference the most dangerous kind of error in this file?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A silently normalized ground truth produces a model that modernizes invisibly — and standard error metrics will not detect it.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The resulting output is clean and readable, so nothing signals that the historical spelling has been overwritten — and the usual scores will not detect it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A program can post a low error rate while systematically destroying the old orthography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because tidied text cannot be compared against machine output at all.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It compares perfectly well. That is the problem — the comparison looks fine and means the wrong thing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because tidying introduces character-encoding errors that inflate the score.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is a separate fault. Tidying is dangerous precisely because it does *not* inflate the score.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because tidied text takes longer to produce than a faithful transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is usually quicker, which is part of the temptation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Why the Human Stays in the Loop</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why the Human Stays in the Loop</h3>
+<p>It is worth saying where today's labour sits in the argument, because "do it by hand first" can sound like a classroom exercise.</p>
+<p>The idea is that handwriting software does not replace the person who reads manuscripts. It moves their work. Instead of spending hours deciphering, they spend that time checking and interpreting (AlKendi et al., 2024). The judgement is still needed. What changes is where it gets applied.</p>
+<p>The teaching order follows from that. You start by typing and marking up by hand, because dealing with short forms, damage, and shifting layout forces you to confront the actual object. Only then do you move to the software, where you have to correct its line-finding before it will train — which shows you it is a statistics engine fed on examples, not an oracle (AlKendi et al., 2024).</p>
+<p>That is exactly this week: by hand today, software tomorrow, AI on Friday. And it is why the order cannot be flipped. A student who starts from machine output and corrects it has never read the page alone. They can only judge whether a reading looks plausible, which is a much weaker test than whether it is right.</p>
+<p><strong>Vocabulary.</strong> <em>Human-in-the-loop</em> — a workflow where a person checks and corrects the machine at defined points. <em>Post-correction</em> — fixing machine output afterwards.</p>
+<p><strong>Takeaway:</strong> Correcting a machine transcription tests plausibility; transcribing independently tests correctness, and only the second gives you grounds for judgement.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Why the Human Stays in the Loop</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why can the order of the three-step cycle not be reversed?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Correcting a machine transcription tests plausibility; transcribing independently tests correctness, and only the second gives you grounds for judgement.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Somebody who starts from machine output and corrects it has never read the page alone, so they can only judge whether a reading looks plausible.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Judging plausibility is a much weaker test than working out what is actually there.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the software needs the manual transcription as input before it can run at all.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It runs on images without any transcription. The manual step is needed for training and for measurement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the AI step on Friday would overwrite Wednesday's model if it ran first.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are independent runs. The reason is about the quality of human judgement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because marks are awarded in sequence and the assignments must be submitted in order.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The sequence is methodological, not administrative.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: What to Bring Tomorrow</text></name><questiontext format="html"><text><![CDATA[
+<h3>What to Bring Tomorrow</h3>
+<p>Tomorrow you load this transcription into Transkribus — a web program that learns to read handwriting from examples you give it. You will correct how it divides the page into lines, then train it on your page. Bring all of this.</p>
+<ul>
+<li>Today's transcription, checked, saved to git, and tagged.</li>
+<li>Every line linked to its box on the image, verified.</li>
+<li>Your handwriting notes.</li>
+<li>Your conventions file.</li>
+<li>A Transkribus account, made in Week 1 and actually logged into.</li>
+<li>The web address of your manuscript images, confirmed working.</li>
+<li>Your note of how high this scribe puts the accents.</li>
+</ul>
+<p>That last item is section 12's homework. Tomorrow's first real task is widening the line boxes so accents fall inside them, and your note is what tells you how far.</p>
+<p>Two practical warnings. Transkribus pulls images in by web address rather than file upload, so check that address works from outside your own machine — a file sitting on your laptop will not load. And training costs credits from a shared class allowance, so do not start practice runs before the session.</p>
+<p><strong>Vocabulary.</strong> <em>Transkribus</em> — a web platform that trains software to read a particular handwriting. <em>Credits</em> — the paid units Transkribus charges for training.</p>
+<p><strong>Takeaway:</strong> Bring a validated, tagged transcription and a note of this hand's diacritic height — polygon correction is Wednesday's first task.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: What to Bring Tomorrow</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does your note on accent height matter for tomorrow specifically?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Bring a validated, tagged transcription and a note of this hand's diacritic height — polygon correction is Wednesday's first task.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Wednesday's first task is widening the line strips so accents fall inside them, and the note tells you how far to widen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without it you are guessing at a setting that determines whether the model ever sees a breathing mark.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Transkribus asks for the accent height when you create a collection.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It asks for no such thing. The measurement informs a correction you make yourself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the accent height determines which base model you should start from.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Base model choice is about script, date, and language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because you will be asked to type the accents again at a different size.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. You will not retype anything — you will adjust the boundaries of the strips.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Friday Is Remote</text></name><questiontext format="html"><text><![CDATA[
+<h3>Friday Is Remote</h3>
+<p><strong>Friday September 25 you work from wherever you are</strong>, on your own machine, without the room's support. Check these before then.</p>
+<ul>
+<li>Your work is pushed to git, so you can get at it from any machine.</li>
+<li>Your images load from outside the campus network.</li>
+<li>Your XML editor and its schema checking work on that machine.</li>
+<li>Python and your accent-fixing tools are installed there.</li>
+<li>Your Greek keyboard is installed there.</li>
+<li>Your Transkribus login works off campus.</li>
+</ul>
+<p>The keyboard catches people out. A Greek layout installed on a lab machine is not installed on your laptop, and finding that out on Friday morning costs you the session.</p>
+<p>The image point matters if you built your own image listing in Lesson 3.3 and ran it locally. An address starting <code>localhost</code> works on the machine serving it and nowhere else — the exact trap Lesson 3.3 described. If yours is not published, publish it before Friday.</p>
+<p>Do this today, not Thursday night. Each item takes two minutes now and none of them takes two minutes in a panic.</p>
+<p><strong>Vocabulary.</strong> <em>Remote delivery</em> — a class session held without meeting in the room. <em>localhost</em> — an address meaning "this computer", unreachable from anywhere else.</p>
+<p><strong>Takeaway:</strong> Test your full toolchain on the machine you will use Friday — push your repository, publish your manifest, install your keyboard.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Friday Is Remote</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which item on the Friday checklist most often catches people out, and why?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Test your full toolchain on the machine you will use Friday — push your repository, publish your manifest, install your keyboard.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The Greek keyboard — a layout installed on a lab machine is not installed on your own laptop.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Discovering that on Friday morning costs you the session, and installing it today takes two minutes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The repository push, because pushing from off campus requires a different login.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The login is the same. Forgetting to push at all is the risk, not the network.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The XML editor, because most editors will not run outside the university network.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They run fine offline. The schema must be reachable, which is worth checking, but the keyboard is the classic trap.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Transkribus credits, because they are only issued to on-campus machines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Credits are tied to the class allowance, not to a location.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Studying Your Own Mistakes</text></name><questiontext format="html"><text><![CDATA[
+<h3>Studying Your Own Mistakes</h3>
+<p>When you finish the page, look back over it — not for individual slips, but for the <em>kinds</em> of slip you make. Patterns tell you something single errors do not.</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Likely cause</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mixing up one pair of letters</td>
+<td>You do not know this hand yet</td>
+<td>Add it to your handwriting notes</td>
+</tr>
+<tr>
+<td>Dropped accents</td>
+<td>Working too fast, zoomed too far out</td>
+<td>Slow down, zoom in</td>
+</tr>
+<tr>
+<td>Reading the expected word</td>
+<td>You already know the text</td>
+<td>Type hard lines backwards</td>
+</tr>
+<tr>
+<td>Errors bunched in one patch</td>
+<td>Damage, or tiredness</td>
+<td>Recheck that patch when rested</td>
+</tr>
+<tr>
+<td>Short forms handled differently</td>
+<td>No rule decided</td>
+<td>Decide one, write it down</td>
+</tr>
+<tr>
+<td>A skipped line</td>
+<td>Losing your place at line ends</td>
+<td>Check position every five lines</td>
+</tr>
+</tbody>
+</table>
+<p>Write down what you find. It becomes genuinely useful in Week 5, when you are settling differences between your version and the machine's. Knowing that you regularly confuse two particular letters in this hand tells you when to suspect yourself rather than the program.</p>
+<p>There is a subtler reason too. In Week 5 you will be tempted to call every difference a machine error, because your file is the reference by definition. An honest list of your own habits is what lets you notice the cases where the machine is right and you are not. Those cases exist.</p>
+<p><strong>Vocabulary.</strong> <em>Error pattern</em> — a mistake you make repeatedly for the same reason. <em>Reconciliation</em> — settling differences between two versions of the same text.</p>
+<p><strong>Takeaway:</strong> Record the patterns in your own errors, because in Week 5 they tell you when to suspect yourself rather than the machine.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Studying Your Own Mistakes</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why record the *patterns* in your errors rather than just fixing the individual slips?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Record the patterns in your own errors, because in Week 5 they tell you when to suspect yourself rather than the machine.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;In Week 5 they tell you when to suspect yourself rather than the machine.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Knowing you regularly confuse two letters in this hand is what lets you spot the cases where the machine is right and you are not.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the patterns are submitted as part of the Transcription Assignment mark.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They feed the reconciliation report, but the reason to record them is diagnostic.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the software can be trained to avoid the same patterns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It learns from images and text, not from your notes about yourself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because individual slips are usually not worth correcting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Fix them all. The patterns are recorded *as well*, because they are informative in a way single errors are not.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Why Not Just Start with the Machine?</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why Not Just Start with the Machine?</h3>
+<p>A fair question, and one that will occur to you about three hours in. Why not run the software first and fix its output? Correcting is easier than typing from scratch. Three answers, in rising order of importance.</p>
+<p>The practical one: an untrained program on unfamiliar handwriting produces output bad enough that fixing it takes longer than typing would have. Past roughly 15% of characters wrong, correcting costs more effort than starting fresh (AlKendi et al., 2024). A general-purpose program on Byzantine Greek will clear that threshold easily.</p>
+<p>The circular one: the program has to learn from something. Training needs correct examples, and correct examples have to be typed by a person. The question was never whether to type by hand, only how much.</p>
+<p>The decisive one: fixing machine output only tests whether a reading is <em>believable</em>. You are shown a suggestion and asked if it looks right. Typing it yourself tests whether it is <em>correct</em> — you have to work out what is there with nothing prompting you. Those two tests differ most on exactly the hard readings where it matters, because a suggestion anchors your judgement.</p>
+<p>There is a specific trap here. These models would rather guess than leave a blank, so they produce believable words that do not match the ink — and a believable wrong word is almost impossible to catch while correcting (AlKendi et al., 2024).</p>
+<p><strong>Vocabulary.</strong> <em>Hallucination</em> — a confident, plausible output that does not match the source. <em>Anchoring</em> — letting a suggestion pull your judgement toward it.</p>
+<p><strong>Takeaway:</strong> Correcting machine output tests plausibility and anchors your judgement, which is exactly the wrong test on the hard readings.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Why Not Just Start with the Machine?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the decisive argument against running the software first and correcting its output?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Correcting machine output tests plausibility and anchors your judgement, which is exactly the wrong test on the hard readings.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Correcting only tests whether a reading is believable; typing it yourself tests whether it is correct, and a suggestion anchors your judgement.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The two tests diverge most on exactly the hard readings where it matters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Untrained software is too slow to be worth running before a model has been trained.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Speed is not the issue — it is fast. The practical argument is that bad output costs more to fix than to retype.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The software cannot produce output at all without first being given a transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A general model produces output immediately. That it needs training data is a separate, weaker argument.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Machine output cannot be committed to git with the correct provenance labels.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It can, and Wednesday shows you how.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: A Worked Example</text></name><questiontext format="html"><text><![CDATA[
+<h3>A Worked Example</h3>
+<p>A short passage with everything marked up, so you can see the tags working together.</p>
+<pre><code class="language-xml">&lt;pb n=&quot;42r&quot; facs=&quot;#f42r&quot;/&gt;
+&lt;lb n=&quot;1&quot; facs=&quot;#f42r_l01&quot;/&gt;ἐν ἀρχῇ ἦν ὁ λόγος καὶ ὁ λό
+&lt;lb n=&quot;2&quot; facs=&quot;#f42r_l02&quot;/&gt;γος ἦν πρὸς τὸν &lt;choice&gt;
+    &lt;abbr&gt;θν&lt;/abbr&gt;
+    &lt;expan&gt;θε&lt;ex&gt;ό&lt;/ex&gt;ν&lt;/expan&gt;
+  &lt;/choice&gt; καὶ &lt;choice&gt;
+    &lt;abbr&gt;θς&lt;/abbr&gt;
+    &lt;expan&gt;θε&lt;ex&gt;ό&lt;/ex&gt;ς&lt;/expan&gt;
+  &lt;/choice&gt;
+&lt;lb n=&quot;3&quot; facs=&quot;#f42r_l03&quot;/&gt;ἦν ὁ λόγος οὗτος &lt;unclear reason=&quot;faded&quot;
+    cert=&quot;medium&quot; resp=&quot;#KMP&quot; source=&quot;#natural&quot;&gt;ἦν&lt;/unclear&gt; ἐν
+&lt;lb n=&quot;4&quot; facs=&quot;#f42r_l04&quot;/&gt;ἀρχῇ πρὸς τὸν &lt;subst&gt;
+    &lt;del rend=&quot;strikethrough&quot;&gt;θεόν&lt;/del&gt;
+    &lt;add place=&quot;above&quot; hand=&quot;#hand2&quot;&gt;κύριον&lt;/add&gt;
+  &lt;/subst&gt;
+&lt;lb n=&quot;5&quot; facs=&quot;#f42r_l05&quot;/&gt;&lt;gap reason=&quot;lacuna&quot; extent=&quot;6&quot; unit=&quot;chars&quot;/&gt;
+  διʼ αὐτοῦ ἐγένετο
+</code></pre>
+<p>Look at what this records besides the words. Two sacred names kept as written, with their spellings attached. One doubtful reading, with a reason, a confidence level, a named editor, and the photograph it was read from. A correction by a second person, recorded in both directions. A hole, with its size measured. A word left split across two lines.</p>
+<p>A tidied-up version of the same passage would read beautifully and keep none of it. Every one of those tags is evidence some later week needs — the short forms for Week 6, the correction for Week 7, the doubtful reading and the hole for Weeks 8 and 12.</p>
+<p><strong>Vocabulary.</strong> <em>Worked example</em> — a complete small case showing the method end to end. <em>Apparatus</em> — the record of variant readings printed alongside an edited text.</p>
+<p><strong>Takeaway:</strong> The encoding records abbreviation, uncertainty, correction, and loss — all evidence that later weeks need and that a clean transcription discards.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: A Worked Example</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Beyond the words themselves, what does the worked example record that a tidied-up transcription would lose?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The encoding records abbreviation, uncertainty, correction, and loss — all evidence that later weeks need and that a clean transcription discards.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Short forms as written, a doubtful reading with its cause and source, a correction by a second hand, and a measured hole.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Every one of those is evidence a later week needs — Week 6 for the short forms, Week 7 for the correction, Weeks 8 and 12 for the doubt and the loss.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The line numbering, which a tidied version would renumber from one.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Line numbering survives tidying easily. What is lost is the evidential markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Greek accents, which tidying always removes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tidying usually keeps accents — it may even add ones the scribe omitted. The losses are elsewhere.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The file's character encoding, which changes when text is regularized.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Encoding is unrelated to whether the text has been regularized.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Checklist Before You Leave</text></name><questiontext format="html"><text><![CDATA[
+<h3>Checklist Before You Leave</h3>
+<p>Check these rather than assuming them.</p>
+<ul>
+<li>One page typed completely, at full zoom.</li>
+<li>Every line has an <code>&lt;lb/&gt;</code> with a number and an image link.</li>
+<li>The <code>&lt;lb/&gt;</code> count equals the <code>&lt;zone&gt;</code> count.</li>
+<li>Short forms encoded with <code>&lt;choice&gt;</code>, <code>&lt;abbr&gt;</code>, <code>&lt;expan&gt;</code>, <code>&lt;ex&gt;</code>.</li>
+<li>Doubtful readings marked <code>&lt;unclear&gt;</code> with a reason and a confidence.</li>
+<li>Holes marked <code>&lt;gap/&gt;</code> with a measured size.</li>
+<li>Scribal corrections encoded with <code>&lt;subst&gt;</code>, <code>&lt;del&gt;</code>, <code>&lt;add&gt;</code>.</li>
+<li>The file passes schema validation.</li>
+<li>Accents stored consistently; the hook ran.</li>
+<li><code>transcription/CONVENTIONS.md</code> written and committed.</li>
+<li><code>transcription/HAND.md</code> written and committed.</li>
+<li>Accent height noted for tomorrow.</li>
+<li>Committed with the provenance labels.</li>
+<li>The ground truth version tagged.</li>
+</ul>
+<p>Finish anything outstanding before Wednesday rather than carrying it over. Tomorrow's work builds straight on this file, and an unchecked transcription stops the session.</p>
+<p><strong>Vocabulary.</strong> <em>Provenance labels</em> — the commit lines recording whether text was made by a person or a machine. <em>Validation</em> — checking a file against its schema.</p>
+<p><strong>Takeaway:</strong> Finish and validate before Wednesday — tomorrow's work builds directly on this file.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Checklist Before You Leave</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why finish and validate today rather than carrying unfinished work into Wednesday?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Finish and validate before Wednesday — tomorrow's work builds directly on this file.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tomorrow's work builds directly on this file, so an unchecked transcription stops the session.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. You cannot correct line strips or train anything against a file that is not finished and valid.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the file is submitted for marking at the end of Tuesday.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Transcription Assignment is due 2 October, at the end of Week 5.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because git will not let you commit an invalid XML file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git stores whatever you give it. Validation is your responsibility.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Transkribus validates the file on import and rejects invalid TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It imports images, not your TEI file. The dependency is on your own next steps.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Where This Leads</text></name><questiontext format="html"><text><![CDATA[
+<h3>Where This Leads</h3>
+<table>
+<thead>
+<tr>
+<th>Meeting</th>
+<th>Step</th>
+<th>What you do</th>
+<th>Today's file serves as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tue Sep 22 (#9)</td>
+<td>Manual</td>
+<td>Type it by hand</td>
+<td>The product</td>
+</tr>
+<tr>
+<td>Wed Sep 23 (#10)</td>
+<td>Software</td>
+<td>Correct lines, train a model</td>
+<td>Training examples</td>
+</tr>
+<tr>
+<td>Fri Sep 25 (#11)</td>
+<td>AI, remote</td>
+<td>LLM transcription and correction</td>
+<td>Comparison reference</td>
+</tr>
+<tr>
+<td>Week 5 Tue (#12)</td>
+<td>Manual</td>
+<td>Type it twice, settle differences</td>
+<td>The text being checked</td>
+</tr>
+<tr>
+<td>Week 5 Fri (#13)</td>
+<td>Measurement</td>
+<td>Score both machine attempts</td>
+<td>The answer key</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that today's file does a different job each time. Training examples on Wednesday. A comparison on Friday. The thing being checked in Week 5. The answer key at the end of Week 5. One file, four jobs — which is why its quality spreads so far.</p>
+<p>The <strong>Transcription Assignment is due Friday October 2</strong>, at the end of Week 5, and includes your reconciliation report. These two weeks are really one task: type it, automate it, compare, settle, measure, report.</p>
+<p><strong>Vocabulary.</strong> <em>Reconciliation report</em> — your written account of the differences between versions and how you settled them. <em>Model</em> — the trained program that converts handwriting images into text.</p>
+<p><strong>Takeaway:</strong> Today's file serves as training data, comparison reference, verification object, and measurement reference — four roles, one artefact.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Where This Leads</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Today's file plays four different roles across the next two weeks. Name them.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Today's file serves as training data, comparison reference, verification object, and measurement reference — four roles, one artefact.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Training examples on Wednesday, a comparison on Friday, the thing being checked in Week 5, and the answer key at the end of Week 5.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. One file doing four jobs is why its quality spreads so far.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A draft, a corrected version, a final version, and a submitted version.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those are stages of one file, not different roles it plays for different purposes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Training data, a backup, a marking record, and an archive copy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Backup and archiving are not roles in the methodology.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An answer key on Wednesday, training data on Friday, and a draft in Week 5.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect — the order is reversed. It is training data on Wednesday and the answer key at the end of Week 5.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: What Good Work Looks Like Here</text></name><questiontext format="html"><text><![CDATA[
+<h3>What Good Work Looks Like Here</h3>
+<p>"A transcription" and "a good transcription" are different things.</p>
+<p>An acceptable one is accurate, covers the whole page, and passes validation.</p>
+<p>A good one also:</p>
+<ul>
+<li>Marks doubt honestly, including where you would rather not admit it.</li>
+<li>Keeps short forms as written instead of quietly spelling them out.</li>
+<li>Keeps scribal corrections in both directions.</li>
+<li>Measures holes rather than just noting them.</li>
+<li>States its own rules.</li>
+<li>Records which photograph supported each difficult reading.</li>
+<li>Says what is still unresolved after checking every image.</li>
+<li>Has a commit history explaining the decisions.</li>
+</ul>
+<p>The first is the hardest and the most telling. Marking a word <code>&lt;unclear&gt;</code> feels like admitting defeat, and the temptation is to pick the likelier reading and type it plainly. Resist that. An honest <code>&lt;unclear&gt;</code> is more useful to every later reader — including you in Week 8, building the apparatus — than a confident guess. It is the difference between recording evidence and announcing a conclusion.</p>
+<p><strong>Vocabulary.</strong> <em>Apparatus</em> — the list of variant and doubtful readings accompanying an edition. <em>Evidence</em> — what the page shows, as distinct from what you concluded from it.</p>
+<p><strong>Takeaway:</strong> Marking uncertainty honestly is the hardest and most diagnostic part of good transcription — a confident guess destroys the record of what was actually legible.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: What Good Work Looks Like Here</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which part of good transcription is described as both the hardest and the most telling?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Marking uncertainty honestly is the hardest and most diagnostic part of good transcription — a confident guess destroys the record of what was actually legible.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Marking doubt honestly, including where you would rather resolve it and move on.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. An honest `&amp;lt;unclear&amp;gt;` is more useful to every later reader than a confident guess — it is the difference between recording evidence and announcing a conclusion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Keeping the line numbering consistent across every folio.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Necessary and worth checking, but mechanical rather than difficult.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Encoding every abbreviation with the full `&amp;lt;choice&amp;gt;` structure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Laborious, but it is a rule you can simply follow. Admitting doubt is a judgement you must resist avoiding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Producing enough folios to train a usable model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Volume comes later in the week and is explicitly not today's priority.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Synthesis: The Anchor</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesis: The Anchor</h3>
+<p>One idea holds this meeting and the whole week together.</p>
+<p>Automated transcription is always measured <em>against something</em>. A character score is a distance from a reference. A word score is a distance from a reference. Every claim that a program is accurate, or better than another program, or good enough for a given manuscript, is a claim about distance from a reference. Without one, the output is text of unknown quality, and no amount of cleverness in the program supplies what the reference supplies (AlKendi et al., 2024).</p>
+<p>That reference has to be made by hand, diplomatically, by someone who has read the page. This is not a shortcoming of today's technology that a better model will fix one day. It is structural. A ruler cannot be checked against itself, and a program's own output cannot show whether the program is right.</p>
+<p>That is what makes the manual step unavoidable rather than merely traditional, and why Tuesday comes before Wednesday every week of this course. The three-step cycle is not hand work followed by better machine work. It is building a measuring instrument, then taking two measurements with it.</p>
+<p><strong>For Wednesday.</strong> Bring the seven items in section 22, especially your note on accent height. You will be correcting line boxes before you train anything.</p>
+<p><strong>For Friday.</strong> Remote. Check your whole setup per section 23 before then.</p>
+<p><strong>Vocabulary.</strong> <em>Reference</em> — the correct version everything else is scored against. <em>Three-step cycle</em> — this course's weekly pattern of manual, then deterministic, then AI-assisted work.</p>
+<p><strong>Takeaway:</strong> Automation is always measured against a reference, and a reference cannot be produced by the thing it measures — which is why the manual step is irreducible rather than merely traditional.</p>
+<hr />
+<h2>References</h2>
+<p>AlKendi, W., Gechter, F., Heyberger, L., &amp; Guyeux, C. (2024). Advancements and
+challenges in handwritten text recognition: A comprehensive survey. <em>Journal of
+Imaging</em>.</p>
+<p>Clérice, T., Pinche, A., Chagué, A., Camps, J.-B., Vlachou-Efstathiou, M., Levenson,
+M. G., Brisville-Fertin, O., Boschetti, F., &amp; Fischer, F. (2024). CATMuS Medieval:
+A multilingual large-scale cross-century dataset in Latin script for handwritten
+text recognition and beyond. In <em>International Conference on Document Analysis and
+Recognition (ICDAR)</em>.</p>
+<p>eScriptorium/Kraken. (2024). <em>eScriptorium platform documentation</em>.
+https://escriptorium.eu/about</p>
+<p>Geelhaar, T. (2022). <em>Carolingian minuscule model CMM 9th–11th c.</em> Transkribus
+Model. https://www.transkribus.org/models/latin-carolingian-minuscule</p>
+<p>Levchenko, M. A. (2024). <em>Evaluating LLMs for historical document OCR: A
+methodological framework for digital humanities</em>.</p>
+<p>Perdiki, E., &amp; Konstantinidou, M. (2023). Preparing big manuscript data for
+hierarchical clustering with minimal HTR training. <em>Journal of Data Mining &amp;
+Digital Humanities</em>. https://jdmdh.episciences.org/12664/pdf</p>
+<p>Puigcerver, J. (2017). <em>PyLaia: A deep learning toolkit for handwritten document
+analysis</em>. https://github.com/jpuigcerver/PyLaia</p>
+<p>TEI Consortium. (2026). <em>TEI P5: Guidelines for electronic text encoding and
+interchange</em>. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: The Anchor</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the manual step described as unavoidable rather than merely traditional?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automation is always measured against a reference, and a reference cannot be produced by the thing it measures — which is why the manual step is irreducible rather than merely traditional.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A ruler cannot be checked against itself, so a program's own output cannot show whether the program is right.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This is structural, not a shortcoming of current technology that a better model will one day fix.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because no software currently reaches an acceptable error rate on Greek manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Some do very well. Even a perfect program would still need an independent reference to be shown to be perfect.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because copyright rules require a human-produced transcription in a scholarly edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The argument is about measurement, not about rights.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the manual step is the only one that produces valid TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Machine output can be encoded as valid TEI. The issue is what it can be measured against.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

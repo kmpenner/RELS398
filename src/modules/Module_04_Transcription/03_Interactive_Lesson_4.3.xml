@@ -1,0 +1,2400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_4.3</text></category></question>
+<question type="description"><name><text>01 Content: Today's Question</text></name><questiontext format="html"><text><![CDATA[
+<h3>Today's Question</h3>
+<p>By this evening you will have three versions of one page: yours, typed by hand on Tuesday; your trained model's, from Wednesday; and a general AI model's, from today.</p>
+<p>The question is not which is best. It is <strong>what each kind of system does when it goes wrong, and what that tells you about the system.</strong> A program that fails by producing letter-strings that are not words, and a program that fails by producing smooth invented Greek, have failed in ways that matter very differently to an editor — far more than the overall score does.</p>
+<p>You should go in with an expectation, from Wednesday's section 23. Published tests show these general models doing superbly on modern handwriting and collapsing on old scripts: 1.39% of characters wrong on modern English, against 52.23% on historical English, from the very same model (AlKendi et al., 2024). Today you check whether that holds for your manuscript.</p>
+<p>An expectation is not a conclusion. Run it properly, record what happens, and report what you find — even if it contradicts the published pattern. That would be interesting and worth reporting.</p>
+<p><strong>Vocabulary.</strong> <em>Vision-language model (VLM)</em> — an AI that takes pictures as well as words and answers in words. <em>Zero-shot</em> — used straight out of the box, with no training on your material. <em>Hallucination</em> — confident output that is not based on what was actually there.</p>
+<p><strong>Takeaway:</strong> The question is not which system is best but what kind of error each makes — the kinds differ more than the rates.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Today's Question</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is today's comparison actually asking about the three transcriptions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The question is not which system is best but what kind of error each makes — the kinds differ more than the rates.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;What each system does when it goes wrong, and what that reveals about the kind of system it is.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A program producing letter-strings that are not words and one producing smooth invented Greek have failed very differently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Which of the three produced the lowest error rate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The rate is part of it, but the kinds of failure matter more to an editor than the totals.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the AI model can replace the manual step entirely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The manual step is needed as a reference regardless — that was Tuesday's argument.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Which system is fastest to set up and run.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cost is recorded and does matter, but it is not what the comparison is *for*.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: What These Models Are</text></name><questiontext format="html"><text><![CDATA[
+<h3>What These Models Are</h3>
+<p>The difference from Wednesday's tool explains everything that follows.</p>
+<p>Your trained model learned from strips of handwriting paired with text. That is all it knows: ink to letters. Whatever it grasps about language it picked up sideways, from patterns in those letters.</p>
+<p>A general AI model learned from a colossal sweep of the internet — text, pictures, and how they relate. It can take a whole page and give you a transcription from a plain English instruction. No line-finding, no training, no examples needed (AlKendi et al., 2024).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Your trained model</th>
+<th>General AI model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learned from</td>
+<td>Line strips with text</td>
+<td>The internet</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>Millions of settings</td>
+<td>Billions</td>
+</tr>
+<tr>
+<td>Setup needed</td>
+<td>Line-fixing, examples, training</td>
+<td>A sentence of instruction</td>
+</tr>
+<tr>
+<td>Takes</td>
+<td>One line strip</td>
+<td>A whole page</td>
+</tr>
+<tr>
+<td>Knowledge of language</td>
+<td>Slight</td>
+<td>Enormous</td>
+</tr>
+<tr>
+<td>How it fails</td>
+<td>Impossible letter strings</td>
+<td>Smooth invention</td>
+</tr>
+</tbody>
+</table>
+<p>Row three is a real advantage and should not be brushed aside. Wednesday cost you a whole session. Today costs a sentence. If the quality matched, the argument would be over.</p>
+<p>Row six is why it does not. A model with deep knowledge of language brings that knowledge to bear on unclear ink — and using expectation to settle unclear evidence is exactly what a diplomatic transcription must never do. Its greatest strength on modern text is its worst liability on your manuscript.</p>
+<p><strong>Vocabulary.</strong> <em>Prompt</em> — the instruction you type to an AI model. <em>Parameter</em> — one of the adjustable settings inside a model; these have billions.</p>
+<p><strong>Takeaway:</strong> A VLM's linguistic knowledge is its strength on modern text and its liability on manuscripts, because it resolves ambiguous ink by expectation.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: What These Models Are</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is a general AI model's deep knowledge of language a liability when transcribing a manuscript?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A VLM's linguistic knowledge is its strength on modern text and its liability on manuscripts, because it resolves ambiguous ink by expectation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It brings that knowledge to bear on unclear ink, and settling unclear evidence by expectation is exactly what a diplomatic transcription must not do.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Its greatest strength on modern text is its worst liability on your page.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It makes the model slower, because it checks every reading against its vocabulary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Speed is one of its advantages, not a cost.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It causes the model to refuse readings it considers ungrammatical.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It does not refuse — it supplies something plausible instead, which is worse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It restricts the model to languages well represented in modern writing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It will attempt any language. The problem is what it produces when the ink is unclear.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The Specialization Gap, in Numbers</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Specialization Gap, in Numbers</h3>
+<p>Have this in front of you before you run your own test.</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Model</th>
+<th>Characters wrong</th>
+<th>Words wrong</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modern English</td>
+<td>GPT-4o</td>
+<td>1.39%</td>
+<td>3.46%</td>
+</tr>
+<tr>
+<td>Modern English</td>
+<td>Claude 3.5 Sonnet</td>
+<td>8.55%</td>
+<td>10.28%</td>
+</tr>
+<tr>
+<td>Historical English</td>
+<td>GPT-4o</td>
+<td>52.23%</td>
+<td>72.16%</td>
+</tr>
+<tr>
+<td>Historical English</td>
+<td>Claude 3.5 Sonnet</td>
+<td>40.87%</td>
+<td>59.41%</td>
+</tr>
+<tr>
+<td>Historical German</td>
+<td>GPT-4o</td>
+<td>77.42%</td>
+<td>97.59%</td>
+</tr>
+<tr>
+<td>Medieval Latin</td>
+<td>Tuned specialist</td>
+<td>14.60%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Medieval Latin</td>
+<td>Mistral-OCR-3</td>
+<td>84.70%</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Read rows one and three together. The same model. The same language. Nearly forty times worse, and the only thing that changed is the century (AlKendi et al., 2024).</p>
+<p>Read the last two rows together. On identical medieval Latin pages, a tuned specialist a fraction of the size got 14.6% wrong, while a large commercial system got 84.7% wrong (Mattingly et al., 2024).</p>
+<p>Pause on the 97% word error on historical German. A word score near 100% means essentially nothing came out right. That is not weak performance. That is failure — at a job the same model does beautifully on modern material.</p>
+<p>This is the <strong>specialization gap</strong>. The specialists win because they have actually been shown scribal handwriting, odd short forms, joined letters, and irregular pages (Mattingly et al., 2024). The internet holds very little Byzantine Greek.</p>
+<p><strong>Vocabulary.</strong> <em>Benchmark</em> — a shared test set for comparing tools fairly. <em>Zero-shot</em> — applied without any training on this kind of material.</p>
+<p><strong>Takeaway:</strong> The same model achieves 1.39% CER on modern handwriting and 52.23% on historical — the gap is period, not language.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The Specialization Gap, in Numbers</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the most striking thing about GPT-4o's 1.39% on modern English and 52.23% on historical English?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The same model achieves 1.39% CER on modern handwriting and 52.23% on historical — the gap is period, not language.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It is the same model on the same language — only the century differs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That isolates the cause: the training material contains a great deal of modern handwriting and very little old handwriting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It shows historical English is harder to read than modern English for anyone, human or machine.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Palaeographers read it well. The gap is about what the model was exposed to.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It shows the historical sample was photographed at a lower resolution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Nothing indicates that, and the pattern holds across several datasets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It shows the model performs better when given more context to work with.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It had a full page in both cases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Making Things Look Older Than They Are</text></name><questiontext format="html"><text><![CDATA[
+<h3>Making Things Look Older Than They Are</h3>
+<p>Beyond simply being wrong, these models fail in ways specialized tools cannot. The strangest is well documented.</p>
+<p><strong>Over-historicization</strong> means the model inserts old-fashioned characters that are not in the document — letters from an <em>earlier</em> period than the manuscript itself. It was found in studies of eighteenth-century Russian printing, where models produced Church Slavonic letters that had been abolished from the alphabet decades before the documents were printed (Levchenko, 2024).</p>
+<p>It is worth thinking through why, because this is not a simple slip. The model has learned that old documents go with old-fashioned spelling. Shown a picture it recognizes as historical, it produces what it statistically expects historical text to look like — which can be older than the actual page. It is not misreading the ink. It is reading its own idea of the period.</p>
+<p>What that costs:</p>
+<table>
+<thead>
+<tr>
+<th>Model, whole-page mode</th>
+<th>Characters wrong</th>
+<th>Old letters inserted</th>
+<th>How often</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tuned TrOCR</td>
+<td>1.83%</td>
+<td>None</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Gemini 2.5 Pro</td>
+<td>3.36%</td>
+<td>Barely any</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Claude 3.5 Sonnet</td>
+<td>6.79%</td>
+<td>Some</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>GPT-4o</td>
+<td>9.23%</td>
+<td>Many</td>
+<td>59% of files</td>
+</tr>
+<tr>
+<td>Transkribus PyLaia</td>
+<td>26.93%</td>
+<td>None</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<p>Compare rows four and five. GPT-4o scored far better than the plain PyLaia model — 9.23% against 26.93% — while inserting anachronistic letters in 59% of files. PyLaia scored much worse and never once invented an old letter (Levchenko, 2024).</p>
+<p><strong>Vocabulary.</strong> <em>Anachronism</em> — something from the wrong period. <em>Grapheme</em> — a single written character of a writing system.</p>
+<p><strong>Takeaway:</strong> GPT-4o beat a generic HTR baseline on CER while inventing anachronistic characters in 59% of files — the metric and the fidelity diverge.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Making Things Look Older Than They Are</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is over-historicization, and why is it not a simple misreading?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;GPT-4o beat a generic HTR baseline on CER while inventing anachronistic characters in 59% of files — the metric and the fidelity diverge.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The model inserts characters from an *earlier* period than the document, because it has learned that old documents go with old spelling.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It is not misreading the ink; it is reading its own expectation of the period.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model refuses to modernize spelling even when asked to, producing archaic output.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That would at least be faithful to the page. Here it invents forms that are on no page at all.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model dates the manuscript too early in any commentary it produces.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The problem is in the transcription itself, not in dating.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model preserves archaic characters that a specialist model would drop.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect — it is the opposite. It adds characters that were never there.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Why One Score Is Not Enough</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why One Score Is Not Enough</h3>
+<p>That table makes a point Week 5 builds on directly.</p>
+<p>The character score treats every difference as equal. A model that puts an old-fashioned omega where the page has a plain o has made one substitution, counted the same as any other. But it is a different <em>kind</em> of mistake. It is not a misreading of ink. It is an invention of period spelling, and it wrecks exactly the evidence your transcription exists to hold.</p>
+<p>The finding is stated plainly: the usual scores are not adequate for historical text, because a model can score well while destroying the very faithfulness that makes the transcription worth having (Levchenko, 2024).</p>
+<p>Two extra measures have been proposed:</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Counts</th>
+<th>Catches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Historical Character Preservation Rate</td>
+<td>Period-specific characters kept correctly</td>
+<td>Quiet modernizing</td>
+</tr>
+<tr>
+<td>Archaic Insertion Rate</td>
+<td>Invented characters from earlier periods</td>
+<td>Over-historicization</td>
+</tr>
+</tbody>
+</table>
+<p>The first catches a model that tidies the old away; the second catches one that lays old-fashioned spelling on thick (Levchenko, 2024). A model can score well on the usual number and badly on either.</p>
+<p>For your Greek manuscript the questions are concrete. Does it keep the accents as written, or supply what it expects? Does it keep words run together, or impose modern spacing? Does it keep short forms, or spell them out? Does it keep the scribe's mistakes, or fix them?</p>
+<p>Every one of those is a modernization the usual score would not reveal. Check them specifically today.</p>
+<p><strong>Vocabulary.</strong> <em>Preservation rate</em> — how much of the original's own character survives. <em>Silent modernization</em> — quietly updating old forms without saying so.</p>
+<p><strong>Takeaway:</strong> A model can score well on CER while silently modernizing or hallucinating archaism — check preservation and insertion separately.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Why One Score Is Not Enough</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the usual character score inadequate for judging a historical transcription?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A model can score well on CER while silently modernizing or hallucinating archaism — check preservation and insertion separately.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It treats every difference as equal, so inventing a period spelling counts the same as any other substitution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A model can score well while wrecking precisely the evidence the transcription exists to hold.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It cannot be computed at all when line breaks have been lost.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect — that is a practical difficulty, and a real one, but not the argument here.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is calculated on words rather than characters, which hides letter-level errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is calculated on characters. The word-level figure is a separate measure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It only works when both texts are in the same language.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is a string comparison and is indifferent to language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Mess, Chat, and Confident Gap-Filling</text></name><questiontext format="html"><text><![CDATA[
+<h3>Mess, Chat, and Confident Gap-Filling</h3>
+<p>A third kind of failure, different from misreading and from invention, and the one most likely to bite you today.</p>
+<p>These models often read the words correctly and still ignore your instructions about line breaks and structure. They are also inclined to slip chat, background notes, or little history lessons straight into the transcription (AlKendi et al., 2024).</p>
+<table>
+<thead>
+<tr>
+<th>Failure</th>
+<th>What it looks like</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Line breaks lost</td>
+<td>Text run together as paragraphs</td>
+<td>Cannot match to your boxes; useless for training</td>
+</tr>
+<tr>
+<td>Chat wrapping</td>
+<td>"Here is the transcription:"</td>
+<td>Must be stripped before scoring</td>
+</tr>
+<tr>
+<td>Uninvited commentary</td>
+<td>History notes mixed into the text</td>
+<td>Corrupts the transcription</td>
+</tr>
+<tr>
+<td>Modernized punctuation</td>
+<td>Modern marks for scribal ones</td>
+<td>Quiet normalizing</td>
+</tr>
+<tr>
+<td>Short forms spelled out</td>
+<td>Sacred names written in full</td>
+<td>Faithfulness lost</td>
+</tr>
+<tr>
+<td>Spaces inserted</td>
+<td>Gaps put into unspaced writing</td>
+<td>An unrecorded editorial act</td>
+</tr>
+<tr>
+<td>Gaps quietly filled</td>
+<td>Confident text over damage</td>
+<td>Invention passed off as reading</td>
+</tr>
+</tbody>
+</table>
+<p>Row one is the practical problem. Wednesday's model produced line-by-line output because it worked on line strips. Today's model sees a whole page and hands back a block of prose. Without line breaks you cannot match it to your boxes, cannot train on it, and cannot compare it line by line against your own version.</p>
+<p>Row seven is the scholarly problem. Asked to transcribe a damaged passage, these models will often supply plausible text for the damaged part without saying they have done so — inventing, in exactly the place where a <code>&lt;gap/&gt;</code> belongs.</p>
+<p>Neither announces itself. You have to check for both.</p>
+<p><strong>Vocabulary.</strong> <em>Reflow</em> — running lines together into continuous prose. <em>Preamble</em> — introductory chat before the actual answer.</p>
+<p><strong>Takeaway:</strong> VLMs reflow lines, add commentary, and fill gaps confidently — none of which announces itself in the output.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Mess, Chat, and Confident Gap-Filling</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is losing the line breaks a practical disaster and not just untidy?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;VLMs reflow lines, add commentary, and fill gaps confidently — none of which announces itself in the output.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Without them you cannot match the output to your image boxes, cannot train on it, and cannot compare it line by line against your own version.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Wednesday's model produced line-by-line output because it worked on line strips; today's sees a whole page and hands back prose.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI cannot encode a paragraph that has no line breaks in it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It encodes continuous prose perfectly well. The loss is in what you can do with it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the line breaks carry the accents, which are lost with them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accents are unaffected by reflowing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the word count changes when lines are run together.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The words are the same; only the arrangement changes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Setting Up a Fair Test</text></name><questiontext format="html"><text><![CDATA[
+<h3>Setting Up a Fair Test</h3>
+<p>Run this as a measurement, not a demonstration. The setup decides whether your results mean anything.</p>
+<p>Hold these fixed:</p>
+<ul>
+<li><strong>The same passage.</strong> Exactly the lines you typed on Tuesday and ran on Wednesday. Comparing different material is not comparing.</li>
+<li><strong>The same pictures.</strong> Same leaves, same quality, same source.</li>
+<li><strong>Raw output kept.</strong> Capture what comes back before you touch it.</li>
+<li><strong>The instruction written down.</strong> Word for word.</li>
+<li><strong>The model and its version.</strong> Behaviour changes between versions.</li>
+<li><strong>The date.</strong> These services change without telling anyone.</li>
+<li><strong>One change at a time.</strong> If you try several instructions, change one thing between them.</li>
+</ul>
+<p>Items four and six are what make this repeatable, and they are what students skip. "The AI got 34% wrong" cannot be checked by anyone without the exact instruction and the version, because a different wording or a quietly updated model gives a different number.</p>
+<p>Write your plan in <code>logs/vlm-method-w4.md</code> before you start. Then run it, and record what actually happened, including anything you changed halfway and why.</p>
+<p>Treat surprises as findings, not mistakes. If it does far better than expected, that is worth chasing — but check first whether your passage is famous enough that the model may be reciting it from memory rather than reading it. Section 12 handles that.</p>
+<p><strong>Vocabulary.</strong> <em>Control</em> — something held fixed so a comparison is fair. <em>Reproducible</em> — able to be repeated by someone else with the same result.</p>
+<p><strong>Takeaway:</strong> Record the prompt verbatim, the model version, and the date — without them the result is not reproducible.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Setting Up a Fair Test</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why record the exact instruction and the model version, not just the result?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Record the prompt verbatim, the model version, and the date — without them the result is not reproducible.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A different wording or a quietly updated model gives a different number, so without them nobody — including you — can repeat the result.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. These services change without announcing it, which is why the date matters too.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the instruction must be submitted for approval before the assignment is marked.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. No approval step exists. The reason is reproducibility.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the model will refuse to run twice with the same instruction.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It will run as often as you like.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the version number determines which credits are charged.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. No credits are involved on Friday, and that is part of the cost comparison.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Writing the Instruction</text></name><questiontext format="html"><text><![CDATA[
+<h3>Writing the Instruction</h3>
+<p>The wording matters, and a casual instruction guarantees every failure in section 06.</p>
+<p>A poor instruction: <em>"Transcribe this manuscript."</em> That invites chat, run-together lines, spelled-out short forms, modernized spelling, and confidently filled gaps — the whole set at once.</p>
+<p>A better one states every constraint:</p>
+<pre><code class="language-text">Transcribe the Greek text in this manuscript image.
+
+Requirements:
+- Preserve line breaks exactly as in the manuscript. One output line
+  per manuscript line.
+- Transcribe diplomatically: preserve the spelling as written,
+  including apparent errors. Do not correct or modernize.
+- Do not expand abbreviations. Transcribe the shortened form as
+  written.
+- Preserve all Greek accents and breathings exactly as written.
+- Preserve word spacing exactly as in the manuscript. If the text is
+  written without spaces, do not insert any.
+- Where text is illegible or damaged, output [ILLEGIBLE] rather than
+  supplying a reading.
+- Where you are uncertain, output the reading followed by [?].
+- Output only the transcription. No preamble, commentary, or summary.
+</code></pre>
+<p>Every line there targets a documented failure. Do not drop any of them on the grounds that it probably will not happen.</p>
+<p>Two notes. Asking the model to flag its own doubts gives you useful data but <em>not</em> a reliable guide — these models are poor judges of their own uncertainty, and section 11 comes back to this. And even a good instruction only reduces these failures. Check the output against every requirement anyway.</p>
+<p>Record the exact wording in your log.</p>
+<p><strong>Vocabulary.</strong> <em>Constraint</em> — a requirement you state explicitly in the instruction. <em>Calibration</em> — whether stated confidence matches actual accuracy.</p>
+<p><strong>Takeaway:</strong> Every constraint in the prompt addresses a documented failure mode, and a good prompt reduces those failures without eliminating them.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Writing the Instruction</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does the recommended instruction spell out every constraint, rather than just asking for a transcription?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Every constraint in the prompt addresses a documented failure mode, and a good prompt reduces those failures without eliminating them.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Each line addresses a documented failure — chat, reflowed lines, spelled-out short forms, modernized spelling, confidently filled gaps.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. And even so it only reduces those failures; you still check the output against every requirement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because longer instructions always produce more accurate output from these models.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Length is not the virtue — targeting known failures is.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the model will otherwise refuse to transcribe Greek.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It will attempt it readily. The problem is the form the attempt takes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the constraints are required for the output to validate as TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The output is plain text; encoding it comes later.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Running It</text></name><questiontext format="html"><text><![CDATA[
+<h3>Running It</h3>
+<p>Do the experiment.</p>
+<ul>
+<li>Pick the same leaf you typed on Tuesday.</li>
+<li>Give it the picture at the best quality the interface accepts.</li>
+<li>Use the instruction from section 08, word for word.</li>
+<li>Capture the whole raw answer, untouched.</li>
+<li>Save it to a file before you do anything else.</li>
+<li>Commit it straight away, with the labels, before correcting anything.</li>
+</ul>
+<p>That last step is Wednesday's discipline, and it matters just as much here. Raw output must be committed unchanged, because it is what gets scored in Week 5. Correct before committing and the measurement is gone.</p>
+<pre><code class="language-text">feat(transcription): VLM transcription of f. 42r, uncorrected
+
+Transcribed by [model, version] with no training, accessed 2026-09-25.
+Instruction recorded word for word in logs/vlm-method-w4.md. Raw
+output; nothing corrected and nothing reformatted.
+
+AI-Generated: true
+Model: [model name and version]
+Prompt-Ref: logs/vlm-method-w4.md
+Human-Verified: false
+Ground-Truth-Commit: a3f9c21
+</code></pre>
+<p>If you try more than one model or instruction, commit each result separately with its own labels. Several runs mixed into one file cannot be untangled afterwards.</p>
+<p>Resist fiddling with the wording until the output looks good. That just produces an instruction tuned to this one passage, which is not what you set out to measure. Run the planned test; note any extra attempts separately.</p>
+<p><strong>Vocabulary.</strong> <em>Raw output</em> — exactly what came back, before any human touched it. <em>Trailer</em> — a labelled line at the end of a commit message.</p>
+<p><strong>Takeaway:</strong> Commit the raw output before correcting or reformatting anything — that state is what Week 5 measures.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Running It</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why resist adjusting the wording until the output looks good?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Commit the raw output before correcting or reformatting anything — that state is what Week 5 measures.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;You would end up with an instruction tuned to this one passage, which is not what you set out to measure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Run the planned test, and note any extra attempts separately.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because each attempt consumes credits from the shared class allowance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Friday's tool needs no credits — that is part of why it looks cheap.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the model performs worse each time it is asked the same thing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It does not degrade with repetition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because only the first attempt may be committed to the repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commit each separately, with its own labels.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Reading the Output Sceptically</text></name><questiontext format="html"><text><![CDATA[
+<h3>Reading the Output Sceptically</h3>
+<p>Now judge it. Work through categories rather than by impression, because impressions are useless here — smooth text feels accurate.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Question</th>
+<th>Why it comes where it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Line count</td>
+<td>Same number of lines as the page?</td>
+<td>Decides whether comparison is even possible</td>
+</tr>
+<tr>
+<td>Chat</td>
+<td>Any preamble, commentary, summary?</td>
+<td>Must be stripped before scoring</td>
+</tr>
+<tr>
+<td>Accents</td>
+<td>Present and correct?</td>
+<td>The most likely quiet loss</td>
+</tr>
+<tr>
+<td>Short forms</td>
+<td>Kept, or spelled out?</td>
+<td>Quiet normalizing</td>
+</tr>
+<tr>
+<td>Word spacing</td>
+<td>As on the page, or imposed?</td>
+<td>An unrecorded change</td>
+</tr>
+<tr>
+<td>Damaged parts</td>
+<td>Marked, or confidently filled?</td>
+<td>Invention passed off as reading</td>
+</tr>
+<tr>
+<td>Spelling</td>
+<td>Kept, including apparent errors?</td>
+<td>Quiet correcting</td>
+</tr>
+<tr>
+<td>Believable wrong words</td>
+<td>Does it match the ink?</td>
+<td>Needs the picture</td>
+</tr>
+</tbody>
+</table>
+<p>The last row cannot be checked by reading the output. Smooth text reads as correct, and the mistakes that matter most are the ones that read perfectly. You have to compare against the picture, line by line, zoomed in — Tuesday's discipline again.</p>
+<p>Row six deserves special attention. Find the damaged patch you identified back in Lesson 3.2 and look at what the model put there. If it supplied confident text where you recorded a <code>&lt;gap/&gt;</code>, you have caught invention on your own manuscript — worth far more in your report than any published figure.</p>
+<p>Sort every mistake into a category. Counts by category are what Week 5 needs.</p>
+<p><strong>Vocabulary.</strong> <em>Impressionistic</em> — judging by overall feel rather than by checking. <em>Taxonomy</em> — a set of categories for sorting things.</p>
+<p><strong>Takeaway:</strong> Fluent output reads as correct, so check against the image — and look specifically at where you recorded damage.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Reading the Output Sceptically</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why can the most serious errors not be found by reading the output carefully?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Fluent output reads as correct, so check against the image — and look specifically at where you recorded damage.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Smooth text reads as correct, and the mistakes that matter most are the ones that read perfectly — you have to compare against the picture.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Look especially at the damaged patch you identified in Lesson 3.2.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the output is too long to read carefully in one session.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Length is not the obstacle; plausibility is.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the errors are concentrated in the accents, which are hard to see on screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accent loss is one problem among several, and it is visible once you look.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the model marks its own errors, so reading is unnecessary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Its self-marking is unreliable, as the next section shows.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: It Does Not Know What It Does Not Know</text></name><questiontext format="html"><text><![CDATA[
+<h3>It Does Not Know What It Does Not Know</h3>
+<p>You asked the model to flag doubts. Now judge whether the flags were any use.</p>
+<p>These models are poor judges of their own uncertainty. Their stated confidence does not track their accuracy: they will flag readings that are right and state readings confidently that they invented. The <code>[?]</code> marks are data about the model's behaviour, not a trustworthy guide to where to look.</p>
+<p>Test it on your own output. Take the flagged readings and the confident ones, and check both against the picture.</p>
+<table>
+<thead>
+<tr>
+<th>What you find</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flagged ones mostly wrong, confident ones mostly right</td>
+<td>Reasonably well judged here</td>
+</tr>
+<tr>
+<td>Flags seem unrelated to accuracy</td>
+<td>Self-report is useless as a guide</td>
+</tr>
+<tr>
+<td>Confident text over a damaged patch</td>
+<td>Invention; the most serious finding</td>
+</tr>
+<tr>
+<td>No flags at all despite visible damage</td>
+<td>It has no sense of its own limits</td>
+</tr>
+</tbody>
+</table>
+<p>Rows three and four are what to look for, and either is a substantial finding. A model that reads confidently where you know the page is illegible has shown, on your manuscript, that it cannot be trusted precisely where you most wanted help.</p>
+<p>There is a hard consequence. If the flags do not line up with the mistakes, there is no way to know which parts need checking short of checking all of it — which means the tool saves you no checking work at all, whatever it saves in typing.</p>
+<p>Record what you find. It bears directly on whether this method is usable here.</p>
+<p><strong>Vocabulary.</strong> <em>Self-report</em> — the model's own statement about its confidence. <em>Verification labour</em> — the work of checking output against the source.</p>
+<p><strong>Takeaway:</strong> If the model's uncertainty markers do not track its errors, you must check everything — and the tool saves no verification labour at all.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: It Does Not Know What It Does Not Know</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Suppose the model's uncertainty flags turn out to be unrelated to where it actually went wrong. What follows?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;If the model's uncertainty markers do not track its errors, you must check everything — and the tool saves no verification labour at all.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;You must check all of it, so the tool saves you no checking work at all — whatever it saves in typing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That bears directly on whether the method is usable for your manuscript.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;You should re-run it with a stricter instruction about marking uncertainty.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The problem is that these models judge their own confidence poorly, not that the instruction was too loose.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The flags can be ignored and the confident readings trusted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect — that is precisely backwards. Confident readings over damage are the most serious finding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It means the image resolution was too low for the model to judge.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Poor self-assessment is a property of these models, not of your images.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Is It Reading, or Reciting?</text></name><questiontext format="html"><text><![CDATA[
+<h3>Is It Reading, or Reciting?</h3>
+<p>A check that matters if your passage is from a well-known text, and one almost nobody thinks to run.</p>
+<p>A model trained on the internet has almost certainly met the <em>text</em> of your manuscript — not the pictures, but the words, in printed editions and scholarly discussion. Asked to transcribe a famous passage, it may produce the <em>edited</em> text from memory rather than reading the ink.</p>
+<p>That would give you excellent-looking output that is worthless, because it would be reproducing a modern printed edition rather than your copy — and the differences between those two are exactly the readings your edition exists to record.</p>
+<p>Two tests tell reading from reciting.</p>
+<p><strong>The variant test.</strong> If your manuscript has a reading that differs from the standard printed text, look at what the model produced there. Reading the ink gives you your manuscript's reading. Reciting gives you the printed one. This is the strongest test available, and it is why you should know your passage's variants in advance.</p>
+<p><strong>The damage test.</strong> Look at what it produced where you recorded illegible text. A model reading the ink cannot read what is not there. A model reciting fills the gap fluently <em>and correctly</em> — which is more damning than filling it wrongly.</p>
+<table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your manuscript's odd reading reproduced</td>
+<td>Reading the picture</td>
+</tr>
+<tr>
+<td>The printed reading where your copy differs</td>
+<td>Reciting from memory</td>
+</tr>
+<tr>
+<td>Illegible patch left marked</td>
+<td>Reading the picture</td>
+</tr>
+<tr>
+<td>Illegible patch filled with the standard text</td>
+<td>Reciting from memory</td>
+</tr>
+<tr>
+<td>Illegible patch filled with plausible invention</td>
+<td>Making it up</td>
+</tr>
+</tbody>
+</table>
+<p>Run both and report the result. For a well-known text this is the most important check you make today.</p>
+<p><strong>Vocabulary.</strong> <em>Variant</em> — a place where your copy's wording differs from another's. <em>Memorization</em> — reproducing training material rather than working from the input.</p>
+<p><strong>Takeaway:</strong> Where your manuscript differs from the printed text, a model reciting from memory gives the printed reading — that is the test.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Is It Reading, or Reciting?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How can you tell whether the model read your page or recited a printed edition from memory?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Where your manuscript differs from the printed text, a model reciting from memory gives the printed reading — that is the test.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Look at a place where your copy differs from the standard text — reading gives your copy's reading, reciting gives the printed one.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The damage test supports it: filling an illegible patch fluently *and correctly* is more damning than filling it wrongly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ask the model whether it has seen the text before.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Its self-report is unreliable, as section 11 established.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Compare the output's length against your transcription's.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Length tells you nothing about the source of the words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Check whether the output preserves the line breaks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That tests whether it followed instructions, not whether it read the ink.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: A Rough Score</text></name><questiontext format="html"><text><![CDATA[
+<h3>A Rough Score</h3>
+<p>Proper measurement is Week 5's job, but a rough figure today gives you something to hold up.</p>
+<p>The character score is the smallest number of single-character changes needed to turn the machine's text into yours, divided by the length of yours (AlKendi et al., 2024):</p>
+<pre><code class="language-python">def cer(reference: str, hypothesis: str) -&gt; float:
+    &quot;&quot;&quot;Character error rate: edit distance / reference length.&quot;&quot;&quot;
+    import unicodedata
+    r = unicodedata.normalize(&quot;NFC&quot;, reference)
+    h = unicodedata.normalize(&quot;NFC&quot;, hypothesis)
+    prev = list(range(len(h) + 1))
+    for i, rc in enumerate(r, 1):
+        cur = [i]
+        for j, hc in enumerate(h, 1):
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1,
+                           prev[j - 1] + (rc != hc)))
+        prev = cur
+    return prev[-1] / len(r) if r else 0.0
+</code></pre>
+<p>Notice both texts get normalized first. This is Lesson 1.2 arriving in practice: compare accents stored one way against accents stored the other way, and your score measures storage rather than transcription. The inflation can be huge. Always normalize both.</p>
+<p>Two more warnings about today's figure. Strip any chat before comparing, or you score the preamble as error. And if line breaks were lost, you can only compare the whole text at once, and that number is not comparable to a line-by-line one.</p>
+<p>Work out the same figure for Wednesday's output against the same reference, so the comparison is like for like. Record both, with the caveats.</p>
+<p><strong>Vocabulary.</strong> <em>Edit distance</em> — the count of single-character changes between two texts. <em>Normalize</em> — store accented characters in one consistent way.</p>
+<p><strong>Takeaway:</strong> Normalize both strings to NFC before computing CER, or you measure encoding difference rather than transcription difference.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: A Rough Score</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why normalize both texts before working out a score?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Normalize both strings to NFC before computing CER, or you measure encoding difference rather than transcription difference.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Accents can be stored in two different ways, and comparing one storage form against the other measures storage rather than transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The inflation can be severe, and it has nothing to do with how well anything was read.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the score requires both texts to be the same length.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It handles different lengths by design — that is what the edit count is for.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Greek cannot be compared character by character without normalization.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It can; the risk is that identical-looking characters are stored differently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because normalization removes the chat and preamble automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Stripping the chat is a separate step you do yourself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Where These Tools Genuinely Help</text></name><questiontext format="html"><text><![CDATA[
+<h3>Where These Tools Genuinely Help</h3>
+<p>Fairness is owed. The evidence is against using a general AI to transcribe old manuscripts cold. It is not against these tools in general, and dismissing them wholesale would be as thoughtless as adopting them wholesale.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Suitable?</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transcribing historical manuscripts cold</td>
+<td>Poor</td>
+<td>The specialization gap; invention; false archaism</td>
+</tr>
+<tr>
+<td>Transcribing modern handwriting</td>
+<td>Good</td>
+<td>Well represented in training</td>
+</tr>
+<tr>
+<td>Transcribing printed text in common languages</td>
+<td>Good</td>
+<td>Very well represented</td>
+</tr>
+<tr>
+<td>Translating a transcription you already have</td>
+<td>Good</td>
+<td>A language job, not a reading job</td>
+</tr>
+<tr>
+<td>Explaining a short form or a script feature</td>
+<td>Useful</td>
+<td>Retrieving documented knowledge</td>
+</tr>
+<tr>
+<td>Suggesting parallels for a phrase</td>
+<td>Useful, if you verify</td>
+<td>Broad coverage</td>
+</tr>
+<tr>
+<td>Drafting code for your workflow</td>
+<td>Good</td>
+<td>Very well supported</td>
+</tr>
+<tr>
+<td>Tidying up reading output</td>
+<td>Harmful</td>
+<td>Documented to make things worse</td>
+</tr>
+</tbody>
+</table>
+<p>The advice is specific: unless your manuscript is a late modern document in a well-represented language, do not rely on a general AI for diplomatic transcription. The risk of false archaism, quiet modernizing, and mangled structure outweighs the setup time you save (AlKendi et al., 2024).</p>
+<p>The last row is Wednesday's finding again. Adding AI tidying after a reading step makes the overall result worse (Mattingly et al., 2024). The tidying step cannot see the picture, so it corrects toward whatever sounds likely — which reliably damages the unusual readings that matter.</p>
+<p>The thread running through the table: these tools are good where knowing language is the point, and bad where knowing language contaminates the evidence. Transcription is the second kind.</p>
+<p><strong>Vocabulary.</strong> <em>Contaminate</em> — to let outside knowledge alter the evidence. <em>Wholesale</em> — accepting or rejecting something entirely, without distinction.</p>
+<p><strong>Takeaway:</strong> These tools help where linguistic knowledge is the point and harm where it contaminates evidence — transcription is the second kind.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Where These Tools Genuinely Help</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What distinguishes the tasks these models are good at from the ones they are bad at?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;These tools help where linguistic knowledge is the point and harm where it contaminates evidence — transcription is the second kind.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They help where knowing language is the point, and harm where knowing language contaminates the evidence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Transcription is the second kind — which is why translating a transcription you already have is a perfectly good use.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They help with short tasks and struggle with long ones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Length is not the dividing line — a whole-page translation is fine.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They help with modern material and struggle with anything written by hand.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They do very well on modern handwriting. The difficulty is historical material.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They help when given examples and struggle without them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The problem is structural, not a matter of how many examples are supplied.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Where That Leaves the Method</text></name><questiontext format="html"><text><![CDATA[
+<h3>Where That Leaves the Method</h3>
+<p>A working position rather than a ban.</p>
+<p>These tools do not replace the person who reads manuscripts. They move that person's effort from deciphering toward checking and interpreting (AlKendi et al., 2024). That shift is real and valuable — but only where the output is good enough that checking it costs less than typing it.</p>
+<p>Wednesday's threshold applies: past roughly 15% of characters wrong, correcting costs more than typing from scratch (AlKendi et al., 2024). A tool above that line is not a saving with a quality cost. It is extra work.</p>
+<p>Today's likely finding is that the general model sits above that line on your manuscript while your trained model sits below it. If so, the conclusion is not that AI is useless. It is that <em>the specialized tool is the right one for this job</em> — and that conclusion now rests on your own measurement rather than on being told.</p>
+<p>The three-step cycle exists to produce exactly this kind of grounded judgement. You have now seen what a person, a bounded specialist, and an unbounded generalist each produce on the same lines. That is the basis for choosing tools deliberately for the rest of the term, and for defending the choice in your Week 12 commentary.</p>
+<p><strong>Vocabulary.</strong> <em>Threshold</em> — the point at which the sensible choice flips. <em>Grounded</em> — supported by evidence you gathered yourself.</p>
+<p><strong>Takeaway:</strong> Automation saves labour only below the threshold where correction costs less than transcription — and you have now measured where your tools sit.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Where That Leaves the Method</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;If the general model scores above 15% and your trained model below it, what is the right conclusion?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automation saves labour only below the threshold where correction costs less than transcription — and you have now measured where your tools sit.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;That the specialized tool is the right one for this job — and you now have your own measurement to say so.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Not that AI is useless, but that this task, on this material, is better served by the specialist.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That AI models are unsuitable for humanities research generally.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is a sweeping claim your measurement does not support.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the general model needs a better instruction and should be re-run until it improves.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tuning until it looks good is the trap section 09 warned about.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That your trained model is accurate enough to use without correction.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Below 15% means correcting is worthwhile, not that correcting is unnecessary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Recording AI Use in the Repository</text></name><questiontext format="html"><text><![CDATA[
+<h3>Recording AI Use in the Repository</h3>
+<p>The syllabus requires you to disclose AI use, and the repository is where that disclosure lives.</p>
+<p>Every commit holding machine-made content carries labels recording the model, the instruction, and whether a person has checked it. For today:</p>
+<pre><code class="language-text">AI-Generated: true
+Model: [name and version]
+Model-Access-Date: 2026-09-25
+Prompt-Ref: logs/vlm-method-w4.md
+Human-Verified: false
+Ground-Truth-Commit: a3f9c21
+</code></pre>
+<p><code>Model-Access-Date</code> matters more than it looks. These services run on someone else's computers and can change overnight without the version number moving, so the date is often the only record of what actually produced your text. A result reported without it may not be repeatable even by you, a month later.</p>
+<p>The audit commands from Lesson 1.1 now return something meaningful:</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What in my edition was machine-made?</td>
+<td><code>git log --grep="AI-Generated: true"</code></td>
+</tr>
+<tr>
+<td>What has nobody checked?</td>
+<td><code>git log --grep="Human-Verified: false"</code></td>
+</tr>
+<tr>
+<td>Which models did I use?</td>
+<td><code>git log --pretty=format:"%(trailers:key=Model)"</code></td>
+</tr>
+<tr>
+<td>How much is machine-assisted?</td>
+<td><code>git rev-list --all --grep="AI-Generated: true" --count</code></td>
+</tr>
+</tbody>
+</table>
+<p>Run the second one now. It should list Wednesday's raw output and today's — the two places in your repository where a machine wrote something and nobody has verified it. That is an honest picture of your edition's current state, and it is exactly what a reader of a digital edition should be able to ask for.</p>
+<p><strong>Vocabulary.</strong> <em>Disclosure</em> — stating openly where machine assistance was used. <em>Audit</em> — checking a record to see what was actually done.</p>
+<p><strong>Takeaway:</strong> Record the model access date — a hosted model can change without notice, making the date the only record of what produced the output.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Recording AI Use in the Repository</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does the date you used the model matter as much as its version number?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Record the model access date — a hosted model can change without notice, making the date the only record of what produced the output.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;These services run on somebody else's computers and can change overnight without the version number moving.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The date is often the only record of what actually produced your text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the assignment requires all work to be dated for marking purposes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The reason is reproducibility, not administration.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because model output is only valid for a limited period after generation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The output does not expire. What changes is the system behind it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the date determines which version of TEI the output conforms to.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The output is plain text and conforms to nothing until you encode it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Putting the Three Side by Side</text></name><questiontext format="html"><text><![CDATA[
+<h3>Putting the Three Side by Side</h3>
+<p>Bring the three versions together. This is the week's real product.</p>
+<p>Build <code>logs/three-way-w4.md</code> with a row per line:</p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Yours (reference)</th>
+<th>Trained model</th>
+<th>General AI</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ἐν ἀρχῇ ἦν ὁ λόγος</td>
+<td>ἐν ἀρχῇ ἦν ὁ λόγος</td>
+<td>ἐν ἀρχῇ ἦν ὁ λόγος</td>
+<td>All three agree</td>
+</tr>
+<tr>
+<td>2</td>
+<td>θν καὶ θς</td>
+<td>θν καὶ θς</td>
+<td>θεόν καὶ θεός</td>
+<td>AI spelled the short forms out</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ἦν ὁ λόγος οὗτος</td>
+<td>ἦν ὁ λογος οὑτος</td>
+<td>ἦν ὁ λόγος οὗτος</td>
+<td>Trained model dropped accents</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[gap, 6 chars]</td>
+<td>[nonsense]</td>
+<td>διʼ αὐτοῦ πάντα</td>
+<td>AI filled the gap</td>
+</tr>
+</tbody>
+</table>
+<p>Row four is the finding in miniature. Where the page is damaged, you recorded a measured gap, the trained model produced something visibly wrong, and the AI produced fluent plausible Greek that is not on the parchment. Three systems, three characteristic behaviours, one line.</p>
+<p>A diff makes this easier to build:</p>
+<pre><code class="language-bash">git diff gt-f42r:edition/edition.xml htr-w4-raw:edition/htr-output.txt
+</code></pre>
+<p>This is where Tuesday's and Wednesday's tags earn their keep.</p>
+<p>Do at least ten lines, and make sure they include every line where you recorded doubt or damage. Those are the informative ones. Agreement on easy lines tells you almost nothing; what each system does when the evidence runs out tells you everything.</p>
+<p><strong>Vocabulary.</strong> <em>Diff</em> — a comparison showing what differs between two versions. <em>Three-way comparison</em> — setting three versions of the same thing against each other.</p>
+<p><strong>Takeaway:</strong> Compare on the lines where you recorded uncertainty — agreement on easy lines is uninformative, and divergence on hard lines is the finding.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Putting the Three Side by Side</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which lines should the three-way comparison concentrate on, and why?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Compare on the lines where you recorded uncertainty — agreement on easy lines is uninformative, and divergence on hard lines is the finding.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The lines where you recorded doubt or damage, because what each system does when the evidence runs out is the finding.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Agreement on easy lines tells you almost nothing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The first ten lines, so the sample is consistent across students.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A fixed position is arbitrary; the informative lines are the difficult ones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The lines where all three agree, since agreement confirms the reading.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Agreement on easy lines is exactly the uninformative case.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The lines with the most abbreviations, since those dominate the score.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Worth including, but the criterion is where *you* recorded uncertainty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Sorting the Mistakes</text></name><questiontext format="html"><text><![CDATA[
+<h3>Sorting the Mistakes</h3>
+<p>Categorize what you found, because the categories are what your Week 5 report argues from.</p>
+<table>
+<thead>
+<tr>
+<th>Kind of mistake</th>
+<th>You</th>
+<th>Trained model</th>
+<th>General AI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Misread letter</td>
+<td>Occasional</td>
+<td>Common</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Dropped accents</td>
+<td>Rare</td>
+<td>Common, usually a strip fault</td>
+<td>Varies</td>
+</tr>
+<tr>
+<td>Short forms spelled out</td>
+<td>Never, if diplomatic</td>
+<td>Rare</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Spelling modernized</td>
+<td>Never, if diplomatic</td>
+<td>Rare</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Impossible letter strings</td>
+<td>Never</td>
+<td>Occasional</td>
+<td>Rare</td>
+</tr>
+<tr>
+<td>Believable wrong words</td>
+<td>Rare</td>
+<td>Rare</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Text invented over damage</td>
+<td>Never</td>
+<td>Never</td>
+<td>Documented</td>
+</tr>
+<tr>
+<td>Line breaks lost</td>
+<td>Never</td>
+<td>Never</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Commentary inserted</td>
+<td>Never</td>
+<td>Never</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Reading what you expected</td>
+<td>Occasional</td>
+<td>Never</td>
+<td>By design</td>
+</tr>
+</tbody>
+</table>
+<p>Read the bottom four rows down the columns. Those four failures belong almost entirely to the general AI, and not one of them is a <em>reading</em> mistake. They follow from it being a language machine pointed at a reading job. It reformats because it writes prose. It chats because it converses. It invents because it completes.</p>
+<p>Read the last row across. Your own signature failure — reading what you expect rather than what is written — is one the trained model structurally cannot make, because it has no expectations. The general AI makes it by design, since applying expectation is exactly what it does.</p>
+<p>That is a useful symmetry. The trained model is a check on your expectation-driven slips, and you are a check on its ink-level slips. That mutual checking is what "human in the loop" actually means in practice.</p>
+<p><strong>Vocabulary.</strong> <em>Failure mode</em> — a characteristic way a system goes wrong. <em>By construction</em> — following necessarily from how something is built.</p>
+<p><strong>Takeaway:</strong> The VLM's distinctive failures are not recognition errors but consequences of being a language model — and the HTR model cannot make your expectation-driven errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Sorting the Mistakes</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Four kinds of failure belong almost entirely to the general AI. What do they have in common?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The VLM's distinctive failures are not recognition errors but consequences of being a language model — and the HTR model cannot make your expectation-driven errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;None of them is a reading mistake — they follow from it being a language machine pointed at a reading job.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It reformats because it writes prose, chats because it converses, and invents because it completes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They all come from the image being supplied at too low a resolution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They occur at any resolution, because they arise from what the system is.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They all appear only when the instruction was poorly written.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A good instruction reduces them; it does not remove them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are all caused by the model having seen the printed text before.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Reciting from memory is a separate failure, tested for separately.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Reporting a Result That Did Not Work</text></name><questiontext format="html"><text><![CDATA[
+<h3>Reporting a Result That Did Not Work</h3>
+<p>If today's AI output was poor, that is a result. Report it as one.</p>
+<p>There is a habit in coursework of treating a technique that failed as an assignment that failed, and reporting only the parts that worked. That is the opposite of what is wanted here. A documented negative result — this model, this instruction, this manuscript, this score — is a real contribution, and it saves the next person from repeating the attempt.</p>
+<p>Report:</p>
+<ul>
+<li>The model and version, and the date you used it.</li>
+<li>The exact instruction.</li>
+<li>The raw output, committed unchanged.</li>
+<li>The measured score, with its caveats.</li>
+<li>The kinds of mistake, with counts.</li>
+<li>What specifically failed: accents, short forms, line breaks, damaged patches.</li>
+<li>Whether you tested for reciting, and what you found.</li>
+<li>Your judgement on whether the method is usable for this manuscript.</li>
+</ul>
+<p>That last item is the scholarly part. Not "the model was bad", but something like: <em>for this hand, in this script, at this resolution, an untrained general model produced X% character error with systematic spelling-out of short forms and invented text in damaged regions, and is therefore unsuitable as a primary transcription method for this edition, though it may remain useful for [specific task].</em></p>
+<p>That statement is specific, defensible, and useful — and it is exactly what the Week 5 report asks for.</p>
+<p><strong>Vocabulary.</strong> <em>Negative result</em> — a finding that something does not work, which is still a finding. <em>Defensible</em> — able to be supported when questioned.</p>
+<p><strong>Takeaway:</strong> A documented failure — this model, this prompt, this manuscript, this rate — is a contribution, and vague dismissal is not.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Reporting a Result That Did Not Work</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is a documented failure a contribution rather than a failed assignment?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A documented failure — this model, this prompt, this manuscript, this rate — is a contribution, and vague dismissal is not.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;This model, this instruction, this manuscript, this score — that record saves the next person from repeating the attempt.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Reporting only what worked is the opposite of what is wanted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because negative results are marked more generously than positive ones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The value is scholarly, not a marking concession.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because a failed attempt proves the tool should never be used for anything.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The honest conclusion is narrow and specific, not a blanket judgement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the assignment only requires that something was attempted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It requires a specific, defensible conclusion about your own material.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Working Remotely Today</text></name><questiontext format="html"><text><![CDATA[
+<h3>Working Remotely Today</h3>
+<p>Today is remote. A few things are worth checking rather than assuming.</p>
+<ul>
+<li>Your repository is pushed, and your local copy is up to date.</li>
+<li>Your images load from the network you are on.</li>
+<li>Your Greek keyboard works on this machine.</li>
+<li>Your XML editor checks against the TEI rulebook here.</li>
+<li>Python and your accent tools run here.</li>
+<li>Your pre-commit hook is installed <em>in this copy</em>.</li>
+</ul>
+<p>The last one catches people. Hooks live in <code>.git/hooks/</code>, and that folder is <strong>not copied</strong> when you clone a repository. If you are working from a fresh copy today, your accent-fixing hook does not exist here, and every commit you make will slip past it.</p>
+<p>Install it now, from your tracked <code>tools/</code> folder, before you commit anything:</p>
+<pre><code class="language-bash">cp tools/pre-commit .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+</code></pre>
+<p>Then test it: make a file with decomposed Greek, stage it, commit, and check the stored bytes. An untested hook on a new machine is not a safeguard.</p>
+<p>Push before you finish. Today's work has to be available on whatever machine you use next week, and leaving a remote session's output on a laptop is a common way to lose it.</p>
+<p><strong>Vocabulary.</strong> <em>Clone</em> — your own copy of a repository. <em>Hook</em> — a script git runs automatically at a set moment.</p>
+<p><strong>Takeaway:</strong> Hooks are not cloned — install and test your NFC hook on this machine before committing anything today.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Working Remotely Today</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why might your accent-fixing hook not run today, even though it worked all week?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Hooks are not cloned — install and test your NFC hook on this machine before committing anything today.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Hooks live in `.git/hooks/`, which is not copied when you clone — so a fresh copy has none.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Install it from your tracked `tools/` folder and test it before committing anything.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hooks are disabled automatically when git runs outside the campus network.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git neither knows nor cares which network you are on.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hooks expire after a set number of commits and must be reinstalled.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They do not expire. They were simply never copied across.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hooks only run on files that have been pushed to the remote.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They run before a commit is recorded, locally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: What This Week Established</text></name><questiontext format="html"><text><![CDATA[
+<h3>What This Week Established</h3>
+<p>Pull the week's findings together, since Week 5 argues from them.</p>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Starting from an existing model is decisive</td>
+<td>17.18% wrong from scratch versus 3.90% with it, same data (Perdiki &amp; Konstantinidou, 2023)</td>
+</tr>
+<tr>
+<td>Matching the material beats being big</td>
+<td>Tuned specialist 14.6% versus a large model's 84.7%, same pages (Mattingly et al., 2024)</td>
+</tr>
+<tr>
+<td>General AI collapses on old material</td>
+<td>GPT-4o 1.39% modern versus 52.23% historical English (AlKendi et al., 2024)</td>
+</tr>
+<tr>
+<td>A good score can hide lost faithfulness</td>
+<td>GPT-4o 9.23% while inserting old letters in 59% of files (Levchenko, 2024)</td>
+</tr>
+<tr>
+<td>Line-finding faults ruin the reading</td>
+<td>Chopped strips delete Greek accents entirely (Perdiki &amp; Konstantinidou, 2023)</td>
+</tr>
+<tr>
+<td>More steps make it worse</td>
+<td>Plain workflow beats versions with extra AI stages (Mattingly et al., 2024)</td>
+</tr>
+<tr>
+<td>Models break when the layout changes</td>
+<td>5.1% on plain pages versus 13.6% on glossed ones (Geelhaar, 2022)</td>
+</tr>
+<tr>
+<td>Past 15% wrong, correcting costs more than typing</td>
+<td>(AlKendi et al., 2024)</td>
+</tr>
+</tbody>
+</table>
+<p>These are not opinions about AI. They are measurements, from published tests, which you have now partly repeated on your own manuscript.</p>
+<p>The claim that ties them together is the week's thesis: automated transcription genuinely speeds the work <em>and</em> absolutely depends on a hand-made diplomatic reference, because that reference is the only thing against which error, bias, and invention can be measured at all (AlKendi et al., 2024).</p>
+<p>Every row in that table is a measurement against a reference somebody made by hand.</p>
+<p><strong>Vocabulary.</strong> <em>Thesis</em> — the central claim an argument sets out to establish. <em>Replicate</em> — repeat a study to see whether the result holds.</p>
+<p><strong>Takeaway:</strong> Every finding in the table is a measurement against a hand-produced ground truth — which is the week's thesis in operation.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: What This Week Established</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What do all eight of the week's findings have in common?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Every finding in the table is a measurement against a hand-produced ground truth — which is the week's thesis in operation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Every one is a measurement taken against a reference that somebody made by hand.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That is the week's thesis in operation — automation speeds the work and depends absolutely on the hand-made reference.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Every one shows that specialized tools outperform general ones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Several do, but others concern transfer learning, layout, and pipeline design.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Every one was produced by this course rather than drawn from published work.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are published findings, which you have now partly repeated yourself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Every one concerns Greek manuscripts specifically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They span Latin, English, German, and Russian material.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Checklist Before You Finish</text></name><questiontext format="html"><text><![CDATA[
+<h3>Checklist Before You Finish</h3>
+<p>Check each one.</p>
+<ul>
+<li>AI transcription run on the same leaf as Tuesday and Wednesday.</li>
+<li>Instruction recorded word for word in <code>logs/vlm-method-w4.md</code>.</li>
+<li>Model name, version, and date recorded.</li>
+<li>Raw output committed unchanged, with the labels.</li>
+<li>Output checked against every item in section 10.</li>
+<li>Damaged patches specifically examined for invented text.</li>
+<li>Reciting tested for, if your text is well known.</li>
+<li>The model's own doubt flags checked against actual accuracy.</li>
+<li>Rough score worked out for both machine versions, both normalized.</li>
+<li>Three-way comparison table built for at least ten lines.</li>
+<li>Mistakes sorted by kind, with counts.</li>
+<li>Time recorded for all three methods.</li>
+<li>Everything committed and pushed.</li>
+</ul>
+<p>Item seven applies only to well-known texts, but where it applies it is the most important check available. A model reproducing a printed edition from memory gives you excellent-looking output that is worthless as a record of <em>your</em> copy, and nothing else on this list would catch it.</p>
+<p><strong>Vocabulary.</strong> <em>Checklist</em> — a list checked item by item rather than from memory. <em>Witness</em> — one manuscript copy of a text, treated as evidence.</p>
+<p><strong>Takeaway:</strong> For a well-known text, the memorization test is the most important check available — nothing else detects a recited printed edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Checklist Before You Finish</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which check on today's list would catch a failure that nothing else on it would?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For a well-known text, the memorization test is the most important check available — nothing else detects a recited printed edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The test for reciting — a model reproducing a printed edition from memory produces excellent-looking output that is worthless as a record of your copy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It applies only to well-known texts, but where it applies nothing else detects it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The line count, since a mismatch invalidates every later comparison.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Serious, but it is conspicuous — you notice immediately.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The score calculation, since an unnormalized comparison inflates the figure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Also serious, and also detectable by other means.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The provenance labels, since unlabelled machine text cannot be identified later.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Important, but the audit commands would reveal a missing label.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Looking Ahead to Week 5</text></name><questiontext format="html"><text><![CDATA[
+<h3>Looking Ahead to Week 5</h3>
+<p>Next week reconciles and measures. It is a two-meeting week by design — Wednesday September 30 is closed for Truth and Reconciliation, and nothing is lost, because reconciliation <em>is</em> the comparison.</p>
+<table>
+<thead>
+<tr>
+<th>Meeting</th>
+<th>Step</th>
+<th>What you do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tue Sep 29 (#12)</td>
+<td>Manual</td>
+<td>Type it twice; settle the differences by hand</td>
+</tr>
+<tr>
+<td>Fri Oct 2 (#13)</td>
+<td>Measurement</td>
+<td>Score both machine versions against your reference</td>
+</tr>
+</tbody>
+</table>
+<p>Tuesday tackles the problem raised in Lesson 4.1: your reference has mistakes in it, and treating it as perfect makes every measurement partly wrong. Typing it independently a second time and settling the differences gives you a much better reference.</p>
+<p>Friday does the measuring properly — line by line, normalized, sorted by kind, with the judgement that section 05 argued a single number cannot supply.</p>
+<p><strong>The Transcription Assignment is due Friday October 2</strong>, and it includes the reconciliation report. Everything you recorded this week — methods, comparisons, categories, timings — is material for it. Students who kept those records write the report. Students who did not, do the work again.</p>
+<p><strong>Vocabulary.</strong> <em>Reconciliation</em> — settling the differences between versions of the same text. <em>Consensus text</em> — the agreed version produced after settling them.</p>
+<p><strong>Takeaway:</strong> Week 5 double-keys the ground truth and then measures against it — and the Transcription Assignment on October 2 includes the reconciliation report.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Looking Ahead to Week 5</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does Week 5 lose nothing by having only two meetings?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Week 5 double-keys the ground truth and then measures against it — and the Transcription Assignment on October 2 includes the reconciliation report.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Reconciliation *is* the comparison, so the two meetings — typing it twice, then measuring — cover the week's work.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Wednesday 30 September is closed for Truth and Reconciliation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the measurement is done automatically and needs no meeting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Friday's meeting is the measurement, done properly and line by line.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the Transcription Assignment is due before the missing meeting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is due Friday 2 October, at the end of that week.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Week 5 repeats Week 4 and can be shortened safely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It does new work: improving the reference, then measuring against it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: What Good Work Looks Like Here</text></name><questiontext format="html"><text><![CDATA[
+<h3>What Good Work Looks Like Here</h3>
+<p>An acceptable result is an AI transcription, committed, with a score.</p>
+<p>Good work also:</p>
+<ul>
+<li>Uses an instruction built against the documented failures, recorded word for word.</li>
+<li>Keeps the raw output untouched before any judging.</li>
+<li>Checks against every category in section 10, not by impression.</li>
+<li>Looks specifically at damaged patches for invention.</li>
+<li>Tests for reciting where the text is well known.</li>
+<li>Checks the model's doubt flags against its actual mistakes.</li>
+<li>Normalizes both texts before working out any score.</li>
+<li>Reports cost as well as quality, for all three methods.</li>
+<li>Draws a specific, defensible conclusion about <em>this</em> manuscript.</li>
+<li>Reports failures fully.</li>
+</ul>
+<p>The ninth item is what the whole week is for. "AI is unreliable for manuscripts" repeats what you were told. "For this tenth-century Greek minuscule at this resolution, model X produced Y% character error with systematic spelling-out of short forms and invented text in two damaged regions, against my trained model's Z%" is something you established.</p>
+<p>The difference between those two sentences is the difference between having read about the specialization gap and having measured it.</p>
+<p><strong>Vocabulary.</strong> <em>Deliverable</em> — the finished thing you are expected to produce. <em>Specific</em> — naming the actual material, model, and numbers involved.</p>
+<p><strong>Takeaway:</strong> A specific measured conclusion about <em>your</em> manuscript is the deliverable; a general claim about AI is a repetition of what you were told.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: What Good Work Looks Like Here</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What separates a good conclusion from a poor one in today's report?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A specific measured conclusion about *your* manuscript is the deliverable; a general claim about AI is a repetition of what you were told.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Naming the actual script, resolution, model, and figures, rather than making a general claim about AI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The general claim repeats what you were told; the specific one is something you established.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Reaching a conclusion that agrees with the published benchmarks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Agreement is not the standard — a result that contradicts them, properly measured, is more interesting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Recommending that the specialized tool be used for the rest of the term.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That may well follow, but the recommendation is not what makes the conclusion good.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Keeping the conclusion short enough to fit the report's word limit.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Specificity, not brevity, is what is being asked for.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Choosing Tools for the Rest of the Term</text></name><questiontext format="html"><text><![CDATA[
+<h3>Choosing Tools for the Rest of the Term</h3>
+<p>Today's results should shape how you work from Week 6 on.</p>
+<p>If your trained model does well — under about 10% wrong — use it to extend your transcription across the remaining leaves, correcting against the pictures and committing raw and corrected states separately. That is the intended workflow, working as intended.</p>
+<p>If it does badly, diagnose before giving up. Wednesday's order applies: line-finding, alignment, amount of training material, starting model. Most poor first models are fixable, and the usual fix is more or better-chosen examples.</p>
+<p>For the general AI, the honest position after today is probably that it is unsuitable for your primary transcription, while remaining useful for other things — explaining script features, drafting workflow code, suggesting parallels you then verify, translating a transcription you already have.</p>
+<p>What you should not do, from Wednesday, is pass your trained model's output through an AI to clean up. That setup is documented to make things worse (Mattingly et al., 2024), and it will damage precisely the unusual readings your edition exists to record.</p>
+<p>Write down your tool decisions and your reasons. Week 12's commentary has to state what produced the text, and a reason recorded now is worth far more than one reconstructed in December.</p>
+<p><strong>Vocabulary.</strong> <em>Workflow</em> — the sequence of steps you use to do the work. <em>Amortize</em> — spread a one-off cost across enough uses to be worth it.</p>
+<p><strong>Takeaway:</strong> Let today's measurement set your tool choices for the term, and record the reasons at the time rather than reconstructing them later.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Choosing Tools for the Rest of the Term</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should you not do with your trained model's output from Week 6 onward?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Let today's measurement set your tool choices for the term, and record the reasons at the time rather than reconstructing them later.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Pass it through an AI to clean up, which is documented to make the result worse.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. It cannot see the picture, so it corrects toward the ordinary — damaging precisely the unusual readings you are recording.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Correct it by hand, since corrections introduce your own expectation errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Correcting by hand against the image is exactly the intended workflow.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Commit it to the repository before it has been checked.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is required — raw output must be committed unchecked so it can be scored.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Use it to extend the transcription onto further leaves.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is the point of having trained it, provided it scores well enough.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: The Bigger Point</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Bigger Point</h3>
+<p>Step back from transcription, because this pattern returns every week for the rest of the term.</p>
+<p>Each week runs the same job three ways: by hand, with a specialized tool, and with AI. That structure is not about transcription. It is a general way of judging computational tools in scholarly work, and the logic is the same each time.</p>
+<p>The manual step builds a reference and, just as importantly, builds <em>your</em> understanding of the material. The specialized step shows what a bounded, purpose-built tool produces — fast, consistent, limited to what it was made for. The AI step shows what an unbounded general tool produces — faster still, more flexible, and capable of failures the other two structurally cannot commit.</p>
+<p>Comparing them gives you something none of the three gives alone: a measured account of what each is good for on <em>this</em> material. That is the only sound basis for choosing tools.</p>
+<p>Notice that the method needs the manual step to come first and to be done properly. Every measurement is a distance from the reference, and a damaged reference damages everything computed from it. That is why Tuesday is not a warm-up.</p>
+<p><strong>Vocabulary.</strong> <em>Bounded</em> — limited to a defined range. <em>Unbounded</em> — not restricted to any particular domain.</p>
+<p><strong>Takeaway:</strong> The three-step cycle is a general method for evaluating tools against material, and it collapses if the manual reference is compromised.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: The Bigger Point</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does the three-step cycle collapse if the manual step is done badly?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The three-step cycle is a general method for evaluating tools against material, and it collapses if the manual reference is compromised.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Every measurement is a distance from the reference, so a damaged reference damages everything computed from it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That is why Tuesday is not a warm-up.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the specialized tool cannot be trained without a perfect transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It trains on imperfect material readily — the problem is what the results then mean.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the AI step is run first and depends on the manual output.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The AI step is last, and needs no input from you but a picture.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the comparison requires all three to have the same error rate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They will differ enormously, and that difference is the finding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Counting the Cost Honestly</text></name><questiontext format="html"><text><![CDATA[
+<h3>Counting the Cost Honestly</h3>
+<p>One more comparison, because quality without cost is half an argument.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Setup</th>
+<th>Cost per leaf afterwards</th>
+<th>Quality here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>By hand</td>
+<td>None</td>
+<td>Highest</td>
+<td>The reference</td>
+</tr>
+<tr>
+<td>Trained model</td>
+<td>A whole session</td>
+<td>Low, plus correcting</td>
+<td>Your figure</td>
+</tr>
+<tr>
+<td>General AI</td>
+<td>Minutes</td>
+<td>Very low, plus correcting</td>
+<td>Your figure</td>
+</tr>
+</tbody>
+</table>
+<p>Fill the right column from today's measurements and the middle from your own timings.</p>
+<p>The comparison genuinely has three dimensions and resists a simple ranking. Typing by hand costs nothing to set up and the most per leaf. The trained model costs a session to set up and little per leaf — so it pays off across many leaves and does not pay off across four. The general AI costs almost nothing either way and, on old material, may produce output not worth correcting at all.</p>
+<p>The threshold governs. Past roughly 15% wrong, correcting costs more than typing, and a tool being cheap per leaf is irrelevant if its output has to be thrown away (AlKendi et al., 2024).</p>
+<p>For a passage of twenty to forty lines — your edition — the honest sum may well be that typing by hand beats the trained model, because the setup never pays for itself. Say so if you find it. The value of the exercise is in having measured the trade-off on real material, not in reaching a conclusion someone decided in advance.</p>
+<p><strong>Vocabulary.</strong> <em>Setup cost</em> — the one-off effort before any output. <em>Marginal cost</em> — what each additional unit costs after that.</p>
+<p><strong>Takeaway:</strong> For a short passage, HTR's setup cost may never amortize — say so if you find it, because the measurement is the point.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Counting the Cost Honestly</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why might typing by hand beat the trained model for a passage of twenty to forty lines?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For a short passage, HTR's setup cost may never amortize — say so if you find it, because the measurement is the point.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The trained model costs a whole session to set up, and across so few leaves that setup never pays for itself.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Say so if you find it — the value is in having measured the trade-off on real material.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the trained model is less accurate than a person on short passages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accuracy does not depend on passage length. The argument is about setup cost.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because short passages cannot supply enough examples to train anything.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. One leaf is enough for a first model — the issue is whether the effort repays.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the platform charges a minimum fee regardless of passage length.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The cost being counted is your time, not a fee.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Committing and Pushing</text></name><questiontext format="html"><text><![CDATA[
+<h3>Committing and Pushing</h3>
+<p>Close the week out properly.</p>
+<p>Everything committed today should carry full provenance. Check with the audit commands:</p>
+<pre><code class="language-bash">git log --grep=&quot;AI-Generated: true&quot; --oneline
+git log --grep=&quot;Human-Verified: false&quot; --oneline
+</code></pre>
+<p>The second lists what a machine wrote and nobody has checked. If you have corrected today's output, commit the corrections separately, and that commit should say <code>Human-Verified: true</code>.</p>
+<p>Tag today's raw output:</p>
+<pre><code class="language-bash">git tag -a vlm-w4-raw -m &quot;Raw VLM output, [model/version], before correction&quot;
+git push --tags
+</code></pre>
+<p>Push everything, tags included. <strong>Tags are not pushed by default.</strong> The three tagged states from this week — <code>gt-f42r</code>, <code>htr-w4-raw</code>, <code>vlm-w4-raw</code> — are what Week 5's measurement goes and fetches. A tag that exists only on this laptop is a tag Week 5 cannot use if you work from anywhere else.</p>
+<p>Check the push worked and the tags are on the remote before you stop. A remote session that ends with unpushed work is a session you may have to repeat.</p>
+<p><strong>Vocabulary.</strong> <em>Remote</em> — the copy of your repository on the server. <em>Push</em> — send your commits to it.</p>
+<p><strong>Takeaway:</strong> Push tags explicitly — they are not pushed by default, and Week 5's measurement retrieves the tagged states.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Committing and Pushing</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is easy to forget when pushing at the end of today, and why does it matter?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Push tags explicitly — they are not pushed by default, and Week 5's measurement retrieves the tagged states.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tags are not pushed by default, and Week 5's measurement fetches the three tagged versions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A tag that exists only on this laptop is one Week 5 cannot use from anywhere else.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Commits are not pushed unless each is pushed individually.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A single push sends all commits on the branch.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The provenance labels must be added again after pushing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They are part of the commit message and travel with it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Raw output must be pushed to a separate branch from corrections.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Separate commits, not separate branches.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Pulling the Week Together</text></name><questiontext format="html"><text><![CDATA[
+<h3>Pulling the Week Together</h3>
+<p>What Topic 4 established, across three meetings.</p>
+<p>Tuesday: a diplomatic transcription keeps what the manuscript shows — short forms, doubts, corrections, damage. It is made by hand, zoomed in, by somebody reading rather than expecting. And it serves at once as training material, as a comparison, as the thing being checked, and as the answer key.</p>
+<p>Wednesday: finding the lines comes before reading them, and faults in the first wreck the second. The strips must include Greek accents or the model never sees them. Starting from a matched existing model is decisive. And a specialist's limited competence makes it fail loudly rather than smoothly.</p>
+<p>Friday: general AI models collapse on historical material despite excelling on modern. They fail in ways specialists cannot — inventing old spellings, fabricating fluently, mangling the structure. And a good score can sit alongside the destruction of everything that made the transcription faithful.</p>
+<p>The thread: automation speeds the work and depends on a hand-made diplomatic reference, because that is the only thing its errors can be measured against (AlKendi et al., 2024).</p>
+<p>Week 5 takes that reference, improves it by typing it twice, and does the measuring properly.</p>
+<p><strong>Vocabulary.</strong> <em>Topic</em> — one week's unit of this course. <em>Ground truth</em> — the hand-made reference everything is scored against.</p>
+<p><strong>Takeaway:</strong> Three meetings, one thesis — automation accelerates transcription and depends absolutely on a hand-produced reference to be evaluated at all.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Pulling the Week Together</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;State the thesis that ties all three meetings of this week together.&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Three meetings, one thesis — automation accelerates transcription and depends absolutely on a hand-produced reference to be evaluated at all.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Automation genuinely speeds the work and depends absolutely on a hand-made reference, because that is the only thing its errors can be measured against.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Tuesday built the reference, Wednesday measured a bounded tool against it, Friday an unbounded one.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Automated transcription is not yet good enough for scholarly work and should be avoided.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The specialized model may do very well. The claim is about what makes evaluation possible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Specialized tools are always better than general ones for every task.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. General models excel at several tasks, including translating an existing transcription.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Manual transcription is the most accurate method available.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It contains errors too — which is why Week 5 types the page a second time.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Synthesis: Reading Well Is Not Reading Right</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesis: Reading Well Is Not Reading Right</h3>
+<p>The finding worth carrying out of this week.</p>
+<p>A general AI model pointed at a historical manuscript produces fluent text. It reads well. The Greek is grammatical, the vocabulary is plausible, the sentences finish properly. And on old material it may be wrong at rates approaching 80% of characters, may insert spellings from centuries before the document, and may supply confident readings for parchment carrying no legible ink at all (AlKendi et al., 2024; Levchenko, 2024).</p>
+<p>Reading well and being right are independent properties. The systems best at the first are not the systems best at the second. That is the week's central lesson, and it reaches well past transcription: the better a tool is at producing plausible output, the less its plausibility tells you about its accuracy — and the more you must check against the source.</p>
+<p>This is why the specialist's loud failures are a virtue. Output that announces its own doubt by being obviously wrong is safer than output that hides its doubt by being smooth. A model producing an impossible letter string has told you something true about the ink. A model producing a perfect word has told you something about its own expectations.</p>
+<p>And it is why the manual step cannot be removed. Only somebody who has read the parchment can tell those apart — and having read it, they hold the reference everything else is measured against.</p>
+<p><strong>Due Friday October 2.</strong> The Transcription Assignment, including the reconciliation report, at the end of Week 5.</p>
+<p><strong>For Tuesday.</strong> Week 5 opens with double-keying: type your leaf again, independently, without looking at Tuesday's version first. The independence is what makes the comparison worth anything.</p>
+<p><strong>Vocabulary.</strong> <em>Fluency</em> — reading smoothly and naturally. <em>Fidelity</em> — matching the source faithfully. They are not the same thing.</p>
+<p><strong>Takeaway:</strong> Fluency and fidelity are independent, and the more plausible a tool's output, the less its plausibility tells you about its accuracy.</p>
+<hr />
+<h2>References</h2>
+<p>AlKendi, W., Gechter, F., Heyberger, L., &amp; Guyeux, C. (2024). Advancements and
+challenges in handwritten text recognition: A comprehensive survey. <em>Journal of
+Imaging</em>.</p>
+<p>Clérice, T., Pinche, A., Chagué, A., Camps, J.-B., Vlachou-Efstathiou, M., Levenson,
+M. G., Brisville-Fertin, O., Boschetti, F., &amp; Fischer, F. (2024). CATMuS Medieval:
+A multilingual large-scale cross-century dataset in Latin script for handwritten
+text recognition and beyond. In <em>International Conference on Document Analysis and
+Recognition (ICDAR)</em>.</p>
+<p>Colavizza, G., Ehrmann, M., &amp; Bunout, E. (2022). Benchmarking large language
+models for handwritten text recognition. <em>Journal of Documentation</em>.</p>
+<p>Geelhaar, T. (2022). <em>Carolingian minuscule model CMM 9th–11th c.</em> Transkribus
+Model. https://www.transkribus.org/models/latin-carolingian-minuscule</p>
+<p>Levchenko, M. A. (2024). <em>Evaluating LLMs for historical document OCR: A
+methodological framework for digital humanities</em>.</p>
+<p>Li, M., Lv, T., Chen, J., Cui, L., Lu, Y., Florencio, D., Zhang, C., Li, Z., &amp; Wei,
+F. (2023). TrOCR: Transformer-based optical character recognition with pre-trained
+models. <em>Proceedings of the AAAI Conference on Artificial Intelligence, 37</em>(11),
+13094–13102.</p>
+<p>Mattingly, W. J. B., et al. (2024). <em>When simpler is better: Evaluating translation
+pipelines for medieval Latin manuscripts</em>.</p>
+<p>Perdiki, E., &amp; Konstantinidou, M. (2023). Preparing big manuscript data for
+hierarchical clustering with minimal HTR training. <em>Journal of Data Mining &amp;
+Digital Humanities</em>. https://jdmdh.episciences.org/12664/pdf</p>
+<p>Puigcerver, J. (2017). <em>PyLaia: A deep learning toolkit for handwritten document
+analysis</em>. https://github.com/jpuigcerver/PyLaia</p>
+<p>Romein, C. A., et al. (2025). <em>Assessing advanced handwritten text recognition
+engines for digitizing historical documents</em>.</p>
+<p>TEI Consortium. (2026). <em>TEI P5: Guidelines for electronic text encoding and
+interchange</em>. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: Reading Well Is Not Reading Right</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are the specialized model's loud, obvious failures described as a virtue?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Fluency and fidelity are independent, and the more plausible a tool's output, the less its plausibility tells you about its accuracy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Output that announces its own doubt by being obviously wrong is safer than output that hides its doubt by being smooth.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. An impossible letter string tells you something true about the ink; a perfect word tells you about the model's expectations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because obvious failures are easier for the platform to correct automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Nothing corrects them automatically — they are easy for *you* to see.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because they occur less often than the general model's failures.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They may occur more often. Conspicuousness, not frequency, is the virtue.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because they indicate the model is close to the right reading.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They indicate the ink was genuinely unclear, not that the answer is nearly right.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>
