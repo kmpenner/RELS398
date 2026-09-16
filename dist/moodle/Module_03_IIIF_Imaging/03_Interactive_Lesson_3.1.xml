@@ -77,10 +77,10 @@
       <text>02 Question: The TEI `&lt;facsimile&gt;` Element: Structure and Placement</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Where does `&lt;facsimile&gt;` belong in a TEI document, and why?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Where does `&amp;lt;facsimile&amp;gt;` belong in a TEI document, and why?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;`&lt;facsimile&gt;` sits between `&lt;teiHeader&gt;` and `&lt;text&gt;` as their sibling, keeping physical surfaces separate from transcription.&lt;/p&gt;</text>
+      <text>&lt;p&gt;`&amp;lt;facsimile&amp;gt;` sits between `&amp;lt;teiHeader&amp;gt;` and `&amp;lt;text&amp;gt;` as their sibling, keeping physical surfaces separate from transcription.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -89,19 +89,19 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;Between `&lt;teiHeader&gt;` and `&lt;text&gt;` as their sibling, because a page exists whether or not its words have been transcribed.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Between `&amp;lt;teiHeader&amp;gt;` and `&amp;lt;text&amp;gt;` as their sibling, because a page exists whether or not its words have been transcribed.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Correct. Physical surfaces are kept separate from the transcription.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Inside `&lt;teiHeader&gt;`, next to `&lt;msDesc&gt;`, because both describe the physical object.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Inside `&amp;lt;teiHeader&amp;gt;`, next to `&amp;lt;msDesc&amp;gt;`, because both describe the physical object.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. `&lt;msDesc&gt;` describes the object in prose; `&lt;facsimile&gt;` holds image surfaces, outside the header.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. `&amp;lt;msDesc&amp;gt;` describes the object in prose; `&amp;lt;facsimile&amp;gt;` holds image surfaces, outside the header.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Inside `&lt;text&gt;`, wrapping the transcribed body it illustrates.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Inside `&amp;lt;text&amp;gt;`, wrapping the transcribed body it illustrates.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Incorrect. That would tie surfaces to reading order, which is exactly what TEI avoids here.&lt;/p&gt;</text>
       </feedback>
@@ -136,10 +136,10 @@
       <text>03 Question: Modeling Surfaces: The `&lt;surface&gt;` Element</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;You are encoding a single-sheet decree printed on both sides. How many `&lt;surface&gt;` elements does it need?&lt;/p&gt;</text>
+      <text>&lt;p&gt;You are encoding a single-sheet decree printed on both sides. How many `&amp;lt;surface&amp;gt;` elements does it need?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Each physical face of the object is one `&lt;surface&gt;` with an `xml:id`, which is the handle everything else uses to point at it.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Each physical face of the object is one `&amp;lt;surface&amp;gt;` with an `xml:id`, which is the handle everything else uses to point at it.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -156,7 +156,7 @@
     <answer fraction="0" format="html">
       <text>&lt;p&gt;One, because the whole sheet is a single physical object.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. `&lt;surface&gt;` models a face, not an object.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. `&amp;lt;surface&amp;gt;` models a face, not an object.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -168,7 +168,7 @@
     <answer fraction="0" format="html">
       <text>&lt;p&gt;As many as there are paragraphs of text on it.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Textual divisions belong in `&lt;text&gt;`, not in the facsimile.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Textual divisions belong in `&amp;lt;text&amp;gt;`, not in the facsimile.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
@@ -193,7 +193,7 @@
       <text>04 Question: Coordinates and Space: Declaring Coordinate Systems in `&lt;surface&gt;`</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;In `&lt;surface ulx="0" uly="0" lrx="4800" lry="6400"&gt;`, what do the last two numbers represent?&lt;/p&gt;</text>
+      <text>&lt;p&gt;In `&amp;lt;surface ulx="0" uly="0" lrx="4800" lry="6400"&amp;gt;`, what do the last two numbers represent?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
       <text>&lt;p&gt;`ulx/uly/lrx/lry` are corners with the origin at top-left and y increasing downward, and they describe one particular image file.&lt;/p&gt;</text>
@@ -317,7 +317,7 @@
       <text>&lt;p&gt;A clerk pinned a slip of paper over a corrected clause in a register. How is that modelled?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;`&lt;surfaceGrp&gt;` groups related faces and nested surfaces model attached slips, preserving how an object is physically assembled.&lt;/p&gt;</text>
+      <text>&lt;p&gt;`&amp;lt;surfaceGrp&amp;gt;` groups related faces and nested surfaces model attached slips, preserving how an object is physically assembled.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -326,27 +326,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;As a `&lt;surface&gt;` nested inside the surface of the page it is attached to, with its own coordinates.&lt;/p&gt;</text>
+      <text>&lt;p&gt;As a `&amp;lt;surface&amp;gt;` nested inside the surface of the page it is attached to, with its own coordinates.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. Nesting models physical attachment, while `&lt;surfaceGrp&gt;` groups related faces such as an opening.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. Nesting models physical attachment, while `&amp;lt;surfaceGrp&amp;gt;` groups related faces such as an opening.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;As a `&lt;zone&gt;` on the page, since the slip covers a region of it.&lt;/p&gt;</text>
+      <text>&lt;p&gt;As a `&amp;lt;zone&amp;gt;` on the page, since the slip covers a region of it.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Incorrect. A zone is an area of one face; the slip is a separate writing surface.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;As a separate document with its own `&lt;facsimile&gt;` element.&lt;/p&gt;</text>
+      <text>&lt;p&gt;As a separate document with its own `&amp;lt;facsimile&amp;gt;` element.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Incorrect. That would lose the physical relationship between slip and page.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;As a `&lt;surfaceGrp&gt;`, since the slip and the page form a group.&lt;/p&gt;</text>
+      <text>&lt;p&gt;As a `&amp;lt;surfaceGrp&amp;gt;`, since the slip and the page form a group.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. `&lt;surfaceGrp&gt;` groups peers, such as the two pages of an opening.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. `&amp;lt;surfaceGrp&amp;gt;` groups peers, such as the two pages of an opening.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
@@ -407,7 +407,7 @@
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;The `@facs` attribute may appear only on `&lt;pb&gt;`, and the schema enforces that.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The `@facs` attribute may appear only on `&amp;lt;pb&amp;gt;`, and the schema enforces that.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Incorrect. It is a global attribute usable on many elements.&lt;/p&gt;</text>
       </feedback>
@@ -515,7 +515,7 @@
     <answer fraction="0" format="html">
       <text>&lt;p&gt;Because TEI requires a different element for each writing support.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. `&lt;surface&gt;` serves all of them; the material is described in the header.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. `&amp;lt;surface&amp;gt;` serves all of them; the material is described in the header.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -1678,15 +1678,15 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;`&lt;encodingDesc&gt;`, while `&lt;physDesc&gt;` records what you observed in the object itself.&lt;/p&gt;</text>
+      <text>&lt;p&gt;`&amp;lt;encodingDesc&amp;gt;`, while `&amp;lt;physDesc&amp;gt;` records what you observed in the object itself.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Correct. Together they let a reader trace the chain from the physical object to the encoded tag.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;`&lt;physDesc&gt;`, since photography is part of the physical description.&lt;/p&gt;</text>
+      <text>&lt;p&gt;`&amp;lt;physDesc&amp;gt;`, since photography is part of the physical description.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. `&lt;physDesc&gt;` describes the object; how the surrogate was produced belongs to `&lt;encodingDesc&gt;`.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. `&amp;lt;physDesc&amp;gt;` describes the object; how the surrogate was produced belongs to `&amp;lt;encodingDesc&amp;gt;`.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -1696,9 +1696,9 @@
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;`&lt;facsimile&gt;`, since it holds the images.&lt;/p&gt;</text>
+      <text>&lt;p&gt;`&amp;lt;facsimile&amp;gt;`, since it holds the images.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. `&lt;facsimile&gt;` holds surfaces and coordinates, not capture methodology.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. `&amp;lt;facsimile&amp;gt;` holds surfaces and coordinates, not capture methodology.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>

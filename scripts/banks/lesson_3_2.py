@@ -47,7 +47,7 @@ QUESTIONS = [
       note="Deep zoom works by sending only the small tiles currently on screen, which is why a gigantic manuscript image opens instantly."),
 
     Q("The Image Information Document (`info.json`)",
-      "Why does `info.json` matter when you are writing TEI `<surface>` coordinates?",
+      "Why does `info.json` matter when you are writing TEI `&lt;surface&gt;` coordinates?",
       correct=("It reports the true dimensions of the institution's master, which may be far larger than the copy you downloaded and measured.",
                "Correct. Coordinates describe one specific image, so you must know which version yours describe."),
       wrong=[("It contains the rights statement that determines whether you may crop the image.",

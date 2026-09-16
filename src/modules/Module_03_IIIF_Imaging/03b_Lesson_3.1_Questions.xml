@@ -60,10 +60,10 @@
       <text>02 Question: The TEI `&lt;facsimile&gt;` Element: Structure and Placement</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Where does `<facsimile>` belong in a TEI document, and why?</p>]]></text>
+      <text><![CDATA[<p>Where does `&lt;facsimile&gt;` belong in a TEI document, and why?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>`<facsimile>` sits between `<teiHeader>` and `<text>` as their sibling, keeping physical surfaces separate from transcription.</p>]]></text>
+      <text><![CDATA[<p>`&lt;facsimile&gt;` sits between `&lt;teiHeader&gt;` and `&lt;text&gt;` as their sibling, keeping physical surfaces separate from transcription.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -72,19 +72,19 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Between `<teiHeader>` and `<text>` as their sibling, because a page exists whether or not its words have been transcribed.</p>]]></text>
+      <text><![CDATA[<p>Between `&lt;teiHeader&gt;` and `&lt;text&gt;` as their sibling, because a page exists whether or not its words have been transcribed.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Correct. Physical surfaces are kept separate from the transcription.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Inside `<teiHeader>`, next to `<msDesc>`, because both describe the physical object.</p>]]></text>
+      <text><![CDATA[<p>Inside `&lt;teiHeader&gt;`, next to `&lt;msDesc&gt;`, because both describe the physical object.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `<msDesc>` describes the object in prose; `<facsimile>` holds image surfaces, outside the header.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `&lt;msDesc&gt;` describes the object in prose; `&lt;facsimile&gt;` holds image surfaces, outside the header.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Inside `<text>`, wrapping the transcribed body it illustrates.</p>]]></text>
+      <text><![CDATA[<p>Inside `&lt;text&gt;`, wrapping the transcribed body it illustrates.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. That would tie surfaces to reading order, which is exactly what TEI avoids here.</p>]]></text>
       </feedback>
@@ -103,10 +103,10 @@
       <text>03 Question: Modeling Surfaces: The `&lt;surface&gt;` Element</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>You are encoding a single-sheet decree printed on both sides. How many `<surface>` elements does it need?</p>]]></text>
+      <text><![CDATA[<p>You are encoding a single-sheet decree printed on both sides. How many `&lt;surface&gt;` elements does it need?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Each physical face of the object is one `<surface>` with an `xml:id`, which is the handle everything else uses to point at it.</p>]]></text>
+      <text><![CDATA[<p>Each physical face of the object is one `&lt;surface&gt;` with an `xml:id`, which is the handle everything else uses to point at it.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -123,7 +123,7 @@
     <answer fraction="0" format="html">
       <text><![CDATA[<p>One, because the whole sheet is a single physical object.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `<surface>` models a face, not an object.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `&lt;surface&gt;` models a face, not an object.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -135,7 +135,7 @@
     <answer fraction="0" format="html">
       <text><![CDATA[<p>As many as there are paragraphs of text on it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Textual divisions belong in `<text>`, not in the facsimile.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Textual divisions belong in `&lt;text&gt;`, not in the facsimile.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -146,7 +146,7 @@
       <text>04 Question: Coordinates and Space: Declaring Coordinate Systems in `&lt;surface&gt;`</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In `<surface ulx="0" uly="0" lrx="4800" lry="6400">`, what do the last two numbers represent?</p>]]></text>
+      <text><![CDATA[<p>In `&lt;surface ulx="0" uly="0" lrx="4800" lry="6400"&gt;`, what do the last two numbers represent?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>`ulx/uly/lrx/lry` are corners with the origin at top-left and y increasing downward, and they describe one particular image file.</p>]]></text>
@@ -235,7 +235,7 @@
       <text><![CDATA[<p>A clerk pinned a slip of paper over a corrected clause in a register. How is that modelled?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>`<surfaceGrp>` groups related faces and nested surfaces model attached slips, preserving how an object is physically assembled.</p>]]></text>
+      <text><![CDATA[<p>`&lt;surfaceGrp&gt;` groups related faces and nested surfaces model attached slips, preserving how an object is physically assembled.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>As a `<surface>` nested inside the surface of the page it is attached to, with its own coordinates.</p>]]></text>
+      <text><![CDATA[<p>As a `&lt;surface&gt;` nested inside the surface of the page it is attached to, with its own coordinates.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Nesting models physical attachment, while `<surfaceGrp>` groups related faces such as an opening.</p>]]></text>
+        <text><![CDATA[<p>Correct. Nesting models physical attachment, while `&lt;surfaceGrp&gt;` groups related faces such as an opening.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>As a `<zone>` on the page, since the slip covers a region of it.</p>]]></text>
+      <text><![CDATA[<p>As a `&lt;zone&gt;` on the page, since the slip covers a region of it.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. A zone is an area of one face; the slip is a separate writing surface.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>As a separate document with its own `<facsimile>` element.</p>]]></text>
+      <text><![CDATA[<p>As a separate document with its own `&lt;facsimile&gt;` element.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. That would lose the physical relationship between slip and page.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>As a `<surfaceGrp>`, since the slip and the page form a group.</p>]]></text>
+      <text><![CDATA[<p>As a `&lt;surfaceGrp&gt;`, since the slip and the page form a group.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `<surfaceGrp>` groups peers, such as the two pages of an opening.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `&lt;surfaceGrp&gt;` groups peers, such as the two pages of an opening.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -305,7 +305,7 @@
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The `@facs` attribute may appear only on `<pb>`, and the schema enforces that.</p>]]></text>
+      <text><![CDATA[<p>The `@facs` attribute may appear only on `&lt;pb&gt;`, and the schema enforces that.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Incorrect. It is a global attribute usable on many elements.</p>]]></text>
       </feedback>
@@ -387,7 +387,7 @@
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Because TEI requires a different element for each writing support.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `<surface>` serves all of them; the material is described in the header.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `&lt;surface&gt;` serves all of them; the material is described in the header.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -1276,15 +1276,15 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>`<encodingDesc>`, while `<physDesc>` records what you observed in the object itself.</p>]]></text>
+      <text><![CDATA[<p>`&lt;encodingDesc&gt;`, while `&lt;physDesc&gt;` records what you observed in the object itself.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Correct. Together they let a reader trace the chain from the physical object to the encoded tag.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>`<physDesc>`, since photography is part of the physical description.</p>]]></text>
+      <text><![CDATA[<p>`&lt;physDesc&gt;`, since photography is part of the physical description.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `<physDesc>` describes the object; how the surrogate was produced belongs to `<encodingDesc>`.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `&lt;physDesc&gt;` describes the object; how the surrogate was produced belongs to `&lt;encodingDesc&gt;`.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -1294,9 +1294,9 @@
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>`<facsimile>`, since it holds the images.</p>]]></text>
+      <text><![CDATA[<p>`&lt;facsimile&gt;`, since it holds the images.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. `<facsimile>` holds surfaces and coordinates, not capture methodology.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `&lt;facsimile&gt;` holds surfaces and coordinates, not capture methodology.</p>]]></text>
       </feedback>
     </answer>
   </question>
