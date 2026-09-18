@@ -433,12 +433,14 @@ file images/diary_p1.jpg<br>
 identify -format "%w x %h\n" images/diary_p1.jpg<br>
 <span class="comment"># IIIF repository: size of the master</span><br>
 curl -s &lt;image-service&gt;/info.json | grep -E '"(width|height)"'<br>
+<span class="comment"># FYI only, not required: full IIIF Image API URL shape</span><br>
+<span class="comment"># {scheme}://{server}/{prefix}/{id}/{region}/{size}/{rotation}/{quality}.{format}</span><br>
 <span class="comment"># generate the block (Pillow)</span><br>
 python3 labs/make_surface.py images/diary_p1.jpg \<br>
 &nbsp;&nbsp;--zone 310,260,1170,160 &gt; facs_tool.xml<br>
 diff &lt;(sed -n '/&lt;facsimile/,/&lt;\/facsimile/p' witness.xml) facs_tool.xml
             </div>
-            <p style="font-size:9pt;color:var(--stfx-slate);margin:0.3rem 0 0;"><strong>Conversion:</strong> GIMP and IIIF give x,y,w,h. TEI wants ulx=x, uly=y, lrx=x+w, lry=y+h.</p>
+            <p style="font-size:9pt;color:var(--stfx-slate);margin:0.3rem 0 0;"><strong>Conversion:</strong> GIMP and IIIF give x,y,w,h. TEI wants ulx=x, uly=y, lrx=x+w, lry=y+h. Going the other way (TEI to an IIIF region string, if it ever comes up): x=ulx, y=uly, w=lrx&minus;ulx, h=lry&minus;uly &rarr; region="x,y,w,h".</p>
         </div>
         <div class="card">
             <h4>Six Rules for a Usable Document Image</h4>
@@ -460,6 +462,7 @@ diff &lt;(sed -n '/&lt;facsimile/,/&lt;\/facsimile/p' witness.xml) facs_tool.xml
                 <li><strong><code>xml:id</code> starting with a digit</strong> (<code>338r</code>) is invalid. Prefix it with a letter.</li>
                 <li><strong>Pillow missing:</strong> <code>pip install pillow</code>. If that fails, use the <code>file</code> output and type the block from it; that is still deterministic.</li>
                 <li><strong>Relative <code>url</code> breaks</strong> when the image isn't in <code>images/</code> next to <code>witness.xml</code>. For a repository image, use its full https URL.</li>
+                <li><strong>IIIF region vs. TEI zone confusion</strong> (if a student looks up a IIIF viewer's URL): IIIF's region is <code>x,y,width,height</code>, not the <code>ulx,uly,lrx,lry</code> corner pairs TEI uses. Don't paste one into the other unconverted.</li>
             </ul>
         </div>
     </div>
