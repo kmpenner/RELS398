@@ -227,7 +227,7 @@
             <strong>TODAY'S PEDAGOGICAL TARGET:</strong><br>
             • Establish the <strong>manual ground truth</strong>: type out lines 1–10 of your chosen document in a plain text editor without automation.<br>
             • Master diplomatic versus normalized transcription: preserve original orthography, abbreviations, lineation, and physical anomalies.<br>
-            • Model the physical vs. logical tension in TEI: embed milestone tags (<code>&lt;pb/&gt;</code>, <code>&lt;lb/&gt;</code>) inside logical divisions (<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;lg&gt;</code>).<br>
+            • Model the physical vs. logical tension in TEI: embed milestone tags (<code>&lt;pb/&gt;</code>, <code>&lt;lb/&gt;</code>) inside logical containers (<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;lg&gt;</code>, <code>&lt;l&gt;</code>), and hold <code>&lt;l&gt;</code> (metrical line) apart from <code>&lt;lb/&gt;</code> (physical line).<br>
             • Encode paleographical features: abbreviations with <code>&lt;choice&gt;</code>/<code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>, damage with <code>&lt;damage&gt;</code>, and uncertainty with <code>&lt;unclear&gt;</code> vs. <code>&lt;gap/&gt;</code>.<br>
             • Commit ground truth to Git repository before Wednesday's Transkribus HTR training.
         </div>
@@ -274,7 +274,9 @@
                 <td>
                     • Contrast Diplomatic (faithful to the artifact) vs. Normalized (tidy for the modern reader).<br>
                     • Show why XML hierarchies conflict with manuscript reality: sentences cross line and page boundaries.<br>
+                    • <strong>Define the two vocabularies before using either.</strong> Logical containers WRAP and nest: <code>&lt;div&gt;</code> (a division of the text, typed with <code>@type</code>), <code>&lt;p&gt;</code> (a paragraph, for prose), <code>&lt;lg&gt;</code> (a line group — a stanza or verse block), <code>&lt;l&gt;</code> (one metrical line, inside an <code>&lt;lg&gt;</code>). Physical markers are EMPTY and mark a point: <code>&lt;pb/&gt;</code>, <code>&lt;lb/&gt;</code>. Pairing rule: prose is <code>&lt;div&gt;</code> then <code>&lt;p&gt;</code>; verse is <code>&lt;lg&gt;</code> then <code>&lt;l&gt;</code>.<br>
                     • Demonstrate TEI milestones: <code>&lt;pb n="1r" facs="#f1r"/&gt;</code> and <code>&lt;lb n="1" facs="#z1"/&gt;</code>.<br>
+                    • <strong>Then the crux — <code>&lt;l&gt;</code> vs. <code>&lt;lb/&gt;</code>:</strong> <code>&lt;l&gt;</code> is the line you hear (metrical), <code>&lt;lb/&gt;</code> the line you see (physical). In prose they coincide; in verse they often do not. Project the Dickinson case: <code>&lt;l&gt;&lt;lb n="2"/&gt;He kindly stopped&lt;lb n="3"/&gt;for me —&lt;/l&gt;</code> — ONE verse line carried across TWO physical lines, so it holds two <code>&lt;lb/&gt;</code> markers. Never break the <code>&lt;l&gt;</code> to match the page. <em>This is Jay's central problem; without <code>&lt;l&gt;</code> the Dickinson lineation cannot be encoded at all.</em><br>
                     • Walk through core transcription elements: <code>&lt;choice&gt;&lt;abbr&gt;&hellip;&lt;/abbr&gt;&lt;expan&gt;&hellip;&lt;ex&gt;&hellip;&lt;/ex&gt;&lt;/expan&gt;&lt;/choice&gt;</code>.<br>
                     • Clarify <code>&lt;unclear&gt;</code> (tentative reading offered) vs. <code>&lt;gap/&gt;</code> (loss, nothing offered).
                 </td>
@@ -298,7 +300,7 @@
                 <td><strong>4. Hands-on Lab: Typing the Manual Ground Truth</strong><br><small style="color:var(--stfx-slate);">Silent Studio Work</small></td>
                 <td>
                     • Students open <code>witness.xml</code> in VS Code alongside their IIIF image viewer.<br>
-                    • Inside <code>&lt;text&gt;&lt;body&gt;</code>, construct their document container (<code>&lt;div&gt;</code> for prose/decree, <code>&lt;lg&gt;</code> for verse).<br>
+                    • Inside <code>&lt;text&gt;&lt;body&gt;</code>, construct their document container: <code>&lt;div&gt;</code> + <code>&lt;p&gt;</code> for prose/decree (Ace, Olyvia, Andromeda), <code>&lt;div&gt;</code> + <code>&lt;lg&gt;</code> + <code>&lt;l&gt;</code> for verse (Jay).<br>
                     • Transcribe lines 1–10 diplomatically: every line prefixed by <code>&lt;lb n="N" facs="#..."/&gt;</code> linking to their Module 03 zones.<br>
                     • Circulate to catch silent modernizations (e.g. expanding short forms without <code>&lt;choice&gt;</code>, standardizing capitals).<br>
                     • Validate against <code>msdesc.rng</code> in Scholarly XML (must be clean 0 errors).
@@ -321,21 +323,41 @@
 
     <div class="grid-2">
         <div class="card">
-            <h4>Starter Projection Card: TEI Diplomatic Body</h4>
+            <h4>Starter Projection Card A: Prose (Ace, Olyvia, Andromeda)</h4>
             <pre>&lt;text&gt;
   &lt;body&gt;
     &lt;div type="transcription" xml:id="trans_01"&gt;
       &lt;pb n="1r" facs="#f1r"/&gt;
-      &lt;lb n="1" facs="#f1r_l01"/&gt;Transcribed first line text
-      &lt;lb n="2" facs="#f1r_l02"/&gt;Second line with &lt;choice&gt;
-        &lt;abbr&gt;recd&lt;/abbr&gt;
-        &lt;expan&gt;rec&lt;ex&gt;eive&lt;/ex&gt;d&lt;/expan&gt;
-      &lt;/choice&gt; abbreviation
-      &lt;lb n="3" facs="#f1r_l03"/&gt;Third line with &lt;unclear reason="faded"&gt;faint&lt;/unclear&gt;
-      &lt;gap reason="lacuna" extent="3" unit="chars"/&gt; words&hellip;
+      &lt;p&gt;
+        &lt;lb n="1" facs="#f1r_l01"/&gt;Transcribed first line text
+        &lt;lb n="2" facs="#f1r_l02"/&gt;Second line with &lt;choice&gt;
+          &lt;abbr&gt;recd&lt;/abbr&gt;
+          &lt;expan&gt;rec&lt;ex&gt;eive&lt;/ex&gt;d&lt;/expan&gt;
+        &lt;/choice&gt; abbreviation
+        &lt;lb n="3" facs="#f1r_l03"/&gt;Third line with &lt;unclear reason="faded"&gt;faint&lt;/unclear&gt;
+        &lt;gap reason="lacuna" extent="3" unit="chars"/&gt; words&hellip;
+      &lt;/p&gt;
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/text&gt;</pre>
+            <p style="font-size:0.85em;"><strong>Note the <code>&lt;p&gt;</code>.</strong> A <code>&lt;div&gt;</code> cannot hold running text directly &mdash; it needs <code>&lt;p&gt;</code> (prose) or <code>&lt;lg&gt;</code>/<code>&lt;l&gt;</code> (verse) inside it, or the file fails schema validation.</p>
+        </div>
+        <div class="card">
+            <h4>Starter Projection Card B: Verse (Jay)</h4>
+            <pre>&lt;text&gt;
+  &lt;body&gt;
+    &lt;div type="poem" xml:id="trans_01"&gt;
+      &lt;pb n="1r" facs="#f1r"/&gt;
+      &lt;lg&gt;
+        &lt;l&gt;&lt;lb n="1" facs="#f1r_l01"/&gt;Because I could not
+            stop for Death &mdash;&lt;/l&gt;
+        &lt;l&gt;&lt;lb n="2" facs="#f1r_l02"/&gt;He kindly stopped
+            &lt;lb n="3" facs="#f1r_l03"/&gt;for me &mdash;&lt;/l&gt;
+      &lt;/lg&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/text&gt;</pre>
+            <p style="font-size:0.85em;"><strong>The second <code>&lt;l&gt;</code> holds two <code>&lt;lb/&gt;</code>.</strong> One metrical line, carried across two physical lines by the scribe. Never split the <code>&lt;l&gt;</code> to match the page: the metre is the text, the lineation is the artifact.</p>
         </div>
         <div class="card">
             <h4>Classroom Diagnostics &amp; Troubleshooting Triage</h4>
@@ -344,6 +366,8 @@
                 <li><strong>Hyphen Insertion:</strong> When a word breaks across lines, do not insert modern hyphens unless an actual hyphen mark is present in the ink on the page.</li>
                 <li><strong>Text Inside <code>&lt;gap/&gt;</code>:</strong> Schema validation error! <code>&lt;gap/&gt;</code> is an empty element; if there is a conjectured reading, use <code>&lt;unclear&gt;</code> or <code>&lt;supplied&gt;</code>.</li>
                 <li><strong>Milestones Nesting:</strong> Ensure <code>&lt;lb/&gt;</code> and <code>&lt;pb/&gt;</code> are self-closing tags, not open wrappers around line contents.</li>
+                <li><strong>Text Directly Inside <code>&lt;div&gt;</code>:</strong> Schema validation error. A <code>&lt;div&gt;</code> holds <code>&lt;p&gt;</code> or <code>&lt;lg&gt;</code>, not running text. Expect this one early, since it is the first thing they build.</li>
+                <li><strong>Verse Line Broken to Fit the Page (Jay):</strong> Student opened a new <code>&lt;l&gt;</code> where the scribe merely ran out of room. One metrical line = one <code>&lt;l&gt;</code>, however many <code>&lt;lb/&gt;</code> markers it contains.</li>
                 <li><strong>Git Boundary Check:</strong> Ensure no temporary images or large TIFFs are staged; only <code>witness.xml</code> should be committed.</li>
             </ul>
         </div>

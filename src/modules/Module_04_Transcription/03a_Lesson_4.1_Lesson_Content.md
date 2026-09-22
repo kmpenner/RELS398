@@ -220,9 +220,22 @@ In an ordinary typed document, where a line ends means nothing. Here it means th
 
 Notice the word split across the two lines — `λό` then `γος`. Type it split, as written. Do not add a hyphen and do not quietly join it up. Whether you also mark the split with `break="no"` is your choice; pick one habit and keep it.
 
-**Vocabulary.** *Layout analysis* — software finding the lines on a page before reading them. *Ruling* — the guide lines scored on the page for the scribe to write along.
+**Verse is where this gets interesting.** So far `<lb/>` has been the only kind of line we needed, because in prose the line on the page is just where the ink ran out. In verse there are *two* kinds of line, and they are not the same thing.
 
-**Takeaway:** Line divisions are structural here — HTR trains on lines, your zones bind per line, and line breaks are codicological evidence.
+A `<lb/>` is a line on the paper. An `<l>` is a line of the poem — the metrical line, the one you hear. Usually they coincide. Often, in a manuscript, they do not: the scribe reaches the edge of the page mid-verse and carries the rest onto the next physical line.
+
+```xml
+<lg>
+  <l><lb n="1"/>Because I could not stop for Death —</l>
+  <l><lb n="2"/>He kindly stopped<lb n="3"/>for me —</l>
+</lg>
+```
+
+The second `<l>` is **one** line of the poem written across **two** lines of paper, so it holds two `<lb/>` markers. Do not break the `<l>` to match the page. The metre belongs to the text; the lineation belongs to the artifact, and you are recording both separately precisely so you can tell them apart later.
+
+**Vocabulary.** *Layout analysis* — software finding the lines on a page before reading them. *Ruling* — the guide lines scored on the page for the scribe to write along. *Metrical line* — a line of verse as composed, which may or may not match a line as written.
+
+**Takeaway:** Line divisions are structural here — HTR trains on lines, your zones bind per line, and line breaks are codicological evidence. In verse, keep `<l>` (the line you hear) separate from `<lb/>` (the line you see).
 
 ---
 
@@ -240,11 +253,31 @@ Build the empty file first. Sorting out the structure now saves rearranging late
   <text><body>
       <div type="passage" n="1">
         <pb n="42r" facs="#f42r"/>
-        <lb n="1" facs="#f42r_l01"/>
+        <p><lb n="1" facs="#f42r_l01"/></p>
       </div>
   </body></text>
 </TEI>
 ```
+
+**What the containers are.** A `<div>` is a division — a chunk of the text treated as a unit. It is deliberately generic, which is why you say what kind it is with `type`: `type="passage"`, `type="decree"`, `type="letter"`. It is the outer box everything else sits in.
+
+Inside it you need a container for the running text itself, and which one you use depends on what you are transcribing:
+
+- **Prose** — a letter, a decree, a treaty, a narrative — goes in `<p>`, a paragraph.
+- **Verse** — anything with metrical lines — goes in `<lg>`, a *line group*, which holds `<l>` elements, one per line of the poem. An `<lg>` is usually a stanza; if the poem has no stanza breaks, one `<lg>` for the whole thing is fine.
+
+So a poem's skeleton looks like this instead:
+
+```xml
+      <div type="poem" n="1">
+        <pb n="1r" facs="#f1r"/>
+        <lg>
+          <l><lb n="1" facs="#f1r_l01"/></l>
+        </lg>
+      </div>
+```
+
+Note what stays the same in both: `<pb/>` and `<lb/>` are *inside* the containers, never wrapped around them. A milestone marks a point in the flow of the text; it never owns the text. That is the whole physical-versus-logical distinction in one rule.
 
 Three checks before you type a single Greek letter.
 
