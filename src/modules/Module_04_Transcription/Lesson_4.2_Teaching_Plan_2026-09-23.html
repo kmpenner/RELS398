@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 4.2 Teaching Plan (2026-09-23)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+        }
+
+        @page { size: letter; margin: 0.55in; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong { color: var(--stfx-navy); }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p { font-size: 9.5pt; color: #713f12; line-height: 1.4; }
+
+        .caution-callout {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 6px solid #b91c1c;
+            padding: 0.7rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .caution-callout h3 { color: #991b1b; font-size: 10.5pt; font-weight: 800; margin-bottom: 0.2rem; }
+        .caution-callout p { font-size: 9.5pt; color: #7f1d1d; line-height: 1.4; }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 9.5pt; }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) { background: #f8fafc; }
+
+        .time-col {
+            width: 14%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col { width: 26%; font-weight: 700; }
+        .desc-col { width: 44%; color: #334155; line-height: 1.35; }
+        .target-col { width: 16%; font-size: 8.5pt; color: var(--stfx-slate); font-family: ui-monospace, monospace; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 1rem; }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card table { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin-top: 0.2rem; }
+        .card table td, .card table th { padding: 0.2rem 0.35rem; border-bottom: 1px solid #e2e8f0; text-align: left; }
+        .card table th { font-weight: 700; color: var(--stfx-navy); background: #f1f5f9; }
+
+        .card ul { padding-left: 1.1rem; font-size: 9pt; color: var(--stfx-slate); }
+        .card li { margin-bottom: 0.3rem; }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 0.65rem;
+            border-radius: 4px;
+            font-size: 8.2pt;
+            overflow-x: auto;
+            margin-top: 0.35rem;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            line-height: 1.3;
+        }
+
+        @media print {
+            body { padding: 0; font-size: 9.5pt; }
+            .header-box { margin-bottom: 0.6rem; }
+            .requirement-callout { background: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .caution-callout { background: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .schedule-table th { background: #002D62 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .context-banner { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 · Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #10 (Lesson 4.2 — Layout Analysis &amp; HTR Model Training)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Wednesday, September 23, 2026</span>
+                <span class="badge">Time: 10:30 – 11:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Platform: Transkribus (Web &amp; Desktop)</span>
+                <span class="badge">Step 2: Deterministic Machine Baseline</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE:</strong><br>
+            • Yesterday (Meeting #9): Transcribed lines 1–10 diplomatically into <code>witness.xml</code> with zero automation.<br>
+            • Linked lines to Module 03 zones using <code>&lt;lb n="N" facs="#..."/&gt;</code>.<br>
+            • Holds verified manual ground truth committed to Git.<br>
+            • Four distinct document types in play: Jay (Dickinson poem, metrical <code>&lt;l&gt;</code> vs physical <code>&lt;lb/&gt;</code>), Ace (1791 French decree, long-s/ligatures), Olyvia (Maud Lewis handwritten letter, unlined drift), Andromeda (1752 broadside treaty).
+        </div>
+        <div>
+            <strong>TODAY'S PEDAGOGICAL TARGET:</strong><br>
+            • <strong>Step 2 of the Triad (Deterministic):</strong> Train a specialized HTR model that reads ink, not language expectations.<br>
+            • Understand why rectangles fail on historical documents and how modern layout analysis predicts bending baselines and line envelopes.<br>
+            • Inspect extracted line image strips: verify that high diacritics, ascenders, and descenders are not truncated.<br>
+            • Fix layout errors by hand: draw missed baselines, split merged lines, adjust polygon boundaries, and set reading order.<br>
+            • Align lines 1–10 ground truth to line images, avoiding catastrophic off-by-one misalignment.<br>
+            • Fine-tune an existing matched base model (PyLaia CTC) with a representative validation set.<br>
+            • Interpret Character Error Rate (CER): understand why &gt;15% CER represents a net loss.
+        </div>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>PEDAGOGICAL CORE: THE DETERMINISTIC CONTRACT (READING INK, NOT LANGUAGE)</h3>
+        <p>
+            Frame the essential difference of Step 2: <em>"Today's program is not an AI chatbot. It does not predict what sentence would make sense in English or French. It scans pixel strips from left to right and maps ink shapes directly to characters. This boundary is both its limitation and its greatest strength: it will struggle with tangled ligatures, but it will never hallucinate a plausible sentence that is not on the page. When it fails, it produces impossible character strings (loud errors), which tell on themselves instantly. On Friday, the LLM will do the exact opposite."</em>
+        </p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>CRITICAL NOVICE TRAPS: CLIPPED DIACRITICS &amp; OFF-BY-ONE ALIGNMENT</h3>
+        <p>
+            <strong>1. Truncated line envelopes:</strong> If a baseline polygon cuts off high breathing marks, accents, or ascenders, the model is trained on mutilated letters. It will learn that your scribe never writes diacritics, wrecking your error rate in Week 5.<br>
+            <strong>2. Off-by-one text pairing:</strong> If layout analysis finds 25 lines but the student's transcription has 24, automatic alignment pairs every line after the discrepancy with the wrong image strip. Spot-check 3 lines by eye before training!
+        </p>
+    </div>
+
+    <h3 class="section-header">Class Schedule &amp; Pedagogical Flow (50 Minutes)</h3>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Timing</th>
+                <th class="activity-col">Phase &amp; Focus</th>
+                <th class="desc-col">Instructor Cues &amp; In-Class Actions</th>
+                <th class="target-col">Milestones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 – 10:35<br><small>(5 min)</small></td>
+                <td><strong>1. Orientation &amp; Step 2 Triad Launch</strong><br><small style="color:var(--stfx-slate);">The Deterministic Contract</small></td>
+                <td>
+                    • Welcome class and frame Meeting #10 within the Three-Step Cycle: Tue (Manual Ground Truth) &rarr; <strong>Wed (Deterministic HTR)</strong> &rarr; Fri (AI/LLM-Assisted).<br>
+                    • Board thesis: <em>"A specialist HTR model is bounded by its training data; it fails rather than fabricates."</em><br>
+                    • Contrast PyLaia (Connectionist Temporal Classification / CTC) with Friday's generative models: CTC models produce impossible letter sequences (e.g. <code>recd&amp;^</code>) rather than fluent lies.
+                </td>
+                <td class="target-col">Step 2 Principle</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:35 – 10:46<br><small>(11 min)</small></td>
+                <td><strong>2. Layout Analysis: Baselines vs. Rectangles</strong><br><small style="color:var(--stfx-slate);">Finding Lines Before Reading Lines</small></td>
+                <td>
+                    • Explain the two-stage architecture: <strong>Stage 1 (Layout Analysis)</strong> cuts out line image strips; <strong>Stage 2 (Recognition)</strong> only ever sees those strips.<br>
+                    • Live projection: Demonstrate why bounding boxes/rectangles fail on manuscripts (sloping lines, marginalia, interlinear insertions). Show how <strong>baselines</strong> follow the line of writing.<br>
+                    • <strong>The Golden Rule:</strong> <em>"When transcription output is bad, inspect the line image strips before you blame the model."</em><br>
+                    • Show the diacritic trap: a tight polygon cutting off Emily Dickinson's high cross-bars, French accents in 1791, or Greek breathings.
+                </td>
+                <td class="target-col">Strip Diagnostics</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:46 – 10:58<br><small>(12 min)</small></td>
+                <td><strong>3. Hands-on Lab: Layout Editing &amp; Ground Truth Alignment</strong><br><small style="color:var(--stfx-slate);">Cohort Customization</small></td>
+                <td>
+                    • Students open their Transkribus collection imported via IIIF manifest URL.<br>
+                    • Run automatic line detection on their page.<br>
+                    • Circulate to guide cohort-specific layout remediation:<br>
+                    &nbsp;&nbsp;• <strong>Jay (Dickinson):</strong> Ensure short verse lines are not merged into single blocks; confirm stanza breaks.<br>
+                    &nbsp;&nbsp;• <strong>Ace (1791 Decree):</strong> Separate the printed heading region from handwritten text; verify column boundaries.<br>
+                    &nbsp;&nbsp;• <strong>Olyvia (Maud Lewis):</strong> Straighten wandering baselines on unlined stationery; expand polygons over tall capitals.<br>
+                    &nbsp;&nbsp;• <strong>Andromeda (Treaty):</strong> Segment witness signature block and proclamation title into distinct regions.<br>
+                    • Attach lines 1–10 ground truth to the detected baselines. Conduct mandatory spot-check on lines 2, 5, and 8 to verify no off-by-one shift occurred.
+                </td>
+                <td class="target-col">Aligned 1–10 Lines</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:58 – 11:12<br><small>(14 min)</small></td>
+                <td><strong>4. Model Training: Fine-Tuning &amp; Reading the Score</strong><br><small style="color:var(--stfx-slate);">Transfer Learning &amp; CER</small></td>
+                <td>
+                    • Core rule: <strong>"Never start from nothing."</strong> Project the Perdiki &amp; Konstantinidou (2023) benchmark: training from scratch = 17.18% CER; fine-tuning a base model = 3.90% CER on identical data!<br>
+                    • Explain the <strong>Validation Set</strong>: Hold back 10–20% of lines across the document to test generalization and prevent overfitting (memorization).<br>
+                    • Define <strong>Character Error Rate (CER)</strong>:
+                    &nbsp;&nbsp;• &lt;5% = Excellent (ready for light proofreading).
+                    &nbsp;&nbsp;• 5–10% = Good (useful for bulk processing).
+                    &nbsp;&nbsp;• &gt;15% = Net loss (correcting costs more human time than typing from scratch).<br>
+                    • Initiate training run or run inference using the matched base model on remaining lines.
+                </td>
+                <td class="target-col">CER Benchmark</td>
+            </tr>
+            <tr>
+                <td class="time-col">11:12 – 11:20<br><small>(8 min)</small></td>
+                <td><strong>5. Machine Export &amp; Stage Gate Commit</strong><br><small style="color:var(--stfx-slate);">Git Checkpoint &amp; Friday Setup</small></td>
+                <td>
+                    • Export raw HTR output from Transkribus as plain text or PAGE XML.<br>
+                    • Save to course repository: <code>labs/htr_output.txt</code>.<br>
+                    • Execute Git stage gate commit:<br>
+                    &nbsp;&nbsp;<code>git add labs/htr_output.txt &amp;&amp; git commit -m "Capture deterministic HTR model output lines 1-10"</code>.<br>
+                    • <strong>Friday Preview (Remote Delivery):</strong> Remind students Friday is online/remote; we will pass the identical manuscript image and prompt to LLMs (Claude / GPT-4o) and compare error rates against today's deterministic model.
+                </td>
+                <td class="target-col">Git Commit Gate</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Transkribus Layout Correction Checklist</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Defect</th>
+                        <th>Visual Symptom</th>
+                        <th>Required Tool Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Missed Line</strong></td>
+                        <td>Text visible, no line drawn</td>
+                        <td>Select <em>Add Baseline</em> tool, click start to end along letter feet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glued Lines</strong></td>
+                        <td>Two lines trapped in one box</td>
+                        <td>Use <em>Split Line</em> tool; drag separating boundary between lines</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Broken Line</strong></td>
+                        <td>Faint ink splits line into two</td>
+                        <td>Select both segments and click <em>Merge Lines</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diacritic Cut</strong></td>
+                        <td>Accents sit outside polygon</td>
+                        <td>Click polygon border; drag top control points upward above ink</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Scramble</strong></td>
+                        <td>Margin note read before text</td>
+                        <td>Open <em>Layout</em> pane; drag line to proper sequential index</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <h4>Classroom Diagnostics &amp; Troubleshooting Triage</h4>
+            <ul>
+                <li><strong>Off-by-One Cascading Shift:</strong> If line 3 was split into two baselines, line 4's text will bind to line 3's tail. Stop students immediately: delete extra baseline before importing text.</li>
+                <li><strong>Polygon Ceiling Too Low:</strong> Scribes with prominent ascenders (b, d, l) or accents get decapitated. Check line cutouts: if letter heads are clipped, widen polygon height.</li>
+                <li><strong>Validation Error Rising:</strong> If training curve drops then climbs, the model is overfitting (memorizing). Stop training at the lowest validation point.</li>
+                <li><strong>Specialization Gap:</strong> A 100-million parameter general model (TrOCR/commercial OCR) will often lose to a tiny, domain-matched PyLaia model (14.6% vs 84.7% error). Reassure students that small matched models are superior.</li>
+                <li><strong>Shared Credit Economy:</strong> Remind students not to trigger multiple training runs simultaneously; verify line alignment first to preserve Transkribus credit balance.</li>
+            </ul>
+        </div>
+    </div>
+
+    <p style="font-size:8.5pt;color:#64748b;margin-top:0.4rem;">
+        Sources: <code>src/modules/Module_04_Transcription/03a_Lesson_4.2_Lesson_Content.md</code> ·
+        <code>SESSION_CONTENT_SPEC.md</code> ·
+        <code>RELS 398 Schedule.tex</code> Week 4.
+    </p>
+
+</body>
+</html>

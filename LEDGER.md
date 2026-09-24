@@ -129,6 +129,23 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+- **[2026-09-23]**: Deployed Module 04 (Section 4, course 51185) live to Moodle via `populate_moodle_topic.py --topic 4`.
+  - **12 Live Activities Tracked in `moodle_manifest.json`:**
+    - `1435190`: Banner (`01_Banner.png`)
+    - `1435191`: Learning Objectives (`02_Learning_Objectives.html`)
+    - `1435199`: `Lesson 4.1: Interactive Quiz` (60 questions: 30 description content pages + 30 assessment questions interleaved, `immediatefeedback`, `sequential`, require-grade completion)
+    - `1435192`: `Lesson 4.1 Notes (PDF)` (restricted: requires completion of Quiz 4.1 `1435199`)
+    - `1435202`: `Lesson 4.2: Interactive Quiz` (60 questions: 30 description content pages + 30 assessment questions interleaved, `immediatefeedback`, `sequential`, require-grade completion)
+    - `1435193`: `Lesson 4.2 Notes (PDF)` (restricted: requires completion of Quiz 4.2 `1435202`)
+    - `1435204`: `Lesson 4.3: Interactive Quiz` (60 questions: 30 description content pages + 30 assessment questions interleaved, `immediatefeedback`, `sequential`, require-grade completion)
+    - `1435195`: `Lesson 4.3 Notes (PDF)` (restricted: requires completion of Quiz 4.3 `1435204`)
+    - `1435206`: Reading List
+    - `1435207`: Watch List
+    - `1435208`: Workshop (`Workshop: Module_04_Transcription`)
+    - `1435209`: Weekly Quiz (`Module_04_Transcription: Weekly Quiz`, 10 questions)
+  - **Activity Ordering:** Reordered activities via CDP copy/moveto so each Interactive Quiz is positioned immediately before its corresponding Notes PDF.
+  - Manifest refreshed (`moodle_manifest.json`) — 14 sections, 80 activities.
+- **[2026-09-22]**: Authored in-class instructor teaching plan for Meeting #10 (Lesson 4.2 — Layout Analysis & HTR Model Training in Transkribus, Wednesday Sep 23, 10:30–11:20 AM, MULH 3032) following the StFX E5 standard: `src/modules/Module_04_Transcription/Lesson_4.2_Teaching_Plan_2026-09-23.html`. Structures the 50-minute lab around layout analysis (baselines vs. rectangles), line strip cutout verification (checking for clipped diacritics/ascenders/descenders), cohort-specific baseline editing, ground truth alignment without off-by-one errors, base model fine-tuning (PyLaia CTC), CER evaluation (<5% vs >15% net loss), and Git stage gate export (`htr_output.txt`).
 - **[2026-09-22]**: Built the Lesson 4.1 in-class deck for Meeting #9, and corrected a content gap it exposed.
   - **Deck:** `Lesson_4.1_Slides_2026-09-22.pptx`, 14 slides, built by `scratch/build_slides_4.1.py` in the Module 3 house style (navy/gold, drawn cards on the `Blank` layout, Consolas on dark for code). Opens with a `witness.xml` entry-state slide showing the Module 03 `<facsimile>`/`<surface>`/`<zone>` block with an empty `<text>` — markup taken from `labs/make_surface.py`'s actual output, not invented. Deck is `*.pptx` and therefore gitignored; it travels via the Drive mirror.
   - **FOUND: `<l>` is absent from the entire module.** `<lg>` appeared only in the teaching plan (0 occurrences in the 30-section content); `<l>` appeared nowhere at all; "verse", "stanza", "metre", "lineation" appeared nowhere in the content. The plan nonetheless instructed Jay (Dickinson poem) to use `<lg>` — an unfollowable instruction, since `<lg>` exists to hold `<l>`. Jay's listed challenge, "lineation vs. metre", *is* the `<l>`-vs-`<lb/>` distinction, so the cohort's one verse student had no vocabulary for the hardest encoding problem in the room.
