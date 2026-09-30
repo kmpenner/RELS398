@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 5.1 Teaching Plan (2026-09-29)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+        }
+
+        @page { size: letter; margin: 0.55in; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong { color: var(--stfx-navy); }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p { font-size: 9.5pt; color: #713f12; line-height: 1.4; }
+
+        .caution-callout {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 6px solid #b91c1c;
+            padding: 0.7rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .caution-callout h3 { color: #991b1b; font-size: 10.5pt; font-weight: 800; margin-bottom: 0.2rem; }
+        .caution-callout p { font-size: 9.5pt; color: #7f1d1d; line-height: 1.4; }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 9.5pt; }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) { background: #f8fafc; }
+
+        .time-col {
+            width: 14%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col { width: 26%; font-weight: 700; }
+        .desc-col { width: 44%; color: #334155; line-height: 1.35; }
+        .target-col { width: 16%; font-size: 8.5pt; color: var(--stfx-slate); font-family: ui-monospace, monospace; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 1rem; }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul { padding-left: 1.1rem; font-size: 9pt; color: var(--stfx-slate); }
+        .card li { margin-bottom: 0.3rem; }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 0.65rem;
+            border-radius: 4px;
+            font-size: 8.2pt;
+            overflow-x: auto;
+            margin-top: 0.35rem;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            line-height: 1.3;
+        }
+
+        @media print {
+            body { padding: 0; font-size: 9.5pt; }
+            .header-box { margin-bottom: 0.6rem; }
+            .requirement-callout { background: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .caution-callout { background: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .schedule-table th { background: #002D62 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .context-banner { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 · Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #12 (Lesson 5.1 — AI Diplomatic Transcription via Gemini in VS Code Antigravity)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Tuesday, September 29, 2026</span>
+                <span class="badge">Time: 8:30 – 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 5 (Reconciliation) · Step 1 of 2</span>
+                <span class="badge">Milestone: transcription_ai.xml Authored &amp; Validated</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE:</strong><br>
+            Each student completed Workshop 3 and Lesson 4.1 manual diplomatic transcription. In <code>witness.xml</code>, they hold a valid TEI <code>&lt;text&gt;</code> container using strictly diplomatic elements: <code>&lt;body&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;pb facs="#..."/&gt;</code>, <code>&lt;lb/&gt;</code>, <code>&lt;unclear&gt;</code>, and <code>&lt;gap&gt;</code>. No normalization or abbreviation expansion (<code>&lt;choice&gt;</code>, <code>&lt;abbr&gt;</code>, <code>&lt;expan&gt;</code>) has been introduced.
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL GOAL:</strong><br>
+            Generate a second, independent transcription of the same page using Gemini in the VS Code Antigravity extension. Enforce strict constraint prompting to output schema-compliant TEI XML using last week's exact diplomatic elements. Save as <code>transcription_ai.xml</code> and validate to 0 errors against <code>msdesc.rng</code>.
+        </div>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE RECONCILIATION PREMISE: TWO INDEPENDENT PASSES TO BUILD THE THIRD</h3>
+        <p>In textual scholarship, reconciliation requires two independent transcriptions to compare. One is the human student's manual transcription; the second is Gemini's multimodal transcription. Today we generate the machine transcription under identical constraint boundaries. On Friday (Meeting #13), students will diff the two files, evaluate every discrepancy, and synthesize the best readings into a reconciled diplomatic baseline.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Strictly Diplomatic:</strong> We explicitly forbid Gemini from expanding abbreviations or modernizing archaic spelling. Keep <code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>, and <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code> locked until Week 6 (Normalization).<br>
+        <strong>2. No Uncritical Copy-Pasting:</strong> The AI transcription must be saved into a separate file (<code>transcription_ai.xml</code>), never overwriting the human <code>witness.xml</code>.<br>
+        <strong>3. Wednesday Closure:</strong> University is closed Wednesday, Sep 30 for the National Day for Truth and Reconciliation. Week 5 is intentionally designed as a two-step week (Tue: AI pass; Fri: diff &amp; consensus).</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">08:30 – 08:38<br>(8 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>The Double-Transcription Model</td>
+                <td class="desc-col">
+                    Open with the whiteboard triad: <strong>Manual (Week 4) vs. AI (Today) &rarr; Reconciled Consensus (Friday)</strong>.<br>
+                    Explain why single-pass transcription is never trusted in critical editions: human eyes make slip-of-the-pen errors, while vision models hallucinate fluent text. Combining two independent passes exposes errors immediately.
+                </td>
+                <td class="target-col">Shared mental model established</td>
+            </tr>
+            <tr>
+                <td class="time-col">08:38 – 08:48<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Prompting Gemini in Antigravity</td>
+                <td class="desc-col">
+                    Project VS Code with the Antigravity extension panel open.<br>
+                    <strong>1. Attach image:</strong> Show how to attach <code>images/yourpage.jpg</code> to the chat.<br>
+                    <strong>2. Paste the Diplomatic Constraint Prompt:</strong> Walk through the exact prompt (see below). Emphasize negative constraints: <em>"Do not modernize spelling. Do not expand abbreviations. Output only valid TEI XML inside &lt;text&gt;."</em><br>
+                    <strong>3. File creation:</strong> Create <code>transcription_ai.xml</code> and paste the output.
+                </td>
+                <td class="target-col">Starter prompt verified on screen</td>
+            </tr>
+            <tr>
+                <td class="time-col">08:48 – 09:10<br>(22 mins)</td>
+                <td class="activity-col">Phase 3: Protected Lab<br>Students Prompt &amp; Extract</td>
+                <td class="desc-col">
+                    <strong>Circulate actively.</strong> Students run the prompt against their own document image in VS Code Antigravity.<br>
+                    Keep students focused on the prompt mechanics. If a model adds prose commentary (<em>"Here is your transcription..."</em>), remind them to copy only the XML block. If the model modernized spelling, reinforce the prompt constraint.
+                </td>
+                <td class="target-col"><code>transcription_ai.xml</code> generated (4/4 students)</td>
+            </tr>
+            <tr>
+                <td class="time-col">09:10 – 09:16<br>(6 mins)</td>
+                <td class="activity-col">Phase 4: Diagnostics<br>Schema Validation Gate</td>
+                <td class="desc-col">
+                    Wrap <code>transcription_ai.xml</code> with the basic TEI root skeleton or validate against <code>msdesc.rng</code> in VS Code.<br>
+                    Diagnose raw ampersands (must be <code>&amp;amp;</code>), unclosed <code>&lt;lb/&gt;</code> tags (must be self-closing), or missing <code>&lt;p&gt;</code>/<code>&lt;lg&gt;</code> containers inside <code>&lt;div&gt;</code>. Drive errors to 0.
+                </td>
+                <td class="target-col">0 schema errors in Problems panel</td>
+            </tr>
+            <tr>
+                <td class="time-col">09:16 – 09:20<br>(4 mins)</td>
+                <td class="activity-col">Phase 5: Stage Gate<br>Commit &amp; Friday Preview</td>
+                <td class="desc-col">
+                    Students stage and commit: <code>git add transcription_ai.xml &amp;&amp; git commit -m "Step 2: AI diplomatic transcription via Gemini in Antigravity"</code>.<br>
+                    Remind cohort: University closed tomorrow (Wednesday). On Friday, we will open VS Code side-by-side diff to compare human vs. machine line by line.
+                </td>
+                <td class="target-col">Clean git commit on <code>main</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">The Master Diplomatic Prompt for Antigravity</h3>
+
+    <div class="card" style="margin-bottom: 1rem;">
+        <h4>PASTE INTO VS CODE ANTIGRAVITY WITH YOUR IMAGE ATTACHED:</h4>
+        <pre>You are an expert paleographer and scholarly text encoder.
+Transcribe the attached historical document page into strict TEI diplomatic XML.
+
+RULES:
+1. DIPLOMATIC FIDELITY:
+   - Transcribe exactly what is written on the page. Preserve original capitalization, punctuation, and archaic or irregular spelling.
+   - Do NOT modernize or normalize words.
+   - Do NOT expand abbreviations (e.g., keep "&c.", "ye", "Govr", "Janry" as written).
+   - Do NOT correct obvious historical typos.
+
+2. ALLOWED TEI ELEMENTS:
+   - Wrap the transcription in &lt;text&gt;&lt;body&gt;&lt;div&gt;...&lt;/div&gt;&lt;/body&gt;&lt;/text&gt;.
+   - Use &lt;pb facs="#[surface-id]"/&gt; at the start of the page.
+   - Use &lt;lb/&gt; (empty, self-closing) at every physical line break on the document.
+   - For verse manuscripts, wrap stanzas in &lt;lg&gt; and lines in &lt;l&gt;. For prose, wrap paragraphs in &lt;p&gt;.
+   - Use &lt;unclear&gt;word&lt;/unclear&gt; if ink or handwriting is ambiguous.
+   - Use &lt;gap reason="damage" unit="chars" extent="3"/&gt; (or similar) where physical damage obscures text.
+   - Do NOT use &lt;choice&gt;, &lt;orig&gt;, &lt;reg&gt;, &lt;abbr&gt;, or &lt;expan&gt;.
+
+3. OUTPUT FORMAT:
+   - Return ONLY the clean, well-formed XML block. No conversational filler, no markdown explanations.</pre>
+    </div>
+
+    <h3 class="section-header">Cohort Specific Guidance &amp; Live Traps</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>JAY · Emily Dickinson Recipe for Black Cake (MS Am 1118.7)</h4>
+            <ul>
+                <li><strong>Numerals &amp; Mixed Fractions:</strong> Watch how Gemini transcribes quantities (e.g. <code>19 Eggs</code> vs <code>12 Eggs</code>, and <code>1 1/2 Currants</code> vs <code>1/2 Currants</code>). Retain Gemini's raw choices for Friday!</li>
+                <li><strong>Punctuation Dashes &amp; Tildes:</strong> Dickinson uses hyphens, dashes, and tildes (<code>2 Sugar-</code>, <code>Cloves ~ Mace-</code>). Gemini often normalizes these into standard commas. Keep whatever Gemini proposes in <code>transcription_ai.xml</code>!</li>
+                <li><strong>List vs. Narrative Layout:</strong> The leaf transitions from ingredient quantities to baking steps. Ensure both are enclosed in <code>&lt;p&gt;</code> with <code>&lt;lb/&gt;</code> rather than poetic <code>&lt;lg&gt;</code>.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ACE · French Revolutionary Decree (1791)</h4>
+            <ul>
+                <li><strong>Printed Typography (Long-s):</strong> Look closely at whether Gemini transcribed historical long-s (<code>ſ</code>) as modern 's' or preserved the archaic glyph. Both behaviors are valuable data points for Friday.</li>
+                <li><strong>Column Structure:</strong> The decree uses two printed columns. Did Gemini transcribe across the page horizontally (disaster) or down Column 1 then Column 2 (correct)?</li>
+                <li><strong>Colophon &amp; Signatures:</strong> Watch for printed legal signatures (e.g. <em>M. L. F. Duport</em>) and printing location at the foot of the decree.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>OLYVIA · Maud Lewis Letter (20th c. Cursive)</h4>
+            <ul>
+                <li><strong>Informal Handwriting &amp; Spelling:</strong> Maud Lewis's informal folk handwriting has uneven spacing and colloquial orthography. Gemini tends to "auto-correct" or smooth spelling mistakes.</li>
+                <li><strong>Ink Fading &amp; Creases:</strong> Where paper folds or ink fades, check if Gemini hallucinates missing words or correctly marks <code>&lt;unclear&gt;</code>.</li>
+                <li><strong>Header Layout:</strong> Maud's letterhead and date placement must be contained in <code>&lt;p&gt;</code> with <code>&lt;lb/&gt;</code>.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ANDROMEDA · 1752 Peace and Friendship Treaty</h4>
+            <ul>
+                <li><strong>Bilingual Parallel Layout:</strong> If working from the bilingual broadside, verify whether Gemini transcribed the English or French column, or attempted both.</li>
+                <li><strong>Formal Legal Formulae:</strong> 18th-century colonial legal titles (<em>"Articles of Peace and Friendship made and concluded..."</em>). Watch for capitalization smoothing.</li>
+                <li><strong>Totem / Mark Representations:</strong> Chief Jean-Baptiste Cope's mark (a totem mark representation). Does Gemini skip it, transcribe it as text, or describe it?</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 class="section-header">Classroom Diagnostics: Catching AI Errors</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>1. The "Helpful" Normalization Trap</h4>
+            <p style="font-size: 8.5pt; color: #b91c1c; font-weight: 700; margin-bottom: 0.2rem;">Symptom: Gemini writes modern "January" instead of manuscript "Janry", or "the" instead of "ye".</p>
+            <p style="font-size: 8.5pt; color: var(--stfx-slate);"><strong>Diagnosis:</strong> LLMs are autoregressive models trained to predict high-probability modern tokens. Reinforce: <em>"Leave it in transcription_ai.xml!"</em> Discovering that the AI smoothed archaic text is a prime finding for Friday's diff.</p>
+        </div>
+        <div class="card">
+            <h4>2. Raw Ampersand XML Parse Error</h4>
+            <p style="font-size: 8.5pt; color: #b91c1c; font-weight: 700; margin-bottom: 0.2rem;">Symptom: Red squiggle in VS Code: 'The entity name must immediately follow the & in the entity reference'.</p>
+            <p style="font-size: 8.5pt; color: var(--stfx-slate);"><strong>Diagnosis:</strong> Gemini transcribed a literal "&" or "&c." without XML escaping. In XML, bare ampersands are illegal syntax. Fix: change <code>&amp;</code> to <code>&amp;amp;</code> (e.g. <code>&amp;amp;c.</code>).</p>
+        </div>
+        <div class="card">
+            <h4>3. Bare Text Inside &lt;div&gt;</h4>
+            <p style="font-size: 8.5pt; color: #b91c1c; font-weight: 700; margin-bottom: 0.2rem;">Symptom: Schema error: 'Element text not allowed here'.</p>
+            <p style="font-size: 8.5pt; color: var(--stfx-slate);"><strong>Diagnosis:</strong> In TEI, a <code>&lt;div&gt;</code> cannot hold character data directly; text must be wrapped inside <code>&lt;p&gt;</code> (prose) or <code>&lt;lg&gt;&lt;l&gt;</code> (verse). Ensure paragraph wrappers surround all line breaks.</p>
+        </div>
+        <div class="card">
+            <h4>4. Unclosed Line Breaks</h4>
+            <p style="font-size: 8.5pt; color: #b91c1c; font-weight: 700; margin-bottom: 0.2rem;">Symptom: Schema error: 'End tag does not match start tag'.</p>
+            <p style="font-size: 8.5pt; color: var(--stfx-slate);"><strong>Diagnosis:</strong> Gemini emitted <code>&lt;lb&gt;</code> instead of self-closing milestone <code>&lt;lb/&gt;</code>. Remind students that line breaks in TEI are zero-width milestones, not containers.</p>
+        </div>
+    </div>
+
+</body>
+</html>

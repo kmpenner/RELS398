@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 5.2 Teaching Plan (2026-10-02)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+        }
+
+        @page { size: letter; margin: 0.55in; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong { color: var(--stfx-navy); }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p { font-size: 9.5pt; color: #713f12; line-height: 1.4; }
+
+        .caution-callout {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 6px solid #b91c1c;
+            padding: 0.7rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .caution-callout h3 { color: #991b1b; font-size: 10.5pt; font-weight: 800; margin-bottom: 0.2rem; }
+        .caution-callout p { font-size: 9.5pt; color: #7f1d1d; line-height: 1.4; }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 9.5pt; }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) { background: #f8fafc; }
+
+        .time-col {
+            width: 14%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col { width: 26%; font-weight: 700; }
+        .desc-col { width: 44%; color: #334155; line-height: 1.35; }
+        .target-col { width: 16%; font-size: 8.5pt; color: var(--stfx-slate); font-family: ui-monospace, monospace; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 1rem; }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul { padding-left: 1.1rem; font-size: 9pt; color: var(--stfx-slate); }
+        .card li { margin-bottom: 0.3rem; }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 0.65rem;
+            border-radius: 4px;
+            font-size: 8.2pt;
+            overflow-x: auto;
+            margin-top: 0.35rem;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            line-height: 1.3;
+        }
+
+        @media print {
+            body { padding: 0; font-size: 9.5pt; }
+            .header-box { margin-bottom: 0.6rem; }
+            .requirement-callout { background: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .caution-callout { background: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .schedule-table th { background: #002D62 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .context-banner { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 · Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #13 (Lesson 5.2 — Diffing &amp; Reconciliation: Building the Reconciled Diplomatic Baseline)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, October 2, 2026</span>
+                <span class="badge">Time: 8:30 – 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 5 (Reconciliation) · Step 2 of 2</span>
+                <span class="badge">Milestone: transcription_reconciled.xml Authored &amp; Validated</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE:</strong><br>
+            Each student enters with two distinct, independent files in their repository root: (1) <code>witness.xml</code> holding their Week 4 manual diplomatic transcription (Pass 1), and (2) <code>transcription_ai.xml</code> holding Gemini's Antigravity AI transcription generated on Tuesday (Pass 2). Both use the same core diplomatic vocabulary: <code>&lt;text&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;pb&gt;</code>, <code>&lt;lb/&gt;</code>, <code>&lt;unclear&gt;</code>, and <code>&lt;gap&gt;</code>.
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL GOAL:</strong><br>
+            Perform a line-by-line diff between Pass 1 and Pass 2 in VS Code. Evaluate every discrepancy, categorize errors, and adjudicate readings into a third file: <code>transcription_reconciled.xml</code>. This reconciled consensus text establishes the authoritative diplomatic baseline for the Transcription Assignment (due tonight) and unlocks Week 6 (Normalization).
+        </div>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE RECONCILIATION OBJECTIVE: SYNTHESIS OVER SURRENDER</h3>
+        <p>Reconciliation is not simply accepting the machine's reading, nor is it stubbornly clinging to the human draft. Students must examine every line where the two passes diverge. Where the machine caught a human oversight, accept the machine reading. Where the machine hallucinated or smoothed historical spelling, defend the manuscript ink. The output is a third, superior document: <code>transcription_reconciled.xml</code>.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Preserve Raw Predecessors:</strong> Do NOT delete or overwrite <code>witness.xml</code> or <code>transcription_ai.xml</code>. All three files must exist side-by-side in git history.<br>
+        <strong>2. No Normalization Yet:</strong> Today's reconciled text remains strictly diplomatic. Modern spelling regularization and abbreviation expansions (<code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>, <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>) start in Meeting #14 next week.<br>
+        <strong>3. Assignment Deadline:</strong> The Transcription Assignment is due tonight (Friday, Oct 2) at 11:00 PM.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">08:30 – 08:38<br>(8 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>The Three-Way File Model</td>
+                <td class="desc-col">
+                    Open with the tripartite architecture on the projector:<br>
+                    <strong>Pass 1 (witness.xml) + Pass 2 (transcription_ai.xml) &rarr; Pass 3 (transcription_reconciled.xml)</strong>.<br>
+                    Show how running a diff transforms an overwhelming wall of text into a manageable list of specific, localized decisions.
+                </td>
+                <td class="target-col">Shared mental model established</td>
+            </tr>
+            <tr>
+                <td class="time-col">08:38 – 08:48<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Diffing in VS Code</td>
+                <td class="desc-col">
+                    Demonstrate VS Code's native file comparison:<br>
+                    <strong>1. Compare Files:</strong> Right-click <code>witness.xml</code> &rarr; <em>Select for Compare</em>, then right-click <code>transcription_ai.xml</code> &rarr; <em>Compare with Selected</em>.<br>
+                    <strong>2. Read the Discrepancies:</strong> Show side-by-side highlighting (red deletions vs. green additions). Walk through three sample differences: human typo, AI modernization, and damaged ink.<br>
+                    <strong>3. Create Pass 3:</strong> Save a new file <code>transcription_reconciled.xml</code>.
+                </td>
+                <td class="target-col">Split diff view projected and understood</td>
+            </tr>
+            <tr>
+                <td class="time-col">08:48 – 09:10<br>(22 mins)</td>
+                <td class="activity-col">Phase 3: Protected Lab<br>Line-by-Line Adjudication</td>
+                <td class="desc-col">
+                    <strong>Circulate actively.</strong> Students walk down their split diff line by line against their document image.<br>
+                    Prompt students with scholarly questions: <em>"Did Gemini read a character you missed, or did it guess based on modern grammar?"</em> Ensure they document why they accepted or rejected each reading.
+                </td>
+                <td class="target-col"><code>transcription_reconciled.xml</code> completed</td>
+            </tr>
+            <tr>
+                <td class="time-col">09:10 – 09:16<br>(6 mins)</td>
+                <td class="activity-col">Phase 4: Diagnostics<br>Validation &amp; Schema Audit</td>
+                <td class="desc-col">
+                    Ensure <code>transcription_reconciled.xml</code> validates cleanly against <code>msdesc.rng</code> in VS Code.<br>
+                    Verify that milestone tags (<code>&lt;pb/&gt;</code>, <code>&lt;lb/&gt;</code>) are properly positioned and that no malformed entity references escaped notice. Drive errors to 0.
+                </td>
+                <td class="target-col">0 schema errors in Problems panel</td>
+            </tr>
+            <tr>
+                <td class="time-col">09:16 – 09:20<br>(4 mins)</td>
+                <td class="activity-col">Phase 5: Stage Gate<br>Git Commit &amp; Week 6 Preview</td>
+                <td class="desc-col">
+                    Students stage and commit: <code>git add transcription_reconciled.xml &amp;&amp; git commit -m "Step 3: reconciled diplomatic transcription synthesized from manual and AI passes"</code>.<br>
+                    Remind cohort: Transcription Assignment due tonight by 11:00 PM. Preview Week 6: on Tuesday, we take this clean diplomatic text and apply editorial normalization (<code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>, <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>).
+                </td>
+                <td class="target-col">Clean git commit on <code>main</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">The Three Discrepancy Categories</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Category A: Human Misread / Omission</h4>
+            <p style="font-size: 8.8pt; color: #15803d; font-weight: 700; margin-bottom: 0.2rem;">Example: Human skipped a short word ("the", "and") or misread a minims sequence ("m" vs "in").</p>
+            <p style="font-size: 8.8pt; color: var(--stfx-slate);"><strong>Action:</strong> Accept Gemini's reading into <code>transcription_reconciled.xml</code>. Note this in your assignment reflection: the AI served as a tireless proofreader catching human perceptual fatigue.</p>
+        </div>
+        <div class="card">
+            <h4>Category B: AI Hallucination / Smoothing</h4>
+            <p style="font-size: 8.8pt; color: #b91c1c; font-weight: 700; margin-bottom: 0.2rem;">Example: Gemini modernized "ye" to "the", expanded "&amp;c." to "et cetera", or invented missing letters over a smudge.</p>
+            <p style="font-size: 8.8pt; color: var(--stfx-slate);"><strong>Action:</strong> Reject the machine reading; preserve your human manual transcription. Defend the physical ink: diplomatic transcription records what is on the page, not modern expectation.</p>
+        </div>
+        <div class="card">
+            <h4>Category C: Genuine Ambiguity (Ink Damage / Fade)</h4>
+            <p style="font-size: 8.8pt; color: #854d0e; font-weight: 700; margin-bottom: 0.2rem;">Example: Both human and machine struggled with a stained margin, cramped interlinear gloss, or faded ascender.</p>
+            <p style="font-size: 8.8pt; color: var(--stfx-slate);"><strong>Action:</strong> Mark with <code>&lt;unclear&gt;likelyWord&lt;/unclear&gt;</code> or <code>&lt;gap reason="damage" unit="chars" extent="3"/&gt;</code>. Scholarly honesty earns higher marks than guessing.</p>
+        </div>
+        <div class="card">
+            <h4>Category D: Physical vs. Logical Structure</h4>
+            <p style="font-size: 8.8pt; color: var(--stfx-navy); font-weight: 700; margin-bottom: 0.2rem;">Example: Line break (<code>&lt;lb/&gt;</code>) placement differed, or verse wraps were treated as separate stanzas.</p>
+            <p style="font-size: 8.8pt; color: var(--stfx-slate);"><strong>Action:</strong> Enforce strict physical fidelity: <code>&lt;lb/&gt;</code> goes where the pen physically went to a new line, regardless of grammar or sentence structure.</p>
+        </div>
+    </div>
+
+    <h3 class="section-header">Cohort Specific Adjudication Guidance</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>JAY · Emily Dickinson Poem (MS Am 1118.3)</h4>
+            <ul>
+                <li><strong>Dashes vs. Hyphens:</strong> Compare Dickinson's handwritten dashes. Did Gemini replace them with em-dashes? Preserve Dickinson's variable dash lengths in the reconciled text.</li>
+                <li><strong>Line Wraps vs. Metre:</strong> Reconcile metrical lines (<code>&lt;l&gt;</code>) with physical margins (<code>&lt;lb/&gt;</code>). Ensure the reconciled text preserves both verse structure and physical lineation.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ACE · French Revolutionary Decree (1791)</h4>
+            <ul>
+                <li><strong>Long-s (ſ) vs. Modern 's':</strong> Reconcile printed historical typography. If Gemini modernized all long-s glyphs, restore the diplomatic printed reading.</li>
+                <li><strong>Column Order:</strong> Ensure the reconciled file flows sequentially down Column 1, then Column 2, with clean division markers.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>OLYVIA · Maud Lewis Letter (20th c. Cursive)</h4>
+            <ul>
+                <li><strong>Colloquial Orthography:</strong> If Gemini corrected Maud Lewis's vernacular spelling or grammar, reject the correction! The diplomatic text must preserve Maud's authentic voice.</li>
+                <li><strong>Clefts and Folds:</strong> Check text written near folds or envelope margins; mark damaged words with <code>&lt;unclear&gt;</code>.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ANDROMEDA · 1752 Peace and Friendship Treaty</h4>
+            <ul>
+                <li><strong>Capitalization &amp; Formulae:</strong> 18th-century legal texts capitalize major substantives (<em>"Articles", "Peace", "His Majesty"</em>). Reconcile capitalization against the broadside.</li>
+                <li><strong>Signatures / Marks:</strong> Reconcile representation of Chief Cope's totem mark and colonial witness attestations.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

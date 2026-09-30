@@ -96,9 +96,9 @@ To guarantee unconditional, permanent access, digital editors compile **Standalo
 
 | File / Directory Path | Asset Function | Technical Content |
 | --- | --- | --- |
-| `index.html` | Entry point | Self-contained, double-clickable offline viewer |
+| `index.html` | Entry point | Self-contained offline viewer (double-clickable when data is inlined; otherwise served locally) |
 | `assets/css/` | Visual stylesheets | `edition.css` with embedded Cardo & Noto Serif WOFF2 fonts |
-| `assets/js/` | Client runtime | `evt-bundle.js` viewer logic + pre-compiled `search-index.js` |
+| `assets/js/` | Client runtime | `edition.js` viewer logic + pre-compiled Lunr `search-index.js` |
 | `assets/images/` | Facsimile storage | High-resolution JPEG/WebP local manuscript page images |
 | `data/` | Master XML archives | `1thess_edition.xml` source and `1thess_odd.odd` specification |
 | `LICENSE.md` | Legal licensing | Multi-tiered CC BY 4.0, CC0 1.0, and MIT statements |
@@ -106,9 +106,11 @@ To guarantee unconditional, permanent access, digital editors compile **Standalo
 | Deployment Architecture | Server Required? | Offline Usable? | Archival Durability | Maintenance Cost |
 | --- | --- | --- | --- | --- |
 | **Server-Dependent Stack** (eXist-db) | Yes (Java/XML Server) | No (Requires network) | Medium (Vulnerable to server decay) | High (Ongoing server administration) |
-| **Standalone Static Package** (EVT/Static) | No (File system) | Yes (100% offline) | Extremely High (Decades in any browser) | Zero (Static hosting on GitHub/Zenodo) |
+| **Standalone Static Package** (custom build / EVT) | No (File system) | Yes (100% offline) | Extremely High (Decades in any browser) | Zero (Static hosting on GitHub/Zenodo) |
 
-Using tools like **Edition Visualization Technology (EVT)** or custom build scripts, you compile your TEI XML into a static bundle. The entire edition can be distributed on USB flash drives, attached to archival journal submissions, or hosted for free on GitHub Pages indefinitely (Buzzoni, 2016; Driscoll & Pierazzo, 2016).
+The layout above is the one this course's own build script produces (Section 14 onward). **Edition Visualization Technology (EVT)** takes a different route to the same goal: rather than compiling a bespoke bundle, you drop your TEI XML and facsimiles into EVT's prebuilt client-side viewer and configure it through a settings file. Either way, the output is a static bundle. The entire edition can be distributed on USB flash drives, attached to archival journal submissions, or hosted for free on GitHub Pages indefinitely (Buzzoni, 2016; Driscoll & Pierazzo, 2016).
+
+**Current status (September 2026).** EVT 3 v2.0.0-beta ("Beta 2") was released on 28 September 2026 ([release announcement](https://visualizationtechnology.wordpress.com/2026/09/28/evt-3-beta-2-evt-3-v2-0-0-beta-available-for-download-and-testing/)). It consolidates configuration into a single YAML file, supports double-end-point attachment for the critical apparatus (compare Module 8), refines line-level image–text highlighting (compare Module 3), and adds an *Errors* button that surfaces encoding mistakes. Running it requires a local web server (VS Code Live Server, or Git/npm), not a double-click. The developers state plainly that the beta is not yet ready for publishing editions; a stable release is planned for 2027. Treat EVT 3 as a tool to explore and test your encoding against, not as the delivery platform for your final package.
 
 **Vocabulary.** *Serverless edition bundle* — a digital edition compiled into static HTML/JS/CSS files requiring no server-side database. *Edition Visualization Technology (EVT)* — an open-source static client tool for rendering TEI critical and diplomatic editions. *Server decay* — the eventual failure and abandonment of digital projects due to unmaintained server infrastructure.
 

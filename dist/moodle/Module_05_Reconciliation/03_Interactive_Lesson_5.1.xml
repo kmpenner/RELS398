@@ -1,0 +1,1732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_5.1</text></category></question>
+<question type="description"><name><text>01 Content: Why Single-Pass Transcription Cannot Verify Itself</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why Single-Pass Transcription Cannot Verify Itself</h3>
+<p>Last week, you transcribed your primary witness page by hand into witness.xml. You sat with the digital image, studied the handwriting or printed typography, and keyed every word into TEI XML. That manual transcription represents substantial scholarly labor, and it serves as your initial ground truth.</p>
+<p>However, in scholarly editing, no single-pass transcription is ever accepted as an unquestioned authority. Human eyes are subject to cognitive fatigue, visual strain, and attentional lapses. When you read a document, your brain constantly anticipates what ought to come next. If an 18th-century clerk accidentally repeated a word across a line break, your eye easily skips the repetition. If two letters resemble each other in a cramped cursive script, your brain quietly resolves the ambiguity toward modern English sense.</p>
+<p>These slips are not careless mistakes; they are fundamental features of human cognition. Because you are the author of your own transcription, your mind will naturally overlook its own blind spots during a second reading. An unverified reference silently incorporates these errors into every downstream analysis. To measure accuracy honestly, we must acknowledge that a single pass cannot verify itself.</p>
+<p><strong>Vocabulary.</strong> <em>Single-pass transcription</em> — A transcription produced by one person in a single reading, without independent cross-checking.</p>
+<p><strong>Takeaway:</strong> Single-pass transcription inevitably contains silent errors, so it cannot serve as an unverified ground truth reference.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Why Single-Pass Transcription Cannot Verify Itself</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why can a single-pass manual transcription not serve as an unverified ground truth in scholarly editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Single-pass transcription inevitably contains silent errors, so it cannot serve as an unverified ground truth reference.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Human cognition naturally anticipates meaning and suffers fatigue, causing transcribers to overlook their own errors during self-review.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Cognitive auto-correction and visual fatigue cause transcribers to miss their own omissions and slips, meaning a single pass cannot independently verify itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Single-pass transcriptions always fail XML schema validation when checked by automated linters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation tests whether XML syntax conforms to a grammar, not whether the transcribed characters match the physical manuscript.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Scholarly standards require at least three institutional signatures before any transcription file can be committed to Git.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The issue is cognitive verification and error localization, not bureaucratic institutional approval.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Modern operating systems cannot parse Unicode text files created by a single user account.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Operating systems parse text files identically regardless of how many users contributed to authoring.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: The Principle of Double-Transcription</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Principle of Double-Transcription</h3>
+<p>To overcome the limits of single-pass human transcription, documentary projects rely on double-transcription (often called double-keying). The foundational principle, formalized by researchers like Haaf, Wiegand, and Geyken (2013), is simple yet statistically powerful: two independent transcribers will rarely commit the exact same error at the exact same character position.</p>
+<p>If Person A and Person B both transcribe a historical broadside without consulting each other, they will agree on the vast majority of characters. Where their transcriptions match identically, the probability that the text accurately reflects the manuscript is extremely high. </p>
+<p>Where their transcriptions disagree, an error is almost certainly present in one of the passes. Rather than forcing a scholar to re-read thousands of words from scratch, double-transcription transforms proofreading into an efficient, targeted review. The point of comparison—the diff—acts like a spotlight, highlighting the exact coordinates where human or machine judgment faltered. Disagreement does not represent failure; it localizes the editorial decision precisely where attention is needed.</p>
+<p><strong>Vocabulary.</strong> <em>Double-transcription</em> — The practice of transcribing the same document independently twice to detect errors through comparison.</p>
+<p><strong>Takeaway:</strong> Comparing two independent transcription passes reliably pinpoints errors because independent observers rarely make the same slip.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: The Principle of Double-Transcription</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary methodological advantage of double-transcription in digital humanities projects?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Comparing two independent transcription passes reliably pinpoints errors because independent observers rarely make the same slip.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Independent transcribers rarely make identical errors, allowing discrepancies between the two passes to pinpoint exact locations requiring review.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Discrepancies between independent passes narrow proofreading down to specific disputed points rather than requiring exhaustive line-by-line re-reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It doubles the storage size of the Git repository, satisfying archival redundancy quotas.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The goal of double-transcription is editorial accuracy and error localization, not artificial file size inflation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically converts historical abbreviations into modern standardized spellings without human intervention.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Double-transcription identifies character differences; normalization is a separate editorial stage.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents optical character recognition engines from reading the underlying digital image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Double-transcription is an editorial methodology for validating text, not a tool for blocking OCR.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: Human vs. Machine: Two Complementary Error Profiles</text></name><questiontext format="html"><text><![CDATA[
+<h3>Human vs. Machine: Two Complementary Error Profiles</h3>
+<p>In traditional commercial digitization, double-keying required hiring two separate human transcribers. In this course, we adapt this methodology to the digital age: Pass 1 is your manual diplomatic transcription, and Pass 2 is an AI transcription generated by Gemini in VS Code Antigravity.</p>
+<p>This human-plus-AI pairing is methodologically superior to having the same human type the text twice. When a single human re-keys a document, their second pass often repeats the identical cognitive biases of the first pass. But human editors and neural vision models possess radically different error profiles.</p>
+<p>Human transcribers excel at codicological context. You understand that a dark smudge across a line is an ink blot, not a letter; you recognize that faint pencil writing between lines is an authorial revision. However, you are vulnerable to attentional fatigue, skipping repetitive lines or missing punctuation dashes. </p>
+<p>Conversely, multimodal vision models never experience physical fatigue or visual eye-strain. A model processes line twenty with the same intensity as line one. However, the model lacks historical consciousness: it may misinterpret broken typography, hallucinate missing words, or silently modernize spelling. Because human and machine fail in completely different ways, their disagreements expose nearly every flaw.</p>
+<p><strong>Vocabulary.</strong> <em>Error profile</em> — The characteristic patterns and types of mistakes typically made by a specific person, tool, or algorithmic model.</p>
+<p><strong>Takeaway:</strong> Human transcribers and multimodal AI models make completely different types of errors, making them ideal partners for double-transcription.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: Human vs. Machine: Two Complementary Error Profiles</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is pairing a human transcriber with a multimodal AI model methodologically effective for double-transcription?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Human transcribers and multimodal AI models make completely different types of errors, making them ideal partners for double-transcription.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Humans and AI models have different error profiles, meaning the machine catches human fatigue slips while the human catches AI hallucinations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Because human cognitive slips and neural network hallucinations rarely overlap, their discrepancies expose errors effectively.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The AI model can sign legal copyright release waivers on behalf of the human transcriber.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Legal copyright and licensing are human administrative concerns, not the reason for pairing transcription error profiles.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Multimodal models automatically delete the human transcription file if any discrepancy exceeds three characters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both transcription passes are preserved for comparative adjudication; neither file is deleted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Human transcribers are required by TEI guidelines to verify that neural networks consume sufficient GPU electrical power.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI guidelines govern documentary markup schemas, not hardware energy verification.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: The Multimodal Vision Advantage</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Multimodal Vision Advantage</h3>
+<p>In earlier decades of digital humanities, computer-assisted transcription was a multi-stage pipeline. A researcher had to pre-process images (deskewing, binarization), train custom optical character recognition (OCR) or handwritten text recognition (HTR) models, manually draw baseline polygons around every line of text, and tune language dictionaries.</p>
+<p>Today, large multimodal models like Gemini transform this landscape. A multimodal vision model does not merely process an isolated strip of black-and-white pixels. Instead, it examines the entire high-resolution image in its visual context. It simultaneously attends to letterforms, line spacing, margins, indentations, and document layout.</p>
+<p>When you send an archival image to Gemini inside the VS Code Antigravity extension, the model evaluates the visual features of the document alongside textual prompts. It can recognize that an italicized block at the top of a page is a heading, that a block of capitalized text is a legal proclamation, or that ragged-right line breaks represent poetic verse. </p>
+<p>This visual awareness allows the model to produce structured diplomatic markup directly from the image. However, because multimodal vision models are trained on massive corpora of modern text, their vision is filtered through statistical language prediction, creating unique risks that editors must manage.</p>
+<p><strong>Vocabulary.</strong> <em>Multimodal model</em> — An artificial intelligence model capable of processing and reasoning across multiple data types, such as text and images simultaneously.</p>
+<p><strong>Takeaway:</strong> Modern multimodal vision models analyze high-resolution document images directly without needing separate OCR bounding-box pipelines.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: The Multimodal Vision Advantage</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do modern multimodal vision models differ from traditional multi-stage OCR pipelines in document transcription?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Modern multimodal vision models analyze high-resolution document images directly without needing separate OCR bounding-box pipelines.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They evaluate high-resolution document images and structural layout directly within their visual context without requiring manual line segmentation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Multimodal models integrate visual feature recognition and text transcription in an end-to-end process without separate line binarization pipelines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They alter the underlying master TIFF image file by permanently burning digital fonts into the parchment pixels.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multimodal models generate text output non-destructively; they do not alter the pixels of the source image.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They only accept plain ASCII text files and cannot process raster photographs or digital scans.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multimodal vision models explicitly accept raster images such as JPEG, PNG, or TIFF files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They require all historical documents to be translated into modern Greek before layout analysis can begin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multimodal models analyze documents in their original historical languages directly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: The Autoregressive Trap: Silent Modernization</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Autoregressive Trap: Silent Modernization</h3>
+<p>While multimodal models possess powerful visual capabilities, their underlying architecture is autoregressive: they generate output by calculating the statistical probability of the next token based on training data. Because the vast majority of their training data consists of modern, standardized English and French, models have a built-in statistical bias toward modern grammar and spelling.</p>
+<p>In scholarly editing, this tendency manifests as the autoregressive trap of silent modernization. When an AI model encounters an 18th-century abbreviation like Janry, its language model strongly predicts the common modern token January. When it reads an early modern ye, it frequently emits the. When it sees a historical long-s (ſ), it automatically outputs modern s.</p>
+<p>For an everyday user asking an AI to summarize a letter, this auto-correction seems helpful. For a scholarly editor preparing a diplomatic edition, silent modernization is a catastrophic failure. A diplomatic edition exists precisely to record historical linguistic variation, scribal habits, and period orthography. </p>
+<p>If an AI silently modernizes your document, it destroys the very historical evidence you are trying to preserve. To prevent this, editors must construct rigorous prompt boundaries that explicitly command the model to suppress its modernization reflex.</p>
+<p><strong>Vocabulary.</strong> <em>Silent modernization</em> — The unintentional replacement of historical spelling or punctuation with modern standard forms by an automated model.</p>
+<p><strong>Takeaway:</strong> Autoregressive language models naturally smooth archaic words into modern tokens, making strict negative prompt constraints essential.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: The Autoregressive Trap: Silent Modernization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do large multimodal models frequently suffer from the 'silent modernization' trap when transcribing historical documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Autoregressive language models naturally smooth archaic words into modern tokens, making strict negative prompt constraints essential.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Their underlying autoregressive architecture statistically favors common modern words over archaic historical spellings found in early manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Autoregressive language models predict high-probability modern tokens, naturally smoothing historical spellings like 'Janry' into modern 'January'.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Archival libraries intentionally program AI models to censor historical vocabulary to protect student sensitivities.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The phenomenon is a technical consequence of statistical language model training, not institutional censorship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XML schemas reject historical spellings and force models to emit twentieth-century vocabulary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML schemas validate structural tag syntax, not the vocabulary or spelling of text inside elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The optical resolution of digital scans degrades whenever an archaic letterform is processed by a GPU.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital scans remain unchanged; the bias occurs entirely during algorithmic text generation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: The Scope of Diplomatic Transcription</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Scope of Diplomatic Transcription</h3>
+<p>Before prompting Gemini, we must re-anchor ourselves in the scope of diplomatic transcription. A diplomatic transcription is an act of documentary witness: its goal is to record what is physically present on the artifact, without modern editorial intervention.</p>
+<p>When authoring a diplomatic transcription in TEI XML, you record original letterforms, abbreviations, punctuation marks, line breaks, and page boundaries. You do not correct misspelled words, you do not expand shortened terms, and you do not regularize punctuation. If Emily Dickinson wrote a short dash that resembles a hyphen, you transcribe a dash, not a modern comma. If a colonial treaty clerk omitted a closing quotation mark, you leave it unclosed.</p>
+<p>This boundary is crucial because scholarly editing proceeds in stages. You cannot produce a trustworthy modernized reading edition until you have established a rock-solid diplomatic baseline. If you mix transcription with modernization during the first pass, you permanently obscure the physical evidence of the witness. In today's lab, our prompt must command Gemini to operate strictly as a diplomatic transcriber, holding every modernizing impulse in check.</p>
+<p><strong>Vocabulary.</strong> <em>Diplomatic transcription</em> — A precise digital transcription that represents the physical document exactly as written, preserving original spelling, lineation, and physical layout.</p>
+<p><strong>Takeaway:</strong> Diplomatic transcription records what is physically on the page, not what an editor thinks should have been written.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: The Scope of Diplomatic Transcription</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary defining principle of a diplomatic transcription in digital scholarly editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Diplomatic transcription records what is physically on the page, not what an editor thinks should have been written.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It records what is physically written on the manuscript page without modernizing spelling, expanding abbreviations, or regularizing punctuation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Diplomatic transcription preserves the exact physical testimony of the artifact before any editorial normalization takes place.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates all foreign legal phrases into contemporary diplomatic English for government archives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic transcription refers to documentary fidelity (from the Latin 'diploma'), not political diplomacy or translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces all handwritten text with standardized digital typography approved by the International Standards Organization.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic transcription records the original text as written, rather than standardizing it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires transcribers to discard damaged pages and transcribe only pristine, undamaged folios.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Physical damage and illegible text are documented using specialized TEI elements, not discarded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Why Normalization Remains Locked Until Week 6</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why Normalization Remains Locked Until Week 6</h3>
+<p>In TEI XML, the vocabulary for editorial intervention is rich and powerful. Elements like <code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>, <code>&lt;reg&gt;</code>, <code>&lt;abbr&gt;</code>, and <code>&lt;expan&gt;</code> allow editors to pair historical spellings with modern equivalents. For instance, you could wrap an abbreviated term in <code>&lt;choice&gt;</code>, encoding both the scribal form (<code>&lt;abbr&gt;&amp;amp;c.&lt;/abbr&gt;</code>) and the editorial expansion (<code>&lt;expan&gt;et cetera&lt;/expan&gt;</code>).</p>
+<p>However, in this course, we deliberately lock those elements away until Week 6. Why? Because normalization is an interpretive act, whereas transcription is an evidentiary act. </p>
+<p>If you or the AI introduce normalization during the transcription phase, it becomes impossible to disentangle scribal evidence from editorial conjecture. Did the author really write 'et cetera', or did the machine assume it? Did the 1791 decree print 'loix', or did the model supply modern 'lois'?</p>
+<p>By restricting both your manual pass (Pass 1) and Gemini's AI pass (Pass 2) to pure diplomatic markup, we ensure that both files speak the exact same vocabulary. When we diff them on Friday, every highlighted discrepancy will represent a genuine disagreement about what is inked on the page, not a difference in editorial preference. Normalization begins only after reconciliation is complete.</p>
+<p><strong>Vocabulary.</strong> <em>Normalization</em> — The editorial process of standardizing variant historical spellings, expanding abbreviations, or regularizing punctuation for modern readers.</p>
+<p><strong>Takeaway:</strong> Editorial normalization elements like choice, orig, and expan remain locked until Week 6 so we can establish an untainted diplomatic baseline.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Why Normalization Remains Locked Until Week 6</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are TEI elements like &amp;lt;choice&amp;gt;, &amp;lt;orig&amp;gt;, &amp;lt;reg&amp;gt;, &amp;lt;abbr&amp;gt;, and &amp;lt;expan&amp;gt; forbidden in this week's transcription passes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Editorial normalization elements like choice, orig, and expan remain locked until Week 6 so we can establish an untainted diplomatic baseline.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They represent interpretive editorial regularization, which must be separated from pure diplomatic transcription to prevent confusing evidence with conjecture.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Keeping normalization locked until Week 6 ensures that both passes record pure physical testimony, allowing discrepancies to reflect genuine paleographical differences.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI Consortium officially deprecated those elements in the P5 schema release.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Elements like `&lt;choice&gt;` and `&lt;orig&gt;` are fully valid and widely used in TEI P5; they are restricted here for pedagogical and methodological reasons.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;VS Code's XML validator crashes whenever an &amp;lt;abbr&amp;gt; tag appears inside a paragraph element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code validates these elements smoothly; the restriction is methodological, not a software bug.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Multimodal vision models refuse to process images if prompt instructions mention XML attributes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multimodal models process image prompts with XML attribute specifications routinely.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Core Structural Containers: text, body, and div</text></name><questiontext format="html"><text><![CDATA[
+<h3>Core Structural Containers: text, body, and div</h3>
+<p>Every valid TEI document organizes its transcription inside a rigid structural hierarchy. Just as the physical manuscript contains pages, gatherings, and columns, your XML document organizes text into nested containers.</p>
+<p>The outermost container for transcribed content is <code>&lt;text&gt;</code>. In the TEI architecture, <code>&lt;text&gt;</code> sits as a sibling to <code>&lt;teiHeader&gt;</code> and <code>&lt;facsimile&gt;</code> directly inside the root <code>&lt;TEI&gt;</code> element. Inside <code>&lt;text&gt;</code> sits <code>&lt;body&gt;</code>, which holds the primary textual content of the document (excluding front matter like modern title pages or back matter like indexes).</p>
+<p>Inside <code>&lt;body&gt;</code>, you must declare at least one text division using <code>&lt;div&gt;</code>. A <code>&lt;div&gt;</code> represents an organic section of the document: a single poem, a legal decree, a personal letter, or a colonial treaty. </p>
+<p>Crucially, in the TEI grammar enforced by schemas like <code>msdesc.rng</code>, a <code>&lt;div&gt;</code> cannot hold bare character data directly. You cannot simply open <code>&lt;div&gt;</code> and begin typing words. All running text inside a <code>&lt;div&gt;</code> must be enclosed within paragraph containers (<code>&lt;p&gt;</code>) for prose, or line groups (<code>&lt;lg&gt;</code>) and lines (<code>&lt;l&gt;</code>) for poetry. When prompting Gemini, we must ensure it builds this three-tier hierarchy correctly.</p>
+<p><strong>Vocabulary.</strong> <em>Structural container</em> — An XML element whose primary function is to group and organize other elements hierarchically rather than holding bare text directly.</p>
+<p><strong>Takeaway:</strong> In TEI XML, all transcribed text must be housed hierarchically inside text, body, and div containers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Core Structural Containers: text, body, and div</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the required structural hierarchy for containing transcribed running text in a TEI document?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;In TEI XML, all transcribed text must be housed hierarchically inside text, body, and div containers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Running text must be nested inside &amp;lt;text&amp;gt;, &amp;lt;body&amp;gt;, and &amp;lt;div&amp;gt;, and wrapped within &amp;lt;p&amp;gt; for prose or &amp;lt;lg&amp;gt;&amp;lt;l&amp;gt; for verse.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. TEI requires `&lt;text&gt;`, `&lt;body&gt;`, and `&lt;div&gt;` as hierarchical wrappers, and forbids placing bare text directly inside `&lt;div&gt;` without `&lt;p&gt;` or `&lt;lg&gt;&lt;l&gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Running text is typed directly inside the &amp;lt;teiHeader&amp;gt; under the &amp;lt;publicationStmt&amp;gt; container.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The `&lt;teiHeader&gt;` holds metadata about the document, while `&lt;text&gt;` holds the actual transcription.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All words must be wrapped in separate &amp;lt;surface&amp;gt; elements inside the &amp;lt;facsimile&amp;gt; tree.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The `&lt;facsimile&gt;` tree holds image coordinates; textual transcriptions belong in `&lt;text&gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TEI XML forbids using containers and requires all text to sit in an unnested flat sequence of paragraphs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI is inherently hierarchical and enforces structured containment via schemas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Physical Page Milestones: Linking pb to surface</text></name><questiontext format="html"><text><![CDATA[
+<h3>Physical Page Milestones: Linking pb to surface</h3>
+<p>Historical texts are continuous streams of language, but physical documents are bound books, folded sheets, or printed broadsides. To reconcile the continuous flow of language with the physical boundaries of paper, TEI uses empty milestone elements.</p>
+<p>The most fundamental page milestone is <code>&lt;pb/&gt;</code> (page beginning). Because a page break is a single point in space rather than a container that wraps text, <code>&lt;pb/&gt;</code> is an empty element (self-closing). It sits in the transcription stream exactly where the reader turns the page or where the physical leaf begins.</p>
+<p>In Module 3, you created a <code>&lt;surface&gt;</code> element in your <code>&lt;facsimile&gt;</code> block with a unique identifier, such as <code>xml:id="diary_p1"</code> or <code>xml:id="f338r"</code>. The <code>&lt;pb/&gt;</code> element bridges the digital image and the transcription through its <code>@facs</code> attribute:</p>
+<pre><code class="language-xml">&lt;pb facs=&quot;#f338r&quot; n=&quot;1r&quot;/&gt;
+</code></pre>
+<p>The hashtag (#) is mandatory: it turns the attribute value into a URI fragment pointer that links directly to the <code>xml:id</code> on your <code>&lt;surface&gt;</code>. By including <code>&lt;pb facs="#..."/&gt;</code> at the start of your AI prompt rules, you ensure that Gemini anchors its transcription to the specific physical surface you calibrated in Lesson 3.2.</p>
+<p><strong>Vocabulary.</strong> <em>Page break milestone (pb)</em> — An empty XML element that marks the boundary where a new physical page begins in the source document.</p>
+<p><strong>Takeaway:</strong> The empty milestone pb marks page boundaries and connects the transcription to the facsimile image via its facs attribute.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Physical Page Milestones: Linking pb to surface</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the &amp;lt;pb/&amp;gt; element connect transcribed text to the physical image in a TEI document?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The empty milestone pb marks page boundaries and connects the transcription to the facsimile image via its facs attribute.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It uses a self-closing milestone with a @facs attribute containing a hashtag pointer that matches the xml:id of a &amp;lt;surface&amp;gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The `&lt;pb facs="#id"/&gt;` milestone links the point of page transition directly to the corresponding `&lt;surface&gt;` in the `&lt;facsimile&gt;` block.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It encloses all the text of the page inside a closing &amp;lt;/pb&amp;gt; container tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;pb/&gt;` is an empty milestone element in TEI and must never be used as a container.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It downloads a high-resolution JPEG directly from the library server into the browser cache.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;pb/&gt;` is a markup milestone, not an HTTP downloading script.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the previous page's transcription from memory to prevent XML memory overflows.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML parsers retain the full document structure; milestones simply mark physical boundaries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Lineation as Codicological Evidence: lb</text></name><questiontext format="html"><text><![CDATA[
+<h3>Lineation as Codicological Evidence: lb</h3>
+<p>In printed books and manuscripts, line breaks are physical accidents of layout, margins, and script size. A sentence may start on line 4, wrap onto line 5, and conclude on line 6. In a normalized reading edition, these line breaks are usually discarded. In a diplomatic edition, lineation is primary codicological evidence.</p>
+<p>TEI represents physical line breaks using the empty milestone element <code>&lt;lb/&gt;</code>. It is placed at the start of each new physical line (or immediately at the break point). Because it is a milestone, it does not interrupt the grammatical structure of the sentence:</p>
+<pre><code class="language-xml">&lt;p&gt;
+  &lt;lb n=&quot;1&quot;/&gt;When I have fears that I may cease to be
+  &lt;lb n=&quot;2&quot;/&gt;Before my pen has glean'd my teeming brain,
+&lt;/p&gt;
+</code></pre>
+<p>Recording lineation is vital for double-transcription. When comparing two passes, aligning text line by line allows you to detect omitted words instantly. If Person A recorded eight words on line 3 and Person B recorded seven, the diff immediately isolates the missing word. </p>
+<p>When prompting Gemini, we must explicitly demand that it output <code>&lt;lb/&gt;</code> at every physical line break visible on the manuscript. If a model generates a single unformatted prose paragraph, it destroys the physical alignment needed for Friday's diffing lab.</p>
+<p><strong>Vocabulary.</strong> <em>Line break milestone (lb)</em> — An empty XML element that marks the point where a physical line of text ends and the next line begins on the document.</p>
+<p><strong>Takeaway:</strong> Physical line breaks are marked with empty lb milestones, recording scribal lineation without disrupting grammatical sentences.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Lineation as Codicological Evidence: lb</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the empty milestone &amp;lt;lb/&amp;gt; essential in diplomatic transcription?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Physical line breaks are marked with empty lb milestones, recording scribal lineation without disrupting grammatical sentences.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It records the exact physical lineation of the document without breaking the grammatical hierarchy of paragraphs or stanzas.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. `&lt;lb/&gt;` milestones mark where lines physically break on the artifact, providing the alignment grid needed for comparative reconciliation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces web browsers to display text in fixed-width Courier font.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Font styling is controlled by CSS, whereas `&lt;lb/&gt;` records documentary lineation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically calculates the physical width of the manuscript page in millimeters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Bounding dimensions are recorded in `&lt;surface&gt;`, not by line break milestones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It indicates that the author used a typewriter rather than a fountain pen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;lb/&gt;` is used across all media, from stone epigraphs to handwritten letters and printed books.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Marking Physical Ambiguity: unclear</text></name><questiontext format="html"><text><![CDATA[
+<h3>Marking Physical Ambiguity: unclear</h3>
+<p>In historical manuscripts, letterforms are frequently ambiguous. Faded ink, paper foxing, water stains, or erratic cursive handwriting can make it difficult to determine whether a word ends in <code>-ed</code>, <code>-ing</code>, or <code>-eth</code>.</p>
+<p>In diplomatic transcription, an editor never guesses in silence. When you or an AI model encounter a word that cannot be verified with absolute certainty, you wrap the candidate reading in the <code>&lt;unclear&gt;</code> element:</p>
+<pre><code class="language-xml">&lt;p&gt;
+  &lt;lb n=&quot;4&quot;/&gt;paid to the &lt;unclear&gt;treasurer&lt;/unclear&gt; on Tuesday last
+&lt;/p&gt;
+</code></pre>
+<p>The <code>&lt;unclear&gt;</code> element tells downstream readers and computational algorithms: 'A reading is proposed here based on visible traces, but it remains paleographically doubtful.' You can also add attributes like <code>reason="faded"</code> or <code>reason="cramped"</code> to record the physical cause of the doubt.</p>
+<p>When evaluating AI output, watching how the model uses <code>&lt;unclear&gt;</code> is highly revealing. Poorly prompted models rarely admit doubt—they hallucinate high-probability words over blurred text. A well-prompted model will appropriately flag difficult readings with <code>&lt;unclear&gt;</code>, allowing you to review the original ink during reconciliation.</p>
+<p><strong>Vocabulary.</strong> <em>unclear element</em> — A TEI element used to wrap words or characters that cannot be deciphered with certainty due to ink fading, staining, or cramped handwriting.</p>
+<p><strong>Takeaway:</strong> The unclear tag indicates that text is readable but uncertain, documenting genuine paleographical ambiguity without guessing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Marking Physical Ambiguity: unclear</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the scholarly purpose of the TEI &amp;lt;unclear&amp;gt; element in diplomatic markup?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The unclear tag indicates that text is readable but uncertain, documenting genuine paleographical ambiguity without guessing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It flags a proposed reading as paleographically doubtful due to physical degradation or ambiguous handwriting without silently guessing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. `&lt;unclear&gt;` explicitly marks candidate readings as uncertain, preserving the distinction between clear physical evidence and doubtful interpretation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It hides the text from student readers until they complete a Moodle quiz.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;unclear&gt;` is a scholarly transcription tag, not an access control mechanism on a learning management system.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It commands the printer to blur the typography when publishing the critical edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;unclear&gt;` documents manuscript evidence; rendering engines typically represent it with sublinear dots or brackets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It signals that the author was suffering from temporary memory loss when composing the text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The tag records visual illegibility on the witness, not the psychological state of the historical author.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Recording Physical Loss: gap</text></name><questiontext format="html"><text><![CDATA[
+<h3>Recording Physical Loss: gap</h3>
+<p>Sometimes an artifact is not merely stained or faded; it is physically damaged. Wormholes eat through parchment leaves; corners of letters tear away; acidic ink burns holes through paper; moisture obliterates ink strokes completely.</p>
+<p>When text is entirely lost to physical destruction, editors cannot use <code>&lt;unclear&gt;</code> because there is no candidate word to wrap. Instead, TEI provides the empty milestone element <code>&lt;gap/&gt;</code>. It marks a physical lacuna in the document:</p>
+<pre><code class="language-xml">&lt;p&gt;
+  &lt;lb n=&quot;7&quot;/&gt;received from the said &lt;gap reason=&quot;damage&quot; unit=&quot;words&quot; extent=&quot;2&quot;/&gt; upon receipt
+&lt;/p&gt;
+</code></pre>
+<p>A <code>&lt;gap/&gt;</code> element must never be left bare. Scholarly practice requires at least two attributes: <code>@reason</code> (such as <code>reason="damage"</code>, <code>reason="lacuna"</code>, or <code>reason="cancellation"</code>) and an estimate of the loss using <code>@unit</code> and <code>@extent</code> (e.g. <code>unit="chars" extent="5"</code> or <code>unit="words" extent="1"</code>).</p>
+<p>In AI transcription, physical gaps are an acute danger zone. If a document has a torn corner, an unconstrained language model will effortlessly hallucinate text to fill the sentence. Teaching Gemini to output <code>&lt;gap reason="damage"/&gt;</code> over physical lacunae is one of the central achievements of rigorous prompt engineering.</p>
+<p><strong>Vocabulary.</strong> <em>gap element</em> — An empty TEI milestone marking a location where text was omitted from the transcription because of physical destruction, lacunae, or total illegibility.</p>
+<p><strong>Takeaway:</strong> The gap element records physical lacunae or illegible holes where no text can be deciphered, specifying the reason and extent.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Recording Physical Loss: gap</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should an editor encode a physical tear in a manuscript where several words are completely destroyed?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The gap element records physical lacunae or illegible holes where no text can be deciphered, specifying the reason and extent.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Using an empty &amp;lt;gap/&amp;gt; element with attributes specifying the cause and estimated extent of the loss, such as reason="damage" unit="words" extent="3".&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. `&lt;gap&gt;` marks physical text loss where nothing can be deciphered, recording the physical cause and estimated quantity of lost text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By writing three question marks inside a paragraph container.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Informal symbols like '???' are non-standard; TEI provides standardized XML markup via `&lt;gap/&gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By inventing plausible words based on similar 18th-century documents and presenting them as authentic ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Silently supplying words over physical tears violates diplomatic fidelity and creates false historical evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting the line entirely and renumbering the remaining lines on the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic lineation must record the physical reality of the page, including lines interrupted by lacunae.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Poetry vs. Prose: Metrical Lines and Stanzas</text></name><questiontext format="html"><text><![CDATA[
+<h3>Poetry vs. Prose: Metrical Lines and Stanzas</h3>
+<p>A major architectural distinction in TEI is the contrast between prose and verse. Prose flows continuously within paragraph containers (<code>&lt;p&gt;</code>). Poetry, however, possesses metrical structure: it is organized into stanzas, couplets, and metrical lines.</p>
+<p>In TEI, poetry is wrapped in a line group element: <code>&lt;lg&gt;</code>. Each metrical verse line is wrapped in a line element: <code>&lt;l&gt;</code>. </p>
+<p>Crucially, you must distinguish between a metrical line (<code>&lt;l&gt;</code>) and a physical line break (<code>&lt;lb/&gt;</code>). A metrical line is an intellectual, rhythmical unit defined by the poet. A physical line break is an accident of paper width. In Emily Dickinson's poetic manuscripts, Dickinson frequently wrote a single metrical line that was too long for her narrow paper, forcing her pencil to wrap onto a second physical line:</p>
+<pre><code class="language-xml">&lt;lg type=&quot;stanza&quot;&gt;
+  &lt;l n=&quot;1&quot;&gt;&lt;lb n=&quot;1&quot;/&gt;Because I could not stop for Death –&lt;/l&gt;
+  &lt;l n=&quot;2&quot;&gt;&lt;lb n=&quot;2&quot;/&gt;He kindly stopped for me –&lt;/l&gt;
+  &lt;l n=&quot;3&quot;&gt;&lt;lb n=&quot;3&quot;/&gt;The Carriage held but just Ourselves –&lt;lb n=&quot;4&quot;/&gt;and Immortality.&lt;/l&gt;
+&lt;/lg&gt;
+</code></pre>
+<p>Notice line 3: it is one metrical line (<code>&lt;l&gt;</code>), but it contains an internal line break (<code>&lt;lb n="4"/&gt;</code>) where Dickinson wrapped the phrase 'and Immortality.' For prose and culinary witnesses—including Jay's Dickinson cake recipe, Ace's decree, Olyvia's letter, and Andromeda's treaty—<code>&lt;p&gt;</code> containers are used; <code>&lt;lg&gt;</code> and <code>&lt;l&gt;</code> are reserved strictly for verse.</p>
+<p><strong>Vocabulary.</strong> <em>Line group (lg)</em> — A TEI container used to wrap stanzas, couplets, or other verse groupings in poetic transcriptions.</p>
+<p><strong>Takeaway:</strong> Poetry requires line groups (lg) and metrical lines (l), nesting lb milestones where physical margins force a poetic line to wrap.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Poetry vs. Prose: Metrical Lines and Stanzas</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should a transcriber encode a poetic verse line that wraps across two physical lines on narrow manuscript paper?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Poetry requires line groups (lg) and metrical lines (l), nesting lb milestones where physical margins force a poetic line to wrap.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Wrap the entire metrical line in an &amp;lt;l&amp;gt; element, inserting an empty &amp;lt;lb/&amp;gt; milestone at the physical point where the text wraps.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Nesting `&lt;lb/&gt;` inside `&lt;l&gt;` accurately captures both the conceptual poetic verse and the physical lineation of the paper.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Split the poem into two completely separate &amp;lt;div&amp;gt; containers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Stanzas and metrical lines belong within the same division; splitting into divisions corrupts the poem's structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the wrapped words to prevent the poem from overflowing modern smartphone screens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic transcription records all manuscript text regardless of screen display constraints.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace the second line with an &amp;lt;unclear&amp;gt; tag to indicate irregular layout.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Wrapped text is not illegible; it simply reflects physical lineation encoded with `&lt;lb/&gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Layout Complexities: Columns and Marginalia</text></name><questiontext format="html"><text><![CDATA[
+<h3>Layout Complexities: Columns and Marginalia</h3>
+<p>Historical documents rarely follow simple single-column layouts. Printed broadsides and decrees, such as Ace's 1791 French decree or Andromeda's 1752 treaty, frequently organize text into parallel vertical columns. Personal letters and manuscript leaves, such as Olyvia's Maud Lewis letter or Jay's Dickinson recipe leaf, often feature marginal additions, interlinear glosses, or text running sideways along the edge of the leaf.</p>
+<p>When transcribing multi-column documents, transcribers use column break milestones: <code>&lt;cb n="1"/&gt;</code> and <code>&lt;cb n="2"/&gt;</code>. </p>
+<p>The most common failure mode for automated vision models on multi-column pages is horizontal reading order confusion. An unguided AI model reads horizontally across the page, concatenating line 1 of Column 1 with line 1 of Column 2 into a single nonsensical sentence. </p>
+<p>In scholarly editing, columns must be transcribed in their logical reading order: Column 1 from top to bottom, followed by Column 2 from top to bottom. When dealing with marginal additions, TEI provides elements like <code>&lt;add place="margin"&gt;</code>, allowing transcribers to anchor floating text to its physical location. When prompting Gemini, we must ensure it understands the column flow of the document.</p>
+<p><strong>Vocabulary.</strong> <em>Column break (cb)</em> — An empty TEI milestone element marking the boundary between adjacent vertical text columns on a page.</p>
+<p><strong>Takeaway:</strong> Complex page layouts like multiple columns require empty milestones like cb to preserve sequential reading order.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Layout Complexities: Columns and Marginalia</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is a frequent reading order error committed by automated vision models on multi-column historical documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Complex page layouts like multiple columns require empty milestones like cb to preserve sequential reading order.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Reading horizontally across both columns simultaneously, merging unrelated lines from separate columns into garbled sentences.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Automated models frequently read across margins horizontally rather than transcribing Column 1 completely before proceeding to Column 2.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting the right-hand column because it assumes the text is a duplicate photocopy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models do not delete columns; they typically misread the spatial sequence of lines across columns.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inverting the language of the second column from French to Latin automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Column layout errors involve reading order and spatial sequence, not automatic language translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Refusing to parse any page that contains more than twenty-five words per column.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Large vision models readily process dense pages containing hundreds of words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Introduction to VS Code Antigravity</text></name><questiontext format="html"><text><![CDATA[
+<h3>Introduction to VS Code Antigravity</h3>
+<p>In this course, we do not use third-party web portals or external commercial chat interfaces for our transcription work. All work takes place directly inside Visual Studio Code using the Antigravity extension.</p>
+<p>Antigravity integrates modern multimodal models (including Gemini 3.1 Pro and Gemini 3.8 Flash) directly into your local development environment. This integration offers three major scholarly advantages:</p>
+<ol>
+<li>Workspace Awareness: Antigravity operates directly inside your local git repository. It can see your schema files (<code>msdesc.rng</code>), your project directory structure, and your local image files.</li>
+<li>Multimodal Image Attachment: You can drag and drop high-resolution archival photographs directly into the chat interface or reference them by relative file paths (e.g. <code>images/yourpage.jpg</code>).</li>
+<li>Clean Code Emission: Antigravity is built specifically for code and markup engineering. It excels at emitting pure, syntax-highlighted XML blocks without the conversational conversational clutter typical of consumer web chatbots.</li>
+</ol>
+<p>By running Gemini inside VS Code Antigravity, you keep your entire scholarly workflow unified: prompt authoring, model generation, file creation, schema validation, and git commits all happen in one window.</p>
+<p><strong>Vocabulary.</strong> <em>VS Code Antigravity</em> — An advanced AI-assisted coding and agentic environment integrated into Visual Studio Code, enabling direct multimodal interaction with codebase files and images.</p>
+<p><strong>Takeaway:</strong> The Antigravity extension in VS Code connects multimodal Gemini models directly to your workspace repository and local document images.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Introduction to VS Code Antigravity</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is a key advantage of using the Antigravity extension in VS Code for scholarly transcription rather than an external web chat interface?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Antigravity extension in VS Code connects multimodal Gemini models directly to your workspace repository and local document images.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It operates directly within your local project repository, allowing direct multimodal image attachment and immediate local schema validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Working inside VS Code Antigravity keeps image assets, prompt interaction, XML output, schema validation, and Git version control in a unified workflow.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It bypasses university network firewalls to access restricted darknet manuscript repositories.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Antigravity operates on your local workspace files using standard authorized API connections.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It guarantees that the AI model will never make a paleographical error on handwritten text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. No model or interface is error-free; Antigravity provides the toolchain to audit and reconcile errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically converts all XML files into proprietary Microsoft Word docx binaries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Antigravity works with open, standard text and XML formats.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Preparing Your Workspace and Witness Image</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing Your Workspace and Witness Image</h3>
+<p>Before launching any AI prompt, a scholarly editor ensures that their digital workbench is orderly. A disorganized working tree leads to confusion about which file contains which pass.</p>
+<p>First, check your project repository in VS Code. Open the Terminal panel (<code>Ctrl + ~</code> or <code>Cmd + ~</code>) and verify that your high-resolution page image is present inside the <code>images/</code> directory:</p>
+<pre><code class="language-bash">ls -la images/
+</code></pre>
+<p>You should see your primary witness image—for example, <code>images/diary_p1.jpg</code>, <code>images/am338_p1.jpg</code>, or <code>images/decree_1791.jpg</code>. </p>
+<p>Second, run <code>git status</code>. Ensure that your manual transcription work from last week is safely committed to <code>witness.xml</code>. If you have uncommitted edits, stage and commit them now:</p>
+<pre><code class="language-bash">git commit -am &quot;Pre-reconciliation: manual diplomatic transcription finalized&quot;
+</code></pre>
+<p>Having a clean git commit creates an immutable reference point. If anything goes wrong during today's AI experiments, your manual ground truth remains completely protected in your repository history. Now you are ready to open Antigravity and attach your image.</p>
+<p><strong>Vocabulary.</strong> <em>Working tree</em> — The local directory of project files on your computer managed by Git, containing your source documents, images, and markup.</p>
+<p><strong>Takeaway:</strong> Before prompting the model, verify that your high-resolution witness image is correctly placed in images/ and that your repository is clean.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Preparing Your Workspace and Witness Image</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must you verify that your manual transcription is committed in Git before running an AI transcription prompt?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Before prompting the model, verify that your high-resolution witness image is correctly placed in images/ and that your repository is clean.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Committing creates a permanent snapshot of your manual baseline in version control, ensuring it cannot be accidentally overwritten or lost.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A clean Git commit protects your Pass 1 manual ground truth before generating Pass 2 with an AI model.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Antigravity extension refuses to launch if uncommitted files exist in the workspace.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Antigravity runs regardless, but committing protects your scholarly labor from accidental overwrites.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Git requires all images to be converted into SVG vectors before text transcription can begin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git tracks raster images (JPEG, PNG, TIFF) as binary files without requiring vector conversion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Uncommitted XML files will cause the computer's CPU to overheat during multimodal inference.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Uncommitted files have no effect on hardware temperatures or API inference execution.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Anatomy of a Paleographical Prompt</text></name><questiontext format="html"><text><![CDATA[
+<h3>Anatomy of a Paleographical Prompt</h3>
+<p>Prompt engineering in the digital humanities is not about casual conversation; it is about defining formal technical specifications. A model responds to the constraints you construct. If you simply ask Gemini, 'What does this page say?', it will return a chatty, modern English summary with casual remarks about historical context.</p>
+<p>An effective paleographical prompt consists of three distinct anatomical components:</p>
+<ol>
+<li>Scholarly Persona: Assign the model a clear professional role. 'You are an expert paleographer and scholarly text encoder specializing in 18th-century diplomatic manuscript transcription.'</li>
+<li>Grammatical Scope: Specify the exact XML element vocabulary allowed in the output. Explicitly list <code>&lt;text&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;pb&gt;</code>, <code>&lt;lb/&gt;</code>, <code>&lt;unclear&gt;</code>, and <code>&lt;gap&gt;</code> (along with <code>&lt;lg&gt;</code> and <code>&lt;l&gt;</code> for verse).</li>
+<li>Documentary Invariants: Define what must be preserved without alteration—original spelling, capitalization, punctuation, and physical line breaks.</li>
+</ol>
+<p>By structuring your prompt with these three pillars, you transform an open-ended conversational chatbot into a focused, deterministic transcription engine.</p>
+<p><strong>Vocabulary.</strong> <em>System prompt</em> — The overarching set of instructions and persona constraints given to an AI model to govern its behavior and output formatting.</p>
+<p><strong>Takeaway:</strong> An effective paleographical prompt establishes a scholarly persona, defines exact permitted XML tags, and sets strict transcription rules.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Anatomy of a Paleographical Prompt</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the three essential components of a rigorous paleographical prompt for automated document transcription?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An effective paleographical prompt establishes a scholarly persona, defines exact permitted XML tags, and sets strict transcription rules.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A defined scholarly persona, an explicit list of permitted XML elements, and clear rules governing documentary invariants.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Establishing a professional role, constraining the XML element vocabulary, and enforcing documentary fidelity ensures reliable diplomatic output.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A request for polite conversation, a list of student names, and an offer of academic co-authorship.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prompts must be formal technical specifications, not conversational pleasantries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A mandate to translate the text into modern Latin, German, and French simultaneously.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic transcription preserves the original language of the witness artifact.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An instruction to delete all vowels to compress the output for low-bandwidth cellular modems.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic fidelity requires transcribing every character exactly as inked on the page.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Negative Constraints: Forbidding Editorial Smoothing</text></name><questiontext format="html"><text><![CDATA[
+<h3>Negative Constraints: Forbidding Editorial Smoothing</h3>
+<p>In prompt engineering, what you forbid is often more important than what you request. Because multimodal LLMs have an overwhelming statistical prior toward generating modern, standard English prose, positive instructions alone ('transcribe faithfully') are rarely sufficient to stop them from smoothing archaic text.</p>
+<p>To keep the model within strict diplomatic boundaries, you must employ explicit <strong>negative constraints</strong>. A negative constraint directly commands the model to suppress a specific automated reflex:</p>
+<ul>
+<li>'Do NOT modernize or normalize archaic spelling (e.g. preserve ye, Janry, hath, loix).'</li>
+<li>'Do NOT expand scribal abbreviations or contractions (e.g. keep &amp;c., Govr, honble as written).'</li>
+<li>'Do NOT correct historical punctuation, grammatical errors, or typos.'</li>
+<li>'Do NOT use editorial elements like <code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>, <code>&lt;reg&gt;</code>, <code>&lt;abbr&gt;</code>, or <code>&lt;expan&gt;</code>.'</li>
+</ul>
+<p>Negative constraints act like guardrails along a mountain road. They actively prevent the model's autoregressive decoders from sliding down the high-probability path of modern linguistic standardization. When you test your prompt today, check whether your negative constraints successfully held the model to historical reality.</p>
+<p><strong>Vocabulary.</strong> <em>Negative constraint</em> — A prompt instruction that explicitly specifies what an AI model must NOT do, preventing common default behaviors.</p>
+<p><strong>Takeaway:</strong> Negative constraints are critical to suppress the model's natural tendency to modernize spelling and expand abbreviations.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Negative Constraints: Forbidding Editorial Smoothing</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are explicit negative constraints necessary when prompting an AI model for diplomatic transcription?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Negative constraints are critical to suppress the model's natural tendency to modernize spelling and expand abbreviations.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They actively suppress the model's statistical tendency to modernize spelling, expand abbreviations, and correct historical grammar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Because LLMs naturally default to standard modern language, negative constraints are required to enforce historical fidelity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They instruct the GPU to run in reverse, reducing electrical power consumption by half.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Negative constraints are linguistic directives for the model, not electrical hardware instructions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They prevent the XML parser from reporting errors when an unclosed tag is detected.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML parsers strictly enforce syntax; negative constraints govern the text emitted by the AI model.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They ensure that the model deletes all punctuation marks to conform to biblical scriptio continua.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic transcription preserves historical punctuation as written.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Enforcing Clean, Parseable XML Output</text></name><questiontext format="html"><text><![CDATA[
+<h3>Enforcing Clean, Parseable XML Output</h3>
+<p>When you interact with an AI model, its default conversational behavior is to wrap code in markdown fences and precede it with conversational filler: 'Sure! Here is the diplomatic transcription of the page you attached: ... I hope this was helpful! Let me know if you need anything else.'</p>
+<p>In an automated workflow, conversational filler is friction. You cannot save markdown banter directly into an XML file; it will crash the XML parser with syntax errors.</p>
+<p>To eliminate this friction, include strict output formatting directives in your prompt:</p>
+<ul>
+<li>'Return ONLY the clean, well-formed TEI XML block.'</li>
+<li>'Do NOT include conversational introductions, markdown explanations, or post-transcription commentary.'</li>
+<li>'Ensure all tags are properly closed and all entity references are valid.'</li>
+</ul>
+<p>When Gemini obeys this constraint, its entire response in the Antigravity chat panel will be a single, pure XML element tree starting with <code>&lt;text&gt;</code> and ending with <code>&lt;/text&gt;</code>. You can copy the entire block with one click or direct Antigravity to write it straight to <code>transcription_ai.xml</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Parseable output</em> — Computer-generated text that conforms strictly to syntax rules so that software can read it directly without manual cleaning.</p>
+<p><strong>Takeaway:</strong> Instruct the model to emit only valid XML without conversational markdown filler so the output can be saved directly as a file.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Enforcing Clean, Parseable XML Output</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the operational benefit of instructing an AI model to return 'ONLY the clean, well-formed XML block'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Instruct the model to emit only valid XML without conversational markdown filler so the output can be saved directly as a file.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It eliminates conversational conversational filler and markdown text that would otherwise cause syntax errors when saved to an XML file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Demanding pure XML ensures the generated text can be saved and parsed immediately without tedious manual cleaning.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It encrypts the transcription using military-grade AES-256 security algorithms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Clean XML output is human-readable plain text, not encrypted ciphertext.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the model to run five times faster by skipping all neural network layers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The prompt constrains output formatting; it does not alter neural network architecture.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically translates the document into machine-executable binary assembly code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model outputs TEI XML markup, not binary machine code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Cohort Case Study: Jay and Dickinson's Recipe Script</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Case Study: Jay and Dickinson's Recipe Script</h3>
+<p>To see how these principles operate on real historical witnesses, we examine our four student projects. For Jay, the witness is Emily Dickinson's autograph culinary manuscript, "Recipe for Black Cake" (Houghton Library MS Am 1118.7, JL 835a). Dickinson's culinary hand presents three major challenges for multimodal vision:</p>
+<ol>
+<li>Numerals and Fractions: The recipe contains fractions and quantities (<code>19 Eggs</code>, <code>1 1/2 Currants</code>, <code>1/2 pint Brandi</code>). Watch how Gemini transcribes historical numbers. Does it mistake a looped <code>19</code> for <code>12</code>, or drop whole numbers in mixed fractions like <code>1 1/2</code>?</li>
+<li>Idiosyncratic Dashes and Tildes: Dickinson separated ingredients and steps with variable horizontal strokes, hyphens, and tilde-like marks (e.g. <code>2 Sugar-</code>, <code>Cloves ~ Mace-</code>). Does Gemini capture these distinct marks, or normalize them all into modern commas or standard hyphens?</li>
+<li>List Lineation vs. Narrative Prose: The leaf transitions from an ingredient inventory into narrative baking instructions (<code>Beat Butter and sugar together -</code>). Jay must verify that Gemini preserves physical line breaks (<code>&lt;lb/&gt;</code>) across both sections within <code>&lt;p&gt;</code>, rather than attempting to wrap items in poetic stanzas (<code>&lt;lg&gt;</code>).</li>
+</ol>
+<p>Whatever Gemini proposes, Jay must not correct it yet! Save Gemini's raw choices into <code>transcription_ai.xml</code>. Finding where the machine struggled with Dickinson's numerals and punctuation strokes is the exact goal of Friday's diff.</p>
+<p><strong>Vocabulary.</strong> <em>Culinary manuscript</em> — A handwritten domestic recipe or formula, characterized by ingredient lists, physical quantities, and informal punctuation strokes.</p>
+<p><strong>Takeaway:</strong> On Dickinson's recipe manuscript, verify whether Gemini preserves historical numerals, fractions, and idiosyncratic dash punctuation within prose containers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Cohort Case Study: Jay and Dickinson's Recipe Script</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When transcribing Emily Dickinson's autograph recipe for Black Cake (MS Am 1118.7) with Gemini, what specific visual feature requires careful inspection?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;On Dickinson's recipe manuscript, verify whether Gemini preserves historical numerals, fractions, and idiosyncratic dash punctuation within prose containers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Her historical numerals and mixed fractions (such as 19 Eggs or 1 1/2 Currants) and variable punctuation strokes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Dickinson's distinct numeral loops, fractions, and idiosyncratic dash punctuation provide key tests for multimodal transcription models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Her use of fourteenth-century Carolingian minuscule script.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dickinson wrote in a distinctive nineteenth-century American cursive hand, not medieval minuscule.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The gold leaf illumination applied to the initial capital letters of her stanzas.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dickinson wrote on everyday paper and stationery without gold illumination.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Greek marginal glosses written by her publisher in the left margin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dickinson's manuscript recipe does not feature Greek marginal glosses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Cohort Case Study: Ace and Revolutionary Typography</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Case Study: Ace and Revolutionary Typography</h3>
+<p>For Ace, the project witness is a printed French Revolutionary decree from 1791 (Archives nationales série D, Comité des décrets). A printed document might seem simpler than cursive handwriting, but 18th-century French legal printing introduces distinct challenges:</p>
+<ol>
+<li>The Historical Long-s (ſ): In 1791, French printers still used the medial long-s (<code>ſ</code>) in words like <code>aſſemblée</code> or <code>ſerment</code>. An unguided language model will almost certainly 'correct' these to modern standard <code>s</code>. Ace must inspect <code>transcription_ai.xml</code> to see whether Gemini preserved the historical glyph <code>ſ</code> or normalized it.</li>
+<li>Two-Column Layout: The decree is printed in two parallel vertical columns. Ace must verify that Gemini transcribed down Column 1 completely before beginning Column 2, rather than reading horizontally across the central rule.</li>
+<li>Legal Colophons: The foot of the decree contains printer information, dates, and names of legislative commissioners. Ace must ensure these lines are captured inside <code>&lt;p&gt;</code> blocks with <code>&lt;lb/&gt;</code> milestones.</li>
+</ol>
+<p>Observing whether the model preserves <code>ſ</code> or collapses it to <code>s</code> provides Ace with direct empirical evidence of autoregressive smoothing for Friday's report.</p>
+<p><strong>Vocabulary.</strong> <em>Long-s (ſ)</em> — An archaic letterform of the lowercase letter 's' commonly used in printing before the early nineteenth century.</p>
+<p><strong>Takeaway:</strong> On French Revolutionary printed decrees, check whether Gemini preserves historical long-s glyphs and follows multi-column reading order.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Cohort Case Study: Ace and Revolutionary Typography</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What historical typographic feature should Ace specifically look for in Gemini's transcription of the 1791 French decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;On French Revolutionary printed decrees, check whether Gemini preserves historical long-s glyphs and follows multi-column reading order.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Whether the model preserved the historical printed long-s (ſ) or silently modernized it to a standard 's'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The long-s (`ſ`) is a classic indicator of whether a vision model respected historical typography or applied modern autoregressive smoothing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the decree was printed in Cyrillic letters by Russian printers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The 1791 decree is a French legal document printed in Latin typography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the paper contains embedded magnetic barcodes for automated sorting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Magnetic barcodes were invented in the twentieth century and do not exist on eighteenth-century paper.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether all French nouns were automatically translated into German legal terminology.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model should transcribe the French text as printed without translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Cohort Case Study: Olyvia and Folk-Art Cursive</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Case Study: Olyvia and Folk-Art Cursive</h3>
+<p>For Olyvia, the witness is a personal handwritten letter by Nova Scotia folk artist Maud Lewis (1903–1970). Maud Lewis lived with severe rheumatoid arthritis, which shaped her physical hand and script. Her letters feature distinct characteristics:</p>
+<ol>
+<li>Vernacular and Colloquial Spelling: Maud Lewis wrote with lively, informal, and phonetic spelling typical of rural mid-20th-century Nova Scotia. She was not writing an academic treatise. An AI model trained on formal prose will constantly attempt to 'fix' her grammar and spelling. Olyvia must check whether Gemini respected Maud's authentic voice.</li>
+<li>Baselines and Word Spacing: Due to physical constraints in her hands, Maud's letter baselines drift across the page, and word spacing can be irregular. Does Gemini correctly recognize word boundaries, or does it fuse words together?</li>
+<li>Faded Ink and Creases: The letter was folded into an envelope and exhibits ink fading along creases. Olyvia must verify whether Gemini appropriately used <code>&lt;unclear&gt;</code> or <code>&lt;gap&gt;</code> over faded ink, or if it hallucinated words over illegible spots.</li>
+</ol>
+<p>Olyvia's reconciliation report on Friday will center on defending Maud's authentic vernacular handwriting against machine smoothing.</p>
+<p><strong>Vocabulary.</strong> <em>Vernacular orthography</em> — Informal, phonetic, or non-standard spelling used by individuals outside formal institutional or academic settings.</p>
+<p><strong>Takeaway:</strong> On Maud Lewis's handwritten letters, verify that Gemini respects her informal vernacular spelling and marks faded ink with unclear.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Cohort Case Study: Olyvia and Folk-Art Cursive</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When evaluating Gemini's transcription of Maud Lewis's handwritten letter, what is Olyvia's primary editorial concern?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;On Maud Lewis's handwritten letters, verify that Gemini respects her informal vernacular spelling and marks faded ink with unclear.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Ensuring the model did not 'correct' Maud's authentic vernacular spelling and grammar into standardized formal English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Preserving vernacular orthography against automated grammatical smoothing is critical to maintaining documentary fidelity for folk artists.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Checking whether Maud Lewis used medieval Latin abbreviations in her signatures.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Maud Lewis was a twentieth-century Canadian folk artist writing in English, not Latin.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Verifying that all words were typed using a standard mechanical Remington typewriter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The witness is an authentic handwritten manuscript letter, not a typewritten document.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ensuring that the model calculated the chemical acidity of the envelope paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multimodal transcription extracts text and layout; chemical analysis is a physical lab procedure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Cohort Case Study: Andromeda and Treaty Structure</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Case Study: Andromeda and Treaty Structure</h3>
+<p>For Andromeda, the witness is the Peace and Friendship Treaty of 1752, concluded between Governor Peregrine Thomas Hopson and Chief Jean-Baptiste Cope of the Mi'kmaq (Nova Scotia Archives RG 1 vol 430 no 2). This colonial legal instrument presents complex codicological features:</p>
+<ol>
+<li>Official Legal Formulae: The treaty opens with grand 18th-century diplomatic titles and legal declarations ('Treaty or Articles of Peace and Friendship made and concluded...'). Capitalization is heavy and deliberate. Andromeda must check whether Gemini preserved these capitalized legal nouns.</li>
+<li>Bilingual Columns: The printed broadside contains parallel English and French columns. Andromeda must ensure that Gemini transcribed the target column accurately without jumping between languages mid-sentence.</li>
+<li>Totem / Mark Representation: Chief Cope did not sign with an alphabetic signature; the treaty records his totem mark (a representation of a totem figure). How does a vision model handle non-alphabetic marks? Does it omit the mark, describe it in words, or flag it?</li>
+</ol>
+<p>Andromeda's evaluation on Friday will examine how digital tools handle cross-cultural legal instruments and non-alphabetic attestations.</p>
+<p><strong>Vocabulary.</strong> <em>Parallel text</em> — A document layout in which two different language versions or textual recensions are presented side-by-side on the same page.</p>
+<p><strong>Takeaway:</strong> On the 1752 Peace and Friendship Treaty broadside, check bilingual column boundaries and representations of Chief Cope's totem mark.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Cohort Case Study: Andromeda and Treaty Structure</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What unique challenge does the 1752 Peace and Friendship Treaty present to an AI transcription model?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;On the 1752 Peace and Friendship Treaty broadside, check bilingual column boundaries and representations of Chief Cope's totem mark.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Capturing bilingual parallel columns, 18th-century legal capitalization, and non-alphabetic totem marks like Chief Cope's sign.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Colonial treaties combine formal legal typography, parallel bilingual layouts, and non-alphabetic cultural marks that challenge automated models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Transcribing ancient Egyptian hieroglyphic cartouches in the preamble.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The 1752 treaty is a colonial North American document in English and French, not Egyptian hieroglyphs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Resolving digital watermarks embedded by modern television broadcast networks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty is an archival document preserved in the Nova Scotia Archives.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translating the entire document into hexadecimal computer code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The transcription task produces TEI XML text, not binary hexadecimal code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Creating the Independent File: transcription_ai.xml</text></name><questiontext format="html"><text><![CDATA[
+<h3>Creating the Independent File: transcription_ai.xml</h3>
+<p>Once Gemini finishes generating the transcription in the Antigravity chat panel, you must save it into your repository as an independent artifact. </p>
+<p>In the VS Code file explorer (or via the Terminal), create a new file in your project root named <code>transcription_ai.xml</code>:</p>
+<pre><code class="language-bash">touch transcription_ai.xml
+</code></pre>
+<p>Open <code>transcription_ai.xml</code> in the editor. Copy the entire XML output from the Antigravity chat and paste it into the file. If Antigravity generated a full TEI wrapper with <code>&lt;teiHeader&gt;</code>, ensure the header metadata is present; if it emitted only <code>&lt;text&gt;</code>, you can wrap it in the minimal TEI root skeleton matching your project.</p>
+<p>The absolute golden rule of this phase is: <strong>NEVER overwrite witness.xml.</strong> </p>
+<p>Your <code>witness.xml</code> holds your manual Pass 1. Today's file <code>transcription_ai.xml</code> holds your machine Pass 2. If you paste the AI text into <code>witness.xml</code>, you destroy your manual work and eliminate the possibility of diffing the two passes on Friday. Both files must exist independently side-by-side in your repository.</p>
+<p><strong>Vocabulary.</strong> <em>transcription_ai.xml</em> — The dedicated local file in your repository containing the raw, unedited AI diplomatic transcription generated by Gemini.</p>
+<p><strong>Takeaway:</strong> Save the model's raw output into transcription_ai.xml, keeping it strictly separate from your manual witness.xml file.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Creating the Independent File: transcription_ai.xml</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must Gemini's transcription be saved to transcription_ai.xml rather than being pasted into witness.xml?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Save the model's raw output into transcription_ai.xml, keeping it strictly separate from your manual witness.xml file.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Pasting into witness.xml would overwrite and destroy your manual Pass 1, making it impossible to diff the two passes during Friday's reconciliation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Double-transcription requires preserving both independent passes in separate files so they can be compared and adjudicated.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;VS Code limits all files named witness.xml to a maximum file size of twenty kilobytes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code has no arbitrary 20 KB limit on file names; the requirement is methodological.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Git will automatically delete your repository if two files contain similar paragraph elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git handles similar and diverging files smoothly; that is the core purpose of version control.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema prohibits any file from having the word 'witness' in its name.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File names are arbitrary operating system labels; schemas validate XML content.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: XML Entity Escaping: The Bare Ampersand Trap</text></name><questiontext format="html"><text><![CDATA[
+<h3>XML Entity Escaping: The Bare Ampersand Trap</h3>
+<p>The moment you paste Gemini's output into <code>transcription_ai.xml</code>, look at the VS Code editor window. Do you see red squiggly underlines? Look at the Problems panel (<code>Ctrl + Shift + M</code> or <code>Cmd + Shift + M</code>).</p>
+<p>The most common syntax error produced by AI models in diplomatic transcription is the <strong>bare ampersand trap</strong>. In 18th- and 19th-century English, the ampersand was universally used in abbreviations like <code>&amp;c.</code> (for <em>et cetera</em>), <code>Mr. &amp; Mrs.</code>, or <code>Smith &amp; Co.</code>. </p>
+<p>In XML, however, the ampersand (<code>&amp;</code>) is a reserved delimiter used exclusively to open entity references (like <code>&amp;amp;</code>, <code>&amp;lt;</code>, or <code>&amp;gt;</code>). When an XML parser encounters a bare ampersand followed by a letter (like <code>&amp;c.</code>), it assumes you are calling an entity named <code>&amp;c;</code>. Because <code>c</code> is not a defined entity, the parser crashes with a fatal fatal syntax error: 'The entity name must immediately follow the &amp; in the entity reference.'</p>
+<p>To fix this, every literal ampersand in the text must be escaped as <code>&amp;amp;</code>:</p>
+<pre><code class="language-xml">&lt;p&gt;paid for bread &amp;amp;c. on Tuesday&lt;/p&gt;
+</code></pre>
+<p>Scanning for and fixing raw ampersands is the first diagnostic step in validating your AI pass.</p>
+<p><strong>Vocabulary.</strong> <em>Entity escaping</em> — The practice of replacing reserved characters in XML (like <code>&amp;</code> and <code>&lt;</code>) with predefined entity references (like <code>&amp;amp;</code> and <code>&amp;lt;</code>).</p>
+<p><strong>Takeaway:</strong> In XML, bare ampersands are syntax errors; all literal ampersands like '&amp;c.' must be escaped as <code>&amp;amp;c.</code></p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: XML Entity Escaping: The Bare Ampersand Trap</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does an AI transcription containing the historical abbreviation '&amp;c.' produce an XML syntax error?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;In XML, bare ampersands are syntax errors; all literal ampersands like '&amp;c.' must be escaped as `&amp;amp;c.`&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The ampersand is a reserved XML delimiter, so literal ampersands must be written as the entity reference &amp;amp;amp;c.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. In XML, bare ampersands are reserved for entity references; writing a literal '&amp;' without escaping it as `&amp;amp;` causes a fatal parse error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The letter 'c' is forbidden from appearing in TEI documents composed in the 21st century.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All alphabetic characters are valid; the error is caused entirely by the unescaped ampersand delimiter.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema requires the Latin phrase 'et cetera' to be spelled out in full Greek letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI permits historical abbreviations, provided reserved XML characters are properly escaped.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;VS Code's spell checker automatically flags all Latin abbreviations as malicious software viruses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The error is an XML well-formedness syntax error, not an antivirus alert.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Schema Validation Against msdesc.rng</text></name><questiontext format="html"><text><![CDATA[
+<h3>Schema Validation Against msdesc.rng</h3>
+<p>Once syntax errors like bare ampersands are resolved, your file is <em>well-formed</em>. But in TEI scholarly editing, well-formedness is only the first hurdle: your document must also be <em>valid</em> against the project schema.</p>
+<p>In this course, we validate against our vendored RELAX NG schema: <code>labs/msdesc.rng</code>. This schema defines what elements can exist, in what order, and what attributes they may carry.</p>
+<p>Open <code>transcription_ai.xml</code> in VS Code with the Scholarly XML / Red Hat XML extension enabled. At the top of your XML file, ensure the model included the schema association processing instruction, or link it directly:</p>
+<p><code>&lt;?xml-model href="labs/msdesc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?&gt;</code></p>
+<p>Alternatively, you can test the file from the VS Code Terminal using the native command-line tool <code>xmllint</code>:</p>
+<pre><code class="language-bash">xmllint --noout --relaxng labs/msdesc.rng transcription_ai.xml
+</code></pre>
+<p>If the terminal reports <code>transcription_ai.xml validates</code>, your file satisfies the grammatical standards of the course. If errors appear, check the line numbers reported in the Problems panel.</p>
+<p><strong>Vocabulary.</strong> <em>Schema validation</em> — The automated process of checking an XML document against a formal grammar (such as RELAX NG) to ensure structural conformity.</p>
+<p><strong>Takeaway:</strong> Validate transcription_ai.xml against msdesc.rng in VS Code, ensuring all tags follow the TEI grammar to achieve 0 errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Schema Validation Against msdesc.rng</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the difference between an XML file being 'well-formed' and being 'valid' against msdesc.rng?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Validate transcription_ai.xml against msdesc.rng in VS Code, ensuring all tags follow the TEI grammar to achieve 0 errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Well-formed means the XML adheres to basic syntax rules (closed tags, escaped entities); valid means it conforms to the specific TEI grammar defined in the schema.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Any XML file with matching tags and escaped entities is well-formed, but it is only valid if its elements and hierarchy conform to the project schema.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Well-formed files are stored on local hard drives; valid files are stored in cloud data centers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Well-formedness and validity are structural and grammatical properties of the XML code itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Well-formed files contain no spelling errors; valid files contain no punctuation marks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation tests XML element hierarchy and attributes, not natural language spelling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Well-formed files can only be read by Google Chrome; valid files can only be read by Mozilla Firefox.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both properties are vendor-neutral standards evaluated by standard XML parsers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Diagnosing Common AI Structural Errors</text></name><questiontext format="html"><text><![CDATA[
+<h3>Diagnosing Common AI Structural Errors</h3>
+<p>When checking <code>transcription_ai.xml</code> against <code>msdesc.rng</code>, AI models typically commit one of three recurring structural errors:</p>
+<ol>
+<li>Unclosed Milestone Tags: An AI will occasionally emit <code>&lt;lb&gt;</code> or <code>&lt;pb&gt;</code> with a trailing closing tag like <code>&lt;lb&gt;word&lt;/lb&gt;</code>. In TEI, line breaks and page breaks are empty milestones. They must be self-closing: <code>&lt;lb/&gt;</code> and <code>&lt;pb/&gt;</code>.</li>
+<li>Bare Text Inside <code>&lt;div&gt;</code>: An AI frequently forgets paragraph wrappers, outputting text directly inside <code>&lt;div&gt;</code>:</li>
+</ol>
+<pre><code class="language-xml">&lt;!-- INVALID --&gt;
+&lt;div&gt;
+  &lt;lb n=&quot;1&quot;/&gt;To the Honorable Council...
+&lt;/div&gt;
+</code></pre>
+<p>In <code>msdesc.rng</code>, character data inside <code>&lt;div&gt;</code> must be wrapped in <code>&lt;p&gt;</code> (or <code>&lt;lg&gt;&lt;l&gt;</code> for verse):</p>
+<pre><code class="language-xml">&lt;!-- VALID --&gt;
+&lt;div&gt;
+  &lt;p&gt;&lt;lb n=&quot;1&quot;/&gt;To the Honorable Council...&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<ol>
+<li>Hallucinated Element Names: Untuned models sometimes invent plausible-sounding XML tags like <code>&lt;header&gt;</code>, <code>&lt;signature&gt;</code>, or <code>&lt;stanza&gt;</code>. TEI does not have a <code>&lt;stanza&gt;</code> tag—it uses <code>&lt;lg type="stanza"&gt;</code>. </li>
+</ol>
+<p>Diagnosing and fixing these structural container issues ensures your AI pass is ready for computational diffing.</p>
+<p><strong>Vocabulary.</strong> <em>Structural validation error</em> — A schema violation that occurs when elements are improperly nested, misplaced, or unclosed according to the grammar.</p>
+<p><strong>Takeaway:</strong> Common AI structural errors include unclosed milestones, placing bare text in div, and inventing non-existent element names.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Diagnosing Common AI Structural Errors</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should an editor correct an AI-generated TEI block that places running text directly inside a &amp;lt;div&amp;gt; without a paragraph wrapper?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Common AI structural errors include unclosed milestones, placing bare text in div, and inventing non-existent element names.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Wrap the running text and its line break milestones within a &amp;lt;p&amp;gt; element inside the &amp;lt;div&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. In TEI, character data in a `&lt;div&gt;` must be contained within `&lt;p&gt;` for prose or `&lt;lg&gt;&lt;l&gt;` for verse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the &amp;lt;div&amp;gt; element completely and place the text directly inside the &amp;lt;facsimile&amp;gt; container.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Textual transcriptions belong inside `&lt;div&gt;` under `&lt;body&gt;`; `&lt;facsimile&gt;` holds image coordinates.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Change the file extension from .xml to .txt so the schema stops checking the structure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Renaming the file bypasses validation rather than fixing the underlying structural markup error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace all words with &amp;lt;unclear/&amp;gt; tags to satisfy the schema parser.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema rules require valid structural containment, not obfuscation of text content.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Preserving Raw Discrepancies for Friday</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preserving Raw Discrepancies for Friday</h3>
+<p>When reviewing <code>transcription_ai.xml</code>, you will inevitably spot places where Gemini misread a word, skipped a punctuation dash, or normalized a historical spelling.</p>
+<p>Your immediate human instinct will be to correct Gemini's errors: 'Gemini modernized this to January, but the manuscript actually reads Janry—I should correct it to Janry right now.'</p>
+<p><strong>DO NOT DO THIS.</strong> Resist the urge to edit the text!</p>
+<p>You should only fix XML structural syntax errors (like unescaped <code>&amp;amp;</code> or unclosed <code>&lt;lb/&gt;</code>) so that the file validates. You must deliberately leave all of Gemini's paleographical errors, misreadings, and modernizations intact in <code>transcription_ai.xml</code>.</p>
+<p>Why? Because Friday's lab (Meeting #13) is dedicated to diffing and reconciliation. The entire intellectual exercise of Friday is running a comparative diff, locating every discrepancy between your manual pass and the AI pass, and evaluating why the discrepancy occurred. If you fix Gemini's mistakes today, you eliminate the discrepancies, destroying the object of study before the lab even begins. Preserve the raw machine pass in all its flawed glory!</p>
+<p><strong>Vocabulary.</strong> <em>Raw discrepancy</em> — An unedited divergence between two transcription passes that represents a difference in paleographical interpretation.</p>
+<p><strong>Takeaway:</strong> Do not 'fix' paleographical errors in transcription_ai.xml; preserving raw model mistakes is essential for Friday's diffing lab.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Preserving Raw Discrepancies for Friday</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must you avoid correcting paleographical reading mistakes made by Gemini in transcription_ai.xml during today's lab?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Do not 'fix' paleographical errors in transcription_ai.xml; preserving raw model mistakes is essential for Friday's diffing lab.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Preserving the machine's authentic mistakes provides the necessary discrepancies for Friday's comparative diffing and reconciliation lab.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The goal of double-transcription is to compare independent passes; cleaning up the AI's readings beforehand destroys the comparative evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Antigravity API charges a monetary penalty for every character modified after generation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. API costs are incurred during inference generation, not when editing local files on disk.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Modifying text in an AI file causes the Git repository index to corrupt permanently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git tracks all file modifications safely; the restriction is methodological, not technical.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TEI guidelines state that AI models must be legally credited as co-authors on all corrected words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models are computational tools, not legal authors; preserving raw output serves comparative auditing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Committing Pass 2 to Version Control</text></name><questiontext format="html"><text><![CDATA[
+<h3>Committing Pass 2 to Version Control</h3>
+<p>With <code>transcription_ai.xml</code> generated and validated to 0 schema errors, the final operational step of today's session is creating a permanent version control record.</p>
+<p>In scholarly digital editing, provenance is paramount. You must be able to prove to readers and reviewers exactly which text was produced by human calipers and which text was generated by a neural model.</p>
+<p>In the VS Code Terminal, stage your new file:</p>
+<pre><code class="language-bash">git add transcription_ai.xml
+</code></pre>
+<p>Now, commit the file with an informative commit message that documents the model and tool used:</p>
+<pre><code class="language-bash">git commit -m &quot;Step 2: AI diplomatic transcription generated via Gemini in VS Code Antigravity&quot;
+</code></pre>
+<p>Verify your commit by checking the log:</p>
+<pre><code class="language-bash">git log -n 2 --oneline
+</code></pre>
+<p>You should see your manual baseline commit followed by your AI baseline commit. Both independent passes are now frozen in your cryptographic Git history. Neither can be tampered with or confused with the other. You have built the two pillars required for textual reconciliation.</p>
+<p><strong>Vocabulary.</strong> <em>Version control snapshot</em> — An immutable, cryptographically hashed record of file states committed to a Git repository at a specific point in time.</p>
+<p><strong>Takeaway:</strong> Stage and commit transcription_ai.xml to Git, documenting the model parameters and prompt in your commit message.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Committing Pass 2 to Version Control</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is committing transcription_ai.xml to Git with an explicit commit message a vital scholarly practice?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Stage and commit transcription_ai.xml to Git, documenting the model parameters and prompt in your commit message.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It creates an immutable, verifiable record of the AI's independent pass before any reconciliation or editing takes place.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A Git commit establishes provenance, proving that Pass 2 was generated independently before comparative reconciliation began.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It sends an automated invoice to Google Cloud billing to finalize payment for the model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git is a local version control system; it does not communicate with cloud billing systems.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It locks your operating system hard drive to prevent any further typing before Friday.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Version control records project history without locking operating system hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts the XML file into an uneditable PDF document for archival storage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git tracks the text file in its native XML format; it does not convert it to PDF.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Synthesis: Calibrating the Two-Pass Baseline</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesis: Calibrating the Two-Pass Baseline</h3>
+<p>Take a moment to review what you have accomplished across the first half of Week 5. </p>
+<p>You began with a realization rooted in cognitive psychology and editorial theory: no single human pass, no matter how carefully keyed, can serve as an unverified ground truth. Human fatigue and cognitive auto-correction inevitably introduce silent slips.</p>
+<p>To solve this, you applied the principle of double-transcription. Rather than relying on a second human transcriber, you deployed a modern multimodal vision model—Gemini inside VS Code Antigravity. You formulated a disciplined paleographical prompt equipped with negative constraints, forbidding the model from indulging its natural impulse to modernize spelling or expand abbreviations.</p>
+<p>You captured the model's raw output in <code>transcription_ai.xml</code>, fixed syntax issues like bare ampersands, validated the file to 0 schema errors against <code>msdesc.rng</code>, and committed it to Git alongside <code>witness.xml</code>.</p>
+<p>You now hold two independent, fully validated diplomatic transcriptions of the exact same physical artifact. On Friday (Meeting #13), we will open them side by side in VS Code, inspect every discrepancy, and build our third, reconciled consensus text.</p>
+<p><strong>Vocabulary.</strong> <em>Reconciliation baseline</em> — The paired set of independent transcriptions (Pass 1 manual + Pass 2 AI) ready for comparative diffing and consensus adjudication.</p>
+<p><strong>Takeaway:</strong> By establishing two independent, validated diplomatic passes, you have built the foundation for Friday's reconciliation lab.</p>
+<hr />
+<h2>References</h2>
+<p>Bawden, R., Clérice, T., Glaise, A., Pinche, A., &amp; Smith, D. (2026).
+<em>Pre-editorial normalization for automatically transcribed medieval manuscripts in
+Old French and Latin</em> (arXiv:2602.13905). https://arxiv.org/abs/2602.13905</p>
+<p>Haaf, S., Wiegand, F., &amp; Geyken, A. (2013). Measuring the correctness of
+double-keying: Error classification and quality control in a large corpus of
+TEI-annotated historical text. <em>Journal of the Text Encoding Initiative</em>, (4).
+https://doi.org/10.4000/jtei.739</p>
+<p>Peer, M., Scius-Bertrand, A., &amp; Fischer, A. (2025). CTC transcription alignment of
+the Bullinger letters: Automatic improvement of annotation quality. In <em>ICCV
+Workshop Proceedings</em>. IEEE.</p>
+<p>Singh, L. G., &amp; Middleton, S. E. (2025). Tabular context-aware optical character
+recognition and tabular data reconstruction for historical records.
+<em>International Journal on Document Analysis and Recognition, 28</em>.
+https://doi.org/10.1007/s10032-025-00543-9</p>
+<p>TEI Consortium. (2026). <em>TEI P5: Guidelines for electronic text encoding and
+interchange</em>. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/</p>
+<p>van Strien, D., Beelen, K., Ardanuy, M. C., Hosseini, K., McGillivray, B., &amp;
+Colavizza, G. (2020). Assessing the impact of OCR quality on downstream NLP tasks.
+In <em>Proceedings of the 12th International Conference on Agents and Artificial
+Intelligence</em>. INSTICC. https://doi.org/10.5220/0009169004840496</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: Calibrating the Two-Pass Baseline</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the final status of your project repository at the conclusion of Lesson 5.1?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;By establishing two independent, validated diplomatic passes, you have built the foundation for Friday's reconciliation lab.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The repository holds two independent, schema-validated diplomatic passes (witness.xml and transcription_ai.xml) ready for comparative diffing on Friday.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Completing Lesson 5.1 means establishing two independent, validated passes in version control, ready for line-by-line reconciliation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All transcriptions have been merged into a single commercial eBook published on Amazon Kindle.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The project is an academic digital edition in progress, not a commercial eBook release.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All XML files have been permanently deleted to save disk space for Week 6 audio files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both transcription passes are carefully preserved to enable comparative reconciliation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The manuscript image has been permanently erased from library servers following automated transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Source images remain permanently housed in archival repositories; digital editions reference them non-destructively.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

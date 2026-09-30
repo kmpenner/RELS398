@@ -1,1207 +1,647 @@
-# Lesson 5.1 — Double-Keying and Building a Consensus Text
+# Lesson 5.1 — AI Diplomatic Transcription via Gemini in VS Code Antigravity
 
 *RELS 398 / ENGL 398 · Topic 5: Reconciliation · Meeting #12 (Tue Sep 29)*
 
-***Step 1 of a two-step week.** Wednesday September 30 is closed for Truth and
+***Step 1 of a two-step week.** Wednesday September 30 is closed for the National Day for Truth and
 Reconciliation. This week is a two-step week by design: reconciliation is itself
-the comparison, so the missing meeting costs nothing. Today you transcribe your
-folio a second time, independently, and adjudicate the differences into a
-consensus text.*
+the comparison, so the missing meeting costs nothing. Today you generate an independent second transcription of your page using Gemini in VS Code Antigravity under strict diplomatic constraints, preparing for Friday's side-by-side diff.*
 
 ---
 
 ## **01 Content**
 
-**Why the Ground Truth Needs Verifying**
+**Why Single-Pass Transcription Cannot Verify Itself**
 
-Last week you produced a diplomatic transcription and treated it as ground truth.
-Wednesday's HTR model was trained on it; Friday's comparison was scored against
-it. Everything measured in Week 4 assumed it was correct.
+Last week, you transcribed your primary witness page by hand into witness.xml. You sat with the digital image, studied the handwriting or printed typography, and keyed every word into TEI XML. That manual transcription represents substantial scholarly labor, and it serves as your initial ground truth.
 
-It is not entirely correct. No single-pass manual transcription is. The errors are
-few, but they exist, and their existence has three consequences that Week 4's
-measurements silently absorbed.
+However, in scholarly editing, no single-pass transcription is ever accepted as an unquestioned authority. Human eyes are subject to cognitive fatigue, visual strain, and attentional lapses. When you read a document, your brain constantly anticipates what ought to come next. If an 18th-century clerk accidentally repeated a word across a line break, your eye easily skips the repetition. If two letters resemble each other in a cramped cursive script, your brain quietly resolves the ambiguity toward modern English sense.
 
-A correct machine reading at a point where your transcription errs is scored as a
-machine *error*, inflating the measured error rate. A model fine-tuned on the
-flawed reference *learns* the error and reproduces it. And when you reconciled
-differences on Friday, you would have resolved them toward your own reading —
-because the ground truth was, by definition, the reference.
+These slips are not careless mistakes; they are fundamental features of human cognition. Because you are the author of your own transcription, your mind will naturally overlook its own blind spots during a second reading. An unverified reference silently incorporates these errors into every downstream analysis. To measure accuracy honestly, we must acknowledge that a single pass cannot verify itself.
 
-Today addresses this. The established method is **double-keying**: the same source
-transcribed independently twice, the two versions compared computationally, and
-every difference adjudicated to produce a consensus text (Haaf et al., 2013).
+**Vocabulary.** *Single-pass transcription* — A transcription produced by one person in a single reading, without independent cross-checking.
 
-The logic is statistical and elegant. Two independent transcribers are unlikely to
-commit the *same* error at the *same* character position. Where two independent
-passes agree, the reading is very probably correct; where they disagree, an error
-is very probably present in one of them. Disagreement localizes error precisely,
-which is what makes correction efficient rather than exhaustive.
-
-**Vocabulary.** *Double-keying* — independent duplicate transcription followed by
-computational comparison and adjudication. *Consensus text* — the reconciled text
-resulting from that adjudication.
-
-**Takeaway:** Two independent passes rarely err identically, so
-disagreement between them localizes error precisely.
+**Takeaway:** Single-pass transcription inevitably contains silent errors, so it cannot serve as an unverified ground truth reference.
 
 ---
 
 ## **02 Content**
 
-**The Accuracy Double-Keying Achieves**
+**The Principle of Double-Transcription**
 
-The method's reputation rests on measured performance, and the figures are worth
-knowing because they set the standard your own work is measured against.
+To overcome the limits of single-pass human transcription, documentary projects rely on double-transcription (often called double-keying). The foundational principle, formalized by researchers like Haaf, Wiegand, and Geyken (2013), is simple yet statistically powerful: two independent transcribers will rarely commit the exact same error at the exact same character position.
 
-Commercial data entry services employing double-keying routinely guarantee
-character accuracy between 99.95% and 99.98%. The German Research Foundation's
-practical guidelines on digitization stipulate a threshold of 99.997%, which
-yields a corpus that is, in the phrase generally used, virtually error-free (Haaf
-et al., 2013).
+If Person A and Person B both transcribe a historical broadside without consulting each other, they will agree on the vast majority of characters. Where their transcriptions match identically, the probability that the text accurately reflects the manuscript is extremely high. 
 
-| Accuracy | Errors per 100,000 characters | Context |
-| --- | --- | --- |
-| 99.9% | 100 | Common vendor minimum |
-| 99.95% | 50 | Typical commercial double-keying |
-| 99.98% | 20 | High-end commercial double-keying |
-| 99.997% | 3 | DFG digitization guideline |
+Where their transcriptions disagree, an error is almost certainly present in one of the passes. Rather than forcing a scholar to re-read thousands of words from scratch, double-transcription transforms proofreading into an efficient, targeted review. The point of comparison—the diff—acts like a spotlight, highlighting the exact coordinates where human or machine judgment faltered. Disagreement does not represent failure; it localizes the editorial decision precisely where attention is needed.
 
-Put those numbers against your own folio. A twenty-four-line folio of Greek
-minuscule may contain around 1,500 characters. At 99.9% accuracy that is between
-one and two errors on the page; at 99.997% it is a 5% chance of a single error.
-The difference between those two states determines whether Week 5's measurements
-are trustworthy at the precision you will report them.
+**Vocabulary.** *Double-transcription* — The practice of transcribing the same document independently twice to detect errors through comparison.
 
-Note also that these figures come from mass digitization of *printed* text — early
-modern Fraktur, difficult but typographically regular. Manuscript transcription of
-an unfamiliar hand is harder, and single-pass accuracy is correspondingly lower.
-Your first pass is very unlikely to have been at 99.9%.
-
-This is not a reason for discouragement. It is the reason double-keying exists, and
-the reason today's session is a required step rather than an optional refinement.
-
-**Takeaway:** Double-keying reaches 99.95% or better on printed
-text; a single manuscript pass is well below that, which is why today is required.
+**Takeaway:** Comparing two independent transcription passes reliably pinpoints errors because independent observers rarely make the same slip.
 
 ---
 
 ## **03 Content**
 
-**The Non-Native Transcriber Insight**
+**Human vs. Machine: Two Complementary Error Profiles**
 
-One methodological detail of professional double-keying is genuinely
-counter-intuitive and directly useful to you today.
+In traditional commercial digitization, double-keying required hiring two separate human transcribers. In this course, we adapt this methodology to the digital age: Pass 1 is your manual diplomatic transcription, and Pass 2 is an AI transcription generated by Gemini in VS Code Antigravity.
 
-The Deutsches Textarchiv outsourced its primary transcription to **non-native
-speakers** working to a strict double-keying protocol — transcribers who could not
-read German (Haaf et al., 2013). This was deliberate, not a cost measure alone.
+This human-plus-AI pairing is methodologically superior to having the same human type the text twice. When a single human re-keys a document, their second pass often repeats the identical cognitive biases of the first pass. But human editors and neural vision models possess radically different error profiles.
 
-The reasoning: by severing the transcriber's semantic comprehension from their
-visual recognition of graphemes, the method neutralizes the psychological
-phenomenon of auto-correction, in which a reader who understands the text
-unconsciously modernizes a historical spelling or mentally supplies an omitted
-character (Haaf et al., 2013).
+Human transcribers excel at codicological context. You understand that a dark smudge across a line is an ink blot, not a letter; you recognize that faint pencil writing between lines is an authorial revision. However, you are vulnerable to attentional fatigue, skipping repetitive lines or missing punctuation dashes. 
 
-This is the same failure you were warned about in Lesson 4.1 section 10: reading
-what you expect rather than what is written. A transcriber who does not know the
-language cannot make that error, because they have no expectations to impose. Their
-disadvantage — no linguistic knowledge to resolve ambiguity — is precisely their
-advantage.
+Conversely, multimodal vision models never experience physical fatigue or visual eye-strain. A model processes line twenty with the same intensity as line one. However, the model lacks historical consciousness: it may misinterpret broken typography, hallucinate missing words, or silently modernize spelling. Because human and machine fail in completely different ways, their disagreements expose nearly every flaw.
 
-You cannot un-know Greek for today's session. You can approximate the condition:
+**Vocabulary.** *Error profile* — The characteristic patterns and types of mistakes typically made by a specific person, tool, or algorithmic model.
 
-- Do not reread last week's transcription before starting. Independence is the whole point.
-- Transcribe letter by letter rather than word by word, resisting the urge to read.
-- On familiar passages, transcribe backwards from the end of the line.
-- Cover the rest of the line so only the letters you are transcribing are visible.
-- Take breaks; expectation errors increase with fatigue.
-
-The first is the essential one and the most tempting to skip. A second pass
-conducted with the first pass in view is not a second pass; it is proofreading,
-which finds a different and smaller class of error.
-
-**Takeaway:** Professional double-keying uses transcribers who
-cannot read the language, because comprehension causes auto-correction — so do not
-reread your first pass.
+**Takeaway:** Human transcribers and multimodal AI models make completely different types of errors, making them ideal partners for double-transcription.
 
 ---
 
 ## **04 Content**
 
-**Two Classes of Error**
+**The Multimodal Vision Advantage**
 
-Evaluating a transcription requires distinguishing two error classes that behave
-entirely differently, and conflating them is why some quality control fails.
+In earlier decades of digital humanities, computer-assisted transcription was a multi-stage pipeline. A researcher had to pre-process images (deskewing, binarization), train custom optical character recognition (OCR) or handwritten text recognition (HTR) models, manually draw baseline polygons around every line of text, and tune language dictionaries.
 
-**Typographical errors** occur at the character level: omissions, substitutions,
-and insertions of textual content. They are what CER measures, and double-keying
-addresses them directly.
+Today, large multimodal models like Gemini transform this landscape. A multimodal vision model does not merely process an isolated strip of black-and-white pixels. Instead, it examines the entire high-resolution image in its visual context. It simultaneously attends to letterforms, line spacing, margins, indentations, and document layout.
 
-**Structural errors** occur in the XML or TEI markup layer: a failure to capture
-the semantic or physical architecture of the document. Misidentifying a marginal
-note as a primary paragraph, misapplying a speaker tag, or attaching a line break
-to the wrong place are structural errors, and no amount of character-level accuracy
-detects them (Haaf et al., 2013).
+When you send an archival image to Gemini inside the VS Code Antigravity extension, the model evaluates the visual features of the document alongside textual prompts. It can recognize that an italicized block at the top of a page is a heading, that a block of capitalized text is a legal proclamation, or that ragged-right line breaks represent poetic verse. 
 
-| | Typographical | Structural |
-| --- | --- | --- |
-| Occurs in | The character stream | The markup layer |
-| Detected by | Double-keying comparison; CER | Schema validation; Schematron; human review |
-| Example | ἐγένετο for ἐγένοντο | A gloss encoded as body text |
-| Consequence | A wrong reading | The document misrepresents the object |
-| Severity | Localized | Can invalidate downstream processing |
+This visual awareness allows the model to produce structured diplomatic markup directly from the image. However, because multimodal vision models are trained on massive corpora of modern text, their vision is filtered through statistical language prediction, creating unique risks that editors must manage.
 
-The separation is vital: typographical fidelity is meaningless if the structural
-scaffolding renders the text computationally unreadable to parsing algorithms
-(Haaf et al., 2013).
+**Vocabulary.** *Multimodal model* — An artificial intelligence model capable of processing and reasoning across multiple data types, such as text and images simultaneously.
 
-The DTA's experience is instructive here. Their typographical error rate from
-double-keying was vanishingly small, while structural errors — the incorrect
-demarcation of a marginal note, a misapplied speaker tag — required sophisticated
-XML validation schemas such as Schematron and continuous quality control to resolve
-(Haaf et al., 2013). The hard problem was not the characters.
-
-Today addresses both. Double-keying finds your typographical errors; a separate
-structural review finds the encoding ones. Do not assume that agreement on
-characters implies agreement on markup.
-
-**Takeaway:** Double-keying finds character errors and cannot
-find structural ones — perfect characters in wrong markup still misrepresent the
-document.
+**Takeaway:** Modern multimodal vision models analyze high-resolution document images directly without needing separate OCR bounding-box pipelines.
 
 ---
 
 ## **05 Content**
 
-**Running Your Second Pass**
+**The Autoregressive Trap: Silent Modernization**
 
-Do this now, before reading further, because everything after depends on having a
-genuinely independent second transcription.
+While multimodal models possess powerful visual capabilities, their underlying architecture is autoregressive: they generate output by calculating the statistical probability of the next token based on training data. Because the vast majority of their training data consists of modern, standardized English and French, models have a built-in statistical bias toward modern grammar and spelling.
 
-- Open the same folio at the same zoom you used last week.
-- Do **not** open last week's transcription. Do not glance at it.
-- Create a new file: `transcription/f42r_pass2.xml`.
-- Transcribe the full folio, with the same conventions as last week.
-- Encode line breaks, abbreviations, uncertainty, and corrections as before.
-- Mark uncertainty honestly, without trying to recall what you decided last time.
-- Save, validate, and commit before comparing.
+In scholarly editing, this tendency manifests as the autoregressive trap of silent modernization. When an AI model encounters an 18th-century abbreviation like Janry, its language model strongly predicts the common modern token January. When it reads an early modern ye, it frequently emits the. When it sees a historical long-s (ſ), it automatically outputs modern s.
 
-That last step matters procedurally. Commit the second pass *before* looking at the
-first, so the repository records what you produced independently. If you compare
-first and commit afterwards, the committed second pass may have been silently
-influenced, and the independence claim is no longer verifiable.
+For an everyday user asking an AI to summarize a letter, this auto-correction seems helpful. For a scholarly editor preparing a diplomatic edition, silent modernization is a catastrophic failure. A diplomatic edition exists precisely to record historical linguistic variation, scribal habits, and period orthography. 
 
-```text
-feat(transcription): second independent pass, f. 42r
+If an AI silently modernizes your document, it destroys the very historical evidence you are trying to preserve. To prevent this, editors must construct rigorous prompt boundaries that explicitly command the model to suppress its modernization reflex.
 
-Double-keying pass 2. Transcribed without reference to pass 1, at full
-zoom, per the conventions in CONVENTIONS.md. Committed before comparison
-so that independence is verifiable in the history.
+**Vocabulary.** *Silent modernization* — The unintentional replacement of historical spelling or punctuation with modern standard forms by an automated model.
 
-Human-Verified: true
-AI-Generated: false
-```
-
-Expect this pass to be faster than the first. You now know the hand, the
-abbreviations, and the difficult regions. Speed is fine; the failure to guard
-against is transcribing from memory of last week rather than from the image. If you
-find yourself typing a line before reading it, stop and reread the image.
-
-**Takeaway:** Commit the second pass before comparing, so that
-its independence is verifiable in the history rather than merely asserted.
+**Takeaway:** Autoregressive language models naturally smooth archaic words into modern tokens, making strict negative prompt constraints essential.
 
 ---
 
 ## **06 Content**
 
-**Comparing the Two Passes**
+**The Scope of Diplomatic Transcription**
 
-With both passes committed, compare them computationally. Do not compare by eye —
-the differences are exactly the things eyes skip.
+Before prompting Gemini, we must re-anchor ourselves in the scope of diplomatic transcription. A diplomatic transcription is an act of documentary witness: its goal is to record what is physically present on the artifact, without modern editorial intervention.
 
-The simplest comparison uses tools you already have:
+When authoring a diplomatic transcription in TEI XML, you record original letterforms, abbreviations, punctuation marks, line breaks, and page boundaries. You do not correct misspelled words, you do not expand shortened terms, and you do not regularize punctuation. If Emily Dickinson wrote a short dash that resembles a hyphen, you transcribe a dash, not a modern comma. If a colonial treaty clerk omitted a closing quotation mark, you leave it unclosed.
 
-```bash
-git diff --no-index transcription/f42r_pass1.xml transcription/f42r_pass2.xml
-```
+This boundary is crucial because scholarly editing proceeds in stages. You cannot produce a trustworthy modernized reading edition until you have established a rock-solid diplomatic baseline. If you mix transcription with modernization during the first pass, you permanently obscure the physical evidence of the witness. In today's lab, our prompt must command Gemini to operate strictly as a diplomatic transcriber, holding every modernizing impulse in check.
 
-For a line-by-line view that separates textual from structural differences,
-extract the text stream first:
+**Vocabulary.** *Diplomatic transcription* — A precise digital transcription that represents the physical document exactly as written, preserving original spelling, lineation, and physical layout.
 
-```python
-import re, unicodedata
-from pathlib import Path
-
-def lines(path):
-    """Extract (line_number, text) pairs from a TEI transcription."""
-    xml = Path(path).read_text(encoding="utf-8")
-    xml = unicodedata.normalize("NFC", xml)
-    out = []
-    for m in re.finditer(r'<lb n="(\d+)"[^>]*/>(.*?)(?=<lb |</div>)', xml, re.S):
-        text = re.sub(r"<[^>]+>", "", m.group(2)).strip()
-        out.append((m.group(1), text))
-    return out
-
-p1, p2 = lines("transcription/f42r_pass1.xml"), lines("transcription/f42r_pass2.xml")
-for (n1, t1), (n2, t2) in zip(p1, p2):
-    if t1 != t2:
-        print(f"line {n1}\n  pass1: {t1}\n  pass2: {t2}\n")
-```
-
-Note the NFC normalization on input. Without it, two transcriptions typed in
-different sessions may differ in normalization form and report differences at every
-accented character — a false positive that would swamp the real findings. This is
-Lesson 1.2 section 10 arriving in practice again.
-
-Check the line counts first. If the two passes have different numbers of lines, one
-contains a line skip, and you must find and fix it before any line-by-line
-comparison is meaningful.
-
-**Takeaway:** Normalize to NFC before comparing, or every
-accented character reports as a difference — and check line counts before anything
-else.
+**Takeaway:** Diplomatic transcription records what is physically on the page, not what an editor thinks should have been written.
 
 ---
 
 ## **07 Content**
 
-**Reading the Disagreements**
+**Why Normalization Remains Locked Until Week 6**
 
-Every difference between the passes is a place where at least one of them is
-wrong. Adjudicate each one against the image.
+In TEI XML, the vocabulary for editorial intervention is rich and powerful. Elements like `<choice>`, `<orig>`, `<reg>`, `<abbr>`, and `<expan>` allow editors to pair historical spellings with modern equivalents. For instance, you could wrap an abbreviated term in `<choice>`, encoding both the scribal form (`<abbr>&amp;c.</abbr>`) and the editorial expansion (`<expan>et cetera</expan>`).
 
-The procedure for each disagreement:
+However, in this course, we deliberately lock those elements away until Week 6. Why? Because normalization is an interpretive act, whereas transcription is an evidentiary act. 
 
-- Open the line's region using the zone binding from Lesson 3.3.
-- Look at the ink at full zoom. Do not reason from context first.
-- Decide what the manuscript shows.
-- Record the decision and the reason.
-- If it remains genuinely unresolvable, encode `<unclear>` with the alternatives noted.
+If you or the AI introduce normalization during the transcription phase, it becomes impossible to disentangle scribal evidence from editorial conjecture. Did the author really write 'et cetera', or did the machine assume it? Did the 1791 decree print 'loix', or did the model supply modern 'lois'?
 
-Resist two temptations. The first is choosing whichever reading makes better sense
-— that is reasoning from expectation, the failure the whole method exists to
-neutralize. Look at the ink. The second is assuming the first pass was right
-because it was the one you trained on; if anything, the second pass is the better
-informed, since you now know the hand.
+By restricting both your manual pass (Pass 1) and Gemini's AI pass (Pass 2) to pure diplomatic markup, we ensure that both files speak the exact same vocabulary. When we diff them on Friday, every highlighted discrepancy will represent a genuine disagreement about what is inked on the page, not a difference in editorial preference. Normalization begins only after reconciliation is complete.
 
-Categorize as you go, because the categories are diagnostic:
+**Vocabulary.** *Normalization* — The editorial process of standardizing variant historical spellings, expanding abbreviations, or regularizing punctuation for modern readers.
 
-| Disagreement type | Typical cause | What it tells you |
-| --- | --- | --- |
-| Confusable letterforms | Palaeographic similarity in this hand | Add to `HAND.md` |
-| Diacritic present or absent | Faint mark; ambiguous placement | Region may need better imaging |
-| Different accent type | Acute versus grave, contextual | Convention question, not a reading question |
-| Abbreviation read differently | Unfamiliar mark | Add to the abbreviation repertoire |
-| Word division differs | *Scriptio continua* | Convention question |
-| A whole word differs | Expectation error in one pass | The dangerous kind; check carefully |
-| Line skip | Position lost | Fix the alignment first |
-
-The sixth row is the one to slow down for. Where two passes produce entirely
-different words, one of them was almost certainly produced by reading rather than
-seeing — and if the two words are both plausible in context, the ink is the only
-arbiter.
-
-**Takeaway:** Adjudicate by looking at the ink, not by choosing
-the reading that makes better sense — that is the error the method exists to
-neutralize.
+**Takeaway:** Editorial normalization elements like choice, orig, and expan remain locked until Week 6 so we can establish an untainted diplomatic baseline.
 
 ---
 
 ## **08 Content**
 
-**Building the Consensus Text**
+**Core Structural Containers: text, body, and div**
 
-The reconciled result is the **consensus text**, and it should be built as a
-distinct artefact rather than by editing one pass in place.
+Every valid TEI document organizes its transcription inside a rigid structural hierarchy. Just as the physical manuscript contains pages, gatherings, and columns, your XML document organizes text into nested containers.
 
-Create `transcription/f42r_consensus.xml`, and for each line record the adjudicated
-reading. Where both passes agreed, the consensus is that reading. Where they
-disagreed, the consensus is your adjudication. Where adjudication failed, the
-consensus carries `<unclear>` with both candidate readings recorded.
+The outermost container for transcribed content is `<text>`. In the TEI architecture, `<text>` sits as a sibling to `<teiHeader>` and `<facsimile>` directly inside the root `<TEI>` element. Inside `<text>` sits `<body>`, which holds the primary textual content of the document (excluding front matter like modern title pages or back matter like indexes).
 
-Recording an unresolvable disagreement:
+Inside `<body>`, you must declare at least one text division using `<div>`. A `<div>` represents an organic section of the document: a single poem, a legal decree, a personal letter, or a colonial treaty. 
 
-```xml
-<lb n="14" facs="#f42r_l14"/>ἦν ὁ λόγος <choice>
-  <unclear reason="faded" cert="low" resp="#KMP">ἐγένετο</unclear>
-  <unclear reason="faded" cert="low" resp="#KMP">ἐγένοντο</unclear>
-</choice> πρὸς
-```
+Crucially, in the TEI grammar enforced by schemas like `msdesc.rng`, a `<div>` cannot hold bare character data directly. You cannot simply open `<div>` and begin typing words. All running text inside a `<div>` must be enclosed within paragraph containers (`<p>`) for prose, or line groups (`<lg>`) and lines (`<l>`) for poetry. When prompting Gemini, we must ensure it builds this three-tier hierarchy correctly.
 
-This is more honest than choosing. Two independent readings of the same ink
-produced two different results and inspection did not resolve it — that is a fact
-about the evidence, and recording it preserves information that choosing would
-discard. In Week 8 this becomes an apparatus entry; in Week 12 it may become a
-paragraph of commentary.
+**Vocabulary.** *Structural container* — An XML element whose primary function is to group and organize other elements hierarchically rather than holding bare text directly.
 
-Keep all three files. The two passes and the consensus are separate evidence: the
-passes document what independent transcription produced, and the consensus
-documents what adjudication concluded. Deleting the passes once the consensus
-exists destroys the record of how it was reached.
-
-Commit the consensus separately, with a message recording how many disagreements
-were found and how they were resolved.
-
-**Takeaway:** Keep both passes alongside the consensus — the
-passes are the evidence for how the consensus was reached.
+**Takeaway:** In TEI XML, all transcribed text must be housed hierarchically inside text, body, and div containers.
 
 ---
 
 ## **09 Content**
 
-**Inter-Annotator Agreement**
+**Physical Page Milestones: Linking pb to surface**
 
-Having compared two transcriptions, you can quantify how much they agreed — which
-is a statement about the reliability of your ground truth rather than about its
-correctness.
+Historical texts are continuous streams of language, but physical documents are bound books, folded sheets, or printed broadsides. To reconcile the continuous flow of language with the physical boundaries of paper, TEI uses empty milestone elements.
 
-The naive measure is **percentage agreement**: the proportion of positions where
-the two passes match. It is easy to compute and structurally flawed, because it
-takes no account of agreement occurring by chance (Haaf et al., 2013).
+The most fundamental page milestone is `<pb/>` (page beginning). Because a page break is a single point in space rather than a container that wraps text, `<pb/>` is an empty element (self-closing). It sits in the transcription stream exactly where the reader turns the page or where the physical leaf begins.
 
-Chance-adjusted metrics correct for this:
+In Module 3, you created a `<surface>` element in your `<facsimile>` block with a unique identifier, such as `xml:id="diary_p1"` or `xml:id="f338r"`. The `<pb/>` element bridges the digital image and the transcription through its `@facs` attribute:
 
-| Metric | Raters | Handles | Principal limitation |
-| --- | --- | --- | --- |
-| Cohen's kappa | Exactly 2 | Categorical data | Two raters only; kappa paradoxes on skewed data |
-| Fleiss' kappa | More than 2 | Categorical data | Assumes raters drawn at random from a population |
-| Krippendorff's alpha | Any number | Missing data; nominal, ordinal, continuous | Computationally complex; often needs bootstrapping |
+```xml
+<pb facs="#f338r" n="1r"/>
+```
 
-Cohen's kappa compares observed agreement against the agreement expected by chance,
-given each rater's marginal distribution. A value of 1 is perfect agreement; 0 is
-agreement no better than chance (Haaf et al., 2013).
+The hashtag (#) is mandatory: it turns the attribute value into a URI fragment pointer that links directly to the `xml:id` on your `<surface>`. By including `<pb facs="#..."/>` at the start of your AI prompt rules, you ensure that Gemini anchors its transcription to the specific physical surface you calibrated in Lesson 3.2.
 
-Its known weakness matters for manuscript work. Where a phenomenon is rare — a
-specific scribal abbreviation appearing twice on a folio — highly skewed marginals
-inflate the expected chance agreement, so high observed agreement can paradoxically
-produce a low kappa (Haaf et al., 2013). Do not over-interpret a low kappa on rare
-categories.
+**Vocabulary.** *Page break milestone (pb)* — An empty XML element that marks the boundary where a new physical page begins in the source document.
 
-**Krippendorff's alpha** is the most robust for this domain. It computes observed
-against expected *disagreement* rather than agreement, handles any number of
-raters, accommodates missing data — a frequent occurrence when one annotator skips
-a damaged word another attempts — and supports nominal, ordinal, and continuous
-data (Haaf et al., 2013).
-
-**Takeaway:** Percentage agreement ignores chance; use a
-chance-adjusted metric, and prefer Krippendorff's alpha because it handles missing
-data.
+**Takeaway:** The empty milestone pb marks page boundaries and connects the transcription to the facsimile image via its facs attribute.
 
 ---
 
 ## **10 Content**
 
-**Computing Agreement on Your Passes**
+**Lineation as Codicological Evidence: lb**
 
-For your two passes, a practical measure is per-character agreement over aligned
-lines.
+In printed books and manuscripts, line breaks are physical accidents of layout, margins, and script size. A sentence may start on line 4, wrap onto line 5, and conclude on line 6. In a normalized reading edition, these line breaks are usually discarded. In a diplomatic edition, lineation is primary codicological evidence.
 
-```python
-def agreement(a: str, b: str) -> float:
-    """Proportion of positions where two aligned strings match."""
-    import unicodedata
-    a = unicodedata.normalize("NFC", a)
-    b = unicodedata.normalize("NFC", b)
-    if not a and not b:
-        return 1.0
-    matches = sum(1 for x, y in zip(a, b) if x == y)
-    return matches / max(len(a), len(b))
+TEI represents physical line breaks using the empty milestone element `<lb/>`. It is placed at the start of each new physical line (or immediately at the break point). Because it is a milestone, it does not interrupt the grammatical structure of the sentence:
+
+```xml
+<p>
+  <lb n="1"/>When I have fears that I may cease to be
+  <lb n="2"/>Before my pen has glean'd my teeming brain,
+</p>
 ```
 
-Compute it per line and overall. Report both, because the distribution is more
-informative than the mean: agreement of 98% spread evenly across the folio means
-something different from 100% on twenty lines and 75% on four.
+Recording lineation is vital for double-transcription. When comparing two passes, aligning text line by line allows you to detect omitted words instantly. If Person A recorded eight words on line 3 and Person B recorded seven, the diff immediately isolates the missing word. 
 
-| Observation | Interpretation |
-| --- | --- |
-| High agreement throughout | The transcription is probably reliable |
-| High agreement, a few low lines | Those lines are where the evidence is hard |
-| Uniformly moderate agreement | Convention inconsistency, or the hand is difficult |
-| Agreement collapses after a point | Line skip; realign before interpreting anything |
+When prompting Gemini, we must explicitly demand that it output `<lb/>` at every physical line break visible on the manuscript. If a model generates a single unformatted prose paragraph, it destroys the physical alignment needed for Friday's diffing lab.
 
-The fourth row is worth checking for explicitly. If agreement is good for twelve
-lines and then poor for the rest, you almost certainly have a line skip in one pass
-rather than a genuinely harder second half. Realign and recompute.
+**Vocabulary.** *Line break milestone (lb)* — An empty XML element that marks the point where a physical line of text ends and the next line begins on the document.
 
-For a two-rater comparison, a chance-adjusted metric adds relatively little on
-character-level data, where the category space is large and chance agreement is
-consequently low. The metric matters more for *categorical* judgements — whether a
-mark is an accent or punctuation, whether a region is damage or discoloration —
-where the category count is small. If you and a classmate adjudicate such
-judgements independently, kappa is the appropriate measure.
-
-**Takeaway:** Report the distribution of agreement, not just the
-mean — a sudden collapse means line skip, not difficulty.
+**Takeaway:** Physical line breaks are marked with empty lb milestones, recording scribal lineation without disrupting grammatical sentences.
 
 ---
 
 ## **11 Content**
 
-**Case Study: The Deutsches Textarchiv**
+**Marking Physical Ambiguity: unclear**
 
-The DTA is the reference implementation of mass double-keying and repays study,
-because its choices were deliberate and its reasoning is documented.
+In historical manuscripts, letterforms are frequently ambiguous. Faded ink, paper foxing, water stains, or erratic cursive handwriting can make it difficult to determine whether a word ends in `-ed`, `-ing`, or `-eth`.
 
-Digitizing printed works in New High German from 1600 to 1900, the DTA **bypassed
-OCR entirely** for its foundational texts. The decision acknowledged the severe
-limitations of optical recognition on early modern Fraktur fonts, irregular
-inking, and highly variable historical spelling. By January 2016 the archive held
-2,331 texts, approximately 1.1 billion characters (Haaf et al., 2013).
+In diplomatic transcription, an editor never guesses in silence. When you or an AI model encounter a word that cannot be verified with absolute certainty, you wrap the candidate reading in the `<unclear>` element:
 
-Note what that decision implies. A major, well-resourced digitization project,
-facing difficult typography and irregular orthography, concluded that manual
-double-keying was more economical than OCR plus correction — which is the same
-threshold argument from Lesson 4.2 section 14, applied at institutional scale.
-Above a certain error rate, correction costs more than transcription.
+```xml
+<p>
+  <lb n="4"/>paid to the <unclear>treasurer</unclear> on Tuesday last
+</p>
+```
 
-The consensus texts were produced by non-native speakers under strict double-keying
-protocol, with vendors guaranteeing minimum character accuracy of 99.9%. Following
-algorithmic reconciliation of the two data streams, the DTA applied linguistic
-analysis and rule-based heuristics to normalize historical spellings to modern
-lemmas, enabling phonetic and lemma-based search across the corpus (Haaf et al.,
-2013).
+The `<unclear>` element tells downstream readers and computational algorithms: 'A reading is proposed here based on visible traces, but it remains paleographically doubtful.' You can also add attributes like `reason="faded"` or `reason="cramped"` to record the physical cause of the doubt.
 
-The last point connects to Week 6. Normalization happened *after* reconciliation,
-as a separate layer over a verified diplomatic base — not silently during
-transcription. The diplomatic text and the normalized text both exist, and the
-relationship between them is recorded. That is exactly the architecture your
-edition is building.
+When evaluating AI output, watching how the model uses `<unclear>` is highly revealing. Poorly prompted models rarely admit doubt—they hallucinate high-probability words over blurred text. A well-prompted model will appropriately flag difficult readings with `<unclear>`, allowing you to review the original ink during reconciliation.
 
-**Takeaway:** The DTA rejected OCR for difficult typography and
-normalized only after reconciliation — a separate layer over a verified diplomatic
-base.
+**Vocabulary.** *unclear element* — A TEI element used to wrap words or characters that cannot be deciphered with certainty due to ink fading, staining, or cramped handwriting.
+
+**Takeaway:** The unclear tag indicates that text is readable but uncertain, documenting genuine paleographical ambiguity without guessing.
 
 ---
 
 ## **12 Content**
 
-**Structure and the Base Format**
+**Recording Physical Loss: gap**
 
-The DTA's second contribution concerns the structural error class from section 04.
+Sometimes an artifact is not merely stained or faded; it is physically damaged. Wormholes eat through parchment leaves; corners of letters tear away; acidic ink burns holes through paper; moisture obliterates ink strokes completely.
 
-All DTA transcriptions were mapped to the **DTA Base Format** (DTABf), a strict
-customized subset of TEI P5 designed to enforce standardized structural markup
-across a massive heterogeneous collection (Haaf et al., 2013).
+When text is entirely lost to physical destruction, editors cannot use `<unclear>` because there is no candidate word to wrap. Instead, TEI provides the empty milestone element `<gap/>`. It marks a physical lacuna in the document:
 
-The reasoning is worth understanding, because it applies to your own edition. TEI
-P5 is deliberately permissive: it offers many ways to encode the same phenomenon,
-so that projects with different needs can all use it. That permissiveness is a
-problem at scale, because two transcribers can both produce valid TEI that encodes
-the same feature differently, and the resulting corpus is not uniformly
-processable.
+```xml
+<p>
+  <lb n="7"/>received from the said <gap reason="damage" unit="words" extent="2"/> upon receipt
+</p>
+```
 
-A customized subset removes the choice. By constraining which elements may be used
-where, DTABf ensured that a marginal note is encoded one way across 2,331 texts —
-which is what makes corpus-wide querying possible.
+A `<gap/>` element must never be left bare. Scholarly practice requires at least two attributes: `@reason` (such as `reason="damage"`, `reason="lacuna"`, or `reason="cancellation"`) and an estimate of the loss using `@unit` and `@extent` (e.g. `unit="chars" extent="5"` or `unit="words" extent="1"`).
 
-| Approach | Flexibility | Consistency | Suited to |
-| --- | --- | --- | --- |
-| Full TEI P5 | Maximal | Requires discipline | Single editions |
-| A customized subset (ODD) | Constrained | Enforced by schema | Corpora; collaborative projects |
-| Ad-hoc conventions | Maximal | None | Nothing |
+In AI transcription, physical gaps are an acute danger zone. If a document has a torn corner, an unconstrained language model will effortlessly hallucinate text to fill the sentence. Teaching Gemini to output `<gap reason="damage"/>` over physical lacunae is one of the central achievements of rigorous prompt engineering.
 
-The DTABf later evolved into DTABf-M for manuscripts, expanding the subset to
-accommodate the physical architectures of handwritten documents — which
-demonstrated, in the project's own terms, that transcription accuracy is
-inseparable from structural encoding accuracy (Haaf et al., 2013).
+**Vocabulary.** *gap element* — An empty TEI milestone marking a location where text was omitted from the transcription because of physical destruction, lacunae, or total illegibility.
 
-For your edition, the practical equivalent is your `CONVENTIONS.md` from Lesson
-4.1. It is an informal ODD: a statement of which encoding choices you make. Where
-you find structural inconsistency between your two passes today, the remedy is to
-make the convention explicit rather than to fix the instances.
-
-**Takeaway:** TEI permits several valid encodings of the same
-feature, so consistency requires an explicit convention — your `CONVENTIONS.md` is
-that document.
+**Takeaway:** The gap element records physical lacunae or illegible holes where no text can be deciphered, specifying the reason and extent.
 
 ---
 
 ## **13 Content**
 
-**Reviewing Structural Agreement**
+**Poetry vs. Prose: Metrical Lines and Stanzas**
 
-Double-keying compares character streams. Structural agreement needs separate
-review, and today is when to do it.
+A major architectural distinction in TEI is the contrast between prose and verse. Prose flows continuously within paragraph containers (`<p>`). Poetry, however, possesses metrical structure: it is organized into stanzas, couplets, and metrical lines.
 
-Compare the two passes for encoding decisions rather than for text:
+In TEI, poetry is wrapped in a line group element: `<lg>`. Each metrical verse line is wrapped in a line element: `<l>`. 
 
-| Question | Where inconsistency appears |
-| --- | --- |
-| Were the same abbreviations marked as abbreviations? | `<abbr>` counts differ |
-| Were the same readings marked unclear? | `<unclear>` counts differ |
-| Were gaps measured the same way? | `@extent` values differ |
-| Were scribal corrections encoded the same way? | `<subst>` present in one pass only |
-| Were line breaks placed identically? | `<lb/>` counts differ |
-| Was word division applied consistently? | Whitespace differences throughout |
+Crucially, you must distinguish between a metrical line (`<l>`) and a physical line break (`<lb/>`). A metrical line is an intellectual, rhythmical unit defined by the poet. A physical line break is an accident of paper width. In Emily Dickinson's poetic manuscripts, Dickinson frequently wrote a single metrical line that was too long for her narrow paper, forcing her pencil to wrap onto a second physical line:
 
-```bash
-for f in transcription/f42r_pass1.xml transcription/f42r_pass2.xml; do
-  echo "$f"
-  for tag in lb abbr unclear gap subst; do
-    printf "  %-8s %s\n" "$tag" "$(grep -o "<$tag[ />]" "$f" | wc -l)"
-  done
-done
+```xml
+<lg type="stanza">
+  <l n="1"><lb n="1"/>Because I could not stop for Death –</l>
+  <l n="2"><lb n="2"/>He kindly stopped for me –</l>
+  <l n="3"><lb n="3"/>The Carriage held but just Ourselves –<lb n="4"/>and Immortality.</l>
+</lg>
 ```
 
-Differences here are more informative than they look. If pass 1 marked six readings
-unclear and pass 2 marked two, that is not a transcription disagreement — it is an
-inconsistent threshold for what counts as uncertain. The remedy is to define the
-threshold in `CONVENTIONS.md` and apply it uniformly, not to split the difference.
+Notice line 3: it is one metrical line (`<l>`), but it contains an internal line break (`<lb n="4"/>`) where Dickinson wrapped the phrase 'and Immortality.' For prose and culinary witnesses—including Jay's Dickinson cake recipe, Ace's decree, Olyvia's letter, and Andromeda's treaty—`<p>` containers are used; `<lg>` and `<l>` are reserved strictly for verse.
 
-The same holds for abbreviations. If one pass marked a form as an abbreviation and
-the other transcribed it as written without marking, you have discovered an
-undecided convention. Decide it now.
+**Vocabulary.** *Line group (lg)* — A TEI container used to wrap stanzas, couplets, or other verse groupings in poetic transcriptions.
 
-Structural inconsistencies found today are cheap to fix. Found in Week 8, when the
-apparatus depends on them, they require revisiting the whole transcription.
-
-**Takeaway:** Differing `<unclear>` counts signal an inconsistent
-threshold, not a disagreement about the text — fix the convention, not the
-instances.
+**Takeaway:** Poetry requires line groups (lg) and metrical lines (l), nesting lb milestones where physical margins force a poetic line to wrap.
 
 ---
 
 ## **14 Content**
 
-**Consensus Without a Second Person**
+**Layout Complexities: Columns and Marginalia**
 
-An honest limitation. Professional double-keying uses two *different* transcribers.
-You are doing two passes yourself, which is weaker.
+Historical documents rarely follow simple single-column layouts. Printed broadsides and decrees, such as Ace's 1791 French decree or Andromeda's 1752 treaty, frequently organize text into parallel vertical columns. Personal letters and manuscript leaves, such as Olyvia's Maud Lewis letter or Jay's Dickinson recipe leaf, often feature marginal additions, interlinear glosses, or text running sideways along the edge of the leaf.
 
-The weakness is correlated error. Your two passes share a transcriber, which means
-they share the same palaeographic misunderstandings, the same expectations about
-the text, and the same blind spots. Where you consistently misread a letterform,
-both passes will misread it identically, agreement will be perfect, and the error
-will pass through undetected.
+When transcribing multi-column documents, transcribers use column break milestones: `<cb n="1"/>` and `<cb n="2"/>`. 
 
-| Method | Catches | Misses |
-| --- | --- | --- |
-| Single pass | — | Everything undetected |
-| Self double-keying | Lapses, slips, momentary misreadings | Systematic misunderstandings |
-| Two transcribers | Both classes | Errors both make |
-| Two transcribers, one without the language | Both classes; expectation errors | Little |
+The most common failure mode for automated vision models on multi-column pages is horizontal reading order confusion. An unguided AI model reads horizontally across the page, concatenating line 1 of Column 1 with line 1 of Column 2 into a single nonsensical sentence. 
 
-Mitigations available to you:
+In scholarly editing, columns must be transcribed in their logical reading order: Column 1 from top to bottom, followed by Column 2 from top to bottom. When dealing with marginal additions, TEI provides elements like `<add place="margin">`, allowing transcribers to anchor floating text to its physical location. When prompting Gemini, we must ensure it understands the column flow of the document.
 
-- **Exchange with a classmate.** Transcribe ten lines of each other's passage and compare. A second reader catches exactly what self-double-keying cannot.
-- **Compare against the machine.** Where your two passes agree and both machine outputs disagree, examine that point specifically. Consistent human agreement against consistent machine disagreement may indicate a shared human misunderstanding.
-- **Check your letterform inventory.** Review `HAND.md` against the manuscript, verifying that each identification is right rather than merely consistent.
-- **Leave time between passes.** The longer the interval, the less the second pass is influenced by memory of the first.
+**Vocabulary.** *Column break (cb)* — An empty TEI milestone element marking the boundary between adjacent vertical text columns on a page.
 
-The second mitigation is genuinely useful and connects the week's two halves. Your
-HTR model has no expectations about Greek and no palaeographic misunderstandings —
-only ink-level errors. Where it disagrees with both your passes, it is worth
-looking at the ink again.
-
-**Takeaway:** Self double-keying cannot catch your systematic
-misunderstandings — exchange lines with a classmate, and examine points where the
-machine disagrees with both passes.
+**Takeaway:** Complex page layouts like multiple columns require empty milestones like cb to preserve sequential reading order.
 
 ---
 
 ## **15 Content**
 
-**Where Human and Machine Errors Differ**
+**Introduction to VS Code Antigravity**
 
-The reconciliation of human disagreement operates on different premises from the
-scoring of machine output, and understanding the difference shapes how you
-adjudicate.
+In this course, we do not use third-party web portals or external commercial chat interfaces for our transcription work. All work takes place directly inside Visual Studio Code using the Antigravity extension.
 
-Human disagreement is weighted toward **cognitive substitutions** — misreading one
-letterform as a palaeographically similar one — and mechanical transposition
-errors from typing. Consensus is reached by targeted manual arbitration against the
-document, often using agreement metrics to identify which transcriber is
-consistently deviating from the palaeographic reality (Haaf et al., 2013).
+Antigravity integrates modern multimodal models (including Gemini 3.1 Pro and Gemini 3.8 Flash) directly into your local development environment. This integration offers three major scholarly advantages:
 
-Machine error topology is systematically different. HTR models struggle with
-macro-structural preservation, exhibiting high insertion and deletion rates at the
-physical boundaries of text lines. Line-end hyphenation is a persistent anomaly:
-models frequently fail to reconstruct a word fractured across lines, treating the
-fragment at the end of one line and the beginning of the next as unrelated tokens
-— which inflates word error rate and destroys semantic coherence (Bawden et al.,
-2026).
+1. Workspace Awareness: Antigravity operates directly inside your local git repository. It can see your schema files (`msdesc.rng`), your project directory structure, and your local image files.
+2. Multimodal Image Attachment: You can drag and drop high-resolution archival photographs directly into the chat interface or reference them by relative file paths (e.g. `images/yourpage.jpg`).
+3. Clean Code Emission: Antigravity is built specifically for code and markup engineering. It excels at emitting pure, syntax-highlighted XML blocks without the conversational conversational clutter typical of consumer web chatbots.
 
-| | Human transcriber | HTR model | Language model |
-| --- | --- | --- | --- |
-| Characteristic error | Cognitive substitution; typing slip | Line-boundary insertion and deletion | Statistically expected substitution |
-| Behaviour on the unfamiliar | Transcribes what is seen, even if meaningless | Produces an impossible sequence | Substitutes a probable word |
-| Line-end hyphenation | Handled by comprehension | Frequently fractured | Frequently silently joined |
-| Out-of-vocabulary forms | Transcribed as seen | Attempted from ink | Replaced with a higher-probability word |
+By running Gemini inside VS Code Antigravity, you keep your entire scholarly workflow unified: prompt authoring, model generation, file creation, schema validation, and git commits all happen in one window.
 
-The bottom row states the essential difference. AI transcriptions are susceptible
-to out-of-vocabulary failures: a unique toponym or idiosyncratic spelling absent
-from training data is often replaced by a visually similar but linguistically
-incorrect word with higher probability in the model's lexicon (Haaf et al., 2013).
+**Vocabulary.** *VS Code Antigravity* — An advanced AI-assisted coding and agentic environment integrated into Visual Studio Code, enabling direct multimodal interaction with codebase files and images.
 
-The formulation worth remembering: **human transcribers transcribe what they see,
-even when it makes no sense; models transcribe what they statistically expect to
-see** — which introduces pervasive anachronism (Haaf et al., 2013).
-
-Your job in adjudication is to be the first kind of reader.
-
-**Takeaway:** Humans transcribe what they see even when it makes
-no sense; models transcribe what they expect — which is why unique forms are
-exactly where models fail.
+**Takeaway:** The Antigravity extension in VS Code connects multimodal Gemini models directly to your workspace repository and local document images.
 
 ---
 
 ## **16 Content**
 
-**Line-End Hyphenation and CTC Alignment**
+**Preparing Your Workspace and Witness Image**
 
-A specific reconciliation problem worth knowing, because it may affect your
-measurements on Friday and because its solution is instructive.
+Before launching any AI prompt, a scholarly editor ensures that their digital workbench is orderly. A disorganized working tree leads to confusion about which file contains which pass.
 
-The Bullinger dataset comprises 3,622 sixteenth-century letters in Latin and
-premodern German. Expert historians had produced highly accurate transcriptions —
-but as continuous paragraphs, with no spatial layout information, which made them
-useless for training layout-aware HTR systems. When automated tools aligned these
-transcriptions to line images, they introduced systematic hyphenation errors,
-fracturing words spanning line breaks (Peer et al., 2025).
+First, check your project repository in VS Code. Open the Terminal panel (`Ctrl + ~` or ``Cmd + ~``) and verify that your high-resolution page image is present inside the `images/` directory:
 
-The solution used a **connectionist temporal classification alignment algorithm**.
-It takes the layout-free expert transcription together with the character posterior
-probabilities produced by HTR models, and uses dynamic programming to find the
-optimal placement of line breaks in the continuous text so that it matches the
-visual layout of the page (Peer et al., 2025).
+```bash
+ls -la images/
+```
 
-The result contained a genuine paradox worth noting. Alignment accuracy was
-frequently *higher* using a weakly trained HTR model than a highly optimized one —
-because the weaker model had not yet overfitted to the faulty, hyphen-broken
-training data (Peer et al., 2025). A more accurate model had learned the error and
-reproduced it; a less accurate one had not.
+You should see your primary witness image—for example, `images/diary_p1.jpg`, `images/am338_p1.jpg`, or `images/decree_1791.jpg`. 
 
-By iteratively filtering alignments on a confidence threshold and retraining, the
-researchers improved the PyLaia model's CER by 1.1 percentage points without further
-manual labour (Peer et al., 2025).
+Second, run `git status`. Ensure that your manual transcription work from last week is safely committed to `witness.xml`. If you have uncommitted edits, stage and commit them now:
 
-The lesson for your reconciliation: establishing a consensus text is not only about
-correcting characters but about reconciling the transcription with the physical
-coordinates of the page. Your `<lb/>` elements and their `@facs` bindings are that
-reconciliation, which is why the line-count check in section 06 comes first.
+```bash
+git commit -am "Pre-reconciliation: manual diplomatic transcription finalized"
+```
 
-**Takeaway:** Consensus means reconciling text with the page's
-physical coordinates, not only correcting characters — which is why line alignment
-is checked first.
+Having a clean git commit creates an immutable reference point. If anything goes wrong during today's AI experiments, your manual ground truth remains completely protected in your repository history. Now you are ready to open Antigravity and attach your image.
+
+**Vocabulary.** *Working tree* — The local directory of project files on your computer managed by Git, containing your source documents, images, and markup.
+
+**Takeaway:** Before prompting the model, verify that your high-resolution witness image is correctly placed in images/ and that your repository is clean.
 
 ---
 
 ## **17 Content**
 
-**Consensus as a Living Document**
+**Anatomy of a Paleographical Prompt**
 
-An alternative model worth knowing, because it applies to your Week 13 publication.
+Prompt engineering in the digital humanities is not about casual conversation; it is about defining formal technical specifications. A model responds to the constraints you construct. If you simply ask Gemini, 'What does this page say?', it will return a chatty, modern English summary with casual remarks about historical context.
 
-The Australian Newspaper Digitisation Program faced conditions where double-keying
-was financially impossible. Raw OCR accuracy on historical newspapers ranged from
-71% to 98%, well below the threshold for reliable full-text search, and the IMPACT
-project estimated manual keying at roughly one euro per page — so a single large
-volume could consume upwards of a thousand euros in transcription alone (Haaf et
-al., 2013).
+An effective paleographical prompt consists of three distinct anatomical components:
 
-Their hybrid response: contractors manually corrected only the high-value
-structural and metadata elements — article titles, subtitles, and the first four
-lines of text — to a guaranteed 99.5% accuracy. For the remaining body text, the
-programme exposed raw OCR alongside the scanned image through the Trove platform
-and let volunteers reconcile it line by line (Haaf et al., 2013).
+1. Scholarly Persona: Assign the model a clear professional role. 'You are an expert paleographer and scholarly text encoder specializing in 18th-century diplomatic manuscript transcription.'
+2. Grammatical Scope: Specify the exact XML element vocabulary allowed in the output. Explicitly list `<text>`, `<body>`, `<div>`, `<p>`, `<pb>`, `<lb/>`, `<unclear>`, and `<gap>` (along with `<lg>` and `<l>` for verse).
+3. Documentary Invariants: Define what must be preserved without alteration—original spelling, capitalization, punctuation, and physical line breaks.
 
-Complementing human effort, institutions also deploy **Recognizer Output Voting for
-Error Reduction** (ROVER), which aligns the hypotheses of several different OCR
-engines on the same image and uses majority voting with dynamic programming to
-select the most probable character at each position, driving down error before
-human intervention (Haaf et al., 2013).
+By structuring your prompt with these three pillars, you transform an open-ended conversational chatbot into a focused, deterministic transcription engine.
 
-The structural insight is the interesting one: a consensus text does not
-necessarily need to be complete before publication. The digital edition can
-function as a living document that asymptotically approaches accuracy through
-continuous decentralized post-correction (Haaf et al., 2013).
+**Vocabulary.** *System prompt* — The overarching set of instructions and persona constraints given to an AI model to govern its behavior and output formatting.
 
-This bears on Week 13. Your edition need not claim finality. An edition that
-publishes its text with recorded uncertainty, exposes the images alongside it, and
-provides a mechanism for correction is more honest than one that presents a
-settled text — and the version control history is precisely the mechanism that
-makes such correction traceable.
-
-**Takeaway:** A published edition can be a living document that
-improves through recorded correction, rather than a text claiming finality.
+**Takeaway:** An effective paleographical prompt establishes a scholarly persona, defines exact permitted XML tags, and sets strict transcription rules.
 
 ---
 
 ## **18 Content**
 
-**ROVER and Your Three Transcriptions**
+**Negative Constraints: Forbidding Editorial Smoothing**
 
-The voting idea applies directly to what you now have.
+In prompt engineering, what you forbid is often more important than what you request. Because multimodal LLMs have an overwhelming statistical prior toward generating modern, standard English prose, positive instructions alone ('transcribe faithfully') are rarely sufficient to stop them from smoothing archaic text.
 
-You hold, or will by Friday, four transcriptions of the same lines: two independent
-manual passes, the HTR output, and the VLM output. ROVER's logic — align multiple
-hypotheses and take the majority at each position — can be applied to them.
+To keep the model within strict diplomatic boundaries, you must employ explicit **negative constraints**. A negative constraint directly commands the model to suppress a specific automated reflex:
 
-It should be applied *carefully*, because the hypotheses are not equally reliable
-and majority voting treats them as if they were.
+- 'Do NOT modernize or normalize archaic spelling (e.g. preserve ye, Janry, hath, loix).'
+- 'Do NOT expand scribal abbreviations or contractions (e.g. keep &c., Govr, honble as written).'
+- 'Do NOT correct historical punctuation, grammatical errors, or typos.'
+- 'Do NOT use editorial elements like `<choice>`, `<orig>`, `<reg>`, `<abbr>`, or `<expan>`.'
 
-| Configuration | Sensible? | Reason |
-| --- | --- | --- |
-| Vote across your two manual passes | Yes, in effect | This is double-keying |
-| Vote across HTR and VLM outputs | No | Both unreliable; the majority may be wrong |
-| Vote across all four equally | No | Weights two machine outputs above your adjudication |
-| Use machine agreement as a flag for review | Yes | Points at places worth re-examining |
+Negative constraints act like guardrails along a mountain road. They actively prevent the model's autoregressive decoders from sliding down the high-probability path of modern linguistic standardization. When you test your prompt today, check whether your negative constraints successfully held the model to historical reality.
 
-The fourth row is the usable version. Where both machine outputs agree with each
-other and disagree with both your passes, that point deserves another look at the
-ink. It may be a shared machine error — both models misreading the same ambiguous
-form — or it may be that both machines read the ink correctly and you brought an
-expectation to it twice.
+**Vocabulary.** *Negative constraint* — A prompt instruction that explicitly specifies what an AI model must NOT do, preventing common default behaviors.
 
-That configuration is exactly the mitigation from section 14 for self-double-keying's
-weakness. Your two passes are correlated; the machines' errors are not correlated
-with yours. Their agreement against you is a signal precisely because it comes from
-a different error distribution.
-
-Note the points where this occurs and check them Friday when the full comparison is
-assembled.
-
-**Takeaway:** Where both machines agree against both your passes,
-look again — their errors are uncorrelated with yours, so their agreement is a real
-signal.
+**Takeaway:** Negative constraints are critical to suppress the model's natural tendency to modernize spelling and expand abbreviations.
 
 ---
 
 ## **19 Content**
 
-**Recording the Reconciliation**
+**Enforcing Clean, Parseable XML Output**
 
-Document today's process, since Friday's report requires it and reconstruction is
-harder than recording.
+When you interact with an AI model, its default conversational behavior is to wrap code in markdown fences and precede it with conversational filler: 'Sure! Here is the diplomatic transcription of the page you attached: ... I hope this was helpful! Let me know if you need anything else.'
 
-In `logs/reconciliation-w5.md`, record:
+In an automated workflow, conversational filler is friction. You cannot save markdown banter directly into an XML file; it will crash the XML parser with syntax errors.
 
-- When each pass was made, and the interval between them.
-- Confirmation that pass 2 was made without reference to pass 1.
-- Line counts for both passes, and whether they matched.
-- The number of disagreements found.
-- Each disagreement: line, both readings, the adjudicated result, the reason.
-- Disagreements that remained unresolved, and how they were encoded.
-- Structural inconsistencies found, and the conventions decided as a result.
-- Overall and per-line agreement figures.
-- Whether a classmate reviewed any lines, and what that found.
+To eliminate this friction, include strict output formatting directives in your prompt:
 
-The per-disagreement record is the valuable part and the part students compress.
-"Line 14: pass 1 ἐγένετο, pass 2 ἐγένοντο; adopted ἐγένοντο on inspection at full
-zoom — the fourth letter has a clear nasal stroke; pass 1 was an expectation error
-from the parallel at line 11" is a scholarly note. "Line 14: fixed" is not.
+- 'Return ONLY the clean, well-formed TEI XML block.'
+- 'Do NOT include conversational introductions, markdown explanations, or post-transcription commentary.'
+- 'Ensure all tags are properly closed and all entity references are valid.'
 
-This document is a required component of the Transcription Assignment due Friday
-October 2, and its quality is a substantial part of what is assessed. It is also
-the raw material for your Week 12 commentary, where several of these adjudications
-will need to be explained to a reader.
+When Gemini obeys this constraint, its entire response in the Antigravity chat panel will be a single, pure XML element tree starting with `<text>` and ending with `</text>`. You can copy the entire block with one click or direct Antigravity to write it straight to `transcription_ai.xml`.
 
-Commit it with a `docs:` prefix.
+**Vocabulary.** *Parseable output* — Computer-generated text that conforms strictly to syntax rules so that software can read it directly without manual cleaning.
 
-**Takeaway:** Record each disagreement with both readings, the
-adjudication, and the reason — that record is the assignment and the seed of your
-commentary.
+**Takeaway:** Instruct the model to emit only valid XML without conversational markdown filler so the output can be saved directly as a file.
 
 ---
 
 ## **20 Content**
 
-**Committing the Consensus**
+**Cohort Case Study: Jay and Dickinson's Recipe Script**
 
-The consensus text becomes your new ground truth. Commit it accordingly.
+To see how these principles operate on real historical witnesses, we examine our four student projects. For Jay, the witness is Emily Dickinson's autograph culinary manuscript, "Recipe for Black Cake" (Houghton Library MS Am 1118.7, JL 835a). Dickinson's culinary hand presents three major challenges for multimodal vision:
 
-```text
-feat(transcription): consensus text for f. 42r from double-keying
+1. Numerals and Fractions: The recipe contains fractions and quantities (`19 Eggs`, `1 1/2 Currants`, `1/2 pint Brandi`). Watch how Gemini transcribes historical numbers. Does it mistake a looped `19` for `12`, or drop whole numbers in mixed fractions like `1 1/2`?
+2. Idiosyncratic Dashes and Tildes: Dickinson separated ingredients and steps with variable horizontal strokes, hyphens, and tilde-like marks (e.g. `2 Sugar-`, `Cloves ~ Mace-`). Does Gemini capture these distinct marks, or normalize them all into modern commas or standard hyphens?
+3. List Lineation vs. Narrative Prose: The leaf transitions from an ingredient inventory into narrative baking instructions (`Beat Butter and sugar together -`). Jay must verify that Gemini preserves physical line breaks (`<lb/>`) across both sections within `<p>`, rather than attempting to wrap items in poetic stanzas (`<lg>`).
 
-Reconciled pass 1 (commit a3f9c21) and pass 2 (commit 7d2e814) by
-adjudicating all differences against the facsimile at full zoom.
+Whatever Gemini proposes, Jay must not correct it yet! Save Gemini's raw choices into `transcription_ai.xml`. Finding where the machine struggled with Dickinson's numerals and punctuation strokes is the exact goal of Friday's diff.
 
-19 disagreements over 24 lines. 14 resolved in favour of pass 2, 3 in
-favour of pass 1, 2 unresolved and encoded as <unclear> with both
-candidates recorded. Adjudications documented individually in
-logs/reconciliation-w5.md.
+**Vocabulary.** *Culinary manuscript* — A handwritten domestic recipe or formula, characterized by ingredient lists, physical quantities, and informal punctuation strokes.
 
-Three structural inconsistencies found and resolved by amending
-CONVENTIONS.md: the threshold for <unclear>, the treatment of
-line-final word breaks, and whether ambiguous accents are recorded.
-
-Overall character agreement between passes: 97.8%.
-
-Human-Verified: true
-AI-Generated: false
-Supersedes-Ground-Truth: gt-f42r
-```
-
-Then tag it, because Friday's measurements will be computed against this state
-rather than against last week's:
-
-```bash
-git tag -a gt-f42r-consensus -m "Consensus ground truth, f. 42r, after double-keying"
-```
-
-Keep the original `gt-f42r` tag. It records what Week 4's measurements were
-actually computed against, and deleting it would make those measurements
-irreproducible. Friday will compute against the consensus, and the difference
-between the two sets of figures is itself informative — it shows how much of Week
-4's measured error was your error rather than the machines'.
-
-**Takeaway:** Tag the consensus but keep the original ground
-truth tag — the difference between measurements against each shows how much error
-was yours.
+**Takeaway:** On Dickinson's recipe manuscript, verify whether Gemini preserves historical numerals, fractions, and idiosyncratic dash punctuation within prose containers.
 
 ---
 
 ## **21 Content**
 
-**How Much Did the Ground Truth Change?**
+**Cohort Case Study: Ace and Revolutionary Typography**
 
-A quick analysis worth doing today, because it directly conditions Friday's
-interpretation.
+For Ace, the project witness is a printed French Revolutionary decree from 1791 (Archives nationales série D, Comité des décrets). A printed document might seem simpler than cursive handwriting, but 18th-century French legal printing introduces distinct challenges:
 
-Compute the character error rate of your *original* pass 1 against the consensus.
-This treats the consensus as correct and measures how wrong your Week 4 ground
-truth was.
+1. The Historical Long-s (ſ): In 1791, French printers still used the medial long-s (`ſ`) in words like `aſſemblée` or `ſerment`. An unguided language model will almost certainly 'correct' these to modern standard `s`. Ace must inspect `transcription_ai.xml` to see whether Gemini preserved the historical glyph `ſ` or normalized it.
+2. Two-Column Layout: The decree is printed in two parallel vertical columns. Ace must verify that Gemini transcribed down Column 1 completely before beginning Column 2, rather than reading horizontally across the central rule.
+3. Legal Colophons: The foot of the decree contains printer information, dates, and names of legislative commissioners. Ace must ensure these lines are captured inside `<p>` blocks with `<lb/>` milestones.
 
-```bash
-python3 tools/cer.py \
-  --reference transcription/f42r_consensus.xml \
-  --hypothesis transcription/f42r_pass1.xml
-```
+Observing whether the model preserves `ſ` or collapses it to `s` provides Ace with direct empirical evidence of autoregressive smoothing for Friday's report.
 
-Suppose it returns 1.4%. That figure has a direct consequence: every machine error
-rate you measured in Week 4 was computed against a reference that was itself 1.4%
-wrong, and some proportion of what was scored as machine error was your error.
+**Vocabulary.** *Long-s (ſ)* — An archaic letterform of the lowercase letter 's' commonly used in printing before the early nineteenth century.
 
-| Pass 1 error against consensus | Implication for Week 4 figures |
-| --- | --- |
-| Under 0.5% | Week 4 figures approximately valid |
-| 0.5–2% | Machine error rates modestly inflated |
-| Over 2% | Week 4 figures should be recomputed against the consensus |
-| Over 5% | The original ground truth was not fit for purpose |
-
-Report this figure in your reconciliation report. It is an honest statement about
-the reliability of your own measurements, and reporting it is what distinguishes a
-careful study from one that treats its reference as unquestionable.
-
-It is also the empirical justification for double-keying, produced from your own
-work. If pass 1 was 1.4% wrong, then double-keying improved your ground truth by
-that margin — and you can say so with a number rather than on authority.
-
-**Takeaway:** Measure pass 1 against the consensus — that number
-states how much of Week 4's measured machine error was actually yours.
+**Takeaway:** On French Revolutionary printed decrees, check whether Gemini preserves historical long-s glyphs and follows multi-column reading order.
 
 ---
 
 ## **22 Content**
 
-**Preparing for Friday**
+**Cohort Case Study: Olyvia and Folk-Art Cursive**
 
-Friday computes CER and WER for both machine passes against the consensus, and
-produces the reconciliation report.
+For Olyvia, the witness is a personal handwritten letter by Nova Scotia folk artist Maud Lewis (1903–1970). Maud Lewis lived with severe rheumatoid arthritis, which shaped her physical hand and script. Her letters feature distinct characteristics:
 
-Bring:
+1. Vernacular and Colloquial Spelling: Maud Lewis wrote with lively, informal, and phonetic spelling typical of rural mid-20th-century Nova Scotia. She was not writing an academic treatise. An AI model trained on formal prose will constantly attempt to 'fix' her grammar and spelling. Olyvia must check whether Gemini respected Maud's authentic voice.
+2. Baselines and Word Spacing: Due to physical constraints in her hands, Maud's letter baselines drift across the page, and word spacing can be irregular. Does Gemini correctly recognize word boundaries, or does it fuse words together?
+3. Faded Ink and Creases: The letter was folded into an envelope and exhibits ink fading along creases. Olyvia must verify whether Gemini appropriately used `<unclear>` or `<gap>` over faded ink, or if it hallucinated words over illegible spots.
 
-- The consensus text, validated, committed, and tagged.
-- Both individual passes, committed.
-- The reconciliation log with per-disagreement records.
-- Week 4's raw HTR output, tagged `htr-w4-raw`.
-- Week 4's raw VLM output, tagged `vlm-w4-raw`.
-- The error categorizations from Week 4.
-- Your timings for all methods.
-- The pass 1 against consensus error rate from section 21.
+Olyvia's reconciliation report on Friday will center on defending Maud's authentic vernacular handwriting against machine smoothing.
 
-Everything must be **line-aligned** for Friday's measurement to be meaningful. If
-the VLM output lost line breaks — the failure from Lesson 4.3 section 06 — you will
-need either to realign it manually or to compute whole-text figures and state the
-limitation. Decide which today rather than discovering the problem on Friday.
+**Vocabulary.** *Vernacular orthography* — Informal, phonetic, or non-standard spelling used by individuals outside formal institutional or academic settings.
 
-Verify the tags exist and are pushed:
-
-```bash
-git tag -l && git ls-remote --tags origin
-```
-
-Tags existing only locally are not available if you work from another machine, and
-Friday's measurement retrieves the tagged states.
-
-**Takeaway:** Ensure all outputs are line-aligned and all tags
-are pushed — Friday's measurement retrieves tagged states and needs line alignment.
+**Takeaway:** On Maud Lewis's handwritten letters, verify that Gemini respects her informal vernacular spelling and marks faded ink with unclear.
 
 ---
 
 ## **23 Content**
 
-**A Note on Today's Date**
+**Cohort Case Study: Andromeda and Treaty Structure**
 
-Wednesday September 30 is the National Day for Truth and Reconciliation, and the
-university is closed.
+For Andromeda, the witness is the Peace and Friendship Treaty of 1752, concluded between Governor Peregrine Thomas Hopson and Chief Jean-Baptiste Cope of the Mi'kmaq (Nova Scotia Archives RG 1 vol 430 no 2). This colonial legal instrument presents complex codicological features:
 
-The schedule notes that this week is a two-step week by design: reconciliation is
-itself the comparison, so the missing Wednesday costs nothing methodologically.
-The week runs manual on Tuesday and measurement on Friday, and the deterministic
-step is not needed because the comparison *is* the deterministic step.
+1. Official Legal Formulae: The treaty opens with grand 18th-century diplomatic titles and legal declarations ('Treaty or Articles of Peace and Friendship made and concluded...'). Capitalization is heavy and deliberate. Andromeda must check whether Gemini preserved these capitalized legal nouns.
+2. Bilingual Columns: The printed broadside contains parallel English and French columns. Andromeda must ensure that Gemini transcribed the target column accurately without jumping between languages mid-sentence.
+3. Totem / Mark Representation: Chief Cope did not sign with an alphabetic signature; the treaty records his totem mark (a representation of a totem figure). How does a vision model handle non-alphabetic marks? Does it omit the mark, describe it in words, or flag it?
 
-The coincidence of terminology is worth acknowledging rather than passing over.
-"Reconciliation" in this week's technical sense — the computational adjudication of
-divergent text streams — has no connection to the meaning the national day carries.
-The word does double duty in English, and the overlap is accidental.
+Andromeda's evaluation on Friday will examine how digital tools handle cross-cultural legal instruments and non-alphabetic attestations.
 
-It is a reasonable moment to note that the methods in this course are not neutral
-with respect to whose documents get preserved, described, and edited. Digitization
-programmes, cataloguing standards, and the corpora that train recognition models
-all reflect decisions about what is worth the investment — and those decisions have
-historically favoured some archives and some traditions over others. The
-specialization gap you measured last week is partly a statement about which scripts
-and languages are well represented in the data the world has chosen to create.
+**Vocabulary.** *Parallel text* — A document layout in which two different language versions or textual recensions are presented side-by-side on the same page.
 
-That observation is not this week's assignment. It is worth holding as you work.
-
-**Takeaway:** The week's technical sense of "reconciliation" is
-unrelated to the national day; the coincidence is a reasonable moment to notice
-whose documents digitization has prioritized.
+**Takeaway:** On the 1752 Peace and Friendship Treaty broadside, check bilingual column boundaries and representations of Chief Cope's totem mark.
 
 ---
 
 ## **24 Content**
 
-**Checklist Before You Leave**
+**Creating the Independent File: transcription_ai.xml**
 
-Verify each.
+Once Gemini finishes generating the transcription in the Antigravity chat panel, you must save it into your repository as an independent artifact. 
 
-- Pass 2 transcribed independently, without consulting pass 1.
-- Pass 2 committed before any comparison was made.
-- Line counts compared; any skip found and fixed.
-- Both passes NFC-normalized before comparison.
-- All differences identified computationally, not by eye.
-- Each difference adjudicated against the image at full zoom.
-- Each adjudication recorded with its reason.
-- Unresolvable differences encoded with both candidates.
-- Structural inconsistencies identified and conventions amended.
-- Consensus text built as a separate file.
-- Consensus validated against the TEI schema.
-- Agreement figures computed, overall and per line.
-- Pass 1 error rate against the consensus computed.
-- Reconciliation log written.
-- Consensus committed and tagged; original tag retained.
-- Tags pushed.
+In the VS Code file explorer (or via the Terminal), create a new file in your project root named `transcription_ai.xml`:
 
-If the second pass is unfinished, finish it before Friday. Friday's measurements
-are computed against the consensus, and without a consensus there is nothing to
-measure against but the unverified Week 4 text.
+```bash
+touch transcription_ai.xml
+```
 
-**Takeaway:** Friday measures against the consensus, so an
-unfinished second pass blocks the session.
+Open `transcription_ai.xml` in the editor. Copy the entire XML output from the Antigravity chat and paste it into the file. If Antigravity generated a full TEI wrapper with `<teiHeader>`, ensure the header metadata is present; if it emitted only `<text>`, you can wrap it in the minimal TEI root skeleton matching your project.
+
+The absolute golden rule of this phase is: **NEVER overwrite witness.xml.** 
+
+Your `witness.xml` holds your manual Pass 1. Today's file `transcription_ai.xml` holds your machine Pass 2. If you paste the AI text into `witness.xml`, you destroy your manual work and eliminate the possibility of diffing the two passes on Friday. Both files must exist independently side-by-side in your repository.
+
+**Vocabulary.** *transcription_ai.xml* — The dedicated local file in your repository containing the raw, unedited AI diplomatic transcription generated by Gemini.
+
+**Takeaway:** Save the model's raw output into transcription_ai.xml, keeping it strictly separate from your manual witness.xml file.
 
 ---
 
 ## **25 Content**
 
-**Common Problems Today**
+**XML Entity Escaping: The Bare Ampersand Trap**
 
-Failures that recur.
+The moment you paste Gemini's output into `transcription_ai.xml`, look at the VS Code editor window. Do you see red squiggly underlines? Look at the Problems panel (`Ctrl + Shift + M` or `Cmd + Shift + M`).
 
-| Symptom | Cause | Remedy |
-| --- | --- | --- |
-| Differences at every accented character | Passes in different normalization forms | NFC-normalize both before comparing |
-| Agreement collapses partway through | Line skip in one pass | Realign, then recompare |
-| Almost no differences found | Pass 2 was not independent | Redo, without consulting pass 1 |
-| Very many differences | Convention drift between passes | Decide conventions; recompare |
-| Line counts differ by one | Skip, or a split or merged line | Find it before anything else |
-| Adjudications all favour pass 1 | Anchoring to the first reading | Re-examine; the ink decides |
-| `<unclear>` counts differ substantially | No agreed uncertainty threshold | Define it in `CONVENTIONS.md` |
+The most common syntax error produced by AI models in diplomatic transcription is the **bare ampersand trap**. In 18th- and 19th-century English, the ampersand was universally used in abbreviations like `&c.` (for *et cetera*), `Mr. & Mrs.`, or `Smith & Co.`. 
 
-The third row deserves comment because it is common and self-deceiving. If your two
-passes are nearly identical, the likeliest explanation is not that your
-transcription is excellent but that the second pass was influenced by memory of the
-first. Genuine independence produces genuine disagreement — a folio of unfamiliar
-Greek should produce a meaningful number of differences, and their near-absence is
-evidence about the method rather than about the accuracy.
+In XML, however, the ampersand (`&`) is a reserved delimiter used exclusively to open entity references (like `&amp;`, `&lt;`, or `&gt;`). When an XML parser encounters a bare ampersand followed by a letter (like `&c.`), it assumes you are calling an entity named `&c;`. Because `c` is not a defined entity, the parser crashes with a fatal fatal syntax error: 'The entity name must immediately follow the & in the entity reference.'
 
-The sixth row is the subtler bias. If every adjudication resolves toward pass 1,
-ask whether you are examining the ink or defending your first reading. Pass 2 was
-made with more knowledge of the hand and has, if anything, the better claim.
+To fix this, every literal ampersand in the text must be escaped as `&amp;`:
 
-**Takeaway:** Near-identical passes usually mean the second was
-not independent — genuine independence produces genuine disagreement.
+```xml
+<p>paid for bread &amp;c. on Tuesday</p>
+```
+
+Scanning for and fixing raw ampersands is the first diagnostic step in validating your AI pass.
+
+**Vocabulary.** *Entity escaping* — The practice of replacing reserved characters in XML (like `&` and `<`) with predefined entity references (like `&amp;` and `&lt;`).
+
+**Takeaway:** In XML, bare ampersands are syntax errors; all literal ampersands like '&c.' must be escaped as `&amp;c.`
 
 ---
 
 ## **26 Content**
 
-**What Good Work Looks Like Here**
+**Schema Validation Against msdesc.rng**
 
-The standard.
+Once syntax errors like bare ampersands are resolved, your file is *well-formed*. But in TEI scholarly editing, well-formedness is only the first hurdle: your document must also be *valid* against the project schema.
 
-A minimally acceptable result is a second pass, a comparison, and a consensus text.
+In this course, we validate against our vendored RELAX NG schema: `labs/msdesc.rng`. This schema defines what elements can exist, in what order, and what attributes they may carry.
 
-Good work additionally:
+Open `transcription_ai.xml` in VS Code with the Scholarly XML / Red Hat XML extension enabled. At the top of your XML file, ensure the model included the schema association processing instruction, or link it directly:
 
-- Achieves genuine independence and can demonstrate it from the commit order.
-- Compares computationally with normalization applied.
-- Adjudicates every difference against the image rather than by plausibility.
-- Records each adjudication with its palaeographic reason.
-- Preserves unresolvable disagreements rather than choosing arbitrarily.
-- Separates structural from typographical disagreement.
-- Amends conventions where inconsistency is found, rather than patching instances.
-- Quantifies agreement and reports its distribution.
-- Measures how wrong the original ground truth was, and says so.
-- Notes points where machine outputs agree against both human passes.
+`<?xml-model href="labs/msdesc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>`
 
-The ninth item is the one that most distinguishes careful work. Reporting that your
-Week 4 ground truth was 1.4% inaccurate is an admission, and it is also the single
-most useful thing you can tell a reader about the reliability of your Week 4
-measurements. An editor who reports the limitations of their own reference is one
-whose figures can be trusted.
+Alternatively, you can test the file from the VS Code Terminal using the native command-line tool `xmllint`:
 
-**Takeaway:** Reporting how wrong your own ground truth was is
-what makes your other figures trustworthy.
+```bash
+xmllint --noout --relaxng labs/msdesc.rng transcription_ai.xml
+```
+
+If the terminal reports `transcription_ai.xml validates`, your file satisfies the grammatical standards of the course. If errors appear, check the line numbers reported in the Problems panel.
+
+**Vocabulary.** *Schema validation* — The automated process of checking an XML document against a formal grammar (such as RELAX NG) to ensure structural conformity.
+
+**Takeaway:** Validate transcription_ai.xml against msdesc.rng in VS Code, ensuring all tags follow the TEI grammar to achieve 0 errors.
 
 ---
 
 ## **27 Content**
 
-**The Epistemology of the Consensus Text**
+**Diagnosing Common AI Structural Errors**
 
-A conceptual note, since "consensus text" can suggest something it is not.
+When checking `transcription_ai.xml` against `msdesc.rng`, AI models typically commit one of three recurring structural errors:
 
-The consensus text is not the *true* text of the manuscript. It is the best
-reconstruction available from two independent readings plus adjudication against
-the image. It remains a hypothesis, held with more confidence than either pass
-alone, and revisable.
+1. Unclosed Milestone Tags: An AI will occasionally emit `<lb>` or `<pb>` with a trailing closing tag like `<lb>word</lb>`. In TEI, line breaks and page breaks are empty milestones. They must be self-closing: `<lb/>` and `<pb/>`.
+2. Bare Text Inside `<div>`: An AI frequently forgets paragraph wrappers, outputting text directly inside `<div>`:
+```xml
+<!-- INVALID -->
+<div>
+  <lb n="1"/>To the Honorable Council...
+</div>
+```
+In `msdesc.rng`, character data inside `<div>` must be wrapped in `<p>` (or `<lg><l>` for verse):
+```xml
+<!-- VALID -->
+<div>
+  <p><lb n="1"/>To the Honorable Council...</p>
+</div>
+```
 
-This is worth stating because the term invites a false confidence. "Consensus"
-suggests settlement, and the text you produce today is the current state of an
-argument rather than its conclusion. Three folios later you may understand the hand
-well enough to see that a reading you settled today was wrong.
+3. Hallucinated Element Names: Untuned models sometimes invent plausible-sounding XML tags like `<header>`, `<signature>`, or `<stanza>`. TEI does not have a `<stanza>` tag—it uses `<lg type="stanza">`. 
 
-The version-controlled architecture is what accommodates this. A consensus text
-that turns out to be wrong is corrected by a further commit, with the reason
-recorded, and the earlier state remains retrievable. Nothing is lost, and the
-history of the reading is preserved — which is exactly the capability Lesson 1.1
-argued Giarratano's print editions destroyed.
+Diagnosing and fixing these structural container issues ensures your AI pass is ready for computational diffing.
 
-| Stage | Confidence | Revisable? |
-| --- | --- | --- |
-| Single pass | Low | Yes |
-| Consensus of two passes | Higher | Yes |
-| Consensus reviewed by a second person | Higher still | Yes |
-| Published edition | Stated with recorded uncertainty | Yes, with a version history |
+**Vocabulary.** *Structural validation error* — A schema violation that occurs when elements are improperly nested, misplaced, or unclosed according to the grammar.
 
-Note that the bottom row is still revisable. Section 17's living-document model
-applies: publication is a state, not a termination, and an edition that records its
-own uncertainty invites the correction that improves it.
-
-**Takeaway:** The consensus text is the current state of an
-argument, not the true text — and the version history is what lets it be corrected
-without loss.
+**Takeaway:** Common AI structural errors include unclosed milestones, placing bare text in div, and inventing non-existent element names.
 
 ---
 
 ## **28 Content**
 
-**Extending Beyond One Folio**
+**Preserving Raw Discrepancies for Friday**
 
-A practical question. You have double-keyed one folio. Your edition covers more.
+When reviewing `transcription_ai.xml`, you will inevitably spot places where Gemini misread a word, skipped a punctuation dash, or normalized a historical spelling.
 
-Full double-keying of every folio is expensive — roughly doubling transcription
-cost, as section 02's table implied and as the IMPACT project's costings confirm
-(Haaf et al., 2013). For a term project it is likely infeasible across the whole
-passage.
+Your immediate human instinct will be to correct Gemini's errors: 'Gemini modernized this to January, but the manuscript actually reads Janry—I should correct it to Janry right now.'
 
-The defensible compromise is stratified verification:
+**DO NOT DO THIS.** Resist the urge to edit the text!
 
-| Material | Verification | Rationale |
-| --- | --- | --- |
-| The training folio | Full double-keying | It determines model quality |
-| Folios used for measurement | Full double-keying | Metrics depend on them |
-| Difficult or damaged regions | Full double-keying | Highest error probability |
-| Clean regions transcribed from HTR | Single careful correction pass | Machine output plus review |
-| Regions with known variants | Full double-keying | Scholarly stakes are highest |
+You should only fix XML structural syntax errors (like unescaped `&amp;` or unclosed `<lb/>`) so that the file validates. You must deliberately leave all of Gemini's paleographical errors, misreadings, and modernizations intact in `transcription_ai.xml`.
 
-Whatever you choose, **state it**. An edition that double-keyed one folio and
-single-passed the rest is perfectly respectable; an edition that implies uniform
-verification it did not perform is not. The Week 13 editorial statement should say
-exactly which parts of the text received which treatment.
+Why? Because Friday's lab (Meeting #13) is dedicated to diffing and reconciliation. The entire intellectual exercise of Friday is running a comparative diff, locating every discrepancy between your manual pass and the AI pass, and evaluating why the discrepancy occurred. If you fix Gemini's mistakes today, you eliminate the discrepancies, destroying the object of study before the lab even begins. Preserve the raw machine pass in all its flawed glory!
 
-This is the same principle as the imaging provenance in Lesson 3.2 and the AI
-trailers in Lesson 1.1: the reader needs to know how each part of the edition was
-produced in order to weigh it. Uniform presentation of non-uniform work is the
-thing to avoid.
+**Vocabulary.** *Raw discrepancy* — An unedited divergence between two transcription passes that represents a difference in paleographical interpretation.
 
-**Takeaway:** Stratify verification by stakes and state which
-parts received which treatment — uniform presentation of non-uniform work is the
-failure.
+**Takeaway:** Do not 'fix' paleographical errors in transcription_ai.xml; preserving raw model mistakes is essential for Friday's diffing lab.
 
 ---
 
 ## **29 Content**
 
-**Connecting to Week 6**
+**Committing Pass 2 to Version Control**
 
-Next week is normalization, and today's work is its precondition in a specific way.
+With `transcription_ai.xml` generated and validated to 0 schema errors, the final operational step of today's session is creating a permanent version control record.
 
-Week 6 regularizes orthography: iotacism, orthographic variants, `<orig>` and
-`<reg>` markup, hand-recorded decisions on Tuesday, a rule-based script on
-Wednesday, AI-assisted normalization on Friday.
+In scholarly digital editing, provenance is paramount. You must be able to prove to readers and reviewers exactly which text was produced by human calipers and which text was generated by a neural model.
 
-Every one of those operates *on the consensus text*. Normalizing an unverified
-transcription means normalizing its errors, and worse, it means the normalization
-decisions become entangled with transcription corrections — so that a later reader
-cannot tell whether a difference between the diplomatic and normalized layers is a
-regularization or a fix.
+In the VS Code Terminal, stage your new file:
+```bash
+git add transcription_ai.xml
+```
 
-The DTA architecture from section 11 is the model: reconcile first, normalize
-after, keep both layers, record the relationship. Your consensus text is the
-diplomatic layer; Week 6 builds the normalized layer over it; and `<choice>` with
-`<orig>` and `<reg>` records how each form relates to the other.
+Now, commit the file with an informative commit message that documents the model and tool used:
+```bash
+git commit -m "Step 2: AI diplomatic transcription generated via Gemini in VS Code Antigravity"
+```
 
-This is why the course order is what it is, and why normalizing during
-transcription — the temptation Lesson 4.1 section 02 warned against — would have
-foreclosed Week 6 entirely. The decisions are only available to be made
-deliberately because they were not made silently.
+Verify your commit by checking the log:
+```bash
+git log -n 2 --oneline
+```
 
-**Takeaway:** Week 6 normalizes over the consensus text — and
-normalizing before reconciling would entangle regularizations with corrections
-irrecoverably.
+You should see your manual baseline commit followed by your AI baseline commit. Both independent passes are now frozen in your cryptographic Git history. Neither can be tampered with or confused with the other. You have built the two pillars required for textual reconciliation.
+
+**Vocabulary.** *Version control snapshot* — An immutable, cryptographically hashed record of file states committed to a Git repository at a specific point in time.
+
+**Takeaway:** Stage and commit transcription_ai.xml to Git, documenting the model parameters and prompt in your commit message.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: Calibrating the Instrument**
+**Synthesis: Calibrating the Two-Pass Baseline**
 
-The argument of this meeting.
+Take a moment to review what you have accomplished across the first half of Week 5. 
 
-Week 4 built a measuring instrument — a hand-produced diplomatic transcription
-against which automated output could be scored. Today you calibrated it.
+You began with a realization rooted in cognitive psychology and editorial theory: no single human pass, no matter how carefully keyed, can serve as an unverified ground truth. Human fatigue and cognitive auto-correction inevitably introduce silent slips.
 
-The calibration matters because an uncalibrated instrument produces measurements
-that look precise and are not. A ground truth containing errors reports machine
-error where none exists, teaches those errors to any model trained on it, and
-biases every adjudication toward the reference's mistakes. None of this announces
-itself: the error rates come out as numbers, and the numbers look fine.
+To solve this, you applied the principle of double-transcription. Rather than relying on a second human transcriber, you deployed a modern multimodal vision model—Gemini inside VS Code Antigravity. You formulated a disciplined paleographical prompt equipped with negative constraints, forbidding the model from indulging its natural impulse to modernize spelling or expand abbreviations.
 
-Double-keying calibrates by exploiting a statistical fact: two independent readings
-rarely err identically, so their disagreement localizes error precisely (Haaf et
-al., 2013). The method reaches accuracies of 99.95% and better in professional use,
-and the DTA's deliberate use of transcribers who could not read the language shows
-how seriously the field takes the expectation problem you were warned about in
-Week 4.
+You captured the model's raw output in `transcription_ai.xml`, fixed syntax issues like bare ampersands, validated the file to 0 schema errors against `msdesc.rng`, and committed it to Git alongside `witness.xml`.
 
-You have now also measured how far your original reference was off, which converts
-"the ground truth was probably imperfect" into a number you can report.
+You now hold two independent, fully validated diplomatic transcriptions of the exact same physical artifact. On Friday (Meeting #13), we will open them side by side in VS Code, inspect every discrepancy, and build our third, reconciled consensus text.
 
-**For Friday.** Bring the eight items in section 22, with everything line-aligned
-and tagged. Friday computes CER and WER against the consensus and produces the
-reconciliation report.
+**Vocabulary.** *Reconciliation baseline* — The paired set of independent transcriptions (Pass 1 manual + Pass 2 AI) ready for comparative diffing and consensus adjudication.
 
-**Due Friday October 2.** The Transcription Assignment, including the
-reconciliation report.
-
-**Takeaway:** An uncalibrated ground truth produces measurements
-that look precise and are not — double-keying calibrates it, and the amount of
-correction is itself a reportable figure.
+**Takeaway:** By establishing two independent, validated diplomatic passes, you have built the foundation for Friday's reconciliation lab.
 
 ---
 
