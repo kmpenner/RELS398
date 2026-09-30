@@ -1,0 +1,1847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_6.1</text></category></question>
+<question type="description"><name><text>01 Content: The Problem Normalization Solves and Creates</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Problem Normalization Solves and Creates</h3>
+<p>In Week 4, you produced an initial diplomatic transcription of your historical witness, and in Week 5, you reconciled it with an AI pass to establish a reliable consensus text in <code>transcription_reconciled.xml</code>. That diplomatic transcription records exactly what appears on the physical page: line breaks, capital letters, historical spellings, and scribal shorthand. That fidelity is the indispensable foundation of textual scholarship, but it immediately creates a practical dilemma for modern digital readers and researchers.</p>
+<p>Historical writers rarely adhered to rigid orthographic standards. The same writer might spell a single word three different ways across two folios. In an 18th-century colonial treaty, you will find common nouns capitalized arbitrarily and words ending in archaic suffixes like <em>publick</em> alongside <em>public</em>. In 19th-century manuscript poetry, idiosyncratic capitalization and punctuation convey private emphasis. In 20th-century personal letters, vernacular phonetic spellings like <em>untill</em> or <em>allways</em> record spoken cadence.</p>
+<p>When a digital text preserves only raw diplomatic spellings, computational search and discovery tools break down. A search query for <em>public</em> will fail to retrieve <em>publick</em>. A morphological analyzer or dictionary lookup cannot recognize unstandardized forms. Dialectal variations and historical shorthand render the document partially invisible to natural language processing engines, digital concordances, and full-text indexing (Burnard, 2014).</p>
+<p>The traditional solution in print editing was simply to modernize the spelling silently. However, standardizing text on the page destroys the very historical evidence we set out to preserve. A scribe's variant spellings document phonological change, regional dialect, educational background, and scribal culture (Clemens &amp; Graham, 2007). </p>
+<p><strong>Vocabulary.</strong> <em>Normalization</em> — Mapping variant historical orthographic forms to modern standard lexical headwords. <em>Regularization</em> — The TEI term for standardizing spelling without altering underlying wording. <em>Diplomatic transcription</em> — A faithful representation of the text exactly as written on the physical witness.</p>
+<p><strong>Takeaway:</strong> Standardizing spelling makes historical documents digitally searchable, but silent modernization destroys crucial linguistic, dialectal, and scribal evidence.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The Problem Normalization Solves and Creates</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does standardizing the spelling of a historical manuscript create a scholarly dilemma?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Standardizing spelling makes historical documents digitally searchable, but silent modernization destroys crucial linguistic, dialectal, and scribal evidence.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Standardization makes text searchable and computationally parsable, but silent modernization destroys crucial linguistic, dialectal, and scribal evidence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Variant spellings are vital historical evidence; TEI resolves this dilemma by keeping diplomatic and regularized forms in parallel.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Standardization increases the byte size of digital files beyond what modern web servers can deliver.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File size is not the issue; the concern is the permanent loss of historical and linguistic evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Standardization causes optical character recognition tools to misidentify subsequent document pages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Normalization is an editorial markup process, not an image recognition task.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Standardization forces the editor to eliminate all XML attributes from the TEI header.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Normalization concerns the transcription text within &lt;body&gt;, not the header metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: The Scholarly Dilemma: Preservation vs. Accessibility</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Scholarly Dilemma: Preservation vs. Accessibility</h3>
+<p>The digital editor stands between two competing demands: scholarly preservation and communicative accessibility. If you prioritize only preservation, your edition remains an accurate museum artifact of ink on parchment, but modern students and algorithmic search tools will struggle to read or query it. If you prioritize only accessibility by modernizing every word, you produce a smooth reading text while erasing the material and cultural specificity of the original author.</p>
+<p>Textual theorists describe this tension as the conflict between the document as a physical artifact and the work as an abstract linguistic text (Driscoll, 2006). A diplomatic transcription privileges the physical event of inscription: the specific strokes of ink made by a colonial secretary in Halifax in 1752, Emily Dickinson in Amherst in 1862, or Maud Lewis in Digby in 1945. A normalized edition privileges the modern reader's ability to comprehend the message and link it to broader vocabularies.</p>
+<p>In print scholarship, an editor was forced to choose one layer as primary and relegate the other to the footnotes or back matter. A "diplomatic edition" printed the historical spellings, forcing readers to consult a glossary for archaic abbreviations. A "critical edition" printed normalized spellings, crowding the bottom of the page with variant apparatus entries.</p>
+<p>Digital text encoding eliminates the need for this painful compromise. Rather than forcing one layer to destroy or subordinate the other, the digital medium allows both layers to exist simultaneously within a single data structure (Pierazzo, 2015). The reader or downstream application can toggle between a strict diplomatic view and a standardized reading view on demand.</p>
+<p><strong>Vocabulary.</strong> <em>Document layer</em> — The textual record emphasizing physical and orthographic fidelity to the manuscript. <em>Reading layer</em> — The textual record regularized to modern orthographic standards for ease of comprehension and computational indexing.</p>
+<p><strong>Takeaway:</strong> Digital text encoding resolves the conflict between preservation and accessibility by maintaining diplomatic and normalized layers in parallel within a single document.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: The Scholarly Dilemma: Preservation vs. Accessibility</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does digital text encoding resolve the conflict between physical documentary fidelity and modern reader accessibility?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Digital text encoding resolves the conflict between preservation and accessibility by maintaining diplomatic and normalized layers in parallel within a single document.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It allows diplomatic and normalized layers to coexist simultaneously within a single data structure, letting readers or software select the desired view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Digital encoding eliminates the need to choose between a pure diplomatic facsimile and a modernized reading text by storing both in parallel.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces editors to publish two completely separate physical books with different ISBNs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editions encode both layers within the same digital file rather than splitting them into separate physical editions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically translates all historical languages into modern English using machine learning.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Normalization standardizes historical orthography within the same language; it is not automatic language translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires readers to install specialized database servers before opening a text file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Parallel TEI markup is rendered seamlessly in standard web browsers and XML players.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The TEI Resolution: Parallel Layers with `&lt;choice&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>The TEI Resolution: Parallel Layers with `<choice>`</h3>
+<p>The Text Encoding Initiative (TEI) solves the preservation dilemma through parallel markup. Instead of altering the raw transcription or appending separate footnotes, the TEI provides the <code>&lt;choice&gt;</code> element (TEI Consortium, 2024).</p>
+<p>The <code>&lt;choice&gt;</code> element functions as an editorial container. It signals to any processing software or human reader that two or more alternative encodings of the same textual unit are available. Within a <code>&lt;choice&gt;</code> block, the editor provides both the exact diplomatic reading found on the physical surface and the editorial regularization supplied for modern consumption.</p>
+<p>When a digital publishing interface like TEI Publisher or an interactive HTML viewer renders a document containing <code>&lt;choice&gt;</code>, it can display either reading based on user preference. A researcher studying historical dialect can inspect the diplomatic layer with a single click, while a classroom student reading the text for historical content can toggle the normalized layer. Furthermore, web search crawlers and concordance builders can index both representations simultaneously.</p>
+<p>The power of <code>&lt;choice&gt;</code> lies in its explicitness. It makes the editor's intervention visible, transparent, and reversible. An editor does not overwrite history; they annotate it. Every time you normalize an archaic form, you preserve the scribe's original handwriting directly alongside your modern interpretation.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;choice&gt;</code></em> — A TEI element that groups alternative encodings of the same textual point, such as original spellings and normalized forms. <em>Parallel markup</em> — Encoding multiple interpretive layers simultaneously within the same document hierarchy.</p>
+<p><strong>Takeaway:</strong> The TEI <code>&lt;choice&gt;</code> element acts as a transparent container that holds original witness readings and modern editorial regularizations side by side.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The TEI Resolution: Parallel Layers with &lt;choice&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary function of the TEI &lt;choice&gt; element in digital textual editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The TEI &lt;choice&gt; element acts as a transparent container that holds original witness readings and modern editorial regularizations side by side.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It acts as a container grouping alternative encodings of the same textual unit, such as an original spelling alongside a regularized modern form.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. &lt;choice&gt; transparently wraps multiple representations of the same word or phrase without subordinating or destroying the original reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the student to answer a multiple-choice quiz question before proceeding to the next page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Despite its name, TEI &lt;choice&gt; is an editorial markup container, not an interactive quiz element.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It randomly selects one of several spellings each time the digital webpage is refreshed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;choice&gt; provides structured, permanent alternatives for user toggling or targeted indexing, not random display.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It validates whether the XML document conforms strictly to the TEI All schema.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation is handled by tools like Jing or Scholarly XML, not by the &lt;choice&gt; element itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Orthographic Regularization: `&lt;orig&gt;` and `&lt;reg&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Orthographic Regularization: `<orig>` and `<reg>`</h3>
+<p>When your goal is to regularize historical spelling without alleging that the historical writer made an error, the TEI <code>&lt;choice&gt;</code> element pairs two specific child elements: <code>&lt;orig&gt;</code> (original) and <code>&lt;reg&gt;</code> (regularization).</p>
+<p>The <code>&lt;orig&gt;</code> element contains the raw, unstandardized characters exactly as transcribed from the witness. The <code>&lt;reg&gt;</code> element contains the standardized modern spelling established by the editor. The basic syntax is structured as follows:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;publick&lt;/orig&gt;
+  &lt;reg&gt;public&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>In this structure, <code>&lt;orig&gt;</code> represents the historical linguistic reality: the word <em>publick</em> as printed or written in an 18th-century document. The <code>&lt;reg&gt;</code> element provides the modern lexicographical standard: <em>public</em>. A search algorithm indexing the <code>&lt;reg&gt;</code> tag can connect this occurrence to every other instance of the word in a modern corpus, while an epigrapher or historical linguist can query the <code>&lt;orig&gt;</code> tag to chart the decline of terminal <em>k</em> in 18th-century English adjectives.</p>
+<p>Notice that <code>&lt;choice&gt;</code> wraps only the specific lexical unit being regularized, not the entire sentence or line. Maintaining tight, word-level granularity ensures that surrounding whitespace, punctuation, and structural tags like <code>&lt;lb/&gt;</code> remain unaffected.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;orig&gt;</code></em> — TEI element containing the original, un-regularized spelling found in the historical witness. <em><code>&lt;reg&gt;</code></em> — TEI element containing a regularized modern spelling supplied by the editor.</p>
+<p><strong>Takeaway:</strong> Pair <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code> within a <code>&lt;choice&gt;</code> element to record historical orthography alongside modern standard spelling at word-level granularity.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Orthographic Regularization: &lt;orig&gt; and &lt;reg&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When regularizing historical spelling in TEI, which child elements must be paired inside &lt;choice&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Pair &lt;orig&gt; and &lt;reg&gt; within a &lt;choice&gt; element to record historical orthography alongside modern standard spelling at word-level granularity.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;orig&gt; for the original witness spelling, and &lt;reg&gt; for the modern regularized spelling.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. &lt;orig&gt; holds the diplomatic reading from the manuscript, and &lt;reg&gt; holds the modern editorial regularization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;abbr&gt; for the original spelling, and &lt;expan&gt; for the regularized spelling.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;abbr&gt; and &lt;expan&gt; are reserved for abbreviations and expansions, not general spelling variation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;sic&gt; for the historical spelling, and &lt;corr&gt; for the regularized spelling.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;sic&gt; and &lt;corr&gt; are used exclusively for genuine scribal blunders, not acceptable historical spelling variants.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;old&gt; for the manuscript reading, and &lt;new&gt; for the modern headword.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;old&gt; and &lt;new&gt; are not valid TEI elements; the standard elements are &lt;orig&gt; and &lt;reg&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Editorial Responsibility and the `@resp` Attribute</text></name><questiontext format="html"><text><![CDATA[
+<h3>Editorial Responsibility and the `@resp` Attribute</h3>
+<p>In academic digital editing, no editorial alteration should occur anonymously. Whenever an editor normalizes a word, expands an abbreviation, or amends a reading, the markup must explicitly record who authorized that interpretation. In the TEI Guidelines, this accountability is enforced through the <code>@resp</code> (responsibility) attribute (TEI Consortium, 2024).</p>
+<p>The <code>@resp</code> attribute points to an identifier defined in the TEI Header—specifically within the <code>&lt;titleStmt&gt;</code> where editors, transcribers, and project contributors are catalogued. If your project header defines your role with <code>xml:id="KP"</code>, your regularization markup should explicitly reference your authority:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;compleat&lt;/orig&gt;
+  &lt;reg resp=&quot;#KP&quot;&gt;complete&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>Why is the <code>@resp</code> attribute attached to <code>&lt;reg&gt;</code> rather than <code>&lt;orig&gt;</code>? The original characters inside <code>&lt;orig&gt;</code> belong to the historical document and its primary author or scribe. You did not create <em>compleat</em>; the scribe wrote it. Conversely, the modern spelling <em>complete</em> is an interpretive editorial decision supplied by you.</p>
+<p>Recording responsibility ensures that if a future scholar disagrees with your normalization—arguing, for instance, that an archaic word should have been regularized to a different lemma—they can trace the decision back to the specific editor and rationale recorded in the edition.</p>
+<p><strong>Vocabulary.</strong> <em><code>@resp</code></em> — A TEI attribute indicating the agent (editor, institution, or algorithm) responsible for an editorial intervention. <em>Editorial accountability</em> — The practice of explicitly attributing every interpretive layer of an edition to an identifiable scholar or project.</p>
+<p><strong>Takeaway:</strong> Always attach the <code>@resp</code> attribute to your regularized <code>&lt;reg&gt;</code> element to document who made the editorial intervention.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Editorial Responsibility and the @resp Attribute</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the @resp attribute attached to the &lt;reg&gt; element rather than the &lt;orig&gt; element?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Always attach the @resp attribute to your regularized &lt;reg&gt; element to document who made the editorial intervention.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The regularized form is an interpretive scholarly intervention supplied by the modern editor, whereas the original text belongs to the historical witness.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The editor did not create the historical spelling in &lt;orig&gt;; they created the modernized interpretation in &lt;reg&gt;, so responsibility is attributed to &lt;reg&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The XML specification forbids attaching attributes of any kind to &lt;orig&gt; tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;orig&gt; can carry attributes; @resp is placed on &lt;reg&gt; because regularization is an editorial act.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Attaching @resp to &lt;orig&gt; would automatically trigger a schema validation error in VS Code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The schema allows @resp on both elements, but scholarly methodology requires attributing editorial interventions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The historical scribe's signature must always be placed inside the @resp attribute of &lt;orig&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical scribes are identified in &lt;handNote&gt; or &lt;titleStmt&gt;, while @resp indicates the editor who normalized the form.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Abbreviations in Historical Documents</text></name><questiontext format="html"><text><![CDATA[
+<h3>Abbreviations in Historical Documents</h3>
+<p>Historical documents are dense with abbreviations. Whether examining a medieval parchment charter, an 18th-century colonial treaty, a personal letter, or a revolutionary proclamation, writers consistently shortened words to save time, space, and materials.</p>
+<p>Before the widespread availability of cheap industrial wood-pulp paper in the mid-19th century, writing surfaces were expensive commodities. In medieval and early modern scriptoria, parchment made from animal hide was labor-intensive and costly; scribes compressed text using elaborate systems of scribal shorthand to maximize the words per leaf (Clemens &amp; Graham, 2007). Even after paper became common, bureaucratic clerks facing mountains of repetitive legal documents developed rapid abbreviation conventions for titles, dates, formulas, and legal terminology.</p>
+<p>In informal writing, such as the personal correspondence of folk artist Maud Lewis, abbreviations reflect the natural tempo of vernacular communication. Writers omit apostrophes in common contractions (<em>cant</em>, <em>wont</em>) or truncate common words (<em>Nov.</em> for <em>November</em>). </p>
+<p>Leaving abbreviations unexpanded in a digital edition preserves the look of the document, but it creates severe barriers for readers unfamiliar with historical paleography and causes text-mining tools to miss critical named entities and titles. A complete digital edition must therefore account for abbreviations systematically.</p>
+<p><strong>Vocabulary.</strong> <em>Scribal abbreviation</em> — A conventional graphic compression of a word or phrase practiced by scribes and clerks to conserve space or speed writing. <em>Tironian notes</em> — An ancient Roman system of shorthand whose conventions influenced medieval and early modern European scribal abbreviations.</p>
+<p><strong>Takeaway:</strong> Historical abbreviations were practical tools for conserving expensive writing surfaces and speeding manual transcription, but they require digital expansion for modern accessibility.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Abbreviations in Historical Documents</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What was the primary historical reason for the extensive use of abbreviations in medieval and early modern manuscripts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Historical abbreviations were practical tools for conserving expensive writing surfaces and speeding manual transcription, but they require digital expansion for modern accessibility.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Writing surfaces like parchment were expensive, and clerks needed to maximize words per page and speed manual copying.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Parchment and paper were costly commodities, making graphic compression essential for conserving space and labor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Clerks abbreviated words to prevent ordinary people from reading official legal documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scribal abbreviations were standardized systems for efficiency and cost reduction, not secret ciphers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Guild regulations mandated that no document could contain words longer than seven characters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. No such guild regulations existed; abbreviations developed pragmatically across bureaucratic traditions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Early printing presses lacked the mechanical ability to cast full English words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Movable type could print full words; abbreviations were inherited directly from manual scribal culture.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Encoding Abbreviations: `&lt;abbr&gt;` and `&lt;expan&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Encoding Abbreviations: `<abbr>` and `<expan>`</h3>
+<p>Just as the TEI provides <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code> for orthographic variation, it provides a dedicated pair of elements within <code>&lt;choice&gt;</code> for abbreviations: <code>&lt;abbr&gt;</code> (abbreviation) and <code>&lt;expan&gt;</code> (expansion) (TEI Consortium, 2024).</p>
+<p>The <code>&lt;abbr&gt;</code> element captures the abbreviated form exactly as written on the manuscript page, including any raised superscript letters, periods, or truncation slashes. The <code>&lt;expan&gt;</code> element provides the fully expanded word supplied by the editor:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;abbr&gt;Gov&lt;hi rend=&quot;superscript&quot;&gt;r&lt;/hi&gt;&lt;/abbr&gt;
+  &lt;expan resp=&quot;#editor&quot;&gt;Governor&lt;/expan&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>In this example from an 18th-century official proclamation, the clerk wrote <em>Gov</em> with a superscript <em>r</em>. A reading environment can render the raw abbreviation to show students how 18th-century titles were formatted, or it can swap in the expanded word <em>Governor</em> so a search for the office succeeds across all colonial records.</p>
+<p>As with regularization, the expansion carries the <code>@resp</code> attribute because supplying the missing letters is an act of editorial interpretation. If a clerk writes <em>Hon.</em>, deciding whether to expand it as <em>Honorable</em>, <em>Honourable</em>, or <em>Honorary</em> requires scholarly judgment based on the document's date, location, and institutional context.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;abbr&gt;</code></em> — TEI element containing an abbreviation of any kind. <em><code>&lt;expan&gt;</code></em> — TEI element containing the expansion of an abbreviation supplied by an editor.</p>
+<p><strong>Takeaway:</strong> Use <code>&lt;choice&gt;&lt;abbr&gt;...&lt;/abbr&gt;&lt;expan resp="#editor"&gt;...&lt;/expan&gt;&lt;/choice&gt;</code> to encode historical abbreviations and their full editorial expansions in parallel.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Encoding Abbreviations: &lt;abbr&gt; and &lt;expan&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which TEI markup correctly encodes a historical abbreviation and its editorial expansion?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use &lt;choice&gt;&lt;abbr&gt;...&lt;/abbr&gt;&lt;expan resp='#editor'&gt;...&lt;/expan&gt;&lt;/choice&gt; to encode historical abbreviations and their full editorial expansions in parallel.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;choice&gt;&lt;abbr&gt;Gov&lt;hi rend='superscript'&gt;r&lt;/hi&gt;&lt;/abbr&gt;&lt;expan resp='#editor'&gt;Governor&lt;/expan&gt;&lt;/choice&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The raw abbreviation is enclosed in &lt;abbr&gt; and the full editorial expansion is enclosed in &lt;expan&gt; with @resp.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;choice&gt;&lt;orig&gt;Govr&lt;/orig&gt;&lt;reg resp='#editor'&gt;Governor&lt;/reg&gt;&lt;/choice&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. While syntactically valid XML, &lt;orig&gt;/&lt;reg&gt; is used for spelling variation; abbreviations must be tagged with &lt;abbr&gt;/&lt;expan&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;abbr expan='Governor'&gt;Govr&lt;/abbr&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI P5 uses parallel child elements within &lt;choice&gt;, rather than storing expansions in an @expan attribute.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;choice&gt;&lt;sic&gt;Govr&lt;/sic&gt;&lt;corr resp='#editor'&gt;Governor&lt;/corr&gt;&lt;/choice&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. An abbreviation is a conventional writing practice, not an error (&lt;sic&gt;).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Suspensions, Contractions, and Brevigraphs</text></name><questiontext format="html"><text><![CDATA[
+<h3>Suspensions, Contractions, and Brevigraphs</h3>
+<p>To transcribe and expand abbreviations accurately, an editor must recognize the three primary morphological mechanisms used in historical writing: suspensions, contractions, and brevigraphs (Clemens &amp; Graham, 2007).</p>
+<p>A <strong>suspension</strong> occurs when the beginning of a word is written and the end is omitted, typically indicated by a terminal dot, colon, or horizontal stroke. For example, writing <em>Feb.</em> for <em>February</em> or <em>art.</em> for <em>article</em> in a French legal decree is a suspension. The reader is expected to supply the missing grammatical ending from the context.</p>
+<p>A <strong>contraction</strong> occurs when the first and last letters of a word are retained while internal letters are dropped. In early modern English and colonial legal documents, contractions frequently place the terminal letters in superscript: <em>w<hi rend="superscript">ch</hi></em> for <em>which</em>, <em>y<hi rend="superscript">e</hi></em> for <em>the</em>, or <em>M<hi rend="superscript">r</hi></em> for <em>Mister</em>.</p>
+<p>A <strong>brevigraph</strong> is a specialized symbol or ligature that stands for an entire common syllable or word. The ampersand (<em>&amp;</em>) is the most familiar surviving brevigraph, representing Latin <em>et</em> and English <em>and</em>. Another common brevigraph is <em>&amp;c.</em> for <em>etcetera</em>. In TEI encoding, all three types are captured inside <code>&lt;abbr&gt;</code> and expanded inside <code>&lt;expan&gt;</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Suspension</em> — An abbreviation where the end of the word is dropped. <em>Contraction</em> — An abbreviation where middle letters are omitted, often leaving the final letters in superscript. <em>Brevigraph</em> — A distinct symbol or monogram representing a complete word or syllable.</p>
+<p><strong>Takeaway:</strong> Historical abbreviations fall into three main types—suspensions, contractions, and brevigraphs—all of which are encoded using TEI <code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Suspensions, Contractions, and Brevigraphs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does a scribal contraction differ from a scribal suspension?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Historical abbreviations fall into three main types—suspensions, contractions, and brevigraphs—all of which are encoded using TEI &lt;abbr&gt; and &lt;expan&gt;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A contraction retains the first and last letters while dropping internal letters; a suspension writes the start of the word and drops the end.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Contractions drop internal letters (often using superscripts), whereas suspensions truncate the ending.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A contraction applies only to nouns, while a suspension applies exclusively to verbs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both abbreviation types apply across all grammatical parts of speech.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A contraction is an accidental ink smudge, while a suspension is a deliberate editorial punctuation mark.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both are deliberate, systematic historical abbreviation practices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A contraction was used only in printed books, while a suspension was used only in private handwriting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both conventions were used widely in manuscripts and early printed books alike.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Regularization vs. Correction: `&lt;reg&gt;` vs. `&lt;corr&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Regularization vs. Correction: `<reg>` vs. `<corr>`</h3>
+<p>One of the most frequent errors made by novice text encoders is confusing <strong>regularization</strong> with <strong>correction</strong>. The TEI maintains a strict, fundamental distinction between these two editorial actions, and mixing them up distorts the linguistic truth of your witness (TEI Consortium, 2024).</p>
+<p><strong>Regularization</strong> (<code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code>) applies to valid historical, regional, dialectal, or archaic forms. When an 18th-century writer spells <em>honour</em> as <em>honor</em>, or <em>public</em> as <em>publick</em>, or writes <em>étoit</em> instead of modern French <em>était</em>, the writer has not committed an error. They were writing acceptable, standard orthography for their time and culture. You regularize the form solely to assist modern digital retrieval.</p>
+<p><strong>Correction</strong> (<code>&lt;sic&gt;</code> and <code>&lt;corr&gt;</code>), by contrast, applies when the historical writer or printer made a genuine blunder—a slip of the pen, an accidental repetition (dittography), a missing letter that violates the language's own rules, or an obvious typographical error. If a scribe writes <em>the the</em> across a line break, or misspells a common word through clear mechanical inattention, the erroneous text is tagged with <code>&lt;sic&gt;</code> (Latin for "thus"), and the editorial correction is tagged with <code>&lt;corr&gt;</code>:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;sic&gt;recieved&lt;/sic&gt;
+  &lt;corr resp=&quot;#editor&quot;&gt;received&lt;/corr&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>Never label an author's valid historical orthography as <code>&lt;sic&gt;</code>. Calling an 18th-century spelling "erroneous" reflects modern editorial arrogance; treat valid historical variation with <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>, and reserve <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> strictly for unambiguous mistakes.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;sic&gt;</code></em> — TEI element indicating that text in a witness is reproduced verbatim despite being an error. <em><code>&lt;corr&gt;</code></em> — TEI element containing the editor's correction of an apparent error. <em>Scribal error</em> — A genuine blunder or slip of the pen, distinguished from acceptable historical spelling variation.</p>
+<p><strong>Takeaway:</strong> Use <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> for acceptable historical and dialectal spelling variants, and reserve <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code> strictly for genuine scribal blunders.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Regularization vs. Correction: &lt;reg&gt; vs. &lt;corr&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must an editor avoid tagging historical spelling variants like 'publick' or 'étoit' with &lt;sic&gt; and &lt;corr&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use &lt;orig&gt;/&lt;reg&gt; for acceptable historical and dialectal spelling variants, and reserve &lt;sic&gt;/&lt;corr&gt; strictly for genuine scribal blunders.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Those spellings were acceptable, standard orthography in their historical periods; &lt;sic&gt;/&lt;corr&gt; is reserved strictly for genuine errors and blunders.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Using &lt;sic&gt; for valid historical variation is anachronistic and inaccurate; valid variation belongs in &lt;orig&gt;/&lt;reg&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema automatically deletes any &lt;sic&gt; tag found inside an English or French document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schemas validate grammar and syntax, not historical semantics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;sic&gt; and &lt;corr&gt; can only be used when editing texts written before the invention of the printing press.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;sic&gt; and &lt;corr&gt; are used across all periods for genuine blunders or misprints.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Tagging a word with &lt;sic&gt; prevents web browsers from rendering any text on the screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;sic&gt; renders normally in all standard stylesheets and digital edition viewers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Case Study 1: 18th-Century Legal English (1752 Treaty)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study 1: 18th-Century Legal English (1752 Treaty)</h3>
+<p>To understand how these principles operate in real projects, let us examine the first document in our course cohort: the <strong>Peace and Friendship Treaty of 1752</strong>, an official colonial legal instrument printed and inscribed in Nova Scotia (Archives RG 1 vol 430 no 2).</p>
+<p>Official English documents of the mid-18th century exhibit distinct orthographic conventions that differ sharply from 21st-century practice:</p>
+<ol>
+  <li><strong>Capitalization of Common Nouns:</strong> Eighteenth-century printing conventions capitalized almost all substantive nouns for visual emphasis (e.g., <em>Treaty</em>, <em>Governor</em>, <em>Articles</em>, <em>Tribe</em>, <em>Peace</em>). In a modern reading edition, an editor may choose to lowercase common nouns while retaining capitals for proper names.</li>
+  <li><strong>Terminal Archaic Suffixes:</strong> Adjectives and nouns frequently retain older Germanic and French spellings, such as <em>publick</em>, <em>traffick</em>, and <em>compleat</em>.</li>
+  <li><strong>The Long s:</strong> The typographical long <em>s</em> (<em>ſ</em>) appears throughout the printed text at the beginning and middle of words, while the short <em>s</em> appears only at the end.</li>
+</ol>
+
+<p>When an editor normalizes the 1752 Treaty, they must decide whether the capitalization of nouns is syntactic (requiring regularization) or stylistic. If your editorial policy determines that common nouns should be regularized for sentence-level reading while preserving the original layout, you encode each instance deliberately:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;Treaty&lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;treaty&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Long s (ſ)</em> — An archaic graphic variant of the lowercase letter <em>s</em> used initially and medially in handwriting and print until the early 19th century. <em>Substantive capitalization</em> — The 18th-century printing practice of capitalizing common nouns.</p>
+<p><strong>Takeaway:</strong> Eighteenth-century legal documents feature substantive noun capitalization, archaic terminal suffixes, and the long <em>s</em>, requiring clear editorial decisions about what to regularize.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Case Study 1: 18th-Century Legal English (1752 Treaty)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What typographic and orthographic feature is widely characteristic of 18th-century official legal broadsides like the 1752 Treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Eighteenth-century legal documents feature substantive noun capitalization, archaic terminal suffixes, and the long s, requiring clear editorial decisions about what to regularize.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Capitalization of substantive common nouns, terminal archaic suffixes like -ck, and the use of the long s (ſ).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Eighteenth-century printed legal texts systematically capitalized common nouns and used archaic terminal spellings alongside the long s.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Strict lowercase lettering throughout all paragraphs with zero capital letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Eighteenth-century printing favored heavy, substantive noun capitalization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The complete absence of punctuation marks, spaces, or paragraph breaks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Legal treaties were highly structured with formal articles, margins, and punctuation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Writing all legal terminology in ancient Coptic script rather than English roman type.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Colonial British treaties were printed in English roman type with occasional Latin phrases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Archaic Contractions and Superscripts in Colonial Documents</text></name><questiontext format="html"><text><![CDATA[
+<h3>Archaic Contractions and Superscripts in Colonial Documents</h3>
+<p>In addition to capitalization, the 1752 Treaty and contemporary colonial legal records rely heavily on traditional scribal contractions that confuse modern optical character recognition systems and novice readers.</p>
+<p>The most famous example is the pseudo-archaic word <em>ye</em>, as in <em>ye Governor</em>. Novice readers frequently pronounce this word with a /j/ sound, imagining that early modern English speakers said "ye olde shop." In reality, the character written as <em>y</em> in <em>ye</em> is a scribal survivor of the Old and Middle English rune <strong>thorn</strong> (þ), which represented the /θ/ or /ð/ sound (<em>th</em>). When movable type was introduced to England from the Continent, German- and Dutch-cast fonts lacked a thorn sort, so English printers substituted the visually similar letter <em>y</em>. </p>
+<p>When a 1752 clerk wrote <em>y<hi rend="superscript">e</hi></em>, they were simply writing <em>the</em>. When they wrote <em>y<hi rend="superscript">t</hi></em>, they were writing <em>that</em>. In TEI, this is treated as an abbreviation contraction, not a spelling variant:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;abbr&gt;y&lt;hi rend=&quot;superscript&quot;&gt;e&lt;/hi&gt;&lt;/abbr&gt;
+  &lt;expan resp=&quot;#editor&quot;&gt;the&lt;/expan&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>Other ubiquitous colonial abbreviations include legal titles (<em>Esq<hi rend="superscript">r</hi></em> for <em>Esquire</em>, <em>Gov<hi rend="superscript">r</hi></em> for <em>Governor</em>) and commercial transaction terms (<em>rec'd</em> for <em>received</em>). By tagging these with <code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code>, you preserve the graphic reality of 18th-century typography while delivering clear modern syntax to readers.</p>
+<p><strong>Vocabulary.</strong> <em>Thorn (þ)</em> — An ancient Germanic rune and Old/Middle English letter representing the <em>th</em> sound, often represented by the letter <em>y</em> in early modern printing. <em>Pseudo-archaisms</em> — Modern misinterpretations of historical graphic conventions, such as pronouncing <em>ye</em> as a <em>y</em> sound.</p>
+<p><strong>Takeaway:</strong> Early modern <em>ye</em> is a typographical substitution for the letter thorn, representing the word <em>the</em>, and should be encoded as an abbreviation with <code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Archaic Contractions and Superscripts in Colonial Documents</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In colonial documents, why did clerks write 'ye' for the word 'the'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Early modern ye is a typographical substitution for the letter thorn, representing the word the, and should be encoded as an abbreviation with &lt;abbr&gt; and &lt;expan&gt;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Early English printers lacked a type sort for the Old English letter thorn (þ) and substituted the visually similar letter y.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The y in 'ye' is a typographical surrogate for the thorn rune representing the 'th' sound; it was never pronounced with a y sound.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Eighteenth-century English speakers pronounced the word 'the' with a hard 'y' consonant sound.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The pronunciation was always /ðə/ ('the'); the spelling reflects a font substitution.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The King of England mandated that the word 'the' be spelled with a y in all North American colonies.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It was a centuries-old typographical convention, not a royal decree.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Clerks wrote 'ye' because the letter 't' had been officially eliminated from legal alphabets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The letter 't' was in continuous use across all colonial documents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Case Study 2: 19th-Century Poetic Idiosyncrasy (Emily Dickinson)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study 2: 19th-Century Poetic Idiosyncrasy (Emily Dickinson)</h3>
+<p>Our second cohort project examines an autograph manuscript poem by <strong>Emily Dickinson</strong> (<code>MS Am 1118.3 [338]</code>, Amherst/Harvard). Dickinson's handwriting presents the exact opposite editorial challenge from an official printed treaty. Her manuscripts are intimate, private literary artifacts where orthography and layout are inseparable from poetic expression.</p>
+<p>Dickinson's manuscripts display several famous idiosyncratic features:</p>
+<ul>
+  <li><strong>Heavy Capitalization:</strong> She capitalizes common nouns and adjectives according to private psychological, symbolic, and rhythmic impulses (e.g., <em>Soul</em>, <em>Society</em>, <em>Door</em>, <em>Valves</em>, <em>Stone</em>).</li>
+  <li><strong>The Dickinson Dash:</strong> In place of conventional commas, semicolons, and periods, Dickinson uses variable horizontal and slanted pen strokes of differing lengths (dashes), creating musical pauses and syntactic ambiguity.</li>
+  <li><strong>Variant Spellings:</strong> She occasionally employs older, phonetic, or variant spellings, such as <em>opake</em> for <em>opaque</em>, or <em>etherial</em> for <em>ethereal</em>.</li>
+</ul>
+
+<p>When editing Dickinson, an editor must confront the question: is an unusual spelling an error to be corrected, a historical spelling to be regularized, or an intentional poetic choice that must not be touched?</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;opake&lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;opaque&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>While tagging <em>opake</em> with <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code> allows modern readers to search for the poem using standard spelling, regularizing her capitalization or replacing her dashes with commas risks flattening her unique poetic voice.</p>
+<p><strong>Vocabulary.</strong> <em>Autograph manuscript</em> — A manuscript written in the author's own hand, rather than by a professional scribe or secretary. <em>Poetic orthography</em> — The deliberate or idiosyncratic use of spelling, capitalization, and punctuation for literary and rhythmic effect.</p>
+<p><strong>Takeaway:</strong> Emily Dickinson's autograph poetry uses capitalization, dashes, and variant spellings as expressive artistic devices, requiring extreme caution during normalization.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Case Study 2: 19th-Century Poetic Idiosyncrasy (Emily Dickinson)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does normalizing capitalization in an autograph poem by Emily Dickinson require extreme editorial caution?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Emily Dickinson's autograph poetry uses capitalization, dashes, and variant spellings as expressive artistic devices, requiring extreme caution during normalization.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Her capitalized common nouns often represent deliberate personifications and rhythmic accents integral to her poetic meaning.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Dickinson's capitals convey intentional poetic emphasis; standardizing them to lowercase flattens her literary expression.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Her manuscripts were printed on machine-punched cards that cannot be edited in XML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dickinson wrote by hand on manuscript paper, which is encoded in standard TEI XML.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Dickinson specifically stated in her will that anyone who changed a letter would face legal prosecution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The caution stems from scholarly respect for poetic voice, not legal threats.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI Guidelines strictly ban the use of &lt;reg&gt; tags inside any text labeled as poetry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The TEI provides elements for poetry, but literary editors exercise restraint to protect authorial intent.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: When NOT to Normalize: The Poetic Boundary</text></name><questiontext format="html"><text><![CDATA[
+<h3>When NOT to Normalize: The Poetic Boundary</h3>
+<p>The power to normalize text in TEI brings with it the responsibility of restraint. Just because you <em>can</em> regularize a word does not mean you <em>should</em>. Nowhere is this principle more vital than in literary and poetic editing.</p>
+<p>In modern publishing, editors have frequently inflicted severe damage on Dickinson's poetry by standardizing her work. Early post-mortem editors in the 1890s replaced her characteristic dashes with conventional commas and full stops, regularized her capitalized nouns to lowercase, and smoothed out her rhymes to fit Victorian hymnal meters. In doing so, they destroyed the jagged, hesitant, modernist rhythms that make her poetry revolutionary.</p>
+<p>In your digital edition, you must define explicit boundaries between <strong>orthographic regularization</strong> and <strong>editorial interference</strong>. If Dickinson writes:</p>
+<pre><code class="language-text">The Soul selects her own Society —
+Then — shuts the Door —
+</code></pre>
+<p>Regularizing <em>Society</em> to <em>society</em> or <em>Door</em> to <em>door</em> would eliminate her deliberate personification of abstract concepts. In a diplomatic edition of 19th-century poetry, capitalization that serves an artistic purpose should generally be preserved without a <code>&lt;reg&gt;</code> tag, unless your project explicitly creates a dual "reading text" for school children.</p>
+<p>Before tagging any word with <code>&lt;choice&gt;</code>, ask yourself: does this spelling reflect mere mechanical variation, or does it carry semantic and aesthetic weight? If it carries aesthetic weight, leave it unaltered.</p>
+<p><strong>Vocabulary.</strong> <em>Over-editing</em> — The harmful editorial practice of regularizing authorial idiosyncrasies that were deliberately chosen for stylistic or artistic effect. <em>Personification capitalization</em> — Capitalizing common nouns to invest abstract concepts with human agency.</p>
+<p><strong>Takeaway:</strong> Editorial restraint is essential: never normalize capitalization, punctuation, or spelling that carries intentional poetic or stylistic meaning.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: When NOT to Normalize: The Poetic Boundary</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What major damage was inflicted on Emily Dickinson's poetry by 19th-century post-mortem print editors?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Editorial restraint is essential: never normalize capitalization, punctuation, or spelling that carries intentional poetic or stylistic meaning.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They replaced her characteristic dashes with conventional commas and smoothed her irregular capitalization to conform to standard Victorian hymnal meter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Early editors regularized her unique punctuation and capitalization, altering the rhythm and psychological tension of her poems.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They burned all original manuscript copies to prevent scholars from seeing her handwriting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The manuscripts survived at Amherst and Harvard, allowing modern scholars to restore her original readings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They translated all of her poems into Latin without publishing the English text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They published English editions, but heavily modernized her orthography and punctuation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They forced her poems into strict 30-section TEI XML files that failed validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI XML was invented a century after the first print editions of Dickinson.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Case Study 3: 20th-Century Vernacular Writing (Maud Lewis)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study 3: 20th-Century Vernacular Writing (Maud Lewis)</h3>
+<p>Our third project centers on personal handwritten letters by celebrated Nova Scotia folk artist <strong>Maud Lewis</strong> (1903–1970). Lewis lived in rural Digby County with severe physical disabilities and limited formal education, painting vibrant folk scenes on cards and boards. Her personal correspondence provides invaluable historical and biographical documentation.</p>
+<p>Her letters feature distinct vernacular and phonetic characteristics:</p>
+<ul>
+  <li><strong>Phonetic Spellings:</strong> Doubling consonants or substituting letters based on sound, such as <em>allways</em> for <em>always</em>, <em>untill</em> for <em>until</em>, or <em>truely</em> for <em>truly</em>.</li>
+  <li><strong>Unpunctuated Contractions:</strong> Omitting the apostrophe in common contractions, writing <em>dont</em>, <em>cant</em>, <em>wont</em>, and <em>didnt</em>.</li>
+  <li><strong>Colloquial Syntax:</strong> Informal vernacular grammar reflecting Maritime oral speech patterns.</li>
+</ul>
+
+<p>In Lewis's letters, an encoder faces words like <em>dont</em>:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;dont&lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;don't&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>Here, the editor supplies the missing apostrophe in <code>&lt;reg&gt;</code> so that natural language search engines identify the negative contraction, while <code>&lt;orig&gt;</code> preserves the unpunctuated form reflecting her rapid, informal hand.</p>
+<p><strong>Vocabulary.</strong> <em>Vernacular writing</em> — Informal, non-standardized written text produced outside formal academic, legal, or commercial institutions. <em>Phonetic spelling</em> — Spelling words according to their spoken pronunciation rather than dictionary conventions.</p>
+<p><strong>Takeaway:</strong> Personal letters by vernacular writers like Maud Lewis feature phonetic spellings and omitted apostrophes that can be regularized for readability while preserving their authenticity.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Case Study 3: 20th-Century Vernacular Writing (Maud Lewis)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which of the following represents a typical orthographic feature found in Maud Lewis's personal correspondence?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Personal letters by vernacular writers like Maud Lewis feature phonetic spellings and omitted apostrophes that can be regularized for readability while preserving their authenticity.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Phonetic spelling variants like 'allways' or 'untill', and unpunctuated contractions like 'dont' or 'cant'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Lewis's letters reflect informal vernacular English with phonetic consonant doubling and omitted apostrophes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Extensive Greek marginalia written in polytonic Hellenistic script.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lewis wrote personal English correspondence in rural Nova Scotia.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Strict adherence to 18th-century French court abbreviation protocols.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Her correspondence is vernacular Canadian folk writing, unrelated to 18th-century French courts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Machine-encoded cryptographic ciphers used to communicate with art galleries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Her handwriting is informal and personal, containing ordinary spoken phonetic spellings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Respecting the Vernacular Voice</text></name><questiontext format="html"><text><![CDATA[
+<h3>Respecting the Vernacular Voice</h3>
+<p>When editing vernacular texts, an editor must guard against the subtle hazard of <strong>class and educational bias</strong>. Throughout the history of scholarship, elite academic editors have often treated non-standard spelling in working-class, rural, or marginalized writers as "illiteracy" or "ignorance" requiring aggressive correction.</p>
+<p>In digital textual scholarship, we reject this paternalistic framing. Non-standard spellings in personal correspondence are not badges of failure; they are linguistic records of regional speech, vernacular literacy, and personal identity. When Maud Lewis spells a word phonetically, she documents the phonetic reality of early-to-mid 20th-century rural Nova Scotian English.</p>
+<p>When regularizing vernacular correspondence:</p>
+<ol>
+  <li><strong>Never use `<sic>`/`<corr>` for vernacular spellings:</strong> Writing <em>allways</em> is an authentic phonetic variant, not a broken typographical blunder. Tag it with `<orig>` and `<reg>`, never `<sic>`.</li>
+  <li><strong>Do not regularize colloquial grammar:</strong> If a writer uses a non-standard verb agreement (such as <em>we was</em>), do not "fix" the grammar to <em>we were</em>. That alters syntax and voice. Regularization governs spelling, not grammatical dialect.</li>
+  <li><strong>State your rationale clearly:</strong> Explain in your project introduction that regularizations are provided solely for computational search and screen-reader accessibility, not to "clean up" the author's writing.</li>
+</ol>
+
+<p><strong>Vocabulary.</strong> <em>Linguistic paternalism</em> — The condescending editorial impulse to rewrite or correct non-standard vernacular voices to conform to prestige educational dialects. <em>Dialect preservation</em> — The editorial policy of maintaining authentic regional grammatical and phonetic features.</p>
+<p><strong>Takeaway:</strong> Treat vernacular writing with scholarly respect: use <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> to aid digital search, but never use <code>&lt;sic&gt;</code> or alter an author's authentic regional grammar.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Respecting the Vernacular Voice</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should an editor use &lt;orig&gt;/&lt;reg&gt; rather than &lt;sic&gt;/&lt;corr&gt; when encoding vernacular spellings in working-class correspondence?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Treat vernacular writing with scholarly respect: use &lt;orig&gt;/&lt;reg&gt; to aid digital search, but never use &lt;sic&gt; or alter an author's authentic regional grammar.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Vernacular spellings reflect authentic dialectal phonology and literacy practices; treating them as 'errors' reflects linguistic bias.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Dialectal and vernacular spellings are legitimate sociolinguistic data, not broken blunders requiring patronizing correction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;sic&gt; is only allowed when transcribing texts written by government officials or monarchs.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;sic&gt; is used for errors regardless of the author's social status, but vernacular variation is not an error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Using &lt;reg&gt; automatically instructs modern speech synthesizers to speak with a Nova Scotian accent.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;reg&gt; provides standard lexical spellings for search and indexing, not regional audio synthesis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema completely disallows the use of &lt;sic&gt; inside personal letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The schema allows &lt;sic&gt;, but editorial methodology advises against mischaracterizing dialect as blunder.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Case Study 4: 18th-Century Revolutionary French (1791 Decree)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study 4: 18th-Century Revolutionary French (1791 Decree)</h3>
+<p>Our fourth cohort project investigates an official <strong>French Revolutionary decree of 1791</strong> from the National Assembly (<em>Comité des décrets</em>, Archives nationales, Paris). This document introduces students to historical variation in non-English European traditions.</p>
+<p>Eighteenth-century French documents exhibit several systematic orthographic shifts that distinguish them from modern French:</p>
+<ul>
+  <li><strong>The <em>oi</em> to <em>ai</em> Sound Shift:</strong> In the 18th century, the imperfect verb endings and nationality adjectives were still printed with the historical spelling <em>oi</em>, reflecting older medieval pronunciation, even though spoken French had shifted to /ɛ/. Thus, the 1791 decree writes <em>étoit</em> for modern <em>était</em>, <em>dérogeoit</em> for <em>dérogeait</em>, and <em>françois</em> for <em>français</em>. This spelling reform was proposed by Voltaire and officially codified by the Académie française in 1835.</li>
+  <li><strong>Omission of Accents on Capital Letters:</strong> Eighteenth-century French printers routinely omitted acute, grave, and circumflex accents on capital letters due to physical font limitations (e.g., writing <em>DECRET</em> instead of <em>DÉCRET</em>).</li>
+  <li><strong>Legal Formula Shorthand:</strong> Standard Latin and French legal abbreviations, such as <em>L.S.</em> (*Locus Sigilli* — place of the seal) and <em>art.</em> for <em>article</em>.</li>
+</ul>
+
+<p>Encoding the Voltairean <em>oi</em>/<em>ai</em> shift in TEI is a classic application of regularization:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;étoit&lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;était&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>This ensures that modern French corpus tools immediately recognize the third-person singular imperfect verb form without losing the 1791 prerevolutionary orthography.</p>
+<p><strong>Vocabulary.</strong> <em>Voltairean orthography</em> — The historical French spelling using <em>oi</em> for sounds that later shifted to <em>ai</em> in the 1835 Académie reform. <em>Accented capitals</em> — The modern French typographical rule of placing accents on capital letters, widely omitted in 18th-century typography.</p>
+<p><strong>Takeaway:</strong> Eighteenth-century French documents systematically write <em>oi</em> where modern French writes <em>ai</em>, an orthographic shift that is cleanly normalized using <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Case Study 4: 18th-Century Revolutionary French (1791 Decree)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What major historical orthographic shift is commonly found in 18th-century French documents like the 1791 Decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Eighteenth-century French documents systematically write oi where modern French writes ai, an orthographic shift that is cleanly normalized using &lt;orig&gt; and &lt;reg&gt;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Imperfect verb endings and adjectives written with 'oi' (e.g., 'étoit', 'françois') where modern French writes 'ai' ('était', 'français').&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The Voltairean spelling reform replacing historical 'oi' with phonetic 'ai' was codified by the Académie in 1835.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The complete elimination of all vowels in favor of consonant-only abbreviations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. French legal decrees used standard Romance vowel systems with conventional legal shorthand.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The substitution of English legal phrases for all French royal statutes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The National Assembly promulgated decrees in French, retaining legal Latin terms like L.S.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Writing every sentence backwards to prevent counter-revolutionary sabotage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Revolutionary decrees were official public laws intended for widespread civic proclamation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Historical Precedents: Phonological Drift and Sound Mergers</text></name><questiontext format="html"><text><![CDATA[
+<h3>Historical Precedents: Phonological Drift and Sound Mergers</h3>
+<p>The spelling variations we see in 18th-century English, colonial treaties, Dickinson's poems, and Revolutionary French are not random occurrences. They are local manifestations of a universal linguistic law: <strong>spoken language changes continuously, but written orthography tends to remain frozen</strong> (Clemens &amp; Graham, 2007).</p>
+<p>A famous historical precedent taught in classical manuscript studies is <strong>iotacism</strong> (or itacism) in ancient and Byzantine Greek. Over several centuries, six distinct Greek vowels and diphthongs (<em>ι</em>, <em>η</em>, <em>υ</em>, <em>ει</em>, <em>οι</em>, <em>υι</em>) progressively merged in pronunciation until all six sounded identical to the vowel /i/ (like the <em>ee</em> in <em>beet</em>). Because scribes wrote what they heard, they began substituting these letters interchangeably. A scribe writing <em>τιμή</em> (honor) might write <em>τιμι</em>, or write <em>ἡμεῖς</em> (we) for <em>ὑμεῖς</em> (you), completely reversing the meaning of a sentence!</p>
+<p>Similarly, in English, the <strong>Great Vowel Shift</strong> between 1400 and 1700 radically altered the pronunciation of long vowels, while printing presses froze late Middle English spelling into rigid type. That historical rupture is the reason English spelling today is notoriously irregular: words like <em>knight</em>, <em>meat</em>, and <em>meet</em> preserve historical sounds that vanished centuries ago.</p>
+<p>Understanding that orthographic variation is driven by systematic sound changes gives you confidence as an editor. When you see a strange spelling on a manuscript page, you are looking at the living footprint of phonetic history.</p>
+<p><strong>Vocabulary.</strong> <em>Phonological drift</em> — The gradual, systematic change in the sound system of a language over time. <em>Sound merger</em> — A historical phonological process where two previously distinct sounds become identical in pronunciation.</p>
+<p><strong>Takeaway:</strong> Orthographic variation is the natural historical result of spoken pronunciation changing faster than conservative written spelling.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Historical Precedents: Phonological Drift and Sound Mergers</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What universal linguistic phenomenon explains why historical texts across languages exhibit systematic spelling variations?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Orthographic variation is the natural historical result of spoken pronunciation changing faster than conservative written spelling.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Spoken pronunciation evolves continuously over time, while written orthography tends to remain conservative and frozen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Sound shifts (such as Greek iotacism or the English Great Vowel Shift) create mismatches between spoken sounds and traditional spellings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ancient governments intentionally scrambled alphabets every century to confuse rival nations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Spelling variation arises naturally through phonetic sound changes and scribal practice, not political conspiracies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Writers across history had identical pronunciations and simply made random typographical mistakes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Spelling variations often reflect highly systematic phonological shifts, not random blunders.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Parchment deterioration causes letters to transform physically into different alphabetical characters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ink and parchment fade, but sound shifts are human linguistic processes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Punctuation and Spacing Variations</text></name><questiontext format="html"><text><![CDATA[
+<h3>Punctuation and Spacing Variations</h3>
+<p>Orthographic variation extends beyond letters to punctuation marks, hyphens, and whitespace. Historical handwriting and early printing treat word division and line-end spacing very differently from modern word processors.</p>
+<p>In 18th-century documents and vernacular letters, you will encounter:</p>
+<ol>
+  <li><strong>Joined Words (Scriptio Continua remnants):</strong> Writers frequently join prepositions to their nouns or verbs (e.g., <em>inasmuch</em> written as <em>in as much</em>, or <em>today</em> written as <em>to day</em>).</li>
+  <li><strong>Split Compound Words:</strong> Compound words that we write as a single unit are often hyphenated or divided by spaces (e.g., <em>every thing</em> for <em>everything</em>, <em>to morrow</em> for <em>tomorrow</em>).</li>
+  <li><strong>Inconsistent Punctuation:</strong> The presence of virgules (slanted slash marks `/`) serving as general pause markers, colon marks used for abbreviations, or completely absent sentence punctuation.</li>
+</ol>
+
+<p>When regularizing spacing, <code>&lt;choice&gt;</code> can wrap multi-token groups:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;to morrow&lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;tomorrow&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>However, editors must exercise caution with punctuation. Changing a historical author's punctuation can subtly alter the syntax and rhythm of a sentence. Unless missing punctuation makes a sentence completely unintelligible, preserve historical punctuation in your primary transcription and document any editorial additions explicitly.</p>
+<p><strong>Vocabulary.</strong> <em>Virgule</em> — A forward slash mark (<code>/</code>) used in medieval and early modern writing as a comma or caesura pause. <em>Word division</em> — The historical practice of spacing or joining words differently from modern dictionary standards.</p>
+<p><strong>Takeaway:</strong> Spacing variations and compound word divisions can be regularized within <code>&lt;choice&gt;</code>, but historical punctuation should be modified with great restraint.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Punctuation and Spacing Variations</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should a digital editor handle historical compound word divisions, such as 'to morrow' written as two words?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Spacing variations and compound word divisions can be regularized within &lt;choice&gt;, but historical punctuation should be modified with great restraint.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Wrap the multi-word unit in &lt;choice&gt;, placing 'to morrow' in &lt;orig&gt; and 'tomorrow' in &lt;reg resp='#editor'&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. TEI &lt;choice&gt; can wrap multi-token groups to bridge historical spacing differences with modern compound words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the space directly in the manuscript using an image-editing eraser tool.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors never alter archival images; TEI captures spacing non-destructively through markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Insert a &lt;pb/&gt; page break tag between the two words to force a line reset.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A &lt;pb/&gt; marks a physical page boundary, not a word division.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Refuse to encode the line because the TEI schema forbids spaces inside &lt;orig&gt; tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Spaces are completely valid inside &lt;orig&gt; tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Nesting and Combining TEI Elements</text></name><questiontext format="html"><text><![CDATA[
+<h3>Nesting and Combining TEI Elements</h3>
+<p>In complex historical documents, orthographic variation and abbreviations frequently collide in the very same word. What should an editor do when a historical clerk uses an abbreviation for a word that is <em>also</em> spelled archaically?</p>
+<p>Consider an early legal document where the word <em>public</em> is abbreviated as <em>publ.</em>, but the full 18th-century spelling of the word was <em>publick</em>. Does the editor expand the abbreviation to modern <em>public</em> or historical <em>publick</em>? </p>
+<p>The TEI allows you to <strong>nest</strong> elements within <code>&lt;choice&gt;</code> or combine them to reflect multi-layered reality. There are two standard approaches:</p>
+<pre><code class="language-xml">&lt;!-- Approach 1: Expand to the historical spelling first, then regularize --&gt;
+&lt;choice&gt;
+  &lt;orig&gt;
+    &lt;choice&gt;
+      &lt;abbr&gt;publ.&lt;/abbr&gt;
+      &lt;expan resp=&quot;#editor&quot;&gt;publick&lt;/expan&gt;
+    &lt;/choice&gt;
+  &lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;public&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>While nesting is syntactically valid in TEI XML, it can rapidly become verbose and difficult for humans to read. For most undergraduate editions, the TEI Guidelines recommend <strong>combining both actions into a single direct pair</strong>: expand the abbreviation directly into the modern standardized form in <code>&lt;expan&gt;</code>, and note your policy in the header:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;abbr&gt;publ.&lt;/abbr&gt;
+  &lt;expan resp=&quot;#editor&quot;&gt;public&lt;/expan&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>Keeping markup clear and manageable is an essential skill in practical digital humanities. Choose the simplest valid structure that honestly represents the evidence.</p>
+<p><strong>Vocabulary.</strong> <em>Nested markup</em> — Placing one TEI <code>&lt;choice&gt;</code> element inside another to capture multiple layers of textual variation simultaneously. <em>Tag bloat</em> — Overly complex or nested XML that impairs human readability without adding proportionate scholarly value.</p>
+<p><strong>Takeaway:</strong> While TEI permits nesting <code>&lt;abbr&gt;</code> inside <code>&lt;orig&gt;</code>, practical editing favors the simplest clean markup that captures the necessary scholarly distinction.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Nesting and Combining TEI Elements</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the recommended practical approach when an abbreviated word also features an archaic historical spelling?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;While TEI permits nesting &lt;abbr&gt; inside &lt;orig&gt;, practical editing favors the simplest clean markup that captures the necessary scholarly distinction.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Supply the modern standardized form directly inside &lt;expan resp='#editor'&gt;, avoiding overly verbose nested &lt;choice&gt; tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. While nesting &lt;abbr&gt; inside &lt;orig&gt; is valid XML, expanding directly to the modern form provides cleaner, more readable markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete both the abbreviation and the word, replacing them with a &lt;gap/&gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A &lt;gap/&gt; represents missing or illegible text, not a word requiring normalization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Invent an unauthorized XML tag like &lt;abbr-orig-reg&gt; that merges all three functions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Inventing non-standard elements breaks TEI schema validation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Refuse to expand any abbreviation that contains more than two letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Abbreviations of any length can be expanded systematically in TEI.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Milestones Inside Normalization Blocks</text></name><questiontext format="html"><text><![CDATA[
+<h3>Milestones Inside Normalization Blocks</h3>
+<p>A critical technical hazard occurs when a word that needs normalization happens to cross a <strong>line break</strong> or a <strong>page break</strong>.</p>
+<p>In Week 4, you learned that physical line breaks must be recorded using the empty milestone tag <code>&lt;lb/&gt;</code>. Suppose that in the 1752 Treaty, the word <em>Governor</em> is written across the end of a line as <em>Gov-</em> on line 12 and <em>ernor</em> on line 13. Furthermore, suppose the word was written with an archaic spelling or abbreviation.</p>
+<p>Where does the <code>&lt;lb/&gt;</code> element go? Should it go <em>inside</em> the <code>&lt;choice&gt;</code> block, or <em>outside</em> it?</p>
+<pre><code class="language-xml">&lt;!-- CORRECT: The milestone sits inside the original reading --&gt;
+&lt;choice&gt;
+  &lt;orig&gt;Gov-&lt;lb n=&quot;13&quot;/&gt;ernor&lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;Governor&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>In TEI encoding, physical milestone tags belong to the <strong>diplomatic reality</strong> of the document. The line break actually happened on the physical page between <em>Gov-</em> and <em>ernor</em>. The regularized form <em>Governor</em>, by contrast, is an abstract intellectual concept created by the modern editor—it does not have a physical line break. Therefore, the <code>&lt;lb/&gt;</code> tag resides inside the <code>&lt;orig&gt;</code> element.</p>
+<p>If you placed the <code>&lt;lb/&gt;</code> outside <code>&lt;choice&gt;</code>, you would break the word in two separate XML chunks, making it impossible to search for the continuous word <em>Governor</em>. Keeping the milestone inside <code>&lt;orig&gt;</code> preserves both physical fidelity and lexical searchability.</p>
+<p><strong>Vocabulary.</strong> <em>Milestone tag</em> — An empty XML element (like <code>&lt;lb/&gt;</code> or <code>&lt;pb/&gt;</code>) that marks a physical boundary without enclosing text. <em>Hyphenated line-break</em> — A word divided across two typographic lines, requiring careful coordination with normalization markup.</p>
+<p><strong>Takeaway:</strong> Physical milestone tags like <code>&lt;lb/&gt;</code> belong inside the <code>&lt;orig&gt;</code> element because line breaks exist in the physical witness, not in the abstract regularized lemma.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Milestones Inside Normalization Blocks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When a historical word divided across a line break is regularized, where does the milestone &lt;lb/&gt; tag belong?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Physical milestone tags like &lt;lb/&gt; belong inside the &lt;orig&gt; element because line breaks exist in the physical witness, not in the abstract regularized lemma.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Inside the &lt;orig&gt; element, because the physical line break occurred on the manuscript witness, not in the abstract modern lemma.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Physical milestones belong to the physical document layer (&lt;orig&gt;), leaving &lt;reg&gt; as an uninterrupted lexical string.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Outside the &lt;choice&gt; element, dividing the entire &lt;choice&gt; tag into two broken halves.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Splitting &lt;choice&gt; creates malformed XML and disconnects the regularized word.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside the &lt;reg&gt; element, forcing the modern reading to display a hyphen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The modern lemma is an abstract word that does not have a physical line break.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Line break tags must be permanently deleted whenever a word is regularized.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Physical line breaks are essential codicological data and must never be deleted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Formulating an Editorial Policy</text></name><questiontext format="html"><text><![CDATA[
+<h3>Formulating an Editorial Policy</h3>
+<p>Before you type a single <code>&lt;reg&gt;</code> or <code>&lt;expan&gt;</code> tag into your document, you must pause and complete an essential intellectual task: <strong>writing your Editorial Regularization Policy</strong>.</p>
+<p>A digital edition without an explicit policy is merely a collection of arbitrary personal whims. If you normalize <em>publick</em> to <em>public</em> on line 3, but leave <em>traffick</em> untouched on line 14 because you were tired, you have degraded the integrity of your dataset. A future scholar using your XML to study spelling evolution will reach false conclusions because your data reflects erratic human inattention rather than a coherent standard.</p>
+<p>An Editorial Policy is an explicit set of rules defining:</p>
+<ol>
+  <li><strong>Target Domain:</strong> Exactly which categories of variation you will regularize (e.g., terminal *k*, long *s*, *oi*/*ai* verbs, common-noun capitalization).</li>
+  <li><strong>Exclusions:</strong> Exactly what you will leave untouched (e.g., authorial poetic capitalization, rhyme words, dialectal syntax).</li>
+  <li><strong>Authority Standard:</strong> The external reference dictionary or standard you use as your target authority (e.g., modern *Merriam-Webster*, *Oxford English Dictionary*, or *Dictionnaire de l'Académie française*).</li>
+</ol>
+
+<p>Your policy acts as your editorial contract. It governs every manual tag you apply today, every regular expression rule you write on Wednesday, and every prompt you feed to an AI model on Friday.</p>
+<p><strong>Vocabulary.</strong> <em>Editorial policy</em> — A formal, documented set of principles governing all editorial interventions and standardizations in an edition. <em>Target authority</em> — The standard reference dictionary or lexicon chosen as the normative baseline for regularization.</p>
+<p><strong>Takeaway:</strong> An explicit, written editorial policy is mandatory to ensure that all normalizations are consistent, defensible, and reproducible.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Formulating an Editorial Policy</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must an editor formulate an explicit written Editorial Policy before regularizing a document?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An explicit, written editorial policy is mandatory to ensure that all normalizations are consistent, defensible, and reproducible.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;An explicit policy establishes clear boundaries and target authorities, preventing arbitrary, inconsistent personal whims from corrupting the dataset.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without a stated policy, editorial choices fluctuate with human fatigue, creating unreliable and inconsistent data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An editorial policy is legally required by international copyright law before opening XML files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is a scholarly methodological necessity for data integrity, not a copyright statute.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A written policy is needed only if the editor plans to sell the digital edition for commercial profit.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All academic digital scholarly editions require transparent editorial declarations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Writing a policy automatically inserts all &lt;choice&gt; tags into the XML document without typing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The policy guides human and automated choices; it does not replace the encoding process.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: The Principle of Consistency</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Principle of Consistency</h3>
+<p>In textual scholarship, <strong>consistency is more important than your specific choice of standard</strong>. Whether an editor chooses to be conservative (normalizing very little) or liberal (modernizing thoroughly) is a defensible scholarly choice. What is completely indefensible is being inconsistent.</p>
+<p>Consider the consequences of inconsistency in a digital corpus. If a corpus linguist runs a script across your edition to count occurrences of the lemma <em>treaty</em>, and half of your instances are tagged <code>&lt;reg&gt;treaty&lt;/reg&gt;</code> while the other half are left untagged as diplomatic <em>Treaty</em>, the resulting statistical frequency will be wrong by 50%. Your inconsistency directly corrupts downstream quantitative research.</p>
+<p>To maintain consistency:</p>
+<ul>
+  <li><strong>Apply rules globally:</strong> If your policy dictates that 18th-century terminal *k* on adjectives is regularized, every single instance must receive the identical `<choice>` markup.</li>
+  <li><strong>Treat identical abbreviations identically:</strong> If *y<hi rend="superscript">e</hi>* is expanded to *the* on line 2, it must be expanded to *the* on line 20, unless clear contextual evidence indicates a different meaning.</li>
+  <li><strong>Log every exception:</strong> If you intentionally deviate from your standard rule in a specific line—for example, preserving a variant because it forms a poetic rhyme—you must document that specific exception in your project notes.</li>
+</ul>
+
+<p><strong>Vocabulary.</strong> <em>Internal consistency</em> — The rigorous application of the same editorial rules across every line and folio of an edition. <em>Corpus corruption</em> — The skewing of downstream statistical or lexical analyses caused by erratic or unstated editorial practices.</p>
+<p><strong>Takeaway:</strong> Consistency is the cardinal rule of digital editing: an editor must apply their stated regularization policy systematically to every occurrence in the text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: The Principle of Consistency</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary risk of inconsistent normalization across a digital text corpus?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Consistency is the cardinal rule of digital editing: an editor must apply their stated regularization policy systematically to every occurrence in the text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It skews quantitative lexical and concordance searches, producing inaccurate statistical frequencies for downstream researchers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. If half the instances of an archaic word are normalized and half are missed, quantitative corpus research becomes unreliable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It causes the computer operating system to corrupt the hard drive sectors storing the XML file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Inconsistent editorial markup affects textual scholarship, not computer hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It permanently prevents the TEI Header from recording the author's name.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The TEI header records metadata independently of body text consistency.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the validator to reject all subsequent image files uploaded to the repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Image files and XML text validation are separate pipeline stages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Building the Editorial Rule Ledger</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building the Editorial Rule Ledger</h3>
+<p>To ensure absolute consistency, professional digital editors do not normalize text on the fly. Instead, they construct an <strong>Editorial Rule Ledger</strong>.</p>
+<p>A Rule Ledger is a structured table that catalogues every rule in your policy before you begin encoding. It serves as your working blueprint during manual editing, your specifications sheet when writing regular expressions on Wednesday, and your grading rubric when auditing AI outputs on Friday.</p>
+<p>For Workshop 6, your Rule Ledger will be recorded in a markdown file named <code>NORMALIZATION.md</code> in your repository. It contains five core columns:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Rule ID</th>
+      <th>Pattern / Category</th>
+      <th>Diplomatic Example</th>
+      <th>Regularized Form</th>
+      <th>Scholarly Rationale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>R-01</code></td>
+      <td>Terminal <em>-ck</em> in adjectives</td>
+      <td><em>publick</em></td>
+      <td><em>public</em></td>
+      <td>Standard modern English lexicography; aligns with OED.</td>
+    </tr>
+    <tr>
+      <td><code>R-02</code></td>
+      <td>Thorn contraction</td>
+      <td><em>y<sup>e</sup></em></td>
+      <td><em>the</em></td>
+      <td>Expand historical thorn substitution to modern definite article.</td>
+    </tr>
+    <tr>
+      <td><code>R-03</code></td>
+      <td>Substantive noun capital</td>
+      <td><em>Treaty</em></td>
+      <td><em>treaty</em></td>
+      <td>Standardize 18th-century capital to lowercase for sentence parsing.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>By maintaining this ledger, you transform subjective feelings into an auditable scientific protocol.</p>
+<p><strong>Vocabulary.</strong> <em>Rule Ledger</em> — A structured catalogue defining every active regularization rule, its input pattern, target replacement, and scholarly rationale. <em>Rule ID</em> — A unique alphanumeric identifier (e.g., <code>R-01</code>) assigned to an editorial rule for tracking and auditing.</p>
+<p><strong>Takeaway:</strong> Maintain an explicit Editorial Rule Ledger with unique rule IDs and clear rationales to track every transformation applied to your text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Building the Editorial Rule Ledger</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is an Editorial Rule Ledger in digital textual scholarship?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Maintain an explicit Editorial Rule Ledger with unique rule IDs and clear rationales to track every transformation applied to your text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A structured table cataloguing every active regularization rule, its input pattern, regularized replacement, and scholarly rationale.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The Rule Ledger acts as the master blueprint for manual encoding, regular expressions, and AI auditing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A financial accounting spreadsheet used to track the cost of server hosting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. An Editorial Rule Ledger tracks textual transformations, not financial accounts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A private cryptographic key used to encrypt student grades in Moodle.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is an open, auditable record of editorial standardization rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A legal contract signed between the archival library and the software developer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ledger documents scholarly regularization decisions within the project repository.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Categorizing Regularization Rules</text></name><questiontext format="html"><text><![CDATA[
+<h3>Categorizing Regularization Rules</h3>
+<p>To keep your Rule Ledger organized and effective, divide your rules into four distinct <strong>linguistic and typographical categories</strong>:</p>
+<ol>
+  <li><strong>Orthographic / Phonological Rules:</strong> Variations in spelling reflecting historical sound changes, dialect, or pre-reform orthography (e.g., <em>publick</em> $  o$ <em>public</em>, French <em>étoit</em> $ o$ <em>était</em>, Lewis's <em>allways</em> $   o$ <em>always</em>). These are encoded with `<orig>` and `<reg>`.</li>
+  <li><strong>Abbreviation / Expansion Rules:</strong> Graphic compressions, suspensions, contractions, and brevigraphs (e.g., <em>y<sup>e</sup></em> $ o$ <em>the</em>, <em>Gov<sup>r</sup></em> $ o$ <em>Governor</em>, <em>&amp;</em> $  o$ <em>and</em>). These are encoded with `<abbr>` and `<expan>`.</li>
+  <li><strong>Typographical / Graphemic Rules:</strong> Letterform substitutions that do not change spelling or meaning, such as replacing the long <em>s</em> (<em>ſ</em>) with short <em>s</em>. Many editors handle this as a global display transformation, or encode it as `<orig>ſ</orig><reg>s</reg>`.</li>
+  <li><strong>Syntactic / Casing Rules:</strong> Regularizing substantive common-noun capitalization or joining split compound words (e.g., <em>to morrow</em> $    o$ <em>tomorrow</em>).</li>
+</ol>
+
+<p>Categorizing your rules prevents category confusion. It ensures that when you write regular expressions on Wednesday, you know exactly which XML tags (<code>&lt;reg&gt;</code> vs. <code>&lt;expan&gt;</code>) your replacement patterns should generate.</p>
+<p><strong>Vocabulary.</strong> <em>Rule categorization</em> — Grouping editorial transformations by their linguistic mechanism (spelling, abbreviation, typography, or casing). <em>Graphemic variation</em> — Different physical shapes representing the same underlying letter (such as long <em>s</em> versus round <em>s</em>).</p>
+<p><strong>Takeaway:</strong> Categorize your rules into orthographic, abbreviation, typographical, and casing groups to ensure appropriate TEI tagging.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Categorizing Regularization Rules</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is it beneficial to categorize rules into orthographic, abbreviation, typographical, and casing groups?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Categorize your rules into orthographic, abbreviation, typographical, and casing groups to ensure appropriate TEI tagging.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It prevents category confusion and ensures that replacement patterns generate the correct TEI elements (&lt;reg&gt; vs. &lt;expan&gt;).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Categorization maps each linguistic phenomenon to its proper TEI tag pair (&lt;orig&gt;/&lt;reg&gt; versus &lt;abbr&gt;/&lt;expan&gt;).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema requires all XML files to contain exactly four separate &lt;text&gt; elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A TEI document typically contains one &lt;body&gt;; categorization organizes editorial rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Uncategorized rules cause VS Code to crash whenever a search is conducted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code searches uncategorized text normally, but structured rules prevent human error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Categorizing rules allows editors to skip validation checks during Moodle export.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation is always required regardless of rule categorization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Documenting the Policy in the TEI Header</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting the Policy in the TEI Header</h3>
+<p>In a professional digital scholarly edition, your editorial policy is not just kept in an informal notebook; it is permanently encoded directly inside the document's <strong>TEI Header</strong> (TEI Consortium, 2024).</p>
+<p>The TEI Header provides a dedicated structural element inside <code>&lt;encodingDesc&gt;</code> called <code>&lt;editorialDecl&gt;</code> (editorial declaration). Within <code>&lt;editorialDecl&gt;</code>, you place the <code>&lt;normalization&gt;</code> element to explain your policy in formal prose:</p>
+<pre><code class="language-xml">&lt;teiHeader&gt;
+  &lt;!-- ... fileDesc ... --&gt;
+  &lt;encodingDesc&gt;
+    &lt;editorialDecl&gt;
+      &lt;normalization method=&quot;markup&quot;&gt;
+        &lt;p&gt;This edition regularizes historical 18th-century orthography and expands 
+           abbreviations using parallel &lt;gi&gt;choice&lt;/gi&gt; markup. Original spellings are 
+           preserved in &lt;gi&gt;orig&lt;/gi&gt; and regularized modern American English forms are 
+           supplied in &lt;gi&gt;reg&lt;/gi&gt; following Merriam-Webster's Collegiate Dictionary 
+           (11th ed.). Abbreviations are expanded in &lt;gi&gt;expan&lt;/gi&gt;. Common-noun 
+           capitalization has been regularized to lowercase.&lt;/p&gt;
+      &lt;/normalization&gt;
+    &lt;/editorialDecl&gt;
+  &lt;/encodingDesc&gt;
+&lt;/teiHeader&gt;
+</code></pre>
+<p>Notice the attribute <code>method="markup"</code>. This attribute explicitly informs any digital repository or harvesting bot that the normalization has been accomplished using parallel TEI tags (<code>&lt;choice&gt;</code>), rather than by silently overwriting the text (<code>method="silent"</code>). </p>
+<p>Documenting your policy in the header guarantees that your edition remains self-describing, transparent, and compliant with FAIR data principles decades after publication.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;editorialDecl&gt;</code></em> — TEI Header element detailing the editorial practices, declarations, and policies applied to the text. <em><code>&lt;normalization&gt;</code></em> — TEI Header element specifying the degree and method of orthographic normalization applied. <em><code>method="markup"</code></em> — An attribute declaring that normalization is encoded non-destructively using TEI tags.</p>
+<p><strong>Takeaway:</strong> Record your editorial policy inside the <code>&lt;editorialDecl&gt;</code> and <code>&lt;normalization&gt;</code> elements of your TEI Header, declaring <code>method="markup"</code> for non-destructive transparency.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Documenting the Policy in the TEI Header</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Where in the TEI Header should an editor formally declare their normalization policy?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Record your editorial policy inside the &lt;editorialDecl&gt; and &lt;normalization&gt; elements of your TEI Header, declaring method='markup' for non-destructive transparency.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Inside &lt;encodingDesc&gt; within the &lt;editorialDecl&gt; and &lt;normalization&gt; elements, declaring method='markup'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The &lt;editorialDecl&gt; element formally records editorial practices, and method='markup' declares non-destructive tagging.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside &lt;fileDesc&gt; within the &lt;publicationStmt&gt; element, declaring status='secret'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;publicationStmt&gt; records publisher and licensing information, not editorial normalization methods.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside &lt;profileDesc&gt; within the &lt;creation&gt; element, declaring language='python'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;creation&gt; documents the historical date and place of original composition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;At the very end of &lt;body&gt; inside a hidden HTML comment block.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Formal TEI metadata belongs in dedicated header elements, not trailing comments.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Manual Normalization in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Manual Normalization in VS Code</h3>
+<p>Now that your policy is established and your Rule Ledger is built, you are ready to begin the manual work in Visual Studio Code.</p>
+<p>Today's exercise focuses on a <strong>20-line excerpt</strong> selected from your consensus reconciled text in <code>transcription_reconciled.xml</code>. Working by hand is slow and deliberate, and that friction is precisely where learning happens. Hand-encoding forces you to examine every word with an editor's eye, noticing ambiguities that automated tools gloss over.</p>
+<p>Follow this systematic manual workflow:</p>
+<ol>
+  <li><strong>Open your reconciled transcription:</strong> In VS Code, open your `transcription_reconciled.xml` file. Ensure that the Red Hat XML and Scholarly XML extensions are active, displaying valid green checkmarks in the status bar.</li>
+  <li><strong>Identify candidate words:</strong> Read your 20-line passage word by word against your Editorial Rule Ledger. When you encounter a candidate word—such as an archaic spelling like <em>publick</em> or an abbreviation like <em>w<sup>ch</sup></em>—confirm which rule ID applies.</li>
+  <li><strong>Insert the `<choice>` block:</strong> Wrap the target word carefully. Cut the original word into `<orig>` or `<abbr>`, and type your regularized or expanded word into `<reg resp="#editor">` or `<expan resp="#editor">`.</li>
+  <li><strong>Verify tag placement:</strong> Ensure that surrounding whitespace is outside the `<choice>` tags, and confirm that any existing milestone tags like `<lb/>` are not accidentally deleted or misplaced.</li>
+</ol>
+
+<p><strong>Vocabulary.</strong> <em>Hand-encoding</em> — The deliberate, manual insertion of XML tags around text, developing close-reading paleographical discipline. <em>Whitespace discipline</em> — Ensuring that spaces between words remain outside tagging structures to prevent collapsed words in downstream rendering.</p>
+<p><strong>Takeaway:</strong> Manual normalization in VS Code builds editorial discipline by requiring you to evaluate every word against your explicit policy ledger.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Manual Normalization in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does Step 1 of the normalization module require hand-encoding in VS Code before using automated tools?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Manual normalization in VS Code builds editorial discipline by requiring you to evaluate every word against your explicit policy ledger.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Hand-encoding builds editorial discipline, forcing the editor to closely evaluate every word against the policy and discover unstated edge cases.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Manual work establishes the essential human baseline and reveals ambiguities that automated scripts overlook.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Modern computers lack the processing power to run automated regular expressions without human pre-typing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers execute regex in milliseconds; manual encoding is a deliberate pedagogical and methodological step.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI Consortium fines academic institutions that use automated tools without manual pre-approval.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. There are no fines or bureaucratic bans; manual ground truth is a scientific best practice.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hand-encoding is required because VS Code does not support regular expression search.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code has a powerful built-in regex engine, which will be introduced on Wednesday.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Keyboard Shortcuts and Snippets for `&lt;choice&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Keyboard Shortcuts and Snippets for `<choice>`</h3>
+<p>Typing <code>&lt;choice&gt;&lt;orig&gt;&lt;/orig&gt;&lt;reg resp="#editor"&gt;&lt;/reg&gt;&lt;/choice&gt;</code> by hand twenty times is tedious and prone to typing errors. Fortunately, VS Code provides powerful editing features that accelerate manual encoding without sacrificing human judgment.</p>
+<p>You can dramatically speed up manual normalization using two techniques:</p>
+<ol>
+  <li><strong>Wrap with Abbreviation / Emmet:</strong> Highlight the target word in your editor, open the Command Palette (<code>Cmd+Shift+P</code> on macOS or <code>Ctrl+Shift+P</code> on Windows), type <em>Emmet: Wrap with Abbreviation</em>, and type <code>choice>orig</code>. This instantly wraps your highlighted word inside <code>&lt;choice&gt;&lt;orig&gt;target&lt;/orig&gt;&lt;/choice&gt;</code>. Then simply place your cursor after <code>&lt;/orig&gt;</code> and type your <code>&lt;reg&gt;</code> tag.</li>
+  <li><strong>Custom User Snippets:</strong> You can create a custom XML snippet in VS Code. Go to <em>Code $   o$ Settings $   o$ User Snippets</em>, select <code>xml.json</code>, and add a snippet named "TEI Choice Regularization":
+  <pre><code>"TEI Choice Regularization": {
+  "prefix": "treg",
+  "body": [
+    "&lt;choice&gt;",
+    "  &lt;orig&gt;$TM_SELECTED_TEXT$1&lt;/orig&gt;",
+    "  &lt;reg resp=\"#editor\"&gt;$2&lt;/reg&gt;",
+    "&lt;/choice&gt;"
+  ],
+  "description": "Wrap selected text in TEI choice with orig and reg"
+}</code></pre>
+  With this snippet saved, you simply highlight any word, type your snippet prefix, and press <code>Tab</code>: the editor wraps your word in `<orig>` and jumps your cursor directly into `<reg>` ready to type the modern spelling!</li>
+</ol>
+
+<p><strong>Vocabulary.</strong> <em>User snippet</em> — A custom keyboard shortcut in an editor that expands a short prefix into a pre-formatted template of code or markup. <em><code>$TM_SELECTED_TEXT</code></em> — A snippet variable that captures whichever characters were highlighted in the editor when the shortcut was triggered.</p>
+<p><strong>Takeaway:</strong> Configure custom VS Code XML snippets to automate the repetitive typing of <code>&lt;choice&gt;</code> structures while keeping every editorial decision under manual human control.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Keyboard Shortcuts and Snippets for &lt;choice&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How can an editor streamline manual XML encoding in VS Code without sacrificing human judgment?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Configure custom VS Code XML snippets to automate the repetitive typing of &lt;choice&gt; structures while keeping every editorial decision under manual human control.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By creating custom user snippets in VS Code that expand short prefixes into pre-formatted &lt;choice&gt; templates around selected text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Custom snippets eliminate repetitive tag typing while keeping every editorial decision under manual human control.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By permanently turning off XML schema validation in the VS Code settings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Disabling validation hides syntax errors and produces broken XML files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By writing the entire transcription in Microsoft Word and pasting it into VS Code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Microsoft Word introduces smart quotes and non-standard formatting that corrupt XML.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By delegating the transcription to an unmonitored background bot without reviewing the text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Unmonitored automation defeats the purpose of human baseline creation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Validating Normalized TEI against the Schema</text></name><questiontext format="html"><text><![CDATA[
+<h3>Validating Normalized TEI against the Schema</h3>
+<p>Every time you edit XML, you must validate your file against the schema before moving forward. A single unclosed tag or mismatched element name breaks the entire document hierarchy.</p>
+<p>In VS Code, the Scholarly XML and Red Hat XML extensions continuously validate your document against your project's RELAX NG schema (<code>msdesc.rng</code> or <code>tei_all.rng</code>). As you insert <code>&lt;choice&gt;</code> blocks, watch for real-time validation feedback:</p>
+<ul>
+  <li><strong>Valid Child Combinations:</strong> The TEI schema strictly governs what elements may appear inside `<choice>`. Valid pairings include:
+    <ul>
+      <li>`<orig>` and `<reg>` (orthographic variation)</li>
+      <li>`<abbr>` and `<expan>` (abbreviations)</li>
+      <li>`<sic>` and `<corr>` (corrections)</li>
+      <li>`<unclear>` paired with supplied readings</li>
+    </ul>
+    You cannot arbitrarily invent child elements or leave `<choice>` empty.</li>
+  <li><strong>Red Squiggly Underlines:</strong> If you see a red squiggly line under `<choice>`, hover your cursor over it. The schema validator will tell you if you forgot a closing tag, misnamed an element (such as typing `<regular>` instead of `<reg>`), or placed elements in an invalid order.</li>
+  <li><strong>Zero Errors in the Problems Panel:</strong> Open the Problems panel (<code>Cmd+Shift+M</code> or <code>Ctrl+Shift+M</code>). Before saving your work, verify that your document reports exactly <strong>0 errors</strong>.</li>
+</ul>
+
+<p><strong>Vocabulary.</strong> <em>Schema validation</em> — The automated process of verifying that an XML document conforms strictly to the structural and content rules of a formal schema. <em>Problems panel</em> — The VS Code interface listing all active syntax and validation errors across your open workspace.</p>
+<p><strong>Takeaway:</strong> Constantly monitor the VS Code Problems panel to ensure that every newly inserted <code>&lt;choice&gt;</code> block validates with zero schema errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Validating Normalized TEI against the Schema</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should an editor do if a newly inserted &lt;choice&gt; block displays a red squiggly underline in VS Code?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Constantly monitor the VS Code Problems panel to ensure that every newly inserted &lt;choice&gt; block validates with zero schema errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Hover over the tag to read the schema validation error, check for unclosed tags or invalid child elements, and consult the Problems panel.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The Problems panel and hover tooltips identify the exact syntax or structural violation according to the active RELAX NG schema.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Immediately delete the entire paragraph to make the red underline disappear.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The error should be diagnosed and corrected, not solved by destroying text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ignore the underline because TEI schemas do not recognize the &lt;choice&gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;choice&gt; is a core TEI element; an error indicates invalid children, attributes, or unclosed tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Restart the computer operating system to clear the editor's visual cache.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation errors reflect real syntax problems in the document markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Preparing Your Manual Ground Truth for Wednesday</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing Your Manual Ground Truth for Wednesday</h3>
+<p>Today's manual work is not just an isolated classroom exercise. The 20-line passage you hand-encode today serves a crucial methodological purpose: <strong>it is your Ground Truth reference baseline for the rest of Week 6</strong>.</p>
+<p>Tomorrow, you will not be editing text by hand. Instead, you will build deterministic regular expression rules in VS Code to automate these same normalizations. On Friday, you will instruct an AI model to normalize the text using natural language prompts.</p>
+<p>How will you know whether your regular expressions worked correctly? How will you know whether the AI hallucinated an expansion or over-normalized an archaic word?</p>
+<p>You will know by <strong>diffing</strong> their outputs against today's manual ground truth. Because you spent today examining each word, consulting your policy ledger, and hand-encoding each <code>&lt;choice&gt;</code> block with verified scholarly judgment, today's file (<code>witness_normalized_manual.xml</code>) represents the gold standard of accuracy.</p>
+<p>When you measure Wednesday's and Friday's automated passes, every point where they match your manual file will count as a confirmed true positive. Every point where an automated tool changes a word that your manual ground truth left alone will expose a potential false positive or hypercorrection.</p>
+<p><strong>Vocabulary.</strong> <em>Ground truth baseline</em> — An independently verified, hand-curated dataset used as the objective standard for testing and measuring the accuracy of automated models. <em>Gold standard</em> — The authoritative benchmark in a comparative experiment against which all other results are evaluated.</p>
+<p><strong>Takeaway:</strong> Your hand-encoded manual passage serves as the indispensable ground truth baseline against which Wednesday's regular expressions and Friday's AI outputs will be rigorously evaluated.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Preparing Your Manual Ground Truth for Wednesday</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is today's hand-encoded 20-line passage described as a 'Ground Truth' baseline?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Your hand-encoded manual passage serves as the indispensable ground truth baseline against which Wednesday's regular expressions and Friday's AI outputs will be rigorously evaluated.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It represents the verified gold standard of scholarly judgment against which Wednesday's regular expressions and Friday's AI passes will be measured.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without an independently verified manual baseline, an editor cannot calculate true positives, false positives, or hypercorrections.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is called ground truth because it must be carved into a physical stone tablet before submission.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ground truth is a scientific term for an independently verified reference dataset.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is a legal term indicating that the document has been approved by the Supreme Court.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. In data science and digital humanities, ground truth denotes the benchmark reference data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It means that no other person is ever allowed to read or criticize the transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ground truth datasets are shared and audited openly in peer review.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Review and Workshop 6 Step 1 Checklist</text></name><questiontext format="html"><text><![CDATA[
+<h3>Review and Workshop 6 Step 1 Checklist</h3>
+<p>Today you laid the intellectual and structural foundations for the entire normalization module. You moved from the raw physical witness to a dual-layered digital edition that reconciles historical preservation with modern digital accessibility.</p>
+<p>Before concluding today's work, review the <strong>Workshop 6 Step 1 Checklist</strong> to confirm that your repository is fully prepared:</p>
+<ol>
+  <li><strong>20-Line Consensus Excerpt:</strong> Have you selected a clear 20-line passage from your consensus text in `transcription_reconciled.xml` and saved it as the foundation for your normalization workshop?</li>
+  <li><strong>Editorial Policy Formulated:</strong> Have you written a clear paragraph defining your normalization scope, exclusions, and target authority dictionary?</li>
+  <li><strong>Rule Ledger Catalogued:</strong> Have you created `NORMALIZATION.md` with an Editorial Rule Ledger containing at least 3 to 5 distinct rules with unique Rule IDs (`R-01`, `R-02`, etc.)?</li>
+  <li><strong>Manual Markup Applied:</strong> Have you hand-encoded all target words in your excerpt using proper TEI `<choice>` markup with `<orig>`/`<reg resp="#editor">` and `<abbr>`/`<expan resp="#editor">`?</li>
+  <li><strong>Fidelity Maintained:</strong> Have you verified that physical milestones (`<lb/>`) remain inside `<orig>` and that authorial poetic or dialectal choices have not been improperly erased?</li>
+  <li><strong>Schema Validated:</strong> Does your XML file validate with <strong>0 errors</strong> in VS Code?</li>
+</ol>
+
+<p>With Step 1 complete, you are ready for Wednesday, where you will translate these manual decisions into deterministic regular expressions.</p>
+<p><strong>Vocabulary.</strong> <em>Step 1 milestone</em> — The completion of the manual baseline transcription and policy ledger, locking the ground truth for comparative evaluation.</p>
+<p><strong>Takeaway:</strong> Completing Step 1 establishes a validated manual ground truth and an explicit rule ledger, preparing you to automate and audit normalization throughout the rest of the week.</p>
+<hr />
+<h2>References</h2>
+<p>Burnard, L. (2014). <em>What is the Text Encoding Initiative? How to add intelligent markup to digital resources</em>. OpenEdition Press. https://doi.org/10.4000/books.oep.426</p>
+<p>Clemens, R., &amp; Graham, T. (2007). <em>Introduction to manuscript studies</em>. Cornell University Press.</p>
+<p>Driscoll, M. J. (2006). Levels of transcription. In L. Burnard, K. O'Brien O'Keeffe, &amp; J. Unsworth (Eds.), <em>Electronic textual editing</em> (pp. 254–261). Modern Language Association of America.</p>
+<p>Pierazzo, E. (2015). <em>Digital scholarly editing: Theories, models and methods</em>. Ashgate Publishing.</p>
+<p>TEI Consortium. (2024). <em>TEI P5: Guidelines for electronic text encoding and interchange</em> (version 4.8.0). TEI Consortium. https://tei-c.org/guidelines/p5/</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Review and Workshop 6 Step 1 Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which of the following is a mandatory deliverable for Step 1 of Workshop 6?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Completing Step 1 establishes a validated manual ground truth and an explicit rule ledger, preparing you to automate and audit normalization throughout the rest of the week.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A 20-line excerpt encoded with validated TEI &lt;choice&gt; markup, accompanied by a documented Editorial Rule Ledger in NORMALIZATION.md.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Step 1 requires the hand-encoded TEI excerpt and the explicit policy rule ledger establishing the ground truth baseline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A 5,000-line Python script that automatically deletes all historical abbreviations from the repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Step 1 is manual; automated rules are explored on Wednesday.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A signed legal waiver transferring ownership of the manuscript to the university library.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Student workshops involve open pedagogical exercises on public historical documents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A 30-slide PowerPoint presentation with custom voiceover recordings for each section.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The deliverables are the validated TEI XML file and the markdown rule ledger.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

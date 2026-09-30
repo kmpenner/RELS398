@@ -1,11 +1,8 @@
-# Lesson 6.1 — Iotacism, Orthographic Variation, and Regularizing by Hand
+# Lesson 6.1 — Manual Normalization, Abbreviations, and Editorial Policy
 
 *RELS 398 / ENGL 398 · Topic 6: Normalization · Meeting #14 (Tue Oct 6)*
 
-***Step 1 of the three-step cycle: manual.** Today you regularize your consensus
-text by hand, recording every decision. Those recorded decisions become the rules
-Wednesday's script implements and the reference Friday's AI pass is measured
-against.*
+***Step 1 of the three-step cycle: manual.** Today you establish your editorial regularization policy by hand, recording every spelling standardization and abbreviation expansion. Those recorded decisions become the rules Wednesday's regular expressions implement and Friday's AI pass is measured against.*
 
 ---
 
@@ -13,1214 +10,792 @@ against.*
 
 **The Problem Normalization Solves and Creates**
 
-Your consensus text records what the scribe wrote. That is exactly what a
-diplomatic transcription should do, and it creates a problem.
+In Week 4, you produced an initial diplomatic transcription of your historical witness, and in Week 5, you reconciled it with an AI pass to establish a reliable consensus text in `transcription_reconciled.xml`. That diplomatic transcription records exactly what appears on the physical page: line breaks, capital letters, historical spellings, and scribal shorthand. That fidelity is the indispensable foundation of textual scholarship, but it immediately creates a practical dilemma for modern digital readers and researchers.
 
-Historical scribes spelled inconsistently. The same word appears in several forms
-across a single manuscript, sometimes across a single folio. A search for τιμή does
-not find τιμι. A morphological parser cannot analyze a form it does not recognize.
-A lexicon lookup fails. Every computational operation that assumes standard
-orthography fails on text that does not have it.
+Historical writers rarely adhered to rigid orthographic standards. The same writer might spell a single word three different ways across two folios. In an 18th-century colonial treaty, you will find common nouns capitalized arbitrarily and words ending in archaic suffixes like *publick* alongside *public*. In 19th-century manuscript poetry, idiosyncratic capitalization and punctuation convey private emphasis. In 20th-century personal letters, vernacular phonetic spellings like *untill* or *allways* record spoken cadence.
 
-The obvious remedy — standardize the spelling — destroys the evidence. Those
-variant spellings are data. They record the scribe's dialect, education, and
-region; they document the chronological development of the language; and in some
-cases they are the only surviving evidence for how Greek was pronounced at a
-particular time and place (Gignac, 1976).
+When a digital text preserves only raw diplomatic spellings, computational search and discovery tools break down. A search query for *public* will fail to retrieve *publick*. A morphological analyzer or dictionary lookup cannot recognize unstandardized forms. Dialectal variations and historical shorthand render the document partially invisible to natural language processing engines, digital concordances, and full-text indexing (Burnard, 2014).
 
-The digital editor therefore faces a genuine dilemma. Transcribing exactly what is
-on the page preserves vital evidence of dialect, education level, and linguistic
-development. Failing to link those phonetic spellings to their standard lemmas
-renders the text invisible to lexical search engines, corpus linguistics tools, and
-automated morphological parsers (Gignac, 1976).
+The traditional solution in print editing was simply to modernize the spelling silently. However, standardizing text on the page destroys the very historical evidence we set out to preserve. A scribe's variant spellings document phonological change, regional dialect, educational background, and scribal culture (Clemens & Graham, 2007). 
 
-The resolution, which this week builds, is to refuse the choice. TEI permits both
-layers to coexist, parallel rather than mutually exclusive, with the relationship
-between them recorded explicitly. The text is simultaneously diplomatic and
-searchable, and a reader or a program selects the layer appropriate to their
-purpose.
+**Vocabulary.** *Normalization* — Mapping variant historical orthographic forms to modern standard lexical headwords. *Regularization* — The TEI term for standardizing spelling without altering underlying wording. *Diplomatic transcription* — A faithful representation of the text exactly as written on the physical witness.
 
-**Vocabulary.** *Normalization* — mapping variant historical forms to standard ones.
-*Regularization* — the same operation, the term TEI uses. *Lemma* — the dictionary
-headword under which a form is listed.
-
-**Takeaway:** Standardizing spelling makes text searchable and
-destroys linguistic evidence — TEI resolves this by keeping both layers in
-parallel.
+**Takeaway:** Standardizing spelling makes historical documents digitally searchable, but silent modernization destroys crucial linguistic, dialectal, and scribal evidence.
 
 ---
 
 ## **02 Content**
 
-**Iotacism: The Chain Shift**
+**The Scholarly Dilemma: Preservation vs. Accessibility**
 
-The dominant source of orthographic variation in Greek manuscripts is **iotacism**
-— also called itacism — a phonetic-phonological phenomenon in which multiple vowels
-and diphthongs progressively merged into the single close front unrounded vowel
-/i/ (Gignac, 1976).
+The digital editor stands between two competing demands: scholarly preservation and communicative accessibility. If you prioritize only preservation, your edition remains an accurate museum artifact of ink on parchment, but modern students and algorithmic search tools will struggle to read or query it. If you prioritize only accessibility by modernizing every word, you produce a smooth reading text while erasing the material and cultural specificity of the original author.
 
-The merger was not a single event but a **chain shift** through the Hellenistic and
-Roman periods. Its mechanics are worth following, because they explain why the
-substitutions cluster as they do. The relative infrequency of ancient /iː/, and the
-overcrowding caused by the new long /eː/, pulled /eː/ toward /iː/. That movement
-caused the original /ɛː/ to shift toward the position /eː/ had abandoned, which in
-turn caused the diphthong /ai/ to monophthongize to /ɛː/ (Gignac, 1976).
+Textual theorists describe this tension as the conflict between the document as a physical artifact and the work as an abstract linguistic text (Driscoll, 2006). A diplomatic transcription privileges the physical event of inscription: the specific strokes of ink made by a colonial secretary in Halifax in 1752, Emily Dickinson in Amherst in 1862, or Maud Lewis in Digby in 1945. A normalized edition privileges the modern reader's ability to comprehend the message and link it to broader vocabularies.
 
-The result is a set of graphemes that had become homophones:
+In print scholarship, an editor was forced to choose one layer as primary and relegate the other to the footnotes or back matter. A "diplomatic edition" printed the historical spellings, forcing readers to consult a glossary for archaic abbreviations. A "critical edition" printed normalized spellings, crowding the bottom of the page with variant apparatus entries.
 
-| Classical grapheme | Classical value | Hellenistic/Roman value | Common substitutions |
-| --- | --- | --- | --- |
-| ι (iota) | /i/ | /i/ | ει, η |
-| ει (epsilon-iota) | /eː/ | /i/ | ι, η |
-| η (eta) | /ɛː/ | /i/ via /eː/ | ι, ει |
-| οι (omicron-iota) | /oi/ | /y/ then /i/ | υ |
-| υ (upsilon) | /y/ | /y/ then /i/ | οι, ι, η |
-| αι (alpha-iota) | /ai/ | /ɛː/ | ε |
+Digital text encoding eliminates the need for this painful compromise. Rather than forcing one layer to destroy or subordinate the other, the digital medium allows both layers to exist simultaneously within a single data structure (Pierazzo, 2015). The reader or downstream application can toggle between a strict diplomatic view and a standardized reading view on demand.
 
-A scribe who has learned to write by ear, or who is writing what is dictated,
-selects among homophonous graphemes and will sometimes select differently from the
-classical standard. So τιμή may appear as τιμι, and δει as δι (Gignac, 1976).
+**Vocabulary.** *Document layer* — The textual record emphasizing physical and orthographic fidelity to the manuscript. *Reading layer* — The textual record regularized to modern orthographic standards for ease of comprehension and computational indexing.
 
-These are not random errors. They are systematic, predictable from the phonology,
-and therefore *evidence*: the specific substitutions attested in a manuscript
-constrain when and where it was written and how its scribe learned the language.
-
-**Takeaway:** Iotacism merged several graphemes into homophones,
-so the substitutions are systematic evidence about date and provenance rather than
-random error.
+**Takeaway:** Digital text encoding resolves the conflict between preservation and accessibility by maintaining diplomatic and normalized layers in parallel within a single document.
 
 ---
 
 ## **03 Content**
 
-**Language Contact and Phonetic Spelling**
+**The TEI Resolution: Parallel Layers with `<choice>`**
 
-Iotacism was general, but its incidence varied with circumstance, and the variation
-is itself informative.
+The Text Encoding Initiative (TEI) solves the preservation dilemma through parallel markup. Instead of altering the raw transcription or appending separate footnotes, the TEI provides the `<choice>` element (TEI Consortium, 2024).
 
-Phonetic spelling was particularly prevalent in environments like Hellenistic
-Egypt, where Greek was frequently used as a second language and was heavily
-influenced by Egyptian-Coptic phonological transfer (Gignac, 1976). A writer whose
-first language lacked certain Greek distinctions would not reliably reproduce them
-in writing, and the resulting spellings record the contact situation.
+The `<choice>` element functions as an editorial container. It signals to any processing software or human reader that two or more alternative encodings of the same textual unit are available. Within a `<choice>` block, the editor provides both the exact diplomatic reading found on the physical surface and the editorial regularization supplied for modern consumption.
 
-This matters for how you interpret your own manuscript's variants. A high incidence
-of a particular substitution may indicate:
+When a digital publishing interface like TEI Publisher or an interactive HTML viewer renders a document containing `<choice>`, it can display either reading based on user preference. A researcher studying historical dialect can inspect the diplomatic layer with a single click, while a classroom student reading the text for historical content can toggle the normalized layer. Furthermore, web search crawlers and concordance builders can index both representations simultaneously.
 
-| Observation | Possible interpretation |
-| --- | --- |
-| Systematic iotacism throughout | Post-classical date; phonetic spelling practice |
-| One substitution type dominant | A specific phonological environment or dialect |
-| Variation clustering in one section | A change of scribe, or of exemplar |
-| Substitutions absent | A learned scribe, or a classicizing exemplar |
-| Non-Greek phonological patterns | Language contact; a non-native writer |
+The power of `<choice>` lies in its explicitness. It makes the editor's intervention visible, transparent, and reversible. An editor does not overwrite history; they annotate it. Every time you normalize an archaic form, you preserve the scribe's original handwriting directly alongside your modern interpretation.
 
-The last row is where Gignac's papyrological work is most directly useful. The
-phonetic baseline he established is what allows modern digital corpora to
-systematically *classify* linguistic variation rather than dismissing it as error
-(Gignac, 1976). A substitution that a nineteenth-century editor would have silently
-corrected is, on this account, a datum.
+**Vocabulary.** *`<choice>`* — A TEI element that groups alternative encodings of the same textual point, such as original spellings and normalized forms. *Parallel markup* — Encoding multiple interpretive layers simultaneously within the same document hierarchy.
 
-For today's work the implication is a disposition rather than a technique. When you
-encounter a non-standard form, the first question is not "what should this be?" but
-"what kind of variation is this?" — because the answer determines which TEI
-encoding is correct, as the next several pages establish.
-
-**Takeaway:** Ask what kind of variation a form represents before
-asking what it should be — the answer determines the encoding.
+**Takeaway:** The TEI `<choice>` element acts as a transparent container that holds original witness readings and modern editorial regularizations side by side.
 
 ---
 
 ## **04 Content**
 
-**The Dual Ontology: Document and Work**
+**Orthographic Regularization: `<orig>` and `<reg>`**
 
-Behind the encoding lies a theoretical distinction that this week makes practical.
+When your goal is to regularize historical spelling without alleging that the historical writer made an error, the TEI `<choice>` element pairs two specific child elements: `<orig>` (original) and `<reg>` (regularization).
 
-A manuscript is a **document** — a physical object with ink on a surface, made at a
-particular time by a particular person. It is also a witness to a **work** — an
-abstract text that exists across witnesses and of which no single manuscript is
-identical to any other.
+The `<orig>` element contains the raw, unstandardized characters exactly as transcribed from the witness. The `<reg>` element contains the standardized modern spelling established by the editor. The basic syntax is structured as follows:
 
-Editorial traditions differ in which they privilege, and the tension is a live
-theoretical debate. Robinson warns against reducing scholarly editing to mere
-documentary transcription, arguing instead for multi-witness critical editions that
-use digital tools to enhance rather than replace traditional philological judgement
-(Robinson & Driscoll, 2016).
+```xml
+<choice>
+  <orig>publick</orig>
+  <reg>public</reg>
+</choice>
+```
 
-The debate is worth understanding because both positions have a failure mode. An
-edition that records only the document produces a transcription of one witness and
-declines the editorial work that makes a text usable. An edition that records only
-the work suppresses the evidence on which its own conclusions rest — which is
-precisely what printed critical editions did when they silently corrected
-orthography to classical norms, erasing vital sociolinguistic data (Robinson &
-Driscoll, 2016).
+In this structure, `<orig>` represents the historical linguistic reality: the word *publick* as printed or written in an 18th-century document. The `<reg>` element provides the modern lexicographical standard: *public*. A search algorithm indexing the `<reg>` tag can connect this occurrence to every other instance of the word in a modern corpus, while an epigrapher or historical linguist can query the `<orig>` tag to chart the decline of terminal *k* in 18th-century English adjectives.
 
-TEI Chapter 11 accommodates the dual ontology by allowing parallel, multi-layered
-encodings (TEI Consortium, 2026). This is not a compromise between the positions
-but a refusal of the choice: the document layer and the work layer both exist in
-the file, and the relationship between them is explicit and machine-readable.
+Notice that `<choice>` wraps only the specific lexical unit being regularized, not the entire sentence or line. Maintaining tight, word-level granularity ensures that surrounding whitespace, punctuation, and structural tags like `<lb/>` remain unaffected.
 
-That architecture is what today's work builds. You are not deciding whether your
-edition is documentary or critical. You are recording both, and recording how they
-relate.
+**Vocabulary.** *`<orig>`* — TEI element containing the original, un-regularized spelling found in the historical witness. *`<reg>`* — TEI element containing a regularized modern spelling supplied by the editor.
 
-**Takeaway:** TEI's parallel layers refuse the choice between
-documentary and critical editing — both exist in the file with their relationship
-explicit.
+**Takeaway:** Pair `<orig>` and `<reg>` within a `<choice>` element to record historical orthography alongside modern standard spelling at word-level granularity.
 
 ---
 
 ## **05 Content**
 
-**The `<choice>` Element**
+**Editorial Responsibility and the `@resp` Attribute**
 
-The mechanism is `<choice>`, which groups alternative encodings for the same point
-in the text, on the principle that a full representation requires those alternatives
-to be treated as parallel rather than mutually exclusive (TEI Consortium, 2026).
+In academic digital editing, no editorial alteration should occur anonymously. Whenever an editor normalizes a word, expands an abbreviation, or amends a reading, the markup must explicitly record who authorized that interpretation. In the TEI Guidelines, this accountability is enforced through the `@resp` (responsibility) attribute (TEI Consortium, 2024).
 
-`<choice>` does not choose. It holds alternatives, and a processor selects
-according to purpose:
+The `@resp` attribute points to an identifier defined in the TEI Header—specifically within the `<titleStmt>` where editors, transcribers, and project contributors are catalogued. If your project header defines your role with `xml:id="KP"`, your regularization markup should explicitly reference your authority:
 
 ```xml
 <choice>
-  <orig>τιμι</orig>
-  <reg>τιμή</reg>
+  <orig>compleat</orig>
+  <reg resp="#KP">complete</reg>
 </choice>
 ```
 
-| Consumer | Selects | Purpose |
-| --- | --- | --- |
-| Diplomatic view | `<orig>` | Shows what the scribe wrote |
-| Reading view | `<reg>` | Shows the standard form |
-| Search index | Both | Finds the passage by either |
-| Morphological parser | `<reg>` | Requires standard forms |
-| Historical phonology study | `<orig>` | The variant is the data |
-| Collation | Configurable | Depends on the question |
+Why is the `@resp` attribute attached to `<reg>` rather than `<orig>`? The original characters inside `<orig>` belong to the historical document and its primary author or scribe. You did not create *compleat*; the scribe wrote it. Conversely, the modern spelling *complete* is an interpretive editorial decision supplied by you.
 
-The last row anticipates Week 7 and matters more than it looks. When you collate
-witnesses, whether two manuscripts "differ" at a point of orthographic variation
-depends on which layer you compare. Collating on `<orig>` reports every phonetic
-spelling as a variant; collating on `<reg>` reports none of them. Neither is wrong,
-and the choice must be deliberate — which is only possible because both layers
-exist.
+Recording responsibility ensures that if a future scholar disagrees with your normalization—arguing, for instance, that an archaic word should have been regularized to a different lemma—they can trace the decision back to the specific editor and rationale recorded in the edition.
 
-This is the payoff for not normalizing during transcription, as Lesson 4.1 section
-02 insisted. Had you silently regularized in Week 4, the `<orig>` layer would not
-exist and none of these options would be available.
+**Vocabulary.** *`@resp`* — A TEI attribute indicating the agent (editor, institution, or algorithm) responsible for an editorial intervention. *Editorial accountability* — The practice of explicitly attributing every interpretive layer of an edition to an identifiable scholar or project.
 
-**Takeaway:** `<choice>` holds alternatives rather than deciding
-between them, which is what lets Week 7 collate on either layer deliberately.
+**Takeaway:** Always attach the `@resp` attribute to your regularized `<reg>` element to document who made the editorial intervention.
 
 ---
 
 ## **06 Content**
 
-**`<orig>`/`<reg>` Versus `<sic>`/`<corr>`**
+**Abbreviations in Historical Documents**
 
-TEI provides two element pairs inside `<choice>`, and choosing between them is the
-central editorial judgement of this week.
+Historical documents are dense with abbreviations. Whether examining a medieval parchment charter, an 18th-century colonial treaty, a personal letter, or a revolutionary proclamation, writers consistently shortened words to save time, space, and materials.
 
-**`<orig>` and `<reg>`** are used where a scribe employed a non-standard spelling
-that was common, phonetic, or acceptable in their historical context — phonetic
-spellings from iotacism, archaic or dialectal forms. `<orig>` holds the diplomatic
-reading as it appears on the substrate; `<reg>` holds the standardized equivalent
-(TEI Consortium, 2026).
+Before the widespread availability of cheap industrial wood-pulp paper in the mid-19th century, writing surfaces were expensive commodities. In medieval and early modern scriptoria, parchment made from animal hide was labor-intensive and costly; scribes compressed text using elaborate systems of scribal shorthand to maximize the words per leaf (Clemens & Graham, 2007). Even after paper became common, bureaucratic clerks facing mountains of repetitive legal documents developed rapid abbreviation conventions for titles, dates, formulas, and legal terminology.
 
-**`<sic>` and `<corr>`** are reserved strictly for outright errors, blunders, or
-*lapsus calami* — instances where the scribe wrote something unambiguously
-incorrect even by the standards of their own time, requiring editorial emendation
-to restore the archetype (TEI Consortium, 2026).
+In informal writing, such as the personal correspondence of folk artist Maud Lewis, abbreviations reflect the natural tempo of vernacular communication. Writers omit apostrophes in common contractions (*cant*, *wont*) or truncate common words (*Nov.* for *November*). 
 
-| | `<orig>` / `<reg>` | `<sic>` / `<corr>` |
-| --- | --- | --- |
-| Claim | This spelling was acceptable then | This was a mistake, then and now |
-| Applies to | Phonetic spelling; dialect; archaism | Slips of the pen; omitted letters; dittography |
-| The variant is | Linguistic evidence | Scribal error |
-| Editorial act | Regularization | Emendation |
-| Example | τιμι for τιμή (iotacism) | τμμήν for τιμήν (miswritten letter) |
+Leaving abbreviations unexpanded in a digital edition preserves the look of the document, but it creates severe barriers for readers unfamiliar with historical paleography and causes text-mining tools to miss critical named entities and titles. A complete digital edition must therefore account for abbreviations systematically.
 
-The distinction is intensely debated, and the debate is real rather than
-terminological. An idiosyncratic spelling might be interpreted as an outright error
-by one editor and as evidence of an undocumented regional dialect by another (TEI
-Consortium, 2026).
+**Vocabulary.** *Scribal abbreviation* — A conventional graphic compression of a word or phrase practiced by scribes and clerks to conserve space or speed writing. *Tironian notes* — An ancient Roman system of shorthand whose conventions influenced medieval and early modern European scribal abbreviations.
 
-That ambiguity is why today's decision log matters. You will make this judgement
-dozens of times, and the judgements must be consistent and defensible. Recording
-the reason at the time is what makes them so; deciding case by case without a
-principle produces an edition whose editorial policy cannot be stated.
-
-**Takeaway:** `<orig>`/`<reg>` claims a spelling was acceptable
-then; `<sic>`/`<corr>` claims it was a mistake — and which applies is a genuine
-editorial judgement.
+**Takeaway:** Historical abbreviations were practical tools for conserving expensive writing surfaces and speeding manual transcription, but they require digital expansion for modern accessibility.
 
 ---
 
 ## **07 Content**
 
-**Drawing the Line in Practice**
+**Encoding Abbreviations: `<abbr>` and `<expan>`**
 
-A working procedure for the judgement, since the principle needs operationalizing.
+Just as the TEI provides `<orig>` and `<reg>` for orthographic variation, it provides a dedicated pair of elements within `<choice>` for abbreviations: `<abbr>` (abbreviation) and `<expan>` (expansion) (TEI Consortium, 2024).
 
-Ask, in order:
+The `<abbr>` element captures the abbreviated form exactly as written on the manuscript page, including any raised superscript letters, periods, or truncation slashes. The `<expan>` element provides the fully expanded word supplied by the editor:
 
-- **Is the form attested elsewhere?** A spelling appearing repeatedly in this manuscript, or documented in the papyrological and epigraphic record, is a variant rather than a slip.
-- **Is it phonologically motivated?** A substitution predicted by the chain shift in section 02 is a phonetic spelling.
-- **Is it a plausible mechanical error?** A doubled syllable, an omitted letter, a letter formed as its neighbour — these suggest *lapsus calami*.
-- **Would a contemporary have accepted it?** This is the criterion TEI states, and it is the one to return to when the others are inconclusive.
-- **Does it recur in this scribe's hand?** Consistency suggests practice; isolation suggests slip.
+```xml
+<choice>
+  <abbr>Gov<hi rend="superscript">r</hi></abbr>
+  <expan resp="#editor">Governor</expan>
+</choice>
+```
 
-| Form | Analysis | Encoding |
-| --- | --- | --- |
-| τιμι for τιμή | Iotacism; phonologically motivated; attested widely | `<orig>`/`<reg>` |
-| δι for δει | Iotacism | `<orig>`/`<reg>` |
-| ἐγενετο for ἐγένετο | Accent omitted, common in this hand | `<orig>`/`<reg>` |
-| τμμήν for τιμήν | Iota written as mu; no phonological basis | `<sic>`/`<corr>` |
-| λογογος for λόγος | Dittography of a syllable | `<sic>`/`<corr>` |
-| ἐγένετο for ἐγένοντο | Wrong number; could be either | Requires judgement; document it |
+In this example from an 18th-century official proclamation, the clerk wrote *Gov* with a superscript *r*. A reading environment can render the raw abbreviation to show students how 18th-century titles were formatted, or it can swap in the expanded word *Governor* so a search for the office succeeds across all colonial records.
 
-The last row is the genuinely hard case and will occur. A form that is grammatically
-wrong in context might be a scribal slip or might reflect a real variant reading in
-the tradition — in which case it belongs in Week 8's apparatus rather than being
-corrected here at all.
+As with regularization, the expansion carries the `@resp` attribute because supplying the missing letters is an act of editorial interpretation. If a clerk writes *Hon.*, deciding whether to expand it as *Honorable*, *Honourable*, or *Honorary* requires scholarly judgment based on the document's date, location, and institutional context.
 
-When you cannot decide, record the uncertainty rather than resolving it silently.
-`<choice>` can carry `@cert`, and a documented uncertainty is more useful to a later
-editor than a confident misclassification.
+**Vocabulary.** *`<abbr>`* — TEI element containing an abbreviation of any kind. *`<expan>`* — TEI element containing the expansion of an abbreviation supplied by an editor.
 
-**Takeaway:** A recurring, phonologically motivated form is a
-variant; an isolated mechanical slip is an error — and grammatically wrong forms may
-belong in the apparatus instead.
+**Takeaway:** Use `<choice><abbr>...</abbr><expan resp="#editor">...</expan></choice>` to encode historical abbreviations and their full editorial expansions in parallel.
 
 ---
 
 ## **08 Content**
 
-**Case Study: The Duke Databank of Documentary Papyri**
+**Suspensions, Contractions, and Brevigraphs**
 
-Papyrology has been at the vanguard of digital humanities, and the DDbDP shows this
-architecture operating at scale.
+To transcribe and expand abbreviations accurately, an editor must recognize the three primary morphological mechanisms used in historical writing: suspensions, contractions, and brevigraphs (Clemens & Graham, 2007).
 
-The Papyrological Navigator at Papyri.info hosts tens of thousands of Greek and
-Latin documentary texts encoded in EpiDoc, the TEI customization designed for
-epigraphic and papyrological documents (Gignac, 1976; TEI Consortium, 2026).
+A **suspension** occurs when the beginning of a word is written and the end is omitted, typically indicated by a terminal dot, colon, or horizontal stroke. For example, writing *Feb.* for *February* or *art.* for *article* in a French legal decree is a suspension. The reader is expected to supply the missing grammatical ending from the context.
 
-Greek documentary papyri are saturated with iotacism and phonetic spelling. In older
-print editions, editors either silently corrected these forms or relegated them to
-the apparatus criticus — noting, for instance, "l. βιβλίδιον" for *lege* βιβλίδιον
-(Robinson & Driscoll, 2016). Both practices remove the variant from the text.
+A **contraction** occurs when the first and last letters of a word are retained while internal letters are dropped. In early modern English and colonial legal documents, contractions frequently place the terminal letters in superscript: *w<hi rend="superscript">ch</hi>* for *which*, *y<hi rend="superscript">e</hi>* for *the*, or *M<hi rend="superscript">r</hi>* for *Mister*.
 
-The DDbDP brings the variation into the inline markup, preserving the original.
-Papyrologists encode regularizations using **Leiden+**, an input syntax that is
-faster to type than XML: a papyrus reading φρόνδεισον where the standard is
-φρόντισον is entered as `<:φρόντισον|reg|φρόνδεισον:>`, which the backend translates
-into standard TEI:
+A **brevigraph** is a specialized symbol or ligature that stands for an entire common syllable or word. The ampersand (*&*) is the most familiar surviving brevigraph, representing Latin *et* and English *and*. Another common brevigraph is *&c.* for *etcetera*. In TEI encoding, all three types are captured inside `<abbr>` and expanded inside `<expan>`.
 
-```xml
-<choice>
-  <reg>φρόντισον</reg>
-  <orig>φρόνδεισον</orig>
-</choice>
-```
+**Vocabulary.** *Suspension* — An abbreviation where the end of the word is dropped. *Contraction* — An abbreviation where middle letters are omitted, often leaving the final letters in superscript. *Brevigraph* — A distinct symbol or monogram representing a complete word or syllable.
 
-Outright errors use a parallel syntax, `<:τιμὴν|corr|τμμὴν:>`, generating a
-`<choice>` with `<corr>` and `<sic>` (TEI Consortium, 2026).
-
-The payoff is quantitative. Because `<orig>` preserves the phonetic data while
-`<reg>` maps to classical lemmas, downstream projects can isolate every instance
-where ει was substituted for ι before a given consonant class — transforming what
-was once dismissed as scribal error into a corpus for sociolinguistic study
-(Gignac, 1976).
-
-**Takeaway:** The DDbDP's inline markup turned what print editions
-discarded as scribal error into a queryable corpus for studying language change.
+**Takeaway:** Historical abbreviations fall into three main types—suspensions, contractions, and brevigraphs—all of which are encoded using TEI `<abbr>` and `<expan>`.
 
 ---
 
 ## **09 Content**
 
-**Case Study: Codex Sinaiticus and the Dictation Theory**
+**Regularization vs. Correction: `<reg>` vs. `<corr>`**
 
-A second case shows orthographic analysis bearing directly on a question of textual
-transmission.
+One of the most frequent errors made by novice text encoders is confusing **regularization** with **correction**. The TEI maintains a strict, fundamental distinction between these two editorial actions, and mixing them up distorts the linguistic truth of your witness (TEI Consortium, 2024).
 
-Codex Sinaiticus, the fourth-century majuscule Bible, is the subject of a long
-debate over the **dictation theory**: the hypothesis that portions were copied from
-dictation rather than by visual copying, which would explain a high prevalence of
-phonetic spelling (Robinson & Driscoll, 2016).
+**Regularization** (`<orig>` and `<reg>`) applies to valid historical, regional, dialectal, or archaic forms. When an 18th-century writer spells *honour* as *honor*, or *public* as *publick*, or writes *étoit* instead of modern French *était*, the writer has not committed an error. They were writing acceptable, standard orthography for their time and culture. You regularize the form solely to assist modern digital retrieval.
 
-The argument turns entirely on orthography. A scribe copying visually makes errors
-of the eye — confusing similar letterforms, skipping from one occurrence of a word
-to another. A scribe writing from dictation makes errors of the ear — substituting
-homophones. Since fourth-century vowel mergers had made several graphemes
-homophonous, dictation would inevitably produce homophonic substitutions (Robinson
-& Driscoll, 2016).
+**Correction** (`<sic>` and `<corr>`), by contrast, applies when the historical writer or printer made a genuine blunder—a slip of the pen, an accidental repetition (dittography), a missing letter that violates the language's own rules, or an obvious typographical error. If a scribe writes *the the* across a line break, or misspells a common word through clear mechanical inattention, the erroneous text is tagged with `<sic>` (Latin for "thus"), and the editorial correction is tagged with `<corr>`:
 
-| Error type | Suggests | Example mechanism |
-| --- | --- | --- |
-| Visually similar letters confused | Copying by eye | Two letterforms alike in this script |
-| Homophonous graphemes substituted | Copying by ear | Iotacism substitutions |
-| Line or phrase omitted between identical words | Copying by eye | Skip from one occurrence to the next |
-| Word division differing from sense | Copying by ear | Heard as a different word boundary |
+```xml
+<choice>
+  <sic>recieved</sic>
+  <corr resp="#editor">received</corr>
+</choice>
+```
 
-The methodological consequence is direct: capturing these substitutions without
-silently standardizing them is critical for rigorous stemmatic analysis (Robinson &
-Driscoll, 2016). An edition that regularized the orthography would have destroyed
-the evidence on which the dictation debate depends.
+Never label an author's valid historical orthography as `<sic>`. Calling an 18th-century spelling "erroneous" reflects modern editorial arrogance; treat valid historical variation with `<orig>`/`<reg>`, and reserve `<sic>`/`<corr>` strictly for unambiguous mistakes.
 
-The digital edition of Sinaiticus uses `<choice>` to let a reader filter
-dynamically — reading the normalized text for theological study, or toggling to the
-diplomatic transcription to study the lector's accent, the scribe's phonetic
-idiosyncrasies, and the sequence of corrections recorded with `<del>`, `<add>`, and
-`<handShift>` (Robinson & Driscoll, 2016).
+**Vocabulary.** *`<sic>`* — TEI element indicating that text in a witness is reproduced verbatim despite being an error. *`<corr>`* — TEI element containing the editor's correction of an apparent error. *Scribal error* — A genuine blunder or slip of the pen, distinguished from acceptable historical spelling variation.
 
-If your own manuscript shows systematic homophonic substitution, this is a question
-you can ask of it.
-
-**Takeaway:** Whether Sinaiticus was copied by ear or by eye is
-decided by orthographic evidence — which a regularized edition would have destroyed.
+**Takeaway:** Use `<orig>`/`<reg>` for acceptable historical and dialectal spelling variants, and reserve `<sic>`/`<corr>` strictly for genuine scribal blunders.
 
 ---
 
 ## **10 Content**
 
-**Beginning the Decision Log**
+**Case Study 1: 18th-Century Legal English (1752 Treaty)**
 
-The cornerstone of this week's work is a **standardized orthographic decision log**,
-documenting exactly where the boundary lies between a valid linguistic variant and
-an outright error (TEI Consortium, 2026).
+To understand how these principles operate in real projects, let us examine the first document in our course cohort: the **Peace and Friendship Treaty of 1752**, an official colonial legal instrument printed and inscribed in Nova Scotia (Archives RG 1 vol 430 no 2).
 
-Create `transcription/ORTHOGRAPHY.md` and structure it as a policy document
-followed by a case register.
+Official English documents of the mid-18th century exhibit distinct orthographic conventions that differ sharply from 21st-century practice:
 
-The policy section states your general rules:
+<ol>
+  <li><strong>Capitalization of Common Nouns:</strong> Eighteenth-century printing conventions capitalized almost all substantive nouns for visual emphasis (e.g., <em>Treaty</em>, <em>Governor</em>, <em>Articles</em>, <em>Tribe</em>, <em>Peace</em>). In a modern reading edition, an editor may choose to lowercase common nouns while retaining capitals for proper names.</li>
+  <li><strong>Terminal Archaic Suffixes:</strong> Adjectives and nouns frequently retain older Germanic and French spellings, such as <em>publick</em>, <em>traffick</em>, and <em>compleat</em>.</li>
+  <li><strong>The Long s:</strong> The typographical long <em>s</em> (<em>ſ</em>) appears throughout the printed text at the beginning and middle of words, while the short <em>s</em> appears only at the end.</li>
+</ol>
 
-| Phenomenon | Policy | Rationale |
-| --- | --- | --- |
-| Iotacism substitutions | `<orig>`/`<reg>` | Phonologically motivated; period-normal |
-| Missing accents | `<orig>`/`<reg>` | Consistent in this hand; not an error |
-| Missing breathings | `<orig>`/`<reg>` | As above |
-| Movable nu present or absent | `<orig>`/`<reg>` | Period-normal variation |
-| Dittography | `<sic>`/`<corr>` | Mechanical error |
-| Omitted letter with no phonological basis | `<sic>`/`<corr>` | Mechanical error |
-| Wrong grammatical form | Case by case; may be apparatus | Could be a real variant reading |
-| *Scriptio continua* word division | Editorial; declared in the header | Not orthographic variation |
+When an editor normalizes the 1752 Treaty, they must decide whether the capitalization of nouns is syntactic (requiring regularization) or stylistic. If your editorial policy determines that common nouns should be regularized for sentence-level reading while preserving the original layout, you encode each instance deliberately:
 
-The case register then records each instance you encounter that the policy does not
-straightforwardly settle: the form, its line, your analysis, the encoding chosen,
-and the reason.
+```xml
+<choice>
+  <orig>Treaty</orig>
+  <reg resp="#editor">treaty</reg>
+</choice>
+```
 
-Two properties make this document worth the effort. It enforces consistency, which
-is what makes an edition's orthographic policy statable. And it becomes Wednesday's
-specification: the rules you write today are what the deterministic script
-implements, and a rule you cannot state in this document is one you cannot
-implement tomorrow.
+**Vocabulary.** *Long s (ſ)* — An archaic graphic variant of the lowercase letter *s* used initially and medially in handwriting and print until the early 19th century. *Substantive capitalization* — The 18th-century printing practice of capitalizing common nouns.
 
-**Takeaway:** Today's decision log is tomorrow's specification —
-a rule you cannot state here cannot be implemented as a script.
+**Takeaway:** Eighteenth-century legal documents feature substantive noun capitalization, archaic terminal suffixes, and the long *s*, requiring clear editorial decisions about what to regularize.
 
 ---
 
 ## **11 Content**
 
-**Surveying Your Text**
+**Archaic Contractions and Superscripts in Colonial Documents**
 
-Before encoding anything, survey the variation. You cannot write a policy for
-phenomena you have not catalogued.
+In addition to capitalization, the 1752 Treaty and contemporary colonial legal records rely heavily on traditional scribal contractions that confuse modern optical character recognition systems and novice readers.
 
-Work through your consensus text and record every non-standard form:
+The most famous example is the pseudo-archaic word *ye*, as in *ye Governor*. Novice readers frequently pronounce this word with a /j/ sound, imagining that early modern English speakers said "ye olde shop." In reality, the character written as *y* in *ye* is a scribal survivor of the Old and Middle English rune **thorn** (þ), which represented the /θ/ or /ð/ sound (*th*). When movable type was introduced to England from the Continent, German- and Dutch-cast fonts lacked a thorn sort, so English printers substituted the visually similar letter *y*. 
 
-- The form as written.
-- Its line and position.
-- The standard form, if you can identify it.
-- What kind of variation it appears to be.
-- How many times this pattern occurs.
+When a 1752 clerk wrote *y<hi rend="superscript">e</hi>*, they were simply writing *the*. When they wrote *y<hi rend="superscript">t</hi>*, they were writing *that*. In TEI, this is treated as an abbreviation contraction, not a spelling variant:
 
-A script speeds the survey by finding candidates, though the judgement remains
-yours:
-
-```python
-import re, unicodedata
-from collections import Counter
-
-IOTACISM = [
-    (r"ει", "ι"), (r"ι", "ει"), (r"η", "ι"), (r"ι", "η"),
-    (r"οι", "υ"), (r"υ", "οι"), (r"αι", "ε"), (r"ε", "αι"),
-]
-
-def candidates(word, lexicon):
-    """Forms reachable from `word` by one iotacism substitution."""
-    out = set()
-    for src, dst in IOTACISM:
-        for m in re.finditer(src, word):
-            alt = word[:m.start()] + dst + word[m.end():]
-            if alt in lexicon:
-                out.add(alt)
-    return out
+```xml
+<choice>
+  <abbr>y<hi rend="superscript">e</hi></abbr>
+  <expan resp="#editor">the</expan>
+</choice>
 ```
 
-A lexicon of standard forms makes this far more useful, and one is available from
-any digital Greek corpus. Without one the script generates candidates you must
-check by hand, which is still faster than reading for variants unaided.
+Other ubiquitous colonial abbreviations include legal titles (*Esq<hi rend="superscript">r</hi>* for *Esquire*, *Gov<hi rend="superscript">r</hi>* for *Governor*) and commercial transaction terms (*rec'd* for *received*). By tagging these with `<abbr>` and `<expan>`, you preserve the graphic reality of 18th-century typography while delivering clear modern syntax to readers.
 
-Count the patterns. A substitution occurring eleven times is a systematic feature of
-this scribe's practice and deserves a policy line; one occurring once may be a slip.
-That frequency distinction is often the best available evidence for the
-`<orig>`/`<sic>` judgement.
+**Vocabulary.** *Thorn (þ)* — An ancient Germanic rune and Old/Middle English letter representing the *th* sound, often represented by the letter *y* in early modern printing. *Pseudo-archaisms* — Modern misinterpretations of historical graphic conventions, such as pronouncing *ye* as a *y* sound.
 
-**Takeaway:** Count how often each substitution pattern occurs —
-frequency is often the best evidence for whether it is practice or slip.
+**Takeaway:** Early modern *ye* is a typographical substitution for the letter thorn, representing the word *the*, and should be encoded as an abbreviation with `<abbr>` and `<expan>`.
 
 ---
 
 ## **12 Content**
 
-**Encoding the Regularizations**
+**Case Study 2: 19th-Century Poetic Idiosyncrasy (Emily Dickinson)**
 
-With the survey complete and the policy set, encode.
+Our second cohort project examines an autograph manuscript poem by **Emily Dickinson** (`MS Am 1118.3 [338]`, Amherst/Harvard). Dickinson's handwriting presents the exact opposite editorial challenge from an official printed treaty. Her manuscripts are intimate, private literary artifacts where orthography and layout are inseparable from poetic expression.
+
+Dickinson's manuscripts display several famous idiosyncratic features:
+
+<ul>
+  <li><strong>Heavy Capitalization:</strong> She capitalizes common nouns and adjectives according to private psychological, symbolic, and rhythmic impulses (e.g., <em>Soul</em>, <em>Society</em>, <em>Door</em>, <em>Valves</em>, <em>Stone</em>).</li>
+  <li><strong>The Dickinson Dash:</strong> In place of conventional commas, semicolons, and periods, Dickinson uses variable horizontal and slanted pen strokes of differing lengths (dashes), creating musical pauses and syntactic ambiguity.</li>
+  <li><strong>Variant Spellings:</strong> She occasionally employs older, phonetic, or variant spellings, such as <em>opake</em> for <em>opaque</em>, or <em>etherial</em> for <em>ethereal</em>.</li>
+</ul>
+
+When editing Dickinson, an editor must confront the question: is an unusual spelling an error to be corrected, a historical spelling to be regularized, or an intentional poetic choice that must not be touched?
 
 ```xml
-<lb n="3" facs="#f42r_l03"/>ἦν ὁ λόγος οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν
 <choice>
-  <orig>θεον</orig>
-  <reg>θεόν</reg>
+  <orig>opake</orig>
+  <reg resp="#editor">opaque</reg>
 </choice>
 ```
 
-Several practical points.
+While tagging *opake* with `<orig>` and `<reg>` allows modern readers to search for the poem using standard spelling, regularizing her capitalization or replacing her dashes with commas risks flattening her unique poetic voice.
 
-**Encode at the word level.** A `<choice>` spanning several words makes the
-correspondence between original and regularized ambiguous, and breaks any
-processing that aligns the two layers token by token.
+**Vocabulary.** *Autograph manuscript* — A manuscript written in the author's own hand, rather than by a professional scribe or secretary. *Poetic orthography* — The deliberate or idiosyncratic use of spelling, capitalization, and punctuation for literary and rhythmic effect.
 
-**Keep the layers parallel and complete.** Both `<orig>` and `<reg>` must be full
-forms, not fragments. Encoding only the differing letters saves typing and makes the
-markup unusable.
-
-**Attribute responsibility.** `@resp` on the `<choice>` records who made the
-regularization, which will matter on Friday when some regularizations are proposed
-by a machine.
-
-**Record certainty where it is genuinely uncertain.** `@cert` on `<reg>` records a
-regularization you are not confident of.
-
-```xml
-<choice resp="#KMP" cert="medium">
-  <orig>ἐγενετω</orig>
-  <reg>ἐγένετο</reg>
-</choice>
-```
-
-**Do not regularize inside `<unclear>`.** Where the reading itself is uncertain,
-regularizing compounds one inference with another. Resolve the reading first, or
-leave both unresolved and say so.
-
-Work systematically through the text rather than opportunistically. Consistency is
-the property that matters most, and it is easiest to achieve by handling one
-phenomenon at a time across the whole text.
-
-**Takeaway:** Encode at the word level with complete forms in both
-layers, and never regularize inside an `<unclear>` reading.
+**Takeaway:** Emily Dickinson's autograph poetry uses capitalization, dashes, and variant spellings as expressive artistic devices, requiring extreme caution during normalization.
 
 ---
 
 ## **13 Content**
 
-**What Not to Regularize**
+**When NOT to Normalize: The Poetic Boundary**
 
-An equally important set of decisions, and the one where over-eagerness does damage.
+The power to normalize text in TEI brings with it the responsibility of restraint. Just because you *can* regularize a word does not mean you *should*. Nowhere is this principle more vital than in literary and poetic editing.
 
-| Do not regularize | Reason |
-| --- | --- |
-| Genuine variant readings | These belong in Week 8's apparatus, not here |
-| Uncertain readings | Compounds inference on inference |
-| Forms you cannot identify | A guessed lemma is worse than none |
-| Proper names | Frequently non-standard by nature; regularizing may be wrong |
-| Dialectal morphology | Beyond orthography; changes the linguistic evidence |
-| Scribal corrections | Already encoded with `<subst>`; do not layer on top |
+In modern publishing, editors have frequently inflicted severe damage on Dickinson's poetry by standardizing her work. Early post-mortem editors in the 1890s replaced her characteristic dashes with conventional commas and full stops, regularized her capitalized nouns to lowercase, and smoothed out her rhymes to fit Victorian hymnal meters. In doing so, they destroyed the jagged, hesitant, modernist rhythms that make her poetry revolutionary.
 
-The fourth row deserves emphasis because it recurs in the literature as a specific
-constraint. In automated normalization pipelines, abbreviations and forms
-corresponding to proper names lacking contextual clarity must remain unexpanded
-rather than being algorithmically resolved (Bollmann, 2019). The same caution
-applies to your manual work: a personal or place name spelled unusually may be
-spelled correctly for its bearer, and normalizing it to a familiar form asserts an
-identification you may not have.
+In your digital edition, you must define explicit boundaries between **orthographic regularization** and **editorial interference**. If Dickinson writes:
 
-The fifth row marks the boundary of the whole operation. Normalization is
-**orthographic**. Changing a dialectal verb ending to the Attic form is not
-regularizing spelling; it is altering the morphology, and it destroys exactly the
-linguistic evidence the `<orig>` layer exists to preserve. The line between the two
-is not always obvious, and where it is unclear the conservative choice is to leave
-the form alone and note it.
+```text
+The Soul selects her own Society —
+Then — shuts the Door —
+```
 
-The first row is the one that most often goes wrong. If your manuscript reads
-ἐγένοντο where another witness reads ἐγένετο, that is a textual variant — evidence
-about the transmission — and regularizing it here would silently resolve a question
-Week 7 exists to investigate.
+Regularizing *Society* to *society* or *Door* to *door* would eliminate her deliberate personification of abstract concepts. In a diplomatic edition of 19th-century poetry, capitalization that serves an artistic purpose should generally be preserved without a `<reg>` tag, unless your project explicitly creates a dual "reading text" for school children.
 
-**Takeaway:** Normalization is orthographic only — altering
-morphology, resolving names, or fixing variant readings all destroy evidence other
-weeks need.
+Before tagging any word with `<choice>`, ask yourself: does this spelling reflect mere mechanical variation, or does it carry semantic and aesthetic weight? If it carries aesthetic weight, leave it unaltered.
+
+**Vocabulary.** *Over-editing* — The harmful editorial practice of regularizing authorial idiosyncrasies that were deliberately chosen for stylistic or artistic effect. *Personification capitalization* — Capitalizing common nouns to invest abstract concepts with human agency.
+
+**Takeaway:** Editorial restraint is essential: never normalize capitalization, punctuation, or spelling that carries intentional poetic or stylistic meaning.
 
 ---
 
 ## **14 Content**
 
-**Silent Correction and What It Cost**
+**Case Study 3: 20th-Century Vernacular Writing (Maud Lewis)**
 
-A historical note that motivates the whole architecture.
+Our third project centers on personal handwritten letters by celebrated Nova Scotia folk artist **Maud Lewis** (1903–1970). Lewis lived in rural Digby County with severe physical disabilities and limited formal education, painting vibrant folk scenes on cards and boards. Her personal correspondence provides invaluable historical and biographical documentation.
 
-Traditional printed critical editions often suppressed orthographic variation
-entirely, silently correcting forms to classical norms and thereby erasing vital
-sociolinguistic data (Robinson & Driscoll, 2016). This was not carelessness; it
-reflected a view of the editor's task as recovering the author's text, in which
-scribal spelling was noise to be filtered out.
+Her letters feature distinct vernacular and phonetic characteristics:
 
-The cost became apparent only when the questions changed. When historical
-linguistics began asking about the actual pronunciation of post-classical Greek, the
-evidence had been removed from the printed editions and survived only in the
-manuscripts themselves — which meant returning to the witnesses and redoing the
-work.
+<ul>
+  <li><strong>Phonetic Spellings:</strong> Doubling consonants or substituting letters based on sound, such as <em>allways</em> for <em>always</em>, <em>untill</em> for <em>until</em>, or <em>truely</em> for <em>truly</em>.</li>
+  <li><strong>Unpunctuated Contractions:</strong> Omitting the apostrophe in common contractions, writing <em>dont</em>, <em>cant</em>, <em>wont</em>, and <em>didnt</em>.</li>
+  <li><strong>Colloquial Syntax:</strong> Informal vernacular grammar reflecting Maritime oral speech patterns.</li>
+</ul>
 
-| Practice | What it preserves | What it discards |
-| --- | --- | --- |
-| Silent correction to classical norms | A readable text | All orthographic evidence |
-| Correction noted in the apparatus | The text plus a record | Ease of systematic study |
-| `<choice>` with both layers | Both, queryable | Nothing |
+In Lewis's letters, an encoder faces words like *dont*:
 
-The middle row is the nineteenth-century compromise and it was a real improvement —
-the DDbDP's "l. βιβλίδιον" notation records what was corrected. Its limitation is
-practical: an apparatus note is readable by a human one instance at a time, and
-cannot support the systematic quantitative study that section 08 described.
+```xml
+<choice>
+  <orig>dont</orig>
+  <reg resp="#editor">don't</reg>
+</choice>
+```
 
-The general principle worth extracting: **the questions a future scholar will ask
-are not knowable now.** An edition that discards evidence because the current
-generation of scholarship does not use it forecloses questions that have not yet
-been formulated. Recording both layers costs storage and effort; discarding one
-costs information permanently.
+Here, the editor supplies the missing apostrophe in `<reg>` so that natural language search engines identify the negative contraction, while `<orig>` preserves the unpunctuated form reflecting her rapid, informal hand.
 
-**Takeaway:** Editions that discarded orthographic evidence
-foreclosed questions nobody had yet asked — which is the argument for recording both
-layers.
+**Vocabulary.** *Vernacular writing* — Informal, non-standardized written text produced outside formal academic, legal, or commercial institutions. *Phonetic spelling* — Spelling words according to their spoken pronunciation rather than dictionary conventions.
+
+**Takeaway:** Personal letters by vernacular writers like Maud Lewis feature phonetic spellings and omitted apostrophes that can be regularized for readability while preserving their authenticity.
 
 ---
 
 ## **15 Content**
 
-**Documenting the Policy in the TEI Header**
+**Respecting the Vernacular Voice**
 
-The decision log lives in your repository. Its formal statement belongs in the TEI
-header, where a reader of the file alone can find it.
+When editing vernacular texts, an editor must guard against the subtle hazard of **class and educational bias**. Throughout the history of scholarship, elite academic editors have often treated non-standard spelling in working-class, rural, or marginalized writers as "illiteracy" or "ignorance" requiring aggressive correction.
 
-Any normalization applied to a text must be documented in the `<encodingDesc>` and
-`<editorialDecl>` elements of the header (TEI Consortium, 2026):
+In digital textual scholarship, we reject this paternalistic framing. Non-standard spellings in personal correspondence are not badges of failure; they are linguistic records of regional speech, vernacular literacy, and personal identity. When Maud Lewis spells a word phonetically, she documents the phonetic reality of early-to-mid 20th-century rural Nova Scotian English.
 
-```xml
-<encodingDesc>
-  <editorialDecl>
-    <normalization method="markup">
-      <p>Orthographic variants are encoded with <gi>choice</gi> containing
-        <gi>orig</gi> and <gi>reg</gi>. Phonetic spellings arising from
-        iotacism, and omitted accents and breathings, are treated as
-        period-normal variants rather than errors. Mechanical slips —
-        dittography, letters without phonological motivation — are encoded
-        with <gi>sic</gi> and <gi>corr</gi>. Proper names are not
-        regularized. Full policy and case register in
-        transcription/ORTHOGRAPHY.md.</p>
-    </normalization>
-    <correction>
-      <p>Corrections are attributed with @resp and carry @cert where the
-        emendation is uncertain.</p>
-    </correction>
-  </editorialDecl>
-</encodingDesc>
-```
+When regularizing vernacular correspondence:
 
-The reason this matters becomes acute on Friday. A future researcher must know
-precisely whether a given `<reg>` was produced by a human philologist, a
-deterministic script, or a neural model, because that provenance determines the
-data's reliability for downstream corpus linguistics (TEI Consortium, 2026).
+<ol>
+  <li><strong>Never use `<sic>`/`<corr>` for vernacular spellings:</strong> Writing <em>allways</em> is an authentic phonetic variant, not a broken typographical blunder. Tag it with `<orig>` and `<reg>`, never `<sic>`.</li>
+  <li><strong>Do not regularize colloquial grammar:</strong> If a writer uses a non-standard verb agreement (such as <em>we was</em>), do not "fix" the grammar to <em>we were</em>. That alters syntax and voice. Regularization governs spelling, not grammatical dialect.</li>
+  <li><strong>State your rationale clearly:</strong> Explain in your project introduction that regularizations are provided solely for computational search and screen-reader accessibility, not to "clean up" the author's writing.</li>
+</ol>
 
-By Friday your text will contain regularizations from all three sources. `@resp`
-distinguishes them at the element level; the header states the policy; and your
-commit trailers record the provenance of each batch. All three layers of
-documentation are needed, and today is when the first two are established.
+**Vocabulary.** *Linguistic paternalism* — The condescending editorial impulse to rewrite or correct non-standard vernacular voices to conform to prestige educational dialects. *Dialect preservation* — The editorial policy of maintaining authentic regional grammatical and phonetic features.
 
-**Takeaway:** A future researcher must be able to tell whether a
-`<reg>` came from a human, a script, or a model — which needs `@resp`, the header,
-and commit trailers together.
+**Takeaway:** Treat vernacular writing with scholarly respect: use `<orig>`/`<reg>` to aid digital search, but never use `<sic>` or alter an author's authentic regional grammar.
 
 ---
 
 ## **16 Content**
 
-**The Recommended Workflow**
+**Case Study 4: 18th-Century Revolutionary French (1791 Decree)**
 
-The literature proposes a systematic five-stage workflow, and this week enacts it
-across three meetings (Bollmann, 2019; TEI Consortium, 2026).
+Our fourth cohort project investigates an official **French Revolutionary decree of 1791** from the National Assembly (*Comité des décrets*, Archives nationales, Paris). This document introduces students to historical variation in non-English European traditions.
 
-| Stage | Operation | When |
-| --- | --- | --- |
-| 1 | Diplomatic transcription capturing the text as written | Weeks 4–5 |
-| 2 | Algorithmic candidate generation from a deterministic rule-based script, establishing a verifiable baseline | Wednesday |
-| 3 | AI-assisted contextual disambiguation ranking the candidates | Friday |
-| 4 | Human-in-the-loop auditing where confidence is low or where baseline and neural output conflict | Friday |
-| 5 | TEI projection into `<choice>`, so no historical data is overwritten | Throughout |
+Eighteenth-century French documents exhibit several systematic orthographic shifts that distinguish them from modern French:
 
-Note that today's manual work is not in that list, and the omission is deliberate on
-their part and corrected on ours. The published workflow assumes an editor who
-already knows the orthographic policy. You do not yet, which is why today comes
-first: you are producing the policy that stages 2 and 3 will implement and be
-measured against.
+<ul>
+  <li><strong>The <em>oi</em> to <em>ai</em> Sound Shift:</strong> In the 18th century, the imperfect verb endings and nationality adjectives were still printed with the historical spelling <em>oi</em>, reflecting older medieval pronunciation, even though spoken French had shifted to /ɛ/. Thus, the 1791 decree writes <em>étoit</em> for modern <em>était</em>, <em>dérogeoit</em> for <em>dérogeait</em>, and <em>françois</em> for <em>français</em>. This spelling reform was proposed by Voltaire and officially codified by the Académie française in 1835.</li>
+  <li><strong>Omission of Accents on Capital Letters:</strong> Eighteenth-century French printers routinely omitted acute, grave, and circumflex accents on capital letters due to physical font limitations (e.g., writing <em>DECRET</em> instead of <em>DÉCRET</em>).</li>
+  <li><strong>Legal Formula Shorthand:</strong> Standard Latin and French legal abbreviations, such as <em>L.S.</em> (*Locus Sigilli* — place of the seal) and <em>art.</em> for <em>article</em>.</li>
+</ul>
 
-This is the same structure as Weeks 4 and 5. The manual step establishes the
-reference; the deterministic and AI steps are measured against it. What differs is
-that here the reference is a set of *rules* rather than a text — and Wednesday's
-task is to express your rules formally enough that a script can apply them.
+Encoding the Voltairean *oi*/*ai* shift in TEI is a classic application of regularization:
 
-That reformulation is genuinely difficult and is the intellectual content of
-tomorrow. A policy stated as "regularize iotacism where appropriate" cannot be
-implemented. A policy stated as an ordered list of context-conditioned substitutions
-can be.
+```xml
+<choice>
+  <orig>étoit</orig>
+  <reg resp="#editor">était</reg>
+</choice>
+```
 
-**Takeaway:** Today produces the policy that Wednesday must state
-formally enough for a script — "regularize where appropriate" cannot be implemented.
+This ensures that modern French corpus tools immediately recognize the third-person singular imperfect verb form without losing the 1791 prerevolutionary orthography.
+
+**Vocabulary.** *Voltairean orthography* — The historical French spelling using *oi* for sounds that later shifted to *ai* in the 1835 Académie reform. *Accented capitals* — The modern French typographical rule of placing accents on capital letters, widely omitted in 18th-century typography.
+
+**Takeaway:** Eighteenth-century French documents systematically write *oi* where modern French writes *ai*, an orthographic shift that is cleanly normalized using `<orig>` and `<reg>`.
 
 ---
 
 ## **17 Content**
 
-**Writing Rules a Script Could Follow**
+**Historical Precedents: Phonological Drift and Sound Mergers**
 
-Begin the reformulation today, while the cases are in front of you.
+The spelling variations we see in 18th-century English, colonial treaties, Dickinson's poems, and Revolutionary French are not random occurrences. They are local manifestations of a universal linguistic law: **spoken language changes continuously, but written orthography tends to remain frozen** (Clemens & Graham, 2007).
 
-For each policy line, ask what a program would need to know. A rule has three
-parts: what to match, in what context, and what to produce.
+A famous historical precedent taught in classical manuscript studies is **iotacism** (or itacism) in ancient and Byzantine Greek. Over several centuries, six distinct Greek vowels and diphthongs (*ι*, *η*, *υ*, *ει*, *οι*, *υι*) progressively merged in pronunciation until all six sounded identical to the vowel /i/ (like the *ee* in *beet*). Because scribes wrote what they heard, they began substituting these letters interchangeably. A scribe writing *τιμή* (honor) might write *τιμι*, or write *ἡμεῖς* (we) for *ὑμεῖς* (you), completely reversing the meaning of a sentence!
 
-| Informal policy | Formal rule | Context condition |
-| --- | --- | --- |
-| Regularize iotacism | ει → ι | Where the result is in the lexicon |
-| Regularize iotacism | η → ι | Where the result is in the lexicon |
-| Supply missing accents | Add the accent from the lemma | Where the form is otherwise standard |
-| Regularize movable nu | Add or remove final ν | Before a vowel or pause, per convention |
-| Do not regularize names | Skip | Where the token is capitalized mid-sentence, or in a name list |
+Similarly, in English, the **Great Vowel Shift** between 1400 and 1700 radically altered the pronunciation of long vowels, while printing presses froze late Middle English spelling into rigid type. That historical rupture is the reason English spelling today is notoriously irregular: words like *knight*, *meat*, and *meet* preserve historical sounds that vanished centuries ago.
 
-The "context condition" column is where the difficulty lives. A bare substitution
-ει → ι applied everywhere would produce nonsense, because many words legitimately
-contain ει. The rule needs a condition — most simply, that the result is an attested
-form and the original is not.
+Understanding that orthographic variation is driven by systematic sound changes gives you confidence as an editor. When you see a strange spelling on a manuscript page, you are looking at the living footprint of phonetic history.
 
-Two further complications you should anticipate.
+**Vocabulary.** *Phonological drift* — The gradual, systematic change in the sound system of a language over time. *Sound merger* — A historical phonological process where two previously distinct sounds become identical in pronunciation.
 
-**Rules interact.** Applying ει → ι and then ι → η in sequence produces a different
-result from the reverse order. Ordering matters, and an ordered rule list is a
-different object from an unordered set.
-
-**Some rules are not expressible this way.** Where a variant maps to different
-standard forms depending on syntactic context, no character-level rule can
-disambiguate — pure dictionary lookups and character regex fail because they process
-tokens in isolation (Bollmann, 2019). Mark those cases; they are exactly what
-Friday's contextual step exists for.
-
-**Takeaway:** Formal rules need a context condition, and rule
-order changes the result — cases needing syntax are what Friday's step is for.
+**Takeaway:** Orthographic variation is the natural historical result of spoken pronunciation changing faster than conservative written spelling.
 
 ---
 
 ## **18 Content**
 
-**Ambiguity That Rules Cannot Resolve**
+**Punctuation and Spacing Variations**
 
-Identify these cases today, because they define the boundary between Wednesday's
-method and Friday's.
+Orthographic variation extends beyond letters to punctuation marks, hyphens, and whitespace. Historical handwriting and early printing treat word division and line-end spacing very differently from modern word processors.
 
-The classic illustration from the literature: the historical English form *ther*
-could represent modern *their* or *there*, and no character-level rule distinguishes
-them, because the information needed is syntactic rather than orthographic
-(Bollmann, 2019).
+In 18th-century documents and vernacular letters, you will encounter:
 
-Greek analogues you may encounter:
+<ol>
+  <li><strong>Joined Words (Scriptio Continua remnants):</strong> Writers frequently join prepositions to their nouns or verbs (e.g., <em>inasmuch</em> written as <em>in as much</em>, or <em>today</em> written as <em>to day</em>).</li>
+  <li><strong>Split Compound Words:</strong> Compound words that we write as a single unit are often hyphenated or divided by spaces (e.g., <em>every thing</em> for <em>everything</em>, <em>to morrow</em> for <em>tomorrow</em>).</li>
+  <li><strong>Inconsistent Punctuation:</strong> The presence of virgules (slanted slash marks `/`) serving as general pause markers, colon marks used for abbreviations, or completely absent sentence punctuation.</li>
+</ol>
 
-| Ambiguous form | Possible regularizations | Disambiguated by |
-| --- | --- | --- |
-| A form where ι could stand for ει or η | Two different lemmas | Syntax and sense |
-| αυτου | αὐτοῦ or αὑτοῦ | Breathing; reflexive or not |
-| A verb form ambiguous in number after iotacism | Singular or plural | Agreement with the subject |
-| ει as conjunction or verb ending | Different words entirely | Position and construction |
+When regularizing spacing, `<choice>` can wrap multi-token groups:
 
-For each such case in your text, record it in the decision log with a note that it
-requires contextual resolution. Resolve it yourself today, by hand, and record the
-reason — that resolution is the reference against which Friday's contextual
-disambiguation is measured.
+```xml
+<choice>
+  <orig>to morrow</orig>
+  <reg resp="#editor">tomorrow</reg>
+</choice>
+```
 
-This is the analytical heart of the week. Wednesday's deterministic script will
-handle the cases that rules can handle, and will either fail or produce a wrong
-answer on these. Friday's model will attempt them with contextual information. Your
-hand resolutions are what determine which of them got it right.
+However, editors must exercise caution with punctuation. Changing a historical author's punctuation can subtly alter the syntax and rhythm of a sentence. Unless missing punctuation makes a sentence completely unintelligible, preserve historical punctuation in your primary transcription and document any editorial additions explicitly.
 
-Count these cases. The proportion of your variants that require contextual
-resolution is a real property of your text, and it predicts how much value the
-Friday method can add.
+**Vocabulary.** *Virgule* — A forward slash mark (`/`) used in medieval and early modern writing as a comma or caesura pause. *Word division* — The historical practice of spacing or joining words differently from modern dictionary standards.
 
-**Takeaway:** Cases needing syntax to resolve are the boundary
-between Wednesday's method and Friday's — resolve them by hand today as the
-reference.
+**Takeaway:** Spacing variations and compound word divisions can be regularized within `<choice>`, but historical punctuation should be modified with great restraint.
 
 ---
 
 ## **19 Content**
 
-**Morphological Complexity Beyond Spelling**
+**Nesting and Combining TEI Elements**
 
-A case worth studying, because it shows how far a form can be from its lemma and
-what is lost when the analysis fails.
+In complex historical documents, orthographic variation and abbreviations frequently collide in the very same word. What should an editor do when a historical clerk uses an abbreviation for a word that is *also* spelled archaically?
 
-In the Old Hungarian *Lament of Mary*, the scribe wrote *szegekkel* — "with nails" —
-as `ſcegegkel`. Careful morphological analysis shows this is not a random
-misspelling: it reflects a truncated stem where the final vowel dropped, combined
-with an archaic graphical variant of the instrumental suffix undergoing place
-assimilation, and a historical phonological change (Bollmann, 2019).
+Consider an early legal document where the word *public* is abbreviated as *publ.*, but the full 18th-century spelling of the word was *publick*. Does the editor expand the abbreviation to modern *public* or historical *publick*? 
 
-A naive stemmer or model processing this form without historical context might
-falsely detect plurality from the medial consonant, or fail to recognize the root
-*szeg*, "nail," at all.
+The TEI allows you to **nest** elements within `<choice>` or combine them to reflect multi-layered reality. There are two standard approaches:
 
-The consequence is not merely lexical. The Hungarian poem parallels a Latin sequence
-on the Passion, where the Latin variants read either *spinas*, thorns, or *clavos*,
-nails. The Hungarian depends on the root *szeg*. If normalization fails and the word
-is lost or mistranslated, the theological emphasis shifts from the physical
-brutality of the crucifixion to the mockery of the crown of thorns (Bollmann, 2019).
+```xml
+<!-- Approach 1: Expand to the historical spelling first, then regularize -->
+<choice>
+  <orig>
+    <choice>
+      <abbr>publ.</abbr>
+      <expan resp="#editor">publick</expan>
+    </choice>
+  </orig>
+  <reg resp="#editor">public</reg>
+</choice>
+```
 
-That is a large interpretive consequence resting on one morphological analysis, and
-it illustrates the general point: normalization errors are not typographic
-inconveniences. They propagate into the meaning of the text and into any argument
-built on it.
+While nesting is syntactically valid in TEI XML, it can rapidly become verbose and difficult for humans to read. For most undergraduate editions, the TEI Guidelines recommend **combining both actions into a single direct pair**: expand the abbreviation directly into the modern standardized form in `<expan>`, and note your policy in the header:
 
-The solution used a hybrid pipeline — neural recognition to read the manuscript, a
-rule-based transducer to reconstruct stem and suffix assimilation deterministically,
-and a noisy channel model combining edit distance with a trigram language model to
-rank candidates, with output encoded in TEI separating graphemic, phonological, and
-morphological layers (Bollmann, 2019).
+```xml
+<choice>
+  <abbr>publ.</abbr>
+  <expan resp="#editor">public</expan>
+</choice>
+```
 
-**Takeaway:** A failed morphological normalization shifted a
-poem's theological emphasis — normalization errors propagate into meaning, not just
-searchability.
+Keeping markup clear and manageable is an essential skill in practical digital humanities. Choose the simplest valid structure that honestly represents the evidence.
+
+**Vocabulary.** *Nested markup* — Placing one TEI `<choice>` element inside another to capture multiple layers of textual variation simultaneously. *Tag bloat* — Overly complex or nested XML that impairs human readability without adding proportionate scholarly value.
+
+**Takeaway:** While TEI permits nesting `<abbr>` inside `<orig>`, practical editing favors the simplest clean markup that captures the necessary scholarly distinction.
 
 ---
 
 ## **20 Content**
 
-**Working Through Your Text**
+**Milestones Inside Normalization Blocks**
 
-Do the encoding now. A realistic target is the folio you double-keyed.
+A critical technical hazard occurs when a word that needs normalization happens to cross a **line break** or a **page break**.
 
-- Work through one phenomenon at a time across the whole folio, not line by line.
-- Start with the most frequent pattern from your survey.
-- Encode each instance with `<choice>`, `@resp`, and `@cert` where uncertain.
-- Add each non-obvious case to the decision register with its reason.
-- Flag cases requiring contextual resolution.
-- Validate after each phenomenon rather than at the end.
+In Week 4, you learned that physical line breaks must be recorded using the empty milestone tag `<lb/>`. Suppose that in the 1752 Treaty, the word *Governor* is written across the end of a line as *Gov-* on line 12 and *ernor* on line 13. Furthermore, suppose the word was written with an archaic spelling or abbreviation.
 
-Handling one phenomenon at a time is the key procedural advice. It produces
-consistency almost automatically, because you are applying one judgement repeatedly
-rather than switching between judgements. Working line by line invites inconsistency,
-since the same phenomenon encountered twenty lines apart may be handled differently.
+Where does the `<lb/>` element go? Should it go *inside* the `<choice>` block, or *outside* it?
 
-Count as you go. By the end you should be able to say how many regularizations you
-made, of what kinds, and how many cases you could not resolve by rule. Those counts
-are Wednesday's target: the script should reproduce your rule-resolvable decisions,
-and its failures on the rest are expected rather than a defect.
-
-Commit when the folio is complete:
-
-```text
-feat(normalization): regularize orthography for f. 42r
-
-47 regularizations encoded as <choice> with <orig>/<reg>: 31 iotacism
-substitutions, 12 omitted accents, 4 movable nu. 3 mechanical slips
-encoded as <sic>/<corr>. 5 cases flagged as requiring contextual
-resolution and resolved by hand, documented individually in
-ORTHOGRAPHY.md.
-
-All regularizations attributed @resp="#KMP".
-
-Human-Verified: true
-AI-Generated: false
+```xml
+<!-- CORRECT: The milestone sits inside the original reading -->
+<choice>
+  <orig>Gov-<lb n="13"/>ernor</orig>
+  <reg resp="#editor">Governor</reg>
+</choice>
 ```
 
-**Takeaway:** Work one phenomenon at a time across the whole
-folio — consistency follows almost automatically, and line-by-line work does not
-produce it.
+In TEI encoding, physical milestone tags belong to the **diplomatic reality** of the document. The line break actually happened on the physical page between *Gov-* and *ernor*. The regularized form *Governor*, by contrast, is an abstract intellectual concept created by the modern editor—it does not have a physical line break. Therefore, the `<lb/>` tag resides inside the `<orig>` element.
+
+If you placed the `<lb/>` outside `<choice>`, you would break the word in two separate XML chunks, making it impossible to search for the continuous word *Governor*. Keeping the milestone inside `<orig>` preserves both physical fidelity and lexical searchability.
+
+**Vocabulary.** *Milestone tag* — An empty XML element (like `<lb/>` or `<pb/>`) that marks a physical boundary without enclosing text. *Hyphenated line-break* — A word divided across two typographic lines, requiring careful coordination with normalization markup.
+
+**Takeaway:** Physical milestone tags like `<lb/>` belong inside the `<orig>` element because line breaks exist in the physical witness, not in the abstract regularized lemma.
 
 ---
 
 ## **21 Content**
 
-**Counting for Tomorrow**
+**Formulating an Editorial Policy**
 
-Assemble the figures Wednesday needs as its target.
+Before you type a single `<reg>` or `<expan>` tag into your document, you must pause and complete an essential intellectual task: **writing your Editorial Regularization Policy**.
 
-| Quantity | Why Wednesday needs it |
-| --- | --- |
-| Total tokens in the folio | Denominator for accuracy |
-| Total regularizations made | What the script should reproduce |
-| Regularizations by rule type | Per-rule accuracy targets |
-| Cases requiring context | Expected script failures |
-| Mechanical errors encoded | Should not be touched by the script |
-| Tokens deliberately left alone | Script must not over-apply |
+A digital edition without an explicit policy is merely a collection of arbitrary personal whims. If you normalize *publick* to *public* on line 3, but leave *traffick* untouched on line 14 because you were tired, you have degraded the integrity of your dataset. A future scholar using your XML to study spelling evolution will reach false conclusions because your data reflects erratic human inattention rather than a coherent standard.
 
-The last row is the one students forget and the one that matters most for
-evaluation. A script that regularizes everything it can will also regularize things
-it should not — a standard form that happens to be reachable by an iotacism rule, a
-proper name, a genuine variant reading. Measuring only whether the script found your
-regularizations misses that failure entirely.
+An Editorial Policy is an explicit set of rules defining:
 
-Tomorrow's evaluation therefore needs both directions:
+<ol>
+  <li><strong>Target Domain:</strong> Exactly which categories of variation you will regularize (e.g., terminal *k*, long *s*, *oi*/*ai* verbs, common-noun capitalization).</li>
+  <li><strong>Exclusions:</strong> Exactly what you will leave untouched (e.g., authorial poetic capitalization, rhyme words, dialectal syntax).</li>
+  <li><strong>Authority Standard:</strong> The external reference dictionary or standard you use as your target authority (e.g., modern *Merriam-Webster*, *Oxford English Dictionary*, or *Dictionnaire de l'Académie française*).</li>
+</ol>
 
-- **Recall.** Of the regularizations you made, how many did the script make?
-- **Precision.** Of the regularizations the script made, how many were correct?
+Your policy acts as your editorial contract. It governs every manual tag you apply today, every regular expression rule you write on Wednesday, and every prompt you feed to an AI model on Friday.
 
-A script with perfect recall and poor precision is worse than useless, because
-correcting its over-applications costs more than making the regularizations by hand.
-This is the same threshold logic as Lesson 4.2 section 14, applied to a different
-operation.
+**Vocabulary.** *Editorial policy* — A formal, documented set of principles governing all editorial interventions and standardizations in an edition. *Target authority* — The standard reference dictionary or lexicon chosen as the normative baseline for regularization.
 
-Record both sets of counts today so tomorrow's measurement is straightforward.
-
-**Takeaway:** Record what you deliberately left alone — a script
-is evaluated on precision as well as recall, and over-application is the worse
-failure.
+**Takeaway:** An explicit, written editorial policy is mandatory to ensure that all normalizations are consistent, defensible, and reproducible.
 
 ---
 
 ## **22 Content**
 
-**Checklist Before You Leave**
+**The Principle of Consistency**
 
-Verify each.
+In textual scholarship, **consistency is more important than your specific choice of standard**. Whether an editor chooses to be conservative (normalizing very little) or liberal (modernizing thoroughly) is a defensible scholarly choice. What is completely indefensible is being inconsistent.
 
-- Consensus text surveyed for all non-standard forms.
-- Variation patterns catalogued with frequencies.
-- Policy written in `transcription/ORTHOGRAPHY.md`.
-- Each policy line expressed formally enough to implement, or marked as requiring context.
-- Regularizations encoded with `<choice>`, `<orig>`, `<reg>`.
-- Mechanical errors encoded with `<sic>`, `<corr>`.
-- `@resp` on every regularization.
-- `@cert` where the regularization is uncertain.
-- Contextually ambiguous cases resolved by hand and documented.
-- Nothing regularized inside `<unclear>`.
-- No proper names regularized.
-- No variant readings resolved.
-- TEI header `<editorialDecl>` documenting the policy.
-- Counts recorded for tomorrow, including tokens left alone.
-- File validates against the TEI schema.
-- Committed with provenance trailers.
-- State tagged for tomorrow's comparison.
+Consider the consequences of inconsistency in a digital corpus. If a corpus linguist runs a script across your edition to count occurrences of the lemma *treaty*, and half of your instances are tagged `<reg>treaty</reg>` while the other half are left untagged as diplomatic *Treaty*, the resulting statistical frequency will be wrong by 50%. Your inconsistency directly corrupts downstream quantitative research.
 
-Tag today's state, because Wednesday's script will be measured against it:
+To maintain consistency:
 
-```bash
-git tag -a norm-manual-f42r -m "Manual normalization reference, f. 42r"
-```
+<ul>
+  <li><strong>Apply rules globally:</strong> If your policy dictates that 18th-century terminal *k* on adjectives is regularized, every single instance must receive the identical `<choice>` markup.</li>
+  <li><strong>Treat identical abbreviations identically:</strong> If *y<hi rend="superscript">e</hi>* is expanded to *the* on line 2, it must be expanded to *the* on line 20, unless clear contextual evidence indicates a different meaning.</li>
+  <li><strong>Log every exception:</strong> If you intentionally deviate from your standard rule in a specific line—for example, preserving a variant because it forms a poetic rhyme—you must document that specific exception in your project notes.</li>
+</ul>
 
-**Takeaway:** Tag today's state — Wednesday's script is measured
-against it, and it must remain retrievable after the script modifies the text.
+**Vocabulary.** *Internal consistency* — The rigorous application of the same editorial rules across every line and folio of an edition. *Corpus corruption* — The skewing of downstream statistical or lexical analyses caused by erratic or unstated editorial practices.
+
+**Takeaway:** Consistency is the cardinal rule of digital editing: an editor must apply their stated regularization policy systematically to every occurrence in the text.
 
 ---
 
 ## **23 Content**
 
-**Common Problems Today**
+**Building the Editorial Rule Ledger**
 
-Failures that recur.
+To ensure absolute consistency, professional digital editors do not normalize text on the fly. Instead, they construct an **Editorial Rule Ledger**.
 
-| Symptom | Cause | Remedy |
-| --- | --- | --- |
-| Same phenomenon encoded two ways | Worked line by line rather than by phenomenon | Sweep by phenomenon |
-| `<orig>`/`<reg>` used for a clear slip | Policy boundary not applied | Check against the section 07 criteria |
-| `<sic>`/`<corr>` used for iotacism | Treating period-normal spelling as error | Check phonological motivation |
-| Regularization changes morphology | Crossed from orthography into grammar | Revert; note the form instead |
-| `<choice>` spanning several words | Encoded at phrase level | Re-encode word by word |
-| Proper name regularized | Over-application | Revert; add to the do-not-touch list |
-| A variant reading "corrected" | Confused normalization with emendation | Revert; reserve for Week 8 |
-| Schema validation fails | `<choice>` in an invalid position | Check the content model |
+A Rule Ledger is a structured table that catalogues every rule in your policy before you begin encoding. It serves as your working blueprint during manual editing, your specifications sheet when writing regular expressions on Wednesday, and your grading rubric when auditing AI outputs on Friday.
 
-The fourth and seventh rows are the substantive errors, as against the procedural
-ones. Both involve doing more than normalization is licensed to do: changing the
-morphology alters the linguistic evidence, and resolving a variant reading pre-empts
-the collation Week 7 exists to perform.
+For Workshop 6, your Rule Ledger will be recorded in a markdown file named `NORMALIZATION.md` in your repository. It contains five core columns:
 
-If you find you have done either, revert rather than patching. Both are cases where
-the correct state is the unmodified original with a note, and reconstructing that
-from a partial correction is harder than starting again from the tagged consensus.
+<table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem;">
+  <thead>
+    <tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1; text-align: left;">
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Rule ID</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Pattern / Category</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Diplomatic Example</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Regularized Form</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Scholarly Rationale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>R-01</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Terminal <em>-ck</em> in adjectives</td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><em>publick</em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><em>public</em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Standard modern English lexicography; aligns with OED.</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>R-02</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Thorn contraction</td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><em>y<sup>e</sup></em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><em>the</em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Expand historical thorn substitution to modern definite article.</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>R-03</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Substantive noun capital</td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><em>Treaty</em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><em>treaty</em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Standardize 18th-century capital to lowercase for sentence parsing.</td>
+    </tr>
+  </tbody>
+</table>
 
-**Takeaway:** Changing morphology or resolving variant readings
-both exceed what normalization licenses — revert rather than patch.
+By maintaining this ledger, you transform subjective feelings into an auditable scientific protocol.
+
+**Vocabulary.** *Rule Ledger* — A structured catalogue defining every active regularization rule, its input pattern, target replacement, and scholarly rationale. *Rule ID* — A unique alphanumeric identifier (e.g., `R-01`) assigned to an editorial rule for tracking and auditing.
+
+**Takeaway:** Maintain an explicit Editorial Rule Ledger with unique rule IDs and clear rationales to track every transformation applied to your text.
 
 ---
 
 ## **24 Content**
 
-**Preparing for Wednesday**
+**Categorizing Regularization Rules**
 
-Bring:
+To keep your Rule Ledger organized and effective, divide your rules into four distinct **linguistic and typographical categories**:
 
-- The normalized text, validated, committed, and tagged.
-- The decision log with policy and case register.
-- Policy lines expressed as formal rules where possible.
-- The list of contextually ambiguous cases.
-- All counts from section 21.
-- Python available and working.
+<ol>
+  <li><strong>Orthographic / Phonological Rules:</strong> Variations in spelling reflecting historical sound changes, dialect, or pre-reform orthography (e.g., <em>publick</em> $	o$ <em>public</em>, French <em>étoit</em> $	o$ <em>était</em>, Lewis's <em>allways</em> $	o$ <em>always</em>). These are encoded with `<orig>` and `<reg>`.</li>
+  <li><strong>Abbreviation / Expansion Rules:</strong> Graphic compressions, suspensions, contractions, and brevigraphs (e.g., <em>y<sup>e</sup></em> $	o$ <em>the</em>, <em>Gov<sup>r</sup></em> $	o$ <em>Governor</em>, <em>&amp;</em> $	o$ <em>and</em>). These are encoded with `<abbr>` and `<expan>`.</li>
+  <li><strong>Typographical / Graphemic Rules:</strong> Letterform substitutions that do not change spelling or meaning, such as replacing the long <em>s</em> (<em>ſ</em>) with short <em>s</em>. Many editors handle this as a global display transformation, or encode it as `<orig>ſ</orig><reg>s</reg>`.</li>
+  <li><strong>Syntactic / Casing Rules:</strong> Regularizing substantive common-noun capitalization or joining split compound words (e.g., <em>to morrow</em> $	o$ <em>tomorrow</em>).</li>
+</ol>
 
-Wednesday implements your rules as a deterministic script and measures its output
-against today's manual work. The intellectual task is the formalization: turning
-"regularize iotacism where the result is a real word" into an ordered, conditioned,
-executable rule set.
+Categorizing your rules prevents category confusion. It ensures that when you write regular expressions on Wednesday, you know exactly which XML tags (`<reg>` vs. `<expan>`) your replacement patterns should generate.
 
-Expect the formalization to expose imprecision in your policy. A rule you thought
-was clear will turn out to have unstated conditions, and discovering that is part of
-the exercise — it means the policy was less determinate than it appeared, which is
-worth knowing about your own editorial practice.
+**Vocabulary.** *Rule categorization* — Grouping editorial transformations by their linguistic mechanism (spelling, abbreviation, typography, or casing). *Graphemic variation* — Different physical shapes representing the same underlying letter (such as long *s* versus round *s*).
 
-Come prepared to revise today's decisions. If implementing a rule reveals that you
-applied it inconsistently, the remedy is to fix the inconsistency in the text and
-amend the policy, not to weaken the rule until it matches what you happened to do.
-
-**Takeaway:** Formalizing your rules will expose imprecision in
-them — that discovery is the point, and the remedy is fixing the text rather than
-weakening the rule.
+**Takeaway:** Categorize your rules into orthographic, abbreviation, typographical, and casing groups to ensure appropriate TEI tagging.
 
 ---
 
 ## **25 Content**
 
-**What Good Work Looks Like Here**
+**Documenting the Policy in the TEI Header**
 
-The standard.
+In a professional digital scholarly edition, your editorial policy is not just kept in an informal notebook; it is permanently encoded directly inside the document's **TEI Header** (TEI Consortium, 2024).
 
-A minimally acceptable result is a normalized text with `<choice>` markup that
-validates.
+The TEI Header provides a dedicated structural element inside `<encodingDesc>` called `<editorialDecl>` (editorial declaration). Within `<editorialDecl>`, you place the `<normalization>` element to explain your policy in formal prose:
 
-Good work additionally:
+```xml
+<teiHeader>
+  <!-- ... fileDesc ... -->
+  <encodingDesc>
+    <editorialDecl>
+      <normalization method="markup">
+        <p>This edition regularizes historical 18th-century orthography and expands 
+           abbreviations using parallel <gi>choice</gi> markup. Original spellings are 
+           preserved in <gi>orig</gi> and regularized modern American English forms are 
+           supplied in <gi>reg</gi> following Merriam-Webster's Collegiate Dictionary 
+           (11th ed.). Abbreviations are expanded in <gi>expan</gi>. Common-noun 
+           capitalization has been regularized to lowercase.</p>
+      </normalization>
+    </editorialDecl>
+  </encodingDesc>
+</teiHeader>
+```
 
-- Surveys the variation systematically before encoding, with frequency counts.
-- States a policy that covers the observed phenomena.
-- Distinguishes `<orig>`/`<reg>` from `<sic>`/`<corr>` on stated criteria.
-- Applies the distinction consistently across the whole text.
-- Documents each non-obvious case with its reasoning.
-- Identifies and flags cases that rules cannot resolve.
-- Declines to regularize names, morphology, and variant readings.
-- Records the policy in the TEI header as well as the repository.
-- Attributes every regularization with `@resp`.
-- Records counts in both directions for tomorrow's evaluation.
+Notice the attribute `method="markup"`. This attribute explicitly informs any digital repository or harvesting bot that the normalization has been accomplished using parallel TEI tags (`<choice>`), rather than by silently overwriting the text (`method="silent"`). 
 
-The sixth item is what makes today's work usable tomorrow, and the seventh is what
-makes it defensible. An edition that regularizes conservatively and documents its
-boundaries is one whose editorial policy a reader can evaluate. An edition that
-regularizes freely produces a cleaner text and a weaker claim, because a reader
-cannot tell what was changed or on what principle.
+Documenting your policy in the header guarantees that your edition remains self-describing, transparent, and compliant with FAIR data principles decades after publication.
 
-**Takeaway:** Conservative regularization with documented
-boundaries produces a weaker-looking text and a stronger claim.
+**Vocabulary.** *`<editorialDecl>`* — TEI Header element detailing the editorial practices, declarations, and policies applied to the text. *`<normalization>`* — TEI Header element specifying the degree and method of orthographic normalization applied. *`method="markup"`* — An attribute declaring that normalization is encoded non-destructively using TEI tags.
+
+**Takeaway:** Record your editorial policy inside the `<editorialDecl>` and `<normalization>` elements of your TEI Header, declaring `method="markup"` for non-destructive transparency.
 
 ---
 
 ## **26 Content**
 
-**Why the Manual Step Is First, Again**
+**Manual Normalization in VS Code**
 
-The reason is the same as in Weeks 4 and 5, and it is worth restating because the
-object has changed.
+Now that your policy is established and your Rule Ledger is built, you are ready to begin the manual work in Visual Studio Code.
 
-In Week 4 the manual step produced a reference *text*. Here it produces a reference
-*policy* — a set of decisions about how variation should be treated, with worked
-examples.
+Today's exercise focuses on a **20-line excerpt** selected from your consensus reconciled text in `transcription_reconciled.xml`. Working by hand is slow and deliberate, and that friction is precisely where learning happens. Hand-encoding forces you to examine every word with an editor's eye, noticing ambiguities that automated tools gloss over.
 
-Both are references in the same sense. Wednesday's script cannot be evaluated
-without knowing what the right answer is, and the right answer for normalization is
-not given by the manuscript alone: it depends on editorial judgement about what
-counts as a variant, what counts as an error, and what should be left alone. Only a
-human editor can supply that judgement, and having supplied it, they hold the
-standard.
+Follow this systematic manual workflow:
 
-There is a further reason specific to this operation. Normalization decisions are
-*policy* decisions with corpus-wide consequences. Deciding that omitted accents are
-period-normal variants rather than errors affects every instance in the edition, and
-such a decision made ad hoc by a script — or by a model, in the absence of stated
-policy — is a decision nobody made deliberately.
+<ol>
+  <li><strong>Open your reconciled transcription:</strong> In VS Code, open your `transcription_reconciled.xml` file. Ensure that the Red Hat XML and Scholarly XML extensions are active, displaying valid green checkmarks in the status bar.</li>
+  <li><strong>Identify candidate words:</strong> Read your 20-line passage word by word against your Editorial Rule Ledger. When you encounter a candidate word—such as an archaic spelling like <em>publick</em> or an abbreviation like <em>w<sup>ch</sup></em>—confirm which rule ID applies.</li>
+  <li><strong>Insert the `<choice>` block:</strong> Wrap the target word carefully. Cut the original word into `<orig>` or `<abbr>`, and type your regularized or expanded word into `<reg resp="#editor">` or `<expan resp="#editor">`.</li>
+  <li><strong>Verify tag placement:</strong> Ensure that surrounding whitespace is outside the `<choice>` tags, and confirm that any existing milestone tags like `<lb/>` are not accidentally deleted or misplaced.</li>
+</ol>
 
-That is the deeper argument for today. It is not only that a reference is needed for
-measurement. It is that the editorial policy of your edition should be authored
-rather than emergent.
+**Vocabulary.** *Hand-encoding* — The deliberate, manual insertion of XML tags around text, developing close-reading paleographical discipline. *Whitespace discipline* — Ensuring that spaces between words remain outside tagging structures to prevent collapsed words in downstream rendering.
 
-**Takeaway:** Normalization policy has corpus-wide consequences,
-so it should be authored deliberately rather than emerging from whatever a script or
-model happens to do.
+**Takeaway:** Manual normalization in VS Code builds editorial discipline by requiring you to evaluate every word against your explicit policy ledger.
 
 ---
 
 ## **27 Content**
 
-**Connecting to the Weeks Around It**
+**Keyboard Shortcuts and Snippets for `<choice>`**
 
-Where this fits.
+Typing `<choice><orig></orig><reg resp="#editor"></reg></choice>` by hand twenty times is tedious and prone to typing errors. Fortunately, VS Code provides powerful editing features that accelerate manual encoding without sacrificing human judgment.
 
-| Week | Relation to normalization |
-| --- | --- |
-| 4–5 | Produced the diplomatic base being normalized |
-| 6 | Adds the regularized layer in parallel |
-| 7 | Collation must choose which layer to align on |
-| 8 | Apparatus distinguishes orthographic from substantive variants |
-| 9 | Lemmatization operates on the `<reg>` layer |
-| 12 | Commentary may discuss orthography as evidence |
-| 13 | Publication offers both layers to the reader |
+You can dramatically speed up manual normalization using two techniques:
 
-Row 7 is the immediate consequence and worth thinking about now. Next week you
-collate two witnesses. If you collate on the `<orig>` layer, every difference of
-phonetic spelling between the witnesses appears as a variant, and the apparatus will
-be swamped with orthographic noise. If you collate on `<reg>`, orthographic
-differences vanish and only substantive variants appear — but genuine evidence about
-the relationship between the witnesses may vanish with them, since shared spelling
-practice can indicate shared descent.
+<ol>
+  <li><strong>Wrap with Abbreviation / Emmet:</strong> Highlight the target word in your editor, open the Command Palette (<code>Cmd+Shift+P</code> on macOS or <code>Ctrl+Shift+P</code> on Windows), type <em>Emmet: Wrap with Abbreviation</em>, and type <code>choice>orig</code>. This instantly wraps your highlighted word inside <code>&lt;choice&gt;&lt;orig&gt;target&lt;/orig&gt;&lt;/choice&gt;</code>. Then simply place your cursor after <code>&lt;/orig&gt;</code> and type your <code>&lt;reg&gt;</code> tag.</li>
+  <li><strong>Custom User Snippets:</strong> You can create a custom XML snippet in VS Code. Go to <em>Code $	o$ Settings $	o$ User Snippets</em>, select <code>xml.json</code>, and add a snippet named "TEI Choice Regularization":
+  <pre><code>"TEI Choice Regularization": {
+  "prefix": "treg",
+  "body": [
+    "&lt;choice&gt;",
+    "  &lt;orig&gt;$TM_SELECTED_TEXT$1&lt;/orig&gt;",
+    "  &lt;reg resp=\"#editor\"&gt;$2&lt;/reg&gt;",
+    "&lt;/choice&gt;"
+  ],
+  "description": "Wrap selected text in TEI choice with orig and reg"
+}</code></pre>
+  With this snippet saved, you simply highlight any word, type your snippet prefix, and press <code>Tab</code>: the editor wraps your word in `<orig>` and jumps your cursor directly into `<reg>` ready to type the modern spelling!</li>
+</ol>
 
-The usual answer is to collate on `<reg>` for the main apparatus and to analyze
-`<orig>` separately for what it says about transmission. That is a decision to make
-deliberately next week, and it is available only because both layers exist.
+**Vocabulary.** *User snippet* — A custom keyboard shortcut in an editor that expands a short prefix into a pre-formatted template of code or markup. *`$TM_SELECTED_TEXT`* — A snippet variable that captures whichever characters were highlighted in the editor when the shortcut was triggered.
 
-Row 9 explains why the `<reg>` layer earns its cost. Morphological parsers require
-standard forms, and lemmatization on unnormalized text fails on exactly the forms
-that iotacism produced.
-
-**Takeaway:** Next week's collation must choose a layer — `<reg>`
-for substantive variants, `<orig>` for evidence of shared descent — and the choice
-exists only because both layers do.
+**Takeaway:** Configure custom VS Code XML snippets to automate the repetitive typing of `<choice>` structures while keeping every editorial decision under manual human control.
 
 ---
 
 ## **28 Content**
 
-**A Note on Scale**
+**Validating Normalized TEI against the Schema**
 
-An honest observation about what this method costs.
+Every time you edit XML, you must validate your file against the schema before moving forward. A single unclosed tag or mismatched element name breaks the entire document hierarchy.
 
-Manual normalization guarantees high precision and deep contextual understanding,
-and is fundamentally unscalable for large corpora (Robinson & Driscoll, 2016). You
-have normalized one folio. A full manuscript would take many times longer, and a
-corpus is out of reach entirely.
+In VS Code, the Scholarly XML and Red Hat XML extensions continuously validate your document against your project's RELAX NG schema (`msdesc.rng` or `tei_all.rng`). As you insert `<choice>` blocks, watch for real-time validation feedback:
 
-That is the motivation for Wednesday and Friday. The automated methods exist because
-the manual method does not scale, and the question this week answers is how much of
-the manual method's quality they retain.
+<ul>
+  <li><strong>Valid Child Combinations:</strong> The TEI schema strictly governs what elements may appear inside `<choice>`. Valid pairings include:
+    <ul>
+      <li>`<orig>` and `<reg>` (orthographic variation)</li>
+      <li>`<abbr>` and `<expan>` (abbreviations)</li>
+      <li>`<sic>` and `<corr>` (corrections)</li>
+      <li>`<unclear>` paired with supplied readings</li>
+    </ul>
+    You cannot arbitrarily invent child elements or leave `<choice>` empty.</li>
+  <li><strong>Red Squiggly Underlines:</strong> If you see a red squiggly line under `<choice>`, hover your cursor over it. The schema validator will tell you if you forgot a closing tag, misnamed an element (such as typing `<regular>` instead of `<reg>`), or placed elements in an invalid order.</li>
+  <li><strong>Zero Errors in the Problems Panel:</strong> Open the Problems panel (<code>Cmd+Shift+M</code> or <code>Ctrl+Shift+M</code>). Before saving your work, verify that your document reports exactly <strong>0 errors</strong>.</li>
+</ul>
 
-| Method | Precision | Scale | Transparency |
-| --- | --- | --- | --- |
-| Manual philology | Highest | Lowest | Complete, if documented |
-| Rule-based script | Verifiable | High | Complete |
-| Neural sequence models | Good with data | High | Limited |
-| Language models | Contextually strong | High | Poor |
+**Vocabulary.** *Schema validation* — The automated process of verifying that an XML document conforms strictly to the structural and content rules of a formal schema. *Problems panel* — The VS Code interface listing all active syntax and validation errors across your open workspace.
 
-Read the transparency column. It is the one that matters most for a scholarly
-edition and the one that degrades fastest. A rule-based transformation is
-mathematically quantifiable and can be logged in the header: when a transducer maps
-a form, the exact rule applied is known (Bollmann, 2019). A neural normalization is
-a number that came out of a model.
-
-This is why Wednesday precedes Friday, and why the rule-based baseline is not merely
-a weaker alternative to the neural method. It is the *verifiable* method, and its
-role on Friday is to serve as the transparent standard against which the opaque one
-is checked.
-
-**Takeaway:** Rule-based normalization is transparent and neural
-normalization is not — which makes the rule baseline the check on the model, not
-merely a weaker alternative.
+**Takeaway:** Constantly monitor the VS Code Problems panel to ensure that every newly inserted `<choice>` block validates with zero schema errors.
 
 ---
 
 ## **29 Content**
 
-**The Log as a Scholarly Document**
+**Preparing Your Manual Ground Truth for Wednesday**
 
-A closing note on the decision log, which is easy to treat as bookkeeping.
+Today's manual work is not just an isolated classroom exercise. The 20-line passage you hand-encode today serves a crucial methodological purpose: **it is your Ground Truth reference baseline for the rest of Week 6**.
 
-It is the statement of your edition's editorial policy. When a reader asks why a
-particular form was regularized and another was not, the log is the answer. When a
-later scholar wants to redo your analysis with different assumptions, the log tells
-them what your assumptions were. When you yourself return in December to write the
-commentary, it is the record of reasoning you will otherwise have to reconstruct.
+Tomorrow, you will not be editing text by hand. Instead, you will build deterministic regular expression rules in VS Code to automate these same normalizations. On Friday, you will instruct an AI model to normalize the text using natural language prompts.
 
-Printed editions carry this document too, as the editorial introduction — the
-section explaining the editor's treatment of orthography, punctuation, and
-abbreviation, which readers routinely skip and specialists read carefully. Yours
-differs only in being maintained as work proceeds rather than written afterwards,
-which makes it more accurate.
+How will you know whether your regular expressions worked correctly? How will you know whether the AI hallucinated an expansion or over-normalized an archaic word?
 
-It also differs in being *queryable*. A case register recording every non-obvious
-decision with its line reference is something a reader can search, and a printed
-introduction is not.
+You will know by **diffing** their outputs against today's manual ground truth. Because you spent today examining each word, consulting your policy ledger, and hand-encoding each `<choice>` block with verified scholarly judgment, today's file (`witness_normalized_manual.xml`) represents the gold standard of accuracy.
 
-Write it accordingly. Not "regularized iotacism where needed," but a policy with
-stated criteria, a case register with individual reasoning, and an explicit list of
-what was deliberately left alone.
+When you measure Wednesday's and Friday's automated passes, every point where they match your manual file will count as a confirmed true positive. Every point where an automated tool changes a word that your manual ground truth left alone will expose a potential false positive or hypercorrection.
 
-**Takeaway:** The decision log is your edition's editorial
-introduction, written as you work rather than reconstructed afterwards — and
-queryable in a way a printed one is not.
+**Vocabulary.** *Ground truth baseline* — An independently verified, hand-curated dataset used as the objective standard for testing and measuring the accuracy of automated models. *Gold standard* — The authoritative benchmark in a comparative experiment against which all other results are evaluated.
+
+**Takeaway:** Your hand-encoded manual passage serves as the indispensable ground truth baseline against which Wednesday's regular expressions and Friday's AI outputs will be rigorously evaluated.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: Both Layers, Explicitly Related**
+**Review and Workshop 6 Step 1 Checklist**
 
-The argument of this meeting.
+Today you laid the intellectual and structural foundations for the entire normalization module. You moved from the raw physical witness to a dual-layered digital edition that reconciles historical preservation with modern digital accessibility.
 
-Historical spelling varies, and the variation is simultaneously an obstacle and
-evidence. It obstructs every computational operation that assumes standard
-orthography — search, parsing, lexical lookup. And it records dialect, education,
-date, and language contact, and in cases like the Sinaiticus dictation debate it is
-the evidence on which a question of transmission turns (Gignac, 1976; Robinson &
-Driscoll, 2016).
+Before concluding today's work, review the **Workshop 6 Step 1 Checklist** to confirm that your repository is fully prepared:
 
-Print editions resolved the tension by choosing: they standardized, and the evidence
-was lost. TEI resolves it by refusing to choose — `<choice>` holds both encodings as
-parallel alternatives, and downstream consumers select the layer suited to their
-purpose (TEI Consortium, 2026).
+<ol>
+  <li><strong>20-Line Consensus Excerpt:</strong> Have you selected a clear 20-line passage from your consensus text in `transcription_reconciled.xml` and saved it as the foundation for your normalization workshop?</li>
+  <li><strong>Editorial Policy Formulated:</strong> Have you written a clear paragraph defining your normalization scope, exclusions, and target authority dictionary?</li>
+  <li><strong>Rule Ledger Catalogued:</strong> Have you created `NORMALIZATION.md` with an Editorial Rule Ledger containing at least 3 to 5 distinct rules with unique Rule IDs (`R-01`, `R-02`, etc.)?</li>
+  <li><strong>Manual Markup Applied:</strong> Have you hand-encoded all target words in your excerpt using proper TEI `<choice>` markup with `<orig>`/`<reg resp="#editor">` and `<abbr>`/`<expan resp="#editor">`?</li>
+  <li><strong>Fidelity Maintained:</strong> Have you verified that physical milestones (`<lb/>`) remain inside `<orig>` and that authorial poetic or dialectal choices have not been improperly erased?</li>
+  <li><strong>Schema Validated:</strong> Does your XML file validate with <strong>0 errors</strong> in VS Code?</li>
+</ol>
 
-Making that work requires an editorial judgement TEI cannot supply: which variation
-is period-normal usage and which is scribal error, `<orig>`/`<reg>` against
-`<sic>`/`<corr>`. That judgement is genuinely contestable, which is why it must be
-stated as policy, applied consistently, and documented case by case.
+With Step 1 complete, you are ready for Wednesday, where you will translate these manual decisions into deterministic regular expressions.
 
-Today you produced that policy. It is the reference for the rest of the week, in
-exactly the sense that Week 4's transcription was: the automated methods will be
-measured against it, and only a human editor could have produced it.
+**Vocabulary.** *Step 1 milestone* — The completion of the manual baseline transcription and policy ledger, locking the ground truth for comparative evaluation.
 
-**For Wednesday.** Bring the six items in section 24. You will implement your policy
-as a deterministic script and measure it against today's work — recall and
-precision both.
-
-**Takeaway:** TEI keeps both layers, but deciding which variation
-is usage and which is error is editorial judgement no standard supplies — that
-judgement is today's product.
+**Takeaway:** Completing Step 1 establishes a validated manual ground truth and an explicit rule ledger, preparing you to automate and audit normalization throughout the rest of the week.
 
 ---
 
 ## References
 
-Bollmann, M. (2019). *A large-scale comparison of historical text normalization
-systems* (arXiv:1904.02036). https://arxiv.org/abs/1904.02036
+Burnard, L. (2014). *What is the Text Encoding Initiative? How to add intelligent markup to digital resources*. OpenEdition Press. https://doi.org/10.4000/books.oep.426
 
-Gignac, F. T. (1976). *A grammar of the Greek papyri of the Roman and Byzantine
-periods*. Istituto Editoriale Cisalpino.
+Clemens, R., & Graham, T. (2007). *Introduction to manuscript studies*. Cornell University Press.
 
-Robertson, A., & Goldwater, S. (2018). Evaluating historical text normalization
-systems: How well do they generalize? In *Proceedings of NAACL-HLT*. Association
-for Computational Linguistics.
+Driscoll, M. J. (2006). Levels of transcription. In L. Burnard, K. O'Brien O'Keeffe, & J. Unsworth (Eds.), *Electronic textual editing* (pp. 254–261). Modern Language Association of America.
 
-Robinson, P., & Driscoll, M. J. (Eds.). (2016). *Digital scholarly editing:
-Theories and practices*. Open Book Publishers.
-https://doi.org/10.11647/OBP.0095
+Pierazzo, E. (2015). *Digital scholarly editing: Theories, models and methods*. Ashgate Publishing.
 
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and
-interchange*. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/
+TEI Consortium. (2024). *TEI P5: Guidelines for electronic text encoding and interchange* (version 4.8.0). TEI Consortium. https://tei-c.org/guidelines/p5/

@@ -1,10 +1,10 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Select a 20-line excerpt from your consensus diplomatic transcription.</li>
-        <li><strong>Step 1 (Manual):</strong> Hand-encode all orthographic variations using TEI <code>&lt;choice&gt;&lt;orig&gt;diplomatic&lt;/orig&gt;&lt;reg resp="#editor"&gt;normalized&lt;/reg&gt;&lt;/choice&gt;</code>, documenting your explicit regularization rules.</li>
-        <li><strong>Step 2 (Script):</strong> Write a small Python script (<code>normalize.py</code>) using <code>re.sub()</code> rules that automatically applies your orthographic rules to the raw text.</li>
-        <li><strong>Step 3 (AI):</strong> Pass the raw diplomatic text to an LLM (via VS Code or local CLI) with a system prompt instructing it to normalize orthography while preserving morphological syntax.</li>
-        <li>Submit your TEI XML file, your Python script, and a <strong>300–500 word comparative reflection</strong> evaluating the false positive and hypercorrection rate of the automated passes against your manual baseline.</li>
+        <li>Select a 20-line excerpt from your consensus diplomatic transcription (<code>transcription_reconciled.xml</code>).</li>
+        <li><strong>Step 1 (Manual):</strong> Hand-encode all orthographic variations and abbreviations using valid TEI <code>&lt;choice&gt;&lt;orig&gt;...&lt;/orig&gt;&lt;reg resp="#editor"&gt;...&lt;/reg&gt;&lt;/choice&gt;</code> and <code>&lt;choice&gt;&lt;abbr&gt;...&lt;/abbr&gt;&lt;expan resp="#editor"&gt;...&lt;/expan&gt;&lt;/choice&gt;</code>, saving this gold standard as <code>transcription_reconciled_manual.xml</code>.</li>
+        <li><strong>Step 2 (Deterministic Regex):</strong> Apply your explicit orthographic rules using regular expressions with word boundaries (<code>\b</code>) and capture groups directly in the VS Code editor (or via an optional Python <code>re.sub()</code> script), saving the output as <code>transcription_reconciled_regex.xml</code>.</li>
+        <li><strong>Step 3 (AI-Assisted):</strong> Pass the raw consensus excerpt to Gemini in VS Code Antigravity with a structured system prompt, negative constraints against modernizing syntax, and few-shot examples, saving the output as <code>transcription_reconciled_ai.xml</code>.</li>
+        <li><strong>Step 4 (Synthesis & Reflection):</strong> Synthesize your final validated <code>transcription_normalized.xml</code> by adopting confirmed corrections while rejecting hypercorrections. Submit all four XML files and a <strong>300–500 word comparative reflection</strong> in <code>NORMALIZATION.md</code> evaluating precision, recall, and hypercorrection rates across the three passes.</li>
     </ol>
 </div>

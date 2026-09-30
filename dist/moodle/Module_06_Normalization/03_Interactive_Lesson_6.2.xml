@@ -1,0 +1,2000 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_6.2</text></category></question>
+<question type="description"><name><text>01 Content: From Prose Policy to Deterministic Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>From Prose Policy to Deterministic Code</h3>
+<p>Yesterday in Lesson 6.1, you performed normalization by hand. You sat with your reconciled diplomatic text in VS Code, examined words one by one, and manually wrapped target spellings and abbreviations in TEI <code>&lt;choice&gt;</code> tags. In doing so, you formulated an explicit Editorial Regularization Policy and catalogued your decisions in a Rule Ledger in <code>NORMALIZATION.md</code>.</p>
+<p>Today, we take the crucial step from manual human execution to automated, deterministic computing. Instead of reading through hundreds of lines and manually typing tags every time an archaic spelling appears, we want a tool to locate every occurrence of our target patterns and apply our transformations systematically.</p>
+<p>The transition from a human editorial policy to an automated rule is profound. Prose editorial policies tolerate vagueness. A policy that says "regularize archaic terminal <em>-ck</em> on adjectives" seems perfectly clear to a human reader, who instinctively knows that <em>publick</em> should become <em>public</em>, but <em>black</em> should remain <em>black</em>. A computer possesses no such historical or linguistic intuition. To a machine, <em>black</em> ends in <em>-ck</em> just as surely as <em>publick</em> does.</p>
+<p>Implementing an automated rule therefore acts as an unforgiving audit of your editorial policy. When an automated rule produces a catastrophic mistake—such as turning <em>black</em> into <em>blac</em> or <em>track</em> into <em>trac</em>—it exposes an unstated assumption in your human thinking. Deterministic rules force us to state our exact criteria with mathematical precision (Friedl, 2006).</p>
+<p><strong>Vocabulary.</strong> <em>Deterministic automation</em> — A computational process that always produces the exact same output when given the same input and rules, without randomness or opacity. <em>Policy audit</em> — The process of testing an editorial policy through formal code to uncover unstated ambiguities or edge cases.</p>
+<p><strong>Takeaway:</strong> Translating a human editorial policy into deterministic rules audits your scholarly thinking by exposing unstated assumptions and edge cases.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: From Prose Policy to Deterministic Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does translating an editorial prose policy into automated code act as an audit of scholarly thinking?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Translating a human editorial policy into deterministic rules audits your scholarly thinking by exposing unstated assumptions and edge cases.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Prose policies tolerate unstated human assumptions; code forces the editor to state every condition, boundary, and exception with mathematical precision.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A computer lacks intuitive historical judgement, forcing the editor to define exact rules and confront previously unnoticed ambiguities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Writing code automatically deletes all historical abbreviations from the repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Translating a policy into code defines how text is transformed; it does not arbitrarily delete data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Prose policies cannot be stored on modern operating systems without being converted to binary code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prose policies are stored as standard text files; the issue is algorithmic precision.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translating policies into code allows editors to bypass XML schema validation checks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation is always required regardless of whether edits were made by hand or by code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: What Is a Regular Expression?</text></name><questiontext format="html"><text><![CDATA[
+<h3>What Is a Regular Expression?</h3>
+<p>To automate text normalization deterministically, digital scholars do not need to write thousands of lines of low-level software. Instead, we use one of the most powerful and elegant tools in modern computing: <strong>Regular Expressions</strong> (commonly abbreviated as <strong>regex</strong>).</p>
+<p>A regular expression is a formalized pattern-matching language designed to search, match, and transform text based on structural patterns rather than fixed literal words (Jurafsky &amp; Martin, 2024). Instead of searching for the exact literal word <em>publick</em>, a regular expression allows you to specify: "find any sequence of letters that begins at a word boundary, ends with the letters <em>ck</em>, and is preceded by a specific root."</p>
+<p>Regular expressions originated in theoretical computer science and formal language theory in the 1950s, representing finite-state automata that recognize regular languages. Today, regular expression engines are embedded into virtually every programming language, shell utility (like <code>grep</code> and <code>sed</code>), and modern text editor.</p>
+<p>In digital textual editing, regex is the premier tool for deterministic normalization. A single well-crafted regular expression can scan a 500-page historical witness, identify every instance of a 18th-century spelling variant or thorn contraction, and reformat it into valid, multi-element TEI <code>&lt;choice&gt;</code> markup in milliseconds.</p>
+<p><strong>Vocabulary.</strong> <em>Regular expression (regex)</em> — A specialized formal language consisting of literal characters and metacharacters used to describe search patterns in text. <em>Pattern matching</em> — The computational search for sequences of characters that conform to a specified grammatical rule.</p>
+<p><strong>Takeaway:</strong> A regular expression is a concise, formal pattern-matching language that allows digital editors to search and transform text based on structural rules rather than fixed literal strings.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: What Is a Regular Expression?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is a regular expression (regex) in computational text processing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A regular expression is a concise, formal pattern-matching language that allows digital editors to search and transform text based on structural rules rather than fixed literal strings.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A concise, formal pattern-matching language used to search and transform text based on structural rules rather than fixed literal strings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Regex describes classes and patterns of text (such as words ending in specific suffixes), allowing broad, rule-based matching.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A machine-learning algorithm that generates artificial handwriting on digital canvas images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex is a deterministic, rule-based pattern matching language, not a generative image model.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A legal document signed by an archival library granting reproduction rights.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regular expressions are a core computational string manipulation tool, not a legal instrument.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An interactive quiz format built into Moodle for testing student reading comprehension.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regular expressions are used inside text editors and programming languages to process strings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The VS Code Regex Engine</text></name><questiontext format="html"><text><![CDATA[
+<h3>The VS Code Regex Engine</h3>
+<p>Many novice students assume that running regular expressions requires learning a complex programming language like Python, installing external libraries, and executing command-line scripts. In reality, <strong>Visual Studio Code has a world-class regular expression engine built directly into its editor</strong>.</p>
+<p>Whenever you open the Find and Replace widget in VS Code (<code>Cmd+F</code> or <code>Cmd+H</code> on macOS; <code>Ctrl+F</code> or <code>Ctrl+H</code> on Windows), you have access to a complete JavaScript/PCRE-compatible regular expression processor. To activate regex mode, you simply click the <strong>Use Regular Expression</strong> icon (which looks like <code>.*</code>) in the Find box, or press <code>Alt+R</code> (<code>Option+Cmd+R</code> on macOS).</p>
+<p>Using regex inside VS Code offers a decisive pedagogical advantage over running background scripts: <strong>immediate real-time visual feedback</strong>.</p>
+<p>When you write a regex pattern in a Python script and run it over a file, the script executes blindly in memory. If your pattern contains a subtle defect, it will silently corrupt thousands of words before you realize a mistake occurred. In VS Code, as soon as you type a regex pattern into the Find box, the editor instantly highlights every single matching character in yellow across your entire open document. </p>
+<p>You can visually inspect what matches, see what was missed, and immediately detect if your pattern accidentally captures XML tags or milestone markers <em>before</em> you execute a single replacement.</p>
+<p><strong>Vocabulary.</strong> <em>VS Code regex mode</em> — An interactive editor setting (toggled with <code>.*</code> or <code>Alt+R</code>) that interprets search strings as regular expressions. <em>Real-time visual feedback</em> — The instant editor highlighting of matching text patterns, allowing safe pre-execution inspection.</p>
+<p><strong>Takeaway:</strong> VS Code provides an interactive, full-featured regular expression engine with real-time visual highlighting, making pattern testing visible and safe before execution.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The VS Code Regex Engine</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary pedagogical advantage of testing regular expressions directly inside the VS Code editor?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;VS Code provides an interactive, full-featured regular expression engine with real-time visual highlighting, making pattern testing visible and safe before execution.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;VS Code highlights all matching text in yellow in real time, allowing editors to visually inspect matches before executing replacements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Immediate visual feedback lets you see over-matches or tag collisions instantly, preventing silent corruption before replacement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;VS Code automatically corrects all spelling mistakes in historical manuscripts without user input.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code executes the exact pattern provided; it does not replace scholarly judgment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;VS Code converts all regular expressions into ancient Greek characters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The regex engine operates on standard Unicode characters across all languages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;VS Code is the only software in the world capable of processing regular expressions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex is supported across almost all programming languages, but VS Code provides live visual highlighting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Literal Characters vs. Metacharacters</text></name><questiontext format="html"><text><![CDATA[
+<h3>Literal Characters vs. Metacharacters</h3>
+<p>A regular expression is composed of two distinct types of characters: <strong>literal characters</strong> and <strong>metacharacters</strong> (Friedl, 2006).</p>
+<p>A <strong>literal character</strong> is an ordinary alphanumeric symbol that matches only itself. If you type the letter <code>p</code>, the regex matches the character <code>p</code>. If you type <code>treaty</code>, the regex matches the exact sequence <code>t-r-e-a-t-y</code>.</p>
+<p>A <strong>metacharacter</strong>, by contrast, is a special reserved symbol that carries an operational meaning in the regex grammar. Instead of matching itself literally, a metacharacter instructs the engine to perform a structural test, such as matching any character, repeating a pattern, or anchoring to a boundary.</p>
+<p>The fundamental regex metacharacters include:</p>
+<ul>
+  <li><code>.</code> (Dot): Matches any single character except a newline.</li>
+  <li><code>*</code>, <code>+</code>, <code>?</code> (Quantifiers): Control how many times the preceding character or group may repeat.</li>
+  <li><code>[</code> and <code>]</code> (Brackets): Define a character class or set.</li>
+  <li><code>(</code> and <code>)</code> (Parentheses): Define a capturing group.</li>
+  <li><code>^</code> and <code>$</code> (Anchors): Match the beginning and end of a line.</li>
+  <li><code>\</code> (Backslash): The escape character, used to neutralize a metacharacter or invoke special escape sequences.</li>
+</ul>
+
+<p>If you want to match a literal period (such as the dot in the abbreviation <em>publ.</em>), you cannot simply type <code>.</code>, because a bare dot matches any letter or space. You must <strong>escape</strong> it with a backslash: <code>\.</code>. The backslash tells the regex engine: "treat the following symbol as an ordinary literal character, not as a special command."</p>
+<p><strong>Vocabulary.</strong> <em>Literal character</em> — A character that matches only itself in a regex search. <em>Metacharacter</em> — A reserved character with special syntactic meaning that controls pattern matching. <em>Escaping</em> — Prefixing a metacharacter with a backslash (<code>\</code>) to force the engine to match it as a literal symbol.</p>
+<p><strong>Takeaway:</strong> Regular expressions combine literal characters that match themselves with metacharacters that control pattern structure; reserved symbols must be escaped with a backslash to match literally.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Literal Characters vs. Metacharacters</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What must an editor do to search for a literal period (.) in a regular expression without matching arbitrary characters?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Regular expressions combine literal characters that match themselves with metacharacters that control pattern structure; reserved symbols must be escaped with a backslash to match literally.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Escape the period with a preceding backslash (\.) to neutralize its operational meaning as a metacharacter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A bare dot matches any single character; prefixing it with a backslash forces the engine to match a literal period.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Surround the period with quotation marks like '.' in the Find box.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Quotation marks inside regex are matched literally, not used as syntax delimiters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the period from the manuscript image prior to running the search.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Image files are immutable archival records and are not edited.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Type the word 'DOT' in all capital letters in the search field.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The regex engine does not interpret English word synonyms for punctuation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Character Classes and Sets: `[...]`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Character Classes and Sets: `[...]`</h3>
+<p>In historical documents, writers frequently substitute vowels or interchangeable consonants. For example, an 18th-century French writer might spell a word with an acute accent, a grave accent, or no accent at all. To match any one of several alternative characters at a specific position, regular expressions provide <strong>character classes</strong>, enclosed in square brackets: <code>[...]</code>.</p>
+<p>A character class matches <strong>exactly one character</strong> from the set of characters listed inside the brackets:</p>
+<ul>
+  <li><code>[aeiou]</code>: Matches any single lowercase English vowel.</li>
+  <li><code>[ſs]</code>: Matches either a historical long <em>s</em> (<em>ſ</em>) or a standard short <em>s</em>.</li>
+  <li><code>[0-9]</code>: Matches any single decimal digit from 0 to 9. (The hyphen indicates an inclusive range).</li>
+  <li><code>[a-zA-Z]</code>: Matches any single uppercase or lowercase English letter.</li>
+</ul>
+
+<p>Inside a character class, most normal metacharacters lose their special meaning. For example, <code>[.]</code> matches a literal period without needing a backslash.</p>
+<p>Furthermore, placing a caret (<code>^</code>) as the <strong>first character</strong> inside the brackets negates the class, matching any character that is <em>not</em> in the set. For digital humanities text editors working in XML, the negated character class <code>[^&lt;&gt;]</code> is one of the most vital patterns in existence: it matches any character that is not an opening or closing angle bracket, preventing search patterns from accidentally spilling into XML tags.</p>
+<p><strong>Vocabulary.</strong> <em>Character class</em> — A regex pattern enclosed in square brackets <code>[...]</code> that matches any single character contained within the set. <em>Negated character class</em> — A character class starting with <code>[^...]</code> that matches any character <em>except</em> those listed.</p>
+<p><strong>Takeaway:</strong> Use character classes <code>[...]</code> to match alternative single characters (such as <code>[ſs]</code>), and negated classes like <code>[^&lt;&gt;]</code> to safely exclude XML markup.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Character Classes and Sets: [...]</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the negated character class [^&lt;&gt;] particularly valuable when working with TEI XML documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use character classes [...] to match alternative single characters (such as [ſs]), and negated classes like [^&lt;&gt;] to safely exclude XML markup.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It matches any character except an opening or closing angle bracket, keeping searches safely confined inside text nodes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Negated classes like [^&lt;&gt;] prevent regex patterns from matching across XML tags, protecting markup from accidental corruption.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It instructs the operating system to delete all empty lines from the file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. [^&lt;&gt;] matches characters other than angle brackets; it does not manage newlines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts all lowercase letters into uppercase small caps.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Character classes define search sets, not typographical casing transformations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It validates whether the document complies with the Text Encoding Initiative P5 schema.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation is performed by dedicated XML parsers, not character classes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Quantifiers: Matching Repetitions (`+`, `*`, `?`)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Quantifiers: Matching Repetitions (`+`, `*`, `?`)</h3>
+<p>Historical words vary not only in which letters appear, but in how many times a letter is repeated. In Maud Lewis's letters, consonants are often doubled phonetically (e.g., <em>allways</em>), while scribal flourishes can introduce variable spaces. To control how many times a character or group repeats, regular expressions use <strong>quantifiers</strong>:</p>
+<ul>
+  <li><code>+</code> (Plus): Matches the preceding element <strong>one or more times</strong>. For example, <code>l+</code> matches <em>l</em>, <em>ll</em>, or <em>lll</em>.</li>
+  <li><code>*</code> (Asterisk): Matches the preceding element <strong>zero or more times</strong>. For example, <code>e*</code> matches nothing, or <em>e</em>, or <em>ee</em>.</li>
+  <li><code>?</code> (Question Mark): Matches the preceding element <strong>zero or one time</strong> (making it optional). For example, <code>colou?r</code> matches both British <em>colour</em> and American <em>color</em>.</li>
+</ul>
+
+<p>A critical concept every digital editor must understand is <strong>greediness</strong>. By default, quantifiers in regular expressions are greedy: they consume as much text as possible.</p>
+<p>Consider what happens if you have the XML line <code>&lt;orig&gt;publick&lt;/orig&gt; and &lt;orig&gt;traffick&lt;/orig&gt;</code> and you search with the pattern <code>&lt;orig&gt;.*&lt;/orig&gt;</code>. You might expect the engine to match the first tag. Instead, because <code>.*</code> is greedy, it starts at the first <code>&lt;orig&gt;</code>, consumes all the text across the middle of the line, and stops only at the <em>final</em> <code>&lt;/orig&gt;</code>! It swallows both words and the word <em>and</em> between them.</p>
+<p>To prevent greedy over-matching, you can make a quantifier lazy by appending a question mark (e.g., <code>.*?</code>), or even better, use a negated character class: <code>&lt;orig&gt;[^&lt;]*&lt;/orig&gt;</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Quantifier</em> — A regex symbol (<code>+</code>, <code>*</code>, <code>?</code>) specifying how many instances of the preceding character or group must occur. <em>Greedy matching</em> — The default regex behavior of consuming the longest possible matching string. <em>Lazy matching</em> — A quantifier modified with <code>?</code> that consumes the shortest possible matching string.</p>
+<p><strong>Takeaway:</strong> Quantifiers control repetition, but default to greedy matching; use negated classes like <code>[^&lt;]*</code> to prevent patterns from swallowing multiple tags across a line.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Quantifiers: Matching Repetitions (+, *, ?)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the danger of using a greedy quantifier like .* when searching inside an XML file?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Quantifiers control repetition, but default to greedy matching; use negated classes like [^&lt;]* to prevent patterns from swallowing multiple tags across a line.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It consumes as much text as possible across the line, potentially swallowing multiple XML tags and intervening words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Greedy matching extends to the furthest possible match; editors use lazy quantifiers (.*?) or negated sets ([^&lt;]*) to avoid over-matching.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It causes the computer processor to overheat and permanently shut down.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Greedy quantifiers consume text strings in memory; they do not cause hardware damage.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts all numbers in the XML document into Roman numerals.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Quantifiers specify repetition count, not numerical numeral conversion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents the user from saving the document in UTF-8 encoding.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File encoding is independent of search quantifier behavior.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: The Inviolable Rule: Word Boundaries (``)</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Inviolable Rule: Word Boundaries (``)</h3>
+<p>If there is one metacharacter that every digital humanities editor must memorize, revere, and never forget, it is the <strong>word boundary anchor</strong>: <code></code>.</p>
+<p>A word boundary is an anchor: it does not consume any physical characters. Instead, <code></code> asserts a physical position: the boundary between a word character (letters, numbers, underscores) and a non-word character (spaces, punctuation, quotes, or tag brackets) (Friedl, 2006).</p>
+<p>Consider what happens if you neglect to use <code></code>. Suppose you want to find the archaic contraction <em>ye</em> in an 18th-century document and replace it with <em>the</em>. If you search for the bare letters <code>ye</code> without word boundaries, look at what gets matched:</p>
+<ul>
+  <li><em>ye</em> in <em>ye Governor</em> (Correct match)</li>
+  <li><em>ye</em> inside <em>yesterday</em> $   o$ becomes <em>thesturday</em>!</li>
+  <li><em>ye</em> inside <em>eye</em> $ o$ becomes <em>ethe</em>!</li>
+  <li><em>ye</em> inside <em>lawyer</em> $  o$ becomes <em>lawther</em>!</li>
+  <li><em>ye</em> inside <em>bye</em> $ o$ becomes <em>bthe</em>!</li>
+</ul>
+
+<p>Searching for unanchored strings will violently dismantle your text. If you search for <em>in</em>, you will replace the middle of <em>point</em>, <em>prince</em>, and <em>administrative</em>. </p>
+<p>By wrapping your target in word boundaries—<code>ye</code>—you instruct the regex engine to match the letters <em>y</em> and <em>e</em> <strong>only when they exist as a standalone, isolated word</strong>, surrounded by spaces or punctuation. In textual normalization, <strong>never search for a word without <code></code> anchors</strong>.</p>
+<p><strong>Vocabulary.</strong> <em>Word boundary (<code></code>)</em> — A zero-width anchor that matches the boundary between a word character and a non-word character (such as whitespace or punctuation). <em>Substring corruption</em> — The disastrous accidental replacement of letters inside unrelated longer words caused by omitting word boundaries.</p>
+<p><strong>Takeaway:</strong> Always enclose word patterns in word boundary anchors (<code>pattern</code>) to prevent catastrophic accidental replacements inside longer words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: The Inviolable Rule: Word Boundaries (\b)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What disaster occurs if an editor searches for an archaic word like 'ye' without word boundary anchors (\b)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Always enclose word patterns in word boundary anchors (\bpattern\b) to prevent catastrophic accidental replacements inside longer words.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The pattern matches 'ye' inside unrelated words, corrupting words like 'yesterday', 'eye', and 'lawyer'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without \b, substring matching replaces letters inside longer words, causing catastrophic textual corruption.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The XML validator immediately revokes the editor's GitHub account credentials.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The consequence is severe textual corruption within the document, not an account revocation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The text editor crashes and refuses to reopen until the operating system is reinstalled.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The editor executes the unanchored search normally, producing corrupt replacements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All words in the file are automatically translated into 18th-century French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Unanchored matching replaces character substrings; it does not translate languages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Capturing Groups: The Power of Parentheses `(...)`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Capturing Groups: The Power of Parentheses `(...)`</h3>
+<p>Searching for text is only half the battle. In digital editing, we do not merely want to find words; we want to restructure them. We want to take an original word, capture its root stem, and wrap it inside TEI tags. To achieve this, regular expressions use <strong>capturing groups</strong>, defined by parentheses: <code>(...)</code>.</p>
+<p>When you enclose part of a regex pattern in parentheses, the regex engine performs two actions:</p>
+<ol>
+  <li>It groups the enclosed characters into a single logical unit.</li>
+  <li>It saves whichever specific text matched inside those parentheses into an internal memory slot (a register).</li>
+</ol>
+
+<p>Capturing groups are numbered automatically from left to right based on the order of their opening parentheses: Group 1, Group 2, Group 3, and so on (Jurafsky &amp; Martin, 2024).</p>
+<p>For example, consider the pattern:</p>
+<pre><code class="language-regex">(\w+)ck
+</code></pre>
+<p>Here, <code>\w+</code> matches one or more word characters (letters). Because <code>\w+</code> is enclosed in parentheses, it forms <strong>Group 1</strong>. The trailing letters <code>ck</code> sit outside the parentheses.</p>
+<p>When this pattern encounters the word <em>publick</em>, the entire pattern matches the full word <em>publick</em>. But inside memory, <strong>Group 1 captures solely the root stem: <em>public</em></strong>. When the pattern encounters <em>authentick</em>, Group 1 captures <em>authenti</em>. </p>
+<p>Capturing groups allow you to isolate the variable parts of a word so you can reuse them dynamically during replacement.</p>
+<p><strong>Vocabulary.</strong> <em>Capturing group</em> — A sub-pattern enclosed in parentheses <code>(...)</code> whose matched content is stored in memory for retrieval during replacement. <em>Group numbering</em> — The sequential assignment of matched groups (<code>$1</code>, <code>$2</code>) ordered by their opening parentheses from left to right.</p>
+<p><strong>Takeaway:</strong> Enclose sub-patterns in parentheses to create capturing groups that store matched word stems in memory for dynamic reuse.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Capturing Groups: The Power of Parentheses (...)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the purpose of enclosing a sub-pattern in parentheses (...) in a regular expression?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Enclose sub-patterns in parentheses to create capturing groups that store matched word stems in memory for dynamic reuse.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It defines a capturing group that isolates matched text and stores it in memory for dynamic reuse during replacement.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Parentheses save whatever matched inside them into registers ($1, $2) so stems can be wrapped in XML tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It instructs the editor to print the enclosed text in bold italics in the browser.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Parentheses are regex grouping metacharacters, not HTML styling tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It marks the enclosed text as a confidential secret hidden from student peer reviewers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Capturing groups are computational mechanisms for string storage during replacement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the search engine to ignore the enclosed letters completely during matching.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The enclosed letters are actively matched and stored in memory.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Backreferences in the Replace Box: `$1` and `$2`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Backreferences in the Replace Box: `$1` and `$2`</h3>
+<p>Once a regular expression captures text into a group, how do you insert that captured text into your replacement string? In VS Code, you retrieve captured groups using <strong>backreferences</strong>: <code>$1</code>, <code>$2</code>, <code>$3</code>, and so on.</p>
+<p>When you type <code>$1</code> in the VS Code Replace box, the editor replaces that token with whichever characters were matched by the first capturing group. If your pattern has a second group, <code>$2</code> retrieves the second group. The special token <code>$0</code> represents the <em>entire</em> matched string.</p>
+<p>Let us see how capturing groups and backreferences work together in a simple example:</p>
+<pre><code class="language-text">Find:    (\w+)ck
+Replace: $1c
+</code></pre>
+<p>Let us trace how the engine processes this command on the word <em>publick</em>:</p>
+<ol>
+  <li>The search pattern matches the full word <code>publick</code>.</li>
+  <li>Group 1 captures the stem: <code>public</code>.</li>
+  <li>The Replace field instructs the editor: insert the text of Group 1 (<code>public</code>), followed by the literal letter <code>c</code>.</li>
+  <li>Result: <code>publicc</code> (Notice the spelling error! If the stem was <em>public</em>, adding <em>c</em> produced two <em>c</em>'s!).</li>
+</ol>
+
+<p>This simple trace illustrates why precision is vital. If our root stem already ends in <em>c</em>, we do not want to add <em>c</em>; we simply want to drop the <em>k</em>! The correct pattern would be:</p>
+<pre><code class="language-text">Find:    (\w+c)k
+Replace: $1
+</code></pre>
+<p>Here, Group 1 captures <em>public</em> (including the <em>c</em>). The replace token <code>$1</code> outputs <em>public</em>, cleanly dropping the terminal <em>k</em>.</p>
+<p><strong>Vocabulary.</strong> <em>Backreference</em> — A special replacement syntax (such as <code>$1</code> or <code>$2</code>) that outputs the text stored by a specific capturing group. <em>Replacement token</em> — A placeholder in the replacement field that dynamically references captured search data.</p>
+<p><strong>Takeaway:</strong> In the VS Code Replace box, use <code>$1</code>, <code>$2</code>, etc., to output the exact text captured by your search parentheses, dynamically reconstructing your words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Backreferences in the Replace Box: $1 and $2</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the VS Code Replace box, how does an editor insert the text matched by the first capturing group?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;In the VS Code Replace box, use $1, $2, etc., to output the exact text captured by your search parentheses, dynamically reconstructing your words.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By typing the backreference token $1 into the replacement string.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. In VS Code, $1 retrieves Group 1, $2 retrieves Group 2, and $0 retrieves the entire matched string.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By typing the word 'FIRST_GROUP' in capital letters surrounded by asterisks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code uses the standard backreference syntax $1.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By pressing the Tab key three times while holding the Shift key.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Backreferences are written as literal tokens ($1, $2) in the Replace field.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By copying and pasting the text manually from the Explorer sidebar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Backreferences dynamically output captured text automatically.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Generating TEI `&lt;choice&gt;` Dynamically in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Generating TEI `<choice>` Dynamically in VS Code</h3>
+<p>Now we arrive at the central technique of automated digital normalization. By combining capturing groups with literal XML tags in the VS Code Replace box, we can <strong>generate complete, validated TEI <code>&lt;choice&gt;</code> structures automatically</strong>.</p>
+<p>Recall our manual encoding goal from yesterday: we want to transform historical <em>publick</em> into:</p>
+<pre><code class="language-xml">&lt;choice&gt;&lt;orig&gt;publick&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;public&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>Typing that entire block by hand took thirty seconds. With regular expressions in VS Code, we can generate it in one keystroke across all occurrences:</p>
+<pre><code class="language-text">Find:    (\w+c)k
+Replace: &lt;choice&gt;&lt;orig&gt;$1k&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>Let us trace what VS Code does when it executes this command on <em>publick</em>:</p>
+<ol>
+  <li>The Find pattern matches <code>publick</code>.</li>
+  <li>Group 1 captures the stem <code>public</code> into <code>$1</code>.</li>
+  <li>The Replace box outputs:
+    <ul>
+      <li>Literal XML: <code>&lt;choice&gt;&lt;orig&gt;</code></li>
+      <li><code>$1k</code> $    o$ inserts <code>public</code> followed by literal <code>k</code> (reproducing the original word <code>publick</code>!).</li>
+      <li>Literal XML: <code>&lt;/orig&gt;&lt;reg resp="#editor"&gt;</code></li>
+      <li><code>$1</code> $ o$ inserts the regularized stem <code>public</code>.</li>
+      <li>Literal XML: <code>&lt;/reg&gt;&lt;/choice&gt;</code></li>
+    </ul>
+  </li>
+</ol>
+
+<p>The resulting text is perfect, fully formed, valid TEI markup. The editor did not need to write a Python script; the regex engine in VS Code constructed the entire multi-element parallel XML structure dynamically.</p>
+<p><strong>Vocabulary.</strong> <em>Dynamic XML generation</em> — Using regex replacement backreferences to construct complex structural markup around captured text strings. <em>Markup automation</em> — Automating the insertion of repetitive tagging structures while preserving original witness readings.</p>
+<p><strong>Takeaway:</strong> Combine captured stems with literal XML tags in the VS Code Replace box to generate complete, validated TEI <code>&lt;choice&gt;</code> blocks instantly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Generating TEI &lt;choice&gt; Dynamically in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which replacement pattern correctly transforms a captured stem ($1) into a complete TEI &lt;choice&gt; block for terminal -ck words?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Combine captured stems with literal XML tags in the VS Code Replace box to generate complete, validated TEI &lt;choice&gt; blocks instantly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp='#editor'&gt;$1c&lt;/reg&gt;&lt;/choice&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This replacement dynamically reconstructs the original spelling in &lt;orig&gt; and the regularized form in &lt;reg&gt; with @resp.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;choice&gt;&lt;abbr&gt;$1ck&lt;/abbr&gt;&lt;expan resp='#editor'&gt;$1c&lt;/expan&gt;&lt;/choice&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Terminal -ck variation is orthographic regularization (&lt;orig&gt;/&lt;reg&gt;), not an abbreviation (&lt;abbr&gt;/&lt;expan&gt;).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;choice&gt;&lt;sic&gt;$1ck&lt;/sic&gt;&lt;corr resp='#editor'&gt;$1c&lt;/corr&gt;&lt;/choice&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Acceptable historical spelling variants must not be tagged as scribal blunders (&lt;sic&gt;).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;reg resp='#editor'&gt;$1c&lt;/reg&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This replaces the original reading destructively without preserving the diplomatic witness in &lt;choice&gt; and &lt;orig&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Case Sensitivity and Case Preservation in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Sensitivity and Case Preservation in VS Code</h3>
+<p>Historical documents constantly alternate between uppercase and lowercase letters. An 18th-century text might print <em>Publick</em> with a capital <em>P</em> at the start of a sentence and <em>publick</em> with a lowercase <em>p</em> in the middle of a line.</p>
+<p>How does regular expression matching handle capitalization? In VS Code, case sensitivity is controlled by two dedicated toggles in the Find and Replace widget:</p>
+<ol>
+  <li><strong>Match Case (`Alt+C`):</strong> When this toggle is active, the search is strictly case-sensitive. Searching for <code>publick</code> will ignore <code>Publick</code>. When inactive, the search matches both.</li>
+  <li><strong>Preserve Case:</strong> In the Replace box, VS Code features an extraordinary built-in button labeled <strong>Preserve Case</strong> (an icon showing uppercase and lowercase <code>AB</code>). When active, VS Code automatically matches the capitalization style of the replacement string to the matched text! If the search matches lowercase <code>publick</code>, it outputs lowercase <code>public</code>; if it matches capitalized <code>Publick</code>, it outputs capitalized <code>Public</code>!</li>
+</ol>
+
+<p>Alternatively, you can handle casing explicitly within your regex pattern using character classes:</p>
+<pre><code class="language-regex">([Pp]ublic)k
+</code></pre>
+<p>Here, Group 1 captures either <em>Public</em> or <em>public</em>, preserving the exact initial casing inside <code>$1</code> when output into <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code>.</p>
+<p>Understanding casing prevents duplicate rules. Rather than writing one rule for lowercase words and a second rule for capitalized words, a single case-aware pattern handles both cleanly.</p>
+<p><strong>Vocabulary.</strong> <em>Match Case</em> — A toggle (<code>Alt+C</code>) enforcing strict character casing during regex search. <em>Preserve Case</em> — A VS Code feature that automatically adapts replacement text capitalization to match the original source word.</p>
+<p><strong>Takeaway:</strong> Use the Match Case and Preserve Case toggles in VS Code, or case-insensitive character classes like <code>[Pp]</code>, to handle capitalized and lowercase variants within a single rule.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Case Sensitivity and Case Preservation in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How can an editor regularize both capitalized 'Publick' and lowercase 'publick' without writing two separate rules?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use the Match Case and Preserve Case toggles in VS Code, or case-insensitive character classes like [Pp], to handle capitalized and lowercase variants within a single rule.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Activate the 'Preserve Case' button in the Replace widget, or use an initial character class like [Pp] in the search pattern.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Preserve Case adapts replacement casing to match the source, and [Pp] explicitly captures both uppercase and lowercase forms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete all capital letters from the historical document before running any searches.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Capital letters are authentic historical witness evidence and must never be deleted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Set the computer operating system language to an all-lowercase dialect.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Operating system language settings do not alter editor regex casing mechanics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Duplicate the XML document into two separate files and run one rule in each file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Casing is handled cleanly within a single file using case-aware regex tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Rule 1 in Practice: 18th-Century Terminal `-ck`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rule 1 in Practice: 18th-Century Terminal `-ck`</h3>
+<p>Now let us apply these principles to our first real historical case study: 18th-century adjectives ending in <em>-ck</em> (from the 1752 Treaty and colonial legal records).</p>
+<p>Suppose we begin with a simple pattern:</p>
+<pre><code class="language-text">Find:    (\w+)ck
+Replace: &lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1c&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>Let us test this rule against a realistic sample sentence from an 18th-century colonial document:</p>
+<pre><code class="language-text">&quot;The publick traffick of black cattle shall be conducted by a politick truck.&quot;
+</code></pre>
+<p>If you click "Replace All" in VS Code with that simple pattern, look at the disaster that occurs:</p>
+<ul>
+  <li><em>publick</em> $    o$ correctly regularized to <em>public</em>.</li>
+  <li><em>traffick</em> $   o$ correctly regularized to <em>traffic</em>.</li>
+  <li><em>black</em> $  o$ transformed to <em>blac</em>! (Fatal error: <em>black</em> is a modern standard word!).</li>
+  <li><em>politick</em> $   o$ correctly regularized to <em>politic</em>.</li>
+  <li><em>truck</em> $  o$ transformed to <em>truc</em>! (Fatal error: <em>truck</em> is a modern standard word!).</li>
+</ul>
+
+<p>This test demonstrates the fundamental danger of naive regular expressions: <strong>over-matching</strong>. Our rule was too broad. It assumed that <em>every</em> word ending in <em>-ck</em> was an archaic 18th-century variant, forgetting that English has dozens of native Germanic words (<em>back</em>, <em>black</em>, <em>thick</em>, <em>quick</em>, <em>truck</em>, <em>lock</em>, <em>duck</em>) where <em>-ck</em> is standard orthography!</p>
+<p>A rule that fixes three words while corrupting two others is unacceptable in scholarship. We must refine our rule.</p>
+<p><strong>Vocabulary.</strong> <em>Over-matching</em> — When a regex pattern is too general, capturing unintended words and producing erroneous replacements. <em>Naive pattern</em> — A simplistic pattern that fails to account for linguistic exceptions or homographs.</p>
+<p><strong>Takeaway:</strong> Naive regular expressions over-match; always test patterns against diverse sentences to ensure they do not corrupt standard modern vocabulary like <em>black</em> or <em>truck</em>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Rule 1 in Practice: 18th-Century Terminal -ck</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does a naive regular expression like \b(\w+)ck\b produce catastrophic errors on 18th-century English texts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Naive regular expressions over-match; always test patterns against diverse sentences to ensure they do not corrupt standard modern vocabulary like black or truck.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It over-matches native Germanic words where -ck is modern standard orthography, corrupting words like 'black' to 'blac' and 'truck' to 'truc'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A broad pattern assumes all -ck words are archaic variants, corrupting standard modern vocabulary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It causes the XML file to be rejected by modern web browsers due to unencoded ampersands.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Over-matching produces spelling errors; it does not affect character entities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts all verbs into passive voice participles automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex matches letter patterns; it does not alter grammatical voice.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the editor to re-transcribe the entire document by hand.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The error is resolved by refining the regex pattern to target specific historical roots.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Refining Regex Rules: Stems and Root Whitelists</text></name><questiontext format="html"><text><![CDATA[
+<h3>Refining Regex Rules: Stems and Root Whitelists</h3>
+<p>How do we refine Rule 1 so that it regularizes <em>publick</em> and <em>traffick</em> without touching <em>black</em> or <em>truck</em>?</p>
+<p>In regular expressions, when a broad phonetic or morphological pattern has numerous common exceptions, the solution is to use <strong>alternation</strong> (<code>|</code>) to restrict the pattern to an explicit list of known historical roots (Friedl, 2006).</p>
+<p>Instead of matching any arbitrary word characters with <code>\w+</code>, we specify the exact root stems that historically underwent the <em>-ck</em> to <em>-c</em> spelling reform:</p>
+<pre><code class="language-text">Find:    (authenti|criti|fantasti|musick|politi|publi|traffi)ck
+</code></pre>
+<p>Notice what this refined pattern does:</p>
+<ol>
+  <li>The parentheses group an explicit whitelist of historical Latin and Greek stems that ended in <em>-ck</em> in 18th-century English.</li>
+  <li>The pipe symbol (<code>|</code>) functions as a logical OR. The engine matches <em>authenti</em> OR <em>criti</em> OR <em>publi</em>, etc.</li>
+  <li>It requires the matched root to be immediately followed by literal <code>ck</code> and a word boundary.</li>
+</ol>
+
+<p>Now let us write the replacement pattern:</p>
+<pre><code class="language-text">Replace: &lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1c&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>When this refined rule scans our test sentence:</p>
+<ul>
+  <li><em>publick</em> matches $    o$ regularized to <em>public</em>.</li>
+  <li><em>traffick</em> matches $   o$ regularized to <em>traffic</em>.</li>
+  <li><em>black</em>: the stem <em>bla</em> is not in our whitelist $   o$ ignored completely!</li>
+  <li><em>truck</em>: the stem <em>tru</em> is not in our whitelist $   o$ ignored completely!</li>
+</ul>
+
+<p>By constraining the search with root alternation, our rule achieves <strong>100% precision</strong>. It transforms every legitimate target and touches zero innocent words.</p>
+<p><strong>Vocabulary.</strong> <em>Alternation (<code>|</code>)</em> — A regex operator functioning as a logical OR, matching either the pattern on its left or its right. <em>Root whitelisting</em> — Restricting a regex pattern to an explicit enumeration of validated historical stems to prevent false positives.</p>
+<p><strong>Takeaway:</strong> Use alternation <code>(stem1|stem2|stem3)</code> to restrict normalization rules to validated historical roots, eliminating false positive errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Refining Regex Rules: Stems and Root Whitelists</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do digital editors eliminate false positives when regularizing 18th-century -ck words?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use alternation (stem1|stem2|stem3) to restrict normalization rules to validated historical roots, eliminating false positive errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By using alternation to restrict the pattern to an explicit whitelist of historical Latin and Greek roots: \b(publi|traffi|authenti)ck\b.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Root whitelisting ensures that only validated historical targets are matched, leaving words like 'black' and 'track' completely untouched.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By adding the word 'PLEASE' at the beginning of the regular expression.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex engines parse formal syntax, not polite natural language requests.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting the letter 'k' from every word in the entire document indiscriminately.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Blind deletion creates hundreds of false positive errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By converting the XML document into an uncompressed TIFF image file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Normalization is a text markup process, not an image format conversion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Rule 2 in Practice: The Long s (`ſ`)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rule 2 in Practice: The Long s (`ſ`)</h3>
+<p>Our second historical rule addresses the typographical <strong>long s</strong> (Unicode <code>ſ</code> / <code>U+017F</code>), ubiquitous in printed books and broadsides prior to roughly 1800.</p>
+<p>In the 1752 Treaty, the long <em>s</em> is used for lowercase <em>s</em> at the beginning and in the middle of words, while the round <em>s</em> is used at the end (e.g., <em>ſaid</em>, <em>firſt</em>, <em>witneſses</em>).</p>
+<p>How should an editor handle the long <em>s</em> with regular expressions?</p>
+<p>First, you must consult your <strong>Editorial Policy</strong>:</p>
+<ul>
+  <li><strong>Policy Option A (Global Graphemic Modernization):</strong> Many modern digital editions consider the long <em>s</em> to be a purely typographical font feature (like a ligature or font variant) rather than a spelling variation. Under this policy, you simply replace all instances of <code>ſ</code> with modern <code>s</code> globally across the text.
+    <pre><code>Find:    ſ
+Replace: s</code></pre>
+  </li>
+  <li><strong>Policy Option B (Full TEI Parallel Tracking):</strong> If your edition is a strict paleographical study documenting 18th-century typographical habits, you may choose to record every long <em>s</em> inside a <code>&lt;choice&gt;</code> block:
+    <pre><code>Find:    (\w*)ſ(\w*)
+Replace: &lt;choice&gt;&lt;orig&gt;$1ſ$2&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1s$2&lt;/reg&gt;&lt;/choice&gt;</code></pre>
+  </li>
+</ul>
+
+<p>Notice that Option B wraps the entire word containing the long <em>s</em> into <code>&lt;choice&gt;</code>. If a word contains two long <em>s</em>'s (like <em>witneſses</em>), running a single-letter regex requires care so you do not nest <code>&lt;choice&gt;</code> tags inside <code>&lt;choice&gt;</code> tags. For most undergraduate projects, Option A (or replacing <code>ſ</code> before line-level normalization) is standard practice.</p>
+<p><strong>Vocabulary.</strong> <em>Typographical regularization</em> — Standardizing archaic letterforms (such as long <em>s</em>) that represent font conventions rather than distinct lexical spellings. <em>Character-level vs. word-level</em> — Choosing whether to tag individual letters or wrap the entire containing word in TEI markup.</p>
+<p><strong>Takeaway:</strong> The long <em>s</em> (<code>ſ</code>) can be regularized globally as a typographical feature or wrapped at word level in <code>&lt;choice&gt;</code>, depending on your stated editorial policy.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Rule 2 in Practice: The Long s (ſ)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary editorial difference between Policy Option A and Policy Option B when handling the long s (ſ)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The long s (ſ) can be regularized globally as a typographical feature or wrapped at word level in &lt;choice&gt;, depending on your stated editorial policy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Option A treats long s as a typographical font convention regularized globally to 's'; Option B records every long s inside a TEI &lt;choice&gt; block.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editors choose between global font modernization and detailed word-level paleographical tracking depending on project goals.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Option A is legally permitted only in Europe, while Option B is required in North America.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both options are standard scholarly methods used internationally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Option A permanently deletes all vowels, while Option B doubles all consonants.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both options concern solely the letterform long s (ſ) and its modern counterpart s.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Option A requires Python programming, while Option B requires writing in C++.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both options can be executed directly inside the VS Code editor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Rule 3 in Practice: Thorn Contractions (`ye` and `yt`)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rule 3 in Practice: Thorn Contractions (`ye` and `yt`)</h3>
+<p>Our third rule automates the expansion of early modern scribal contractions in colonial documents, specifically the thorn abbreviations <em>y<hi rend="superscript">e</hi></em> (<em>the</em>) and <em>y<hi rend="superscript">t</hi></em> (<em>that</em>).</p>
+<p>In your diplomatic transcription from Week 4, you may have transcribed these words either as plain text (<em>ye</em>, <em>yt</em>) or with superscript tags (<em>y<sup>e</sup></em> or <code>y&lt;hi rend="superscript"&gt;e&lt;/hi&gt;</code>).</p>
+<p>Let us build a regex rule to handle plain text <em>ye</em> first:</p>
+<pre><code class="language-text">Find:    ([Yy])e
+Replace: &lt;choice&gt;&lt;abbr&gt;$1e&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;$1he&lt;/expan&gt;&lt;/choice&gt;
+</code></pre>
+<p>Let us trace this rule:</p>
+<ol>
+  <li><code>([Yy])e</code> matches standalone <em>ye</em> or <em>Ye</em>. Group 1 captures the initial casing.</li>
+  <li>If the document had capitalized <em>Ye</em>, Group 1 captures <em>Y</em>, and the replacement outputs <code>&lt;abbr&gt;Ye&lt;/abbr&gt;&lt;expan resp="#editor"&gt;The&lt;/expan&gt;</code>! (Notice that <code>$1he</code> capitalizes the <em>T</em> automatically!).</li>
+</ol>
+
+<p>Now, what if your transcription already contains superscript tags, such as <code>y&lt;hi rend="superscript"&gt;e&lt;/hi&gt;</code>?</p>
+<pre><code class="language-text">Find:    ([Yy])&lt;hi rend=&quot;superscript&quot;&gt;e&lt;/hi&gt;
+Replace: &lt;choice&gt;&lt;abbr&gt;$1&lt;hi rend=&quot;superscript&quot;&gt;e&lt;/hi&gt;&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;$1he&lt;/expan&gt;&lt;/choice&gt;
+</code></pre>
+<p>Because the tag <code>&lt;hi rend="superscript"&gt;e&lt;/hi&gt;</code> is literal XML, we include it directly in our search pattern. The regex matches the letter <em>y</em> followed immediately by the superscript tag, wrapping the entire historical graphic unit into <code>&lt;abbr&gt;</code> and supplying the expanded modern word in <code>&lt;expan&gt;</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Thorn pattern</em> — A regex designed to identify pseudo-archaic <em>y</em>-abbreviations and map them to standard <em>th</em>-words. <em>Superscript matching</em> — Matching embedded XML formatting tags as part of an abbreviation search string.</p>
+<p><strong>Takeaway:</strong> Use capturing groups on initial letters (<code>[Yy]</code>) to preserve capitalization when expanding historical thorn contractions like <em>ye</em> into <em>the</em>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Rule 3 in Practice: Thorn Contractions (ye and yt)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When expanding early modern 'ye' into 'the', what precaution must an editor observe?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use capturing groups on initial letters ([Yy]) to preserve capitalization when expanding historical thorn contractions like ye into the.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Ensure that the word is a genuine thorn abbreviation for 'the' rather than the authentic archaic second-person pronoun 'ye' ('ye shall know').&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The string 'ye' can be either an abbreviation for 'the' or a genuine personal pronoun; editors verify context before replacing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ensure that the word 'ye' is spelled backwards in the XML header.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Words are never spelled backwards in TEI markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Confirm that the computer has been restarted within the last twenty minutes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computational regex execution is unrelated to operating system uptime.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete all surrounding punctuation marks so the word can expand cleanly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation marks are essential textual evidence and must be preserved.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Rule 4 in Practice: Early French Verb Endings (`-oit` and `-oient`)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rule 4 in Practice: Early French Verb Endings (`-oit` and `-oient`)</h3>
+<p>Now let us turn to our French Revolutionary decree (Ace's project). In 1791 French official printing, the imperfect indicative and conditional verb endings are systematically printed with <em>oi</em> instead of modern <em>ai</em>:</p>
+<ul>
+  <li>3rd-person singular: <em>-oit</em> (modern <em>-ait</em>), as in <em>étoit</em> $ o$ <em>était</em>, <em>dérogeoit</em> $ o$ <em>dérogeait</em>.</li>
+  <li>3rd-person plural: <em>-oient</em> (modern <em>-aient</em>), as in <em>étoient</em> $ o$ <em>étaient</em>, <em>faisoient</em> $   o$ <em>faisaient</em>.</li>
+</ul>
+
+<p>Can we automate this transformation in VS Code? Yes! We write two clean, targeted rules:</p>
+<pre><code class="language-text">Rule 4a (Singular Imperfect):
+Find:    (\w+)oit
+Replace: &lt;choice&gt;&lt;orig&gt;$1oit&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1ait&lt;/reg&gt;&lt;/choice&gt;
+
+Rule 4b (Plural Imperfect):
+Find:    (\w+)oient
+Replace: &lt;choice&gt;&lt;orig&gt;$1oient&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1aient&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>Notice what happens during execution:</p>
+<ol>
+  <li>Rule 4a matches <em>étoit</em>. Group 1 captures the verbal root <code>ét</code>.</li>
+  <li>The Replace field reconstructs the original word in <code>&lt;orig&gt;$1oit&lt;/orig&gt;</code> and supplies the modern spelling in <code>&lt;reg resp="#editor"&gt;$1ait&lt;/reg&gt;</code>.</li>
+  <li>Result: <code>&lt;choice&gt;&lt;orig&gt;étoit&lt;/orig&gt;&lt;reg resp="#editor"&gt;était&lt;/reg&gt;&lt;/choice&gt;</code>.</li>
+</ol>
+
+<p>What about nouns or adjectives ending in <em>-oit</em>, such as <em>droit</em> (law/right) or <em>étroit</em> (narrow)?
+If we ran a naive <code>(\w+)oit</code>, would <em>droit</em> become <em>drait</em>? 
+<strong>YES!</strong> In modern French, <em>droit</em> is still spelled <em>droit</em>!</p>
+<p>This demonstrates why Rule Ordering and Whitelisting matter. In French, nouns like <em>droit</em> must either be excluded using negative lookaheads or verb stems must be explicitly whitelisted. Testing in VS Code reveals this immediately!</p>
+<p><strong>Vocabulary.</strong> <em>Voltairean verb rule</em> — A regex automating the historical French orthographic shift from <em>oi</em> to <em>ai</em> in verb conjugations. <em>Grammatical homograph</em> — Words sharing a terminal spelling where some are verbs requiring regularization and others are invariant nouns (like <em>droit</em>).</p>
+<p><strong>Takeaway:</strong> Automating French <em>-oit</em> to <em>-ait</em> regularizes imperfect verbs, but editors must protect invariant nouns like <em>droit</em> from accidental corruption.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Rule 4 in Practice: Early French Verb Endings (-oit and -oient)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must an editor protect the word 'droit' when running a regex to regularize 18th-century French verbs ending in -oit?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automating French -oit to -ait regularizes imperfect verbs, but editors must protect invariant nouns like droit from accidental corruption.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;In modern French, 'droit' is an invariant noun/adjective whose spelling did not change, unlike imperfect verbs like 'étoit' which became 'était'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. 'Droit' is not an imperfect verb; regularizing it to 'drait' is a severe false-positive error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The word 'droit' was legally protected by the French monarchy against digital editing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The issue is linguistic accuracy in modern French orthography, not royal patents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema treats the letters d-r-o-i-t as an unclosed XML tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 'Droit' is ordinary text, but regex cannot distinguish verbs from nouns without careful constraints.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The French National Assembly banned the letter 'a' from official decrees in 1791.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The letter 'a' was widely used; the Voltairean reform replaced -oit with -ait.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Rule 5 in Practice: Maud Lewis Phonetic Doubling</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rule 5 in Practice: Maud Lewis Phonetic Doubling</h3>
+<p>Now let us examine vernacular English correspondence (Olyvia's Maud Lewis project). In personal letters, writers frequently double consonants phonetically, writing <em>allways</em> for <em>always</em>, <em>untill</em> for <em>until</em>, or <em>truely</em> for <em>truly</em>.</p>
+<p>Unlike colonial treaties, vernacular personal letters do not follow an official government printing style. Their spelling reflects individual acoustic habits. Therefore, building broad morphological rules (like "reduce all double <em>l</em>'s") is completely impossible, because words like <em>ball</em>, <em>call</em>, and <em>yellow</em> require double <em>l</em>'s!</p>
+<p>For vernacular writing, the correct deterministic strategy is <strong>explicit vocabulary alternation</strong>:</p>
+<pre><code class="language-text">Find:    ([Aa])llways
+Replace: &lt;choice&gt;&lt;orig&gt;$1llways&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1lways&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<pre><code class="language-text">Find:    ([Uu])ntill
+Replace: &lt;choice&gt;&lt;orig&gt;$1ntill&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1ntil&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<pre><code class="language-text">Find:    ([Tt])ruely
+Replace: &lt;choice&gt;&lt;orig&gt;$1ruely&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1ruly&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>Notice how clean and safe these rules are:</p>
+<ul>
+  <li>Each rule targets an exact, known phonetic quirk identified during your close reading in Step 1.</li>
+  <li>Word boundaries (<code></code>) ensure that the rule matches only the complete standalone word.</li>
+  <li>Initial character classes (<code>[Aa]</code>, <code>[Uu]</code>) preserve capitalization whether the word opens a sentence or sits mid-line.</li>
+  <li>The rule cannot possibly produce false positives on unrelated words.</li>
+</ul>
+
+<p>In digital editing, a set of five precise, explicit rules is infinitely superior to one clever, complex rule that corrupts words you never intended to touch.</p>
+<p><strong>Vocabulary.</strong> <em>Explicit vocabulary rule</em> — A regex targeting specific, pre-identified variant words rather than broad grammatical patterns. <em>Vernacular targeting</em> — Adapting regex precision to the individualized phonetic habits of personal correspondence.</p>
+<p><strong>Takeaway:</strong> For vernacular correspondence, use targeted explicit word rules rather than broad morphological patterns to eliminate false positives.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Rule 5 in Practice: Maud Lewis Phonetic Doubling</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is a broad rule like 'replace all double consonants with single consonants' inappropriate for Maud Lewis's letters?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For vernacular correspondence, use targeted explicit word rules rather than broad morphological patterns to eliminate false positives.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Standard English requires double consonants in common words like 'ball', 'call', and 'yellow'; broad rules corrupt standard words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Vernacular phonetic doubling is idiosyncratic; editors use targeted rules for specific words like 'allways' or 'untill'.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Maud Lewis wrote in an unencoded Maritime dialect that cannot be represented in UTF-8.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Her letters are written in English and encoded in standard Unicode UTF-8.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI Guidelines forbid the use of regular expressions on personal correspondence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex is a standard tool across all genres of digital scholarly editing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Consonants cannot be doubled in XML documents without causing parser crashes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML parsers process doubled consonants identically to any other text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Rule 6 in Practice: Unpunctuated Contractions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rule 6 in Practice: Unpunctuated Contractions</h3>
+<p>In vernacular writing and informal manuscripts, authors frequently omit the apostrophe in common negative contractions, writing <em>dont</em>, <em>cant</em>, <em>wont</em>, and <em>didnt</em>.</p>
+<p>Can we write a regular expression to add the missing apostrophe inside a TEI <code>&lt;choice&gt;</code> block?</p>
+<p>Let us test a pattern in VS Code:</p>
+<pre><code class="language-text">Find:    ([Dd])ont
+Replace: &lt;choice&gt;&lt;orig&gt;$1ont&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1on't&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<pre><code class="language-text">Find:    ([Cc])ant
+Replace: &lt;choice&gt;&lt;orig&gt;$1ant&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1an't&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>These rules work beautifully for <em>dont</em> and <em>cant</em>. But now consider the word <strong>wont</strong>:</p>
+<pre><code class="language-text">Find:    ([Ww])ont
+Replace: &lt;choice&gt;&lt;orig&gt;$1ont&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1on't&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>In English, <strong>wont</strong> is an authentic dictionary word! It is an archaic noun and adjective meaning "accustomed, habit, or custom" (as in "as was his wont", or "he was wont to rise early").</p>
+<p>If a 19th-century author or colonial writer writes "according to his wont", and your regex blindly replaces it with <em>won't</em> (will not), you have introduced a catastrophic semantic blunder into your text!</p>
+<p>This is why regular expressions cannot be trusted blindly. An automated tool matches character strings, not meaning. In Section 21, we will see how VS Code's "Find Next" stepping protects you from this exact homograph trap.</p>
+<p><strong>Vocabulary.</strong> <em>Lexical homograph trap</em> — When an unpunctuated contraction (like <em>wont</em>) is identical in spelling to a valid, unrelated word (like <em>wont</em> = custom), risking false-positive replacement.</p>
+<p><strong>Takeaway:</strong> Unpunctuated contractions like <em>dont</em> can be regularized with regex, but homographs like <em>wont</em> require human contextual verification.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Rule 6 in Practice: Unpunctuated Contractions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What lexical trap must an editor avoid when writing a regex to regularize unpunctuated 'wont' to 'won't'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Unpunctuated contractions like dont can be regularized with regex, but homographs like wont require human contextual verification.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;'Wont' is an authentic English word meaning 'habit' or 'custom'; blindly replacing it with 'won't' alters the sentence's meaning.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. 'Wont' is a semantic homograph; automated replacement corrupts sentences where it means habit rather than will not.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The word 'wont' cannot be saved in a text file that contains XML tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 'Wont' is a normal text string; the danger is semantic misinterpretation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Adding an apostrophe causes web browsers to delete the following sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Apostrophes are standard punctuation characters in XML and HTML.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema requires all contractions to be spelled with three apostrophes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Contractions follow standard lexicography inside &lt;reg&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: The Golden Rule of XML-Safe Regex</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Golden Rule of XML-Safe Regex</h3>
+<p>When working in TEI, you are not editing raw plain text. You are editing text <strong>already embedded inside an XML markup tree</strong>.</p>
+<p>This structural reality introduces a severe hazard that destroys hundreds of student files every semester: <strong>regex patterns that accidentally match XML tags</strong>.</p>
+<p>Consider what happens if you write a search pattern using a bare dot: <code>.*</code>. Remember that a dot matches <em>any</em> character, including <code>&lt;</code> and <code>&gt;</code>. If you search for:</p>
+<pre><code class="language-regex">(in).*
+</code></pre>
+<p>The dot can match directly across an XML tag! It might match the <em>in</em> in <code>&lt;div type="section"&gt;</code>, swallow the attribute, cross the closing bracket, and match into the text! If you hit replace, you will tear open the XML tag, corrupting the document hierarchy and causing immediate schema validation failure.</p>
+<p>To prevent this catastrophe, memorize and follow <strong>The Golden Rule of XML-Safe Regex</strong>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Rule</th>
+      <th>Dangerous Pattern</th>
+      <th>XML-Safe Pattern</th>
+      <th>Why It Protects You</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Restrict Wildcards</strong></td>
+      <td><code>.*</code></td>
+      <td><code>[^&lt;&gt;]*</code></td>
+      <td>Refuses to match angle brackets; stays strictly inside text nodes.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Use Word Characters</strong></td>
+      <td><code>.+</code></td>
+      <td><code>\w+</code></td>
+      <td>Matches only letters and digits; stops instantly at punctuation and tags.</td>
+    </tr>
+    <tr>
+      <td><strong>3. Anchor Boundaries</strong></td>
+      <td><code>ye</code></td>
+      <td><code>ye</code></td>
+      <td>Prevents matching attributes like <code>type="poem"</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>XML-safe regex</em> — A regular expression specifically constrained to prevent matching or corrupting XML element tags, attribute quotes, or bracket delimiters. <em>Tag corruption</em> — The accidental mutilation of XML syntax caused by unconstrained regex wildcards.</p>
+<p><strong>Takeaway:</strong> Never use unconstrained wildcards (<code>.*</code>) in XML; use <code>\w+</code> or <code>[^&lt;&gt;]*</code> to ensure your search patterns stay strictly confined within text nodes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: The Golden Rule of XML-Safe Regex</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;According to the Golden Rule of XML-Safe Regex, why should editors replace bare wildcards (.*) with [^&lt;&gt;]*?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Never use unconstrained wildcards (.*) in XML; use \w+ or [^&lt;&gt;]* to ensure your search patterns stay strictly confined within text nodes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The pattern [^&lt;&gt;]* refuses to match angle brackets, preventing the search from accidentally matching into or across XML tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Restricting wildcards ensures that regular expressions operate strictly on text nodes and never mutilate XML element markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Angle brackets are automatically deleted by the operating system during regex execution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Angle brackets remain intact, but bare wildcards can match them and corrupt tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The pattern [^&lt;&gt;]* speeds up computer processing by disabling the computer monitor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It provides syntactic containment within XML text nodes, protecting document integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema requires all regular expressions to be registered with the Library of Congress.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML-safe regex is an editorial coding discipline, not a government registry.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Milestones and Line Breaks: Protecting `&lt;lb/&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Milestones and Line Breaks: Protecting `<lb/>`</h3>
+<p>In Lesson 6.1, we established that when a word is divided across a line break, the physical milestone <code>&lt;lb/&gt;</code> must reside inside the <code>&lt;orig&gt;</code> element:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;Gov-&lt;lb n=&quot;13&quot;/&gt;ernor&lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;Governor&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>Now ask yourself: what happens if you run an automated regular expression search for the word <em>Governor</em> across that line?</p>
+<pre><code class="language-regex">Governor
+</code></pre>
+<p>Will it match? <strong>NO!</strong> </p>
+<p>To the regular expression engine, the characters on the page are <code>Gov-&lt;lb n="13"/&gt;ernor</code>. The letters <em>G-o-v</em> are immediately followed by a hyphen and an angle bracket <code>&lt;</code>. Because an angle bracket is a non-word character, <code></code> asserts a boundary, and the search fails to find <em>Governor</em>.</p>
+<p>Furthermore, what if you write a regex to regularize hyphenated words:</p>
+<pre><code class="language-regex">(\w+)-&lt;lb n=&quot;\d+&quot;/&gt;(\w+)
+</code></pre>
+<p>This pattern will successfully match the hyphenated split! And you can write a replacement that wraps it cleanly into TEI:</p>
+<pre><code class="language-text">Replace: &lt;choice&gt;&lt;orig&gt;$1-&lt;lb n=&quot;13&quot;/&gt;$2&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1$2&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>However, because line numbers vary on every line, hardcoding line numbers in regex replacement is complex. For hyphenated words split across line breaks, <strong>it is almost always safer and faster to regularize them by hand</strong> during Step 1, using automated regex only for words that sit completely within a single typographic line.</p>
+<p><strong>Vocabulary.</strong> <em>Milestone collision</em> — The failure of a regex pattern to match a word because an empty XML milestone (like <code>&lt;lb/&gt;</code>) interrupts the character sequence. <em>Hyphenated split</em> — A word broken across two lines by a hyphen and an <code>&lt;lb/&gt;</code> element.</p>
+<p><strong>Takeaway:</strong> Words split across lines by <code>&lt;lb/&gt;</code> tags will not match standard single-word regex patterns; handle split words manually in Step 1.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Milestones and Line Breaks: Protecting &lt;lb/&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why will a standard regular expression like \bGovernor\b fail to match a word split across lines as 'Gov-&lt;lb n='13'/&gt;ernor'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Words split across lines by &lt;lb/&gt; tags will not match standard single-word regex patterns; handle split words manually in Step 1.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The physical milestone tag and hyphen interrupt the character sequence, causing the word boundary check to fail.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. To the regex engine, angle brackets and hyphens are non-word characters; split words are best handled manually in Step 1.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Line break tags are invisible to regular expression search engines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex reads XML tags as literal characters, which is why they interrupt the word match.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The word 'Governor' is legally prohibited from crossing line boundaries in TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Line breaks can occur anywhere in historical manuscripts; encoding them is standard practice.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema deletes any word that contains more than eight letters across a line break.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation does not limit word lengths across milestone tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Interactive Step-and-Replace vs. Blind "Replace All"</text></name><questiontext format="html"><text><![CDATA[
+<h3>Interactive Step-and-Replace vs. Blind "Replace All"</h3>
+<p>In the VS Code Replace widget, there are two replacement buttons:</p>
+<ol>
+  <li><strong>Replace (`Enter` or `Cmd+Alt+Enter`):</strong> Replaces the single currently highlighted match and advances the cursor to the next match.</li>
+  <li><strong>Replace All (`Cmd+Option+Enter` or `Ctrl+Alt+Enter`):</strong> Replaces every match in the entire document instantly in a single unmonitored pass.</li>
+</ol>
+
+<p>To novice editors, "Replace All" feels like magic. You press one button, and fifty words are instantly regularized.</p>
+<p>In professional textual editing, <strong>blind "Replace All" is the single greatest cause of corrupted editions</strong>.</p>
+<p>When you click "Replace All", you surrender your human eyes. You assume that your regex pattern is mathematically perfect, that it has zero false positives, that no homographs exist in the document, and that no XML attributes happen to share the same letters. If your rule contains a subtle flaw, "Replace All" multiplies that flaw across fifty lines in a microsecond.</p>
+<p>Instead, professional digital editors practice <strong>Interactive Step-and-Replace</strong>:</p>
+<ul>
+  <li>Press <code>Enter</code> to jump to Match 1. Look at it. Confirm that it is a genuine target word, not a homograph or tag.</li>
+  <li>Click <code>Replace</code>. Watch the replacement happen. Verify that the newly inserted <code>&lt;choice&gt;</code> block looks syntactically valid.</li>
+  <li>Press <code>Enter</code> to advance to Match 2. Repeat.</li>
+  <li>Only after you have stepped through 5 or 6 matches and verified with 100% certainty that your rule is performing flawlessly should you ever consider clicking "Replace All" for the remainder of that specific rule.</li>
+</ul>
+
+<p><strong>Vocabulary.</strong> <em>Interactive Step-and-Replace</em> — The disciplined editorial practice of visually inspecting each regex match before confirming replacement. <em>Blind replacement</em> — Executing a global "Replace All" command without inspecting individual matches, risking silent textual corruption.</p>
+<p><strong>Takeaway:</strong> Always use Interactive Step-and-Replace to inspect matches individually; never execute blind "Replace All" without prior visual verification.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Interactive Step-and-Replace vs. Blind 'Replace All'</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do professional digital textual editors strongly discourage executing blind 'Replace All' commands?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Always use Interactive Step-and-Replace to inspect matches individually; never execute blind 'Replace All' without prior visual verification.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Blind replacement multiplies any flaw or false positive across the entire file in an instant without visual verification.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Stepping through matches individually ensures that homographs, tags, and unexpected edge cases are inspected before confirmation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Clicking 'Replace All' permanently locks the file so that no future edits can ever be made.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Files can always be edited or restored from Git, but blind replacements introduce silent errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Replace All button is an experimental feature that only works on mainframe computers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Replace All is standard in VS Code, but dangerous in textual scholarship without verification.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace All causes the XML schema to rewrite the TEI Header automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Replace All alters text in the editor; it does not rewrite header metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Measuring Rule Quality: True Positives vs. False Positives</text></name><questiontext format="html"><text><![CDATA[
+<h3>Measuring Rule Quality: True Positives vs. False Positives</h3>
+<p>In computational linguistics and information retrieval, the quality of an automated rule is measured using four fundamental diagnostic categories (Jurafsky &amp; Martin, 2024):</p>
+<ol>
+  <li><strong>True Positive (TP):</strong> The rule matches a word that legitimately required normalization, and transforms it correctly (e.g., matching <em>publick</em> and regularizing it to <em>public</em>).</li>
+  <li><strong>False Positive (FP):</strong> The rule matches a word that should NOT have been touched, and corrupts it (e.g., matching <em>black</em> and changing it to <em>blac</em>, or matching <em>wont</em> and changing it to <em>won't</em>). In digital editing, a False Positive is an editorial disaster.</li>
+  <li><strong>False Negative (FN):</strong> The rule misses a word that legitimately required normalization, leaving it unregularized (e.g., failing to match <em>politick</em> because of an unexpected capital letter).</li>
+  <li><strong>True Negative (TN):</strong> The rule correctly ignores words that did not require normalization (e.g., correctly skipping words like <em>peace</em>, <em>governor</em>, and <em>the</em>).</li>
+</ol>
+
+<p>Every time you test a regular expression on your 20-line workshop passage, you must count these outcomes:</p>
+<pre><code class="language-text">TP = Legitimate targets correctly regularized
+FP = Innocent words corrupted by the rule
+FN = Legitimate targets missed by the rule
+</code></pre>
+<p>If your rule produces even a single False Positive ($FP &gt; 0$), the rule is broken. You must stop, analyze the match, and refine your regex pattern before proceeding.</p>
+<p><strong>Vocabulary.</strong> <em>True Positive (TP)</em> — A legitimate target correctly identified and transformed by a rule. <em>False Positive (FP)</em> — An innocent word wrongly matched and transformed by a rule (a commission error). <em>False Negative (FN)</em> — A legitimate target overlooked by a rule (an omission error).</p>
+<p><strong>Takeaway:</strong> Evaluate every regex rule by tracking True Positives (successes), False Positives (disastrous over-matches), and False Negatives (missed targets).</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Measuring Rule Quality: True Positives vs. False Positives</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the diagnostic evaluation of regular expressions, what constitutes a False Positive (FP)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Evaluate every regex rule by tracking True Positives (successes), False Positives (disastrous over-matches), and False Negatives (missed targets).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;An innocent word that was wrongly matched and corrupted by a rule that should not have touched it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A False Positive is a commission error (such as turning 'black' into 'blac'); even a single FP indicates a defective rule.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A word that was correctly identified and regularized according to the editorial policy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A correct transformation of a legitimate target is a True Positive (TP).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A target word that was overlooked by the regular expression and left unregularized.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A missed target is a False Negative (FN).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A line of text that contains zero spelling errors or abbreviations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Correctly skipped text represents a True Negative (TN).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Precision and Recall in Digital Editing</text></name><questiontext format="html"><text><![CDATA[
+<h3>Precision and Recall in Digital Editing</h3>
+<p>To quantify the performance of your regular expressions mathematically, digital textual scholarship borrows two core metrics from data science: <strong>Precision</strong> and <strong>Recall</strong> (Bollmann, 2019).</p>
+<p><strong>Precision</strong> measures how accurate your rule is when it takes an action. It answers the question: <em>Of all the words this rule matched and transformed, what percentage was actually correct?</em></p>
+<p>$$  ext{Precision} = rac{  ext{True Positives}}{   ext{True Positives} +   ext{False Positives}}$$</p>
+<p>If your rule transforms 10 words, and 9 were genuine archaic spellings while 1 was a modern word corrupted by accident, your precision is:</p>
+<p>$$  ext{Precision} = rac{9}{9 + 1} = 0.90  ext{ (90\%)}$$</p>
+<p><strong>Recall</strong> measures the completeness of your rule. It answers the question: <em>Of all the archaic words that existed in the text, what percentage did your rule successfully find?</em></p>
+<p>$$  ext{Recall} = rac{ ext{True Positives}}{   ext{True Positives} +   ext{False Negatives}}$$</p>
+<p>If there were 12 archaic words in your document, and your rule found 9 of them while missing 3, your recall is:</p>
+<p>$$  ext{Recall} = rac{9}{9 + 3} = 0.75     ext{ (75\%)}$$</p>
+<p>In scholarly editing, <strong>Precision always outranks Recall</strong>. A rule with 100% precision and 75% recall is completely acceptable: it safely normalizes 9 words and leaves 3 for manual review. But a rule with 100% recall and 70% precision corrupts your text with false positives! Strive for 100% precision in every rule you write.</p>
+<p><strong>Vocabulary.</strong> <em>Precision</em> — The proportion of matched instances that were genuine, correct targets ($TP / [TP + FP]$). <em>Recall</em> — The proportion of all actual targets in the text that were successfully retrieved by the rule ($TP / [TP + FN]$). <em>Scholarly precision priority</em> — The editorial principle that avoiding false positives is far more important than achieving total recall.</p>
+<p><strong>Takeaway:</strong> In digital editing, precision must always outrank recall: it is far better to miss a variant for manual review than to corrupt a single word with a false positive.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Precision and Recall in Digital Editing</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does Precision always outrank Recall in academic scholarly editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;In digital editing, precision must always outrank recall: it is far better to miss a variant for manual review than to corrupt a single word with a false positive.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It is far better to miss a variant for manual review than to corrupt a single word with an automated false positive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. High recall with poor precision introduces errors into the text; high precision guarantees that every automated change is authentic.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Recall cannot be calculated mathematically on historical text files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Recall is calculated as TP / (TP + FN); the issue is editorial data integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Precision is required by university grading rubrics, whereas Recall is ignored by professors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both are scientific metrics, but precision prevents the introduction of corrupt data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A document with high recall cannot be committed to a Git repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git tracks all text files; the priority reflects scholarly fidelity to the historical witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Auditing Rules against Yesterday's Manual Ground Truth</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing Rules against Yesterday's Manual Ground Truth</h3>
+<p>How do you know what your True Positives, False Positives, and False Negatives actually are? You discover them by <strong>auditing your automated regex output against yesterday's manual ground truth</strong>.</p>
+<p>Yesterday in Step 1, you hand-encoded your 20-line passage into <code>transcription_reconciled_manual.xml</code>. Every tag in that file was placed with verified human scholarly judgment.</p>
+<p>Today in Step 2, you create a duplicate file: <code>transcription_reconciled_regex.xml</code>. You run your VS Code regular expressions across this second file.</p>
+<p>Now, open both files side by side in Visual Studio Code:</p>
+<ol>
+  <li>Right-click on `transcription_reconciled_manual.xml` in the Explorer panel and select <strong>Select for Compare</strong>.</li>
+  <li>Right-click on `transcription_reconciled_regex.xml` and select <strong>Compare with Selected</strong>.</li>
+</ol>
+
+<p>VS Code opens a side-by-side <strong>Diff Editor</strong>:</p>
+<ul>
+  <li>Where the two files match identically in green: your regex rule matched your manual ground truth perfectly (<strong>True Positive</strong>).</li>
+  <li>Where your regex file changed a word that your manual ground truth left alone: you have caught a <strong>False Positive</strong>!</li>
+  <li>Where your manual ground truth has a <code>&lt;choice&gt;</code> block that your regex file missed: you have caught a <strong>False Negative</strong>!</li>
+</ul>
+
+<p>This visual diff transforms proofreading into an exact science. You do not have to guess whether your regex worked; the diff highlights every discrepancy with surgical precision.</p>
+<p><strong>Vocabulary.</strong> <em>Side-by-side diff</em> — A comparative editor interface displaying two versions of a file side by side, highlighting additions, deletions, and character discrepancies in color. <em>Ground truth audit</em> — Evaluating automated script or regex outputs by measuring their exact divergence from a hand-verified baseline.</p>
+<p><strong>Takeaway:</strong> Use VS Code's side-by-side diff editor to compare your regex output against your manual ground truth, visually exposing every false positive and false negative.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Auditing Rules against Yesterday's Manual Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does opening a side-by-side diff in VS Code allow an editor to audit automated regular expressions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use VS Code's side-by-side diff editor to compare your regex output against your manual ground truth, visually exposing every false positive and false negative.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Discrepancies between the manual ground truth and the regex output are highlighted in color, exposing false positives and missed targets instantly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The diff editor compares the files character by character, showing exactly where automated rules diverged from verified human judgment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically translates both documents into modern Italian for comparison with Vatican manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The diff editor highlights textual additions and deletions within the active workspace.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all lines where the two files disagree, leaving only identical text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The diff view is an analytical display tool; it does not delete disputed text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It merges both files into a binary image that cannot be edited.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The diff editor displays live editable text files side by side.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Documenting Regex Patterns in the Rule Ledger</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting Regex Patterns in the Rule Ledger</h3>
+<p>In Workshop 6, your regular expression rules must be documented with complete scholarly transparency. A rule that lives only in your personal editor history is not reproducible research.</p>
+<p>Open your <code>NORMALIZATION.md</code> file from yesterday. You will now expand your Editorial Rule Ledger by adding two new technical columns: <strong>Regex Search Pattern</strong> and <strong>Regex Replacement String</strong>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Rule ID</th>
+      <th>Description</th>
+      <th>Regex Search Pattern</th>
+      <th>Regex Replacement String</th>
+      <th>Observed FP / Limitations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>R-01</code></td>
+      <td>Archaic terminal <em>-ck</em></td>
+      <td><code>(publi|traffi)ck</code></td>
+      <td><code>&lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1c&lt;/reg&gt;&lt;/choice&gt;</code></td>
+      <td>0 FP; restricted to root whitelist to avoid <em>black</em>.</td>
+    </tr>
+    <tr>
+      <td><code>R-02</code></td>
+      <td>Thorn contraction <em>ye</em></td>
+      <td><code>([Yy])e</code></td>
+      <td><code>&lt;choice&gt;&lt;abbr&gt;$1e&lt;/abbr&gt;&lt;expan resp="#editor"&gt;$1he&lt;/expan&gt;&lt;/choice&gt;</code></td>
+      <td>0 FP; inspected manually to ensure not modern pronoun.</td>
+    </tr>
+    <tr>
+      <td><code>R-03</code></td>
+      <td>Maud Lewis <em>allways</em></td>
+      <td><code>([Aa])llways</code></td>
+      <td><code>&lt;choice&gt;&lt;orig&gt;$1llways&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1lways&lt;/reg&gt;&lt;/choice&gt;</code></td>
+      <td>0 FP; 100% precision on target personal hand.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Documenting your exact search and replacement strings guarantees that any external evaluator can verify your rules, replicate your results, and test your code against new folios.</p>
+<p><strong>Vocabulary.</strong> <em>Reproducible research</em> — The scientific standard requiring scholars to publish the exact data, rules, and computational parameters used to generate their findings. <em>Documented ledger</em> — A formal record pairing scholarly rationales with executable technical code.</p>
+<p><strong>Takeaway:</strong> Record your exact regex search and replacement patterns in <code>NORMALIZATION.md</code>, documenting their observed precision and edge cases.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Documenting Regex Patterns in the Rule Ledger</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What must an editor add to their Rule Ledger in NORMALIZATION.md during Step 2?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Record your exact regex search and replacement patterns in NORMALIZATION.md, documenting their observed precision and edge cases.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The exact Regex Search Pattern and Replacement String for each rule, along with observed false positives and precision notes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Documenting executable patterns and empirical performance guarantees reproducible digital scholarship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A handwritten signature from a notary public authenticating the regular expressions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transparency is achieved through open code and documentation, not legal notarization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A copy of the complete Python source code for the Linux operating system kernel.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ledger records project-specific normalization rules and patterns.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The serial number of the computer processor used to execute the search.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hardware serial numbers are irrelevant; the rules must be reproducible on any computer.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: The Scaffolded Bridge: What Is Python `re`?</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Scaffolded Bridge: What Is Python `re`?</h3>
+<p>Now that you have mastered regular expressions inside VS Code, you possess an invaluable secret: <strong>you already understand the core engine behind automated text processing in Python</strong>.</p>
+<p>Students often fear programming because they imagine that writing Python requires learning an entirely alien way of thinking. But in Python, regular expressions are handled by a standard library module named <code>re</code>. </p>
+<p>And here is the crucial realization: <strong>the syntax of regular expressions in Python is identical to the syntax in VS Code</strong>.</p>
+<p>The character classes <code>[...]</code>, the quantifiers <code>+</code> and <code>*</code>, the word boundaries <code></code>, the capturing groups <code>()</code>, and the root alternations <code>(a|b)</code> that you tested in VS Code operate with the exact same mathematical logic in Python!</p>
+<p>The only difference is how the engine is invoked. In VS Code, you press <code>Cmd+F</code> and click <code>Replace</code>. In Python, you write a single function call:</p>
+<pre><code class="language-python">import re
+
+new_text = re.sub(pattern, replacement, original_text)
+</code></pre>
+<p>The function <code>re.sub()</code> stands for "substitute". It takes your regex pattern, takes your replacement string, scans the text, and returns the transformed document. Python is simply an automated container for the exact regular expressions you have already mastered.</p>
+<p><strong>Vocabulary.</strong> <em>Python <code>re</code> module</em> — The built-in Python library providing regular expression pattern matching and string substitution functions. <em><code>re.sub()</code></em> — The Python function that searches a string for a regex pattern and replaces matches with a specified replacement string.</p>
+<p><strong>Takeaway:</strong> Python's <code>re.sub()</code> uses the exact same regular expression syntax as VS Code; Python merely acts as an automated wrapper for your existing regex rules.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: The Scaffolded Bridge: What Is Python re?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is transitioning from VS Code regular expressions to Python's re module straightforward for students?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Python's re.sub() uses the exact same regular expression syntax as VS Code; Python merely acts as an automated wrapper for your existing regex rules.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Python's re.sub() uses the exact same regular expression syntax, metacharacters, and grouping logic as VS Code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The regex grammar (\b, character classes, quantifiers, groups) is identical; Python simply provides an automated function wrapper.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Python automatically translates English regular expressions into Chinese characters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Python executes standard regular expression syntax identically across all environments.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;VS Code was programmed in Python and requires Python scripts to open XML files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code is built on Electron/TypeScript; regex syntax is standardized across platforms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Python deletes all regular expressions and replaces them with neural network weights.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Python re module is a deterministic regular expression engine.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: A 10-Line Python Script Recipe (`normalize.py`)</text></name><questiontext format="html"><text><![CDATA[
+<h3>A 10-Line Python Script Recipe (`normalize.py`)</h3>
+<p>For students who want to take their digital skills to the next level, you can translate your VS Code rules into an executable Python script (<code>normalize.py</code>) in less than ten lines of code.</p>
+<p>Here is the complete, canonical Python script recipe:</p>
+<pre><code class="language-python">import re
+from pathlib import Path
+
+# 1. Read the input XML file
+text = Path(&quot;transcription_reconciled.xml&quot;).read_text(encoding=&quot;utf-8&quot;)
+
+# 2. Apply your regex rules sequentially
+text = re.sub(r&quot;(publi|traffi)ck&quot;, r'&lt;choice&gt;&lt;orig&gt;ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;c&lt;/reg&gt;&lt;/choice&gt;', text)
+text = re.sub(r&quot;([Yy])e&quot;, r'&lt;choice&gt;&lt;abbr&gt;e&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;he&lt;/expan&gt;&lt;/choice&gt;', text)
+text = re.sub(r&quot;([Aa])llways&quot;, r'&lt;choice&gt;&lt;orig&gt;llways&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;lways&lt;/reg&gt;&lt;/choice&gt;', text)
+
+# 3. Write the transformed output file
+Path(&quot;transcription_reconciled_regex.xml&quot;).write_text(text, encoding=&quot;utf-8&quot;)
+print(&quot;Normalization complete! Saved to transcription_reconciled_regex.xml&quot;)
+</code></pre>
+<p>Notice two critical details:</p>
+<ol>
+  <li><strong>Raw Strings (<code>r"..."</code>):</strong> Always prefix your regex patterns and replacement strings in Python with the letter <code>r</code> (e.g., <code>r"..."</code>). The <code>r</code> stands for "raw string", which prevents Python from misinterpreting backslashes like <code></code> as special escape characters.</li>
+  <li><strong>Backreference Syntax:</strong> In Python replacement strings, backreferences are written with backslashes (<code></code>, <code></code>) rather than dollar signs (<code>$1</code>, <code>$2</code>).</li>
+</ol>
+
+<p>Running this script (<code>python3 normalize.py</code>) executes all your rules simultaneously in a fraction of a second.</p>
+<p><strong>Vocabulary.</strong> <em>Raw string (<code>r"..."</code>)</em> — A Python string literal that treats backslashes as literal characters, essential for writing regular expression patterns. <em>Sequential pipeline</em> — Applying multiple transformation rules one after another, passing the output of each rule as the input to the next.</p>
+<p><strong>Takeaway:</strong> A 10-line Python script using <code>re.sub()</code> chains your tested regular expressions into an automated, one-click normalization pipeline.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: A 10-Line Python Script Recipe (normalize.py)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a Python regular expression script, why are regex patterns written as raw strings prefixed with r (e.g., r'\bpattern\b')?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A 10-line Python script using re.sub() chains your tested regular expressions into an automated, one-click normalization pipeline.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The raw string prefix prevents Python from misinterpreting backslashes as special escape sequences like newlines or tabs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Raw strings pass backslashes directly to the regex engine intact, preventing syntax errors in patterns like \b.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The letter r stands for 'RESTRICTED', preventing unauthorized users from copying the code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The r indicates a raw string literal in Python syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Prefixing strings with r tells Python to execute the code in reverse order.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Raw strings preserve backslashes; they do not alter execution direction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The r prefix is required by the TEI Consortium for all XML-processing scripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Raw strings are a standard feature of the Python programming language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Batching Rules: The Sequential Execution Pipeline</text></name><questiontext format="html"><text><![CDATA[
+<h3>Batching Rules: The Sequential Execution Pipeline</h3>
+<p>When you run multiple regular expressions—whether sequentially in VS Code or in a Python script—you are executing a <strong>sequential transformation pipeline</strong>.</p>
+<p>In a pipeline, the order in which rules execute is load-bearing. Rule 1 runs on the original text and produces an intermediate text. Rule 2 runs on that intermediate text and produces a second intermediate text. If your rules interact with the same words, the order of execution can produce unexpected side effects.</p>
+<p>Consider this rule-ordering dilemma:</p>
+<pre><code class="language-text">Rule A (Capitalization): Regularize common-noun capitals: Treaty -&gt; treaty
+Rule B (Thorn Expansion): Expand Ye -&gt; The
+</code></pre>
+<p>If Rule A runs first with an unconstrained casing pattern, it might turn <em>Ye</em> into <em>ye</em>. When Rule B runs second, its capitalized pattern <code>Ye</code> will fail to find anything, because Rule A already lowercased it!</p>
+<p>To prevent pipeline collisions:</p>
+<ol>
+  <li><strong>Run specific rules before general rules:</strong> Always execute narrow, exact rules (like expanding unique abbreviations) before applying broad spelling or casing regularizations.</li>
+  <li><strong>Never run a rule on already-tagged markup:</strong> Ensure that your patterns do not match text that is already inside a <code>&lt;choice&gt;</code> block. For example, if you replace <em>publick</em> with <code>&lt;choice&gt;...&lt;/choice&gt;</code>, make sure a subsequent rule does not match the word <em>publick</em> inside your newly generated <code>&lt;orig&gt;</code> tag!</li>
+</ol>
+
+<p>Testing your pipeline sequentially in VS Code reveals these ordering traps before they cause damage.</p>
+<p><strong>Vocabulary.</strong> <em>Rule ordering</em> — The deliberate sequence in which automated transformations are applied to prevent adverse interactions between rules. <em>Pipeline collision</em> — An error where an earlier rule alters text in a way that breaks a subsequent rule or re-matches already-tagged markup.</p>
+<p><strong>Takeaway:</strong> Order your rules carefully—executing narrow specific abbreviations before general casing rules—to prevent pipeline collisions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Batching Rules: The Sequential Execution Pipeline</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does rule ordering matter when executing multiple regular expressions in a pipeline?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Order your rules carefully—executing narrow specific abbreviations before general casing rules—to prevent pipeline collisions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Earlier rules transform the text, and if ordered improperly, they can alter target words or re-match already-tagged markup.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Rules execute sequentially; applying broad rules first can destroy patterns needed by subsequent specific rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The computer processor refuses to execute more than one regular expression per calendar day.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Pipelines execute dozens of rules in milliseconds; ordering governs linguistic interactions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Running rules in sequence causes the file encoding to change from UTF-8 to ASCII.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File encoding remains UTF-8; ordering affects textual and markup state.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI schema scrambles all XML tags if rules are run in alphabetical order.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The hazard is linguistic and markup collisions between successive transformations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: When Deterministic Regex Fails: Context-Dependency</text></name><questiontext format="html"><text><![CDATA[
+<h3>When Deterministic Regex Fails: Context-Dependency</h3>
+<p>As powerful as regular expressions are, every digital editor must recognize their absolute theoretical and practical limits: <strong>regular expressions have no access to semantic context</strong>.</p>
+<p>A regular expression matches formal character strings. It does not know who wrote the document, what century it was composed in, what the grammatical syntax of the sentence is, or what the author intended.</p>
+<p>Regex fails whenever normalization is <strong>context-dependent</strong>:</p>
+<ul>
+  <li><strong>Syntactic Ambiguity:</strong> In 18th-century French, deciding whether a word ending in <em>-oit</em> is an imperfect verb (needing regularization to <em>-ait</em>) or an invariant noun (like <em>droit</em>) requires understanding grammatical parts of speech. Regex cannot parse parts of speech.</li>
+  <li><strong>Semantic Homographs:</strong> In English, deciding whether <em>wont</em> means <em>won't</em> (will not) or <em>wont</em> (custom) requires understanding the sentence's meaning.</li>
+  <li><strong>Poetic Restraint:</strong> In Emily Dickinson's poetry, deciding whether a capitalized word like <em>Door</em> is an accidental 18th-century habit or a deliberate metaphysical personification requires literary sensitivity that no mathematical regex can ever possess.</li>
+</ul>
+
+<p>This boundary marks the transition to Friday's session. Where deterministic regex stops, artificial intelligence models and large language models step in with the ability to perform contextual semantic disambiguation.</p>
+<p><strong>Vocabulary.</strong> <em>Context-dependency</em> — A linguistic situation where the correct interpretation or normalization of a word depends on surrounding sentence semantics rather than raw spelling. <em>Semantic blindness</em> — The inability of regular expressions to comprehend meaning, syntax, or authorial intent.</p>
+<p><strong>Takeaway:</strong> Regular expressions excel at mechanical, unambiguous pattern matching, but fail on context-dependent words, syntactic homographs, and poetic nuance.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: When Deterministic Regex Fails: Context-Dependency</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Under what linguistic conditions do deterministic regular expressions fail, requiring contextual human or AI judgment?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Regular expressions excel at mechanical, unambiguous pattern matching, but fail on context-dependent words, syntactic homographs, and poetic nuance.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;When words are syntactic or semantic homographs whose correct normalization depends on surrounding sentence meaning rather than raw spelling.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Regex is blind to sentence semantics; words like French 'droit' or English 'wont' require contextual disambiguation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whenever a document is longer than twenty-five physical printed pages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex processes texts of any length; the limitation is semantic blindness, not document length.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whenever a historical manuscript was written on calfskin parchment rather than paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Physical writing surfaces do not affect computational string processing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whenever an XML file contains more than five paragraph elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex matches across XML hierarchies normally; it fails on semantic ambiguity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Review and Workshop 6 Step 2 Deliverables</text></name><questiontext format="html"><text><![CDATA[
+<h3>Review and Workshop 6 Step 2 Deliverables</h3>
+<p>Today you bridged the gap between human editorial policy and automated computational execution. You mastered regular expressions directly inside the VS Code editor, demonstrated the power of word boundaries and capturing groups, generated TEI <code>&lt;choice&gt;</code> markup dynamically, and audited your rules against your manual ground truth.</p>
+<p>Before concluding today's session, review the <strong>Workshop 6 Step 2 Checklist</strong>:</p>
+<ol>
+  <li><strong>Regex Rules Formulated:</strong> Have you created at least 3 to 5 distinct regular expressions corresponding to the active rules in your Rule Ledger?</li>
+  <li><strong>Word Boundaries Enforced:</strong> Are all your word search patterns strictly anchored with <code></code> to prevent accidental substring corruption?</li>
+  <li><strong>XML-Safe Patterns Used:</strong> Have you ensured that no unconstrained wildcards (<code>.*</code>) match across XML tags or milestone markers?</li>
+  <li><strong>Dynamic `<choice>` Generated:</strong> Did your replacement patterns successfully construct complete, valid TEI <code>&lt;choice&gt;</code> blocks with <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> or <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>?</li>
+  <li><strong>Audited via Side-by-Side Diff:</strong> Have you compared your regex-transformed file against yesterday's manual ground truth in VS Code, calculating your True Positives and eliminating False Positives?</li>
+  <li><strong>Rule Ledger Updated in `NORMALIZATION.md`:</strong> Have you recorded your exact regex patterns, replacement strings, and observed precision metrics in your project ledger?</li>
+  <li><strong>Schema Validated:</strong> Does your transformed XML document validate with <strong>0 errors</strong> in VS Code?</li>
+</ol>
+
+<p>With Step 2 complete, you have an audited deterministic baseline ready for Friday, where we will unleash generative AI models on the same text and test whether they enhance or over-normalize our historical documents.</p>
+<p><strong>Vocabulary.</strong> <em>Step 2 milestone</em> — The completion of the deterministic regular expression pass, documented in the Rule Ledger and verified against the manual ground truth baseline.</p>
+<p><strong>Takeaway:</strong> Step 2 automates your normalization policy using validated, XML-safe regular expressions, establishing an audited baseline for Friday's AI comparison.</p>
+<hr />
+<h2>References</h2>
+<p>Bollmann, M. (2019). A large-scale comparison of historical text normalization systems. In <em>Proceedings of the 2019 conference of the North American chapter of the Association for Computational Linguistics: Human language technologies</em> (Vol. 1, pp. 3887–3898). Association for Computational Linguistics. https://doi.org/10.18653/v1/N19-1389</p>
+<p>Burnard, L. (2014). <em>What is the Text Encoding Initiative? How to add intelligent markup to digital resources</em>. OpenEdition Press. https://doi.org/10.4000/books.oep.426</p>
+<p>Friedl, J. E. (2006). <em>Mastering regular expressions</em> (3rd ed.). O'Reilly Media.</p>
+<p>Jurafsky, D., &amp; Martin, J. H. (2024). <em>Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition</em> (3rd ed. draft). Stanford University. https://web.stanford.edu/~jurafsky/slp3/</p>
+<p>TEI Consortium. (2024). <em>TEI P5: Guidelines for electronic text encoding and interchange</em> (version 4.8.0). TEI Consortium. https://tei-c.org/guidelines/p5/</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Review and Workshop 6 Step 2 Deliverables</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which of the following is a core deliverable for Step 2 of Workshop 6?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Step 2 automates your normalization policy using validated, XML-safe regular expressions, establishing an audited baseline for Friday's AI comparison.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Documented regex search and replacement patterns in NORMALIZATION.md and a validated XML file resulting from audited deterministic execution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Step 2 requires the documented regex rules, precision audit notes, and a validated TEI XML file with 0 schema errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A commercial software license purchased from Microsoft for automated word processing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All tools used in the course are open-source or built into VS Code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A printed facsimile of the manuscript framed in glass for physical display.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Workshop deliverables are digital XML and Markdown files committed to Git.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A signed statement confirming that no computers were used during the week.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Step 2 specifically evaluates deterministic computational automation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

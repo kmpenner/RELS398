@@ -60,6 +60,27 @@
     - **Week 5**: Lesson 5.1 (`brief` 0.9 MB, `detailed` 28.7 MB / 59:40, `infographic` 245 KB), Lesson 5.2 (`brief` 0.8 MB, `detailed` 24.2 MB / 50:22, `infographic` 246 KB).
     - **Week 4**: Lesson 4.1 (`brief` 0.8 MB, `detailed` 28.0 MB / 58:09, `infographic` 248 KB), Lesson 4.2 (`brief` 0.7 MB, `detailed` 25.5 MB / 52:58, `infographic` 247 KB), Lesson 4.3 (`brief` 0.9 MB, `detailed` 21.4 MB / 44:29, `infographic` 248 KB).
   - All audios transcoded to 64kbps mono AAC; all infographics sized to 1600px JPEG under the 250 KB budget. Full grid complete across Lessons 1.1–5.2.
+- **[2026-09-30] Lesson 6.1 Novice Rewrite & Deliverables Complete (Ken):**
+  - Completely rewrote `03a_Lesson_6.1_Lesson_Content.md` into 30 novice-focused sections (8,214 words) grounded in the cohort's actual English and French documents (1752 Treaty, Emily Dickinson poem, Maud Lewis letters, 1791 French Revolutionary decree).
+  - Integrates the `<choice>`, `<abbr>`, and `<expan>` markup deferred from Week 4, along with `<orig>`/`<reg>`, `<sic>`/`<corr>`, the `@resp` attribute, milestone `<lb/>` handling, and building an explicit Editorial Regularization Policy / Rule Ledger in `NORMALIZATION.md`.
+  - Rebuilt question bank in `scripts/banks/lesson_6_1.py` (30/30 in page order, full diagnostic feedback).
+  - Compiled and verified: `03b_Lesson_6.1_Questions.xml`, `04_Lesson_6.1_Notes.pdf`, interactive Moodle XML (`03_Interactive_Lesson_6.1.xml`), and standalone HTML player (`03_Interactive_Lesson_6.1.html`). Passes lint gate with 0 issues.
+- **[2026-09-30] Week 6 Step 2 Methodological Decision (Ken):**
+  - Regular expressions for Lesson 6.2 will be taught directly within the VS Code editor (`Cmd+F` with `.*` regex mode, word boundaries `\b`, capturing groups `()`, and backreferences `$1` for dynamic `<choice>` construction), rather than introducing full Python programming. A simple 10-line Python recipe will be provided as an optional/scaffolded bridge.
+- **[2026-09-30] Lesson 6.2 Novice Rewrite & Deliverables Complete (Ken):**
+  - Completely rewrote `03a_Lesson_6.2_Lesson_Content.md` into 30 novice-focused sections (8,790 words) teaching regular expressions directly in VS Code.
+  - Covers literal vs metacharacters, character classes, word boundaries `\b`, capturing groups, backreferences, dynamic generation of TEI `<choice>`, case preservation, root whitelisting, protecting XML tags (`[^<>]*`), interactive step-and-replace, calculating Precision and Recall, and auditing rules against the manual ground truth via side-by-side diff.
+  - Includes a scaffolded 10-line Python recipe (`normalize.py` using `re.sub()`) showing that Python regex syntax is identical to VS Code regex.
+  - Rebuilt question bank in `scripts/banks/lesson_6_2.py` (30/30 in page order, full diagnostic feedback).
+  - Compiled and verified: `03b_Lesson_6.2_Questions.xml`, `04_Lesson_6.2_Notes.pdf`, interactive Moodle XML (`03_Interactive_Lesson_6.2.xml`), and standalone HTML player (`03_Interactive_Lesson_6.2.html`). Passes lint gate with 0 issues.
+
+- **[2026-09-30] Lesson 6.3 Novice Rewrite, Deliverables & Workshop 6 Alignment Complete (Ken):**
+  - Completely rewrote `03a_Lesson_6.3_Lesson_Content.md` into 30 novice-focused sections (8,681 words) covering AI-assisted normalization in VS Code Antigravity, prompt engineering with strict negative constraints, four-part hypercorrection taxonomy, hallucinated abbreviation expansions, milestone (`<lb/>`) preservation, the Three-Way Comparative Audit (Manual vs Regex vs AI), discrepancy taxonomy (Categories A, B, and C), hypercorrection rate and precision/recall evaluation, final text synthesis, and transparent TEI Header attribution (`@resp="#ai"` / `#gemini`).
+  - Rebuilt question bank in `scripts/banks/lesson_6_3.py` (30/30 in page order, full diagnostic feedback).
+  - Compiled and verified: `03b_Lesson_6.3_Questions.xml`, `04_Lesson_6.3_Notes.pdf`, interactive Moodle XML (`03_Interactive_Lesson_6.3.xml`), and standalone HTML player (`03_Interactive_Lesson_6.3.html`). Passes lint gate with 0 issues.
+  - Aligned Workshop 6 deliverables and guidance across `08_Workshop_Description.html`, `08a_Workshop_Submission_Instructions.html`, `08b_Workshop_Assessment_Instructions.html`, `02_Learning_Objectives.html`, and `06_Watch_List.html` in both `src/` and `dist/` to reflect the VS Code regex ledger and the 3-way comparative audit.
+  - Updated `09_Quiz.xml` Question 03 from Greek iotacism to 18th-century French Voltairean spelling reform (*-oit* to *-ait*) in both `src/` and `dist/` to align with the novice curriculum across the four student documents.
+
 
 ---
 

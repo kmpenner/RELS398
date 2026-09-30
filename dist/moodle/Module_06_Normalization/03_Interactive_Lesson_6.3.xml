@@ -1,0 +1,1955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_6.3</text></category></question>
+<question type="description"><name><text>01 Content: Today's Question: Capability vs. Fidelity</text></name><questiontext format="html"><text><![CDATA[
+<h3>Today's Question: Capability vs. Fidelity</h3>
+<p>Over the past two sessions, you normalized your 20-line consensus passage twice. On Tuesday (Lesson 6.1), you established your Editorial Regularization Policy by hand, embedding your human scholarly judgment into a Rule Ledger. On Wednesday (Lesson 6.2), you translated that policy into deterministic regular expressions in VS Code, discovering that rules enforce absolute consistency but remain blind to grammatical and semantic context.</p>
+<p>Today, we introduce the third and final method of our comparative cycle: <strong>generative artificial intelligence and large language models (LLMs)</strong>.</p>
+<p>The central question today is not simply whether an AI model can normalize text faster. The question is: <strong>Is the remarkable contextual capability of generative AI worth the fidelity and accountability it risks?</strong></p>
+<p>This distinction is crucial because normalization fundamentally differs from diplomatic transcription. Transcription is anchored to physical ink: a letter either exists on the parchment or it does not. Normalization, by contrast, is an interpretive act governed by an editorial policy. When an AI model normalizes a word differently from you, it is not necessarily making an image recognition error; it may be applying an unstated modernizing policy of its own (Bollmann, 2019).</p>
+<p>Our goal today is to harness the genuine contextual strengths of LLMs while building strict methodological guardrails against their most dangerous failure mode: <strong>over-normalization</strong>.</p>
+<p><strong>Vocabulary.</strong> <em>Generative normalization</em> — Using large language models to predict and generate standardized orthographic forms based on contextual linguistic probability. <em>Model policy drift</em> — The tendency of an AI model to substitute its own modern commercial training defaults for the editor's explicit scholarly policy.</p>
+<p><strong>Takeaway:</strong> Generative AI brings powerful contextual reasoning to text normalization, but editors must actively prevent the model's fluency from drifting into unwanted modernization.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Today's Question: Capability vs. Fidelity</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the central methodological challenge when digital editors introduce generative AI into historical text normalization?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Generative AI brings powerful contextual reasoning to text normalization, but editors must actively prevent uncritical modernization and over-normalization.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Balancing the model's powerful contextual reasoning against the risk of uncritical modernization, silent rewrites, and loss of editorial transparency.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. AI brings contextual disambiguation that rules lack, but risks over-normalizing historical voices unless tightly audited and constrained.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ensuring the AI can translate 18th-century English into modern Mandarin Chinese.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Text normalization regularizes historical orthography within the same language, not translation into foreign tongues.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Proving that generative AI models are legally incapable of processing TEI XML markup.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Language models process XML markup easily; the challenge is editorial fidelity and control.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Eliminating all human editors so that archives can transcribe documents without staff.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Generative AI is an editorial assistant that requires rigorous human oversight, not an unmonitored replacement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: From Sequence-to-Sequence Models to Modern Generative LLMs</text></name><questiontext format="html"><text><![CDATA[
+<h3>From Sequence-to-Sequence Models to Modern Generative LLMs</h3>
+<p>To understand how modern AI approaches historical language, it helps to understand how computational text normalization evolved over the last decade.</p>
+<p>In the 2010s, automated historical normalization relied on character-level neural machine translation, using architectures like bidirectional Long Short-Term Memory (LSTM) networks or finite-state transducers (Bollmann, 2019). These earlier models were trained specifically on historical corpora to translate individual character sequences (like <em>publick</em> $   o$ <em>public</em>). While transparent and bounded, they required massive historical training datasets and frequently failed on rare vocabulary or unusual dialects.</p>
+<p>Today, the digital humanities landscape is dominated by large multimodal transformer models, such as Google Gemini, Anthropic Claude, and OpenAI GPT. These models are not character-level transducers; they are vast, billion-parameter neural networks trained on petabytes of multilingual text.</p>
+<p>Because modern LLMs have ingested hundreds of thousands of digitized historical books, early modern treatises, and dialect dictionaries, they possess extraordinary latent knowledge of historical orthography. A model like Gemini in VS Code Antigravity recognizes immediately that 18th-century <em>étoit</em> corresponds to modern French <em>était</em>, that colonial <em>ye</em> represents <em>the</em>, and that 19th-century <em>opake</em> represents <em>opaque</em>.</p>
+<p>However, because these models were designed primarily to generate fluent, natural contemporary prose, their internal statistical bias is overwhelmingly weighted toward modern standardization. Without strict constraints, they will aggressively rewrite history into contemporary idiom.</p>
+<p><strong>Vocabulary.</strong> <em>Transformer architecture</em> — The deep learning neural network design based on self-attention mechanisms that powers modern large language models. <em>Modernization bias</em> — The inherent statistical tendency of commercial LLMs to convert historical text into modern standard prose.</p>
+<p><strong>Takeaway:</strong> Modern generative LLMs possess vast latent knowledge of historical spelling, but their commercial training creates a powerful statistical bias toward modern fluency.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: From Sequence-to-Sequence Models to Modern Generative LLMs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does an off-the-shelf generative Large Language Model (LLM) pose a distinct risk of over-normalization compared to older character-level models?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Modern generative LLMs possess vast latent knowledge of historical spelling, but their training toward modern fluency predisposes them to over-normalize historical texts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;LLMs are optimized on modern web text and RLHF to produce fluent, modern prose, naturally defaulting toward rewriting rather than conservative preservation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Commercial LLMs have a strong generative bias toward modern fluency, which can flatten historical linguistic nuances unless explicitly restrained.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Modern LLMs have a vocabulary limited to fewer than 500 English words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs have vocabularies spanning tens of thousands of subword tokens across multiple languages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;LLMs cannot read text files unless they have been converted to raster images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs operate directly on text and token sequences.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Older character-level models possessed human-level historical consciousness.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Character models lacked semantic understanding; they were simply constrained by narrow statistical transitions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The Contextual Advantage: Disambiguating Homographs</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Contextual Advantage: Disambiguating Homographs</h3>
+<p>Why bother using an AI model for normalization if regular expressions already provide fast, deterministic matching? The answer lies in one word: <strong>context</strong>.</p>
+<p>Yesterday in Lesson 6.2, we discovered the absolute limit of regular expressions: regex is semantically blind. A regular expression cannot determine parts of speech, cannot analyze sentence grammar, and cannot understand meaning. When regex encounters an ambiguous homograph, it fails:</p>
+<ul>
+  <li><strong>The French <em>-oit</em> Homograph:</strong> An 18th-century French regex rule changing <em>-oit</em> to <em>-ait</em> correctly normalizes imperfect verbs like <em>étoit</em> $ o$ <em>était</em>. But it blindly corrupts the invariant noun <em>droit</em> (law/right) into nonsensical <em>drait</em>!</li>
+  <li><strong>The English <em>wont</em> Homograph:</strong> A regex rule expanding unpunctuated <em>wont</em> into <em>won't</em> (will not) blindly corrupts historical sentences where <em>wont</em> is a valid noun meaning "custom or habit" (as in "as was his wont").</li>
+  <li><strong>The Thorn <em>ye</em> Homograph:</strong> A regex rule expanding <em>ye</em> to <em>the</em> blindly corrupts sentences where <em>ye</em> is the authentic archaic second-person plural pronoun ("ye shall know the truth").</li>
+</ul>
+
+<p>This is where large language models excel. Because an LLM attends to all surrounding tokens simultaneously through self-attention layers (Jurafsky &amp; Martin, 2024), it parses sentence syntax with remarkable nuance. </p>
+<p>When Gemini reads "according to his wont", it recognizes <em>wont</em> as a noun governed by a possessive pronoun, and leaves it untouched. When it reads "he wont come", it recognizes <em>wont</em> as an auxiliary verb contraction and normalizes it to <em>won't</em>. Generative AI resolves the semantic and syntactic ambiguities that break deterministic regular expressions.</p>
+<p><strong>Vocabulary.</strong> <em>Self-attention</em> — The mathematical mechanism in transformer models that calculates dynamic relationships between all words in a sentence, enabling contextual disambiguation. <em>Syntactic disambiguation</em> — Correctly identifying a word's grammatical part of speech by analyzing its syntactic environment.</p>
+<p><strong>Takeaway:</strong> LLMs use contextual self-attention to successfully disambiguate syntactic homographs (like <em>droit</em> vs. <em>étoit</em> or <em>wont</em> vs. <em>won't</em>) that cause regex to fail.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The Contextual Advantage: Disambiguating Homographs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What unique contextual advantage does a generative LLM possess over a deterministic regex pattern like \b([Dd])roit\b?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;LLMs use contextual self-attention to successfully disambiguate syntactic homographs (like droit vs. etoit) that trip up global regex rules.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Self-attention allows the LLM to inspect surrounding syntax and distinguish between an invariable legal noun (le droit) and an archaic verb form (il droit / droit -&gt; doit).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Transformer models attend across surrounding words to determine parts of speech and grammatical function, avoiding blind global substitutions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The LLM can physically alter the ink chemistry on the historical parchment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs manipulate digital representations, not physical artifacts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The LLM guarantees 100% mathematical zero-error execution on every search.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs are probabilistic models, whereas regex is mathematically deterministic.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A regex pattern automatically rewrites all French vocabulary into Latin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex replaces only what its literal pattern specifies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: The Critical Risk: Over-Normalization</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Critical Risk: Over-Normalization</h3>
+<p>While contextual awareness is the greatest asset of generative AI, it gives birth to the greatest hazard in digital textual scholarship: <strong>over-normalization</strong>.</p>
+<p>Over-normalization occurs when an artificial intelligence model expands its editorial intervention beyond surface orthography into morphology, vocabulary, syntax, or tone (Bollmann, 2019). Instead of simply modernizing spelling within <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code> tags, the model silently rewrites the author's prose to sound like a 21st-century essay.</p>
+<p>Commercial language models are fine-tuned with reinforcement learning from human feedback (RLHF) to prioritize helpfulness, clarity, and grammatical correctness. In customer service or business writing, smoothing out awkward phrasing is a virtue. In digital textual scholarship, smoothing out historical phrasing is an act of <strong>editorial vandalism</strong>.</p>
+<p>Consider what an unconstrained AI model does to historical text:</p>
+<ul>
+  <li><strong>Syntactic Flattening:</strong> In an 18th-century treaty, an unconstrained model might alter inverted word order (e.g., changing "Articles herein agreed upon" to "Articles agreed upon here").</li>
+  <li><strong>Grammatical Modernization:</strong> In personal letters, a model might "correct" non-standard dialectal verb agreement (e.g., changing Maud Lewis's "we was" to "we were").</li>
+  <li><strong>Lexical Substitution:</strong> An unconstrained model might replace unfamiliar archaic vocabulary with contemporary synonyms (e.g., replacing *betwixt* with *between*, or *vouchsafe* with *grant*).</li>
+</ul>
+
+<p>In scholarly editing, our job is to regularize spelling, not to ghostwrite history. The editor must maintain an aggressive, skeptical guard against over-normalization.</p>
+<p><strong>Vocabulary.</strong> <em>Over-normalization</em> — The destructive editorial error where an automated tool alters grammar, vocabulary, or word order under the guise of regularizing spelling. <em>Syntactic flattening</em> — Eliminating historical sentence structures to produce generic modern prose.</p>
+<p><strong>Takeaway:</strong> Over-normalization occurs when an AI model exceeds spelling regularization to silently alter historical vocabulary, grammar, or word order.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: The Critical Risk: Over-Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What constitutes 'over-normalization' in digital scholarly editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Over-normalization occurs when an AI model exceeds spelling regularization to silently alter historical vocabulary, syntax, or authorial style.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;When an automated tool exceeds historical orthographic regularization and alters legitimate archaic vocabulary, syntax, or authorial style.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Normalization regularizes spelling; over-normalization silently corrupts historical syntax, vocabulary, or dialectal authenticity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When an editor applies TEI XML tags to more than five words per paragraph.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Rich encoding is encouraged; over-normalization refers to inappropriate textual alteration.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When a file is saved in UTF-8 encoding instead of ASCII.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. UTF-8 is the required standard encoding for digital humanities editions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When an editor uses git commit messages that exceed fifty characters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commit message formatting is a repository practice, not a textual editorial error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: The Hypercorrection Taxonomy in Normalization</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Hypercorrection Taxonomy in Normalization</h3>
+<p>To audit an AI model's performance rigorously, a digital editor must be able to classify its mistakes. We do not simply say "the AI made an error"; we diagnose the exact type of failure using an established <strong>Hypercorrection Taxonomy</strong>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Error Category</th>
+      <th>Mechanism</th>
+      <th>Historical Example</th>
+      <th>AI Hypercorrection</th>
+      <th>Scholarly Verdict</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Lexical Substitution</strong></td>
+      <td>Replaces an archaic word with a modern synonym.</td>
+      <td><em>betwixt</em></td>
+      <td><code>&lt;reg&gt;between&lt;/reg&gt;</code></td>
+      <td><strong>Severe Error:</strong> Destroys historical vocabulary; <em>betwixt</em> is a valid word, not a misspelling.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Morphological Modernization</strong></td>
+      <td>Modernizes archaic grammatical inflections.</td>
+      <td><em>doth</em>, <em>hath</em></td>
+      <td><code>&lt;reg&gt;does&lt;/reg&gt;</code>, <code>&lt;reg&gt;has&lt;/reg&gt;</code></td>
+      <td><strong>Severe Error:</strong> Modernizes early modern third-person singular verb morphology.</td>
+    </tr>
+    <tr>
+      <td><strong>3. Dialect Erasure</strong></td>
+      <td>Standardizes vernacular dialectal grammar.</td>
+      <td><em>we was</em></td>
+      <td><code>&lt;reg&gt;we were&lt;/reg&gt;</code></td>
+      <td><strong>Severe Error:</strong> Erases working-class Maritime dialectal voice.</td>
+    </tr>
+    <tr>
+      <td><strong>4. Hallucinated Expansion</strong></td>
+      <td>Invents an unwritten expansion without evidence.</td>
+      <td><em>Capt.</em></td>
+      <td><code>&lt;expan&gt;Captain of the Guard&lt;/expan&gt;</code></td>
+      <td><strong>Hallucination:</strong> Expands beyond what was physically abbreviated.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When auditing your AI pass on Friday, test every single <code>&lt;choice&gt;</code> tag against this taxonomy. If the AI committed any of these four errors, flag it immediately.</p>
+<p><strong>Vocabulary.</strong> <em>Hypercorrection taxonomy</em> — A formal classification system categorizing automated editorial errors into lexical substitution, morphological modernization, dialect erasure, and hallucinated expansion. <em>Dialect erasure</em> — The unauthorized alteration of regional grammar to conform to prestige standard language.</p>
+<p><strong>Takeaway:</strong> Classify AI normalization errors using the four-part taxonomy: lexical substitution, morphological modernization, dialect erasure, and hallucinated expansion.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: The Hypercorrection Taxonomy in Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which error category in the normalization taxonomy occurs when an AI replaces an authentic archaic word like 'hath' with 'has', or 'unto' with 'to'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Classify AI normalization errors using the four-part taxonomy: lexical substitution, morphological modernization, semantic hallucination, and syntactic restructuring.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Lexical and grammatical modernization.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Substituting a modern grammatical auxiliary or preposition for an authentic historical form constitutes grammatical modernization, violating editorial policy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hallucinated abbreviation expansion.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hallucinated expansion refers to inventing words inside an abbreviation tag, not modernizing authentic words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Milestone tag deletion.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Milestone tag deletion involves dropping structural tags like &lt;lb/&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Punctuation leveling.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation leveling refers to replacing dashes or colons with modern commas or periods.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Hallucinated Abbreviation Expansions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hallucinated Abbreviation Expansions</h3>
+<p>Among the errors catalogued in our taxonomy, <strong>hallucinated abbreviation expansion</strong> represents a unique danger in digital scholarship.</p>
+<p>Because generative language models are trained to predict the most statistically probable sequence of tokens, they abhor ambiguity. When an LLM encounters a truncated historical abbreviation, it does not like to admit that it does not know the full word. Instead, it generates an elaborate, plausible-sounding expansion based on its statistical training, whether or not that expansion is historically true.</p>
+<p>Consider an 18th-century military commission or treaty that refers to an officer as:</p>
+<pre><code class="language-text">&quot;Lieut. Col. John Gorham&quot;
+</code></pre>
+<p>A careful human editor expands the abbreviations to:</p>
+<pre><code class="language-xml">&lt;choice&gt;&lt;abbr&gt;Lieut.&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;Lieutenant&lt;/expan&gt;&lt;/choice&gt;
+&lt;choice&gt;&lt;abbr&gt;Col.&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;Colonel&lt;/expan&gt;&lt;/choice&gt;
+</code></pre>
+<p>An unconstrained AI model, however, frequently hallucinates additional historical context into the expansion tag. It might generate:</p>
+<pre><code class="language-xml">&lt;choice&gt;&lt;abbr&gt;Col.&lt;/abbr&gt;&lt;expan resp=&quot;#ai&quot;&gt;Colonel of the Independent Company of Rangers&lt;/expan&gt;&lt;/choice&gt;
+</code></pre>
+<p>While John Gorham may indeed have commanded the Gorham's Rangers historically, the letters <em>C-o-l</em> on that physical parchment page stand strictly for the word <em>Colonel</em>, not for his entire military resume! </p>
+<p>An expansion inside <code>&lt;expan&gt;</code> must supply <strong>only the letters that were omitted from the abbreviated word itself</strong>. It must never become an encyclopedia article or historical commentary. When checking AI expansions, verify that every expansion corresponds strictly to the lexical word being abbreviated.</p>
+<p><strong>Vocabulary.</strong> <em>Hallucinated expansion</em> — An expansion that invents unwritten historical titles, offices, or words beyond the lexical scope of the abbreviated letters. <em>Lexical boundary</em> — The strict rule that an <code>&lt;expan&gt;</code> tag must supply only the omitted letters of the target word.</p>
+<p><strong>Takeaway:</strong> An <code>&lt;expan&gt;</code> tag must contain only the omitted letters of the abbreviated word; verify that AI models never inject historical commentary or unwritten titles into expansions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Hallucinated Abbreviation Expansions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is an AI expansion like &lt;choice&gt;&lt;abbr&gt;w^ch&lt;/abbr&gt;&lt;expan&gt;which was agreed upon&lt;/expan&gt;&lt;/choice&gt; a severe editorial failure?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An &lt;expan&gt; tag must contain only the omitted letters of the abbreviated word; verify that AI models never inject explanatory glosses or phantom clauses.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The &lt;expan&gt; tag must supply only the exact omitted letters of the abbreviated word itself, not editorial explanatory commentary or extra clauses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Abbreviations represent specific historical words; adding extra narrative words turns an abbreviation expansion into an uncontrolled hallucination.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The word 'which' is illegal in TEI XML documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 'Which' is a valid word; the error is adding extra words not present in the contraction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TEI guidelines mandate that &lt;abbr&gt; tags must always be written in uppercase.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI element names are case-sensitive and must be written in lowercase.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Superscript letters cannot be enclosed in XML tags under any circumstances.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Superscripts are commonly encoded using &lt;hi rend='superscript'&gt; or inside &lt;abbr&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Negative Prompting: The Essential Defense</text></name><questiontext format="html"><text><![CDATA[
+<h3>Negative Prompting: The Essential Defense</h3>
+<p>How do we prevent generative AI models from committing lexical substitution, morphological modernization, dialect erasure, and hallucinated expansions? The answer lies in <strong>Negative Prompting</strong> (Jurafsky &amp; Martin, 2024).</p>
+<p>In prompt engineering, a positive instruction tells the model what to do (e.g., "Regularize historical spelling using TEI choice markup"). A <strong>negative constraint</strong> tells the model what it is strictly forbidden to do.</p>
+<p>LLMs are prone to "helpful drift"—they assume that your request to "normalize" means you want the text to look clean, polished, and contemporary. To counteract this, an editor must construct rigid, unambiguous negative guardrails.</p>
+<p>Effective negative prompting requires three rules:</p>
+<ol>
+  <li><strong>Be Explicit, Not Vague:</strong> Do not say "do not change too much." Say: "DO NOT alter vocabulary, DO NOT modernize grammatical verb inflections (such as -eth or -st), and DO NOT alter word order."</li>
+  <li><strong>State the Forbidden Actions in All-Caps:</strong> Capitalized constraint headers draw heavy attention weights across the model's self-attention matrix during token generation.</li>
+  <li><strong>Define the Boundary Between Spelling and Grammar:</strong> Explicitly state: "You are an orthographic regularizer, NOT a stylistic editor. If an author writes non-standard grammar, PRESERVE THE GRAMMAR EXACTLY."</li>
+</ol>
+
+<p>By establishing explicit negative boundaries, you constrain the model's generative capacity, forcing it to act as a disciplined paleographical assistant rather than an unauthorized co-author.</p>
+<p><strong>Vocabulary.</strong> <em>Negative prompting</em> — The deliberate technique of specifying explicit prohibitions and boundaries in a prompt to suppress model hallucination and unwanted behaviors. <em>Constraint weighting</em> — Structuring prompt instructions to ensure negative prohibitions dominate generative token selection.</p>
+<p><strong>Takeaway:</strong> Negative prompting is the digital editor's primary defense: explicitly forbid lexical substitution, grammatical modernization, and syntactic reordering.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Negative Prompting: The Essential Defense</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What role does negative prompting play when instructing an LLM to normalize historical texts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Negative prompting is the digital editor's primary defense: explicitly forbid lexical substitution, grammatical modernization, and stylistic smoothing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It explicitly establishes forbidden transformations, preventing the model from modernizing vocabulary, rewriting syntax, or flattening idiosyncratic style.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Generative models naturally tend toward modern fluency; negative constraints are required to actively suppress helpful rewriting behaviors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It insults the AI model to force it to run faster.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Negative prompting defines strict negative boundary constraints, not emotional tone.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all negative numbers from the manuscript's financial accounts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Negative prompting refers to defining what the model is prohibited from changing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It blocks the student from viewing the output files on GitHub.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Negative prompts guide model generation; they do not alter git repository permissions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Crafting the Normalization System Prompt</text></name><questiontext format="html"><text><![CDATA[
+<h3>Crafting the Normalization System Prompt</h3>
+<p>Now let us construct the master <strong>Normalization System Prompt</strong> that you will use in Visual Studio Code Antigravity.</p>
+<p>A production-grade scholarly system prompt consists of five modular components:</p>
+<ol>
+  <li><strong>Persona & Role:</strong> Establishes the model's professional identity as a conservative academic digital editor.</li>
+  <li><strong>Primary Task:</strong> Defines the exact objective—inserting TEI <code>&lt;choice&gt;</code> tags around spelling variants and abbreviations.</li>
+  <li><strong>Target Authority:</strong> Declares the normative reference standard (e.g., standard modern Canadian/American English or Académie française French).</li>
+  <li><strong>Inviolable Negative Constraints:</strong> Forbids lexical substitution, grammatical modernization, and tag deletion.</li>
+  <li><strong>Output Format Requirements:</strong> Demands strictly well-formed TEI XML with zero markdown commentary.</li>
+</ol>
+
+<p>Here is the foundational prompt structure for our course:</p>
+<pre><code class="language-text">You are an expert digital textual scholar specializing in TEI P5 XML encoding.
+Your task is to perform conservative orthographic normalization and abbreviation expansion on a historical document excerpt.
+
+RULES AND CONSTRAINTS:
+1. OUTPUT: Return ONLY the updated TEI XML fragment. Do not include markdown conversational filler, explanations, or notes.
+2. PRESERVATION: Wrap target words in &lt;choice&gt;. Preserve the exact historical reading in &lt;orig&gt; or &lt;abbr&gt;. Supply the standardized modern reading in &lt;reg resp=&quot;#ai&quot;&gt; or &lt;expan resp=&quot;#ai&quot;&gt;.
+3. NEGATIVE CONSTRAINT - NO LEXICAL SUBSTITUTION: Do NOT replace archaic words with modern synonyms (e.g., keep &quot;betwixt&quot;, do not change to &quot;between&quot;).
+4. NEGATIVE CONSTRAINT - NO GRAMMATICAL MODERNIZATION: Do NOT modernize verb endings (keep &quot;hath&quot;, &quot;doth&quot;, &quot;sheweth&quot;) or dialectal syntax (keep &quot;we was&quot;).
+5. NEGATIVE CONSTRAINT - NO TAG MUTILATION: NEVER delete, move, or rename existing milestone tags (&lt;lb/&gt;, &lt;pb/&gt;). Line breaks must remain inside &lt;orig&gt;.
+6. ATTRIBUTION: Every newly created &lt;reg&gt; and &lt;expan&gt; tag MUST include the attribute resp=&quot;#gemini&quot;.
+</code></pre>
+<p>Notice how every instruction addresses a specific failure mode we identified in our taxonomy. This prompt transforms a commercial chatbot into a focused scholarly tool.</p>
+<p><strong>Vocabulary.</strong> <em>System prompt</em> — The top-level foundational instruction provided to an AI model that sets its persistent persona, constraints, and operational boundaries. <em>Attribution tagging</em> — Attaching <code>resp="#ai"</code> or <code>resp="#gemini"</code> to automated markup to distinguish machine intervention from human judgment.</p>
+<p><strong>Takeaway:</strong> A scholarly system prompt combines persona, task, target authority, strict negative constraints, and output formatting rules into an auditable protocol.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Crafting the Normalization System Prompt</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the core structural components of an effective scholarly system prompt for text normalization?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A scholarly system prompt combines persona, task, target authority, strict negative constraints, and output formatting into an auditable protocol.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Persona, core task, reference authority, negative constraints, and exact output formatting specifications.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A complete system prompt sets the editorial role, scopes the task, defines acceptable authorities, bounds forbidden actions, and fixes the output syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A Python compilation script, an operating system kernel patch, and a CSS stylesheet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. System prompts are structured natural language instructions that guide LLM behavior.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A marketing slogan, a list of student grades, and a link to the university bookstore.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prompts must contain precise scholarly and computational instructions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A single sentence asking the model to 'make this old text look modern and clean'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Vague instructions invite severe over-normalization and hallucination.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Prompt Engineering for Historical English (1752 Treaty)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Prompt Engineering for Historical English (1752 Treaty)</h3>
+<p>Now let us customize our system prompt for the specific document projects in our cohort. We begin with Andromeda's project: the <strong>1752 Peace and Friendship Treaty</strong>.</p>
+<p>Eighteenth-century colonial legal documents present two unique challenges for AI models: <strong>substantive common-noun capitalization</strong> and <strong>archaic legal diction</strong>.</p>
+<p>If you feed the 1752 Treaty to a generic AI model, it will often try to rewrite the formal preamble, modernizing legal formulas like "In Witness whereof" or "Know ye that". Furthermore, it may become confused by the heavy capitalization, lowercasing words that are proper names or titles.</p>
+<p>To tailor your prompt for the 1752 Treaty, add these document-specific instructions to your system prompt:</p>
+<pre><code class="language-text">DOCUMENT SPECIFICATION - 18th-CENTURY COLONIAL TREATY (1752):
+- TARGET 1 (Terminal -ck): Regularize 18th-century adjectives ending in -ck (e.g., &quot;publick&quot; -&gt; &quot;public&quot;, &quot;traffick&quot; -&gt; &quot;traffic&quot;). Do NOT regularize native standard Germanic words (e.g., &quot;black&quot;, &quot;truck&quot;).
+- TARGET 2 (Thorn Contractions): Expand thorn contractions: &quot;ye&quot; -&gt; &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp=&quot;#ai&quot;&gt;the&lt;/expan&gt;&lt;/choice&gt;; &quot;yt&quot; -&gt; &lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan resp=&quot;#ai&quot;&gt;that&lt;/expan&gt;&lt;/choice&gt;.
+- TARGET 3 (Common Nouns): Regularize substantive capitalized common nouns to lowercase in &lt;reg&gt; ONLY when they are ordinary nouns (e.g., &quot;Treaty&quot; -&gt; &quot;treaty&quot;, &quot;Articles&quot; -&gt; &quot;articles&quot;). PRESERVE capital letters on official titles and sovereign names (e.g., &quot;His Majesty&quot;, &quot;Governor&quot;, &quot;King&quot;).
+- STRICT PROHIBITION: Do NOT alter archaic legal phrasing, prepositional idioms, or punctuation.
+</code></pre>
+<p>By explicitly naming the targets (<em>-ck</em>, thorn contractions, common nouns) and naming the exceptions (titles, legal phrasing), you provide the AI with the exact scholarly policy you established in Lesson 6.1.</p>
+<p><strong>Vocabulary.</strong> <em>Document-specific tailoring</em> — Modifying a general system prompt with specialized rules and exceptions reflecting the paleographical realities of a specific historical witness.</p>
+<p><strong>Takeaway:</strong> Tailor prompts for 18th-century legal texts by explicitly defining rules for terminal <em>-ck</em>, thorn abbreviations, and title versus common-noun capitalization.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Prompt Engineering for Historical English (1752 Treaty)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When prompt engineering for the 1752 Peace and Friendship Treaty, what specific rule should be enforced regarding 18th-century legal capitalization?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Tailor prompts for 18th-century legal texts by explicitly defining rules for terminal -ck, thorn abbreviations, archaic contractions, and capitalizations.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Preserve 18th-century substantive noun capitalization unless the explicit project policy mandates downcasing, and never let the model modernize archaic legal syntax.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. 18th-century capitalizations reflect legal hierarchy and rhetoric; prompts must prevent the model from blindly imposing modern sentence-case rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Force the model to translate all English clauses into Mi'kmaw.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The English text is being normalized according to historical English standards, not translated.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Instruct the model to delete all references to King George II.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors never censor or alter historical political entities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Require the model to replace all signatures with modern digital certificates.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical witness marks and signatures must be preserved diplomatically.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Prompt Engineering for Autograph Poetry (Emily Dickinson)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Prompt Engineering for Autograph Poetry (Emily Dickinson)</h3>
+<p>Next, let us examine prompt engineering for Jay's project: <strong>Emily Dickinson's autograph poetry</strong> (<code>MS Am 1118.3 [338]</code>).</p>
+<p>Dickinson represents the ultimate test of prompt discipline. Large language models are trained heavily on modern edited editions of 19th-century literature. When an LLM sees a Dickinson poem, its internal weights scream to "fix" her: to replace her dashes with commas, to lowercase her idiosyncratic capitals (<em>Soul</em>, <em>Society</em>, <em>Door</em>), and to normalize her slant rhymes.</p>
+<p>If you give a Dickinson poem to an untuned AI model, it will completely obliterate her poetic genius in a single pass.</p>
+<p>To protect Dickinson's text, your system prompt must erect an absolute firewall around her poetic orthography:</p>
+<pre><code class="language-text">DOCUMENT SPECIFICATION - AUTOGRAPH 19th-CENTURY POETRY (EMILY DICKINSON):
+- STRICT PROHIBITION - CAPITALIZATION: NEVER normalize, lowercase, or tag Dickinson's capitalized common nouns (e.g., &quot;Soul&quot;, &quot;Society&quot;, &quot;Door&quot;, &quot;Valves&quot;, &quot;Stone&quot;). Her capitalization represents intentional poetic personification and MUST remain unaltered plain text.
+- STRICT PROHIBITION - DASHES AND PUNCTUATION: NEVER replace, alter, or standardize her dashes. Do NOT insert commas, semicolons, or periods.
+- STRICT PROHIBITION - RHYME WORDS: NEVER normalize spelling on terminal line words that participate in authorial slant rhyme.
+- ALLOWED TARGETS: You may ONLY regularize genuine archaic or variant spellings where standard lexicography has shifted (e.g., &quot;opake&quot; -&gt; &lt;choice&gt;&lt;orig&gt;opake&lt;/orig&gt;&lt;reg resp=&quot;#ai&quot;&gt;opaque&lt;/reg&gt;&lt;/choice&gt;; &quot;etherial&quot; -&gt; &lt;choice&gt;&lt;orig&gt;etherial&lt;/orig&gt;&lt;reg resp=&quot;#ai&quot;&gt;ethereal&lt;/reg&gt;&lt;/choice&gt;).
+</code></pre>
+<p>Notice the tone of this prompt. It is fiercely protective. It forbids the model from touching 95% of the text, confining its authority strictly to undisputed lexical variants. This is how digital editors use AI responsibly in literary scholarship.</p>
+<p><strong>Vocabulary.</strong> <em>Poetic firewall</em> — Prompt constraints designed to completely protect authorial punctuation, capitalization, and rhyme from automated normalization.</p>
+<p><strong>Takeaway:</strong> For Emily Dickinson's poetry, construct an aggressive poetic firewall in your prompt, strictly forbidding the model from altering her capitalization, dashes, or rhyme words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Prompt Engineering for Autograph Poetry (Emily Dickinson)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must prompt engineering for Emily Dickinson's autograph poetry establish an absolute firewall around her dashes and punctuation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For Emily Dickinson's poetry, construct an aggressive poetic firewall in your prompt, strictly forbidding changes to dashes, capitalization, and lineation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Dickinson's dashes represent intentional rhythmic and prosodic pauses; normalizing them into standard commas or periods destroys authorial poetic form.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Punctuation in autograph poetry is an aesthetic component; modernizing it erases the poet's unique visual and rhythmic syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Emily Dickinson's poems were written in an unreadable binary code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dickinson wrote in 19th-century American English with distinctive autograph paleography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Moodle crashes whenever a poem contains an em-dash.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Moodle supports all standard Unicode dash characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Publishers in the 1890s established that Dickinson's dashes were accidental ink splatters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Early publishers regularized her work, which modern scholarship rejects in favor of diplomatic fidelity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Prompt Engineering for Vernacular Correspondence (Maud Lewis)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Prompt Engineering for Vernacular Correspondence (Maud Lewis)</h3>
+<p>Now let us examine Olyvia's project: personal handwritten letters by celebrated folk artist <strong>Maud Lewis</strong>.</p>
+<p>When editing vernacular personal correspondence, the primary danger is that the AI model will act as an arrogant schoolmaster, "correcting" Lewis's working-class dialect, informal spelling, and conversational syntax to sound like an academic textbook.</p>
+<p>If Maud Lewis writes "we was pleased to get your letter and we dont have no more paintings", an unconstrained model will aggressively change <em>was</em> to <em>were</em>, delete the double negative, and rewrite her voice completely.</p>
+<p>Your system prompt must explicitly defend the integrity of her vernacular voice:</p>
+<pre><code class="language-text">DOCUMENT SPECIFICATION - 20th-CENTURY VERNACULAR CORRESPONDENCE (MAUD LEWIS):
+- TARGET 1 (Phonetic Doubling): Regularize obvious phonetic spelling variants using &lt;choice&gt;&lt;orig&gt;...&lt;/orig&gt;&lt;reg resp=&quot;#ai&quot;&gt;...&lt;/reg&gt;&lt;/choice&gt; (e.g., &quot;allways&quot; -&gt; &quot;always&quot;, &quot;untill&quot; -&gt; &quot;until&quot;, &quot;truely&quot; -&gt; &quot;truly&quot;).
+- TARGET 2 (Unpunctuated Contractions): Supply missing apostrophes in negative contractions (e.g., &quot;dont&quot; -&gt; &quot;don't&quot;, &quot;cant&quot; -&gt; &quot;can't&quot;, &quot;wont&quot; -&gt; &quot;won't&quot;).
+- STRICT PROHIBITION - VERNACULAR GRAMMAR: Do NOT touch or regularize non-standard verb agreement, colloquial idioms, or conversational syntax (e.g., PRESERVE &quot;we was&quot;).
+- STRICT PROHIBITION - NO &lt;sic&gt; TAGS: Do NOT use &lt;sic&gt; or &lt;corr&gt; tags. All vernacular variations must be treated respectfully as valid historical variants using &lt;orig&gt; and &lt;reg&gt;.
+</code></pre>
+<p>Notice the explicit ban on <code>&lt;sic&gt;</code> tags. This constraint ensures that the AI model does not brand working-class Maritime dialect as an error, fulfilling the ethical principles of respectful editing we established in Lesson 6.1.</p>
+<p><strong>Vocabulary.</strong> <em>Voice preservation</em> — Prompt constraints ensuring that regional, working-class, and informal conversational idioms are protected from automated standardizing bias.</p>
+<p><strong>Takeaway:</strong> For Maud Lewis's personal letters, instruct the AI to regularize phonetic spelling and omitted apostrophes while strictly forbidding it from altering vernacular grammar or using <code>&lt;sic&gt;</code> tags.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Prompt Engineering for Vernacular Correspondence (Maud Lewis)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the boundary between permissible normalization and destructive erasure in Maud Lewis's folk correspondence?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For Maud Lewis's personal letters, instruct the AI to regularize phonetic spelling and omitted apostrophes while strictly preserving regional vernacular vocabulary.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Regularizing phonetic spellings or missing apostrophes in contractions is permissible, but altering regional vernacular vocabulary or dialect syntax destroys her authentic voice.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Orthographic regularization aids searchability, but modifying dialect phrases or colloquial grammar erases working-class linguistic identity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All letters written by folk artists must be completely rewritten into formal academic English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Erasing vernacular grammar betrays documentary and ethnographic integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Maud Lewis's letters must be converted into French before TEI validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Maud Lewis wrote in English; translation is not normalization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Any letter mentioning painting must be discarded as non-historical.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lewis's discussion of her art is central to the historical value of her correspondence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Prompt Engineering for Revolutionary French (1791 Decree)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Prompt Engineering for Revolutionary French (1791 Decree)</h3>
+<p>Finally, let us customize our prompt for Ace's project: the <strong>1791 French Revolutionary Decree</strong> from the National Assembly.</p>
+<p>Eighteenth-century French presents two challenges that confuse generic AI models: the <strong>Voltairean <em>oi</em>/<em>ai</em> imperfect verb shift</strong> and <strong>omitted accents on capital letters</strong>.</p>
+<p>An untuned model will often try to translate the entire decree into modern French legal vocabulary, modernizing phrases like <em>Comité des décrets</em> or replacing 18th-century juridical terms. Furthermore, it may fail to distinguish between imperfect verbs (which changed from <em>-oit</em> to <em>-ait</em>) and invariant nouns (like <em>droit</em>).</p>
+<p>Here is the tailored prompt for the 1791 French Decree:</p>
+<pre><code class="language-text">DOCUMENT SPECIFICATION - 18th-CENTURY FRENCH REVOLUTIONARY DECREE (1791):
+- TARGET 1 (Voltairean Imperfect Verbs): Regularize historical imperfect indicative and conditional verb endings from -oit to -ait (e.g., &quot;étoit&quot; -&gt; &quot;était&quot;, &quot;dérogeoit&quot; -&gt; &quot;dérogeait&quot;, &quot;faisoient&quot; -&gt; &quot;faisaient&quot;).
+- TARGET 2 (Historical Nationality / Adjectives): Regularize historical -ois endings on nationality adjectives to -ais (e.g., &quot;françois&quot; -&gt; &quot;français&quot;).
+- TARGET 3 (Accented Capitals): Supply missing acute and grave accents on capitalized words in &lt;reg&gt; (e.g., &quot;DECRET&quot; -&gt; &quot;DÉCRET&quot;, &quot;ASSEMBLEE&quot; -&gt; &quot;ASSEMBLÉE&quot;).
+- EXCLUSION - INVARIANT NOUNS: Do NOT alter invariant nouns ending in -oit (e.g., PRESERVE &quot;droit&quot;, &quot;étroit&quot;).
+- STRICT PROHIBITION: Do NOT alter French revolutionary legal formulas, syntax, or Latin terms (e.g., PRESERVE &quot;L.S.&quot;).
+</code></pre>
+<p>Notice how this prompt gives the model the historical linguistic rule (the 1835 Académie reform) and explicitly names the invariant nouns (<em>droit</em>) that must be protected. The AI now possesses the precise historical boundaries needed to succeed.</p>
+<p><strong>Vocabulary.</strong> <em>Voltairean prompt specification</em> — Guiding the model to regularize 18th-century French <em>oi</em> endings to <em>ai</em> while protecting invariant nouns and legal Latin shorthand.</p>
+<p><strong>Takeaway:</strong> For 18th-century French decrees, direct the model to normalize <em>-oit</em> imperfect verbs and accented capitals while strictly preserving legal formulas and invariant nouns like <em>droit</em>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Prompt Engineering for Revolutionary French (1791 Decree)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What historical sound change must prompts for 1791 French decrees address while protecting invariable vocabulary?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For 18th-century French decrees, direct the model to normalize -oit imperfect verbs and accented capitals while protecting invariant homographs like droit.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The Voltairean spelling reform shifting imperfect verb endings from -oit to -ait, while leaving nouns like droit unchanged.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The shift from -oit to -ait affected verb endings; nouns like droit retain the oi spelling in modern French.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The total replacement of French with English by royal proclamation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree was an official legislative act of the French National Assembly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The removal of all vowels from legal French documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. French orthography underwent gradual vowel and accent reforms, not vowel deletion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The conversion of all French numbers into Roman numerals.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree used standard French numerals and cardinal words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Few-Shot Prompting: Providing Examples</text></name><questiontext format="html"><text><![CDATA[
+<h3>Few-Shot Prompting: Providing Examples</h3>
+<p>Even with explicit instructions and negative constraints, generative models sometimes misinterpret XML tag syntax. A model might generate <code>&lt;reg value="public"/&gt;</code> instead of <code>&lt;reg&gt;public&lt;/reg&gt;</code>, or forget to include the <code>@resp</code> attribute.</p>
+<p>The most powerful technique in prompt engineering for enforcing exact formatting is <strong>Few-Shot Prompting</strong> (Jurafsky &amp; Martin, 2024).</p>
+<p>Few-shot prompting means providing the model with <strong>two or three concrete, perfectly formatted input/output examples</strong> directly inside the prompt. When an LLM processes few-shot examples, its self-attention layers lock onto the structural template of your examples, replicating the exact tagging syntax with extraordinary fidelity.</p>
+<p>Add this few-shot demonstration block to your system prompt:</p>
+<pre><code class="language-text">FEW-SHOT EXAMPLES (Follow this exact TEI syntax):
+
+Input:
+The publick good of this Province requires firm Articles.
+
+Output:
+The &lt;choice&gt;&lt;orig&gt;publick&lt;/orig&gt;&lt;reg resp=&quot;#gemini&quot;&gt;public&lt;/reg&gt;&lt;/choice&gt; good of this Province requires firm &lt;choice&gt;&lt;orig&gt;Articles&lt;/orig&gt;&lt;reg resp=&quot;#gemini&quot;&gt;articles&lt;/reg&gt;&lt;/choice&gt;.
+
+Input:
+yt was agreed by ye Govr at Halifax.
+
+Output:
+&lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan resp=&quot;#gemini&quot;&gt;that&lt;/expan&gt;&lt;/choice&gt; was agreed by &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp=&quot;#gemini&quot;&gt;the&lt;/expan&gt;&lt;/choice&gt; &lt;choice&gt;&lt;abbr&gt;Govr&lt;/abbr&gt;&lt;expan resp=&quot;#gemini&quot;&gt;Governor&lt;/expan&gt;&lt;/choice&gt; at Halifax.
+</code></pre>
+<p>By providing these examples, you eliminate ambiguity. The model sees exactly how <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code> pair together, how <code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code> pair together, and where the <code>resp="#gemini"</code> attribute belongs. Few-shot prompting increases XML formatting compliance from roughly 75% to over 98%.</p>
+<p><strong>Vocabulary.</strong> <em>Few-shot prompting</em> — Providing an AI model with several concrete input-output demonstration pairs within the prompt to enforce exact formatting and behavior. <em>Zero-shot prompting</em> — Prompting a model with instructions only, without demonstration examples.</p>
+<p><strong>Takeaway:</strong> Include two or three few-shot examples in your prompt to anchor the model to your exact TEI <code>&lt;choice&gt;</code> syntax and attribute conventions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Few-Shot Prompting: Providing Examples</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does few-shot prompting dramatically improve an LLM's adherence to TEI XML normalization standards?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Include two or three few-shot examples in your prompt to anchor the model to your exact TEI &lt;choice&gt; syntax and negative constraints.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Concrete examples of input-to-output pairs demonstrate the exact XML tags, attributes, and preservation boundaries desired, grounding the model's behavior.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Showing the model 2-3 exact before-and-after XML demonstrations eliminates ambiguity in syntax, attribute naming, and element nesting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Few-shot prompting increases the hardware temperature of the computer's CPU.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Few-shot prompting provides contextual in-context training examples in the prompt text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Few-shot examples prevent the user from having to run git commands.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Version control operations are completely independent of prompting techniques.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Few-shot prompting automatically compiles the XML into a PDF without software.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prompting guides language model generation, not document compilation pipelines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Running Normalization in VS Code Antigravity</text></name><questiontext format="html"><text><![CDATA[
+<h3>Running Normalization in VS Code Antigravity</h3>
+<p>Now that your system prompt, document constraints, and few-shot examples are assembled, you are ready to execute the AI normalization pass directly inside your development environment: <strong>Visual Studio Code with the Antigravity extension</strong>.</p>
+<p>Follow this step-by-step workflow:</p>
+<ol>
+  <li><strong>Create your target file:</strong> In your course repository, duplicate your consensus file: create <code>transcription_reconciled_ai.xml</code>. This ensures that your manual ground truth and regex files remain untouched.</li>
+  <li><strong>Open the Antigravity Chat Panel:</strong> In VS Code, open the Antigravity agent panel (in the left sidebar or via the Command Palette). Select your course model (Gemini 2.5 Pro / Flash).</li>
+  <li><strong>Paste your System Prompt:</strong> Paste your master prompt, including your document-specific negative constraints and few-shot examples, into the chat interface.</li>
+  <li><strong>Provide your 20-line passage:</strong> Copy your 20-line consensus excerpt from <code>transcription_reconciled.xml</code> and submit it with the instruction: <em>"Normalize the following TEI excerpt according to the prompt instructions."</em></li>
+  <li><strong>Inspect the generated code:</strong> When Antigravity completes the generation, review the code block in the chat. Verify that it output valid TEI XML without conversational chit-chat.</li>
+  <li><strong>Apply to your file:</strong> Click <strong>Apply</strong> or copy the generated XML into <code>transcription_reconciled_ai.xml</code>.</li>
+</ol>
+
+<p>By running this process inside VS Code, you keep your entire edition within a single unified workspace.</p>
+<p><strong>Vocabulary.</strong> <em>Antigravity extension</em> — The Google AI pair-programming extension in VS Code providing direct access to Gemini models within the editor. <em>Workspace integration</em> — Executing AI generation and code application directly inside the development environment without copying between external web browsers.</p>
+<p><strong>Takeaway:</strong> Execute your AI normalization pass in VS Code Antigravity by submitting your tailored prompt and consensus text to generate <code>transcription_reconciled_ai.xml</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Running Normalization in VS Code Antigravity</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should an editor safely execute an AI normalization pass in VS Code Antigravity?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Execute your AI normalization pass in VS Code Antigravity by submitting your tailored prompt and consensus transcription, directing output to a dedicated candidate file.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Run the model on clean transcription files, direct the output to a dedicated staging file (like consensus_ai.xml), and never overwrite the original ground truth directly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Keeping AI outputs in an isolated file ensures the manual transcription remains pristine and allows side-by-side comparative auditing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Overwrite the Git repository root directory and immediately delete the commit history.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting repository history destroys provenance and academic integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Disconnect the computer from the internet and power off the monitor during generation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The editor must observe the generation process and manage the generated output.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Run the prompt against the system kernel rather than the transcription text file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The target of normalization is the document XML transcription.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Formatting Output as Valid TEI `&lt;choice&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Formatting Output as Valid TEI `<choice>`</h3>
+<p>Once the AI model returns its generated XML, your first technical duty is to verify that the markup conforms strictly to the TEI P5 schema (TEI Consortium, 2024).</p>
+<p>Check for these three critical structural criteria:</p>
+<ol>
+  <li><strong>Valid Pairing:</strong> Every <code>&lt;choice&gt;</code> element must enclose exactly one valid pair of child elements:
+    <ul>
+      <li><code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code> (for spelling regularization)</li>
+      <li><code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code> (for abbreviation expansion)</li>
+    </ul>
+    Confirm that the model did not invent non-standard tags like <code>&lt;modern&gt;</code>, <code>&lt;normalized&gt;</code>, or <code>&lt;expanded&gt;</code>.</li>
+  <li><strong>Attribution Attribute:</strong> Verify that every <code>&lt;reg&gt;</code> and <code>&lt;expan&gt;</code> tag carries the attribution attribute: <code>resp="#gemini"</code> or <code>resp="#ai"</code>.</li>
+  <li><strong>Whitespace Containment:</strong> Verify that spaces between words remain outside the <code>&lt;choice&gt;</code> tags. If the model generated <code>&lt;choice&gt;&lt;orig&gt;publick &lt;/orig&gt;...&lt;/choice&gt;</code> with a space inside <code>&lt;orig&gt;</code>, remove the trailing space so words do not collapse or space erratically in downstream HTML viewers.</li>
+</ol>
+
+<p>Open the Problems panel in VS Code (<code>Cmd+Shift+M</code>). Confirm that the newly pasted AI markup displays <strong>0 schema errors</strong>.</p>
+<p><strong>Vocabulary.</strong> <em>Valid pairing</em> — The strict TEI rule that <code>&lt;choice&gt;</code> must contain authorized child combinations (such as <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>). <em>Whitespace containment</em> — Ensuring inter-word spaces sit outside XML tagging structures to prevent display anomalies.</p>
+<p><strong>Takeaway:</strong> Inspect the AI output immediately to ensure it uses valid TEI <code>&lt;choice&gt;</code> element pairs, carries <code>@resp="#ai"</code>, and passes schema validation with zero errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Formatting Output as Valid TEI &lt;choice&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What attribute should be attached to the &lt;reg&gt; or &lt;expan&gt; elements produced during an AI normalization pass to preserve methodological transparency?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Inspect the AI output immediately to ensure it uses valid TEI &lt;choice&gt; element pairs, carries @resp='#ai', and maintains well-formed XML syntax.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;resp='#ai' (or #llm), identifying the automated agent responsible for the proposed regularization.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Attributing machine-generated regularizations distinguishes them from human editorial decisions in the TEI markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;color='red'&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI semantic encoding uses @resp for responsibility, not visual display attributes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;target='wikipedia'&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Responsibility pointers reference project editors defined in the TEI Header.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;verified='true'&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Machine outputs cannot self-certify their own validity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Milestone Tag Preservation in AI Normalization</text></name><questiontext format="html"><text><![CDATA[
+<h3>Milestone Tag Preservation in AI Normalization</h3>
+<p>In Lesson 6.1 and 6.2, we emphasized that physical milestone tags—specifically line breaks (<code>&lt;lb/&gt;</code>) and page breaks (<code>&lt;pb/&gt;</code>)—are sacred codicological data. They record where lines physically ended on the historical manuscript page.</p>
+<p>Large language models have a notorious, well-documented bad habit: <strong>they love to delete or move milestone tags</strong> (Bollmann, 2019).</p>
+<p>Because an LLM views text as a continuous semantic stream, empty milestone tags like <code>&lt;lb n="14"/&gt;</code> look like meaningless typographical clutter. If a model encounters a word divided across a line break (<code>Gov-&lt;lb n="14"/&gt;ernor</code>), an untuned model will often delete the <code>&lt;lb/&gt;</code> tag entirely, regularizing the word as a single continuous line:</p>
+<pre><code class="language-xml">&lt;!-- FATAL AI ERROR: The physical line break was deleted! --&gt;
+&lt;choice&gt;&lt;orig&gt;Governor&lt;/orig&gt;&lt;reg resp=&quot;#ai&quot;&gt;Governor&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>When this happens, your digital edition loses its physical alignment to the page image! The coordinate zones you built in Week 3 and the line numbers you verified in Week 4 are permanently severed.</p>
+<p>Check your AI-generated text immediately:</p>
+<ul>
+  <li>Did the model keep every <code>&lt;lb/&gt;</code> tag?</li>
+  <li>Did the model preserve the line numbers (e.g., <code>n="14"</code>)?</li>
+  <li>Did the model keep the milestone <em>inside</em> the <code>&lt;orig&gt;</code> element where it belongs?</li>
+</ul>
+
+<p>If the model dropped even a single line break, reject that section and re-prompt with an intensified negative constraint: <em>"DO NOT DELETE OR MOVE ANY <code>&lt;lb/&gt;</code> TAGS."</em></p>
+<p><strong>Vocabulary.</strong> <em>Milestone dropping</em> — The automated error where an AI model silently deletes empty milestone tags like <code>&lt;lb/&gt;</code> or <code>&lt;pb/&gt;</code> during text generation. <em>Codicological alignment</em> — The structural synchronization between digital transcription lines and physical manuscript page coordinates.</p>
+<p><strong>Takeaway:</strong> Carefully audit the AI output to verify that every <code>&lt;lb/&gt;</code> milestone tag and line number was preserved inside <code>&lt;orig&gt;</code> without being dropped or relocated.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Milestone Tag Preservation in AI Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What structural failure frequently occurs when generative LLMs process heavily marked-up TEI XML documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Carefully audit the AI output to verify that every &lt;lb/&gt; milestone tag and line number was preserved inside or adjacent to &lt;choice&gt; blocks.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The model silently drops or misplaces empty milestone tags like &lt;lb/&gt; (line breaks) and &lt;pb/&gt; (page breaks).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Language models often view milestone tags as noise or lineation artifacts, omitting them unless strict prompt constraints enforce their preservation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model automatically creates forty new XML namespaces.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models typically drop tags rather than inventing complex XML namespaces.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model converts all text into unformatted binary machine code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs output standard Unicode text strings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model replaces all &lt;p&gt; tags with HTML &lt;table&gt; tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI paragraph elements are generally preserved, while empty milestones are vulnerable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Conducting the Three-Way Audit (Workshop 6 Deliverable)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Conducting the Three-Way Audit (Workshop 6 Deliverable)</h3>
+<p>Now arrives the intellectual climax of Week 6 and the primary deliverable of Workshop 6: <strong>The Three-Way Comparative Audit</strong>.</p>
+<p>You now possess three distinct digital files in your repository, all derived from the exact same 20-line consensus passage:</p>
+<ol>
+  <li><strong>File 1 (Manual Ground Truth):</strong> <code>transcription_reconciled_manual.xml</code> — Hand-encoded by you on Tuesday in Lesson 6.1. Reflects careful scholarly judgment and your explicit Rule Ledger.</li>
+  <li><strong>File 2 (Deterministic Regex):</strong> <code>transcription_reconciled_regex.xml</code> — Automated by your regular expression rules on Wednesday in Lesson 6.2. Reflects absolute consistency, but semantic blindness.</li>
+  <li><strong>File 3 (Generative AI):</strong> <code>transcription_reconciled_ai.xml</code> — Automated by Gemini in VS Code Antigravity today in Lesson 6.3. Reflects contextual reasoning, but risks over-normalization.</li>
+</ol>
+
+<p>Your task is to conduct a systematic, word-by-word comparison across all three files.</p>
+<p>You will not simply choose which file looks prettiest. You will conduct a scientific audit: comparing where the three methods agreed, where they diverged, and what each divergence teaches us about the strengths and limits of human, deterministic, and generative digital scholarship.</p>
+<p><strong>Vocabulary.</strong> <em>Three-way audit</em> — A comparative evaluation methodology comparing manual human baseline data, deterministic algorithmic outputs, and generative AI predictions on the same textual passage. <em>Triangulation</em> — Cross-verifying textual data across three independent methodologies to establish reliable findings.</p>
+<p><strong>Takeaway:</strong> The three-way audit compares your manual ground truth, deterministic regex output, and generative AI predictions to evaluate the strengths and limits of each method.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Conducting the Three-Way Audit (Workshop 6 Deliverable)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What three files are compared during the Workshop 6 three-way normalization audit?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The three-way audit compares your manual ground truth, deterministic regex output, and generative AI predictions to evaluate capability, precision, and fidelity.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Manual ground truth (consensus_manual.xml), deterministic regex output (consensus_regex.xml), and AI-assisted output (consensus_ai.xml).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The audit triangulates human manual judgment against rule-based deterministic regex and probabilistic generative AI.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The course syllabus, the student transcript, and the university academic calendar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The three-way audit evaluates the three computational normalization passes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The raw image scan, an audio recording of the lecture, and a slide deck.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The audit compares textual XML files generated under different editorial workflows.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Three different web browsers rendering the same HTML page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The audit is a comparative philological review of encoded XML files, not a browser render check.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: The Side-by-Side Three-Way Diff in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Side-by-Side Three-Way Diff in VS Code</h3>
+<p>To conduct the audit efficiently, you must use Visual Studio Code's multi-editor layout to inspect all three files simultaneously.</p>
+<p>Follow these steps in VS Code:</p>
+<ol>
+  <li>Open <code>transcription_reconciled_manual.xml</code> in your main editor window.</li>
+  <li>Split your editor into three columns: go to <em>View $    o$ Editor Layout $  o$ Three Columns</em> (or drag the tabs side by side).</li>
+  <li>Place <code>transcription_reconciled_manual.xml</code> in the left column. Place <code>transcription_reconciled_regex.xml</code> in the middle column. Place <code>transcription_reconciled_ai.xml</code> in the right column.</li>
+  <li>Scroll down line by line, comparing the three files at each line break.</li>
+</ol>
+
+<p>Alternatively, you can run two pairwise diffs:</p>
+<ul>
+  <li>Diff 1: <em>Manual vs. Regex</em> (highlights where deterministic rules over-matched or missed variants).</li>
+  <li>Diff 2: <em>Manual vs. AI</em> (highlights where the AI model hypercorrected, hallucinated, or discovered new variants).</li>
+</ul>
+
+<p>As you examine each line across the three columns, record every point of divergence in your notes. Every disagreement will fall into one of three primary discrepancy categories.</p>
+<p><strong>Vocabulary.</strong> <em>Three-column layout</em> — An editor arrangement displaying three files side by side simultaneously for line-by-line comparative auditing. <em>Pairwise diff</em> — Comparing two specific versions of a document to isolate exact character differences.</p>
+<p><strong>Takeaway:</strong> Configure a three-column layout or run pairwise diffs in VS Code to compare your manual, regex, and AI files line by line.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: The Side-by-Side Three-Way Diff in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How can editors efficiently inspect textual discrepancies between three XML versions in VS Code?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Configure a three-column layout or run pairwise diffs in VS Code to compare your manual, regex, and AI files line by line.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By arranging editors side-by-side across three editor columns or using pairwise diff commands ('Compare with Selected') to highlight exact token variations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Visual diffing in VS Code color-codes additions, deletions, and tag shifts, making every discrepancy immediately visible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By printing all three files on physical paper and holding them up to a window light.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Modern editors use digital visual diffing tools for precision and speed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting two of the files and guessing what differences existed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting comparative files eliminates the evidence needed for the audit.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By reading the files backwards in terminal raw hexadecimal mode.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Side-by-side diff viewers render structured comparisons clearly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Discrepancy Category A: Regex Missed, AI Caught</text></name><questiontext format="html"><text><![CDATA[
+<h3>Discrepancy Category A: Regex Missed, AI Caught</h3>
+<p>The first category of divergence you will encounter is <strong>Category A: Regex Missed, AI Caught</strong> (a win for the AI model).</p>
+<p>Recall the limitations of regular expressions. Regex matches only the exact characters and stems you anticipated in your pattern. If an author used an unexpected variant, an inflected grammatical form, or an irregular spelling that was not in your root whitelist, your regex rule missed it (a False Negative).</p>
+<p>Consider an example from our cohort documents:</p>
+<ul>
+  <li>Your regex rule looked for <code>(publi|traffi)ck</code>.</li>
+  <li>On line 14, the manuscript contained the inflected adverb: <em>publickly</em>.</li>
+  <li>Because of the trailing <em>-ly</em>, your regex word boundary <code>ck</code> failed to match, leaving <em>publickly</em> completely unregularized!</li>
+</ul>
+
+<p>When you inspect Column 3 (the AI file), look at what Gemini did:
+Gemini recognized that <em>publickly</em> is the adverbial form of <em>publick</em>. It successfully wrapped the word in:</p>
+<pre><code class="language-xml">&lt;choice&gt;&lt;orig&gt;publickly&lt;/orig&gt;&lt;reg resp=&quot;#gemini&quot;&gt;publicly&lt;/reg&gt;&lt;/choice&gt;
+</code></pre>
+<p>In Category A discrepancies, the AI model's deep linguistic knowledge and morphological generalization outperform the rigid, literal matching of regular expressions. When you verify that the AI's regularization is historically sound and conforms to your stated policy, record it in your report as a confirmed True Positive for the AI.</p>
+<p><strong>Vocabulary.</strong> <em>Morphological generalization</em> — The ability of an AI model to recognize inflected, derived, or unexpected forms of a word that rigid regex patterns overlook. <em>Category A discrepancy</em> — A divergence where generative AI successfully identifies a legitimate variant that deterministic rules missed.</p>
+<p><strong>Takeaway:</strong> Category A discrepancies demonstrate the power of AI: models generalize across inflected endings (like <em>publickly</em>) that rigid regular expressions overlook.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Discrepancy Category A: Regex Missed, AI Caught</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What typically characterizes a Category A discrepancy where regex missed a form but AI correctly identified it?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Category A discrepancies demonstrate the power of AI: models generalize across inflected endings and unpredictable spelling variations that fixed regex rules missed.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Inflected morphological variations or unpredictable phonetic spellings that fell outside the rigid boundary of a deterministic search pattern.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. AI models generalize across inflected endings and phonetic drift that fixed regex patterns failed to anticipate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The regex engine crashed due to an out-of-memory error on a single word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex handles single words instantly; the issue is pattern coverage, not engine memory.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The AI model secretly accessed the original manuscript in the physical archive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model only processes the digital text provided in the prompt.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The regex pattern was written in ancient Cuneiform script.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex uses standard ASCII and Unicode characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Discrepancy Category B: Regex Safe, AI Hypercorrected</text></name><questiontext format="html"><text><![CDATA[
+<h3>Discrepancy Category B: Regex Safe, AI Hypercorrected</h3>
+<p>The second category of divergence is the exact inverse: <strong>Category B: Regex Safe, AI Hypercorrected</strong> (a win for deterministic rules).</p>
+<p>In Category B, your deterministic regular expression performed flawlessly: it adhered strictly to your root whitelist, regularized the target word, and left surrounding vocabulary completely alone.</p>
+<p>The generative AI model, by contrast, fell victim to its commercial training bias and committed an act of <strong>hypercorrection</strong>.</p>
+<p>Consider this real example from our student projects:</p>
+<ul>
+  <li>On line 8 of the 1752 Treaty, the text reads: <em>"betwixt the Governor and the Chief"</em>.</li>
+  <li>In Column 2 (Regex), your rule safely skipped <em>betwixt</em>, because your regex rules were confined strictly to terminal <em>-ck</em> and thorn abbreviations.</li>
+  <li>In Column 3 (AI), Gemini decided that <em>betwixt</em> was "outdated", and generated:
+    <pre><code>&lt;choice&gt;&lt;orig&gt;betwixt&lt;/orig&gt;&lt;reg resp="#gemini"&gt;between&lt;/reg&gt;&lt;/choice&gt;</code></pre>
+  </li>
+</ul>
+
+<p>This is a classic <strong>Lexical Substitution Hypercorrection</strong>. The word <em>betwixt</em> is an authentic, legitimate English preposition. It is not an unstandardized spelling; it is a distinct historical lexeme! Regularizing <em>betwixt</em> to <em>between</em> destroys the author's vocabulary.</p>
+<p>In Category B discrepancies, the deterministic rigidity of regular expressions protects the document from the unauthorized over-reach of artificial intelligence. Record this in your report as an AI False Positive.</p>
+<p><strong>Vocabulary.</strong> <em>Category B discrepancy</em> — A divergence where deterministic regex correctly protected a historical word, but generative AI hypercorrected it. <em>Lexical over-reach</em> — The AI error of altering an author's authentic vocabulary under the pretext of spelling regularization.</p>
+<p><strong>Takeaway:</strong> Category B discrepancies demonstrate the strength of deterministic rules: regex strictly respects boundaries that generative AI crosses through hypercorrection.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Discrepancy Category B: Regex Safe, AI Hypercorrected</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does a Category B discrepancy (regex safe, AI hypercorrected) highlight the enduring strength of deterministic rules?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Category B discrepancies demonstrate the strength of deterministic rules: regex strictly respects boundaries without hallucinating or modernizing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Regex strictly respects defined pattern boundaries without inventing changes, whereas the AI hallucinated or modernized words in violation of policy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deterministic regex does exactly what it is told -- no more, no less -- protecting the text against creative over-normalization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Regex uses artificial general intelligence to evaluate historical grammar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex is purely rule-based and deterministic, with no intelligence or semantic awareness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;AI models are incapable of spelling any English words correctly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models spell modern words with high proficiency; their weakness is unwanted modernization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Category B discrepancies prove that computers should never be used for digital editing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Category B demonstrates the necessity of combining rule-based safety with AI discovery.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Discrepancy Category C: Mutual Failure and Complex Paleography</text></name><questiontext format="html"><text><![CDATA[
+<h3>Discrepancy Category C: Mutual Failure and Complex Paleography</h3>
+<p>The third category of divergence occurs when <strong>both automated passes failed</strong>: <strong>Category C: Mutual Failure</strong>.</p>
+<p>Category C discrepancies occur at points of deep physical, paleographical, or linguistic ambiguity where neither mathematical pattern matching nor statistical token prediction can substitute for human scholarly immersion.</p>
+<p>Examples of Category C failures across our cohort documents include:</p>
+<ul>
+  <li><strong>Faded or Damaged Writing:</strong> A word where several letters are obscured by an ink blot or water stain. The regex pattern failed because the letters did not match standard characters. The AI model hallucinated a completely fabricated word because it predicted what ought to be there based on context, rather than reporting physical damage! Only your manual pass correctly used <code>&lt;unclear&gt;</code> and <code>&lt;gap/&gt;</code>.</li>
+  <li><strong>Hyphenated Line Breaks across Folders:</strong> A word split across a folio boundary. Both automated tools failed to link the two halves.</li>
+  <li><strong>Private Poetic Punctuation:</strong> Dickinson's variable dashes. Regex had no way to interpret the pen stroke, while the AI model aggressively converted the dashes into standard commas and semicolons, violating your explicit negative prompt!</li>
+</ul>
+
+<p>Category C discrepancies are the most intellectually rewarding sections of your workshop report. They highlight the precise boundaries where automated digital tools break down and where the indispensable expertise of the human scholar remains sovereign.</p>
+<p><strong>Vocabulary.</strong> <em>Category C discrepancy</em> — A divergence where both deterministic regex and generative AI failed, proving that human paleographical judgment was strictly required. <em>Sovereignty of scholarship</em> — The principle that automated tools assist, but can never replace, human critical expertise.</p>
+<p><strong>Takeaway:</strong> Category C discrepancies expose points of complex physical damage or poetic nuance where both regex and AI fail, proving the irreplaceable necessity of human judgment.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Discrepancy Category C: Mutual Failure and Complex Paleography</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What causes a Category C discrepancy where both regex and AI fail to produce the correct normalization?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Category C discrepancies expose points of complex physical damage or poetic nuance where both regex and AI fail, requiring authoritative human judgment.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Complex paleographical phenomena like heavily abbreviated multi-word phrases, obscure legal idioms, or ambiguous physical manuscript damage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Severe manuscript degradation or rare historical idioms exceed the capacity of simple patterns and general LLM priors, demanding human expertise.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A power outage at the local electrical substation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computational failures stem from linguistic and paleographic complexity, not power cuts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI Consortium changing all XML specifications during the night.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI schemas are stable international standards.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The student accidentally opening a PDF file in an image viewer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The issue is paleographical ambiguity within the transcribed text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Calculating the Hypercorrection Rate</text></name><questiontext format="html"><text><![CDATA[
+<h3>Calculating the Hypercorrection Rate</h3>
+<p>To make your comparative audit empirical and scientific, you will calculate a formal quantitative metric for your AI pass: the <strong>Hypercorrection Rate (HR)</strong>.</p>
+<p>The Hypercorrection Rate measures the proportion of an AI model's proposed editorial interventions that were unauthorized, excessive, or linguistically destructive:</p>
+<p>$$  ext{Hypercorrection Rate} = rac{   ext{Total AI Hypercorrections}}{    ext{Total AI Editorial Interventions}}$$</p>
+<p>Let us trace a concrete calculation on a 20-line passage:</p>
+<ol>
+  <li>Suppose Gemini generated a total of <strong>16</strong> <code>&lt;choice&gt;</code> blocks across your passage (Total Interventions = 16).</li>
+  <li>You audit each of the 16 blocks against your manual ground truth.</li>
+  <li>You discover:
+    <ul>
+      <li>12 blocks were legitimate orthographic regularizations (True Positives).</li>
+      <li>2 blocks replaced valid archaic words with modern synonyms (Lexical Substitutions: <em>betwixt</em> $ o$ <em>between</em>).</li>
+      <li>1 block modernized a dialect verb inflection (Morphological Modernization: <em>we was</em> $  o$ <em>we were</em>).</li>
+      <li>1 block invented an unwritten military title in an expansion (Hallucinated Expansion).</li>
+    </ul>
+  </li>
+  <li>Total Hypercorrections = $2 + 1 + 1 = 4$.</li>
+</ol>
+
+<p>Now calculate the Hypercorrection Rate:</p>
+<p>$$  ext{Hypercorrection Rate} = rac{4}{16} = 0.25  ext{ (25\%)}$$</p>
+<p>A Hypercorrection Rate of 25% means that <strong>one out of every four edits proposed by the AI model was linguistically destructive</strong>. Publishing this metric in your edition's documentation provides critical transparency for future researchers evaluating your dataset.</p>
+<p><strong>Vocabulary.</strong> <em>Hypercorrection Rate (HR)</em> — The mathematical proportion of an automated tool's proposed edits that represent unauthorized modernizations or hallucinations ($H /  ext{Total Edits}$). <em>Quantitative audit</em> — Supporting qualitative textual observations with exact mathematical error frequencies.</p>
+<p><strong>Takeaway:</strong> Calculate the Hypercorrection Rate ($H /  ext{Total Edits}$) to quantify the exact frequency with which an AI model over-stepped its scholarly boundaries.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Calculating the Hypercorrection Rate</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How is the Hypercorrection Rate calculated when auditing an AI normalization pass?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Calculate the Hypercorrection Rate (H / Total Edits) to quantify the exact frequency with which an AI model exceeded your editorial policy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Divide the number of hypercorrected or over-normalized tokens (H) by the total number of normalization proposals made by the model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The Hypercorrection Rate (H / Total Edits) measures the proportion of model interventions that inappropriately modernized or corrupted the text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Multiply the number of words by the file size in megabytes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hypercorrection rate is a precision metric based on editorial error counts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Divide the student's grade by the number of hours spent in the computer lab.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The formula measures model error, not student time.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Subtract the number of lines from the number of paragraphs in the TEI body.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The metric evaluates linguistic accuracy against editorial policy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Evaluating Precision and Recall for the AI Pass</text></name><questiontext format="html"><text><![CDATA[
+<h3>Evaluating Precision and Recall for the AI Pass</h3>
+<p>Just as you evaluated your deterministic regex rules on Wednesday using Precision and Recall, you must now calculate the identical metrics for your generative AI pass.</p>
+<p>Recall the core definitions:</p>
+<p>$$  ext{Precision} = rac{  ext{True Positives}}{   ext{True Positives} +   ext{False Positives}}$$</p>
+<p>$$  ext{Recall} = rac{ ext{True Positives}}{   ext{True Positives} +   ext{False Negatives}}$$</p>
+<p>Let us evaluate the AI pass from our previous section:</p>
+<ul>
+  <li><strong>True Positives (TP):</strong> The AI correctly identified and regularized 12 legitimate historical variants that matched your manual ground truth policy.</li>
+  <li><strong>False Positives (FP):</strong> The AI committed 4 hypercorrections on words that should have been left alone ($FP = 4$).</li>
+  <li><strong>False Negatives (FN):</strong> Suppose your manual ground truth contained 14 legitimate target words, meaning the AI overlooked 2 archaic spellings ($FN = 2$).</li>
+</ul>
+
+<p>Now calculate Precision and Recall:</p>
+<p>$$  ext{Precision} = rac{12}{12 + 4} = rac{12}{16} = 0.75     ext{ (75\%)}$$</p>
+<p>$$  ext{Recall} = rac{12}{12 + 2} = rac{12}{14} = 0.857   ext{ (85.7\%)}$$</p>
+<p>Now compare this with Wednesday's deterministic regex!
+Often, you will find a fascinating comparative trade-off:</p>
+<ul>
+  <li><strong>Regex:</strong> Precision = 100%, Recall = 71% (Regex made zero mistakes, but missed irregular inflections).</li>
+  <li><strong>Generative AI:</strong> Precision = 75%, Recall = 85.7% (AI caught more variations, but introduced destructive hypercorrections!).</li>
+</ul>
+
+<p>This mathematical comparison is the heart of digital humanities. It proves empirically why neither tool can be trusted in isolation.</p>
+<p><strong>Vocabulary.</strong> <em>Comparative metrics</em> — Measuring Precision and Recall across multiple distinct methodologies applied to the identical textual benchmark. <em>Methodological trade-off</em> — The common phenomenon where deterministic rules maximize precision while generative models maximize recall at the expense of accuracy.</p>
+<p><strong>Takeaway:</strong> Comparing Precision and Recall reveals the fundamental trade-off: deterministic regex maximizes precision, while generative AI maximizes recall at the risk of false positives.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Evaluating Precision and Recall for the AI Pass</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the context of historical text normalization, how do deterministic regex and generative AI typically compare on Precision and Recall?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Comparing Precision and Recall reveals the fundamental trade-off: deterministic regex maximizes precision, while generative AI maximizes recall at the risk of false positives.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Regex typically exhibits high Precision and lower Recall, while AI achieves higher Recall at the expense of lower Precision (higher false positives).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Regex rarely makes unauthorized edits when patterns are strict, but misses variations; AI catches almost all variants but produces unwanted hypercorrections.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Regex and AI always produce mathematically identical Precision and Recall scores of 1.0.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Every method exhibits distinct trade-offs between coverage and error rate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Regex has 0% Precision because it cannot understand human feelings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Precision measures whether the executed edits were valid, which regex achieves through strict matching.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;AI has 0% Recall because it refuses to read 18th-century documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI has broad recall because it recognizes semantic variations across historical periods.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Synthesizing the Final Normalized Text</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesizing the Final Normalized Text</h3>
+<p>Now that your three-way audit is complete, you must assemble the final production artifact of Week 6: <code>transcription_normalized.xml</code>.</p>
+<p>The final normalized file is not simply a copy of File 1, File 2, or File 3. It is a <strong>scholarly synthesis</strong> that brings together the best elements of all three passes:</p>
+<ol>
+  <li><strong>Start with your Manual Ground Truth:</strong> Use <code>transcription_reconciled_manual.xml</code> as your master foundation. It contains your verified line breaks, your careful policy choices, and your human restraint.</li>
+  <li><strong>Incorporate Valid AI Discoveries (Category A):</strong> Where the AI model successfully caught legitimate inflections or variants that you and your regex rules overlooked, adopt those specific <code>&lt;choice&gt;</code> blocks into your master file. Attribute them with <code>resp="#gemini"</code>.</li>
+  <li><strong>Reject All AI Hypercorrections (Category B):</strong> Where the AI model committed lexical substitution or dialect erasure, ensure that the original witness reading remains clean and unaltered.</li>
+  <li><strong>Resolve Complex Ambiguities (Category C):</strong> Where automated tools failed on damaged text or poetic punctuation, verify that your manual paleographical encoding correctly uses <code>&lt;unclear&gt;</code> or preserved dashes.</li>
+</ol>
+
+<p>The resulting document represents the gold standard of digital scholarship: a human-curated text enhanced by computational speed and artificial intelligence, where every single character has been verified by a responsible scholar.</p>
+<p><strong>Vocabulary.</strong> <em>Scholarly synthesis</em> — Constructing a final authoritative text by critically selecting the strongest verified readings across manual, algorithmic, and AI passes. <em>Curated edition</em> — A digital text where automated suggestions have been vetted and authorized by human editorial judgment.</p>
+<p><strong>Takeaway:</strong> The final normalized file synthesizes the best of all three passes, adopting valid AI discoveries while rejecting automated hypercorrections under human oversight.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Synthesizing the Final Normalized Text</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should an editor construct the final normalized edition (consensus_normalized.xml) from the three experimental passes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The final normalized file synthesizes the best of all three passes, adopting valid AI discoveries while rejecting all hypercorrections and hallucinations.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Start with the verified manual baseline, adopt valid candidates caught by regex and AI, and reject all AI hypercorrections and hallucinated expansions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The final text synthesizes the strengths of all methods: human philological judgment adjudicates candidates surfaced by rules and AI.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Accept all AI proposals blindly without reading the manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Blind acceptance imports severe hypercorrections and erases historical evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete all &lt;choice&gt; tags and keep only modern English prose.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The goal is a digital edition with parallel diplomatic and normalized readings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Let the computer randomly select between regex and AI using a coin flip.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editing requires reasoned, accountable decision-making.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Documenting AI Attribution in the TEI Header</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting AI Attribution in the TEI Header</h3>
+<p>In academic digital scholarship, using artificial intelligence is completely acceptable—provided that it is <strong>transparently acknowledged and attributed</strong>. Secretly using AI to generate markup and presenting it as your own manual work is a grave breach of academic integrity.</p>
+<p>The TEI Header provides built-in mechanisms for attributing automated and artificial intelligence contributions (TEI Consortium, 2024).</p>
+<p>In your <code>transcription_normalized.xml</code> file, update your TEI Header in two specific places:</p>
+<ol>
+  <li><strong>In `<titleStmt>`:</strong> Add a formal statement of responsibility recording the AI model used in the workflow:
+    <pre><code>&lt;titleStmt&gt;
+  &lt;title&gt;Normalized Edition of Witness RG 1 Vol 430 No 2&lt;/title&gt;
+  &lt;author&gt;Ken Penner&lt;/author&gt;
+  &lt;respStmt&gt;
+    &lt;resp&gt;Manual normalization, policy design, and editorial audit&lt;/resp&gt;
+    &lt;name xml:id="KP"&gt;Ken Penner&lt;/name&gt;
+  &lt;/respStmt&gt;
+  &lt;respStmt&gt;
+    &lt;resp&gt;Automated normalization suggestions generated by Gemini 2.5 Pro via VS Code Antigravity&lt;/resp&gt;
+    &lt;name xml:id="gemini"&gt;Google Gemini 2.5 Pro&lt;/name&gt;
+  &lt;/respStmt&gt;
+&lt;/titleStmt&gt;</code></pre>
+  </li>
+  <li><strong>In `<revisionDesc>`:</strong> Log the date, model, and nature of the automated pass:
+    <pre><code>&lt;revisionDesc&gt;
+  &lt;change when="2026-10-09" who="#KP"&gt;Synthesized final normalized edition; audited AI suggestions from #gemini and rejected 4 hypercorrections.&lt;/change&gt;
+&lt;/revisionDesc&gt;</code></pre>
+  </li>
+</ol>
+
+<p>Notice how this transparently records the collaboration: the human editor is named as the primary authority, the AI model is acknowledged as an automated contributor, and every tag carrying <code>resp="#gemini"</code> resolves to a valid identifier in the header.</p>
+<p><strong>Vocabulary.</strong> <em>AI attribution</em> — Transparently documenting the specific AI models, versions, and prompting workflows used to generate digital edition markup. <em><code>&lt;respStmt&gt;</code></em> — The TEI Header element defining roles and responsibilities of all human and automated project contributors.</p>
+<p><strong>Takeaway:</strong> Transparently attribute AI assistance in your TEI Header using <code>&lt;respStmt&gt;</code> and <code>&lt;change&gt;</code> tags, linking <code>resp="#gemini"</code> to an explicit model identifier.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Documenting AI Attribution in the TEI Header</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is documenting AI tool usage, model version, and system prompt in the &lt;teiHeader&gt; an academic integrity requirement?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Transparently attribute AI assistance in your TEI Header using &lt;respStmt&gt; and &lt;change&gt; tags, linking @resp='#ai' to an explicit methodology description.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It provides a transparent computational provenance trail, allowing future scholars to understand which interventions were machine-suggested.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Digital humanities demands reproducible and accountable scholarship; automated interventions must be attributed and documented.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI Header is a commercial advertisement board for AI software vendors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The TEI Header records scholarly and bibliographic metadata, not advertisements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Documenting AI tools automatically exempts the student from taking final exams.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Documenting methods is a standard requirement for academic rigor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It allows AI companies to claim legal copyright over the student's historical edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Provenance documentation records scholarly methodology; copyright rests with authorial/editorial rights.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Writing the Comparative Reflection Report</text></name><questiontext format="html"><text><![CDATA[
+<h3>Writing the Comparative Reflection Report</h3>
+<p>The final component of Workshop 6 is composing your <strong>Comparative Reflection Report</strong>, recorded in <code>NORMALIZATION.md</code>.</p>
+<p>Your report should be between <strong>300 and 500 words</strong>, written in clear academic prose. It synthesizes your findings from the three-way audit and evaluates what the exercise revealed about your document.</p>
+<p>Structure your report into four distinct sections:</p>
+<ol>
+  <li><strong>Methodological Overview (approx. 75 words):</strong> Briefly describe your 20-line passage and state the core principles of your Editorial Regularization Policy.</li>
+  <li><strong>Quantitative Results (approx. 100 words):</strong> Report your empirical metrics in a clean markdown table:
+    <ul>
+      <li>Deterministic Regex: True Positives, False Positives, Precision, Recall.</li>
+      <li>Generative AI: True Positives, False Positives, Hypercorrection Rate, Precision, Recall.</li>
+    </ul>
+  </li>
+  <li><strong>Discrepancy Analysis (approx. 200 words):</strong> Discuss at least one concrete example from each discrepancy category:
+    <ul>
+      <li>One Category A instance where AI succeeded over regex.</li>
+      <li>One Category B instance where regex protected text from an AI hypercorrection.</li>
+      <li>One Category C instance where both automated tools struggled.</li>
+    </ul>
+  </li>
+  <li><strong>Scholarly Conclusion (approx. 75 words):</strong> Conclude with a reflection on how automated tools impact the preservation of historical language and dialect in your specific witness.</li>
+</ol>
+
+<p>This report is where you earn your grade. It demonstrates that you are not merely a technician running software, but a critical humanist capable of evaluating computational tools with scholarly rigor.</p>
+<p><strong>Vocabulary.</strong> <em>Comparative reflection report</em> — A structured academic synthesis evaluating the empirical performance and qualitative trade-offs of manual, regex, and AI text processing.</p>
+<p><strong>Takeaway:</strong> Structure your 300–500 word reflection report around your policy overview, quantitative metrics table, discrepancy analysis, and scholarly conclusions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Writing the Comparative Reflection Report</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should form the analytical core of the Workshop 6 Comparative Reflection Report?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Structure your 300-500 word reflection report around your policy overview, quantitative metrics table, discrepancy analysis, and lessons learned.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A discussion of specific discrepancy categories (A, B, C) supported by quantitative metrics and philological analysis of why each method succeeded or failed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The reflection must bridge quantitative metrics with deep qualitative analysis of linguistic and computational behavior.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A summary of the weather during the week the workshop was assigned.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The report analyzes normalization methodology and textual discrepancies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A fictional story about an 18th-century scribe traveling through time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The assignment requires scholarly reflection on digital editing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A list of complaints about how difficult it is to install software.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The report focuses on editorial decisions and comparative results.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Ethical Dimensions of AI in Cultural Heritage</text></name><questiontext format="html"><text><![CDATA[
+<h3>Ethical Dimensions of AI in Cultural Heritage</h3>
+<p>Before completing our study of automated normalization, we must pause to consider the broader <strong>ethical and political dimensions of artificial intelligence in digital humanities</strong>.</p>
+<p>Artificial intelligence models are not neutral, objective mathematical conduits. They are commercial technologies built by multinational corporations, trained on contemporary internet data that overwhelmingly reflects standard, wealthy, modern Anglo-American cultural norms (Pierazzo, 2015).</p>
+<p>When an AI model encounters historical documents, it instinctively attempts to discipline those documents:</p>
+<ul>
+  <li>It flattens working-class vernacular voices (like Maud Lewis) into corporate business English.</li>
+  <li>It smooths over the idiosyncratic, resistant rhythms of female poets (like Emily Dickinson) into standard Victorian metrics.</li>
+  <li>It homogenizes non-standard regional spellings, erasing the rich diversity of historical dialects.</li>
+</ul>
+
+<p>If digital scholars blindly accept AI-generated text without rigorous manual auditing, we risk creating a homogenized, algorithmic digital archive where the authentic linguistic friction of the past has been quietly scrubbed away.</p>
+<p>The role of the digital humanist is to stand as a guardian of historical alterity. We use artificial intelligence to accelerate indexing and accessibility, but we never allow an algorithm to decide what the past sounded like. The scholar's critical eye remains the ultimate ethical defense of human memory.</p>
+<p><strong>Vocabulary.</strong> <em>Linguistic homogenization</em> — The erasure of regional, dialectal, and historical linguistic diversity by automated AI language models. <em>Historical alterity</em> — The fundamental, authentic difference of past languages, cultures, and mindsets from modern contemporary norms.</p>
+<p><strong>Takeaway:</strong> Digital humanists must ethically guard against AI linguistic homogenization, ensuring that automated tools never erase the authentic, non-standard voices of historical writers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Ethical Dimensions of AI in Cultural Heritage</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What ethical danger arises when large language models are used uncritically to process minority dialects, Indigenous documents, or working-class letters?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Digital humanists must ethically guard against AI linguistic homogenization, ensuring that automated tools preserve rather than erase non-standard historical voices.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Linguistic homogenization, where the AI erases authentic cultural, regional, and socioeconomic voices to conform to standardized prestige dialects.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Generative models trained on dominant prestige dialects can homogenize unique historical voices if applied without strict ethical and editorial safeguards.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The AI model will physically steal the paper manuscripts from museum display cases.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ethical risk is linguistic and representational, not physical theft.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Minority languages cannot be processed by computers due to Unicode restrictions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Modern Unicode supports virtually all global scripts and linguistic characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The AI will automatically convert all historical letters into legal copyright lawsuits.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Linguistic flattening of non-standard voices is the primary cultural heritage danger.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Validating the Final Normalized Edition</text></name><questiontext format="html"><text><![CDATA[
+<h3>Validating the Final Normalized Edition</h3>
+<p>Before committing your files to Git and submitting Workshop 6, you must conduct a comprehensive <strong>validation sweep</strong> across your entire project repository.</p>
+<p>In digital editing, an unvalidated XML file is considered broken. A single syntax error prevents TEI Publisher, web browsers, or search engines from reading your document.</p>
+<p>Complete this pre-submission validation checklist in VS Code:</p>
+<ol>
+  <li><strong>Verify XML Schema Compliance:</strong> Open <code>transcription_normalized.xml</code>. Open the Problems panel (<code>Cmd+Shift+M</code>). Confirm that the document displays <strong>0 errors</strong> against your project's RELAX NG schema.</li>
+  <li><strong>Check Milestone Integrity:</strong> Search for <code>&lt;lb/&gt;</code> tags. Verify that every single line break from your consensus diplomatic text is present, in order, with its original line number intact.</li>
+  <li><strong>Audit Attribution Tags:</strong> Ensure that every `<reg>` and `<expan>` element carries an authorized `@resp` attribute pointing to a valid identifier in the TEI Header (`#editor`, `#KP`, or `#gemini`).</li>
+  <li><strong>Confirm Non-Destructive Markup:</strong> Verify that no raw text was deleted; every normalization must exist as a parallel pairing inside a valid <code>&lt;choice&gt;</code> block.</li>
+</ol>
+
+<p>When your Problems panel displays a clean green checkmark with zero errors, your digital edition satisfies the highest technical standards of professional scholarship.</p>
+<p><strong>Vocabulary.</strong> <em>Validation sweep</em> — An exhaustive pre-publication review verifying schema conformance, milestone preservation, and attribution accuracy across all project files. <em>Zero-error baseline</em> — The mandatory technical standard requiring digital edition files to pass schema validation without syntax violations.</p>
+<p><strong>Takeaway:</strong> Conduct an exhaustive validation sweep before submission, ensuring your final normalized XML passes schema validation with zero errors and preserves all milestones.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Validating the Final Normalized Edition</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What two validation checks must the final synthesized XML file pass before submission?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Conduct an exhaustive validation sweep before submission, ensuring your final normalized XML passes schema checks and preserves all structural tags.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;XML well-formedness (properly closed and nested tags) and TEI schema validity (compliance with project element definitions and attributes).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A scholarly edition must be technically well-formed and valid against the TEI schema to ensure interoperability and digital preservation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An internet speed test and a hard drive defragmentation check.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Validation checks verify XML structure and schema conformance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A copyright registration with the federal trademark office.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Technical validation is performed locally against the TEI RNG schema.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A virus scan of the student's personal email account.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML validation evaluates the document markup itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Preparing for Week 7: Collation</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing for Week 7: Collation</h3>
+<p>Congratulations! By completing Week 6, you have mastered the first four foundational stages of the scholarly editing pipeline:</p>
+<ol>
+  <li><strong>Cataloguing & Metadata (Module 2):</strong> Creating the TEI Header and authority files.</li>
+  <li><strong>Imaging & IIIF (Module 3):</strong> Binding facsimile images to structural canvas zones.</li>
+  <li><strong>Diplomatic Transcription (Module 4):</strong> Keying the physical witness line by line.</li>
+  <li><strong>Reconciliation & Normalization (Modules 5 & 6):</strong> Building a consensus text and encoding parallel standardizations and abbreviation expansions.</li>
+</ol>
+
+<p>Your document is now in pristine condition. It preserves the exact historical handwriting of the witness, while simultaneously providing modern standard lemmas and expanded abbreviations for automated computational tools.</p>
+<p>Where do we go next?</p>
+<p>After next week's <strong>Fall Study Break (Oct 12–16)</strong>, we return in <strong>Week 7 (Module 07: Collation)</strong> to confront the fundamental challenge of textual criticism: <strong>comparing multiple witnesses of the same work</strong>.</p>
+<p>In Week 7, you will take your normalized text and compare it against alternative manuscript witnesses or printed editions of the same text. You will learn to perform manual collation on paper, run automated multi-witness alignment algorithms using the <strong>CollateX</strong> engine, and deploy AI models to classify textual variants into substitutions, additions, omissions, and transpositions.</p>
+<p>Your normalized text is the essential engine that makes automated collation possible: because you regularized spelling, CollateX will align the words correctly rather than stumbling over superficial orthographic noise!</p>
+<p><strong>Vocabulary.</strong> <em>Textual collation</em> — The systematic comparison of multiple physical witnesses of the same work to identify, record, and analyze textual variations. <em>CollateX</em> — The premier open-source algorithmic engine used by digital humanists to align and collate multi-witness texts.</p>
+<p><strong>Takeaway:</strong> Your normalized text provides the clean baseline needed for Week 7, where you will use CollateX to align and collate multiple historical witnesses.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Preparing for Week 7: Collation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is a rigorously normalized text essential for automated collation in Week 7?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Your normalized text provides the clean baseline needed for Week 7, where you will use CollateX to align and collate multiple historical witnesses.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Collation algorithms (like CollateX) align texts word by word; superficial spelling variations obscure substantive textual variants unless normalized beforehand.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Normalization levels non-significant orthographic noise so collation algorithms can pinpoint genuine textual additions, omissions, and revisions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;CollateX only accepts files written in modern French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CollateX works across languages once textual tokens are aligned.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Collation software deletes all punctuation marks permanently from the repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Collation analyzes textual variance; normalization provides the necessary aligned baseline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Without normalization, computers refuse to boot into the operating system.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The issue is algorithmic alignment of text witnesses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Review and Workshop 6 Master Checklist</text></name><questiontext format="html"><text><![CDATA[
+<h3>Review and Workshop 6 Master Checklist</h3>
+<p>Today you brought Week 6 to its triumphant scholarly conclusion. You explored the capabilities of generative artificial intelligence, constructed negative prompts, diagnosed hypercorrections, executed a three-way comparative audit, and synthesized a final normalized digital edition.</p>
+<p>Before submitting Workshop 6, review the <strong>Master Deliverables Checklist</strong>:</p>
+<ol>
+  <li><strong>Consensus Excerpt Base:</strong> A clean 20-line passage from <code>transcription_reconciled.xml</code>.</li>
+  <li><strong>File 1 (Manual Pass):</strong> <code>transcription_reconciled_manual.xml</code> hand-encoded with validated TEI <code>&lt;choice&gt;</code> markup in Lesson 6.1.</li>
+  <li><strong>File 2 (Regex Pass):</strong> <code>transcription_reconciled_regex.xml</code> automated using XML-safe regular expressions in Lesson 6.2.</li>
+  <li><strong>File 3 (AI Pass):</strong> <code>transcription_reconciled_ai.xml</code> generated by Gemini in VS Code Antigravity with strict negative prompts in Lesson 6.3.</li>
+  <li><strong>File 4 (Final Synthesis):</strong> <code>transcription_normalized.xml</code> synthesizing the best verified readings across all passes, validated with 0 schema errors.</li>
+  <li><strong>Documentation in `NORMALIZATION.md`:</strong>
+    <ul>
+      <li>Your explicit Editorial Regularization Policy statement.</li>
+      <li>Your completed Rule Ledger cataloguing Rule IDs, descriptions, regex patterns, and replacements.</li>
+      <li>Your 300–500 word Comparative Reflection Report containing your metrics table and Category A, B, and C discrepancy analysis.</li>
+    </ul>
+  </li>
+  <li><strong>TEI Header Updated:</strong> Transparent attribution recorded in <code>&lt;editorialDecl&gt;</code> and <code>&lt;respStmt&gt;</code> with <code>resp="#gemini"</code>.</li>
+</ol>
+
+<p>Commit your files to your local repository. Enjoy your well-earned Fall Study Break next week, and return ready to conquer multi-witness collation in Week 7!</p>
+<p><strong>Vocabulary.</strong> <em>Master checklist</em> — The comprehensive verification inventory ensuring all code, XML data, and analytical documentation are complete and validated before submission.</p>
+<p><strong>Takeaway:</strong> Completing the Master Checklist guarantees that your workshop submission contains all four XML passes, a documented Rule Ledger, and an audited reflection report.</p>
+<hr />
+<h2>References</h2>
+<p>Bollmann, M. (2019). A large-scale comparison of historical text normalization systems. In <em>Proceedings of the 2019 conference of the North American chapter of the Association for Computational Linguistics: Human language technologies</em> (Vol. 1, pp. 3887–3898). Association for Computational Linguistics. https://doi.org/10.18653/v1/N19-1389</p>
+<p>Burnard, L. (2014). <em>What is the Text Encoding Initiative? How to add intelligent markup to digital resources</em>. OpenEdition Press. https://doi.org/10.4000/books.oep.426</p>
+<p>Jurafsky, D., &amp; Martin, J. H. (2024). <em>Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition</em> (3rd ed. draft). Stanford University. https://web.stanford.edu/~jurafsky/slp3/</p>
+<p>Pierazzo, E. (2015). <em>Digital scholarly editing: Theories, models and methods</em>. Ashgate Publishing.</p>
+<p>TEI Consortium. (2024). <em>TEI P5: Guidelines for electronic text encoding and interchange</em> (version 4.8.0). TEI Consortium. https://tei-c.org/guidelines/p5/</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Review and Workshop 6 Master Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which of the following packages represents the complete deliverable set for Workshop 6?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Completing the Master Checklist guarantees that your workshop submission contains all four XML passes, a documented TEI Header, and a rigorous reflection report.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Four valid TEI XML files (manual, regex, AI, final normalized), an updated TEI Header with AI attribution, and a Comparative Reflection Report.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The complete workshop package captures the full experimental trajectory and critical reflection.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A PowerPoint presentation with twenty animated transitions and no XML files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The workshop requires encoded TEI XML files and a written report.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A single raw text file with all XML tags stripped out.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Valid TEI XML structure is the core technical deliverable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An audio recording of the student reading the manuscript aloud.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The assignment requires digital textual editions and computational auditing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>
