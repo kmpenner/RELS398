@@ -1,0 +1,1873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_5.2</text></category></question>
+<question type="description"><name><text>01 Content: The Reconciliation Objective: Synthesis Over Surrender</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Reconciliation Objective: Synthesis Over Surrender</h3>
+<p>Welcome to Meeting #13. Today you reach the culmination of Week 5: textual reconciliation. </p>
+<p>Over the past week, you generated two independent diplomatic transcriptions of your manuscript page. In Week 4, you keyed Pass 1 entirely by hand into <code>witness.xml</code>. On Tuesday (Meeting #12), you used Gemini in VS Code Antigravity to produce Pass 2 in <code>transcription_ai.xml</code>. </p>
+<p>Now, you sit with two completed drafts that disagree with each other. A novice might be tempted to simply pick one file and discard the other, or blindly trust the artificial intelligence model because its output looks clean and polished. In scholarly editing, this surrender is unacceptable.</p>
+<p>Reconciliation is not about picking a winner. It is about <strong>synthesis</strong>. You are the senior editor of your digital edition. Your task today is to open both drafts side by side, inspect every line where they diverge, interrogate the physical evidence on your digital image, and synthesize the best readings into a third, authoritative file: <code>transcription_reconciled.xml</code>. Where Gemini caught a slip you made due to tired eyes, you accept its reading. Where Gemini hallucinated or smoothed historical spelling, you defend the physical ink. You are the ultimate judge.</p>
+<p><strong>Vocabulary.</strong> <em>Synthesis</em> — The intellectual act of evaluating multiple drafts to create a single superior, verified text.</p>
+<p><strong>Takeaway:</strong> Textual reconciliation is an active act of scholarly adjudication, not a passive acceptance of machine output.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The Reconciliation Objective: Synthesis Over Surrender</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary intellectual objective of textual reconciliation in digital scholarly editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Textual reconciliation is an active act of scholarly adjudication, not a passive acceptance of machine output.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To critically evaluate discrepancies between independent drafts and synthesize the most accurate readings into an authoritative consensus text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Reconciliation is an act of scholarly adjudication, comparing independent passes to synthesize a superior, verified consensus text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To automatically overwrite the human transcription with whichever output the AI model produced most quickly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editorial reconciliation requires human critical evaluation against manuscript evidence, not passive surrender to machine output.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To delete both transcription files and replace them with modern commercial translations found online.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The goal is establishing an authoritative diplomatic edition of the primary artifact, not replacing it with translations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To merge all differences blindly using an automated script without consulting the manuscript image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Automated merging accepts hallucinations and errors without verification; editors must adjudicate each divergence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: The Three-Pass Textual Architecture</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Three-Pass Textual Architecture</h3>
+<p>To understand your workflow today, you must keep the three-pass textual architecture clear in your mind:</p>
+<ul>
+<li><strong>Pass 1 (<code>witness.xml</code>):</strong> The human manual diplomatic baseline. Authored in Week 4, this draft reflects your careful reading of handwriting, physical layout, and codicological features. It carries human perceptual fatigue and cognitive auto-correction, but also human common sense and historical context.</li>
+<li><strong>Pass 2 (<code>transcription_ai.xml</code>):</strong> The machine diplomatic baseline. Generated on Tuesday via Gemini in VS Code Antigravity, this draft was produced under strict negative constraints. It never tires and reads microscopic letter strokes consistently, but it is prone to hallucination and silent modernization.</li>
+<li><strong>Pass 3 (<code>transcription_reconciled.xml</code>):</strong> The reconciled consensus baseline. Synthesized today, this file represents your adjudicated ground truth. It adopts the strengths of both passes while eliminating the distinct flaws of each.</li>
+</ul>
+<p>All three files use the exact same diplomatic XML vocabulary taught in Week 4: <code>&lt;text&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;pb/&gt;</code>, <code>&lt;lb/&gt;</code>, <code>&lt;unclear&gt;</code>, and <code>&lt;gap/&gt;</code> (plus <code>&lt;lg&gt;</code> and <code>&lt;l&gt;</code> for poetry). Furthermore, all three files must remain permanently in your repository. Preserving this three-pass lineage provides complete scholarly transparency: anyone inspecting your digital edition can trace exactly how your text evolved from raw image to finished consensus.</p>
+<p><strong>Vocabulary.</strong> <em>Textual architecture</em> — The systematic multi-stage progression of draft versions from raw witness to reconciled consensus.</p>
+<p><strong>Takeaway:</strong> Your repository preserves three distinct stages: Pass 1 (manual), Pass 2 (AI), and Pass 3 (reconciled consensus).</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: The Three-Pass Textual Architecture</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must all three transcription files (witness.xml, transcription_ai.xml, and transcription_reconciled.xml) remain in your Git repository?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Your repository preserves three distinct stages: Pass 1 (manual), Pass 2 (AI), and Pass 3 (reconciled consensus).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To preserve full scholarly provenance, allowing readers to trace how editorial decisions resolved differences between human and machine passes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Retaining all three files demonstrates complete editorial transparency and provenance for the final consensus reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Git repositories crash if any XML file is removed from the working tree.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git handles file additions and deletions easily; retaining the files is a methodological requirement of scholarly transparency.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To satisfy cloud storage quotas required by academic server hosting agreements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File retention serves scholarly accountability and auditability, not arbitrary storage quotas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the TEI schema compiler requires three identical copies of every page to validate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The schema validates individual XML files independently; it does not mandate triple copies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: Understanding the VS Code Diff Engine</text></name><questiontext format="html"><text><![CDATA[
+<h3>Understanding the VS Code Diff Engine</h3>
+<p>How do you compare two long XML files without reading them word-by-word with a magnifying glass? The answer is a computational tool called a <strong>diff engine</strong>.</p>
+<p>The concept of a diff dates back to early Unix computing (specifically Douglas McIlroy's 1974 algorithm). A diff engine takes two text streams—a source and a target—and calculates the shortest sequence of edits (insertions, deletions, and replacements) necessary to transform the first into the second.</p>
+<p>In modern code editors like Visual Studio Code, the diff engine is integrated into an interactive graphical interface. Rather than dumping cryptic terminal markers like <code>---</code> and <code>+++</code>, VS Code displays both files side-by-side in synchronized split panes:</p>
+<ul>
+<li>Red or light coral shading marks text present in the left file but absent in the right (deletions).</li>
+<li>Green or light mint shading marks text present in the right file but absent in the left (insertions).</li>
+<li>Synchronized scrolling ensures that as you move down the document, matching lines remain horizontally aligned.</li>
+</ul>
+<p>By using the diff engine, you let the computer do what computers do best: pinpointing exact coordinate differences. This frees your human intellect to do what humans do best: evaluating the historical meaning of those differences against the manuscript.</p>
+<p><strong>Vocabulary.</strong> <em>Diff engine</em> — An algorithmic tool that computes and visually highlights character and line discrepancies between two files.</p>
+<p><strong>Takeaway:</strong> VS Code's diff engine compares two files line-by-line, highlighting deletions, insertions, and intra-line edits.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: Understanding the VS Code Diff Engine</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does a graphical diff engine assist a digital editor during transcription reconciliation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;VS Code's diff engine compares two files line-by-line, highlighting deletions, insertions, and intra-line edits.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It automatically computes and visually highlights character and line discrepancies between two files in synchronized split panes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A diff engine automates the mechanical task of locating textual divergences, allowing the editor to focus on evaluating evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically corrects all historical spelling errors using a modern online dictionary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A diff engine highlights textual differences; it does not evaluate historical spelling or apply corrections.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates archaic Latin legal terms into contemporary English prose.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diff tools compare text streams character by character; they do not perform language translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts XML markup into desktop publishing formats for commercial printing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diff engines are text comparison utilities, not layout or printing software.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Launching Side-by-Side Comparison in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Launching Side-by-Side Comparison in VS Code</h3>
+<p>Opening two files for comparison in VS Code is straightforward and can be accomplished in two different ways:</p>
+<p><strong>Method 1: Using the File Explorer (Graphical)</strong></p>
+<ol>
+<li>Open the File Explorer sidebar in VS Code (<code>Ctrl+Shift+E</code> or <code>Cmd+Shift+E</code> on macOS).</li>
+<li>Right-click on your manual transcription file (<code>witness.xml</code>) and select <strong>Select for Compare</strong>.</li>
+<li>Right-click on your AI transcription file (<code>transcription_ai.xml</code>) and select <strong>Compare with Selected</strong>.</li>
+<li>VS Code immediately opens a new tab titled <code>witness.xml ↔ transcription_ai.xml</code> showing both files side-by-side.</li>
+</ol>
+<p><strong>Method 2: Using the Integrated Terminal (Command Line)</strong>
+You can also launch the diff view directly from the terminal prompt:</p>
+<pre><code class="language-bash">code --diff witness.xml transcription_ai.xml
+</code></pre>
+<p>Once the diff tab opens, configure your workspace for optimal adjudication. Split your physical monitor or position your windows so that your high-resolution manuscript image is visible alongside VS Code. You cannot reconcile text in a vacuum: your digital image is your primary source of truth, and you must consult it for every single highlighted diff chunk.</p>
+<p><strong>Vocabulary.</strong> <em>Split diff viewer</em> — A side-by-side editing interface that displays the original and modified files simultaneously.</p>
+<p><strong>Takeaway:</strong> Use the File Explorer or terminal to compare witness.xml and transcription_ai.xml in VS Code's split diff view.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Launching Side-by-Side Comparison in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the recommended graphical workflow for opening two transcription files in VS Code's diff viewer?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use the File Explorer or terminal to compare witness.xml and transcription_ai.xml in VS Code's split diff view.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Right-click the first file in the Explorer and choose 'Select for Compare', then right-click the second file and choose 'Compare with Selected'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This two-click sequence immediately loads both files into VS Code's side-by-side comparison tab.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Drag both files into the trash bin and restore them simultaneously from the operating system dock.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Moving files to the trash deletes them from your working tree rather than opening them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Rename both files to index.html and preview them in a standard web browser.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Renaming files breaks Git tracking and XML schema validation without opening a diff.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Print both XML files onto physical paper and hold them up against a classroom window.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code provides built-in computational side-by-side diffing designed specifically for this task.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Navigating Diff Chunks: Insertions, Deletions, and Modifications</text></name><questiontext format="html"><text><![CDATA[
+<h3>Navigating Diff Chunks: Insertions, Deletions, and Modifications</h3>
+<p>When you open a diff, the editor groups contiguous differences into distinct units called <strong>diff chunks</strong>. A diff chunk can be as small as a single punctuation mark or as large as an entire paragraph where lineation diverged.</p>
+<p>To navigate diff chunks efficiently without missing subtle one-character discrepancies:</p>
+<ol>
+<li><strong>The Navigation Toolbar:</strong> In the top right corner of the diff editor tab, look for the navigation arrows: <strong>Go to Next Change</strong> (down arrow) and <strong>Go to Previous Change</strong> (up arrow).</li>
+<li><strong>Keyboard Shortcuts:</strong> You can jump between differences instantly:</li>
+<li>macOS: <code>Option+F5</code> (Next Change), <code>Shift+Option+F5</code> (Previous Change)</li>
+<li>Windows/Linux: <code>Alt+F5</code> (Next Change), <code>Shift+Alt+F5</code> (Previous Change)</li>
+<li><strong>The Overview Ruler (Minimap):</strong> On the far right edge of the editor window, the vertical scrollbar displays colored tick marks showing the distribution of differences throughout the file. Blue or green tick marks represent additions; red marks indicate deletions.</li>
+</ol>
+<p>Working through your file chunk-by-chunk using keyboard shortcuts ensures disciplined, comprehensive review. Never skim or scroll rapidly: an unexamined diff chunk might contain a critical scribal abbreviation or an AI hallucination.</p>
+<p><strong>Vocabulary.</strong> <em>Diff chunk</em> — A contiguous block of text containing one or more lines where two files differ.</p>
+<p><strong>Takeaway:</strong> Navigate methodically through diff chunks using keyboard shortcuts or the diff minimap rather than scrolling aimlessly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Navigating Diff Chunks: Insertions, Deletions, and Modifications</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should a digital editor navigate through textual discrepancies in VS Code's diff viewer?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Navigate methodically through diff chunks using keyboard shortcuts or the diff minimap rather than scrolling aimlessly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Use the 'Next Change' and 'Previous Change' commands (or keyboard shortcuts) to step systematically through each diff chunk.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Stepping chunk-by-chunk using navigation shortcuts ensures that every single discrepancy is examined without accidental oversight.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Scroll down the page as fast as possible while looking only for red-colored words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Rapid scrolling easily misses subtle one-character differences or missing line breaks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Close the diff editor after inspecting the first two lines and assume the remaining lines match.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Discrepancies occur throughout historical documents; every section requires review.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Zoom out to 10% magnification so the entire document fits onto a single screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Extreme zoom out makes character-level text unreadable, preventing paleographical inspection.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Reading Diff Highlighting: Block vs. Character-Level Changes</text></name><questiontext format="html"><text><![CDATA[
+<h3>Reading Diff Highlighting: Block vs. Character-Level Changes</h3>
+<p>VS Code uses a two-tier visual highlighting system to communicate exactly what kind of divergence has occurred:</p>
+<ol>
+<li><strong>Line-Level Background Tinting:</strong> When a line contains any difference, the entire line receives a pale, semi-transparent background color (light red/coral on the left, light green/mint on the right). This signals that the line as a whole does not match.</li>
+<li><strong>Intra-Line Character Highlighting:</strong> Within that tinted line, VS Code applies a darker, more saturated background color directly behind the specific characters that differ. </li>
+</ol>
+<p>For example, consider an 18th-century line where the manual pass keyed <code>the publick peace</code> and Gemini produced <code>the public peace</code>:</p>
+<ul>
+<li>The entire line is lightly shaded in both panes.</li>
+<li>In the left pane (<code>witness.xml</code>), the letter <code>k</code> in <code>publick</code> is highlighted with a rich, darker tint.</li>
+<li>In the right pane (<code>transcription_ai.xml</code>), the space following <code>public</code> is highlighted, indicating that the <code>k</code> is missing.</li>
+</ul>
+<p>Learning to read this two-tier shading allows you to diagnose discrepancies in seconds. You don't have to re-read the entire sentence; your eye focuses immediately on the darker character-level highlights. That darker highlight tells you exactly what historical feature is under dispute.</p>
+<p><strong>Vocabulary.</strong> <em>Intra-line highlighting</em> — The darker shading within a diff line that pinpoints the exact character coordinates of a discrepancy.</p>
+<p><strong>Takeaway:</strong> Diff lines use pale background tinting for the changed line and darker highlighting for exact character differences.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Reading Diff Highlighting: Block vs. Character-Level Changes</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does darker, more saturated highlighting within a shaded diff line indicate in VS Code?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Diff lines use pale background tinting for the changed line and darker highlighting for exact character differences.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It pinpoints the exact individual characters or punctuation marks that differ between the two lines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Intra-line saturated highlighting isolates the exact character-level coordinates of the textual disagreement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It indicates that the line violates XML schema grammar rules.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema errors are indicated by red wavy squigglies, not intra-line diff highlights.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It highlights words that are copyrighted by commercial publishers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diff highlighting is purely an edit-distance comparison between local files; it has no copyright awareness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It marks lines that have been locked and cannot be edited by the user.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Highlighting indicates differences, not file permission locks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: The Danger of Automated Merge: Why Manual Adjudication is Mandatory</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Danger of Automated Merge: Why Manual Adjudication is Mandatory</h3>
+<p>In software engineering, developers frequently use automated merge tools (<code>git merge</code>) to combine code branches. If Developer A changed line 10 and Developer B changed line 50, the git merge engine automatically merges both changes without asking questions.</p>
+<p>In historical textual scholarship, <strong>automated merging is strictly forbidden</strong>.</p>
+<p>Why? Because git merge algorithms possess zero historical consciousness. A merge algorithm cannot look at an 18th-century manuscript image. It does not know that an author used a quill pen, that ink faded across a fold, or that printers used the medial long-s (<code>ſ</code>). </p>
+<p>If an AI model silently 'corrected' an archaic word from <code>ye</code> to <code>the</code>, an automated merge tool might accept the AI's version simply because it looks like a modern dictionary word. In doing so, the algorithm destroys historical evidence and corrupts your edition.</p>
+<p>Every difference between your passes represents a fork in scholarly interpretation. You cannot delegate that interpretation to a heuristic script. You must look at the primary manuscript image, inspect the physical ink, and make an active, documented editorial decision. That is why we create our third file manually through adjudication.</p>
+<p><strong>Vocabulary.</strong> <em>Automated merge</em> — A blind computational operation that accepts changes without contextual evaluation of historical evidence.</p>
+<p><strong>Takeaway:</strong> Never accept automated three-way merges on historical texts; every difference demands paleographical scrutiny.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: The Danger of Automated Merge: Why Manual Adjudication is Mandatory</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are automated git merge algorithms inappropriate for reconciling historical manuscript transcriptions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Never accept automated three-way merges on historical texts; every difference demands paleographical scrutiny.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Automated merge tools lack historical and visual context, and would blindly incorporate AI modernizations and hallucinations into the text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Automated algorithms evaluate text purely by string matching, destroying historical orthography and accepting unverified AI smoothing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because automated merges automatically delete the local repository from the computer hard drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Merge tools combine text streams; they do not delete repositories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because git merge commands can only be executed by certified system administrators.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git merge is a standard user command, but methodologically flawed for textual scholarship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because XML files cannot be read by version control systems.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML files are plain text and are tracked by Git natively.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Establishing the Third File: transcription_reconciled.xml</text></name><questiontext format="html"><text><![CDATA[
+<h3>Establishing the Third File: transcription_reconciled.xml</h3>
+<p>Now we begin hands-on construction. Before adjudicating any lines, you must create the container for your reconciled consensus text: <code>transcription_reconciled.xml</code>.</p>
+<p><strong>Step-by-Step File Initialization:</strong></p>
+<ol>
+<li>In the VS Code File Explorer, duplicate your manual transcription file (<code>witness.xml</code>) or create a new file in your repository root named <code>transcription_reconciled.xml</code>.</li>
+<li>Ensure that this new file opens with the full standard TEI container hierarchy:</li>
+</ol>
+<pre><code class="language-xml">&lt;text&gt;
+  &lt;body&gt;
+    &lt;div&gt;
+      &lt;pb facs=&quot;#[surface-id]&quot; n=&quot;[page-num]&quot;/&gt;
+      &lt;!-- Adjudicated paragraphs, lines, and milestones go here --&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/text&gt;
+</code></pre>
+<ol>
+<li>Open <code>transcription_reconciled.xml</code> in an editor pane alongside your diff tab.</li>
+</ol>
+<p>As you step through the diff chunks between <code>witness.xml</code> and <code>transcription_ai.xml</code>, you will build <code>transcription_reconciled.xml</code> line by line. If <code>witness.xml</code> is correct, keep its line. If <code>transcription_ai.xml</code> is superior, paste its reading into <code>transcription_reconciled.xml</code>. If both missed something, write the corrected reading directly into the reconciled file.</p>
+<p>Notice the fundamental rule: <strong>you do not edit witness.xml or transcription_ai.xml today</strong>. Those two files remain frozen as historical records of Pass 1 and Pass 2. All edits occur exclusively in <code>transcription_reconciled.xml</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Consensus document</em> — The third, authoritative file synthesized from the best verified readings of prior passes.</p>
+<p><strong>Takeaway:</strong> Create transcription_reconciled.xml as an independent file to house your reconciled readings without overwriting earlier passes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Establishing the Third File: transcription_reconciled.xml</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the correct editing procedure when building transcription_reconciled.xml during reconciliation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Create transcription_reconciled.xml as an independent file to house your reconciled readings without overwriting earlier passes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Apply all adjudicated decisions and corrections exclusively to transcription_reconciled.xml, leaving witness.xml and transcription_ai.xml untouched.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Leaving the first two passes untouched preserves their integrity as baseline evidence, while the third file captures the reconciled consensus.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Edit witness.xml directly and delete transcription_ai.xml once finished.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Overwriting Pass 1 destroys the manual baseline, ruining the project's provenance trail.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Paste both files into transcription_reconciled.xml one after the other to double the length of the document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The reconciled file is an adjudicated consensus text of the page, not a concatenated dump of duplicate drafts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Save all changes directly into msdesc.rng to modify the underlying schema grammar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The schema file msdesc.rng defines structural validation rules, not manuscript text content.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: The Four Discrepancy Categories</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Four Discrepancy Categories</h3>
+<p>As you compare Pass 1 and Pass 2, you will encounter dozens of differences. To prevent cognitive overwhelm, textual scholars categorize discrepancies into a structured <strong>error taxonomy</strong>. </p>
+<p>In this course, every divergence falls into one of four distinct categories:</p>
+<ol>
+<li><strong>Category A: Human Perceptual Fatigue (AI Correct).</strong> You missed a letter, skipped an obscure word, or misread a clear character because your eyes were tired. Gemini caught it.</li>
+<li><strong>Category B: AI Hallucination / Autoregressive Smoothing (Human Correct).</strong> Gemini modernized spelling, expanded an abbreviation, invented words over smudges, or smoothed syntax. Your manual reading is faithful to the physical ink.</li>
+<li><strong>Category C: Genuine Physical Ambiguity (Both Uncertain).</strong> The manuscript itself is damaged, faded, torn, or stained. Both human and machine struggled.</li>
+<li><strong>Category D: Layout and Structural Divergence.</strong> Differences in line breaks (<code>&lt;lb/&gt;</code>), paragraph boundaries (<code>&lt;p&gt;</code>), or verse containers (<code>&lt;lg&gt;&lt;l&gt;</code>).</li>
+</ol>
+<p>Memorize these four categories. In Friday's lab and in tonight's assignment reflection (<code>RECONCILIATION.md</code>), you will formally report your diff results using this exact taxonomy.</p>
+<p><strong>Vocabulary.</strong> <em>Error taxonomy</em> — A structured classification system used to group and analyze different types of transcription discrepancies.</p>
+<p><strong>Takeaway:</strong> Classify every divergence into one of four categories: human fatigue, machine smoothing, physical ambiguity, or structural layout.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: The Four Discrepancy Categories</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which discrepancy category applies when an AI model silently modernizes historical spelling or invents words over ink smudges?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Classify every divergence into one of four categories: human fatigue, machine smoothing, physical ambiguity, or structural layout.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Category B: AI Hallucination / Autoregressive Smoothing (Human Correct).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Category B describes instances where the neural model deviates from physical ink to produce standardized or fabricated text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Category A: Human Perceptual Fatigue.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Category A is when the human made a fatigue slip and the AI was correct.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Category C: Genuine Physical Ambiguity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Category C describes instances where the artifact itself is physically damaged or ambiguous to both observers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Category D: Layout and Structural Divergence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Category D concerns layout elements like milestones and structural containers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Category A: Catching Human Perceptual Fatigue</text></name><questiontext format="html"><text><![CDATA[
+<h3>Category A: Catching Human Perceptual Fatigue</h3>
+<p>Let us examine Category A in detail. When you transcribed your page by hand in Week 4, you were reading unfamiliar historical scripts—perhaps 18th-century cursive or mid-20th-century folk handwriting. Close paleographical reading is exhausting. After thirty minutes, human attention degrades.</p>
+<p>Common human fatigue errors include:</p>
+<ul>
+<li>Dropping small grammatical particles (e.g. skipping 'the', 'of', or 'and').</li>
+<li>Inverting adjacent letters (e.g. typing 'recieve' instead of 'receive' or vice-versa).</li>
+<li>Misreading unambiguous characters due to visual habit (e.g. reading an archaic letter 'e' as an 'o').</li>
+</ul>
+<p>When you examine a diff chunk and see that Gemini transcribed a letter or word that you omitted, zoom in on your high-resolution image. Look closely at the physical ink. If the ink clearly shows the word that Gemini captured, celebrate! The AI model has served as an indefatigable second reader, catching an error caused by human fatigue.</p>
+<p><strong>Your Action:</strong> Accept Gemini's reading into <code>transcription_reconciled.xml</code>. Take note of this occurrence for your reflection report: human-machine double-keying has successfully caught a human slip.</p>
+<p><strong>Vocabulary.</strong> <em>Perceptual fatigue</em> — Cognitive exhaustion from prolonged close reading that causes transcribers to miss visual details.</p>
+<p><strong>Takeaway:</strong> When Gemini correctly reads characters that you misread due to fatigue, accept the machine reading into your consensus file.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Category A: Catching Human Perceptual Fatigue</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should an editor do when a diff reveals that Gemini correctly captured a manuscript word that the human transcriber skipped?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;When Gemini correctly reads characters that you misread due to fatigue, accept the machine reading into your consensus file.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Verify the word against the primary image and accept Gemini's reading into transcription_reconciled.xml.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. When image verification confirms the machine was accurate, the reading is adopted into the reconciled consensus text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Reject Gemini's reading to protect human pride and maintain the original human error.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editing prioritizes fidelity to the historical witness above personal pride.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the entire paragraph containing the skipped word to hide the error from reviewers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting text corrupts the completeness of the digital edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Mark the word with a &lt;gap/&gt; element to pretend the manuscript was physically destroyed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;gap/&gt;` is reserved for genuine physical loss, not transcriber oversights.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Cognitive Blind Spots: The Repetition and Skipping Effect</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cognitive Blind Spots: The Repetition and Skipping Effect</h3>
+<p>One of the most pervasive cognitive phenomena in textual transmission is <strong>eye-skip</strong> (historically called <em>parablepsis</em> or <em>homoioteleuton</em>). </p>
+<p>When a historical text contains identical or similar words in close proximity, the human eye easily loses its place on the page:</p>
+<pre><code>Line 4: ...shall pay to the treasurer the sum of fifty pounds...
+Line 5: ...and upon payment to the treasurer shall receive a receipt...
+</code></pre>
+<p>If a human transcriber looks away to type "to the treasurer" from Line 4, their eye often returns to the <em>second</em> occurrence on Line 5. As a result, the entire phrase between the two occurrences is silently omitted. Scribes in medieval scriptoria committed this exact error thousands of times, and modern students do the same.</p>
+<p>Conversely, a computer vision model does not have an eye that wanders between lines. It processes visual patches systematically across pixel space. In a diff, an eye-skip appears as a sudden multi-word deletion in the manual pass.</p>
+<p>When you see a large deletion chunk in <code>witness.xml</code>, check the manuscript image immediately. If you jumped a line, restore the missing text from <code>transcription_ai.xml</code> into <code>transcription_reconciled.xml</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Eye-skip (parablepsis)</em> — An error where the transcriber's eye jumps between similar words or letters, skipping text in between.</p>
+<p><strong>Takeaway:</strong> Human readers frequently skip repeated words or jump lines; machine vision models reliably flag these omissions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Cognitive Blind Spots: The Repetition and Skipping Effect</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the paleographical term for an error where a transcriber's eye jumps between identical words, accidentally omitting the text in between?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Human readers frequently skip repeated words or jump lines; machine vision models reliably flag these omissions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Parablepsis (eye-skip).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Parablepsis or eye-skip is a classic scribal and editorial error caused by visual jumping between similar word endings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Dittography.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dittography is the accidental repetition of a letter or word, rather than omission.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Metathesis.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Metathesis is the transposition of adjacent letters or sounds within a word.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Haplography.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Haplography is copying once what should be copied twice, closely related but distinct from line-jumping eye-skip.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Category B: Identifying Machine Hallucination</text></name><questiontext format="html"><text><![CDATA[
+<h3>Category B: Identifying Machine Hallucination</h3>
+<p>Now we turn to Category B: machine failure. Large multimodal models like Gemini are autoregressive neural networks. They are trained to predict the most statistically probable next token given the prompt and the image context.</p>
+<p>While this predictive power makes them remarkably fluent, it also creates their greatest paleographical danger: <strong>hallucination</strong>.</p>
+<p>When an AI model encounters an ink smudge, a dark crease, or an ambiguous ligature, it does not stop and confess uncertainty unless forced to do so. Instead, the language model inside the vision architecture attempts to 'fill in the blank.' It predicts what word <em>ought</em> to appear in an 18th-century sentence, and emits that word as if it were plainly visible on the parchment!</p>
+<p>In a diff, machine hallucination typically appears where <code>transcription_ai.xml</code> presents a complete, elegant sentence, but <code>witness.xml</code> contains an <code>&lt;unclear&gt;</code> tag or a partial word.</p>
+<p>When you check the image, you will see the truth: there is only a smudge of faded ink. Gemini invented the word out of thin air.</p>
+<p><strong>Your Action:</strong> Reject the hallucination! Defend the physical document. Preserve your manual reading or mark the doubtful reading with <code>&lt;unclear&gt;</code> in <code>transcription_reconciled.xml</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Hallucination</em> — A neural model error where the system generates plausible-sounding text unsupported by physical ink on the image.</p>
+<p><strong>Takeaway:</strong> Reject machine readings that invent missing letters or smooth out messy manuscript realities.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Category B: Identifying Machine Hallucination</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should an editor respond when Gemini generates a complete word over an ink blot where no distinct letters are visible?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Reject machine readings that invent missing letters or smooth out messy manuscript realities.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Reject Gemini's hallucinated word and mark the damaged area with an appropriate TEI uncertainty element like &lt;unclear&gt; or &lt;gap/&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editors must reject machine hallucinations that invent text over physical damage, preserving authentic manuscript evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Accept the word because neural models have telepathic access to the original author's intentions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models predict statistical token patterns; they have no telepathic knowledge of history.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Change the manuscript image using an image editor to match what the AI predicted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Falsifying archival images is scholarly malpractice.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Email Google support asking them to rewrite the model weights before continuing the workshop.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adjudicating model failures is a normal and expected part of scholarly reconciliation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: The Modernization Reflex: Defending Archaic Orthography</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Modernization Reflex: Defending Archaic Orthography</h3>
+<p>The most frequent Category B error is what we call the <strong>modernization reflex</strong> (or autoregressive smoothing). </p>
+<p>Multimodal foundation models are trained on billions of words of modern web text, news articles, and contemporary literature. Standard English orthography acts like a powerful gravitational pull on the model's outputs. Even when you instruct Gemini with strict negative constraints, the model will constantly attempt to 'correct' historical spelling:</p>
+<ul>
+<li><code>publick</code> $\to$ modernized to <code>public</code></li>
+<li><code>compleat</code> $\to$ modernized to <code>complete</code></li>
+<li><code>shew</code> $\to$ modernized to <code>show</code></li>
+<li><code>Janry</code> $\to$ modernized to <code>January</code></li>
+<li><code>ye</code> $\to$ modernized to <code>the</code></li>
+</ul>
+<p>In the diff editor, these modernizations appear as crisp character-level discrepancies. Look at <code>witness.xml</code>: you transcribed <code>compleat</code> because the author wrote <code>c-o-m-p-l-e-a-t</code>. Look at <code>transcription_ai.xml</code>: Gemini emitted <code>complete</code>.</p>
+<p>Remember: our goal this week is <strong>diplomatic transcription</strong>. We want to preserve the exact physical and orthographical testimony of the witness. Do not let the machine homogenize historical language.</p>
+<p><strong>Your Action:</strong> Reject Gemini's modernized spelling. Keep the authentic archaic spelling in <code>transcription_reconciled.xml</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Archaic orthography</em> — Historical spelling practices that differ from modern standardized dictionaries.</p>
+<p><strong>Takeaway:</strong> When Gemini silently modernizes historical spellings like 'compleat' or 'publick', reject the edit and defend the authentic ink.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: The Modernization Reflex: Defending Archaic Orthography</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do multimodal vision models frequently modernize historical spellings despite explicit prompt constraints forbidding it?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;When Gemini silently modernizes historical spellings like 'compleat' or 'publick', reject the edit and defend the authentic ink.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Their training on vast corpora of modern text creates a statistical bias toward standardized contemporary vocabulary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Autoregressive language models have a strong statistical prior toward modern standard spelling, causing them to smooth historical orthography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI guidelines strictly prohibit transcribing archaic spelling in digital editions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI diplomatic transcription exists specifically to preserve authentic historical spelling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the VS Code diff extension automatically rewrites XML text before displaying it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The diff extension displays files exactly as written; it does not alter file content.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because historical English authors deliberately designed their spelling to confuse modern neural networks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical spelling reflected contemporary phonetic and regional conventions long before computing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Scribal Abbreviations vs. Silent AI Expansion</text></name><questiontext format="html"><text><![CDATA[
+<h3>Scribal Abbreviations vs. Silent AI Expansion</h3>
+<p>A related failure mode in Category B is the <strong>silent expansion of abbreviations</strong>. </p>
+<p>Historical writers made extensive use of abbreviations. Paper and parchment were expensive, and writing with a quill pen was labor-intensive. Standard abbreviations included:</p>
+<ul>
+<li>Brevigraphs like <code>&amp;</code> and <code>&amp;c.</code> (et cetera)</li>
+<li>Suspensions like <code>Govr</code> (Governor) or <code>Honble</code> (Honorable)</li>
+<li>Superscript letters (e.g. <code>y^e</code> for <em>the</em>, <code>y^t</code> for <em>that</em>, <code>w^ch</code> for <em>which</em>)</li>
+</ul>
+<p>When Gemini encounters <code>Govr</code>, its internal language model recognizes the semantic concept 'Governor'. Unless strictly constrained, it will often output <code>&lt;p&gt;Governor&lt;/p&gt;</code> instead of <code>&lt;p&gt;Govr&lt;/p&gt;</code>.</p>
+<p>In Week 6 (Normalization), we will learn how to encode abbreviations and their modern expansions together using TEI elements like <code>&lt;choice&gt;</code>, <code>&lt;abbr&gt;</code>, and <code>&lt;expan&gt;</code>. </p>
+<p><strong>However, this week, normalization elements are strictly locked!</strong> Today, we are establishing the pure, unexpanded diplomatic baseline. If Gemini expanded an abbreviation, it broke the diplomatic boundary.</p>
+<p><strong>Your Action:</strong> Reject the expanded word. Keep the unexpanded historical abbreviation in <code>transcription_reconciled.xml</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Scribal abbreviation</em> — A shortened written form or symbol used by historical writers to conserve parchment, ink, or writing time.</p>
+<p><strong>Takeaway:</strong> Keep abbreviations like '&amp;c.', 'ye', and 'Govr' exactly as written; do not let Gemini silently expand them.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Scribal Abbreviations vs. Silent AI Expansion</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should a transcriber handle an instance where Gemini expanded the scribal abbreviation 'Govr' into the full word 'Governor'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Keep abbreviations like '&amp;c.', 'ye', and 'Govr' exactly as written; do not let Gemini silently expand them.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Reject the expansion and retain the abbreviated form 'Govr' to preserve diplomatic fidelity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. In diplomatic transcription, abbreviations must remain unexpanded; interpretive expansion is deferred until normalization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Accept 'Governor' and delete the manuscript image to prevent anyone from noticing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Suppressing evidence violates basic scholarly ethics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Wrap the word in an &lt;expan&gt; tag immediately, ignoring the Week 5 boundary rules.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Normalization tags remain locked until Week 6 to keep the diplomatic baseline clean.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Change the author of the manuscript to Gemini 1.5 in the teiHeader.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The manuscript author remains the historical person; the AI is merely a transcription tool.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Long-s (ſ) and Historical Letterforms</text></name><questiontext format="html"><text><![CDATA[
+<h3>Long-s (ſ) and Historical Letterforms</h3>
+<p>For students working with 18th-century printed texts (such as Ace's 1791 French Revolutionary Decree), one particular glyph creates continuous diff discrepancies: the <strong>medial long-s (<code>ſ</code>)</strong>.</p>
+<p>In European printing from the Renaissance until around 1800, printers used two distinct lowercase forms of the letter 's':</p>
+<ul>
+<li>The short round 's' (<code>s</code>) was used at the end of words (e.g. <code>leurs</code>, <code>dans</code>).</li>
+<li>The long-s (<code>ſ</code>) was used at the beginning and in the middle of words (e.g. <code>aſſemblée</code>, <code>ſerment</code>, <code>neceſſaire</code>).</li>
+</ul>
+<p>The long-s looks very similar to a lowercase 'f', but lacks the full right-hand horizontal crossbar.</p>
+<p>Standard AI vision models constantly collapse the long-s into a modern round 's'. When viewing the diff of Ace's decree:</p>
+<ul>
+<li><code>witness.xml</code> contains <code>aſſemblée</code> (using Unicode <code>U+017F</code>).</li>
+<li><code>transcription_ai.xml</code> contains <code>assemblée</code> (using modern <code>s</code>).</li>
+</ul>
+<p>While modernizing the long-s is common in popular reprints, in a diplomatic digital edition we preserve the exact typographic testimony of the 1791 printing press. </p>
+<p><strong>Your Action:</strong> Preserve the historical long-s glyph (<code>ſ</code>) in <code>transcription_reconciled.xml</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Medial long-s (ſ)</em> — An archaic lowercase letterform resembling an 'f' without a crossbar, used medially in 18th-century typography.</p>
+<p><strong>Takeaway:</strong> If Gemini normalized the long-s (ſ) into a modern 's', restore the historical glyph to preserve printed testimony.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Long-s (ſ) and Historical Letterforms</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In historical printed texts prior to 1800, what is the significance of the medial long-s (ſ) character?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;If Gemini normalized the long-s (ſ) into a modern 's', restore the historical glyph to preserve printed testimony.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It is a distinct historical typographic letterform that must be preserved in diplomatic transcription rather than normalized to round 's'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The long-s is an authentic feature of early modern typography and is preserved in strict diplomatic editions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It represents a printing error where the press operator inserted a broken 'f' by mistake.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The long-s was a standard, intentional typographical convention used across Europe for centuries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It indicates that the text was translated from German into French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Long-s was used across Latin, English, French, Italian, and many other languages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is an obsolete mathematical symbol denoting integration over curved surfaces.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. While the calculus integral sign derives from long-s, in text it is simply an alphabetical character.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Category C: Genuine Physical Ambiguity on the Artifact</text></name><questiontext format="html"><text><![CDATA[
+<h3>Category C: Genuine Physical Ambiguity on the Artifact</h3>
+<p>Category C represents the moments where the disagreement between Pass 1 and Pass 2 is not caused by human error or machine bias, but by the physical condition of the artifact itself.</p>
+<p>Manuscripts are physical objects that have survived decades or centuries of handling, folding, dampness, and chemical decay:</p>
+<ul>
+<li>Ink fades to faint yellowish ghosts of letters.</li>
+<li>Acidic iron-gall ink burns through paper fibers.</li>
+<li>Moisture creates water stains and cockling.</li>
+<li>Folds, tears, and seal wax obscure written lines.</li>
+</ul>
+<p>When you reach a Category C diff chunk, you will notice that both you and Gemini hesitated:</p>
+<ul>
+<li>Perhaps you transcribed <code>p&lt;unclear&gt;ai&lt;/unclear&gt;d</code> while Gemini guessed <code>part</code>.</li>
+<li>Perhaps you left a blank space while Gemini output <code>trans&lt;unclear&gt;action&lt;/unclear&gt;</code>.</li>
+</ul>
+<p>Neither reading is completely right or completely wrong. The physical reality of the page is genuinely ambiguous. </p>
+<p>In digital editing, you do not force a fake resolution. TEI provides specialized markup designed specifically to communicate scholarly uncertainty with mathematical precision: <code>&lt;unclear&gt;</code> and <code>&lt;gap/&gt;</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Physical ambiguity</em> — Manuscript uncertainty caused by physical damage, ink fading, paper tears, or heavy smudges.</p>
+<p><strong>Takeaway:</strong> Where both human and machine struggle with damaged physical ink, resolve the disagreement with TEI scholarly markup.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Category C: Genuine Physical Ambiguity on the Artifact</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What characterizes a Category C discrepancy during transcription reconciliation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Where both human and machine struggle with damaged physical ink, resolve the disagreement with TEI scholarly markup.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The manuscript itself is physically damaged, faded, or torn, causing genuine uncertainty for both human and machine observers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Category C discrepancies stem from physical degradation of the primary witness rather than observer error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The XML schema was corrupted by a computer virus during download.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Category C refers to manuscript condition, not software corruption.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The student forgot to save their file before closing VS Code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File handling mistakes are user operational issues, not documentary ambiguities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The library restricted copyright access to the manuscript image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Category C addresses physical legibility on the artifact itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Adjudicating Faded Ink: The Decisive Use of unclear</text></name><questiontext format="html"><text><![CDATA[
+<h3>Adjudicating Faded Ink: The Decisive Use of unclear</h3>
+<p>When you adjudicate a Category C reading where ink is faded but partially decipherable, the TEI <code>&lt;unclear&gt;</code> element is your primary tool.</p>
+<p>A foundational principle of scholarly editing is: <strong>never guess in silence</strong>. </p>
+<p>If you or Gemini believe that a faded stroke represents the word "Tuesday", but the letters "es" are smeared by a thumbprint, do not output bare <code>Tuesday</code>. Typing bare text implies to the reader that the manuscript is pristine. </p>
+<p>Instead, enclose the uncertain reading inside <code>&lt;unclear&gt;</code>:</p>
+<pre><code class="language-xml">&lt;p&gt;&lt;lb n=&quot;12&quot;/&gt;paid on &lt;unclear&gt;Tuesday&lt;/unclear&gt; last&lt;/p&gt;
+</code></pre>
+<p>You can even apply <code>&lt;unclear&gt;</code> to individual characters within a word:</p>
+<pre><code class="language-xml">&lt;p&gt;&lt;lb n=&quot;12&quot;/&gt;paid on Tu&lt;unclear&gt;es&lt;/unclear&gt;day last&lt;/p&gt;
+</code></pre>
+<p>When someone views your digital edition, the rendering stylesheet will display <code>&lt;unclear&gt;</code> text with sublinear dots or brackets, alerting the reader to the editorial uncertainty. Using <code>&lt;unclear&gt;</code> demonstrates scholarly integrity: you provide your best paleographical hypothesis while honestly signaling the limits of physical evidence.</p>
+<p><strong>Vocabulary.</strong> <em>unclear element</em> — A TEI tag wrapping candidate readings that are probable but visually uncertain due to manuscript degradation.</p>
+<p><strong>Takeaway:</strong> Wrap ambiguous readings in the unclear tag rather than guessing silently or omitting doubtful characters.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Adjudicating Faded Ink: The Decisive Use of unclear</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is wrapping doubtful words in &amp;lt;unclear&amp;gt; superior to typing them as plain text in a diplomatic edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Wrap ambiguous readings in the unclear tag rather than guessing silently or omitting doubtful characters.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It explicitly communicates to readers that the reading is an editorial hypothesis rather than pristine physical evidence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The `&lt;unclear&gt;` tag preserves scholarly transparency by flagging readings that cannot be verified with absolute certainty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It encrypts the text with AES-256 so unauthorized readers cannot decipher the word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI tags structure and contextualize text; they do not apply cryptographic encryption.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It causes web browsers to automatically translate the word into modern standard French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;unclear&gt;` marks visual illegibility, not language translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents the XML file from being indexed by search engine crawlers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Markup semantics inform search indexing rather than blocking it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Documenting Lacunae: When to Deploy gap</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting Lacunae: When to Deploy gap</h3>
+<p>What happens when text is not merely faded, but physically non-existent? </p>
+<ul>
+<li>A moth or bookworm ate a hole through the leaf.</li>
+<li>A wax seal tore away the corner of the letter when opened.</li>
+<li>Fire or water completely obliterated a three-word patch of script.</li>
+</ul>
+<p>When there are zero surviving ink traces, you cannot use <code>&lt;unclear&gt;</code> because there are no candidate letters to wrap. Guessing words out of thin air is hallucination.</p>
+<p>Instead, TEI provides the empty milestone element <code>&lt;gap/&gt;</code>. The <code>&lt;gap/&gt;</code> element records a physical <strong>lacuna</strong> without guessing the missing letters.</p>
+<p>Scholarly standards require you to specify why the text is missing and approximately how much is lost:</p>
+<pre><code class="language-xml">&lt;!-- Three characters lost to an ink blot --&gt;
+&lt;p&gt;&lt;lb n=&quot;5&quot;/&gt;paid to &lt;gap reason=&quot;damage&quot; unit=&quot;chars&quot; extent=&quot;3&quot;/&gt; on arrival&lt;/p&gt;
+
+&lt;!-- Approximately two whole words lost to a torn paper corner --&gt;
+&lt;p&gt;&lt;lb n=&quot;6&quot;/&gt;received from &lt;gap reason=&quot;tear&quot; unit=&quot;words&quot; extent=&quot;2&quot;/&gt; upon receipt&lt;/p&gt;
+</code></pre>
+<p>Notice that <code>&lt;gap/&gt;</code> is self-closing (<code>&lt;gap ... /&gt;</code>). It never wraps text because there is no text to wrap. In <code>transcription_reconciled.xml</code>, use <code>&lt;gap/&gt;</code> to mark physical absence honestly.</p>
+<p><strong>Vocabulary.</strong> <em>Lacuna</em> — A physical gap or hole in the document surface where text has been completely destroyed.</p>
+<p><strong>Takeaway:</strong> Use empty milestone gap elements with reason and extent attributes when text is physically obliterated by damage.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Documenting Lacunae: When to Deploy gap</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Under what physical condition must an editor use &amp;lt;gap/&amp;gt; instead of &amp;lt;unclear&amp;gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use empty milestone gap elements with reason and extent attributes when text is physically obliterated by damage.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;When physical damage has completely obliterated the text, leaving no surviving ink strokes to propose a candidate reading.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. `&lt;gap/&gt;` records complete physical loss (lacunae), whereas `&lt;unclear&gt;` wraps doubtful but visible candidate letters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the transcriber disagrees with the author's political opinions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Personal opinions have no bearing on diplomatic markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the text is written in verse rather than prose.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Poetic verse is marked with `&lt;lg&gt;` and `&lt;l&gt;`, not `&lt;gap/&gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the XML file exceeds 50 kilobytes in total size.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File size does not dictate markup choices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Category D: Structural and Layout Discrepancies</text></name><questiontext format="html"><text><![CDATA[
+<h3>Category D: Structural and Layout Discrepancies</h3>
+<p>Category D encompasses differences that are not about spelling or words, but about <strong>XML structure and layout architecture</strong>.</p>
+<p>Common Category D discrepancies include:</p>
+<ol>
+<li><strong>Missing Container Tags:</strong> Gemini may have placed text directly inside <code>&lt;div&gt;</code> without wrapping it in <code>&lt;p&gt;</code> (prose) or <code>&lt;lg&gt;&lt;l&gt;</code> (verse). This causes immediate schema validation failure against <code>msdesc.rng</code>.</li>
+<li><strong>Displaced Page Milestones:</strong> One pass placed <code>&lt;pb facs="#..."/&gt;</code> before <code>&lt;div&gt;</code>, while the other placed it inside <code>&lt;div&gt;</code>. In standard TEI, <code>&lt;pb/&gt;</code> sits inside <code>&lt;div&gt;</code> right before the first line of the page.</li>
+<li><strong>Mismatched Line Breaks:</strong> Gemini broke a line at word ten, while you broke it at word eleven.</li>
+<li><strong>Column Flow Conflicts:</strong> In a multi-column document, one pass read horizontally across columns while the other read vertically down Column 1 and then Column 2.</li>
+</ol>
+<p>When resolving Category D discrepancies in <code>transcription_reconciled.xml</code>, your primary guide is the TEI structural grammar:</p>
+<ul>
+<li><code>&lt;text&gt;</code> $\to$ contains <code>&lt;body&gt;</code> $\to$ contains <code>&lt;div&gt;</code></li>
+<li><code>&lt;div&gt;</code> $\to$ contains <code>&lt;p&gt;</code> (prose) or <code>&lt;lg&gt;</code> (verse)</li>
+<li><code>&lt;p&gt;</code> $\to$ contains running text interleaved with <code>&lt;lb/&gt;</code> milestones</li>
+</ul>
+<p>Ensure that your reconciled consensus document obeys this strict hierarchy from top to bottom.</p>
+<p><strong>Vocabulary.</strong> <em>Layout discrepancy</em> — A divergence between two passes concerning lineation, column boundaries, or structural tag hierarchy.</p>
+<p><strong>Takeaway:</strong> Resolve structural differences by enforcing valid TEI containment: text inside body inside div.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Category D: Structural and Layout Discrepancies</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the correct TEI hierarchy for organizing prose transcription inside a document division?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Resolve structural differences by enforcing valid TEI containment: text inside body inside div.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Running text and line break milestones must be contained within &lt;p&gt; elements inside the &lt;div&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. In valid TEI schemas like `msdesc.rng`, character data in a `&lt;div&gt;` must be wrapped within `&lt;p&gt;` containers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Running text must be typed directly inside &lt;div&gt; without any paragraph or verse wrapper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Bare text directly inside `&lt;div&gt;` violates schema grammar.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All lines must be placed inside the teiHeader under sourceDesc.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The teiHeader contains metadata, not document transcriptions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Line breaks must be placed inside facsimile surfaces alongside coordinate coordinates.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The `&lt;facsimile&gt;` section defines image coordinates; transcription markup belongs in `&lt;text&gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Reconciling Physical Lineation: lb Milestones</text></name><questiontext format="html"><text><![CDATA[
+<h3>Reconciling Physical Lineation: lb Milestones</h3>
+<p>One of the most frequent diff differences between Pass 1 and Pass 2 involves the placement of <code>&lt;lb/&gt;</code> milestones.</p>
+<p>In diplomatic transcription, <code>&lt;lb/&gt;</code> (line beginning) is an empty milestone element. It does not wrap words; it simply marks the spatial point where a writer or typesetter dropped to a new physical line on the page.</p>
+<p>Consider this diff discrepancy:</p>
+<ul>
+<li>Pass 1 (<code>witness.xml</code>):</li>
+</ul>
+<pre><code class="language-xml">&lt;p&gt;&lt;lb n=&quot;1&quot;/&gt;To the Honorable Council of Safety
+&lt;lb n=&quot;2&quot;/&gt;Gentlemen&lt;/p&gt;
+</code></pre>
+<ul>
+<li>Pass 2 (<code>transcription_ai.xml</code>):</li>
+</ul>
+<pre><code class="language-xml">&lt;p&gt;&lt;lb n=&quot;1&quot;/&gt;To the Honorable Council of Safety Gentlemen&lt;/p&gt;
+</code></pre>
+<p>Gemini omitted <code>&lt;lb n="2"/&gt;</code> because in modern English grammar, "Gentlemen" is a salutation that might sit on the same line in a flowing email. But on the physical artifact, the writer dropped down to a new line!</p>
+<p>Look at the image. Did the author physically drop down? Yes. Therefore, Pass 1 is correct. </p>
+<p><strong>Formatting Best Practice:</strong> In <code>transcription_reconciled.xml</code>, always place each <code>&lt;lb/&gt;</code> milestone on a new visual line in your editor:</p>
+<pre><code class="language-xml">&lt;p&gt;
+  &lt;lb n=&quot;1&quot;/&gt;To the Honorable Council of Safety
+  &lt;lb n=&quot;2&quot;/&gt;Gentlemen
+&lt;/p&gt;
+</code></pre>
+<p>This makes your XML mirror the visual lineation of the manuscript, making future proofreading effortless.</p>
+<p><strong>Vocabulary.</strong> <em>Physical lineation</em> — The literal arrangement of words across lines on the page, independent of grammar or metre.</p>
+<p><strong>Takeaway:</strong> Ensure lb milestones mark every physical line break on the artifact, aligning Pass 3 with the physical page coordinates.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Reconciling Physical Lineation: lb Milestones</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must every physical line break on the manuscript artifact be marked with an empty &amp;lt;lb/&amp;gt; milestone?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Ensure lb milestones mark every physical line break on the artifact, aligning Pass 3 with the physical page coordinates.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It records the documentary lineation of the historical artifact, preserving the spatial layout for codicological study.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Diplomatic editions record physical lineation using `&lt;lb/&gt;` milestones to preserve the material structure of the witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It tells the web browser to play an audible bell sound whenever the reader finishes a sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Line breaks do not trigger audio effects in web browsers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the XML file to be printed on legal-sized paper rather than standard letter size.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Printing dimensions are governed by print styles, not TEI line milestones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is required by the United States Library of Congress for copyright registration.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Line milestones are a scholarly encoding convention, not a legal copyright mandate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Reconciling Prose Paragraphs: p vs. Poetry lg and l</text></name><questiontext format="html"><text><![CDATA[
+<h3>Reconciling Prose Paragraphs: p vs. Poetry lg and l</h3>
+<p>During diff reconciliation, check how each pass handled high-level textual containers. TEI enforces a rigid distinction between prose and poetry:</p>
+<ul>
+<li><strong>Prose Documents (Ace, Olyvia, Andromeda):</strong> Legal decrees, personal correspondence, and colonial treaties are continuous prose. All running text must be wrapped inside paragraph containers: <code>&lt;p&gt;</code>. </li>
+<li><strong>Poetry Manuscripts (Jay):</strong> Metrical verse cannot be wrapped in <code>&lt;p&gt;</code>. It must be organized into stanzas using line groups (<code>&lt;lg&gt;</code>), and each poetic metrical line must be wrapped in a line element (<code>&lt;l&gt;</code>).</li>
+</ul>
+<p>If Gemini transcribed a prose document using <code>&lt;l&gt;</code> tags for every physical line, or transcribed Emily Dickinson's poem as a flat prose <code>&lt;p&gt;</code> paragraph, it made a major structural error!</p>
+<p>In <code>transcription_reconciled.xml</code>, correct the container markup:</p>
+<pre><code class="language-xml">&lt;!-- PROSE EXAMPLE (Ace, Olyvia, Andromeda) --&gt;
+&lt;div&gt;
+  &lt;p&gt;
+    &lt;lb n=&quot;1&quot;/&gt;We the undersigned commissioners...
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- POETRY EXAMPLE (Jay) --&gt;
+&lt;div&gt;
+  &lt;lg type=&quot;stanza&quot;&gt;
+    &lt;l n=&quot;1&quot;&gt;&lt;lb n=&quot;1&quot;/&gt;I would not stop for Death –&lt;/l&gt;
+    &lt;l n=&quot;2&quot;&gt;&lt;lb n=&quot;2&quot;/&gt;He kindly stopped for me –&lt;/l&gt;
+  &lt;/lg&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Enforcing proper paragraph and verse wrappers ensures your text validates cleanly against <code>msdesc.rng</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Paragraph wrapper (p)</em> — The standard TEI container enclosing running prose sentences within a text division.</p>
+<p><strong>Takeaway:</strong> Wrap prose running text inside p containers, reserving lg and l for poetic verse.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Reconciling Prose Paragraphs: p vs. Poetry lg and l</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should an editor structure an 18th-century personal prose letter inside a TEI &lt;div&gt; container?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Wrap prose running text inside p containers, reserving lg and l for poetic verse.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Enclose the running prose sentences and interleaved &lt;lb/&gt; milestones within &lt;p&gt; paragraph elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Prose documents require `&lt;p&gt;` paragraph wrappers to enclose text and milestones within divisions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Wrap each individual word in a separate &lt;lg&gt; line group container.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;lg&gt;` is reserved for verse stanzas; wrapping individual words in line groups corrupts the hierarchy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Place all text directly inside the &lt;teiHeader&gt; without any &lt;div&gt; or &lt;p&gt; tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The header holds metadata; transcription text belongs inside `&lt;div&gt;&lt;p&gt;` in the `&lt;body&gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete all paragraph breaks to create a continuous 10,000-character single-line string.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Removing paragraph divisions destroys the prose structure of the document.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Cohort Adjudication: Jay and Dickinson's Variant Readings</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Adjudication: Jay and Dickinson's Variant Readings</h3>
+<p>Now let us review the specific adjudication targets for each member of our four-person cohort.</p>
+<p>For <strong>Jay</strong>, working with Emily Dickinson's poem manuscript (<code>MS Am 1118.3 [338]</code>):</p>
+<ol>
+<li><strong>Idiosyncratic Dashes:</strong> Dickinson wrote dashes of varying lengths, slants, and heights. Inspect the diff between Pass 1 and Pass 2:</li>
+<li>Did you transcribe spaced hyphens (<code>-</code>) while Gemini output em-dashes (<code>—</code>)?</li>
+<li>Adjudicate according to your editorial policy. In diplomatic transcription, recording an en-dash (<code>–</code>) or spaced dash is standard. Ensure consistency throughout <code>transcription_reconciled.xml</code>.</li>
+<li>
+<p><strong>Narrow Paper Line Wraps:</strong> Dickinson's paper was narrow (~100 mm wide). Line 3 of a stanza might wrap onto a second physical line on the page. In <code>transcription_reconciled.xml</code>, verify that the metrical line is wrapped in <code>&lt;l&gt;</code>, with an empty <code>&lt;lb/&gt;</code> milestone marking the physical wrap:
+   <code>xml
+   &lt;l n="3"&gt;&lt;lb n="3"/&gt;The Carriage held but just Ourselves –
+   &lt;lb n="4"/&gt;and Immortality.&lt;/l&gt;</code></p>
+</li>
+<li>
+<p><strong>Pencil Revisions:</strong> Dickinson frequently wrote variant word choices in pencil above the pen-and-ink lines. Did Gemini skip the pencil variants or fuse them into the sentence? In Pass 3, decide whether to record the interlinear pencil reading or note it with <code>&lt;unclear&gt;</code>.</p>
+</li>
+</ol>
+<p>Document your adjudication of Dickinson's dashes and wraps in your reflection report!</p>
+<p><strong>Vocabulary.</strong> <em>Interlinear variant</em> — Alternative words or phrases written between lines or in margins by the author during revision.</p>
+<p><strong>Takeaway:</strong> For Jay's Dickinson poem, ensure stanza structures (lg/l) and line-wrap milestones (lb) correctly reflect the narrow manuscript sheet.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Cohort Adjudication: Jay and Dickinson's Variant Readings</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When reconciling Emily Dickinson's poetry manuscripts, how should Jay encode a metrical line that physically wraps across two lines on narrow paper?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For Jay's Dickinson poem, ensure stanza structures (lg/l) and line-wrap milestones (lb) correctly reflect the narrow manuscript sheet.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Wrap the complete metrical verse in a single &lt;l&gt; element, inserting an &lt;lb/&gt; milestone where the physical wrap occurs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Metrical lines are enclosed in `&lt;l&gt;`, while physical paper wrapping is documented with internal `&lt;lb/&gt;` milestones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Split the poem into two separate &lt;div&gt; containers to represent each physical half-line.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Divisions represent major sections; splitting a verse line into separate divisions destroys poetic structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the wrapped second line to ensure the poem fits neatly onto modern smartphone displays.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic transcription preserves all manuscript text regardless of screen display dimensions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace the wrapped words with a &lt;gap/&gt; element to hide the narrow paper margins.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `&lt;gap/&gt;` is reserved for physical damage or loss, not line wrapping.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Cohort Adjudication: Ace and Two-Column Decrees</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Adjudication: Ace and Two-Column Decrees</h3>
+<p>For <strong>Ace</strong>, working with the 1791 French Revolutionary National Assembly Decree:</p>
+<ol>
+<li><strong>Sequential Column Flow:</strong> The decree is printed in two parallel vertical columns separated by a central rule. A major AI failure mode in multi-column broadsides is reading horizontally across both columns (e.g. reading line 1 of Column 1, followed immediately by line 1 of Column 2).</li>
+<li>In your diff, check whether Gemini read horizontally or vertically.</li>
+<li>In <code>transcription_reconciled.xml</code>, enforce the correct reading order: transcribe completely down Column 1, then proceed down Column 2. You can use <code>&lt;cb n="1"/&gt;</code> and <code>&lt;cb n="2"/&gt;</code> (column break milestones) to mark column transitions.</li>
+<li><strong>Historical Long-s (<code>ſ</code>):</strong> Inspect every instance where Gemini replaced <code>ſ</code> with modern <code>s</code>. In <code>transcription_reconciled.xml</code>, restore the authentic 18th-century long-s glyph (<code>ſ</code>) to preserve the physical testimony of the Paris revolutionary press.</li>
+<li><strong>Colophons and Attestations:</strong> At the bottom of the decree, verify that official printing attestations, commissioner signatures, and legal dates are properly grouped in <code>&lt;p&gt;</code> blocks with <code>&lt;lb/&gt;</code> milestones.</li>
+</ol>
+<p>Ace's reflection report should highlight whether Gemini respected columnar layout or required manual structural intervention.</p>
+<p><strong>Vocabulary.</strong> <em>Columnar reading order</em> — The vertical sequential flow of text down one printed column before starting the adjacent column.</p>
+<p><strong>Takeaway:</strong> For Ace's French Decree, verify that the reconciled text flows down Column 1 before Column 2, preserving historical typography.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Cohort Adjudication: Ace and Two-Column Decrees</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary layout challenge when reconciling Gemini's transcription of Ace's two-column French Revolutionary Decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For Ace's French Decree, verify that the reconciled text flows down Column 1 before Column 2, preserving historical typography.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Ensuring the text flows sequentially down Column 1 and then Column 2, rather than reading horizontally across the columns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Vision models frequently read horizontally across multi-column layouts; editors must enforce sequential vertical column order.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Converting all French legal terminology into Latin church hymns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree is a secular civil legal document, not church liturgical music.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Changing the printing date from 1791 to 2026 to make the document appear contemporary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic editing preserves historical chronology; falsifying dates is malpractice.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Removing all capital letters to conform to minimalist lowercase design trends.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Capitalization is historical evidence that must be preserved as printed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Cohort Adjudication: Olyvia and Maud Lewis's Folk Orthography</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Adjudication: Olyvia and Maud Lewis's Folk Orthography</h3>
+<p>For <strong>Olyvia</strong>, working with the handwritten personal letter by Nova Scotia folk artist Maud Lewis (1903–1970):</p>
+<ol>
+<li><strong>Defending Vernacular Orthography:</strong> Maud Lewis wrote with lively, informal, and phonetic spelling typical of rural mid-20th-century Nova Scotia. In your diff, look for instances where Gemini "corrected" Maud's spelling or grammar:</li>
+<li>Did Maud write <em>bin</em> and Gemini changed it to <em>been</em>?</li>
+<li>Did Maud write <em>dont</em> without an apostrophe and Gemini inserted the apostrophe?</li>
+<li>In <code>transcription_reconciled.xml</code>, <strong>reject every one of Gemini's corrections!</strong> Maud's letter is a precious cultural artifact. Correcting her spelling is an act of patronizing editorial erasure. Defend Maud's authentic voice.</li>
+<li><strong>Drifting Baselines and Faded Creases:</strong> Because of severe arthritis in her hands, Maud's lines drift across the page. Where the paper was folded into an envelope, ink may be faded along the crease.</li>
+<li>If both you and Gemini struggled with a crease, evaluate whether the reading is probable enough for <code>&lt;unclear&gt;</code> or if it should be marked with <code>&lt;gap reason="faded"/&gt;</code>.</li>
+<li>Ensure <code>&lt;lb/&gt;</code> milestones capture where Maud started new lines as her script drifted.</li>
+</ol>
+<p>Olyvia's reflection report will center on protecting folk-art historical expression from the homogenizing tendencies of large language models.</p>
+<p><strong>Vocabulary.</strong> <em>Folk orthography</em> — Informal, phonetic, and non-standard writing produced outside institutional schooling.</p>
+<p><strong>Takeaway:</strong> For Olyvia's Maud Lewis letter, vigorously defend Maud's authentic folk spelling against modern machine smoothing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Cohort Adjudication: Olyvia and Maud Lewis's Folk Orthography</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When reconciling Maud Lewis's handwritten letter, why must Olyvia reject Gemini's spelling corrections?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For Olyvia's Maud Lewis letter, vigorously defend Maud's authentic folk spelling against modern machine smoothing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Maud's informal vernacular orthography is authentic cultural evidence that must be preserved rather than erased by modern machine norms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editorial integrity requires defending authentic folk spelling against artificial modernization and homogenization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Canadian copyright law makes it illegal to correct spelling in handwritten letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The imperative is scholarly and ethical, not a statutory copyright restriction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Moodle quiz algorithms give zero points if an apostrophe is detected in an XML tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Moodle processes apostrophes normally; the issue is historical accuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Maud Lewis requested in her will that no computer ever read her personal mail.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The editorial decision is guided by digital humanities standards, not fictional testamentary clauses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Cohort Adjudication: Andromeda and Bilingual Treaty Margins</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Adjudication: Andromeda and Bilingual Treaty Margins</h3>
+<p>For <strong>Andromeda</strong>, working with the 1752 Peace and Friendship Treaty between Governor Peregrine Thomas Hopson and Chief Major Jean-Baptiste Cope:</p>
+<ol>
+<li><strong>Legal Article Structure:</strong> The treaty is organized into a formal preamble followed by numbered articles. In <code>transcription_reconciled.xml</code>, verify that each article is properly enclosed in a <code>&lt;p&gt;</code> container with line breaks (<code>&lt;lb/&gt;</code>):
+   ```xml
+ <br />
+<p>
+     <lb n="15"/>1. It is agreed that the said Tribe of Mickmack Indians...
+   </p></li>
+</ol>
+<p>```</p>
+<ol>
+<li><strong>Capitalization and Honorifics:</strong> 18th-century treaties feature heavy, idiosyncratic capitalization of legal nouns (<em>Tribe</em>, <em>Treaty</em>, <em>His Majesty</em>, <em>Peace</em>, <em>Friendship</em>). Check your diff: did Gemini lower-case any of these capitalized terms? Preserve the full 18th-century capitalization as written.</li>
+<li><strong>Totem Marks and Signatures:</strong> At the foot of the document, Chief Cope signed not with alphabetic English script, but with his personal totem mark. Check how Pass 1 and Pass 2 handled this mark:</li>
+<li>
+<p>If Gemini ignored the mark or output a random punctuation symbol, replace it in <code>transcription_reconciled.xml</code> with appropriate descriptive markup:
+     <code>&lt;figure&gt;&lt;figDesc&gt;Totem mark of Chief Major Jean-Baptiste Cope&lt;/figDesc&gt;&lt;/figure&gt;</code></p>
+</li>
+<li>
+<p>Link the mark to its physical coordinates if calibrated in Module 3.</p>
+</li>
+</ol>
+<p>Andromeda's reflection will document the technical challenge of encoding non-alphabetic indigenous legal signatures within an XML transcription.</p>
+<p><strong>Vocabulary.</strong> <em>Diplomatic treaty layout</em> — Formal layout conventions separating preamble, numbered articles, signatures, and tribal totem marks.</p>
+<p><strong>Takeaway:</strong> For Andromeda's 1752 Treaty, ensure legal article headings, signatures, and Cope's totem mark are cleanly structured.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Cohort Adjudication: Andromeda and Bilingual Treaty Margins</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should non-alphabetic indigenous marks, such as Chief Cope's totem on the 1752 Treaty, be represented in diplomatic TEI?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For Andromeda's 1752 Treaty, ensure legal article headings, signatures, and Cope's totem mark are cleanly structured.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Use a descriptive element like &lt;figure&gt;&lt;figDesc&gt;Totem mark...&lt;/figDesc&gt;&lt;/figure&gt; rather than ignoring it or guessing a keyboard character.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Totem marks and non-alphabetic signatures are codicological figures, best documented with `&lt;figure&gt;` and `&lt;figDesc&gt;`.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace the mark with an emoji icon of a feather or bird.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Project rules and scholarly standards strictly forbid emojis in academic TEI editions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Omit the mark entirely because TEI XML is only capable of recording alphabetic letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI provides robust elements like `&lt;figure&gt;` specifically to record non-textual graphic elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Type the word 'SIGNATURE' in capital letters and delete the British governor's signature.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic editing preserves all textual and graphical testimony faithfully.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Schema Validation: Driving transcription_reconciled.xml to Zero Errors</text></name><questiontext format="html"><text><![CDATA[
+<h3>Schema Validation: Driving transcription_reconciled.xml to Zero Errors</h3>
+<p>With your line-by-line adjudication complete and <code>transcription_reconciled.xml</code> fully drafted, you must subject the file to strict automated quality control.</p>
+<p>In the VS Code Terminal, run the schema validation command against the course grammar:</p>
+<pre><code class="language-bash">python3 -m jing msdesc.rng transcription_reconciled.xml
+</code></pre>
+<p>(Or use the XML extension's built-in validation indicator in the bottom status bar).</p>
+<p>Your target is absolute: <strong>0 errors</strong>.</p>
+<p>Common validation diagnostics and fixes:</p>
+<ol>
+<li><strong>Error: <code>element "text" not allowed here</code>:</strong> You placed text directly inside <code>&lt;div&gt;</code>. Wrap the sentences in <code>&lt;p&gt;...&lt;/p&gt;</code> (or <code>&lt;lg&gt;&lt;l&gt;...&lt;/l&gt;&lt;/lg&gt;</code> for poetry).</li>
+<li><strong>Error: <code>character "&amp;" is the first character of a delimiter but must not start a general entity</code>:</strong> You transcribed a literal ampersand (<code>&amp;c.</code>). Escape every raw ampersand as <code>&amp;amp;c.</code>.</li>
+<li><strong>Error: <code>element "lb" not allowed here</code>:</strong> You used a closing tag like <code>&lt;/lb&gt;</code>. Change it to an empty milestone: <code>&lt;lb/&gt;</code>.</li>
+<li><strong>Error: <code>required attribute "facs" missing</code>:</strong> Your <code>&lt;pb/&gt;</code> tag is missing its surface pointer. Add <code>@facs="#your_surface_id"</code>.</li>
+</ol>
+<p>Keep fixing and re-validating until the validator outputs zero warnings and zero errors. A file that fails schema validation cannot be accepted into the digital edition.</p>
+<p><strong>Vocabulary.</strong> <em>Deterministic validation</em> — Automated verification confirming that an XML document strictly obeys every rule of a schema grammar.</p>
+<p><strong>Takeaway:</strong> Validate transcription_reconciled.xml against msdesc.rng, resolving every syntax and hierarchy error to reach 0 errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Schema Validation: Driving transcription_reconciled.xml to Zero Errors</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the mandatory validation benchmark that transcription_reconciled.xml must meet before assignment submission?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Validate transcription_reconciled.xml against msdesc.rng, resolving every syntax and hierarchy error to reach 0 errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It must validate with zero errors and zero warnings against the msdesc.rng schema grammar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Every digital edition file must achieve zero schema errors to ensure structural validity and interoperability.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It must contain at least 15 unresolved errors to demonstrate that the editor was working hard.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Errors indicate broken XML syntax or invalid structure; zero errors is the required standard.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It only needs to validate if the student intends to pursue graduate studies in computer science.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation is a mandatory quality gate for all students in the course.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It must be converted into an unformatted Microsoft Word document before validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation is performed natively on the TEI XML file using Jing or the XML language server.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Writing the Reconciliation Reflection (RECONCILIATION.md)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Writing the Reconciliation Reflection (RECONCILIATION.md)</h3>
+<p>The final deliverable of Week 5 is not code; it is scholarly writing. In your repository root, create a markdown document named <code>RECONCILIATION.md</code>.</p>
+<p>Your reflection report must be <strong>300 to 500 words</strong> and organized into three structured sections:</p>
+<p><strong>1. Quantitative Overview:</strong></p>
+<ul>
+<li>How many total diff chunks separated your manual pass from your AI pass?</li>
+<li>What was the rough distribution across the four categories (e.g. "We identified 4 Category A human slips, 11 Category B machine smoothings, 2 Category C ink ambiguities, and 3 Category D lineation differences")?</li>
+</ul>
+<p><strong>2. Qualitative Adjudication Analysis:</strong></p>
+<ul>
+<li>Provide at least one specific concrete example of a <strong>Category A</strong> slip where Gemini caught an error you made due to fatigue. What was the word? Why did you miss it?</li>
+<li>Provide at least one specific concrete example of a <strong>Category B</strong> failure where Gemini hallucinated or modernized spelling. How did you defend the manuscript ink?</li>
+<li>Discuss any <strong>Category C</strong> physical ambiguities. Did you choose <code>&lt;unclear&gt;</code> or <code>&lt;gap/&gt;</code>, and why?</li>
+</ul>
+<p><strong>3. Tool Evaluation:</strong></p>
+<ul>
+<li>Based on your empirical results, what are the strengths and dangers of using multimodal AI in digital paleography?</li>
+</ul>
+<p>Write with academic precision. This report proves to evaluators that your final consensus text is the product of deliberate scholarly methodology.</p>
+<p><strong>Vocabulary.</strong> <em>Methodological reflection</em> — A written scholarly explanation documenting editorial decisions, error patterns, and tool evaluation.</p>
+<p><strong>Takeaway:</strong> Compose a 300–500 word report in RECONCILIATION.md detailing what Gemini caught, where it failed, and how you adjudicated.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Writing the Reconciliation Reflection (RECONCILIATION.md)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the three required sections of the RECONCILIATION.md reflection report?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Compose a 300–500 word report in RECONCILIATION.md detailing what Gemini caught, where it failed, and how you adjudicated.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Quantitative Overview, Qualitative Adjudication Analysis, and Tool Evaluation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The reflection requires quantitative metrics of the diff, concrete qualitative case examples across the error categories, and tool evaluation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Plot Summary, Character Development, and Movie Review.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The assignment is a scholarly editing reflection, not a film or fiction critique.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Billing Invoice, Bank Account Details, and Software License Agreement.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Course assignments require academic reflections, not commercial financial documents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Weekly Diary, Meal Schedule, and Fitness Log.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Reflections must focus strictly on textual paleography and editorial adjudication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Documenting Provenance: The Value of Negative Findings</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting Provenance: The Value of Negative Findings</h3>
+<p>A common anxiety among student researchers is the fear of failure. When novice editors see that Gemini modernized dozens of words or hallucinated text over an ink smudge, they sometimes worry that they 'prompted the model incorrectly' or that their lab experiment failed.</p>
+<p>In the digital humanities, <strong>negative findings are primary scholarly data</strong>.</p>
+<p>When you document that Gemini 1.5 Pro or Gemini 2.0 consistently converted the 18th-century long-s (<code>ſ</code>) into a modern <code>s</code>, or that it modernized Maud Lewis's vernacular spelling despite three explicit prompt instructions forbidding modernization, you have discovered an empirical truth about the architecture of large language models!</p>
+<p>You are proving that autoregressive foundation models have an innate bias toward contemporary standardization. That discovery is a valuable research finding. When published in your reflection, it alerts future historians, archivists, and editors to the specific vulnerabilities of AI transcription pipelines.</p>
+<p>Do not conceal machine failures. Document them rigorously with line numbers, diff quotes, and comparative analysis in <code>RECONCILIATION.md</code>. Scholarly honesty is the hallmark of genuine research.</p>
+<p><strong>Vocabulary.</strong> <em>Negative finding</em> — An experimental result showing where a computational tool or model failed to perform accurately.</p>
+<p><strong>Takeaway:</strong> Documenting where AI failed (such as silent modernizations) is valuable scholarly research, not an embarrassing mistake.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Documenting Provenance: The Value of Negative Findings</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are negative findings—such as documenting where an AI model repeatedly failed to follow prompt constraints—valuable in digital humanities research?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Documenting where AI failed (such as silent modernizations) is valuable scholarly research, not an embarrassing mistake.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They provide empirical evidence of algorithmic biases and failure modes, warning future scholars where automated tools cannot be trusted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Documenting computational limitations and model failures produces vital methodological knowledge for the research community.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They allow university administrators to demand financial refunds from software vendors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Academic research is concerned with methodological truth, not vendor litigation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They automatically lower the student's final course grade to punish the computer's mistakes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Students are graded on the rigour of their adjudication and critical analysis, not the model's accuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They force the Git repository to revert to its initial empty commit state.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Research discoveries are committed and preserved in Git, never reverted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: The Transcription Assignment Submission Checklist</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Transcription Assignment Submission Checklist</h3>
+<p>Tonight at <strong>11:00 PM (Friday, Oct 2)</strong>, the formal <strong>Transcription Assignment</strong> is due. </p>
+<p>Before you conclude your work session, review the final submission checklist to guarantee full marks:</p>
+<ol>
+<li><strong><code>witness.xml</code> (Pass 1):</strong> Your manual diplomatic transcription from Week 4. Untouched today. Valid TEI.</li>
+<li><strong><code>transcription_ai.xml</code> (Pass 2):</strong> Gemini's Antigravity AI transcription from Tuesday. Untouched today. Valid TEI.</li>
+<li><strong><code>transcription_reconciled.xml</code> (Pass 3):</strong> Your newly synthesized consensus transcription. Fully adjudicated. Validates to <strong>0 errors</strong> against <code>msdesc.rng</code>.</li>
+<li><strong><code>RECONCILIATION.md</code>:</strong> Your 300–500 word reflection report detailing quantitative diff metrics, concrete category examples, and AI tool evaluation.</li>
+</ol>
+<p><strong>Git Submission Command:</strong>
+In your VS Code terminal, stage and commit the entire deliverable bundle:</p>
+<pre><code class="language-bash">git add witness.xml transcription_ai.xml transcription_reconciled.xml RECONCILIATION.md
+git commit -m &quot;Step 3: completed transcription reconciliation and reflection report&quot;
+</code></pre>
+<p>Verify your commit using <code>git status</code> (should report 'working tree clean') and <code>git log -n 1 --stat</code>. You have completed the hardest technical milestone of the term!</p>
+<p><strong>Vocabulary.</strong> <em>Deliverable bundle</em> — The complete package of required files committed to version control and submitted for evaluation.</p>
+<p><strong>Takeaway:</strong> Verify that your repository contains all four required files: witness.xml, transcription_ai.xml, transcription_reconciled.xml, and RECONCILIATION.md.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: The Transcription Assignment Submission Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What four specific files comprise the complete deliverable bundle for the Transcription Assignment due tonight?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Verify that your repository contains all four required files: witness.xml, transcription_ai.xml, transcription_reconciled.xml, and RECONCILIATION.md.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;witness.xml, transcription_ai.xml, transcription_reconciled.xml, and RECONCILIATION.md.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The bundle requires Pass 1 (manual), Pass 2 (AI), Pass 3 (reconciled consensus), and the reflection report.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;index.html, styles.css, script.js, and package.json.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those are commercial web development files, not TEI digital edition deliverables.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;slides.pptx, audio.mp3, video.mp4, and photo.jpg.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The assignment requires XML transcription files and a markdown reflection report.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;final_paper.docx, syllabus.pdf, gradebook.xlsx, and backup.zip.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The course uses plain text TEI XML and Git version control for assignments.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Looking Ahead: The Bridge to Week 6 Normalization</text></name><questiontext format="html"><text><![CDATA[
+<h3>Looking Ahead: The Bridge to Week 6 Normalization</h3>
+<p>Congratulations! By completing <code>transcription_reconciled.xml</code>, you have established an authoritative, verified diplomatic baseline for your historical document.</p>
+<p>Take a moment to appreciate where you stand. You began with a raw high-resolution photograph. You calibrated its physical boundaries in Module 3. You transcribed its text by hand, tested an advanced AI model, and rigorously adjudicated every discrepancy. You have transformed ink on paper into clean, standardized, machine-readable digital data.</p>
+<p><strong>What Happens Next Week (Week 6: Normalization)?</strong>
+In Meeting #14 on Tuesday, we finally unlock the editorial elements we deliberately kept locked all week:</p>
+<ul>
+<li><code>&lt;choice&gt;</code>: The parent element linking original testimony to editorial intervention.</li>
+<li><code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code>: Linking original historical spelling (e.g. <code>publick</code>) to modern standardized spelling (<code>public</code>).</li>
+<li><code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code>: Linking historical scribal abbreviations (<code>&amp;c.</code>, <code>Govr</code>) to their full expansions (<code>et cetera</code>, <code>Governor</code>).</li>
+</ul>
+<p>Because your diplomatic baseline in <code>transcription_reconciled.xml</code> is uncorrupted by silent modernizations, you will be able to apply these normalization elements with total scholarly confidence. Rest well this weekend; on Tuesday, we begin editorial normalization!</p>
+<p><strong>Vocabulary.</strong> <em>Editorial normalization</em> — The stage where historical orthography is linked to modern standardized forms via choice elements.</p>
+<p><strong>Takeaway:</strong> Your reconciled diplomatic baseline provides the uncorrupted foundation for next week's editorial normalization.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Looking Ahead: The Bridge to Week 6 Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does completing transcription_reconciled.xml prepare students for Week 6 (Normalization)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Your reconciled diplomatic baseline provides the uncorrupted foundation for next week's editorial normalization.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It establishes an uncorrupted diplomatic baseline, providing the verified physical text onto which editorial &lt;choice&gt;, &lt;reg&gt;, and &lt;expan&gt; tags will be applied.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A rigorous diplomatic baseline is the prerequisite for editorial normalization; without it, editors confuse historical evidence with modern conjectures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It allows students to discard the manuscript and invent a fictional narrative.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editing preserves primary evidence, never inventing fiction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It eliminates the need for any further class meetings or coursework this semester.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Reconciliation is Step 3; normalization, critical apparatus, and web publication follow in subsequent weeks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts the repository into a blockchain cryptocurrency wallet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The course teaches digital humanities and scholarly editing, not cryptocurrency.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

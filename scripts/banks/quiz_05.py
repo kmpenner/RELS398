@@ -42,35 +42,36 @@ create_banner()
 
 # 2. Learning Objectives
 obj_html = """<div class="card p-3 mb-3 border-info" style="border-left: 5px solid #d97706; background-color: #fdfaf8; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #92400e; margin-top: 0;">Module 05: Reconciliation & Double-Keying — Learning Objectives</h4>
+    <h4 style="color: #92400e; margin-top: 0;">Module 05: Human vs. AI Reconciliation — Learning Objectives</h4>
     <p>By the end of this module, students will be able to:</p>
     <ul>
-        <li><strong>Analyze</strong> the statistical reliability of independent double-keying and explain why post-editing proofreading suffers from cognitive confirmation bias.</li>
-        <li><strong>Calculate and interpret</strong> Inter-Annotator Agreement (IAA) using percentage agreement and Cohen's Kappa coefficient across historical transcription samples.</li>
-        <li><strong>Execute</strong> programmatic character-level and word-level diffing in VS Code using Git and terminal utilities (<code>diff</code>, <code>wdiff</code>) to locate textual discrepancies.</li>
-        <li><strong>Adjudicate</strong> competing editorial readings against high-resolution facsimiles to establish an authoritative consensus ground truth.</li>
+        <li><strong>Explain</strong> the methodology of independent double-transcription and why post-editing proofreading suffers from cognitive confirmation bias.</li>
+        <li><strong>Execute</strong> structured, negative-constraint prompt engineering in VS Code Antigravity to produce an un-normalized machine diplomatic baseline (<code>transcription_ai.xml</code>).</li>
+        <li><strong>Use</strong> VS Code's side-by-side visual diff viewer to isolate character- and word-level discrepancies between human and machine passes.</li>
+        <li><strong>Adjudicate</strong> competing editorial readings against high-resolution facsimiles using a four-part discrepancy taxonomy to synthesize an authoritative consensus edition (<code>transcription_reconciled.xml</code>).</li>
     </ul>
 </div>"""
 
 # 3. Readings
 reading_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #c29b38; background-color: #fcfcfd; border-radius: 6px; padding: 1.25rem;">
     <h4 style="color: #c29b38; margin-top: 0;">Assigned Readings & Foundational Scholarship</h4>
-    <p>Please study the following research papers on transcription quality, double-keying, and error classification:</p>
+    <p>Please consult the following foundational research on double-keying, error classification, and textual collation:</p>
     <ul>
-        <li><strong>Haaf, Susanne, Frank Wiegand, and Alexander Geyken.</strong> "Measuring the Correctness of Double-Keying: An Error-Classification for Evaluation of Text Digitisation." <em>Language Resources and Evaluation</em>, 49(4), 2015, pp. 759–789.</li>
-        <li><strong>Griffitts, Troy.</strong> "Digital Editing of Biblical Texts." <em>Manuscript Cultures: Mapping Textual Landscapes</em>, § 4.5.2 (Reconciliation and Collation Baselines).</li>
+        <li><strong>Haaf, Susanne, Frank Wiegand, and Alexander Geyken.</strong> "Measuring the Correctness of Double-Keying: Error Classification and Quality Control in a Large Corpus of TEI-Annotated Historical Text." <em>Journal of the Text Encoding Initiative</em>, Issue 4, 2013. DOI: <a href="https://doi.org/10.4000/jtei.739" target="_blank" rel="noopener noreferrer">10.4000/jtei.739</a>.</li>
+        <li><strong>Griffitts, Troy A.</strong> <em>Software for the Collaborative Editing of the Greek New Testament</em>. PhD Thesis, Institute for Textual Scholarship and Electronic Editing (ITSEE), University of Birmingham, 2018. Open Access: <a href="https://etheses.bham.ac.uk/id/eprint/8440/" target="_blank" rel="noopener noreferrer">etheses.bham.ac.uk/id/eprint/8440/</a>.</li>
     </ul>
 </div>"""
 
 # 4. Watch List
-watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #d97706; background-color: #fdfaf8; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #92400e; margin-top: 0;">Curated Media & Technical Walkthroughs</h4>
-    <p>Review these video demonstrations before completing your workshop assignment:</p>
-    <ul>
-        <li><strong>Double-Keying in Digital Humanities:</strong> Why two independent typists produce 99.98% accuracy while proofreading misses major errors (18 mins).</li>
-        <li><strong>Three-Way Merge & Adjudication in VS Code:</strong> Resolving conflicting transcriptions using visual diff editors and Git merge tools (21 mins).</li>
-        <li><strong>Quantifying Inter-Annotator Agreement:</strong> Calculating Cohen's Kappa for paleographical transcription in Python (16 mins).</li>
-    </ul>
+watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #3d5a80; background-color: #f8fafc; border-radius: 6px; padding: 1.25rem;">
+    <h4 style="color: #3d5a80; margin-top: 0;">Before Workshop 5: Three Things to Check</h4>
+    <p>Before beginning your side-by-side reconciliation on Friday, verify that your local workspace is staged with both independent passes:</p>
+    <ol>
+        <li style="margin-bottom:0.6rem;"><strong>Confirm your manual baseline (<code>witness.xml</code>) validates to 0 errors.</strong> Open your Week 4 manual transcription in VS Code with the Scholarly XML extension. Ensure the RELAX NG schema (<code>labs/msdesc.rng</code>) reports zero syntax or structural errors.</li>
+        <li style="margin-bottom:0.6rem;"><strong>Generate and isolate your machine pass (<code>transcription_ai.xml</code>).</strong> In Lesson 5.1, run your multimodal transcription prompt in VS Code Antigravity. Save the raw output into <code>transcription_ai.xml</code>. Fix only structural XML syntax errors (like unescaped <code>&amp;amp;</code> or unclosed milestones); leave all of Gemini's paleographical errors and modernizations intact!</li>
+        <li style="margin-bottom:0.6rem;"><strong>Test VS Code's side-by-side visual diff viewer.</strong> In VS Code's file explorer, right-click <code>witness.xml</code> and select <em>Select for Compare</em>, then right-click <code>transcription_ai.xml</code> and select <em>Compare with Selected</em>. Verify that synchronized split-pane scrolling highlights every character and word discrepancy.</li>
+    </ol>
+    <p style="margin-bottom:0; font-size:0.92rem; color:#475569;"><strong>Remember:</strong> Reconciliation is an act of scholarly adjudication, not surrender. You will evaluate each discrepancy against your primary digital facsimile to construct <code>transcription_reconciled.xml</code>.</p>
 </div>"""
 
 # 5. Workshop

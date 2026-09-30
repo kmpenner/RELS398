@@ -1,1251 +1,779 @@
-# Lesson 5.2 — Character and Word Error Rates: Measuring the Machine Passes
+# Lesson 5.2 — Diffing and Reconciling Transcriptions in VS Code
 
 *RELS 398 / ENGL 398 · Topic 5: Reconciliation · Meeting #13 (Fri Oct 2)*
 
-***Step 2 of a two-step week.** Today you compute character and word error rates
-for the HTR and AI passes against Tuesday's consensus text, interpret what the
-numbers do and do not say, and write the reconciliation report. **The
-Transcription Assignment is due today.***
+***Step 2 of a two-step week.** Today you open your manual transcription (`witness.xml`) and your Gemini AI transcription (`transcription_ai.xml`) in VS Code's side-by-side diff viewer. You will evaluate every discrepancy against your primary manuscript image using our four-part error taxonomy, synthesize the authoritative reconciled consensus text into `transcription_reconciled.xml`, and compose your reflection report in `RECONCILIATION.md`. **The Transcription Assignment is due tonight by 11:00 PM.***
 
 ---
 
 ## **01 Content**
 
-**What a Measurement Requires**
+**The Reconciliation Objective: Synthesis Over Surrender**
 
-You now have everything a measurement needs: a calibrated reference and two
-hypotheses to score against it.
+Welcome to Meeting #13. Today you reach the culmination of Week 5: textual reconciliation. 
 
-Tuesday produced the consensus text, verified by double-keying and adjudicated
-against the images. Week 4 produced two machine transcriptions of the same lines,
-each committed raw and tagged before correction. Today computes the distance
-between them.
+Over the past week, you generated two independent diplomatic transcriptions of your manuscript page. In Week 4, you keyed Pass 1 entirely by hand into `witness.xml`. On Tuesday (Meeting #12), you used Gemini in VS Code Antigravity to produce Pass 2 in `transcription_ai.xml`. 
 
-The word "distance" is literal. Character error rate and word error rate are
-normalized edit distances — the minimum number of single-unit changes needed to
-turn the machine's output into the reference, divided by the reference's length.
-The whole apparatus rests on one algorithm, and understanding that algorithm is
-what lets you interpret its output rather than merely quoting it.
+Now, you sit with two completed drafts that disagree with each other. A novice might be tempted to simply pick one file and discard the other, or blindly trust the artificial intelligence model because its output looks clean and polished. In scholarly editing, this surrender is unacceptable.
 
-Today has three parts. First, the mathematics: edit distance, the algorithm that
-computes it efficiently, and the two rates derived from it. Second, the
-interpretation: what the numbers mean, what they conceal, and why the relationship
-between CER and WER is often more informative than either alone. Third, the report:
-a formal audit document recording how your text moved from manuscript image to
-encoded XML.
+Reconciliation is not about picking a winner. It is about **synthesis**. You are the senior editor of your digital edition. Your task today is to open both drafts side by side, inspect every line where they diverge, interrogate the physical evidence on your digital image, and synthesize the best readings into a third, authoritative file: `transcription_reconciled.xml`. Where Gemini caught a slip you made due to tired eyes, you accept its reading. Where Gemini hallucinated or smoothed historical spelling, you defend the physical ink. You are the ultimate judge.
 
-**Vocabulary.** *Reference* — the ground truth against which output is scored.
-*Hypothesis* — the output being scored. *Edit distance* — the minimum number of
-single-unit edits transforming one string into another.
+**Vocabulary.** *Synthesis* — The intellectual act of evaluating multiple drafts to create a single superior, verified text.
 
-**Takeaway:** CER and WER are normalized edit distances, and
-understanding the algorithm is what lets you interpret the numbers rather than
-quote them.
+**Takeaway:** Textual reconciliation is an active act of scholarly adjudication, not a passive acceptance of machine output.
 
 ---
 
 ## **02 Content**
 
-**Levenshtein Distance**
+**The Three-Pass Textual Architecture**
 
-The foundation is the **Levenshtein distance**, formulated by Vladimir Levenshtein
-in 1965. It quantifies the dissimilarity of two sequences as the minimum number of
-single-character edit operations required to transform one into the other, where
-the permitted operations are insertion, deletion, and substitution (Haaf et al.,
-2013).
+To understand your workflow today, you must keep the three-pass textual architecture clear in your mind:
 
-Three operations, and no others. Transposition — swapping adjacent characters — is
-*not* a permitted operation in the standard formulation, which means that typing
-"teh" for "the" counts as two edits rather than one. Variants exist that permit
-transposition, but the standard measure does not, and error rates in the literature
-assume the standard.
+- **Pass 1 (`witness.xml`):** The human manual diplomatic baseline. Authored in Week 4, this draft reflects your careful reading of handwriting, physical layout, and codicological features. It carries human perceptual fatigue and cognitive auto-correction, but also human common sense and historical context.
+- **Pass 2 (`transcription_ai.xml`):** The machine diplomatic baseline. Generated on Tuesday via Gemini in VS Code Antigravity, this draft was produced under strict negative constraints. It never tires and reads microscopic letter strokes consistently, but it is prone to hallucination and silent modernization.
+- **Pass 3 (`transcription_reconciled.xml`):** The reconciled consensus baseline. Synthesized today, this file represents your adjudicated ground truth. It adopts the strengths of both passes while eliminating the distinct flaws of each.
 
-| Operation | Effect | Example |
-| --- | --- | --- |
-| Insertion | Add a character | λόγος → λόγοις |
-| Deletion | Remove a character | λόγοις → λόγος |
-| Substitution | Replace a character | λόγος → λόγου |
+All three files use the exact same diplomatic XML vocabulary taught in Week 4: `<text>`, `<body>`, `<div>`, `<p>`, `<pb/>`, `<lb/>`, `<unclear>`, and `<gap/>` (plus `<lg>` and `<l>` for poetry). Furthermore, all three files must remain permanently in your repository. Preserving this three-pass lineage provides complete scholarly transparency: anyone inspecting your digital edition can trace exactly how your text evolved from raw image to finished consensus.
 
-The minimum matters. There are many ways to transform one string into another; the
-distance is the cost of the cheapest. Computing that minimum is the algorithmic
-problem, because the number of possible transformation sequences grows
-combinatorially with string length.
+**Vocabulary.** *Textual architecture* — The systematic multi-stage progression of draft versions from raw witness to reconciled consensus.
 
-The recursive definition is mathematically clean and computationally hopeless:
-implemented directly it recomputes the same subproblems exponentially many times,
-which makes it unusable for sequences of any real length (Haaf et al., 2013).
-
-**Takeaway:** Levenshtein distance is the *minimum* number of
-insertions, deletions, and substitutions — and transposition is not one of the
-permitted operations.
+**Takeaway:** Your repository preserves three distinct stages: Pass 1 (manual), Pass 2 (AI), and Pass 3 (reconciled consensus).
 
 ---
 
 ## **03 Content**
 
-**The Wagner–Fischer Algorithm**
+**Understanding the VS Code Diff Engine**
 
-The inefficiency was resolved by the Wagner–Fischer algorithm in 1974, which
-computes the edit distance by bottom-up dynamic programming in O(mn) time and
-space, where m and n are the lengths of the two strings (Haaf et al., 2013).
+How do you compare two long XML files without reading them word-by-word with a magnifying glass? The answer is a computational tool called a **diff engine**.
 
-The idea is to build a matrix *D* of dimensions (m+1) × (n+1), where D[i][j] holds
-the edit distance between the first i characters of the reference and the first j
-characters of the hypothesis. Each cell is computed from three neighbours, and the
-answer lands in the bottom-right corner.
+The concept of a diff dates back to early Unix computing (specifically Douglas McIlroy's 1974 algorithm). A diff engine takes two text streams—a source and a target—and calculates the shortest sequence of edits (insertions, deletions, and replacements) necessary to transform the first into the second.
 
-The extra row and column are the part that confuses people, and they are
-mathematically necessary. They represent the **empty string** — a prefix of length
-zero. The first row records the cost of building the hypothesis from nothing, which
-is j insertions; the first column records the cost of reducing the reference to
-nothing, which is i deletions (Haaf et al., 2013).
+In modern code editors like Visual Studio Code, the diff engine is integrated into an interactive graphical interface. Rather than dumping cryptic terminal markers like `---` and `+++`, VS Code displays both files side-by-side in synchronized split panes:
 
-The recurrence:
+- Red or light coral shading marks text present in the left file but absent in the right (deletions).
+- Green or light mint shading marks text present in the right file but absent in the left (insertions).
+- Synchronized scrolling ensures that as you move down the document, matching lines remain horizontally aligned.
 
-```text
-D[i][j] = min(
-    D[i-1][j]   + 1,              # deletion
-    D[i][j-1]   + 1,              # insertion
-    D[i-1][j-1] + cost            # substitution or match
-)
-where cost = 0 if reference[i] == hypothesis[j], else 1
-```
+By using the diff engine, you let the computer do what computers do best: pinpointing exact coordinate differences. This frees your human intellect to do what humans do best: evaluating the historical meaning of those differences against the manuscript.
 
-Each cell asks: what is the cheapest way to reach this state? Delete a character
-from the reference and take the answer from above; insert a character into the
-hypothesis and take the answer from the left; or match or substitute and take the
-answer from the diagonal.
+**Vocabulary.** *Diff engine* — An algorithmic tool that computes and visually highlights character and line discrepancies between two files.
 
-The value in D[m][n] is the Levenshtein distance. And by tracing the optimal path
-backwards from D[m][n] to D[0][0], you recover the *alignment* — the precise
-correspondence showing exactly where a model hallucinated a character or where a
-transcriber skipped a word (Haaf et al., 2013).
-
-**Takeaway:** The extra row and column represent the empty
-string, and back-tracing the matrix recovers not just the distance but the exact
-alignment of errors.
+**Takeaway:** VS Code's diff engine compares two files line-by-line, highlighting deletions, insertions, and intra-line edits.
 
 ---
 
 ## **04 Content**
 
-**Implementing It**
+**Launching Side-by-Side Comparison in VS Code**
 
-Write this yourself rather than importing a library. The point is not the number
-but understanding what produces it.
+Opening two files for comparison in VS Code is straightforward and can be accomplished in two different ways:
 
-```python
-import unicodedata
+**Method 1: Using the File Explorer (Graphical)**
 
+1. Open the File Explorer sidebar in VS Code (`Ctrl+Shift+E` or `Cmd+Shift+E` on macOS).
+2. Right-click on your manual transcription file (`witness.xml`) and select **Select for Compare**.
+3. Right-click on your AI transcription file (`transcription_ai.xml`) and select **Compare with Selected**.
+4. VS Code immediately opens a new tab titled `witness.xml ↔ transcription_ai.xml` showing both files side-by-side.
 
-def edit_distance(ref, hyp):
-    """Wagner-Fischer. ref and hyp are sequences (str or list of str)."""
-    m, n = len(ref), len(hyp)
-    # Row 0 is the cost of building hyp from the empty string.
-    prev = list(range(n + 1))
-    for i in range(1, m + 1):
-        # Column 0 is the cost of reducing ref to the empty string.
-        cur = [i]
-        for j in range(1, n + 1):
-            cost = 0 if ref[i - 1] == hyp[j - 1] else 1
-            cur.append(min(prev[j] + 1,          # deletion
-                           cur[j - 1] + 1,       # insertion
-                           prev[j - 1] + cost))  # substitution
-        prev = cur
-    return prev[n]
-
-
-def cer(reference, hypothesis):
-    r = unicodedata.normalize("NFC", reference)
-    h = unicodedata.normalize("NFC", hypothesis)
-    return edit_distance(r, h) / len(r) if r else 0.0
-
-
-def wer(reference, hypothesis):
-    r = unicodedata.normalize("NFC", reference).split()
-    h = unicodedata.normalize("NFC", hypothesis).split()
-    return edit_distance(r, h) / len(r) if r else 0.0
+**Method 2: Using the Integrated Terminal (Command Line)**
+You can also launch the diff view directly from the terminal prompt:
+```bash
+code --diff witness.xml transcription_ai.xml
 ```
 
-Note three implementation details. The function keeps only the previous row rather
-than the whole matrix, which reduces space from O(mn) to O(n) — fine for computing
-a distance, though recovering the alignment requires the full matrix.
+Once the diff tab opens, configure your workspace for optimal adjudication. Split your physical monitor or position your windows so that your high-resolution manuscript image is visible alongside VS Code. You cannot reconcile text in a vacuum: your digital image is your primary source of truth, and you must consult it for every single highlighted diff chunk.
 
-Both inputs are NFC-normalized. This is not optional, and it is the single most
-common source of wrong error rates in student work. Comparing an NFC reference
-against NFD machine output measures encoding difference rather than transcription
-difference, and the inflation can be severe on polytonic Greek.
+**Vocabulary.** *Split diff viewer* — A side-by-side editing interface that displays the original and modified files simultaneously.
 
-And `wer` is the same algorithm over a different unit: tokenize by whitespace and
-run the identical matrix logic on lists of words rather than on characters (Haaf et
-al., 2013).
-
-Save this as `tools/cer.py` and commit it.
-
-**Takeaway:** WER is the same algorithm over whitespace tokens —
-and NFC-normalizing both inputs is what stops you measuring encoding difference.
+**Takeaway:** Use the File Explorer or terminal to compare witness.xml and transcription_ai.xml in VS Code's split diff view.
 
 ---
 
 ## **05 Content**
 
-**The Definitions of CER and WER**
+**Navigating Diff Chunks: Insertions, Deletions, and Modifications**
 
-Formally, both rates normalize the raw edit distance against the length of the
-reference (Haaf et al., 2013):
+When you open a diff, the editor groups contiguous differences into distinct units called **diff chunks**. A diff chunk can be as small as a single punctuation mark or as large as an entire paragraph where lineation diverged.
 
-```text
-CER = (S + D + I) / N
-```
+To navigate diff chunks efficiently without missing subtle one-character discrepancies:
 
-where S is substitutions, D is deletions, I is insertions, and N is the total
-number of characters in the verified reference.
+1. **The Navigation Toolbar:** In the top right corner of the diff editor tab, look for the navigation arrows: **Go to Next Change** (down arrow) and **Go to Previous Change** (up arrow).
+2. **Keyboard Shortcuts:** You can jump between differences instantly:
+   - macOS: `Option+F5` (Next Change), `Shift+Option+F5` (Previous Change)
+   - Windows/Linux: `Alt+F5` (Next Change), `Shift+Alt+F5` (Previous Change)
+3. **The Overview Ruler (Minimap):** On the far right edge of the editor window, the vertical scrollbar displays colored tick marks showing the distribution of differences throughout the file. Blue or green tick marks represent additions; red marks indicate deletions.
 
-WER uses the identical formula with the token as the unit rather than the
-character.
+Working through your file chunk-by-chunk using keyboard shortcuts ensures disciplined, comprehensive review. Never skim or scroll rapidly: an unexamined diff chunk might contain a critical scribal abbreviation or an AI hallucination.
 
-| | CER | WER |
-| --- | --- | --- |
-| Unit | Character | Whitespace-delimited token |
-| Denominator | Characters in the reference | Words in the reference |
-| Sensitive to | Individual character errors | Any error within a word |
-| Typical magnitude | Lower | Higher |
+**Vocabulary.** *Diff chunk* — A contiguous block of text containing one or more lines where two files differ.
 
-One property surprises people and is worth stating explicitly: **CER can exceed
-100%.** Insertions are added to the numerator without any corresponding increase in
-the denominator N, so a model that generates long strings of garbage from a
-degraded image can produce an error rate above 1.0 (Haaf et al., 2013).
-
-This is not a bug in the metric; it is a correct report that the hypothesis
-contains more wrong material than the reference contains material at all. If you
-see a CER above 100% today, the model has hallucinated substantially, and that is
-the finding.
-
-WER is systematically higher than CER because a single wrong character within a
-twenty-character word makes the whole word wrong under this evaluation (Haaf et
-al., 2013). A model with 5% CER distributed across many words may have a WER
-several times higher.
-
-**Takeaway:** CER can exceed 100% because insertions add to the
-numerator but not the denominator — a rate above 1.0 means substantial
-hallucination.
+**Takeaway:** Navigate methodically through diff chunks using keyboard shortcuts or the diff minimap rather than scrolling aimlessly.
 
 ---
 
 ## **06 Content**
 
-**The Relationship Between CER and WER**
+**Reading Diff Highlighting: Block vs. Character-Level Changes**
 
-The two numbers together carry diagnostic information that neither carries alone,
-and this is the most useful analytical tool in today's session.
+VS Code uses a two-tier visual highlighting system to communicate exactly what kind of divergence has occurred:
 
-Because WER counts a word wrong for any character error within it, the ratio
-between the rates depends on how errors are *distributed*. Errors concentrated in
-few words produce a low WER relative to CER; errors scattered across many words
-produce a high WER relative to CER.
+1. **Line-Level Background Tinting:** When a line contains any difference, the entire line receives a pale, semi-transparent background color (light red/coral on the left, light green/mint on the right). This signals that the line as a whole does not match.
+2. **Intra-Line Character Highlighting:** Within that tinted line, VS Code applies a darker, more saturated background color directly behind the specific characters that differ. 
 
-| Pattern | Likely cause |
-| --- | --- |
-| CER low, WER proportionally low | Few errors, concentrated |
-| CER low, WER disproportionately high | Errors scattered one per word — often diacritics |
-| CER low, WER very high (2× or more than expected) | Systemic word-boundary failure |
-| CER high, WER near 100% | Widespread failure |
-| CER high, WER lower than expected | Errors concentrated in a damaged region |
+For example, consider an 18th-century line where the manual pass keyed `the publick peace` and Gemini produced `the public peace`:
 
-The third row is the important diagnostic. A model producing 4% CER and 25% WER is
-almost certainly suffering systemic tokenization or boundary detection failure —
-arbitrarily inserting whitespace and fracturing cohesive lexical units into
-fragments (Haaf et al., 2013). The characters are largely right; the word divisions
-are not.
+- The entire line is lightly shaded in both panes.
+- In the left pane (`witness.xml`), the letter `k` in `publick` is highlighted with a rich, darker tint.
+- In the right pane (`transcription_ai.xml`), the space following `public` is highlighted, indicating that the `k` is missing.
 
-Two causes produce this in your material specifically. If your manuscript uses
-*scriptio continua*, the model recognizes characters correctly and fuses them into
-concatenated tokens, as Lesson 4.1 section 13 anticipated. And line-end hyphenation
-is a persistent anomaly: models frequently fail to reconstruct a word fractured
-across a line break, treating the two fragments as unrelated tokens, which inflates
-WER and destroys semantic coherence (Bawden et al., 2026).
+Learning to read this two-tier shading allows you to diagnose discrepancies in seconds. You don't have to re-read the entire sentence; your eye focuses immediately on the darker character-level highlights. That darker highlight tells you exactly what historical feature is under dispute.
 
-Compute both rates and report the ratio. If it is anomalous, diagnose it — the
-explanation is a finding.
+**Vocabulary.** *Intra-line highlighting* — The darker shading within a diff line that pinpoints the exact character coordinates of a discrepancy.
 
-**Takeaway:** Low CER with disproportionately high WER means
-word-boundary failure, not character misreading — diagnose it rather than reporting
-it flatly.
+**Takeaway:** Diff lines use pale background tinting for the changed line and darker highlighting for exact character differences.
 
 ---
 
 ## **07 Content**
 
-**Preparing the Texts for Comparison**
+**The Danger of Automated Merge: Why Manual Adjudication is Mandatory**
 
-Before measuring, both texts must be reduced to comparable form. Decisions here
-change the numbers, so make them deliberately and record them.
+In software engineering, developers frequently use automated merge tools (`git merge`) to combine code branches. If Developer A changed line 10 and Developer B changed line 50, the git merge engine automatically merges both changes without asking questions.
 
-| Decision | Options | Recommendation for this course |
-| --- | --- | --- |
-| Markup | Strip tags, or compare encoded text | Strip; compare the text stream |
-| Normalization | NFC, NFD, or as-is | NFC, both sides, always |
-| Case | Preserve or fold | Preserve; case is diplomatic evidence |
-| Whitespace | Preserve, collapse, or strip | Collapse runs to single spaces |
-| Line breaks | Compare per line, or as one stream | Per line, where alignment permits |
-| Punctuation | Include or exclude | Include; record the choice |
-| Conversational framing | Strip before comparison | Strip; do not measure preamble |
+In historical textual scholarship, **automated merging is strictly forbidden**.
 
-Every one of these changes the result, which is why the reconciliation report must
-state them. A CER of 6.2% computed with case folded and punctuation excluded is not
-comparable to 6.2% computed strictly, and a report that omits the preprocessing is
-not reproducible.
+Why? Because git merge algorithms possess zero historical consciousness. A merge algorithm cannot look at an 18th-century manuscript image. It does not know that an author used a quill pen, that ink faded across a fold, or that printers used the medial long-s (`ſ`). 
 
-Extract the text stream from your TEI consensus:
+If an AI model silently 'corrected' an archaic word from `ye` to `the`, an automated merge tool might accept the AI's version simply because it looks like a modern dictionary word. In doing so, the algorithm destroys historical evidence and corrupts your edition.
 
-```python
-import re, unicodedata
-from pathlib import Path
+Every difference between your passes represents a fork in scholarly interpretation. You cannot delegate that interpretation to a heuristic script. You must look at the primary manuscript image, inspect the physical ink, and make an active, documented editorial decision. That is why we create our third file manually through adjudication.
 
-def text_stream(path):
-    xml = Path(path).read_text(encoding="utf-8")
-    body = re.search(r"<body>(.*?)</body>", xml, re.S).group(1)
-    text = re.sub(r"<[^>]+>", "", body)            # strip markup
-    text = re.sub(r"\s+", " ", text).strip()       # collapse whitespace
-    return unicodedata.normalize("NFC", text)
-```
+**Vocabulary.** *Automated merge* — A blind computational operation that accepts changes without contextual evaluation of historical evidence.
 
-One caution on stripping markup. `<expan>` contains editor-supplied expansions and
-`<abbr>` contains what is on the page. Stripping all tags concatenates both, which
-would compare a doubled text. Decide which layer you are measuring — for a
-diplomatic comparison it is `<abbr>` — and extract that consistently from both
-sides.
-
-**Takeaway:** Preprocessing decisions change the number, so
-record them — and when stripping markup, choose the `<abbr>` or `<expan>` layer
-deliberately.
+**Takeaway:** Never accept automated three-way merges on historical texts; every difference demands paleographical scrutiny.
 
 ---
 
 ## **08 Content**
 
-**Measuring Per Line**
+**Establishing the Third File: transcription_reconciled.xml**
 
-Whole-text figures hide the distribution. Measure per line and report both.
+Now we begin hands-on construction. Before adjudicating any lines, you must create the container for your reconciled consensus text: `transcription_reconciled.xml`.
 
-```python
-results = []
-for n, ref_line in consensus_lines:
-    hyp_line = htr_lines.get(n, "")
-    results.append({
-        "line": n,
-        "cer": cer(ref_line, hyp_line),
-        "wer": wer(ref_line, hyp_line),
-        "chars": len(ref_line),
-    })
+**Step-by-Step File Initialization:**
 
-overall = sum(r["cer"] * r["chars"] for r in results) / sum(r["chars"] for r in results)
+1. In the VS Code File Explorer, duplicate your manual transcription file (`witness.xml`) or create a new file in your repository root named `transcription_reconciled.xml`.
+2. Ensure that this new file opens with the full standard TEI container hierarchy:
+```xml
+<text>
+  <body>
+    <div>
+      <pb facs="#[surface-id]" n="[page-num]"/>
+      <!-- Adjudicated paragraphs, lines, and milestones go here -->
+    </div>
+  </body>
+</text>
 ```
 
-Note the weighting in the overall figure. A simple mean of per-line rates weights a
-three-character line equally with a sixty-character one, which distorts the result.
-Weight by reference length, or equivalently compute the total edit distance over
-the total reference length.
+3. Open `transcription_reconciled.xml` in an editor pane alongside your diff tab.
 
-Per-line results let you see what an aggregate conceals:
+As you step through the diff chunks between `witness.xml` and `transcription_ai.xml`, you will build `transcription_reconciled.xml` line by line. If `witness.xml` is correct, keep its line. If `transcription_ai.xml` is superior, paste its reading into `transcription_reconciled.xml`. If both missed something, write the corrected reading directly into the reconciled file.
 
-| Distribution | Interpretation |
-| --- | --- |
-| Uniform, low | The model handles this hand consistently |
-| Uniform, moderate | A systematic issue — diacritics, conventions |
-| Mostly low, a few very high | Localized difficulty: damage, a gloss, a layout fault |
-| Rising through the folio | Possible alignment drift; check line correspondence |
-| One line at 100%+ | That line's image is probably wrong — check the polygon |
+Notice the fundamental rule: **you do not edit witness.xml or transcription_ai.xml today**. Those two files remain frozen as historical records of Pass 1 and Pass 2. All edits occur exclusively in `transcription_reconciled.xml`.
 
-The last two rows are diagnostic rather than descriptive. Steadily rising error
-through a folio suggests the hypothesis has drifted out of alignment with the
-reference — an off-by-one from a split or merged line — and the fix is realignment
-rather than model improvement. A single catastrophic line usually means the layout
-analysis produced a bad line image, which is the Lesson 4.2 section 02 cascade.
+**Vocabulary.** *Consensus document* — The third, authoritative file synthesized from the best verified readings of prior passes.
 
-Report the distribution, not just the mean.
-
-**Takeaway:** Weight the overall rate by line length, and read
-the per-line distribution — rising error means misalignment, not model failure.
+**Takeaway:** Create transcription_reconciled.xml as an independent file to house your reconciled readings without overwriting earlier passes.
 
 ---
 
 ## **09 Content**
 
-**Aligning the Machine Outputs**
+**The Four Discrepancy Categories**
 
-Before per-line measurement is possible, the hypothesis must be line-aligned with
-the reference. This is straightforward for the HTR output and may not be for the
-VLM output.
+As you compare Pass 1 and Pass 2, you will encounter dozens of differences. To prevent cognitive overwhelm, textual scholars categorize discrepancies into a structured **error taxonomy**. 
 
-HTR output is line-aligned by construction: the model operated on line images, and
-its output carries line structure, exported in ALTO or PAGE XML with coordinates
-(eScriptorium/Kraken, 2024). Map its lines to your `<lb/>` numbering and verify by
-spot-check.
+In this course, every divergence falls into one of four distinct categories:
 
-VLM output may not be. If the model reflowed the text into continuous prose — the
-failure documented in Lesson 4.3 section 06 — you have three options:
+1. **Category A: Human Perceptual Fatigue (AI Correct).** You missed a letter, skipped an obscure word, or misread a clear character because your eyes were tired. Gemini caught it.
+2. **Category B: AI Hallucination / Autoregressive Smoothing (Human Correct).** Gemini modernized spelling, expanded an abbreviation, invented words over smudges, or smoothed syntax. Your manual reading is faithful to the physical ink.
+3. **Category C: Genuine Physical Ambiguity (Both Uncertain).** The manuscript itself is damaged, faded, torn, or stained. Both human and machine struggled.
+4. **Category D: Layout and Structural Divergence.** Differences in line breaks (`<lb/>`), paragraph boundaries (`<p>`), or verse containers (`<lg><l>`).
 
-| Option | Method | Cost |
-| --- | --- | --- |
-| Realign manually | Insert line breaks by comparing against the image | Slow; accurate |
-| Measure whole-text only | Compare as one stream; report the limitation | Fast; less informative |
-| Align algorithmically | Use CTC-style alignment against character posteriors | Sophisticated; needs model access |
+Memorize these four categories. In Friday's lab and in tonight's assignment reflection (`RECONCILIATION.md`), you will formally report your diff results using this exact taxonomy.
 
-The third option is the Bullinger solution from Lesson 5.1 section 16 and is
-probably beyond today's scope, but knowing it exists matters. Peer et al. (2025)
-used a CTC alignment algorithm to insert line breaks into layout-free expert
-transcriptions so they matched the visual layout of the page, using dynamic
-programming over character posterior probabilities — and improved a PyLaia model's
-CER by 1.1 points in the process.
+**Vocabulary.** *Error taxonomy* — A structured classification system used to group and analyze different types of transcription discrepancies.
 
-For today, realign manually if the folio is short, and otherwise measure whole-text
-and state the limitation clearly. A whole-text CER is a valid measurement; it simply
-cannot support per-line analysis, and the report must say so.
-
-Do not compare a line-aligned HTR figure against a whole-text VLM figure without
-noting that they were computed differently. That comparison is not like for like.
-
-**Takeaway:** HTR output is line-aligned by construction and VLM
-output often is not — never compare a per-line figure against a whole-text one
-without saying so.
+**Takeaway:** Classify every divergence into one of four categories: human fatigue, machine smoothing, physical ambiguity, or structural layout.
 
 ---
 
 ## **10 Content**
 
-**Computing Against Both Ground Truths**
+**Category A: Catching Human Perceptual Fatigue**
 
-An analysis worth performing, because it quantifies the value of Tuesday's work.
+Let us examine Category A in detail. When you transcribed your page by hand in Week 4, you were reading unfamiliar historical scripts—perhaps 18th-century cursive or mid-20th-century folk handwriting. Close paleographical reading is exhausting. After thirty minutes, human attention degrades.
 
-Compute each machine output's CER twice: once against Week 4's original ground
-truth (`gt-f42r`) and once against Tuesday's consensus (`gt-f42r-consensus`).
+Common human fatigue errors include:
 
-| Comparison | Tells you |
-| --- | --- |
-| HTR against original ground truth | What Week 4 measured |
-| HTR against consensus | The corrected measurement |
-| Difference between them | How much of the measured error was yours |
-| Same pair for the VLM output | The same, for the AI pass |
+- Dropping small grammatical particles (e.g. skipping 'the', 'of', or 'and').
+- Inverting adjacent letters (e.g. typing 'recieve' instead of 'receive' or vice-versa).
+- Misreading unambiguous characters due to visual habit (e.g. reading an archaic letter 'e' as an 'o').
 
-The difference is informative in a specific way. If HTR error against the original
-was 6.8% and against the consensus is 5.9%, then roughly 0.9 percentage points of
-what Week 4 attributed to the model was in fact error in your reference.
+When you examine a diff chunk and see that Gemini transcribed a letter or word that you omitted, zoom in on your high-resolution image. Look closely at the physical ink. If the ink clearly shows the word that Gemini captured, celebrate! The AI model has served as an indefatigable second reader, catching an error caused by human fatigue.
 
-Retrieving the tagged states is what makes this possible:
+**Your Action:** Accept Gemini's reading into `transcription_reconciled.xml`. Take note of this occurrence for your reflection report: human-machine double-keying has successfully caught a human slip.
 
-```bash
-git show gt-f42r:transcription/f42r_pass1.xml > /tmp/gt_original.xml
-git show gt-f42r-consensus:transcription/f42r_consensus.xml > /tmp/gt_consensus.xml
-git show htr-w4-raw:transcription/htr_output.txt > /tmp/htr_raw.txt
-```
+**Vocabulary.** *Perceptual fatigue* — Cognitive exhaustion from prolonged close reading that causes transcribers to miss visual details.
 
-This is the payoff for the tagging discipline from Weeks 4 and 5. Without tags, the
-original ground truth is simply gone — overwritten by Tuesday's corrections — and
-this comparison could not be made at all.
-
-Report both figures. Reporting only the flattering one, or only the corrected one
-without noting the change, conceals a real fact about the reliability of your
-earlier measurements.
-
-**Takeaway:** Measuring against both ground truths quantifies how
-much of Week 4's "machine error" was yours — and only the tags make it retrievable.
+**Takeaway:** When Gemini correctly reads characters that you misread due to fatigue, accept the machine reading into your consensus file.
 
 ---
 
 ## **11 Content**
 
-**Interpreting the Numbers Against Thresholds**
+**Cognitive Blind Spots: The Repetition and Skipping Effect**
 
-With figures in hand, interpret them against established thresholds (AlKendi et
-al., 2024):
+One of the most pervasive cognitive phenomena in textual transmission is **eye-skip** (historically called *parablepsis* or *homoioteleuton*). 
 
-| CER | Assessment | Supports |
-| --- | --- | --- |
-| Under 5% | Excellent | Minimal correction; publishable after proofreading; reliable for downstream NLP |
-| 5–10% | Good, usable | Localized errors on abbreviations and ligatures; heavier editing for a critical edition; fine for corpus work |
-| 10–15% | Marginal | Substantial correction required |
-| Over 15% | Poor | Correction costs more than transcribing from scratch |
+When a historical text contains identical or similar words in close proximity, the human eye easily loses its place on the page:
 
-Apply these to your own results and state what they imply for your edition. If your
-fine-tuned HTR model is at 6%, it is usable: extend transcription with it,
-correcting its output. If your VLM output is at 45%, it is not, and the honest
-conclusion is that zero-shot VLM transcription is unsuitable for this manuscript.
+```
+Line 4: ...shall pay to the treasurer the sum of fifty pounds...
+Line 5: ...and upon payment to the treasurer shall receive a receipt...
+```
 
-Two cautions on the thresholds. They are conditional on layout, as Lesson 4.2
-section 18 established — a figure measured on standard pages may not hold on glossed
-ones. And they describe *correction economics*, not scholarly adequacy: a 4% CER
-model is economically usable and its output still requires checking before it enters
-an edition.
+If a human transcriber looks away to type "to the treasurer" from Line 4, their eye often returns to the *second* occurrence on Line 5. As a result, the entire phrase between the two occurrences is silently omitted. Scribes in medieval scriptoria committed this exact error thousands of times, and modern students do the same.
 
-The threshold that matters most is the last row, and it is worth restating because
-it converts a quality judgement into a decision. Above roughly 15% CER, the
-cognitive load and time to post-correct exceed the time to transcribe from scratch
-(AlKendi et al., 2024). A tool above that line is not slow help; it is a net loss.
+Conversely, a computer vision model does not have an eye that wanders between lines. It processes visual patches systematically across pixel space. In a diff, an eye-skip appears as a sudden multi-word deletion in the manual pass.
 
-**Takeaway:** Above 15% CER a tool is a net loss, not slow help —
-the threshold converts a quality judgement into a decision.
+When you see a large deletion chunk in `witness.xml`, check the manuscript image immediately. If you jumped a line, restore the missing text from `transcription_ai.xml` into `transcription_reconciled.xml`.
+
+**Vocabulary.** *Eye-skip (parablepsis)* — An error where the transcriber's eye jumps between similar words or letters, skipping text in between.
+
+**Takeaway:** Human readers frequently skip repeated words or jump lines; machine vision models reliably flag these omissions.
 
 ---
 
 ## **12 Content**
 
-**Why the Number Is Not Enough**
+**Category B: Identifying Machine Hallucination**
 
-The central methodological argument of today, and the one your report must engage.
+Now we turn to Category B: machine failure. Large multimodal models like Gemini are autoregressive neural networks. They are trained to predict the most statistically probable next token given the prompt and the image context.
 
-CER treats every difference identically. A substitution that drops a breathing and
-a substitution that changes a letter both count as one edit. But their scholarly
-consequences differ enormously, and a single aggregate cannot distinguish them.
+While this predictive power makes them remarkably fluent, it also creates their greatest paleographical danger: **hallucination**.
 
-The finding from Lesson 4.3 section 04 makes this concrete. GPT-4o achieved 9.23%
-CER on eighteenth-century Russian — considerably better than a generic PyLaia
-baseline at 26.93% — while inserting anachronistic archaic characters in 59% of
-processed files. PyLaia scored far worse by the metric and never once fabricated a
-grapheme (Levchenko, 2024).
+When an AI model encounters an ink smudge, a dark crease, or an ambiguous ligature, it does not stop and confess uncertainty unless forced to do so. Instead, the language model inside the vision architecture attempts to 'fill in the blank.' It predicts what word *ought* to appear in an 18th-century sentence, and emits that word as if it were plainly visible on the parchment!
 
-Which model is better for a diplomatic edition? By CER, GPT-4o. By fidelity, PyLaia,
-unambiguously — because a transcription that invents period-specific orthography is
-not a transcription of the document.
+In a diff, machine hallucination typically appears where `transcription_ai.xml` presents a complete, elegant sentence, but `witness.xml` contains an `<unclear>` tag or a partial word.
 
-Hence the conclusion that standard metrics are insufficient for historical text: a
-model may achieve low CER while destroying the diplomatic fidelity of the
-transcription through temporal hallucination (Levchenko, 2024).
+When you check the image, you will see the truth: there is only a smudge of faded ink. Gemini invented the word out of thin air.
 
-Two supplementary measures address this:
+**Your Action:** Reject the hallucination! Defend the physical document. Preserve your manual reading or mark the doubtful reading with `<unclear>` in `transcription_reconciled.xml`.
 
-| Metric | Measures | Detects |
-| --- | --- | --- |
-| Historical Character Preservation Rate | Proportion of period-specific characters preserved | Silent modernization |
-| Archaic Insertion Rate | Frequency of hallucinated earlier-period characters | Over-historicization |
+**Vocabulary.** *Hallucination* — A neural model error where the system generates plausible-sounding text unsupported by physical ink on the image.
 
-For your Greek, compute analogues. What proportion of polytonic diacritics survived
-correctly? Were abbreviations preserved or expanded? Was *scriptio continua*
-preserved or divided? Each is a fidelity measure that CER does not capture.
-
-**Takeaway:** A model can score better on CER while destroying
-diplomatic fidelity — compute fidelity measures alongside the error rate.
+**Takeaway:** Reject machine readings that invent missing letters or smooth out messy manuscript realities.
 
 ---
 
 ## **13 Content**
 
-**Building an Error Typology**
+**The Modernization Reflex: Defending Archaic Orthography**
 
-Classify the errors rather than merely counting them. The classification is what
-makes the report diagnostic rather than descriptive.
+The most frequent Category B error is what we call the **modernization reflex** (or autoregressive smoothing). 
 
-Use the alignment from the Wagner–Fischer back-trace to extract each error with its
-context, then categorize:
+Multimodal foundation models are trained on billions of words of modern web text, news articles, and contemporary literature. Standard English orthography acts like a powerful gravitational pull on the model's outputs. Even when you instruct Gemini with strict negative constraints, the model will constantly attempt to 'correct' historical spelling:
 
-| Category | Example | Diagnostic significance |
-| --- | --- | --- |
-| Confusable letterform | One letter read as a similar one | Palaeographic; add to `HAND.md` |
-| Diacritic omitted | Breathing or accent missing | Possibly a polygon truncation fault |
-| Diacritic wrong type | Acute for grave | Convention or contextual rule |
-| Abbreviation expanded | θς rendered θεός | Silent normalization |
-| Word boundary error | Two words fused or one split | Tokenization; inflates WER |
-| Line-end fracture | Word split across lines not rejoined | Structural; a known HTR anomaly |
-| Impossible sequence | Non-Greek letter sequence | CTC uncertainty; conspicuous, benign |
-| Plausible wrong word | Correct Greek, wrong reading | Language-model substitution; dangerous |
-| Fabricated text | Content with no ink behind it | Hallucination; the most serious |
+- `publick` $\to$ modernized to `public`
+- `compleat` $\to$ modernized to `complete`
+- `shew` $\to$ modernized to `show`
+- `Janry` $\to$ modernized to `January`
+- `ye` $\to$ modernized to `the`
 
-The audit should classify the most frequent substitutions and identify systematic
-bias — does the model consistently confuse a particular letter pair, or hallucinate
-punctuation where none exists? Identifying these biases dictates the parameters
-required for any subsequent normalization phase (Haaf et al., 2013).
+In the diff editor, these modernizations appear as crisp character-level discrepancies. Look at `witness.xml`: you transcribed `compleat` because the author wrote `c-o-m-p-l-e-a-t`. Look at `transcription_ai.xml`: Gemini emitted `complete`.
 
-The last two rows are the ones to report prominently if present. A plausible wrong
-word is dangerous because post-correction will not catch it by reading; fabricated
-text is more serious still. Both are language-model behaviours, and finding either
-in your VLM output on your own manuscript is a substantive result.
+Remember: our goal this week is **diplomatic transcription**. We want to preserve the exact physical and orthographical testimony of the witness. Do not let the machine homogenize historical language.
 
-Count each category and report counts alongside the aggregate rate.
+**Your Action:** Reject Gemini's modernized spelling. Keep the authentic archaic spelling in `transcription_reconciled.xml`.
 
-**Takeaway:** Categorized errors identify systematic bias; an
-aggregate rate cannot — and plausible wrong words are the ones post-correction will
-miss.
+**Vocabulary.** *Archaic orthography* — Historical spelling practices that differ from modern standardized dictionaries.
+
+**Takeaway:** When Gemini silently modernizes historical spellings like 'compleat' or 'publick', reject the edit and defend the authentic ink.
 
 ---
 
 ## **14 Content**
 
-**Why Error Rates Matter Downstream**
+**Scribal Abbreviations vs. Silent AI Expansion**
 
-A reason to care about these numbers beyond the assignment, and the strongest
-available argument for post-correction.
+A related failure mode in Category B is the **silent expansion of abbreviations**. 
 
-Transcription noise degrades downstream computational analysis severely and
-non-linearly. Standard NLP tools are trained overwhelmingly on clean modern
-corpora, and noisy historical text harms them in ways that differ by task (van
-Strien et al., 2020).
+Historical writers made extensive use of abbreviations. Paper and parchment were expensive, and writing with a quill pen was labor-intensive. Standard abbreviations included:
 
-**Part-of-speech tagging** degrades roughly linearly with error rate, crossing into
-uselessness at approximately 5% CER. The mechanism is specific: taggers rely
-heavily on morphological suffixes to determine syntactic category, and suffixes are
-exactly what character-level substitution corrupts (van Strien et al., 2020).
+- Brevigraphs like `&` and `&c.` (et cetera)
+- Suspensions like `Govr` (Governor) or `Honble` (Honorable)
+- Superscript letters (e.g. `y^e` for *the*, `y^t` for *that*, `w^ch` for *which*)
 
-**Named entity recognition** fails catastrophically rather than gradually. NER
-F-scores drop from an acceptable 90% to a useless 60% when WER rises from 1% to
-just 7%, or when CER rises from 8% to 20% (van Strien et al., 2020).
+When Gemini encounters `Govr`, its internal language model recognizes the semantic concept 'Governor'. Unless strictly constrained, it will often output `<p>Governor</p>` instead of `<p>Govr</p>`.
 
-| Task | Degradation | Threshold of uselessness |
-| --- | --- | --- |
-| POS tagging | Roughly linear | Around 5% CER |
-| NER | Catastrophic cascade | 7% WER, or 20% CER |
+In Week 6 (Normalization), we will learn how to encode abbreviations and their modern expansions together using TEI elements like `<choice>`, `<abbr>`, and `<expan>`. 
 
-The reason NER collapses is worth understanding. Named entities have low textual
-redundancy: a common word misspelled once is recoverable from context and from its
-other occurrences, but if a proper name is corrupted by a single character the
-entire entity is lost to the index. Worse, named entities frequently *are* the
-out-of-vocabulary terms that recognition models handle worst — so errors concentrate
-precisely on the tokens that can least afford them (van Strien et al., 2020).
+**However, this week, normalization elements are strictly locked!** Today, we are establishing the pure, unexpanded diplomatic baseline. If Gemini expanded an abbreviation, it broke the diplomatic boundary.
 
-This bears directly on Week 9's lemmatization and Week 12's commentary. Without
-post-correction, extracting historical actors and geographic networks from noisy
-transcription is statistically invalid (van Strien et al., 2020).
+**Your Action:** Reject the expanded word. Keep the unexpanded historical abbreviation in `transcription_reconciled.xml`.
 
-**Takeaway:** NER collapses from 90% to 60% F-score as WER goes
-from 1% to 7%, because proper names have no redundancy to recover from.
+**Vocabulary.** *Scribal abbreviation* — A shortened written form or symbol used by historical writers to conserve parchment, ink, or writing time.
+
+**Takeaway:** Keep abbreviations like '&c.', 'ye', and 'Govr' exactly as written; do not let Gemini silently expand them.
 
 ---
 
 ## **15 Content**
 
-**Pre-Editorial Normalization**
+**Long-s (ſ) and Historical Letterforms**
 
-A method that bridges raw HTR output and the clean text downstream tools require,
-and which anticipates next week.
+For students working with 18th-century printed texts (such as Ace's 1791 French Revolutionary Decree), one particular glyph creates continuous diff discrepancies: the **medial long-s (`ſ`)**.
 
-**Pre-editorial normalization** algorithmically normalizes graphemic recognition
-output according to standard editorial conventions before final human curation
-(Bawden et al., 2026). The motivation is the gap identified in section 14: graphemic
-models trained on specialized datasets preserve historical variation and generalize
-well across hands, but produce output that breaks modern NLP tools.
+In European printing from the Renaissance until around 1800, printers used two distinct lowercase forms of the letter 's':
 
-Implementations use byte-level sequence-to-sequence transformers such as ByT5,
-which ingest graphemic output and generate a pre-edited text — resolving scribal
-abbreviations contextually, normalizing ramist letters on vocalic or consonantal
-usage, and rectifying standard recognition confusions such as a minim sequence read
-as one letter rather than another (Bawden et al., 2026).
+- The short round 's' (`s`) was used at the end of words (e.g. `leurs`, `dans`).
+- The long-s (`ſ`) was used at the beginning and in the middle of words (e.g. `aſſemblée`, `ſerment`, `neceſſaire`).
 
-The danger is over-normalization. Processing historical texts with fluid
-orthography, such models frequently collapse historically significant dialectal
-variants into a single standard form, permanently erasing linguistic evidence. They
-may also hallucinate whole strings when encountering severe recognition noise,
-generating grammatically coherent but entirely fabricated prose to bridge an
-illegible gap (Bawden et al., 2026).
+The long-s looks very similar to a lowercase 'f', but lacks the full right-hand horizontal crossbar.
 
-Hence strict constraints are required: abbreviations corresponding to proper names
-without contextual clarity must remain unexpanded, and continuous spans of severe
-noise must be flagged for human review rather than algorithmically overwritten.
-Under those constraints, a tightly controlled ByT5 model achieved 6.7% CER on
-medieval manuscripts while substantially accelerating the human editorial workflow
-without sacrificing palaeographic integrity (Bawden et al., 2026).
+Standard AI vision models constantly collapse the long-s into a modern round 's'. When viewing the diff of Ace's decree:
 
-The architecture to note: normalization is a *separate layer* over a preserved
-graphemic base, with explicit constraints and human review of uncertain regions.
-That is exactly Week 6's design.
+- `witness.xml` contains `aſſemblée` (using Unicode `U+017F`).
+- `transcription_ai.xml` contains `assemblée` (using modern `s`).
 
-**Takeaway:** Automated normalization works under strict
-constraints — unexpanded proper names, human review of noisy spans — and erases
-dialectal evidence without them.
+While modernizing the long-s is common in popular reprints, in a diplomatic digital edition we preserve the exact typographic testimony of the 1791 printing press. 
+
+**Your Action:** Preserve the historical long-s glyph (`ſ`) in `transcription_reconciled.xml`.
+
+**Vocabulary.** *Medial long-s (ſ)* — An archaic lowercase letterform resembling an 'f' without a crossbar, used medially in 18th-century typography.
+
+**Takeaway:** If Gemini normalized the long-s (ſ) into a modern 's', restore the historical glyph to preserve printed testimony.
 
 ---
 
 ## **16 Content**
 
-**The Reconciliation Audit Report**
+**Category C: Genuine Physical Ambiguity on the Artifact**
 
-Today's deliverable. The report ensures epistemological transparency, recording
-exactly how the text moved from raw manuscript image to final encoded XML (Haaf et
-al., 2013).
+Category C represents the moments where the disagreement between Pass 1 and Pass 2 is not caused by human error or machine bias, but by the physical condition of the artifact itself.
 
-Five required components (Haaf et al., 2013):
+Manuscripts are physical objects that have survived decades or centuries of handling, folding, dampness, and chemical decay:
 
-**1. Ground truth sampling and agreement validation.** Define which material was
-double-keyed to serve as ground truth. Document inter-annotator agreement to
-establish that the transcribers reached high consensus, which is what verifies the
-reference's reliability before anything is benchmarked against it.
+- Ink fades to faint yellowish ghosts of letters.
+- Acidic iron-gall ink burns through paper fibers.
+- Moisture creates water stains and cockling.
+- Folds, tears, and seal wax obscure written lines.
 
-**2. Error rate benchmarking.** Declare CER and WER for all automated outputs.
-Identify divergence between the two: if CER is 4% and WER is an anomalous 25%, the
-audit must explicitly identify systemic tokenization or boundary detection failure.
+When you reach a Category C diff chunk, you will notice that both you and Gemini hesitated:
 
-**3. Error typology and systematic bias.** Classify the most frequent
-substitutions. Does the model systematically confuse particular letterforms? Does
-it hallucinate punctuation absent from the source? These biases dictate the
-parameters for any subsequent normalization.
+- Perhaps you transcribed `p<unclear>ai</unclear>d` while Gemini guessed `part`.
+- Perhaps you left a blank space while Gemini output `trans<unclear>action</unclear>`.
 
-**4. Structural versus typographical divergence.** Differentiate characters misread
-by the recognition system from XML structural errors. A missing closing tag is a
-structural failure compromising the entire document object model, and it takes
-absolute precedence over a minor typographical substitution.
+Neither reading is completely right or completely wrong. The physical reality of the page is genuinely ambiguous. 
 
-**5. LLM parameterization and constraints.** Where a language model was used, append
-the exact prompt. Demonstrate that the model was explicitly instructed to preserve
-historically significant orthography, and include a statistical evaluation of its
-false-positive rate for unprompted anachronistic normalizations.
+In digital editing, you do not force a fake resolution. TEI provides specialized markup designed specifically to communicate scholarly uncertainty with mathematical precision: `<unclear>` and `<gap/>`.
 
-Write these as `logs/reconciliation-report-w5.md`. Each has a direct counterpart in
-work you have already done, and the report assembles rather than generates.
+**Vocabulary.** *Physical ambiguity* — Manuscript uncertainty caused by physical damage, ink fading, paper tears, or heavy smudges.
 
-**Takeaway:** The audit report has five required components, and
-structural errors take precedence over typographical ones in reporting.
+**Takeaway:** Where both human and machine struggle with damaged physical ink, resolve the disagreement with TEI scholarly markup.
 
 ---
 
 ## **17 Content**
 
-**Writing Component 1: Ground Truth Validation**
+**Adjudicating Faded Ink: The Decisive Use of unclear**
 
-Assemble from Tuesday's work.
+When you adjudicate a Category C reading where ink is faded but partially decipherable, the TEI `<unclear>` element is your primary tool.
 
-State which material was double-keyed, when each pass was made, and what interval
-separated them. Confirm that pass 2 was independent, and cite the commit order as
-evidence — this is a claim the repository substantiates rather than one you merely
-assert.
+A foundational principle of scholarly editing is: **never guess in silence**. 
 
-Report agreement: overall character agreement between the passes, the per-line
-distribution, and the number of disagreements adjudicated. Note how many resolved
-toward each pass, since a strong skew is worth explaining.
+If you or Gemini believe that a faded stroke represents the word "Tuesday", but the letters "es" are smeared by a thumbprint, do not output bare `Tuesday`. Typing bare text implies to the reader that the manuscript is pristine. 
 
-Report the limitation honestly. Your double-keying used one transcriber twice
-rather than two transcribers, which cannot catch systematic misunderstandings, as
-Lesson 5.1 section 14 established. If a classmate reviewed lines, say which and what
-that found.
+Instead, enclose the uncertain reading inside `<unclear>`:
+```xml
+<p><lb n="12"/>paid on <unclear>Tuesday</unclear> last</p>
+```
 
-Finally, report the figure from section 21 of Lesson 5.1: how far the original
-ground truth was from the consensus. This is the quantified statement of how much
-verification was needed.
+You can even apply `<unclear>` to individual characters within a word:
+```xml
+<p><lb n="12"/>paid on Tu<unclear>es</unclear>day last</p>
+```
 
-| Validation item | Your figure |
-| --- | --- |
-| Lines double-keyed | Record |
-| Interval between passes | Record |
-| Disagreements found | Record |
-| Resolved toward pass 1 / pass 2 / unresolved | Record |
-| Overall character agreement | Record |
-| Pass 1 CER against consensus | Record |
-| Independent second reader | Record whether, and scope |
+When someone views your digital edition, the rendering stylesheet will display `<unclear>` text with sublinear dots or brackets, alerting the reader to the editorial uncertainty. Using `<unclear>` demonstrates scholarly integrity: you provide your best paleographical hypothesis while honestly signaling the limits of physical evidence.
 
-A reader of this section should be able to judge how much confidence your reference
-deserves. That judgement conditions every number in the rest of the report.
+**Vocabulary.** *unclear element* — A TEI tag wrapping candidate readings that are probable but visually uncertain due to manuscript degradation.
 
-**Takeaway:** Component 1 lets a reader judge how much confidence
-your reference deserves — including the limitation of self-double-keying.
+**Takeaway:** Wrap ambiguous readings in the unclear tag rather than guessing silently or omitting doubtful characters.
 
 ---
 
 ## **18 Content**
 
-**Writing Component 2: Error Rate Benchmarking**
+**Documenting Lacunae: When to Deploy gap**
 
-Report the measurements, with their preprocessing.
+What happens when text is not merely faded, but physically non-existent? 
 
-| Output | Reference | CER | WER | Alignment | Preprocessing |
-| --- | --- | --- | --- | --- | --- |
-| HTR raw | Consensus | Record | Record | Per line | NFC; tags stripped; whitespace collapsed |
-| HTR raw | Original GT | Record | Record | Per line | Same |
-| VLM raw | Consensus | Record | Record | Record | Same, plus framing stripped |
-| VLM raw | Original GT | Record | Record | Record | Same |
+- A moth or bookworm ate a hole through the leaf.
+- A wax seal tore away the corner of the letter when opened.
+- Fire or water completely obliterated a three-word patch of script.
 
-Then analyze the CER-to-WER relationship for each, per section 06. If the ratio is
-anomalous, diagnose it and say so: *scriptio continua* fusing tokens, line-end
-hyphenation fracturing words, or arbitrary whitespace insertion.
+When there are zero surviving ink traces, you cannot use `<unclear>` because there are no candidate letters to wrap. Guessing words out of thin air is hallucination.
 
-State preprocessing explicitly. A figure computed with punctuation excluded is not
-comparable to one computed with it included, and a report whose preprocessing is
-unstated is not reproducible.
+Instead, TEI provides the empty milestone element `<gap/>`. The `<gap/>` element records a physical **lacuna** without guessing the missing letters.
 
-Report the per-line distribution, not only the aggregate. A note that error is
-uniform except for two lines over a damaged region is more informative than the
-mean, and it tells a reader where the model's difficulty actually lies.
+Scholarly standards require you to specify why the text is missing and approximately how much is lost:
+```xml
+<!-- Three characters lost to an ink blot -->
+<p><lb n="5"/>paid to <gap reason="damage" unit="chars" extent="3"/> on arrival</p>
 
-Include the difference between measurements against the two references, per section
-10, with a sentence on what it implies for Week 4's reported figures.
+<!-- Approximately two whole words lost to a torn paper corner -->
+<p><lb n="6"/>received from <gap reason="tear" unit="words" extent="2"/> upon receipt</p>
+```
 
-**Takeaway:** Report preprocessing, the per-line distribution,
-and the CER-to-WER relationship — an aggregate alone is neither reproducible nor
-diagnostic.
+Notice that `<gap/>` is self-closing (`<gap ... />`). It never wraps text because there is no text to wrap. In `transcription_reconciled.xml`, use `<gap/>` to mark physical absence honestly.
+
+**Vocabulary.** *Lacuna* — A physical gap or hole in the document surface where text has been completely destroyed.
+
+**Takeaway:** Use empty milestone gap elements with reason and extent attributes when text is physically obliterated by damage.
 
 ---
 
 ## **19 Content**
 
-**Writing Components 3 and 4: Typology and Structure**
+**Category D: Structural and Layout Discrepancies**
 
-Component 3 assembles your error categorization from section 13. Report counts per
-category for each machine output, and identify what is systematic.
+Category D encompasses differences that are not about spelling or words, but about **XML structure and layout architecture**.
 
-The distinction to draw is between random and systematic error. A model that
-misreads one letter once has made an error; a model that misreads the same letter
-in eleven of fourteen occurrences has a systematic bias, and that bias is both more
-serious and more tractable — it can be addressed by more training data on that
-letterform, or by a targeted correction pass.
+Common Category D discrepancies include:
 
-| Finding | Evidence to give |
-| --- | --- |
-| Systematic letterform confusion | The pair, occurrence count, proportion affected |
-| Systematic diacritic loss | Which diacritics, and whether polygons were implicated |
-| Silent abbreviation expansion | Count; which abbreviations |
-| Hallucinated punctuation | Count; where it appears |
-| Fabricated text | Line references; what the manuscript shows there |
+1. **Missing Container Tags:** Gemini may have placed text directly inside `<div>` without wrapping it in `<p>` (prose) or `<lg><l>` (verse). This causes immediate schema validation failure against `msdesc.rng`.
+2. **Displaced Page Milestones:** One pass placed `<pb facs="#..."/>` before `<div>`, while the other placed it inside `<div>`. In standard TEI, `<pb/>` sits inside `<div>` right before the first line of the page.
+3. **Mismatched Line Breaks:** Gemini broke a line at word ten, while you broke it at word eleven.
+4. **Column Flow Conflicts:** In a multi-column document, one pass read horizontally across columns while the other read vertically down Column 1 and then Column 2.
 
-Component 4 addresses structural divergence, which is measured differently.
-Character-level metrics do not detect XML structural error at all, so this section
-reports validation results rather than rates.
+When resolving Category D discrepancies in `transcription_reconciled.xml`, your primary guide is the TEI structural grammar:
 
-State whether each output was structurally valid, what structural errors were
-present, and how they compare in severity to the typographical ones. The principle
-is explicit: a missing closing tag compromises the entire document object model and
-takes absolute precedence over a minor typographical substitution (Haaf et al.,
-2013).
+- `<text>` $\to$ contains `<body>` $\to$ contains `<div>`
+- `<div>` $\to$ contains `<p>` (prose) or `<lg>` (verse)
+- `<p>` $\to$ contains running text interleaved with `<lb/>` milestones
 
-If your VLM output lost line structure entirely, that is a structural failure of the
-first magnitude and belongs in this section rather than being absorbed into the
-error rate.
+Ensure that your reconciled consensus document obeys this strict hierarchy from top to bottom.
 
-**Takeaway:** Systematic errors are more serious and more
-tractable than random ones — and structural failure takes precedence over
-typographical error.
+**Vocabulary.** *Layout discrepancy* — A divergence between two passes concerning lineation, column boundaries, or structural tag hierarchy.
+
+**Takeaway:** Resolve structural differences by enforcing valid TEI containment: text inside body inside div.
 
 ---
 
 ## **20 Content**
 
-**Writing Component 5: Model Parameterization**
+**Reconciling Physical Lineation: lb Milestones**
 
-The disclosure component, and the one that makes the study reproducible.
+One of the most frequent diff differences between Pass 1 and Pass 2 involves the placement of `<lb/>` milestones.
 
-For the HTR model, record: the platform and version, the base model, the volume and
-provenance of training data, the layout corrections applied, the training
-configuration, the validation split, and the reported validation CER.
+In diplomatic transcription, `<lb/>` (line beginning) is an empty milestone element. It does not wrap words; it simply marks the spatial point where a writer or typesetter dropped to a new physical line on the page.
 
-For the language model, record: the model name and version, the access date, the
-verbatim prompt including any system instruction, and any parameters you controlled.
+Consider this diff discrepancy:
 
-Then evaluate the constraint compliance. You instructed the model to preserve line
-breaks, preserve orthography, leave abbreviations unexpanded, preserve word
-division, and mark rather than fill illegible regions. Report, for each, whether it
-complied.
+- Pass 1 (`witness.xml`):
+```xml
+<p><lb n="1"/>To the Honorable Council of Safety
+<lb n="2"/>Gentlemen</p>
+```
 
-| Instruction | Complied? | Evidence |
-| --- | --- | --- |
-| Preserve line breaks | Record | Line count comparison |
-| Do not expand abbreviations | Record | Count of expansions |
-| Preserve orthography | Record | Count of modernizations |
-| Preserve word division | Record | Whitespace comparison |
-| Mark illegible rather than fill | Record | Behaviour at known gaps |
-| Output only the transcription | Record | Presence of framing |
+- Pass 2 (`transcription_ai.xml`):
+```xml
+<p><lb n="1"/>To the Honorable Council of Safety Gentlemen</p>
+```
 
-That table is the statistical evaluation of the model's false-positive rate for
-unprompted anachronistic normalization (Haaf et al., 2013). It states, on your
-manuscript, how far explicit instruction constrained the model's behaviour — which
-is more useful than any general claim about whether such models can be prompted into
-diplomatic fidelity.
+Gemini omitted `<lb n="2"/>` because in modern English grammar, "Gentlemen" is a salutation that might sit on the same line in a flowing email. But on the physical artifact, the writer dropped down to a new line!
 
-If you ran the memorization tests from Lesson 4.3 section 12, report them here.
+Look at the image. Did the author physically drop down? Yes. Therefore, Pass 1 is correct. 
 
-**Takeaway:** Report constraint compliance instruction by
-instruction — that table measures how far explicit prompting actually constrained
-the model.
+**Formatting Best Practice:** In `transcription_reconciled.xml`, always place each `<lb/>` milestone on a new visual line in your editor:
+```xml
+<p>
+  <lb n="1"/>To the Honorable Council of Safety
+  <lb n="2"/>Gentlemen
+</p>
+```
+This makes your XML mirror the visual lineation of the manuscript, making future proofreading effortless.
+
+**Vocabulary.** *Physical lineation* — The literal arrangement of words across lines on the page, independent of grammar or metre.
+
+**Takeaway:** Ensure lb milestones mark every physical line break on the artifact, aligning Pass 3 with the physical page coordinates.
 
 ---
 
 ## **21 Content**
 
-**Drawing the Conclusion**
+**Reconciling Prose Paragraphs: p vs. Poetry lg and l**
 
-The report needs a conclusion, and it should be specific rather than general.
+During diff reconciliation, check how each pass handled high-level textual containers. TEI enforces a rigid distinction between prose and poetry:
 
-A weak conclusion: *AI transcription is unreliable for historical manuscripts.*
-This repeats what you were told and is supported by your data only incidentally.
+- **Prose Documents (Ace, Olyvia, Andromeda):** Legal decrees, personal correspondence, and colonial treaties are continuous prose. All running text must be wrapped inside paragraph containers: `<p>`. 
+- **Poetry Manuscripts (Jay):** Metrical verse cannot be wrapped in `<p>`. It must be organized into stanzas using line groups (`<lg>`), and each poetic metrical line must be wrapped in a line element (`<l>`).
 
-A strong conclusion states what you measured, on what material, with what
-consequence:
+If Gemini transcribed a prose document using `<l>` tags for every physical line, or transcribed Emily Dickinson's poem as a flat prose `<p>` paragraph, it made a major structural error!
 
-> For MS Vat. gr. 1209, ff. 42r–43v — a tenth-century Greek minuscule imaged at
-> 3000×4000 — a PyLaia model fine-tuned from Transkribus Titan on 24 lines of
-> double-keyed ground truth achieved 5.9% CER and 18.2% WER against the consensus
-> text. The CER-to-WER ratio reflects systematic word-boundary failure attributable
-> to *scriptio continua*. Errors concentrate on breathings (14 of 41) and on the
-> scribe's *kai* abbreviation (7 of 9 occurrences). Zero-shot transcription with
-> [model] produced 38.4% CER, expanded all *nomina sacra* despite explicit
-> instruction, and supplied confident readings at both regions encoded as `<gap/>`.
-> The HTR model is therefore suitable for extending transcription across the
-> remaining folios with per-line correction; the language model is not suitable for
-> primary transcription of this manuscript.
+In `transcription_reconciled.xml`, correct the container markup:
+```xml
+<!-- PROSE EXAMPLE (Ace, Olyvia, Andromeda) -->
+<div>
+  <p>
+    <lb n="1"/>We the undersigned commissioners...
+  </p>
+</div>
 
-That paragraph is defensible, specific, quantified, and actionable. It also
-constitutes a real finding about a real manuscript, which is what the exercise is
-for.
+<!-- POETRY EXAMPLE (Jay) -->
+<div>
+  <lg type="stanza">
+    <l n="1"><lb n="1"/>I would not stop for Death –</l>
+    <l n="2"><lb n="2"/>He kindly stopped for me –</l>
+  </lg>
+</div>
+```
+Enforcing proper paragraph and verse wrappers ensures your text validates cleanly against `msdesc.rng`.
 
-Include the cost comparison from Lesson 4.3 section 27. A conclusion about which
-tool to use must weigh setup cost against per-folio saving, and for a short passage
-the honest answer may be that manual transcription is competitive.
+**Vocabulary.** *Paragraph wrapper (p)* — The standard TEI container enclosing running prose sentences within a text division.
 
-**Takeaway:** State what you measured, on what material, with
-what consequence for your edition — a general claim about AI is not a finding.
+**Takeaway:** Wrap prose running text inside p containers, reserving lg and l for poetic verse.
 
 ---
 
 ## **22 Content**
 
-**The Transcription Assignment**
+**Cohort Adjudication: Jay and Dickinson's Variant Readings**
 
-Due today. Its components, and where each comes from.
+Now let us review the specific adjudication targets for each member of our four-person cohort.
 
-| Component | Source | Requirement |
-| --- | --- | --- |
-| Diplomatic transcription | Week 4 Tuesday | TEI-valid; fully encoded |
-| Second independent pass | Week 5 Tuesday | Committed before comparison |
-| Consensus text | Week 5 Tuesday | Adjudicated; unresolved cases preserved |
-| HTR output, raw | Week 4 Wednesday | Committed separately; tagged |
-| VLM output, raw | Week 4 Friday | Committed separately; tagged |
-| Error rate measurements | Today | Both metrics, both references, preprocessing stated |
-| Error typology | Today | Categorized with counts |
-| Reconciliation report | Today | The five components |
-| Conventions document | Week 4, amended Week 5 | Explicit and followed |
-| Commit history | Throughout | Atomic, typed, with rationale and provenance trailers |
+For **Jay**, working with Emily Dickinson's poem manuscript (`MS Am 1118.3 [338]`):
 
-The last row is assessed, as it has been since Lesson 1.1. Provenance trailers on
-machine-generated commits are part of it: a submission where machine output and
-human transcription are indistinguishable in the history has not met the
-requirement, regardless of the quality of the text.
+1. **Idiosyncratic Dashes:** Dickinson wrote dashes of varying lengths, slants, and heights. Inspect the diff between Pass 1 and Pass 2:
+   - Did you transcribe spaced hyphens (` - `) while Gemini output em-dashes (`—`)?
+   - Adjudicate according to your editorial policy. In diplomatic transcription, recording an en-dash (`–`) or spaced dash is standard. Ensure consistency throughout `transcription_reconciled.xml`.
+2. **Narrow Paper Line Wraps:** Dickinson's paper was narrow (~100 mm wide). Line 3 of a stanza might wrap onto a second physical line on the page. In `transcription_reconciled.xml`, verify that the metrical line is wrapped in `<l>`, with an empty `<lb/>` milestone marking the physical wrap:
+   ```xml
+   <l n="3"><lb n="3"/>The Carriage held but just Ourselves –
+   <lb n="4"/>and Immortality.</l>
+   ```
 
-Verify before submitting:
+3. **Pencil Revisions:** Dickinson frequently wrote variant word choices in pencil above the pen-and-ink lines. Did Gemini skip the pencil variants or fuse them into the sentence? In Pass 3, decide whether to record the interlinear pencil reading or note it with `<unclear>`.
 
-- All XML validates against the TEI schema.
-- All text is NFC-normalized.
-- All tags are pushed to the remote.
-- The reconciliation report includes all five components.
-- Preprocessing decisions are stated for every reported figure.
-- The submission state is tagged.
+Document your adjudication of Dickinson's dashes and wraps in your reflection report!
 
-**Takeaway:** The commit history with provenance trailers is
-assessed alongside the text — indistinguishable machine and human commits fail the
-requirement.
+**Vocabulary.** *Interlinear variant* — Alternative words or phrases written between lines or in margins by the author during revision.
+
+**Takeaway:** For Jay's Dickinson poem, ensure stanza structures (lg/l) and line-wrap milestones (lb) correctly reflect the narrow manuscript sheet.
 
 ---
 
 ## **23 Content**
 
-**Tagging the Submission**
+**Cohort Adjudication: Ace and Two-Column Decrees**
 
-Mark the submitted state so it remains retrievable.
+For **Ace**, working with the 1791 French Revolutionary National Assembly Decree:
 
-```bash
-git tag -a submission-transcription \
-  -m "Transcription Assignment as submitted, 2 Oct 2026"
-git push --tags
-```
+1. **Sequential Column Flow:** The decree is printed in two parallel vertical columns separated by a central rule. A major AI failure mode in multi-column broadsides is reading horizontally across both columns (e.g. reading line 1 of Column 1, followed immediately by line 1 of Column 2).
+   - In your diff, check whether Gemini read horizontally or vertically.
+   - In `transcription_reconciled.xml`, enforce the correct reading order: transcribe completely down Column 1, then proceed down Column 2. You can use `<cb n="1"/>` and `<cb n="2"/>` (column break milestones) to mark column transitions.
+2. **Historical Long-s (`ſ`):** Inspect every instance where Gemini replaced `ſ` with modern `s`. In `transcription_reconciled.xml`, restore the authentic 18th-century long-s glyph (`ſ`) to preserve the physical testimony of the Paris revolutionary press.
+3. **Colophons and Attestations:** At the bottom of the decree, verify that official printing attestations, commissioner signatures, and legal dates are properly grouped in `<p>` blocks with `<lb/>` milestones.
 
-This matters for the same reason as every other tag this term. The edition will
-continue to change: Week 6 normalizes, Week 7 collates, Week 8 builds an apparatus.
-Without a tag, the state that was submitted becomes unrecoverable within weeks, and
-neither you nor an assessor can retrieve what was actually handed in.
+Ace's reflection report should highlight whether Gemini respected columnar layout or required manual structural intervention.
 
-Use the semantic versioning scheme from Lesson 1.1 section 26 if you prefer, tagging
-this as `v1.0.0` and treating each subsequent assignment as a release. Either
-convention is fine; consistency matters more than the choice.
+**Vocabulary.** *Columnar reading order* — The vertical sequential flow of text down one printed column before starting the adjacent column.
 
-Confirm the tag reached the remote. Tags are not pushed by default, and a tag
-existing only in your local clone protects nothing.
-
-```bash
-git ls-remote --tags origin | grep submission
-```
-
-**Takeaway:** Tag and push the submitted state — within three
-weeks of further work it becomes otherwise unrecoverable.
+**Takeaway:** For Ace's French Decree, verify that the reconciled text flows down Column 1 before Column 2, preserving historical typography.
 
 ---
 
 ## **24 Content**
 
-**What the Two Weeks Established**
+**Cohort Adjudication: Olyvia and Maud Lewis's Folk Orthography**
 
-Consolidate, because Weeks 4 and 5 form one continuous argument.
+For **Olyvia**, working with the handwritten personal letter by Nova Scotia folk artist Maud Lewis (1903–1970):
 
-Automated transcription requires a human diplomatic ground truth, because error
-rates, biases, and hallucinated readings can be measured only against such a
-baseline (AlKendi et al., 2024). That is the thesis, and you have now enacted every
-part of it.
+1. **Defending Vernacular Orthography:** Maud Lewis wrote with lively, informal, and phonetic spelling typical of rural mid-20th-century Nova Scotia. In your diff, look for instances where Gemini "corrected" Maud's spelling or grammar:
+   - Did Maud write *bin* and Gemini changed it to *been*?
+   - Did Maud write *dont* without an apostrophe and Gemini inserted the apostrophe?
+   - In `transcription_reconciled.xml`, **reject every one of Gemini's corrections!** Maud's letter is a precious cultural artifact. Correcting her spelling is an act of patronizing editorial erasure. Defend Maud's authentic voice.
+2. **Drifting Baselines and Faded Creases:** Because of severe arthritis in her hands, Maud's lines drift across the page. Where the paper was folded into an envelope, ink may be faded along the crease.
+   - If both you and Gemini struggled with a crease, evaluate whether the reading is probable enough for `<unclear>` or if it should be marked with `<gap reason="faded"/>`.
+   - Ensure `<lb/>` milestones capture where Maud started new lines as her script drifted.
 
-You produced the baseline by hand, diplomatically, at full zoom. You calibrated it
-by double-keying, and quantified how far the uncalibrated version was off. You
-trained a specialized model and measured it. You ran a general model and measured
-it. And you have now reported all of it in a form that lets a reader evaluate the
-claims.
+Olyvia's reflection report will center on protecting folk-art historical expression from the homogenizing tendencies of large language models.
 
-| Week 4 | Week 5 |
-| --- | --- |
-| Manual diplomatic transcription | Double-keying and consensus |
-| Layout correction and HTR training | — |
-| Zero-shot VLM transcription | CER and WER measurement |
-| Error categorization | Error typology and audit report |
+**Vocabulary.** *Folk orthography* — Informal, phonetic, and non-standard writing produced outside institutional schooling.
 
-The empirical findings — the specialization gap, over-historicization, the
-CER-to-WER diagnostic, the correction threshold, the downstream NLP cascade — are
-not opinions about technology. They are measurements, several of which you have
-now replicated on your own manuscript.
-
-That replication is the point. You are no longer relying on the literature's
-account of what these tools do; you have a figure for your own material, produced
-by a method you can defend.
-
-**Takeaway:** You now have measured figures for your own
-manuscript rather than the literature's account — which is what makes your tool
-choices defensible.
+**Takeaway:** For Olyvia's Maud Lewis letter, vigorously defend Maud's authentic folk spelling against modern machine smoothing.
 
 ---
 
 ## **25 Content**
 
-**Checklist Before Submitting**
+**Cohort Adjudication: Andromeda and Bilingual Treaty Margins**
 
-Verify each.
+For **Andromeda**, working with the 1752 Peace and Friendship Treaty between Governor Peregrine Thomas Hopson and Chief Major Jean-Baptiste Cope:
 
-- `tools/cer.py` written, tested, and committed.
-- Both machine outputs extracted from their tags.
-- Text streams prepared identically for both sides.
-- Both sides NFC-normalized.
-- CER and WER computed for both outputs against the consensus.
-- The same computed against the original ground truth.
-- Per-line distributions computed and inspected.
-- CER-to-WER relationship analyzed and any anomaly diagnosed.
-- Errors categorized with counts.
-- Fidelity measures computed: diacritic preservation, abbreviation preservation.
-- Structural validity checked for both outputs.
-- Constraint compliance evaluated for the language model.
-- Reconciliation report written with all five components.
-- Preprocessing stated for every figure.
-- Conclusion drawn specifically, with cost as well as quality.
-- Everything committed, tagged, and pushed.
+1. **Legal Article Structure:** The treaty is organized into a formal preamble followed by numbered articles. In `transcription_reconciled.xml`, verify that each article is properly enclosed in a `<p>` container with line breaks (`<lb/>`):
+   ```xml
+   <p>
+     <lb n="15"/>1. It is agreed that the said Tribe of Mickmack Indians...
+   </p>
+   ```
 
-If any figure cannot be computed — because the VLM output could not be line-aligned,
-for instance — state that as a limitation rather than omitting it. A reported
-limitation is a finding; a silent gap is not.
+2. **Capitalization and Honorifics:** 18th-century treaties feature heavy, idiosyncratic capitalization of legal nouns (*Tribe*, *Treaty*, *His Majesty*, *Peace*, *Friendship*). Check your diff: did Gemini lower-case any of these capitalized terms? Preserve the full 18th-century capitalization as written.
+3. **Totem Marks and Signatures:** At the foot of the document, Chief Cope signed not with alphabetic English script, but with his personal totem mark. Check how Pass 1 and Pass 2 handled this mark:
+   - If Gemini ignored the mark or output a random punctuation symbol, replace it in `transcription_reconciled.xml` with appropriate descriptive markup:
+     `<figure><figDesc>Totem mark of Chief Major Jean-Baptiste Cope</figDesc></figure>`
 
-**Takeaway:** State what could not be computed as a limitation
-rather than omitting it — a silent gap is worse than a reported one.
+   - Link the mark to its physical coordinates if calibrated in Module 3.
+
+Andromeda's reflection will document the technical challenge of encoding non-alphabetic indigenous legal signatures within an XML transcription.
+
+**Vocabulary.** *Diplomatic treaty layout* — Formal layout conventions separating preamble, numbered articles, signatures, and tribal totem marks.
+
+**Takeaway:** For Andromeda's 1752 Treaty, ensure legal article headings, signatures, and Cope's totem mark are cleanly structured.
 
 ---
 
 ## **26 Content**
 
-**Common Problems Today**
+**Schema Validation: Driving transcription_reconciled.xml to Zero Errors**
 
-Failures that recur.
+With your line-by-line adjudication complete and `transcription_reconciled.xml` fully drafted, you must subject the file to strict automated quality control.
 
-| Symptom | Cause | Remedy |
-| --- | --- | --- |
-| CER implausibly high | Normalization mismatch | NFC both sides |
-| CER above 100% | Hallucinated insertions | Correct behaviour; report it as a finding |
-| WER far above CER | Word-boundary failure | Diagnose; likely *scriptio continua* or hyphenation |
-| Error rises steadily through the folio | Alignment drift | Realign; recompute |
-| One line at enormous error | Bad line image from layout | Check the polygon |
-| HTR and VLM figures not comparable | Different alignment methods | State the difference explicitly |
-| Rate differs from the platform's report | Different preprocessing | Expected; state yours |
-| Markup inflating the comparison | Tags not stripped, or both layers included | Extract one layer consistently |
+In the VS Code Terminal, run the schema validation command against the course grammar:
+```bash
+python3 -m jing msdesc.rng transcription_reconciled.xml
+```
+(Or use the XML extension's built-in validation indicator in the bottom status bar).
 
-The last row catches people and produces wildly wrong numbers. If you strip all
-tags from a `<choice><abbr>θς</abbr><expan>θεός</expan></choice>` you get `θςθεός` —
-both layers concatenated — which will not match anything and will inflate the error
-rate substantially. Extract the `<abbr>` layer for a diplomatic comparison, and do
-it the same way on both sides.
+Your target is absolute: **0 errors**.
 
-The seventh row is worth stating in the report rather than resolving. Transkribus
-computes its validation CER with its own preprocessing, which may differ from yours.
-Your figure is not wrong because it differs; it is computed differently, and saying
-so is the correct response.
+Common validation diagnostics and fixes:
 
-**Takeaway:** Stripping all tags concatenates `<abbr>` and
-`<expan>` into nonsense — extract one layer consistently on both sides.
+1. **Error: `element "text" not allowed here`:** You placed text directly inside `<div>`. Wrap the sentences in `<p>...</p>` (or `<lg><l>...</l></lg>` for poetry).
+2. **Error: `character "&" is the first character of a delimiter but must not start a general entity`:** You transcribed a literal ampersand (`&c.`). Escape every raw ampersand as `&amp;c.`.
+3. **Error: `element "lb" not allowed here`:** You used a closing tag like `</lb>`. Change it to an empty milestone: `<lb/>`.
+4. **Error: `required attribute "facs" missing`:** Your `<pb/>` tag is missing its surface pointer. Add `@facs="#your_surface_id"`.
+
+Keep fixing and re-validating until the validator outputs zero warnings and zero errors. A file that fails schema validation cannot be accepted into the digital edition.
+
+**Vocabulary.** *Deterministic validation* — Automated verification confirming that an XML document strictly obeys every rule of a schema grammar.
+
+**Takeaway:** Validate transcription_reconciled.xml against msdesc.rng, resolving every syntax and hierarchy error to reach 0 errors.
 
 ---
 
 ## **27 Content**
 
-**What Good Work Looks Like Here**
+**Writing the Reconciliation Reflection (RECONCILIATION.md)**
 
-The standard for the report.
+The final deliverable of Week 5 is not code; it is scholarly writing. In your repository root, create a markdown document named `RECONCILIATION.md`.
 
-A minimally acceptable report gives CER and WER for both outputs and describes the
-errors.
+Your reflection report must be **300 to 500 words** and organized into three structured sections:
 
-Good work additionally:
+**1. Quantitative Overview:**
 
-- States all preprocessing so the figures are reproducible.
-- Measures against both references and explains the difference.
-- Reports per-line distributions rather than aggregates alone.
-- Diagnoses the CER-to-WER relationship rather than reporting it flatly.
-- Computes fidelity measures that CER cannot capture.
-- Distinguishes systematic from random error with evidence.
-- Separates structural from typographical failure.
-- Reports the language model's constraint compliance instruction by instruction.
-- Weighs cost against quality.
-- Reaches a specific, actionable conclusion about this manuscript.
-- States its own limitations, including the weakness of self-double-keying.
+- How many total diff chunks separated your manual pass from your AI pass?
+- What was the rough distribution across the four categories (e.g. "We identified 4 Category A human slips, 11 Category B machine smoothings, 2 Category C ink ambiguities, and 3 Category D lineation differences")?
 
-The last item is the one that most distinguishes a careful report. Every study has
-limitations, and a report that names its own — the reference was verified by one
-person twice; the VLM output could not be line-aligned; the measurement covers one
-folio of one hand — is more trustworthy than one that presents its figures without
-qualification.
+**2. Qualitative Adjudication Analysis:**
 
-That is a general property of scholarly work, and it is the disposition this course
-is trying to build.
+- Provide at least one specific concrete example of a **Category A** slip where Gemini caught an error you made due to fatigue. What was the word? Why did you miss it?
+- Provide at least one specific concrete example of a **Category B** failure where Gemini hallucinated or modernized spelling. How did you defend the manuscript ink?
+- Discuss any **Category C** physical ambiguities. Did you choose `<unclear>` or `<gap/>`, and why?
 
-**Takeaway:** A report that names its own limitations is more
-trustworthy than one presenting figures without qualification.
+**3. Tool Evaluation:**
+
+- Based on your empirical results, what are the strengths and dangers of using multimodal AI in digital paleography?
+
+Write with academic precision. This report proves to evaluators that your final consensus text is the product of deliberate scholarly methodology.
+
+**Vocabulary.** *Methodological reflection* — A written scholarly explanation documenting editorial decisions, error patterns, and tool evaluation.
+
+**Takeaway:** Compose a 300–500 word report in RECONCILIATION.md detailing what Gemini caught, where it failed, and how you adjudicated.
 
 ---
 
 ## **28 Content**
 
-**Looking Ahead to Week 6**
+**Documenting Provenance: The Value of Negative Findings**
 
-Next week normalizes, and it returns to the full three-step cycle.
+A common anxiety among student researchers is the fear of failure. When novice editors see that Gemini modernized dozens of words or hallucinated text over an ink smudge, they sometimes worry that they 'prompted the model incorrectly' or that their lab experiment failed.
 
-| Meeting | Step | Activity |
-| --- | --- | --- |
-| Tue Oct 6 (#14) | Manual | Regularize by hand, recording each decision |
-| Wed Oct 7 (#15) | Deterministic | Rule-based normalization with a script |
-| Fri Oct 9 (#16) | AI-assisted | AI normalization, checked against your own rules |
+In the digital humanities, **negative findings are primary scholarly data**.
 
-The subject is iotacism, orthographic variants, and `<orig>`/`<reg>` markup. The
-architecture is the one section 15 described and the DTA exemplified: normalization
-as a separate layer over a preserved diplomatic base, with both retained and the
-relationship recorded.
+When you document that Gemini 1.5 Pro or Gemini 2.0 consistently converted the 18th-century long-s (`ſ`) into a modern `s`, or that it modernized Maud Lewis's vernacular spelling despite three explicit prompt instructions forbidding modernization, you have discovered an empirical truth about the architecture of large language models!
 
-Your consensus text is that base. Everything Week 6 does operates on it, and
-because it is verified, the normalization decisions will be decisions about
-orthography rather than entangled corrections of transcription error.
+You are proving that autoregressive foundation models have an innate bias toward contemporary standardization. That discovery is a valuable research finding. When published in your reflection, it alerts future historians, archivists, and editors to the specific vulnerabilities of AI transcription pipelines.
 
-Note the caution that carries forward. Automated normalization tends to collapse
-historically significant dialectal variants into standard forms, erasing linguistic
-evidence permanently (Bawden et al., 2026). Week 6's Friday step will test exactly
-that behaviour, and your hand-recorded rules from Tuesday will be the reference —
-the same structure as this week, applied to a different operation.
+Do not conceal machine failures. Document them rigorously with line numbers, diff quotes, and comparative analysis in `RECONCILIATION.md`. Scholarly honesty is the hallmark of genuine research.
 
-**Takeaway:** Week 6 normalizes as a separate layer over your
-verified consensus, with Tuesday's hand-recorded rules as Friday's reference.
+**Vocabulary.** *Negative finding* — An experimental result showing where a computational tool or model failed to perform accurately.
+
+**Takeaway:** Documenting where AI failed (such as silent modernizations) is valuable scholarly research, not an embarrassing mistake.
 
 ---
 
 ## **29 Content**
 
-**The Method Generalizes**
+**The Transcription Assignment Submission Checklist**
 
-A closing observation about what these two weeks have actually taught.
+Tonight at **11:00 PM (Friday, Oct 2)**, the formal **Transcription Assignment** is due. 
 
-The procedure was: establish a reference by hand, verify the reference, apply
-automated methods, measure the distance, categorize the differences, and report
-with limitations stated. Nothing in that procedure is specific to transcription.
+Before you conclude your work session, review the final submission checklist to guarantee full marks:
 
-Week 6 will apply it to normalization: hand-recorded rules as reference, a
-deterministic script and an AI pass measured against them. Week 7 will apply it to
-collation: hand collation as reference, CollateX and AI variant classification
-measured against it. Weeks 8 through 12 continue the pattern.
+1. **`witness.xml` (Pass 1):** Your manual diplomatic transcription from Week 4. Untouched today. Valid TEI.
+2. **`transcription_ai.xml` (Pass 2):** Gemini's Antigravity AI transcription from Tuesday. Untouched today. Valid TEI.
+3. **`transcription_reconciled.xml` (Pass 3):** Your newly synthesized consensus transcription. Fully adjudicated. Validates to **0 errors** against `msdesc.rng`.
+4. **`RECONCILIATION.md`:** Your 300–500 word reflection report detailing quantitative diff metrics, concrete category examples, and AI tool evaluation.
 
-| Week | Reference established by hand | Measured against it |
-| --- | --- | --- |
-| 4–5 | Diplomatic transcription | HTR; vision-language model |
-| 6 | Normalization decisions | Rule-based script; AI normalization |
-| 7 | Manual collation | CollateX; AI variant classification |
-| 8 | Hand-encoded apparatus | Generated apparatus; AI drafting |
-| 9 | Manual lemmatization | CLTK pipeline; AI parsing |
+**Git Submission Command:**
+In your VS Code terminal, stage and commit the entire deliverable bundle:
+```bash
+git add witness.xml transcription_ai.xml transcription_reconciled.xml RECONCILIATION.md
+git commit -m "Step 3: completed transcription reconciliation and reflection report"
+```
 
-Read the middle column. Every week requires you to do the thing yourself first,
-and every week the reason is the same one this week made explicit: you cannot
-measure a tool against a reference the tool produced, and a reference you have not
-verified produces measurements that look precise and are not.
+Verify your commit using `git status` (should report 'working tree clean') and `git log -n 1 --stat`. You have completed the hardest technical milestone of the term!
 
-That is the course's method, and after two weeks of executing it you should be able
-to state why it is ordered as it is.
+**Vocabulary.** *Deliverable bundle* — The complete package of required files committed to version control and submitted for evaluation.
 
-**Takeaway:** Every remaining week repeats this procedure on a
-different operation — establish a reference by hand, verify it, measure against it.
+**Takeaway:** Verify that your repository contains all four required files: witness.xml, transcription_ai.xml, transcription_reconciled.xml, and RECONCILIATION.md.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: What the Numbers Are For**
+**Looking Ahead: The Bridge to Week 6 Normalization**
 
-The argument of this meeting.
+Congratulations! By completing `transcription_reconciled.xml`, you have established an authoritative, verified diplomatic baseline for your historical document.
 
-Character and word error rates are normalized edit distances computed by an
-algorithm from 1974 over a metric from 1965 (Haaf et al., 2013). They are precise,
-cheap, and comparable across texts of different lengths, and they are the standard
-currency of evaluation in document analysis.
+Take a moment to appreciate where you stand. You began with a raw high-resolution photograph. You calibrated its physical boundaries in Module 3. You transcribed its text by hand, tested an advanced AI model, and rigorously adjudicated every discrepancy. You have transformed ink on paper into clean, standardized, machine-readable digital data.
 
-They are also insufficient on their own, in three specific ways this session has
-developed. They weight every difference equally, so a lost breathing counts the same
-as a lost letter. They can be excellent while diplomatic fidelity is destroyed, as
-GPT-4o's 9.23% CER with archaic insertion in 59% of files demonstrates (Levchenko,
-2024). And they are conditional on preprocessing, alignment, and layout in ways that
-make an unqualified figure close to meaningless.
+**What Happens Next Week (Week 6: Normalization)?**
+In Meeting #14 on Tuesday, we finally unlock the editorial elements we deliberately kept locked all week:
 
-What makes them useful is everything around them: a verified reference, stated
-preprocessing, per-line distribution, error typology, fidelity measures, structural
-validation, and honest limitations. That surrounding apparatus is the reconciliation
-report, and it is why the report rather than the number is today's deliverable.
+- `<choice>`: The parent element linking original testimony to editorial intervention.
+- `<orig>` and `<reg>`: Linking original historical spelling (e.g. `publick`) to modern standardized spelling (`public`).
+- `<abbr>` and `<expan>`: Linking historical scribal abbreviations (`&c.`, `Govr`) to their full expansions (`et cetera`, `Governor`).
 
-The disposition to carry forward is that a measurement is an argument. It has
-premises — the reference, the preprocessing, the alignment — and its conclusion is
-only as good as they are. An editor who reports a figure without them has asserted
-rather than measured.
+Because your diplomatic baseline in `transcription_reconciled.xml` is uncorrupted by silent modernizations, you will be able to apply these normalization elements with total scholarly confidence. Rest well this weekend; on Tuesday, we begin editorial normalization!
 
-**Due today.** The Transcription Assignment, including the reconciliation report.
-Tag and push the submitted state.
+**Vocabulary.** *Editorial normalization* — The stage where historical orthography is linked to modern standardized forms via choice elements.
 
-**For Tuesday.** Week 6 begins normalization, working over your consensus text.
-Bring it validated, and bring your conventions document — Tuesday's regularization
-decisions extend it.
-
-**Takeaway:** A measurement is an argument whose premises are the
-reference, the preprocessing, and the alignment — reporting a figure without them is
-assertion, not measurement.
+**Takeaway:** Your reconciled diplomatic baseline provides the uncorrupted foundation for next week's editorial normalization.
 
 ---
 
-## References
-
-AlKendi, W., Gechter, F., Heyberger, L., & Guyeux, C. (2024). Advancements and
-challenges in handwritten text recognition: A comprehensive survey. *Journal of
-Imaging*.
-
-Bawden, R., Clérice, T., Glaise, A., Pinche, A., & Smith, D. (2026).
-*Pre-editorial normalization for automatically transcribed medieval manuscripts in
-Old French and Latin* (arXiv:2602.13905). https://arxiv.org/abs/2602.13905
-
-eScriptorium/Kraken. (2024). *eScriptorium platform documentation*.
-https://escriptorium.eu/about
-
-Haaf, S., Wiegand, F., & Geyken, A. (2013). Measuring the correctness of
-double-keying: Error classification and quality control in a large corpus of
-TEI-annotated historical text. *Journal of the Text Encoding Initiative*, (4).
-https://doi.org/10.4000/jtei.739
-
-Levchenko, M. A. (2024). *Evaluating LLMs for historical document OCR: A
-methodological framework for digital humanities*.
-
-Peer, M., Scius-Bertrand, A., & Fischer, A. (2025). CTC transcription alignment of
-the Bullinger letters: Automatic improvement of annotation quality. In *ICCV
-Workshop Proceedings*. IEEE.
-
-Singh, L. G., & Middleton, S. E. (2025). Tabular context-aware optical character
-recognition and tabular data reconstruction for historical records.
-*International Journal on Document Analysis and Recognition, 28*.
-https://doi.org/10.1007/s10032-025-00543-9
-
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and
-interchange*. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/
-
-van Strien, D., Beelen, K., Ardanuy, M. C., Hosseini, K., McGillivray, B., &
-Colavizza, G. (2020). Assessing the impact of OCR quality on downstream NLP tasks.
-In *Proceedings of the 12th International Conference on Agents and Artificial
-Intelligence*. INSTICC. https://doi.org/10.5220/0009169004840496

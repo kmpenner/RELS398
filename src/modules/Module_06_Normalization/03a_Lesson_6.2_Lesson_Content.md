@@ -1,1292 +1,1009 @@
-# Lesson 6.2 — Rule-Based Normalization: Building a Deterministic Script
+# Lesson 6.2 — Rule-Based Normalization: Regular Expressions in VS Code
 
 *RELS 398 / ENGL 398 · Topic 6: Normalization · Meeting #15 (Wed Oct 7)*
 
-***Step 2 of the three-step cycle: deterministic.** Today you implement yesterday's
-orthographic policy as an executable rule set, run it over your text, and measure
-its precision and recall against your manual decisions.*
+***Step 2 of the three-step cycle: deterministic.** Today you translate yesterday's prose policy and Rule Ledger into formal, automated regular expression patterns. Using the regex engine built directly into Visual Studio Code, you automate spelling regularizations and abbreviation expansions, audit your rules for false positives, and discover where deterministic pattern matching reaches its limits.*
 
 ---
 
 ## **01 Content**
 
-**Formalizing a Policy**
+**From Prose Policy to Deterministic Code**
 
-Yesterday you wrote an orthographic policy in prose and applied it by hand. Today
-you express it as a program.
+Yesterday in Lesson 6.1, you performed normalization by hand. You sat with your reconciled diplomatic text in VS Code, examined words one by one, and manually wrapped target spellings and abbreviations in TEI `<choice>` tags. In doing so, you formulated an explicit Editorial Regularization Policy and catalogued your decisions in a Rule Ledger in `NORMALIZATION.md`.
 
-The translation is harder than it sounds, and the difficulty is the point. Prose
-policy tolerates imprecision: "regularize iotacism where the result is a standard
-form" is a perfectly clear instruction to a human editor, who resolves the
-unstated conditions by judgement without noticing that they were unstated. A
-program has no judgement, so every condition must be explicit.
+Today, we take the crucial step from manual human execution to automated, deterministic computing. Instead of reading through hundreds of lines and manually typing tags every time an archaic spelling appears, we want a tool to locate every occurrence of our target patterns and apply our transformations systematically.
 
-The consequence is that implementation *audits* the policy. Where you cannot write
-a rule, one of three things is true: the policy is imprecise and needs sharpening;
-the phenomenon genuinely requires contextual information a rule cannot access; or
-you were applying an unstated criterion inconsistently. All three are worth
-discovering, and only implementation discovers them.
+The transition from a human editorial policy to an automated rule is profound. Prose editorial policies tolerate vagueness. A policy that says "regularize archaic terminal *-ck* on adjectives" seems perfectly clear to a human reader, who instinctively knows that *publick* should become *public*, but *black* should remain *black*. A computer possesses no such historical or linguistic intuition. To a machine, *black* ends in *-ck* just as surely as *publick* does.
 
-The product is a verifiable baseline. Rule-based and distance-based methods provide
-highly verifiable outputs: when a transducer maps a form to a normalized one, the
-exact phonetic or graphemic rule applied is known, mathematically quantifiable, and
-can be logged in the TEI header (Bollmann, 2019). That transparency is what makes
-today's script the standard against which Friday's opaque method is checked.
+Implementing an automated rule therefore acts as an unforgiving audit of your editorial policy. When an automated rule produces a catastrophic mistake—such as turning *black* into *blac* or *track* into *trac*—it exposes an unstated assumption in your human thinking. Deterministic rules force us to state our exact criteria with mathematical precision (Friedl, 2006).
 
-**Vocabulary.** *Deterministic* — producing the same output for the same input, by
-a stated procedure. *Finite-state transducer (FST)* — a formal machine mapping input
-strings to output strings by state transitions. *Rule core* — a transformation
-pattern derived from aligned historical and modern forms.
+**Vocabulary.** *Deterministic automation* — A computational process that always produces the exact same output when given the same input and rules, without randomness or opacity. *Policy audit* — The process of testing an editorial policy through formal code to uncover unstated ambiguities or edge cases.
 
-**Takeaway:** Implementing the policy audits it — every place you
-cannot write a rule is imprecision, genuine context-dependence, or inconsistency.
+**Takeaway:** Translating a human editorial policy into deterministic rules audits your scholarly thinking by exposing unstated assumptions and edge cases.
 
 ---
 
 ## **02 Content**
 
-**The Tradition: VARD, Norma, and Transducers**
+**What Is a Regular Expression?**
 
-Rule-based normalization has an established toolchain worth knowing, because your
-script is a small instance of a well-developed method.
+To automate text normalization deterministically, digital scholars do not need to write thousands of lines of low-level software. Instead, we use one of the most powerful and elegant tools in modern computing: **Regular Expressions** (commonly abbreviated as **regex**).
 
-Early computational philology relied on substitution lists, dictionary lookups, and
-rule-based finite-state transducers. Systems such as **VARD 2** for English and
-**Norma** for German use hand-crafted or automatically derived context-aware
-replacement rules, processing historical variants through character-replacement
-transformations — historical *v* representing modern *u*, or ι mapping to ει
-(Bollmann, 2019).
+A regular expression is a formalized pattern-matching language designed to search, match, and transform text based on structural patterns rather than fixed literal words (Jurafsky & Martin, 2024). Instead of searching for the exact literal word *publick*, a regular expression allows you to specify: "find any sequence of letters that begins at a word boundary, ends with the letters *ck*, and is preceded by a specific root."
 
-A finite-state transducer is the formal object underlying this. It reads an input
-string character by character, moving between states, and emits output as it goes.
-Because the machine's behaviour is entirely determined by its states and
-transitions, its output is predictable and its reasoning inspectable.
+Regular expressions originated in theoretical computer science and formal language theory in the 1950s, representing finite-state automata that recognize regular languages. Today, regular expression engines are embedded into virtually every programming language, shell utility (like `grep` and `sed`), and modern text editor.
 
-| Approach | Mechanism | Suits |
-| --- | --- | --- |
-| Substitution list | Direct lookup: variant to standard | Known, enumerable variants |
-| Character rewrite rules | Pattern substitution, optionally conditioned | Systematic phonological variation |
-| Finite-state transducer | State machine over the input string | Complex conditioned rewriting |
-| Weighted edit distance | Nearest lexicon entry under a cost model | Unseen variants |
+In digital textual editing, regex is the premier tool for deterministic normalization. A single well-crafted regular expression can scan a 500-page historical witness, identify every instance of a 18th-century spelling variant or thorn contraction, and reformat it into valid, multi-element TEI `<choice>` markup in milliseconds.
 
-Your script will combine the first, second, and fourth. A substitution list handles
-forms you have enumerated; rewrite rules handle systematic patterns like iotacism;
-and weighted edit distance proposes candidates for forms neither covers.
+**Vocabulary.** *Regular expression (regex)* — A specialized formal language consisting of literal characters and metacharacters used to describe search patterns in text. *Pattern matching* — The computational search for sequences of characters that conform to a specified grammatical rule.
 
-The important property they share is **inspectability**. For any output, you can
-state which rule produced it. That is not true of the methods on Friday, and it is
-the reason today's baseline is not simply a weaker alternative.
-
-**Takeaway:** For any rule-based output you can state which rule
-produced it — an inspectability that Friday's methods do not have.
+**Takeaway:** A regular expression is a concise, formal pattern-matching language that allows digital editors to search and transform text based on structural rules rather than fixed literal strings.
 
 ---
 
 ## **03 Content**
 
-**Rule Cores and Derived Rules**
+**The VS Code Regex Engine**
 
-Rules need not all be hand-written. They can be derived from aligned examples,
-which is what the established systems do.
+Many novice students assume that running regular expressions requires learning a complex programming language like Python, installing external libraries, and executing command-line scripts. In reality, **Visual Studio Code has a world-class regular expression engine built directly into its editor**.
 
-Deterministic systems generate **rule cores** from training data. Comparing a
-historical variant against its modern equivalent generates transformation candidates
-based on edit distance: aligning the two forms shows which characters changed, and
-the change plus its context becomes a candidate rule. Those candidates are then
-pruned by algorithms that select the most statistically useful (Bollmann, 2019).
+Whenever you open the Find and Replace widget in VS Code (`Cmd+F` or `Cmd+H` on macOS; `Ctrl+F` or `Ctrl+H` on Windows), you have access to a complete JavaScript/PCRE-compatible regular expression processor. To activate regex mode, you simply click the **Use Regular Expression** icon (which looks like `.*`) in the Find box, or press `Alt+R` (`Option+Cmd+R` on macOS).
 
-You have training data: yesterday's manual normalizations are aligned pairs of
-`<orig>` and `<reg>`.
+Using regex inside VS Code offers a decisive pedagogical advantage over running background scripts: **immediate real-time visual feedback**.
 
-```python
-import re, unicodedata
-from pathlib import Path
-from collections import Counter
+When you write a regex pattern in a Python script and run it over a file, the script executes blindly in memory. If your pattern contains a subtle defect, it will silently corrupt thousands of words before you realize a mistake occurred. In VS Code, as soon as you type a regex pattern into the Find box, the editor instantly highlights every single matching character in yellow across your entire open document. 
 
-def pairs(path):
-    """Extract (orig, reg) pairs from a TEI file."""
-    xml = unicodedata.normalize("NFC", Path(path).read_text(encoding="utf-8"))
-    out = []
-    for m in re.finditer(
-            r"<choice[^>]*>\s*<orig>(.*?)</orig>\s*<reg>(.*?)</reg>", xml, re.S):
-        out.append((m.group(1).strip(), m.group(2).strip()))
-    return out
-```
+You can visually inspect what matches, see what was missed, and immediately detect if your pattern accidentally captures XML tags or milestone markers *before* you execute a single replacement.
 
-From those pairs, derive the substitutions:
+**Vocabulary.** *VS Code regex mode* — An interactive editor setting (toggled with `.*` or `Alt+R`) that interprets search strings as regular expressions. *Real-time visual feedback* — The instant editor highlighting of matching text patterns, allowing safe pre-execution inspection.
 
-```python
-def substitutions(orig, reg):
-    """Character-level changes between two aligned forms, with context."""
-    import difflib
-    sm = difflib.SequenceMatcher(None, orig, reg)
-    for tag, i1, i2, j1, j2 in sm.get_opcodes():
-        if tag != "equal":
-            yield (orig[i1:i2], reg[j1:j2], orig[max(0, i1-1):i1])
-```
-
-Run this over your pairs and count. The frequent transformations are your rules; the
-singletons are probably cases requiring individual treatment.
-
-This is worth doing even though you already know your policy, because the derived
-rules may not match the policy you thought you were applying. A discrepancy means
-you applied something you did not state.
-
-**Takeaway:** Derive rules from your own manual pairs — a
-discrepancy with your stated policy means you were applying something unstated.
+**Takeaway:** VS Code provides an interactive, full-featured regular expression engine with real-time visual highlighting, making pattern testing visible and safe before execution.
 
 ---
 
 ## **04 Content**
 
-**Building the Substitution Layer**
+**Literal Characters vs. Metacharacters**
 
-Start with the simplest component: a direct lookup for forms you have enumerated.
+A regular expression is composed of two distinct types of characters: **literal characters** and **metacharacters** (Friedl, 2006).
 
-```python
-import json, unicodedata
-from pathlib import Path
+A **literal character** is an ordinary alphanumeric symbol that matches only itself. If you type the letter `p`, the regex matches the character `p`. If you type `treaty`, the regex matches the exact sequence `t-r-e-a-t-y`.
 
-class Lexicon:
-    """Known variant-to-standard mappings, plus a set of valid standard forms."""
+A **metacharacter**, by contrast, is a special reserved symbol that carries an operational meaning in the regex grammar. Instead of matching itself literally, a metacharacter instructs the engine to perform a structural test, such as matching any character, repeating a pattern, or anchoring to a boundary.
 
-    def __init__(self, mapping_path, standard_path):
-        raw = json.loads(Path(mapping_path).read_text(encoding="utf-8"))
-        self.mapping = {self._n(k): self._n(v) for k, v in raw.items()}
-        self.standard = {
-            self._n(w) for w in
-            Path(standard_path).read_text(encoding="utf-8").split()
-        }
+The fundamental regex metacharacters include:
 
-    @staticmethod
-    def _n(s):
-        return unicodedata.normalize("NFC", s)
+<ul>
+  <li><code>.</code> (Dot): Matches any single character except a newline.</li>
+  <li><code>*</code>, <code>+</code>, <code>?</code> (Quantifiers): Control how many times the preceding character or group may repeat.</li>
+  <li><code>[</code> and <code>]</code> (Brackets): Define a character class or set.</li>
+  <li><code>(</code> and <code>)</code> (Parentheses): Define a capturing group.</li>
+  <li><code>^</code> and <code>$</code> (Anchors): Match the beginning and end of a line.</li>
+  <li><code>\</code> (Backslash): The escape character, used to neutralize a metacharacter or invoke special escape sequences.</li>
+</ul>
 
-    def lookup(self, token):
-        return self.mapping.get(self._n(token))
+If you want to match a literal period (such as the dot in the abbreviation *publ.*), you cannot simply type `.`, because a bare dot matches any letter or space. You must **escape** it with a backslash: `\.`. The backslash tells the regex engine: "treat the following symbol as an ordinary literal character, not as a special command."
 
-    def is_standard(self, token):
-        return self._n(token) in self.standard
-```
+**Vocabulary.** *Literal character* — A character that matches only itself in a regex search. *Metacharacter* — A reserved character with special syntactic meaning that controls pattern matching. *Escaping* — Prefixing a metacharacter with a backslash (`\`) to force the engine to match it as a literal symbol.
 
-Two components, doing different jobs. The **mapping** holds variant-to-standard
-pairs you have confirmed — populate it from yesterday's `<orig>`/`<reg>` pairs. The
-**standard set** holds valid forms, and is what lets a rule check whether its output
-is a real word.
-
-Note the normalization applied at every boundary. A lexicon in NFD and text in NFC
-will match nothing, and the failure is silent — the script simply finds no
-candidates and reports that nothing needed normalizing, which looks like success.
-
-Source your standard forms from a digital Greek corpus or lexicon. Without one, the
-rule layer in the next section can generate candidates but cannot filter them, and
-its precision will be poor.
-
-Commit the lexicon files as data alongside the script.
-
-**Takeaway:** The standard-form set is what lets a rule check its
-own output — without it, rules generate candidates they cannot filter.
+**Takeaway:** Regular expressions combine literal characters that match themselves with metacharacters that control pattern structure; reserved symbols must be escaped with a backslash to match literally.
 
 ---
 
 ## **05 Content**
 
-**Building the Rule Layer**
+**Character Classes and Sets: `[...]`**
 
-Now the systematic transformations. Express each rule as a pattern, a replacement,
-and a condition.
+In historical documents, writers frequently substitute vowels or interchangeable consonants. For example, an 18th-century French writer might spell a word with an acute accent, a grave accent, or no accent at all. To match any one of several alternative characters at a specific position, regular expressions provide **character classes**, enclosed in square brackets: `[...]`.
 
-```python
-from dataclasses import dataclass
-from typing import Callable, Optional
-import re
+A character class matches **exactly one character** from the set of characters listed inside the brackets:
 
+<ul>
+  <li><code>[aeiou]</code>: Matches any single lowercase English vowel.</li>
+  <li><code>[ſs]</code>: Matches either a historical long <em>s</em> (<em>ſ</em>) or a standard short <em>s</em>.</li>
+  <li><code>[0-9]</code>: Matches any single decimal digit from 0 to 9. (The hyphen indicates an inclusive range).</li>
+  <li><code>[a-zA-Z]</code>: Matches any single uppercase or lowercase English letter.</li>
+</ul>
 
-@dataclass
-class Rule:
-    name: str
-    pattern: str          # regex to match
-    replacement: str      # what to substitute
-    condition: Optional[Callable[[str, str], bool]] = None
+Inside a character class, most normal metacharacters lose their special meaning. For example, `[.]` matches a literal period without needing a backslash.
 
-    def apply(self, token, lexicon):
-        """Yield (candidate, rule_name) for each position this rule matches."""
-        for m in re.finditer(self.pattern, token):
-            cand = token[:m.start()] + self.replacement + token[m.end():]
-            if self.condition and not self.condition(token, cand):
-                continue
-            yield cand, self.name
+Furthermore, placing a caret (`^`) as the **first character** inside the brackets negates the class, matching any character that is *not* in the set. For digital humanities text editors working in XML, the negated character class `[^<>]` is one of the most vital patterns in existence: it matches any character that is not an opening or closing angle bracket, preventing search patterns from accidentally spilling into XML tags.
 
+**Vocabulary.** *Character class* — A regex pattern enclosed in square brackets `[...]` that matches any single character contained within the set. *Negated character class* — A character class starting with `[^...]` that matches any character *except* those listed.
 
-def result_is_standard(lexicon):
-    return lambda orig, cand: (lexicon.is_standard(cand)
-                               and not lexicon.is_standard(orig))
-
-
-IOTACISM_RULES = [
-    Rule("ei-to-i",  "ει", "ι"),
-    Rule("i-to-ei",  "ι",  "ει"),
-    Rule("eta-to-i", "η",  "ι"),
-    Rule("i-to-eta", "ι",  "η"),
-    Rule("oi-to-y",  "οι", "υ"),
-    Rule("y-to-oi",  "υ",  "οι"),
-    Rule("ai-to-e",  "αι", "ε"),
-    Rule("e-to-ai",  "ε",  "αι"),
-]
-```
-
-The `condition` is what separates a usable rule from a destructive one. The
-condition supplied above — the candidate is a standard form and the original is not
-— encodes the reasoning you apply by hand: a non-standard form that becomes standard
-under a phonologically motivated substitution is probably a phonetic spelling of
-that standard form.
-
-Note that each rule is *named*. That name is what makes the output auditable: for
-every regularization the script proposes, it can report which rule fired, which is
-exactly the transparency section 02 described.
-
-**Takeaway:** Name every rule and require an explicit condition —
-the name makes output auditable and the condition stops the rule being destructive.
+**Takeaway:** Use character classes `[...]` to match alternative single characters (such as `[ſs]`), and negated classes like `[^<>]` to safely exclude XML markup.
 
 ---
 
 ## **06 Content**
 
-**Rule Ordering and Interaction**
+**Quantifiers: Matching Repetitions (`+`, `*`, `?`)**
 
-A complication you must handle deliberately, because handling it accidentally
-produces silently wrong output.
+Historical words vary not only in which letters appear, but in how many times a letter is repeated. In Maud Lewis's letters, consonants are often doubled phonetically (e.g., *allways*), while scribal flourishes can introduce variable spaces. To control how many times a character or group repeats, regular expressions use **quantifiers**:
 
-Rules interact. Applying ει → ι and then ι → η in sequence produces a different
-result from the reverse. Applying rules in one pass, taking the first match, gives a
-different result from applying all rules and choosing among candidates.
+<ul>
+  <li><code>+</code> (Plus): Matches the preceding element <strong>one or more times</strong>. For example, <code>l+</code> matches <em>l</em>, <em>ll</em>, or <em>lll</em>.</li>
+  <li><code>*</code> (Asterisk): Matches the preceding element <strong>zero or more times</strong>. For example, <code>e*</code> matches nothing, or <em>e</em>, or <em>ee</em>.</li>
+  <li><code>?</code> (Question Mark): Matches the preceding element <strong>zero or one time</strong> (making it optional). For example, <code>colou?r</code> matches both British <em>colour</em> and American <em>color</em>.</li>
+</ul>
 
-| Strategy | Behaviour | Risk |
-| --- | --- | --- |
-| First rule that matches wins | Fast; order-dependent | Order encodes an unstated priority |
-| Apply all rules; collect candidates | Order-independent | Must choose among candidates |
-| Apply iteratively until stable | Handles chained changes | May not terminate; may over-apply |
-| Apply once, single substitution only | Conservative | Misses forms needing two changes |
+A critical concept every digital editor must understand is **greediness**. By default, quantifiers in regular expressions are greedy: they consume as much text as possible.
 
-The recommended approach for this course is the second: generate all candidates from
-all rules, then select. It is order-independent, which removes a hidden variable, and
-it surfaces ambiguity rather than hiding it — if two rules produce two different
-standard forms, you have found a case that requires contextual disambiguation, and
-the script should say so rather than silently picking one.
+Consider what happens if you have the XML line `<orig>publick</orig> and <orig>traffick</orig>` and you search with the pattern `<orig>.*</orig>`. You might expect the engine to match the first tag. Instead, because `.*` is greedy, it starts at the first `<orig>`, consumes all the text across the middle of the line, and stops only at the *final* `</orig>`! It swallows both words and the word *and* between them.
 
-```python
-def candidates(token, rules, lexicon):
-    """All standard-form candidates reachable by one rule application."""
-    seen = {}
-    for rule in rules:
-        for cand, name in rule.apply(token, lexicon):
-            seen.setdefault(cand, []).append(name)
-    return seen        # {candidate: [rule names that produced it]}
-```
+To prevent greedy over-matching, you can make a quantifier lazy by appending a question mark (e.g., `.*?`), or even better, use a negated character class: `<orig>[^<]*</orig>`.
 
-A token yielding no candidates needs no normalization by these rules, or needs
-something the rules do not cover. A token yielding exactly one candidate is a clean
-case. A token yielding several is ambiguous, and section 12 addresses what to do
-with it.
+**Vocabulary.** *Quantifier* — A regex symbol (`+`, `*`, `?`) specifying how many instances of the preceding character or group must occur. *Greedy matching* — The default regex behavior of consuming the longest possible matching string. *Lazy matching* — A quantifier modified with `?` that consumes the shortest possible matching string.
 
-Report the counts of all three. The distribution tells you how much of your text the
-rule method can actually decide.
-
-**Takeaway:** Generate all candidates rather than taking the first
-match — ambiguity then surfaces as multiple candidates instead of being hidden by
-rule order.
+**Takeaway:** Quantifiers control repetition, but default to greedy matching; use negated classes like `[^<]*` to prevent patterns from swallowing multiple tags across a line.
 
 ---
 
 ## **07 Content**
 
-**Weighted Edit Distance for Unseen Forms**
+**The Inviolable Rule: Word Boundaries (``)**
 
-Rules handle the patterns you anticipated. For forms they miss, a distance-based
-fallback proposes candidates.
+If there is one metacharacter that every digital humanities editor must memorize, revere, and never forget, it is the **word boundary anchor**: ``.
 
-The idea: find the standard forms nearest to the unknown token under an edit
-distance, and propose the nearest. Plain Levenshtein — which you implemented in
-Lesson 5.2 — treats all substitutions as equally costly, which is wrong here. A
-substitution between two graphemes that had merged phonetically is far more likely
-than one between unrelated letters.
+A word boundary is an anchor: it does not consume any physical characters. Instead, `` asserts a physical position: the boundary between a word character (letters, numbers, underscores) and a non-word character (spaces, punctuation, quotes, or tag brackets) (Friedl, 2006).
 
-A **context-sensitive weighted Levenshtein distance** encodes that (Bollmann, 2019).
-Give phonologically motivated substitutions a low cost and others a high one:
+Consider what happens if you neglect to use ``. Suppose you want to find the archaic contraction *ye* in an 18th-century document and replace it with *the*. If you search for the bare letters `ye` without word boundaries, look at what gets matched:
 
-```python
-SUBSTITUTION_COST = {
-    frozenset(("ι", "η")): 0.2,
-    frozenset(("ι", "υ")): 0.3,
-    frozenset(("ο", "ω")): 0.2,
-    frozenset(("ε", "αι")): 0.2,
-}
-DEFAULT_COST = 1.0
+<ul>
+  <li><em>ye</em> in <em>ye Governor</em> (Correct match)</li>
+  <li><em>ye</em> inside <em>yesterday</em> $	o$ becomes <em>thesturday</em>!</li>
+  <li><em>ye</em> inside <em>eye</em> $	o$ becomes <em>ethe</em>!</li>
+  <li><em>ye</em> inside <em>lawyer</em> $	o$ becomes <em>lawther</em>!</li>
+  <li><em>ye</em> inside <em>bye</em> $	o$ becomes <em>bthe</em>!</li>
+</ul>
 
+Searching for unanchored strings will violently dismantle your text. If you search for *in*, you will replace the middle of *point*, *prince*, and *administrative*. 
 
-def sub_cost(a, b):
-    if a == b:
-        return 0.0
-    return SUBSTITUTION_COST.get(frozenset((a, b)), DEFAULT_COST)
-```
+By wrapping your target in word boundaries—`ye`—you instruct the regex engine to match the letters *y* and *e* **only when they exist as a standalone, isolated word**, surrounded by spaces or punctuation. In textual normalization, **never search for a word without `` anchors**.
 
-Substituting the cost function into your Wagner–Fischer implementation yields a
-distance in which phonetically plausible variants are close and implausible ones are
-far. A threshold then decides whether the nearest standard form is close enough to
-propose.
+**Vocabulary.** *Word boundary (``)* — A zero-width anchor that matches the boundary between a word character and a non-word character (such as whitespace or punctuation). *Substring corruption* — The disastrous accidental replacement of letters inside unrelated longer words caused by omitting word boundaries.
 
-The weights are themselves an editorial statement about the phonology of your
-manuscript's period, and they should be documented. Derive them from your own
-observed substitution frequencies where you have enough data, and from the
-phonological account in Lesson 6.1 section 02 otherwise.
-
-Use this layer conservatively. It proposes candidates for forms your rules did not
-recognize, and its proposals need review — it is a suggestion mechanism, not a
-decision procedure.
-
-**Takeaway:** Weight substitution costs by phonological
-plausibility — the weights are an editorial claim about the period's phonology and
-should be documented.
+**Takeaway:** Always enclose word patterns in word boundary anchors (`pattern`) to prevent catastrophic accidental replacements inside longer words.
 
 ---
 
 ## **08 Content**
 
-**Assembling the Script**
+**Capturing Groups: The Power of Parentheses `(...)`**
 
-Combine the layers into a pipeline that processes a token and reports what it did
-and why.
+Searching for text is only half the battle. In digital editing, we do not merely want to find words; we want to restructure them. We want to take an original word, capture its root stem, and wrap it inside TEI tags. To achieve this, regular expressions use **capturing groups**, defined by parentheses: `(...)`.
 
-```python
-def normalize_token(token, lexicon, rules, threshold=0.6):
-    """Return (candidate, method, detail) or (None, 'unchanged', reason)."""
-    if lexicon.is_standard(token):
-        return None, "unchanged", "already standard"
+When you enclose part of a regex pattern in parentheses, the regex engine performs two actions:
+<ol>
+  <li>It groups the enclosed characters into a single logical unit.</li>
+  <li>It saves whichever specific text matched inside those parentheses into an internal memory slot (a register).</li>
+</ol>
 
-    known = lexicon.lookup(token)
-    if known:
-        return known, "lexicon", "confirmed mapping"
+Capturing groups are numbered automatically from left to right based on the order of their opening parentheses: Group 1, Group 2, Group 3, and so on (Jurafsky & Martin, 2024).
 
-    cands = candidates(token, rules, lexicon)
-    if len(cands) == 1:
-        cand, names = next(iter(cands.items()))
-        return cand, "rule", ",".join(names)
-    if len(cands) > 1:
-        return None, "ambiguous", "; ".join(
-            f"{c} ({','.join(n)})" for c, n in cands.items())
+For example, consider the pattern:
 
-    near = nearest_standard(token, lexicon, threshold)
-    if near:
-        return near, "distance", f"weighted edit distance {near[1]:.2f}"
-
-    return None, "unresolved", "no candidate"
+```regex
+(\w+)ck
 ```
 
-Every return path carries a **method** and a **detail**. That is the design
-requirement: the script must be able to say, for every token, what it decided and on
-what basis. A script that returns only normalized text cannot be audited, and an
-unauditable rule-based system has discarded its one advantage over the neural
-methods.
+Here, `\w+` matches one or more word characters (letters). Because `\w+` is enclosed in parentheses, it forms **Group 1**. The trailing letters `ck` sit outside the parentheses.
 
-Note that "ambiguous" returns no candidate. Where several rules propose different
-standard forms, the script declines rather than choosing, and the case is routed to
-human review. This is the correct behaviour: a rule-based system cannot resolve
-syntactic ambiguity, since it processes tokens in isolation (Bollmann, 2019), and
-guessing would trade a visible failure for an invisible error.
+When this pattern encounters the word *publick*, the entire pattern matches the full word *publick*. But inside memory, **Group 1 captures solely the root stem: *public***. When the pattern encounters *authentick*, Group 1 captures *authenti*. 
 
-Save as `tools/normalize.py` and commit.
+Capturing groups allow you to isolate the variable parts of a word so you can reuse them dynamically during replacement.
 
-**Takeaway:** Every decision must carry its method and reason —
-and where rules conflict, the script should decline rather than guess.
+**Vocabulary.** *Capturing group* — A sub-pattern enclosed in parentheses `(...)` whose matched content is stored in memory for retrieval during replacement. *Group numbering* — The sequential assignment of matched groups (`$1`, `$2`) ordered by their opening parentheses from left to right.
+
+**Takeaway:** Enclose sub-patterns in parentheses to create capturing groups that store matched word stems in memory for dynamic reuse.
 
 ---
 
 ## **09 Content**
 
-**Running It Over Your Text**
+**Backreferences in the Replace Box: `$1` and `$2`**
 
-Apply the script to your diplomatic base — the consensus text *before* yesterday's
-manual normalization — so that its output is comparable to what you did by hand.
+Once a regular expression captures text into a group, how do you insert that captured text into your replacement string? In VS Code, you retrieve captured groups using **backreferences**: `$1`, `$2`, `$3`, and so on.
 
-```bash
-git show gt-f42r-consensus:transcription/f42r_consensus.xml \
-  > /tmp/diplomatic.xml
-python3 tools/normalize.py --input /tmp/diplomatic.xml \
-  --output normalization/script_output.json \
-  --report normalization/script_report.md
+When you type `$1` in the VS Code Replace box, the editor replaces that token with whichever characters were matched by the first capturing group. If your pattern has a second group, `$2` retrieves the second group. The special token `$0` represents the *entire* matched string.
+
+Let us see how capturing groups and backreferences work together in a simple example:
+
+```text
+Find:    (\w+)ck
+Replace: $1c
 ```
 
-The output should be structured data rather than modified XML at this stage. You
-want a record of every decision, which is what the comparison in the next sections
-consumes:
+Let us trace how the engine processes this command on the word *publick*:
+<ol>
+  <li>The search pattern matches the full word <code>publick</code>.</li>
+  <li>Group 1 captures the stem: <code>public</code>.</li>
+  <li>The Replace field instructs the editor: insert the text of Group 1 (<code>public</code>), followed by the literal letter <code>c</code>.</li>
+  <li>Result: <code>publicc</code> (Notice the spelling error! If the stem was <em>public</em>, adding <em>c</em> produced two <em>c</em>'s!).</li>
+</ol>
 
-```json
-{
-  "token": "τιμι",
-  "line": 7,
-  "position": 4,
-  "proposed": "τιμή",
-  "method": "rule",
-  "detail": "i-to-eta,i-to-ei"
-}
+This simple trace illustrates why precision is vital. If our root stem already ends in *c*, we do not want to add *c*; we simply want to drop the *k*! The correct pattern would be:
+
+```text
+Find:    (\w+c)k
+Replace: $1
 ```
 
-Producing JSON rather than XML also keeps the script from touching your edition. The
-script proposes; you dispose. Injecting proposals directly into the TEI would mix
-machine and human decisions in a single state and destroy the comparison this week
-depends on.
+Here, Group 1 captures *public* (including the *c*). The replace token `$1` outputs *public*, cleanly dropping the terminal *k*.
 
-Report summary counts immediately:
+**Vocabulary.** *Backreference* — A special replacement syntax (such as `$1` or `$2`) that outputs the text stored by a specific capturing group. *Replacement token* — A placeholder in the replacement field that dynamically references captured search data.
 
-| Category | Count |
-| --- | --- |
-| Tokens processed | Record |
-| Already standard, unchanged | Record |
-| Normalized by lexicon lookup | Record |
-| Normalized by rule | Record |
-| Normalized by distance | Record |
-| Ambiguous, declined | Record |
-| Unresolved, no candidate | Record |
-
-**Takeaway:** Have the script emit structured proposals rather
-than modified XML — mixing machine and human decisions in one state destroys the
-comparison.
+**Takeaway:** In the VS Code Replace box, use `$1`, `$2`, etc., to output the exact text captured by your search parentheses, dynamically reconstructing your words.
 
 ---
 
 ## **10 Content**
 
-**Measuring Against Your Manual Work**
+**Generating TEI `<choice>` Dynamically in VS Code**
 
-Now the evaluation, and it must run in both directions.
+Now we arrive at the central technique of automated digital normalization. By combining capturing groups with literal XML tags in the VS Code Replace box, we can **generate complete, validated TEI `<choice>` structures automatically**.
 
-Retrieve yesterday's manual normalization and compare it against the script's
-proposals, token by token.
+Recall our manual encoding goal from yesterday: we want to transform historical *publick* into:
 
-| Case | Manual | Script | Classification |
-| --- | --- | --- | --- |
-| Both normalized, same result | Normalized | Same | True positive |
-| Both normalized, different result | Normalized | Different | Wrong normalization |
-| Manual normalized, script did not | Normalized | Unchanged | False negative (missed) |
-| Script normalized, manual did not | Unchanged | Normalized | False positive (over-applied) |
-| Neither normalized | Unchanged | Unchanged | True negative |
-| Manual normalized, script declined | Normalized | Ambiguous | Correctly deferred |
-
-From these, compute:
-
-```text
-Precision = true positives / (true positives + false positives + wrong)
-Recall    = true positives / (true positives + false negatives + wrong)
+```xml
+<choice><orig>publick</orig><reg resp="#editor">public</reg></choice>
 ```
 
-**Precision** answers: when the script proposed a normalization, how often was it
-right? **Recall** answers: of the normalizations you made, how many did the script
-find?
+Typing that entire block by hand took thirty seconds. With regular expressions in VS Code, we can generate it in one keystroke across all occurrences:
 
-The distinction is essential and was flagged in Lesson 6.1 section 21. A script with
-high recall and low precision proposes many normalizations, most of them wrong, and
-reviewing its output costs more than working by hand. A script with high precision
-and low recall proposes few normalizations, nearly all correct, and leaves most of
-the work undone — which is far more useful, because its output can be trusted and
-the remainder handled manually.
+```text
+Find:    (\w+c)k
+Replace: <choice><orig>$1k</orig><reg resp="#editor">$1</reg></choice>
+```
 
-Report both. A single accuracy figure conceals which failure mode you have.
+Let us trace what VS Code does when it executes this command on *publick*:
+<ol>
+  <li>The Find pattern matches <code>publick</code>.</li>
+  <li>Group 1 captures the stem <code>public</code> into <code>$1</code>.</li>
+  <li>The Replace box outputs:
+    <ul>
+      <li>Literal XML: <code>&lt;choice&gt;&lt;orig&gt;</code></li>
+      <li><code>$1k</code> $	o$ inserts <code>public</code> followed by literal <code>k</code> (reproducing the original word <code>publick</code>!).</li>
+      <li>Literal XML: <code>&lt;/orig&gt;&lt;reg resp="#editor"&gt;</code></li>
+      <li><code>$1</code> $	o$ inserts the regularized stem <code>public</code>.</li>
+      <li>Literal XML: <code>&lt;/reg&gt;&lt;/choice&gt;</code></li>
+    </ul>
+  </li>
+</ol>
 
-**Takeaway:** High precision with low recall is useful; high
-recall with low precision is worse than useless — a single accuracy figure hides
-which you have.
+The resulting text is perfect, fully formed, valid TEI markup. The editor did not need to write a Python script; the regex engine in VS Code constructed the entire multi-element parallel XML structure dynamically.
+
+**Vocabulary.** *Dynamic XML generation* — Using regex replacement backreferences to construct complex structural markup around captured text strings. *Markup automation* — Automating the insertion of repetitive tagging structures while preserving original witness readings.
+
+**Takeaway:** Combine captured stems with literal XML tags in the VS Code Replace box to generate complete, validated TEI `<choice>` blocks instantly.
 
 ---
 
 ## **11 Content**
 
-**Interpreting the Failures**
+**Case Sensitivity and Case Preservation in VS Code**
 
-Categorize the disagreements, because the categories tell you what to fix.
+Historical documents constantly alternate between uppercase and lowercase letters. An 18th-century text might print *Publick* with a capital *P* at the start of a sentence and *publick* with a lowercase *p* in the middle of a line.
 
-| Failure | Likely cause | Response |
-| --- | --- | --- |
-| Missed a form you normalized | No rule covers it | Add a rule, or add to the lexicon |
-| Over-applied to a standard form | Condition too weak | Strengthen the condition |
-| Over-applied to a proper name | No name exclusion | Add a name list or a capitalization check |
-| Over-applied to a variant reading | Cannot distinguish these | Expected; exclude by hand |
-| Wrong candidate among several | Ambiguity resolved wrongly | Should have declined; check the logic |
-| Correctly declined an ambiguous case | Working as designed | Not a failure; count separately |
-| Normalized a form you left as `<sic>` | Cannot distinguish variant from error | Expected limitation |
+How does regular expression matching handle capitalization? In VS Code, case sensitivity is controlled by two dedicated toggles in the Find and Replace widget:
 
-The last two rows are the important ones conceptually. A script that declines
-ambiguous cases has behaved correctly, and counting those as failures understates
-its usefulness — the whole point of the declining behaviour is to route hard cases
-to a human. Report them separately.
+<ol>
+  <li><strong>Match Case (`Alt+C`):</strong> When this toggle is active, the search is strictly case-sensitive. Searching for <code>publick</code> will ignore <code>Publick</code>. When inactive, the search matches both.</li>
+  <li><strong>Preserve Case:</strong> In the Replace box, VS Code features an extraordinary built-in button labeled <strong>Preserve Case</strong> (an icon showing uppercase and lowercase <code>AB</code>). When active, VS Code automatically matches the capitalization style of the replacement string to the matched text! If the search matches lowercase <code>publick</code>, it outputs lowercase <code>public</code>; if it matches capitalized <code>Publick</code>, it outputs capitalized <code>Public</code>!</li>
+</ol>
 
-And the `<sic>`/`<orig>` distinction from Lesson 6.1 section 06 is one a
-character-level script structurally cannot make. Whether a form is period-normal
-usage or a mechanical slip depends on knowing what was acceptable at the time, which
-is not information in the string. A script will treat both alike, and that is a
-limitation of the method rather than a defect in your implementation.
+Alternatively, you can handle casing explicitly within your regex pattern using character classes:
 
-Note both explicitly in your report. Distinguishing "the script failed" from "the
-method cannot do this" is the analytical work of today's evaluation.
+```regex
+([Pp]ublic)k
+```
 
-**Takeaway:** Distinguish implementation failures from method
-limitations — a script structurally cannot tell period-normal usage from a scribal
-slip.
+Here, Group 1 captures either *Public* or *public*, preserving the exact initial casing inside `$1` when output into `<orig>` and `<reg>`.
+
+Understanding casing prevents duplicate rules. Rather than writing one rule for lowercase words and a second rule for capitalized words, a single case-aware pattern handles both cleanly.
+
+**Vocabulary.** *Match Case* — A toggle (`Alt+C`) enforcing strict character casing during regex search. *Preserve Case* — A VS Code feature that automatically adapts replacement text capitalization to match the original source word.
+
+**Takeaway:** Use the Match Case and Preserve Case toggles in VS Code, or case-insensitive character classes like `[Pp]`, to handle capitalized and lowercase variants within a single rule.
 
 ---
 
 ## **12 Content**
 
-**Handling the Ambiguous Cases**
+**Rule 1 in Practice: 18th-Century Terminal `-ck`**
 
-The cases where several rules proposed different standard forms are exactly the ones
-Lesson 6.1 section 18 identified as requiring context.
+Now let us apply these principles to our first real historical case study: 18th-century adjectives ending in *-ck* (from the 1752 Treaty and colonial legal records).
 
-Pure dictionary lookups and character-level regex fail to disambiguate because they
-process tokens in isolation. If a historical spelling can map to several modern
-lemmas depending on syntactic context, no character-level method resolves it
-(Bollmann, 2019).
+Suppose we begin with a simple pattern:
 
-Compare the script's ambiguous list against the list you flagged yesterday:
+```text
+Find:    (\w+)ck
+Replace: <choice><orig>$1ck</orig><reg resp="#editor">$1c</reg></choice>
+```
 
-| Comparison | Interpretation |
-| --- | --- |
-| Script's ambiguous set matches your flagged set | Your analysis was accurate |
-| Script found ambiguities you missed | Cases you resolved by unconscious context |
-| You flagged cases the script resolved cleanly | Your caution exceeded the actual ambiguity |
-| Both sets differ substantially | Worth investigating; may indicate a rule fault |
+Let us test this rule against a realistic sample sentence from an 18th-century colonial document:
 
-The second row is the interesting one. If the script surfaces ambiguity at a token
-you regularized without hesitation, you used contextual information without
-noticing — which means the decision was less mechanical than your policy implies.
-Those cases are worth documenting, because they mark where your editorial judgement
-is doing work your stated rules do not capture.
+```text
+"The publick traffick of black cattle shall be conducted by a politick truck."
+```
 
-That is not a criticism of the policy. It is a finding about the limits of
-formalization, and it is the honest answer to the question of how much of editorial
-practice can be made explicit.
+If you click "Replace All" in VS Code with that simple pattern, look at the disaster that occurs:
+<ul>
+  <li><em>publick</em> $	o$ correctly regularized to <em>public</em>.</li>
+  <li><em>traffick</em> $	o$ correctly regularized to <em>traffic</em>.</li>
+  <li><em>black</em> $	o$ transformed to <em>blac</em>! (Fatal error: <em>black</em> is a modern standard word!).</li>
+  <li><em>politick</em> $	o$ correctly regularized to <em>politic</em>.</li>
+  <li><em>truck</em> $	o$ transformed to <em>truc</em>! (Fatal error: <em>truck</em> is a modern standard word!).</li>
+</ul>
 
-Record the ambiguous set carefully. Friday's method claims to resolve exactly these,
-and this set is the test.
+This test demonstrates the fundamental danger of naive regular expressions: **over-matching**. Our rule was too broad. It assumed that *every* word ending in *-ck* was an archaic 18th-century variant, forgetting that English has dozens of native Germanic words (*back*, *black*, *thick*, *quick*, *truck*, *lock*, *duck*) where *-ck* is standard orthography!
 
-**Takeaway:** Ambiguities the script finds where you hesitated not
-at all mark where your judgement uses context your stated rules do not capture.
+A rule that fixes three words while corrupting two others is unacceptable in scholarship. We must refine our rule.
+
+**Vocabulary.** *Over-matching* — When a regex pattern is too general, capturing unintended words and producing erroneous replacements. *Naive pattern* — A simplistic pattern that fails to account for linguistic exceptions or homographs.
+
+**Takeaway:** Naive regular expressions over-match; always test patterns against diverse sentences to ensure they do not corrupt standard modern vocabulary like *black* or *truck*.
 
 ---
 
 ## **13 Content**
 
-**Performance in Low-Resource Conditions**
+**Refining Regex Rules: Stems and Root Whitelists**
 
-An argument for the rule-based method that is easy to miss when comparing it against
-neural approaches.
+How do we refine Rule 1 so that it regularizes *publick* and *traffick* without touching *black* or *truck*?
 
-Rule-based systems excel in extremely low-resource environments. Research indicates
-that the Norma tool achieves over 83% accuracy on English texts with as few as 100
-tokens of training data (Bollmann, 2019).
+In regular expressions, when a broad phonetic or morphological pattern has numerous common exceptions, the solution is to use **alternation** (`|`) to restrict the pattern to an explicit list of known historical roots (Friedl, 2006).
 
-That figure matters for your situation specifically. You have one folio of manual
-normalization — a few hundred tokens at most. Neural methods trained on that would
-have almost nothing to learn from; a rule-based system derived from it can perform
-well, because rules generalize from few examples in a way that statistical models do
-not.
+Instead of matching any arbitrary word characters with `\w+`, we specify the exact root stems that historically underwent the *-ck* to *-c* spelling reform:
 
-| Training data available | Rule-based | Neural |
-| --- | --- | --- |
-| ~100 tokens | Effective | Not viable |
-| ~5,000 tokens | Effective | Viable; multi-task learning helps |
-| Large corpus | Effective; may plateau | Generally superior |
+```text
+Find:    (authenti|criti|fantasti|musick|politi|publi|traffi)ck
+```
 
-The middle row anticipates Friday. Data sparsity in historical corpora can be
-mitigated by multi-task learning — training a sequence-to-sequence model
-simultaneously on normalization and an auxiliary task, so that shared encoder layers
-learn robust representations. But this helps most only when the target dataset is
-exceptionally small, around 5,000 tokens; with abundant data, multi-task learning can
-degrade performance through domain mismatch (Bollmann, 2019).
+Notice what this refined pattern does:
+<ol>
+  <li>The parentheses group an explicit whitelist of historical Latin and Greek stems that ended in <em>-ck</em> in 18th-century English.</li>
+  <li>The pipe symbol (<code>|</code>) functions as a logical OR. The engine matches <em>authenti</em> OR <em>criti</em> OR <em>publi</em>, etc.</li>
+  <li>It requires the matched root to be immediately followed by literal <code>ck</code> and a word boundary.</li>
+</ol>
 
-The general shape: rule-based methods are the appropriate technology at your scale,
-and neural methods become preferable as data grows. For a term project on one
-manuscript, today's method is not the primitive precursor to Friday's — it is
-plausibly the better tool, and Friday will test that.
+Now let us write the replacement pattern:
 
-**Takeaway:** Rule-based systems reach 83% accuracy from 100
-tokens — at your scale today's method may simply be the better tool, not the
-primitive one.
+```text
+Replace: <choice><orig>$1ck</orig><reg resp="#editor">$1c</reg></choice>
+```
+
+When this refined rule scans our test sentence:
+<ul>
+  <li><em>publick</em> matches $	o$ regularized to <em>public</em>.</li>
+  <li><em>traffick</em> matches $	o$ regularized to <em>traffic</em>.</li>
+  <li><em>black</em>: the stem <em>bla</em> is not in our whitelist $	o$ ignored completely!</li>
+  <li><em>truck</em>: the stem <em>tru</em> is not in our whitelist $	o$ ignored completely!</li>
+</ul>
+
+By constraining the search with root alternation, our rule achieves **100% precision**. It transforms every legitimate target and touches zero innocent words.
+
+**Vocabulary.** *Alternation (`|`)* — A regex operator functioning as a logical OR, matching either the pattern on its left or its right. *Root whitelisting* — Restricting a regex pattern to an explicit enumeration of validated historical stems to prevent false positives.
+
+**Takeaway:** Use alternation `(stem1|stem2|stem3)` to restrict normalization rules to validated historical roots, eliminating false positive errors.
 
 ---
 
 ## **14 Content**
 
-**Iterating on the Rules**
+**Rule 2 in Practice: The Long s (`ſ`)**
 
-Improve the script now, using the failure analysis from section 11.
+Our second historical rule addresses the typographical **long s** (Unicode `ſ` / `U+017F`), ubiquitous in printed books and broadsides prior to roughly 1800.
 
-Work in this order, because it addresses the most damaging failures first:
+In the 1752 Treaty, the long *s* is used for lowercase *s* at the beginning and in the middle of words, while the round *s* is used at the end (e.g., *ſaid*, *firſt*, *witneſses*).
 
-- **Fix over-applications.** These are false positives, and they are the failure that makes a script unusable. Strengthen conditions; add exclusions.
-- **Add missing rules.** Cover patterns you normalized manually that no rule caught.
-- **Extend the lexicon.** Add confirmed variant-to-standard pairs.
-- **Tune the distance threshold.** A lower threshold means fewer, safer proposals.
-- **Add exclusion lists.** Proper names, technical terms, and forms you deliberately leave alone.
+How should an editor handle the long *s* with regular expressions?
 
-After each change, re-run and re-measure. Keep a record of precision and recall
-across iterations, because the trajectory is informative — and because it is easy to
-improve recall while damaging precision without noticing.
+First, you must consult your **Editorial Policy**:
+<ul>
+  <li><strong>Policy Option A (Global Graphemic Modernization):</strong> Many modern digital editions consider the long <em>s</em> to be a purely typographical font feature (like a ligature or font variant) rather than a spelling variation. Under this policy, you simply replace all instances of <code>ſ</code> with modern <code>s</code> globally across the text.
+    <pre><code>Find:    ſ
+Replace: s</code></pre>
+  </li>
+  <li><strong>Policy Option B (Full TEI Parallel Tracking):</strong> If your edition is a strict paleographical study documenting 18th-century typographical habits, you may choose to record every long <em>s</em> inside a <code>&lt;choice&gt;</code> block:
+    <pre><code>Find:    (\w*)ſ(\w*)
+Replace: &lt;choice&gt;&lt;orig&gt;$1ſ$2&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1s$2&lt;/reg&gt;&lt;/choice&gt;</code></pre>
+  </li>
+</ul>
 
-| Iteration | Change | Precision | Recall |
-| --- | --- | --- | --- |
-| 1 | Initial rules | Record | Record |
-| 2 | Added name exclusion | Record | Record |
-| 3 | Strengthened conditions | Record | Record |
-| 4 | Extended lexicon | Record | Record |
+Notice that Option B wraps the entire word containing the long *s* into `<choice>`. If a word contains two long *s*'s (like *witneſses*), running a single-letter regex requires care so you do not nest `<choice>` tags inside `<choice>` tags. For most undergraduate projects, Option A (or replacing `ſ` before line-level normalization) is standard practice.
 
-Guard against a specific trap: do not tune the script until it exactly reproduces
-your manual decisions. That is fitting to a sample of one folio, and the resulting
-rules will encode your particular choices rather than a general policy. The script
-should implement your *policy*, and where it disagrees with a manual decision, the
-first question is whether the manual decision was consistent with the policy.
+**Vocabulary.** *Typographical regularization* — Standardizing archaic letterforms (such as long *s*) that represent font conventions rather than distinct lexical spellings. *Character-level vs. word-level* — Choosing whether to tag individual letters or wrap the entire containing word in TEI markup.
 
-Sometimes the script is right and you were not. Record those cases; they are
-corrections to your text, and they are the most valuable thing today produces.
-
-**Takeaway:** Do not tune until the script reproduces your
-decisions exactly — where it disagrees, check whether your decision followed your own
-policy.
+**Takeaway:** The long *s* (`ſ`) can be regularized globally as a typographical feature or wrapped at word level in `<choice>`, depending on your stated editorial policy.
 
 ---
 
 ## **15 Content**
 
-**When the Script Is Right and You Were Not**
+**Rule 3 in Practice: Thorn Contractions (`ye` and `yt`)**
 
-Expect this and treat it seriously. It is the most useful outcome of the exercise.
+Our third rule automates the expansion of early modern scribal contractions in colonial documents, specifically the thorn abbreviations *y<hi rend="superscript">e</hi>* (*the*) and *y<hi rend="superscript">t</hi>* (*that*).
 
-A deterministic script applies its rules uniformly. A human applies rules
-inconsistently — differently when tired, differently at the start and end of a
-session, differently when a form appears in a familiar phrase. Where the script
-disagrees with your manual work, a real possibility is that you were inconsistent.
+In your diplomatic transcription from Week 4, you may have transcribed these words either as plain text (*ye*, *yt*) or with superscript tags (*y<sup>e</sup>* or `y<hi rend="superscript">e</hi>`).
 
-Diagnose by checking whether the same phenomenon was handled the same way
-throughout:
-
-```python
-from collections import defaultdict
-
-by_pattern = defaultdict(list)
-for orig, reg in pairs("edition/edition.xml"):
-    for src, dst, ctx in substitutions(orig, reg):
-        by_pattern[(src, dst)].append((orig, reg))
-
-for (src, dst), examples in sorted(by_pattern.items()):
-    print(f"{src} -> {dst}: {len(examples)} instances")
-```
-
-Then look for the same source pattern left unnormalized elsewhere in the text. If ι
-→ η was applied eleven times and there are three further tokens where it would apply
-and was not, those three are inconsistencies rather than deliberate exceptions —
-unless you documented them as exceptions, which is precisely what the decision log
-is for.
-
-Correct them, and commit the correction separately with an explanatory message:
+Let us build a regex rule to handle plain text *ye* first:
 
 ```text
-fix(normalization): regularize three iotacism instances missed manually
-
-Script comparison surfaced three tokens at lines 9, 16, 21 where the
-i-to-eta rule applies and manual normalization did not fire. Checked
-against the facsimile; all three are the same phonetic spelling
-regularized elsewhere. No documented exception applies.
-
-Human-Verified: true
+Find:    ([Yy])e
+Replace: <choice><abbr>$1e</abbr><expan resp="#editor">$1he</expan></choice>
 ```
 
-This is the deterministic step improving the manual step, which is worth noticing:
-the three-step cycle is not a ranking with the human at the top.
+Let us trace this rule:
+<ol>
+  <li><code>([Yy])e</code> matches standalone <em>ye</em> or <em>Ye</em>. Group 1 captures the initial casing.</li>
+  <li>If the document had capitalized <em>Ye</em>, Group 1 captures <em>Y</em>, and the replacement outputs <code>&lt;abbr&gt;Ye&lt;/abbr&gt;&lt;expan resp="#editor"&gt;The&lt;/expan&gt;</code>! (Notice that <code>$1he</code> capitalizes the <em>T</em> automatically!).</li>
+</ol>
 
-**Takeaway:** The script's uniformity catches your inconsistency —
-the deterministic step improves the manual one, not only the reverse.
+Now, what if your transcription already contains superscript tags, such as `y<hi rend="superscript">e</hi>`?
+
+```text
+Find:    ([Yy])<hi rend="superscript">e</hi>
+Replace: <choice><abbr>$1<hi rend="superscript">e</hi></abbr><expan resp="#editor">$1he</expan></choice>
+```
+
+Because the tag `<hi rend="superscript">e</hi>` is literal XML, we include it directly in our search pattern. The regex matches the letter *y* followed immediately by the superscript tag, wrapping the entire historical graphic unit into `<abbr>` and supplying the expanded modern word in `<expan>`.
+
+**Vocabulary.** *Thorn pattern* — A regex designed to identify pseudo-archaic *y*-abbreviations and map them to standard *th*-words. *Superscript matching* — Matching embedded XML formatting tags as part of an abbreviation search string.
+
+**Takeaway:** Use capturing groups on initial letters (`[Yy]`) to preserve capitalization when expanding historical thorn contractions like *ye* into *the*.
 
 ---
 
 ## **16 Content**
 
-**Projecting the Results into TEI**
+**Rule 4 in Practice: Early French Verb Endings (`-oit` and `-oient`)**
 
-Once the script's proposals are reviewed, inject the accepted ones into the edition
-with their provenance recorded.
+Now let us turn to our French Revolutionary decree (Ace's project). In 1791 French official printing, the imperfect indicative and conditional verb endings are systematically printed with *oi* instead of modern *ai*:
 
-```xml
-<choice resp="#script" cert="high">
-  <orig>τιμι</orig>
-  <reg>τιμή</reg>
-</choice>
+<ul>
+  <li>3rd-person singular: <em>-oit</em> (modern <em>-ait</em>), as in <em>étoit</em> $	o$ <em>était</em>, <em>dérogeoit</em> $	o$ <em>dérogeait</em>.</li>
+  <li>3rd-person plural: <em>-oient</em> (modern <em>-aient</em>), as in <em>étoient</em> $	o$ <em>étaient</em>, <em>faisoient</em> $	o$ <em>faisaient</em>.</li>
+</ul>
+
+Can we automate this transformation in VS Code? Yes! We write two clean, targeted rules:
+
+```text
+Rule 4a (Singular Imperfect):
+Find:    (\w+)oit
+Replace: <choice><orig>$1oit</orig><reg resp="#editor">$1ait</reg></choice>
+
+Rule 4b (Plural Imperfect):
+Find:    (\w+)oient
+Replace: <choice><orig>$1oient</orig><reg resp="#editor">$1aient</reg></choice>
 ```
 
-The `@resp` pointing at the script rather than at you is the essential detail. A
-future researcher must know precisely whether a given `<reg>` was generated by a
-human philologist, a deterministic transducer, or a neural network, because that
-provenance determines the data's reliability for downstream corpus linguistics (TEI
-Consortium, 2026).
+Notice what happens during execution:
+<ol>
+  <li>Rule 4a matches <em>étoit</em>. Group 1 captures the verbal root <code>ét</code>.</li>
+  <li>The Replace field reconstructs the original word in <code>&lt;orig&gt;$1oit&lt;/orig&gt;</code> and supplies the modern spelling in <code>&lt;reg resp="#editor"&gt;$1ait&lt;/reg&gt;</code>.</li>
+  <li>Result: <code>&lt;choice&gt;&lt;orig&gt;étoit&lt;/orig&gt;&lt;reg resp="#editor"&gt;était&lt;/reg&gt;&lt;/choice&gt;</code>.</li>
+</ol>
 
-Declare the script as a responsible agent in the header:
+What about nouns or adjectives ending in *-oit*, such as *droit* (law/right) or *étroit* (narrow)?
+If we ran a naive `(\w+)oit`, would *droit* become *drait*? 
+**YES!** In modern French, *droit* is still spelled *droit*!
 
-```xml
-<respStmt xml:id="script">
-  <resp>Automated orthographic regularization</resp>
-  <name>tools/normalize.py, rule set v3, commit 7d2e814</name>
-</respStmt>
-```
+This demonstrates why Rule Ordering and Whitelisting matter. In French, nouns like *droit* must either be excluded using negative lookaheads or verb stems must be explicitly whitelisted. Testing in VS Code reveals this immediately!
 
-Naming the commit is what makes the attribution meaningful. "Generated by a script"
-is not reproducible; "generated by `tools/normalize.py` at commit 7d2e814 with rule
-set v3" identifies the exact procedure, which anyone can retrieve and re-run.
+**Vocabulary.** *Voltairean verb rule* — A regex automating the historical French orthographic shift from *oi* to *ai* in verb conjugations. *Grammatical homograph* — Words sharing a terminal spelling where some are verbs requiring regularization and others are invariant nouns (like *droit*).
 
-Record the rule that fired, where it is useful to do so — a `@source` attribute or a
-note can carry the rule name, which turns the edition into a record of not just what
-was normalized but why.
-
-Do not inject proposals you have not reviewed. A `<reg>` in your edition is a claim
-you are making, whatever produced it, and attributing it to the script does not
-transfer the responsibility.
-
-**Takeaway:** Attribute machine regularizations to a named script
-at a named commit — "generated by a script" is not reproducible attribution.
+**Takeaway:** Automating French *-oit* to *-ait* regularizes imperfect verbs, but editors must protect invariant nouns like *droit* from accidental corruption.
 
 ---
 
 ## **17 Content**
 
-**Logging the Method in the Header**
+**Rule 5 in Practice: Maud Lewis Phonetic Doubling**
 
-Extend yesterday's `<editorialDecl>` to record the automated stage.
+Now let us examine vernacular English correspondence (Olyvia's Maud Lewis project). In personal letters, writers frequently double consonants phonetically, writing *allways* for *always*, *untill* for *until*, or *truely* for *truly*.
 
-```xml
-<encodingDesc>
-  <editorialDecl>
-    <normalization method="markup">
-      <p>Orthographic regularization proceeded in two stages. Manual
-        regularization of f. 42r established the policy documented in
-        transcription/ORTHOGRAPHY.md. A deterministic rule-based script
-        (tools/normalize.py, rule set v3) was then applied to the
-        diplomatic text; its proposals were reviewed individually and
-        accepted proposals are attributed @resp="#script". The script
-        declines tokens for which several rules propose different
-        standard forms; those cases were resolved manually.</p>
-      <p>Script precision against manual regularization: 0.94.
-        Recall: 0.81. Measured on f. 42r, 312 tokens.</p>
-    </normalization>
-  </editorialDecl>
-</encodingDesc>
+Unlike colonial treaties, vernacular personal letters do not follow an official government printing style. Their spelling reflects individual acoustic habits. Therefore, building broad morphological rules (like "reduce all double *l*'s") is completely impossible, because words like *ball*, *call*, and *yellow* require double *l*'s!
+
+For vernacular writing, the correct deterministic strategy is **explicit vocabulary alternation**:
+
+```text
+Find:    ([Aa])llways
+Replace: <choice><orig>$1llways</orig><reg resp="#editor">$1lways</reg></choice>
 ```
 
-Including the measured performance in the header is unusual and worth doing. It
-tells a reader how reliable the automated layer is, which is information they cannot
-obtain any other way and which bears directly on how much weight to place on the
-`<reg>` layer.
+```text
+Find:    ([Uu])ntill
+Replace: <choice><orig>$1ntill</orig><reg resp="#editor">$1ntil</reg></choice>
+```
 
-This is the same principle as the imaging provenance in Lesson 3.2 and the AI
-trailers in Lesson 1.1. Machine-produced content in a scholarly edition needs its
-production conditions recorded, because the reader's ability to evaluate the content
-depends on knowing them.
+```text
+Find:    ([Tt])ruely
+Replace: <choice><orig>$1ruely</orig><reg resp="#editor">$1ruly</reg></choice>
+```
 
-Commit the header change with the script output.
+Notice how clean and safe these rules are:
+<ul>
+  <li>Each rule targets an exact, known phonetic quirk identified during your close reading in Step 1.</li>
+  <li>Word boundaries (<code></code>) ensure that the rule matches only the complete standalone word.</li>
+  <li>Initial character classes (<code>[Aa]</code>, <code>[Uu]</code>) preserve capitalization whether the word opens a sentence or sits mid-line.</li>
+  <li>The rule cannot possibly produce false positives on unrelated words.</li>
+</ul>
 
-**Takeaway:** Record the script's measured precision and recall in
-the header — a reader cannot otherwise judge how much weight the `<reg>` layer bears.
+In digital editing, a set of five precise, explicit rules is infinitely superior to one clever, complex rule that corrupts words you never intended to touch.
+
+**Vocabulary.** *Explicit vocabulary rule* — A regex targeting specific, pre-identified variant words rather than broad grammatical patterns. *Vernacular targeting* — Adapting regex precision to the individualized phonetic habits of personal correspondence.
+
+**Takeaway:** For vernacular correspondence, use targeted explicit word rules rather than broad morphological patterns to eliminate false positives.
 
 ---
 
 ## **18 Content**
 
-**What the Script Cannot Do**
+**Rule 6 in Practice: Unpunctuated Contractions**
 
-State the limits explicitly, because Friday's method claims to address exactly them.
+In vernacular writing and informal manuscripts, authors frequently omit the apostrophe in common negative contractions, writing *dont*, *cant*, *wont*, and *didnt*.
 
-| Limitation | Reason | Friday's claim |
-| --- | --- | --- |
-| Syntactic disambiguation | Processes tokens in isolation | Attention over the whole sentence |
-| Distinguishing variant from error | Requires period knowledge, not string information | Contextual and world knowledge |
-| Unseen variation types | Only applies rules it was given | Generalizes from training |
-| Morphological analysis | Character-level only | Some morphological capability |
-| Semantic plausibility | No model of meaning | Language model |
+Can we write a regular expression to add the missing apostrophe inside a TEI `<choice>` block?
 
-The first row is the fundamental one. A rule-based system cannot resolve a variant
-that maps to several standard forms depending on syntax, because the information
-required is not in the token (Bollmann, 2019). Your ambiguous set is the concrete
-instance of this, and it is the test case for Friday.
+Let us test a pattern in VS Code:
 
-The third row is the practical one. Your rules cover the patterns you observed on
-one folio. A different folio, a different hand, or a different section of the
-manuscript may present variation your rules do not anticipate, and the script will
-silently leave those forms unnormalized. Recall measured on the folio you derived
-the rules from is optimistic — it is measured on the training data.
+```text
+Find:    ([Dd])ont
+Replace: <choice><orig>$1ont</orig><reg resp="#editor">$1on't</reg></choice>
+```
 
-If you have time, test on a second folio you did not derive rules from. The drop in
-recall between the two is a measure of how well your rules generalize, and it is a
-more honest figure than the one from the folio the rules came from.
+```text
+Find:    ([Cc])ant
+Replace: <choice><orig>$1ant</orig><reg resp="#editor">$1an't</reg></choice>
+```
 
-**Takeaway:** Recall measured on the folio the rules came from is
-optimistic — test on a folio you did not use, and report the drop.
+These rules work beautifully for *dont* and *cant*. But now consider the word **wont**:
+
+```text
+Find:    ([Ww])ont
+Replace: <choice><orig>$1ont</orig><reg resp="#editor">$1on't</reg></choice>
+```
+
+In English, **wont** is an authentic dictionary word! It is an archaic noun and adjective meaning "accustomed, habit, or custom" (as in "as was his wont", or "he was wont to rise early").
+
+If a 19th-century author or colonial writer writes "according to his wont", and your regex blindly replaces it with *won't* (will not), you have introduced a catastrophic semantic blunder into your text!
+
+This is why regular expressions cannot be trusted blindly. An automated tool matches character strings, not meaning. In Section 21, we will see how VS Code's "Find Next" stepping protects you from this exact homograph trap.
+
+**Vocabulary.** *Lexical homograph trap* — When an unpunctuated contraction (like *wont*) is identical in spelling to a valid, unrelated word (like *wont* = custom), risking false-positive replacement.
+
+**Takeaway:** Unpunctuated contractions like *dont* can be regularized with regex, but homographs like *wont* require human contextual verification.
 
 ---
 
 ## **19 Content**
 
-**Preparing the Friday Comparison**
+**The Golden Rule of XML-Safe Regex**
 
-Friday runs AI-assisted normalization and checks it against your rules. Structure
-today's output so that comparison is straightforward.
+When working in TEI, you are not editing raw plain text. You are editing text **already embedded inside an XML markup tree**.
 
-Produce a per-token record covering all three sources:
+This structural reality introduces a severe hazard that destroys hundreds of student files every semester: **regex patterns that accidentally match XML tags**.
 
-| Field | Source |
-| --- | --- |
-| Token | The diplomatic text |
-| Line and position | The diplomatic text |
-| Manual decision | Lesson 6.1 |
-| Manual reasoning | The decision log |
-| Script proposal | Today |
-| Script method and rule | Today |
-| Script confidence or distance | Today |
-| Flagged ambiguous | Today and Lesson 6.1 |
+Consider what happens if you write a search pattern using a bare dot: `.*`. Remember that a dot matches *any* character, including `<` and `>`. If you search for:
 
-Save as `normalization/comparison.json`. On Friday you add the AI proposal as a
-further column, and the three-way comparison assembles itself.
-
-Tag today's state:
-
-```bash
-git tag -a norm-script-w6 -m "Rule-based normalization output, rule set v3"
-git push --tags
+```regex
+(in).*
 ```
 
-Also record today's costs, as in previous weeks: time to write the script, time to
-iterate, and time to review its proposals. Friday's method requires almost no setup,
-and the comparison must weigh that against quality.
+The dot can match directly across an XML tag! It might match the *in* in `<div type="section">`, swallow the attribute, cross the closing bracket, and match into the text! If you hit replace, you will tear open the XML tag, corrupting the document hierarchy and causing immediate schema validation failure.
 
-**Takeaway:** Build the per-token comparison table today so
-Friday's AI proposals become a column rather than a new analysis.
+To prevent this catastrophe, memorize and follow **The Golden Rule of XML-Safe Regex**:
+
+<table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem;">
+  <thead>
+    <tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1; text-align: left;">
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Rule</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Dangerous Pattern</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">XML-Safe Pattern</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Why It Protects You</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><strong>1. Restrict Wildcards</strong></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>.*</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>[^&lt;&gt;]*</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Refuses to match angle brackets; stays strictly inside text nodes.</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><strong>2. Use Word Characters</strong></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>.+</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>\w+</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Matches only letters and digits; stops instantly at punctuation and tags.</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><strong>3. Anchor Boundaries</strong></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>ye</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>ye</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Prevents matching attributes like <code>type="poem"</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+**Vocabulary.** *XML-safe regex* — A regular expression specifically constrained to prevent matching or corrupting XML element tags, attribute quotes, or bracket delimiters. *Tag corruption* — The accidental mutilation of XML syntax caused by unconstrained regex wildcards.
+
+**Takeaway:** Never use unconstrained wildcards (`.*`) in XML; use `\w+` or `[^<>]*` to ensure your search patterns stay strictly confined within text nodes.
 
 ---
 
 ## **20 Content**
 
-**Checklist Before You Leave**
+**Milestones and Line Breaks: Protecting `<lb/>`**
 
-Verify each.
+In Lesson 6.1, we established that when a word is divided across a line break, the physical milestone `<lb/>` must reside inside the `<orig>` element:
 
-- Rules derived from your manual pairs and compared against your stated policy.
-- Lexicon and standard-form set built and NFC-normalized.
-- Rules implemented with explicit named conditions.
-- All candidates generated rather than first-match.
-- Ambiguous cases declined rather than guessed.
-- Weighted edit distance implemented, with weights documented.
-- Every decision carries a method and a reason.
-- Script run over the diplomatic base, not the normalized text.
-- Output emitted as structured data, not injected XML.
-- Precision and recall computed in both directions.
-- Failures categorized; method limits distinguished from implementation faults.
-- Ambiguous set compared against yesterday's flagged set.
-- Rules iterated, with performance recorded per iteration.
-- Inconsistencies in your manual work identified and corrected.
-- Accepted proposals injected with `@resp="#script"`.
-- Header `<editorialDecl>` updated with method and measured performance.
-- Script, rules, and lexicon committed.
-- State tagged and pushed.
-- Costs recorded.
+```xml
+<choice>
+  <orig>Gov-<lb n="13"/>ernor</orig>
+  <reg resp="#editor">Governor</reg>
+</choice>
+```
 
-**Takeaway:** Run the script against the diplomatic base rather
-than the normalized text, or you measure it against its own target.
+Now ask yourself: what happens if you run an automated regular expression search for the word *Governor* across that line?
+
+```regex
+Governor
+```
+
+Will it match? **NO!** 
+
+To the regular expression engine, the characters on the page are `Gov-<lb n="13"/>ernor`. The letters *G-o-v* are immediately followed by a hyphen and an angle bracket `<`. Because an angle bracket is a non-word character, `` asserts a boundary, and the search fails to find *Governor*.
+
+Furthermore, what if you write a regex to regularize hyphenated words:
+
+```regex
+(\w+)-<lb n="\d+"/>(\w+)
+```
+
+This pattern will successfully match the hyphenated split! And you can write a replacement that wraps it cleanly into TEI:
+
+```text
+Replace: <choice><orig>$1-<lb n="13"/>$2</orig><reg resp="#editor">$1$2</reg></choice>
+```
+
+However, because line numbers vary on every line, hardcoding line numbers in regex replacement is complex. For hyphenated words split across line breaks, **it is almost always safer and faster to regularize them by hand** during Step 1, using automated regex only for words that sit completely within a single typographic line.
+
+**Vocabulary.** *Milestone collision* — The failure of a regex pattern to match a word because an empty XML milestone (like `<lb/>`) interrupts the character sequence. *Hyphenated split* — A word broken across two lines by a hyphen and an `<lb/>` element.
+
+**Takeaway:** Words split across lines by `<lb/>` tags will not match standard single-word regex patterns; handle split words manually in Step 1.
 
 ---
 
 ## **21 Content**
 
-**Common Problems Today**
+**Interactive Step-and-Replace vs. Blind "Replace All"**
 
-Failures that recur.
+In the VS Code Replace widget, there are two replacement buttons:
+<ol>
+  <li><strong>Replace (`Enter` or `Cmd+Alt+Enter`):</strong> Replaces the single currently highlighted match and advances the cursor to the next match.</li>
+  <li><strong>Replace All (`Cmd+Option+Enter` or `Ctrl+Alt+Enter`):</strong> Replaces every match in the entire document instantly in a single unmonitored pass.</li>
+</ol>
 
-| Symptom | Cause | Remedy |
-| --- | --- | --- |
-| Script proposes nothing | Lexicon and text in different normalization forms | NFC everywhere |
-| Script normalizes everything | Condition missing or too weak | Require the result to be standard and the original not |
-| Precision high, recall near zero | Conditions too strict; lexicon too small | Loosen carefully; extend the lexicon |
-| Recall high, precision poor | Over-application | Add exclusions; strengthen conditions |
-| Proper names normalized | No name handling | Add an exclusion list |
-| Results differ between runs | Rule order dependence, or a set iteration | Generate all candidates; sort deterministically |
-| Script "fixes" a `<sic>` form | Cannot distinguish error from variant | Expected; exclude by hand |
-| Perfect agreement with manual work | Rules over-fitted to this folio | Test on a second folio |
+To novice editors, "Replace All" feels like magic. You press one button, and fifty words are instantly regularized.
 
-The first row is the one that wastes the most time and looks least like an error. A
-script that proposes nothing reports that the text needs no normalization, which is
-indistinguishable from success if you do not check. Test with a token you know is
-non-standard before trusting a clean run.
+In professional textual editing, **blind "Replace All" is the single greatest cause of corrupted editions**.
 
-The last row is the subtler trap. A script that reproduces your manual decisions
-exactly has probably been tuned until it did, which means it has learned your folio
-rather than your policy. Perfect agreement is a warning sign rather than a success
-criterion.
+When you click "Replace All", you surrender your human eyes. You assume that your regex pattern is mathematically perfect, that it has zero false positives, that no homographs exist in the document, and that no XML attributes happen to share the same letters. If your rule contains a subtle flaw, "Replace All" multiplies that flaw across fifty lines in a microsecond.
 
-**Takeaway:** A script proposing nothing looks identical to a text
-needing nothing — test with a known non-standard token before trusting a clean run.
+Instead, professional digital editors practice **Interactive Step-and-Replace**:
+
+<ul>
+  <li>Press <code>Enter</code> to jump to Match 1. Look at it. Confirm that it is a genuine target word, not a homograph or tag.</li>
+  <li>Click <code>Replace</code>. Watch the replacement happen. Verify that the newly inserted <code>&lt;choice&gt;</code> block looks syntactically valid.</li>
+  <li>Press <code>Enter</code> to advance to Match 2. Repeat.</li>
+  <li>Only after you have stepped through 5 or 6 matches and verified with 100% certainty that your rule is performing flawlessly should you ever consider clicking "Replace All" for the remainder of that specific rule.</li>
+</ul>
+
+**Vocabulary.** *Interactive Step-and-Replace* — The disciplined editorial practice of visually inspecting each regex match before confirming replacement. *Blind replacement* — Executing a global "Replace All" command without inspecting individual matches, risking silent textual corruption.
+
+**Takeaway:** Always use Interactive Step-and-Replace to inspect matches individually; never execute blind "Replace All" without prior visual verification.
 
 ---
 
 ## **22 Content**
 
-**What Good Work Looks Like Here**
+**Measuring Rule Quality: True Positives vs. False Positives**
 
-The standard.
+In computational linguistics and information retrieval, the quality of an automated rule is measured using four fundamental diagnostic categories (Jurafsky & Martin, 2024):
 
-A minimally acceptable result is a working script that proposes normalizations.
+<ol>
+  <li><strong>True Positive (TP):</strong> The rule matches a word that legitimately required normalization, and transforms it correctly (e.g., matching <em>publick</em> and regularizing it to <em>public</em>).</li>
+  <li><strong>False Positive (FP):</strong> The rule matches a word that should NOT have been touched, and corrupts it (e.g., matching <em>black</em> and changing it to <em>blac</em>, or matching <em>wont</em> and changing it to <em>won't</em>). In digital editing, a False Positive is an editorial disaster.</li>
+  <li><strong>False Negative (FN):</strong> The rule misses a word that legitimately required normalization, leaving it unregularized (e.g., failing to match <em>politick</em> because of an unexpected capital letter).</li>
+  <li><strong>True Negative (TN):</strong> The rule correctly ignores words that did not require normalization (e.g., correctly skipping words like <em>peace</em>, <em>governor</em>, and <em>the</em>).</li>
+</ol>
 
-Good work additionally:
+Every time you test a regular expression on your 20-line workshop passage, you must count these outcomes:
 
-- Derives rules from the manual pairs and reports discrepancies with the stated policy.
-- Gives every rule an explicit, documented condition.
-- Generates all candidates and declines on ambiguity rather than guessing.
-- Emits a method and a reason for every decision.
-- Measures precision and recall separately.
-- Categorizes failures and separates method limits from implementation faults.
-- Reports correctly-declined cases separately from failures.
-- Identifies inconsistencies in the manual work and corrects them.
-- Documents the distance weights as a phonological claim.
-- Tests generalization on a folio the rules were not derived from.
-- Records measured performance in the TEI header.
+```text
+TP = Legitimate targets correctly regularized
+FP = Innocent words corrupted by the rule
+FN = Legitimate targets missed by the rule
+```
 
-The eighth item is the one that most distinguishes a genuine evaluation from a
-demonstration. A student who reports that the script agreed with them 94% of the
-time has compared two things. A student who reports that the script surfaced three
-places where their manual work was inconsistent with their own stated policy, and
-corrected them, has used the comparison to improve the edition.
+If your rule produces even a single False Positive ($FP > 0$), the rule is broken. You must stop, analyze the match, and refine your regex pattern before proceeding.
 
-**Takeaway:** Using the comparison to correct your own
-inconsistencies is what makes it an evaluation rather than a demonstration.
+**Vocabulary.** *True Positive (TP)* — A legitimate target correctly identified and transformed by a rule. *False Positive (FP)* — An innocent word wrongly matched and transformed by a rule (a commission error). *False Negative (FN)* — A legitimate target overlooked by a rule (an omission error).
+
+**Takeaway:** Evaluate every regex rule by tracking True Positives (successes), False Positives (disastrous over-matches), and False Negatives (missed targets).
 
 ---
 
 ## **23 Content**
 
-**The Transparency Argument**
+**Precision and Recall in Digital Editing**
 
-A conceptual point to carry into Friday.
+To quantify the performance of your regular expressions mathematically, digital textual scholarship borrows two core metrics from data science: **Precision** and **Recall** (Bollmann, 2019).
 
-Today's method has a property the neural methods do not: for any output, the exact
-transformation applied is known, mathematically quantifiable, and loggable in the
-TEI header (Bollmann, 2019).
+**Precision** measures how accurate your rule is when it takes an action. It answers the question: *Of all the words this rule matched and transformed, what percentage was actually correct?*
 
-That is not a minor engineering convenience. It determines whether the normalized
-layer of your edition is *evidence* or *assertion*.
+$$	ext{Precision} = rac{	ext{True Positives}}{	ext{True Positives} + 	ext{False Positives}}$$
 
-Consider a reader encountering `<reg>τιμή</reg>` for `<orig>τιμι</orig>`. If the
-edition can say this was produced by the rule ι → η, conditioned on the result being
-attested and the original not, then the reader can evaluate the claim: they can
-check the rule, check the condition, and disagree if they think the analysis wrong.
-If the edition can only say a model produced it, the reader must either trust the
-model or redo the work.
+If your rule transforms 10 words, and 9 were genuine archaic spellings while 1 was a modern word corrupted by accident, your precision is:
 
-| Method | Reader can | Reader must |
-| --- | --- | --- |
-| Rule-based | Inspect the rule and its condition | Nothing |
-| Neural | Inspect the training data, at best | Trust, or redo |
-| Language model | Inspect the prompt | Trust, or redo |
+$$	ext{Precision} = rac{9}{9 + 1} = 0.90 	ext{ (90\%)}$$
 
-An edition is an argument, and an argument whose steps cannot be inspected is a
-weaker argument regardless of whether its conclusions are correct. That is the case
-for the deterministic baseline, and it holds even where the neural method is more
-accurate.
+**Recall** measures the completeness of your rule. It answers the question: *Of all the archaic words that existed in the text, what percentage did your rule successfully find?*
 
-Friday will likely show the AI method resolving cases your rules could not. Hold
-this alongside that result: greater capability and lesser accountability, and the
-edition has to decide which it needs where.
+$$	ext{Recall} = rac{	ext{True Positives}}{	ext{True Positives} + 	ext{False Negatives}}$$
 
-**Takeaway:** A rule-based `<reg>` is a claim the reader can
-check; a neural one is a claim they must trust — which matters independently of
-accuracy.
+If there were 12 archaic words in your document, and your rule found 9 of them while missing 3, your recall is:
+
+$$	ext{Recall} = rac{9}{9 + 3} = 0.75 	ext{ (75\%)}$$
+
+In scholarly editing, **Precision always outranks Recall**. A rule with 100% precision and 75% recall is completely acceptable: it safely normalizes 9 words and leaves 3 for manual review. But a rule with 100% recall and 70% precision corrupts your text with false positives! Strive for 100% precision in every rule you write.
+
+**Vocabulary.** *Precision* — The proportion of matched instances that were genuine, correct targets ($TP / [TP + FP]$). *Recall* — The proportion of all actual targets in the text that were successfully retrieved by the rule ($TP / [TP + FN]$). *Scholarly precision priority* — The editorial principle that avoiding false positives is far more important than achieving total recall.
+
+**Takeaway:** In digital editing, precision must always outrank recall: it is far better to miss a variant for manual review than to corrupt a single word with a false positive.
 
 ---
 
 ## **24 Content**
 
-**The Hybrid Position**
+**Auditing Rules against Yesterday's Manual Ground Truth**
 
-Where the literature actually lands, which is not "rules good, neural bad."
+How do you know what your True Positives, False Positives, and False Negatives actually are? You discover them by **auditing your automated regex output against yesterday's manual ground truth**.
 
-Modern computational philology pipelines propose a **hybrid** approach: constrained,
-rule-based transducers for deterministic stem and affix normalization, and language
-models purely for contextual disambiguation and lacuna detection (Bollmann, 2019).
+Yesterday in Step 1, you hand-encoded your 20-line passage into `transcription_reconciled_manual.xml`. Every tag in that file was placed with verified human scholarly judgment.
 
-The division of labour follows the capabilities:
+Today in Step 2, you create a duplicate file: `transcription_reconciled_regex.xml`. You run your VS Code regular expressions across this second file.
 
-| Task | Best method | Why |
-| --- | --- | --- |
-| Systematic phonological substitution | Rule-based | Deterministic, verifiable, sufficient |
-| Known variant lookup | Lexicon | Exact |
-| Unseen variant proposal | Weighted distance | Generalizes without training |
-| Syntactic disambiguation | Contextual model | Requires sentence-level information |
-| Lacuna detection | Contextual model | Requires expectation about what should be there |
-| Deciding variant against error | Human | Requires period knowledge and judgement |
+Now, open both files side by side in Visual Studio Code:
+<ol>
+  <li>Right-click on `transcription_reconciled_manual.xml` in the Explorer panel and select <strong>Select for Compare</strong>.</li>
+  <li>Right-click on `transcription_reconciled_regex.xml` and select <strong>Compare with Selected</strong>.</li>
+</ol>
 
-The Old Hungarian case from Lesson 6.1 section 19 is the worked example: a neural
-recognizer read the manuscript, a rule-based transducer reconstructed stem and
-suffix assimilation deterministically, and a noisy channel model ranked candidates —
-each component doing what it does best (Bollmann, 2019).
+VS Code opens a side-by-side **Diff Editor**:
+<ul>
+  <li>Where the two files match identically in green: your regex rule matched your manual ground truth perfectly (<strong>True Positive</strong>).</li>
+  <li>Where your regex file changed a word that your manual ground truth left alone: you have caught a <strong>False Positive</strong>!</li>
+  <li>Where your manual ground truth has a <code>&lt;choice&gt;</code> block that your regex file missed: you have caught a <strong>False Negative</strong>!</li>
+</ul>
 
-Note the last row. No row assigns the `<orig>`/`<sic>` decision to a machine, and the
-reason is the one from Lesson 6.1: that decision is a claim about what was
-acceptable in a historical context, which is editorial judgement rather than pattern
-recognition.
+This visual diff transforms proofreading into an exact science. You do not have to guess whether your regex worked; the diff highlights every discrepancy with surgical precision.
 
-Friday should be approached in this spirit. The question is not whether the AI
-method beats your script, but which parts of the task each should handle.
+**Vocabulary.** *Side-by-side diff* — A comparative editor interface displaying two versions of a file side by side, highlighting additions, deletions, and character discrepancies in color. *Ground truth audit* — Evaluating automated script or regex outputs by measuring their exact divergence from a hand-verified baseline.
 
-**Takeaway:** The literature's position is hybrid — rules for
-deterministic substitution, models for context, humans for the variant-versus-error
-judgement.
+**Takeaway:** Use VS Code's side-by-side diff editor to compare your regex output against your manual ground truth, visually exposing every false positive and false negative.
 
 ---
 
 ## **25 Content**
 
-**Preparing for Friday**
+**Documenting Regex Patterns in the Rule Ledger**
 
-Bring:
+In Workshop 6, your regular expression rules must be documented with complete scholarly transparency. A rule that lives only in your personal editor history is not reproducible research.
 
-- The script, rules, and lexicon, committed and tagged.
-- The per-token comparison table.
-- Precision and recall figures, with the failure categorization.
-- The ambiguous set — the test cases for Friday.
-- The generalization figure from a second folio, if you produced one.
-- The corrections the script prompted in your manual work.
-- Costs recorded.
+Open your `NORMALIZATION.md` file from yesterday. You will now expand your Editorial Rule Ledger by adding two new technical columns: **Regex Search Pattern** and **Regex Replacement String**:
 
-Friday applies AI-assisted normalization and checks it against your rules. The
-specific things to test:
+<table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem;">
+  <thead>
+    <tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1; text-align: left;">
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Rule ID</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Description</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Regex Search Pattern</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Regex Replacement String</th>
+      <th style="padding: 0.5rem; border: 1px solid #cbd5e1;">Observed FP / Limitations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>R-01</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Archaic terminal <em>-ck</em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>(publi|traffi)ck</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>&lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1c&lt;/reg&gt;&lt;/choice&gt;</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">0 FP; restricted to root whitelist to avoid <em>black</em>.</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>R-02</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Thorn contraction <em>ye</em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>([Yy])e</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>&lt;choice&gt;&lt;abbr&gt;$1e&lt;/abbr&gt;&lt;expan resp="#editor"&gt;$1he&lt;/expan&gt;&lt;/choice&gt;</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">0 FP; inspected manually to ensure not modern pronoun.</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>R-03</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">Maud Lewis <em>allways</em></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>([Aa])llways</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;"><code>&lt;choice&gt;&lt;orig&gt;$1llways&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1lways&lt;/reg&gt;&lt;/choice&gt;</code></td>
+      <td style="padding: 0.5rem; border: 1px solid #cbd5e1;">0 FP; 100% precision on target personal hand.</td>
+    </tr>
+  </tbody>
+</table>
 
-- Does it resolve the ambiguous cases correctly?
-- Does it over-normalize — collapsing dialectal variants or replacing archaic lexemes with modern synonyms?
-- Does it respect the `<orig>`/`<sic>` distinction, or treat all variation alike?
-- Does it leave proper names alone?
-- Can it produce valid TEI `<choice>` markup directly?
+Documenting your exact search and replacement strings guarantees that any external evaluator can verify your rules, replicate your results, and test your code against new folios.
 
-The second item is the documented danger and the one to look for hardest. When
-language models process texts with fluid orthography, they frequently collapse
-historically significant dialectal variants into a single standard form, permanently
-erasing linguistic evidence (Bollmann, 2019). Your rule baseline is what detects
-this: a script performing only character-level substitution will flag a large
-morphological deviation where the model has crossed from orthographic regularization
-into semantic alteration.
+**Vocabulary.** *Reproducible research* — The scientific standard requiring scholars to publish the exact data, rules, and computational parameters used to generate their findings. *Documented ledger* — A formal record pairing scholarly rationales with executable technical code.
 
-That detection mechanism is the concrete payoff of today's work, and it is worth
-knowing you have built it.
-
-**Takeaway:** Your rule baseline is the detector for Friday's
-over-normalization — a large deviation from character-level substitution marks where
-the model altered meaning.
+**Takeaway:** Record your exact regex search and replacement patterns in `NORMALIZATION.md`, documenting their observed precision and edge cases.
 
 ---
 
 ## **26 Content**
 
-**Synthesis: The Verifiable Baseline**
+**The Scaffolded Bridge: What Is Python `re`?**
 
-What today established.
+Now that you have mastered regular expressions inside VS Code, you possess an invaluable secret: **you already understand the core engine behind automated text processing in Python**.
 
-A deterministic script is a formal statement of an editorial policy. Writing it
-forces the policy to be precise, and the forcing is valuable independently of the
-script — it exposes unstated conditions, inconsistent application, and cases where
-judgement was doing work the policy did not describe.
+Students often fear programming because they imagine that writing Python requires learning an entirely alien way of thinking. But in Python, regular expressions are handled by a standard library module named `re`. 
 
-The script's output is verifiable in a way no other method's is. Every proposal
-carries the rule that produced it and the condition that licensed it, and both can
-be inspected, logged in the TEI header, and disagreed with (Bollmann, 2019).
+And here is the crucial realization: **the syntax of regular expressions in Python is identical to the syntax in VS Code**.
 
-Its limits are structural rather than incidental. It processes tokens in isolation,
-so it cannot resolve syntactic ambiguity. It applies rules it was given, so it does
-not generalize to unseen variation. And it has no access to what was acceptable in a
-historical context, so it cannot distinguish period-normal usage from scribal error
-(Bollmann, 2019).
+The character classes `[...]`, the quantifiers `+` and `*`, the word boundaries ``, the capturing groups `()`, and the root alternations `(a|b)` that you tested in VS Code operate with the exact same mathematical logic in Python!
 
-Within those limits it performs well at small scale — rule-based systems reaching
-83% accuracy on 100 tokens of training data — which is the scale you are actually
-working at (Bollmann, 2019).
+The only difference is how the engine is invoked. In VS Code, you press `Cmd+F` and click `Replace`. In Python, you write a single function call:
 
-It also improved your manual work, by surfacing inconsistencies that uniform
-application makes visible and human application conceals. That direction of benefit
-is worth remembering: the three-step cycle is a comparison among methods, not a
-ranking with the human at the top.
+```python
+import re
 
-**For Friday.** Bring the seven items in section 25, especially the ambiguous set.
-Friday tests whether contextual methods resolve what rules cannot, and whether they
-cost more in fidelity than they return in coverage.
+new_text = re.sub(pattern, replacement, original_text)
+```
 
-**Takeaway:** The script's value is a verifiable baseline and an
-audit of your own consistency — not merely automation of what you already did.
+The function `re.sub()` stands for "substitute". It takes your regex pattern, takes your replacement string, scans the text, and returns the transformed document. Python is simply an automated container for the exact regular expressions you have already mastered.
+
+**Vocabulary.** *Python `re` module* — The built-in Python library providing regular expression pattern matching and string substitution functions. *`re.sub()`* — The Python function that searches a string for a regex pattern and replaces matches with a specified replacement string.
+
+**Takeaway:** Python's `re.sub()` uses the exact same regular expression syntax as VS Code; Python merely acts as an automated wrapper for your existing regex rules.
 
 ---
 
 ## **27 Content**
 
-**A Note on Reproducibility**
+**A 10-Line Python Script Recipe (`normalize.py`)**
 
-One further property of today's method worth stating.
+For students who want to take their digital skills to the next level, you can translate your VS Code rules into an executable Python script (`normalize.py`) in less than ten lines of code.
 
-Your script, its rules, its lexicon, and its weights are all committed. Anyone with
-your repository can run it and obtain identical output. That is reproducibility in
-the strict sense, and it is rare in computational scholarship.
+Here is the complete, canonical Python script recipe:
 
-Friday's method will not have it. A hosted model may change without notice, as
-Lesson 4.3 section 16 established; the same prompt on the same image may produce
-different output next month; and even where the model is fixed, sampling makes the
-output non-deterministic unless temperature is set to zero and even then not
-reliably across versions.
+```python
+import re
+from pathlib import Path
 
-| Property | Rule script | Hosted model |
-| --- | --- | --- |
-| Same input, same output | Guaranteed | Not guaranteed |
-| Procedure inspectable | Fully | Not at all |
-| Runnable in ten years | If Python runs | Only if the service exists |
-| Auditable by a third party | Yes | Only the prompt |
+# 1. Read the input XML file
+text = Path("transcription_reconciled.xml").read_text(encoding="utf-8")
 
-The third row is the one that matters for a scholarly edition with any expected
-lifespan. A `<reg>` produced by your script can be re-derived from your repository
-indefinitely. A `<reg>` produced by a hosted model in October 2026 may be
-underivable by 2030, which means the edition contains claims whose basis has
-evaporated.
+# 2. Apply your regex rules sequentially
+text = re.sub(r"(publi|traffi)ck", r'<choice><orig>ck</orig><reg resp="#editor">c</reg></choice>', text)
+text = re.sub(r"([Yy])e", r'<choice><abbr>e</abbr><expan resp="#editor">he</expan></choice>', text)
+text = re.sub(r"([Aa])llways", r'<choice><orig>llways</orig><reg resp="#editor">lways</reg></choice>', text)
 
-This is a strong argument for the hybrid position in section 24: use models where
-their capability is needed, and prefer the reproducible method where it suffices.
-And record the provenance either way, so a later reader knows which they are looking
-at.
+# 3. Write the transformed output file
+Path("transcription_reconciled_regex.xml").write_text(text, encoding="utf-8")
+print("Normalization complete! Saved to transcription_reconciled_regex.xml")
+```
 
-**Takeaway:** Your script's output can be re-derived indefinitely;
-a hosted model's cannot — which means claims resting on it may become underivable.
+Notice two critical details:
+<ol>
+  <li><strong>Raw Strings (<code>r"..."</code>):</strong> Always prefix your regex patterns and replacement strings in Python with the letter <code>r</code> (e.g., <code>r"..."</code>). The <code>r</code> stands for "raw string", which prevents Python from misinterpreting backslashes like <code></code> as special escape characters.</li>
+  <li><strong>Backreference Syntax:</strong> In Python replacement strings, backreferences are written with backslashes (<code></code>, <code></code>) rather than dollar signs (<code>$1</code>, <code>$2</code>).</li>
+</ol>
+
+Running this script (`python3 normalize.py`) executes all your rules simultaneously in a fraction of a second.
+
+**Vocabulary.** *Raw string (`r"..."`)* — A Python string literal that treats backslashes as literal characters, essential for writing regular expression patterns. *Sequential pipeline* — Applying multiple transformation rules one after another, passing the output of each rule as the input to the next.
+
+**Takeaway:** A 10-line Python script using `re.sub()` chains your tested regular expressions into an automated, one-click normalization pipeline.
 
 ---
 
 ## **28 Content**
 
-**Extending Beyond the Folio**
+**Batching Rules: The Sequential Execution Pipeline**
 
-A practical note for the rest of the term.
+When you run multiple regular expressions—whether sequentially in VS Code or in a Python script—you are executing a **sequential transformation pipeline**.
 
-Your rules were derived from one folio and measured on it. To use the script across
-your whole passage:
+In a pipeline, the order in which rules execute is load-bearing. Rule 1 runs on the original text and produces an intermediate text. Rule 2 runs on that intermediate text and produces a second intermediate text. If your rules interact with the same words, the order of execution can produce unexpected side effects.
 
-- Run it on the remaining folios.
-- Review every proposal, at least initially.
-- Add newly encountered variation to the rules and lexicon.
-- Re-measure periodically on a folio you have normalized by hand.
-- Record the version of the rule set used for each folio.
+Consider this rule-ordering dilemma:
 
-The last item matters because the rule set will change as you extend it. A folio
-normalized with rule set v3 and one normalized with v7 have been treated
-differently, and if the difference is not recorded the edition is inconsistent in a
-way nobody can detect. Record the rule set version in the commit for each batch.
+```text
+Rule A (Capitalization): Regularize common-noun capitals: Treaty -> treaty
+Rule B (Thorn Expansion): Expand Ye -> The
+```
 
-The review requirement is the expensive part and should not be dropped. Precision
-measured on one folio is an estimate, and precision on new material is unknown until
-measured — the generalization caution from section 18. Reviewing every proposal is
-the safe practice until you have evidence that the script's precision holds on
-unseen text.
+If Rule A runs first with an unconstrained casing pattern, it might turn *Ye* into *ye*. When Rule B runs second, its capitalized pattern `Ye` will fail to find anything, because Rule A already lowercased it!
 
-As confidence grows, you can review selectively: all proposals from the distance
-layer, which is the least reliable, and a sample from the rule layer. State in the
-header what review practice was applied to which folios.
+To prevent pipeline collisions:
+<ol>
+  <li><strong>Run specific rules before general rules:</strong> Always execute narrow, exact rules (like expanding unique abbreviations) before applying broad spelling or casing regularizations.</li>
+  <li><strong>Never run a rule on already-tagged markup:</strong> Ensure that your patterns do not match text that is already inside a <code>&lt;choice&gt;</code> block. For example, if you replace <em>publick</em> with <code>&lt;choice&gt;...&lt;/choice&gt;</code>, make sure a subsequent rule does not match the word <em>publick</em> inside your newly generated <code>&lt;orig&gt;</code> tag!</li>
+</ol>
 
-**Takeaway:** Record which rule set version normalized each folio
-— otherwise the edition is inconsistent in a way nobody can detect.
+Testing your pipeline sequentially in VS Code reveals these ordering traps before they cause damage.
+
+**Vocabulary.** *Rule ordering* — The deliberate sequence in which automated transformations are applied to prevent adverse interactions between rules. *Pipeline collision* — An error where an earlier rule alters text in a way that breaks a subsequent rule or re-matches already-tagged markup.
+
+**Takeaway:** Order your rules carefully—executing narrow specific abbreviations before general casing rules—to prevent pipeline collisions.
 
 ---
 
 ## **29 Content**
 
-**What This Week Is Actually Testing**
+**When Deterministic Regex Fails: Context-Dependency**
 
-Step back to the week's structure, now that two of its three steps are done.
+As powerful as regular expressions are, every digital editor must recognize their absolute theoretical and practical limits: **regular expressions have no access to semantic context**.
 
-Week 4 compared three methods on a *reading* task: what does the ink say?
-Week 6 compares three methods on a *judgement* task: how should this variation be
-treated?
+A regular expression matches formal character strings. It does not know who wrote the document, what century it was composed in, what the grammatical syntax of the sentence is, or what the author intended.
 
-The difference is worth noticing. Reading has a fact of the matter — the ink is what
-it is, and a transcription is right or wrong about it. Normalization does not, in
-the same way. Whether τιμι should be regularized to τιμή, left alone, or marked as
-an error is an editorial decision governed by a policy, and the policy is chosen
-rather than discovered.
+Regex fails whenever normalization is **context-dependent**:
 
-This changes what "accuracy" means. Today's precision and recall measure agreement
-with *your* decisions, which are the standard only because you set the policy. A
-different editor with a different policy would produce different figures for the
-same script, and neither set would be wrong.
+<ul>
+  <li><strong>Syntactic Ambiguity:</strong> In 18th-century French, deciding whether a word ending in <em>-oit</em> is an imperfect verb (needing regularization to <em>-ait</em>) or an invariant noun (like <em>droit</em>) requires understanding grammatical parts of speech. Regex cannot parse parts of speech.</li>
+  <li><strong>Semantic Homographs:</strong> In English, deciding whether <em>wont</em> means <em>won't</em> (will not) or <em>wont</em> (custom) requires understanding the sentence's meaning.</li>
+  <li><strong>Poetic Restraint:</strong> In Emily Dickinson's poetry, deciding whether a capitalized word like <em>Door</em> is an accidental 18th-century habit or a deliberate metaphysical personification requires literary sensitivity that no mathematical regex can ever possess.</li>
+</ul>
 
-| Task | Standard | "Accuracy" means |
-| --- | --- | --- |
-| Transcription | The ink | Correspondence to the document |
-| Normalization | The stated policy | Consistency with a chosen standard |
-| Collation (Week 7) | The witnesses | Correspondence, given an alignment policy |
-| Apparatus (Week 8) | Editorial judgement | Consistency with a stated method |
+This boundary marks the transition to Friday's session. Where deterministic regex stops, artificial intelligence models and large language models step in with the ability to perform contextual semantic disambiguation.
 
-Read down the right-hand column. The course moves progressively from tasks with a
-fact of the matter toward tasks governed by stated policy — which is why the
-documentation requirement intensifies as the term proceeds. Where there is no
-external fact to appeal to, the stated policy *is* the standard, and an unstated
-policy leaves nothing to evaluate against.
+**Vocabulary.** *Context-dependency* — A linguistic situation where the correct interpretation or normalization of a word depends on surrounding sentence semantics rather than raw spelling. *Semantic blindness* — The inability of regular expressions to comprehend meaning, syntax, or authorial intent.
 
-**Takeaway:** Normalization has no fact of the matter, so the
-stated policy is the standard — which is why documentation matters more here than in
-transcription.
+**Takeaway:** Regular expressions excel at mechanical, unambiguous pattern matching, but fail on context-dependent words, syntactic homographs, and poetic nuance.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: Rules as Explicit Editorial Practice**
+**Review and Workshop 6 Step 2 Deliverables**
 
-The argument of this meeting, in its own terms.
+Today you bridged the gap between human editorial policy and automated computational execution. You mastered regular expressions directly inside the VS Code editor, demonstrated the power of word boundaries and capturing groups, generated TEI `<choice>` markup dynamically, and audited your rules against your manual ground truth.
 
-Editorial practice is a set of decisions applied repeatedly. When applied by a
-person those decisions are partly tacit: an editor knows what to do without always
-being able to say why, and applies criteria they have not articulated. That tacit
-component is real expertise, and it is also where inconsistency lives.
+Before concluding today's session, review the **Workshop 6 Step 2 Checklist**:
 
-Writing the script makes the practice explicit. Every condition must be stated,
-every exception enumerated, every ordering decided. What survives that process is a
-policy; what does not survive is either genuine context-dependence — the ambiguous
-set — or inconsistency you did not know you had.
+<ol>
+  <li><strong>Regex Rules Formulated:</strong> Have you created at least 3 to 5 distinct regular expressions corresponding to the active rules in your Rule Ledger?</li>
+  <li><strong>Word Boundaries Enforced:</strong> Are all your word search patterns strictly anchored with <code></code> to prevent accidental substring corruption?</li>
+  <li><strong>XML-Safe Patterns Used:</strong> Have you ensured that no unconstrained wildcards (<code>.*</code>) match across XML tags or milestone markers?</li>
+  <li><strong>Dynamic `<choice>` Generated:</strong> Did your replacement patterns successfully construct complete, valid TEI <code>&lt;choice&gt;</code> blocks with <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> or <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>?</li>
+  <li><strong>Audited via Side-by-Side Diff:</strong> Have you compared your regex-transformed file against yesterday's manual ground truth in VS Code, calculating your True Positives and eliminating False Positives?</li>
+  <li><strong>Rule Ledger Updated in `NORMALIZATION.md`:</strong> Have you recorded your exact regex patterns, replacement strings, and observed precision metrics in your project ledger?</li>
+  <li><strong>Schema Validated:</strong> Does your transformed XML document validate with <strong>0 errors</strong> in VS Code?</li>
+</ol>
 
-The result is a baseline that is verifiable, reproducible, and inspectable, which is
-what a scholarly edition needs from its automated components (Bollmann, 2019). And
-it performs well at the scale you are working at, which is small.
+With Step 2 complete, you have an audited deterministic baseline ready for Friday, where we will unleash generative AI models on the same text and test whether they enhance or over-normalize our historical documents.
 
-It cannot do everything. Syntactic ambiguity, unseen variation, and the judgement
-between period-normal usage and scribal error are outside its reach, structurally.
-Friday tests whether contextual methods reach them, and at what cost in fidelity and
-accountability.
+**Vocabulary.** *Step 2 milestone* — The completion of the deterministic regular expression pass, documented in the Rule Ledger and verified against the manual ground truth baseline.
 
-**For Friday.** Bring the seven items in section 25. The ambiguous set is the test
-case, and your rule baseline is the detector for over-normalization.
-
-**Takeaway:** Writing the rules made your tacit editorial practice
-explicit — what survived is policy, and what did not is either genuine
-context-dependence or inconsistency you did not know about.
+**Takeaway:** Step 2 automates your normalization policy using validated, XML-safe regular expressions, establishing an audited baseline for Friday's AI comparison.
 
 ---
 
 ## References
 
-Bollmann, M. (2019). *A large-scale comparison of historical text normalization
-systems* (arXiv:1904.02036). https://arxiv.org/abs/1904.02036
+Bollmann, M. (2019). A large-scale comparison of historical text normalization systems. In *Proceedings of the 2019 conference of the North American chapter of the Association for Computational Linguistics: Human language technologies* (Vol. 1, pp. 3887–3898). Association for Computational Linguistics. https://doi.org/10.18653/v1/N19-1389
 
-Gignac, F. T. (1976). *A grammar of the Greek papyri of the Roman and Byzantine
-periods*. Istituto Editoriale Cisalpino.
+Burnard, L. (2014). *What is the Text Encoding Initiative? How to add intelligent markup to digital resources*. OpenEdition Press. https://doi.org/10.4000/books.oep.426
 
-Robertson, A., & Goldwater, S. (2018). Evaluating historical text normalization
-systems: How well do they generalize? In *Proceedings of NAACL-HLT*. Association
-for Computational Linguistics.
+Friedl, J. E. (2006). *Mastering regular expressions* (3rd ed.). O'Reilly Media.
 
-Robinson, P., & Driscoll, M. J. (Eds.). (2016). *Digital scholarly editing:
-Theories and practices*. Open Book Publishers.
-https://doi.org/10.11647/OBP.0095
+Jurafsky, D., & Martin, J. H. (2024). *Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition* (3rd ed. draft). Stanford University. https://web.stanford.edu/~jurafsky/slp3/
 
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and
-interchange*. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/
+TEI Consortium. (2024). *TEI P5: Guidelines for electronic text encoding and interchange* (version 4.8.0). TEI Consortium. https://tei-c.org/guidelines/p5/
