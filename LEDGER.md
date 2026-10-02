@@ -161,6 +161,10 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+- **[2026-10-02]**: **Teaching-plan meeting times corrected and put under a lint gate.**
+  - Three plans carried the wrong hour, inherited by copying the previous meeting's plan: Lesson 2.1 (Tue Sep 8) said 9:30 and is 8:30; Lesson 3.3 (Fri Sep 18) said 10:30 and is 9:30; Lesson 5.2 (Fri Oct 2) said 8:30 and is 9:30. The badge and every schedule row were shifted together in each, plus the stray "not at 11:19" cross-reference in 3.3.
+  - New `shared/scripts/lint_teaching_plan.py` (with a thin `scripts/lint_teaching_plan.py` shim here) derives the timetable from the syllabus's Class Meetings line and checks filename date, weekday, Date line, Time badge, schedule-row chaining, and stray times outside the class window. All 12 plans pass: timetable Tue 8:30, Wed 10:30, Fri 9:30.
+  - **Possible follow-up:** the Lesson 5.2 deck entry below records slide times of 08:30/08:38/08:48, taken from the plan before this correction. Friday meets at 9:30, so the 5.2 deck and its notes may still carry the 8:30 times - not checked or changed here.
 - **[2026-10-02]**: Rebuilt the Week 5 in-class decks to the 16pt legibility floor (§2) and deployed both to Moodle in place.
   - **Both decks were in breach.** Lesson 5.1 and 5.2 each ran 9 slides with body text at 8.8-11pt and **no speaker notes at all**. Rebuilt from the teaching plans (`Lesson_5.1_Teaching_Plan_2026-09-29.html`, `Lesson_5.2_Teaching_Plan_2026-10-02.html`) rather than reflowed, because the floor is a content constraint: meeting it means cutting words or adding slides, never shrinking type. **9 -> 15 slides each**, every content run >=16pt, speaker notes on every slide (5.1: 86-95 words; 5.2: 86-98 words).
   - **5.1 structure:** title - double-transcription model (08:30) - why one pass is never trusted - goal and milestone - three boundaries - live demo, three moves (08:38) - master prompt over three slides - protected lab (08:48) - cohort traps Jay+Ace - cohort traps Olyvia+Andromeda - validation gate (09:10) - three errors you will hit - stage gate and Friday (09:16).
