@@ -622,7 +622,7 @@
       <text><![CDATA[<p>What attribute should be attached to the <reg> or <expan> elements produced during an AI normalization pass to preserve methodological transparency?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Inspect the AI output immediately to ensure it uses valid TEI <choice> element pairs, carries @resp='#ai', and maintains well-formed XML syntax.</p>]]></text>
+      <text><![CDATA[<p>Inspect the AI output immediately to ensure it uses valid TEI &lt;choice&gt; element pairs, carries @resp='#gemini', and maintains well-formed XML syntax.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -631,7 +631,7 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>resp='#ai' (or #llm), identifying the automated agent responsible for the proposed regularization.</p>]]></text>
+      <text><![CDATA[<p>resp='#gemini' (an id declared in the TEI Header), identifying the automated agent responsible for the proposed regularization.</p>]]></text>
       <feedback format="html">
         <text><![CDATA[<p>Correct. Attributing machine-generated regularizations distinguishes them from human editorial decisions in the TEI markup.</p>]]></text>
       </feedback>
@@ -1052,7 +1052,7 @@
       <text><![CDATA[<p>Why is documenting AI tool usage, model version, and system prompt in the <teiHeader> an academic integrity requirement?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Transparently attribute AI assistance in your TEI Header using <respStmt> and <change> tags, linking @resp='#ai' to an explicit methodology description.</p>]]></text>
+      <text><![CDATA[<p>Transparently attribute AI assistance in your TEI Header using &lt;respStmt&gt; and &lt;change&gt; tags, so that every @resp='#gemini' resolves to an id declared there.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>

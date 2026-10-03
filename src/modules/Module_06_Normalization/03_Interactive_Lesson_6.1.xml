@@ -1404,10 +1404,10 @@ Then — shuts the Door —
 <h3>Categorizing Regularization Rules</h3>
 <p>To keep your Rule Ledger organized and effective, divide your rules into four distinct <strong>linguistic and typographical categories</strong>:</p>
 <ol>
-  <li><strong>Orthographic / Phonological Rules:</strong> Variations in spelling reflecting historical sound changes, dialect, or pre-reform orthography (e.g., <em>publick</em> $  o$ <em>public</em>, French <em>étoit</em> $ o$ <em>était</em>, Lewis's <em>allways</em> $   o$ <em>always</em>). These are encoded with `<orig>` and `<reg>`.</li>
-  <li><strong>Abbreviation / Expansion Rules:</strong> Graphic compressions, suspensions, contractions, and brevigraphs (e.g., <em>y<sup>e</sup></em> $ o$ <em>the</em>, <em>Gov<sup>r</sup></em> $ o$ <em>Governor</em>, <em>&amp;</em> $  o$ <em>and</em>). These are encoded with `<abbr>` and `<expan>`.</li>
+  <li><strong>Orthographic / Phonological Rules:</strong> Variations in spelling reflecting historical sound changes, dialect, or pre-reform orthography (e.g., <em>publick</em> &rarr; <em>public</em>, French <em>étoit</em> &rarr; <em>était</em>, Lewis's <em>allways</em> &rarr; <em>always</em>). These are encoded with `<orig>` and `<reg>`.</li>
+  <li><strong>Abbreviation / Expansion Rules:</strong> Graphic compressions, suspensions, contractions, and brevigraphs (e.g., <em>y<sup>e</sup></em> &rarr; <em>the</em>, <em>Gov<sup>r</sup></em> &rarr; <em>Governor</em>, <em>&amp;</em> &rarr; <em>and</em>). These are encoded with `<abbr>` and `<expan>`.</li>
   <li><strong>Typographical / Graphemic Rules:</strong> Letterform substitutions that do not change spelling or meaning, such as replacing the long <em>s</em> (<em>ſ</em>) with short <em>s</em>. Many editors handle this as a global display transformation, or encode it as `<orig>ſ</orig><reg>s</reg>`.</li>
-  <li><strong>Syntactic / Casing Rules:</strong> Regularizing substantive common-noun capitalization or joining split compound words (e.g., <em>to morrow</em> $    o$ <em>tomorrow</em>).</li>
+  <li><strong>Syntactic / Casing Rules:</strong> Regularizing substantive common-noun capitalization or joining split compound words (e.g., <em>to morrow</em> &rarr; <em>tomorrow</em>).</li>
 </ol>
 
 <p>Categorizing your rules prevents category confusion. It ensures that when you write regular expressions on Wednesday, you know exactly which XML tags (<code>&lt;reg&gt;</code> vs. <code>&lt;expan&gt;</code>) your replacement patterns should generate.</p>
@@ -1595,7 +1595,7 @@ Then — shuts the Door —
 <p>You can dramatically speed up manual normalization using two techniques:</p>
 <ol>
   <li><strong>Wrap with Abbreviation / Emmet:</strong> Highlight the target word in your editor, open the Command Palette (<code>Cmd+Shift+P</code> on macOS or <code>Ctrl+Shift+P</code> on Windows), type <em>Emmet: Wrap with Abbreviation</em>, and type <code>choice>orig</code>. This instantly wraps your highlighted word inside <code>&lt;choice&gt;&lt;orig&gt;target&lt;/orig&gt;&lt;/choice&gt;</code>. Then simply place your cursor after <code>&lt;/orig&gt;</code> and type your <code>&lt;reg&gt;</code> tag.</li>
-  <li><strong>Custom User Snippets:</strong> You can create a custom XML snippet in VS Code. Go to <em>Code $   o$ Settings $   o$ User Snippets</em>, select <code>xml.json</code>, and add a snippet named "TEI Choice Regularization":
+  <li><strong>Custom User Snippets:</strong> You can create a custom XML snippet in VS Code. Go to <em>Code &rarr; Settings &rarr; User Snippets</em>, select <code>xml.json</code>, and add a snippet named "TEI Choice Regularization":
   <pre><code>"TEI Choice Regularization": {
   "prefix": "treg",
   "body": [
@@ -1727,7 +1727,7 @@ Then — shuts the Door —
 <p>Today's manual work is not just an isolated classroom exercise. The 20-line passage you hand-encode today serves a crucial methodological purpose: <strong>it is your Ground Truth reference baseline for the rest of Week 6</strong>.</p>
 <p>Tomorrow, you will not be editing text by hand. Instead, you will build deterministic regular expression rules in VS Code to automate these same normalizations. On Friday, you will instruct an AI model to normalize the text using natural language prompts.</p>
 <p>How will you know whether your regular expressions worked correctly? How will you know whether the AI hallucinated an expansion or over-normalized an archaic word?</p>
-<p>You will know by <strong>diffing</strong> their outputs against today's manual ground truth. Because you spent today examining each word, consulting your policy ledger, and hand-encoding each <code>&lt;choice&gt;</code> block with verified scholarly judgment, today's file (<code>witness_normalized_manual.xml</code>) represents the gold standard of accuracy.</p>
+<p>You will know by <strong>diffing</strong> their outputs against today's manual ground truth. Because you spent today examining each word, consulting your policy ledger, and hand-encoding each <code>&lt;choice&gt;</code> block with verified scholarly judgment, today's file (<code>transcription_reconciled_manual.xml</code>) represents the gold standard of accuracy.</p>
 <p>When you measure Wednesday's and Friday's automated passes, every point where they match your manual file will count as a confirmed true positive. Every point where an automated tool changes a word that your manual ground truth left alone will expose a potential false positive or hypercorrection.</p>
 <p><strong>Vocabulary.</strong> <em>Ground truth baseline</em> — An independently verified, hand-curated dataset used as the objective standard for testing and measuring the accuracy of automated models. <em>Gold standard</em> — The authoritative benchmark in a comparative experiment against which all other results are evaluated.</p>
 <p><strong>Takeaway:</strong> Your hand-encoded manual passage serves as the indispensable ground truth baseline against which Wednesday's regular expressions and Friday's AI outputs will be rigorously evaluated.</p>

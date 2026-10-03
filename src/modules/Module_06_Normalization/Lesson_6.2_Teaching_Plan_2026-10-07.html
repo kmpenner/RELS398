@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 6.2 Teaching Plan (2026-10-07)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+        }
+
+        @page { size: letter; margin: 0.55in; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong { color: var(--stfx-navy); }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p { font-size: 9.5pt; color: #713f12; line-height: 1.4; }
+
+        .caution-callout {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 6px solid #b91c1c;
+            padding: 0.7rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .caution-callout h3 { color: #991b1b; font-size: 10.5pt; font-weight: 800; margin-bottom: 0.2rem; }
+        .caution-callout p { font-size: 9.5pt; color: #7f1d1d; line-height: 1.4; }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 9.5pt; }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) { background: #f8fafc; }
+
+        .time-col {
+            width: 14%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col { width: 26%; font-weight: 700; }
+        .desc-col { width: 44%; color: #334155; line-height: 1.35; }
+        .target-col { width: 16%; font-size: 8.5pt; color: var(--stfx-slate); font-family: ui-monospace, monospace; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 1rem; }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul { padding-left: 1.1rem; font-size: 9pt; color: var(--stfx-slate); }
+        .card li { margin-bottom: 0.3rem; }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 0.65rem;
+            border-radius: 4px;
+            font-size: 8.2pt;
+            overflow-x: auto;
+            margin-top: 0.35rem;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            line-height: 1.3;
+        }
+
+        @media print {
+            body { padding: 0; font-size: 9.5pt; }
+            .header-box { margin-bottom: 0.6rem; }
+            .requirement-callout { background: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .caution-callout { background: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .schedule-table th { background: #002D62 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .context-banner { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 · Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #15 (Lesson 6.2 — Rule-Based Normalization: Regular Expressions in VS Code)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Wednesday, October 7, 2026</span>
+                <span class="badge">Time: 10:30 – 11:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 6 (Normalization) · Step 2 of 3 (Regex)</span>
+                <span class="badge">Milestone: transcription_reconciled_regex.xml + Audited Rule Ledger</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE:</strong><br>
+            Each student enters with Tuesday's commit: <code>NORMALIZATION.md</code> (policy paragraph and a Rule Ledger of 3 to 5 rules, <code>R-01</code> onward) and <code>transcription_reconciled_manual.xml</code> (20 lines hand-encoded with <code>&lt;choice&gt;</code>, validated at 0 errors). That file is the answer key for today. Nobody has written a regular expression in this course before; Lesson 6.2 is their first.
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL GOAL:</strong><br>
+            Each student turns every ledger rule into a VS Code Find/Replace pair that builds the <code>&lt;choice&gt;</code> markup itself, runs the rules over a fresh copy of the same 20 lines (<code>transcription_reconciled_regex.xml</code>), and audits the result against Tuesday's file with the side-by-side diff, counting true positives, false positives and false negatives per rule.
+        </div>
+    </div>
+
+    <div class="caution-callout">
+        <h3>LESSON 6.2 CORRECTED ON OCT 3: TWO RULES WERE WRONG</h3>
+        <p><strong>1. Thorn (section 15):</strong> the lesson taught <code>\b([Yy])e\b</code> &rarr; <code>&lt;expan&gt;$1he&lt;/expan&gt;</code>. A backreference copies the captured letter, so that produces <em>yhe</em> and <em>Yhe</em>, not <em>the</em>/<em>The</em>. The source now teaches one rule per case (<code>\bye\b</code> &rarr; <em>the</em>, <code>\bYe\b</code> &rarr; <em>The</em>, Match Case on), and the ledger example and Python recipe match.<br>
+        <strong>2. French <em>-oit</em> (section 16):</strong> VS Code's engine treats <em>é</em> as punctuation. <code>\b(\w+)oit\b</code> matches only <em>toit</em> inside <em>étoit</em> and splits the word; <code>\bétoit\b</code> never matches. The source now teaches <code>(?&lt;!\p{L})(\p{L}+)oit(?!\p{L})</code>. Python's <code>re</code> is Unicode-aware, so the script route was always fine.<br>
+        The corrected Notes PDF and Interactive 6.2 text went live on Moodle on Oct 3, so students who open them from then on see the fixed rules. Anyone who downloaded the Notes earlier has the old version, so correct both points aloud when you reach them.</p>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE REGEX OBJECTIVE: A RULE IS ONLY AS GOOD AS ITS FALSE POSITIVES</h3>
+        <p>Translating the ledger into patterns audits the ledger: every vague rule surfaces as a pattern that cannot be written, and every unstated exception surfaces as a false positive. Precision outranks recall. A rule that misses three variants leaves them for review; a rule that corrupts one innocent word has damaged the edition. Teach step-and-replace, never a blind Replace All.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Start from the raw excerpt, not the manual file:</strong> <code>transcription_reconciled_regex.xml</code> is a fresh copy of the same 20 lines of <code>transcription_reconciled.xml</code>. Running regex over Tuesday's already-tagged file nests <code>&lt;choice&gt;</code> inside <code>&lt;orig&gt;</code> and makes the diff meaningless.<br>
+        <strong>2. No bare wildcards in XML:</strong> no <code>.*</code> or <code>.+</code> anywhere. Use <code>\w+</code>, <code>\p{L}+</code> or <code>[^&lt;&gt;]*</code> so a pattern cannot cross a tag.<br>
+        <strong>3. Step through matches before replacing:</strong> press Enter to inspect, Replace one at a time; Replace All only after five or six clean matches of that one rule.<br>
+        <strong>4. Words split by <code>&lt;lb/&gt;</code> stay manual:</strong> they will not match, and that is expected. Count them as false negatives; do not write a pattern with a hard-coded line number.<br>
+        <strong>5. Workshop 6 dates:</strong> the Comparison Post is due Friday (Oct 9) at 11:00 PM. The brief's Monday peer-review date is Oct 12, Thanksgiving. Do not announce a peer-review date until it is confirmed.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 – 10:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>From Ledger Row to Pattern</td>
+                <td class="desc-col">
+                    In VS Code, open Find (<code>Ctrl/Cmd+F</code>) on a cohort file with the regex toggle (<code>.*</code>) off and search for <code>ye</code>. It lights up <em>eye</em>, <em>yet</em> and <code>type="..."</code>. Ask: <em>"Which of these did R-02 mean?"</em><br>
+                    The point: a computer reads characters, not intentions. Today each ledger rule is rewritten so a machine can follow it, and Tuesday's file tells us whether it did.
+                </td>
+                <td class="target-col">Literal-search failure on screen</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:36 – 10:50<br>(14 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>The Four Moves</td>
+                <td class="desc-col">
+                    Open Replace (<code>Ctrl+H</code> / <code>Cmd+Option+F</code>), turn on <code>.*</code> and Match Case, and build one rule live:<br>
+                    <strong>1. Anchor:</strong> <code>\bye\b</code> stops matching <em>eye</em> and <em>type</em>.<br>
+                    <strong>2. Capture:</strong> <code>\b(publi)ck\b</code> stores the stem in <code>$1</code>.<br>
+                    <strong>3. Generate:</strong> Replace with <code>&lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1c&lt;/reg&gt;&lt;/choice&gt;</code>.<br>
+                    <strong>4. Whitelist:</strong> show <code>\b(\w+)ck\b</code> eating <em>black</em> and <em>truck</em>, then fix it with <code>\b(publi|traffi)ck\b</code>.<br>
+                    Then show the trap: <code>\b([Yy])e\b</code> &rarr; <code>$1he</code> gives <em>yhe</em>. A backreference copies; it cannot translate.
+                </td>
+                <td class="target-col">One valid generated <code>&lt;choice&gt;</code>; one FP caught and fixed</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:50 – 11:07<br>(17 mins)</td>
+                <td class="activity-col">Phase 3: Protected Lab<br>Ledger to Regex</td>
+                <td class="desc-col">
+                    Students create <code>transcription_reconciled_regex.xml</code> from the same 20 raw lines, then write one Find/Replace pair per ledger rule and run them <strong>specific before general</strong> (abbreviations before casing; section 28).<br>
+                    Each rule is stepped through match by match. <strong>Circulate:</strong> check for <code>.*</code>, missing <code>\b</code>, Match Case off, and Ace's accented words (see guidance below). Anyone finished early may try the optional <code>normalize.py</code> recipe (section 27; <code>\1</code> not <code>$1</code>, raw strings).
+                </td>
+                <td class="target-col">3 to 5 rules run on the 20 lines</td>
+            </tr>
+            <tr>
+                <td class="time-col">11:07 – 11:14<br>(7 mins)</td>
+                <td class="activity-col">Phase 4: Audit<br>Diff Against Tuesday</td>
+                <td class="desc-col">
+                    Explorer: right-click the manual file, <strong>Select for Compare</strong>; right-click the regex file, <strong>Compare with Selected</strong>.<br>
+                    For each rule, count <strong>TP</strong> (matches Tuesday), <strong>FP</strong> (changed a word Tuesday left alone) and <strong>FN</strong> (Tuesday has a <code>&lt;choice&gt;</code> the regex missed). Any FP means the rule is rewritten now, not reported later.<br>
+                    Add the columns <em>Regex Search</em>, <em>Replacement</em> and <em>Observed FP / Limits</em> to the ledger in <code>NORMALIZATION.md</code>.
+                </td>
+                <td class="target-col">TP/FP/FN per rule in the ledger</td>
+            </tr>
+            <tr>
+                <td class="time-col">11:14 – 11:17<br>(3 mins)</td>
+                <td class="activity-col">Phase 5: Diagnostics<br>Validation</td>
+                <td class="desc-col">
+                    Problems panel (<code>Ctrl/Cmd+Shift+M</code>) to <strong>0 errors</strong>. Usual faults: a replacement with an unclosed tag, a <code>&lt;choice&gt;</code> generated inside an attribute value (missing <code>\b</code>), or a rule re-matching a word already inside a generated <code>&lt;orig&gt;</code>. Undo (<code>Ctrl/Cmd+Z</code>) is the fastest fix.
+                </td>
+                <td class="target-col">0 schema errors</td>
+            </tr>
+            <tr>
+                <td class="time-col">11:17 – 11:20<br>(3 mins)</td>
+                <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Friday Preview</td>
+                <td class="desc-col">
+                    <code>git add NORMALIZATION.md transcription_reconciled_regex.xml &amp;&amp; git commit -m "Week 6 Step 2: regex rules audited against manual ground truth"</code><br>
+                    Preview Friday with the words regex could not decide: <em>wont</em> (custom or will not?), <em>droit</em> (noun, not verb), Dickinson's <em>Door</em>. Friday's AI pass reads context, and it will also over-correct; the same diff will measure both.
+                </td>
+                <td class="target-col">Clean commit on <code>main</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Pattern Reference for the Live Demo</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Whitelisted Orthographic Rule (R-01)</h4>
+<pre>Find:    \b(publi|traffi)ck\b
+Replace: &lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg
+         resp="#editor"&gt;$1c&lt;/reg&gt;&lt;/choice&gt;</pre>
+        </div>
+        <div class="card">
+            <h4>Thorn: One Rule per Case (Match Case on)</h4>
+<pre>Find:    \bye\b
+Replace: &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan
+         resp="#editor"&gt;the&lt;/expan&gt;&lt;/choice&gt;
+Find:    \bYe\b      ... &lt;expan&gt;The&lt;/expan&gt;</pre>
+        </div>
+        <div class="card">
+            <h4>French: Unicode-Aware Boundaries</h4>
+<pre>Find:    (?&lt;!\p{L})(ét|av|fais|déroge)oit(?!\p{L})
+Replace: &lt;choice&gt;&lt;orig&gt;$1oit&lt;/orig&gt;&lt;reg
+         resp="#editor"&gt;$1ait&lt;/reg&gt;&lt;/choice&gt;</pre>
+        </div>
+        <div class="card">
+            <h4>XML-Safe Golden Rule</h4>
+<pre>.*     -&gt;  [^&lt;&gt;]*    stay inside text nodes
+.+     -&gt;  \w+        stop at tags and punctuation
+ye     -&gt;  \bye\b     never match type="..."</pre>
+        </div>
+    </div>
+
+    <h3 class="section-header">Cohort Specific Regex Guidance</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>JAY · Emily Dickinson Poem (MS Am 1118.3)</h4>
+            <ul>
+                <li><strong>Few rules, all explicit:</strong> <code>\b([Oo])pake\b</code> and <code>\b([Ee])therial\b</code> are word-specific and cannot misfire. A two-rule ledger at 0 FP is a good result.</li>
+                <li><strong>The exclusions are the test:</strong> no rule may touch a capital or a dash. If a rule changes <em>Soul</em> or <em>Door</em>, the diff shows it as an FP against Tuesday's file, which is the right evidence for the reflection.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ACE · French Revolutionary Decree (1791)</h4>
+            <ul>
+                <li><strong>Accents break <code>\b</code> in VS Code:</strong> use <code>(?&lt;!\p{L})</code> and <code>(?!\p{L})</code> around any pattern that touches an accented word. Have Ace try <code>\bétoit\b</code> first and see zero matches; it makes the point.</li>
+                <li><strong>The <em>droit</em> trap:</strong> a general <code>-oit</code> rule regularizes <em>droit</em> and <em>étroit</em>. Whitelist the verb stems in the 20 lines. Long-s: one global <code>ſ</code> &rarr; <code>s</code> pass only if the policy declared it in the header.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>OLYVIA · Maud Lewis Letter (20th c. Cursive)</h4>
+            <ul>
+                <li><strong>One rule per word:</strong> <code>\b([Aa])llways\b</code>, <code>\b([Uu])ntill\b</code>, <code>\b([Tt])ruely\b</code>. Here the captured letter is reused unchanged, so <code>$1</code> is safe, unlike thorn.</li>
+                <li><strong>The <em>wont</em> trap:</strong> <code>\b([Dd])ont\b</code> is safe; a matching rule for <em>wont</em> is not, because <em>wont</em> is a word. Step through it. No rule touches <em>we was</em>.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ANDROMEDA · 1752 Peace and Friendship Treaty</h4>
+            <ul>
+                <li><strong>Match the transcription as it stands:</strong> if Week 4 encoded <code>y&lt;hi rend="superscript"&gt;e&lt;/hi&gt;</code>, the pattern must include the <code>&lt;hi&gt;</code> tag literally (section 15). <em>Gov<sup>r</sup></em> and <em>Esq<sup>r</sup></em> are word-specific rules.</li>
+                <li><strong>Order matters most here:</strong> run the abbreviation rules before the casing rule, and make the casing rule a whitelist of nouns (<code>\b(Articles|Peace|Treaty)\b</code>), never "every capital", or it lowercases names and <em>Ye</em>.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

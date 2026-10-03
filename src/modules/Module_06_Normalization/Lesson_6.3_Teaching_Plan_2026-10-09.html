@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 6.3 Teaching Plan (2026-10-09)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+        }
+
+        @page { size: letter; margin: 0.55in; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong { color: var(--stfx-navy); }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p { font-size: 9.5pt; color: #713f12; line-height: 1.4; }
+
+        .caution-callout {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 6px solid #b91c1c;
+            padding: 0.7rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .caution-callout h3 { color: #991b1b; font-size: 10.5pt; font-weight: 800; margin-bottom: 0.2rem; }
+        .caution-callout p { font-size: 9.5pt; color: #7f1d1d; line-height: 1.4; }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 9.5pt; }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) { background: #f8fafc; }
+
+        .time-col {
+            width: 14%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col { width: 26%; font-weight: 700; }
+        .desc-col { width: 44%; color: #334155; line-height: 1.35; }
+        .target-col { width: 16%; font-size: 8.5pt; color: var(--stfx-slate); font-family: ui-monospace, monospace; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 1rem; }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul { padding-left: 1.1rem; font-size: 9pt; color: var(--stfx-slate); }
+        .card li { margin-bottom: 0.3rem; }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 0.65rem;
+            border-radius: 4px;
+            font-size: 8.2pt;
+            overflow-x: auto;
+            margin-top: 0.35rem;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            line-height: 1.3;
+        }
+
+        @media print {
+            body { padding: 0; font-size: 9.5pt; }
+            .header-box { margin-bottom: 0.6rem; }
+            .requirement-callout { background: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .caution-callout { background: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .schedule-table th { background: #002D62 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .context-banner { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 · Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #16 (Lesson 6.3 — AI-Assisted Normalization: Prompting, Hypercorrection, and the Three-Way Audit)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, October 9, 2026</span>
+                <span class="badge">Time: 9:30 – 10:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 6 (Normalization) · Step 3 of 3 (AI) and Synthesis</span>
+                <span class="badge">Milestone: transcription_reconciled_ai.xml + transcription_normalized.xml</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE:</strong><br>
+            Each student has two commits this week: Tuesday's <code>transcription_reconciled_manual.xml</code> (the answer key) with the policy and Rule Ledger in <code>NORMALIZATION.md</code>, and Wednesday's <code>transcription_reconciled_regex.xml</code> with TP/FP/FN counted per rule. They know precision and recall and have already watched a rule produce a false positive. Wednesday ended on the words regex could not decide (<em>wont</em>, <em>droit</em>, <em>Door</em>).
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL GOAL:</strong><br>
+            Each student writes a constrained system prompt (five parts plus their cohort specification and two few-shot examples), runs it in VS Code Antigravity on the same 20 raw lines to make <code>transcription_reconciled_ai.xml</code>, checks the output's structure, then diffs it against the manual file, sorts every divergence into Category A, B or C, and computes the AI pass's hypercorrection rate, precision and recall. The synthesis file and reflection are finished after class.
+        </div>
+    </div>
+
+    <div class="caution-callout">
+        <h3>LESSON 6.3 CORRECTED ON OCT 3: ATTRIBUTION IDS MADE CONSISTENT</h3>
+        <p>The lesson told students to write <code>resp="#ai"</code> in the master prompt and three cohort prompts but <code>resp="#gemini"</code> in the attribute rule and few-shot examples, while the header declared only <code>xml:id="gemini"</code> (and <code>xml:id="KP"</code> for the human). A <code>#ai</code> pointer would resolve to nothing. The source now uses <code>resp="#gemini"</code> throughout and <code>xml:id="editor"</code> for the human, matching Wednesday's <code>resp="#editor"</code>. The corrected Notes PDF and Interactive 6.3 text went live on Moodle on Oct 3. Say aloud anyway: <em>"Every AI tag is <code>#gemini</code>, every human tag is <code>#editor</code>, and both ids must exist in your header."</em></p>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE AI OBJECTIVE: CAPABILITY IS NOT FIDELITY</h3>
+        <p>The model will catch things the regex missed (<em>publickly</em>), because it reads context. It will also "improve" words that were never errors (<em>betwixt</em>, <em>hath</em>, <em>we was</em>), because it was trained to produce fluent modern prose. The point of today is not whether Gemini is good; it is that the same diff against Tuesday's file measures both behaviours in numbers. Every AI tag is a proposal until a human has checked it against the manual file.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Same 20 raw lines, fresh copy:</strong> the AI file starts from the same excerpt of <code>transcription_reconciled.xml</code> as Wednesday's regex file. Never feed the model the manual or regex file; it will copy the answers and the comparison is void.<br>
+        <strong>2. AI output never goes straight into the edition:</strong> it is applied only to <code>transcription_reconciled_ai.xml</code>. Nothing reaches <code>transcription_normalized.xml</code> until it has been classified against the manual file.<br>
+        <strong>3. A dropped <code>&lt;lb/&gt;</code> is a rejection, not a fix-up:</strong> if any line break or its <code>n</code> value is missing or moved, discard that output and re-prompt with "DO NOT DELETE OR MOVE ANY &lt;lb/&gt; TAGS." Do not repair the AI's file by hand and then count it as the AI's work.<br>
+        <strong>4. Disclosure is part of the assignment:</strong> every <code>resp="#gemini"</code> must resolve to a <code>&lt;respStmt&gt;</code> in the header, and the <code>&lt;change&gt;</code> entry says what was audited and rejected. Students put their own name and id in the header, not the lesson's example name.<br>
+        <strong>5. Workshop 6 dates:</strong> the Comparison Post is due <strong>tonight (Fri Oct 9) at 11:00 PM</strong>. Peer reviews are due <strong>Fri Oct 16 at 11:00 PM</strong>, one week later (set on Moodle Oct 3; the brief's old "Monday" would have been Thanksgiving).</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">9:30 – 9:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Capability vs Fidelity</td>
+                <td class="desc-col">
+                    In Antigravity, paste one Treaty sentence containing <em>betwixt</em> and <em>publickly</em> with the bare instruction <em>"Normalize this text."</em> It will catch <em>publickly</em> and turn <em>betwixt</em> into <em>between</em>, and probably rewrite more.<br>
+                    Ask: <em>"Which of those changes would Tuesday's policy allow?"</em> Name the four hypercorrection types on the board: lexical substitution, morphological modernization, dialect erasure, hallucinated expansion.
+                </td>
+                <td class="target-col">Unconstrained run on screen; taxonomy on the board</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:36 – 9:48<br>(12 mins)</td>
+                <td class="activity-col">Phase 2: Live Build<br>The Constrained Prompt</td>
+                <td class="desc-col">
+                    Build the master prompt (section 13) in five parts: <strong>persona</strong>, <strong>task</strong>, <strong>authority</strong>, <strong>negative constraints</strong>, <strong>output format</strong>. Point out that each numbered constraint answers one taxonomy row.<br>
+                    Add the cohort specification (sections 9 to 12) and the two few-shot examples (section 13): <code>publick</code> &rarr; <code>&lt;reg resp="#gemini"&gt;public&lt;/reg&gt;</code>, and <code>ye</code>/<code>yt</code>/<code>Govr</code> as <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>.<br>
+                    Re-run the same sentence: <em>betwixt</em> should now survive. If it does not, that is a Category B for the report, not a reason to give up.
+                </td>
+                <td class="target-col">Prompt saved in <code>NORMALIZATION.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">9:48 – 10:02<br>(14 mins)</td>
+                <td class="activity-col">Phase 3: Protected Lab<br>Run and Inspect</td>
+                <td class="desc-col">
+                    Each student creates <code>transcription_reconciled_ai.xml</code> from the 20 raw lines, submits prompt plus excerpt with <em>"Normalize the following TEI excerpt according to the prompt instructions"</em>, and applies the result to that file only.<br>
+                    <strong>Structural gate before any audit:</strong> (1) only <code>orig</code>/<code>reg</code> or <code>abbr</code>/<code>expan</code> pairs, no invented tags; (2) every <code>reg</code>/<code>expan</code> carries <code>resp="#gemini"</code>; (3) spaces outside <code>&lt;choice&gt;</code>; (4) every <code>&lt;lb n="..."/&gt;</code> still present, in order. <strong>Circulate</strong> with the lb count: search <code>&lt;lb</code> in both files and compare the totals.
+                </td>
+                <td class="target-col">AI file with all lb tags, 0 schema errors</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:02 – 10:10<br>(8 mins)</td>
+                <td class="activity-col">Phase 4: Audit<br>Three-Way Diff</td>
+                <td class="desc-col">
+                    <strong>Select for Compare</strong> on the manual file, <strong>Compare with Selected</strong> on the AI file; keep the regex file open beside it. Sort each divergence:<br>
+                    <strong>A</strong> regex missed, AI caught (<em>publickly</em>); <strong>B</strong> regex safe, AI hypercorrected (<em>betwixt</em>); <strong>C</strong> both failed (damage, line-split words, Dickinson's dashes).<br>
+                    Compute <strong>HR = hypercorrections &divide; AI <code>&lt;choice&gt;</code> blocks</strong>, then AI precision and recall against the manual file. Work the lesson's numbers once on the board: 4/16 = 25% HR, P = 12/16 = 75%, R = 12/14 = 86%.
+                </td>
+                <td class="target-col">A/B/C list; HR, P, R for the AI pass</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:10 – 10:15<br>(5 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Normalized File &amp; Header</td>
+                <td class="desc-col">
+                    Copy the <strong>manual</strong> file to <code>transcription_normalized.xml</code> (it is the base, not the AI file). Adopt each verified Category A block; leave every Category B word as plain text; confirm Category C spots keep the manual encoding.<br>
+                    Add two <code>&lt;respStmt&gt;</code> entries (the student as <code>xml:id="editor"</code>, Gemini as <code>xml:id="gemini"</code>) and one <code>&lt;change&gt;</code> naming how many AI suggestions were rejected (section 25).
+                </td>
+                <td class="target-col">Synthesis started; header attribution in place</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:15 – 10:20<br>(5 mins)</td>
+                <td class="activity-col">Phase 6: Stage Gate<br>Validate, Commit, Tonight</td>
+                <td class="desc-col">
+                    Problems panel to <strong>0 errors</strong> on both new files, then:<br>
+                    <code>git add NORMALIZATION.md transcription_reconciled_ai.xml transcription_normalized.xml &amp;&amp; git commit -m "Week 6 Step 3: AI pass audited; synthesis begun"</code><br>
+                    Tonight by 11:00 PM: finish the synthesis and the 300 to 500 word reflection (overview, metrics table for regex and AI, one example each of A, B and C, conclusion) and post to Workshop 6. Preview Week 7: this normalized file is the baseline CollateX aligns against other witnesses.
+                </td>
+                <td class="target-col">Clean commit; Comparison Post due 11:00 PM</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Reference for the Live Build</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Master Prompt: The Five Parts</h4>
+<pre>Persona     expert TEI P5 textual scholar
+Task        conservative normalization + expansion
+Authority   modern standard spelling (or Academie)
+Negative    no synonyms, no grammar, no tag moves
+Format      TEI fragment only, resp="#gemini"</pre>
+        </div>
+        <div class="card">
+            <h4>Few-Shot Pair (Thorn and Abbreviation)</h4>
+<pre>In:  yt was agreed by ye Govr at Halifax.
+Out: &lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan
+     resp="#gemini"&gt;that&lt;/expan&gt;&lt;/choice&gt; was
+     agreed by ... &lt;abbr&gt;Govr&lt;/abbr&gt;&lt;expan
+     resp="#gemini"&gt;Governor&lt;/expan&gt; ...</pre>
+        </div>
+        <div class="card">
+            <h4>The Three Metrics for the AI Pass</h4>
+<pre>HR        = hypercorrections / AI choice blocks
+Precision = TP / (TP + FP)
+Recall    = TP / (TP + FN)
+Typical:  regex P 100% R 71%  |  AI P 75% R 86%</pre>
+        </div>
+        <div class="card">
+            <h4>Header Attribution</h4>
+<pre>&lt;respStmt&gt;&lt;resp&gt;Normalization policy and audit&lt;/resp&gt;
+  &lt;name xml:id="editor"&gt;Student Name&lt;/name&gt;&lt;/respStmt&gt;
+&lt;respStmt&gt;&lt;resp&gt;Automated suggestions&lt;/resp&gt;
+  &lt;name xml:id="gemini"&gt;Google Gemini&lt;/name&gt;&lt;/respStmt&gt;
+&lt;change when="2026-10-09" who="#editor"&gt;...&lt;/change&gt;</pre>
+        </div>
+    </div>
+
+    <h3 class="section-header">Cohort Specific AI Guidance</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>JAY · Emily Dickinson Poem (MS Am 1118.3)</h4>
+            <ul>
+                <li><strong>The firewall is the prompt:</strong> no capital, dash or rhyme word may be touched; only <em>opake</em> and <em>etherial</em> are allowed targets. A model that adds a single comma has broken an explicit constraint, which is the strongest evidence Jay can report.</li>
+                <li><strong>Expect Category C, not A:</strong> regex had nothing to say about the dashes and the AI may convert them. An HR above 50% on a tiny edit count is a legitimate result; say so in the reflection.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ACE · French Revolutionary Decree (1791)</h4>
+            <ul>
+                <li><strong>Where the AI should win:</strong> conditional and plural forms (<em>-oient</em>) that Wednesday's whitelist did not list are likely Category A. Check each against the manual file before counting it.</li>
+                <li><strong>Where it should lose:</strong> <em>droit</em>, <em>L.S.</em> and the decree's legal formulas must come back untouched; supplied accents on capitals (<em>DÉCRET</em>) belong in <code>&lt;reg&gt;</code> only if Tuesday's policy declared them.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>OLYVIA · Maud Lewis Letter (20th c. Cursive)</h4>
+            <ul>
+                <li><strong>Fix one line of the lesson's prompt:</strong> section 11 lists <em>wont</em> &rarr; <em>won't</em> as a target. Wednesday showed <em>wont</em> can be a word; have Olyvia write "only where it means <em>will not</em>" and check each hit.</li>
+                <li><strong>Dialect erasure is the test:</strong> <em>we was</em> and double negatives must survive, and no <code>&lt;sic&gt;</code> may appear. Any change there is Category B, morphological or dialect erasure.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ANDROMEDA · 1752 Peace and Friendship Treaty</h4>
+            <ul>
+                <li><strong>The pronoun <em>ye</em>:</strong> the prompt says expand <em>ye</em> to <em>the</em>, but in "Know ye that" it is the pronoun. If Gemini expands it, that is a hallucinated expansion; if it leaves it, that is context reading regex could not do. Either way it belongs in the reflection.</li>
+                <li><strong>Titles vs common nouns:</strong> <em>His Majesty</em>, <em>Governor</em> and <em>King</em> keep capitals; <em>Treaty</em> and <em>Articles</em> may be lowercased in <code>&lt;reg&gt;</code>. Expansions of <em>Capt.</em> or <em>Col.</em> must stop at the word.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

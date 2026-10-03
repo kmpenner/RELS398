@@ -58,7 +58,7 @@
   <question type="description"><name><text>02 Content: From Sequence-to-Sequence Models to Modern Generative LLMs</text></name><questiontext format="html"><text><![CDATA[
 <h3>From Sequence-to-Sequence Models to Modern Generative LLMs</h3>
 <p>To understand how modern AI approaches historical language, it helps to understand how computational text normalization evolved over the last decade.</p>
-<p>In the 2010s, automated historical normalization relied on character-level neural machine translation, using architectures like bidirectional Long Short-Term Memory (LSTM) networks or finite-state transducers (Bollmann, 2019). These earlier models were trained specifically on historical corpora to translate individual character sequences (like <em>publick</em> $   o$ <em>public</em>). While transparent and bounded, they required massive historical training datasets and frequently failed on rare vocabulary or unusual dialects.</p>
+<p>In the 2010s, automated historical normalization relied on character-level neural machine translation, using architectures like bidirectional Long Short-Term Memory (LSTM) networks or finite-state transducers (Bollmann, 2019). These earlier models were trained specifically on historical corpora to translate individual character sequences (like <em>publick</em> &rarr; <em>public</em>). While transparent and bounded, they required massive historical training datasets and frequently failed on rare vocabulary or unusual dialects.</p>
 <p>Today, the digital humanities landscape is dominated by large multimodal transformer models, such as Google Gemini, Anthropic Claude, and OpenAI GPT. These models are not character-level transducers; they are vast, billion-parameter neural networks trained on petabytes of multilingual text.</p>
 <p>Because modern LLMs have ingested hundreds of thousands of digitized historical books, early modern treatises, and dialect dictionaries, they possess extraordinary latent knowledge of historical orthography. A model like Gemini in VS Code Antigravity recognizes immediately that 18th-century <em>étoit</em> corresponds to modern French <em>était</em>, that colonial <em>ye</em> represents <em>the</em>, and that 19th-century <em>opake</em> represents <em>opaque</em>.</p>
 <p>However, because these models were designed primarily to generate fluent, natural contemporary prose, their internal statistical bias is overwhelmingly weighted toward modern standardization. Without strict constraints, they will aggressively rewrite history into contemporary idiom.</p>
@@ -115,7 +115,7 @@
 <p>Why bother using an AI model for normalization if regular expressions already provide fast, deterministic matching? The answer lies in one word: <strong>context</strong>.</p>
 <p>Yesterday in Lesson 6.2, we discovered the absolute limit of regular expressions: regex is semantically blind. A regular expression cannot determine parts of speech, cannot analyze sentence grammar, and cannot understand meaning. When regex encounters an ambiguous homograph, it fails:</p>
 <ul>
-  <li><strong>The French <em>-oit</em> Homograph:</strong> An 18th-century French regex rule changing <em>-oit</em> to <em>-ait</em> correctly normalizes imperfect verbs like <em>étoit</em> $ o$ <em>était</em>. But it blindly corrupts the invariant noun <em>droit</em> (law/right) into nonsensical <em>drait</em>!</li>
+  <li><strong>The French <em>-oit</em> Homograph:</strong> An 18th-century French regex rule changing <em>-oit</em> to <em>-ait</em> correctly normalizes imperfect verbs like <em>étoit</em> &rarr; <em>était</em>. But it blindly corrupts the invariant noun <em>droit</em> (law/right) into nonsensical <em>drait</em>!</li>
   <li><strong>The English <em>wont</em> Homograph:</strong> A regex rule expanding unpunctuated <em>wont</em> into <em>won't</em> (will not) blindly corrupts historical sentences where <em>wont</em> is a valid noun meaning "custom or habit" (as in "as was his wont").</li>
   <li><strong>The Thorn <em>ye</em> Homograph:</strong> A regex rule expanding <em>ye</em> to <em>the</em> blindly corrupts sentences where <em>ye</em> is the authentic archaic second-person plural pronoun ("ye shall know the truth").</li>
 </ul>
@@ -337,7 +337,7 @@
 &lt;choice&gt;&lt;abbr&gt;Col.&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;Colonel&lt;/expan&gt;&lt;/choice&gt;
 </code></pre>
 <p>An unconstrained AI model, however, frequently hallucinates additional historical context into the expansion tag. It might generate:</p>
-<pre><code class="language-xml">&lt;choice&gt;&lt;abbr&gt;Col.&lt;/abbr&gt;&lt;expan resp=&quot;#ai&quot;&gt;Colonel of the Independent Company of Rangers&lt;/expan&gt;&lt;/choice&gt;
+<pre><code class="language-xml">&lt;choice&gt;&lt;abbr&gt;Col.&lt;/abbr&gt;&lt;expan resp=&quot;#gemini&quot;&gt;Colonel of the Independent Company of Rangers&lt;/expan&gt;&lt;/choice&gt;
 </code></pre>
 <p>While John Gorham may indeed have commanded the Gorham's Rangers historically, the letters <em>C-o-l</em> on that physical parchment page stand strictly for the word <em>Colonel</em>, not for his entire military resume! </p>
 <p>An expansion inside <code>&lt;expan&gt;</code> must supply <strong>only the letters that were omitted from the abbreviated word itself</strong>. It must never become an encyclopedia article or historical commentary. When checking AI expansions, verify that every expansion corresponds strictly to the lexical word being abbreviated.</p>
@@ -468,14 +468,14 @@ Your task is to perform conservative orthographic normalization and abbreviation
 
 RULES AND CONSTRAINTS:
 1. OUTPUT: Return ONLY the updated TEI XML fragment. Do not include markdown conversational filler, explanations, or notes.
-2. PRESERVATION: Wrap target words in &lt;choice&gt;. Preserve the exact historical reading in &lt;orig&gt; or &lt;abbr&gt;. Supply the standardized modern reading in &lt;reg resp=&quot;#ai&quot;&gt; or &lt;expan resp=&quot;#ai&quot;&gt;.
+2. PRESERVATION: Wrap target words in &lt;choice&gt;. Preserve the exact historical reading in &lt;orig&gt; or &lt;abbr&gt;. Supply the standardized modern reading in &lt;reg resp=&quot;#gemini&quot;&gt; or &lt;expan resp=&quot;#gemini&quot;&gt;.
 3. NEGATIVE CONSTRAINT - NO LEXICAL SUBSTITUTION: Do NOT replace archaic words with modern synonyms (e.g., keep &quot;betwixt&quot;, do not change to &quot;between&quot;).
 4. NEGATIVE CONSTRAINT - NO GRAMMATICAL MODERNIZATION: Do NOT modernize verb endings (keep &quot;hath&quot;, &quot;doth&quot;, &quot;sheweth&quot;) or dialectal syntax (keep &quot;we was&quot;).
 5. NEGATIVE CONSTRAINT - NO TAG MUTILATION: NEVER delete, move, or rename existing milestone tags (&lt;lb/&gt;, &lt;pb/&gt;). Line breaks must remain inside &lt;orig&gt;.
 6. ATTRIBUTION: Every newly created &lt;reg&gt; and &lt;expan&gt; tag MUST include the attribute resp=&quot;#gemini&quot;.
 </code></pre>
 <p>Notice how every instruction addresses a specific failure mode we identified in our taxonomy. This prompt transforms a commercial chatbot into a focused scholarly tool.</p>
-<p><strong>Vocabulary.</strong> <em>System prompt</em> — The top-level foundational instruction provided to an AI model that sets its persistent persona, constraints, and operational boundaries. <em>Attribution tagging</em> — Attaching <code>resp="#ai"</code> or <code>resp="#gemini"</code> to automated markup to distinguish machine intervention from human judgment.</p>
+<p><strong>Vocabulary.</strong> <em>System prompt</em> — The top-level foundational instruction provided to an AI model that sets its persistent persona, constraints, and operational boundaries. <em>Attribution tagging</em> — Attaching <code>resp="#gemini"</code> to automated markup to distinguish machine intervention from human judgment.</p>
 <p><strong>Takeaway:</strong> A scholarly system prompt combines persona, task, target authority, strict negative constraints, and output formatting rules into an auditable protocol.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
@@ -531,7 +531,7 @@ RULES AND CONSTRAINTS:
 <p>To tailor your prompt for the 1752 Treaty, add these document-specific instructions to your system prompt:</p>
 <pre><code class="language-text">DOCUMENT SPECIFICATION - 18th-CENTURY COLONIAL TREATY (1752):
 - TARGET 1 (Terminal -ck): Regularize 18th-century adjectives ending in -ck (e.g., &quot;publick&quot; -&gt; &quot;public&quot;, &quot;traffick&quot; -&gt; &quot;traffic&quot;). Do NOT regularize native standard Germanic words (e.g., &quot;black&quot;, &quot;truck&quot;).
-- TARGET 2 (Thorn Contractions): Expand thorn contractions: &quot;ye&quot; -&gt; &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp=&quot;#ai&quot;&gt;the&lt;/expan&gt;&lt;/choice&gt;; &quot;yt&quot; -&gt; &lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan resp=&quot;#ai&quot;&gt;that&lt;/expan&gt;&lt;/choice&gt;.
+- TARGET 2 (Thorn Contractions): Expand thorn contractions: &quot;ye&quot; -&gt; &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp=&quot;#gemini&quot;&gt;the&lt;/expan&gt;&lt;/choice&gt;; &quot;yt&quot; -&gt; &lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan resp=&quot;#gemini&quot;&gt;that&lt;/expan&gt;&lt;/choice&gt;.
 - TARGET 3 (Common Nouns): Regularize substantive capitalized common nouns to lowercase in &lt;reg&gt; ONLY when they are ordinary nouns (e.g., &quot;Treaty&quot; -&gt; &quot;treaty&quot;, &quot;Articles&quot; -&gt; &quot;articles&quot;). PRESERVE capital letters on official titles and sovereign names (e.g., &quot;His Majesty&quot;, &quot;Governor&quot;, &quot;King&quot;).
 - STRICT PROHIBITION: Do NOT alter archaic legal phrasing, prepositional idioms, or punctuation.
 </code></pre>
@@ -594,7 +594,7 @@ RULES AND CONSTRAINTS:
 - STRICT PROHIBITION - CAPITALIZATION: NEVER normalize, lowercase, or tag Dickinson's capitalized common nouns (e.g., &quot;Soul&quot;, &quot;Society&quot;, &quot;Door&quot;, &quot;Valves&quot;, &quot;Stone&quot;). Her capitalization represents intentional poetic personification and MUST remain unaltered plain text.
 - STRICT PROHIBITION - DASHES AND PUNCTUATION: NEVER replace, alter, or standardize her dashes. Do NOT insert commas, semicolons, or periods.
 - STRICT PROHIBITION - RHYME WORDS: NEVER normalize spelling on terminal line words that participate in authorial slant rhyme.
-- ALLOWED TARGETS: You may ONLY regularize genuine archaic or variant spellings where standard lexicography has shifted (e.g., &quot;opake&quot; -&gt; &lt;choice&gt;&lt;orig&gt;opake&lt;/orig&gt;&lt;reg resp=&quot;#ai&quot;&gt;opaque&lt;/reg&gt;&lt;/choice&gt;; &quot;etherial&quot; -&gt; &lt;choice&gt;&lt;orig&gt;etherial&lt;/orig&gt;&lt;reg resp=&quot;#ai&quot;&gt;ethereal&lt;/reg&gt;&lt;/choice&gt;).
+- ALLOWED TARGETS: You may ONLY regularize genuine archaic or variant spellings where standard lexicography has shifted (e.g., &quot;opake&quot; -&gt; &lt;choice&gt;&lt;orig&gt;opake&lt;/orig&gt;&lt;reg resp=&quot;#gemini&quot;&gt;opaque&lt;/reg&gt;&lt;/choice&gt;; &quot;etherial&quot; -&gt; &lt;choice&gt;&lt;orig&gt;etherial&lt;/orig&gt;&lt;reg resp=&quot;#gemini&quot;&gt;ethereal&lt;/reg&gt;&lt;/choice&gt;).
 </code></pre>
 <p>Notice the tone of this prompt. It is fiercely protective. It forbids the model from touching 95% of the text, confining its authority strictly to undisputed lexical variants. This is how digital editors use AI responsibly in literary scholarship.</p>
 <p><strong>Vocabulary.</strong> <em>Poetic firewall</em> — Prompt constraints designed to completely protect authorial punctuation, capitalization, and rhyme from automated normalization.</p>
@@ -652,7 +652,7 @@ RULES AND CONSTRAINTS:
 <p>If Maud Lewis writes "we was pleased to get your letter and we dont have no more paintings", an unconstrained model will aggressively change <em>was</em> to <em>were</em>, delete the double negative, and rewrite her voice completely.</p>
 <p>Your system prompt must explicitly defend the integrity of her vernacular voice:</p>
 <pre><code class="language-text">DOCUMENT SPECIFICATION - 20th-CENTURY VERNACULAR CORRESPONDENCE (MAUD LEWIS):
-- TARGET 1 (Phonetic Doubling): Regularize obvious phonetic spelling variants using &lt;choice&gt;&lt;orig&gt;...&lt;/orig&gt;&lt;reg resp=&quot;#ai&quot;&gt;...&lt;/reg&gt;&lt;/choice&gt; (e.g., &quot;allways&quot; -&gt; &quot;always&quot;, &quot;untill&quot; -&gt; &quot;until&quot;, &quot;truely&quot; -&gt; &quot;truly&quot;).
+- TARGET 1 (Phonetic Doubling): Regularize obvious phonetic spelling variants using &lt;choice&gt;&lt;orig&gt;...&lt;/orig&gt;&lt;reg resp=&quot;#gemini&quot;&gt;...&lt;/reg&gt;&lt;/choice&gt; (e.g., &quot;allways&quot; -&gt; &quot;always&quot;, &quot;untill&quot; -&gt; &quot;until&quot;, &quot;truely&quot; -&gt; &quot;truly&quot;).
 - TARGET 2 (Unpunctuated Contractions): Supply missing apostrophes in negative contractions (e.g., &quot;dont&quot; -&gt; &quot;don't&quot;, &quot;cant&quot; -&gt; &quot;can't&quot;, &quot;wont&quot; -&gt; &quot;won't&quot;).
 - STRICT PROHIBITION - VERNACULAR GRAMMAR: Do NOT touch or regularize non-standard verb agreement, colloquial idioms, or conversational syntax (e.g., PRESERVE &quot;we was&quot;).
 - STRICT PROHIBITION - NO &lt;sic&gt; TAGS: Do NOT use &lt;sic&gt; or &lt;corr&gt; tags. All vernacular variations must be treated respectfully as valid historical variants using &lt;orig&gt; and &lt;reg&gt;.
@@ -910,13 +910,13 @@ Output:
       <li><code>&lt;abbr&gt;</code> and <code>&lt;expan&gt;</code> (for abbreviation expansion)</li>
     </ul>
     Confirm that the model did not invent non-standard tags like <code>&lt;modern&gt;</code>, <code>&lt;normalized&gt;</code>, or <code>&lt;expanded&gt;</code>.</li>
-  <li><strong>Attribution Attribute:</strong> Verify that every <code>&lt;reg&gt;</code> and <code>&lt;expan&gt;</code> tag carries the attribution attribute: <code>resp="#gemini"</code> or <code>resp="#ai"</code>.</li>
+  <li><strong>Attribution Attribute:</strong> Verify that every <code>&lt;reg&gt;</code> and <code>&lt;expan&gt;</code> tag carries the attribution attribute: <code>resp="#gemini"</code>, which must match the <code>xml:id</code> you declare in the header.</li>
   <li><strong>Whitespace Containment:</strong> Verify that spaces between words remain outside the <code>&lt;choice&gt;</code> tags. If the model generated <code>&lt;choice&gt;&lt;orig&gt;publick &lt;/orig&gt;...&lt;/choice&gt;</code> with a space inside <code>&lt;orig&gt;</code>, remove the trailing space so words do not collapse or space erratically in downstream HTML viewers.</li>
 </ol>
 
 <p>Open the Problems panel in VS Code (<code>Cmd+Shift+M</code>). Confirm that the newly pasted AI markup displays <strong>0 schema errors</strong>.</p>
 <p><strong>Vocabulary.</strong> <em>Valid pairing</em> — The strict TEI rule that <code>&lt;choice&gt;</code> must contain authorized child combinations (such as <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>). <em>Whitespace containment</em> — Ensuring inter-word spaces sit outside XML tagging structures to prevent display anomalies.</p>
-<p><strong>Takeaway:</strong> Inspect the AI output immediately to ensure it uses valid TEI <code>&lt;choice&gt;</code> element pairs, carries <code>@resp="#ai"</code>, and passes schema validation with zero errors.</p>
+<p><strong>Takeaway:</strong> Inspect the AI output immediately to ensure it uses valid TEI <code>&lt;choice&gt;</code> element pairs, carries <code>@resp="#gemini"</code>, and passes schema validation with zero errors.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
@@ -927,7 +927,7 @@ Output:
       <text>&lt;p&gt;What attribute should be attached to the &lt;reg&gt; or &lt;expan&gt; elements produced during an AI normalization pass to preserve methodological transparency?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Inspect the AI output immediately to ensure it uses valid TEI &lt;choice&gt; element pairs, carries @resp='#ai', and maintains well-formed XML syntax.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Inspect the AI output immediately to ensure it uses valid TEI &amp;lt;choice&amp;gt; element pairs, carries @resp='#gemini', and maintains well-formed XML syntax.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -936,7 +936,7 @@ Output:
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;resp='#ai' (or #llm), identifying the automated agent responsible for the proposed regularization.&lt;/p&gt;</text>
+      <text>&lt;p&gt;resp='#gemini' (an id declared in the TEI Header), identifying the automated agent responsible for the proposed regularization.&lt;/p&gt;</text>
       <feedback format="html">
         <text>&lt;p&gt;Correct. Attributing machine-generated regularizations distinguishes them from human editorial decisions in the TEI markup.&lt;/p&gt;</text>
       </feedback>
@@ -969,7 +969,7 @@ Output:
 <p>Large language models have a notorious, well-documented bad habit: <strong>they love to delete or move milestone tags</strong> (Bollmann, 2019).</p>
 <p>Because an LLM views text as a continuous semantic stream, empty milestone tags like <code>&lt;lb n="14"/&gt;</code> look like meaningless typographical clutter. If a model encounters a word divided across a line break (<code>Gov-&lt;lb n="14"/&gt;ernor</code>), an untuned model will often delete the <code>&lt;lb/&gt;</code> tag entirely, regularizing the word as a single continuous line:</p>
 <pre><code class="language-xml">&lt;!-- FATAL AI ERROR: The physical line break was deleted! --&gt;
-&lt;choice&gt;&lt;orig&gt;Governor&lt;/orig&gt;&lt;reg resp=&quot;#ai&quot;&gt;Governor&lt;/reg&gt;&lt;/choice&gt;
+&lt;choice&gt;&lt;orig&gt;Governor&lt;/orig&gt;&lt;reg resp=&quot;#gemini&quot;&gt;Governor&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
 <p>When this happens, your digital edition loses its physical alignment to the page image! The coordinate zones you built in Week 3 and the line numbers you verified in Week 4 are permanently severed.</p>
 <p>Check your AI-generated text immediately:</p>
@@ -1094,7 +1094,7 @@ Output:
 <p>Follow these steps in VS Code:</p>
 <ol>
   <li>Open <code>transcription_reconciled_manual.xml</code> in your main editor window.</li>
-  <li>Split your editor into three columns: go to <em>View $    o$ Editor Layout $  o$ Three Columns</em> (or drag the tabs side by side).</li>
+  <li>Split your editor into three columns: go to <em>View &rarr; Editor Layout &rarr; Three Columns</em> (or drag the tabs side by side).</li>
   <li>Place <code>transcription_reconciled_manual.xml</code> in the left column. Place <code>transcription_reconciled_regex.xml</code> in the middle column. Place <code>transcription_reconciled_ai.xml</code> in the right column.</li>
   <li>Scroll down line by line, comparing the three files at each line break.</li>
 </ol>
@@ -1160,9 +1160,9 @@ Output:
 <p>Recall the limitations of regular expressions. Regex matches only the exact characters and stems you anticipated in your pattern. If an author used an unexpected variant, an inflected grammatical form, or an irregular spelling that was not in your root whitelist, your regex rule missed it (a False Negative).</p>
 <p>Consider an example from our cohort documents:</p>
 <ul>
-  <li>Your regex rule looked for <code>(publi|traffi)ck</code>.</li>
+  <li>Your regex rule looked for <code>\b(publi|traffi)ck\b</code>.</li>
   <li>On line 14, the manuscript contained the inflected adverb: <em>publickly</em>.</li>
-  <li>Because of the trailing <em>-ly</em>, your regex word boundary <code>ck</code> failed to match, leaving <em>publickly</em> completely unregularized!</li>
+  <li>Because of the trailing <em>-ly</em>, your regex word boundary <code>ck\b</code> failed to match, leaving <em>publickly</em> completely unregularized!</li>
 </ul>
 
 <p>When you inspect Column 3 (the AI file), look at what Gemini did:
@@ -1289,7 +1289,7 @@ Gemini recognized that <em>publickly</em> is the adverbial form of <em>publick</
 <p>Examples of Category C failures across our cohort documents include:</p>
 <ul>
   <li><strong>Faded or Damaged Writing:</strong> A word where several letters are obscured by an ink blot or water stain. The regex pattern failed because the letters did not match standard characters. The AI model hallucinated a completely fabricated word because it predicted what ought to be there based on context, rather than reporting physical damage! Only your manual pass correctly used <code>&lt;unclear&gt;</code> and <code>&lt;gap/&gt;</code>.</li>
-  <li><strong>Hyphenated Line Breaks across Folders:</strong> A word split across a folio boundary. Both automated tools failed to link the two halves.</li>
+  <li><strong>Hyphenated Line Breaks across Folios:</strong> A word split across a folio boundary. Both automated tools failed to link the two halves.</li>
   <li><strong>Private Poetic Punctuation:</strong> Dickinson's variable dashes. Regex had no way to interpret the pen stroke, while the AI model aggressively converted the dashes into standard commas and semicolons, violating your explicit negative prompt!</li>
 </ul>
 
@@ -1346,7 +1346,7 @@ Gemini recognized that <em>publickly</em> is the adverbial form of <em>publick</
 <h3>Calculating the Hypercorrection Rate</h3>
 <p>To make your comparative audit empirical and scientific, you will calculate a formal quantitative metric for your AI pass: the <strong>Hypercorrection Rate (HR)</strong>.</p>
 <p>The Hypercorrection Rate measures the proportion of an AI model's proposed editorial interventions that were unauthorized, excessive, or linguistically destructive:</p>
-<p>$$  ext{Hypercorrection Rate} = rac{   ext{Total AI Hypercorrections}}{    ext{Total AI Editorial Interventions}}$$</p>
+<p>$$\text{Hypercorrection Rate} = \frac{\text{Total AI Hypercorrections}}{\text{Total AI Editorial Interventions}}$$</p>
 <p>Let us trace a concrete calculation on a 20-line passage:</p>
 <ol>
   <li>Suppose Gemini generated a total of <strong>16</strong> <code>&lt;choice&gt;</code> blocks across your passage (Total Interventions = 16).</li>
@@ -1354,8 +1354,8 @@ Gemini recognized that <em>publickly</em> is the adverbial form of <em>publick</
   <li>You discover:
     <ul>
       <li>12 blocks were legitimate orthographic regularizations (True Positives).</li>
-      <li>2 blocks replaced valid archaic words with modern synonyms (Lexical Substitutions: <em>betwixt</em> $ o$ <em>between</em>).</li>
-      <li>1 block modernized a dialect verb inflection (Morphological Modernization: <em>we was</em> $  o$ <em>we were</em>).</li>
+      <li>2 blocks replaced valid archaic words with modern synonyms (Lexical Substitutions: <em>betwixt</em> &rarr; <em>between</em>).</li>
+      <li>1 block modernized a dialect verb inflection (Morphological Modernization: <em>we was</em> &rarr; <em>we were</em>).</li>
       <li>1 block invented an unwritten military title in an expansion (Hallucinated Expansion).</li>
     </ul>
   </li>
@@ -1363,10 +1363,10 @@ Gemini recognized that <em>publickly</em> is the adverbial form of <em>publick</
 </ol>
 
 <p>Now calculate the Hypercorrection Rate:</p>
-<p>$$  ext{Hypercorrection Rate} = rac{4}{16} = 0.25  ext{ (25\%)}$$</p>
+<p>$$\text{Hypercorrection Rate} = \frac{4}{16} = 0.25 \text{ (25\%)}$$</p>
 <p>A Hypercorrection Rate of 25% means that <strong>one out of every four edits proposed by the AI model was linguistically destructive</strong>. Publishing this metric in your edition's documentation provides critical transparency for future researchers evaluating your dataset.</p>
-<p><strong>Vocabulary.</strong> <em>Hypercorrection Rate (HR)</em> — The mathematical proportion of an automated tool's proposed edits that represent unauthorized modernizations or hallucinations ($H /  ext{Total Edits}$). <em>Quantitative audit</em> — Supporting qualitative textual observations with exact mathematical error frequencies.</p>
-<p><strong>Takeaway:</strong> Calculate the Hypercorrection Rate ($H /  ext{Total Edits}$) to quantify the exact frequency with which an AI model over-stepped its scholarly boundaries.</p>
+<p><strong>Vocabulary.</strong> <em>Hypercorrection Rate (HR)</em> — The mathematical proportion of an automated tool's proposed edits that represent unauthorized modernizations or hallucinations ($H / \text{Total Edits}$). <em>Quantitative audit</em> — Supporting qualitative textual observations with exact mathematical error frequencies.</p>
+<p><strong>Takeaway:</strong> Calculate the Hypercorrection Rate ($H / \text{Total Edits}$) to quantify the exact frequency with which an AI model over-stepped its scholarly boundaries.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
@@ -1417,8 +1417,8 @@ Gemini recognized that <em>publickly</em> is the adverbial form of <em>publick</
 <h3>Evaluating Precision and Recall for the AI Pass</h3>
 <p>Just as you evaluated your deterministic regex rules on Wednesday using Precision and Recall, you must now calculate the identical metrics for your generative AI pass.</p>
 <p>Recall the core definitions:</p>
-<p>$$  ext{Precision} = rac{  ext{True Positives}}{   ext{True Positives} +   ext{False Positives}}$$</p>
-<p>$$  ext{Recall} = rac{ ext{True Positives}}{   ext{True Positives} +   ext{False Negatives}}$$</p>
+<p>$$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}$$</p>
+<p>$$\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}$$</p>
 <p>Let us evaluate the AI pass from our previous section:</p>
 <ul>
   <li><strong>True Positives (TP):</strong> The AI correctly identified and regularized 12 legitimate historical variants that matched your manual ground truth policy.</li>
@@ -1427,8 +1427,8 @@ Gemini recognized that <em>publickly</em> is the adverbial form of <em>publick</
 </ul>
 
 <p>Now calculate Precision and Recall:</p>
-<p>$$  ext{Precision} = rac{12}{12 + 4} = rac{12}{16} = 0.75     ext{ (75\%)}$$</p>
-<p>$$  ext{Recall} = rac{12}{12 + 2} = rac{12}{14} = 0.857   ext{ (85.7\%)}$$</p>
+<p>$$\text{Precision} = \frac{12}{12 + 4} = \frac{12}{16} = 0.75 \text{ (75\%)}$$</p>
+<p>$$\text{Recall} = \frac{12}{12 + 2} = \frac{12}{14} = 0.857 \text{ (85.7\%)}$$</p>
 <p>Now compare this with Wednesday's deterministic regex!
 Often, you will find a fascinating comparative trade-off:</p>
 <ul>
@@ -1557,7 +1557,7 @@ Often, you will find a fascinating comparative trade-off:</p>
   &lt;author&gt;Ken Penner&lt;/author&gt;
   &lt;respStmt&gt;
     &lt;resp&gt;Manual normalization, policy design, and editorial audit&lt;/resp&gt;
-    &lt;name xml:id="KP"&gt;Ken Penner&lt;/name&gt;
+    &lt;name xml:id="editor"&gt;Ken Penner&lt;/name&gt;
   &lt;/respStmt&gt;
   &lt;respStmt&gt;
     &lt;resp&gt;Automated normalization suggestions generated by Gemini 2.5 Pro via VS Code Antigravity&lt;/resp&gt;
@@ -1567,12 +1567,12 @@ Often, you will find a fascinating comparative trade-off:</p>
   </li>
   <li><strong>In `<revisionDesc>`:</strong> Log the date, model, and nature of the automated pass:
     <pre><code>&lt;revisionDesc&gt;
-  &lt;change when="2026-10-09" who="#KP"&gt;Synthesized final normalized edition; audited AI suggestions from #gemini and rejected 4 hypercorrections.&lt;/change&gt;
+  &lt;change when="2026-10-09" who="#editor"&gt;Synthesized final normalized edition; audited AI suggestions from #gemini and rejected 4 hypercorrections.&lt;/change&gt;
 &lt;/revisionDesc&gt;</code></pre>
   </li>
 </ol>
 
-<p>Notice how this transparently records the collaboration: the human editor is named as the primary authority, the AI model is acknowledged as an automated contributor, and every tag carrying <code>resp="#gemini"</code> resolves to a valid identifier in the header.</p>
+<p>Notice how this transparently records the collaboration: the human editor is named as the primary authority, the AI model is acknowledged as an automated contributor, and every tag carrying <code>resp="#editor"</code> or <code>resp="#gemini"</code> resolves to a valid identifier in the header.</p>
 <p><strong>Vocabulary.</strong> <em>AI attribution</em> — Transparently documenting the specific AI models, versions, and prompting workflows used to generate digital edition markup. <em><code>&lt;respStmt&gt;</code></em> — The TEI Header element defining roles and responsibilities of all human and automated project contributors.</p>
 <p><strong>Takeaway:</strong> Transparently attribute AI assistance in your TEI Header using <code>&lt;respStmt&gt;</code> and <code>&lt;change&gt;</code> tags, linking <code>resp="#gemini"</code> to an explicit model identifier.</p>
 <hr />
@@ -1585,7 +1585,7 @@ Often, you will find a fascinating comparative trade-off:</p>
       <text>&lt;p&gt;Why is documenting AI tool usage, model version, and system prompt in the &lt;teiHeader&gt; an academic integrity requirement?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Transparently attribute AI assistance in your TEI Header using &lt;respStmt&gt; and &lt;change&gt; tags, linking @resp='#ai' to an explicit methodology description.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Transparently attribute AI assistance in your TEI Header using &amp;lt;respStmt&amp;gt; and &amp;lt;change&amp;gt; tags, so that every @resp='#gemini' resolves to an id declared there.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1762,7 +1762,7 @@ Often, you will find a fascinating comparative trade-off:</p>
 <ol>
   <li><strong>Verify XML Schema Compliance:</strong> Open <code>transcription_normalized.xml</code>. Open the Problems panel (<code>Cmd+Shift+M</code>). Confirm that the document displays <strong>0 errors</strong> against your project's RELAX NG schema.</li>
   <li><strong>Check Milestone Integrity:</strong> Search for <code>&lt;lb/&gt;</code> tags. Verify that every single line break from your consensus diplomatic text is present, in order, with its original line number intact.</li>
-  <li><strong>Audit Attribution Tags:</strong> Ensure that every `<reg>` and `<expan>` element carries an authorized `@resp` attribute pointing to a valid identifier in the TEI Header (`#editor`, `#KP`, or `#gemini`).</li>
+  <li><strong>Audit Attribution Tags:</strong> Ensure that every `<reg>` and `<expan>` element carries an authorized `@resp` attribute pointing to a valid identifier in the TEI Header (`#editor` or `#gemini`).</li>
   <li><strong>Confirm Non-Destructive Markup:</strong> Verify that no raw text was deleted; every normalization must exist as a parallel pairing inside a valid <code>&lt;choice&gt;</code> block.</li>
 </ol>
 

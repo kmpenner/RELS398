@@ -170,9 +170,7 @@ This three-stage workflow gives you total control: you can edit four different f
 
 **Vocabulary.** *Working Directory* — the local filesystem directory where you actively edit your project files. *Staging Area (Index)* — the intermediate holding zone where changes are gathered and formatted before being committed. *`git add`* — the command that moves changes from the working directory to the staging area. *`git commit`* — the command that permanently saves staged changes as a new historical snapshot.
 
-**Takeaway:** Git's three-step workflow (Edit in Working Directory $
-ightarrow$ Stage with `git add` $
-ightarrow$ Commit with `git commit`) ensures that every snapshot is an intentional, curated record of progress.
+**Takeaway:** Git's three-step workflow (Edit in Working Directory $\rightarrow$ Stage with `git add` $\rightarrow$ Commit with `git commit`) ensures that every snapshot is an intentional, curated record of progress.
 
 ---
 
@@ -610,9 +608,7 @@ By comparing all three methods every week, you will discover exactly where human
 
 **Vocabulary.** *Ground Truth* — the empirically verified, authoritative baseline data against which automated and AI models are measured. *Deterministic Algorithm* — an algorithm that given the same input will always produce the exact same output every time. *Comparative Methodology* — a research strategy that systematically compares different techniques (manual, algorithmic, AI) on the same dataset to evaluate their strengths and weaknesses.
 
-**Takeaway:** RELS 398 follows a Three-Step Comparative Cycle (Tuesday Manual $
-ightarrow$ Wednesday Deterministic $
-ightarrow$ Friday AI-Assisted) to teach you how traditional philology, rule-based algorithms, and modern AI intersect.
+**Takeaway:** RELS 398 follows a Three-Step Comparative Cycle (Tuesday Manual $\rightarrow$ Wednesday Deterministic $\rightarrow$ Friday AI-Assisted) to teach you how traditional philology, rule-based algorithms, and modern AI intersect.
 
 ---
 

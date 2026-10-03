@@ -348,23 +348,23 @@
 
 
   
-  <question type="description"><name><text>07 Content: The Inviolable Rule: Word Boundaries (``)</text></name><questiontext format="html"><text><![CDATA[
-<h3>The Inviolable Rule: Word Boundaries (``)</h3>
-<p>If there is one metacharacter that every digital humanities editor must memorize, revere, and never forget, it is the <strong>word boundary anchor</strong>: <code></code>.</p>
-<p>A word boundary is an anchor: it does not consume any physical characters. Instead, <code></code> asserts a physical position: the boundary between a word character (letters, numbers, underscores) and a non-word character (spaces, punctuation, quotes, or tag brackets) (Friedl, 2006).</p>
-<p>Consider what happens if you neglect to use <code></code>. Suppose you want to find the archaic contraction <em>ye</em> in an 18th-century document and replace it with <em>the</em>. If you search for the bare letters <code>ye</code> without word boundaries, look at what gets matched:</p>
+  <question type="description"><name><text>07 Content: The Inviolable Rule: Word Boundaries (`\b`)</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Inviolable Rule: Word Boundaries (`\b`)</h3>
+<p>If there is one metacharacter that every digital humanities editor must memorize, revere, and never forget, it is the <strong>word boundary anchor</strong>: <code>\b</code>.</p>
+<p>A word boundary is an anchor: it does not consume any physical characters. Instead, <code>\b</code> asserts a physical position: the boundary between a word character (letters, numbers, underscores) and a non-word character (spaces, punctuation, quotes, or tag brackets) (Friedl, 2006).</p>
+<p>Consider what happens if you neglect to use <code>\b</code>. Suppose you want to find the archaic contraction <em>ye</em> in an 18th-century document and replace it with <em>the</em>. If you search for the bare letters <code>ye</code> without word boundaries, look at what gets matched:</p>
 <ul>
   <li><em>ye</em> in <em>ye Governor</em> (Correct match)</li>
-  <li><em>ye</em> inside <em>yesterday</em> $   o$ becomes <em>thesturday</em>!</li>
-  <li><em>ye</em> inside <em>eye</em> $ o$ becomes <em>ethe</em>!</li>
-  <li><em>ye</em> inside <em>lawyer</em> $  o$ becomes <em>lawther</em>!</li>
-  <li><em>ye</em> inside <em>bye</em> $ o$ becomes <em>bthe</em>!</li>
+  <li><em>ye</em> inside <em>yesterday</em> &rarr; becomes <em>thesturday</em>!</li>
+  <li><em>ye</em> inside <em>eye</em> &rarr; becomes <em>ethe</em>!</li>
+  <li><em>ye</em> inside <em>lawyer</em> &rarr; becomes <em>lawther</em>!</li>
+  <li><em>ye</em> inside <em>bye</em> &rarr; becomes <em>bthe</em>!</li>
 </ul>
 
 <p>Searching for unanchored strings will violently dismantle your text. If you search for <em>in</em>, you will replace the middle of <em>point</em>, <em>prince</em>, and <em>administrative</em>. </p>
-<p>By wrapping your target in word boundaries—<code>ye</code>—you instruct the regex engine to match the letters <em>y</em> and <em>e</em> <strong>only when they exist as a standalone, isolated word</strong>, surrounded by spaces or punctuation. In textual normalization, <strong>never search for a word without <code></code> anchors</strong>.</p>
-<p><strong>Vocabulary.</strong> <em>Word boundary (<code></code>)</em> — A zero-width anchor that matches the boundary between a word character and a non-word character (such as whitespace or punctuation). <em>Substring corruption</em> — The disastrous accidental replacement of letters inside unrelated longer words caused by omitting word boundaries.</p>
-<p><strong>Takeaway:</strong> Always enclose word patterns in word boundary anchors (<code>pattern</code>) to prevent catastrophic accidental replacements inside longer words.</p>
+<p>By wrapping your target in word boundaries—<code>\bye\b</code>—you instruct the regex engine to match the letters <em>y</em> and <em>e</em> <strong>only when they exist as a standalone, isolated word</strong>, surrounded by spaces or punctuation. In textual normalization, <strong>never search for a word without <code>\b</code> anchors</strong>.</p>
+<p><strong>Vocabulary.</strong> <em>Word boundary (<code>\b</code>)</em> — A zero-width anchor that matches the boundary between a word character and a non-word character (such as whitespace or punctuation). <em>Substring corruption</em> — The disastrous accidental replacement of letters inside unrelated longer words caused by omitting word boundaries.</p>
+<p><strong>Takeaway:</strong> Always enclose word patterns in word boundary anchors (<code>\bpattern\b</code>) to prevent catastrophic accidental replacements inside longer words.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
@@ -422,7 +422,7 @@
 
 <p>Capturing groups are numbered automatically from left to right based on the order of their opening parentheses: Group 1, Group 2, Group 3, and so on (Jurafsky &amp; Martin, 2024).</p>
 <p>For example, consider the pattern:</p>
-<pre><code class="language-regex">(\w+)ck
+<pre><code class="language-regex">\b(\w+)ck\b
 </code></pre>
 <p>Here, <code>\w+</code> matches one or more word characters (letters). Because <code>\w+</code> is enclosed in parentheses, it forms <strong>Group 1</strong>. The trailing letters <code>ck</code> sit outside the parentheses.</p>
 <p>When this pattern encounters the word <em>publick</em>, the entire pattern matches the full word <em>publick</em>. But inside memory, <strong>Group 1 captures solely the root stem: <em>public</em></strong>. When the pattern encounters <em>authentick</em>, Group 1 captures <em>authenti</em>. </p>
@@ -480,7 +480,7 @@
 <p>Once a regular expression captures text into a group, how do you insert that captured text into your replacement string? In VS Code, you retrieve captured groups using <strong>backreferences</strong>: <code>$1</code>, <code>$2</code>, <code>$3</code>, and so on.</p>
 <p>When you type <code>$1</code> in the VS Code Replace box, the editor replaces that token with whichever characters were matched by the first capturing group. If your pattern has a second group, <code>$2</code> retrieves the second group. The special token <code>$0</code> represents the <em>entire</em> matched string.</p>
 <p>Let us see how capturing groups and backreferences work together in a simple example:</p>
-<pre><code class="language-text">Find:    (\w+)ck
+<pre><code class="language-text">Find:    \b(\w+)ck\b
 Replace: $1c
 </code></pre>
 <p>Let us trace how the engine processes this command on the word <em>publick</em>:</p>
@@ -492,7 +492,7 @@ Replace: $1c
 </ol>
 
 <p>This simple trace illustrates why precision is vital. If our root stem already ends in <em>c</em>, we do not want to add <em>c</em>; we simply want to drop the <em>k</em>! The correct pattern would be:</p>
-<pre><code class="language-text">Find:    (\w+c)k
+<pre><code class="language-text">Find:    \b(\w+c)k\b
 Replace: $1
 </code></pre>
 <p>Here, Group 1 captures <em>public</em> (including the <em>c</em>). The replace token <code>$1</code> outputs <em>public</em>, cleanly dropping the terminal <em>k</em>.</p>
@@ -551,7 +551,7 @@ Replace: $1
 <pre><code class="language-xml">&lt;choice&gt;&lt;orig&gt;publick&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;public&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
 <p>Typing that entire block by hand took thirty seconds. With regular expressions in VS Code, we can generate it in one keystroke across all occurrences:</p>
-<pre><code class="language-text">Find:    (\w+c)k
+<pre><code class="language-text">Find:    \b(\w+c)k\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1k&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
 <p>Let us trace what VS Code does when it executes this command on <em>publick</em>:</p>
@@ -561,9 +561,9 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1k&lt;/orig&gt;&lt;reg resp=&quot;#editor&qu
   <li>The Replace box outputs:
     <ul>
       <li>Literal XML: <code>&lt;choice&gt;&lt;orig&gt;</code></li>
-      <li><code>$1k</code> $    o$ inserts <code>public</code> followed by literal <code>k</code> (reproducing the original word <code>publick</code>!).</li>
+      <li><code>$1k</code> &rarr; inserts <code>public</code> followed by literal <code>k</code> (reproducing the original word <code>publick</code>!).</li>
       <li>Literal XML: <code>&lt;/orig&gt;&lt;reg resp="#editor"&gt;</code></li>
-      <li><code>$1</code> $ o$ inserts the regularized stem <code>public</code>.</li>
+      <li><code>$1</code> &rarr; inserts the regularized stem <code>public</code>.</li>
       <li>Literal XML: <code>&lt;/reg&gt;&lt;/choice&gt;</code></li>
     </ul>
   </li>
@@ -628,7 +628,7 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1k&lt;/orig&gt;&lt;reg resp=&quot;#editor&qu
 </ol>
 
 <p>Alternatively, you can handle casing explicitly within your regex pattern using character classes:</p>
-<pre><code class="language-regex">([Pp]ublic)k
+<pre><code class="language-regex">\b([Pp]ublic)k\b
 </code></pre>
 <p>Here, Group 1 captures either <em>Public</em> or <em>public</em>, preserving the exact initial casing inside <code>$1</code> when output into <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code>.</p>
 <p>Understanding casing prevents duplicate rules. Rather than writing one rule for lowercase words and a second rule for capitalized words, a single case-aware pattern handles both cleanly.</p>
@@ -684,7 +684,7 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1k&lt;/orig&gt;&lt;reg resp=&quot;#editor&qu
 <h3>Rule 1 in Practice: 18th-Century Terminal `-ck`</h3>
 <p>Now let us apply these principles to our first real historical case study: 18th-century adjectives ending in <em>-ck</em> (from the 1752 Treaty and colonial legal records).</p>
 <p>Suppose we begin with a simple pattern:</p>
-<pre><code class="language-text">Find:    (\w+)ck
+<pre><code class="language-text">Find:    \b(\w+)ck\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1c&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
 <p>Let us test this rule against a realistic sample sentence from an 18th-century colonial document:</p>
@@ -692,11 +692,11 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&q
 </code></pre>
 <p>If you click "Replace All" in VS Code with that simple pattern, look at the disaster that occurs:</p>
 <ul>
-  <li><em>publick</em> $    o$ correctly regularized to <em>public</em>.</li>
-  <li><em>traffick</em> $   o$ correctly regularized to <em>traffic</em>.</li>
-  <li><em>black</em> $  o$ transformed to <em>blac</em>! (Fatal error: <em>black</em> is a modern standard word!).</li>
-  <li><em>politick</em> $   o$ correctly regularized to <em>politic</em>.</li>
-  <li><em>truck</em> $  o$ transformed to <em>truc</em>! (Fatal error: <em>truck</em> is a modern standard word!).</li>
+  <li><em>publick</em> &rarr; correctly regularized to <em>public</em>.</li>
+  <li><em>traffick</em> &rarr; correctly regularized to <em>traffic</em>.</li>
+  <li><em>black</em> &rarr; transformed to <em>blac</em>! (Fatal error: <em>black</em> is a modern standard word!).</li>
+  <li><em>politick</em> &rarr; correctly regularized to <em>politic</em>.</li>
+  <li><em>truck</em> &rarr; transformed to <em>truc</em>! (Fatal error: <em>truck</em> is a modern standard word!).</li>
 </ul>
 
 <p>This test demonstrates the fundamental danger of naive regular expressions: <strong>over-matching</strong>. Our rule was too broad. It assumed that <em>every</em> word ending in <em>-ck</em> was an archaic 18th-century variant, forgetting that English has dozens of native Germanic words (<em>back</em>, <em>black</em>, <em>thick</em>, <em>quick</em>, <em>truck</em>, <em>lock</em>, <em>duck</em>) where <em>-ck</em> is standard orthography!</p>
@@ -754,7 +754,7 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&q
 <p>How do we refine Rule 1 so that it regularizes <em>publick</em> and <em>traffick</em> without touching <em>black</em> or <em>truck</em>?</p>
 <p>In regular expressions, when a broad phonetic or morphological pattern has numerous common exceptions, the solution is to use <strong>alternation</strong> (<code>|</code>) to restrict the pattern to an explicit list of known historical roots (Friedl, 2006).</p>
 <p>Instead of matching any arbitrary word characters with <code>\w+</code>, we specify the exact root stems that historically underwent the <em>-ck</em> to <em>-c</em> spelling reform:</p>
-<pre><code class="language-text">Find:    (authenti|criti|fantasti|musick|politi|publi|traffi)ck
+<pre><code class="language-text">Find:    \b(authenti|criti|fantasti|musick|politi|publi|traffi)ck\b
 </code></pre>
 <p>Notice what this refined pattern does:</p>
 <ol>
@@ -768,10 +768,10 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&q
 </code></pre>
 <p>When this refined rule scans our test sentence:</p>
 <ul>
-  <li><em>publick</em> matches $    o$ regularized to <em>public</em>.</li>
-  <li><em>traffick</em> matches $   o$ regularized to <em>traffic</em>.</li>
-  <li><em>black</em>: the stem <em>bla</em> is not in our whitelist $   o$ ignored completely!</li>
-  <li><em>truck</em>: the stem <em>tru</em> is not in our whitelist $   o$ ignored completely!</li>
+  <li><em>publick</em> matches &rarr; regularized to <em>public</em>.</li>
+  <li><em>traffick</em> matches &rarr; regularized to <em>traffic</em>.</li>
+  <li><em>black</em>: the stem <em>bla</em> is not in our whitelist &rarr; ignored completely!</li>
+  <li><em>truck</em>: the stem <em>tru</em> is not in our whitelist &rarr; ignored completely!</li>
 </ul>
 
 <p>By constraining the search with root alternation, our rule achieves <strong>100% precision</strong>. It transforms every legitimate target and touches zero innocent words.</p>
@@ -835,7 +835,7 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&q
 Replace: s</code></pre>
   </li>
   <li><strong>Policy Option B (Full TEI Parallel Tracking):</strong> If your edition is a strict paleographical study documenting 18th-century typographical habits, you may choose to record every long <em>s</em> inside a <code>&lt;choice&gt;</code> block:
-    <pre><code>Find:    (\w*)ſ(\w*)
+    <pre><code>Find:    \b(\w*)ſ(\w*)\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1ſ$2&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1s$2&lt;/reg&gt;&lt;/choice&gt;</code></pre>
   </li>
 </ul>
@@ -893,23 +893,28 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ſ$2&lt;/orig&gt;&lt;reg resp="#editor"&gt;
 <h3>Rule 3 in Practice: Thorn Contractions (`ye` and `yt`)</h3>
 <p>Our third rule automates the expansion of early modern scribal contractions in colonial documents, specifically the thorn abbreviations <em>y<hi rend="superscript">e</hi></em> (<em>the</em>) and <em>y<hi rend="superscript">t</hi></em> (<em>that</em>).</p>
 <p>In your diplomatic transcription from Week 4, you may have transcribed these words either as plain text (<em>ye</em>, <em>yt</em>) or with superscript tags (<em>y<sup>e</sup></em> or <code>y&lt;hi rend="superscript"&gt;e&lt;/hi&gt;</code>).</p>
-<p>Let us build a regex rule to handle plain text <em>ye</em> first:</p>
-<pre><code class="language-text">Find:    ([Yy])e
-Replace: &lt;choice&gt;&lt;abbr&gt;$1e&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;$1he&lt;/expan&gt;&lt;/choice&gt;
+<p>Let us build a regex rule to handle plain text <em>ye</em> first. Expanding thorn changes the initial letter itself (<em>y</em> becomes <em>th</em>), so a captured <em>y</em> cannot be reused in the expansion. Write one rule per case instead:</p>
+<pre><code class="language-text">Rule 3a (lowercase):
+Find:    \bye\b
+Replace: &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;the&lt;/expan&gt;&lt;/choice&gt;
+
+Rule 3b (capitalized):
+Find:    \bYe\b
+Replace: &lt;choice&gt;&lt;abbr&gt;Ye&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;The&lt;/expan&gt;&lt;/choice&gt;
 </code></pre>
-<p>Let us trace this rule:</p>
+<p>Let us trace these rules:</p>
 <ol>
-  <li><code>([Yy])e</code> matches standalone <em>ye</em> or <em>Ye</em>. Group 1 captures the initial casing.</li>
-  <li>If the document had capitalized <em>Ye</em>, Group 1 captures <em>Y</em>, and the replacement outputs <code>&lt;abbr&gt;Ye&lt;/abbr&gt;&lt;expan resp="#editor"&gt;The&lt;/expan&gt;</code>! (Notice that <code>$1he</code> capitalizes the <em>T</em> automatically!).</li>
+  <li><code>\bye\b</code> matches only the standalone lowercase <em>ye</em>; with <strong>Match Case</strong> switched on, it ignores <em>Ye</em>, which Rule 3b handles.</li>
+  <li>Why not one rule with <code>\b([Yy])e\b</code> and <code>$1he</code>? Because <code>$1</code> reproduces the captured letter: <em>ye</em> would become <em>yhe</em>, and <em>Ye</em> would become <em>Yhe</em>. A backreference copies what was matched; it cannot turn <em>y</em> into <em>th</em>.</li>
 </ol>
 
 <p>Now, what if your transcription already contains superscript tags, such as <code>y&lt;hi rend="superscript"&gt;e&lt;/hi&gt;</code>?</p>
-<pre><code class="language-text">Find:    ([Yy])&lt;hi rend=&quot;superscript&quot;&gt;e&lt;/hi&gt;
-Replace: &lt;choice&gt;&lt;abbr&gt;$1&lt;hi rend=&quot;superscript&quot;&gt;e&lt;/hi&gt;&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;$1he&lt;/expan&gt;&lt;/choice&gt;
+<pre><code class="language-text">Find:    \by&lt;hi rend=&quot;superscript&quot;&gt;e&lt;/hi&gt;
+Replace: &lt;choice&gt;&lt;abbr&gt;y&lt;hi rend=&quot;superscript&quot;&gt;e&lt;/hi&gt;&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;the&lt;/expan&gt;&lt;/choice&gt;
 </code></pre>
-<p>Because the tag <code>&lt;hi rend="superscript"&gt;e&lt;/hi&gt;</code> is literal XML, we include it directly in our search pattern. The regex matches the letter <em>y</em> followed immediately by the superscript tag, wrapping the entire historical graphic unit into <code>&lt;abbr&gt;</code> and supplying the expanded modern word in <code>&lt;expan&gt;</code>.</p>
+<p>Because the tag <code>&lt;hi rend="superscript"&gt;e&lt;/hi&gt;</code> is literal XML, we include it directly in our search pattern. The regex matches the letter <em>y</em> followed immediately by the superscript tag, wrapping the entire historical graphic unit into <code>&lt;abbr&gt;</code> and supplying the expanded modern word in <code>&lt;expan&gt;</code>. Repeat it with a capital <em>Y</em> and <em>The</em> for sentence-initial forms, and the same way for <em>y<sup>t</sup></em> (<em>that</em>).</p>
 <p><strong>Vocabulary.</strong> <em>Thorn pattern</em> — A regex designed to identify pseudo-archaic <em>y</em>-abbreviations and map them to standard <em>th</em>-words. <em>Superscript matching</em> — Matching embedded XML formatting tags as part of an abbreviation search string.</p>
-<p><strong>Takeaway:</strong> Use capturing groups on initial letters (<code>[Yy]</code>) to preserve capitalization when expanding historical thorn contractions like <em>ye</em> into <em>the</em>.</p>
+<p><strong>Takeaway:</strong> Expanding thorn changes the initial letter (<em>y</em> becomes <em>th</em>), so write one rule per case (<em>ye</em> to <em>the</em>, <em>Ye</em> to <em>The</em>); a backreference can only copy the captured letter.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
@@ -920,7 +925,7 @@ Replace: &lt;choice&gt;&lt;abbr&gt;$1&lt;hi rend=&quot;superscript&quot;&gt;e&lt
       <text>&lt;p&gt;When expanding early modern 'ye' into 'the', what precaution must an editor observe?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Use capturing groups on initial letters ([Yy]) to preserve capitalization when expanding historical thorn contractions like ye into the.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Expanding thorn changes the initial letter (y becomes th), so write one rule per case (ye to the, Ye to The), and check each match is not the pronoun ye.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -960,30 +965,32 @@ Replace: &lt;choice&gt;&lt;abbr&gt;$1&lt;hi rend=&quot;superscript&quot;&gt;e&lt
 <h3>Rule 4 in Practice: Early French Verb Endings (`-oit` and `-oient`)</h3>
 <p>Now let us turn to our French Revolutionary decree (Ace's project). In 1791 French official printing, the imperfect indicative and conditional verb endings are systematically printed with <em>oi</em> instead of modern <em>ai</em>:</p>
 <ul>
-  <li>3rd-person singular: <em>-oit</em> (modern <em>-ait</em>), as in <em>étoit</em> $ o$ <em>était</em>, <em>dérogeoit</em> $ o$ <em>dérogeait</em>.</li>
-  <li>3rd-person plural: <em>-oient</em> (modern <em>-aient</em>), as in <em>étoient</em> $ o$ <em>étaient</em>, <em>faisoient</em> $   o$ <em>faisaient</em>.</li>
+  <li>3rd-person singular: <em>-oit</em> (modern <em>-ait</em>), as in <em>étoit</em> &rarr; <em>était</em>, <em>dérogeoit</em> &rarr; <em>dérogeait</em>.</li>
+  <li>3rd-person plural: <em>-oient</em> (modern <em>-aient</em>), as in <em>étoient</em> &rarr; <em>étaient</em>, <em>faisoient</em> &rarr; <em>faisaient</em>.</li>
 </ul>
 
-<p>Can we automate this transformation in VS Code? Yes! We write two clean, targeted rules:</p>
+<p>Can we automate this transformation in VS Code? Yes, but French needs one adjustment first. VS Code's search engine treats only the unaccented letters <em>a</em> to <em>z</em>, the digits and the underscore as "word characters". To it, <em>é</em> is punctuation, so <code>\w</code> stops at <em>é</em> and <code>\b</code> sees a boundary in the middle of <em>étoit</em>. Try <code>\b(\w+)oit\b</code> on <em>étoit</em> and it matches only <em>toit</em>: the replacement splits the word into <code>é&lt;choice&gt;&lt;orig&gt;toit&lt;/orig&gt;...</code>. And <code>\bétoit\b</code> never matches at all.</p>
+<p>The fix is to name letters by their Unicode category. <code>\p{L}</code> means "any letter, accented or not", and the lookarounds <code>(?&lt;!\p{L})</code> and <code>(?!\p{L})</code> mean "no letter just before" and "no letter just after". Together they do the job <code>\b</code> does in English. We write two targeted rules:</p>
 <pre><code class="language-text">Rule 4a (Singular Imperfect):
-Find:    (\w+)oit
+Find:    (?&lt;!\p{L})(\p{L}+)oit(?!\p{L})
 Replace: &lt;choice&gt;&lt;orig&gt;$1oit&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1ait&lt;/reg&gt;&lt;/choice&gt;
 
 Rule 4b (Plural Imperfect):
-Find:    (\w+)oient
+Find:    (?&lt;!\p{L})(\p{L}+)oient(?!\p{L})
 Replace: &lt;choice&gt;&lt;orig&gt;$1oient&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1aient&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
 <p>Notice what happens during execution:</p>
 <ol>
-  <li>Rule 4a matches <em>étoit</em>. Group 1 captures the verbal root <code>ét</code>.</li>
+  <li>Rule 4a matches the whole word <em>étoit</em>. Group 1 captures the verbal root <code>ét</code>.</li>
   <li>The Replace field reconstructs the original word in <code>&lt;orig&gt;$1oit&lt;/orig&gt;</code> and supplies the modern spelling in <code>&lt;reg resp="#editor"&gt;$1ait&lt;/reg&gt;</code>.</li>
   <li>Result: <code>&lt;choice&gt;&lt;orig&gt;étoit&lt;/orig&gt;&lt;reg resp="#editor"&gt;était&lt;/reg&gt;&lt;/choice&gt;</code>.</li>
 </ol>
 
+<p>(Python's <code>re</code> module treats accented letters as word characters by default, so in a Python script the plain <code>\b(\w+)oit\b</code> does reach the whole word.)</p>
 <p>What about nouns or adjectives ending in <em>-oit</em>, such as <em>droit</em> (law/right) or <em>étroit</em> (narrow)?
-If we ran a naive <code>(\w+)oit</code>, would <em>droit</em> become <em>drait</em>? 
+If we ran Rule 4a as written, would <em>droit</em> become <em>drait</em>? 
 <strong>YES!</strong> In modern French, <em>droit</em> is still spelled <em>droit</em>!</p>
-<p>This demonstrates why Rule Ordering and Whitelisting matter. In French, nouns like <em>droit</em> must either be excluded using negative lookaheads or verb stems must be explicitly whitelisted. Testing in VS Code reveals this immediately!</p>
+<p>This demonstrates why Rule Ordering and Whitelisting matter. In French, nouns like <em>droit</em> must either be excluded or the verb stems must be explicitly whitelisted, for example <code>(?&lt;!\p{L})(ét|av|fais|déroge)oit(?!\p{L})</code>. Testing in VS Code reveals this immediately!</p>
 <p><strong>Vocabulary.</strong> <em>Voltairean verb rule</em> — A regex automating the historical French orthographic shift from <em>oi</em> to <em>ai</em> in verb conjugations. <em>Grammatical homograph</em> — Words sharing a terminal spelling where some are verbs requiring regularization and others are invariant nouns (like <em>droit</em>).</p>
 <p><strong>Takeaway:</strong> Automating French <em>-oit</em> to <em>-ait</em> regularizes imperfect verbs, but editors must protect invariant nouns like <em>droit</em> from accidental corruption.</p>
 <hr />
@@ -1037,19 +1044,19 @@ If we ran a naive <code>(\w+)oit</code>, would <em>droit</em> become <em>drait
 <p>Now let us examine vernacular English correspondence (Olyvia's Maud Lewis project). In personal letters, writers frequently double consonants phonetically, writing <em>allways</em> for <em>always</em>, <em>untill</em> for <em>until</em>, or <em>truely</em> for <em>truly</em>.</p>
 <p>Unlike colonial treaties, vernacular personal letters do not follow an official government printing style. Their spelling reflects individual acoustic habits. Therefore, building broad morphological rules (like "reduce all double <em>l</em>'s") is completely impossible, because words like <em>ball</em>, <em>call</em>, and <em>yellow</em> require double <em>l</em>'s!</p>
 <p>For vernacular writing, the correct deterministic strategy is <strong>explicit vocabulary alternation</strong>:</p>
-<pre><code class="language-text">Find:    ([Aa])llways
+<pre><code class="language-text">Find:    \b([Aa])llways\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1llways&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1lways&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
-<pre><code class="language-text">Find:    ([Uu])ntill
+<pre><code class="language-text">Find:    \b([Uu])ntill\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1ntill&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1ntil&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
-<pre><code class="language-text">Find:    ([Tt])ruely
+<pre><code class="language-text">Find:    \b([Tt])ruely\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1ruely&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1ruly&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
 <p>Notice how clean and safe these rules are:</p>
 <ul>
   <li>Each rule targets an exact, known phonetic quirk identified during your close reading in Step 1.</li>
-  <li>Word boundaries (<code></code>) ensure that the rule matches only the complete standalone word.</li>
+  <li>Word boundaries (<code>\b</code>) ensure that the rule matches only the complete standalone word.</li>
   <li>Initial character classes (<code>[Aa]</code>, <code>[Uu]</code>) preserve capitalization whether the word opens a sentence or sits mid-line.</li>
   <li>The rule cannot possibly produce false positives on unrelated words.</li>
 </ul>
@@ -1108,14 +1115,14 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ruely&lt;/orig&gt;&lt;reg resp=&quot;#edito
 <p>In vernacular writing and informal manuscripts, authors frequently omit the apostrophe in common negative contractions, writing <em>dont</em>, <em>cant</em>, <em>wont</em>, and <em>didnt</em>.</p>
 <p>Can we write a regular expression to add the missing apostrophe inside a TEI <code>&lt;choice&gt;</code> block?</p>
 <p>Let us test a pattern in VS Code:</p>
-<pre><code class="language-text">Find:    ([Dd])ont
+<pre><code class="language-text">Find:    \b([Dd])ont\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1ont&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1on't&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
-<pre><code class="language-text">Find:    ([Cc])ant
+<pre><code class="language-text">Find:    \b([Cc])ant\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1ant&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1an't&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
 <p>These rules work beautifully for <em>dont</em> and <em>cant</em>. But now consider the word <strong>wont</strong>:</p>
-<pre><code class="language-text">Find:    ([Ww])ont
+<pre><code class="language-text">Find:    \b([Ww])ont\b
 Replace: &lt;choice&gt;&lt;orig&gt;$1ont&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1on't&lt;/reg&gt;&lt;/choice&gt;
 </code></pre>
 <p>In English, <strong>wont</strong> is an authentic dictionary word! It is an archaic noun and adjective meaning "accustomed, habit, or custom" (as in "as was his wont", or "he was wont to rise early").</p>
@@ -1174,7 +1181,7 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ont&lt;/orig&gt;&lt;reg resp=&quot;#editor&
 <p>When working in TEI, you are not editing raw plain text. You are editing text <strong>already embedded inside an XML markup tree</strong>.</p>
 <p>This structural reality introduces a severe hazard that destroys hundreds of student files every semester: <strong>regex patterns that accidentally match XML tags</strong>.</p>
 <p>Consider what happens if you write a search pattern using a bare dot: <code>.*</code>. Remember that a dot matches <em>any</em> character, including <code>&lt;</code> and <code>&gt;</code>. If you search for:</p>
-<pre><code class="language-regex">(in).*
+<pre><code class="language-regex">\b(in).*\b
 </code></pre>
 <p>The dot can match directly across an XML tag! It might match the <em>in</em> in <code>&lt;div type="section"&gt;</code>, swallow the attribute, cross the closing bracket, and match into the text! If you hit replace, you will tear open the XML tag, corrupting the document hierarchy and causing immediate schema validation failure.</p>
 <p>To prevent this catastrophe, memorize and follow <strong>The Golden Rule of XML-Safe Regex</strong>:</p>
@@ -1203,7 +1210,7 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ont&lt;/orig&gt;&lt;reg resp=&quot;#editor&
     <tr>
       <td><strong>3. Anchor Boundaries</strong></td>
       <td><code>ye</code></td>
-      <td><code>ye</code></td>
+      <td><code>\bye\b</code></td>
       <td>Prevents matching attributes like <code>type="poem"</code>.</td>
     </tr>
   </tbody>
@@ -1266,12 +1273,12 @@ Replace: &lt;choice&gt;&lt;orig&gt;$1ont&lt;/orig&gt;&lt;reg resp=&quot;#editor&
 &lt;/choice&gt;
 </code></pre>
 <p>Now ask yourself: what happens if you run an automated regular expression search for the word <em>Governor</em> across that line?</p>
-<pre><code class="language-regex">Governor
+<pre><code class="language-regex">\bGovernor\b
 </code></pre>
 <p>Will it match? <strong>NO!</strong> </p>
-<p>To the regular expression engine, the characters on the page are <code>Gov-&lt;lb n="13"/&gt;ernor</code>. The letters <em>G-o-v</em> are immediately followed by a hyphen and an angle bracket <code>&lt;</code>. Because an angle bracket is a non-word character, <code></code> asserts a boundary, and the search fails to find <em>Governor</em>.</p>
+<p>To the regular expression engine, the characters on the page are <code>Gov-&lt;lb n="13"/&gt;ernor</code>. The letters <em>G-o-v</em> are immediately followed by a hyphen and an angle bracket <code>&lt;</code>. Because an angle bracket is a non-word character, <code>\b</code> asserts a boundary, and the search fails to find <em>Governor</em>.</p>
 <p>Furthermore, what if you write a regex to regularize hyphenated words:</p>
-<pre><code class="language-regex">(\w+)-&lt;lb n=&quot;\d+&quot;/&gt;(\w+)
+<pre><code class="language-regex">\b(\w+)-&lt;lb n=&quot;\d+&quot;/&gt;(\w+)\b
 </code></pre>
 <p>This pattern will successfully match the hyphenated split! And you can write a replacement that wraps it cleanly into TEI:</p>
 <pre><code class="language-text">Replace: &lt;choice&gt;&lt;orig&gt;$1-&lt;lb n=&quot;13&quot;/&gt;$2&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;$1$2&lt;/reg&gt;&lt;/choice&gt;
@@ -1460,13 +1467,13 @@ FN = Legitimate targets missed by the rule
 <h3>Precision and Recall in Digital Editing</h3>
 <p>To quantify the performance of your regular expressions mathematically, digital textual scholarship borrows two core metrics from data science: <strong>Precision</strong> and <strong>Recall</strong> (Bollmann, 2019).</p>
 <p><strong>Precision</strong> measures how accurate your rule is when it takes an action. It answers the question: <em>Of all the words this rule matched and transformed, what percentage was actually correct?</em></p>
-<p>$$  ext{Precision} = rac{  ext{True Positives}}{   ext{True Positives} +   ext{False Positives}}$$</p>
+<p>$$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}$$</p>
 <p>If your rule transforms 10 words, and 9 were genuine archaic spellings while 1 was a modern word corrupted by accident, your precision is:</p>
-<p>$$  ext{Precision} = rac{9}{9 + 1} = 0.90  ext{ (90\%)}$$</p>
+<p>$$\text{Precision} = \frac{9}{9 + 1} = 0.90 \text{ (90\%)}$$</p>
 <p><strong>Recall</strong> measures the completeness of your rule. It answers the question: <em>Of all the archaic words that existed in the text, what percentage did your rule successfully find?</em></p>
-<p>$$  ext{Recall} = rac{ ext{True Positives}}{   ext{True Positives} +   ext{False Negatives}}$$</p>
+<p>$$\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}$$</p>
 <p>If there were 12 archaic words in your document, and your rule found 9 of them while missing 3, your recall is:</p>
-<p>$$  ext{Recall} = rac{9}{9 + 3} = 0.75     ext{ (75\%)}$$</p>
+<p>$$\text{Recall} = \frac{9}{9 + 3} = 0.75 \text{ (75\%)}$$</p>
 <p>In scholarly editing, <strong>Precision always outranks Recall</strong>. A rule with 100% precision and 75% recall is completely acceptable: it safely normalizes 9 words and leaves 3 for manual review. But a rule with 100% recall and 70% precision corrupts your text with false positives! Strive for 100% precision in every rule you write.</p>
 <p><strong>Vocabulary.</strong> <em>Precision</em> — The proportion of matched instances that were genuine, correct targets ($TP / [TP + FP]$). <em>Recall</em> — The proportion of all actual targets in the text that were successfully retrieved by the rule ($TP / [TP + FN]$). <em>Scholarly precision priority</em> — The editorial principle that avoiding false positives is far more important than achieving total recall.</p>
 <p><strong>Takeaway:</strong> In digital editing, precision must always outrank recall: it is far better to miss a variant for manual review than to corrupt a single word with a false positive.</p>
@@ -1601,21 +1608,21 @@ FN = Legitimate targets missed by the rule
     <tr>
       <td><code>R-01</code></td>
       <td>Archaic terminal <em>-ck</em></td>
-      <td><code>(publi|traffi)ck</code></td>
+      <td><code>\b(publi|traffi)ck\b</code></td>
       <td><code>&lt;choice&gt;&lt;orig&gt;$1ck&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1c&lt;/reg&gt;&lt;/choice&gt;</code></td>
       <td>0 FP; restricted to root whitelist to avoid <em>black</em>.</td>
     </tr>
     <tr>
       <td><code>R-02</code></td>
       <td>Thorn contraction <em>ye</em></td>
-      <td><code>([Yy])e</code></td>
-      <td><code>&lt;choice&gt;&lt;abbr&gt;$1e&lt;/abbr&gt;&lt;expan resp="#editor"&gt;$1he&lt;/expan&gt;&lt;/choice&gt;</code></td>
-      <td>0 FP; inspected manually to ensure not modern pronoun.</td>
+      <td><code>\bye\b</code></td>
+      <td><code>&lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp="#editor"&gt;the&lt;/expan&gt;&lt;/choice&gt;</code></td>
+      <td>0 FP with Match Case on; capitalized <em>Ye</em> is a separate rule; each match inspected to ensure it is not the pronoun <em>ye</em>.</td>
     </tr>
     <tr>
       <td><code>R-03</code></td>
       <td>Maud Lewis <em>allways</em></td>
-      <td><code>([Aa])llways</code></td>
+      <td><code>\b([Aa])llways\b</code></td>
       <td><code>&lt;choice&gt;&lt;orig&gt;$1llways&lt;/orig&gt;&lt;reg resp="#editor"&gt;$1lways&lt;/reg&gt;&lt;/choice&gt;</code></td>
       <td>0 FP; 100% precision on target personal hand.</td>
     </tr>
@@ -1676,7 +1683,7 @@ FN = Legitimate targets missed by the rule
 <p>Now that you have mastered regular expressions inside VS Code, you possess an invaluable secret: <strong>you already understand the core engine behind automated text processing in Python</strong>.</p>
 <p>Students often fear programming because they imagine that writing Python requires learning an entirely alien way of thinking. But in Python, regular expressions are handled by a standard library module named <code>re</code>. </p>
 <p>And here is the crucial realization: <strong>the syntax of regular expressions in Python is identical to the syntax in VS Code</strong>.</p>
-<p>The character classes <code>[...]</code>, the quantifiers <code>+</code> and <code>*</code>, the word boundaries <code></code>, the capturing groups <code>()</code>, and the root alternations <code>(a|b)</code> that you tested in VS Code operate with the exact same mathematical logic in Python!</p>
+<p>The character classes <code>[...]</code>, the quantifiers <code>+</code> and <code>*</code>, the word boundaries <code>\b</code>, the capturing groups <code>()</code>, and the root alternations <code>(a|b)</code> that you tested in VS Code operate with the exact same mathematical logic in Python!</p>
 <p>The only difference is how the engine is invoked. In VS Code, you press <code>Cmd+F</code> and click <code>Replace</code>. In Python, you write a single function call:</p>
 <pre><code class="language-python">import re
 
@@ -1742,9 +1749,9 @@ from pathlib import Path
 text = Path(&quot;transcription_reconciled.xml&quot;).read_text(encoding=&quot;utf-8&quot;)
 
 # 2. Apply your regex rules sequentially
-text = re.sub(r&quot;(publi|traffi)ck&quot;, r'&lt;choice&gt;&lt;orig&gt;ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;c&lt;/reg&gt;&lt;/choice&gt;', text)
-text = re.sub(r&quot;([Yy])e&quot;, r'&lt;choice&gt;&lt;abbr&gt;e&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;he&lt;/expan&gt;&lt;/choice&gt;', text)
-text = re.sub(r&quot;([Aa])llways&quot;, r'&lt;choice&gt;&lt;orig&gt;llways&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;lways&lt;/reg&gt;&lt;/choice&gt;', text)
+text = re.sub(r&quot;\b(publi|traffi)ck\b&quot;, r'&lt;choice&gt;&lt;orig&gt;\1ck&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;\1c&lt;/reg&gt;&lt;/choice&gt;', text)
+text = re.sub(r&quot;\bye\b&quot;, r'&lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp=&quot;#editor&quot;&gt;the&lt;/expan&gt;&lt;/choice&gt;', text)
+text = re.sub(r&quot;\b([Aa])llways\b&quot;, r'&lt;choice&gt;&lt;orig&gt;\1llways&lt;/orig&gt;&lt;reg resp=&quot;#editor&quot;&gt;\1lways&lt;/reg&gt;&lt;/choice&gt;', text)
 
 # 3. Write the transformed output file
 Path(&quot;transcription_reconciled_regex.xml&quot;).write_text(text, encoding=&quot;utf-8&quot;)
@@ -1752,8 +1759,8 @@ print(&quot;Normalization complete! Saved to transcription_reconciled_regex.xml&
 </code></pre>
 <p>Notice two critical details:</p>
 <ol>
-  <li><strong>Raw Strings (<code>r"..."</code>):</strong> Always prefix your regex patterns and replacement strings in Python with the letter <code>r</code> (e.g., <code>r"..."</code>). The <code>r</code> stands for "raw string", which prevents Python from misinterpreting backslashes like <code></code> as special escape characters.</li>
-  <li><strong>Backreference Syntax:</strong> In Python replacement strings, backreferences are written with backslashes (<code></code>, <code></code>) rather than dollar signs (<code>$1</code>, <code>$2</code>).</li>
+  <li><strong>Raw Strings (<code>r"..."</code>):</strong> Always prefix your regex patterns and replacement strings in Python with the letter <code>r</code> (e.g., <code>r"\b...\b"</code>). The <code>r</code> stands for "raw string", which prevents Python from misinterpreting backslashes like <code>\b</code> as special escape characters.</li>
+  <li><strong>Backreference Syntax:</strong> In Python replacement strings, backreferences are written with backslashes (<code>\1</code>, <code>\2</code>) rather than dollar signs (<code>$1</code>, <code>$2</code>).</li>
 </ol>
 
 <p>Running this script (<code>python3 normalize.py</code>) executes all your rules simultaneously in a fraction of a second.</p>
@@ -1813,7 +1820,7 @@ print(&quot;Normalization complete! Saved to transcription_reconciled_regex.xml&
 <pre><code class="language-text">Rule A (Capitalization): Regularize common-noun capitals: Treaty -&gt; treaty
 Rule B (Thorn Expansion): Expand Ye -&gt; The
 </code></pre>
-<p>If Rule A runs first with an unconstrained casing pattern, it might turn <em>Ye</em> into <em>ye</em>. When Rule B runs second, its capitalized pattern <code>Ye</code> will fail to find anything, because Rule A already lowercased it!</p>
+<p>If Rule A runs first with an unconstrained casing pattern, it might turn <em>Ye</em> into <em>ye</em>. When Rule B runs second, its capitalized pattern <code>\bYe\b</code> will fail to find anything, because Rule A already lowercased it!</p>
 <p>To prevent pipeline collisions:</p>
 <ol>
   <li><strong>Run specific rules before general rules:</strong> Always execute narrow, exact rules (like expanding unique abbreviations) before applying broad spelling or casing regularizations.</li>
@@ -1935,7 +1942,7 @@ Rule B (Thorn Expansion): Expand Ye -&gt; The
 <p>Before concluding today's session, review the <strong>Workshop 6 Step 2 Checklist</strong>:</p>
 <ol>
   <li><strong>Regex Rules Formulated:</strong> Have you created at least 3 to 5 distinct regular expressions corresponding to the active rules in your Rule Ledger?</li>
-  <li><strong>Word Boundaries Enforced:</strong> Are all your word search patterns strictly anchored with <code></code> to prevent accidental substring corruption?</li>
+  <li><strong>Word Boundaries Enforced:</strong> Are all your word search patterns strictly anchored with <code>\b</code> to prevent accidental substring corruption?</li>
   <li><strong>XML-Safe Patterns Used:</strong> Have you ensured that no unconstrained wildcards (<code>.*</code>) match across XML tags or milestone markers?</li>
   <li><strong>Dynamic `<choice>` Generated:</strong> Did your replacement patterns successfully construct complete, valid TEI <code>&lt;choice&gt;</code> blocks with <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> or <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>?</li>
   <li><strong>Audited via Side-by-Side Diff:</strong> Have you compared your regex-transformed file against yesterday's manual ground truth in VS Code, calculating your True Positives and eliminating False Positives?</li>

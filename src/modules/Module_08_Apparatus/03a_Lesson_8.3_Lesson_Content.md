@@ -492,7 +492,7 @@ ingested from published critical editions, Wikipedia articles, commentaries, and
 academic papers.
 
 If you ask the model to collate three specific manuscripts—say, Codex Vaticanus (B),
-Codex Sinaiticus ($leph$), and Codex Ephraemi Rescriptus (C)—the model's associative
+Codex Sinaiticus ($\aleph$), and Codex Ephraemi Rescriptus (C)—the model's associative
 memory activates its broader knowledge of that specific biblical verse. If the
 famous Codex Bezae (D) or Codex Alexandrinus (A) contains a well-known variant at
 that verse, the model will frequently insert `@wit="#CodexBezae"` or
@@ -790,7 +790,7 @@ traditions where traditional Lachmannian stemmata collapse.
 The CBGM operates in two phases:
 
 1. **Local Stemmata Construction:** For every variation unit (`<app>`), the editor
-   determines which reading gave rise to which (e.g., Reading $a ightarrow b$).
+   determines which reading gave rise to which (e.g., Reading $a \rightarrow b$).
 
 2. **Global Coherence Calculation:** The CBGM software aggregates these thousands of
    local decisions, calculating the **pre-genealogical coherence** between all

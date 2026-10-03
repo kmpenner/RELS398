@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 — Lesson 6.1 Teaching Plan (2026-10-06)</title>
+    <style>
+        :root {
+            --stfx-navy: #002D62;
+            --stfx-gold: #C59B27;
+            --stfx-dark: #0f172a;
+            --stfx-slate: #334155;
+            --stfx-light: #f8fafc;
+            --border-color: #cbd5e1;
+        }
+
+        @page { size: letter; margin: 0.55in; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--stfx-dark);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 10.5pt;
+            padding: 1.5rem;
+        }
+
+        .header-box {
+            border-bottom: 3px solid var(--stfx-navy);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-title h1 {
+            color: var(--stfx-navy);
+            font-size: 18pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-title h2 {
+            color: var(--stfx-gold);
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 9pt;
+            color: var(--stfx-slate);
+        }
+
+        .badge {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .context-banner {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--stfx-navy);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 9.5pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .context-banner strong { color: var(--stfx-navy); }
+
+        .requirement-callout {
+            background: #fefce8;
+            border: 1px solid #fef08a;
+            border-left: 6px solid var(--stfx-gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-callout h3 {
+            color: #854d0e;
+            font-size: 11pt;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .requirement-callout p { font-size: 9.5pt; color: #713f12; line-height: 1.4; }
+
+        .caution-callout {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 6px solid #b91c1c;
+            padding: 0.7rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .caution-callout h3 { color: #991b1b; font-size: 10.5pt; font-weight: 800; margin-bottom: 0.2rem; }
+        .caution-callout p { font-size: 9.5pt; color: #7f1d1d; line-height: 1.4; }
+
+        h3.section-header {
+            color: var(--stfx-navy);
+            font-size: 12pt;
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 0.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .schedule-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 9.5pt; }
+
+        .schedule-table th {
+            background: var(--stfx-navy);
+            color: #ffffff;
+            text-align: left;
+            padding: 0.45rem 0.6rem;
+            font-weight: 700;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-table td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .schedule-table tr:nth-child(even) { background: #f8fafc; }
+
+        .time-col {
+            width: 14%;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            white-space: nowrap;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+        }
+
+        .activity-col { width: 26%; font-weight: 700; }
+        .desc-col { width: 44%; color: #334155; line-height: 1.35; }
+        .target-col { width: 16%; font-size: 8.5pt; color: var(--stfx-slate); font-family: ui-monospace, monospace; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 1rem; }
+
+        .card {
+            background: var(--stfx-light);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--stfx-navy);
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.2rem;
+        }
+
+        .card ul { padding-left: 1.1rem; font-size: 9pt; color: var(--stfx-slate); }
+        .card li { margin-bottom: 0.3rem; }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 0.65rem;
+            border-radius: 4px;
+            font-size: 8.2pt;
+            overflow-x: auto;
+            margin-top: 0.35rem;
+            font-family: ui-monospace, "JetBrains Mono", monospace;
+            line-height: 1.3;
+        }
+
+        @media print {
+            body { padding: 0; font-size: 9.5pt; }
+            .header-box { margin-bottom: 0.6rem; }
+            .requirement-callout { background: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .caution-callout { background: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .schedule-table th { background: #002D62 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .context-banner { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 · Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #14 (Lesson 6.1 — Manual Normalization, Abbreviations &amp; Editorial Policy)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Tuesday, October 6, 2026</span>
+                <span class="badge">Time: 8:30 – 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 6 (Normalization) · Step 1 of 3 (Manual)</span>
+                <span class="badge">Milestone: NORMALIZATION.md Rule Ledger + Hand-Encoded Ground Truth</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>STUDENT ENTRY STATE:</strong><br>
+            Each student enters with three files from Weeks 4 and 5: <code>witness.xml</code> (manual Pass 1), <code>transcription_ai.xml</code> (AI Pass 2), and <code>transcription_reconciled.xml</code> (the adjudicated diplomatic baseline committed Friday). The Transcription Assignment closed Friday at 11:00 PM. Nobody has yet used <code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> or <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>; those were deferred from Week 4 to today.
+        </div>
+        <div>
+            <strong>TODAY'S OPERATIONAL GOAL:</strong><br>
+            Each student writes an Editorial Regularization Policy and a Rule Ledger (3 to 5 rules, IDs <code>R-01</code> onward) in <code>NORMALIZATION.md</code>, then hand-encodes a 20-line excerpt of the reconciled text with <code>&lt;choice&gt;</code> markup and <code>@resp="#editor"</code>. That file is the ground truth that Wednesday's regex pass and Friday's AI pass are scored against.
+        </div>
+    </div>
+
+    <div class="caution-callout">
+        <h3>BEFORE CLASS: CHECK THE DECK AND MOODLE SECTION 6</h3>
+        <p>Moodle Section 6 (Normalization, course 51185) was deployed on Oct 3: interactive lessons, Notes PDFs, readings and Workshop 6. The in-class deck is <code>Lesson_6.1_Slides_2026-10-06.pptx</code> (16 slides, timed to this schedule, with speaker notes). The three Week 6 decks are on Moodle as Lesson 6.x Slides (PPTX), ordered as in Section 5.</p>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE NORMALIZATION OBJECTIVE: TWO LAYERS, NOTHING LOST</h3>
+        <p>Normalization adds a readable layer without destroying the diplomatic one. Every change sits inside <code>&lt;choice&gt;</code>: the ink stays in <code>&lt;orig&gt;</code> or <code>&lt;abbr&gt;</code>, and the editor's reading goes in <code>&lt;reg resp="#editor"&gt;</code> or <code>&lt;expan resp="#editor"&gt;</code>. The policy comes first and the tagging second. Consistency matters more than which standard a student picks.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Do not edit the baseline in place:</strong> <code>transcription_reconciled.xml</code> stays untouched. Copy the 20-line excerpt into a new file.<br>
+        <strong>2. One filename all week:</strong> the manual file is <code>transcription_reconciled_manual.xml</code>. The lesson and the Workshop 6 brief now agree (section 29 was corrected on Oct 3), and Wednesday's diff points at this name.<br>
+        <strong>3. Regularize, don't correct:</strong> vernacular spellings get <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>, never <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code>. Grammar and dialect (<em>we was</em>) are not normalized at all.<br>
+        <strong>4. Workshop 6 dates:</strong> the brief says the Comparison Post is due Friday (Oct 9) at 11:00 PM and peer reviews Monday at 11:00 PM. That Monday is Oct 12, which is Thanksgiving and the start of Fall Study Break. Confirm or move the date before announcing it.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">08:30 – 08:37<br>(7 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Preservation vs. Accessibility</td>
+                <td class="desc-col">
+                    Put one line from a cohort document on the board in its diplomatic form (for example <em>y<sup>e</sup> Gov<sup>r</sup></em> from the 1752 Treaty). Ask: <em>"Who can search for this? Who can read it aloud?"</em><br>
+                    Map the week on the whiteboard: <strong>Tue manual &rarr; Wed regex &rarr; Fri AI</strong>, all three scored against today's hand-encoded file. Manual comes first because it is the ground truth.
+                </td>
+                <td class="target-col">Week 6 cycle on the board</td>
+            </tr>
+            <tr>
+                <td class="time-col">08:37 – 08:47<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>The Three <code>&lt;choice&gt;</code> Pairs</td>
+                <td class="desc-col">
+                    Type each pair live in VS Code, one per cohort document (see the Markup Reference below):<br>
+                    <strong>1. <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>:</strong> spelling variants (<em>publick</em>, <em>étoit</em>, <em>allways</em>).<br>
+                    <strong>2. <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>:</strong> suspensions, contractions and brevigraphs (<em>y<sup>e</sup></em> is thorn, so it means <em>the</em>).<br>
+                    <strong>3. <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code>:</strong> only for genuine errors, and the one to avoid for vernacular writing.<br>
+                    Every editorial reading carries <code>@resp="#editor"</code>. Show an <code>&lt;lb/&gt;</code> staying inside <code>&lt;orig&gt;</code> when a word breaks across a line.
+                </td>
+                <td class="target-col">Valid demo <code>&lt;choice&gt;</code> blocks on screen</td>
+            </tr>
+            <tr>
+                <td class="time-col">08:47 – 08:55<br>(8 mins)</td>
+                <td class="activity-col">Phase 3: Policy First<br>Policy + Rule Ledger</td>
+                <td class="desc-col">
+                    Students create <code>NORMALIZATION.md</code> with (a) a short policy paragraph: scope, exclusions, and authority dictionary, and (b) a Rule Ledger of 3 to 5 rules, each with an ID, a category, a before/after example, and the TEI tag it produces.<br>
+                    The four categories are orthographic, abbreviation, typographical (long-s), and casing/joining. <strong>Circulate:</strong> push back on any rule that would erase voice, such as Dickinson's capitals or Lewis's grammar.
+                </td>
+                <td class="target-col"><code>NORMALIZATION.md</code> with R-01 to R-03 or more</td>
+            </tr>
+            <tr>
+                <td class="time-col">08:55 – 09:12<br>(17 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Hand-Encoding 20 Lines</td>
+                <td class="desc-col">
+                    Students copy a 20-line excerpt into <code>transcription_reconciled_manual.xml</code> and work word by word against their ledger. Each change cites a rule ID; any word that fits no rule means the ledger needs a new rule, not an ad-hoc tag.<br>
+                    Offer the <code>treg</code> user snippet (section 27) to anyone typing <code>&lt;choice&gt;</code> by hand. Check whitespace: spaces belong outside <code>&lt;choice&gt;</code>.
+                </td>
+                <td class="target-col">20 lines encoded, every change traceable to a rule</td>
+            </tr>
+            <tr>
+                <td class="time-col">09:12 – 09:17<br>(5 mins)</td>
+                <td class="activity-col">Phase 5: Diagnostics<br>Header + Validation</td>
+                <td class="desc-col">
+                    Add <code>&lt;editorialDecl&gt;&lt;normalization method="markup"&gt;</code> to the TEI Header, holding the policy paragraph.<br>
+                    Open the Problems panel (<code>Ctrl/Cmd+Shift+M</code>) and drive the count to <strong>0 errors</strong>. Common faults: an empty <code>&lt;choice&gt;</code>, a <code>&lt;reg&gt;</code> paired with an <code>&lt;abbr&gt;</code>, or a lost <code>&lt;lb/&gt;</code>.
+                </td>
+                <td class="target-col">0 schema errors</td>
+            </tr>
+            <tr>
+                <td class="time-col">09:17 – 09:20<br>(3 mins)</td>
+                <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Wednesday Preview</td>
+                <td class="desc-col">
+                    <code>git add NORMALIZATION.md transcription_reconciled_manual.xml &amp;&amp; git commit -m "Week 6 Step 1: editorial policy, rule ledger, manual normalization ground truth"</code><br>
+                    Preview Wednesday: each ledger rule becomes a VS Code regex (<code>\b</code>, capture groups, <code>$1</code>), and the output is diffed against today's file. A vague rule today becomes an unwritable regex tomorrow.
+                </td>
+                <td class="target-col">Clean commit on <code>main</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Markup Reference for the Live Demo</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Orthographic Variant (Rule category 1)</h4>
+<pre>&lt;choice&gt;
+  &lt;orig&gt;publick&lt;/orig&gt;
+  &lt;reg resp="#editor"&gt;public&lt;/reg&gt;
+&lt;/choice&gt;</pre>
+        </div>
+        <div class="card">
+            <h4>Abbreviation (Rule category 2)</h4>
+<pre>&lt;choice&gt;
+  &lt;abbr&gt;y&lt;hi rend="superscript"&gt;e&lt;/hi&gt;&lt;/abbr&gt;
+  &lt;expan resp="#editor"&gt;the&lt;/expan&gt;
+&lt;/choice&gt;</pre>
+        </div>
+        <div class="card">
+            <h4>Rule Ledger Row (in NORMALIZATION.md)</h4>
+<pre>| ID   | Category     | Original | Normalized | TEI          |
+|------|--------------|----------|------------|--------------|
+| R-01 | Orthographic | publick  | public     | orig / reg   |
+| R-02 | Abbreviation | Gov^r    | Governor   | abbr / expan |</pre>
+        </div>
+        <div class="card">
+            <h4>Header Declaration</h4>
+<pre>&lt;encodingDesc&gt;
+  &lt;editorialDecl&gt;
+    &lt;normalization method="markup"&gt;
+      &lt;p&gt;...policy paragraph...&lt;/p&gt;
+    &lt;/normalization&gt;
+  &lt;/editorialDecl&gt;
+&lt;/encodingDesc&gt;</pre>
+        </div>
+    </div>
+
+    <h3 class="section-header">Cohort Specific Normalization Guidance</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>JAY · Emily Dickinson Poem (MS Am 1118.3)</h4>
+            <ul>
+                <li><strong>The poetic boundary:</strong> <em>opake</em> to <em>opaque</em> and <em>etherial</em> to <em>ethereal</em> can take <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>, which helps search.</li>
+                <li><strong>Leave alone:</strong> capitals (<em>Soul</em>, <em>Society</em>, <em>Door</em>) and dashes are artistic choices. The policy should exclude them explicitly, so the ledger records the decision.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ACE · French Revolutionary Decree (1791)</h4>
+            <ul>
+                <li><strong>The <em>oi</em>/<em>ai</em> shift:</strong> <em>étoit</em> to <em>était</em> is a clean orthographic rule. Set it up carefully, because it becomes Wednesday's best regex (and its best false-positive trap).</li>
+                <li><strong>Accented capitals and long-s:</strong> <em>DECRET</em>/<em>DÉCRET</em> and <em>ſ</em>/<em>s</em> are typographical rules. Decide whether to mark them up or declare them in the header. <em>art.</em> and <em>L.S.</em> are abbreviations.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>OLYVIA · Maud Lewis Letter (20th c. Cursive)</h4>
+            <ul>
+                <li><strong>Vernacular is not error:</strong> <em>allways</em>, <em>untill</em>, <em>truely</em>, <em>dont</em> take <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code>, never <code>&lt;sic&gt;</code>/<code>&lt;corr&gt;</code>.</li>
+                <li><strong>Grammar stays:</strong> nonstandard agreement (<em>we was</em>) is voice, not spelling, and no rule touches it. Watch for class bias in what gets "fixed".</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>ANDROMEDA · 1752 Peace and Friendship Treaty</h4>
+            <ul>
+                <li><strong>Thorn contractions:</strong> <em>y<sup>e</sup></em> means <em>the</em> and <em>y<sup>t</sup></em> means <em>that</em>; these are <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>, not spelling variants. <em>Gov<sup>r</sup></em> and <em>Esq<sup>r</sup></em> work the same way.</li>
+                <li><strong>Capitalized substantives:</strong> lowercasing <em>Articles</em> and <em>Peace</em> is a defensible casing rule, but it must be one declared rule applied to every case. Leave Chief Cope's mark and the signatures untouched.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -161,6 +161,51 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+- **[2026-10-03]**: **Week 6 plans, decks, content fixes and deploy finished.**
+  - **Plans** (all pass `lint_teaching_plan.py`):
+    - `Lesson_6.2_Teaching_Plan_2026-10-07.html` (Meeting #15) and `Lesson_6.3_Teaching_Plan_2026-10-09.html` (Meeting #16) are new.
+    - The 6.1 plan's stale "Section 6 is empty" and "no deck" callouts are replaced. Its filename boundary is marked resolved.
+  - **Decks:**
+    - Built with `scratch/deck_kit.py` and `scratch/build_slides_6.{1,2,3}.py`, run via `uv run --with python-pptx`.
+    - `Lesson_6.1_Slides_2026-10-06` has 16 slides; 6.2 and 6.3 have 15 each.
+    - All pass the 16pt floor and the 80-120 word notes gate.
+    - On Moodle as "Lesson 6.x Slides (PPTX)", cmids 1438500-02.
+  - **Lesson 6.2 content bugs fixed:**
+    - Thorn: `\b([Yy])e\b` with `$1he` produced "yhe". It now uses one rule per case.
+    - French -oit: VS Code's JS `\b`/`\w` treat é as a non-word character. It now uses `(?<!\p{L})(\p{L}+)oit(?!\p{L})`.
+    - The ledger row, Python recipe and Q15 feedback were updated to match.
+  - **Lesson 6.3 attribution made consistent:**
+    - Every `resp` is now `#gemini` (it mixed `#ai`, which resolved to no header id). The human id is now `xml:id="editor"` (was `KP`).
+    - Q15 and Q25 were updated to match. "Folders" was corrected to "Folios".
+  - **Deployed in place:**
+    - Notes 6.2 and 6.3 went out via `replacefile.js`. The cmids and restrictions are kept, and the served sizes match.
+    - The 17 changed quiz questions in Interactive 6.2 and 6.3 went out via the new `shared/scripts/moodle_cdp/qsync.js` (new question versions, no delete and recreate). A re-run dry check shows 0 differences.
+    - `mjs.py` now also inlines `dist/` paths and `.pptx` files.
+  - **Still open:** the Workshop 6 dates (see below). Lesson 6.3 sections 11 and 12 still list *wont* and *étroit* loosely; the plan coaches around both.
+- **[2026-10-03]**: **Lesson 6.1 teaching plan written** (Meeting #14, Tue Oct 6, 8:30, MULH 3032): `src/modules/Module_06_Normalization/Lesson_6.1_Teaching_Plan_2026-10-06.html`. It covers the `<choice>` pairs demo, NORMALIZATION.md policy and Rule Ledger, the 20-line manual ground truth, `editorialDecl` and the commit. Lint clean.
+  - **[DONE 2026-10-03]** Module 6 deployed to Section 6 (id 639804) with `populate_moodle_topic.py --topic 6 --section 6`, run under `../.venv/bin/python` because system python lacks playwright. The section has 12 items:
+    - Banner and Objectives.
+    - Notes PDFs 6.1–6.3 (cmids 1438488–90), each restricted on its quiz.
+    - Interactive quizzes 6.1–6.3 (cmids 1438491–93), 30 questions each.
+    - Reading and Watch labels.
+    - Workshop (cmid 1438496).
+    - Weekly Quiz (cmid 1438497), 20 questions.
+    - Compiled `--no-images`, like Module 5, because the `03c` image dirs are empty.
+  - **[OPEN]** Workshop 6 (cmid 1438496) has no deadlines set: submissionend and assessmentend are disabled. The modedit write was blocked pending Ken's decision on the date below.
+  - **[FIXED 2026-10-03]** Section 6 now follows Section 5's order: banner and objectives, then quiz, Notes and Slides for each lesson, then readings, watch list, workshop and weekly quiz.
+  - **[FIXED 2026-10-03]** Filename conflict: Lesson 6.1 section 29 now says `transcription_reconciled_manual.xml`, matching Workshop 6. Recompiled.
+  - **[FIXED 2026-10-03]** Workshop 6 (cmid 1438496) dates set on Moodle and verified, per Ken: submission closes Fri Oct 9 23:00, peer assessment closes Fri Oct 16 23:00 (7 days later; avoids Thanksgiving, Oct 12). The brief `08_Workshop_Description.html` and the 6.3 plan now say so. The live workshop description was republished from that brief (verified, 869 chars). It was briefly blank on Moodle (about a minute) because a failed text substitution posted an empty intro; restored from the source file.
+  - **[FIXED 2026-10-03]** Control-character corruption in the 6.x md sources, restored before compiling:
+    - `$\to$` became tab+`o`; replaced with `&rarr;` (34 places).
+    - Regex escapes `\b`, `\1`, `\2` and LaTeX `\frac` in 6.2/6.3 had become control characters; restored (132 places).
+    - Notes PDFs, interactive XML and HTML rebuilt.
+    - **[FIXED 2026-10-03, source only]** The same corruption elsewhere:
+      - 8.3 md: `$\aleph$` (line 495) and `\rightarrow` (line 793).
+      - 11.3 md: two `\text{x}` (line 699).
+      - 1.1 md (4 places) and `03b_Lesson_1.1_Questions.xml` (2 places): `\rightarrow`.
+      - Modules 8 and 11 have no dist builds yet.
+      - **[OPEN]** The 1.1 dist (`03_Interactive_Lesson_1.1.xml`/`.html`) and its live Moodle copy still show the corrupt arrow. Rebuild and qsync them to fix.
+      - The remaining tabs in 9.1 (CoNLL-U) and 10.1 (git output) are intentional.
 - **[2026-10-02]**: **Teaching-plan meeting times corrected and put under a lint gate.**
   - Three plans carried the wrong hour, inherited by copying the previous meeting's plan: Lesson 2.1 (Tue Sep 8) said 9:30 and is 8:30; Lesson 3.3 (Fri Sep 18) said 10:30 and is 9:30; Lesson 5.2 (Fri Oct 2) said 8:30 and is 9:30. The badge and every schedule row were shifted together in each, plus the stray "not at 11:19" cross-reference in 3.3.
   - New `shared/scripts/lint_teaching_plan.py` (with a thin `scripts/lint_teaching_plan.py` shim here) derives the timetable from the syllabus's Class Meetings line and checks filename date, weekday, Date line, Time badge, schedule-row chaining, and stray times outside the class window. All 12 plans pass: timetable Tue 8:30, Wed 10:30, Fri 9:30.

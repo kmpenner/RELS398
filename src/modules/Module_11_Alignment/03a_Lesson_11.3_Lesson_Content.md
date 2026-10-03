@@ -696,7 +696,7 @@ This occurs because of two psychological and computational mechanisms:
 | --- | --- | --- |
 | Accuracy $< 70\%$ | Error diagnosis & deletion overhead exceed authoring cost | Slower than manual authoring |
 | Accuracy $70\%–85\%$ | Correction time equals manual authoring time | Neutral efficiency threshold |
-| Accuracy $> 90\%$ | Editor validates $95\%$ of links with a single click | **Massive acceleration ($8	ext{x}–10	ext{x}$ speedup)** |
+| Accuracy $> 90\%$ | Editor validates $95\%$ of links with a single click | **Massive acceleration ($8\text{x}–10\text{x}$ speedup)** |
 
 | Annotation Workflow | Cognitive Mode Required | Time per 20-Sentence Chunk | Risk of Undetected Errors | Scholarly Experience |
 | --- | --- | --- | --- | --- |

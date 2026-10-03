@@ -613,10 +613,10 @@ By maintaining this ledger, you transform subjective feelings into an auditable 
 To keep your Rule Ledger organized and effective, divide your rules into four distinct **linguistic and typographical categories**:
 
 <ol>
-  <li><strong>Orthographic / Phonological Rules:</strong> Variations in spelling reflecting historical sound changes, dialect, or pre-reform orthography (e.g., <em>publick</em> $	o$ <em>public</em>, French <em>étoit</em> $	o$ <em>était</em>, Lewis's <em>allways</em> $	o$ <em>always</em>). These are encoded with `<orig>` and `<reg>`.</li>
-  <li><strong>Abbreviation / Expansion Rules:</strong> Graphic compressions, suspensions, contractions, and brevigraphs (e.g., <em>y<sup>e</sup></em> $	o$ <em>the</em>, <em>Gov<sup>r</sup></em> $	o$ <em>Governor</em>, <em>&amp;</em> $	o$ <em>and</em>). These are encoded with `<abbr>` and `<expan>`.</li>
+  <li><strong>Orthographic / Phonological Rules:</strong> Variations in spelling reflecting historical sound changes, dialect, or pre-reform orthography (e.g., <em>publick</em> &rarr; <em>public</em>, French <em>étoit</em> &rarr; <em>était</em>, Lewis's <em>allways</em> &rarr; <em>always</em>). These are encoded with `<orig>` and `<reg>`.</li>
+  <li><strong>Abbreviation / Expansion Rules:</strong> Graphic compressions, suspensions, contractions, and brevigraphs (e.g., <em>y<sup>e</sup></em> &rarr; <em>the</em>, <em>Gov<sup>r</sup></em> &rarr; <em>Governor</em>, <em>&amp;</em> &rarr; <em>and</em>). These are encoded with `<abbr>` and `<expan>`.</li>
   <li><strong>Typographical / Graphemic Rules:</strong> Letterform substitutions that do not change spelling or meaning, such as replacing the long <em>s</em> (<em>ſ</em>) with short <em>s</em>. Many editors handle this as a global display transformation, or encode it as `<orig>ſ</orig><reg>s</reg>`.</li>
-  <li><strong>Syntactic / Casing Rules:</strong> Regularizing substantive common-noun capitalization or joining split compound words (e.g., <em>to morrow</em> $	o$ <em>tomorrow</em>).</li>
+  <li><strong>Syntactic / Casing Rules:</strong> Regularizing substantive common-noun capitalization or joining split compound words (e.g., <em>to morrow</em> &rarr; <em>tomorrow</em>).</li>
 </ol>
 
 Categorizing your rules prevents category confusion. It ensures that when you write regular expressions on Wednesday, you know exactly which XML tags (`<reg>` vs. `<expan>`) your replacement patterns should generate.
@@ -696,7 +696,7 @@ You can dramatically speed up manual normalization using two techniques:
 
 <ol>
   <li><strong>Wrap with Abbreviation / Emmet:</strong> Highlight the target word in your editor, open the Command Palette (<code>Cmd+Shift+P</code> on macOS or <code>Ctrl+Shift+P</code> on Windows), type <em>Emmet: Wrap with Abbreviation</em>, and type <code>choice>orig</code>. This instantly wraps your highlighted word inside <code>&lt;choice&gt;&lt;orig&gt;target&lt;/orig&gt;&lt;/choice&gt;</code>. Then simply place your cursor after <code>&lt;/orig&gt;</code> and type your <code>&lt;reg&gt;</code> tag.</li>
-  <li><strong>Custom User Snippets:</strong> You can create a custom XML snippet in VS Code. Go to <em>Code $	o$ Settings $	o$ User Snippets</em>, select <code>xml.json</code>, and add a snippet named "TEI Choice Regularization":
+  <li><strong>Custom User Snippets:</strong> You can create a custom XML snippet in VS Code. Go to <em>Code &rarr; Settings &rarr; User Snippets</em>, select <code>xml.json</code>, and add a snippet named "TEI Choice Regularization":
   <pre><code>"TEI Choice Regularization": {
   "prefix": "treg",
   "body": [
@@ -753,7 +753,7 @@ Tomorrow, you will not be editing text by hand. Instead, you will build determin
 
 How will you know whether your regular expressions worked correctly? How will you know whether the AI hallucinated an expansion or over-normalized an archaic word?
 
-You will know by **diffing** their outputs against today's manual ground truth. Because you spent today examining each word, consulting your policy ledger, and hand-encoding each `<choice>` block with verified scholarly judgment, today's file (`witness_normalized_manual.xml`) represents the gold standard of accuracy.
+You will know by **diffing** their outputs against today's manual ground truth. Because you spent today examining each word, consulting your policy ledger, and hand-encoding each `<choice>` block with verified scholarly judgment, today's file (`transcription_reconciled_manual.xml`) represents the gold standard of accuracy.
 
 When you measure Wednesday's and Friday's automated passes, every point where they match your manual file will count as a confirmed true positive. Every point where an automated tool changes a word that your manual ground truth left alone will expose a potential false positive or hypercorrection.
 
