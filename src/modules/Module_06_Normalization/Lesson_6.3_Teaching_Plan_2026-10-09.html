@@ -242,7 +242,7 @@
         <strong>2. AI output never goes straight into the edition:</strong> it is applied only to <code>transcription_reconciled_ai.xml</code>. Nothing reaches <code>transcription_normalized.xml</code> until it has been classified against the manual file.<br>
         <strong>3. A dropped <code>&lt;lb/&gt;</code> is a rejection, not a fix-up:</strong> if any line break or its <code>n</code> value is missing or moved, discard that output and re-prompt with "DO NOT DELETE OR MOVE ANY &lt;lb/&gt; TAGS." Do not repair the AI's file by hand and then count it as the AI's work.<br>
         <strong>4. Disclosure is part of the assignment:</strong> every <code>resp="#gemini"</code> must resolve to a <code>&lt;respStmt&gt;</code> in the header, and the <code>&lt;change&gt;</code> entry says what was audited and rejected. Students put their own name and id in the header, not the lesson's example name.<br>
-        <strong>5. Workshop 6 dates:</strong> the Comparison Post is due <strong>tonight (Fri Oct 9) at 11:00 PM</strong>. Peer reviews are due <strong>Fri Oct 16 at 11:00 PM</strong>, one week later (set on Moodle Oct 3; the brief's old "Monday" would have been Thanksgiving).</p>
+        <strong>5. Assignment 6 (replaced Workshop 6 on Oct 5; no peer review, Ken grades it) is due Fri Oct 9 at 11:00 PM. Tell students there is no peer review.</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -310,7 +310,7 @@
                 <td class="desc-col">
                     Problems panel to <strong>0 errors</strong> on both new files, then:<br>
                     <code>git add NORMALIZATION.md transcription_reconciled_ai.xml transcription_normalized.xml &amp;&amp; git commit -m "Week 6 Step 3: AI pass audited; synthesis begun"</code><br>
-                    Tonight by 11:00 PM: finish the synthesis and the 300 to 500 word reflection (overview, metrics table for regex and AI, one example each of A, B and C, conclusion) and post to Workshop 6. Preview Week 7: this normalized file is the baseline CollateX aligns against other witnesses.
+                    Tonight by 11:00 PM: finish the synthesis and the 300 to 500 word reflection (overview, metrics table for regex and AI, one example each of A, B and C, conclusion) and submit to Assignment 6. Preview Week 7: this normalized file is the baseline CollateX aligns against other witnesses.
                 </td>
                 <td class="target-col">Clean commit; Comparison Post due 11:00 PM</td>
             </tr>
