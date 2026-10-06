@@ -143,4 +143,4 @@
 
 ## Email history
 
-See `emails.md` in this folder.
+See `GMAIL-INDEX.md` in this folder.
