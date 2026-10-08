@@ -164,6 +164,7 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+- **[2026-10-07]**: **Three mis-timed teaching plans corrected and a lint gate added.** Plans 2.1 (2026-09-08), 3.3 (2026-09-18) and 5.2 (2026-10-02) all carried the previous meeting's clock time: the badge and every `time-col` row shifted together, so each document was internally consistent and wrong for its weekday. Root cause is the authoring pattern — a plan is copied from the previous meeting and the time is the one fact nobody re-derives; Friday's 9:30 is what breaks, because the Tue→Wed 8:30→10:30 jump is visible enough to catch. New `shared/scripts/lint_teaching_plan.py` (plus a `runpy` shim at `398/scripts/lint_teaching_plan.py`) parses the expected block out of the syllabus's own `Class Meetings:` line and checks filename/weekday/date, the badge, every schedule row, and stray `HH:MM` in prose; PM times are skipped as deadlines. The prose rule exists because the first pass at 3.3 left "not at 11:19" in a sentence. Verified by reintroducing both bug shapes on scratch copies, not just by watching it pass. Live run: 12 plans, 0 problems. Rule recorded as §E5 item 8 in `shared/LESSON_PIPELINE.md`.
 - **[2026-10-03]**: **Week 6 plans, decks, content fixes and deploy finished.**
   - **Plans** (all pass `lint_teaching_plan.py`):
     - `Lesson_6.2_Teaching_Plan_2026-10-07.html` (Meeting #15) and `Lesson_6.3_Teaching_Plan_2026-10-09.html` (Meeting #16) are new.
