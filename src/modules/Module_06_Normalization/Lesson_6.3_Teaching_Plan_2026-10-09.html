@@ -353,6 +353,66 @@ Typical:  regex P 100% R 71%  |  AI P 75% R 86%</pre>
         </div>
     </div>
 
+
+    <h3 class="section-header">The Full Prompt (verbatim from Lesson 6.3)</h3>
+
+    <div class="card">
+        <p>Students paste three blocks into the Antigravity chat as one system prompt, in this order: the master prompt (lesson section 08), <strong>their own</strong> document specification (sections 09&ndash;12), then the few-shot examples (section 13). They then submit their 20-line excerpt with the instruction below. Copied from <code>03a_Lesson_6.3_Lesson_Content.md</code>; if the lesson changes, re-copy rather than edit here.</p>
+        <h4>1. Master Prompt (everyone)</h4>
+        <pre style="white-space: pre-wrap;">You are an expert digital textual scholar specializing in TEI P5 XML encoding.
+Your task is to perform conservative orthographic normalization and abbreviation expansion on a historical document excerpt.
+
+RULES AND CONSTRAINTS:
+1. OUTPUT: Return ONLY the updated TEI XML fragment. Do not include markdown conversational filler, explanations, or notes.
+2. PRESERVATION: Wrap target words in &lt;choice&gt;. Preserve the exact historical reading in &lt;orig&gt; or &lt;abbr&gt;. Supply the standardized modern reading in &lt;reg resp="#gemini"&gt; or &lt;expan resp="#gemini"&gt;.
+3. NEGATIVE CONSTRAINT - NO LEXICAL SUBSTITUTION: Do NOT replace archaic words with modern synonyms (e.g., keep "betwixt", do not change to "between").
+4. NEGATIVE CONSTRAINT - NO GRAMMATICAL MODERNIZATION: Do NOT modernize verb endings (keep "hath", "doth", "sheweth") or dialectal syntax (keep "we was").
+5. NEGATIVE CONSTRAINT - NO TAG MUTILATION: NEVER delete, move, or rename existing milestone tags (&lt;lb/&gt;, &lt;pb/&gt;). Line breaks must remain inside &lt;orig&gt;.
+6. ATTRIBUTION: Every newly created &lt;reg&gt; and &lt;expan&gt; tag MUST include the attribute resp="#gemini".</pre>
+        <h4>2. Document Specification (one per student)</h4>
+        <p><strong>Andromeda &middot; 1752 Treaty</strong></p>
+        <pre style="white-space: pre-wrap;">DOCUMENT SPECIFICATION - 18th-CENTURY COLONIAL TREATY (1752):
+- TARGET 1 (Terminal -ck): Regularize 18th-century adjectives ending in -ck (e.g., "publick" -&gt; "public", "traffick" -&gt; "traffic"). Do NOT regularize native standard Germanic words (e.g., "black", "truck").
+- TARGET 2 (Thorn Contractions): Expand thorn contractions: "ye" -&gt; &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;the&lt;/expan&gt;&lt;/choice&gt;; "yt" -&gt; &lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;that&lt;/expan&gt;&lt;/choice&gt;.
+- TARGET 3 (Common Nouns): Regularize substantive capitalized common nouns to lowercase in &lt;reg&gt; ONLY when they are ordinary nouns (e.g., "Treaty" -&gt; "treaty", "Articles" -&gt; "articles"). PRESERVE capital letters on official titles and sovereign names (e.g., "His Majesty", "Governor", "King").
+- STRICT PROHIBITION: Do NOT alter archaic legal phrasing, prepositional idioms, or punctuation.</pre>
+        <p><strong>Olyvia &middot; Maud Lewis letters</strong> (add Wednesday's fix to <em>wont</em>: "only where it means <em>will not</em>")</p>
+        <pre style="white-space: pre-wrap;">DOCUMENT SPECIFICATION - 20th-CENTURY VERNACULAR CORRESPONDENCE (MAUD LEWIS):
+- TARGET 1 (Phonetic Doubling): Regularize obvious phonetic spelling variants using &lt;choice&gt;&lt;orig&gt;...&lt;/orig&gt;&lt;reg resp="#gemini"&gt;...&lt;/reg&gt;&lt;/choice&gt; (e.g., "allways" -&gt; "always", "untill" -&gt; "until", "truely" -&gt; "truly").
+- TARGET 2 (Unpunctuated Contractions): Supply missing apostrophes in negative contractions (e.g., "dont" -&gt; "don't", "cant" -&gt; "can't", "wont" -&gt; "won't").
+- STRICT PROHIBITION - VERNACULAR GRAMMAR: Do NOT touch or regularize non-standard verb agreement, colloquial idioms, or conversational syntax (e.g., PRESERVE "we was").
+- STRICT PROHIBITION - NO &lt;sic&gt; TAGS: Do NOT use &lt;sic&gt; or &lt;corr&gt; tags. All vernacular variations must be treated respectfully as valid historical variants using &lt;orig&gt; and &lt;reg&gt;.</pre>
+        <p><strong>Ace &middot; 1791 French Decree</strong></p>
+        <pre style="white-space: pre-wrap;">DOCUMENT SPECIFICATION - 18th-CENTURY FRENCH REVOLUTIONARY DECREE (1791):
+- TARGET 1 (Voltairean Imperfect Verbs): Regularize historical imperfect indicative and conditional verb endings from -oit to -ait (e.g., "étoit" -&gt; "était", "dérogeoit" -&gt; "dérogeait", "faisoient" -&gt; "faisaient").
+- TARGET 2 (Historical Nationality / Adjectives): Regularize historical -ois endings on nationality adjectives to -ais (e.g., "françois" -&gt; "français").
+- TARGET 3 (Accented Capitals): Supply missing acute and grave accents on capitalized words in &lt;reg&gt; (e.g., "DECRET" -&gt; "DÉCRET", "ASSEMBLEE" -&gt; "ASSEMBLÉE").
+- EXCLUSION - INVARIANT NOUNS: Do NOT alter invariant nouns ending in -oit (e.g., PRESERVE "droit", "étroit").
+- STRICT PROHIBITION: Do NOT alter French revolutionary legal formulas, syntax, or Latin terms (e.g., PRESERVE "L.S.").</pre>
+        <p><strong>Emily Dickinson poem</strong> (Jay's document; Jay has dropped the course, kept for reference)</p>
+        <pre style="white-space: pre-wrap;">DOCUMENT SPECIFICATION - AUTOGRAPH 19th-CENTURY POETRY (EMILY DICKINSON):
+- STRICT PROHIBITION - CAPITALIZATION: NEVER normalize, lowercase, or tag Dickinson's capitalized common nouns (e.g., "Soul", "Society", "Door", "Valves", "Stone"). Her capitalization represents intentional poetic personification and MUST remain unaltered plain text.
+- STRICT PROHIBITION - DASHES AND PUNCTUATION: NEVER replace, alter, or standardize her dashes. Do NOT insert commas, semicolons, or periods.
+- STRICT PROHIBITION - RHYME WORDS: NEVER normalize spelling on terminal line words that participate in authorial slant rhyme.
+- ALLOWED TARGETS: You may ONLY regularize genuine archaic or variant spellings where standard lexicography has shifted (e.g., "opake" -&gt; &lt;choice&gt;&lt;orig&gt;opake&lt;/orig&gt;&lt;reg resp="#gemini"&gt;opaque&lt;/reg&gt;&lt;/choice&gt;; "etherial" -&gt; &lt;choice&gt;&lt;orig&gt;etherial&lt;/orig&gt;&lt;reg resp="#gemini"&gt;ethereal&lt;/reg&gt;&lt;/choice&gt;).</pre>
+        <h4>3. Few-Shot Examples (everyone)</h4>
+        <pre style="white-space: pre-wrap;">FEW-SHOT EXAMPLES (Follow this exact TEI syntax):
+
+Input:
+The publick good of this Province requires firm Articles.
+
+Output:
+The &lt;choice&gt;&lt;orig&gt;publick&lt;/orig&gt;&lt;reg resp="#gemini"&gt;public&lt;/reg&gt;&lt;/choice&gt; good of this Province requires firm &lt;choice&gt;&lt;orig&gt;Articles&lt;/orig&gt;&lt;reg resp="#gemini"&gt;articles&lt;/reg&gt;&lt;/choice&gt;.
+
+Input:
+yt was agreed by ye Govr at Halifax.
+
+Output:
+&lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;that&lt;/expan&gt;&lt;/choice&gt; was agreed by &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;the&lt;/expan&gt;&lt;/choice&gt; &lt;choice&gt;&lt;abbr&gt;Govr&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;Governor&lt;/expan&gt;&lt;/choice&gt; at Halifax.</pre>
+        <h4>4. Run Instruction (submitted with the 20 lines)</h4>
+        <pre style="white-space: pre-wrap;">Normalize the following TEI excerpt according to the prompt instructions.</pre>
+    </div>
+
     <h3 class="section-header">Cohort Specific AI Guidance</h3>
 
     <div class="grid-2">
