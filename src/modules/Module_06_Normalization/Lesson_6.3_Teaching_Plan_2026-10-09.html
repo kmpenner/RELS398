@@ -4,200 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RELS 398 / ENGL 398 — Lesson 6.3 Teaching Plan (2026-10-09)</title>
-    <style>
-        :root {
-            --stfx-navy: #002D62;
-            --stfx-gold: #C59B27;
-            --stfx-dark: #0f172a;
-            --stfx-slate: #334155;
-            --stfx-light: #f8fafc;
-            --border-color: #cbd5e1;
-        }
-
-        @page { size: letter; margin: 0.55in; }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--stfx-dark);
-            background: #ffffff;
-            line-height: 1.45;
-            font-size: 10.5pt;
-            padding: 1.5rem;
-        }
-
-        .header-box {
-            border-bottom: 3px solid var(--stfx-navy);
-            padding-bottom: 0.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .header-title h1 {
-            color: var(--stfx-navy);
-            font-size: 18pt;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.2rem;
-        }
-
-        .header-title h2 {
-            color: var(--stfx-gold);
-            font-size: 12pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.3rem;
-        }
-
-        .meta-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            font-size: 9pt;
-            color: var(--stfx-slate);
-        }
-
-        .badge {
-            background: var(--stfx-light);
-            border: 1px solid var(--border-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .context-banner {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            border-left: 5px solid var(--stfx-navy);
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            font-size: 9.5pt;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .context-banner strong { color: var(--stfx-navy); }
-
-        .requirement-callout {
-            background: #fefce8;
-            border: 1px solid #fef08a;
-            border-left: 6px solid var(--stfx-gold);
-            padding: 0.8rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .requirement-callout h3 {
-            color: #854d0e;
-            font-size: 11pt;
-            font-weight: 800;
-            margin-bottom: 0.25rem;
-        }
-
-        .requirement-callout p { font-size: 9.5pt; color: #713f12; line-height: 1.4; }
-
-        .caution-callout {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            border-left: 6px solid #b91c1c;
-            padding: 0.7rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .caution-callout h3 { color: #991b1b; font-size: 10.5pt; font-weight: 800; margin-bottom: 0.2rem; }
-        .caution-callout p { font-size: 9.5pt; color: #7f1d1d; line-height: 1.4; }
-
-        h3.section-header {
-            color: var(--stfx-navy);
-            font-size: 12pt;
-            font-weight: 800;
-            border-bottom: 1.5px solid var(--border-color);
-            padding-bottom: 0.2rem;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .schedule-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 9.5pt; }
-
-        .schedule-table th {
-            background: var(--stfx-navy);
-            color: #ffffff;
-            text-align: left;
-            padding: 0.45rem 0.6rem;
-            font-weight: 700;
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        .schedule-table td {
-            padding: 0.5rem 0.6rem;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-        }
-
-        .schedule-table tr:nth-child(even) { background: #f8fafc; }
-
-        .time-col {
-            width: 14%;
-            font-weight: 700;
-            color: var(--stfx-navy);
-            white-space: nowrap;
-            font-family: ui-monospace, "JetBrains Mono", monospace;
-        }
-
-        .activity-col { width: 26%; font-weight: 700; }
-        .desc-col { width: 44%; color: #334155; line-height: 1.35; }
-        .target-col { width: 16%; font-size: 8.5pt; color: var(--stfx-slate); font-family: ui-monospace, monospace; }
-
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 1rem; }
-
-        .card {
-            background: var(--stfx-light);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            padding: 0.8rem;
-        }
-
-        .card h4 {
-            font-size: 10pt;
-            font-weight: 700;
-            color: var(--stfx-navy);
-            margin-bottom: 0.35rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.2rem;
-        }
-
-        .card ul { padding-left: 1.1rem; font-size: 9pt; color: var(--stfx-slate); }
-        .card li { margin-bottom: 0.3rem; }
-
-        pre {
-            background: #1e293b;
-            color: #f8fafc;
-            padding: 0.65rem;
-            border-radius: 4px;
-            font-size: 8.2pt;
-            overflow-x: auto;
-            margin-top: 0.35rem;
-            font-family: ui-monospace, "JetBrains Mono", monospace;
-            line-height: 1.3;
-        }
-
-        @media print {
-            body { padding: 0; font-size: 9.5pt; }
-            .header-box { margin-bottom: 0.6rem; }
-            .requirement-callout { background: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .caution-callout { background: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .schedule-table th { background: #002D62 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .context-banner { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
 </head>
 <body>
 
@@ -359,7 +166,7 @@ Typical:  regex P 100% R 71%  |  AI P 75% R 86%</pre>
     <div class="card">
         <p>Students paste three blocks into the Antigravity chat as one system prompt, in this order: the master prompt (lesson section 08), <strong>their own</strong> document specification (sections 09&ndash;12), then the few-shot examples (section 13). They then submit their 20-line excerpt with the instruction below. Copied from <code>03a_Lesson_6.3_Lesson_Content.md</code>; if the lesson changes, re-copy rather than edit here.</p>
         <h4>1. Master Prompt (everyone)</h4>
-        <pre style="white-space: pre-wrap;">You are an expert digital textual scholar specializing in TEI P5 XML encoding.
+        <pre class="ws-pre-wrap">You are an expert digital textual scholar specializing in TEI P5 XML encoding.
 Your task is to perform conservative orthographic normalization and abbreviation expansion on a historical document excerpt.
 
 RULES AND CONSTRAINTS:
@@ -371,32 +178,32 @@ RULES AND CONSTRAINTS:
 6. ATTRIBUTION: Every newly created &lt;reg&gt; and &lt;expan&gt; tag MUST include the attribute resp="#gemini".</pre>
         <h4>2. Document Specification (one per student)</h4>
         <p><strong>Andromeda &middot; 1752 Treaty</strong></p>
-        <pre style="white-space: pre-wrap;">DOCUMENT SPECIFICATION - 18th-CENTURY COLONIAL TREATY (1752):
+        <pre class="ws-pre-wrap">DOCUMENT SPECIFICATION - 18th-CENTURY COLONIAL TREATY (1752):
 - TARGET 1 (Terminal -ck): Regularize 18th-century adjectives ending in -ck (e.g., "publick" -&gt; "public", "traffick" -&gt; "traffic"). Do NOT regularize native standard Germanic words (e.g., "black", "truck").
 - TARGET 2 (Thorn Contractions): Expand thorn contractions: "ye" -&gt; &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;the&lt;/expan&gt;&lt;/choice&gt;; "yt" -&gt; &lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;that&lt;/expan&gt;&lt;/choice&gt;.
 - TARGET 3 (Common Nouns): Regularize substantive capitalized common nouns to lowercase in &lt;reg&gt; ONLY when they are ordinary nouns (e.g., "Treaty" -&gt; "treaty", "Articles" -&gt; "articles"). PRESERVE capital letters on official titles and sovereign names (e.g., "His Majesty", "Governor", "King").
 - STRICT PROHIBITION: Do NOT alter archaic legal phrasing, prepositional idioms, or punctuation.</pre>
         <p><strong>Olyvia &middot; Maud Lewis letters</strong> (add Wednesday's fix to <em>wont</em>: "only where it means <em>will not</em>")</p>
-        <pre style="white-space: pre-wrap;">DOCUMENT SPECIFICATION - 20th-CENTURY VERNACULAR CORRESPONDENCE (MAUD LEWIS):
+        <pre class="ws-pre-wrap">DOCUMENT SPECIFICATION - 20th-CENTURY VERNACULAR CORRESPONDENCE (MAUD LEWIS):
 - TARGET 1 (Phonetic Doubling): Regularize obvious phonetic spelling variants using &lt;choice&gt;&lt;orig&gt;...&lt;/orig&gt;&lt;reg resp="#gemini"&gt;...&lt;/reg&gt;&lt;/choice&gt; (e.g., "allways" -&gt; "always", "untill" -&gt; "until", "truely" -&gt; "truly").
 - TARGET 2 (Unpunctuated Contractions): Supply missing apostrophes in negative contractions (e.g., "dont" -&gt; "don't", "cant" -&gt; "can't", "wont" -&gt; "won't").
 - STRICT PROHIBITION - VERNACULAR GRAMMAR: Do NOT touch or regularize non-standard verb agreement, colloquial idioms, or conversational syntax (e.g., PRESERVE "we was").
 - STRICT PROHIBITION - NO &lt;sic&gt; TAGS: Do NOT use &lt;sic&gt; or &lt;corr&gt; tags. All vernacular variations must be treated respectfully as valid historical variants using &lt;orig&gt; and &lt;reg&gt;.</pre>
         <p><strong>Ace &middot; 1791 French Decree</strong></p>
-        <pre style="white-space: pre-wrap;">DOCUMENT SPECIFICATION - 18th-CENTURY FRENCH REVOLUTIONARY DECREE (1791):
+        <pre class="ws-pre-wrap">DOCUMENT SPECIFICATION - 18th-CENTURY FRENCH REVOLUTIONARY DECREE (1791):
 - TARGET 1 (Voltairean Imperfect Verbs): Regularize historical imperfect indicative and conditional verb endings from -oit to -ait (e.g., "étoit" -&gt; "était", "dérogeoit" -&gt; "dérogeait", "faisoient" -&gt; "faisaient").
 - TARGET 2 (Historical Nationality / Adjectives): Regularize historical -ois endings on nationality adjectives to -ais (e.g., "françois" -&gt; "français").
 - TARGET 3 (Accented Capitals): Supply missing acute and grave accents on capitalized words in &lt;reg&gt; (e.g., "DECRET" -&gt; "DÉCRET", "ASSEMBLEE" -&gt; "ASSEMBLÉE").
 - EXCLUSION - INVARIANT NOUNS: Do NOT alter invariant nouns ending in -oit (e.g., PRESERVE "droit", "étroit").
 - STRICT PROHIBITION: Do NOT alter French revolutionary legal formulas, syntax, or Latin terms (e.g., PRESERVE "L.S.").</pre>
         <p><strong>Emily Dickinson poem</strong> (Jay's document; Jay has dropped the course, kept for reference)</p>
-        <pre style="white-space: pre-wrap;">DOCUMENT SPECIFICATION - AUTOGRAPH 19th-CENTURY POETRY (EMILY DICKINSON):
+        <pre class="ws-pre-wrap">DOCUMENT SPECIFICATION - AUTOGRAPH 19th-CENTURY POETRY (EMILY DICKINSON):
 - STRICT PROHIBITION - CAPITALIZATION: NEVER normalize, lowercase, or tag Dickinson's capitalized common nouns (e.g., "Soul", "Society", "Door", "Valves", "Stone"). Her capitalization represents intentional poetic personification and MUST remain unaltered plain text.
 - STRICT PROHIBITION - DASHES AND PUNCTUATION: NEVER replace, alter, or standardize her dashes. Do NOT insert commas, semicolons, or periods.
 - STRICT PROHIBITION - RHYME WORDS: NEVER normalize spelling on terminal line words that participate in authorial slant rhyme.
 - ALLOWED TARGETS: You may ONLY regularize genuine archaic or variant spellings where standard lexicography has shifted (e.g., "opake" -&gt; &lt;choice&gt;&lt;orig&gt;opake&lt;/orig&gt;&lt;reg resp="#gemini"&gt;opaque&lt;/reg&gt;&lt;/choice&gt;; "etherial" -&gt; &lt;choice&gt;&lt;orig&gt;etherial&lt;/orig&gt;&lt;reg resp="#gemini"&gt;ethereal&lt;/reg&gt;&lt;/choice&gt;).</pre>
         <h4>3. Few-Shot Examples (everyone)</h4>
-        <pre style="white-space: pre-wrap;">FEW-SHOT EXAMPLES (Follow this exact TEI syntax):
+        <pre class="ws-pre-wrap">FEW-SHOT EXAMPLES (Follow this exact TEI syntax):
 
 Input:
 The publick good of this Province requires firm Articles.
@@ -410,7 +217,7 @@ yt was agreed by ye Govr at Halifax.
 Output:
 &lt;choice&gt;&lt;abbr&gt;yt&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;that&lt;/expan&gt;&lt;/choice&gt; was agreed by &lt;choice&gt;&lt;abbr&gt;ye&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;the&lt;/expan&gt;&lt;/choice&gt; &lt;choice&gt;&lt;abbr&gt;Govr&lt;/abbr&gt;&lt;expan resp="#gemini"&gt;Governor&lt;/expan&gt;&lt;/choice&gt; at Halifax.</pre>
         <h4>4. Run Instruction (submitted with the 20 lines)</h4>
-        <pre style="white-space: pre-wrap;">Normalize the following TEI excerpt according to the prompt instructions.</pre>
+        <pre class="ws-pre-wrap">Normalize the following TEI excerpt according to the prompt instructions.</pre>
     </div>
 
     <h3 class="section-header">Cohort Specific AI Guidance</h3>

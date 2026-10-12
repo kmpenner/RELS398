@@ -4,272 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RELS 398 / ENGL 398 — Lesson 3.2 Teaching Plan (2026-09-16)</title>
-    <style>
-        :root {
-            --stfx-navy: #002D62;
-            --stfx-gold: #C59B27;
-            --stfx-dark: #0f172a;
-            --stfx-slate: #334155;
-            --stfx-light: #f8fafc;
-            --border-color: #cbd5e1;
-            --accent-green: #065f46;
-            --accent-blue: #1e40af;
-        }
-
-        @page {
-            size: letter;
-            margin: 0.55in 0.55in 0.55in 0.55in;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--stfx-dark);
-            background: #ffffff;
-            line-height: 1.45;
-            font-size: 10.5pt;
-            padding: 1.5rem;
-        }
-
-        .header-box {
-            border-bottom: 3px solid var(--stfx-navy);
-            padding-bottom: 0.8rem;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .header-title h1 {
-            color: var(--stfx-navy);
-            font-size: 18pt;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.2rem;
-        }
-
-        .header-title h2 {
-            color: var(--stfx-gold);
-            font-size: 12pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.3rem;
-        }
-
-        .meta-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            font-size: 9pt;
-            color: var(--stfx-slate);
-        }
-
-        .badge {
-            background: var(--stfx-light);
-            border: 1px solid var(--border-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .badge-done {
-            background: #ecfdf5;
-            border-color: #a7f3d0;
-            color: #065f46;
-        }
-
-        .badge-pending {
-            background: #eff6ff;
-            border-color: #bfdbfe;
-            color: #1e40af;
-        }
-
-        .context-banner {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            border-left: 5px solid var(--stfx-navy);
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            font-size: 9.5pt;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .context-banner strong {
-            color: var(--stfx-navy);
-        }
-
-        .requirement-callout {
-            background: #fefce8;
-            border: 1px solid #fef08a;
-            border-left: 6px solid var(--stfx-gold);
-            padding: 0.8rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .requirement-callout h3 {
-            color: #854d0e;
-            font-size: 11pt;
-            font-weight: 800;
-            margin-bottom: 0.25rem;
-        }
-
-        .requirement-callout p {
-            font-size: 9.5pt;
-            color: #713f12;
-            line-height: 1.4;
-        }
-
-        h3.section-header {
-            color: var(--stfx-navy);
-            font-size: 12pt;
-            font-weight: 800;
-            border-bottom: 1.5px solid var(--border-color);
-            padding-bottom: 0.2rem;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-            font-size: 9.5pt;
-        }
-
-        .schedule-table th {
-            background: var(--stfx-navy);
-            color: #ffffff;
-            text-align: left;
-            padding: 0.45rem 0.6rem;
-            font-weight: 700;
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        .schedule-table td {
-            padding: 0.5rem 0.6rem;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-        }
-
-        .schedule-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-
-        .time-col {
-            width: 16%;
-            font-weight: 700;
-            color: var(--stfx-navy);
-            white-space: nowrap;
-            font-family: ui-monospace, "JetBrains Mono", monospace;
-        }
-
-        .activity-col {
-            width: 28%;
-            font-weight: 700;
-            color: var(--stfx-dark);
-        }
-
-        .desc-col {
-            width: 56%;
-            color: #334155;
-            line-height: 1.35;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .card {
-            background: var(--stfx-light);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            padding: 0.8rem;
-        }
-
-        .card h4 {
-            font-size: 10pt;
-            font-weight: 700;
-            color: var(--stfx-navy);
-            margin-bottom: 0.35rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.2rem;
-        }
-
-        .card ul {
-            padding-left: 1.1rem;
-            font-size: 9pt;
-            color: var(--stfx-slate);
-        }
-
-        .card li {
-            margin-bottom: 0.25rem;
-        }
-
-        .code-box {
-            background: #0f172a;
-            color: #f8fafc;
-            padding: 0.5rem 0.7rem;
-            border-radius: 4px;
-            font-family: ui-monospace, "JetBrains Mono", monospace;
-            font-size: 8.5pt;
-            margin: 0.35rem 0;
-            line-height: 1.35;
-        }
-
-        .code-box .comment {
-            color: #94a3b8;
-        }
-
-        .code-box .highlight {
-            color: var(--stfx-gold);
-            font-weight: 700;
-        }
-
-        @media print {
-            body {
-                padding: 0;
-                font-size: 9.5pt;
-            }
-            .header-box {
-                margin-bottom: 0.6rem;
-            }
-            .requirement-callout {
-                background: #fefce8 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .schedule-table th {
-                background: #002D62 !important;
-                color: #ffffff !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .context-banner {
-                background: #f1f5f9 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
 </head>
-<body>
+<body class="cols-16-28-56 header-split">
 
     <div class="header-box">
         <div class="header-title">
@@ -320,7 +57,7 @@
                 <td class="time-col">10:30 &ndash; 10:34<br><small>(4 mins)</small></td>
                 <td>
                     <strong>1. Close Tuesday, Frame Today</strong><br>
-                    <small style="color:var(--stfx-slate);">VIAF debrief; the missing piece</small>
+                    <small class="c-slate">VIAF debrief; the missing piece</small>
                 </td>
                 <td>
                     &bull; <strong>One question on VIAF:</strong> <em>"How did you know your VIAF ID was the right entity?"</em> Remind them that viaf.org returns a normal-looking page even for fabricated IDs, so "the link loads" proves nothing. They have to check the name, dates, and source records.<br>
@@ -332,7 +69,7 @@
                 <td class="time-col">10:34 &ndash; 10:46<br><small>(12 mins)</small></td>
                 <td>
                     <strong>2. Manual Facsimile, Live</strong><br>
-                    <small style="color:var(--stfx-slate);">3.1 &sect;&sect;2&ndash;7 on the class diary file</small>
+                    <small class="c-slate">3.1 &sect;&sect;2&ndash;7 on the class diary file</small>
                 </td>
                 <td>
                     &bull; <strong>Open <code>labs/witness.xml</code></strong> (the class diary). Type the block in the left card <em>live</em>, between <code>&lt;/teiHeader&gt;</code> and <code>&lt;text&gt;</code>. Say why it sits there: <code>&lt;facsimile&gt;</code> is a sibling of the header and text, because the page exists whether or not anyone has transcribed it.<br>
@@ -346,7 +83,7 @@
                 <td class="time-col">10:46 &ndash; 10:56<br><small>(10 mins)</small></td>
                 <td>
                     <strong>3. Capturing a Usable Image</strong><br>
-                    <small style="color:var(--stfx-slate);">3.1 &sect;&sect;15&ndash;21, 29, phone or scanner</small>
+                    <small class="c-slate">3.1 &sect;&sect;15&ndash;21, 29, phone or scanner</small>
                 </td>
                 <td>
                     &bull; <strong>Demonstrate on the document camera or a phone</strong> with a printed page from your desk. Take a bad shot first (flash, tilted, cropped at the edge), then a good one. Put both on screen side by side.<br>
@@ -360,7 +97,7 @@
                 <td class="time-col">10:56 &ndash; 11:12<br><small>(16 mins)</small></td>
                 <td>
                     <strong>4. Lab: Deterministic Tools on Your Own Witness</strong><br>
-                    <small style="color:var(--stfx-slate);">Measure, generate, diff</small>
+                    <small class="c-slate">Measure, generate, diff</small>
                 </td>
                 <td>
                     &bull; <strong>Student Action, part A (manual, 6 min):</strong> in <em>your own</em> <code>witness.xml</code>, hand-type one <code>&lt;surface&gt;</code> with <code>&lt;graphic&gt;</code>, one <code>&lt;zone&gt;</code> around one feature (a heading, signature, seal, or column), and <code>&lt;pb facs&gt;</code>. Validate to 0. Commit: <code>git commit -am "Step 1: hand-typed facsimile"</code>.<br>
@@ -377,7 +114,7 @@
                 <td class="time-col">11:12 &ndash; 11:17<br><small>(5 mins)</small></td>
                 <td>
                     <strong>5. Pool the Diffs</strong><br>
-                    <small style="color:var(--stfx-slate);">What the tool caught</small>
+                    <small class="c-slate">What the tool caught</small>
                 </td>
                 <td>
                     &bull; Board: each student reports <strong>how many of the eight numbers</strong> (4 surface + 4 zone) differed from the tool's, and why.<br>
@@ -389,7 +126,7 @@
                 <td class="time-col">11:17 &ndash; 11:20<br><small>(3 mins)</small></td>
                 <td>
                     <strong>6. Commit &amp; Friday</strong><br>
-                    <small style="color:var(--stfx-slate);">Stage gate</small>
+                    <small class="c-slate">Stage gate</small>
                 </td>
                 <td>
                     &bull; <strong>Commit:</strong>
@@ -423,9 +160,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;pb <span class="highlight">facs="#diary_p1"</span>/&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;...
             </div>
-            <p style="font-size:9pt;color:var(--stfx-slate);margin:0.3rem 0;">Numbers shown are placeholders for a 12&nbsp;MP phone photo. Replace them with what the viewer shows for the actual class photo before projecting.</p>
+            <p class="fs-9pt c-slate m-0p3rem-0">Numbers shown are placeholders for a 12&nbsp;MP phone photo. Replace them with what the viewer shows for the actual class photo before projecting.</p>
 
-            <h4 style="margin-top:0.6rem;">Deterministic Tools (no AI)</h4>
+            <h4 class="mt-0p6rem">Deterministic Tools (no AI)</h4>
             <div class="code-box">
 <span class="comment"># true pixel size, no install</span><br>
 file images/diary_p1.jpg<br>
@@ -440,11 +177,11 @@ python3 labs/make_surface.py images/diary_p1.jpg \<br>
 &nbsp;&nbsp;--zone 310,260,1170,160 &gt; facs_tool.xml<br>
 diff &lt;(sed -n '/&lt;facsimile/,/&lt;\/facsimile/p' witness.xml) facs_tool.xml
             </div>
-            <p style="font-size:9pt;color:var(--stfx-slate);margin:0.3rem 0 0;"><strong>Conversion:</strong> GIMP and IIIF give x,y,w,h. TEI wants ulx=x, uly=y, lrx=x+w, lry=y+h. Going the other way (TEI to an IIIF region string, if it ever comes up): x=ulx, y=uly, w=lrx&minus;ulx, h=lry&minus;uly &rarr; region="x,y,w,h".</p>
+            <p class="fs-9pt c-slate m-0p3rem-0-0"><strong>Conversion:</strong> GIMP and IIIF give x,y,w,h. TEI wants ulx=x, uly=y, lrx=x+w, lry=y+h. Going the other way (TEI to an IIIF region string, if it ever comes up): x=ulx, y=uly, w=lrx&minus;ulx, h=lry&minus;uly &rarr; region="x,y,w,h".</p>
         </div>
         <div class="card">
             <h4>Six Rules for a Usable Document Image</h4>
-            <ol style="padding-left:1.1rem;">
+            <ol class="pl-1p1rem">
                 <li><strong>Parallel.</strong> Keep the lens square to the page. A tilt makes a trapezoid (keystoning), and rectangular zones will no longer fit the lines.</li>
                 <li><strong>Even, diffuse light, from two sides at about 45&deg;.</strong> A window with a sheet of paper as reflector works. Avoid hot spots and your own shadow.</li>
                 <li><strong>No flash.</strong> It causes glare on glossy paper and ink, and light exposure the object doesn't need. Glare that remains calls for cross-polarisation (3.1 &sect;18).</li>
@@ -452,9 +189,9 @@ diff &lt;(sed -n '/&lt;facsimile/,/&lt;\/facsimile/p' witness.xml) facs_tool.xml
                 <li><strong>The whole object, plus margin.</strong> Include the edges, since they are evidence. Fill the frame and don't use digital zoom.</li>
                 <li><strong>Keep the original.</strong> Save the highest-quality or RAW file untouched and work on copies. Name files by shelfmark and page (<code>MSAm1118-3_338_r.jpg</code>), not <code>IMG_4471</code>.</li>
             </ol>
-            <p style="font-size:9pt;margin:0.3rem 0;"><strong>Handling:</strong> clean dry hands rather than cotton gloves for paper. Never force a binding open. No pens or drinks near the object.</p>
+            <p class="fs-9pt m-0p3rem-0"><strong>Handling:</strong> clean dry hands rather than cotton gloves for paper. Never force a binding open. No pens or drinks near the object.</p>
 
-            <h4 style="margin-top:0.6rem;">Classroom Diagnostics</h4>
+            <h4 class="mt-0p6rem">Classroom Diagnostics</h4>
             <ul>
                 <li><strong>"Did not expect element facsimile":</strong> the block was placed inside <code>&lt;text&gt;</code> or before <code>&lt;teiHeader&gt;</code>. Move it between the two.</li>
                 <li><strong>Zone extends past the surface:</strong> w,h were typed as corners, or the viewer's zoomed display size was read. Take the size from <code>file</code>.</li>

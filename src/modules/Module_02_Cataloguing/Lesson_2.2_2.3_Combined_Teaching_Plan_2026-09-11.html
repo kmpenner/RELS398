@@ -4,272 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RELS 398 / ENGL 398 — Lessons 2.2 + 2.3 Combined Teaching Plan (2026-09-11)</title>
-    <style>
-        :root {
-            --stfx-navy: #002D62;
-            --stfx-gold: #C59B27;
-            --stfx-dark: #0f172a;
-            --stfx-slate: #334155;
-            --stfx-light: #f8fafc;
-            --border-color: #cbd5e1;
-            --accent-green: #065f46;
-            --accent-blue: #1e40af;
-        }
-
-        @page {
-            size: letter;
-            margin: 0.55in 0.55in 0.55in 0.55in;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--stfx-dark);
-            background: #ffffff;
-            line-height: 1.45;
-            font-size: 10.5pt;
-            padding: 1.5rem;
-        }
-
-        .header-box {
-            border-bottom: 3px solid var(--stfx-navy);
-            padding-bottom: 0.8rem;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .header-title h1 {
-            color: var(--stfx-navy);
-            font-size: 18pt;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.2rem;
-        }
-
-        .header-title h2 {
-            color: var(--stfx-gold);
-            font-size: 12pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.3rem;
-        }
-
-        .meta-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            font-size: 9pt;
-            color: var(--stfx-slate);
-        }
-
-        .badge {
-            background: var(--stfx-light);
-            border: 1px solid var(--border-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .badge-done {
-            background: #ecfdf5;
-            border-color: #a7f3d0;
-            color: #065f46;
-        }
-
-        .badge-pending {
-            background: #eff6ff;
-            border-color: #bfdbfe;
-            color: #1e40af;
-        }
-
-        .context-banner {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            border-left: 5px solid var(--stfx-navy);
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            font-size: 9.5pt;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .context-banner strong {
-            color: var(--stfx-navy);
-        }
-
-        .requirement-callout {
-            background: #fefce8;
-            border: 1px solid #fef08a;
-            border-left: 6px solid var(--stfx-gold);
-            padding: 0.8rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .requirement-callout h3 {
-            color: #854d0e;
-            font-size: 11pt;
-            font-weight: 800;
-            margin-bottom: 0.25rem;
-        }
-
-        .requirement-callout p {
-            font-size: 9.5pt;
-            color: #713f12;
-            line-height: 1.4;
-        }
-
-        h3.section-header {
-            color: var(--stfx-navy);
-            font-size: 12pt;
-            font-weight: 800;
-            border-bottom: 1.5px solid var(--border-color);
-            padding-bottom: 0.2rem;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-            font-size: 9.5pt;
-        }
-
-        .schedule-table th {
-            background: var(--stfx-navy);
-            color: #ffffff;
-            text-align: left;
-            padding: 0.45rem 0.6rem;
-            font-weight: 700;
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        .schedule-table td {
-            padding: 0.5rem 0.6rem;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-        }
-
-        .schedule-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-
-        .time-col {
-            width: 16%;
-            font-weight: 700;
-            color: var(--stfx-navy);
-            white-space: nowrap;
-            font-family: ui-monospace, "JetBrains Mono", monospace;
-        }
-
-        .activity-col {
-            width: 28%;
-            font-weight: 700;
-            color: var(--stfx-dark);
-        }
-
-        .desc-col {
-            width: 56%;
-            color: #334155;
-            line-height: 1.35;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .card {
-            background: var(--stfx-light);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            padding: 0.8rem;
-        }
-
-        .card h4 {
-            font-size: 10pt;
-            font-weight: 700;
-            color: var(--stfx-navy);
-            margin-bottom: 0.35rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.2rem;
-        }
-
-        .card ul {
-            padding-left: 1.1rem;
-            font-size: 9pt;
-            color: var(--stfx-slate);
-        }
-
-        .card li {
-            margin-bottom: 0.25rem;
-        }
-
-        .code-box {
-            background: #0f172a;
-            color: #f8fafc;
-            padding: 0.5rem 0.7rem;
-            border-radius: 4px;
-            font-family: ui-monospace, "JetBrains Mono", monospace;
-            font-size: 8.5pt;
-            margin: 0.35rem 0;
-            line-height: 1.35;
-        }
-
-        .code-box .comment {
-            color: #94a3b8;
-        }
-
-        .code-box .highlight {
-            color: var(--stfx-gold);
-            font-weight: 700;
-        }
-
-        @media print {
-            body {
-                padding: 0;
-                font-size: 9.5pt;
-            }
-            .header-box {
-                margin-bottom: 0.6rem;
-            }
-            .requirement-callout {
-                background: #fefce8 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .schedule-table th {
-                background: #002D62 !important;
-                color: #ffffff !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .context-banner {
-                background: #f1f5f9 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
 </head>
-<body>
+<body class="cols-16-28-56 header-split">
 
     <div class="header-box">
         <div class="header-title">
@@ -320,7 +57,7 @@
                 <td class="time-col">09:30 &ndash; 09:36<br><small>(6 mins)</small></td>
                 <td>
                     <strong>1. Install Scholarly XML &amp; Frame the Day</strong><br>
-                    <small style="color:var(--stfx-slate);">Why Wednesday's extension is not enough</small>
+                    <small class="c-slate">Why Wednesday's extension is not enough</small>
                 </td>
                 <td>
                     &bull; <strong>Install first, talk over it:</strong> Extensions (<code>Cmd+Shift+X</code>) &rarr; <em>Scholarly XML</em> (publisher: Raff Viglianti) &rarr; Install. Ask for a show of hands on who did it as homework.<br>
@@ -332,7 +69,7 @@
                 <td class="time-col">09:36 &ndash; 09:44<br><small>(8 mins)</small></td>
                 <td>
                     <strong>2. Projector Demo: Linking the Schema</strong><br>
-                    <small style="color:var(--stfx-slate);">A real error, from our own class file</small>
+                    <small class="c-slate">A real error, from our own class file</small>
                 </td>
                 <td>
                     &bull; <strong>Project <code>labs/witness_demo_INVALID.xml</code></strong> &mdash; a copy of the diary header the class built on Wednesday, with three errors seeded into it. Paste the <code>xml-model</code> instruction directly under the XML declaration (code box, right) and save.<br>
@@ -346,7 +83,7 @@
                 <td class="time-col">09:44 &ndash; 10:00<br><small>(16 mins)</small></td>
                 <td>
                     <strong>3. Lab A &mdash; Step 2: Validate the Human</strong><br>
-                    <small style="color:var(--stfx-slate);">Drive your own file to zero</small>
+                    <small class="c-slate">Drive your own file to zero</small>
                 </td>
                 <td>
                     &bull; <strong>Student Action:</strong> work in <em>your own</em> <code>witness.xml</code> &mdash; copy it to <code>witness_validated.xml</code>, add the <code>xml-model</code> instruction, save, open the Problems panel, and fix errors one at a time &mdash; click an error to jump to the line, fix, re-save, watch the count fall. Do not attempt a mass rewrite.<br>
@@ -359,7 +96,7 @@
                 <td class="time-col">10:00 &ndash; 10:12<br><small>(12 mins)</small></td>
                 <td>
                     <strong>4. Lab B &mdash; Step 3: Put the Machine Through the Same Gate</strong><br>
-                    <small style="color:var(--stfx-slate);">Activate AI, generate, validate, score</small>
+                    <small class="c-slate">Activate AI, generate, validate, score</small>
                 </td>
                 <td>
                     &bull; <strong>Engage AI tools:</strong> Wednesday's manual-only restriction is lifted: <em>"You have earned the right to use it, because now you can check it."</em> Check that each student is logged in to their AI account and has their tool active &mdash; GitHub Copilot extension in VS Code, an agent (Claude Code, Codex), Antigravity, or browser chat.<br>
@@ -372,7 +109,7 @@
                 <td class="time-col">10:12 &ndash; 10:18<br><small>(6 mins)</small></td>
                 <td>
                     <strong>5. Pool the Numbers at the Board</strong><br>
-                    <small style="color:var(--stfx-slate);">The finding, not the theory</small>
+                    <small class="c-slate">The finding, not the theory</small>
                 </td>
                 <td>
                     &bull; <strong>Two columns on the board:</strong> AI error count, and invented-or-wrong fields out of 6. Take a number from every student &mdash; it takes about 20 seconds each and the distribution is the argument.<br>
@@ -384,7 +121,7 @@
                 <td class="time-col">10:18 &ndash; 10:20<br><small>(2 mins)</small></td>
                 <td>
                     <strong>6. Commit &amp; Tonight's Deadline</strong><br>
-                    <small style="color:var(--stfx-slate);">Stage gate</small>
+                    <small class="c-slate">Stage gate</small>
                 </td>
                 <td>
                     &bull; <strong>Both files, one commit:</strong>
@@ -409,7 +146,7 @@
 &lt;/TEI&gt;
             </div>
 
-            <h4 style="margin-top:0.6rem;">Live Demo Errors &mdash; from <code>labs/witness_demo_INVALID.xml</code></h4>
+            <h4 class="mt-0p6rem">Live Demo Errors &mdash; from <code>labs/witness_demo_INVALID.xml</code></h4>
             <div class="code-box">
 <span class="comment">The committed class artifact (labs/witness.xml) now
 PASSES validation - do not project it expecting errors.
@@ -432,7 +169,7 @@ Project the seeded demo copy instead. Three errors:</span><br>
                 <li><strong>Regenerate the demo copy any time</strong> with <code>python3 labs/make_demo_error.py</code>. It re-derives the file from <code>labs/witness.xml</code> and re-verifies both that the class artifact is valid and that the demo is not, so this card cannot silently go stale again.</li>
             </ul>
 
-            <h4 style="margin-top:0.6rem;">Prompts for Lab B (Full Header or Single Element)</h4>
+            <h4 class="mt-0p6rem">Prompts for Lab B (Full Header or Single Element)</h4>
             <div class="code-box">
 <span class="comment">&lt;!-- Option 1: Single Element (Lesson 2.3 &sect;12 loop) --&gt;</span><br>
 Draft a TEI &lt;physDesc&gt; for the document described below.<br>
@@ -458,14 +195,14 @@ Description: <span class="highlight">[paste your full artifact notes]</span>
                 <li><strong>Workflow:</strong> click the error to jump to the line, fix one at a time, re-save, watch the count drop. Never batch-rewrite.</li>
             </ul>
 
-            <h4 style="margin-top:0.6rem;">Lab B Scorecard (6 fields, ~3 minutes)</h4>
+            <h4 class="mt-0p6rem">Lab B Scorecard (6 fields, ~3 minutes)</h4>
             <ul>
                 <li>For each of <strong>repository, idno, material, extent, number of hands, date</strong>, mark the AI output <em>correct / wrong / invented / missing</em> against your own file.</li>
                 <li><strong>Record two numbers:</strong> (1) AI schema error count on first validation, before any fixing; (2) fields wrong-or-invented out of 6.</li>
                 <li>A confident, well-formed, schema-valid shelfmark that is simply <em>false</em> scores as <em>invented</em>. Make sure students see that the schema passed it &mdash; that is the single most important thing they learn today.</li>
             </ul>
 
-            <h4 style="margin-top:0.6rem;">Deferred Out of Class &mdash; Assign Tonight</h4>
+            <h4 class="mt-0p6rem">Deferred Out of Class &mdash; Assign Tonight</h4>
             <ul>
                 <li><strong>Linked Data enrichment:</strong> <code>&lt;repository ref="viaf.org/..."&gt;</code>, <code>&lt;settlement ref="wikidata.org/..."&gt;</code>, and regional archival finding aids (Nova Scotia Archives, Archives nationales, Amherst/Harvard). Belongs with the workshop's authority reconciliation anyway.</li>
                 <li><strong>Authority justification:</strong> Document why each registry was chosen (or why a standard registry had no record). A verified absence is a legitimate result.</li>
@@ -473,7 +210,7 @@ Description: <span class="highlight">[paste your full artifact notes]</span>
                 <li><strong>Moodle:</strong> the interactive lessons for 2.2 and 2.3 carry the theory not lectured today. These <em>are</em> the quiz activities &mdash; 30 auto-graded questions each, one per content section in page order, with the section takeaway as general feedback. There is no separate lesson-player activity; point students at the quizzes.</li>
             </ul>
 
-            <h4 style="margin-top:0.6rem;">If You Fall Behind</h4>
+            <h4 class="mt-0p6rem">If You Fall Behind</h4>
             <ul>
                 <li><strong>Protect Lab B.</strong> If Lab A overruns, cut it at 10:02 and let stragglers finish tonight &mdash; Step 3 is the one that cannot be reconstructed alone, and the Comparison Post is due at 11:00 PM.</li>
                 <li><strong>Absolute minimum to leave with:</strong> an AI-generated header validated once, and its raw error count written down.</li>

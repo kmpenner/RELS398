@@ -4,272 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RELS 398 / ENGL 398 — Lesson 2.1 Teaching Plan (2026-09-08)</title>
-    <style>
-        :root {
-            --stfx-navy: #002D62;
-            --stfx-gold: #C59B27;
-            --stfx-dark: #0f172a;
-            --stfx-slate: #334155;
-            --stfx-light: #f8fafc;
-            --border-color: #cbd5e1;
-            --accent-green: #065f46;
-            --accent-blue: #1e40af;
-        }
-
-        @page {
-            size: letter;
-            margin: 0.55in 0.55in 0.55in 0.55in;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--stfx-dark);
-            background: #ffffff;
-            line-height: 1.45;
-            font-size: 10.5pt;
-            padding: 1.5rem;
-        }
-
-        .header-box {
-            border-bottom: 3px solid var(--stfx-navy);
-            padding-bottom: 0.8rem;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .header-title h1 {
-            color: var(--stfx-navy);
-            font-size: 18pt;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.2rem;
-        }
-
-        .header-title h2 {
-            color: var(--stfx-gold);
-            font-size: 12pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.3rem;
-        }
-
-        .meta-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            font-size: 9pt;
-            color: var(--stfx-slate);
-        }
-
-        .badge {
-            background: var(--stfx-light);
-            border: 1px solid var(--border-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .badge-done {
-            background: #ecfdf5;
-            border-color: #a7f3d0;
-            color: #065f46;
-        }
-
-        .badge-pending {
-            background: #eff6ff;
-            border-color: #bfdbfe;
-            color: #1e40af;
-        }
-
-        .context-banner {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            border-left: 5px solid var(--stfx-navy);
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            font-size: 9.5pt;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .context-banner strong {
-            color: var(--stfx-navy);
-        }
-
-        .requirement-callout {
-            background: #fefce8;
-            border: 1px solid #fef08a;
-            border-left: 6px solid var(--stfx-gold);
-            padding: 0.8rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .requirement-callout h3 {
-            color: #854d0e;
-            font-size: 11pt;
-            font-weight: 800;
-            margin-bottom: 0.25rem;
-        }
-
-        .requirement-callout p {
-            font-size: 9.5pt;
-            color: #713f12;
-            line-height: 1.4;
-        }
-
-        h3.section-header {
-            color: var(--stfx-navy);
-            font-size: 12pt;
-            font-weight: 800;
-            border-bottom: 1.5px solid var(--border-color);
-            padding-bottom: 0.2rem;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-            font-size: 9.5pt;
-        }
-
-        .schedule-table th {
-            background: var(--stfx-navy);
-            color: #ffffff;
-            text-align: left;
-            padding: 0.45rem 0.6rem;
-            font-weight: 700;
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        .schedule-table td {
-            padding: 0.5rem 0.6rem;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-        }
-
-        .schedule-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-
-        .time-col {
-            width: 16%;
-            font-weight: 700;
-            color: var(--stfx-navy);
-            white-space: nowrap;
-            font-family: ui-monospace, "JetBrains Mono", monospace;
-        }
-
-        .activity-col {
-            width: 28%;
-            font-weight: 700;
-            color: var(--stfx-dark);
-        }
-
-        .desc-col {
-            width: 56%;
-            color: #334155;
-            line-height: 1.35;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .card {
-            background: var(--stfx-light);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            padding: 0.8rem;
-        }
-
-        .card h4 {
-            font-size: 10pt;
-            font-weight: 700;
-            color: var(--stfx-navy);
-            margin-bottom: 0.35rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.2rem;
-        }
-
-        .card ul {
-            padding-left: 1.1rem;
-            font-size: 9pt;
-            color: var(--stfx-slate);
-        }
-
-        .card li {
-            margin-bottom: 0.25rem;
-        }
-
-        .code-box {
-            background: #0f172a;
-            color: #f8fafc;
-            padding: 0.5rem 0.7rem;
-            border-radius: 4px;
-            font-family: ui-monospace, "JetBrains Mono", monospace;
-            font-size: 8.5pt;
-            margin: 0.35rem 0;
-            line-height: 1.35;
-        }
-
-        .code-box .comment {
-            color: #94a3b8;
-        }
-
-        .code-box .highlight {
-            color: var(--stfx-gold);
-            font-weight: 700;
-        }
-
-        @media print {
-            body {
-                padding: 0;
-                font-size: 9.5pt;
-            }
-            .header-box {
-                margin-bottom: 0.6rem;
-            }
-            .requirement-callout {
-                background: #fefce8 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .schedule-table th {
-                background: #002D62 !important;
-                color: #ffffff !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .context-banner {
-                background: #f1f5f9 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
 </head>
-<body>
+<body class="cols-16-28-56 header-split">
 
     <div class="header-box">
         <div class="header-title">
@@ -323,7 +60,7 @@
                 <td class="time-col">08:30 – 08:38<br><small>(8 mins)</small></td>
                 <td>
                     <strong>1. Witness Showcase & The Detective Problem</strong><br>
-                    <small style="color:var(--stfx-slate);">Codicology vs. Barcodes</small>
+                    <small class="c-slate">Codicology vs. Barcodes</small>
                 </td>
                 <td>
                     • <strong>Quick Room Check:</strong> Ask three students to share their chosen artifact: <em>"What repository holds it, what is its shelfmark or call number, and what language is it in?"</em> (Look out for Nova Scotia Archives, Mi'kmaw petitions, StFX 3rd-floor archival manuscripts, or Folger/BL manuscripts).<br>
@@ -334,7 +71,7 @@
                 <td class="time-col">08:38 – 08:50<br><small>(12 mins)</small></td>
                 <td>
                     <strong>2. Anatomy of the Digital Passport</strong><br>
-                    <small style="color:var(--stfx-slate);">Projector Demonstration</small>
+                    <small class="c-slate">Projector Demonstration</small>
                 </td>
                 <td>
                     • <strong>Projector Demo:</strong> Open VS Code on the main display and project an empty XML skeleton.<br>
@@ -350,7 +87,7 @@
                 <td class="time-col">08:50 – 09:12<br><small>(22 mins)</small></td>
                 <td>
                     <strong>3. Hands-On Lab: Authoring <code>witness.xml</code></strong><br>
-                    <small style="color:var(--stfx-slate);">Students Type on Mac Laptops</small>
+                    <small class="c-slate">Students Type on Mac Laptops</small>
                 </td>
                 <td>
                     • <strong>Student Action:</strong> Open VS Code -> File -> Open Folder -> select <code>~/Documents/RELS398</code>.<br>
@@ -365,7 +102,7 @@
                 <td class="time-col">09:12 – 09:20<br><small>(8 mins)</small></td>
                 <td>
                     <strong>4. Git Commit & Wednesday Preview</strong><br>
-                    <small style="color:var(--stfx-slate);">Anchor the Baseline</small>
+                    <small class="c-slate">Anchor the Baseline</small>
                 </td>
                 <td>
                     • <strong>Terminal Git Checkpoint:</strong> Have every student open Terminal and run:<br>
