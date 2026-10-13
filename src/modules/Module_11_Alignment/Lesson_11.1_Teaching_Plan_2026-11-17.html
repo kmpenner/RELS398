@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 11.1 Teaching Plan (2026-11-17)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #28 (Lesson 11.1 &mdash; Manual Sentence Alignment &amp; Interlinear Glossing)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Tuesday, November 17, 2026</span>
+                <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 11 (Alignment) &middot; Meeting 1 of 3</span>
+                <span class="badge">Milestone: VS Code Split Editor, Sentence Linking, &amp; Four-Line Leipzig Glossing</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students have completed ten modules and successfully connected their repositories to GitHub. They understand basic XML structure and git commit hygiene, but they have never attempted bilingual sentence alignment or interlinear linguistic glossing. They need reassuring, visual guidance in VS Code rather than command-line stress.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student opens a two-column split editor in VS Code, numbers ten parallel sentences with <code>xml:id</code> attributes, constructs a valid TEI <code>&lt;linkGrp&gt;</code> standoff block, and authors a complete four-line Leipzig interlinear gloss for three chosen sentences.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Simon &amp; Garfunkel, &ldquo;Bridge over Troubled Water&rdquo;</strong> (1970, Columbia Records). Classic anthem of connection, translation, and building bridges across divides.</li>
+            <li><strong>Pedagogical connection:</strong> Translation alignment builds a permanent digital bridge between historical languages and contemporary readers.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;A translation printed on a facing page asks the reader to build their own mental bridge across the gutter. Today in VS Code, we build that bridge explicitly, linking every sentence and glossing historical grammar word by word.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE ALIGNMENT DIRECTIVE: STANDOFF ARCHITECTURE FOR BILINGUAL EDITIONS</h3>
+        <p>A digital translation is not an inert paraphrase. By encoding sentence correspondences inside a standoff <code>&lt;linkGrp&gt;</code> and applying the Leipzig Glossing Rules, students make every translation decision explicit, verifiable, and computationally accessible.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Use VS Code split editor:</strong> Keep source text on the left pane and translation on the right pane (<code>View &gt; Editor Layout &gt; Two Columns</code>) to prevent cognitive overload.<br>
+        <strong>2. Standoff linking only:</strong> Never paste modern translations directly into the historical manuscript XML tree; preserve both files and link them via <code>&lt;linkGrp&gt;</code>.<br>
+        <strong>3. The hash mark prefix:</strong> Every ID inside a <code>@target</code> attribute must be preceded by a hash mark (<code>target="#s1 #t1"</code>).<br>
+        <strong>4. Strict Leipzig Rule 2:</strong> Use hyphens (<code>-</code>) only for visible morpheme cuts; use periods (<code>.</code>) for fused grammatical categories (e.g. <code>DEF.SG</code> or <code>3SG.PST</code>).<br>
+        <strong>5. Tuesday ground truth baseline:</strong> Today's hand-crafted files (<code>alignment_manual.xml</code> and <code>gloss_manual.xml</code>) establish the gold standard used to audit Wednesday's automated tools and Friday's AI output.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>From Facing Pages to Digital Bitexts</td>
+                <td class="desc-col">
+                    Welcome students. Contrast traditional print facing-page editions with digital parallel bitexts.<br>
+                    Explain why alignment matters: holding editors accountable and creating interactive reading tools.
+                </td>
+                <td class="target-col">Orientation to Topic 11; three-step cycle framing</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Split Editor &amp; TEI Standoff Linking</td>
+                <td class="desc-col">
+                    Demonstrate on projector: opening two files side by side in VS Code via <code>Cmd+\</code> or menu.<br>
+                    Show how to wrap sentences in <code>&lt;s xml:id="s1"&gt;</code> and <code>&lt;s xml:id="t1"&gt;</code>.<br>
+                    Write a clean <code>&lt;linkGrp type="translation-alignment"&gt;</code> with <code>&lt;link target="#s1 #t1"/&gt;</code> in <code>&lt;standOff&gt;</code>.
+                </td>
+                <td class="target-col">Projector demo of two-column layout &amp; link markup</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:46 &ndash; 8:58<br>(12 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Sentence Alignment by Hand</td>
+                <td class="desc-col">
+                    Students set up their split editor with their primary witness and modern translation.<br>
+                    Each student marks ten parallel sentences with unique IDs and constructs their <code>&lt;linkGrp&gt;</code>.<br>
+                    Instructor circulates to check for missing hash marks (<code>#</code>) or 1:N sentence splits.
+                </td>
+                <td class="target-col">10 aligned sentence pairs in <code>alignment_manual.xml</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">8:58 &ndash; 9:12<br>(14 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>Four-Line Leipzig Glossing</td>
+                <td class="desc-col">
+                    Introduce the four vertical tiers: surface text, morpheme breakdown, grammatical gloss, and free translation.<br>
+                    Demonstrate the hyphen vs. period rule (Rule 2) using clear examples from French, colonial English, and vernacular handwriting.<br>
+                    Students author complete four-line glosses for three selected sentences.
+                </td>
+                <td class="target-col">3 four-line glosses in <code>gloss_manual.xml</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">9:12 &ndash; 9:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Ground Truth &amp; Wednesday Preview</td>
+                <td class="desc-col">
+                    Review completed glosses on student screens. Confirm all columns align vertically.<br>
+                    Reassure students on their progress: <em>&ldquo;You just built a linguistic dataset that holds up to international research standards.&rdquo;</em><br>
+                    Preview Wednesday: <em>&ldquo;Tomorrow we introduce automated sentence alignment tools to see if algorithms can match your human judgment.&rdquo;</em>
+                </td>
+                <td class="target-col">Verified ground truth files saved; Wednesday setup</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Focus on aligning 18th-century legal French with modern English; gloss elided articles (<code>l'</code> as <code>DEF.SG</code>), plural noun endings (<code>-s</code>), and third-person past verbs (<code>décrét-a</code> as <code>decree-3SG.PST</code>).</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Focus on aligning informal Maritime vernacular handwriting with regularized modern reading text; gloss colloquial verb forms (e.g. <em>was glad to hear</em>) and informal conjunctions.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Focus on aligning formal colonial treaty articles; gloss modal verbs of obligation (<em>shall be renewed</em>) and passive legal agreements.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_11.2</text></category></question>
+<question type="description"><name><text>01 Content: The Need for Automated Sentence Alignment</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Need for Automated Sentence Alignment</h3>
+<p>Yesterday you aligned historical sentences completely by hand. You matched ten sentence pairs and inspected every word. Doing ten sentences by hand is pleasant and educational. </p>
+<p>However, historical documents are often much longer. A legal code can contain hundreds of pages. A diplomatic registry can span thousands of clauses. Aligning ten thousand sentences by hand would take months of tedious labor.</p>
+<p>This is where computational algorithms help. Computers can compare sentence lengths and vocabulary in seconds. They can propose alignments across vast digital corpora.</p>
+<p>Today we explore Step 2 of the three-step cycle: <strong>deterministic tools</strong>. We will examine how automated algorithms align bilingual sentences, and we will measure their accuracy against your Tuesday manual ground truth.</p>
+<p><strong>Takeaway:</strong> Automated sentence alignment algorithms scale up translation linking across thousands of sentences, freeing human scholars from repetitive manual labor.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The Need for Automated Sentence Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do scholars use automated sentence alignment algorithms when editing historical documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated sentence alignment algorithms scale up translation linking across thousands of sentences, freeing human scholars from repetitive manual labor.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To scale up translation linking across long documents containing hundreds or thousands of sentences.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. While manual alignment is ideal for short passages, automated algorithms allow scholars to process large corpora without months of tedious labor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To permanently replace human editors so no one needs to read the manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Automated tools assist human scholars; they do not replace human editorial judgment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because human scholars are legally forbidden from aligning texts by hand.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Manual alignment is the primary gold standard taught in digital editing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To translate historical languages into binary machine code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alignment links natural language translations, not machine code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: What Does "Deterministic" Mean in Text Alignment?</text></name><questiontext format="html"><text><![CDATA[
+<h3>What Does "Deterministic" Mean in Text Alignment?</h3>
+<p>In computer science, a <strong>deterministic algorithm</strong> follows fixed, transparent mathematical rules. It does not guess. It does not use neural networks or artificial intelligence.</p>
+<p>Key qualities of deterministic tools:</p>
+<ul>
+<li>Given the exact same two text files, the algorithm always produces the exact same alignment.</li>
+<li>Every decision can be traced back to an explicit mathematical calculation.</li>
+<li>The rules are predictable, repeatable, and transparent.</li>
+</ul>
+<p>Deterministic tools are the bedrock of scholarly computing. Because they operate on clear rules, you can understand exactly why an algorithm made a correct link or why it made a mistake.</p>
+<p><strong>Takeaway:</strong> Deterministic tools follow fixed mathematical rules, producing predictable, transparent, and reproducible alignment results.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: What Does "Deterministic" Mean in Text Alignment?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary characteristic of a deterministic alignment algorithm?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Deterministic tools follow fixed mathematical rules, producing predictable, transparent, and reproducible alignment results.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It follows fixed, transparent mathematical rules and always produces the exact same result given the same input.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deterministic tools are fully predictable, transparent, and repeatable, with no hidden neural guessing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It uses artificial intelligence to hallucinate missing words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic algorithms follow explicit mathematical rules rather than generative neural models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It changes its output randomly every time you run it on your computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic means non-random; identical inputs always produce identical outputs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires an expensive commercial software license to execute.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Most deterministic alignment algorithms are open source and freely available.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The Core Intuition: Length-Based Alignment</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Core Intuition: Length-Based Alignment</h3>
+<p>How can a computer match sentences in two different languages without understanding what the words mean?</p>
+<p>In 1993, researchers William Gale and Kenneth Church discovered a fascinating linguistic truth. When humans translate text, sentence length remains remarkably consistent:</p>
+<ul>
+<li>A short source sentence almost always produces a short translated sentence.</li>
+<li>A long source paragraph almost always produces a long translated paragraph.</li>
+<li>Translators rarely turn a five-word clause into a fifty-word speech.</li>
+</ul>
+<p>This insight forms the basis of <strong>length-based sentence alignment</strong> (the Gale-Church algorithm). Instead of reading the words, the computer simply counts characters. It pairs sentences whose character lengths match expected linguistic ratios.</p>
+<p><strong>Takeaway:</strong> Length-based alignment relies on the fact that translated sentences naturally correlate in length with their original source sentences.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The Core Intuition: Length-Based Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What fundamental linguistic observation forms the basis of the Gale-Church length-based alignment algorithm?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Length-based alignment relies on the fact that translated sentences naturally correlate in length with their original source sentences.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Translated sentences naturally correlate in length with their original source sentences.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Gale and Church discovered that long sentences translate into long sentences and short sentences translate into short sentences.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translators always reverse the order of sentences in every chapter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Translations generally follow the chronological order of the source text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All French words have exactly five letters when translated into English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Word lengths vary wildly; overall sentence lengths correlate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Sentences in historical documents can only be aligned if they rhyme.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alignment operates on prose and poetry regardless of rhyme.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Character Counts vs. Word Counts</text></name><questiontext format="html"><text><![CDATA[
+<h3>Character Counts vs. Word Counts</h3>
+<p>Why did Gale and Church count individual characters rather than whole words?</p>
+<p>Languages differ significantly in how they build words:</p>
+<ul>
+<li>Some languages use many short helper words (prepositions, articles, auxiliary verbs).</li>
+<li>Other languages combine concepts into long, inflected compound words.</li>
+<li>English might use three words (<em>in the house</em>) where Latin uses one (<em>domi</em>).</li>
+</ul>
+<p>However, total character length (the number of letters) remains surprisingly stable across European translations. On average, a French sentence has about 1.15 characters for every 1.0 character in its English translation.</p>
+<p>By comparing character counts rather than word counts, length-based algorithms avoid errors caused by differing word-formation habits.</p>
+<p><strong>Takeaway:</strong> Counting characters rather than words provides a more stable baseline for comparing sentence lengths across different languages.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Character Counts vs. Word Counts</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do length-based algorithms like Gale-Church count characters rather than words?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Counting characters rather than words provides a more stable baseline for comparing sentence lengths across different languages.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Character counts provide a more stable ratio across languages with differing word-formation habits.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Languages differ in how many separate words they use to express a concept, but total character count remains remarkably consistent.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Computers cannot count words because spaces are invisible to processors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers easily count spaces, but character counts are linguistically more stable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Word counts are protected by international copyright laws.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Word counts are statistical measurements, not copyrighted property.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Character counts allow the algorithm to ignore vowels entirely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The algorithm counts all characters including vowels and consonants.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Sentence Boundary Detection</text></name><questiontext format="html"><text><![CDATA[
+<h3>Sentence Boundary Detection</h3>
+<p>Before an algorithm can count characters in a sentence, it must know where each sentence starts and ends. This task is called <strong>sentence boundary detection</strong> or <strong>sentence tokenization</strong>.</p>
+<p>To a computer, a text file is just a long ribbon of letters. The computer must search for sentence endings:</p>
+<ul>
+<li>Periods (<code>.</code>), question marks (<code>?</code>), and exclamation points (<code>!</code>).</li>
+<li>Whitespace following the punctuation mark.</li>
+<li>A capital letter starting the next word.</li>
+</ul>
+<p>In modern clean prose, sentence boundary detection is fairly easy. In historical documents, however, punctuation is full of traps.</p>
+<p><strong>Takeaway:</strong> Sentence boundary detection splits raw text into discrete sentence units by identifying terminal punctuation and whitespace.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Sentence Boundary Detection</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary function of sentence boundary detection (sentence tokenization)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Sentence boundary detection splits raw text into discrete sentence units by identifying terminal punctuation and whitespace.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Splitting a continuous ribbon of text into discrete sentence units by identifying terminal punctuation and whitespace.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Sentence splitters search for periods, exclamation marks, question marks, and trailing spaces to divide text into sentences.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting all capital letters from the historical document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Capital letters are preserved and help signal new sentence starts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translating Latin sentences into German syntax.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Sentence tokenization segments text within a single language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Combining all paragraphs into a single continuous line.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Boundary detection divides text into smaller units rather than merging them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Historical Punctuation Traps</text></name><questiontext format="html"><text><![CDATA[
+<h3>Historical Punctuation Traps</h3>
+<p>Historical manuscripts frequently confuse automated sentence splitters.</p>
+<p>Common historical stumbling blocks include:</p>
+<ul>
+<li><strong>Abbreviations:</strong> Periods after titles and shortened words (<em>Mr.</em>, <em>Capt.</em>, <em>art.</em>, <em>décr.</em>) look like sentence endings.</li>
+<li><strong>Archaic Punctuation:</strong> Colon dashes (<code>:-</code>), virgules (<code>/</code>), and raised dots that modern software does not recognize.</li>
+<li><strong>Run-On Legal Syntax:</strong> 18th-century French decrees and English treaties often run for thirty lines without a single period.</li>
+<li><strong>Informal Writing:</strong> Maud Lewis letters often omit periods entirely or use dashes to separate thoughts.</li>
+</ul>
+<p>If the sentence splitter breaks a sentence at the wrong spot, every downstream alignment will fail.</p>
+<p><strong>Takeaway:</strong> Historical abbreviations, non-standard punctuation, and run-on legal clauses can trick automated sentence splitters.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Historical Punctuation Traps</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do historical manuscripts frequently cause automated sentence splitters to fail?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Historical abbreviations, non-standard punctuation, and run-on legal clauses can trick automated sentence splitters.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Periods following abbreviations (like Mr. or art.) and non-standard marks are easily mistaken for sentence endings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Automated tools confuse abbreviation dots and archaic punctuation with true sentence boundaries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Historical scribes only wrote in lowercase letters without any ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical scribes used ink and diverse punctuation systems.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ancient documents dissolve whenever a computer scans them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital surrogates protect physical documents from damage.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Modern software refuses to open documents created before 1900.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Software processes text strings regardless of historical date.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Visualizing the Alignment Matrix</text></name><questiontext format="html"><text><![CDATA[
+<h3>Visualizing the Alignment Matrix</h3>
+<p>To understand how an alignment algorithm works, visualize a two-dimensional grid or <strong>alignment matrix</strong>.</p>
+<p>Imagine a grid:</p>
+<ul>
+<li>Source sentences are listed along the vertical axis (from top to bottom).</li>
+<li>Translation sentences are listed along the horizontal axis (from left to right).</li>
+</ul>
+<p>Each cell in the grid represents a possible pairing between source sentence <code>s</code> and target sentence <code>t</code>.</p>
+<p>If two texts run in the exact same chronological order, the correct alignment forms a diagonal line from the top-left corner down to the bottom-right corner. The algorithm's job is to find the most probable diagonal path across the grid.</p>
+<p><strong>Takeaway:</strong> An alignment matrix plots source sentences against target sentences, where correct correspondences form a diagonal path across the grid.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Visualizing the Alignment Matrix</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a two-dimensional alignment matrix, what visual shape does a correct, chronological alignment typically form?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An alignment matrix plots source sentences against target sentences, where correct correspondences form a diagonal path across the grid.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A diagonal path running from the top-left corner down to the bottom-right corner.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. When two parallel texts proceed in the same chronological order, corresponding sentence pairs form a diagonal path.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A perfect circle in the exact center of the computer screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Text alignment progresses sequentially across axes, not in a circle.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A vertical line along the left margin with no horizontal movement.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That would mean every source sentence mapped to the same single target sentence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A random scatter of dots resembling static noise on a television.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Random scatter indicates completely failed, unaligned text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: The Cost Function: Scoring Sentence Pairs</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Cost Function: Scoring Sentence Pairs</h3>
+<p>How does the computer decide which path across the grid to take? It uses a <strong>cost function</strong>.</p>
+<p>A cost function assigns a mathematical penalty score to every potential cell:</p>
+<ul>
+<li>If the length of source <code>s1</code> matches the expected length of target <code>t1</code>, the penalty score is near zero (an excellent match).</li>
+<li>If <code>s1</code> is twenty characters long and <code>t1</code> is three hundred characters long, the penalty score is very high (an improbable match).</li>
+</ul>
+<p>The algorithm calculates the penalty scores for all possible combinations. It selects the overall path through the grid that has the lowest total penalty.</p>
+<p><strong>Takeaway:</strong> A cost function assigns penalty scores based on length differences, allowing the algorithm to find the path of least resistance.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: The Cost Function: Scoring Sentence Pairs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does a cost function guide an alignment algorithm across the grid?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A cost function assigns penalty scores based on length differences, allowing the algorithm to find the path of least resistance.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It assigns penalty scores based on length differences, allowing the algorithm to find the path of least resistance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Pairs with expected length ratios receive low penalties, while improbable pairings receive high penalties.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It calculates the financial dollar cost of hiring a human translator.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cost in computer science refers to mathematical penalty, not money.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It charges the student five dollars for every error in their XML markup.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cost functions are internal mathematical algorithms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the longest sentence in the document to save memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cost functions score pairs; they do not delete text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Allowing for Structural Shifts</text></name><questiontext format="html"><text><![CDATA[
+<h3>Allowing for Structural Shifts</h3>
+<p>A naive algorithm would only look for simple one-to-one matches down the main diagonal. But real translations contain structural shifts.</p>
+<p>The Gale-Church algorithm considers six possible move types at every step:</p>
+<ul>
+<li><strong>1:1:</strong> One source sentence maps to one target sentence.</li>
+<li><strong>1:2:</strong> One source sentence splits into two target sentences.</li>
+<li><strong>2:1:</strong> Two source sentences merge into one target sentence.</li>
+<li><strong>1:0:</strong> A source sentence was omitted in translation.</li>
+<li><strong>0:1:</strong> A target sentence was added with no source equivalent.</li>
+<li><strong>2:2:</strong> Two source sentences correspond to two target sentences as a combined block.</li>
+</ul>
+<p>The algorithm tests each move type, searching for the lowest penalty score across the whole document.</p>
+<p><strong>Takeaway:</strong> Robust alignment algorithms evaluate multiple move types (including splits and merges) to accommodate translational variations.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Allowing for Structural Shifts</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which move type in the Gale-Church algorithm represents a single source sentence split into two modern translated sentences?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Robust alignment algorithms evaluate multiple move types (including splits and merges) to accommodate translational variations.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A 1:2 alignment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A 1:2 move pairs one source sentence with two target sentences.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A 1:0 alignment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 1:0 represents an omission where text was untranslated.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A 2:1 alignment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 2:1 represents two source sentences merged into one target sentence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A 0:1 alignment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 0:1 represents an added target sentence with no source counterpart.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: The "Domino Effect" in Alignment Slippage</text></name><questiontext format="html"><text><![CDATA[
+<h3>The "Domino Effect" in Alignment Slippage</h3>
+<p>What happens when an automated algorithm makes a single mistake?</p>
+<p>Because the algorithm reads sequentially from beginning to end, a single error can trigger a <strong>domino effect</strong>:</p>
+<ul>
+<li>Suppose the algorithm accidentally aligns source sentence <code>s4</code> with translation <code>t5</code>.</li>
+<li>Every subsequent sentence is now off by one.</li>
+<li>Sentence <code>s5</code> will be incorrectly paired with <code>t6</code>, and <code>s6</code> will be paired with <code>t7</code>.</li>
+</ul>
+<p>This cascading failure continues until the algorithm hits a major structural break or a massive length difference that forces it back on track.</p>
+<p>Recognizing the domino effect is crucial when auditing automated results.</p>
+<p><strong>Takeaway:</strong> A single misalignment can cause a cascading domino effect where all subsequent sentences become shifted by one position.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: The "Domino Effect" in Alignment Slippage</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the "domino effect" in automated sentence alignment?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A single misalignment can cause a cascading domino effect where all subsequent sentences become shifted by one position.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A cascading failure where a single incorrect link causes all subsequent sentence pairs to be shifted by one position.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Because the algorithm reads sequentially, one missed link can throw all following sentences out of alignment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An algorithm that plays board games instead of reading historical texts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Domino effect is a metaphor for cascading sequential errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A feature that automatically adds black and white dots to the XML tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The term describes alignment slippage across sequential text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A crash caused by placing a laptop on an uneven wooden desk.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It refers to data misalignment, not physical hardware balance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Lexical Anchors: Preventing Cascading Errors</text></name><questiontext format="html"><text><![CDATA[
+<h3>Lexical Anchors: Preventing Cascading Errors</h3>
+<p>How do scholars prevent cascading alignment errors? We use <strong>lexical anchors</strong> (also called landmark words or cognates).</p>
+<p>Lexical anchors are words that are easy for computers to identify in both languages:</p>
+<ul>
+<li><strong>Proper Names:</strong> <em>Louis</em>, <em>Halifax</em>, <em>Maud</em>, <em>Kinnear</em>, <em>Chebucto</em>.</li>
+<li><strong>Dates and Numbers:</strong> <em>1752</em>, <em>1791</em>, <em>1967</em>, <em>Article 3</em>.</li>
+<li><strong>Cognates:</strong> Words that look almost identical across languages (<em>constitution</em>, <em>assemblée</em>, <em>nation</em>).</li>
+</ul>
+<p>When the algorithm sees <em>1752</em> in source sentence <code>s8</code> and in translation sentence <code>t8</code>, it locks them together. These anchor points act like pins along the diagonal path, stopping domino errors in their tracks.</p>
+<p><strong>Takeaway:</strong> Lexical anchors like dates, numbers, and proper names provide fixed landmark points that prevent cascading alignment errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Lexical Anchors: Preventing Cascading Errors</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do lexical anchors like dates and proper names prevent cascading alignment errors?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Lexical anchors like dates, numbers, and proper names provide fixed landmark points that prevent cascading alignment errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They act as fixed landmark points that lock specific sentences together and stop domino errors in their tracks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Numbers (1752, 1791) and names (Halifax, Louis) match easily across languages, providing firm anchor points.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They automatically translate all adjectives into modern English slang.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Anchors pin sentence pairs together; they do not alter vocabulary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete all XML tags from the document to simplify the file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Anchors operate within XML sentence structures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They prevent students from editing the text in Visual Studio Code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Anchors assist algorithmic matching without restricting editing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Interactive Alignment Tools: Web GUIs</text></name><questiontext format="html"><text><![CDATA[
+<h3>Interactive Alignment Tools: Web GUIs</h3>
+<p>For beginners, you do not need to write complex command-line scripts in Python to run sentence alignment. The digital humanities community has built excellent interactive web tools.</p>
+<p>Two popular tools include:</p>
+<ul>
+<li><strong>Alpheios Alignment Editor:</strong> An open-source web application where you paste source and target texts. The system proposes initial alignments, and you drag and drop sentences to adjust connections.</li>
+<li><strong>Ugarit Translation Alignment:</strong> A browser-based platform designed for historical languages that exports clean TEI XML.</li>
+</ul>
+<p>These graphical user interfaces (GUIs) let you harness algorithmic power while keeping full visual control over the results.</p>
+<p><strong>Takeaway:</strong> Interactive web tools like Alpheios let scholars run alignment algorithms and manually adjust connections through a visual interface.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Interactive Alignment Tools: Web GUIs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the main benefit of using an interactive web tool like the Alpheios Alignment Editor for beginners?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Interactive web tools like Alpheios let scholars run alignment algorithms and manually adjust connections through a visual interface.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It allows students to run alignment algorithms and adjust connections visually without writing complex command-line scripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Web GUIs provide drag-and-drop visual interfaces that make algorithmic alignment accessible to novices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces Visual Studio Code completely so students never have to look at XML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web tools export clean XML that students inspect and validate in VS Code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically writes the student's final term paper for them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alignment tools assist text linking, not paper drafting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It connects to social media to share student homework publicly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. DH tools focus on scholarship and research privacy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Step-by-Step: Using an Alignment Web GUI</text></name><questiontext format="html"><text><![CDATA[
+<h3>Step-by-Step: Using an Alignment Web GUI</h3>
+<p>Here is the standard workflow when using a web alignment tool:</p>
+<ol>
+<li><strong>Prepare Your Text:</strong> Copy your clean transcription text into your clipboard.</li>
+<li><strong>Paste into Columns:</strong> Open the tool in your web browser. Paste the historical source text on the left and your English translation on the right.</li>
+<li><strong>Run Automatic Splitting:</strong> Click the button to detect sentence boundaries. Verify that the sentence cuts look correct.</li>
+<li><strong>Inspect Initial Links:</strong> Review the algorithm's proposed sentence pairs.</li>
+<li><strong>Drag to Correct:</strong> If you spot a split (1:2) or merge (2:1), drag the sentence boxes together.</li>
+<li><strong>Export TEI XML:</strong> Click export to download your clean <code>&lt;linkGrp&gt;</code> markup.</li>
+</ol>
+<p>This visual workflow avoids terminal friction while producing professional XML data.</p>
+<p><strong>Takeaway:</strong> Web alignment tools follow a simple paste, split, align, adjust, and export workflow that eliminates command-line frustration.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Step-by-Step: Using an Alignment Web GUI</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the standard workflow when using a web-based text alignment tool?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Web alignment tools follow a simple paste, split, align, adjust, and export workflow that eliminates command-line frustration.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Paste texts, detect sentence boundaries, inspect proposed links, drag to correct errors, and export TEI XML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This simple visual workflow allows students to harness automated algorithms while maintaining full editorial control.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete both text files, restart the computer, and retype everything in Latin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web tools process existing transcriptions and translations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Print both files on paper, cut them with scissors, and paste them onto cardboard.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alignment tools operate digitally inside the browser.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Send an email to the university registrar asking for permission to align words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alignment is a standard classroom computational lab exercise.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Translating Tool Output into TEI Standoff Markup</text></name><questiontext format="html"><text><![CDATA[
+<h3>Translating Tool Output into TEI Standoff Markup</h3>
+<p>When you export data from an alignment tool, inspect the resulting XML.</p>
+<p>A clean export produces a standard TEI <code>&lt;linkGrp&gt;</code>:</p>
+<pre><code class="language-xml">&lt;linkGrp type=&quot;sentence-alignment&quot;&gt;
+  &lt;link target=&quot;#s1 #t1&quot;/&gt;
+  &lt;link target=&quot;#s2 #t2&quot;/&gt;
+  &lt;link target=&quot;#s3 #t3 #t4&quot;/&gt;
+&lt;/linkGrp&gt;
+</code></pre>
+<p>Check the exported file against your document:</p>
+<ul>
+<li>Do the IDs in the <code>@target</code> attributes match the <code>xml:id</code> values in your transcription?</li>
+<li>Are the hash marks (<code>#</code>) present on every target?</li>
+<li>Is the <code>&lt;linkGrp&gt;</code> wrapped inside a <code>&lt;standOff&gt;</code> container?</li>
+</ul>
+<p>Understanding the underlying XML ensures you can fix formatting errors easily.</p>
+<p><strong>Takeaway:</strong> Always inspect exported alignment XML to verify that target IDs, hash marks, and standOff containers conform to TEI standards.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Translating Tool Output into TEI Standoff Markup</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When inspecting XML exported from an alignment tool, what should an editor immediately verify?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Always inspect exported alignment XML to verify that target IDs, hash marks, and standOff containers conform to TEI standards.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;That target IDs match declared xml:id attributes, hash marks (#) are present, and the linkGrp is properly placed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Verifying IDs, hash prefixes, and standoff placement ensures exported data integrates cleanly into your project.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That all words have been translated into ancient Classical Greek.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Exported data preserves the languages of your source and translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the XML file contains at least fifty decorative images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. linkGrp files contain text link coordinates, not graphic illustrations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That all sentence tags have been replaced by HTML paragraphs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI scholarly editions use &amp;lt;s&amp;gt; tags and standoff links.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Word-Level Alignment: Beyond the Sentence</text></name><questiontext format="html"><text><![CDATA[
+<h3>Word-Level Alignment: Beyond the Sentence</h3>
+<p>Once sentences are linked, can algorithms align individual words?</p>
+<p>Sentence alignment is relatively easy because sentence order rarely changes. Word alignment is much harder because different languages use radically different word orders:</p>
+<ul>
+<li>In English, adjectives precede nouns (<em>the white cat</em>).</li>
+<li>In French, adjectives often follow nouns (<em>le chat blanc</em>).</li>
+<li>German puts verbs at the very end of subordinate clauses.</li>
+</ul>
+<p>Automated word alignment tools must map complex word shuffles without getting confused by reordered syntax.</p>
+<p><strong>Takeaway:</strong> Word-level alignment is more challenging than sentence alignment because languages frequently invert or reorder words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Word-Level Alignment: Beyond the Sentence</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is word-level alignment significantly more difficult for algorithms than sentence-level alignment?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Word-level alignment is more challenging than sentence alignment because languages frequently invert or reorder words.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Languages frequently invert or reorder words, creating complex non-linear mapping patterns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Sentences usually follow chronological order, but words shuffle (e.g. French adjectives following nouns while English adjectives precede them).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Words are too small for modern computer microprocessors to detect.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers easily process individual characters and words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Word alignment is forbidden by international copyright conventions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Word-level alignment is a standard computational linguistics method.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because all words in historical documents are spelled identically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical spelling variation makes alignment harder, not identical.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Bilingual Dictionaries and Lookup Tables</text></name><questiontext format="html"><text><![CDATA[
+<h3>Bilingual Dictionaries and Lookup Tables</h3>
+<p>How do deterministic tools approach word alignment? They rely on <strong>bilingual dictionaries</strong> and lookup tables.</p>
+<p>A deterministic word aligner checks each word against a dictionary:</p>
+<ul>
+<li>It looks up the French word <em>décret</em> and finds English <em>decree</em>.</li>
+<li>If both words appear in linked sentences <code>s1</code> and <code>t1</code>, it creates a word link.</li>
+<li>It checks inflected forms against a lemmatized vocabulary list.</li>
+</ul>
+<p>When a word appears in the dictionary, alignment is fast and accurate. But when historical spelling diverges from modern dictionaries, the rule-based approach stalls.</p>
+<p><strong>Takeaway:</strong> Deterministic word aligners use bilingual dictionaries to match words across linked sentences, succeeding when vocabulary is standardized.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Bilingual Dictionaries and Lookup Tables</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do deterministic word aligners use bilingual dictionaries to match vocabulary?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Deterministic word aligners use bilingual dictionaries to match words across linked sentences, succeeding when vocabulary is standardized.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They look up source words and match them with target words in corresponding sentences when terms appear in the dictionary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deterministic aligners check standardized vocabulary lists to establish direct lexical correspondences.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They translate entire books automatically using neural deep learning.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic tools use fixed lookup tables, not neural networks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete any word that does not have an exact five-letter English translation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lookup tables handle words of any character length.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They guess the meaning of words by analyzing the student's keystrokes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alignment algorithms analyze text files, not keyboard hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: The Out-of-Vocabulary (OOV) Bottleneck</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Out-of-Vocabulary (OOV) Bottleneck</h3>
+<p>When historical words do not appear in modern dictionaries, we call them <strong>out-of-vocabulary (OOV)</strong> words.</p>
+<p>Historical documents are filled with OOV words:</p>
+<ul>
+<li>Archaic legal terms (<em>assignats</em>, <em>billon</em>, <em>lettres patentes</em>).</li>
+<li>Regional place names (<em>Cobequid</em>, <em>Chebucto</em>, <em>Digby Gut</em>).</li>
+<li>Historical spelling variations (<em>agree-d</em>, <em>compleat</em>, <em>recompence</em>).</li>
+</ul>
+<p>A rule-based dictionary cannot link a word it has never seen. When an algorithm encounters an OOV word, it leaves the word unaligned or guesses incorrectly.</p>
+<p>Human editors must step in to bridge these lexical gaps.</p>
+<p><strong>Takeaway:</strong> Out-of-vocabulary words like archaic spellings and local place names cannot be resolved by standard bilingual dictionaries alone.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: The Out-of-Vocabulary (OOV) Bottleneck</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are out-of-vocabulary (OOV) words in historical digital philology?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Out-of-vocabulary words like archaic spellings and local place names cannot be resolved by standard bilingual dictionaries alone.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Archaic terms, local place names, and spelling variants that do not appear in modern standardized dictionaries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. OOV words cannot be resolved by standard lookup tables because the dictionary lacks records for historical forms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Words that students are forbidden from saying out loud in class.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. OOV is a computational linguistics term for missing dictionary entries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Words that contain more than twenty consonants in a row.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. OOV refers to lexical absence in a reference database, not word length.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;English words that were invented after the year 2000.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. In historical editing, OOV words are typically archaic historical terms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Comparing Manual and Deterministic Results</text></name><questiontext format="html"><text><![CDATA[
+<h3>Comparing Manual and Deterministic Results</h3>
+<p>Now we come to the core pedagogical exercise of our three-step cycle: <strong>the comparative audit</strong>.</p>
+<p>You have two sets of sentence alignments:</p>
+<ol>
+<li><strong>Set A (Your Tuesday Baseline):</strong> Hand-crafted in VS Code, representing verified human judgment.</li>
+<li><strong>Set B (Wednesday's Algorithm):</strong> Produced automatically by length-based alignment software.</li>
+</ol>
+<p>Place both files side by side in VS Code using the two-column split editor. Compare them sentence by sentence. Where did the algorithm agree with your human choices? Where did it make a different choice?</p>
+<p><strong>Takeaway:</strong> Comparing automated algorithmic results against your manual baseline reveals the strengths and weaknesses of computational methods.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Comparing Manual and Deterministic Results</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary objective of comparing your Tuesday manual alignment against Wednesday's automated algorithmic output?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Comparing automated algorithmic results against your manual baseline reveals the strengths and weaknesses of computational methods.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To evaluate the algorithm's accuracy against a verified human gold standard and understand its failure modes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The comparative audit reveals where mathematical formulas succeed and where human intervention remains necessary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To prove that computers are completely useless and should be thrown away.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Algorithms scale up processing speed; auditing teaches how to supervise them effectively.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To force the student to delete their Tuesday manual files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tuesday's manual baseline is preserved as the permanent gold standard.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To see which student can type the fastest in the terminal.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The exercise is a rigorous qualitative and quantitative audit, not a typing speed race.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Calculating Accuracy: Precision and Recall</text></name><questiontext format="html"><text><![CDATA[
+<h3>Calculating Accuracy: Precision and Recall</h3>
+<p>To evaluate the algorithm scientifically, we use two standard metrics: <strong>Precision</strong> and <strong>Recall</strong>.</p>
+<p>Think of them in plain terms:</p>
+<ul>
+<li><strong>Precision:</strong> Out of all the links the algorithm proposed, how many were actually correct?</li>
+<li><strong>Recall:</strong> Out of all the true links that exist in the text, how many did the algorithm manage to find?</li>
+</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Plain English Definition</th>
+      <th>Formula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Precision</strong></td>
+      <td>How reliable are the proposed links?</td>
+      <td>Correct Links / Total Proposed Links</td>
+    </tr>
+    <tr>
+      <td><strong>Recall</strong></td>
+      <td>How complete is the alignment?</td>
+      <td>Correct Links / Total True Links</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Calculating these two percentages gives you an objective measurement of algorithmic quality.</p>
+<p><strong>Takeaway:</strong> Precision measures the accuracy of proposed links, while recall measures how many total true links were captured.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Calculating Accuracy: Precision and Recall</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In text alignment evaluation, what does Precision measure?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Precision measures the accuracy of proposed links, while recall measures how many total true links were captured.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The proportion of proposed links that are genuinely correct (Correct Links / Total Proposed Links).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Precision answers: when the algorithm claimed two sentences matched, how often was it right?&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The physical weight of the manuscript in grams.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Precision is a statistical accuracy metric, not a physical scale measurement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The speed at which the computer processor cooled down after running.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Precision evaluates link correctness, not CPU temperature.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The total number of sentences in the entire French archive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is corpus size, not alignment precision.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Case Study: Auditing Ace's 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study: Auditing Ace's 1791 French Decree</h3>
+<p>Let us see how a length-based algorithm performs on Ace's French Revolutionary decree.</p>
+<p>The French decree contains formal administrative clauses:</p>
+<ul>
+<li>Sentence 1 announces the decree (<em>L'Assemblée Nationale décrète...</em>).</li>
+<li>Sentence 2 is an eighty-word sentence specifying metal currency denominations.</li>
+</ul>
+<p>What happens during automated alignment?</p>
+<ul>
+<li><strong>Success:</strong> Sentence 1 is short in French and short in English. The algorithm scores a clean 1:1 match with 100% precision.</li>
+<li><strong>Failure:</strong> In Sentence 2, the English translator split the eighty-word sentence into two clear English sentences. The length algorithm attempted a 1:1 match and failed.</li>
+</ul>
+<p>Human intervention was required to change the 1:1 link into a 1:2 link.</p>
+<p><strong>Takeaway:</strong> Length-based tools handle simple French clauses easily but struggle when translators split long administrative sentences.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Case Study: Auditing Ace's 1791 French Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did the length-based alignment algorithm struggle on Sentence 2 of Ace's French decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Length-based tools handle simple French clauses easily but struggle when translators split long administrative sentences.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The English translator split an eighty-word French legal sentence into two shorter English sentences (a 1:2 split).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The length algorithm expected a 1:1 ratio and failed when the translator divided the long administrative clause.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because 1791 French decrees were written backwards from right to left.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. French is written left to right; the challenge was sentence splitting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the algorithm crashed whenever it encountered the word assignat.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Length algorithms count characters; they do not crash on specific words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the French National Assembly banned all English translations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The failure was a structural 1:2 translation asymmetry.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Case Study: Auditing Andromeda's 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study: Auditing Andromeda's 1752 Treaty</h3>
+<p>Andromeda's document is the 1752 Peace and Friendship Treaty. It features numbered articles.</p>
+<p>Numbered articles provide a huge advantage for alignment algorithms:</p>
+<ul>
+<li>Every article begins with an explicit label (<em>Article 1</em>, <em>Article 2</em>, <em>Article 3</em>).</li>
+<li>Numbers act as perfect lexical anchors.</li>
+<li>Even if sentence lengths vary, the Roman numerals keep the algorithm on track.</li>
+</ul>
+<p>Because the treaty text has strong structural anchors, the automated alignment achieved nearly 95% precision. </p>
+<p>Structured legal texts with numbered divisions are the easiest genre for automated tools to align.</p>
+<p><strong>Takeaway:</strong> Numbered articles and Roman numerals act as structural anchors that dramatically boost alignment accuracy in legal treaties.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Case Study: Auditing Andromeda's 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did automated alignment achieve exceptionally high accuracy (95%) on Andromeda's 1752 treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Numbered articles and Roman numerals act as structural anchors that dramatically boost alignment accuracy in legal treaties.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Numbered articles and Roman numerals provided unmistakable structural anchors that kept the algorithm aligned.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Numbered headings act like pins along the alignment matrix diagonal, preventing cascading slippage.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the treaty was translated into modern English by an artificial intelligence model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The 1752 treaty is a historical 18th-century English proclamation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the treaty contains only one sentence in total.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty contains multiple articles and extensive legal clauses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because colonial treaties were encoded in XML in 1752.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML was created in the late 1990s.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Case Study: Auditing Olyvia's Maud Lewis Letter</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study: Auditing Olyvia's Maud Lewis Letter</h3>
+<p>Olyvia's document is an informal handwritten letter by Maud Lewis.</p>
+<p>Letters present distinct challenges for length-based algorithms:</p>
+<ul>
+<li>Maud's sentences are brief and conversational (<em>I got your letter. Was glad to hear.</em>).</li>
+<li>Punctuation is sporadic; thoughts flow together without periods.</li>
+<li>In a parallel French translation, colloquial Maritime expressions require longer French phrasing.</li>
+</ul>
+<p>Because the sentence boundaries were ambiguous, the automated sentence splitter struggled. It merged two short thoughts into one block. </p>
+<p>This case demonstrates why personal letters require careful human boundary checking before running automated tools.</p>
+<p><strong>Takeaway:</strong> Informal letters with conversational syntax and sporadic punctuation require human boundary editing before algorithms can succeed.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Case Study: Auditing Olyvia's Maud Lewis Letter</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did automated sentence boundary detection require manual human editing on Olyvia's Maud Lewis letters?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Informal letters with conversational syntax and sporadic punctuation require human boundary editing before algorithms can succeed.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Maud Lewis used informal conversational syntax with sporadic periods, causing the tool to merge distinct thoughts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Informal handwriting and conversational writing lack standard punctuation boundaries, confusing automated splitters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Maud Lewis wrote her letters in secret invisible ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Her letters are written in standard ink on personal stationery.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because letters written in Nova Scotia cannot be read by computers in Canada.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Software operates identically regardless of regional geographic location.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Maud Lewis refused to write letters with more than five words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Her letters feature flowing personal narratives.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Evaluating Non-Isomorphic Alignments</text></name><questiontext format="html"><text><![CDATA[
+<h3>Evaluating Non-Isomorphic Alignments</h3>
+<p>In linguistics, <strong>isomorphism</strong> means having the exact same shape or structure. When two languages share the same sentence structure, alignment is isomorphic.</p>
+<p><strong>Non-isomorphic alignments</strong> occur when two languages express the same meaning using completely different grammatical structures:</p>
+<ul>
+<li>A single French passive participle requires an English subordinate clause with three words.</li>
+<li>A legal idiom in the 1752 treaty requires a full sentence explanation in modern French.</li>
+</ul>
+<p>Deterministic algorithms expect roughly equal ratios. When syntax becomes non-isomorphic, length formulas break down. Documenting these moments teaches us where languages diverge in expressive style.</p>
+<p><strong>Takeaway:</strong> Non-isomorphic structures occur when languages use radically different grammatical forms to express the same thought.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Evaluating Non-Isomorphic Alignments</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What characterizes a non-isomorphic alignment between historical source and target texts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Non-isomorphic structures occur when languages use radically different grammatical forms to express the same thought.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The two languages use radically different grammatical structures to express the same underlying thought.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Non-isomorphism occurs when structural shapes diverge, such as an idiom or single participle requiring a full explanatory clause.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Both texts use the exact same words in the exact same grammatical order.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That describes an isomorphic, word-for-word correspondence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The translation was created on a completely different planet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Non-isomorphic structures reflect natural cross-lingual grammatical divergence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The XML file fails validation because of a missing closing tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Non-isomorphism is a linguistic concept, not an XML syntax error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Pre-Processing Your Texts for Better Alignment</text></name><questiontext format="html"><text><![CDATA[
+<h3>Pre-Processing Your Texts for Better Alignment</h3>
+<p>If you want automated tools to succeed, you should prepare your texts beforehand. This preparation is called <strong>pre-processing</strong>.</p>
+<p>Simple pre-processing steps for novices:</p>
+<ol>
+<li><strong>Clean Up Broken Words:</strong> Remove hyphenated line-end splits from transcription files (<em>fa- / brication</em> becomes <em>fabrication</em>).</li>
+<li><strong>Standardize Abbreviations:</strong> Expand known abbreviations or protect trailing periods (<em>Mr.</em> becomes <code>Mr_</code>).</li>
+<li><strong>Harmonize Paragraphs:</strong> Ensure that both files have the same number of paragraph breaks before running sentence splitters.</li>
+</ol>
+<p>Spending three minutes cleaning text before alignment saves an hour of manual corrections later.</p>
+<p><strong>Takeaway:</strong> Pre-processing text by cleaning line breaks, harmonizing paragraphs, and protecting abbreviations drastically improves alignment accuracy.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Pre-Processing Your Texts for Better Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which simple pre-processing step helps prevent automated sentence splitters from misidentifying sentence endings?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Pre-processing text by cleaning line breaks, harmonizing paragraphs, and protecting abbreviations drastically improves alignment accuracy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Standardizing or protecting abbreviation periods (e.g. converting Mr. to Mr_) before running the splitter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Protecting abbreviation dots ensures the tool only splits text at genuine sentence terminals.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting every capital letter from the entire document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Capital letters help identify sentence boundaries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replacing all spaces with exclamation marks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That would create chaos for tokenization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Printing the file on yellow paper to improve optical contrast.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Pre-processing operates on digital text files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Automated Standoff Generation in Python</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automated Standoff Generation in Python</h3>
+<p>For students interested in how tools work behind the scenes, a simple Python script can generate <code>&lt;linkGrp&gt;</code> markup in seconds.</p>
+<p>Here is the general structure of an alignment script:</p>
+<ol>
+<li>It reads the source file and extracts all elements with <code>xml:id</code> attributes starting with <code>s</code>.</li>
+<li>It reads the translation file and extracts all elements with IDs starting with <code>t</code>.</li>
+<li>It compares character lengths and pairs matching IDs.</li>
+<li>It writes a clean <code>&lt;linkGrp&gt;</code> block to an output file.</li>
+</ol>
+<p>You do not need to write this script today. But knowing that the logic is straightforward demystifies digital tools.</p>
+<p><strong>Takeaway:</strong> Scripted alignment simply automates ID extraction, length comparison, and XML writing into a repeatable loop.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Automated Standoff Generation in Python</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What basic operations does a simple Python alignment script perform to produce TEI markup?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Scripted alignment simply automates ID extraction, length comparison, and XML writing into a repeatable loop.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It extracts sentence IDs from both files, compares their character lengths, and writes paired IDs into a &amp;lt;linkGrp&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Scripted alignment automates extraction, mathematical comparison, and XML generation into a fast, repeatable loop.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It builds a physical robot that types on a mechanical typewriter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Python scripts run digital data processing loops.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates the document into twenty languages using Google Translate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alignment scripts link existing texts; they do not generate machine translations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the user's hard drive after every execution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The script safely writes clean XML markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Saving Your Wednesday Alignment File</text></name><questiontext format="html"><text><![CDATA[
+<h3>Saving Your Wednesday Alignment File</h3>
+<p>Today you will save your verified algorithmic output in your project repository.</p>
+<p>File naming convention:</p>
+<ul>
+<li>File path: <code>alignment_deterministic.xml</code>.</li>
+<li>Location: Your project root folder alongside <code>alignment_manual.xml</code>.</li>
+<li>Content: Your 10-sentence passage with automated links that you have inspected, corrected, and verified.</li>
+</ul>
+<p>In the file header, record any changes you had to make to the algorithm's initial proposal. Documenting your edits shows how human expertise refines computational output.</p>
+<p><strong>Takeaway:</strong> Save your inspected algorithmic output as alignment_deterministic.xml, documenting any corrections made to the computer's proposals.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Saving Your Wednesday Alignment File</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the standard naming convention for your inspected algorithmic alignment output in your project folder?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Save your inspected algorithmic output as alignment_deterministic.xml, documenting any corrections made to the computer's proposals.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;alignment_deterministic.xml&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Saving the file as alignment_deterministic.xml distinguishes the algorithmic output from your Tuesday manual file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;final_everything_done_v2_really_final.txt&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Professional course repositories require standardized, disciplined naming conventions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;my_homework.docx&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All course deliverables are encoded in TEI XML, not Microsoft Word.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;deleted_file.trash&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The file is a permanent course deliverable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Documenting Discrepancies in ALIGNMENT.md</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting Discrepancies in ALIGNMENT.md</h3>
+<p>A scholarly edition does not just publish data; it explains its editorial methodology.</p>
+<p>In your project repository, open <code>ALIGNMENT.md</code> and record your findings:</p>
+<ul>
+<li>Total sentence pairs tested.</li>
+<li>Number of pairs the algorithm got right on the first try.</li>
+<li>Number of pairs that required human correction.</li>
+<li>Calculated Precision and Recall percentages.</li>
+<li>A brief paragraph explaining why the algorithm struggled on specific sentences.</li>
+</ul>
+<p>This reflection document forms part of your semester portfolio.</p>
+<p><strong>Takeaway:</strong> Documenting alignment metrics and failure modes in ALIGNMENT.md provides scholarly transparency for your digital edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Documenting Discrepancies in ALIGNMENT.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What key information should you record in your ALIGNMENT.md reflection document?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Documenting alignment metrics and failure modes in ALIGNMENT.md provides scholarly transparency for your digital edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Total pairs tested, precision and recall percentages, and a qualitative explanation of why the algorithm struggled on specific sentences.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Documenting quantitative metrics and qualitative failure modes ensures scholarly transparency and methodology reporting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The weather forecast for Halifax for the next two weeks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The reflection records textual scholarship and algorithmic performance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A list of every student's favorite pizza toppings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The document is an academic methodology report.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A copy of the entire university course catalogue.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ALIGNMENT.md focuses specifically on your primary witness and alignment findings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Common Novice Pitfalls in Algorithmic Alignment</text></name><questiontext format="html"><text><![CDATA[
+<h3>Common Novice Pitfalls in Algorithmic Alignment</h3>
+<p>When working with automated alignment tools, watch out for these four traps:</p>
+<ol>
+<li><strong>Trusting the Algorithm Blindly:</strong> Assuming that because a computer generated the links, they must be correct. Always verify by eye.</li>
+<li><strong>Ignoring the Domino Effect:</strong> Missing a single shifted link at sentence four, resulting in eight misaligned sentences below it.</li>
+<li><strong>Mismatched IDs After Export:</strong> Exporting generic IDs (<code>src_1</code>, <code>tgt_1</code>) from a web tool that do not match your project's <code>xml:id</code> convention.</li>
+<li><strong>Deleting Punctuation in Pre-Processing:</strong> Accidentally erasing periods needed for sentence splitting while cleaning up text.</li>
+</ol>
+<p>Staying alert to these pitfalls ensures your data remains rigorous.</p>
+<p><strong>Takeaway:</strong> Avoid blind trust in algorithms, check for cascading shifts, and ensure exported IDs match your project's naming conventions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Common Novice Pitfalls in Algorithmic Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is "blind trust" in automated alignment tools dangerous for digital critical editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Avoid blind trust in algorithms, check for cascading shifts, and ensure exported IDs match your project's naming conventions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Algorithms frequently slip on historical abbreviations and split sentences, causing cascading errors that corrupt the edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without careful human verification, automated errors pass unnoticed into the published scholarly record.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because alignment algorithms are programmed by hackers to steal bank passwords.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The tools are scholarly software; the danger is data inaccuracy, not security theft.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because computers are incapable of processing numbers greater than ten.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers excel at mathematics; they struggle with human linguistic nuance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because university professors dislike computers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital methods are taught specifically to harness computational tools with scholarly rigor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: The Limits of Deterministic Tools</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Limits of Deterministic Tools</h3>
+<p>Deterministic tools are fast, transparent, and reproducible. But they have clear limits:</p>
+<ul>
+<li>They do not understand semantics, context, or metaphor.</li>
+<li>They cannot recognize when a translator translated a phrase idiomatically rather than literally.</li>
+<li>They fail when historical spelling is inconsistent or unstandardized.</li>
+</ul>
+<p>A length formula knows that two sentences are fifty characters long. It cannot tell you whether the sentences actually mean the same thing. Human judgment remains irreplaceable.</p>
+<p><strong>Takeaway:</strong> While deterministic tools excel at speed and mathematical transparency, they lack semantic understanding and cannot interpret figurative language.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: The Limits of Deterministic Tools</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What fundamental capability do deterministic alignment tools lack compared to human scholars?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;While deterministic tools excel at speed and mathematical transparency, they lack semantic understanding and cannot interpret figurative language.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They lack semantic understanding and cannot interpret context, figurative language, or idiomatic expressions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deterministic tools compare character lengths mathematically; they do not comprehend the meaning of human words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They cannot run on electricity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers run on electricity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They cannot process text written in the English alphabet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic tools process Latin, Greek, French, and English characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are incapable of saving files to a local hard drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tools easily save data to storage.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Looking Ahead: Step 3 (AI Assistance on Friday)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Looking Ahead: Step 3 (AI Assistance on Friday)</h3>
+<p>Congratulations on completing Step 2 of the alignment cycle!</p>
+<p>Here is how our comparative progression connects:</p>
+<ul>
+<li><strong>Tuesday (Manual):</strong> You authored 10 sentence pairs and three Leipzig glosses by hand (human gold standard).</li>
+<li><strong>Wednesday (Deterministic):</strong> You tested length-based algorithms, inspected alignment matrices, and calculated precision and recall.</li>
+<li><strong>Friday (AI-Assisted):</strong> On Friday, you will use artificial intelligence (Claude and Gemini in VS Code) to propose sentence alignments and Leipzig glosses.</li>
+</ul>
+<p>You will compare all three methods side by side. You will see exactly where statistical rules succeed and where neural AI models provide deeper linguistic insights.</p>
+<p><strong>Takeaway:</strong> Today's deterministic audit bridges manual human scholarship with Friday's AI-assisted alignment tools.</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Looking Ahead: Step 3 (AI Assistance on Friday)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How will Friday's class meeting complete the Three-Step Comparative Cycle for text alignment?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Today's deterministic audit bridges manual human scholarship with Friday's AI-assisted alignment tools.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;You will use artificial intelligence (Claude and Gemini in VS Code) to propose alignments and glosses, comparing all three methods side by side.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Friday introduces AI-assisted alignment, completing the comparative triad: Manual (Tuesday) vs. Deterministic (Wednesday) vs. AI (Friday).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;You will abandon your edition and play video games for the rest of the term.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Friday completes the core methodological cycle of Topic 11.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;You will print your XML file and burn it in a fireplace.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editions are preserved and expanded throughout the semester.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;You will write a paper explaining why Greek is the only language that matters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Our cohort works across French, colonial treaty English, and 20th-century Maritime correspondence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 11.2 Teaching Plan (2026-11-18)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #29 (Lesson 11.2 &mdash; Deterministic Sentence Alignment Tools)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Wednesday, November 18, 2026</span>
+                <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 11 (Alignment) &middot; Meeting 2 of 3</span>
+                <span class="badge">Milestone: Length-Based Alignment, Web GUIs, &amp; Precision/Recall Audit</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            On Tuesday, students hand-aligned ten sentences and authored three Leipzig interlinear glosses, creating their verified ground truth. Today they test automated length-based alignment tools. They understand sentence IDs, but they need to see how algorithms work visually without mathematical intimidation.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student runs an automated alignment tool (Alpheios web editor or Gale-Church script), imports the generated <code>&lt;linkGrp&gt;</code>, inspects and corrects any cascading domino errors, and calculates Precision and Recall against their Tuesday manual ground truth.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Kraftwerk, &ldquo;Autobahn&rdquo;</strong> (1974, Philips / Vertigo). Electronic music pioneer celebrating smooth, automated machine progression along predictable highways.</li>
+            <li><strong>Pedagogical connection:</strong> Deterministic algorithms run smoothly along predictable mathematical tracks, but they need human steering when historical syntax hits a detour.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;Yesterday you walked the path of text alignment by hand, step by step. Today we get onto the algorithmic highway with deterministic sentence alignment.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE COMPARATIVE DIRECTIVE: AUDITING ALGORITHMIC QUALITY</h3>
+        <p>Scholarly digital humanities is not about blindly trusting software. By measuring an algorithm's proposed links against Tuesday's human baseline, students learn to calculate precision and recall, diagnose the cascading domino effect, and supervise automated tools with philological rigor.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Intuitive length explanation:</strong> Explain Gale-Church through character counts and visual ratios, avoiding intimidating calculus or probability notation.<br>
+        <strong>2. Visual GUI first:</strong> Demonstrate interactive web tools (Alpheios or Ugarit) before showing behind-the-scenes scripts so novices maintain confidence.<br>
+        <strong>3. Spotting the domino effect:</strong> Emphasize that a single missed sentence break cascades into following pairs; show students how to identify and reset anchor points.<br>
+        <strong>4. The audit obligation:</strong> Students must compare the algorithmic output against their Tuesday file in a two-column split editor and record discrepancy counts.<br>
+        <strong>5. Save output cleanly:</strong> Exported and verified markup must be saved as <code>alignment_deterministic.xml</code> in the project root.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 &ndash; 10:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Scaling Up to Whole Documents</td>
+                <td class="desc-col">
+                    Welcome students. Review Tuesday's manual ground truth. Ask: <em>&ldquo;How would you align a 300-page historical registry?&rdquo;</em><br>
+                    Introduce Step 2: deterministic algorithms that use character length ratios to pair sentences automatically.
+                </td>
+                <td class="target-col">Class framing; Gale-Church intuition</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:36 &ndash; 10:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Web Alignment &amp; the Domino Effect</td>
+                <td class="desc-col">
+                    Demonstrate on projector: pasting source and translation into the Alpheios Alignment Editor.<br>
+                    Show sentence boundary detection. Point out an abbreviation trap (e.g. <code>art.</code> or <code>Mr.</code>).<br>
+                    Demonstrate the &ldquo;domino effect&rdquo; when a sentence is split 1:2, and show how dragging sentences restores alignment.
+                </td>
+                <td class="target-col">Live projector demonstration of GUI tool</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:46 &ndash; 10:58<br>(12 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Automated Alignment Run</td>
+                <td class="desc-col">
+                    Students paste their primary witness passage and translation into the tool.<br>
+                    Run automatic sentence detection and review proposed alignment pairs.<br>
+                    Students identify any structural shifts (1:2 splits or 2:1 merges) and adjust links visually.
+                </td>
+                <td class="target-col">Corrected alignment pairs in web interface</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:58 &ndash; 11:12<br>(14 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>Side-by-Side Audit &amp; Metrics</td>
+                <td class="desc-col">
+                    Students export TEI XML to <code>alignment_deterministic.xml</code>.<br>
+                    Open Tuesday's <code>alignment_manual.xml</code> and today's <code>alignment_deterministic.xml</code> side by side in VS Code.<br>
+                    Count agreements and disagreements. Calculate Precision (Correct / Proposed) and Recall (Correct / True).
+                </td>
+                <td class="target-col">Calculated Precision and Recall metrics</td>
+            </tr>
+            <tr>
+                <td class="time-col">11:12 &ndash; 11:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Methodology Log &amp; Friday Preview</td>
+                <td class="desc-col">
+                    Students record their metrics and error notes in <code>ALIGNMENT.md</code>.<br>
+                    Highlight cohort findings: Ace's legal splits, Andromeda's numbered articles, Olyvia's conversational punctuation.<br>
+                    Preview Friday: <em>&ldquo;On Friday we ask AI models to generate bilingual links and glosses to see if neural tools outperform length formulas.&rdquo;</em>
+                </td>
+                <td class="target-col"><code>ALIGNMENT.md</code> logged; Friday setup</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Check sentence boundary detection around legal abbreviations (<code>décr.</code>, <code>art.</code>); observe how the algorithm handles long administrative clauses split 1:2 in English.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Verify how numbered articles (Article 1, 2, 3) serve as unbreakable lexical anchors, maintaining near 95% automated precision.</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Check for punctuation boundary slips in informal handwriting; manually separate merged conversational clauses before exporting TEI links.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_11.3</text></category></question>
+<question type="description"><name><text>01 Content: Entering Step 3: AI-Assisted Text Alignment</text></name><questiontext format="html"><text><![CDATA[
+<h3>Entering Step 3: AI-Assisted Text Alignment</h3>
+<p>This week we have explored two very different methods for aligning historical texts. On Tuesday, you aligned sentences and authored Leipzig glosses completely by hand. On Wednesday, you tested automated length-based algorithms.</p>
+<p>Today is Friday, Meeting #30. We arrive at Step 3 of our comparative cycle: <strong>artificial intelligence</strong>.</p>
+<p>Large language models (such as Claude and Gemini) possess extensive training in multilingual grammar. Unlike simple length formulas, AI models understand syntax, vocabulary, and context. They can analyze historical French verbs, colonial treaty clauses, and informal English correspondence.</p>
+<p>Today you will prompt an AI model directly inside VS Code to propose sentence alignments and four-line Leipzig glosses. Then you will conduct a rigorous audit against your Tuesday ground truth.</p>
+<p><strong>Takeaway:</strong> AI models bring semantic and grammatical understanding to alignment, offering powerful assistance that must be audited against human expertise.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Entering Step 3: AI-Assisted Text Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What distinctive capability do neural AI models bring to text alignment that simple length formulas lack?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models bring semantic and grammatical understanding to alignment, offering powerful assistance that must be audited against human expertise.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Deep semantic and grammatical understanding of multilingual syntax, vocabulary, and context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Unlike length-based formulas, AI models understand grammatical structure and can recognize relationships across complex reordered translations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The ability to print physical books without using electricity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models run computationally in digital environments.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A legal guarantee that all generated text is 100% free of errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models frequently make subtle errors and require rigorous human auditing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Automatic deletion of all historical French and Latin vocabulary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models analyze multilingual historical vocabulary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: How AI Differs from Deterministic Algorithms</text></name><questiontext format="html"><text><![CDATA[
+<h3>How AI Differs from Deterministic Algorithms</h3>
+<p>It is important to understand how neural AI models differ from Wednesday's deterministic tools:</p>
+<ul>
+<li><strong>Deterministic Tools:</strong> Follow rigid mathematical length formulas. They do not know what words mean. They never hallucinate, but they break when sentence structures shift.</li>
+<li><strong>AI Models:</strong> Predict probable linguistic patterns based on vast multilingual training data. They understand grammar and semantics, but they can occasionally invent false facts.</li>
+</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>How It Operates</th>
+      <th>Primary Risk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Manual (Tuesday)</strong></td>
+      <td>Human philological expertise.</td>
+      <td>Slow; human fatigue on long texts.</td>
+    </tr>
+    <tr>
+      <td><strong>Deterministic (Wed)</strong></td>
+      <td>Character length formulas.</td>
+      <td>Cascading domino errors on sentence splits.</td>
+    </tr>
+    <tr>
+      <td><strong>AI-Assisted (Friday)</strong></td>
+      <td>Neural pattern prediction.</td>
+      <td>Hallucinated grammatical categories and tags.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Understanding these differences helps you choose the right tool for each editorial task.</p>
+<p><strong>Takeaway:</strong> While deterministic tools rely on fixed length calculations, AI models predict linguistic patterns and require supervision against hallucinations.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: How AI Differs from Deterministic Algorithms</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is a primary operational difference between deterministic tools and neural AI models?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;While deterministic tools rely on fixed length calculations, AI models predict linguistic patterns and require supervision against hallucinations.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Deterministic tools follow fixed mathematical formulas without guessing, while AI models predict probable linguistic patterns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deterministic tools never hallucinate but struggle with shifted syntax; AI models understand syntax but can invent non-standard facts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deterministic tools only work on mobile phones, while AI models only run on supercomputers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both tools run on standard laptop computers in VS Code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deterministic tools require internet access, while AI models require paper index cards.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic scripts run offline locally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;AI models are completely incapable of processing English text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models excel at processing English and multilingual text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: AI Inside Visual Studio Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>AI Inside Visual Studio Code</h3>
+<p>In RELS 398, you do not need to switch back and forth to an external web browser chat. You can interact with AI assistants directly inside Visual Studio Code.</p>
+<p>Using AI in your editor offers major advantages:</p>
+<ul>
+<li><strong>Direct File Context:</strong> The AI can see your open source XML and translation files simultaneously.</li>
+<li><strong>Inline Diff Views:</strong> You can review AI suggestions in a split screen before accepting them into your document.</li>
+<li><strong>No File Copying:</strong> You do not have to copy and paste sensitive historical files into third-party websites.</li>
+</ul>
+<p>Having the AI embedded in your workspace makes the comparative audit fast and comfortable.</p>
+<p><strong>Takeaway:</strong> Working with AI directly inside VS Code allows you to review suggestions in split editor diff views without leaving your workspace.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: AI Inside Visual Studio Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is working with AI assistants directly inside VS Code advantageous for digital editors?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Working with AI directly inside VS Code allows you to review suggestions in split editor diff views without leaving your workspace.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It allows editors to review suggestions in side-by-side diff views with direct file context, avoiding external copy-pasting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Embedded AI tools inspect open workspace files directly and allow students to accept or reject diffs cleanly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically locks the laptop keyboard so students cannot type.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code empowers students to edit and control their text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It sends all student grades directly to social media.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code is a secure, private development environment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the user's local Git repository to save storage space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code integrates with Git to preserve version control.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Prompt Engineering for Structured Alignment</text></name><questiontext format="html"><text><![CDATA[
+<h3>Prompt Engineering for Structured Alignment</h3>
+<p>AI models are conversational by default. If you ask an AI casually to "align these sentences," it might write a chatty paragraph or invent its own informal formatting.</p>
+<p>To produce scholarly data, you must write a <strong>structured system prompt</strong>:</p>
+<ul>
+<li>Define its exact role: "You are an expert computational philologist and TEI XML specialist."</li>
+<li>Specify the input files: Provide the exact source text with <code>xml:id</code> attributes.</li>
+<li>Define the output format: Demand a valid TEI <code>&lt;linkGrp&gt;</code> element with no conversational filler.</li>
+<li>State explicit constraints: Forbid the model from skipping sentences or inventing extra IDs.</li>
+</ul>
+<p>Clear instructions produce clean, valid XML markup.</p>
+<p><strong>Takeaway:</strong> Structured prompts with explicit roles, input boundaries, and output formats force AI models to generate clean, valid TEI markup.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Prompt Engineering for Structured Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must editors provide structured system prompts rather than casual chat requests when generating TEI markup?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Structured prompts with explicit roles, input boundaries, and output formats force AI models to generate clean, valid TEI markup.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To force the AI to produce well-formed XML data and prevent conversational filler or unrequested formatting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Structured prompts specify role, exact input boundaries, schema rules, and expected XML tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because AI models become angry if you speak to them casually.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models do not have feelings; structured prompts ensure machine-readable data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because casual prompts cause the computer's fan to stop spinning.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prompt structure affects text generation, not cooling hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI guidelines require prompts to be written in rhyming verse.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prompts are written in clear, concise technical English.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Prompting for Four-Line Leipzig Glosses</text></name><questiontext format="html"><text><![CDATA[
+<h3>Prompting for Four-Line Leipzig Glosses</h3>
+<p>Prompting for Leipzig interlinear glosses requires even stricter guidelines. The model must maintain perfect vertical column alignment across four distinct lines.</p>
+<p>In your prompt, specify the four required tiers:</p>
+<ol>
+<li><code>Line 1</code>: Exact historical surface text (no modernized spelling).</li>
+<li><code>Line 2</code>: Morpheme breakdown with hyphens (<code>-</code>).</li>
+<li><code>Line 3</code>: Uppercase grammatical labels and lowercase lexical roots.</li>
+<li><code>Line 4</code>: Fluent English translation in quotation marks.</li>
+</ol>
+<p>Add a strict formatting rule:</p>
+<ul>
+<li>"Every word in Line 1 must correspond to exactly one vertical column in Line 2 and Line 3."</li>
+<li>"Separate columns with multiple spaces so they align visually on screen."</li>
+</ul>
+<p>Giving the AI a concrete template prevents shifted columns.</p>
+<p><strong>Takeaway:</strong> Prompting for Leipzig glosses requires demanding four synchronized tiers, standard uppercase tags, and preserved historical surface orthography.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Prompting for Four-Line Leipzig Glosses</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What critical formatting constraint must be emphasized when prompting an AI for Leipzig glosses?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Prompting for Leipzig glosses requires demanding four synchronized tiers, standard uppercase tags, and preserved historical surface orthography.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Demanding that every word in Line 1 correspond to exactly one vertical column in Line 2 and Line 3.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Forcing strict column synchronization prevents horizontal shifting and maintains morpheme-by-morpheme alignment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Demanding that all four lines be translated into modern Spanish.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Leipzig glosses analyze the primary source language using standard grammatical tags and an English translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Instructing the AI to delete all vowels from the historical text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical spelling must be fully preserved.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Requiring that every sentence be exactly one hundred words long.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Sentence lengths vary according to the historical witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Negative Constraints: What to Forbid</text></name><questiontext format="html"><text><![CDATA[
+<h3>Negative Constraints: What to Forbid</h3>
+<p>In prompt engineering, what you forbid is often more important than what you request. These restrictions are called <strong>negative constraints</strong>.</p>
+<p>Essential negative constraints for linguistic alignment:</p>
+<ul>
+<li><strong>Do NOT modernize Line 1:</strong> Forbid the AI from silently fixing historical spelling or removing archaic accents.</li>
+<li><strong>Do NOT use hyphens for portmanteaux:</strong> Remind the AI to follow Rule 2 (use periods <code>.</code> for fused grammatical categories).</li>
+<li><strong>Do NOT hallucinate Latin or Greek roots:</strong> Ensure the AI glosses the actual words on the page rather than classical roots from unrelated languages.</li>
+<li><strong>Do NOT skip difficult words:</strong> The AI must gloss every historical token.</li>
+</ul>
+<p>Negative constraints act like guardrails, keeping the AI focused on rigorous scholarship.</p>
+<p><strong>Takeaway:</strong> Negative constraints prevent the AI from modernizing historical spelling, hallucinating classical roots, or violating Leipzig punctuation rules.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Negative Constraints: What to Forbid</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the function of negative constraints in prompt engineering for digital editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Negative constraints prevent the AI from modernizing historical spelling, hallucinating classical roots, or violating Leipzig punctuation rules.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They establish explicit boundaries that forbid the AI from modernizing spelling, hallucinating roots, or skipping words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Negative constraints act like guardrails, preventing models from committing common generative errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They prevent students from asking questions in classroom discussions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Negative constraints apply to AI prompts, not human students.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They force the computer to shut down if an error occurs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Constraints guide text generation within the AI model.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete negative numbers from financial spreadsheets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Negative constraints are prompt instructions that forbid specific behaviors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: AI Failure Mode 1: Silent Modernization</text></name><questiontext format="html"><text><![CDATA[
+<h3>AI Failure Mode 1: Silent Modernization</h3>
+<p>The most common mistake modern AI models make is <strong>silent modernization</strong>.</p>
+<p>AI models are trained on billions of modern web pages. Consequently, they have a powerful bias toward contemporary spelling:</p>
+<ul>
+<li>In Ace's 1791 French decree, the AI might change 18th-century <em>décréta</em> to modern <em>décrète</em>.</li>
+<li>In Andromeda's 1752 treaty, it might modernize <em>agree-d</em> to <em>agreed</em> or <em>compleat</em> to <em>complete</em>.</li>
+<li>In Maud Lewis's letter, it might correct informal colloquialisms into stiff formal English.</li>
+</ul>
+<p>In a digital critical edition, silent modernization is an editorial crime. Line 1 must always reflect the authentic historical witness.</p>
+<p><strong>Takeaway:</strong> AI models naturally bias toward modern spelling; editors must audit Line 1 to ensure historical orthography was not silently altered.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: AI Failure Mode 1: Silent Modernization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is "silent modernization" in AI-assisted textual editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models naturally bias toward modern spelling; editors must audit Line 1 to ensure historical orthography was not silently altered.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;When an AI model automatically and unnoticed alters historical orthography into contemporary standard spelling in Line 1.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. AI models naturally bias toward modern web spelling, frequently smoothing over archaic spellings unless audited by an editor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When an author purchases a new laptop without telling the instructor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Silent modernization refers to unauthorized alteration of historical text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When a manuscript fades over centuries due to sunlight exposure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is physical degradation, not editorial modernization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When an XML parser changes all font sizes to twelve points.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It refers to spelling alterations in the text stream.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: AI Failure Mode 2: The Portmanteau Confusion (Rule 2)</text></name><questiontext format="html"><text><![CDATA[
+<h3>AI Failure Mode 2: The Portmanteau Confusion (Rule 2)</h3>
+<p>The second common AI error involves Leipzig Rule 2: confusing hyphens (<code>-</code>) and periods (<code>.</code>).</p>
+<p>AI models frequently make this mistake:</p>
+<ul>
+<li>They see the French third-person singular past verb <em>parla</em>.</li>
+<li>Instead of writing <code>speak-3SG.PST</code> with periods, they write <code>speak-3-SG-PST</code> with hyphens.</li>
+<li>This implies that <em>3</em>, <em>SG</em>, and <em>PST</em> are three separate physical letters that can be cut apart with scissors.</li>
+</ul>
+<p>In French and English inflected forms, these categories are fused together in a single ending. You must manually correct hyphens to periods in Line 3.</p>
+<p><strong>Takeaway:</strong> AI models often use hyphens instead of periods for fused grammatical features, violating Leipzig Rule 2.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: AI Failure Mode 2: The Portmanteau Confusion (Rule 2)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do AI models commonly violate Leipzig Rule 2 in Line 3 of an interlinear gloss?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models often use hyphens instead of periods for fused grammatical features, violating Leipzig Rule 2.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They use hyphens instead of periods for fused grammatical categories (e.g. writing speak-3-SG-PST instead of speak-3SG.PST).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Hyphens imply physical morpheme cuts; periods must be used when multiple categories belong to an indivisible ending.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They replace all words with exclamation marks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The error is punctuation confusion between hyphens and periods.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They write all grammatical labels in lowercase cursive font.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models usually use uppercase, but misapply hyphens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete Line 3 entirely and refuse to write it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models generate Line 3 but frequently violate Rule 2 punctuation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: AI Failure Mode 3: Hallucinated Grammatical Tags</text></name><questiontext format="html"><text><![CDATA[
+<h3>AI Failure Mode 3: Hallucinated Grammatical Tags</h3>
+<p>Large language models are probabilistic text generators. When they encounter an unfamiliar historical word, they sometimes invent plausible-sounding grammatical labels.</p>
+<p>Examples of <strong>hallucinated tags</strong>:</p>
+<ul>
+<li>Labeling an ordinary English preposition as an ancient Greek particle (<code>PRT.HES</code>).</li>
+<li>Inventing complex case labels (like <code>ABL.LOC.INSTR</code>) that do not exist in French.</li>
+<li>Mistaking a proper personal name for a Latin verb.</li>
+</ul>
+<p>When auditing Line 3, check every uppercase label against the official Leipzig list. If a tag looks unfamiliar, verify it in the standard guidelines.</p>
+<p><strong>Takeaway:</strong> AI models occasionally invent plausible but non-standard grammatical abbreviations, requiring human verification against standard Leipzig lists.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: AI Failure Mode 3: Hallucinated Grammatical Tags</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should an editor do when an AI model proposes an unfamiliar uppercase tag in Line 3?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models occasionally invent plausible but non-standard grammatical abbreviations, requiring human verification against standard Leipzig lists.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Verify the abbreviation against the official Leipzig Glossing Rules list and replace it if it is non-standard.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. AI models occasionally invent plausible-sounding but non-existent tags; human verification against official lists is essential.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Assume the AI is smarter than all human linguists and accept the tag without checking.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editing requires empirical verification, not blind trust.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the entire TEI document and drop out of university.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Catching and correcting AI mistakes is the core learning objective.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Change the tag to a random emoji symbol.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly XML avoids informal symbols.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: AI Failure Mode 4: Word Order and Pronoun Enclisis</text></name><questiontext format="html"><text><![CDATA[
+<h3>AI Failure Mode 4: Word Order and Pronoun Enclisis</h3>
+<p>In historical languages, pronouns and clitics often attach to verbs in complex ways. In French, pronouns invert in questions and legal formulas (<em>dit-il</em>, <em>donnez-moi</em>).</p>
+<p>When an AI attempts word-by-word alignment:</p>
+<ul>
+<li>It often stumbles on inverted pronouns.</li>
+<li>It may gloss the verb correctly but drop the attached pronoun completely.</li>
+<li>Or it might swap the order of the glosses, causing vertical columns to collapse.</li>
+</ul>
+<p>Watching for attached pronouns and clitics is essential when auditing Romance and Indigenous language alignments.</p>
+<p><strong>Takeaway:</strong> Inverted pronouns, clitics, and irregular word orders frequently cause AI models to drop tokens or shift alignment columns.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: AI Failure Mode 4: Word Order and Pronoun Enclisis</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do inverted pronouns and clitics in French (such as dit-il or donnez-moi) challenge AI word alignment?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Inverted pronouns, clitics, and irregular word orders frequently cause AI models to drop tokens or shift alignment columns.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They alter standard word order and attach to verbs, causing models to drop pronouns or shift alignment columns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Non-linear attachment and clitic inversion frequently cause generative models to lose column synchronization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because French pronouns were outlawed during the French Revolution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Pronouns remained in active use in revolutionary decrees.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because pronouns have no grammatical meaning in Romance languages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Pronouns carry essential person, number, and case information.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because clitics cannot be typed on a standard computer keyboard.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Clitics are standard alphabetic characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: The Three-Way Comparative Audit</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Three-Way Comparative Audit</h3>
+<p>Today you will assemble all three versions of your text alignment side by side:</p>
+<ol>
+<li><strong>Version A (Tuesday Manual):</strong> Your verified human gold standard.</li>
+<li><strong>Version B (Wednesday Deterministic):</strong> Length-based Gale-Church algorithm.</li>
+<li><strong>Version C (Friday AI):</strong> Neural model proposed links and glosses.</li>
+</ol>
+<p>In VS Code, you can open three editor columns or compare files side by side. </p>
+<p>Comparing all three versions simultaneously provides deep insight. You will see where simple mathematics succeeded, where neural models excelled, and where human judgment was required to resolve difficult passages.</p>
+<p><strong>Takeaway:</strong> The three-way comparative audit compares manual, deterministic, and AI-assisted outputs side by side to reveal the unique profile of each method.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: The Three-Way Comparative Audit</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the three components compared in Friday's three-way comparative audit?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The three-way comparative audit compares manual, deterministic, and AI-assisted outputs side by side to reveal the unique profile of each method.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Version A (Tuesday Manual), Version B (Wednesday Deterministic), and Version C (Friday AI).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Comparing human baseline, mathematical algorithm, and neural model side by side reveals the unique strengths and limits of each approach.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;English, Spanish, and Italian print editions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The audit compares three computational methods applied to the student's primary witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Word, Excel, and PowerPoint files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The files are TEI XML documents in the course repository.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Breakfast, lunch, and dinner menus.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The audit evaluates textual alignment data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Case Study: AI on Ace's 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study: AI on Ace's 1791 French Decree</h3>
+<p>Let us examine how Claude and Gemini perform on Ace's 1791 French decree (<em>Loi relative à la fabrication des assignats</em>).</p>
+<p>Key findings from the AI test:</p>
+<ul>
+<li><strong>Sentence Alignment:</strong> Unlike the length formula, the AI easily recognized that the eighty-word sentence was split into two English sentences. It proposed a clean 1:2 link with 100% precision.</li>
+<li><strong>Leipzig Glossing:</strong> The AI successfully identified French grammatical gender (<code>F.SG</code> on <em>nationale</em>).</li>
+<li><strong>Failure Point:</strong> In Line 1, the AI silently removed the space in <code>L' Assemblée</code>, changing it to modern <code>L'Assemblée</code>. </li>
+</ul>
+<p>Ace had to restore the historical spacing to keep Line 1 faithful to the 1791 print witness.</p>
+<p><strong>Takeaway:</strong> AI models handle complex 1:2 sentence splits effortlessly, but they require oversight to preserve historical spacing and orthography.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Case Study: AI on Ace's 1791 French Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What was a major strength of the AI model when aligning Ace's French decree compared to Wednesday's length formula?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models handle complex 1:2 sentence splits effortlessly, but they require oversight to preserve historical spacing and orthography.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It understood semantics and easily recognized that an eighty-word French legal sentence was split into two English sentences (a 1:2 split).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Neural AI models comprehend semantic meaning across clauses, handling complex structural splits effortlessly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically printed paper assignat bank notes on Ace's desk.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model processes digital text, not physical currency.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It refused to process any text written before 1800.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model processed the 1791 revolutionary text successfully.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaced the French law with an American constitution clause.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model aligned the authentic French decree text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Case Study: AI on Andromeda's 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study: AI on Andromeda's 1752 Treaty</h3>
+<p>Andromeda tested the AI models on the formal legal clauses of the 1752 Peace and Friendship Treaty.</p>
+<p>Results from the treaty test:</p>
+<ul>
+<li><strong>Sentence Alignment:</strong> The AI successfully matched all numbered treaty articles. It also recognized formal preamble language that the length formula struggled with.</li>
+<li><strong>Linguistic Glossing:</strong> The AI accurately glossed modal auxiliaries (<em>shall</em> as <code>OBLIG</code> or <code>FUT</code>) and passive participles (<em>renew-ed</em> as <code>renew-PST.PTCP</code>).</li>
+<li><strong>Failure Point:</strong> In Line 3, the AI glossed archaic colonial spellings by inventing fake Latin root names.</li>
+</ul>
+<p>Andromeda corrected the roots to plain English vocabulary (<em>agree</em>, <em>treaty</em>, <em>peace</em>).</p>
+<p><strong>Takeaway:</strong> AI models excel at analyzing formal treaty syntax and passive verbs, but editors must ensure roots remain in accessible English.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Case Study: AI on Andromeda's 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What failure mode did Andromeda catch when testing AI models on the 1752 Peace and Friendship Treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models excel at analyzing formal treaty syntax and passive verbs, but editors must ensure roots remain in accessible English.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The AI attempted to invent fake Latin root names for archaic colonial English spellings in Line 3.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Andromeda intervened to replace the hallucinated roots with standard, accessible English vocabulary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The AI deleted all references to the province of Nova Scotia.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The AI preserved place names but struggled with lexical root naming.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The AI translated the treaty into modern computer programming code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model produced linguistic glosses, but with classical hallucinations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The AI refused to open the file because it was too peaceful.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models process treaty texts without ideological objections.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Case Study: AI on Olyvia's Maud Lewis Letters</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study: AI on Olyvia's Maud Lewis Letters</h3>
+<p>Olyvia prompted the AI to align Maud Lewis's 1967 personal letters with a parallel modern French translation.</p>
+<p>Observations from the folk art test:</p>
+<ul>
+<li><strong>Informal Syntax:</strong> The AI easily handled Maud's conversational clauses without getting confused by missing periods.</li>
+<li><strong>Dialectal Nuance:</strong> The AI recognized regional Maritime expressions (such as <em>was glad to hear</em>) and produced an idiomatic French translation.</li>
+<li><strong>Failure Point:</strong> The AI attempted to "correct" Maud's grammar in Line 1, replacing her colloquial phrasing with formal prose.</li>
+</ul>
+<p>Olyvia rejected the AI's grammatical corrections, preserving Maud Lewis's authentic voice as an artist.</p>
+<p><strong>Takeaway:</strong> While AI translates vernacular English smoothly, editors must protect the authentic voice of personal correspondence from AI over-correction.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Case Study: AI on Olyvia's Maud Lewis Letters</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did Olyvia reject the AI's grammatical alterations in Line 1 of her Maud Lewis letter gloss?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;While AI translates vernacular English smoothly, editors must protect the authentic voice of personal correspondence from AI over-correction.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The AI attempted to "correct" Maud Lewis's informal conversational phrasing into formal prose, erasing her authentic artistic voice.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Human editors must protect historical and vernacular voices from AI normalization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Maud Lewis requested that no computers ever read her writing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Maud Lewis passed away in 1970 before personal computers existed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the AI refused to generate a French translation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The AI generated a translation, but over-corrected the source text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because personal letters are not allowed to contain verbs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Letters naturally contain verbs and expressive language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Measuring AI Performance: A Three-Way Scorecard</text></name><questiontext format="html"><text><![CDATA[
+<h3>Measuring AI Performance: A Three-Way Scorecard</h3>
+<p>To complete your comparative audit, build a summary scorecard in your notes:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Evaluation Metric</th>
+      <th>Manual (Tue)</th>
+      <th>Deterministic (Wed)</th>
+      <th>AI-Assisted (Fri)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sentence Precision</strong></td>
+      <td>100% (Gold Standard)</td>
+      <td>85% – 95% (Shift on splits)</td>
+      <td>95% – 100% (Handles splits)</td>
+    </tr>
+    <tr>
+      <td><strong>Execution Speed</strong></td>
+      <td>Slow (45 mins)</td>
+      <td>Instant (1 second)</td>
+      <td>Fast (10 seconds)</td>
+    </tr>
+    <tr>
+      <td><strong>Grammar Depth</strong></td>
+      <td>High (Careful glosses)</td>
+      <td>None (Length only)</td>
+      <td>High (Needs Rule 2 audit)</td>
+    </tr>
+    <tr>
+      <td><strong>Orthographic Fidelity</strong></td>
+      <td>100% (Exact witness)</td>
+      <td>100% (Unchanged)</td>
+      <td>85% (Biased toward modern)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This scorecard clearly shows the trade-offs of each method.</p>
+<p><strong>Takeaway:</strong> A comparative scorecard documents precision, speed, depth, and orthographic fidelity across all three alignment approaches.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Measuring AI Performance: A Three-Way Scorecard</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;According to our three-way evaluation scorecard, what is a primary trade-off of neural AI models compared to manual editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A comparative scorecard documents precision, speed, depth, and orthographic fidelity across all three alignment approaches.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;AI is dramatically faster and grammatically capable, but has lower orthographic fidelity due to modern spelling biases.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. AI models process text in seconds but require vigilant auditing to prevent silent modernization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;AI models are completely free of all errors and require zero human checking.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models frequently make subtle errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Manual editing is ten times faster than running a computer algorithm.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Manual editing is slow and deliberate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deterministic tools produce more hallucinations than generative AI models.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic tools follow fixed formulas and never hallucinate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Synthesizing the Reconciled Alignment File</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesizing the Reconciled Alignment File</h3>
+<p>Now you will create your final alignment deliverable: <code>alignment_reconciled.xml</code>.</p>
+<p>How to synthesize your reconciled file:</p>
+<ol>
+<li>Start with your clean TEI document structure.</li>
+<li>Adopt the sentence pairings that were verified across both manual and AI runs.</li>
+<li>Where the AI proposed a better handling of a 1:2 split, adopt the AI's link.</li>
+<li>Where the AI hallucinated or modernized spelling, enforce your manual ground truth.</li>
+<li>Ensure all <code>xml:id</code> targets and <code>#</code> hash marks are valid and well-formed.</li>
+</ol>
+<p>This synthesized file represents the best of human expertise and computational assistance.</p>
+<p><strong>Takeaway:</strong> The reconciled alignment file merges the speed of AI suggestions with the rigorous fidelity of human ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Synthesizing the Reconciled Alignment File</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the final deliverable synthesized from your alignment audit, and what does it represent?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The reconciled alignment file merges the speed of AI suggestions with the rigorous fidelity of human ground truth.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;alignment_reconciled.xml, representing the optimal combination of computational speed and human scholarly fidelity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The reconciled file adopts verified AI structural links while enforcing human ground truth on difficult historical phrasing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A handwritten paper letter mailed to the university president.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The deliverable is a validated TEI XML file in the repository.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An audio recording of the student reading the translation out loud.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is a spoken reading, not a TEI alignment file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A blank text file with no content.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The file contains a complete, verified &amp;lt;linkGrp&amp;gt; structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Synthesizing Reconciled Leipzig Glosses</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesizing Reconciled Leipzig Glosses</h3>
+<p>Next, create your final gloss deliverable: <code>gloss_reconciled.xml</code>.</p>
+<p>Steps for the reconciled gloss:</p>
+<ul>
+<li>Select three rich, representative sentences from your primary witness.</li>
+<li>Check Line 1 letter-by-letter against your facsimile image to guarantee 100% historical authenticity.</li>
+<li>Verify Line 2 morpheme hyphens.</li>
+<li>Verify Line 3 uppercase grammatical labels and ensure periods are used for portmanteaux.</li>
+<li>Polish Line 4 to ensure the modern English translation is natural, fluent, and placed in quotation marks.</li>
+</ul>
+<p>Your completed gloss stands as a permanent contribution to digital philology.</p>
+<p><strong>Takeaway:</strong> The reconciled gloss file delivers three verified, publication-ready Leipzig glosses that combine historical accuracy with linguistic precision.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Synthesizing Reconciled Leipzig Glosses</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What verification step is essential before finalizing gloss_reconciled.xml?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The reconciled gloss file delivers three verified, publication-ready Leipzig glosses that combine historical accuracy with linguistic precision.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Checking Line 1 letter-by-letter against the high-resolution facsimile image to guarantee authentic historical spelling.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Checking the digital image ensures that no automated modernization or OCR slips survived into the publication-ready gloss.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting all quotation marks from Line 4.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Line 4 translations must be enclosed in quotation marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replacing all hyphens with exclamation marks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hyphens are required for morpheme boundaries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Converting all text into twelve-point Comic Sans font.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions use clean UTF-8 text encoding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: TEI Header Attribution for AI Assistance</text></name><questiontext format="html"><text><![CDATA[
+<h3>TEI Header Attribution for AI Assistance</h3>
+<p>Scholarly integrity requires total transparency about computational tools. If an AI model assisted in generating alignments or glosses, that assistance must be documented in the <code>&lt;teiHeader&gt;</code>.</p>
+<p>In your TEI header, add a <code>&lt;change&gt;</code> record inside <code>&lt;revisionDesc&gt;</code>:</p>
+<pre><code class="language-xml">&lt;revisionDesc&gt;
+  &lt;change when=&quot;2026-11-20&quot; who=&quot;#ken&quot; resp=&quot;#ai&quot;&gt;
+    Sentence alignment audited against Gale-Church and Claude AI. 
+    AI suggestions adopted for 1:2 splits; historical surface text verified by hand.
+  &lt;/change&gt;
+&lt;/revisionDesc&gt;
+</code></pre>
+<p>You can also use the <code>@resp</code> attribute on individual <code>&lt;linkGrp&gt;</code> or <code>&lt;link&gt;</code> elements (<code>resp="#ai"</code> or <code>resp="#manual"</code>).</p>
+<p>Transparency builds trust with your readers and peers.</p>
+<p><strong>Takeaway:</strong> Transparent TEI header documentation explicitly records AI assistance, detailing which suggestions were adopted and who verified the text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: TEI Header Attribution for AI Assistance</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How is AI assistance ethically and transparently recorded in a TEI XML document?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Transparent TEI header documentation explicitly records AI assistance, detailing which suggestions were adopted and who verified the text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By adding a &amp;lt;change&amp;gt; element in &amp;lt;revisionDesc&amp;gt; with @resp="#ai" detailing which suggestions were adopted and verified.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Documenting AI contributions in the teiHeader ensures full scholarly transparency and attribution.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By hiding all references to computers so readers think the editor is a genius.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hiding AI contributions violates academic integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting the &amp;lt;teiHeader&amp;gt; entirely from the document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The teiHeader is the mandatory cataloguing core of any TEI edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By sending an anonymous letter to the Text Encoding Initiative.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Attribution is recorded directly within the document metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Validating Reconciled XML in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Validating Reconciled XML in VS Code</h3>
+<p>Before saving your final files, run a complete validation check inside Visual Studio Code:</p>
+<ol>
+<li>Open <code>alignment_reconciled.xml</code> and <code>gloss_reconciled.xml</code>.</li>
+<li>Inspect the bottom status bar for XML errors. Ensure it displays "No Problems."</li>
+<li>Run <code>xmllint --noout</code> in your VS Code terminal to verify well-formed syntax.</li>
+<li>Verify that every sentence ID inside <code>&lt;standOff&gt;</code> points to an existing <code>&lt;s xml:id="..."&gt;</code> tag.</li>
+</ol>
+<p>A document that fails validation cannot be rendered or published. Taking two minutes to validate guarantees your work is sound.</p>
+<p><strong>Takeaway:</strong> Always run xmllint and editor validation checks to ensure reconciled alignment files are well-formed and schema-compliant.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Validating Reconciled XML in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which command-line utility is run in the VS Code terminal to verify that reconciled alignment XML has zero well-formedness errors?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Always run xmllint and editor validation checks to ensure reconciled alignment files are well-formed and schema-compliant.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;xmllint --noout&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. xmllint --noout parses the file and reports any syntax errors without cluttering the screen with text output.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;git push --force&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. git push transfers files to GitHub; it does not validate XML syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;rm -rf /&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That dangerous command deletes files from the operating system.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;python -m http.server&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That launches a local web server, not an XML parser.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Documenting Methodology in ALIGNMENT.md</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting Methodology in ALIGNMENT.md</h3>
+<p>Every scholarly edition includes an editorial methodology report. In your project repository, open <code>ALIGNMENT.md</code> and complete the final section:</p>
+<p>Include the following sections:</p>
+<ul>
+<li><strong>The Corpus:</strong> Description of your primary witness and parallel translation.</li>
+<li><strong>The Manual Baseline:</strong> Summary of your Tuesday 10-sentence hand alignment.</li>
+<li><strong>Deterministic Evaluation:</strong> Gale-Church accuracy, precision, recall, and abbreviation traps.</li>
+<li><strong>AI Evaluation:</strong> AI model used, prompt design, strengths, and failure modes (modernization, Rule 2 errors).</li>
+<li><strong>Editorial Synthesis:</strong> Rationale for your final reconciled decisions.</li>
+</ul>
+<p>This report documents your intellectual journey across the three-step cycle.</p>
+<p><strong>Takeaway:</strong> The ALIGNMENT.md report provides a complete scholarly record of your corpus, methodology, metrics, and editorial synthesis.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Documenting Methodology in ALIGNMENT.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the scholarly purpose of the ALIGNMENT.md file in your project repository?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The ALIGNMENT.md report provides a complete scholarly record of your corpus, methodology, metrics, and editorial synthesis.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To provide an editorial methodology report documenting your corpus, baseline metrics, algorithmic evaluations, and synthesis rationale.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. ALIGNMENT.md gives readers and peer reviewers full transparency into how the edition was constructed and audited.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To store secret passwords for classroom Wi-Fi networks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ALIGNMENT.md is an academic documentation report.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To list the student's daily cafeteria expenses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The report focuses strictly on textual scholarship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To replace the primary manuscript transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It accompanies the XML edition as an explanatory methodology document.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Building Bilingual Reading Interfaces</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building Bilingual Reading Interfaces</h3>
+<p>Why did we do all this alignment work? What does it look like to the public reader?</p>
+<p>When your edition is published on the web:</p>
+<ul>
+<li>A reader can view your historical witness and English translation in parallel columns.</li>
+<li>Clicking any historical sentence highlights the corresponding English sentence instantly.</li>
+<li>Hovering over a glossed word reveals its Leipzig grammatical breakdown and dictionary definition.</li>
+<li>Scholars can search for specific grammatical forms (such as all occurrences of past subjunctive verbs) across the bilingual corpus.</li>
+</ul>
+<p>Alignment transforms static manuscripts into dynamic, interactive reading environments.</p>
+<p><strong>Takeaway:</strong> Sentence alignment and interlinear glossing power dynamic web interfaces with sentence highlighting, word hovers, and cross-lingual search.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Building Bilingual Reading Interfaces</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does standoff sentence alignment enhance the public reading experience on a scholarly website?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Sentence alignment and interlinear glossing power dynamic web interfaces with sentence highlighting, word hovers, and cross-lingual search.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It allows interactive interfaces to highlight corresponding sentences when clicked and provide word-level grammatical popups.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Standoff links enable dynamic, synchronized reading views, hover definitions, and cross-lingual search.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents users from reading the text on mobile phones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web editions are designed to be responsive across devices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces all text with video advertisements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions prioritize clean, accessible reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires readers to pass a Latin exam before opening the website.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital alignment makes historical texts accessible to non-specialists.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Connecting Alignment to the Semester Portfolio</text></name><questiontext format="html"><text><![CDATA[
+<h3>Connecting Alignment to the Semester Portfolio</h3>
+<p>Let us look at how Module 11 fits into your overall term portfolio:</p>
+<ul>
+<li><strong>Module 2:</strong> Codicological cataloguing and TEI header.</li>
+<li><strong>Module 3:</strong> Facsimile images and IIIF canvases.</li>
+<li><strong>Module 4 &amp; 5:</strong> Diplomatic transcription and AI reconciliation.</li>
+<li><strong>Module 6:</strong> Regularization and normalized reading text.</li>
+<li><strong>Module 7:</strong> CSS and HTML rendering views.</li>
+<li><strong>Module 8 &amp; 9:</strong> Linguistic lemmatization and named entity markup.</li>
+<li><strong>Module 10:</strong> Git consolidation, CI/CD, and peer review.</li>
+<li><strong>Module 11 (Today):</strong> Bilingual translation alignment and Leipzig glossing.</li>
+</ul>
+<p>Your digital edition is now nearly complete! You have constructed an edition with deep scholarly metadata and bilingual accessibility.</p>
+<p><strong>Takeaway:</strong> Module 11 provides the bilingual translation and linguistic glossing layer of your comprehensive digital edition portfolio.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Connecting Alignment to the Semester Portfolio</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What role does Module 11 (Alignment) play within your comprehensive semester digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Module 11 provides the bilingual translation and linguistic glossing layer of your comprehensive digital edition portfolio.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It adds the bilingual translation and linguistic glossing layer, making the historical witness accessible to modern readers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Module 11 connects transcription, metadata, and stylesheets to parallel translation and morphological analysis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces all previous ten modules so you can throw them away.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Each module builds an incremental layer of the final edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It serves as an optional extra-credit exercise that will not be graded.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Module 11 is a core graded milestone of the course.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes your teiHeader to simplify the final submission.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The teiHeader remains essential to the complete portfolio.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Ethical Considerations in AI Philology</text></name><questiontext format="html"><text><![CDATA[
+<h3>Ethical Considerations in AI Philology</h3>
+<p>Using AI in historical textual scholarship introduces important ethical responsibilities:</p>
+<ul>
+<li><strong>Attribution:</strong> Never pretend AI output was produced entirely by your own hand.</li>
+<li><strong>Historical Accuracy:</strong> Never allow an AI model to smooth over historical prejudice, difficult syntax, or archaic vocabulary.</li>
+<li><strong>Indigenous Contexts:</strong> In treaty scholarship, translations carry real legal and political weight. AI models must never alter treaty meanings without indigenous consultation.</li>
+<li><strong>Preserving Student Voice:</strong> Use AI as an editorial assistant, not as a replacement for your own critical thinking.</li>
+</ul>
+<p>Ethical scholarship prioritizes historical truth and transparent human accountability.</p>
+<p><strong>Takeaway:</strong> Ethical digital scholarship requires honest attribution, preservation of difficult historical truths, and active human accountability.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Ethical Considerations in AI Philology</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is a critical ethical rule when using AI to analyze historical treaties and legal documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Ethical digital scholarship requires honest attribution, preservation of difficult historical truths, and active human accountability.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;AI models must never be allowed to silently alter legal obligations or smooth over historical colonial realities without human scrutiny.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. In treaty and legal scholarship, every word carries historical and political weight that requires transparent human accountability.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;AI models should be allowed to rewrite treaties to make them sound friendlier.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical editing preserves authentic historical evidence, not sanitized rewrites.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translators must hide all references to historical treaties from the public.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital scholarship aims for open public access and truth.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Editors must delete all words that are difficult to pronounce.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly fidelity preserves historical linguistic complexity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Git Hygiene: Staging and Committing Module 11</text></name><questiontext format="html"><text><![CDATA[
+<h3>Git Hygiene: Staging and Committing Module 11</h3>
+<p>With your alignment files reconciled and verified, it is time to record your work in Git.</p>
+<p>Open your VS Code terminal and run clean, disciplined Git commands:</p>
+<ol>
+<li>Check repository status: <code>git status</code></li>
+<li>Stage your Module 11 deliverables: <code>git add alignment_reconciled.xml gloss_reconciled.xml ALIGNMENT.md</code></li>
+<li>Commit with a meaningful commit message: <code>git commit -m "Module 11: complete three-way alignment audit and synthesize reconciled TEI files"</code></li>
+<li>Push to your GitHub remote: <code>git push origin main</code></li>
+</ol>
+<p>Disciplined version control ensures your hard work is backed up and safe on the cloud.</p>
+<p><strong>Takeaway:</strong> Stage and commit your reconciled alignment files with descriptive commit messages, pushing your progress safely to GitHub.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Git Hygiene: Staging and Committing Module 11</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the correct Git workflow for safely recording your completed Module 11 deliverables?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Stage and commit your reconciled alignment files with descriptive commit messages, pushing your progress safely to GitHub.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Check git status, stage files with git add, commit with a descriptive message, and push to origin main.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Disciplined git staging, committing, and pushing ensures your work is tracked and backed up safely on GitHub.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the .git folder and re-initialize the repository every Friday.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting .git destroys version history and remote tracking.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Email your XML files to yourself as attachments and ignore Git completely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. RELS 398 teaches professional Git and GitHub collaborative workflows.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Shut down your computer without saving and hope the cloud remembers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. You must explicitly stage and commit files locally before pushing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Common Novice Pitfalls in AI Alignment</text></name><questiontext format="html"><text><![CDATA[
+<h3>Common Novice Pitfalls in AI Alignment</h3>
+<p>As you finalize your work today, beware of these four common AI pitfalls:</p>
+<ol>
+<li><strong>Accepting AI Modernization:</strong> Failing to notice that the AI changed an 18th-century spelling into modern English in Line 1.</li>
+<li><strong>Ignoring Leipzig Rule 2:</strong> Leaving hyphens in Line 3 where periods are required for fused grammatical categories.</li>
+<li><strong>Conversational AI Chatter in XML:</strong> Forgetting to remove introductory AI text like <em>"Here is your TEI XML file:"</em> before saving.</li>
+<li><strong>Unbalanced Line Counts:</strong> Submitting a gloss where Line 1 has four words but Line 2 has five words.</li>
+</ol>
+<p>A careful final pass in VS Code will catch all four errors.</p>
+<p><strong>Takeaway:</strong> Common AI alignment errors include silent spelling modernization, Rule 2 hyphen confusion, leftover conversational text, and unbalanced columns.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Common Novice Pitfalls in AI Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What simple visual check should you always perform on AI-generated Leipzig glosses before submitting them?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Common AI alignment errors include silent spelling modernization, Rule 2 hyphen confusion, leftover conversational text, and unbalanced columns.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Verify that Line 1 has not been modernized and that every word column aligns vertically across all four lines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Checking column balance and historical spelling prevents common AI generative shifts from slipping into your edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Check that the text is printed on parchment paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deliverables are digital XML files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Verify that every word begins with the letter Z.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Words follow historical orthography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ensure that all punctuation marks have been deleted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation carries essential syntactic and Leipzig meaning.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: The Role of Human Judgment in Digital Philology</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Role of Human Judgment in Digital Philology</h3>
+<p>This week has demonstrated a profound truth of digital humanities scholarship.</p>
+<p>No algorithm—whether a 1993 mathematical formula or a 2026 neural network—can replace human historical understanding:</p>
+<ul>
+<li>An algorithm can count letters.</li>
+<li>An AI can predict likely grammar tags.</li>
+<li>Only a human scholar understands the cultural context, emotional nuance, and political consequences of historical writing.</li>
+</ul>
+<p>Computers provide speed and scale. Humans provide judgment, empathy, and truth.</p>
+<p><strong>Takeaway:</strong> Computational tools provide speed and scale, but human scholars provide the critical judgment and historical empathy that define scholarly editions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: The Role of Human Judgment in Digital Philology</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why will artificial intelligence never replace human scholars in digital critical editing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Computational tools provide speed and scale, but human scholars provide the critical judgment and historical empathy that define scholarly editions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Computers provide speed and pattern detection, but only human scholars provide historical empathy, cultural context, and critical judgment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. True textual scholarship requires interpretive wisdom and historical responsibility that algorithms cannot possess.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because computers will eventually run out of numbers to calculate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers have limitless mathematical capacity, but lack human understanding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because human scholars can type faster than computer microchips.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers process data exponentially faster than human typing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because digital editions will be completely banned in the future.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital scholarly editions are the future of textual humanities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Reviewing the Week 11 Milestone Checklist</text></name><questiontext format="html"><text><![CDATA[
+<h3>Reviewing the Week 11 Milestone Checklist</h3>
+<p>Before leaving class today, verify that you have completed all deliverables for Module 11:</p>
+<ul>
+<li>[x] <strong>Tuesday:</strong> Hand-aligned 10 sentences (<code>alignment_manual.xml</code>) and authored 3 Leipzig glosses (<code>gloss_manual.xml</code>).</li>
+<li>[x] <strong>Wednesday:</strong> Ran automated Gale-Church alignment and audited precision/recall (<code>alignment_deterministic.xml</code>).</li>
+<li>[x] <strong>Friday:</strong> Prompted AI in VS Code, conducted three-way comparative audit, and synthesized <code>alignment_reconciled.xml</code> and <code>gloss_reconciled.xml</code>.</li>
+<li>[x] <strong>Methodology Report:</strong> Documented metrics and reflection in <code>ALIGNMENT.md</code>.</li>
+<li>[x] <strong>Validation:</strong> All XML files pass <code>xmllint --noout</code> with zero errors.</li>
+</ul>
+<p>Checking off these items confirms you have mastered bilingual text alignment.</p>
+<p><strong>Takeaway:</strong> Verifying all five milestone deliverables ensures your repository meets professional standards for bilingual digital scholarship.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Reviewing the Week 11 Milestone Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which set of files constitutes the complete deliverable suite for Module 11?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Verifying all five milestone deliverables ensures your repository meets professional standards for bilingual digital scholarship.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;alignment_manual.xml, gloss_manual.xml, alignment_deterministic.xml, alignment_reconciled.xml, gloss_reconciled.xml, and ALIGNMENT.md.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. These files document the complete progression from manual ground truth to algorithmic testing, AI auditing, and reconciled synthesis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A single empty text file named homework.txt.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Module 11 produces comprehensive TEI XML and methodology files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A collection of selfie photos taken in the university library.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deliverables consist of digital philology datasets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A printed textbook purchased from the university bookstore.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Students build their own original digital editions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Preparing for Next Week: Module 12 (Scholarly Commentary)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing for Next Week: Module 12 (Scholarly Commentary)</h3>
+<p>Next week, we move into <strong>Module 12: Scholarly Commentary and Annotation</strong>.</p>
+<p>Now that your text is transcribed, regularized, lemmatized, aligned, and glossed, you are ready to write scholarly commentary:</p>
+<ul>
+<li>Explaining historical context, people, and legal debates.</li>
+<li>Linking passages to external historical archives and encyclopedias.</li>
+<li>Encoding scholarly annotations using TEI <code>&lt;note&gt;</code>, <code>&lt;annotation&gt;</code>, and the Open Annotation Data Model.</li>
+</ul>
+<p>Your edition is growing from a raw manuscript into a rich, interactive educational resource.</p>
+<p><strong>Takeaway:</strong> Module 12 builds upon text alignment by introducing scholarly commentary notes and linked historical annotations.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Preparing for Next Week: Module 12 (Scholarly Commentary)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What new dimension will Module 12 add to your digital edition next week?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Module 12 builds upon text alignment by introducing scholarly commentary notes and linked historical annotations.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Scholarly commentary notes, historical explanations, and linked annotations using TEI &amp;lt;note&amp;gt; and &amp;lt;annotation&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Module 12 builds upon alignment by contextualizing historical passages with scholarly commentary and linked data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting all transcriptions and replacing them with video games.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Module 12 enhances your existing transcription with commentary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Switching to a completely different language for the rest of the semester.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. You continue refining your chosen primary document.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Abandoning XML to write essays by hand with quill pens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The course continues in VS Code with advanced TEI annotation standards.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Peer Review and Classroom Discussion</text></name><questiontext format="html"><text><![CDATA[
+<h3>Peer Review and Classroom Discussion</h3>
+<p>Take five minutes to look at your neighbor's screen in MULH 3032:</p>
+<ul>
+<li>Compare how Ace's French decree handles gender agreement compared to Andromeda's English treaty verbs.</li>
+<li>Look at Olyvia's Maud Lewis glosses and discuss how vernacular handwriting challenges AI translation models.</li>
+<li>Share one interesting AI mistake you caught during today's lab.</li>
+</ul>
+<p>Discussing computational errors with your peers transforms mistakes into valuable learning moments.</p>
+<p><strong>Takeaway:</strong> Sharing alignment challenges and AI failure modes with peers deepens your collective understanding of digital philology.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Peer Review and Classroom Discussion</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is comparing computational errors with your peers in class valuable?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Sharing alignment challenges and AI failure modes with peers deepens your collective understanding of digital philology.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It transforms computational mistakes into collective learning moments, revealing how different genres challenge algorithms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Discussing discrepancies across French decrees, treaties, and letters deepens understanding of linguistic diversity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It allows students to copy each other's homework without doing any work.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Peer discussion fosters collaborative learning, not academic dishonesty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It proves which student is the worst editor in the class.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Collaborative editing is supportive and constructive.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is an official requirement of the Canadian postal service.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is a classroom pedagogical practice in digital humanities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Conclusion: Mastery of the Three-Step Cycle</text></name><questiontext format="html"><text><![CDATA[
+<h3>Conclusion: Mastery of the Three-Step Cycle</h3>
+<p>Congratulations on completing Module 11!</p>
+<p>This week you achieved a major milestone:</p>
+<ul>
+<li>You practiced manual scholarship, experiencing the intellectual discipline of word-by-word glossing.</li>
+<li>You explored deterministic algorithms, demystifying how computers calculate sentence correspondence.</li>
+<li>You supervised generative AI, discovering its incredible linguistic power and learning to catch its subtle errors.</li>
+</ul>
+<p>You have proven that you can harness modern technology while upholding the highest standards of historical scholarship.</p>
+<p><strong>Takeaway:</strong> Mastering the Three-Step Comparative Cycle empowers you to lead digital humanities research with computational skill and critical human judgment.</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Conclusion: Mastery of the Three-Step Cycle</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What core capability have you mastered by completing the Three-Step Comparative Cycle for text alignment?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Mastering the Three-Step Comparative Cycle empowers you to lead digital humanities research with computational skill and critical human judgment.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The ability to harness automated algorithms and artificial intelligence while maintaining rigorous human philological oversight.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Mastering manual, deterministic, and AI methods allows you to lead digital textual scholarship with technical power and critical wisdom.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The ability to memorize the entire Oxford English Dictionary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The course teaches digital methods, not dictionary memorization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The power to predict tomorrow's winning lottery numbers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital philology evaluates textual data, not gambling odds.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The skill to repair broken computer hardware with a screwdriver.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The course focuses on digital text encoding and humanities methodology.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

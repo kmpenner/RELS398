@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 11.3 Teaching Plan (2026-11-20)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #30 (Lesson 11.3 &mdash; AI-Assisted Alignment &amp; Three-Way Audit)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, November 20, 2026</span>
+                <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 11 (Alignment) &middot; Meeting 3 of 3</span>
+                <span class="badge">Milestone: AI Prompting, Three-Way Audit, &amp; Reconciled Synthesis</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students have completed manual sentence alignment (Tuesday) and tested deterministic length algorithms (Wednesday). Today they prompt large language models inside VS Code to propose bilingual links and Leipzig glosses, synthesizing their findings into reconciled, publication-ready TEI files.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student prompts an AI model in VS Code with negative constraints, identifies AI failure modes (modernization, Rule 2 errors), completes a three-way comparative audit in <code>ALIGNMENT.md</code>, and synthesizes <code>alignment_reconciled.xml</code> and <code>gloss_reconciled.xml</code>.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>David Bowie, &ldquo;Space Oddity&rdquo;</strong> (1969, Philips). Groundbreaking musical narrative of advanced technological voyage guided by human ground control.</li>
+            <li><strong>Pedagogical connection:</strong> AI models are powerful technological vessels traveling into deep linguistic space, but human editors remain ground control, keeping the mission safe and accurate.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;AI can calculate linguistic orbits at lightning speed, but ground control sits in this room. Today you supervise the machine, catching its errors and steering your edition to a safe landing.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE SYNTHESIS DIRECTIVE: RECONCILING THREE METHODS</h3>
+        <p>A digital scholarly edition combines computational efficiency with human philological rigor. By comparing manual baseline, deterministic formulas, and AI models side by side, students synthesize a final reconciled edition that leverages technology without compromising historical truth.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Strict negative constraints:</strong> Prompting must forbid the AI from modernizing historical spelling, hallucinating classical roots, or using hyphens for fused grammatical endings.<br>
+        <strong>2. Audit Line 1 by eye:</strong> Verify Line 1 letter-by-letter against the digital facsimile to guarantee that authentic historical spelling was not smoothed over.<br>
+        <strong>3. Enforce Leipzig Rule 2:</strong> Ensure periods (<code>.</code>) are used for portmanteaux in Line 3, replacing any invalid AI hyphens.<br>
+        <strong>4. Transparent TEI attribution:</strong> Record AI assistance transparently inside <code>&lt;revisionDesc&gt;</code> in the TEI header.<br>
+        <strong>5. Module 11 assignment milestone:</strong> Reconciled files must pass <code>xmllint --noout</code> with zero errors before staging and committing.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">9:30 &ndash; 9:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Entering Step 3: Neural Models</td>
+                <td class="desc-col">
+                    Welcome students. Review the week's progression: Tuesday manual ground truth, Wednesday deterministic length formulas.<br>
+                    Introduce Step 3: neural AI assistants in VS Code. Emphasize that AI models understand grammar but require strict human supervision.
+                </td>
+                <td class="target-col">Class framing; comparative cycle synthesis</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:36 &ndash; 9:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Prompting with Negative Constraints</td>
+                <td class="desc-col">
+                    Demonstrate on projector: crafting an AI prompt inside VS Code with explicit negative constraints.<br>
+                    Show common AI traps: silent modernization of 18th-century spelling and confusing hyphens with periods (Rule 2).<br>
+                    Show how to inspect AI suggestions in an inline diff view before adopting them.
+                </td>
+                <td class="target-col">Projector demonstration of prompt engineering</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:46 &ndash; 9:58<br>(12 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>AI Alignment &amp; Gloss Run</td>
+                <td class="desc-col">
+                    Students prompt Claude or Gemini in VS Code to propose sentence links and 4-line Leipzig glosses.<br>
+                    Students audit Line 1 against their manuscript images to catch any modernization.<br>
+                    Check Line 3 for non-standard or hallucinated grammatical tags.
+                </td>
+                <td class="target-col">Audited AI proposals in editor pane</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:58 &ndash; 10:12<br>(14 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>Three-Way Audit &amp; Synthesis</td>
+                <td class="desc-col">
+                    Students open all three versions side by side: Manual (Tue), Deterministic (Wed), and AI (Fri).<br>
+                    Synthesize <code>alignment_reconciled.xml</code> and <code>gloss_reconciled.xml</code>.<br>
+                    Add TEI header attribution in <code>&lt;revisionDesc&gt;</code> and run <code>xmllint --noout</code>.
+                </td>
+                <td class="target-col">Reconciled TEI files; 0 syntax errors</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:12 &ndash; 10:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Methodology Log &amp; Git Commit</td>
+                <td class="desc-col">
+                    Students record final comparative metrics and reflection in <code>ALIGNMENT.md</code>.<br>
+                    Confirm all files are staged, committed, and pushed to GitHub.<br>
+                    Preview next week: <em>&ldquo;Next week in Module 12, we build scholarly commentary notes and historical annotations.&rdquo;</em>
+                </td>
+                <td class="target-col"><code>ALIGNMENT.md</code> completed; Module 11 committed</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Verify that the AI correctly paired the 1:2 split sentence; ensure the historical space in <code>L' Assemblée</code> was not silently removed; check gender agreement tags (<code>F.SG</code>).</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Verify that archaic colonial spellings retain plain English roots in Line 3 rather than fake Latin roots; audit modal verb glosses (<code>shall</code> as obligation).</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Reject any AI attempt to sanitize or standardize Maud Lewis's informal conversational grammar; verify that vernacular voice is preserved in Line 1.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -2,9 +2,10 @@
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
         <li>Select a 10-sentence section of your primary witness text and an authoritative modern translation.</li>
+        <li>Open both files in a two-column split editor in VS Code (<code>View &gt; Editor Layout &gt; Two Columns</code>).</li>
         <li>Align the sentences into parallel pairs (assigning <code>xml:id="s1"</code>, <code>xml:id="s2"</code> ... to source sentences, and <code>xml:id="t1"</code>, <code>xml:id="t2"</code> ... to target translation sentences).</li>
-        <li>For 3 sentences, construct a full four-line Leipzig Interlinear Gloss: (Line 1: Source text, Line 2: Morpheme segmentation, Line 3: Grammatical gloss with capitalized category tags, Line 4: Free idiomatic translation).</li>
+        <li>For 3 sentences, construct a full four-line Leipzig Interlinear Gloss: (Line 1: Source text, Line 2: Morpheme segmentation, Line 3: Grammatical gloss with capitalized category tags and Rule 2 punctuation, Line 4: Free idiomatic translation in quotation marks).</li>
         <li>Encode the entire alignment in a TEI XML document utilizing a stand-off <code>&lt;linkGrp type="translation-alignment"&gt;&lt;link target="#s1 #t1"/&gt;...&lt;/linkGrp&gt;</code> structure.</li>
-        <li>Submit your TEI XML file and a <strong>300–500 word reflection</strong> discussing the challenge of non-isomorphic syntactic alignment (where one word in language A requires a multi-word phrase in language B).</li>
+        <li>Submit your reconciled TEI XML files (<code>alignment_reconciled.xml</code> and <code>gloss_reconciled.xml</code>) and a <strong>300–500 word reflection in ALIGNMENT.md</strong> discussing your three-way audit findings (Manual vs. Gale-Church vs. AI).</li>
     </ol>
 </div>

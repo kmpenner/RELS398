@@ -45,11 +45,11 @@ obj_html = """<div class="card p-3 mb-3 border-info" style="border-left: 5px sol
     <h4 style="color: #854d0e; margin-top: 0;">Module 11: Text Alignment & Interlinear Glossing — Learning Objectives</h4>
     <p>By the end of this module, students will be able to:</p>
     <ul>
-        <li><strong>Construct</strong> four-line Interlinear Glossed Text (IGT) adhering strictly to the international Leipzig Glossing Rules, distinguishing morpheme boundaries from grammatical category labels.</li>
-        <li><strong>Encode</strong> sentence-level and token-level parallel alignments in TEI P5 using stand-off <code>&lt;linkGrp&gt;</code> and <code>&lt;link&gt;</code> architecture.</li>
-        <li><strong>Analyze</strong> the operational principles of sentence and word alignment algorithms, contrasting length-based heuristics (Gale-Church) with statistical translation models (IBM Models 1–5, fast_align).</li>
-        <li><strong>Utilize</strong> specialized digital humanities alignment platforms (Ugarit, Alpheios Alignment Editor) to produce verified parallel corpora.</li>
-        <li><strong>Audit and evaluate</strong> neural LLM translation alignments, identifying failure modes such as non-isomorphic syntactic distortion, hallucinated morphemes, and idiom mistranslation.</li>
+        <li><strong>Construct</strong> four-line Interlinear Glossed Text (IGT) adhering strictly to the international Leipzig Glossing Rules, distinguishing morpheme cuts (-) from fused grammatical categories (.).</li>
+        <li><strong>Encode</strong> sentence-level parallel alignments in TEI P5 using stand-off <code>&lt;linkGrp&gt;</code> and <code>&lt;link&gt;</code> architecture in Visual Studio Code.</li>
+        <li><strong>Analyze</strong> the operational principles of length-based sentence alignment (Gale-Church) using character count ratios and visual alignment matrices.</li>
+        <li><strong>Utilize</strong> interactive digital humanities alignment platforms (Alpheios Alignment Editor, Ugarit) to produce verified parallel corpora without command-line friction.</li>
+        <li><strong>Audit and evaluate</strong> AI-assisted translation alignments, identifying failure modes such as silent spelling modernization, Rule 2 hyphen confusion, and pronoun enclisis slips.</li>
     </ul>
 </div>"""
 
@@ -72,34 +72,35 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #eab308
     <ul>
         <li><strong>The Leipzig Glossing Rules in Practice:</strong> How to build rigorous 4-line interlinear linguistic glosses (21 mins).</li>
         <li><strong>Encoding Bilingual Alignments in TEI XML:</strong> Practical stand-off markup using <code>&lt;linkGrp&gt;</code> in VS Code (24 mins).</li>
-        <li><strong>Algorithmic Text Alignment with Gale-Church and fast_align:</strong> Statistical translation baselines in Python (20 mins).</li>
+        <li><strong>Algorithmic Text Alignment with Gale-Church:</strong> Length-based sentence alignment and interactive web editors (20 mins).</li>
     </ul>
 </div>"""
 
-# 5. Workshop
+# 5. Workshop / Assignment
 ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #eab308; background-color: #fefce8; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #854d0e; margin-top: 0;">Workshop: Bilingual Sentence Alignment & Leipzig Interlinear Glossing</h4>
-    <p><strong>Overview:</strong> In this workshop, you will align a 10-sentence passage from your manuscript witness with a modern translation. You will author four-line Interlinear Glossed Text (IGT) for three complex sentences according to the Leipzig Glossing Rules and encode the alignment as stand-off TEI <code>&lt;linkGrp&gt;</code> XML.</p>
-    <p><strong>Deadlines:</strong> Comparison Post due Friday by 11:00 PM; Peer Reviews due Monday by 11:00 PM.</p>
+    <h4 style="color: #854d0e; margin-top: 0;">Assignment: Module 11 (Alignment & Interlinear Glossing)</h4>
+    <p><strong>Overview:</strong> In this milestone, you will align a 10-sentence passage from your primary witness text with a modern translation. You will author four-line Interlinear Glossed Text (IGT) for three representative sentences according to the Leipzig Glossing Rules and encode the alignment as stand-off TEI <code>&lt;linkGrp&gt;</code> XML.</p>
+    <p><strong>Due Date:</strong> Friday, November 27, by 11:00 PM.</p>
 </div>"""
 
 ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
         <li>Select a 10-sentence section of your primary witness text and an authoritative modern translation.</li>
+        <li>Open both files in a two-column split editor in VS Code (<code>View &gt; Editor Layout &gt; Two Columns</code>).</li>
         <li>Align the sentences into parallel pairs (assigning <code>xml:id="s1"</code>, <code>xml:id="s2"</code> ... to source sentences, and <code>xml:id="t1"</code>, <code>xml:id="t2"</code> ... to target translation sentences).</li>
-        <li>For 3 sentences, construct a full four-line Leipzig Interlinear Gloss: (Line 1: Source text, Line 2: Morpheme segmentation, Line 3: Grammatical gloss with capitalized category tags, Line 4: Free idiomatic translation).</li>
+        <li>For 3 sentences, construct a full four-line Leipzig Interlinear Gloss: (Line 1: Source text, Line 2: Morpheme segmentation, Line 3: Grammatical gloss with capitalized category tags and Rule 2 punctuation, Line 4: Free idiomatic translation in quotation marks).</li>
         <li>Encode the entire alignment in a TEI XML document utilizing a stand-off <code>&lt;linkGrp type="translation-alignment"&gt;&lt;link target="#s1 #t1"/&gt;...&lt;/linkGrp&gt;</code> structure.</li>
-        <li>Submit your TEI XML file and a <strong>300–500 word reflection</strong> discussing the challenge of non-isomorphic syntactic alignment (where one word in language A requires a multi-word phrase in language B).</li>
+        <li>Submit your reconciled TEI XML files (<code>alignment_reconciled.xml</code> and <code>gloss_reconciled.xml</code>) and a <strong>300–500 word reflection in ALIGNMENT.md</strong> discussing your three-way audit findings (Manual vs. Gale-Church vs. AI).</li>
     </ol>
 </div>"""
 
 ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
+    <h4 style="margin-top: 0;">Grading Rubric (80 Points Total)</h4>
     <ul>
-        <li><strong>Leipzig Glossing Rule Precision (4 pts):</strong> The four-line gloss strictly adheres to Leipzig conventions (hyphens for morpheme boundaries, periods for multi-word glosses, standardized capital abbreviations for grammatical categories).</li>
-        <li><strong>TEI Stand-Off Linkage Integrity (3 pts):</strong> The <code>&lt;linkGrp&gt;</code> element is properly structured and all <code>@target</code> URI pointers resolve cleanly to valid sentence IDs in the text body.</li>
-        <li><strong>Syntactic Analysis & Non-Isomorphism (3 pts):</strong> The 300–500 word reflection insightfully analyzes grammatical asymmetries and why literal word-for-word alignment breaks down across differing linguistic typologies.</li>
+        <li><strong>Leipzig Glossing Rule Precision (4 pts / 32 pts scaled):</strong> The four-line gloss strictly adheres to Leipzig conventions (hyphens for morpheme boundaries, periods for fused grammatical categories, standardized uppercase abbreviations for grammatical categories).</li>
+        <li><strong>TEI Stand-Off Linkage Integrity (3 pts / 24 pts scaled):</strong> The <code>&lt;linkGrp&gt;</code> element is properly structured, all <code>@target</code> URI pointers include the required <code>#</code> prefix, and all IDs resolve cleanly to valid sentence tags.</li>
+        <li><strong>Comparative Three-Way Audit & Reflection (3 pts / 24 pts scaled):</strong> The 300–500 word reflection in <code>ALIGNMENT.md</code> insightfully evaluates precision and recall across manual, deterministic, and AI methods, diagnosing structural shifts and model failure modes.</li>
     </ul>
 </div>"""
 
