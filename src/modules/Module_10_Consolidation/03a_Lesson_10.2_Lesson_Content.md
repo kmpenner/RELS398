@@ -311,7 +311,7 @@ The `context` attribute establishes the focal node in the XML tree, while the
 `test` attribute contains an XPath expression evaluated from the perspective of
 that focal node (Kalvesmaki, 2024).
 
-Let us examine a concrete philological rule: in our critical apparatus (Topic 15),
+Let us examine a concrete philological rule: in an apparatus or variant structure,
 every apparatus entry (`<app>`) must contain at least one reading (`<rdg>`) or
 lemma (`<lem>`), and every `<rdg>` element must explicitly specify which manuscript
 witness attests that reading via the `@wit` attribute (TEI Consortium, 2026).
@@ -1019,12 +1019,12 @@ manuscript evidence.
 
 ## **24 Content**
 
-**Auditing Normalization, Collation, and Variant Apparatus**
+**Auditing Normalization, Rendering, and Linguistic Markup**
 
 The third domain of our audit evaluates the **normalization layer** (Topic 6), the
-**collation results** (Topic 14), and the **critical apparatus** (Topic 15). In this
+**rendering stylesheets** (Topic 7), and the **linguistic markup** (Topic 8). In this
 domain, reviewers evaluate how the editor mediated between the raw manuscript
-witness and the critical text (TEI Consortium, 2026).
+witness and the published presentation (TEI Consortium, 2026).
 
 Reviewers must inspect the following editorial structures:
 

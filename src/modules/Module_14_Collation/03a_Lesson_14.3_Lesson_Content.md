@@ -1,6 +1,6 @@
 # Lesson 14.3 — AI-Assisted Variant Classification and Adjudication
 
-*RELS 398 / ENGL 398 · Topic 14: Collation · Meeting #19 (Fri Oct 23)*
+*RELS 398 / ENGL 398 · Topic 14: Collation*
 
 ***Step 3 of the three-step cycle: AI-assisted.** Today you apply semantic methods
 to variant identification and classification, testing whether they supply what

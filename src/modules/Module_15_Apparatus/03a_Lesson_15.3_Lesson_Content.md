@@ -1,6 +1,6 @@
 # Lesson 15.3 — AI-Assisted Apparatus Drafting and Error Hunting
 
-*RELS 398 / ENGL 398 · Topic 15: Apparatus · Meeting #22 (Fri Oct 30)*
+*RELS 398 / ENGL 398 · Topic 15: Apparatus*
 
 ***Step 3 of the three-step cycle: AI-assisted.** Today you evaluate Large Language
 Models in drafting TEI apparatus markup from collation tables and legacy print

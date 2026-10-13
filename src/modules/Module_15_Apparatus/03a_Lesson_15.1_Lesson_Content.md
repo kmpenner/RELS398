@@ -1,6 +1,6 @@
 # Lesson 15.1 — Constructing Positive and Negative Apparatus by Hand
 
-*RELS 398 / ENGL 398 · Topic 15: Apparatus · Meeting #20 (Tue Oct 27)*
+*RELS 398 / ENGL 398 · Topic 15: Apparatus*
 
 ***Step 1 of the three-step cycle: manual.** Today you construct positive and
 negative critical apparatus entries by hand in TEI XML, navigating the structural

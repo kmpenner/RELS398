@@ -119,13 +119,13 @@
 ## 4. Open Questions & Unresolved Issues
 
 - ⚠️ **[OPEN 2026-10-13] Fallout from skipping collation.**
-  - **13.1** teaches the stemma codicum, which needs collated witnesses. The 13.1 summary and `02_Learning_Objectives` still promise it, and the objectives list collation and apparatus policies.
-  - **Modules 10–13** still cross-reference Topics 14 and 15, which will not be taught.
-  - **Live Lesson 6.3 §29–30** still previews "Week 7: Collation". The students may need an announcement (Ken to approve).
+  - **[RESOLVED 2026-10-13]** Stemma codicum and collation references purged from `02_Learning_Objectives.html` in both `src/` and `dist/`.
+  - **[RESOLVED 2026-10-13]** Purged all cross-references to Topics 14 and 15 across active lessons (Modules 10, 12, 13).
+  - **[RESOLVED 2026-10-13]** Drafted student communication `ANNOUNCEMENT_WEEK7.md` clarifying the shift from Collation to Rendering and the reallocation of 5% to Named-Entity Markup.
   - **Old module numbers:**
-    - The `01_Banner.png` images for 8, 14 and 15 still show the old numbers.
-    - The `dist/moodle` notes PDFs for 8.x, 14.x and 15.x carry the old lesson ids and need recompiling.
-  - **Module 8 Lemmatization** is bulk-authored and Greek/CLTK-centric (Morpheus, polytonic examples). It needs a novice rewrite against the three cohort documents before Oct 27.
+    - The `01_Banner.png` images for 8, 14 and 15 still show the old numbers (open).
+    - **[RESOLVED 2026-10-13]** Recompiled all `dist/moodle` notes PDFs for 8.x, 14.x and 15.x via Pandoc + Typst, restoring canonical renumbered headers.
+  - **Module 8 Lemmatization** is bulk-authored and Greek/CLTK-centric (Morpheus, polytonic examples). It needs a novice rewrite against the three cohort documents (French 1791 decree, Maud Lewis English letter, 1752 Treaty) before Oct 27.
   - **Mid-term weight change:** StFX policy may require class agreement.
 - ⚠️ **[OPEN 2026-10-13] Lint gate already red at HEAD:** 387 `md-table` findings across all 36 lessons, delivered ones included. The rule postdates the content. New lessons must lint clean.
 - ⚠️ **[OPEN 2026-09-22] Verse coverage missing from the 4.1 question bank.** §08/§09 now teach `<lg>`/`<l>` and the `<l>`-vs-`<lb/>` distinction, but no question tests any of it. The bank is strictly 1:1 with the 30 sections (`<!-- NN Question -->`, one per section), and Q08/Q09 are sound questions about their sections' original material, so this is a real trade: either replace a good question or break the 1:1 mapping. **Unverified:** whether `interleaver_with_images.convert_md_to_xml` tolerates a section/question count mismatch — check before adding. Needs Ken's call.
@@ -137,12 +137,15 @@
 
 ## 5. Active Milestone & Next Target
 
-- **Current Phase:** Week 7 (Module 07: Publication I / Rendering) delivery preparation, followed by Week 8 (Module 08: Lemmatization novice rewrite before Oct 27) and Week 9 (Module 09: Named Entities authoring before Nov 3).
-- **Verification Gate:** `python3 scripts/lint_lesson_content.py --lessons 7.1,7.2,7.3` (0 issues) & `python3 scripts/status.py`.
-- **Immediate Next Steps:**
-  1. Author in-class teaching plans for Module 7 (Meetings #17 Tue Oct 20, #18 Wed Oct 21, #19 Fri Oct 23) in `src/modules/Module_07_Rendering/`.
-  2. Build widescreen PowerPoint slide decks for Lessons 7.1, 7.2, and 7.3 matching the 16pt floor and 80–120 word speaker notes constraints.
-  3. Create Module 7 section ancillaries: `01_Banner.png`, `05_Reading_List.html`, `06_Watch_List.html`, and Module 7 Weekly Quiz.
+- **Current Phase:** Week 7 (Module 07: Publication I / Rendering) complete in local `src/` and `dist/moodle/`. Ready for Week 8 (Module 08: Lemmatization novice rewrite before Oct 27) and Week 9 (Module 09: Named Entities authoring before Nov 3).
+- **Completed Module 7 Assets (2026-10-13):**
+  1. Authoring and verification of in-class teaching plans: `Lesson_7.1_Teaching_Plan_2026-10-20.html` (Meeting #17), `Lesson_7.2_Teaching_Plan_2026-10-21.html` (Meeting #18), `Lesson_7.3_Teaching_Plan_2026-10-23.html` (Meeting #19) in `src/modules/Module_07_Rendering/` (passed shared linter 18/18 plans with 0 problems).
+  2. Widescreen PowerPoint slide decks built: `Lesson_7.1_Slides_2026-10-20.pptx`, `Lesson_7.2_Slides_2026-10-21.pptx`, `Lesson_7.3_Slides_2026-10-23.pptx` (15 slides each, strictly >=16pt font floor, 80–120 word notes per slide) in `src/` and mirrored to `dist/moodle/`.
+  3. Module 7 Section ancillaries assembled: `01_Banner.png`, `05_Reading_List.html`, `06_Watch_List.html`, `09_Quiz_Description.html`, and `09_Quiz.xml` (10-question quiz with diagnostic feedback) via `scripts/banks/quiz_07.py`.
+  4. Notes PDFs recompiled for Modules 8, 14, and 15 with canonical renumbered headers.
+- **Immediate Next Targets:**
+  1. Module 8 (Lemmatization) novice rewrite planning and authoring for Meetings #20–22 (Oct 27–30).
+  2. Module 9 (Named Entities) lesson authoring and question banks for Meetings #23–25 (Nov 3–6).
   4. Generate slide illustrations via Gemini Notebook LM for Lessons 7.1–7.3, then compile interactive XML (`03_Interactive_Lesson_7.x.xml`) and standalone HTML players (`03_Interactive_Lesson_7.x.html`).
   5. Deploy Module 07 package to live Moodle Section 7 (course 51185).
   6. Undertake novice rewrite of Module 08 (Lemmatization) re-anchoring from Greek/CLTK to the cohort's three documents (French 1791 decree, Maud Lewis letters, 1752 Peace and Friendship Treaty) before Oct 27.
@@ -409,3 +412,12 @@ Two findings worth carrying forward:
 - 2026-10-05: Week 6 decks (6.1-6.3) now carry the four lab manuscripts (Jay/Dickinson, Ace/1791 decree, Olyvia/Maud Lewis, Andromeda/1752 Treaty): a strip on each title slide and each document inside its card on the "Your Document" slides. Added by `scratch/add_manuscripts_6x.py`, run after `build_slides_6.x.py` (re-running a builder drops the images; re-run the script after). Moodle cmids 1438500-02 replaced, byte sizes verified.
 
 - **[2026-10-05] Settled (Ken): no peer assessment in 398 workshops.** The cohort is down to three students, so the workshops can no longer be peer assessed. Do not allocate peer reviews or load rubrics for peer use. All six workshops (1427946, 1428527, 1423487, 1435208, 1437327, 1438496) still have empty assessment forms. The rubrics extracted from each module's `08b` brief are in `scratch/rubric_args.json`, in case Ken wants them for his own grading. **Resolved (Ken, 2026-10-05): workshops replaced by assignments.** `shared/scripts/moodle_cdp/ws2assign.js` (args `scratch/ws2assign_args.json`) created one assignment per module, placed just before its workshop: M1 1438718, M2 1438719, M3 1438720, M4 1438721, M5 1438722, M6 1438717. Each carries the workshop description, submission instructions and the `08b` rubric (4+3+3), 80 points, the same due date (M1 and M4 had none), file plus online-text submission, late submissions allowed. The six workshops are hidden, not deleted. Ace Long's existing workshop submissions (M2, M3, M5) stay in them and must be graded from there or resubmitted. Peer-review wording removed (Oct 5): the `08`/`08b` pages in all six modules now say assignment and Grading Rubric, with a single due date; teaching plans 6.1-6.3 tell students there is no peer review. Each assignment's description was rebuilt from 08 + 08a + 08b (`shared/scripts/moodle_cdp/asgnupdate.js`, args `scratch/asgnupdate_args.json`). Module 4 due date set to Fri Sep 25, 11:00 PM, following its brief and the Friday-of-module-week pattern. Ken confirmed (Oct 5): Module 4 (human transcription) due Sep 25, Module 5 (reconciliation with AI) due Oct 2. Normalization (Module 6) confirmed due Oct 9, moved from Week 7 in the schedule. Schedule .tex corrected and recompiled with XeLaTeX (fontspec; pdflatex fails) into src/syllabus; dist/ copy not refreshed. [OPEN] Cataloguing: schedule says Fri Sep 18, Moodle assignment 1438719 says Sep 11. The interactive-lesson hits were false positives (base64 data and quiz items about scholarly peer review); left alone. Source file names still begin `08_Workshop_`.
+
+- **[2026-10-13] Module 7 Phase F Package, Teaching Plans, Slide Decks, and Notes PDF Recompilation Complete:**
+  - Evaluated reading level for Lessons 7.1, 7.2, and 7.3: confirmed novice target (Flesch-Kincaid 7.6, 8.2, 8.4; 0 lint issues; citation evidence verified).
+  - Purged all stale references to Topics 14 and 15 across active lessons (Modules 10, 12, 13) and updated Module 13 `02_Learning_Objectives.html`.
+  - Authored student announcement `ANNOUNCEMENT_WEEK7.md` clarifying the shift to Rendering, the 5% reallocation to Named Entities, and the updated schedule.
+  - Assembled Phase F assets for Module 7: generated `01_Banner.png`, `05_Reading_List.html`, `06_Watch_List.html`, `09_Quiz_Description.html`, and `09_Quiz.xml` (10 questions with diagnostic feedback via `scripts/banks/quiz_07.py`) in `src/` and `dist/moodle/`.
+  - Authored and verified in-class teaching plans: `Lesson_7.1_Teaching_Plan_2026-10-20.html` (Meeting #17), `Lesson_7.2_Teaching_Plan_2026-10-21.html` (Meeting #18), `Lesson_7.3_Teaching_Plan_2026-10-23.html` (Meeting #19) in `src/modules/Module_07_Rendering/`. Passed shared teaching plan linter with 0 problems across all 18 course plans.
+  - Built widescreen 16:9 PowerPoint slide decks: `Lesson_7.1_Slides_2026-10-20.pptx`, `Lesson_7.2_Slides_2026-10-21.pptx`, `Lesson_7.3_Slides_2026-10-23.pptx` (15 slides each; strictly >=16pt font floor, 80-120 word speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
+  - Recompiled stale Notes PDFs for Modules 8, 14, and 15 using Pandoc + Typst (`compile_lesson_notes_pdf.py`), updating titles, headers, and lesson IDs to reflect canonical course renumbering.

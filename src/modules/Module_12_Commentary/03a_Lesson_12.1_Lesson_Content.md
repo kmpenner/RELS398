@@ -82,7 +82,7 @@ Philological notes are the bedrock of classical and historical commentary. Their
 
 In historical Greek and Latin texts, philological notes frequently address dialectal shifts (such as Aeolic or Ionic forms in epic verse), Hellenistic koiné developments (such as the loss of the optative mood or confusion of prepositions), and irregular morphological paradigms. For example, when encountering a rare hapax legomenon or an archaic genitive singular in Homeric Greek (such as -οιο instead of -ου), the philological note provides the normalized lemma, identifies the morphological parsing, cites relevant grammar references, and explains the semantic nuances in context (Francese, 2014).
 
-Furthermore, philological commentary directly intersects with textual criticism (Topic 15). Where the editor has accepted an emendation or preferred a difficult reading (*lectio difficilior*) in the critical apparatus, the philological note provides the extensive rationale:
+Furthermore, philological commentary directly intersects with textual criticism. Where the editor has accepted an emendation or preferred a difficult reading (*lectio difficilior*) in the critical apparatus, the philological note provides the extensive rationale:
 
 | Scholarly Component | Editorial Content for 1 Thess 2:7 Example |
 | --- | --- |
@@ -903,7 +903,7 @@ Once encoded, validate the document. Check that:
 
 **Designing the Editorial Statement for Commentary**
 
-A digital scholarly edition is incomplete without an explicit **Editorial Statement** explaining the principles, boundaries, and scope of its commentary. Just as an editor must publish their normalization policy (Topic 6) and collation principles (Topic 14), they must define their commentary rationale in the `<editorialDecl>` of the `<teiHeader>` (TEI Consortium, 2026).
+A digital scholarly edition is incomplete without an explicit **Editorial Statement** explaining the principles, boundaries, and scope of its commentary. Just as an editor must publish their normalization policy (Topic 6) and rendering rules (Topic 7), they must define their commentary rationale in the `<editorialDecl>` of the `<teiHeader>` (TEI Consortium, 2026).
 
 The commentary editorial statement must address four fundamental questions:
 

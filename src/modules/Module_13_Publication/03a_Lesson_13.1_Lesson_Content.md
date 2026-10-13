@@ -10,7 +10,7 @@
 
 **The Architecture of the Final Digital Edition Portfolio**
 
-Over the preceding twelve weeks, you have methodically constructed the individual components of a comprehensive digital scholarly edition. You began in Topic 1 with repository initialization and Unicode Greek encoding; catalogued codicological metadata and linked data identifiers in Topic 2; bound high-resolution IIIF facsimiles in Topic 3; transcribed diplomatic ground truth and evaluated HTR error rates in Topics 4 and 5; formulated orthographic normalization rules in Topic 6; executed algorithmic collation in Topic 14; constructed a multi-witness critical apparatus in Topic 15; applied morphosyntactic lemmatization in Topic 8; synthesized translation alignments in Topic 11; and authored categorized scholarly commentary in Topic 12 (Sahle, 2016; Pierazzo, 2016).
+Over the preceding twelve weeks, you have methodically constructed the individual components of a comprehensive digital scholarly edition. You began in Topic 1 with repository initialization; catalogued codicological metadata and linked data identifiers in Topic 2; bound high-resolution IIIF facsimiles in Topic 3; transcribed diplomatic ground truth and evaluated HTR error rates in Topics 4 and 5; formulated orthographic normalization rules in Topic 6; authored web and print rendering stylesheets in Topic 7; applied morphosyntactic lemmatization in Topic 8; tagged named entities in Topic 9; synthesized translation alignments in Topic 11; and authored categorized scholarly commentary in Topic 12 (Sahle, 2016; Pierazzo, 2016).
 
 Now, in Topic 13, you enter the final studio and publication phase. A digital scholarly edition is not merely a disconnected folder of XML files, scripts, and image links; it is a unified, publication-grade scholarly system. The goal of this week is to integrate these ten progressive layers into an authoritative, multi-modal critical edition capable of serving both specialized philologists and students across web, interactive HTML, and print media (Driscoll & Pierazzo, 2016).
 
@@ -97,7 +97,7 @@ The three steps must be performed in strict sequence to avoid circular reasoning
 | **Step 2** | *Examinatio* | Critical Examination | Evaluate variants at each node using stemmatic weighting to determine the ancestral text |
 | **Step 3** | *Emendatio* | Textual Emendation | Restore the authorial text through conjectural emendation where the archetype is corrupt |
 
-During *recensio*, the editor remains strictly descriptive. You do not judge whether a reading is aesthetically pleasing; you systematically record every textual difference across all witnesses (Topic 14). From this collation data, you construct the *stemma codicum*—a genealogical tree illustrating how manuscripts descend from common lost ancestors (Maas, 1958; Andrews, 2020).
+During *recensio*, the editor remains strictly descriptive. In a multi-witness tradition, you systematically record every textual difference across all witnesses; from this collation data, you construct the *stemma codicum*—a genealogical tree illustrating how manuscripts descend from common lost ancestors (Maas, 1958; Andrews, 2020). In a single-witness edition, your recensio is the rigorous documentary description of your primary artifact.
 
 During *examinatio*, the editor uses the stemma to reconstruct the text of the archetype ($\Omega$). If the stemma splits into two independent branches ($\alpha$ and $\beta$), and Branch $\alpha$ agrees with Branch $\beta$ against a single divergent manuscript, the reading attested by both branches is mathematically proven to be the reading of the archetype. Editorial subjective judgment is only required when the independent branches disagree, requiring the editor to evaluate intrinsic probability (*usus scribendi*) and transcriptional probability (*lectio difficilior*) (Maas, 1958; Fischer, 2020).
 
@@ -348,7 +348,7 @@ The CBGM reverses this workflow by constructing **local stemmata** first:
 
 When authoring your digital edition:
 
-1. For each variation unit in your apparatus (Topic 15), you construct a local stemma declaring which reading represents the source ($a$) and which readings represent secondary developments ($b, c$);
+1. For each variation unit in a multi-witness apparatus, an editor constructs a local stemma declaring which reading represents the source ($a$) and which readings represent secondary developments ($b, c$);
 2. You feed these local stemmata into the computational matrix to verify whether the genealogical direction of change is consistent with your witnesses' global coherence (Mink, 2004; Fischer, 2020).
 
 | Feature Dimension | Local Stemma | Global Stemma |
@@ -609,7 +609,7 @@ Decomposing your editorial introduction into these formal XML elements guarantee
 
 **Documenting Correction Policies: `<correction>`**
 
-The **`<correction>`** element documents the editorial principles regarding how scribal errors, lapses, and damage in the manuscript witnesses are treated (TEI Consortium, 2026; Topic 15).
+The **`<correction>`** element documents the editorial principles regarding how scribal errors, lapses, and damage in the manuscript witnesses are treated (TEI Consortium, 2026; Topic 6).
 
 The element takes two primary attributes:
 
@@ -720,9 +720,9 @@ Documenting your segmentation rules guarantees that other researchers can progra
 
 **Documenting Apparatus Encoding Method: `<variantEncoding>`**
 
-The **`<variantEncoding>`** element declares the structural method and location used to encode the critical apparatus within the TEI document (TEI Consortium, 2026; Topic 15).
+The **`<variantEncoding>`** element declares the structural method and location used to encode textual variation within a TEI document (TEI Consortium, 2026).
 
-As established in Topic 15, the TEI Guidelines define three distinct architectural methods for linking apparatus variations to the base text. The `<variantEncoding>` element in `<encodingDesc>` informs XML processors which method is employed throughout the file:
+In TEI critical editions, the TEI Guidelines define three distinct architectural methods for linking apparatus variations to the base text. The `<variantEncoding>` element in `<encodingDesc>` informs XML processors which method is employed throughout the file:
 
 ```xml
 <encodingDesc>
@@ -1043,7 +1043,7 @@ The `<revisionDesc>` maintains a human- and machine-readable audit trail of ever
     Integrated Topic 12 Stand-off Commentary and W3C Web Annotation anchors.
   </change>
   <change when="2026-10-27" who="#editor1">
-    Encoded Topic 15 Parallel Segmentation Critical Apparatus.
+    Encoded Topic 8 Lemmatization and Morphological Tagging.
   </change>
   <change when="2026-09-02" who="#editor1" status="draft">
     Initialized repository, encoded basic teiHeader, and transcribed diplomatic ground truth.

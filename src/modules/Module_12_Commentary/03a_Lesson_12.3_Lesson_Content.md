@@ -645,7 +645,7 @@ Furthermore, Stage 4 enforces rigorous provenance tracking. When an approved not
 
 **Hands-On: Crafting Structured Prompts for 1 Thessalonians 2:1–8**
 
-Now we begin our practical laboratory implementation. Today you will apply our HITL pipeline to generate, verify, and vet scholarly commentary notes for our core course passage: **1 Thessalonians 2:1–8** (Greek text established in Topic 6 and collated in Topic 14).
+Now we begin our practical laboratory implementation. Today you will apply our HITL pipeline to generate, verify, and vet scholarly commentary notes for our core course passage: **1 Thessalonians 2:1–8** (text established in Topic 6 and regularized for digital edition).
 
 Your first objective is to craft the structured system prompt that will govern the LLM generation. Open your Python development environment or IDE and create a new script: `scripts/generate_ai_commentary.py`.
 

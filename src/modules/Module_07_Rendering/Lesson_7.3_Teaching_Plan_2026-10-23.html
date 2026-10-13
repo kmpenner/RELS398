@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 7.3 Teaching Plan (2026-10-23)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #19 (Lesson 7.3 &mdash; AI-Assisted Stylesheet Generation &amp; Visual Audit)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, October 23, 2026</span>
+                <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 7 (Publication I: Rendering) &middot; Step 3 of 3 (AI) and Synthesis</span>
+                <span class="badge">Milestone: tei_to_html_ai_raw.xsl + tei_to_html_ai.xsl + index_ai.html</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students arrive with Tuesday's manual ground truth (<code>RENDERING.md</code>, <code>index_manual.html</code>, dual CSS) and Wednesday's deterministic transformation pipeline (<code>tei_to_html.xsl</code>, <code>render.py</code>, <code>index_xslt.html</code>) committed to <code>main</code>. They know how XSLT templates process XML trees. They have never prompted an AI model to author an entire stylesheet, nor conducted a multi-point audit of generated code against an editorial standard.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student formulates a constrained 5-part prompt derived from their <code>RENDERING.md</code> decision table, generates an XSLT 1.0 stylesheet using Gemini in Antigravity, commits the unedited baseline (<code>tei_to_html_ai_raw.xsl</code>), executes a 3-point audit against Wednesday's text and Tuesday's layout, rectifies discrepancies into <code>tei_to_html_ai.xsl</code>, and renders <code>index_ai.html</code>.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>St. Vincent, &ldquo;Digital Witness&rdquo;</strong> (2014). Art-rock examination of mediated digital interfaces, surveillance, and automated presentation (&ldquo;If I can't show it, if you can't see me, what's the point of even sleeping?&rdquo;).</li>
+            <li><strong>Pedagogical connection:</strong> A digital interface can appear visually stunning while quietly distorting or omitting historical evidence underneath. Auditing is how a scholar verifies what software claims to present.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;When an automated tool produces a beautiful, functional web page, how do you verify it didn't secretly invent or omit your evidence?&rdquo; Returns on Slide 2 (&ldquo;Listen for: Digital Witness&rdquo;) and Slides 4&ndash;6 (Ask for Rules, Not for a Page).</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE AI STYLESHEET OBJECTIVE: RULES OVER DIRECT RENDERING</h3>
+        <p>Never ask a large language model to render a historical document directly into HTML text. Directly generated pages drift, silently modernize archaic vocabulary, hallucinate expansions, or drop milestone line breaks. Asking the model to write an XSLT stylesheet constrains it to authoring executable transformation logic: an XSLT stylesheet is text-preserving and cannot invent words. Once verified, the stylesheet runs identically on every pass.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Ask for rules, never direct text:</strong> Prompts must request an XSLT 1.0 stylesheet based on the <code>RENDERING.md</code> decision table. Never paste raw text and ask the model to format it directly.<br>
+        <strong>2. Commit unedited baseline first:</strong> The model's exact response must be committed as <code>tei_to_html_ai_raw.xsl</code> before any edits are made. Provenance requires recording what the model authored versus what the human scholar corrected.<br>
+        <strong>3. Three points of comparison:</strong> Audit every AI rule against three standards: (a) <code>RENDERING.md</code> for editorial intent, (b) Wednesday's <code>index_xslt.html</code> for text fidelity, and (c) Tuesday's <code>index_manual.html</code> for visual styling.<br>
+        <strong>4. Watch for XSLT 2.0 traps:</strong> Models frequently hallucinate XSLT 2.0 functions (<code>string-join()</code>, <code>replace()</code>) or <code>xpath-default-namespace</code>, which fail silently or crash in Python's <code>lxml</code> processor.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">9:30 &ndash; 9:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Rules vs. Direct Rendering</td>
+                <td class="desc-col">
+                    Springboard from walk-in music: project an AI model directly rendering a historical document where it silently modernizes <em>&ldquo;ye Govr&rdquo;</em> into <em>&ldquo;the Governor&rdquo;</em> without encoding.<br>
+                    Show why generating a stylesheet is safer: an XSLT stylesheet transforms TEI without altering character evidence. Contrast direct text drift with rule-based transformation.
+                </td>
+                <td class="target-col">Direct drift demo; rule generation mandate</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:36 &ndash; 9:48<br>(12 mins)</td>
+                <td class="activity-col">Phase 2: Live Build<br>The 5-Part Stylesheet Prompt</td>
+                <td class="desc-col">
+                    Construct the master prompt live in VS Code across five components:<br>
+                    (1) Persona: expert digital humanist and XSLT developer.<br>
+                    (2) Task: author XSLT 1.0 stylesheet for TEI P5.<br>
+                    (3) Specification: full decision table copied from <code>RENDERING.md</code>.<br>
+                    (4) Negative constraints: no XSLT 2.0 functions, no inline styles, no omitted milestones, no invented class names.<br>
+                    (5) Output format: clean XSLT XML block only.
+                </td>
+                <td class="target-col">Structured prompt saved in <code>prompt_stylesheet.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">9:48 &ndash; 10:02<br>(14 mins)</td>
+                <td class="activity-col">Phase 3: Protected Lab<br>Generation, Baseline &amp; Execution</td>
+                <td class="desc-col">
+                    Students run their prompt in Antigravity chat, copy the resulting XSLT into <code>tei_to_html_ai_raw.xsl</code>, and commit immediately to preserve provenance.<br>
+                    Execute via <code>render.py</code> with <code>lxml</code>. Diagnose immediate runtime failures: XSLT 2.0 functions, missing <code>tei:</code> namespace prefixes, or empty page outputs.
+                </td>
+                <td class="target-col">Raw baseline committed; initial run logged</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:02 &ndash; 10:10<br>(8 mins)</td>
+                <td class="activity-col">Phase 4: Systematic Audit<br>The Three-Way Comparison</td>
+                <td class="desc-col">
+                    Perform the 3-point audit:<br>
+                    (1) Template inventory: does every row in <code>RENDERING.md</code> have a template? Are there orphan templates?<br>
+                    (2) Text diff: diff AI output against Wednesday's <code>index_xslt.html</code> using VS Code compare. Check for dropped line breaks or merged words.<br>
+                    (3) Visual check: link Tuesday's CSS and compare layout in browser.
+                </td>
+                <td class="target-col">Audit diff identified; discrepancies categorized</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:10 &ndash; 10:15<br>(5 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Rectification &amp; Header Documentation</td>
+                <td class="desc-col">
+                    Save corrected version as <code>tei_to_html_ai.xsl</code>. Fix syntax bugs, remove orphan rules, and align class names with Tuesday's CSS.<br>
+                    Re-render to produce <code>index_ai.html</code>. Document the audit in <code>RENDERING.md</code>: record AI flaws caught (e.g. dropped <code>@n</code> on line breaks, invented wrapper divs).
+                </td>
+                <td class="target-col">Audited <code>tei_to_html_ai.xsl</code> + <code>index_ai.html</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">10:15 &ndash; 10:20<br>(5 mins)</td>
+                <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Module 8 Preview</td>
+                <td class="desc-col">
+                    Stage gate commit:<br>
+                    <code>git add tei_to_html_ai_raw.xsl tei_to_html_ai.xsl index_ai.html RENDERING.md &amp;&amp; git commit -m "Week 7 Step 3: AI-generated stylesheet audited, rectified, and documented"</code><br>
+                    Remind cohort: Week 7 completes Publication I (Rendering); work rolls into the final Print-Ready Publication Portfolio. Preview Week 8 (Meeting #20, Tue Oct 27): Lemmatization and linguistic markup.
+                </td>
+                <td class="target-col">Clean commit on <code>main</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Starter Projection Skeletons &amp; Live Reference</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Starter Projection Card A: 5-Part Prompt Architecture</h4>
+<pre># 1. PERSONA &amp; CONTEXT
+You are an expert digital humanist and XSLT 1.0 developer.
+
+# 2. TASK
+Write a valid XSLT 1.0 stylesheet transforming TEI P5 into HTML5.
+
+# 3. SPECIFICATION (from RENDERING.md)
+[Paste Decision Table mapping TEI elements to classes and views]
+
+# 4. NEGATIVE CONSTRAINTS
+- Strict XSLT 1.0 only: DO NOT use string-join(), replace(),
+  or xpath-default-namespace.
+- Every match pattern MUST use the tei: prefix.
+- DO NOT invent new class names; use existing classes.
+- NEVER drop milestone tags: tei:lb must output with @data-n.
+- DO NOT output inline styles or embedded CSS blocks.
+
+# 5. OUTPUT FORMAT
+Return ONLY the raw XSLT XML stylesheet inside a single code block.</pre>
+        </div>
+        <div class="card">
+            <h4>Starter Projection Card B: Three-Way Audit Grid</h4>
+<pre>+--------------------------------------------------------------+
+| POINT 1: EDITORIAL SPECIFICATION (RENDERING.md)              |
+| &bull; Compare template inventory against recorded decisions.    |
+| &bull; Flag orphan templates (invented rules without a decision). |
++--------------------------------------------------------------+
+| POINT 2: TEXTUAL INTEGRITY (VS Code Diff vs. index_xslt.html) |
+| &bull; Check for dropped words, missing punctuation, or spaces.    |
+| &bull; Verify all &lt;lb&gt; milestones and @n line numbers survived.   |
++--------------------------------------------------------------+
+| POINT 3: PRESENTATIONAL PARITY (Browser vs. index_manual.html)|
+| &bull; Confirm class names match Tuesday's CSS selectors.         |
+| &bull; Verify reading view and diplomatic view display properly.  |
++--------------------------------------------------------------+</pre>
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Rectification Workflow in VS Code</h4>
+            <ul>
+                <li><strong>Baseline Integrity:</strong> <code>tei_to_html_ai_raw.xsl</code> is committed unchanged immediately upon model generation.</li>
+                <li><strong>Side-by-Side Diff:</strong> Open <code>index_xslt.html</code> and <code>index_ai.html</code> in VS Code split view; use <em>Compare Active File With...</em> to highlight every divergence.</li>
+                <li><strong>Targeted Edit:</strong> Modify only the audited file <code>tei_to_html_ai.xsl</code> to rectify errors, then re-run <code>render.py</code>.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>Closing Understanding Check / Kahoot Fallback</h4>
+            <ul>
+                <li><em>Question 1:</em> Why is an AI-generated XSLT stylesheet safer than asking an AI to output rendered HTML directly? (A stylesheet is text-preserving and cannot hallucinate or drift from the source XML).</li>
+                <li><em>Question 2:</em> Why does <code>xpath-default-namespace</code> cause an empty page in <code>lxml</code>? (Python's <code>lxml</code> is an XSLT 1.0 processor and silently ignores the 2.0 namespace directive).</li>
+                <li><em>Question 3:</em> What is an orphan template? (A template generated by the model that corresponds to no recorded decision in <code>RENDERING.md</code>).</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 class="section-header">Classroom Diagnostics &amp; Cohort Guidance</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Common Diagnostic Pitfalls</h4>
+            <ul>
+                <li><strong>Silent XSLT 2.0 Crash:</strong> <code>lxml.etree.XSLTApplyError</code> thrown without naming the function. Search for <code>string-join</code>, <code>matches</code>, or <code>tokenize</code> and replace with recursive templates or simple loops.</li>
+                <li><strong>Invented Class Names:</strong> The model generates creative class names like <code>.treaty-heading</code> or <code>.decree-article</code> instead of Tuesday's <code>.tei-head</code>. Audit and rename them to match the CSS.</li>
+                <li><strong>Unescaped Entities:</strong> Model writes raw ampersands inside HTML text templates; replace with <code>&amp;amp;</code> or wrap inside <code>&lt;xsl:text&gt;</code>.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>Cohort Document Specifics</h4>
+            <ul>
+                <li><strong>ACE &middot; 1791 French Decree:</strong> Check whether the model handled uppercase accented characters properly or hallucinated French modernizations in output templates.</li>
+                <li><strong>OLYVIA &middot; Maud Lewis Letter:</strong> Check whether the model respected letter margins and salutation elements without dropping colloquial spacing.</li>
+                <li><strong>ANDROMEDA &middot; 1752 Treaty:</strong> Verify that the model preserved all treaty article numbers and did not discard thorn abbreviation markup.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

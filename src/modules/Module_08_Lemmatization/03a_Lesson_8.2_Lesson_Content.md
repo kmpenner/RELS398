@@ -2,7 +2,7 @@
 
 *RELS 398 / ENGL 398 · Topic 8: Lemmatization · Meeting #21 (Wed Oct 28)*
 
-***Step 2 of the three-step cycle: deterministic.** Today you configure and run specialized morphological engines and cascading taggers (Morpheus, TreeTagger, CLTK, Stanza/LatinCy), measuring how accurately deterministic pipelines handle regular and non-standard historical forms against your manual ground truth. **Last day to drop courses is today.***
+***Step 2 of the three-step cycle: deterministic.** Today you configure and run specialized morphological engines and cascading taggers (Morpheus, TreeTagger, CLTK, Stanza/LatinCy), measuring how accurately deterministic pipelines handle regular and non-standard historical forms against your manual ground truth.*
 
 ---
 

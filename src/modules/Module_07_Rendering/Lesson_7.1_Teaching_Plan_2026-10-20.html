@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 7.1 Teaching Plan (2026-10-20)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #17 (Lesson 7.1 &mdash; Rendering by Hand: Display Decisions, HTML, and CSS)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Tuesday, October 20, 2026</span>
+                <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 7 (Publication I: Rendering) &middot; Step 1 of 3 (Manual)</span>
+                <span class="badge">Milestone: RENDERING.md Decision Table + index_manual.html</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students return from Fall Study Break with completed Week 6 milestones: <code>transcription_normalized.xml</code> (reconciled and normalized ground truth), <code>NORMALIZATION.md</code> (Rule Ledger), and verified attribution in TEI headers. They understand diplomatic vs. normalized text layers encoded in <code>&lt;choice&gt;</code> (orig/reg, abbr/expan). None has yet written HTML or CSS to render TEI markup for external readers.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student establishes an explicit Rendering Decision Table in <code>RENDERING.md</code> mapping every TEI element in their document to two distinct views (diplomatic and reading), then hand-authors <code>index_manual.html</code> alongside <code>diplomatic.css</code> and <code>reading.css</code> for a 15&ndash;20 line excerpt, verifying full character fidelity against source images.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Joni Mitchell, &ldquo;Both Sides Now&rdquo;</strong> (1969/2000 orchestral recording). Canadian cultural icon with Nova Scotia connections (celebrated at the Mariposa and Celtic Colours festivals).</li>
+            <li><strong>Pedagogical connection:</strong> Looking at the very same reality from two completely different perspectives (&ldquo;from both sides now&rdquo;), just as our digital edition presents diplomatic and reading views from the identical underlying TEI document.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;When you look at clouds, tears, or historical ink from both sides, which view is the real one?&rdquo; Returns on Slide 2 (&ldquo;Listen for: Both Sides Now&rdquo;) and Slides 4&ndash;5 (One File, Many Views).</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE RENDERING OBJECTIVE: CONTENT VS. PRESENTATION</h3>
+        <p>A valid TEI file records what a text is and says; rendering determines how it is presented to human readers. Content and presentation must remain strictly separated. The diplomatic view respects the physical artifact (scribe's lineation, abbreviations, original spellings), while the reading view privileges modern legibility (paragraphs, expanded abbreviations, regularized spellings). Neither view alters the underlying archival XML file.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Ground truth comes first:</strong> The manual HTML page and decision table authored today serve as the unchanging benchmark against which Wednesday's deterministic XSLT and Friday's AI stylesheet will be audited.<br>
+        <strong>2. Meaningful text stays in HTML, never CSS:</strong> Do not use CSS <code>::before</code> or <code>::after</code> pseudo-elements to inject editorial text, expansions, or footnote numbers. Screen readers and search indexers must access all words directly in the DOM.<br>
+        <strong>3. Whitespace around &lt;choice&gt;:</strong> Ensure whitespace resides outside <code>&lt;choice&gt;</code> tags in HTML markup so switching views neither merges adjacent words nor introduces phantom gaps.<br>
+        <strong>4. Assessment scope:</strong> Module 7 work builds directly toward the cumulative Print-Ready Publication Portfolio; there is no separate weekly workshop assignment.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Content vs. Presentation</td>
+                <td class="desc-col">
+                    Welcome students back from Fall Study Break. Springboard from walk-in music: project raw TEI XML beside a rendered web page. Ask: <em>&ldquo;Can an untrained reader cite this TEI directly? What needs to happen first?&rdquo;</em><br>
+                    Outline the week's trajectory on whiteboard: <strong>Tue manual ground truth &rarr; Wed deterministic XSLT/CETEIcean &rarr; Fri AI stylesheet audit</strong>.
+                </td>
+                <td class="target-col">Whiteboard roadmap; concept alignment</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>HTML Architecture &amp; Two Views</td>
+                <td class="desc-col">
+                    Demonstrate converting a 3-line TEI fragment into HTML in VS Code. Map TEI elements to semantic HTML wrappers (<code>&lt;div class="tei-p"&gt;</code>, <code>&lt;span class="tei-orig"&gt;</code>, <code>&lt;span class="tei-reg"&gt;</code>).<br>
+                    Show how two tiny CSS files switch views entirely: <code>diplomatic.css</code> sets <code>.tei-reg { display: none; }</code> and <code>.tei-lb { display: block; }</code>, while <code>reading.css</code> sets <code>.tei-orig { display: none; }</code> and <code>.tei-lb { display: inline; }</code>.
+                </td>
+                <td class="target-col">Dual-view CSS toggle on projector screen</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:46 &ndash; 8:56<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: Decision Table<br>Formalizing RENDERING.md</td>
+                <td class="desc-col">
+                    Direct students to create <code>RENDERING.md</code> in their course repositories. Build the Decision Table together: enumerate elements used across the cohort (<code>p</code>, <code>lb</code>, <code>choice</code>, <code>orig</code>, <code>reg</code>, <code>abbr</code>, <code>expan</code>, <code>unclear</code>, <code>gap</code>, <code>head</code>, <code>closer</code>).<br>
+                    For each element, specify behavior in both Diplomatic and Reading views. <strong>Circulate:</strong> confirm Ace covers French accents, Olyvia addresses letter salutations/closers, and Andromeda records treaty articles.
+                </td>
+                <td class="target-col"><code>RENDERING.md</code> with complete element table</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:56 &ndash; 9:12<br>(16 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Hand-Crafting index_manual.html</td>
+                <td class="desc-col">
+                    Students extract a representative 15&ndash;20 line excerpt from <code>transcription_normalized.xml</code> and hand-code <code>index_manual.html</code>, <code>diplomatic.css</code>, and <code>reading.css</code>.<br>
+                    Enforce UTF-8 charset declaration and language tag. Verify that both views render correctly when linking each stylesheet in the HTML header.
+                </td>
+                <td class="target-col">Valid <code>index_manual.html</code> with dual stylesheets</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:12 &ndash; 9:17<br>(5 mins)</td>
+                <td class="activity-col">Phase 5: Diagnostics<br>Line-by-Line Read-Back Check</td>
+                <td class="desc-col">
+                    Pair-share fidelity audit: students perform a read-back check against the high-resolution IIIF manifest or image source. Compare letter-for-letter: did any accents vanish? Did word spaces collapse inside <code>&lt;choice&gt;</code>?<br>
+                    Audit accessibility: confirm high contrast ratios, semantic heading hierarchies, and non-reliance on colour alone for editorial marks.
+                </td>
+                <td class="target-col">0 lost characters; verified contrast and spacing</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:17 &ndash; 9:20<br>(3 mins)</td>
+                <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Wednesday Preview</td>
+                <td class="desc-col">
+                    Stage gate commit:<br>
+                    <code>git add RENDERING.md index_manual.html diplomatic.css reading.css &amp;&amp; git commit -m "Week 7 Step 1: manual rendering decision table, HTML baseline, and dual stylesheets"</code><br>
+                    <strong>Preview Wednesday (Meeting #18):</strong> Automating this transformation across the full document using XSLT templates and CETEIcean.
+                </td>
+                <td class="target-col">Clean commit on <code>main</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Starter Projection Skeletons &amp; Live Reference</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Starter Projection Card A: HTML Structure with Dual Layers</h4>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Edition Sample: Diplomatic and Reading Views&lt;/title&gt;
+  &lt;link rel="stylesheet" href="diplomatic.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="tei-text"&gt;
+    &lt;div class="tei-p"&gt;
+      &lt;span class="tei-lb" data-n="1"&gt;&lt;/span&gt;The
+      &lt;span class="tei-choice"&gt;
+        &lt;span class="tei-orig"&gt;publick&lt;/span&gt;
+        &lt;span class="tei-reg"&gt;public&lt;/span&gt;
+      &lt;/span&gt; good of this Province...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+        <div class="card">
+            <h4>Starter Projection Card B: Dual CSS Toggles</h4>
+<pre>/* diplomatic.css */
+.tei-orig { display: inline; }
+.tei-reg  { display: none; }
+.tei-abbr { display: inline; }
+.tei-expan{ display: none; }
+.tei-lb   { display: block; }
+.tei-lb::before { content: attr(data-n) " "; color: #64748b; }
+
+/* reading.css */
+.tei-orig { display: none; }
+.tei-reg  { display: inline; text-decoration: underline dotted #94a3b8; }
+.tei-abbr { display: none; }
+.tei-expan{ display: inline; }
+.tei-lb   { display: inline; }</pre>
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Whiteboard Architecture Plan</h4>
+            <ul>
+                <li><strong>Left Panel (Data):</strong> TEI XML archival ground truth (untouched, canonical evidence).</li>
+                <li><strong>Center Panel (Decision Table):</strong> <code>RENDERING.md</code> mapping rules for each element in Diplomatic vs. Reading modes.</li>
+                <li><strong>Right Panel (Views):</strong> HTML DOM with semantic classes, toggled by swap-in stylesheets.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>Closing Understanding Check / Kahoot Fallback</h4>
+            <ul>
+                <li><em>Question 1:</em> Where should spaces between words sit relative to a <code>&lt;choice&gt;</code> element? (Outside, to prevent accidental word merging).</li>
+                <li><em>Question 2:</em> Why shouldn't editorial footnote numbers be injected via CSS <code>content:</code>? (Inaccessible to screen readers and search crawlers).</li>
+                <li><em>Question 3:</em> If a reader needs to cite the original physical manuscript lineation, which view must they use? (Diplomatic view).</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 class="section-header">Classroom Diagnostics &amp; Cohort Guidance</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Common Diagnostic Pitfalls</h4>
+            <ul>
+                <li><strong>Collapsing Whitespace:</strong> Writing <code>&lt;span class="tei-choice"&gt;&lt;span class="tei-orig"&gt;word &lt;/span&gt;...&lt;/span&gt;</code> leaves missing whitespace in the reading view. Keep whitespace outside the <code>tei-choice</code> wrapper.</li>
+                <li><strong>Lost Accented Glyphs:</strong> Omitting <code>&lt;meta charset="utf-8"&gt;</code> causes browsers to corrupt French accented characters (<em>&eacute;</em>, <em>&agrave;</em>) into mojibake. Verify UTF-8 declaration immediately.</li>
+                <li><strong>Direct CSS Overwriting:</strong> Students hard-coding inline styles in HTML. Remind them: zero inline styles; all display logic lives in external CSS files.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>Cohort Document Specifics</h4>
+            <ul>
+                <li><strong>ACE &middot; 1791 French Decree:</strong> Ensure the heading layout (<code>&lt;head&gt;</code>) retains centered small-caps presentation in both views, while preserving acute accents on capital letters in the reading view.</li>
+                <li><strong>OLYVIA &middot; Maud Lewis Letter:</strong> Ensure letter salutation (<code>&lt;opener&gt;</code>) and signature block (<code>&lt;closer&gt;</code>) are styled with proper margins in the reading view, while preserving line breaks exactly in the diplomatic view.</li>
+                <li><strong>ANDROMEDA &middot; 1752 Treaty:</strong> Ensure Roman-numeral article numbers and paragraph indentations render cleanly, with thorn abbreviations (<em>y<sup>e</sup></em>) displayed in diplomatic and expanded (<em>the</em>) in reading.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Lesson 14.1 — Collating Two Witnesses by Hand
 
-*RELS 398 / ENGL 398 · Topic 14: Collation · Meeting #17 (Tue Oct 20)*
+*RELS 398 / ENGL 398 · Topic 14: Collation*
 
 ***Step 1 of the three-step cycle: manual.** Today you collate two witnesses on
 paper, building a variant taxonomy and a record of every difference. That record

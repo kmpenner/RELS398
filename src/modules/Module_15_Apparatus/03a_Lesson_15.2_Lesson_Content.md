@@ -1,6 +1,6 @@
 # Lesson 15.2 — Automated Apparatus Generation with CollateX and Validation
 
-*RELS 398 / ENGL 398 · Topic 15: Apparatus · Meeting #21 (Wed Oct 28)*
+*RELS 398 / ENGL 398 · Topic 15: Apparatus*
 
 ***Step 2 of the three-step cycle: deterministic.** Today you transform CollateX
 alignment tables and variant graphs into TEI Critical Apparatus XML, validate the

@@ -1,6 +1,6 @@
 # Lesson 14.2 — Automated Alignment with CollateX
 
-*RELS 398 / ENGL 398 · Topic 14: Collation · Meeting #18 (Wed Oct 21)*
+*RELS 398 / ENGL 398 · Topic 14: Collation*
 
 ***Step 2 of the three-step cycle: deterministic.** Today you configure CollateX
 from Tuesday's method document, run it over the same passage, and measure how far
