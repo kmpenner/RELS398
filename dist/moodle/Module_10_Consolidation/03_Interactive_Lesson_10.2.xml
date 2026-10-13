@@ -1,0 +1,1915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_10.2</text></category></question>
+<question type="description"><name><text>01 Content: The Quality Assurance Gate in Textual Scholarship</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Quality Assurance Gate in Textual Scholarship</h3>
+<p>A digital edition requires high editorial standards. If an edition has broken tags, scholars cannot trust it. If metadata or links are missing, citation fails. Quality assurance is the careful process of checking files. It verifies that files meet technical and scholarly standards.</p>
+<p>In digital editing, quality assurance relies on two complementary gates:</p>
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Quality Assurance Gate</th>
+<th>Primary Instrument</th>
+<th>What It Verifies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Automated Validation Gate</strong></td>
+<td>Software parsers (`xmllint`, Relax NG, Schematron, GitHub Actions)</td>
+<td>Well-formedness, tag syntax, schema grammar, and attribute co-occurrence rules.</td>
+</tr>
+<tr>
+<td><strong>Human Peer Review Gate</strong></td>
+<td>Scholarly peers and editorial boards</td>
+<td>Transcription fidelity, paleographical readings, historical accuracy, and interpretive insight.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Computers check rules fast. They scan thousands of lines in seconds. Humans provide historical judgment. Combining automated checks with human review gives your edition stability. It also ensures scholarly quality.</p>
+<p><strong>Vocabulary.</strong> <em>Quality Assurance (QA)</em> — The careful testing and verification of files against defined technical standards. <em>Dual-Gate Design</em> — Pairing automated software checks with human peer review to evaluate digital editions.</p>
+<p><strong>Takeaway:</strong> A dependable digital scholarly edition requires both automated software validation and human peer review.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The Quality Assurance Gate in Textual Scholarship</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does digital scholarly editing require both automated validation and human peer review?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A dependable digital scholarly edition requires both automated software validation and human peer review.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Computers check rules and syntax instantly across thousands of lines, while humans provide historical judgment and paleographical insight.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The dual-gate approach pairs rapid machine checking of structural rules with human scholarly interpretation and contextual evaluation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Commercial publishing contracts legally require two software companies to sign off on files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Quality assurance is scholarly and open-source, not dependent on commercial company signatures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Automated validation can only check Latin documents, requiring humans for all modern languages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Automated XML validators check any language encoded in Unicode, but cannot judge historical truth.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Human peer review is obsolete and only used as a backup when Internet access is unavailable.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Human peer review is essential for assessing paleography, historical context, and editorial decisions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: The Fragility of Local Desktop Validation</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Fragility of Local Desktop Validation</h3>
+<p>During class, you validated XML in VS Code. You looked for red squiggly lines. Local validation helps during drafting. But relying only on your laptop is risky.</p>
+<p>Local settings drift over time. One student might use an old schema. Another might ignore red squiggly lines. A third might forget to run checks before committing.</p>
+<p>This creates a common trap: "It works on my machine!" When Ace clones Olyvia's repository, he may discover errors. Her local editor hid those mistakes. Automated workflows ensure consistency. Every file is tested against identical standards on an independent cloud server.</p>
+<p><strong>Vocabulary.</strong> <em>Local Settings Drift</em> — When individual desktop software settings, schemas, or extensions become outdated or inconsistent across a team. <em>Centralized Validation</em> — Running standardized automated tests on a shared remote server rather than individual laptops.</p>
+<p><strong>Takeaway:</strong> Local laptop validation is convenient for drafting, but centralized automated checks guarantee consistency across a project.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: The Fragility of Local Desktop Validation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What risk arises when project teams rely solely on local desktop validation on individual laptops?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Local laptop validation is convenient for drafting, but centralized automated checks guarantee consistency across a project.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Local software settings and schemas drift over time, hiding errors that break consistency across the project.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Individual laptop environments often diverge in schema paths or tool settings, leading to the "it works on my machine" trap.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Desktop text editors automatically delete all XML files after thirty days of inactivity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors like VS Code do not delete user files; the hazard is configuration divergence across team members.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Local validation permanently damages laptop screen hardware when errors occur.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Validation is software parsing and poses no risk to computer hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Desktop computers cannot validate files containing more than fifty words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Local editors handle large documents easily, but human inconsistency allows unvetted commits to slip through.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The Multi-Tiered Validation Hierarchy</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Multi-Tiered Validation Hierarchy</h3>
+<p>Validation is not a single test. In digital editing, quality control operates across three levels. Each tier increases in strictness:</p>
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Validation Tier</th>
+<th>Standard Technology</th>
+<th>Core Question Answered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tier 1: Syntax</strong></td>
+<td>XML Well-Formedness (`xmllint`)</td>
+<td>Is the document syntactically legal XML with closed, nested tags?</td>
+</tr>
+<tr>
+<td><strong>Tier 2: Grammar</strong></td>
+<td>RELAX NG Schema (`msdesc.rng`, `tei_all.rng`)</td>
+<td>Do elements and attributes follow TEI structure rules and data types?</td>
+</tr>
+<tr>
+<td><strong>Tier 3: Semantics</strong></td>
+<td>ISO Schematron (`.sch`)</td>
+<td>Do attributes follow project rules, cross-references, and conditional rules?</td>
+</tr>
+</tbody>
+</table>
+
+<p>Each tier builds on the last level. A file must pass Tier 1 first. Then a schema checks Tier 2. Next, Schematron tests Tier 3 rules.</p>
+<p><strong>Vocabulary.</strong> <em>Validation Hierarchy</em> — A three-tiered system of testing XML files for syntax, structure rules, and semantic rules. <em>Project Rules</em> — Project-specific editorial rules that go beyond generic schema constraints.</p>
+<p><strong>Takeaway:</strong> Digital editions validate across three tiers: clean syntax, grammatical schemas, and semantic rules.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The Multi-Tiered Validation Hierarchy</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the three distinct tiers of quality control in digital textual scholarship?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Digital editions validate across three tiers: clean syntax, structure rules, and semantic constraints.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tier 1 syntax (well-formedness), Tier 2 grammar (RELAX NG), and Tier 3 semantics (Schematron).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Validation progresses from universal XML syntax, through structural tree grammar, to context-dependent semantic business rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Tier 1 word count, Tier 2 font selection, and Tier 3 print paper weight.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those are physical typography choices, not formal XML validation tiers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Tier 1 spelling correction, Tier 2 language translation, and Tier 3 audio generation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML validation tiers evaluate formal syntactic well-formedness, schema grammar, and rule assertions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Tier 1 Git push, Tier 2 GitHub pull, and Tier 3 USB backup drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those are version-control operations, not XML validation tiers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Tier 1 Validation: XML Well-Formedness and Parser Mechanics</text></name><questiontext format="html"><text><![CDATA[
+<h3>Tier 1 Validation: XML Well-Formedness and Parser Mechanics</h3>
+<p>Tier 1 validation checks <strong>well-formedness</strong>. Well-formedness is the basic syntax foundation set by the W3C.</p>
+<p>An XML parser does not care about TEI rules. It ignores manuscripts. It only checks syntax. A document is well-formed if:</p>
+<ol>
+<li>It contains exactly one root element enclosing all other tags.</li>
+<li>Every start tag matches an end tag with identical spelling and case.</li>
+<li>Elements nest cleanly without overlapping boundaries.</li>
+<li>All attribute values are wrapped in matching quotation marks.</li>
+</ol>
+<p>If a file breaks any of these rules, the parser stops. It reports a <strong>fatal error</strong>. Web browsers guess meaning when HTML is broken. XML parsers never guess. You test Tier 1 in your terminal using <code>xmllint</code>:</p>
+<pre><code class="language-bash">xmllint --noout witness.xml
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Well-Formed XML</em> — XML text that strictly obeys basic syntax rules, allowing parsers to build a tree structure. <em>Fatal Error Policy</em> — The XML rule requiring software to stop parsing immediately when a syntax error is found.</p>
+<p><strong>Takeaway:</strong> Well-formedness is the non-negotiable syntactic baseline required before any schema validation can occur.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Tier 1 Validation: XML Well-Formedness and Parser Mechanics</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do XML parsers behave when encountering a syntax error, unlike web browsers rendering HTML?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Well-formedness is the non-negotiable syntactic baseline required before any schema validation can occur.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;XML parsers enforce a strict fatal error policy and immediately stop parsing without guessing user intent.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Unlike lenient web browsers that attempt error recovery, XML parsers mandate strict well-formedness to ensure unambiguous tree parsing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XML parsers automatically correct missing tags and rewrite the user's files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Parsers never rewrite files; they halt and report fatal syntax errors to preserve data integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XML parsers send an automated notification to local law enforcement authorities.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Parser errors are standard programming feedback, not legal infractions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XML parsers continue parsing and convert broken tags into emoji icons.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML parsing halts immediately upon detecting malformed syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Tier 2 Validation: Grammar-Based Schemas with RELAX NG</text></name><questiontext format="html"><text><![CDATA[
+<h3>Tier 2 Validation: Grammar-Based Schemas with RELAX NG</h3>
+<p>Once your file is well-formed, Tier 2 evaluates its <strong>validity</strong>. A well-formed XML file can still contain invented tags like <code>&lt;magic&gt;</code> or <code>&lt;cookie&gt;</code>. Tier 2 checks your markup against a formal schema.</p>
+<p>In the TEI community, the standard schema is <strong>RELAX NG</strong>. RELAX NG defines the allowed tags and grammar for an edition:</p>
+<ul>
+<li>It controls which elements may appear inside other elements.</li>
+<li>It specifies the required sequence of child elements.</li>
+<li>It defines which attributes are permitted on specific tags.</li>
+<li>It checks data types for attribute values, such as dates.</li>
+</ul>
+<p>In this course, we test files against <code>msdesc.rng</code> or <code>tei_all.rng</code>. If Andromeda puts a <code>&lt;p&gt;</code> inside <code>&lt;extent&gt;</code>, RELAX NG catches it. The tool flags the mistake right away.</p>
+<p><strong>Vocabulary.</strong> <em>RELAX NG</em> — A powerful, modern schema language used by the TEI to specify element structures and attributes. <em>Schema Validity</em> — Conforming strictly to the structure rules and element rules of an official schema.</p>
+<p><strong>Takeaway:</strong> RELAX NG schemas enforce the structure rules, element ordering, and attribute types of your digital edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Tier 2 Validation: Grammar-Based Schemas with RELAX NG</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What structural features does a RELAX NG schema enforce in a TEI digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;RELAX NG schemas enforce the structure rules, element ordering, and attribute types of your digital edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Allowed elements, child element sequences, permitted attributes, and data types like ISO dates.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. RELAX NG defines the formal grammar of an edition, verifying structural hierarchy and attribute constraints.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The literary quality of the primary document's poetic metaphors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schemas validate formal XML structure, not the aesthetic value of historical poetry.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The market resale value of the physical manuscript at auction.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schemas evaluate digital data formatting, not commercial manuscript valuations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The physical weight of the paper used in the author's laptop printer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. RELAX NG is a digital schema language with no connection to printer paper specifications.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: The Limits of Grammar: What RELAX NG Cannot Catch</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Limits of Grammar: What RELAX NG Cannot Catch</h3>
+<p>RELAX NG checks structure rules well. But it has natural blind spots. RELAX NG cannot easily test conditional relationships across different parts of a file.</p>
+<p>Consider these common editorial needs:</p>
+<ul>
+<li>If a <code>&lt;persName&gt;</code> has <code>type="deputy"</code>, it should require a <code>@ref</code> pointing to a person in the header.</li>
+<li>If a <code>&lt;date&gt;</code> tag contains text, its <code>@when</code> attribute should match the ISO format <code>YYYY-MM-DD</code>.</li>
+<li>If an editor tags a <code>&lt;corr&gt;</code> element, there must be a matching <code>&lt;sic&gt;</code> element inside a parent <code>&lt;choice&gt;</code>.</li>
+<li>Every local reference (such as <code>who="#editor"</code>) must resolve to a real <code>xml:id</code> defined in the file.</li>
+</ul>
+<p>RELAX NG evaluates tags in isolation. It cannot evaluate complex conditional rules. To enforce these editorial guidelines, we need Tier 3 validation: Schematron.</p>
+<p><strong>Vocabulary.</strong> <em>Co-Occurrence Constraint</em> — A rule where the presence or value of one attribute depends on another attribute. <em>Context Rule</em> — An editorial condition that cannot be expressed purely through hierarchical tree grammar.</p>
+<p><strong>Takeaway:</strong> Grammar schemas cannot enforce cross-element conditional rules, creating the need for rule-based Schematron validation.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: The Limits of Grammar: What RELAX NG Cannot Catch</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which type of editorial constraint exceeds the capabilities of pure RELAX NG grammar schemas?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Grammar schemas cannot enforce cross-element conditional rules, creating the need for rule-based Schematron validation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Conditional rules across elements, such as requiring `@ref` when `type="deputy"` or matching `@orig` with `@reg`.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Grammar schemas evaluate elements in isolation and cannot easily enforce conditional co-occurrence rules or cross-references.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Checking whether an element has a closing tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Checking closing tags is basic Tier 1 well-formedness handled by all XML parsers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Checking whether element names use uppercase or lowercase letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. RELAX NG schemas easily enforce exact case sensitivity on element names.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Detecting whether a file is saved on a hard drive or a USB thumb drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schemas validate text contents, not storage drive hardware types.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Tier 3 Validation: ISO Schematron (ISO/IEC 19757-3)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Tier 3 Validation: ISO Schematron (ISO/IEC 19757-3)</h3>
+<p><strong>Schematron</strong> is a rule-based validation language. It is standardized under ISO/IEC 19757-3. RELAX NG describes an entire document tree from the top down. In contrast, Schematron makes targeted queries using XPath.</p>
+<p>Schematron searches for specific patterns in text. When it finds a tag, it tests an assertion. If that test fails, Schematron prints a clear note. Project editors write these notes in plain English.</p>
+<p>This makes Schematron friendly for scholars. Traditional parser warnings can be cryptic, like <code>element choice unexpected at this position</code>. Schematron prints plain language:</p>
+<blockquote>
+<p>"Error in French decree line 24: Every <orig> tag must be accompanied by a <reg> tag inside <choice>."</p>
+</blockquote>
+<p>Schematron acts as an automated editorial supervisor. It checks project guidelines with high precision.</p>
+<p><strong>Vocabulary.</strong> <em>Schematron</em> — An ISO standard rule-based XML validation language based on XPath assertions. <em>XPath</em> — A query language used to select elements and evaluate expressions inside an XML document.</p>
+<p><strong>Takeaway:</strong> Schematron uses XPath to enforce project-specific editorial rules and emit plain-language error messages.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Tier 3 Validation: ISO Schematron (ISO/IEC 19757-3)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does Schematron differ from RELAX NG in evaluating XML documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Schematron uses XPath to enforce project-specific editorial rules and emit plain-language error messages.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Schematron uses XPath to query targeted patterns and test assertions, outputting human-authored error messages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Schematron selects nodes using XPath expressions and tests specific conditions, reporting friendly project-specific errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Schematron converts all XML files into relational SQL database tables.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron is an XML validation language, not a database transformation utility.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Schematron requires an active subscription to commercial cloud software.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron is an open ISO standard that runs locally with open-source tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Schematron only runs on documents written in Classical Greek.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron validates any well-formed XML document regardless of language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Authoring Schematron Rules for Scholarly Editions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Authoring Schematron Rules for Scholarly Editions</h3>
+<p>Writing Schematron rules is straightforward. A Schematron file contains three main building blocks: patterns, rules, and assertions.</p>
+<p>Here is a practical Schematron rule designed for our class editions:</p>
+<pre><code class="language-xml">&lt;pattern id=&quot;check-dates&quot;&gt;
+  &lt;rule context=&quot;tei:date[@when]&quot;&gt;
+    &lt;assert test=&quot;matches(@when, '^\d{4}(-\d{2}(-\d{2})?)?$')&quot;&gt;
+      The @when attribute must follow ISO format: YYYY, YYYY-MM, or YYYY-MM-DD.
+    &lt;/assert&gt;
+  &lt;/rule&gt;
+&lt;/pattern&gt;
+</code></pre>
+<p>Let us look at how this works:</p>
+<ul>
+<li><code>&lt;rule context="..."&gt;</code>: Specifies the target elements. It selects every <code>&lt;date&gt;</code> tag that has a <code>@when</code> attribute.</li>
+<li><code>&lt;assert test="..."&gt;</code>: States the mandatory condition that must evaluate to true. Here, it checks that the date matches standard year, month, and day patterns.</li>
+<li>Error Message: The text inside <code>&lt;assert&gt;</code> is displayed to the student if the test fails.</li>
+</ul>
+<p>When Olyvia types <code>when="Feb 13 1967"</code>, Schematron catches the informal date format. It tells her how to fix it.</p>
+<p><strong>Vocabulary.</strong> <em>Rule Context</em> — The XPath selector identifying which XML elements a Schematron rule applies to. <em>Schematron Assertion</em> — A condition that must be true; if false, its enclosed warning message is displayed.</p>
+<p><strong>Takeaway:</strong> Schematron patterns select target elements and test assertions, guiding editors with helpful error messages.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Authoring Schematron Rules for Scholarly Editions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the function of the `&lt;assert&gt;` element in a Schematron rule?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Schematron patterns select target elements and test assertions, guiding editors with helpful error messages.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It defines a mandatory test condition that must be true; if false, its human-readable error message is displayed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The `assert` element tests an XPath condition and prints its enclosed message whenever that condition evaluates to false.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically generates digital images of missing manuscript folios.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron tests text rules; it does not generate visual imagery.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes any XML tag that contains spelling mistakes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron reports validation warnings but does not delete user markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It encrypts the document so that peer reviewers cannot read it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron is a transparent testing tool that facilitates open peer review.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Enforcing Cross-Reference and Identifier Integrity</text></name><questiontext format="html"><text><![CDATA[
+<h3>Enforcing Cross-Reference and Identifier Integrity</h3>
+<p>One of the best uses of Schematron is enforcing <strong>identifier integrity</strong>. In TEI XML, elements point to each other using internal links. Examples include <code>@ref="#cope"</code> or <code>@who="#editor"</code>.</p>
+<p>Suppose Andromeda points to <code>#cope</code> in the treaty text. But she forgot to define <code>xml:id="cope"</code> in the <code>&lt;teiHeader&gt;</code>. The link is broken. RELAX NG cannot detect this missing link.</p>
+<p>A simple Schematron rule checks every internal reference automatically:</p>
+<pre><code class="language-xml">&lt;pattern id=&quot;check-internal-links&quot;&gt;
+  &lt;rule context=&quot;tei:*[@ref[starts-with(., '#')]]&quot;&gt;
+    &lt;assert test=&quot;//tei:*[@xml:id = substring-after(current()/@ref, '#')]&quot;&gt;
+      Broken reference: The target '&lt;value-of select=&quot;@ref&quot;/&gt;' does not match any xml:id in this edition.
+    &lt;/assert&gt;
+  &lt;/rule&gt;
+&lt;/pattern&gt;
+</code></pre>
+<p>This automated check protects your edition. It verifies that all person, place, and organization references resolve to valid entities before you publish.</p>
+<p><strong>Vocabulary.</strong> <em>Identifier Integrity</em> — Guaranteeing that every local pointer or reference resolves to a valid, existing <code>xml:id</code>. <em>value-of</em> — A Schematron tag that inserts the value of an attribute directly into an error message.</p>
+<p><strong>Takeaway:</strong> Schematron rules verify that all internal links and person references resolve to defined identifiers in your edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Enforcing Cross-Reference and Identifier Integrity</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does Schematron protect identifier integrity across a digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Schematron rules verify that all internal links and person references resolve to defined identifiers in your edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It verifies that internal pointers like `@ref="#cope"` resolve to matching `xml:id` definitions in the `&lt;teiHeader&gt;`.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Schematron uses XPath to ensure every internal hash reference points to an existing defined identifier in the document.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents students from using personal pronouns in their essays.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron verifies XML attribute pointers, not essay writing style.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It assigns random serial numbers to every paragraph on the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron tests existing attributes; it does not inject random serial numbers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It removes all hyperlinks to external library websites.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron verifies link validity rather than removing links.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Validating Linguistic and Attribute Co-Occurrences</text></name><questiontext format="html"><text><![CDATA[
+<h3>Validating Linguistic and Attribute Co-Occurrences</h3>
+<p>In Module 8, you added linguistic tags to your witness. You marked words with <code>&lt;w lemma="..." pos="..."&gt;</code>. Maintaining consistency across thousands of words requires automated testing.</p>
+<p>Schematron easily enforces linguistic markup consistency:</p>
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Editorial Rule</th>
+<th>Schematron Assertion</th>
+<th>What It Prevents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lemma Completeness</strong></td>
+<td><code>test="@lemma and string-length(@lemma) > 0"</code></td>
+<td>Prevents tagging a word with `<w>` while forgetting its dictionary headword.</td>
+</tr>
+<tr>
+<td><strong>Valid POS Tags</strong></td>
+<td><code>test="@pos = ('NOUN', 'VERB', 'ADJ', 'PRON', 'DET', 'ADP')"</code></td>
+<td>Catches typos like `pos="VERBB"` or non-standard part-of-speech codes.</td>
+</tr>
+<tr>
+<td><strong>Regularization Pairs</strong></td>
+<td><code>test="tei:orig and tei:reg"</code></td>
+<td>Ensures `<choice>` elements include both historical original and regularized form.</td>
+</tr>
+</tbody>
+</table>
+
+<p>When Ace encodes French decree verbs, these checks confirm every inflected form. Each word links to its canonical infinitive.</p>
+<p><strong>Vocabulary.</strong> <em>Linguistic Consistency</em> — Ensuring that all words share standardized grammatical categories and canonical lemmas. <em>Attribute Whitelist</em> — An explicit list of permitted values checked by a validation rule.</p>
+<p><strong>Takeaway:</strong> Schematron guards linguistic annotations by checking that words carry canonical lemmas and valid part-of-speech codes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Validating Linguistic and Attribute Co-Occurrences</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is Schematron valuable for auditing grammatical lemmatization markup in `&lt;w&gt;` tags?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Schematron guards linguistic annotations by checking that words carry canonical lemmas and valid part-of-speech codes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It confirms that words marked as verbs or nouns carry non-empty canonical lemmas and valid part-of-speech codes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Schematron verifies that linguistic attributes like `@lemma` and `@pos` are consistently populated and conform to approved whitelists.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates historical verbs into colloquial modern slang.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron validates grammatical annotation consistency; it does not modernize historical vocabulary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It counts the number of letters in every word and reorders them alphabetically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron checks markup rules without altering text order.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forbids editors from tagging more than ten verbs per manuscript page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schematron enforces data quality rather than arbitrary quantitative caps.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Compiling and Executing Schematron via XSLT Engines</text></name><questiontext format="html"><text><![CDATA[
+<h3>Compiling and Executing Schematron via XSLT Engines</h3>
+<p>You might wonder how a computer runs Schematron. Behind the scenes, Schematron relies on XSLT (Extensible Stylesheet Language Transformations).</p>
+<p>A Schematron file (<code>.sch</code>) compiles into an XSLT stylesheet. It uses a standard three-stage pipeline. When that compiled XSLT runs against your TEI document, it outputs an SVRL report. SVRL stands for Schematron Validation Report Language.</p>
+<p>In practice, you run Schematron in the terminal using <strong>Jing</strong>:</p>
+<pre><code class="language-bash">jing -c schema.rnc witness.xml
+jing schema.sch witness.xml
+</code></pre>
+<p>Jing reads the Schematron file. It scans your TEI document. It prints line numbers for every rule violation. This terminal command lets us automate validation inside build scripts and CI pipelines.</p>
+<p><strong>Vocabulary.</strong> <em>Jing</em> — An open-source command-line validator for RELAX NG and Schematron schemas written by James Clark. <em>SVRL</em> — Schematron Validation Report Language, the standard XML format used to report Schematron results.</p>
+<p><strong>Takeaway:</strong> Tools like Jing execute Schematron rules on the command line, enabling automated validation in scripts and CI pipelines.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Compiling and Executing Schematron via XSLT Engines</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which command-line utility is standard for executing RELAX NG and Schematron validation in terminal workflows?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Tools like Jing execute Schematron rules on the command line, enabling automated validation in scripts and CI pipelines.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;`jing`&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. James Clark's open-source `jing` validator processes both RELAX NG schemas and Schematron rule files directly in the terminal.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;`photoshop`&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adobe Photoshop is an image manipulation program, not an XML schema validator.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;`curl`&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `curl` transfers data across network protocols; it does not validate XML schemas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;`ping`&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `ping` tests network connectivity between computers, not XML validation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Introduction to Continuous Integration (CI/CD) for Digital Humanities</text></name><questiontext format="html"><text><![CDATA[
+<h3>Introduction to Continuous Integration (CI/CD) for Digital Humanities</h3>
+<p>Running <code>xmllint</code> and <code>jing</code> by hand in the terminal is a good habit. But people are forgetful. An editor working late at night might push a commit without running tests.</p>
+<p>Modern software engineering solves this with <strong>Continuous Integration (CI)</strong>. Continuous Integration is the practice of automatically testing a project every time code is pushed to a shared repository.</p>
+<p>In digital editing, CI acts as an automated gatekeeper. When Ace, Olyvia, or Andromeda pushes a commit, a cloud runner starts. It downloads the files. It runs <code>xmllint</code>. It checks Relax NG. It tests Schematron rules.</p>
+<p>If all checks pass, the commit gets a green check (<code>✔</code>). If any check fails, it gets a red cross (<code>✖</code>). The author gets an alert right away.</p>
+<p><strong>Vocabulary.</strong> <em>Continuous Integration (CI)</em> — Automating tests and validation checks on a cloud server whenever repository commits are pushed. <em>CI Pipeline</em> — The sequence of automated steps executed by a CI server to verify project integrity.</p>
+<p><strong>Takeaway:</strong> Continuous Integration automatically tests every commit in the cloud, guaranteeing that broken files never go unnoticed.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Introduction to Continuous Integration (CI/CD) for Digital Humanities</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary function of Continuous Integration in a collaborative digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Continuous Integration automatically tests every commit in the cloud, guaranteeing that broken files never go unnoticed.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Automatically running tests and validation checks on a cloud server whenever commits are pushed to the repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. CI acts as an automated gatekeeper, testing every commit to ensure broken markup or invalid schemas are detected immediately.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Automatically printing physical paper books and shipping them to local bookstores.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CI automates software testing and digital builds, not physical commercial distribution.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replacing human historians with automated conversational chatbots.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CI provides technical quality control to support human scholars, not replace them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Preventing team members from making commits outside of scheduled class hours.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CI runs anytime a commit is pushed, supporting asynchronous collaboration.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Anatomy of a GitHub Actions Workflow</text></name><questiontext format="html"><text><![CDATA[
+<h3>Anatomy of a GitHub Actions Workflow</h3>
+<p>On GitHub, Continuous Integration is provided through <strong>GitHub Actions</strong>. A workflow is an automated procedure. It is defined in a YAML configuration file stored at <code>.github/workflows/validate.yml</code>.</p>
+<p>A GitHub Actions workflow consists of four core concepts:</p>
+<ol>
+<li><strong>Events (Triggers):</strong> What starts the workflow? Common triggers are a <code>push</code> to <code>main</code> or opening a <code>pull_request</code>.</li>
+<li><strong>Runners:</strong> The virtual machine that executes your tests (such as <code>ubuntu-latest</code>, a clean Linux cloud server).</li>
+<li><strong>Jobs:</strong> A collection of steps executed on the runner.</li>
+<li><strong>Steps:</strong> Individual tasks, such as checking out code, installing software, or running terminal commands.</li>
+</ol>
+<p>Workflows are saved as plain text files in your repository. Therefore, your testing rules are version-controlled alongside your text.</p>
+<p><strong>Vocabulary.</strong> <em>GitHub Actions</em> — GitHub's built-in platform for automating software workflows, testing, and continuous integration. <em>Workflow YAML</em> — A human-readable configuration file specifying triggers, environments, and test commands.</p>
+<p><strong>Takeaway:</strong> GitHub Actions workflows are version-controlled YAML files that define automated testing triggers and commands.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Anatomy of a GitHub Actions Workflow</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Where are GitHub Actions workflows configured inside a project repository?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;GitHub Actions workflows are version-controlled YAML files that define automated testing triggers and commands.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Inside `.github/workflows/` as human-readable YAML configuration files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Workflows live in `.github/workflows/*.yml`, version-controlled right alongside your edition source text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside the computer's BIOS firmware chip.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Workflows are standard text files stored in the Git repository.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside an unversioned Word document saved on the instructor's desktop.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Workflows must be saved inside `.github/workflows/` so GitHub can execute them automatically.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside a temporary browser cookie that expires after twenty minutes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Workflows are permanent repository assets tracked in Git history.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Writing a Complete TEI Validation Workflow</text></name><questiontext format="html"><text><![CDATA[
+<h3>Writing a Complete TEI Validation Workflow</h3>
+<p>Let us examine a complete GitHub Actions workflow for a TEI digital edition.</p>
+<p>Here is <code>.github/workflows/validate.yml</code>:</p>
+<pre><code class="language-yaml">name: TEI Edition Validation Gate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Install XML validation tools
+        run: sudo apt-get update &amp;&amp; sudo apt-get install -y libxml2-utils jing
+
+      - name: Verify XML Well-Formedness
+        run: xmllint --noout witness.xml
+
+      - name: Validate TEI Relax NG Schema
+        run: jing schemas/msdesc.rng witness.xml
+</code></pre>
+<p>Notice how clean this is. Every step matches commands you already ran locally. The cloud runner boots up, installs <code>xmllint</code> and <code>jing</code>, and runs your tests in under twenty seconds.</p>
+<p><strong>Vocabulary.</strong> <em>actions/checkout</em> — A standard GitHub action that downloads your repository code onto the cloud virtual machine. <em>ubuntu-latest</em> — The default Linux cloud environment provided by GitHub for running automated jobs.</p>
+<p><strong>Takeaway:</strong> A twenty-line YAML file configures GitHub Actions. It installs XML tools and tests your files on every push.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Writing a Complete TEI Validation Workflow</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What sequence of actions does a basic TEI validation workflow execute on GitHub Actions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A twenty-line YAML file configures GitHub Actions. It installs XML tools and tests your files on every push.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Checking out the repository code, installing XML tools like `libxml2-utils` and `jing`, and running `xmllint` and schema checks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A standard workflow checks out files, sets up command-line validators, and tests the XML for well-formedness and schema validity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Formatting the hard drive, reinstalling the operating system, and shutting down the server.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Workflows run harmless software checks inside isolated cloud containers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Downloading video games and broadcasting live streams to social media.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GitHub Actions runners execute specified testing commands for project validation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translating the repository into Morse code and transmitting it over radio waves.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The workflow tests XML files using standard command-line tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Integrating Community Validation Actions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Integrating Community Validation Actions</h3>
+<p>Besides running raw terminal commands, you can use shared actions. The open-source digital humanities community shares many useful tools.</p>
+<p>For instance, the TEI community shares actions that download official schemas automatically. You do not need to store large schema files in your repository. Instead, a workflow step fetches the canonical schema:</p>
+<pre><code class="language-yaml">      - name: Download Canonical TEI All Schema
+        run: curl -s https://tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng -o tei_all.rng
+</code></pre>
+<p>Remote schema downloads ensure you test against official releases. This keeps your repo small. It also ensures international standards compliance.</p>
+<p><strong>Vocabulary.</strong> <em>Community Action</em> — A reusable workflow component published on the GitHub Actions Marketplace. <em>Canonical Schema URL</em> — The official, permanent web address where authoritative schema definitions are hosted.</p>
+<p><strong>Takeaway:</strong> Community actions and remote schema downloads keep repository sizes small while validating against official TEI releases.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Integrating Community Validation Actions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is fetching canonical schemas directly from authoritative URLs advantageous in CI workflows?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Community actions and remote schema downloads keep repository sizes small while validating against official TEI releases.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It keeps repository file sizes small while guaranteeing validation against official international TEI P5 releases.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Downloading official schemas during workflow runs prevents bloat in your repository and ensures tests use canonical definitions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents classmates from viewing your repository source code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Remote schema fetching does not alter repository visibility settings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It eliminates the need to write TEI XML tags in your document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schemas validate XML tags; they do not write markup for you.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It charges commercial licensing fees to the university department.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Official TEI schemas are completely free and open-source.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Associating Documents and Schemas: `&lt;?xml-model?&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Associating Documents and Schemas: `<?xml-model?>`</h3>
+<p>How does a computer know which schema belongs to an XML document? In TEI P5, we associate schemas using <strong>processing notes</strong>. We place them at the very top of the file, before <code>&lt;TEI&gt;</code>.</p>
+<p>A standard TEI document begins with <code>&lt;?xml-model?&gt;</code> declarations:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml-model href=&quot;schemas/msdesc.rng&quot; type=&quot;application/xml&quot; schematypens=&quot;http://relaxng.org/ns/structure/1.0&quot;?&gt;
+&lt;?xml-model href=&quot;schemas/rules.sch&quot; type=&quot;application/xml&quot; schematypens=&quot;http://purl.oclc.org/dsdl/schematron&quot;?&gt;
+&lt;TEI xmlns=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
+</code></pre>
+<p>Notice that we include two separate <code>&lt;?xml-model?&gt;</code> lines:</p>
+<ul>
+<li>The first line links the Relax NG structural schema (<code>.rng</code>).</li>
+<li>The second line links the Schematron rule file (<code>.sch</code>).</li>
+</ul>
+<p>When VS Code or automated validators open your document, they read these lines. They automatically apply both validation tiers.</p>
+<p><strong>Vocabulary.</strong> <em>Processing Note</em> — A special XML declaration (<code>&lt;?...?&gt;</code>) providing instructions to software processing the document. <em>xml-model</em> — The standard W3C processing instruction that associates an XML file with its schema.</p>
+<p><strong>Takeaway:</strong> The xml-model processing instruction links both Relax NG and Schematron schemas directly inside the XML document header.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Associating Documents and Schemas: `&lt;?xml-model?&gt;`</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Where should `&lt;?xml-model?&gt;` processing instructions be placed within a TEI document?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The xml-model processing instruction links both Relax NG and Schematron schemas directly inside the XML document header.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;At the very top of the file, immediately after the XML declaration and before the root `&lt;TEI&gt;` element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Processing instructions belong in the file prolog before the root element so editors and tools can discover schemas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside the `&lt;teiHeader&gt;` revision log as a `&lt;change&gt;` entry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Processing instructions belong in the file prolog before `&lt;TEI&gt;`, not inside child elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;At the very end of the file, after the closing `&lt;/TEI&gt;` tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML parsers require all content except comments to precede or exist inside the single root element.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside an external CSS stylesheet file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The `&lt;?xml-model?&gt;` declaration is an XML processing instruction that lives in the XML document itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Converting CI Failures to Inline GitHub Annotations</text></name><questiontext format="html"><text><![CDATA[
+<h3>Converting CI Failures to Inline GitHub Annotations</h3>
+<p>When a CI workflow fails on GitHub, finding the error is easy. You do not have to read thousands of lines of terminal logs.</p>
+<p>GitHub Actions turns validation output into visual <strong>annotations</strong>. When <code>xmllint</code> or <code>jing</code> reports an error on line 64, GitHub flags that line. It shows a yellow warning or red error badge in the pull request diff.</p>
+<p>Clicking on the badge opens the exact message:</p>
+<blockquote>
+<p>"Error: element persName missing required attribute ref at line 64, column 12."</p>
+</blockquote>
+<p>This quick feedback loop helps authors fix mistakes fast. You see the line. You read the error. You fix it in VS Code and push an update.</p>
+<p><strong>Vocabulary.</strong> <em>GitHub Annotation</em> — A visual inline alert displayed on a pull request diff highlighting the line where a CI test failed. <em>Feedback Loop</em> — The rapid cycle of making changes, receiving automated test results, and correcting mistakes.</p>
+<p><strong>Takeaway:</strong> GitHub CI automatically displays validation errors as inline visual annotations on the exact lines that caused the failure.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Converting CI Failures to Inline GitHub Annotations</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does GitHub Actions display validation failures to pull request reviewers?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;GitHub CI automatically displays validation errors as inline visual annotations on the exact lines that caused the failure.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;As visual inline annotations highlighting the exact line of code where the error occurred in the diff.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. GitHub translates compiler errors into clickable inline badges directly on conflicted or failing lines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By sending a physical printed postcard through the postal service.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alerts are displayed digitally within the web pull request interface.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By locking the user out of their computer operating system.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CI errors are informational warnings displayed within GitHub.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting the pull request automatically without saving logs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Pull requests remain open and preserve detailed logs so authors can inspect and fix errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Protecting Branches with Automated CI Merge Gates</text></name><questiontext format="html"><text><![CDATA[
+<h3>Protecting Branches with Automated CI Merge Gates</h3>
+<p>Running automated tests is useful. But what prevents someone from merging broken code anyway? The answer is <strong>Branch Protection Rules</strong>.</p>
+<p>GitHub lets repository owners set protection rules on the <code>main</code> branch:</p>
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Protection Setting</th>
+<th>What It Enforces</th>
+<th>Scholarly Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Require status checks to pass</strong></td>
+<td>The green "Merge" button is disabled until the validation workflow passes with 0 errors.</td>
+<td>Guarantees that broken XML or invalid schemas can never enter the official master text.</td>
+</tr>
+<tr>
+<td><strong>Require pull request reviews</strong></td>
+<td>At least one peer reviewer must formally approve the PR before merging.</td>
+<td>Ensures all textual changes receive human scholarly review.</td>
+</tr>
+<tr>
+<td><strong>Do not allow bypassing</strong></td>
+<td>Applies the rules to repository administrators and instructors as well.</td>
+<td>Enforces equal accountability and disciplined version-control habits across the team.</td>
+</tr>
+</tbody>
+</table>
+
+<p>With branch protection on, your CI pipeline becomes a mandatory gate. Quality rules are enforced automatically by software.</p>
+<p><strong>Vocabulary.</strong> <em>Branch Protection Rule</em> — A safety rule on GitHub that blocks direct pushes and prevents merging until checks pass. <em>Merge Gate</em> — A mandatory validation test that must succeed before a pull request can be merged.</p>
+<p><strong>Takeaway:</strong> Branch protection rules disable the merge button until all automated validation tests pass with zero errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Protecting Branches with Automated CI Merge Gates</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do Branch Protection Rules prevent broken XML from reaching production editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Branch protection rules disable the merge button until all automated validation tests pass with zero errors.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They disable the green "Merge" button on pull requests until all required automated validation checks pass with zero errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Protection rules enforce quality gates, ensuring that failing or invalid code cannot be merged into the master branch.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete the entire repository whenever a student types a syntax error.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Branch protection guards the main branch; it never deletes repositories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They require students to pay a cash deposit before creating a branch.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Branch protection is a free repository security setting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They prevent instructors from viewing student homework submissions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Branch protection enforces merge criteria; it does not restrict read access.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Automated Preview and Artifact Compilation in CI</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automated Preview and Artifact Compilation in CI</h3>
+<p>Continuous Integration does more than catch mistakes. Modern digital projects use CI to <strong>compile edition artifacts</strong> automatically on every push.</p>
+<p>In Module 7, you made stylesheets to turn TEI XML into HTML reading views. In this course, we also compile printable PDF notes. You can configure GitHub Actions to build these views automatically:</p>
+<pre><code class="language-yaml">      - name: Compile HTML Reading View
+        run: python3 scripts/generate_reading_view.py witness.xml dist/index.html
+
+      - name: Deploy Preview to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+</code></pre>
+<p>When a pull request merges into <code>main</code>, GitHub Actions rebuilds the reading view. It publishes the pages to GitHub Pages. Reviewers can read the live edition in any browser.</p>
+<p><strong>Vocabulary.</strong> <em>Artifact Compilation</em> — Automatically transforming raw TEI XML source files into user-friendly formats like HTML or PDF. <em>GitHub Pages</em> — A free hosting service provided by GitHub to serve static websites directly from a repository.</p>
+<p><strong>Takeaway:</strong> CI workflows can automatically transform raw TEI XML into web reading views and publish them live to GitHub Pages.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Automated Preview and Artifact Compilation in CI</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In addition to validation, what artifact compilation tasks can GitHub Actions automate upon merge?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CI workflows can automatically transform raw TEI XML into web reading views and publish them live to GitHub Pages.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Transforming TEI XML into HTML reading views and deploying preview websites live to GitHub Pages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. CI pipelines can run stylesheet transformations and publish static web previews automatically whenever main updates.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Mining cryptocurrency tokens in the background on university servers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. University and GitHub policies strictly forbid cryptocurrency mining.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Purchasing physical antique parchment from rare manuscript dealers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CI workflows execute computational file processing, not commercial purchases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting all previous versions of the primary manuscript image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CI workflows build derivative reading views while preserving all source assets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: The Boundary Between Automated Linting and Human Peer Review</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Boundary Between Automated Linting and Human Peer Review</h3>
+<p>Automated CI pipelines are powerful, but they have natural limits. Software verifies whether XML is well-formed. It checks whether attributes follow a schema. It verifies whether links resolve.</p>
+<p>However, software cannot determine whether your transcription is <strong>true</strong>:</p>
+<ul>
+<li>Software cannot tell whether a scribal stroke in Maud Lewis's letter is an <em>e</em> or an <em>o</em>.</li>
+<li>Software cannot know whether an omitted word in Ace's French decree was deliberate or accidental.</li>
+<li>Software cannot evaluate whether Andromeda chose the best treaty translation.</li>
+</ul>
+<p>Automated linting handles the basic mechanics. This frees human reviewers to focus on paleographical judgment, historical context, and scholarly rigor.</p>
+<p><strong>Vocabulary.</strong> <em>Basic Mechanics</em> — The basic syntactic and grammatical correctness verified automatically by software. <em>Scholarly Insight</em> — The critical human evaluation of historical evidence, paleography, and context.</p>
+<p><strong>Takeaway:</strong> Software enforces mechanical validity, freeing human scholars to focus on paleographical judgment and historical interpretation.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: The Boundary Between Automated Linting and Human Peer Review</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What critical dimension of digital scholarship can human peer reviewers assess that automated linters cannot?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Software enforces mechanical validity, freeing human scholars to focus on paleographical judgment and historical interpretation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Whether the transcription accurately represents the physical manuscript handwriting and historical context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Linters check syntactic and schema rules; only human scholars can judge paleographical readings and historical accuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the file contains balanced angle brackets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Automated linters easily verify balanced angle brackets and XML well-formedness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the file was saved with UTF-8 character encoding.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Character encoding is easily checked and verified by automated tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the file has an `.xml` extension.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File extensions are trivial for software to inspect.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Designing a Structured TEI Peer-Review Rubric</text></name><questiontext format="html"><text><![CDATA[
+<h3>Designing a Structured TEI Peer-Review Rubric</h3>
+<p>When reviewing a classmate's edition, helpful feedback requires a rubric. Without a rubric, reviews become vague comments like "looks good to me!"</p>
+<p>A scholarly review rubric evaluates four distinct layers:</p>
+<ol>
+<li><strong>Metadata and Codicology (<code>teiHeader</code>):</strong> Are the repository, shelfmark, and license accurately recorded?</li>
+<li><strong>Diplomatic Fidelity (<code>&lt;facsimile&gt;</code> &amp; <code>&lt;text&gt;</code>):</strong> Do line breaks (<code>&lt;lb/&gt;</code>) and characters match the high-resolution manuscript image?</li>
+<li><strong>Editorial Normalization (<code>&lt;choice&gt;</code>):</strong> Are regularized spellings and expanded abbreviations historically defensible?</li>
+<li><strong>Entity Markup &amp; Linking (<code>&lt;persName&gt;</code>, <code>&lt;placeName&gt;</code>):</strong> Do entity tags resolve to verifiable authority records like VIAF or Wikidata?</li>
+</ol>
+<p>This structured rubric guides your evaluation during our in-class peer review exchange.</p>
+<p><strong>Vocabulary.</strong> <em>Peer-Review Rubric</em> — A standardized set of criteria used to evaluate the scholarly and technical quality of an edition. <em>Editorial Layer</em> — A distinct level of annotation within a multi-tiered digital edition.</p>
+<p><strong>Takeaway:</strong> A structured four-layer rubric ensures that peer review evaluates metadata, diplomatic fidelity, normalization, and entity markup.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Designing a Structured TEI Peer-Review Rubric</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What four editorial layers should a structured peer-review rubric evaluate in our seminar editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A structured four-layer rubric ensures that peer review evaluates metadata, diplomatic fidelity, normalization, and entity markup.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Metadata and codicology, diplomatic transcription fidelity, editorial normalization, and named-entity markup.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A complete scholarly audit examines the teiHeader, facsimile alignment, regularized choice tags, and entity links.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Screen resolution, internet download speed, keyboard model, and mouse sensitivity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those are hardware specifications, not scholarly digital edition criteria.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Page count, font color, printer paper size, and bookbinding glue.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those are physical manufacturing features, not digital philology layers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Spelling, grammar, punctuation, and word count of personal diary entries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The rubric evaluates structured TEI encoding layers and manuscript evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Auditing the `teiHeader` and Provenance Layer</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing the `teiHeader` and Provenance Layer</h3>
+<p>The first stage of peer review evaluates the <code>&lt;teiHeader&gt;</code>. The header is the identity card of the edition. If the header is incomplete, future scholars cannot cite the document reliably.</p>
+<p>When auditing a classmate's header, check these four items:</p>
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Header Component</th>
+<th>What to Verify</th>
+<th>Common Error to Flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><titleStmt></code></td>
+<td>Author, title, and responsible student editor defined with `@xml:id`.</td>
+<td>Missing student editor name or placeholder "Title goes here" text.</td>
+</tr>
+<tr>
+<td><code><publicationStmt></code></td>
+<td>Clear open license (such as Creative Commons CC BY 4.0).</td>
+<td>Undefined availability or restrictive copyright claims.</td>
+</tr>
+<tr>
+<td><code><sourceDesc></code></td>
+<td>Holding archive, shelfmark, physical support, and date.</td>
+<td>Incomplete physical description or missing institution name.</td>
+</tr>
+<tr>
+<td><code><revisionDesc></code></td>
+<td>Chronological log of revisions recording commits and PRs.</td>
+<td>Empty revision history with no record of past editorial changes.</td>
+</tr>
+</tbody>
+</table>
+
+<p>A complete header guarantees your edition follows FAIR principles (Findable, Accessible, Interoperable, and Reusable).</p>
+<p><strong>Vocabulary.</strong> <em>sourceDesc</em> — The TEI Header element recording the physical holding institution, shelfmark, and provenance of the original witness. <em>FAIR Data Principles</em> — International guidelines ensuring digital scholarship is Findable, Accessible, Interoperable, and Reusable.</p>
+<p><strong>Takeaway:</strong> Auditing the teiHeader verifies that physical holding archives, licenses, and revision histories are thoroughly documented.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Auditing the `teiHeader` and Provenance Layer</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What essential information must be confirmed when auditing an edition's `&lt;sourceDesc&gt;`?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Auditing the teiHeader verifies that physical holding archives, licenses, and revision histories are thoroughly documented.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The holding archive, physical shelfmark, material support, and historical date of the primary witness.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The `sourceDesc` must thoroughly document the physical artifact and holding institution to ensure scholarly citable provenance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The retail purchase price of the laptop used by the student transcriber.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. `sourceDesc` describes the historical manuscript artifact, not modern laptop equipment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The personal home address of the archive security guard.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Personal staff addresses should never be included; privacy must be protected.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The weather forecast in Paris or Halifax on the day the file was committed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Meteorological forecasts are irrelevant to archival witness identification.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Auditing Diplomatic Transcription and Physical Milestones</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing Diplomatic Transcription and Physical Milestones</h3>
+<p>The second stage of peer review audits the diplomatic transcription against visual evidence. Open your classmate's manuscript image side by side with their TEI XML in VS Code.</p>
+<p>As a reviewer, read the text line by line:</p>
+<ul>
+<li><strong>Line Breaks (<code>&lt;lb/&gt;</code>):</strong> Does every <code>&lt;lb/&gt;</code> tag match a physical line start on the page?</li>
+<li><strong>Character Accuracy:</strong> Did the transcriber misread letterforms, such as confusing long <em>s</em> with <em>f</em> in French?</li>
+<li><strong>Damage and Ambiguity:</strong> Are torn regions tagged with <code>&lt;unclear&gt;</code> or <code>&lt;gap&gt;</code>?</li>
+<li><strong>Zone Links:</strong> Does the <code>@facs</code> attribute point to the correct coordinate zone on the image?</li>
+</ul>
+<p>If you spot an alternative reading, do not fix it in secret. Open a comment on GitHub. Explain what handwriting strokes support your reading.</p>
+<p><strong>Vocabulary.</strong> <em>Diplomatic Audit</em> — A line-by-line verification comparing transcribed XML characters directly against high-resolution manuscript images. <em>Physical Milestone</em> — An empty XML tag (like <code>&lt;pb/&gt;</code> or <code>&lt;lb/&gt;</code>) marking a physical transition in the original witness.</p>
+<p><strong>Takeaway:</strong> Auditing diplomatic transcription requires comparing every character, line break, and unclear stroke against high-resolution facsimiles.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Auditing Diplomatic Transcription and Physical Milestones</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is a primary task when auditing diplomatic transcription against high-resolution facsimiles?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Auditing diplomatic transcription requires comparing every character, line break, and unclear stroke against high-resolution facsimiles.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Verifying that every line break `&lt;lb/&gt;` matches a physical line on the page and that damaged strokes are tagged with `&lt;unclear&gt;`.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Reviewers compare transcribed text line by line against visual facsimiles, checking lineation and damage markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replacing all historical handwriting with modern computerized cursive fonts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic auditing verifies transcription accuracy, not font replacement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting all line breaks to convert the historical document into a single long sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Diplomatic editions strictly preserve physical line breaks using `&lt;lb/&gt;` milestones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Cropping the manuscript image to remove all historical marginalia.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Marginalia provide crucial codicological evidence and must be preserved.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Auditing Normalization, Rendering, and Stylesheets</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing Normalization, Rendering, and Stylesheets</h3>
+<p>The third stage of peer review evaluates editorial regularizations and reading stylesheets developed in Modules 6 and 7.</p>
+<p>Inspect how your classmate regularized historical language:</p>
+<ul>
+<li><strong>Symmetry of <code>&lt;choice&gt;</code>:</strong> Does every <code>&lt;choice&gt;</code> contain a balanced pair (such as <code>&lt;orig&gt;</code> with <code>&lt;reg&gt;</code>, or <code>&lt;abbr&gt;</code> with <code>&lt;expan&gt;</code>)?</li>
+<li><strong>Historical Accuracy:</strong> In Ace's 1791 decree, did he accurately normalize Voltairean <em>-oit</em> spelling endings (such as <em>décrétoit</em> to <em>décrétait</em>)? In Andromeda's treaty, are 18th-century abbreviations expanded accurately?</li>
+<li><strong>Stylesheet Legibility:</strong> Open their HTML reading view in a browser. Does the CSS clearly distinguish between diplomatic and regularized views? Can readers toggle layers comfortably?</li>
+</ul>
+<p>A strong edition respects both historical authenticity and modern readability. Reviewers ensure that normalization rules were applied consistently rather than haphazardly.</p>
+<p><strong>Vocabulary.</strong> <em>Regularization Audit</em> — Evaluating whether historical spelling changes and abbreviation expansions are applied consistently. <em>Reading View Toggle</em> — A stylesheet mechanism allowing readers to switch between diplomatic and modern reading modes.</p>
+<p><strong>Takeaway:</strong> Auditing normalization ensures that historical spelling choices are linguistically sound and render clearly in stylesheets.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Auditing Normalization, Rendering, and Stylesheets</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should a reviewer check when evaluating editorial regularizations in `&lt;choice&gt;` tags?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Auditing normalization ensures that historical spelling choices are linguistically sound and render clearly in stylesheets.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;That `&lt;orig&gt;` and `&lt;reg&gt;` pairs are symmetric, historically defensible, and render clearly in reading stylesheets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Reviewers verify that historical forms and regularized readings are balanced, justified by policy, and displayed well in CSS.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That all historical spellings have been erased from the XML file permanently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI `&lt;choice&gt;` preserves both original historical spelling and regularized form side by side.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the stylesheet only displays text in bright neon pink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Reading stylesheets should prioritize legibility and scholarly clarity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That regularized words are translated into ancient Egyptian hieroglyphs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regularization normalizes historical orthography within the same language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Auditing Linguistic Markup and Named Entities</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing Linguistic Markup and Named Entities</h3>
+<p>The fourth stage of peer review evaluates the grammatical and named-entity annotations added in Modules 8 and 9.</p>
+<p>Review these semantic layers:</p>
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Annotation Layer</th>
+<th>Inspection Checklist</th>
+<th>Concrete Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Linguistic Markup (`<w>`)</strong></td>
+<td>Verify that part-of-speech tags and dictionary lemmas are accurate.</td>
+<td>Confirming *promis'd* has lemma *promise* and `pos="VERB"`.</td>
+</tr>
+<tr>
+<td><strong>Named Entities</strong></td>
+<td>Check that people, places, and organizations are correctly tagged.</td>
+<td>Confirming `<persName>` wraps *Jean-Baptiste Cope* and `<placeName>` wraps *Chigabenakady*.</td>
+</tr>
+<tr>
+<td><strong>Authority Links</strong></td>
+<td>Click every `@ref` link to ensure it opens a real VIAF, GeoNames, or Wikidata page.</td>
+<td>Verifying that VIAF ID `61536214` resolves to François-Claude-Amour de Bouillé.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Checking authority links is vital. A broken VIAF link hurts your connection to Linked Open Data.</p>
+<p><strong>Vocabulary.</strong> <em>Semantic Audit</em> — Verifying that grammatical tags, named entities, and authority record links represent true historical data. <em>Authority Link Resolution</em> — Confirming that external URIs (like VIAF or Wikidata) resolve to the correct real-world entity.</p>
+<p><strong>Takeaway:</strong> Auditing linguistic and entity markup confirms that lemmas are canonical and authority links resolve to verified records.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Auditing Linguistic Markup and Named Entities</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must reviewers test authority links (`@ref`) attached to `&lt;persName&gt;` and `&lt;placeName&gt;` tags?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Auditing linguistic and entity markup confirms that lemmas are canonical and authority links resolve to verified records.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To ensure that links resolve to verified real-world entities in databases like VIAF, GeoNames, or Wikidata.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A broken or mismatched authority link corrupts the edition's connection to the Linked Open Data cloud.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To verify that the historical figures are currently active on social media platforms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Authority records identify historical persons; they do not check contemporary social media accounts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To ensure that external websites pay advertising commissions to the university.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Linked Open Data authorities are non-profit public academic infrastructure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To confirm that all personal names are written entirely in capital letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Capitalization preserves historical or canonical orthography; authority links verify entity identity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Executing the In-Class Peer Review Exchange</text></name><questiontext format="html"><text><![CDATA[
+<h3>Executing the In-Class Peer Review Exchange</h3>
+<p>During today's in-class lab, our three cohort members execute a peer review exchange:</p>
+<ul>
+<li><strong>Ace</strong> reviews <strong>Olyvia's</strong> Maud Lewis correspondence edition.</li>
+<li><strong>Olyvia</strong> reviews <strong>Andromeda's</strong> 1752 Peace and Friendship Treaty edition.</li>
+<li><strong>Andromeda</strong> reviews <strong>Ace's</strong> 1791 French Revolutionary decree edition.</li>
+</ul>
+<p>Follow this four-step peer review protocol:</p>
+<ol>
+<li><strong>Clone the Repository:</strong> Clone your partner's repository from GitHub to your laptop.</li>
+<li><strong>Run Automated CI Checks:</strong> Run <code>xmllint</code> and <code>jing</code> in your terminal to verify their automated validation passes.</li>
+<li><strong>Conduct the 4-Layer Audit:</strong> Inspect their header, facsimiles, normalizations, and entities against the rubric.</li>
+<li><strong>Open Constructive Issues:</strong> Open at least two clear GitHub Issues or inline PR comments praising strong encoding and suggesting specific improvements.</li>
+</ol>
+<p>Reviewing a classmate's edition sharpens your own editorial eye and strengthens the collective quality of our seminar's editions.</p>
+<p><strong>Vocabulary.</strong> <em>Peer Review Exchange</em> — A structured in-class partnership where students audit each other's digital editions. <em>Helpful Feedback</em> — Actionable, respectful criticism that identifies specific problems and provides clear solutions.</p>
+<p><strong>Takeaway:</strong> The in-class peer review exchange allows students to test each other's editions against automated checks and scholarly rubrics.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Executing the In-Class Peer Review Exchange</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the final step in the four-step peer review exchange protocol?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The in-class peer review exchange allows students to test each other's editions against automated checks and scholarly rubrics.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Opening constructive GitHub Issues or inline PR comments with specific praise and actionable suggestions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Reviewers synthesize their audit into clear, actionable feedback on GitHub to help their classmates improve their editions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting the partner's repository from GitHub to prevent competition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Peer review is collaborative and supportive; deleting classmate work is strictly forbidden.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Refusing to speak to classmates until the end of the academic year.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The peer review exchange fosters active discussion and shared problem-solving.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Writing a negative review on public social media rating websites.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly reviews are conducted professionally within project repositories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Case Study: Digital Scholarly Publishing and Traveling Validation</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study: Digital Scholarly Publishing and Traveling Validation</h3>
+<p>To see automated validation operating in major digital humanities publishing, examine the <strong>Digital Latin Library (DLL)</strong>, a joint initiative of the Society for Classical Studies and the Medieval Academy of America.</p>
+<p>The DLL publishes born-digital Latin editions in its <em>Library of Digital Latin Texts</em> (LDLT). Instead of sending printed books to a press, scholars submit Git repos containing TEI XML.</p>
+<p>The DLL uses a CI pipeline called the "Traveling Imprimatur." When an editor submits work, the CI server tests Relax NG and Schematron rules. If tests pass, the edition advances to human peer review. Once approved, the edition receives a digital certificate of scholarly quality.</p>
+<p><strong>Vocabulary.</strong> <em>Digital Latin Library (DLL)</em> — A major scholarly publishing platform that peer-reviews and publishes open-access digital Latin editions. <em>Traveling Imprimatur</em> — An automated cryptographic certificate confirming an edition passed all schema and editorial validation gates.</p>
+<p><strong>Takeaway:</strong> Major publishing platforms like the Digital Latin Library use automated CI pipelines as formal gateways to scholarly publication.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Case Study: Digital Scholarly Publishing and Traveling Validation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the "Traveling Imprimatur" developed by the Digital Latin Library?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Major publishing platforms like the Digital Latin Library use automated CI pipelines as formal gateways to scholarly publication.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;An automated CI pipeline that tests XML files against strict schemas, certifying passing editions with a digital imprimatur.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The DLL uses automated CI validation as a prerequisite for formal peer review and scholarly publication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A physical rubber stamp mailed to authors by post.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Traveling Imprimatur is an automated digital certification pipeline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A commercial copyright license sold to students for profit.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The DLL is an open-access non-profit scholarly publishing platform.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A software program that automatically translates Latin into French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The DLL publishes critical Latin editions; the imprimatur certifies XML validity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Digital Longevity and the Endings Project Principles</text></name><questiontext format="html"><text><![CDATA[
+<h3>Digital Longevity and the Endings Project Principles</h3>
+<p>When building digital editions, scholars must consider digital longevity. Hundreds of early digital humanities projects from the 1990s and 2000s are now completely dead. They relied on complex databases and old plugins. These tools broke when grant funding ended.</p>
+<p>To prevent digital decay, the University of Victoria established <strong>The Endings Project</strong>. The Endings Project defines five principles for long-term digital preservation:</p>
+<ol>
+<li><strong>Static Files Only:</strong> Rely on static HTML, CSS, and plain XML. Avoid server-side databases (like MySQL or PHP) that require ongoing maintenance.</li>
+<li><strong>Standards Compliance:</strong> Use open, international standards (like W3C XML and TEI P5) that any modern computer can parse.</li>
+<li><strong>Self-Contained Data:</strong> Keep all metadata, text, and stylesheets inside the repository rather than relying on external dynamic servers.</li>
+<li><strong>Platform Independence:</strong> Ensure the edition can run locally from a USB drive or static web host without special server software.</li>
+<li><strong>No Dynamic Vulnerabilities:</strong> Static files have no database security holes and can survive safely for decades.</li>
+</ol>
+<p>Building your edition in clean TEI XML with CSS ensures your work stays readable twenty years from now.</p>
+<p><strong>Vocabulary.</strong> <em>The Endings Project</em> — A digital humanities research initiative defining technical standards for long-term preservation of digital editions. <em>Digital Longevity</em> — The capacity of digital resources to remain accessible, functional, and citeable over decades.</p>
+<p><strong>Takeaway:</strong> The Endings Project principles mandate static, open-standard files to ensure digital editions survive for decades without maintenance.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Digital Longevity and the Endings Project Principles</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does The Endings Project recommend building digital editions using static files rather than server databases?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Endings Project principles mandate static, open-standard files to ensure digital editions survive for decades without maintenance.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Static HTML, CSS, and TEI XML files survive for decades without database maintenance, security patches, or server upgrades.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Static files eliminate database obsolescence and security vulnerabilities, ensuring twenty-year digital longevity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Static files automatically generate money for university endowments.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Endings Project focuses on long-term preservation and digital survival, not monetization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Server databases are illegal under Canadian intellectual property legislation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Databases are legal; the issue is that complex dynamic servers require continuous maintenance and decay quickly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Static files can only be read on computers manufactured before 1995.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Static web standards are supported by all modern and future web browsers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Archiving, Persistent Identification, and FAIR Data</text></name><questiontext format="html"><text><![CDATA[
+<h3>Archiving, Persistent Identification, and FAIR Data</h3>
+<p>GitHub is an outstanding platform for active collaboration and continuous integration. However, GitHub is a commercial company. It is not an archival repository. Long-term scholarly preservation requires depositing your edition in an academic data repository.</p>
+<p>When your edition is finished, archive a release on <strong>Zenodo</strong>. Zenodo is an open research repository run by CERN:</p>
+<ul>
+<li><strong>Permanent Digital Object Identifier (DOI):</strong> Zenodo mints a permanent, citable DOI (such as <code>10.5281/zenodo.1234567</code>) for your repository snapshot.</li>
+<li><strong>Automated GitHub Integration:</strong> You can link GitHub directly to Zenodo so that every new GitHub Release is archived automatically.</li>
+<li><strong>FAIR Compliance:</strong> Zenodo guarantees permanent bit-level preservation, indexing your metadata in international academic search engines.</li>
+</ul>
+<p>Archiving your consolidated repo gives your scholarship a permanent home. It becomes citable in the global academic record.</p>
+<p><strong>Vocabulary.</strong> <em>Zenodo</em> — An open-access scholarly repository operated by CERN that provides permanent storage and DOIs for research data. <em>Digital Object Identifier (DOI)</em> — A persistent, unique alphanumeric string used to permanently identify and cite academic publications.</p>
+<p><strong>Takeaway:</strong> Archiving releases to Zenodo mints permanent DOIs. It guarantees long-term preservation.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Archiving, Persistent Identification, and FAIR Data</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What scholarly benefit does depositing a repository release in Zenodo provide?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Archiving releases to Zenodo mints permanent DOIs. It guarantees long-term preservation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It mints a permanent Digital Object Identifier (DOI) and guarantees long-term bit-level preservation in academic archives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Zenodo provides persistent DOIs and archival storage, ensuring your edition is permanently findable and citable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically registers the student for graduate school admission.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Zenodo is an open research archive, not a university admissions office.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the repository from GitHub to save cloud storage space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Zenodo archives a snapshot while your GitHub repository remains active for ongoing work.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents anyone from reading your edition without paying a fee.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Zenodo supports open-access research data sharing under FAIR principles.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: The Consolidated Milestone: Looking Ahead to Final Publication</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Consolidated Milestone: Looking Ahead to Final Publication</h3>
+<p>Congratulations! You have completed the mid-term consolidation milestone for RELS 398.</p>
+<p>Look at how far your digital edition has advanced:</p>
+<ul>
+<li>You built a codicological <code>&lt;teiHeader&gt;</code> cataloguing your witness.</li>
+<li>You linked high-resolution <code>&lt;facsimile&gt;</code> images with coordinate zones.</li>
+<li>You created diplomatic and AI-reconciled transcriptions.</li>
+<li>You regularized historical orthography using <code>&lt;choice&gt;</code> tags.</li>
+<li>You designed responsive reading views with CSS.</li>
+<li>You enriched your text with grammatical lemmatization and named entities.</li>
+<li>Today, you united all these layers under automated CI validation and collaborative peer review.</li>
+</ul>
+<p>Next week, in Module 11, we begin Phase 3: <strong>Advanced Publication and Interactive Presentation</strong>. You will turn your consolidated edition into web interfaces and interactive tools.</p>
+<p><strong>Vocabulary.</strong> <em>Consolidated Edition</em> — A unified digital scholarly edition integrating metadata, facsimile, transcription, regularization, and entity layers. <em>Project Milestone</em> — A major project stage where all underlying data layers are validated and prepared for publication.</p>
+<p><strong>Takeaway:</strong> Completing the consolidation milestone unites nine editorial layers under automated CI gates, preparing your edition for publication.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: The Consolidated Milestone: Looking Ahead to Final Publication</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What milestone does completing Module 10 represent in the RELS 398 curriculum?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Completing the consolidation milestone unites nine editorial layers under automated CI gates, preparing your edition for publication.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;All nine accumulated layers are validated under automated CI gates, preparing the edition for publication and interface design.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Consolidation completes the foundational encoding phase, setting the stage for advanced publication and public presentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Students graduate immediately and no further coursework is required.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Phase 3 (Advanced Publication and Presentation) begins next week in Module 11.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The primary manuscript witnesses are returned to museum archives and never used again.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The digitized editions continue into Phase 3 for web styling and interactive publication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All TEI XML files are deleted to make room for final exam review notes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The consolidated XML files are the primary assets that will be published in Modules 11 through 13.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

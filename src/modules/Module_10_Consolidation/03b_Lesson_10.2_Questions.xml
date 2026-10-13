@@ -7,7 +7,7 @@
       <text>$course$/Module_10_Consolidation/Lesson_10.2_Interactive</text>
     </category>
     <info format="html">
-      <text><![CDATA[<p>Interactive check questions for Lesson 10.2: Collaborative Peer Review, Schema Validation Sweeps, and CI/CD.</p>]]></text>
+      <text><![CDATA[<p>Interactive check questions for Lesson 10.2: Automated Schema Validation, CI/CD Gates, and Peer Review.</p>]]></text>
     </info>
   </question>
 
@@ -17,10 +17,10 @@
       <text>01 Question: The Quality Assurance Gate in Textual Scholarship</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the fundamental principle of the dual-gate quality assurance architecture in digital textual scholarship?</p>]]></text>
+      <text><![CDATA[<p>Why does digital scholarly editing require both automated validation and human peer review?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A robust digital edition relies on a dual-gate quality assurance architecture combining automated schema validation with structured human peer review.</p>]]></text>
+      <text><![CDATA[<p>A dependable digital scholarly edition requires both automated software validation and human peer review.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -29,27 +29,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A robust digital edition relies on a dual-gate quality assurance architecture combining automated schema validation with structured human peer review.</p>]]></text>
+      <text><![CDATA[<p>Computers check rules and syntax instantly across thousands of lines, while humans provide historical judgment and paleographical insight.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Machines efficiently verify syntax, grammar, and Schematron constraints, freeing human scholars to focus on paleographical judgment and interpretive nuance.</p>]]></text>
+        <text><![CDATA[<p>Correct. The dual-gate approach pairs rapid machine checking of structural rules with human scholarly interpretation and contextual evaluation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Requiring two different commercial software companies to certify the XML files before publication.</p>]]></text>
+      <text><![CDATA[<p>Commercial publishing contracts legally require two software companies to sign off on files.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Quality assurance is scholarly and open-source, not dependent on commercial certification.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Quality assurance is scholarly and open-source, not dependent on commercial company signatures.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Performing automated machine translation twice to verify linguistic accuracy.</p>]]></text>
+      <text><![CDATA[<p>Automated validation can only check Latin documents, requiring humans for all modern languages.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Automated gates validate XML structure and rules, not machine translations.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Automated XML validators check any language encoded in Unicode, but cannot judge historical truth.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Eliminating human peer review in favor of automated algorithmic scoring.</p>]]></text>
+      <text><![CDATA[<p>Human peer review is obsolete and only used as a backup when Internet access is unavailable.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Automated validation and human peer review are complementary gates; neither replaces the other.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Human peer review is essential for assessing paleography, historical context, and editorial decisions.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -60,10 +60,10 @@
       <text>02 Question: The Fragility of Local Desktop Validation</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why is relying exclusively on local desktop IDE validation (such as in Oxygen or VS Code) insufficient for collaborative digital editions?</p>]]></text>
+      <text><![CDATA[<p>What risk arises when project teams rely solely on local desktop validation on individual laptops?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Local desktop validation is necessary for interactive authoring but insufficient for collaborative integrity, necessitating centralized automated validation gates.</p>]]></text>
+      <text><![CDATA[<p>Local laptop validation is convenient for drafting, but centralized automated checks guarantee consistency across a project.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -72,27 +72,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Local desktop validation is necessary for interactive authoring but insufficient for collaborative integrity, necessitating centralized automated validation gates.</p>]]></text>
+      <text><![CDATA[<p>Local software settings and schemas drift over time, hiding errors that break consistency across the project.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Individual desktop setups often drift in schema versions or catalog paths, and editors may forget manual checks; centralized CI guarantees uniform, automated enforcement.</p>]]></text>
+        <text><![CDATA[<p>Correct. Individual laptop environments often diverge in schema paths or tool settings, leading to the "it works on my machine" trap.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Desktop IDEs are incapable of reading XML files larger than 10 kilobytes.</p>]]></text>
+      <text><![CDATA[<p>Desktop text editors automatically delete all XML files after thirty days of inactivity.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Desktop IDEs handle large files easily; the vulnerability is human inconsistency and local configuration drift.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Editors like VS Code do not delete user files; the hazard is configuration divergence across team members.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Local validation permanently locks the user's hard drive whenever a schema error occurs.</p>]]></text>
+      <text><![CDATA[<p>Local validation permanently damages laptop screen hardware when errors occur.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Local IDEs report errors visually with squiggly lines without locking hardware.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Validation is software parsing and poses no risk to computer hardware.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Local IDE validation cannot check XML well-formedness.</p>]]></text>
+      <text><![CDATA[<p>Desktop computers cannot validate files containing more than fifty words.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Desktop IDEs check well-formedness, but relying on manual triggers permits unvetted commits.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Local editors handle large documents easily, but human inconsistency allows unvetted commits to slip through.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -103,10 +103,10 @@
       <text>03 Question: The Multi-Tiered Validation Hierarchy</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What are the three distinct tiers of the multi-tiered XML validation hierarchy in digital scholarly editing?</p>]]></text>
+      <text><![CDATA[<p>What are the three distinct tiers of quality control in digital textual scholarship?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Comprehensive XML quality control operates across three distinct tiers: syntactic well-formedness, grammatical structure, and rule-based semantic constraints.</p>]]></text>
+      <text><![CDATA[<p>Digital editions validate across three tiers: clean syntax, structure rules, and semantic constraints.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -115,27 +115,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Comprehensive XML quality control operates across three distinct tiers: syntactic well-formedness, grammatical structure, and rule-based semantic constraints.</p>]]></text>
+      <text><![CDATA[<p>Tier 1 syntax (well-formedness), Tier 2 grammar (RELAX NG), and Tier 3 semantics (Schematron).</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Quality control progresses from basic syntactic well-formedness (W3C), through structural tree grammar (RELAX NG), to context-dependent semantic and relational business rules (ISO Schematron).</p>]]></text>
+        <text><![CDATA[<p>Correct. Validation progresses from universal XML syntax, through structural tree grammar, to context-dependent semantic business rules.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Tier 1 ASCII encoding, Tier 2 HTML formatting, and Tier 3 PDF rendering.</p>]]></text>
+      <text><![CDATA[<p>Tier 1 word count, Tier 2 font selection, and Tier 3 print paper weight.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The tiers govern XML data validation, not generic document rendering formats.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Those are physical typography choices, not formal XML validation tiers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Tier 1 Spell checking, Tier 2 Grammar translation, and Tier 3 Print layout.</p>]]></text>
+      <text><![CDATA[<p>Tier 1 spelling correction, Tier 2 language translation, and Tier 3 audio generation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The three tiers evaluate formal XML syntax, structural schemas, and semantic rule constraints.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. XML validation tiers evaluate formal syntactic well-formedness, schema grammar, and rule assertions.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Tier 1 Git commit, Tier 2 GitHub push, and Tier 3 Zenodo archiving.</p>]]></text>
+      <text><![CDATA[<p>Tier 1 Git push, Tier 2 GitHub pull, and Tier 3 USB backup drive.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Those are version-control stages, not XML validation tiers.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Those are version-control operations, not XML validation tiers.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -146,10 +146,10 @@
       <text>04 Question: Tier 1 Validation: XML Well-Formedness and Parser Mechanics</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why do XML parsers enforce a strict fatal error policy upon encountering a syntax error, unlike web browsers rendering HTML?</p>]]></text>
+      <text><![CDATA[<p>How do XML parsers behave when encountering a syntax error, unlike web browsers rendering HTML?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Well-formedness is the non-negotiable syntactic baseline of all XML, ensuring that documents can be parsed into unambiguous hierarchical trees.</p>]]></text>
+      <text><![CDATA[<p>Well-formedness is the non-negotiable syntactic baseline required before any schema validation can occur.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -158,27 +158,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Well-formedness is the non-negotiable syntactic baseline of all XML, ensuring that documents can be parsed into unambiguous hierarchical trees.</p>]]></text>
+      <text><![CDATA[<p>XML parsers enforce a strict fatal error policy and immediately stop parsing without guessing user intent.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Unlike HTML browsers which guess user intent through lenient error recovery, XML parsers mandate strict well-formedness to ensure deterministic tree parsing.</p>]]></text>
+        <text><![CDATA[<p>Correct. Unlike lenient web browsers that attempt error recovery, XML parsers mandate strict well-formedness to ensure unambiguous tree parsing.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>XML parsers operate on low-power hardware that cannot execute error-recovery routines.</p>]]></text>
+      <text><![CDATA[<p>XML parsers automatically correct missing tags and rewrite the user's files.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The fatal error policy is a deliberate W3C architectural standard to preserve structural precision, not a hardware limitation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Parsers never rewrite files; they halt and report fatal syntax errors to preserve data integrity.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Syntax errors in XML permanently corrupt the host operating system's file system.</p>]]></text>
+      <text><![CDATA[<p>XML parsers send an automated notification to local law enforcement authorities.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Parsers simply halt execution and return an error code; no file system corruption occurs.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Parser errors are standard programming feedback, not legal infractions.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>HTML is a compiled binary format whereas XML is an interpreted plain-text format.</p>]]></text>
+      <text><![CDATA[<p>XML parsers continue parsing and convert broken tags into emoji icons.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Both HTML and XML are text-based markup languages, but XML enforces strict tree grammar.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. XML parsing halts immediately upon detecting malformed syntax.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -189,10 +189,10 @@
       <text>05 Question: Tier 2 Validation: Grammar-Based Schemas with RELAX NG</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why has the international digital humanities community standardized on RELAX NG rather than W3C XML Schema (XSD) for structural validation?</p>]]></text>
+      <text><![CDATA[<p>What structural features does a RELAX NG schema enforce in a TEI digital edition?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>RELAX NG enforces the geometric and structural grammar of TEI documents, verifying that elements nest according to established schema definitions.</p>]]></text>
+      <text><![CDATA[<p>RELAX NG schemas enforce the structure rules, element ordering, and attribute types of your digital edition.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -201,27 +201,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>RELAX NG enforces the geometric and structural grammar of TEI documents, verifying that elements nest according to established schema definitions.</p>]]></text>
+      <text><![CDATA[<p>Allowed elements, child element sequences, permitted attributes, and data types like ISO dates.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. RELAX NG patterns cleanly express the complex, non-deterministic mixed-content structures of manuscript documents, whereas XSD imposes rigid object data-typing constraints.</p>]]></text>
+        <text><![CDATA[<p>Correct. RELAX NG defines the formal grammar of an edition, verifying structural hierarchy and attribute constraints.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>RELAX NG is the only schema language that supports non-English character encodings like Greek.</p>]]></text>
+      <text><![CDATA[<p>The literary quality of the primary document's poetic metaphors.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. All modern XML schema languages support Unicode; RELAX NG is preferred for its expressive pattern-based grammar.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schemas validate formal XML structure, not the aesthetic value of historical poetry.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>W3C XML Schema (XSD) was deprecated and removed from the XML standard in 2010.</p>]]></text>
+      <text><![CDATA[<p>The market resale value of the physical manuscript at auction.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. XSD remains widely used in commercial enterprise settings, but is poorly suited to humanistic texts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schemas evaluate digital data formatting, not commercial manuscript valuations.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>RELAX NG schemas compile directly into C++ binaries to accelerate web page loading.</p>]]></text>
+      <text><![CDATA[<p>The physical weight of the paper used in the author's laptop printer.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. RELAX NG validates XML document structure; it is not a web compilation language.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. RELAX NG is a digital schema language with no connection to printer paper specifications.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -229,13 +229,13 @@
   <!-- 06 Question -->
   <question type="multichoice">
     <name>
-      <text>06 Question: The Limits of Grammar: The OHCO Model and Business Logic</text>
+      <text>06 Question: The Limits of Grammar: What RELAX NG Cannot Catch</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What fundamental theoretical limitation prevents grammar-based schemas (like RELAX NG) from enforcing all philological rules in a TEI edition?</p>]]></text>
+      <text><![CDATA[<p>Which type of editorial constraint exceeds the capabilities of pure RELAX NG grammar schemas?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Grammar-based schemas define structural shapes but cannot enforce conditional co-occurrence rules or cross-referential integrity across document trees.</p>]]></text>
+      <text><![CDATA[<p>Grammar schemas cannot enforce cross-element conditional rules, creating the need for rule-based Schematron validation.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -244,27 +244,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Grammar-based schemas define structural shapes but cannot enforce conditional co-occurrence rules or cross-referential integrity across document trees.</p>]]></text>
+      <text><![CDATA[<p>Conditional rules across elements, such as requiring `@ref` when `type="deputy"` or matching `@orig` with `@reg`.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Under the OHCO model, grammar schemas evaluate context-free parent-child nesting but cannot evaluate dynamic cross-referential constraints, such as verifying that an apparatus pointer targets a declared witness ID.</p>]]></text>
+        <text><![CDATA[<p>Correct. Grammar schemas evaluate elements in isolation and cannot easily enforce conditional co-occurrence rules or cross-references.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The OHCO model only applies to relational databases and cannot represent XML trees.</p>]]></text>
+      <text><![CDATA[<p>Checking whether an element has a closing tag.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The OHCO model (Ordered Hierarchy of Content Objects) is the foundational data model of XML itself.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Checking closing tags is basic Tier 1 well-formedness handled by all XML parsers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>RELAX NG schemas cannot read XML files containing more than three levels of nested tags.</p>]]></text>
+      <text><![CDATA[<p>Checking whether element names use uppercase or lowercase letters.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. RELAX NG handles arbitrary nesting depths; its limitation is context-dependent business logic.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. RELAX NG schemas easily enforce exact case sensitivity on element names.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Grammar schemas cannot validate documents written in Unicode Greek.</p>]]></text>
+      <text><![CDATA[<p>Detecting whether a file is saved on a hard drive or a USB thumb drive.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Grammar schemas validate any Unicode text; their limit is cross-element relational logic.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schemas validate text contents, not storage drive hardware types.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -275,10 +275,10 @@
       <text>07 Question: Tier 3 Validation: ISO Schematron (ISO/IEC 19757-3)</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does ISO Schematron differ fundamentally from grammar-based schema languages like RELAX NG?</p>]]></text>
+      <text><![CDATA[<p>How does Schematron differ from RELAX NG in evaluating XML documents?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>ISO Schematron uses XPath queries to validate complex business rules and conditional constraints that lie beyond the reach of grammar-based schemas.</p>]]></text>
+      <text><![CDATA[<p>Schematron uses XPath to enforce project-specific editorial rules and emit plain-language error messages.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -287,27 +287,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>ISO Schematron uses XPath queries to validate complex business rules and conditional constraints that lie beyond the reach of grammar-based schemas.</p>]]></text>
+      <text><![CDATA[<p>Schematron uses XPath to query targeted patterns and test assertions, outputting human-authored error messages.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Instead of defining an entire document grammar, Schematron evaluates targeted XPath boolean rules and returns actionable, human-readable diagnostic explanations.</p>]]></text>
+        <text><![CDATA[<p>Correct. Schematron selects nodes using XPath expressions and tests specific conditions, reporting friendly project-specific errors.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Schematron validates only file names and directory structures rather than document contents.</p>]]></text>
+      <text><![CDATA[<p>Schematron converts all XML files into relational SQL database tables.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron queries deep XML tree nodes and attribute values using XPath.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron is an XML validation language, not a database transformation utility.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Schematron is an interactive graphic drawing tool used to design manuscript page layouts.</p>]]></text>
+      <text><![CDATA[<p>Schematron requires an active subscription to commercial cloud software.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron is a formal XML validation standard based on XPath assertions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron is an open ISO standard that runs locally with open-source tools.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Schematron replaces XML with JSON data structures to simplify web publishing.</p>]]></text>
+      <text><![CDATA[<p>Schematron only runs on documents written in Classical Greek.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron operates natively on XML trees and is standardized as ISO/IEC 19757-3.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron validates any well-formed XML document regardless of language.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -318,10 +318,10 @@
       <text>08 Question: Authoring Schematron Rules for Scholarly Editions</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In an ISO Schematron rule, what is the functional relationship between the sch:rule context and sch:assert test elements?</p>]]></text>
+      <text><![CDATA[<p>What is the function of the `<assert>` element in a Schematron rule?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Schematron rules combine XPath context matching with explicit boolean tests to generate tailored, actionable diagnostic feedback for editors.</p>]]></text>
+      <text><![CDATA[<p>Schematron patterns select target elements and test assertions, guiding editors with helpful error messages.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -330,27 +330,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Schematron rules combine XPath context matching with explicit boolean tests to generate tailored, actionable diagnostic feedback for editors.</p>]]></text>
+      <text><![CDATA[<p>It defines a mandatory test condition that must be true; if false, its human-readable error message is displayed.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The context attribute matches focal nodes in the XML tree, while the assert test evaluates a boolean condition on those nodes, emitting a tailored diagnostic message if false.</p>]]></text>
+        <text><![CDATA[<p>Correct. The `assert` element tests an XPath condition and prints its enclosed message whenever that condition evaluates to false.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>context defines the file path on disk, while assert test installs the required Java runtime.</p>]]></text>
+      <text><![CDATA[<p>It automatically generates digital images of missing manuscript folios.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Both are XML elements that evaluate in-memory Document Object Model nodes using XPath.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron tests text rules; it does not generate visual imagery.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>context specifies the student's name, while assert test calculates their assignment grade.</p>]]></text>
+      <text><![CDATA[<p>It deletes any XML tag that contains spelling mistakes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron evaluates document markup constraints, not student grading metadata.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron reports validation warnings but does not delete user markup.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>context is evaluated only if the assert test fails.</p>]]></text>
+      <text><![CDATA[<p>It encrypts the document so that peer reviewers cannot read it.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. context matches the focal nodes first; then assert test is evaluated for each matched node.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron is a transparent testing tool that facilitates open peer review.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -361,10 +361,10 @@
       <text>09 Question: Enforcing Cross-Reference and Identifier Integrity</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does Schematron prevent dangling pointers (such as undeclared manuscript sigla in @wit attributes)?</p>]]></text>
+      <text><![CDATA[<p>How does Schematron protect identifier integrity across a digital edition?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Schematron XPath assertions guarantee relational integrity by verifying that every internal pointer and witness siglum resolves to a valid declared identifier.</p>]]></text>
+      <text><![CDATA[<p>Schematron rules verify that all internal links and person references resolve to defined identifiers in your edition.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -373,27 +373,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Schematron XPath assertions guarantee relational integrity by verifying that every internal pointer and witness siglum resolves to a valid declared identifier.</p>]]></text>
+      <text><![CDATA[<p>It verifies that internal pointers like `@ref="#cope"` resolve to matching `xml:id` definitions in the `<teiHeader>`.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Using XPath expressions like every $w in tokenize(@wit, '\s+') satisfies substring($w, 2) = //tei:witness/@xml:id, Schematron verifies that all witness references exist.</p>]]></text>
+        <text><![CDATA[<p>Correct. Schematron uses XPath to ensure every internal hash reference points to an existing defined identifier in the document.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It automatically deletes any rdg element that contains an unrecognized witness siglum.</p>]]></text>
+      <text><![CDATA[<p>It prevents students from using personal pronouns in their essays.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron alerts editors to invalid pointers via validation errors; it does not silently delete data.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron verifies XML attribute pointers, not essay writing style.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It queries the library's physical catalog database via an online API during parsing.</p>]]></text>
+      <text><![CDATA[<p>It assigns random serial numbers to every paragraph on the page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron verifies relational integrity against identifiers declared within the TEI document.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron tests existing attributes; it does not inject random serial numbers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It restricts all apparatus entries to exactly one manuscript witness per reading.</p>]]></text>
+      <text><![CDATA[<p>It removes all hyperlinks to external library websites.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron supports multi-valued witness lists while ensuring every referenced ID is declared.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron verifies link validity rather than removing links.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -404,10 +404,10 @@
       <text>10 Question: Validating Linguistic and Attribute Co-Occurrences</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What editorial constraint does Schematron enforce on TEI choice containers in normalization and correction layers?</p>]]></text>
+      <text><![CDATA[<p>Why is Schematron valuable for auditing grammatical lemmatization markup in `<w>` tags?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Rule-based validation prevents invalid editorial combinations, ensuring that normalization pairs and morphological tags conform strictly to project policy.</p>]]></text>
+      <text><![CDATA[<p>Schematron guards linguistic annotations by checking that words carry canonical lemmas and valid part-of-speech codes.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -416,27 +416,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Rule-based validation prevents invalid editorial combinations, ensuring that normalization pairs and morphological tags conform strictly to project policy.</p>]]></text>
+      <text><![CDATA[<p>It confirms that words marked as verbs or nouns carry non-empty canonical lemmas and valid part-of-speech codes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Schematron evaluates boolean logic to ensure editors do not mix historical spelling regularization (<orig>/<reg>) with scribal error emendation (<sic>/<corr>).</p>]]></text>
+        <text><![CDATA[<p>Correct. Schematron verifies that linguistic attributes like `@lemma` and `@pos` are consistently populated and conform to approved whitelists.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It mandates that every choice element must contain at least five competing readings.</p>]]></text>
+      <text><![CDATA[<p>It translates historical verbs into colloquial modern slang.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. choice typically contains two complementary views of a single reading (diplomatic vs. editorial).</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron validates grammatical annotation consistency; it does not modernize historical vocabulary.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It requires that all reg readings be written in modern English rather than Greek.</p>]]></text>
+      <text><![CDATA[<p>It counts the number of letters in every word and reorders them alphabetically.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. reg contains the normalized Greek orthography matching standard lexicons.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron checks markup rules without altering text order.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It forces editors to delete the original scribal spelling from the digital edition.</p>]]></text>
+      <text><![CDATA[<p>It forbids editors from tagging more than ten verbs per manuscript page.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI preservation retains both the diplomatic orig and normalized reg readings.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schematron enforces data quality rather than arbitrary quantitative caps.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -447,10 +447,10 @@
       <text>11 Question: Compiling and Executing Schematron via XSLT Engines</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How does the reference implementation of ISO Schematron execute validation against TEI XML files?</p>]]></text>
+      <text><![CDATA[<p>Which command-line utility is standard for executing RELAX NG and Schematron validation in terminal workflows?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Schematron operates by compiling XPath rules into XSLT stylesheets via Saxon, generating machine-readable SVRL reports of all constraint violations.</p>]]></text>
+      <text><![CDATA[<p>Tools like Jing execute Schematron rules on the command line, enabling automated validation in scripts and CI pipelines.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -459,27 +459,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Schematron operates by compiling XPath rules into XSLT stylesheets via Saxon, generating machine-readable SVRL reports of all constraint violations.</p>]]></text>
+      <text><![CDATA[<p>`jing`</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Schematron uses multi-stage XSLT transformations to generate a validator stylesheet, producing a Schematron Validation Report Language (SVRL) XML report of failures.</p>]]></text>
+        <text><![CDATA[<p>Correct. James Clark's open-source `jing` validator processes both RELAX NG schemas and Schematron rule files directly in the terminal.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It converts XML files into binary byte-code executed directly on the CPU.</p>]]></text>
+      <text><![CDATA[<p>`photoshop`</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron is an XSLT-based pipeline processing XML trees into SVRL reports.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Adobe Photoshop is an image manipulation program, not an XML schema validator.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It uploads documents to a commercial cloud server for proprietary parsing.</p>]]></text>
+      <text><![CDATA[<p>`curl`</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron runs locally and in open CI containers using open-source XSLT processors like Saxon.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `curl` transfers data across network protocols; it does not validate XML schemas.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It requires compiling a bespoke C++ compiler for each individual rule.</p>]]></text>
+      <text><![CDATA[<p>`ping`</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Standard Saxon XSLT engines execute the compiled Schematron stylesheets without C++ compilation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `ping` tests network connectivity between computers, not XML validation.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -490,10 +490,10 @@
       <text>12 Question: Introduction to Continuous Integration (CI/CD) for Digital Humanities</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the primary methodological benefit of shifting left through Continuous Integration in digital scholarly editing?</p>]]></text>
+      <text><![CDATA[<p>What is the primary function of Continuous Integration in a collaborative digital edition?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Continuous Integration automates quality control, running reproducible validation suites on every commit to prevent malformed data from entering canonical repositories.</p>]]></text>
+      <text><![CDATA[<p>Continuous Integration automatically tests every commit in the cloud, guaranteeing that broken files never go unnoticed.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -502,27 +502,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Continuous Integration automates quality control, running reproducible validation suites on every commit to prevent malformed data from entering canonical repositories.</p>]]></text>
+      <text><![CDATA[<p>Automatically running tests and validation checks on a cloud server whenever commits are pushed to the repository.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Continuous Integration validates data automatically within seconds of pushing, catching defects at the earliest possible stage rather than during stressful post-production cleanups.</p>]]></text>
+        <text><![CDATA[<p>Correct. CI acts as an automated gatekeeper, testing every commit to ensure broken markup or invalid schemas are detected immediately.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Automatically publishing unedited manuscript transcriptions to commercial book distributors.</p>]]></text>
+      <text><![CDATA[<p>Automatically printing physical paper books and shipping them to local bookstores.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CI validates and protects data integrity; publication occurs only after formal approval.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. CI automates software testing and digital builds, not physical commercial distribution.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Eliminating the need for students to learn TEI XML markup rules.</p>]]></text>
+      <text><![CDATA[<p>Replacing human historians with automated conversational chatbots.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CI reinforces learning by providing instant, objective feedback on XML conformance.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. CI provides technical quality control to support human scholars, not replace them.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Moving all project files from GitHub to proprietary offline servers.</p>]]></text>
+      <text><![CDATA[<p>Preventing team members from making commits outside of scheduled class hours.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CI runs on automated cloud runners connected to version-controlled repositories.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. CI runs anytime a commit is pushed, supporting asynchronous collaboration.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -533,10 +533,10 @@
       <text>13 Question: Anatomy of a GitHub Actions Workflow</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What are the essential building blocks that define a GitHub Actions workflow YAML file?</p>]]></text>
+      <text><![CDATA[<p>Where are GitHub Actions workflows configured inside a project repository?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>GitHub Actions workflows define automated event-driven pipelines that execute validation tasks inside isolated, ephemeral virtual machines.</p>]]></text>
+      <text><![CDATA[<p>GitHub Actions workflows are version-controlled YAML files that define automated testing triggers and commands.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -545,27 +545,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>GitHub Actions workflows define automated event-driven pipelines that execute validation tasks inside isolated, ephemeral virtual machines.</p>]]></text>
+      <text><![CDATA[<p>Inside `.github/workflows/` as human-readable YAML configuration files.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A declarative GitHub Actions YAML file defines workflow names, trigger events (push/PR), jobs, runner environments (ubuntu-latest), and sequential execution steps.</p>]]></text>
+        <text><![CDATA[<p>Correct. Workflows live in `.github/workflows/*.yml`, version-controlled right alongside your edition source text.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<teiHeader>, <fileDesc>, <sourceDesc>, and <body>.]]></text>
+      <text><![CDATA[<p>Inside the computer's BIOS firmware chip.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Those are TEI XML elements, not GitHub Actions YAML workflow directives.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Workflows are standard text files stored in the Git repository.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Classes, Objects, Methods, Inheritance, and Polymorphism.</p>]]></text>
+      <text><![CDATA[<p>Inside an unversioned Word document saved on the instructor's desktop.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Those are object-oriented programming concepts, not CI workflow configuration keys.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Workflows must be saved inside `.github/workflows/` so GitHub can execute them automatically.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Input, Output, Buffer, Cache, and Swap Space.</p>]]></text>
+      <text><![CDATA[<p>Inside a temporary browser cookie that expires after twenty minutes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Those are low-level operating system terms, not CI pipeline components.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Workflows are permanent repository assets tracked in Git history.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -576,10 +576,10 @@
       <text>14 Question: Writing a Complete TEI Validation Workflow</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>In a complete TEI validation workflow on GitHub Actions, in what order should automated test steps be executed?</p>]]></text>
+      <text><![CDATA[<p>What sequence of actions does a basic TEI validation workflow execute on GitHub Actions?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A standard TEI validation workflow automates Java runtime provisioning, schema downloading, and multi-tiered validation across all repository XML files.</p>]]></text>
+      <text><![CDATA[<p>A twenty-line YAML file configures GitHub Actions. It installs XML tools and tests your files on every push.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -588,27 +588,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A standard TEI validation workflow automates Java runtime provisioning, schema downloading, and multi-tiered validation across all repository XML files.</p>]]></text>
+      <text><![CDATA[<p>Checking out the repository code, installing XML tools like `libxml2-utils` and `jing`, and running `xmllint` and schema checks.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Testing follows the validation hierarchy: basic syntax is verified first with xmllint, followed by structural grammar with Jing, and finally complex semantic rules with Saxon Schematron.</p>]]></text>
+        <text><![CDATA[<p>Correct. A standard workflow checks out files, sets up command-line validators, and tests the XML for well-formedness and schema validity.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Execute Tier 3 Schematron rules before checking if the XML document is well-formed.</p>]]></text>
+      <text><![CDATA[<p>Formatting the hard drive, reinstalling the operating system, and shutting down the server.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. If a document is not well-formed, Schematron and RELAX NG parsers crash immediately on syntax errors.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Workflows run harmless software checks inside isolated cloud containers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Compile the final PDF book before verifying whether the XML files contain syntax errors.</p>]]></text>
+      <text><![CDATA[<p>Downloading video games and broadcasting live streams to social media.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Validation must succeed before derivative publishing artifacts can be compiled safely.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. GitHub Actions runners execute specified testing commands for project validation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Deploy the website to the public server before running any automated validation steps.</p>]]></text>
+      <text><![CDATA[<p>Translating the repository into Morse code and transmitting it over radio waves.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CI pipelines act as gatekeepers; invalid commits must be blocked from deployment.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The workflow tests XML files using standard command-line tools.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -619,10 +619,10 @@
       <text>15 Question: Integrating Community Validation Actions</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the main advantage of using community actions like adunning/xml-model-validator in a TEI CI workflow?</p>]]></text>
+      <text><![CDATA[<p>Why is fetching canonical schemas directly from authoritative URLs advantageous in CI workflows?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Community-developed GitHub Actions streamline CI setup by automatically discovering XML-model processing instructions and executing standardized validation pipelines.</p>]]></text>
+      <text><![CDATA[<p>Community actions and remote schema downloads keep repository sizes small while validating against official TEI releases.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -631,27 +631,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Community-developed GitHub Actions streamline CI setup by automatically discovering XML-model processing instructions and executing standardized validation pipelines.</p>]]></text>
+      <text><![CDATA[<p>It keeps repository file sizes small while guaranteeing validation against official international TEI P5 releases.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. xml-model-validator parses processing instructions in each XML file to download and execute the exact RELAX NG and Schematron schemas specified by the document.</p>]]></text>
+        <text><![CDATA[<p>Correct. Downloading official schemas during workflow runs prevents bloat in your repository and ensures tests use canonical definitions.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It automatically translates English commentary into ancient Greek and Latin.</p>]]></text>
+      <text><![CDATA[<p>It prevents classmates from viewing your repository source code.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The action validates XML schemas; it does not translate prose.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Remote schema fetching does not alter repository visibility settings.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It permanently deletes any file that fails validation from the user's hard drive.</p>]]></text>
+      <text><![CDATA[<p>It eliminates the need to write TEI XML tags in your document.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The action reports validation failures to the CI interface without destroying local files.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Schemas validate XML tags; they do not write markup for you.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It bypasses Java runtime requirements by converting TEI XML into Python scripts.</p>]]></text>
+      <text><![CDATA[<p>It charges commercial licensing fees to the university department.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The action provisions Jing and Saxon under the hood to execute standard validation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Official TEI schemas are completely free and open-source.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -659,13 +659,13 @@
   <!-- 16 Question -->
   <question type="multichoice">
     <name>
-      <text>16 Question: Associating Documents and Schemas: xml-model</text>
+      <text>16 Question: Associating Documents and Schemas: `&lt;?xml-model?&gt;`</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why does the TEI standard recommend xml-model processing instructions rather than older DOCTYPE or xsi:schemaLocation declarations?</p>]]></text>
+      <text><![CDATA[<p>Where should `<?xml-model?>` processing instructions be placed within a TEI document?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Standard `<?xml-model?>` processing instructions declare the exact grammar and Schematron schemas governing a document, enabling both IDEs and CI runners to validate automatically.</p>]]></text>
+      <text><![CDATA[<p>The xml-model processing instruction links both Relax NG and Schematron schemas directly inside the XML document header.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -674,27 +674,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Standard xml-model processing instructions declare the exact grammar and Schematron schemas governing a document, enabling both IDEs and CI runners to validate automatically.</p>]]></text>
+      <text><![CDATA[<p>At the very top of the file, immediately after the XML declaration and before the root `<TEI>` element.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. xml-model supports linking both structural grammar schemas and rule-based Schematron schemas simultaneously in a single standardized header.</p>]]></text>
+        <text><![CDATA[<p>Correct. Processing instructions belong in the file prolog before the root element so editors and tools can discover schemas.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>It encrypts the XML document so that only registered researchers can read the text.</p>]]></text>
+      <text><![CDATA[<p>Inside the `<teiHeader>` revision log as a `<change>` entry.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Processing instructions are plain-text declarations intended for open interoperability.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Processing instructions belong in the file prolog before `<TEI>`, not inside child elements.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>DOCTYPE declarations are illegal in XML and cause all modern parsers to crash.</p>]]></text>
+      <text><![CDATA[<p>At the very end of the file, after the closing `</TEI>` tag.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. DTDs are legal XML syntax, but cannot link Schematron schemas or support modern mixed content cleanly.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. XML parsers require all content except comments to precede or exist inside the single root element.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>xml-model automatically translates TEI documents into HTML without XSLT.</p>]]></text>
+      <text><![CDATA[<p>Inside an external CSS stylesheet file.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. It associates validation schemas with the document; presentation transformations require separate stylesheets.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The `<?xml-model?>` declaration is an XML processing instruction that lives in the XML document itself.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -705,10 +705,10 @@
       <text>17 Question: Converting CI Failures to Inline GitHub Annotations</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How do workflow commands like ::error file=...,line=...,col=... improve the pedagogical value of automated CI validation?</p>]]></text>
+      <text><![CDATA[<p>How does GitHub Actions display validation failures to pull request reviewers?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Translating automated validation failures into inline GitHub annotations provides contextual, non-judgmental feedback directly alongside the offending markup.</p>]]></text>
+      <text><![CDATA[<p>GitHub CI automatically displays validation errors as inline visual annotations on the exact lines that caused the failure.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -717,27 +717,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Translating automated validation failures into inline GitHub annotations provides contextual, non-judgmental feedback directly alongside the offending markup.</p>]]></text>
+      <text><![CDATA[<p>As visual inline annotations highlighting the exact line of code where the error occurred in the diff.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Translating raw CLI logs into inline diff annotations allows students to see exactly where and why their markup failed without searching through long build logs.</p>]]></text>
+        <text><![CDATA[<p>Correct. GitHub translates compiler errors into clickable inline badges directly on conflicted or failing lines.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They automatically penalize student grades by deducting points for every syntax error.</p>]]></text>
+      <text><![CDATA[<p>By sending a physical printed postcard through the postal service.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Annotations provide formative, non-judgmental feedback to help students learn and iterate.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Alerts are displayed digitally within the web pull request interface.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They prevent contributors from viewing other students' pull requests.</p>]]></text>
+      <text><![CDATA[<p>By locking the user out of their computer operating system.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Annotations appear openly on the PR diff to facilitate collaborative learning and debugging.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. CI errors are informational warnings displayed within GitHub.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They lock the Git repository and require instructor intervention to unlock.</p>]]></text>
+      <text><![CDATA[<p>By deleting the pull request automatically without saving logs.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Authors simply push new commits to fix the highlighted errors.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Pull requests remain open and preserve detailed logs so authors can inspect and fix errors.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -748,10 +748,10 @@
       <text>18 Question: Protecting Branches with Automated CI Merge Gates</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the function of GitHub Branch Protection Rules in a collaborative digital edition?</p>]]></text>
+      <text><![CDATA[<p>How do Branch Protection Rules prevent broken XML from reaching production editions?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Branch protection rules enforce automated merge gates, mathematically preventing malformed or unvalidated TEI data from polluting the canonical edition.</p>]]></text>
+      <text><![CDATA[<p>Branch protection rules disable the merge button until all automated validation tests pass with zero errors.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -760,27 +760,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Branch protection rules enforce automated merge gates, mathematically preventing malformed or unvalidated TEI data from polluting the canonical edition.</p>]]></text>
+      <text><![CDATA[<p>They disable the green "Merge" button on pull requests until all required automated validation checks pass with zero errors.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Branch protection ensures that unvalidated, failing, or unreviewed code cannot be merged into main, keeping the canonical corpus clean.</p>]]></text>
+        <text><![CDATA[<p>Correct. Protection rules enforce quality gates, ensuring that failing or invalid code cannot be merged into the master branch.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They prevent unauthorized users from viewing public open-access repositories.</p>]]></text>
+      <text><![CDATA[<p>They delete the entire repository whenever a student types a syntax error.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Branch protection governs write/merge permissions on specific branches, not public read visibility.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Branch protection guards the main branch; it never deletes repositories.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They automatically delete any branch that has been inactive for more than twenty-four hours.</p>]]></text>
+      <text><![CDATA[<p>They require students to pay a cash deposit before creating a branch.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Stale branches are managed manually; branch protection protects production branches from bad merges.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Branch protection is a free repository security setting.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They enforce copyright restrictions by preventing readers from copying text.</p>]]></text>
+      <text><![CDATA[<p>They prevent instructors from viewing student homework submissions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Branch protection is a technical governance tool for repository branches.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Branch protection enforces merge criteria; it does not restrict read access.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -791,10 +791,10 @@
       <text>19 Question: Automated Preview and Artifact Compilation in CI</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why should a digital edition CI/CD pipeline compile derivative formats (like HTML previews and PDF notes) during pull request evaluation?</p>]]></text>
+      <text><![CDATA[<p>In addition to validation, what artifact compilation tasks can GitHub Actions automate upon merge?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>CI/CD pipelines can automatically generate static HTML previews and PDF reading notes, allowing reviewers to evaluate visual presentation alongside underlying code.</p>]]></text>
+      <text><![CDATA[<p>CI workflows can automatically transform raw TEI XML into web reading views and publish them live to GitHub Pages.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -803,27 +803,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>CI/CD pipelines can automatically generate static HTML previews and PDF reading notes, allowing reviewers to evaluate visual presentation alongside underlying code.</p>]]></text>
+      <text><![CDATA[<p>Transforming TEI XML into HTML reading views and deploying preview websites live to GitHub Pages.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Compiling derivative artifacts during CI allows reviewers to test dynamic tooltips, facsimile zooming, and apparatus layout before approving merges.</p>]]></text>
+        <text><![CDATA[<p>Correct. CI pipelines can run stylesheet transformations and publish static web previews automatically whenever main updates.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because TEI XML cannot be read or understood by human scholars in its raw text format.</p>]]></text>
+      <text><![CDATA[<p>Mining cryptocurrency tokens in the background on university servers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scholars read and write TEI XML directly; derivative previews verify presentation output.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. University and GitHub policies strictly forbid cryptocurrency mining.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because GitHub deletes raw XML files after every commit unless they are converted to PDF.</p>]]></text>
+      <text><![CDATA[<p>Purchasing physical antique parchment from rare manuscript dealers.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Git stores raw XML files permanently; artifact compilation generates optional preview files.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. CI workflows execute computational file processing, not commercial purchases.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To automatically publish the edition to commercial print bookstores on every push.</p>]]></text>
+      <text><![CDATA[<p>Deleting all previous versions of the primary manuscript image.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Artifacts attached to pull requests serve review purposes, not commercial publication.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. CI workflows build derivative reading views while preserving all source assets.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -834,10 +834,10 @@
       <text>20 Question: The Boundary Between Automated Linting and Human Peer Review</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What essential editorial task lies strictly beyond the capability of automated CI validation and requires human peer review?</p>]]></text>
+      <text><![CDATA[<p>What critical dimension of digital scholarship can human peer reviewers assess that automated linters cannot?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Automated pipelines verify structural and syntactic conformance, liberating human peer reviewers to concentrate on interpretive nuance and philological rigor.</p>]]></text>
+      <text><![CDATA[<p>Software enforces mechanical validity, freeing human scholars to focus on paleographical judgment and historical interpretation.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -846,27 +846,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Automated pipelines verify structural and syntactic conformance, liberating human peer reviewers to concentrate on interpretive nuance and philological rigor.</p>]]></text>
+      <text><![CDATA[<p>Whether the transcription accurately represents the physical manuscript handwriting and historical context.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Automated pipelines verify syntax, grammar, and pointer resolution; only human scholars can evaluate paleographical evidence, semantic nuance, and editorial rationale.</p>]]></text>
+        <text><![CDATA[<p>Correct. Linters check syntactic and schema rules; only human scholars can judge paleographical readings and historical accuracy.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Verifying that all XML tags are closed and properly nested.</p>]]></text>
+      <text><![CDATA[<p>Whether the file contains balanced angle brackets.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Automated parsers verify tag syntax and nesting instantaneously.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Automated linters easily verify balanced angle brackets and XML well-formedness.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Checking that witness pointers resolve to declared xml:id identifiers.</p>]]></text>
+      <text><![CDATA[<p>Whether the file was saved with UTF-8 character encoding.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Schematron rules automate pointer and identifier integrity checks.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Character encoding is easily checked and verified by automated tools.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Validating document conformance against RELAX NG schemas.</p>]]></text>
+      <text><![CDATA[<p>Whether the file has an `.xml` extension.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Jing and other schema validators automate structural grammar checking completely.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. File extensions are trivial for software to inspect.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -877,10 +877,10 @@
       <text>21 Question: Designing a Structured TEI Peer-Review Rubric</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What are the six core domains evaluated in a comprehensive TEI digital scholarly peer-review rubric?</p>]]></text>
+      <text><![CDATA[<p>What four editorial layers should a structured peer-review rubric evaluate in our seminar editions?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A structured peer-review rubric provides an objective framework for evaluating both technical encoding standards and humanistic scholarship.</p>]]></text>
+      <text><![CDATA[<p>A structured four-layer rubric ensures that peer review evaluates metadata, diplomatic fidelity, normalization, and entity markup.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -889,27 +889,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A structured peer-review rubric provides an objective framework for evaluating both technical encoding standards and humanistic scholarship.</p>]]></text>
+      <text><![CDATA[<p>Metadata and codicology, diplomatic transcription fidelity, editorial normalization, and named-entity markup.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The rubric evaluates the complete lifecycle: Pipeline Validation, Structural Integrity, Philological Accuracy, Semantic Precision, Metadata Provenance, and Minimal Computing.</p>]]></text>
+        <text><![CDATA[<p>Correct. A complete scholarly audit examines the teiHeader, facsimile alignment, regularized choice tags, and entity links.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Typography, Font Selection, Page Margins, Paper Weight, Binding Style, and Ink Color.</p>]]></text>
+      <text><![CDATA[<p>Screen resolution, internet download speed, keyboard model, and mouse sensitivity.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Those are physical print publishing specifications, not digital TEI peer-review domains.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Those are hardware specifications, not scholarly digital edition criteria.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Grammar, Spelling, Punctuation, Word Count, Font Size, and Line Spacing.</p>]]></text>
+      <text><![CDATA[<p>Page count, font color, printer paper size, and bookbinding glue.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Standard essay rubrics do not capture the technical and philological dimensions of digital editions.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Those are physical manufacturing features, not digital philology layers.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Download Speed, Server Uptime, Database Indexing, Network Latency, Bandwidth, and CPU Usage.</p>]]></text>
+      <text><![CDATA[<p>Spelling, grammar, punctuation, and word count of personal diary entries.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Those are system administration metrics, not scholarly TEI review criteria.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The rubric evaluates structured TEI encoding layers and manuscript evidence.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -917,13 +917,13 @@
   <!-- 22 Question -->
   <question type="multichoice">
     <name>
-      <text>22 Question: Auditing the teiHeader and Provenance Layer</text>
+      <text>22 Question: Auditing the `teiHeader` and Provenance Layer</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When auditing a peer's teiHeader, what is the purpose of inspecting the editorialDecl element?</p>]]></text>
+      <text><![CDATA[<p>What essential information must be confirmed when auditing an edition's `<sourceDesc>`?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Auditing the `teiHeader` ensures that manuscript physical descriptions, provenance history, and contributor attribution meet international cataloguing standards.</p>]]></text>
+      <text><![CDATA[<p>Auditing the teiHeader verifies that physical holding archives, licenses, and revision histories are thoroughly documented.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -932,27 +932,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Auditing the teiHeader ensures that manuscript physical descriptions, provenance history, and contributor attribution meet international cataloguing standards.</p>]]></text>
+      <text><![CDATA[<p>The holding archive, physical shelfmark, material support, and historical date of the primary witness.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The editorialDecl records the editorial principles and policies applied to the text, ensuring that future scholars understand how the critical text was established.</p>]]></text>
+        <text><![CDATA[<p>Correct. The `sourceDesc` must thoroughly document the physical artifact and holding institution to ensure scholarly citable provenance.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To list the server passwords and administrator credentials for the repository.</p>]]></text>
+      <text><![CDATA[<p>The retail purchase price of the laptop used by the student transcriber.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The teiHeader contains bibliographic and scholarly metadata; credentials never belong in public markup.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. `sourceDesc` describes the historical manuscript artifact, not modern laptop equipment.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To store binary backups of all high-resolution IIIF manuscript images.</p>]]></text>
+      <text><![CDATA[<p>The personal home address of the archive security guard.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Facsimile metadata belongs in facsimile or external IIIF manifests.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Personal staff addresses should never be included; privacy must be protected.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>To record automated test results generated by continuous integration runners.</p>]]></text>
+      <text><![CDATA[<p>The weather forecast in Paris or Halifax on the day the file was committed.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. CI test results are reported in PR logs, not inside the teiHeader editorial declaration.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Meteorological forecasts are irrelevant to archival witness identification.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -963,10 +963,10 @@
       <text>23 Question: Auditing Diplomatic Transcription and Physical Milestones</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What must a peer reviewer verify when auditing physical milestone elements (pb and lb) against IIIF facsimiles?</p>]]></text>
+      <text><![CDATA[<p>What is a primary task when auditing diplomatic transcription against high-resolution facsimiles?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Auditing the diplomatic layer confirms that physical milestones and scribal alterations faithfully represent the primary manuscript evidence.</p>]]></text>
+      <text><![CDATA[<p>Auditing diplomatic transcription requires comparing every character, line break, and unclear stroke against high-resolution facsimiles.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -975,27 +975,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Auditing the diplomatic layer confirms that physical milestones and scribal alterations faithfully represent the primary manuscript evidence.</p>]]></text>
+      <text><![CDATA[<p>Verifying that every line break `<lb/>` matches a physical line on the page and that damaged strokes are tagged with `<unclear>`.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Diplomatic milestones must represent physical codex structures faithfully, matching scribal page and line divisions visible in the IIIF facsimile.</p>]]></text>
+        <text><![CDATA[<p>Correct. Reviewers compare transcribed text line by line against visual facsimiles, checking lineation and damage markup.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That line breaks occur exactly every ten words regardless of manuscript layout.</p>]]></text>
+      <text><![CDATA[<p>Replacing all historical handwriting with modern computerized cursive fonts.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Line breaks must reflect the physical manuscript lines, not arbitrary word counts.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Diplomatic auditing verifies transcription accuracy, not font replacement.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That all page breaks are removed to create a continuous modern paragraph.</p>]]></text>
+      <text><![CDATA[<p>Deleting all line breaks to convert the historical document into a single long sentence.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Diplomatic editions preserve original codicological divisions via pb milestones.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Diplomatic editions strictly preserve physical line breaks using `<lb/>` milestones.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That line breaks are encoded using HTML br tags rather than self-closing TEI lb elements.</p>]]></text>
+      <text><![CDATA[<p>Cropping the manuscript image to remove all historical marginalia.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. TEI XML requires valid TEI elements (lb), not HTML markup.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Marginalia provide crucial codicological evidence and must be preserved.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1003,13 +1003,13 @@
   <!-- 24 Question -->
   <question type="multichoice">
     <name>
-      <text>24 Question: Auditing Normalization, Collation, and Variant Apparatus</text>
+      <text>24 Question: Auditing Normalization, Rendering, and Stylesheets</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When reviewing an apparatus criticus (app), what should a peer reviewer verify regarding the wit attributes?</p>]]></text>
+      <text><![CDATA[<p>What should a reviewer check when evaluating editorial regularizations in `<choice>` tags?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Auditing normalization and apparatus layers ensures that editorial emendations and variant readings are transparently documented and philologically justified.</p>]]></text>
+      <text><![CDATA[<p>Auditing normalization ensures that historical spelling choices are linguistically sound and render clearly in stylesheets.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1018,27 +1018,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Auditing normalization and apparatus layers ensures that editorial emendations and variant readings are transparently documented and philologically justified.</p>]]></text>
+      <text><![CDATA[<p>That `<orig>` and `<reg>` pairs are symmetric, historically defensible, and render clearly in reading stylesheets.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Reviewers must cross-check that all @wit values point to declared manuscripts in listWit and that variant readings accurately reflect collation data.</p>]]></text>
+        <text><![CDATA[<p>Correct. Reviewers verify that historical forms and regularized readings are balanced, justified by policy, and displayed well in CSS.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That every variant reading is translated into modern Latin and German.</p>]]></text>
+      <text><![CDATA[<p>That all historical spellings have been erased from the XML file permanently.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Variant readings record the original manuscript text in its historical language.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. TEI `<choice>` preserves both original historical spelling and regularized form side by side.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That only the reading preferred by the modern editor is included in the apparatus.</p>]]></text>
+      <text><![CDATA[<p>That the stylesheet only displays text in bright neon pink.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The apparatus criticus must record competing manuscript variants, not just the preferred reading.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Reading stylesheets should prioritize legibility and scholarly clarity.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>That wit attributes contain full URLs to online bookstore listings.</p>]]></text>
+      <text><![CDATA[<p>That regularized words are translated into ancient Egyptian hieroglyphs.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. @wit contains private URI pointers to manuscript witnesses declared in the edition header.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Regularization normalizes historical orthography within the same language.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1046,13 +1046,13 @@
   <!-- 25 Question -->
   <question type="multichoice">
     <name>
-      <text>25 Question: Auditing Linguistic Markup and Morphosyntax (Assignment 3)</text>
+      <text>25 Question: Auditing Linguistic Markup and Named Entities</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>When auditing a peer's linguistic markup on w tokens for Assignment 3, what common error in the @lemma attribute should reviewers flag?</p>]]></text>
+      <text><![CDATA[<p>Why must reviewers test authority links (`@ref`) attached to `<persName>` and `<placeName>` tags?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Auditing the linguistic layer verifies that Greek lemmas, morphological parsings, and grammatical attributes are philologically accurate across all encoded tokens.</p>]]></text>
+      <text><![CDATA[<p>Auditing linguistic and entity markup confirms that lemmas are canonical and authority links resolve to verified records.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1061,27 +1061,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Auditing the linguistic layer verifies that Greek lemmas, morphological parsings, and grammatical attributes are philologically accurate across all encoded tokens.</p>]]></text>
+      <text><![CDATA[<p>To ensure that links resolve to verified real-world entities in databases like VIAF, GeoNames, or Wikidata.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The @lemma attribute must contain the clean, uninflected dictionary citation form (such as λόγος or εἰμί) without contextual enclitic accents or inflectional endings.</p>]]></text>
+        <text><![CDATA[<p>Correct. A broken or mismatched authority link corrupts the edition's connection to the Linked Open Data cloud.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Writing the Greek lemma in Unicode UTF-8 rather than Latin transliteration.</p>]]></text>
+      <text><![CDATA[<p>To verify that the historical figures are currently active on social media platforms.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Lemmas in Greek editions must be written in proper Unicode Greek characters.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Authority records identify historical persons; they do not check contemporary social media accounts.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Omitting the modern English translation from the @lemma attribute.</p>]]></text>
+      <text><![CDATA[<p>To ensure that external websites pay advertising commissions to the university.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. English glosses belong in translation or dictionary layers, not inside the @lemma citation headword.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Linked Open Data authorities are non-profit public academic infrastructure.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Using lowercase letters for Greek nouns.</p>]]></text>
+      <text><![CDATA[<p>To confirm that all personal names are written entirely in capital letters.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Greek common nouns are properly lemmatized in standard lowercase.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Capitalization preserves historical or canonical orthography; authority links verify entity identity.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1092,10 +1092,10 @@
       <text>26 Question: Executing the In-Class Peer Review Exchange</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>During the in-class peer review exchange, what is required when submitting formal review comments on a classmate's pull request?</p>]]></text>
+      <text><![CDATA[<p>What is the final step in the four-step peer review exchange protocol?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The peer review exchange provides real-world experience in evaluating, annotating, and adjudicating scholarly markup within an active collaborative repository.</p>]]></text>
+      <text><![CDATA[<p>The in-class peer review exchange allows students to test each other's editions against automated checks and scholarly rubrics.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1104,27 +1104,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The peer review exchange provides real-world experience in evaluating, annotating, and adjudicating scholarly markup within an active collaborative repository.</p>]]></text>
+      <text><![CDATA[<p>Opening constructive GitHub Issues or inline PR comments with specific praise and actionable suggestions.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Effective peer review requires granular, line-by-line feedback on specific markup decisions alongside a constructive summary evaluating overall schema and philological compliance.</p>]]></text>
+        <text><![CDATA[<p>Correct. Reviewers synthesize their audit into clear, actionable feedback on GitHub to help their classmates improve their editions.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Clicking Approve immediately without reading the diff or checking CI status.</p>]]></text>
+      <text><![CDATA[<p>Deleting the partner's repository from GitHub to prevent competition.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Uncritical approval undermines collaborative quality assurance and peer learning.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Peer review is collaborative and supportive; deleting classmate work is strictly forbidden.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Deleting the classmate's repository and rewriting the entire edition from scratch.</p>]]></text>
+      <text><![CDATA[<p>Refusing to speak to classmates until the end of the academic year.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Peer review is an iterative dialogue providing constructive feedback to the author.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The peer review exchange fosters active discussion and shared problem-solving.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Writing feedback in a private email rather than posting comments on the GitHub pull request.</p>]]></text>
+      <text><![CDATA[<p>Writing a negative review on public social media rating websites.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. All peer review must be recorded transparently on the pull request thread.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Scholarly reviews are conducted professionally within project repositories.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1132,13 +1132,13 @@
   <!-- 27 Question -->
   <question type="multichoice">
     <name>
-      <text>27 Question: Case Study: The Digital Latin Library and the Traveling Imprimatur</text>
+      <text>27 Question: Case Study: Digital Scholarly Publishing and Traveling Validation</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What is the concept of the Traveling Imprimatur pioneered by Samuel Huskey and the Digital Latin Library?</p>]]></text>
+      <text><![CDATA[<p>What is the "Traveling Imprimatur" developed by the Digital Latin Library?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The Digital Latin Library proves that version-controlled peer review can award authoritative academic credentials that travel independently of proprietary hosting platforms.</p>]]></text>
+      <text><![CDATA[<p>Major publishing platforms like the Digital Latin Library use automated CI pipelines as formal gateways to scholarly publication.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1147,27 +1147,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The Digital Latin Library proves that version-controlled peer review can award authoritative academic credentials that travel independently of proprietary hosting platforms.</p>]]></text>
+      <text><![CDATA[<p>An automated CI pipeline that tests XML files against strict schemas, certifying passing editions with a digital imprimatur.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The Traveling Imprimatur separates peer-reviewed academic certification from commercial print platforms, awarding society-approved credentials to open, version-controlled TEI editions.</p>]]></text>
+        <text><![CDATA[<p>Correct. The DLL uses automated CI validation as a prerequisite for formal peer review and scholarly publication.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A physical wax seal stamped onto printed parchment editions by European libraries.</p>]]></text>
+      <text><![CDATA[<p>A physical rubber stamp mailed to authors by post.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The traveling imprimatur is a digital certification model for open-access repositories.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The Traveling Imprimatur is an automated digital certification pipeline.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>An automated copyright enforcement algorithm that restricts access to Latin texts.</p>]]></text>
+      <text><![CDATA[<p>A commercial copyright license sold to students for profit.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The model promotes open-access scholarly publishing under open licenses.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The DLL is an open-access non-profit scholarly publishing platform.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A licensing fee paid by digital humanities projects to commercial software vendors.</p>]]></text>
+      <text><![CDATA[<p>A software program that automatically translates Latin into French.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The DLL model bypasses commercial gatekeeping in favor of society-governed open peer review.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The DLL publishes critical Latin editions; the imprimatur certifies XML validity.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1178,10 +1178,10 @@
       <text>28 Question: Digital Longevity and the Endings Project Principles</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Which core architectural requirement from the Endings Project principles protects digital editions from software rot?</p>]]></text>
+      <text><![CDATA[<p>Why does The Endings Project recommend building digital editions using static files rather than server databases?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Adhering to Endings Project principles ensures that digital critical editions remain functional, secure, and citeable for decades without ongoing server maintenance.</p>]]></text>
+      <text><![CDATA[<p>The Endings Project principles mandate static, open-standard files to ensure digital editions survive for decades without maintenance.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1190,27 +1190,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Adhering to Endings Project principles ensures that digital critical editions remain functional, secure, and citeable for decades without ongoing server maintenance.</p>]]></text>
+      <text><![CDATA[<p>Static HTML, CSS, and TEI XML files survive for decades without database maintenance, security patches, or server upgrades.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Projects that eliminate server-side scripting (PHP/Ruby) and dynamic databases in favor of static XML and client-side rendering (e.g. CETEIcean) survive indefinitely without maintenance.</p>]]></text>
+        <text><![CDATA[<p>Correct. Static files eliminate database obsolescence and security vulnerabilities, ensuring twenty-year digital longevity.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Hosting the edition on a private, dynamic MySQL database that requires daily server maintenance.</p>]]></text>
+      <text><![CDATA[<p>Static files automatically generate money for university endowments.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Dynamic database backends are the leading cause of digital decay when funding expires.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The Endings Project focuses on long-term preservation and digital survival, not monetization.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Rebuilding the entire software stack in a new proprietary programming language every six months.</p>]]></text>
+      <text><![CDATA[<p>Server databases are illegal under Canadian intellectual property legislation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Continual platform migration introduces churn; static open formats ensure longevity.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Databases are legal; the issue is that complex dynamic servers require continuous maintenance and decay quickly.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Encrypting XML files with proprietary digital rights management (DRM) software.</p>]]></text>
+      <text><![CDATA[<p>Static files can only be read on computers manufactured before 1995.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Proprietary encryption guarantees rapid obsolescence; open standards ensure longevity.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Static web standards are supported by all modern and future web browsers.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1218,13 +1218,13 @@
   <!-- 29 Question -->
   <question type="multichoice">
     <name>
-      <text>29 Question: Archiving, Persistent Identification, and FAIR Data Compliance</text>
+      <text>29 Question: Archiving, Persistent Identification, and FAIR Data</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why do mature digital editions archive release snapshots to academic repositories like Zenodo rather than relying solely on GitHub?</p>]]></text>
+      <text><![CDATA[<p>What scholarly benefit does depositing a repository release in Zenodo provide?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Archiving version-controlled releases to permanent repositories like Zenodo assigns permanent DOIs, ensuring long-term citability and FAIR data compliance.</p>]]></text>
+      <text><![CDATA[<p>Archiving releases to Zenodo mints permanent DOIs. It guarantees long-term preservation.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1233,27 +1233,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Archiving version-controlled releases to permanent repositories like Zenodo assigns permanent DOIs, ensuring long-term citability and FAIR data compliance.</p>]]></text>
+      <text><![CDATA[<p>It mints a permanent Digital Object Identifier (DOI) and guarantees long-term bit-level preservation in academic archives.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. While GitHub is a development platform, Zenodo provides permanent academic preservation, redundant European archiving, and citeable DOIs compliant with FAIR data standards.</p>]]></text>
+        <text><![CDATA[<p>Correct. Zenodo provides persistent DOIs and archival storage, ensuring your edition is permanently findable and citable.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>GitHub automatically deletes all repositories that are more than twelve months old.</p>]]></text>
+      <text><![CDATA[<p>It automatically registers the student for graduate school admission.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. GitHub hosts repositories indefinitely, but as a commercial entity it does not guarantee academic archival permanence.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Zenodo is an open research archive, not a university admissions office.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Zenodo converts TEI XML files into proprietary Microsoft Word documents for peer review.</p>]]></text>
+      <text><![CDATA[<p>It deletes the repository from GitHub to save cloud storage space.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Zenodo archives the exact open files and preserves raw XML and data formats.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Zenodo archives a snapshot while your GitHub repository remains active for ongoing work.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Zenodo is a private commercial marketplace for buying and selling digital manuscripts.</p>]]></text>
+      <text><![CDATA[<p>It prevents anyone from reading your edition without paying a fee.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Zenodo is an open-access, non-profit academic data repository operated by CERN.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Zenodo supports open-access research data sharing under FAIR principles.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1261,13 +1261,13 @@
   <!-- 30 Question -->
   <question type="multichoice">
     <name>
-      <text>30 Question: The Consolidated Milestone: Submitting Assignment 3 and Looking Ahead</text>
+      <text>30 Question: The Consolidated Milestone: Looking Ahead to Final Publication</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How do students formally certify and submit their completed Assignment 3 after peer review and consolidation?</p>]]></text>
+      <text><![CDATA[<p>What milestone does completing Module 10 represent in the RELS 398 curriculum?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Week 10 consolidation validates and unifies all accumulated edition layers, establishing the rigorous foundation needed for bilingual translation alignment and commentary.</p>]]></text>
+      <text><![CDATA[<p>Completing the consolidation milestone unites nine editorial layers under automated CI gates, preparing your edition for publication.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1276,27 +1276,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Week 10 consolidation validates and unifies all accumulated edition layers, establishing the rigorous foundation needed for bilingual translation alignment and commentary.</p>]]></text>
+      <text><![CDATA[<p>All nine accumulated layers are validated under automated CI gates, preparing the edition for publication and interface design.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Submitting the immutable 40-character commit hash provides verifiable cryptographic proof of the exact, consolidated state of the student's edition.</p>]]></text>
+        <text><![CDATA[<p>Correct. Consolidation completes the foundational encoding phase, setting the stage for advanced publication and public presentation.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By printing the XML files on physical paper and submitting them to the departmental office.</p>]]></text>
+      <text><![CDATA[<p>Students graduate immediately and no further coursework is required.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The assignment is digital and version-controlled, evaluated directly in Git.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Phase 3 (Advanced Publication and Presentation) begins next week in Module 11.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By deleting the repository and emailing a ZIP file of the raw notes to the instructor.</p>]]></text>
+      <text><![CDATA[<p>The primary manuscript witnesses are returned to museum archives and never used again.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Submissions rely on verifiable Git commit hashes and repository history.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The digitized editions continue into Phase 3 for web styling and interactive publication.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>By taking a screenshot of their VS Code window and uploading it to social media.</p>]]></text>
+      <text><![CDATA[<p>All TEI XML files are deleted to make room for final exam review notes.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Scholarly assessment requires the cryptographic commit hash of the merged repository.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The consolidated XML files are the primary assets that will be published in Modules 11 through 13.</p>]]></text>
       </feedback>
     </answer>
   </question>

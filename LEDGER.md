@@ -125,7 +125,9 @@
   - **Old module numbers:**
     - The `01_Banner.png` images for 8, 14 and 15 still show the old numbers (open).
     - **[RESOLVED 2026-10-13]** Recompiled all `dist/moodle` notes PDFs for 8.x, 14.x and 15.x via Pandoc + Typst, restoring canonical renumbered headers.
-  - **Module 8 Lemmatization** is bulk-authored and Greek/CLTK-centric (Morpheus, polytonic examples). It needs a novice rewrite against the three cohort documents (French 1791 decree, Maud Lewis English letter, 1752 Treaty) before Oct 27.
+  - **[RESOLVED 2026-10-13] Module 8 Lemmatization:** Rewritten for novices anchored in the three cohort documents (FKGL 8.6, 10.7, 11.8; 0 lint issues), question banks, notes PDFs, teaching plans, slides, and full package deployed to Moodle Section 8.
+  - **[RESOLVED 2026-10-13] Module 9 Named Entities:** Authored novice curriculum (FKGL 10.7, 11.1, 11.6; 0 lint issues), question banks, notes PDFs, teaching plans, slides, and full package deployed to Moodle Section 9.
+  - **[RESOLVED 2026-10-13] Module 10 Consolidation & CI/CD:** Authored novice curriculum (FKGL 11.2, 11.8; 0 lint issues), question banks, notes PDFs, teaching plans, slides, and full package deployed to Moodle Section 10.
   - **Mid-term weight change:** StFX policy may require class agreement.
 - ⚠️ **[OPEN 2026-10-13] Lint gate already red at HEAD:** 387 `md-table` findings across all 36 lessons, delivered ones included. The rule postdates the content. New lessons must lint clean.
 - ⚠️ **[OPEN 2026-09-22] Verse coverage missing from the 4.1 question bank.** §08/§09 now teach `<lg>`/`<l>` and the `<l>`-vs-`<lb/>` distinction, but no question tests any of it. The bank is strictly 1:1 with the 30 sections (`<!-- NN Question -->`, one per section), and Q08/Q09 are sound questions about their sections' original material, so this is a real trade: either replace a good question or break the 1:1 mapping. **Unverified:** whether `interleaver_with_images.convert_md_to_xml` tolerates a section/question count mismatch — check before adding. Needs Ken's call.
@@ -137,7 +139,7 @@
 
 ## 5. Active Milestone & Next Target
 
-- **Current Phase:** Week 7 (Module 07: Publication I / Rendering) complete in local `src/` and `dist/moodle/`. Ready for Week 8 (Module 08: Lemmatization novice rewrite before Oct 27) and Week 9 (Module 09: Named Entities authoring before Nov 3).
+- **Current Phase:** Modules 7, 8, 9, and 10 complete and deployed to Moodle Course 51185 (Sections 7, 8, 9, 10). Next Target: Week 11 (Module 11: Web Publication & Search, Meetings #28–30, Nov 17–20).
 - **Completed Module 7 Assets (2026-10-13):**
   1. Authoring and verification of in-class teaching plans: `Lesson_7.1_Teaching_Plan_2026-10-20.html` (Meeting #17), `Lesson_7.2_Teaching_Plan_2026-10-21.html` (Meeting #18), `Lesson_7.3_Teaching_Plan_2026-10-23.html` (Meeting #19) in `src/modules/Module_07_Rendering/` (passed shared linter 18/18 plans with 0 problems).
   2. Widescreen PowerPoint slide decks built: `Lesson_7.1_Slides_2026-10-20.pptx`, `Lesson_7.2_Slides_2026-10-21.pptx`, `Lesson_7.3_Slides_2026-10-23.pptx` (15 slides each, strictly >=16pt font floor, 80–120 word notes per slide) in `src/` and mirrored to `dist/moodle/`.
@@ -464,3 +466,25 @@ Two findings worth carrying forward:
     - Added Weekly Quiz (`cmid 1440783`).
     - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
     - Refreshed and committed `moodle_manifest.json` (145 activities tracked across 16 sections).
+
+- **[2026-10-13] Module 10 (Editorial Consolidation & CI/CD) Novice Authoring, Ancillaries, Slide Decks, and Live Moodle Deployment Complete:**
+  - Evaluated baseline reading level: obsolete version assumed multi-witness collation ("Assignment 3") and ungrounded classical material.
+  - Authored complete, novice-accessible lessons for Module 10 (Lessons 10.1 and 10.2) introducing GitHub workflows and CI/CD quality assurance grounded in the three student witnesses (Ace: 1791 French Revolutionary decree; Olyvia: 1967 Maud Lewis letter; Andromeda: 1752 Peace and Friendship Treaty):
+    - Lesson 10.1 (Meeting #26, Tue Nov 10): 30 sections, 5,758 words, FKGL 11.2, FRE 40.9, 0 lint issues. Teaches connecting local git repositories to GitHub remotes (`origin`, `upstream`), repository forking, feature branch workflows (`feature/`), opening Pull Requests with `PULL_REQUEST_TEMPLATE.md` acting as a dynamic apparatus criticus, conducting XML diff reviews, resolving merge conflicts in VS Code, and tracking tasks with GitHub Issues.
+    - Lesson 10.2 (Meeting #27, Fri Nov 13): 30 sections, 5,609 words, FKGL 11.8, FRE 37.4, 0 lint issues. Teaches automated quality assurance via GitHub Actions CI/CD (`.github/workflows/validate.yml` running `xmllint` and Relax NG), multi-tiered validation (syntax, Relax NG, ISO Schematron), branch protection merge gates, in-class peer review exchange across the three student editions, and digital longevity (The Endings Project).
+    - Note: Wed Nov 11 is university closure for Remembrance Day (no class).
+    - Both lessons pass the lint gate with 0 issues (clean HTML tables, 30/30 takeaways verified).
+  - Built question data modules (`scripts/banks/lesson_10_1.py`, `lesson_10_2.py`) and compiled question banks to `03b_Lesson_10.*_Questions.xml` (30 questions each, full diagnostic feedback, strict section parity).
+  - Compiled offline Notes PDFs (`04_Lesson_10.1_Notes.pdf`, `04_Lesson_10.2_Notes.pdf`) to `dist/moodle/Module_10_Consolidation/` using Pandoc + Typst.
+  - Compiled interactive Moodle XMLs (`03_Interactive_Lesson_10.*.xml`) and standalone HTML players (`03_Interactive_Lesson_10.*.html`) into both `src/modules/` and `dist/moodle/`.
+  - Assembled Phase F ancillaries via `scripts/banks/quiz_10.py`: generated cobalt blue / iron rust 1200x300 banner (`01_Banner.png`), Reading List, Watch List, Assignment 10 suite with 4+3+3 rubric (due Friday, November 13, by 11:00 PM, 80 Moodle points), and 10-question Weekly Quiz (`09_Quiz.xml`).
+  - Authored and verified in-class teaching plans: `Lesson_10.1_Teaching_Plan_2026-11-10.html` (Tue 8:30–9:20 AM), `Lesson_10.2_Teaching_Plan_2026-11-13.html` (Fri 9:30–10:20 AM) in MULH 3032. Passed `lint_teaching_plan.py` with 0 problems.
+  - Built widescreen 16:9 projection slide decks: `Lesson_10.1_Slides_2026-11-10.pptx`, `Lesson_10.2_Slides_2026-11-13.pptx` (15 slides each; strictly >=16.0pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
+  - Deployed full package to live Moodle Section 10 (Course 51185, Section ID 639808):
+    - Populated Banner (`cmid 1440795`), Learning Objectives (`cmid 1440796`), Lessons 10.1-10.2 Interactive Quizzes (`cmids 1440799, 1440800`), and Notes PDFs (`cmids 1440797, 1440798` with completion restrictions pointing to quizzes).
+    - Uploaded slide decks as file resources via `mkmod.js`: `Lesson 10.1 Slides (PPTX)` (`cmid 1440806`), `Lesson 10.2 Slides (PPTX)` (`cmid 1440807`).
+    - Added Reading List (`cmid 1440802`) and Watch List (`cmid 1440803`).
+    - Created `Assignment: Module_10_Consolidation` (`cmid 1440808`, due Nov 13, 11:00 PM, 80 pts, 4+3+3 rubric) via `ws2assign.js`, and hid workshop (`cmid 1440804`).
+    - Added Weekly Quiz (`cmid 1440805`).
+    - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
+    - Refreshed and committed `moodle_manifest.json` (158 activities tracked across 16 sections).

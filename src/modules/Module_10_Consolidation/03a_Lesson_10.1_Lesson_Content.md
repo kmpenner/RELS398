@@ -13,38 +13,15 @@ remotes, forks, branching strategies, pull requests as apparatus, and issue trac
 
 **The Mid-Term Consolidation Milestone**
 
-Over the preceding nine weeks, you have constructed a multi-layered digital
-scholarly edition from raw manuscript evidence. You began in Week 1 by
-establishing a disciplined version-control habit and encoding Greek characters
-under the strict Unicode standard. In Week 2 and Week 3, you catalogued your codex
-within a structured `<teiHeader>` and mapped high-resolution digital facsimiles
-through the International Image Interoperability Framework (IIIF). Weeks 4 through
-9 executed the comparative philological cycle: transcribing primary witnesses by
-hand and machine, reconciling double-keyed readings, normalizing historical
-orthography, collating variant textual traditions, constructing a formal apparatus
-criticus, and lemmatizing morphosyntax with grammatical metadata.
+Over the past nine weeks, you built a rich digital edition from scratch. You started in Week 1 with terminal Git commands. In Weeks 2 and 3, you catalogued your document in a `<teiHeader>` and linked digital images. Weeks 4 through 6 guided you through diplomatic transcription, AI reconciliation, and regularizing spellings with `<choice>` tags. In Week 7, you created reading stylesheets using CSS. In Weeks 8 and 9, you added grammar tags and named entities.
 
-Each of these nine operations was performed as an isolated module within your
-individual workspace. You worked primarily as a solitary editor, committing files
-to a local Git repository and verifying that each discrete step satisfied its
-immediate technical rubric. However, a digital scholarly edition is rarely the
-product of an isolated scholar working in vacuum. Major critical editions—from the
-*Nestle-Aland* Novum Testamentum Graece to large-scale digital archives—are
-collective, cumulative undertakings requiring dozens of philologists, encoders,
-and paleographers to harmonize their labor across years of research (Witt, 2018).
+Until now, you worked as a solitary editor in an isolated folder. You made files on your own laptop and tested them in private. But real scholarly editions are rarely solitary projects. Real editions require teams of historians, paleographers, and encoders to work together across institutions.
 
-Week 10 pauses the introduction of new philological methods to address the
-essential problem of collaborative synthesis. Wednesday is closed for Remembrance
-Day, making this week a two-step consolidation pause by design. Today's meeting
-transforms your isolated local repositories into networked nodes within a shared,
-distributed editorial ecosystem. You will learn the mechanics of remote
-repositories, forks, feature branching, pull requests, and issue tracking,
-reframing software engineering workflows as rigorous instruments of collaborative
-textual scholarship.
+Week 10 is our consolidation milestone. The university is closed on Wednesday for Remembrance Day. Therefore, this week has two focused meetings. We introduce no new XML tags this week. Instead, we connect your isolated workspace to GitHub. You will learn to share editions, propose changes, and review work as a community.
 
-**Takeaway:** Consolidation is not an administrative pause but an
-essential editorial synthesis where nine isolated methodological layers are
-integrated into a collaborative, multi-editor digital critical edition.
+**Vocabulary.** *Consolidation* — Pausing new tag authoring to synthesize, organize, and validate all accumulated edition layers. *Collaborative Edition* — A digital scholarly project produced and maintained by multiple editors working together.
+
+**Takeaway:** Consolidation synthesizes nine discrete encoding layers into a shared, multi-editor digital scholarly edition on GitHub.
 
 ---
 
@@ -52,122 +29,47 @@ integrated into a collaborative, multi-editor digital critical edition.
 
 **From Solitary Editor to Distributed Textual Community**
 
-The traditional image of the textual critic is a solitary scholar seated in an
-archive, manually collating physical codices and recording variant readings in
-private notebooks. In nineteenth-century Lachmannian stemmatics, the editor acted
-as a sovereign arbiter who single-handedly reconstructed the hypothetical
-*archetype* or *Urtext* through solitary recension and emendation. When early
-digital humanities projects emerged in the late twentieth century, they frequently
-replicated this centralized, solitary model: individual researchers encoded
-documents in siloed desktop applications, saving bespoke XML or SGML files onto
-local hard drives or exchanging drafts via email attachments (Huskey, 2024).
+In traditional print scholarship, an editor often worked alone in an archive. That solitary scholar transcribed manuscripts into private notebooks. They resolved textual puzzles in isolation. Eventually, they published a single book. When early computer projects began, editors often continued this solitary habit. They typed transcriptions into desktop word processors. They emailed files back and forth as attachments.
 
-This solitary paradigm introduced catastrophic vulnerabilities. Digital editions
-constructed in desktop isolation suffered from extreme fragmentation, idiosyncratic
-encoding habits, and rapid digital entropy. When a lead editor retired or grant
-funding expired, the bespoke databases and unversioned files decayed, rendering
-the scholarly output inaccessible to future researchers (Holmes & Turska, 2023).
-Furthermore, exchanging unversioned documents via email produced conflicting
-editorial files, overwritten transcriptions, and an untraceable provenance
-history.
+Exchanging files by email causes severe problems. Files quickly drift out of sync. Suppose Ace emails a corrected XML file to Olyvia. Meanwhile, Olyvia adds entity tags to her own copy. Which file is current? Merging those two files by hand is slow and painful. Crucial editorial decisions get buried in private email chains instead of staying with the text.
 
-Distributed version control systems fundamentally dissolve this isolation. By
-shifting from centralized desktop storage to distributed Git architectures,
-textual scholarship becomes an open, communal enterprise (Witt, 2018). In a
-distributed workflow, every participant holds a complete, self-contained record of
-the entire editorial history. Multiple scholars can transcribe distinct folios,
-debate thorny paleographical readings, and propose variant normalizations
-simultaneously without risking data loss or stepping on each other's work. The
-edition ceases to be a static, closed book produced by a solitary authority and
-becomes a dynamic, living research corpus curated by a transparent community of
-scholars (Almas & Beaulieu, 2013).
+Distributed version control solves this dilemma. By hosting repositories on GitHub, all team members share one historical record. Every change is tracked. Every editorial choice is documented. Contributors receive full credit for their work. Moving to GitHub turns private files into an open, living resource.
 
-**Takeaway:** Modern digital textual scholarship replaces
-solitary desktop curation with distributed, transparent collaboration, ensuring
-data preservation, traceable provenance, and communal editorial adjudication.
+**Vocabulary.** *Distributed Version Control* — A system where every editor holds a complete, independent copy of the project history while synchronizing through a shared network host. *Editorial Provenance* — The transparent, verifiable record of who changed a text, when they changed it, and why.
+
+**Takeaway:** Distributed version control replaces chaotic email attachments with a transparent, communal record of all editorial interventions.
 
 ---
 
 ## **03 Content**
 
-**The Directed Acyclic Graph: The Abstract Topology of Git**
+**The Directed Graph: How Git Tracks Repository History**
 
-To collaborate effectively without corrupting scholarly data, editors must
-understand the underlying mathematical structure that governs distributed version
-control. In Lesson 1.1, you learned that Git does not track file differences as
-disjointed delta patches; instead, it records a sequence of complete project
-snapshots. Mathematically, these snapshots form a **Directed Acyclic Graph
-(DAG)**, a network of nodes connected by directional edges that never loop back on
-themselves (Huskey, 2024).
+To collaborate smoothly, you must understand how Git stores history. Git does not save files as a loose collection of folders. Instead, Git models your repository as a graph of snapshots. Every time you run `git commit`, Git takes a complete snapshot of your project.
 
-In Git's DAG, each node represents a commit—an immutable snapshot of the entire
-repository at a specific point in time. Each commit node contains cryptographic
-metadata: a 40-character SHA-1 (or newer SHA-256) hash representing the exact
-content of the tree, the author's identity, a timestamp, a descriptive commit
-message, and one or more parent pointers directed toward previous nodes. Because
-each commit points backward to its parent, history moves forward along directed
-branches that can diverge and later merge, but can never cycle backward into an
-infinite loop.
+Each commit receives a unique forty-character fingerprint. We call this a SHA-1 hash. An example is `7a3f81b`. Git calculates this hash mathematically. It combines the exact file text, your commit message, the date, and the parent commit hash. Because each commit points backward to its parent, history forms an unbroken tree.
 
-| DAG Component | Mathematical Role | Philological Equivalent in Textual Editing |
-|---|---|---|
-| **Node (Commit)** | Immutable state snapshot identified by hash | A dated, attributed transcription or encoding milestone |
-| **Directed Edge** | Pointer from child commit to parent commit | The genealogical lineage connecting an edited state to its exemplar |
-| **Branch** | Named, movable pointer to a specific node | An independent editorial line or experimental hypothesis |
-| **Merge Node** | Node possessing two or more parent pointers | The formal synthesis of two independent editorial streams |
+This graph structure guarantees scholarly integrity. Suppose someone modifies a single letter in Andromeda's 1752 Treaty in an old commit. That commit hash changes instantly. In turn, every subsequent commit hash breaks. Git makes secret alterations impossible. It provides a permanent audit trail for historical documents.
 
-This cryptographic DAG structure provides an extraordinary guarantee for
-philologists: immutability. If a single character, punctuation mark, or XML tag in
-a transcribed manuscript is altered, its resulting cryptographic hash changes
-entirely, cascading across all subsequent nodes. Consequently, a Git repository
-provides mathematically verifiable provenance for every reading in your edition,
-guaranteeing that editorial interventions cannot be altered retroactively or
-erased without detection (Himmelstein et al., 2019).
+**Vocabulary.** *Commit Snapshot* — A permanent, frozen record of all tracked files in a repository at a specific moment. *SHA-1 Hash* — A unique cryptographic fingerprint that identifies a commit and verifies its contents have not been altered.
 
-**Takeaway:** Git's Directed Acyclic Graph models textual
-transmission as an immutable network of cryptographic nodes, ensuring permanent
-provenance and citation stability for every editorial intervention.
+**Takeaway:** Git records project history as an immutable graph of commit snapshots, providing permanent citation stability and audit integrity.
 
 ---
 
 ## **04 Content**
 
-**The Anatomy of Remotes: Local Clones and Remote Repositories**
+**The Anatomy of Remotes: Local Clones and GitHub**
 
-Up to this point in the course, your Git operations have been strictly local. When
-you executed `git commit`, Git recorded snapshot nodes entirely within the hidden
-`.git` directory on your personal machine. In a collaborative project, however,
-scholars must synchronize their local graphs with one or more **remote
-repositories** hosted on network servers such as GitHub (Witt, 2018).
+During the first nine weeks of class, your Git repository lived only on your laptop. Your commits were strictly local. If your computer crashed, your work was lost. A **remote** is a copy of your repository hosted on the web, usually on GitHub.
 
-A remote repository is not a privileged, magical master server in the traditional
-client-server database sense. In Git's distributed architecture, a remote is
-simply another copy of the repository's Directed Acyclic Graph residing at a network
-URL. The standard default name Git assigns to the primary remote from which a
-repository was cloned is `origin`. In multi-editor projects, however, teams
-typically establish an additional remote named `upstream`, which points to the
-authoritative, canonical repository managed by the course instructor, principal
-investigator, or editorial board (Faghihi et al., 2022).
+A remote repository stores the same commit graph and files as your local project. It acts as a shared central meeting point. In Git terminology, the default name for your primary remote repository is **origin**. When you connect your local repo to GitHub, you register this remote web address.
 
-Understanding the movement of data between these environments requires tracking
-four distinct storage zones on your computer and the network:
+Working with a remote involves two main actions: pushing and fetching. Running `git push` uploads your local commits to GitHub so others can view them. Running `git fetch` downloads new commits from GitHub to your laptop. The remote simply mirrors your commit graph on the web.
 
-1. **Working Directory:** The physical files on your local drive that you directly
-   edit in VS Code with XML extensions.
+**Vocabulary.** *Remote Repository* — A copy of your Git repository hosted on a network server such as GitHub. *Origin* — The standard default name Git assigns to your primary remote repository.
 
-2. **Staging Area (Index):** The local preparation zone where you gather specific
-   modified files (`git add`) prior to committing.
-
-3. **Local Repository:** The hidden `.git` database on your machine storing your
-   committed snapshot nodes and branch pointers.
-
-4. **Remote Repository (`origin`/`upstream`):** The external repository hosted on
-   GitHub that receives your pushed commits (`git push`) and supplies external
-   updates (`git fetch`).
-
-**Takeaway:** A Git remote is an external peer repository used to
-synchronize Directed Acyclic Graphs across distributed editors, mediated through
-local working trees, staging indexes, and remote tracking branches.
+**Takeaway:** A remote repository on GitHub acts as an accessible central anchor for sharing commit snapshots across multiple computers.
 
 ---
 
@@ -175,41 +77,35 @@ local working trees, staging indexes, and remote tracking branches.
 
 **Collaboration Models: Shared Write Access vs. Fork-and-Pull**
 
-When organizing a multi-editor scholarly project, teams must choose how
-contributors will submit their work. In software engineering and digital
-humanities, two primary collaboration models exist: the **Shared Repository Model**
-(direct write access) and the **Fork-and-Pull Model** (distributed sandboxes)
-(Himmelstein et al., 2019).
+Digital editions organize teamwork using two primary models: shared write access and the fork-and-pull model.
 
-In the Shared Repository Model, every team member is granted direct push
-permissions to a single central repository. Contributors clone the repository,
-create branches locally, and push those branches directly to the central remote.
-While this model works well for small, tightly knit teams of senior software
-engineers, it is hazardous in large digital scholarly editing projects. A single
-accidental force-push (`git push --force`) or an improperly merged branch by an
-inexperienced encoder can overwrite canonical TEI files, corrupt commit histories,
-or break XML schema validation across the entire corpus (Almas & Beaulieu, 2013).
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Collaboration Model</th>
+<th>How It Works</th>
+<th>Best Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shared Write Access</strong></td>
+<td>Every team member has direct push permission to the main repository. Anyone can commit directly to branches.</td>
+<td>Small, tightly coordinated teams of two or three trusted co-authors.</td>
+</tr>
+<tr>
+<td><strong>Fork-and-Pull</strong></td>
+<td>Contributors make a personal copy (fork) on GitHub, push to their fork, and submit a Pull Request to the upstream project.</td>
+<td>Public open-source projects, large editions, and classroom peer review.</td>
+</tr>
+</tbody>
+</table>
 
-```
-Shared Model:      [Contributor A] ---> ( Direct Push ) ---> [ Canonical Repo ]
-                   [Contributor B] ---> ( Direct Push ) ---> [ Canonical Repo ]
+In this course, we practice the fork-and-pull model. This model protects the authoritative edition from accidental errors. It guarantees that every proposed change is inspected, discussed, and validated before it enters the official text.
 
-Fork-and-Pull:     [Contributor A] ---> [ Fork A (Remote) ] ---> ( Pull Request ) ---> [ Canonical ]
-                   [Contributor B] ---> [ Fork B (Remote) ] ---> ( Pull Request ) ---> [ Canonical ]
-```
+**Vocabulary.** *Shared Write Access* — Granting multiple users permission to push commits directly into a single repository. *Fork-and-Pull Model* — A workflow where contributors edit personal forks and request that maintainers pull their changes.
 
-The **Fork-and-Pull Model** eliminates these hazards and is the universal standard
-for open-source software, large-scale digital humanities initiatives, and
-classroom environments (Faghihi et al., 2022). Under this model, contributors do not
-possess write access to the canonical repository. Instead, each editor creates a
-personal, server-side clone—a **fork**—under their own GitHub account. Contributors
-push changes freely to their personal forks and then submit a formal **Pull
-Request (PR)** asking the project maintainers to pull and merge the verified
-changes into the canonical repository.
-
-**Takeaway:** The fork-and-pull model isolates experimental
-editorial work within personal sandboxes, protecting the canonical corpus from
-accidental data corruption while enabling open, distributed collaboration.
+**Takeaway:** The fork-and-pull model protects the primary edition while inviting outside scholars and peers to propose improvements.
 
 ---
 
@@ -217,71 +113,31 @@ accidental data corruption while enabling open, distributed collaboration.
 
 **Forking a Scholarly Repository on GitHub**
 
-Forking is not a native Git command-line operation; it is a platform-level feature
-pioneered by GitHub and GitLab that orchestrates server-side repository
-duplication while maintaining a permanent upstream lineage pointer (Himmelstein et
-al., 2019). When you click the "Fork" button on an upstream repository, GitHub
-instantly creates an identical copy of the repository's Directed Acyclic Graph
-under your personal user account.
+A **fork** is a personal copy of another user's repository on GitHub. It lives under your personal account. When you click the "Fork" button on GitHub, GitHub copies the whole repository. This copy includes all files, branches, and commit history.
 
-Your fork is a fully autonomous repository. You possess complete administrative and
-write privileges over it. You can create experimental branches, modify TEI schema
-rules, refactor directory layouts, and commit imperfect transcription drafts
-without any danger of altering the upstream project. Yet, because GitHub tracks the
-parentage of the fork, your repository remains permanently aware of the upstream
-canonical source, enabling seamless bidirectional synchronization (Faghihi et
-al., 2022).
+Forking lets you experiment without risking the original project. For instance, Andromeda can fork the course repository to study Ace's French Revolutionary decree. In her fork, Andromeda can test alternative `<persName>` tags. She can try new CSS styles. Ace's original repository remains untouched.
 
-In a digital humanities pedagogy context, forking provides students with an
-ideal, low-anxiety sandbox. Beginners often suffer from computational apprehension,
-fearing that a syntax error or a botched Git command will destroy their peers'
-scholarly labor (Faghihi et al., 2022). Forking eliminates this anxiety entirely:
-students experiment freely within their personal forks, safe in the knowledge that
-no change can alter the canonical edition until it has been explicitly reviewed,
-validated, and accepted through a structured pull request.
+Your fork stays connected to the original project across GitHub. The original repository is called the **upstream** repository. Once you finish an editorial improvement on your fork, you can send those commits back to upstream as a formal proposal.
 
-**Vocabulary.** *Fork* — a platform-level server-side clone of an upstream
-repository hosted under a contributor's personal account. *Upstream* — the
-authoritative, primary repository from which personal forks are derived.
+**Vocabulary.** *Fork* — A server-side duplicate of a GitHub repository hosted under your own personal account. *Upstream* — The original parent repository from which a fork was created.
 
-**Takeaway:** Forking provides an autonomous personal sandbox
-for experimental editorial labor while maintaining the genealogical linkage
-necessary for upstream contribution.
+**Takeaway:** Forking creates a safe personal sandbox where you can freely modify an edition before contributing back to the parent project.
 
 ---
 
 ## **07 Content**
 
-**Branching Topologies in Textual Scholarship**
+**Branching Strategies for Digital Scholarly Editions**
 
-A common pitfall in novice version control is committing all work directly to the
-default `main` (or `master`) branch. In a collaborative scholarly edition, this
-practice quickly leads to chaos. If an editor commits an unverified transcription
-draft, an experimental normalization script, and an incomplete apparatus
-simultaneously to `main`, it becomes impossible to isolate and merge one verified
-feature without dragging unvetted or broken files along with it.
+Working directly on your `main` branch can be dangerous. The `main` branch should always hold your stable, production-ready edition. If you start transcribing a messy new page directly on `main`, your repository is temporarily broken.
 
-To maintain editorial rigor, collaborative DH projects rely on structured
-**branching topologies** (Weigl et al., 2024). A branch in Git is simply a lightweight,
-movable pointer to a specific commit node in the DAG. Creating a branch costs
-virtually zero disk space and takes milliseconds, yet it establishes an isolated
-context where an editor can pursue a single, well-defined philological task.
+A **branch** is an independent line of development. It branches off from `main`. You can think of a branch as a lightweight moveable pointer. Creating a branch takes one second. On a branch, you can draft markup, test regularizations, or revise metadata safely.
 
-| Branch Type | Topology Role | Content and Lifecycle |
-|---|---|---|
-| **Mainline (`main`)** | Production / Canonical | Contains only vetted, schema-validated, peer-reviewed edition layers. Never committed to directly. |
-| **Feature Branch** | Editorial Topic / Folio | Dedicated to a single discrete task (e.g. `transcribe-folio-12r`). Deleted immediately upon merge. |
-| **Fix Branch** | Targeted Correction | Created to repair a specific error, such as fixing an invalid XML tag or a misread Greek lemma. |
-| **Release Branch** | Milestone Snapshot | Named tags or branches representing frozen publication states (e.g. `release-v1.0-diplomatic`). |
+When your work on the branch is complete and validated, you merge it into `main`. If an experiment fails, you simply delete the branch. Your main edition stays completely clean.
 
-By dedicating each feature branch to a single philological unit—such as
-transcribing a specific manuscript quire or encoding variant readings for a single
-chapter—editors ensure that each contribution can be reviewed, debugged, and
-merged independently of all other ongoing work (Witt, 2018).
+**Vocabulary.** *Main Branch* — The primary, stable line of development in a Git repository. *Feature Branch* — A temporary branch created to develop a specific addition, fix, or editorial layer in isolation.
 
-**Takeaway:** Feature branches isolate discrete editorial tasks
-into independent streams, ensuring the `main` branch remains clean, stable, and
-continuously publishable.
+**Takeaway:** Isolating editorial work on temporary feature branches keeps the primary main branch clean, stable, and always valid.
 
 ---
 
@@ -289,47 +145,42 @@ continuously publishable.
 
 **Branch Naming Conventions and Repository Hygiene**
 
-Because a multi-editor project may contain dozens of active branches simultaneously,
-teams must enforce strict, semantic **branch naming conventions**. Ambiguous names
-like `my-edits`, `updates`, `test`, or `fixes` convey zero philological context and
-force maintainers to guess what data the branch contains.
+In collaborative projects, descriptive branch names prevent confusion. If three students name their branches `test`, `new`, and `my-branch`, nobody knows what each branch contains. Professional digital humanities teams establish clear branch naming conventions.
 
-Disciplined digital editing projects establish standardized prefixes that
-categorize the nature and scope of the editorial intervention (Weigl et al., 2024).
-Common conventions include:
+Good branch names use lowercase letters, numbers, and hyphens. They typically begin with a prefix describing the category of work, followed by a slash and a concise summary:
 
-- `transcribe/<witness>-<folio>` (e.g. `transcribe/codex-b-fol-04r`)
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Branch Prefix</th>
+<th>Purpose</th>
+<th>Example Branch Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feature/</code></td>
+<td>Adding a substantial new encoding layer or document section</td>
+<td><code>feature/french-named-entities</code></td>
+</tr>
+<tr>
+<td><code>fix/</code></td>
+<td>Correcting a transcription mistake or schema error</td>
+<td><code>fix/maud-lewis-date-when</code></td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td>Updating project documentation or README files</td>
+<td><code>docs/treaty-citation-guide</code></td>
+</tr>
+</tbody>
+</table>
 
-- `norm/<chapter>-<section>` (e.g. `norm/romans-08-01-15`)
+Notice how clear these names are. When Olyvia sees `fix/maud-lewis-date-when`, she knows immediately that the branch fixes an attribute error on a `<date>` element without opening a single file.
 
-- `apparatus/<witness-group>` (e.g. `apparatus/byzantine-collation`)
+**Vocabulary.** *Branch Prefix* — A standard category label (such as `feature/` or `fix/`) placed at the start of a branch name. *Repository Hygiene* — Habits of organization, clear naming, and regular cleanups that keep a codebase readable.
 
-- `lemma/<linguistic-layer>` (e.g. `lemma/pos-tagging-q1`)
-
-- `fix/<issue-number>-<short-description>` (e.g. `fix/42-unclosed-choice-tag`)
-
-```bash
-# Good practice: semantic, scoped, contextual branch names
-git checkout -b transcribe/ms-a-folio-14v
-git checkout -b lemma/greek-participles-ch3
-git checkout -b fix/issue-18-milestone-nesting
-
-# Bad practice: vague, uninformative names
-git checkout -b new-work
-git checkout -b edits2
-git checkout -b ken-branch
-```
-
-Maintaining **repository hygiene** also requires retiring branches once their
-contributions have been merged into `main`. Stale, abandoned branches clutter the
-repository topology, confuse collaborators, and increase the likelihood of
-re-introducing obsolete readings. Once a pull request is merged, its associated
-feature branch should be promptly deleted from both the local machine and the
-remote fork.
-
-**Takeaway:** Semantic branch naming conventions communicate
-editorial intent instantly, while prompt deletion of merged branches preserves
-repository clarity and historical hygiene.
+**Takeaway:** Meaningful branch names with standard prefixes communicate the exact scope of an editorial task to collaborators.
 
 ---
 
@@ -337,90 +188,54 @@ repository clarity and historical hygiene.
 
 **Configuring and Managing Remotes via the Command Line**
 
-To participate in a collaborative fork-and-pull workflow, you must configure your
-local Git installation to communicate with two distinct remote endpoints: your
-personal GitHub fork (`origin`) and the shared canonical class repository
-(`upstream`) (Faghihi et al., 2022).
+To manage remotes in VS Code, use the `git remote` command. When you clone your fork from GitHub to your laptop, Git automatically creates one remote. It names this remote `origin`, pointing to your personal fork.
 
-When you initially clone your personal fork to your local workstation, Git
-automatically registers that fork as the remote named `origin`. You can verify
-this configuration by querying your existing remotes with the verbose flag:
+You can check your remotes by typing:
 
 ```bash
 git remote -v
-# Output:
-# origin  https://github.com/<your-username>/RELS398.git (fetch)
-# origin  https://github.com/<your-username>/RELS398.git (push)
 ```
 
-To establish a communication bridge with the canonical project repository, you must
-manually add a second remote named `upstream` using the `git remote add` command:
+This command prints the name and URL for both fetch and push operations. To keep your fork in sync with the course project, add a second remote. By convention, name this second remote **upstream**:
 
 ```bash
-# Add the canonical upstream class repository
-git remote add upstream https://github.com/kmpenner/RELS398.git
-
-# Verify that both remotes are now registered
-git remote -v
-# Output:
-# origin    https://github.com/<your-username>/RELS398.git (fetch)
-# origin    https://github.com/<your-username>/RELS398.git (push)
-# upstream  https://github.com/kmpenner/RELS398.git (fetch)
-# upstream  https://github.com/kmpenner/RELS398.git (push)
+git remote add upstream https://github.com/stfx-rels/rels-398-editions.git
 ```
 
-With both remotes configured, your local workstation becomes a bridge: you will
-fetch updates from `upstream` to stay synchronized with your peers, while pushing
-your personal editorial branches exclusively to `origin`.
+Now your local repository knows about two locations. It knows `origin` (your personal fork with write permission). It also knows `upstream` (the shared class repository with read permission).
 
-**Takeaway:** Mapping both `origin` (personal fork) and `upstream`
-(canonical repository) enables bidirectional synchronization between individual
-editorial labor and the broader collaborative project.
+**Vocabulary.** *git remote -v* — The command that prints all configured remote names alongside their network URLs. *Remote Tracking Branch* — A local read-only reference that tracks the state of a branch on a remote server.
+
+**Takeaway:** Configuring both origin and upstream remotes allows your local repository to push personal work and pull shared updates.
 
 ---
 
 ## **10 Content**
 
-**Synchronizing with Upstream: Fetch, Merge, and Rebase**
+**Synchronizing with Upstream: Fetch, Merge, and Fast-Forward**
 
-In a collaborative project, the canonical `upstream` repository is continually
-moving forward as peers merge verified pull requests. If you allow your local
-repository and personal fork to fall behind `upstream`, you will eventually attempt
-to merge outdated XML files, triggering severe merge conflicts. Regular
-synchronization is therefore an essential daily discipline (Huskey, 2024).
+As weeks pass, classmates and instructors add files to the upstream project. Your personal fork does not update automatically. You must fetch and merge those upstream changes yourself.
 
-Synchronizing your repository involves two distinct operations: **fetching** and
-**merging**. The command `git fetch upstream` downloads all new commits, branches,
-and tags from the canonical repository into your local `.git` database without
-modifying any of your working files. These updates land in remote tracking
-branches, such as `upstream/main`.
+The safest workflow has two clear steps: `git fetch` and `git merge`. First, fetch the latest commits from upstream:
 
 ```bash
-# 1. Fetch all new commits from the canonical upstream repository
 git fetch upstream
-
-# 2. Switch to your local main branch
-git checkout main
-
-# 3. Fast-forward your local main branch to match upstream/main
-git merge upstream/main
-
-# 4. Push the synchronized main branch up to your personal GitHub fork
-git push origin main
 ```
 
-Philological projects must also consider the choice between `git merge` and `git
-rebase`. When integrating upstream updates into an active feature branch, `git
-merge` creates a visible merge commit that explicitly records the historical moment
-of integration. Conversely, `git rebase` rewinds your local commits, replays them
-on top of the latest upstream state, and produces a linear history (Huskey, 2024).
-While rebasing yields clean, linear commit logs, merging preserves the true
-chronological record of transmission. In textual scholarship, where data provenance
-is paramount, explicit merge commits are widely preferred.
+This command downloads new commits and updates `upstream/main`. Crucially, `git fetch` never touches your working files. It never edits your active branches. It simply downloads the data so you can check it.
 
-**Takeaway:** Regularly fetching and merging `upstream/main`
-keeps your local environment synchronized with canonical project updates,
-preventing drift and minimizing downstream merge collisions.
+Next, switch to your local `main` branch, and merge the upstream commits:
+
+```bash
+git checkout main
+git merge upstream/main
+```
+
+If you made no local commits on `main`, Git does a **fast-forward** merge. It simply advances your `main` pointer forward. Your local files are now fully up to date.
+
+**Vocabulary.** *git fetch* — Downloading commits and branches from a remote without altering your local working directory. *Fast-Forward Merge* — Advancing a branch pointer directly forward along a linear line of history when no diverging commits exist.
+
+**Takeaway:** Fetching from upstream and merging into your local main branch keeps your workspace synchronized with project updates.
 
 ---
 
@@ -428,40 +243,15 @@ preventing drift and minimizing downstream merge collisions.
 
 **The Pull Request as the Dynamic Apparatus Criticus**
 
-In traditional print scholarship, the **apparatus criticus** sits at the foot of
-the page, presenting a dense, highly abbreviated summary of variant readings and
-editorial emendations. While indispensable, the print apparatus is fundamentally
-static and post-facto: it records the final, frozen verdicts of the editor,
-discarding the rich scholarly debates, rejected hypotheses, and paleographical
-arguments that occurred during the edition's preparation (Huskey, 2024).
+In print editions, the **apparatus criticus** sits at the page foot. It records variant readings, proposed emendations, and editor notes. The apparatus lets readers evaluate why an editor picked one reading over another.
 
-The GitHub **Pull Request (PR)** reimagines the apparatus criticus as a dynamic,
-interactive, and permanent scholarly forum (Witt, 2019). When an editor submits a
-pull request, they are not merely requesting that a technical file be copied into a
-folder; they are formally presenting a scholarly hypothesis to the editorial board
-for peer review.
+In digital editing on GitHub, the **Pull Request (PR)** acts as a living apparatus criticus. When you open a pull request, you are not just submitting code. You are proposing a scholarly hypothesis. You say: "Here is my proposed transcription. Here is the historical evidence for it. Here is how it improves our edition."
 
-> **Pull Request #14: Encode variant apparatus for Romans 8:28 in Codex B**
-> *Author:* `@student_encoder` · *Reviewers:* `@senior_editor`, `@peer_reviewer`
->
-> **Description:** This PR supplies the diplomatic transcription and variant
-> apparatus for Romans 8:28, encoding the reading "πάντα συνεργεῖ ὁ θεός" found in
-> P46 and Vaticanus against the majority Byzantine text.
->
-> **Automated CI Status:** `Passed: RELAX NG & Schematron`
-> **Inline Peer Review:** 4 comments debated; consensus reached on `<choice>`.
+A pull request creates an open discussion forum attached to your commit diff. Collaborators can debate paleographical readings, challenge regularizations, and test markup before accepting it into the master text.
 
-Within the PR interface, every line of proposed TEI XML is exposed to granular,
-line-by-line scrutiny. Senior editors and peer reviewers can highlight specific XML
-elements, query a doubtful letter reading, request corroborating IIIF facsimile
-links, or debate whether an editorial intervention should be marked as `<corr>` or
-`<reg>` (Witt, 2018). Once accepted, the entire PR conversation—including all
-debated revisions and reviewer approvals—remains permanently archived and linked to
-the merge commit, creating a fully transparent audit trail of editorial reasoning.
+**Vocabulary.** *Pull Request (PR)* — A formal proposal on GitHub to merge commits from one branch into another, accompanied by discussion and review. *Scholarly Apparatus* — The critical commentary and recorded variants accompanying an edition's primary text.
 
-**Takeaway:** A pull request is a dynamic apparatus criticus,
-transforming code review into an attributed, transparent forum for collaborative
-philological debate and editorial adjudication.
+**Takeaway:** A GitHub Pull Request acts as a living apparatus criticus where editors debate textual readings before adopting them.
 
 ---
 
@@ -469,38 +259,20 @@ philological debate and editorial adjudication.
 
 **Anatomy of a Scholarly Pull Request**
 
-Submitting an effective pull request requires both technical discipline and
-philological rhetoric. A poorly constructed PR—featuring a vague title, no
-explanatory context, and hundreds of unrelated edits sprawled across multiple
-unconnected files—overwhelms reviewers and brings collaborative adjudication to a
-halt (Himmelstein et al., 2019).
+An effective pull request must be clear and helpful. Submitting a PR with no description or a title like "updates" forces reviewers to guess what you did.
 
-A model scholarly pull request adheres to the principle of **atomicity**. An
-atomic PR addresses a single, tightly scoped editorial task: transcribing one
-specific folio, adding morphological tags to a defined passage, or fixing a broken
-schema pointer. By keeping the PR small and focused, the contributor makes it
-straightforward for peers to review the diff line-by-line, verify schema
-compliance, and provide prompt feedback.
+A professional scholarly pull request contains four key parts:
 
-Every scholarly PR should include four essential components:
+1. **A Clear Title:** State the exact editorial action (such as `Add named entities for French National Assembly deputies`).
+2. **Context and Rationale:** Explain why you made the change. Did you fix a transcription typo? Did you normalize an archaic spelling?
+3. **Evidence and Citations:** Cite the manuscript folio image or authority record (like VIAF or Wikidata) supporting your choice.
+4. **Validation Proof:** State that your TEI XML file passed `xmllint` and schema checks with zero errors.
 
-1. **Descriptive Title:** A clear summary naming the manuscript, passage, and
-   editorial operation (e.g., `Transcribe and encode apparatus for Folio 14v (Codex
-   Alexandrinus)`).
+When Ace submits a PR for his 1791 decree, he attaches an image crop. He explains why he linked *M. de Bouillé* to VIAF ID `61536214`. Reviewing that PR becomes quick, educational, and reliable.
 
-2. **Philological Summary:** A prose paragraph explaining what text was encoded,
-   what paleographical challenges were encountered, and what editorial principles
-   were applied.
+**Vocabulary.** *Pull Request Description* — The markdown body of a PR explaining the rationale, scope, and evidence for proposed changes. *Imperative Title* — A concise title phrased as a command describing what the change achieves.
 
-3. **Issue Linkage:** Explicit reference to related tracking issues using GitHub's
-   automation keywords (e.g., `Closes #18`, `Resolves #24`).
-
-4. **Self-Audit Verification:** Confirmation that the contributor has validated the
-   XML locally, checked facsimile alignments, and verified that all tags conform to
-   project schemas.
-
-**Takeaway:** An effective pull request is atomic, tightly
-scoped, and thoroughly documented, facilitating rapid, rigorous peer evaluation.
+**Takeaway:** A thorough PR description pairs proposed markup changes with historical evidence, rationale, and schema validation proof.
 
 ---
 
@@ -508,42 +280,28 @@ scoped, and thoroughly documented, facilitating rapid, rigorous peer evaluation.
 
 **Standardizing Editorial Contributions: `PULL_REQUEST_TEMPLATE.md`**
 
-In large collaborative projects, maintainers cannot rely on contributors
-remembering every required self-audit step from memory. To enforce consistent
-editorial rigor, GitHub repositories utilize a standardized **Pull Request
-Template** (`.github/PULL_REQUEST_TEMPLATE.md`) (Faghihi et al., 2022).
+To help contributors provide proper evidence, repositories use pull request templates. When you add a file named `PULL_REQUEST_TEMPLATE.md` to `.github/`, GitHub displays that template whenever someone opens a new PR.
 
-When a contributor opens a new pull request on GitHub, the platform automatically
-populates the PR description box with the markdown structure defined in the
-template file. This transforms the submission process into a structured,
-self-guiding rubric that prompts the contributor to certify their work before
-requesting human review.
+A template provides a helpful checklist for digital philology:
 
 ```markdown
-<!-- .github/PULL_REQUEST_TEMPLATE.md -->
-### Editorial Summary
-*Provide a concise summary of the manuscript witness, folio range, and TEI layers modified.*
+## Summary of Changes
+- What document or encoding layer does this PR modify?
 
-### Related Issues
-*Closes #*
+## Codicological and Paleographical Evidence
+- [ ] Facsimile image verified against primary witness
+- [ ] Authority IDs verified against VIAF or Wikidata
 
-### Contributor Self-Audit Checklist
-- [ ] **Well-Formedness:** XML is well-formed and parses with zero syntax errors.
-- [ ] **Schema Compliance:** Validated locally against the project RELAX NG schema (`jing`).
-- [ ] **Business Rules:** Validated against project ISO Schematron rules (`saxon`).
-- [ ] **Facsimile Alignment:** Every `<pb/>` and `<lb/>` accurately corresponds to the IIIF manifest.
-- [ ] **Philological Precision:** All editorial interventions (`<corr>`, `<supplied>`, `<reg>`) are justified.
-- [ ] **Provenance:** `<revisionDesc>` has been updated with author name, date, and change description.
+## Schema and Validation Checklist
+- [ ] Well-formed XML verified (`xmllint --noout`)
+- [ ] Relax NG schema passes with 0 errors
 ```
 
-By embedding these checklists directly into the repository infrastructure, projects
-ensure that basic technical quality control occurs prior to peer review, freeing
-human reviewers to concentrate on paleographical and interpretive matters (Witt,
-2018).
+This checklist prevents rushed submissions. It reminds Olyvia to check her Maud Lewis date attributes. It prompts Andromeda to verify her treaty placenames before opening the PR.
 
-**Takeaway:** Pull request templates standardize submission
-protocols, embedding self-audit checklists directly into the collaborative
-workflow to guarantee baseline data integrity.
+**Vocabulary.** *PULL_REQUEST_TEMPLATE.md* — A standardized markdown form automatically displayed by GitHub when creating a pull request. *Pre-Flight Checklist* — A set of verification steps an author completes before requesting scholarly review.
+
+**Takeaway:** Standardized PR templates ensure that every submitted edition update includes required evidence and validation checks.
 
 ---
 
@@ -551,43 +309,37 @@ workflow to guarantee baseline data integrity.
 
 **Visualizing Diffs in Hierarchical XML Documents**
 
-The central visual interface of a pull request is the **diff** (difference) view,
-which renders a side-by-side or unified comparison of the original text against the
-proposed modifications. In standard software development, diffs compare flat lines
-of code. In digital humanities, however, diffing hierarchical TEI XML documents
-presents unique interpretive challenges (Huskey, 2024).
+The heart of any pull request review is the **diff**. GitHub compares your branch with the target branch line by line. It shows additions in green with a plus sign (`+`). It shows deletions in red with a minus sign (`-`).
 
-Standard Git diffs operate on a line-by-line basis. If an encoder alters a single
-word inside a 100-word paragraph formatted as a single continuous line, standard
-diff engines highlight the entire line as deleted and replaced, obscuring the exact
-point of editorial emendation. To inspect granular textual changes, scholars use
-specialized diff flags:
+Reading XML diffs requires attention to nesting. A change on line 42 can affect an opening tag on line 10. When viewing a diff on GitHub, you can pick between two view modes:
 
-```bash
-# Display word-level differences inline rather than whole-line replacements
-git diff --word-diff
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Diff View Mode</th>
+<th>Description</th>
+<th>Best Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unified Diff</strong></td>
+<td>Shows deletions and additions inline in a single continuous column.</td>
+<td>Quick checks on mobile screens or small one-line typo fixes.</td>
+</tr>
+<tr>
+<td><strong>Split Diff</strong></td>
+<td>Displays the original file on the left and the modified file on the right side by side.</td>
+<td>Reviewing structural XML changes, closing tags, and nested elements.</td>
+</tr>
+</tbody>
+</table>
 
-# Highlight word changes using color highlights without line duplication
-git diff --word-diff=color
+Split diff mode makes missing tags obvious. If an editor deleted an opening `<p>` tag thirty lines earlier, the split view reveals the structural shift right away.
 
-# Ignore cosmetic whitespace and indentation changes to focus on textual content
-git diff --ignore-all-space
-```
+**Vocabulary.** *Diff* — A visual representation of differences between two versions of a file, highlighting additions and deletions. *Split Diff* — A side-by-side view comparing original and modified text in parallel columns.
 
-| Diff Display Mode | Mechanism | Scholarly Utility in TEI Editing |
-|---|---|---|
-| **Standard Line Diff** | Compares whole lines between commits | Ideal for tracking structural additions (new `<sp>`, `<p>`, `<lg>`) |
-| **Word-Level Diff** | Compares token-by-token within lines | Pinpoints precise orthographic corrections or lemma adjustments |
-| **Whitespace-Agnostic** | Ignores space and indentation changes | Distinguishes substantive textual edits from cosmetic XML re-indentation |
-
-Understanding how diffs render hierarchical trees allows reviewers to quickly
-verify whether an edit altered only the text string, modified semantic attribute
-values (such as changing `@ana="#noun"` to `@ana="#verb"`), or reorganized the
-underlying XML hierarchy (Huskey, 2024).
-
-**Takeaway:** Mastering word-level and whitespace-aware diffs
-allows reviewers to isolate substantive philological emendations from cosmetic XML
-formatting changes.
+**Takeaway:** Using split diff view helps reviewers spot subtle structural changes and mismatched tags in hierarchical XML.
 
 ---
 
@@ -595,43 +347,17 @@ formatting changes.
 
 **The Scholarly Code Review Interface**
 
-GitHub's code review interface provides a comprehensive suite of tools for
-conducting granular, asynchronous peer review on proposed TEI XML files. Rather than
-writing general feedback in an external document, reviewers engage directly with the
-underlying markup (Faghihi et al., 2022).
+GitHub provides clean tools for peer review. Hover your cursor over any line number in a pull request diff. A blue plus icon appears. Clicking that icon opens an inline comment box on that exact line.
 
-By hovering over any line number in the PR diff view, a reviewer can click the blue
-`+` icon to open an inline comment box. Reviewers can highlight single lines or drag
-across multi-line code spans to critique entire XML structures, such as an
-apparatus entry (`<app>`) or a manuscript description block (`<msDesc>`).
+This inline interface enables focused dialogue. Instead of sending a vague message saying "your date looks wrong," a reviewer clicks directly on `<date when="1752-11-22">` and writes:
 
-```xml
-<!-- Proposed markup in Pull Request #14 -->
-<choice>
-  <sic>καρδια</sic>
-  <corr>καρδίᾳ</corr>
-</choice>
-```
+> "The proclamation heading says *November 22*, but the articles were signed on November 24. Should we encode two separate date elements?"
 
-> **Reviewer Comment from `@peer_reviewer`:**
-> "Looking closely at the IIIF facsimile (canvas #12 at high zoom), there is a
-> faint iota subscript visible beneath the alpha. This should be encoded as
-> `<orig>καρδίᾳ</orig>` rather than a scribal error requiring editorial `<corr>`."
->
-> **Suggested Replacement:** `<orig>καρδίᾳ</orig>`
+GitHub also includes an "Insert a suggestion" button. Reviewers can write the exact replacement XML they recommend. The author can accept the suggestion with one click. GitHub creates a commit that applies the fix instantly.
 
-Reviewers can utilize GitHub's **Suggested Changes** syntax (fenced code blocks
-labeled `suggestion`). When a suggestion is inserted, GitHub renders a one-click
-"Apply suggestion" button for the PR author, allowing them to accept and commit the
-corrected markup directly from the web interface without touching their local
-terminal (Himmelstein et al., 2019). When finishing a review, the evaluator can
-select one of three formal dispositions: *Comment* (general feedback), *Approve*
-(ready to merge), or *Request Changes* (blocking merge until critical defects are
-resolved).
+**Vocabulary.** *Inline Comment* — A review note attached to a specific line number within a pull request diff. *Suggested Change* — A proposed code replacement submitted by a reviewer that the author can accept with one click.
 
-**Takeaway:** Inline review comments and direct markdown
-suggestions turn the pull request diff into an active workspace for collaborative
-paleographical correction and markup refinement.
+**Takeaway:** Inline review comments allow scholars to conduct precise, line-by-line debates directly on the digital text.
 
 ---
 
@@ -639,129 +365,69 @@ paleographical correction and markup refinement.
 
 **Iterating on an Open Pull Request**
 
-A common misconception among beginner digital editors is that once a pull request is
-opened, it is frozen in time, and any required corrections require closing the PR
-and starting over from scratch. In reality, a pull request is a dynamic, live window
-into the underlying feature branch (Faghihi et al., 2022).
+Opening a pull request does not freeze your files. A pull request is a discussion, not a final exam. When reviewers suggest improvements, you do not close the PR or start over.
 
-When a reviewer requests changes on your PR—for instance, pointing out an unescaped
-Greek accent or an invalid Schematron attribute—you do not open a new pull request.
-Instead, you simply return to your local workstation, switch to the active feature
-branch, make the necessary corrections in your text editor, and commit the fixes:
+To update your pull request, return to your branch in VS Code. Make the requested edits, commit them, and push them to your fork:
 
 ```bash
-# 1. Ensure you are on the correct feature branch
-git checkout transcribe/ms-a-folio-14v
-
-# 2. Edit the TEI XML file to address reviewer feedback
-# (e.g. fix the <orig> tag in VS Code)
-
-# 3. Stage and commit the correction with a clear commit message
-git add src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
-git commit -m "Address review feedback: replace sic/corr with orig based on IIIF zoom"
-
-# 4. Push the commit to your personal fork
-git push origin transcribe/ms-a-folio-14v
+git checkout feature/treaty-entities
+# edit witness.xml to address reviewer suggestions
+git add witness.xml
+git commit -m "Clarify ratification date and add VIAF reference"
+git push origin feature/treaty-entities
 ```
 
-The moment you execute `git push`, GitHub automatically detects the new commit on
-your remote branch and appends it to the open pull request thread. The diff view
-updates dynamically, the automated validation pipelines re-run, and the reviewer is
-notified that the requested modifications have been implemented. This iterative
-feedback loop continues until the edition meets all scholarly standards and receives
-formal approval (Weigl et al., 2024).
+As soon as your push reaches GitHub, the pull request updates automatically. Your new commit appears in the PR thread. The diff updates immediately. When all comments are resolved and validation passes, the maintainer merges your work into `main`.
 
-**Takeaway:** Pushing new commits to an active feature branch
-automatically updates the open pull request, supporting a seamless, iterative
-dialogue between contributor and reviewer.
+**Vocabulary.** *Pull Request Iteration* — Pushing new commits to an active feature branch to address peer feedback before merging. *PR Lifecycle* — The progression of a proposal from draft creation through review, iteration, approval, and merge.
+
+**Takeaway:** Pushing new commits to your active branch automatically updates the open pull request, making peer review an iterative cycle.
 
 ---
 
 ## **17 Content**
 
-**Merge Conflicts in Hierarchical Tree Structures**
+**Understanding Merge Conflicts in Hierarchical XML**
 
-When multiple editors work simultaneously on the same text corpus, their
-contributions will inevitably collide, resulting in a **merge conflict**. A merge
-conflict occurs when Git cannot automatically reconcile differences between two
-branches because both branches have modified the exact same lines of a file since
-their common ancestor commit (Huskey, 2024).
+Collaboration is straightforward when editors work on separate files. But what happens when two editors edit the same lines at the same time? Git stops and reports a **merge conflict**.
 
-In programming languages like Python or C, merge conflicts are often localized and
-straightforward: two developers may have edited different functions or adjusted
-variable names on the same line. In digital scholarly editing, however, merge
-conflicts in TEI XML documents pose severe structural hazards because XML documents
-are governed by the strict nesting rules of the **Ordered Hierarchy of Content
-Objects (OHCO)** model (Renear et al., 1996).
+Git is designed to be safe. Suppose Ace edits line 45 to read `<persName ref="#bouille">Bouillé</persName>`. Meanwhile, Olyvia edits line 45 to read `<persName role="general">Bouillé</persName>`. Git cannot know which interpretation is correct. Rather than guessing and erasing someone's work, Git pauses. It asks a human editor to choose.
 
-```xml
-<!-- Contributor A Branch: Added semantic name tagging -->
-<p>In the beginning was the <persName ref="#logos">Word</persName>...</p>
+Merge conflicts are not software bugs. They are normal events in collaborative work. They simply mean two scholars proposed different readings for the same phrase, requiring thoughtful adjudication.
 
-<!-- Contributor B Branch: Added morphological apparatus -->
-<p>In the beginning was the <app><rdg wit="#A">Word</rdg><rdg wit="#B">Reason</rdg></app>...</p>
-```
+**Vocabulary.** *Merge Conflict* — A state where Git cannot automatically combine two branches because both changed the same lines in conflicting ways. *Editorial Adjudication* — The human decision-making process required to evaluate conflicting textual interpretations.
 
-If Git's raw text-matching algorithm attempts to interleave these two edits
-naively, it will produce malformed XML containing overlapping elements, unclosed
-tags, or mismatched attribute namespaces (Renear et al., 1996; McGann, 2014). An
-improperly resolved XML merge conflict instantly destroys the document's
-well-formedness, crashing parsers, breaking publication pipelines, and halting
-continuous integration builds. Resolving XML conflicts therefore demands deep
-philological understanding alongside rigorous structural awareness.
-
-**Takeaway:** Merge conflicts in TEI XML documents threaten the
-validity of hierarchical tree structures and cannot be resolved mechanically
-without careful philological and syntactic adjudication.
+**Takeaway:** Merge conflicts occur when two branches alter the same lines concurrently; Git safely pauses to let human editors decide.
 
 ---
 
 ## **18 Content**
 
-**Anatomy of a Git Conflict in TEI XML**
+**Anatomy of a Git Conflict Marker**
 
-When a merge conflict occurs, Git halts the merge process, leaves your working
-directory in an uncommitted conflict state, and injects visible **conflict
-markers** directly into the affected files (Huskey, 2024). Understanding how to
-read these markers is an essential technical skill for every digital editor.
+When a merge conflict happens, Git writes special text markers directly into the file. These markers show both competing versions.
 
-A Git conflict block is divided into three distinct zones separated by seven-character
-delimiters:
+Here is a conflict marker in TEI XML:
 
 ```xml
 <<<<<<< HEAD
-<w lemma="λόγος" ana="#noun_masc_nom_sg">λόγος</w>
-<app>
-  <rdg wit="#CodexA">ἦν πρὸς τὸν θεόν</rdg>
-</app>
+<date when="1967-02-13">Feb 13</date>
 =======
-<w lemma="λόγος" ana="#noun_masc_nom_sg">λόγος</w>
-<app>
-  <rdg wit="#CodexA #CodexB">ἦν πρὸς τὸν θεόν</rdg>
-  <rdg wit="#CodexC">ἦν μετὰ τοῦ θεοῦ</rdg>
-</app>
->>>>>>> upstream/main
+<date when="1967-02-15" cert="medium">Feb 15?</date>
+>>>>>>> feature/date-audit
 ```
 
-1. `<<<<<<< HEAD`: Marks the start of the conflict block and contains the lines
-   currently present on your local checkout branch (your version).
+The markers divide the text into three sections:
 
-2. `=======`: The central dividing line separating the two competing editorial
-   hypotheses.
+- `<<<<<<< HEAD`: Marks the start of the conflict. It contains text from your current local branch.
+- `=======`: The divider separating your version from the incoming version.
+- `>>>>>>> feature/date-audit`: Marks the end of the conflict and names the incoming branch.
 
-3. `>>>>>>> upstream/main` (or branch name): Marks the end of the conflict block and
-   contains the incoming lines from the branch being merged (the conflicting
-   version).
+While these markers remain, your XML is invalid. You must open the file, select the right reading, and erase all three marker lines.
 
-Everything between `<<<<<<<` and `=======` represents your local reading, while
-everything between `=======` and `>>>>>>>` represents the incoming remote reading.
-To resolve the conflict, you must manually edit the text to synthesize the correct
-combined reading and completely delete all seven-character marker lines before
-saving (Huskey, 2024).
+**Vocabulary.** *Conflict Marker* — Special delimiter strings (`<<<<<<<`, `=======`, `>>>>>>>`) inserted by Git to highlight competing text versions. *HEAD (Conflict Context)* — The commit representing your currently active local branch during a merge.
 
-**Takeaway:** Git conflict markers explicitly delimit competing
-editorial readings, providing the raw evidence needed to synthesize a valid,
-consensus XML tree.
+**Takeaway:** Git conflict markers isolate competing readings between HEAD and the incoming branch, requiring manual editing to resolve.
 
 ---
 
@@ -769,475 +435,250 @@ consensus XML tree.
 
 **Modular Architecture and Conflict Mitigation**
 
-While Git provides robust tools for resolving merge conflicts, the most effective
-editorial strategy is to design a repository architecture that prevents conflicts
-from occurring in the first place. In monolithic digital editions—where an entire
-multi-volume work or manuscript codex is stored inside a single massive XML file
-spanning thousands of lines—merge conflicts become a constant, crippling
-bottleneck (TEI Consortium, 2026).
+The best way to handle merge conflicts is to prevent them. In large digital editions, teams design a **modular architecture** to minimize simultaneous edits on the same file.
 
-To eliminate this vulnerability, mature digital humanities projects implement a
-**modular document architecture** (Witt, 2018). Instead of maintaining one gigantic
-XML file, the text is decomposed into small, logical units: one XML file per folio,
-per poem, or per chapter. These modular child files are then dynamically synthesized
-into a complete composite document using the W3C **XInclude (`<xi:include>`)**
-standard (TEI Consortium, 2026).
+If an entire edition sits in one large 5,000-line `edition.xml` file, conflicts happen constantly. Every time someone touches metadata or changes a tag, they collide with a classmate.
 
-```xml
-<!-- Master Composite File: text_corpus_master.xml -->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <teiHeader>
-    <xi:include href="header/master_teiHeader.xml"/>
-  </teiHeader>
-  <text>
-    <body>
-      <div type="folio" n="12r">
-        <xi:include href="transcriptions/folio_12r.xml"/>
-      </div>
-      <div type="folio" n="12v">
-        <xi:include href="transcriptions/folio_12v.xml"/>
-      </div>
-    </body>
-  </text>
-</TEI>
-```
+Teams reduce conflicts through smart file separation:
 
-Under this modular architecture, Editor A can transcribe `folio_12r.xml` on one
-branch while Editor B lemmatizes `folio_12v.xml` on another. Because the two editors
-are modifying completely separate physical files on disk, Git merges both feature
-branches automatically with zero merge collisions (Witt, 2018).
+1. **Splitting Layers:** Store metadata in `teiHeader.xml`, diplomatic text in `transcription.xml`, and entity lists in `taxonomy.xml`.
+2. **Page-by-Page Files:** Store each folio in its own file, such as `folio_01r.xml`.
+3. **Task Assignment:** Use GitHub Issues to claim specific folios before editing so two people never transcribe the same page simultaneously.
 
-**Takeaway:** Modularizing large texts into discrete, folio-level
-files assembled via W3C XInclude drastically reduces merge collisions and allows
-distributed teams to edit concurrently.
+**Vocabulary.** *Modular Architecture* — Organizing an edition into separate, self-contained files to reduce editing friction and collision. *Conflict Mitigation* — Proactive project design and communication strategies that minimize overlapping edits.
+
+**Takeaway:** Dividing an edition into modular files and assigning clear editorial roles drastically reduces concurrent merge conflicts.
 
 ---
 
 ## **20 Content**
 
-**Step-by-Step Manual Conflict Resolution**
+**Step-by-Step Conflict Resolution in VS Code**
 
-When a merge conflict does occur in your TEI files, resolving it requires a
-disciplined, four-step protocol. Attempting to resolve conflicts haphazardly in a
-state of panic often introduces malformed XML or accidentally deletes valid
-transcriptions (Huskey, 2024).
+Modern code editors make resolving conflicts simple. When you open a conflicted file in Visual Studio Code, the editor displays clickable action buttons above the conflict:
 
-| Step | Terminal Operation | Action and Verification |
-|---|---|---|
-| **1. Identify Conflicted Files** | `git status` | Look under "Unmerged paths" to see which exact `.xml` files contain collision markers. |
-| **2. Inspect and Adjudicate** | Open file in VS Code | Locate each `<<<<<<< HEAD` block. Evaluate both readings against the IIIF facsimile, combine valid markup, and delete all conflict markers. |
-| **3. Validate Well-Formedness** | `xmllint --noout <file>` | Verify that your manual edits did not unbalance tags or break basic XML syntax rules. |
-| **4. Stage and Conclude Merge** | `git add <file>`<br>`git commit` | Staging the file informs Git that the conflict has been resolved. Committing completes the merge node. |
+- **Accept Current Change:** Keeps your current branch version (`HEAD`) and deletes the incoming version.
+- **Accept Incoming Change:** Overwrites your version with the incoming branch version.
+- **Accept Both Changes:** Keeps both versions stacked together.
+- **Compare Changes:** Opens a side-by-side diff to examine differences.
 
-Let us trace this protocol in the terminal. When you attempt a merge that
-conflicts, Git reports:
+In scholarly editing, clicking "Accept Current" or "Accept Incoming" is often too blunt. Often, the ideal solution is a synthesis. Perhaps Ace added a necessary `@ref` attribute, while Olyvia added a valuable `@role` attribute.
 
-```bash
-$ git merge upstream/main
-Auto-merging src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
-CONFLICT (content): Merge conflict in src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
-Automatic merge failed; fix conflicts and then commit the result.
+The best editorial choice is to combine both contributions by hand: `<persName ref="#bouille" role="general">Bouillé</persName>`. After synthesizing the markup, delete any leftover marker lines.
 
-# Step 1: Confirm the conflicted file
-$ git status
-Unmerged paths:
-  (use "git add <file>..." to mark resolution)
-	both modified:   src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
+**Vocabulary.** *Accept Current Change* — A VS Code shortcut that retains the local HEAD version and discards the incoming change. *Editorial Synthesis* — Combining valuable elements from both competing branches into a unified, superior reading.
 
-# Step 2: Open ms_a_folio_14v.xml, reconcile tags, remove <<<<<<<, =======, >>>>>>>
-# Step 3: Validate syntax immediately
-$ xmllint --noout src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
-
-# Step 4: Stage and commit the resolution
-$ git add src/modules/Topic_04_Transcription/ms_a_folio_14v.xml
-$ git commit -m "Reconcile merge conflict in Folio 14v: combine lemma tags with variant apparatus"
-```
-
-**Takeaway:** Resolving an XML merge conflict requires
-synthesizing competing readings, deleting all conflict markers, verifying XML
-well-formedness, and concluding the merge with a descriptive commit.
+**Takeaway:** Resolving scholarly conflicts often requires hand-synthesizing complementary markup from both branches rather than picking one.
 
 ---
 
 ## **21 Content**
 
-**GitHub Issues as Scholarly Marginalia**
+**The Non-Negotiable Step: Verifying XML Well-Formedness**
 
-In traditional codicology, **marginalia**—notes, glosses, and queries penned in the
-margins of a manuscript—reveal how generations of readers, scribes, and scholars
-interacted with the text. In distributed digital editing, **GitHub Issues** serve
-as the modern digital equivalent of scholarly marginalia (Faghihi et al., 2022).
+After editing a merge conflict, never commit immediately. Editors often leave behind stray marker characters, duplicate tags, or broken brackets.
 
-Too often, newcomers view the "Issues" tab of a repository strictly as a place for
-reporting broken software bugs. In a digital humanities project, however, issues
-function as an open, searchable research notebook. Scholars use issues to document
-paleographical ambiguities, record undecipherable scribal hands, debate variant
-grammatical parsings, and track outstanding editorial tasks across the corpus
-(Faghihi et al., 2022).
+A single remaining marker like `<<<<<<<` makes your entire document fatally invalid. An XML parser will crash when reading it. Therefore, checking well-formedness immediately after resolving a conflict is mandatory:
 
-> **Issue #28: Ambiguous ligature on Folio 16r, line 12 (Codex B)**
-> *Labels:* `paleography`, `needs-second-opinion`
->
-> **Description:** In transcribing line 12, the third word appears to be an
-> abbreviated form of "πνεῦμα", but the supralinear stroke resembles a circumflex
-> over an omicron-upsilon ligature.
->
-> **Facsimile Reference:** IIIF Manifest Canvas #16 (Region: 450,820,300,120)
->
-> **Question:** Should we encode this as `<abbr>πν̅α</abbr>` with an editorial
-> `<expan>` or record it as an unresolvable `<unclear>` reading?
+```bash
+xmllint --noout witness.xml
+```
 
-Because issues support rich markdown, image embeds, IIIF deep links, and `@mentions`,
-collaborators can convene around a specific manuscript puzzle, debate alternative
-solutions, and establish a documented consensus before any code is committed
-(Faghihi et al., 2022).
+If `xmllint` returns complete silence with an exit code of 0, your file is clean. If it reports an error (such as `syntax error, unexpected '<'`), a broken tag or conflict marker survived. Fix the error in VS Code and run `xmllint` again until it passes cleanly.
 
-**Takeaway:** GitHub Issues function as open, collaborative
-scholarly marginalia, providing a structured space to debate paleographical
-puzzles and record editorial decisions.
+**Vocabulary.** *xmllint --noout* — A terminal utility that parses an XML document to verify syntactic well-formedness without printing the file body. *Syntax Gate* — A mandatory validation check that must pass before any file can be staged or committed.
+
+**Takeaway:** Always run xmllint --noout immediately after editing a conflict to ensure no stray markers or broken tags survive.
 
 ---
 
 ## **22 Content**
 
-**Authoring Issue Templates for Digital Editions**
+**Completing the Conflict Merge Commit**
 
-Just as pull requests benefit from standardized templates, issue tracking in a
-collaborative edition must be structured to ensure contributors provide adequate
-scholarly context. Without structured templates, issue reports often arrive as vague
-complaints like "the Greek text in chapter 3 looks wrong," providing zero folio
-numbers, image links, or proposed corrections.
+When your resolved file passes `xmllint` and schema validation, you can finish the merge. Concluding a merge requires staging the file and recording a dedicated commit.
 
-Digital scholarly projects deploy **GitHub Issue Templates** (stored in
-`.github/ISSUE_TEMPLATE/`) to guide contributors through specific reporting
-protocols (Faghihi et al., 2022). By defining YAML or Markdown forms, repositories
-can present specialized issue categories:
+Run these three commands in your terminal:
 
-1. **Paleographical Query:** For ambiguous letterforms, unreadable ligatures, or
-   physical damage requiring second opinions.
-
-2. **Linguistic / Lemma Dispute:** For debating morphological parsings, dictionary
-   headwords, or semantic part-of-speech tags.
-
-3. **Encoding / Schema Defect:** For reporting invalid TEI nesting, broken
-   attribute pointers, or Schematron rule failures.
-
-```yaml
-# .github/ISSUE_TEMPLATE/paleographical_query.yml
-name: Paleographical Query
-description: Submit an ambiguous manuscript reading or unreadable scribal hand for peer consultation.
-labels: ["paleography", "needs-second-opinion"]
-body:
-  - type: input
-    id: witness_folio
-    attributes:
-      label: Witness & Folio Reference
-      description: E.g., Codex Vaticanus Graecus 1209, Folio 142r, Line 8.
-    validations:
-      required: true
-  - type: input
-    id: iiif_link
-    attributes:
-      label: IIIF Manifest URL / Canvas Coordinates
-      description: Direct URL to the high-resolution image canvas.
-    validations:
-      required: true
-  - type: textarea
-    id: problem_description
-    attributes:
-      label: Transcription Puzzle & Proposed Readings
-      description: Describe the letterforms and list competing transcription hypotheses.
-    validations:
-      required: true
+```bash
+git add witness.xml
+git status
+git commit -m "Merge branch 'feature/date-audit': synthesize date attributes"
 ```
 
-**Takeaway:** Structured issue templates ensure that
-collaborative textual queries include necessary manuscript citations, IIIF
-coordinates, and transcription hypotheses.
+Running `git status` verifies that the file moved from "Unmerged paths" to "Changes to be committed." Running `git commit` creates a **merge commit**. Unlike ordinary commits with one parent, a merge commit has two parents. It unites two diverged lines of history into one.
+
+Your repository is now clean, unconflicted, and ready for further work.
+
+**Vocabulary.** *Merge Commit* — A commit with two parent commits that records the successful integration of two diverged branches. *Staging a Resolution* — Using `git add` to tell Git that a conflicted file has been successfully edited and verified.
+
+**Takeaway:** Staging resolved files with git add and committing creates a two-parent merge commit that reunites diverged branches.
 
 ---
 
 ## **23 Content**
 
-**Project Management: Labels, Milestones, and Kanban Boards**
+**GitHub Issues as Scholarly Marginalia and Task Tracking**
 
-Coordinating the transcription, reconciliation, normalization, and lemmatization
-of dozens of manuscript folios across a team of student editors requires robust
-project management infrastructure. GitHub provides three integrated mechanisms for
-organizing editorial labor: **Labels**, **Milestones**, and **GitHub Projects
-(Kanban Boards)** (Weigl et al., 2024).
+Collaboration involves more than submitting files. Scholars need a space to discuss puzzles, question tricky handwriting, and plan upcoming tasks. On GitHub, this conversation happens in **Issues**.
 
-**Labels** are color-coded tags that categorize issues and pull requests by topic,
-methodological layer, and urgency. A well-organized TEI repository establishes a
-controlled vocabulary of labels:
+An Issue is a dedicated discussion thread inside a repository. Think of Issues as public scholarly marginalia. Instead of scribbling a private note about an uncertain word in Maud Lewis's letter on a napkin, Olyvia opens a GitHub Issue titled: `Paleographical query: illegible verb on folio 1 verso line 14`.
 
-- *Layer:* `layer:diplomatic`, `layer:normalization`, `layer:apparatus`, `layer:morphosyntax`
+In the Issue description, Olyvia attaches an image crop. She pastes her draft transcription. She tags Ace and Andromeda using `@username`. Her classmates receive alerts, inspect the script, and reply with readings. When the team agrees, the issue is closed, leaving a permanent public record.
 
-- *Status:* `status:in-progress`, `status:needs-review`, `status:blocked`
+**Vocabulary.** *GitHub Issue* — A trackable discussion thread in a repository used for reporting bugs, proposing tasks, or debating scholarly questions. *Scholarly Marginalia* — Scholarly notes, queries, and annotations recorded alongside a primary text.
 
-- *Discipline:* `paleography`, `codicology`, `tei-schema`, `iiif`
-
-**Milestones** group related issues and pull requests toward a shared academic
-deadline or edition release target (e.g. `Milestone 1: Complete Diplomatic Layer (Nov
-20)` or `Milestone 2: Critical Edition Release v1.0 (Dec 15)`). Milestones track
-progress dynamically, displaying a percentage completion bar as associated issues
-and PRs are closed.
-
-**GitHub Projects** synthesizes these elements into an interactive **Kanban Board**.
-Each manuscript folio moves through visual columns across its editorial lifecycle:
-
-```
-+----------------+----------------+----------------+----------------+
-|    Backlog     |  In Progress   | In Peer Review |  Merged/Done   |
-+----------------+----------------+----------------+----------------+
-| Folio 18r (MS) | Folio 16v (MS) | Folio 15r (MS) | Folio 14r (MS) |
-| Folio 18v (MS) | Folio 17r (MS) | Folio 15v (MS) | Folio 14v (MS) |
-+----------------+----------------+----------------+----------------+
-```
-
-**Takeaway:** Labels, milestones, and Kanban project boards
-transform sprawling editorial tasks into a transparent, visual project management
-pipeline.
+**Takeaway:** GitHub Issues serve as public, searchable discussion forums for tracking editorial tasks and resolving paleographical queries.
 
 ---
 
 ## **24 Content**
 
-**Case Study: The Scholastic Commentaries and Texts Archive (SCTA)**
+**Authoring Issue Templates for Digital Editions**
 
-To see distributed version control operating at the cutting edge of digital
-humanities, we turn to the **Scholastic Commentaries and Texts Archive (SCTA)**,
-directed by Jeffrey C. Witt (Witt, 2018). The SCTA curates a massive, highly
-interconnected corpus of medieval scholastic philosophy and theology, focusing
-primarily on commentaries on Peter Lombard's *Sentences*—a foundational four-book
-theological textbook that generated thousands of commentaries across four
-centuries (Witt, 2018; Witt, 2019).
+Just as pull request templates help file submissions, **issue templates** ensure structured discussions. Without templates, users open vague tickets like "broken text" without naming the file or folio.
 
-Scholastic texts are inherently intertextual: every commentary consists of a dense
-web of quotations, refutations, and cross-references pointing to other scholastic
-authors, Aristotle, and the Bible. Historically, editing this corpus was
-paralyzed by institutional centralization: individual universities published
-isolated print volumes over decades, resulting in fragmented, incompatible
-editions that obscured the living intellectual network of the Middle Ages (Witt,
-2018).
+You create issue templates by saving markdown files in `.github/ISSUE_TEMPLATE/`. For example, you can create a template for paleographical questions:
 
-| Architectural Tier | Component Name | Editorial and Publication Function |
-|---|---|---|
-| **Data Layer** | Distributed Git Repositories | Independent scholars author TEI XML transcriptions in personal forks. |
-| **Index Layer** | SCTA Central SPARQL Index | Aggregates and links expression descriptions and semantic cross-references. |
-| **Interface Layer** | LombardPress Web Viewer | Dynamically queries the index to render interactive transcriptions and facsimiles. |
-| **Output Layer** | Print & Export Engines | Generates camera-ready PDF critical apparatuses and exposes Linked Open Data APIs. |
+```markdown
+---
+name: Paleographical Query
+about: Report an illegible hand, abbreviation, or damaged text
+title: "[PALEOGRAPHY]: "
+labels: transcription, needs-review
+---
 
-Witt solved this problem by decoupling data curation from presentation. All SCTA
-transcriptions are authored in TEI XML conformant to the LombardPress schema and
-stored in public GitHub repositories (Witt, 2018). Independent scholars across the
-world transcribe distinct questions and distinctions in their own Git forks,
-submitting pull requests to central corpus repositories. When merged, automated
-pipelines validate the TEI data and index its Linked Open Data relationships.
-Applications like the LombardPress web viewer consume this data via open APIs,
-ensuring that the underlying textual data remains permanent, version-controlled,
-and citeable regardless of future software changes (Witt, 2019).
+### Document and Location
+- Document: [Ace 1791 / Maud Lewis / 1752 Treaty]
+- Folio and Line Number:
 
-**Takeaway:** The SCTA proves that distributed Git repositories
-and community pull requests can curate massive, interconnected medieval corpora
-without centralized publishing bottlenecks.
+### Image Evidence
+Attach a high-resolution screenshot of the manuscript region.
+
+### Proposed Readings
+1. Reading A:
+2. Reading B:
+```
+
+When someone clicks "New Issue" on GitHub, this template guides them. It ensures essential coordinates and evidence are included from the start.
+
+**Vocabulary.** *Issue Template* — A pre-formatted form that guides users in submitting complete, well-documented issue tickets. *Issue Labels* — Coloured tags applied to issues to categorize their domain, priority, or status.
+
+**Takeaway:** Issue templates prompt contributors to provide exact document coordinates, image crops, and competing readings up front.
 
 ---
 
 ## **25 Content**
 
-**Case Study: Perseids and Classics Collaborative Editing**
+**Project Management: Labels, Milestones, and Kanban Boards**
 
-Another pioneering implementation of collaborative version control in classical
-philology is the **Perseids Project**, developed by Bridget Almas and Marie-Claire
-Beaulieu at Tufts University in partnership with the Perseus Digital Library (Almas &
-Beaulieu, 2013).
+As a digital edition grows to dozens of files and hundreds of lines, managing workflow becomes essential. GitHub provides three lightweight project management tools built into every repository:
 
-Perseids was created to solve a fundamental pedagogical and scholarly challenge:
-how to enable undergraduate and graduate students to produce vetted,
-publication-grade digital critical editions of Greek and Latin source documents
-without overwhelming instructors with manual grading and file management (Almas &
-Beaulieu, 2013). The platform integrates specialized web-based editing tools—such
-as the Son of Suda On-Line (SOSOL) transcription tool, morphological taggers, and
-syntax treebank editors—directly on top of Git version control.
+<table class="table table-bordered my-3">
+<thead>
+<tr>
+<th>Project Tool</th>
+<th>Function in Digital Editions</th>
+<th>Concrete Course Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Labels</strong></td>
+<td>Color-coded tags that categorize tickets by topic, status, or difficulty.</td>
+<td><code>paleography</code>, <code>tei-header</code>, <code>needs-review</code>, <code>good-first-issue</code></td>
+</tr>
+<tr>
+<td><strong>Milestones</strong></td>
+<td>Target containers that group issues and PRs under a specific deadline.</td>
+<td><code>Milestone: Week 10 Consolidation (Due Nov 13)</code></td>
+</tr>
+<tr>
+<td><strong>Project Boards</strong></td>
+<td>Visual Kanban boards with columns (To Do, In Progress, Done) to track task progress.</td>
+<td>Moving "Tag French deputies in 1791 decree" from In Progress to Done.</td>
+</tr>
+</tbody>
+</table>
 
-In the Perseids workflow, students transcribe manuscript witnesses, annotate Greek
-dialects, and construct dependency treebanks. Under the hood, Perseids commits every
-student action to a Git repository. When a student completes a task, Perseids
-generates a pull request assigned to an editorial board of instructors and senior
-scholars. The board reviews the student's Greek parsing and TEI markup through a
-structured review rubric, providing feedback and approving merges (Almas & Beaulieu,
-2013). Perseids established that distributed version control provides the exact
-scaffolding required to transform classroom exercises into authentic contributions
-to digital classical scholarship.
+Using these tools gives the entire editorial team a clear visual overview of progress. It ensures no historical witness is forgotten.
 
-**Takeaway:** The Perseids Project demonstrates that
-version-controlled pull request workflows allow students to produce vetted,
-publication-grade classical editions within a structured pedagogical framework.
+**Vocabulary.** *Milestone* — A project management target on GitHub that tracks progress toward a specific calendar deadline. *Kanban Board* — A visual workflow management board using columns to display task status from backlog to completion.
+
+**Takeaway:** Labels, milestones, and project boards organize complex editorial labor into clear, trackable collaborative milestones.
 
 ---
 
 ## **26 Content**
 
-**Case Study: Manubot and Open Collaborative Writing**
+**Case Study: The Scholastic Commentaries and Texts Archive (SCTA)**
 
-While TEI XML remains the dominant standard for historical texts, the principles of
-distributed version control have revolutionized collaborative scholarly writing
-more broadly. A leading exemplar is **Manubot**, an open-source publishing
-platform developed by Daniel Himmelstein and colleagues for collaborative scientific
-and humanistic authoring (Himmelstein et al., 2019).
+To see these collaboration principles operating at scale, look at the **Scholastic Commentaries and Texts Archive (SCTA)**, directed by Jeffrey Witt. The SCTA is an open digital library preserving hundreds of medieval philosophical works written between 1200 and 1500.
 
-Manubot was created to overcome the severe limitations of traditional word
-processors and closed authoring platforms. When dozens of geographically
-distributed scholars co-author a major study, Google Docs and Microsoft Word
-inevitably suffer from version collisions, unversioned copy-pasting, broken citation
-indexes, and an inability to track granular authorship attribution. Manubot shifts
-the entire writing process to GitHub: scholars write chapters in plain text
-Markdown, store files in a Git repository, and manage all co-author contributions
-through pull requests and issue tracking (Himmelstein et al., 2019).
+Rather than forcing scholars worldwide into a single database, the SCTA decentralizes editing. Every medieval text lives in its own Git repository on GitHub. Researchers transcribe Latin manuscripts in TEI XML on personal forks and submit updates through pull requests.
 
-| Pipeline Stage | Processing Mechanism | Scholarly Function in Manubot |
-|---|---|---|
-| **1. Co-Authoring** | Distributed Pull Requests | Co-authors write chapters in Markdown and submit atomic pull requests. |
-| **2. Continuous Integration** | GitHub Actions / CI Runners | Triggers automated build containers on every pull request push. |
-| **3. Citation Resolution** | Persistent Identifier Lookup | Queries CrossRef, DataCite, and PubMed to fetch and format metadata from DOIs. |
-| **4. Multiformat Rendering** | Pandoc & Template Engines | Compiles validated manuscript source into HTML, PDF, and JATS XML formats. |
+Automated scripts regularly harvest these distributed repositories. They validate TEI markup and connect them into a global Linked Data graph. Witt's design proves that distributed Git workflows can unite international researchers around complex historical texts.
 
-Crucially, Manubot integrates automated Continuous Integration pipelines. When a
-co-author submits a pull request, CI runners automatically resolve bibliographic
-citations from persistent identifiers (such as DOIs, ISBNs, and PubMed IDs),
-validate document syntax, and compile the entire manuscript into publication-grade
-HTML and PDF formats (Himmelstein et al., 2019). Manubot proves that combining Git
-collaboration with automated pipeline processing creates a frictionless, highly
-reproducible scholarly authoring environment.
+**Vocabulary.** *Scholastic Commentaries and Texts Archive (SCTA)* — A major distributed digital humanities project using Git and TEI to edit medieval manuscripts. *Decentralized Editing* — Allowing independent scholars to maintain separate edition repositories that aggregate into a shared network.
 
-**Takeaway:** Manubot shows how Git version control and
-automated continuous integration can transform multi-author scholarly writing into
-a transparent, reproducible, and version-tracked collaboration.
+**Takeaway:** The SCTA demonstrates how international teams use GitHub repositories and pull requests to edit medieval texts collaboratively.
 
 ---
 
 ## **27 Content**
 
-**Case Study: Multimodal Collaborative Editing in E-LAUTE**
+**Case Study: Perseids and Classics Collaborative Editing**
 
-Collaborative digital editing is not restricted to standard textual prose; it extends
-equally to complex multimodal historical sources combining text, tabular notation,
-and audio. A remarkable recent exemplar is the **E-LAUTE Project** (Electronic Linked
-Annotated Unified Tablature Edition), directed by David Weigl and colleagues (Weigl
-et al., 2024).
+Another prominent example of collaborative digital philology is the **Perseids Project** at Tufts University. Perseids provides an online environment where students and professional Classicists collaborate on ancient Greek and Latin texts, papyri, and inscriptions.
 
-E-LAUTE is assembling a comprehensive multimodal critical edition of sixteenth-century
-German Lute Tablature (GLT). German lute tablature represents an exceptionally
-difficult historical encoding challenge: unlike modern musical stave notation or
-standard Italian tablature, GLT utilizes an intricate, non-intuitive grid of
-letters, numbers, and bespoke symbols representing specific course-fret
-combinations on the instrument's neck (Weigl et al., 2024). Transcribing and
-validating this repertoire requires simultaneous coordination among musicologists,
-philologists, and performing lute players.
+Perseids incorporates version control directly into its teaching. When students annotate treebanks, transcribe inscriptions, or encode variants, their work is backed by Git commits. Scholars review student contributions through a board modeled on GitHub pull requests.
 
-To manage this complex collaborative workflow, E-LAUTE bridges the **Text Encoding
-Initiative (TEI)** with the **Music Encoding Initiative (MEI)** in a distributed Git
-ecosystem. Contributors use a specialized web-based notation editor named
-`mei-friend`, which integrates directly with Git cloud repositories. Musicologists
-transcribe tablature symbols, philologists encode historical song texts in TEI XML,
-and performers annotate performance practice. When editorial teams complete an
-edition release, GitHub Actions pipelines automatically validate the hybrid TEI/MEI
-schemas, verify metadata against linked databases, and synthesize interactive web
-renderings (Weigl et al., 2024).
+This workflow turns student assignments into real scholarly contributions. A student who transcribes an inscription does not merely receive a grade. Their verified work merges into the permanent scholarly edition with full credit.
 
-**Takeaway:** E-LAUTE demonstrates that distributed Git workflows
-successfully coordinate complex multimodal editions combining TEI text, MEI musical
-notation, and performance data across multidisciplinary teams.
+**Vocabulary.** *Perseids Project* — A collaborative digital platform for editing ancient Greek and Latin texts using distributed version control. *Pedagogical Philology* — Integrating student classroom encoding directly into permanent, peer-reviewed scholarly digital editions.
+
+**Takeaway:** The Perseids Project proves that student editors can contribute directly to published digital editions through disciplined version control.
 
 ---
 
 ## **28 Content**
 
-**Scholarly Attribution, Provenance, and `<revisionDesc>`**
+**Case Study: Multimodal Collaborative Editing in E-LAUTE**
 
-A fundamental ethical and academic requirement in any scholarly edition is
-**attribution**: every participant who transcribes a folio, normalizes a word, or
-corrects a reading must receive formal, transparent credit for their intellectual
-labor. In traditional print scholarship, student research assistants and junior
-encoders are frequently relegated to a generic acknowledgement footnote, obscuring
-who performed which specific editorial emendations (Daquino et al., 2023).
+Collaborative version control extends beyond literary texts into diverse historical media. The **E-LAUTE** project is an international collaboration between scholars in Germany and Switzerland editing sixteenth-century lute music books.
 
-Distributed version control provides an automated, fine-grained record of
-authorship through Git commit metadata. Every commit cryptographically binds the
-author's name, email, and timestamp to the exact characters modified. However,
-because an edition's canonical output must remain independent of external software
-platforms, digital editions must bridge Git's commit history directly into the
-internal TEI header metadata (TEI Consortium, 2026).
+Lute tablatures combine musical notes, German and French lyrics, woodcut illustrations, and printer metadata. To edit these works, the team coordinates musicologists, computer scientists, and bibliographers across institutions.
 
-```xml
-<teiHeader>
-  <fileDesc>
-    <titleStmt>
-      <title>Digital Critical Edition of Codex B (03)</title>
-      <editor role="primaryEditor">Dr. Ken M. Penner</editor>
-      <respStmt>
-        <resp>Transcription and Apparatus Encoding</resp>
-        <persName ref="https://orcid.org/0000-0002-1825-0097">Jane Doe</persName>
-      </respStmt>
-    </titleStmt>
-    <!-- ... publicationStmt and sourceDesc ... -->
-  </fileDesc>
-  <revisionDesc status="draft">
-    <change when="2026-11-10" who="#JD" status="reviewed">
-      Transcribed Folio 14v and reconciled double-keyed readings against IIIF facsimile.
-    </change>
-    <change when="2026-11-03" who="#KP" status="approved">
-      Approved Pull Request #14: merged lemmatization layer into canonical main branch.
-    </change>
-  </revisionDesc>
-</teiHeader>
-```
+The E-LAUTE team maintains their digital editions on GitHub. They use feature branches for transcriptions, automated checks for musical validity, and GitHub Releases to publish versioned editions. Their work shows that distributed Git workflows successfully coordinate interdisciplinary teams editing varied historical media.
 
-In the `<teiHeader>`, the `<respStmt>` and `<revisionDesc>` elements formalize
-contributor provenance. Each major editorial milestone merged via pull request must
-be accompanied by a corresponding `<change>` entry recording the editor's ORCID
-identifier, the date, and the precise nature of the editorial intervention (TEI
-Consortium, 2026; Daquino et al., 2023).
+**Vocabulary.** *E-LAUTE* — An international collaborative digital edition project encoding Renaissance lute tablatures and song lyrics. *Multimodal Edition* — A scholarly digital project that integrates text, musical notation, and visual book art into a unified edition.
 
-**Takeaway:** Digital editions must synchronize Git commit
-provenance with internal TEI `<revisionDesc>` metadata to ensure rigorous,
-permanent academic attribution.
+**Takeaway:** E-LAUTE illustrates how international interdisciplinary teams coordinate complex, multimodal digital editions using Git and GitHub.
 
 ---
 
 ## **29 Content**
 
-**Synthesizing the Nine Layers in the Consolidated Repository**
+**Scholarly Attribution, Provenance, and `<revisionDesc>`**
 
-Today's consolidation exercise culminates in organizing all nine methodological
-layers constructed across Weeks 1 through 9 into a single, unified, and standardized
-repository layout. When working in isolation, it is easy for file paths to drift,
-temporary scratch scripts to accumulate, and directory names to become inconsistent.
-Consolidation establishes structural harmony across the entire course corpus.
+While GitHub tracks commit hashes and usernames on the web, a TEI XML document must remain self-contained offline. In TEI P5, this internal provenance lives inside the `<revisionDesc>` element in the `<teiHeader>`.
 
-Every student repository must reflect a clean, standardized folder hierarchy where
-each methodological component resides in its designated home:
+Every major editorial milestone, pull request merge, or conflict resolution should be recorded in a `<change>` element:
 
-| Directory Path | Methodological Topic | Managed Edition Assets |
-|---|---|---|
-| `.github/` | Topic 10 (Consolidation) | Issue templates, PR templates, and GitHub Actions CI/CD workflows. |
-| `data/facsimiles/` | Topic 3 (IIIF Imaging) | IIIF manifest URLs, canvas coordinates, and high-resolution crops. |
-| `data/transcriptions/` | Topics 4-6 (Transcription/Reconciliation) | Diplomatic transcriptions, consensus texts, and normalized TEI XML files. |
-| `data/apparatus/` | Topics 7-8 (Collation/Apparatus) | Collation matrices, variant alignment trees, and critical apparatus entries. |
-| `data/morphology/` | Topic 8 (Lemmatization) | Morphologically tagged tokens, Greek POS annotations, and lexical keys. |
-| `schemas/` | Topic 10 (Validation) | Canonical RELAX NG and ISO Schematron constraint files. |
-| `src/modules/` | Topics 1-13 | Course markdown lessons, reading notes, and research syntheses. |
+```xml
+<revisionDesc>
+  <change when="2026-11-10" who="#editor" status="consolidated">
+    Consolidated Modules 1 through 9 layers; resolved merge conflict 
+    in date attributes via PR #4; verified zero schema errors.
+  </change>
+</revisionDesc>
+```
 
-Take time today to audit your working tree: move misplaced transcription files into
-their designated directories, remove abandoned scratch files, verify that all file
-names conform to the project naming standard (`03a_Lesson_XX_Content.md`), and
-execute a clean commit to your local `main` branch (Weigl et al., 2024).
+Notice how the TEI metadata directly references the collaborative workflow. The `@who` attribute points to the editor definition in `titleStmt`. The `@when` attribute records the date. The description records the specific pull request. By mirroring Git milestones inside the TEI header, your edition guarantees permanent, self-documenting provenance.
 
-**Takeaway:** A consolidated scholarly repository organizes all
-accumulated methodological layers into a clean, standardized directory structure,
-laying the physical foundation for automated validation and collaborative peer
-review.
+**Vocabulary.** *revisionDesc* — The TEI Header element that records the chronological revision history of a digital edition. *change* — A single entry inside revisionDesc detailing an editorial intervention, timestamp, and responsible editor.
+
+**Takeaway:** Mirroring GitHub pull request merges and milestones inside the TEI revisionDesc element preserves self-contained scholarly provenance.
 
 ---
 
@@ -1245,83 +686,18 @@ review.
 
 **Looking Ahead to Friday: Preparing for Automated CI and Peer Review**
 
-Today you transformed your relationship with version control, moving from a solitary
-local Git habit to a networked, collaborative fork-and-pull ecosystem. You mapped
-remote endpoints, established feature branching disciplines, explored pull
-requests as a dynamic apparatus criticus, and investigated issue tracking as
-collaborative scholarly marginalia.
+Today, you connected solitary desktop editing to distributed community collaboration. You learned about remotes, forking, feature branching, pull request apparatus, and conflict resolution in VS Code.
 
-Before Friday's class, ensure that your repository is fully prepared by completing
-the following checklist:
+Before our next meeting on Friday, make sure your repository is fully prepared:
 
-1. **Verify Remotes:** Run `git remote -v` to confirm that `origin` points to your
-   personal fork and `upstream` points to the canonical course repository.
+1. Confirm your local `witness.xml` contains all nine completed layers (metadata, facsimiles, transcription, reconciliation, regularization, reading stylesheets, lemmatization, and named entities).
+2. Verify that your file passes `xmllint --noout witness.xml` with zero syntax errors.
+3. Push your latest commits to your `main` branch on GitHub.
 
-2. **Synchronize Main:** Execute `git fetch upstream` and merge `upstream/main` into
-   your local `main` branch, pushing the clean state to your fork.
+On Friday, in Meeting #27, we conclude our consolidation milestone. We will build an automated Continuous Integration (CI) pipeline using **GitHub Actions**. You will write an automated workflow that runs `xmllint` and the Relax NG schema every time you push. We will also exchange repositories for in-class peer review.
 
-3. **Push Active Branches:** Ensure that your current feature branches (including
-   your Topic 8 lemmatization and linguistic markup work) are pushed to `origin`.
+**Vocabulary.** *Continuous Integration (CI)* — Automatically testing and validating code every time a developer pushes changes to a shared repository. *Peer Review Exchange* — An in-class exercise where students evaluate a classmate's edition against a structured rubric.
 
-4. **Complete Assignment 3:** Finalize your **Linguistic Markup Assignment**, which
-   is formally due this Friday, November 13.
-
-On Friday in Lesson 10.2, we will build directly upon today's collaborative
-infrastructure. You will implement automated **GitHub Actions CI/CD workflows** to
-execute automated XML schema validation sweeps across every TEI layer produced to
-date, and you will conduct structured, in-class **peer reviews** of your classmates'
-editions using formal philological rubrics.
-
-**Takeaway:** Today's version-control foundation prepares your
-repository for Friday's automated schema validation sweeps, CI/CD pipelines, and
-collaborative peer reviews.
+**Takeaway:** Preparing your repository today sets the stage for Friday's automated GitHub Actions validation and collaborative peer review.
 
 ---
-
-## References
-
-Almas, B., & Beaulieu, M.-C. (2013). Developing a new integrated editing platform
-for source documents in classics. In *Digital Humanities 2013 Conference
-Abstracts*. University of Nebraska–Lincoln.
-
-Daquino, M., Wigham, M., Daga, E., Giagnolini, L., & Tomasi, F. (2023). CLEF: A
-Linked Open Data native system for crowdsourcing. *ACM Journal on Computing and
-Cultural Heritage*, 16(3), 1–17. https://doi.org/10.1145/3594721
-
-Faghihi, Y., Holford, M., & Jones, H. (2022). Teaching the Text Encoding Initiative:
-Context, Community and Collaboration. *Journal of Open Humanities Data*, 8(15),
-1–14. https://doi.org/10.5334/johd.72
-
-Himmelstein, D. S., Rubinetti, V., Slochower, D. R., Hu, D., Malladi, V. S., Greene,
-C. S., & Gitter, A. (2019). Open collaborative writing with Manubot. *PLOS
-Computational Biology*, 15(6), e1007128. https://doi.org/10.1371/journal.pcbi.1007128
-
-Holmes, M., & Turska, M. (2023). Embracing Endings: Principles for digital
-longevity and their importance for research software engineers. *DHTech Blog*.
-https://dh-tech.adho.org/blog/2023/08/07/endings-principles/
-
-Huskey, S. J. (2024). Decoupling quality control and publication: The Digital Latin
-Library and the traveling imprimatur. In *Digital Scholarly Editing in Practice*.
-Cambridge University Press.
-
-McGann, J. (2014). *A New Republic of Letters: Memory and Scholarship in the Age of
-Digital Reproduction*. Harvard University Press.
-
-Renear, A., Mylonas, E., & Durand, D. (1996). Refining our notion of what text
-really is: The problem of overlapping hierarchies. In *Research in Humanities
-Computing* (Vol. 4). Oxford University Press.
-
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and
-interchange*. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/
-
-Weigl, D. M., Janjuš, O., Rosmer, S., de Valk, R., & Lewis, D. (2024). Collaborative
-workflows for encoding, validating, and publishing a multimodal digital edition. In
-*Proceedings of the 11th International Conference on Digital Libraries for
-Musicology* (DLfM '24), pp. 78–86. https://doi.org/10.1145/3748336.3748349
-
-Witt, J. C. (2018). Re-conceiving the Christian scholastic corpus with the
-Scholastic Commentaries and Texts Archive. In *Past and Future: Medieval Studies
-Today*, pp. 103–128. Brepols.
-
-Witt, J. C. (2019). Digital scholarly editions as interfaces. In *Digital Scholarly
-Editions as Interfaces*, pp. 191–214. BoD.

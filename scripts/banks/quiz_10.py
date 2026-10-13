@@ -75,11 +75,11 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #ea580c
     </ul>
 </div>"""
 
-# 5. Workshop
+# 5. Assignment
 ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #ea580c; background-color: #fff7ed; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #9a3412; margin-top: 0;">Workshop: Collaborative Pull Request, Merge Conflict Resolution & Validation Sweep</h4>
-    <p><strong>Overview:</strong> In this consolidation workshop, you will collaborate with a partner to intentionally create, inspect, and resolve a Git merge conflict in a shared TEI XML file. You will then run an exhaustive validation sweep across all your semester edition files, ensuring 100% schema compliance before the final publishing modules.</p>
-    <p><strong>Deadlines:</strong> Comparison Post due Friday by 11:00 PM; Peer Reviews due Monday by 11:00 PM.</p>
+    <h4 style="color: #9a3412; margin-top: 0;">Assignment: Module 10 (Consolidation & CI/CD)</h4>
+    <p><strong>Overview:</strong> In this consolidation milestone, you will collaborate with a partner to intentionally create, inspect, and resolve a Git merge conflict in a shared TEI XML file. You will then run an exhaustive validation sweep across all your semester edition files, ensuring 100% schema compliance before the final publishing modules.</p>
+    <p><strong>Due Date:</strong> Friday, November 13, by 11:00 PM.</p>
 </div>"""
 
 ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
@@ -95,11 +95,11 @@ ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
 </div>"""
 
 ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
+    <h4 style="margin-top: 0;">Grading Rubric (80 Points Total)</h4>
     <ul>
-        <li><strong>Conflict Adjudication & XML Integrity (4 pts):</strong> The resolved XML file contains zero orphaned conflict markers and passes well-formedness and schema checks without data loss.</li>
-        <li><strong>Validation Sweep Exhaustiveness (3 pts):</strong> The terminal log confirms that all accumulated edition files (metadata, transcription, collation, linguistic markup) were audited and passed with 0 errors.</li>
-        <li><strong>Continuous Integration Reflection (3 pts):</strong> The 300–500 word analysis insightfully discusses how automated CI checks and disciplined Git branching protect complex digital editions from configuration drift.</li>
+        <li><strong>Conflict Adjudication & XML Integrity (4 pts / 32 pts scaled):</strong> The resolved XML file contains zero orphaned conflict markers and passes well-formedness and schema checks without data loss.</li>
+        <li><strong>Validation Sweep Exhaustiveness (3 pts / 24 pts scaled):</strong> The terminal log confirms that all accumulated edition files (metadata, facsimiles, diplomatic transcription, normalized choice markup, reading stylesheets, lemmatization, named entities) were audited and passed with 0 errors.</li>
+        <li><strong>Continuous Integration Reflection (3 pts / 24 pts scaled):</strong> The 300–500 word analysis insightfully discusses how automated CI checks and disciplined Git branching protect complex digital editions from configuration drift.</li>
     </ul>
 </div>"""
 
@@ -136,7 +136,7 @@ questions = [
     ("03 Question: Adjudicating Conflicts in TEI XML",
       "Why is simply choosing 'Accept Current' or 'Accept Incoming' in a merge conflict tool dangerous in TEI XML documents?",
       [
-          ("Because both branches may contain valid, complementary editorial markup (e.g. one editor added a gloss while the other corrected an apparatus pointer) that must be merged rather than discarded.", 100, "Correct. Editorial conflicts in digital scholarship frequently require synthesising contributions from both branches rather than arbitrarily discarding one editor's scholarly work."),
+          ("Because both branches may contain valid, complementary editorial markup (e.g. one editor added a gloss while the other corrected an attribute pointer) that must be merged rather than discarded.", 100, "Correct. Editorial conflicts in digital scholarship frequently require synthesising contributions from both branches rather than arbitrarily discarding one editor's scholarly work."),
           ("Because clicking either button triggers an immediate irreversible format of the user's hard drive.", 0, "Incorrect. Git never damages physical hardware."),
           ("Because XML schemas automatically crash if both versions are not identical.", 0, "Incorrect. Schemas evaluate validity of the resolved result, not previous versions."),
           ("Because GitHub bans user accounts that resolve conflicts in under five minutes.", 0, "Incorrect. GitHub imposes no time restrictions on conflict resolution.")
@@ -160,7 +160,7 @@ questions = [
     ("06 Question: ISO Schematron vs Grammar Schemas",
       "Why do mature TEI projects pair Relax NG grammars with ISO Schematron rules in their validation sweeps?",
       [
-          ("Relax NG enforces structural grammar and element hierarchies, while Schematron enforces cross-element constraints and business rules (e.g., verifying that every `@wit` points to a declared `<witness>`).", 100, "Correct. Grammar schemas define valid parent-child structures, whereas Schematron uses XPath to validate relational constraints across distinct parts of the document."),
+          ("Relax NG enforces structural grammar and element hierarchies, while Schematron enforces cross-element constraints and business rules (e.g., verifying that every `@ref` points to a declared identifier in the header).", 100, "Correct. Grammar schemas define valid parent-child structures, whereas Schematron uses XPath to validate relational constraints across distinct parts of the document."),
           ("Schematron is used solely to compress XML files into ZIP archives.", 0, "Incorrect. Schematron is a rule-based validation language, not a compression algorithm."),
           ("Relax NG only works on Windows, while Schematron only works on Mac.", 0, "Incorrect. Both validation standards are cross-platform and open-source."),
           ("Because university accreditation requires using at least two different software licenses.", 0, "Incorrect. Both tools are open standards used for complementary technical verification.")
@@ -192,7 +192,7 @@ questions = [
     ("10 Question: Purpose of the Editorial Consolidation Milestone",
       "Why is a dedicated consolidation milestone strategically valuable before transitioning to final publication and web rendering?",
       [
-          ("It ensures that all previous editorial layers (cataloguing, transcription, collation, and linguistic parsing) are synchronized, validated, and free of syntax defects before building downstream publication pipelines.", 100, "Correct. Consolidation stabilizes the textual corpus, ensuring that downstream transformation and publication pipelines operate on clean, standardized, bug-free data."),
+          ("It ensures that all previous editorial layers (cataloguing, transcription, regularization, reading stylesheets, lemmatization, and named entities) are synchronized, validated, and free of syntax defects before building downstream publication pipelines.", 100, "Correct. Consolidation stabilizes the textual corpus, ensuring that downstream transformation and publication pipelines operate on clean, standardized, bug-free data."),
           ("It allows students to permanently delete their manuscript witnesses and stop working.", 0, "Incorrect. The consolidation phase prepares materials for final publication, not abandonment."),
           ("It serves as a mandatory vacation during which all computer screens must be turned off.", 0, "Incorrect. It is an active laboratory consolidation and validation period."),
           ("It changes the course syllabus to eliminate all remaining deadlines.", 0, "Incorrect. Course schedules and publication deadlines remain in full effect.")
