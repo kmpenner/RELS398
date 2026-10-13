@@ -85,6 +85,26 @@
   - Updated `09_Quiz.xml` Question 03 from Greek iotacism to 18th-century French Voltairean spelling reform (*-oit* to *-ait*) in both `src/` and `dist/` to align with the novice curriculum across the four student documents.
 
 
+- **[2026-10-13] Collation and Apparatus not taught in 2026; week = module renumbering (Ken).** None of the three projects has a second witness, so the multi-witness phase is skipped this year. The modules are kept, renumbered to the end, and their Moodle sections are hidden.
+
+  | Week | Dates | Module |
+  |---|---|---|
+  | W7 | Oct 20–23, meetings #17–19 | **7 Publication I (Rendering)**, new: hand-written HTML/CSS, then XSLT/CETEIcean, then AI stylesheets |
+  | W8 | Oct 27–30, meetings #20–22 | **8 Lemmatization** (was 9) |
+  | W9 | Nov 3–6, meetings #23–25 | **9 Named Entities**, new |
+  | W10–W13 | | 10–13, unchanged |
+  | not delivered | | **14 Collation** (was 7), **15 Apparatus** (was 8) |
+
+  - **Grading:** the 5% "Textual Variants & Collation" row became **Named-Entity Markup 5%**. Publication I has no assignment of its own; it counts toward the existing **Print-Ready Publication 5%**.
+  - **Due dates** follow the Friday-of-module-week pattern. Linguistic Markup is now due **Fri Oct 30** (was Nov 13). Named-Entity Markup is due **Fri Nov 6**.
+  - **What changed with the renumbering:** it was done in one regex pass (`git mv` plus cross-references in Modules 8 and 10–15, the banks, the research reports and the readings). `topic_map.py` maps 7 to `Module_07_Rendering`, 9 to `Module_09_Named_Entities`, 14 to Collation and 15 to Apparatus. The Module 8 meeting numbers and dates were corrected.
+  - **Moodle:**
+    - Sections 7–9 renamed.
+    - Hidden sections 14 (644320) and 15 (644321) added.
+    - Schedule (1418426) and Syllabus (1418425) PDFs replaced.
+    - Manifest refreshed.
+  - **Left alone:** Modules 1–6, which are already delivered.
+
 ---
 
 ## 3. Active Constraints & Inviolable Policies
@@ -98,6 +118,16 @@
 
 ## 4. Open Questions & Unresolved Issues
 
+- ⚠️ **[OPEN 2026-10-13] Fallout from skipping collation.**
+  - **13.1** teaches the stemma codicum, which needs collated witnesses. The 13.1 summary and `02_Learning_Objectives` still promise it, and the objectives list collation and apparatus policies.
+  - **Modules 10–13** still cross-reference Topics 14 and 15, which will not be taught.
+  - **Live Lesson 6.3 §29–30** still previews "Week 7: Collation". The students may need an announcement (Ken to approve).
+  - **Old module numbers:**
+    - The `01_Banner.png` images for 8, 14 and 15 still show the old numbers.
+    - The `dist/moodle` notes PDFs for 8.x, 14.x and 15.x carry the old lesson ids and need recompiling.
+  - **Module 8 Lemmatization** is bulk-authored and Greek/CLTK-centric (Morpheus, polytonic examples). It needs a novice rewrite against the three cohort documents before Oct 27.
+  - **Mid-term weight change:** StFX policy may require class agreement.
+- ⚠️ **[OPEN 2026-10-13] Lint gate already red at HEAD:** 387 `md-table` findings across all 36 lessons, delivered ones included. The rule postdates the content. New lessons must lint clean.
 - ⚠️ **[OPEN 2026-09-22] Verse coverage missing from the 4.1 question bank.** §08/§09 now teach `<lg>`/`<l>` and the `<l>`-vs-`<lb/>` distinction, but no question tests any of it. The bank is strictly 1:1 with the 30 sections (`<!-- NN Question -->`, one per section), and Q08/Q09 are sound questions about their sections' original material, so this is a real trade: either replace a good question or break the 1:1 mapping. **Unverified:** whether `interleaver_with_images.convert_md_to_xml` tolerates a section/question count mismatch — check before adding. Needs Ken's call.
 - ⚠️ **[OPEN 2026-09-22] Module 3 decks not at the 16pt floor.** `Lesson_3.2_Slides_2026-09-16.pptx` and `Lesson_3.3_Slides_2026-09-18.pptx` run ~94% of text under 16pt (bulk at 8.5–10.5pt), predating the §2 decision. Rebuilding each means the same content-cutting pass against its teaching plan, ~9 → 12–13 slides. Shared helpers and the floor check should move out of `scratch/build_slides_4.1.py` into one module all three builders import.
 - ⚠️ **[SUPERSEDED / PAUSED]:** Slide deck and media generation for Lesson 3.3 is paused. Ken's 2026-09-10 specification requires a full rewrite of Week 3 (3.1, 3.2, 3.3) to restore the Three-Step Comparative Cycle (Manual photography/scanning & TEI facsimile → Deterministic IIIF & image processing → AI-assisted layout analysis & alignment). Generating media for the old text would produce stale assets.

@@ -23,12 +23,12 @@ Ms't wiaqpulti'kl ankukamkewe'l. We are all treaty people.
 
 A practical, hands-on course on digital methods for processing historical texts and ancient manuscripts. Students develop practical skills in cataloguing, transcription, textual criticism, linguistic markup, translation, annotation, and digital publication. The course bridges traditional humanities scholarship with modern computational methods, preparing students for digital humanities research across disciplines.
 
-The course follows a cumulative \textbf{learning-by-project} design: in Week~1, each student selects a primary manuscript witness, and each weekly assignment throughout the term develops one layer of a complete, TEI-conformant digital scholarly edition of that passage---spanning cataloguing and metadata, diplomatic transcription, double-keying reconciliation, orthographic normalization, variant collation, critical apparatus, morphological tagging, translation alignment, and scholarly commentary, culminating in a print-ready digital edition portfolio.
+The course follows a cumulative \textbf{learning-by-project} design: in Week~1, each student selects a primary manuscript witness, and each weekly assignment throughout the term develops one layer of a complete, TEI-conformant digital scholarly edition of that passage---spanning cataloguing and metadata, diplomatic transcription, double-keying reconciliation, orthographic normalization, rendering for web and print, morphological tagging, named-entity markup, translation alignment, and scholarly commentary, culminating in a print-ready digital edition portfolio.
 
 To foster rigorous critical judgment, standard course weeks follow a \textbf{three-step comparative cycle}:
 \begin{enumerate}[leftmargin=*,noitemsep,topsep=2pt]
   \item \textbf{Tuesday (Manual):} Transcribing, regularizing, or parsing by hand in a plain text editor to produce an authoritative scholarly \textbf{ground truth}.
-  \item \textbf{Wednesday (Deterministic):} Applying specialized, rule-based software tools (e.g., Transkribus HTR models, CollateX, CLTK pipelines).
+  \item \textbf{Wednesday (Deterministic):} Applying specialized, rule-based software tools (e.g., Transkribus HTR models, XSLT stylesheets, CLTK pipelines).
   \item \textbf{Friday (AI-Assisted):} Evaluating modern LLMs and AI coding assistants against your ground truth to measure character and word error rates (CER/WER), audit hallucinations, and adjudicate editorial decisions.
 \end{enumerate}
 
@@ -38,14 +38,14 @@ By the end of this course, you should be able to:
 \begin{itemize}
   \item Understand and apply cataloguing techniques and metadata standards (RDF, TEI header) for historical manuscripts.
   \item Accurately transcribe text from manuscript images using manual, semi-automated, and automated OCR/HTR platforms (e.g., Transkribus, THREAD).
-  \item Perform automated and critical text collation (CollateX) to identify, categorize, and represent textual variants.
-  \item Apply TEI XML schema, linguistic markup, and morphological tagging to historical language corpora.
+  \item Render a TEI edition for readers on the web and in print, by hand, with XSLT, and with AI assistance.
+  \item Apply TEI XML schema, linguistic markup, morphological tagging, and named-entity markup to historical documents.
   \item Produce interlinear glosses, translation alignments, scholarly commentary, and print-ready digital editions.
 \end{itemize}
 
 \subsection*{Course Materials \& Tools}
 
-All reading assignments, software toolkits, and text/image repositories are provided electronically via Kwe' (Moodle) or open-access digital repositories (TEI Guidelines, GitHub, Transkribus, CollateX, CLTK).
+All reading assignments, software toolkits, and text/image repositories are provided electronically via Kwe' (Moodle) or open-access digital repositories (TEI Guidelines, GitHub, Transkribus, CETEIcean, CLTK).
 
 \subsubsection*{Technology Requirements}
 \begin{itemize}
@@ -78,15 +78,15 @@ The following table details the assessment components for RELS 398 / ENGL 398.
   \end{evalitemlist}
 }{5}
 
-\evalrow{Textual Variants \& Collation}{
-  \begin{evalitemlist}
-    \item CollateX apparatus criticus and variant taxonomy assignment.
-  \end{evalitemlist}
-}{5}
-
 \evalrow{Linguistic Markup}{
   \begin{evalitemlist}
     \item TEI XML morphological tagging and POS tagging assignment.
+  \end{evalitemlist}
+}{5}
+
+\evalrow{Named-Entity Markup}{
+  \begin{evalitemlist}
+    \item People, places, organizations and dates tagged in TEI and linked to authority records.
   \end{evalitemlist}
 }{5}
 
@@ -116,7 +116,7 @@ The following table details the assessment components for RELS 398 / ENGL 398.
 
 \evalrow{Print-Ready Publication}{
   \begin{evalitemlist}
-    \item Final formatted digital edition publication package.
+    \item Final formatted digital edition publication package, building on the Week 7 web and print rendering.
   \end{evalitemlist}
 }{5}
 

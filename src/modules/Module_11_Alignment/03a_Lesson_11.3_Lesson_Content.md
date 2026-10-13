@@ -1071,7 +1071,7 @@ You mastered:
 
 | Module Progression | Primary Pedagogical Focus | Core Digital Standard / Toolchain | Module Status |
 | --- | --- | --- | --- |
-| Topic 09 | Morphology & Lemmatization | Morpheus, CLTK, TEI `<w lemma="...">` | Completed |
+| Topic 08 | Morphology & Lemmatization | Morpheus, CLTK, TEI `<w lemma="...">` | Completed |
 | Topic 10 | Consolidation & Validation | Git remotes, PR review, Schematron | Completed |
 | Topic 11 | Sentence & Word Alignment | Leipzig Rules, TEI `<linkGrp>`, `fast_align`, LLMs | **Completed** |
 | Topic 12 | Digital Commentary & Apparatus | TEI §17, Open Annotation, Tesserae Cross-Ref | **Upcoming (Next Week)** |

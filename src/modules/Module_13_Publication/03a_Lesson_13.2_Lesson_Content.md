@@ -528,7 +528,7 @@ Furthermore, styling rules can reference external CSS stylesheets, allowing desi
 In advanced textual editing, a single XML element often requires **multiple distinct rendering passes**. For example, when displaying a critical apparatus entry (`<app>`), the system must execute two operations in strict succession:
 
 1. Render the accepted reading (`<lem>`) inline in the main reading text stream;
-2. Render an apparatus footnote anchored at the bottom of the page containing the lemma and all rejected manuscript variants (`<rdg>`) (Topic 8; Fischer, 2020).
+2. Render an apparatus footnote anchored at the bottom of the page containing the lemma and all rejected manuscript variants (`<rdg>`) (Topic 15; Fischer, 2020).
 
 A single `<model>` cannot output to two distinct places simultaneously. To solve this, the Processing Model provides the **`<modelSequence>`** container (TEI Consortium, 2026; Turska et al., 2016).
 
@@ -615,7 +615,7 @@ Using `<modelGrp>` organizes complex ODD files into clean, modular blocks, drama
 
 **Processing the Critical Apparatus: Mapping `<app>`, `<lem>`, and `<rdg>`**
 
-In Topic 8, you encoded multi-witness textual variation using the TEI Parallel Segmentation method (`<app>`, `<lem>`, `<rdg>`, `<listWit>`). Today, we configure the ODD processing model to transform these apparatus structures into an automated, interactive critical edition (Buzzoni, 2016; Fischer, 2020).
+In Topic 15, you encoded multi-witness textual variation using the TEI Parallel Segmentation method (`<app>`, `<lem>`, `<rdg>`, `<listWit>`). Today, we configure the ODD processing model to transform these apparatus structures into an automated, interactive critical edition (Buzzoni, 2016; Fischer, 2020).
 
 A complete apparatus processing model must accommodate three distinct publication modes:
 

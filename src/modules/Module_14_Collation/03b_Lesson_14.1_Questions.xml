@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_14_Collation/Lesson_14.1_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 14.1: Collating Two Witnesses by Hand.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: What Collation Is For</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary purpose of collating manuscript witnesses in textual scholarship?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Collation records differences because differences are evidence about transmission — not for their own sake.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To assemble a structured dataset of differences that serves as evidence for reconstructing textual transmission and descent.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Collation records differences not for their own sake, but because shared errors and omissions provide the evidential basis for inferring genealogical relationships.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To create a comprehensive catalogue of every scribal spelling mistake for linguistic archiving.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cataloguing variation for its own sake is not the goal; collation gathers evidence specifically to understand textual transmission.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To prove that the earliest surviving manuscript is the most authentic witness.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Collation does not presuppose the priority of any witness; it gathers data to test hypotheses about descent.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To automatically generate a definitive critical text without editorial intervention.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Collation produces the dataset of differences; establishing the text remains an interpretive editorial task.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The Base Text Problem</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does collating against a single chosen base text introduce methodological bias?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A base text privileges one witness's readings as the norm — with two witnesses this barely matters, and Wednesday's method avoids it entirely.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Differences are recorded as deviations from the base, structurally privileging its readings as the norm and framing other witnesses as corruptions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. If the base happens to be a poor witness, superior readings in other witnesses are recorded merely as departures from a corrupt baseline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Comparing against a base text makes it mathematically impossible to calculate edit distances.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Edit distances can still be calculated; the problem is the structural privilege assigned to the chosen baseline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A base text requires editors to discard all orthographic and punctuation evidence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A base text can record any layer of variation; the bias concerns how differences are framed relative to one witness.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Collation algorithms refuse to execute unless all witnesses are aligned simultaneously without a reference.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Many early computational programs were built explicitly around pairwise comparison against a master base text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Which Layer to Collate</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it standard practice to collate on the <reg> layer for the main critical apparatus while analyzing <orig> separately?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Collate on <reg> for the substantive apparatus and analyze <orig> separately — one collation cannot serve both purposes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Collating on <reg> isolates substantive variants from orthographic noise, while <orig> preserves evidence of scribal habit and dialect.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Collating unnormalized text produces massive noise that buries substantive variants, but suppressing orthography entirely would discard valuable scribal evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI schemas prohibit encoding <orig> readings within an apparatus criticus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI easily accommodates both layers; separating them is a methodological choice to maintain apparatus readability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Orthographic differences carry higher genealogical value than lexical substitutions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Orthographic variants are polygenetic and carry low stemmatic value compared to substantive lexical variants.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Collation on <reg> produces diplomatic transcriptions, whereas <orig> produces normalized reading editions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That reverses the terms: <orig> represents diplomatic forms and <reg> represents regularized forms.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Preparing the Witnesses</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When extracting text from TEI XML containing <choice> elements for collation, what happens if the unused layer is not removed before stripping tags?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Remove the layer you are not collating before stripping markup, or every <choice> produces a token that matches nothing.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Both <orig> and <reg> text are concatenated together into single nonsensical tokens that match nothing in other witnesses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Stripping markup without removing the alternate element merges both layers into strings like τιμιτιμή, destroying alignment.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The XML parser throws an unrecoverable validation error and halts extraction.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Regular expression or naive tag stripping does not fail with an XML error; it silently concatenates the text nodes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The extracted text automatically defaults to Unicode NFD normalization.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tag stripping does not alter Unicode normalization forms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Line break numbers are duplicated at every word boundary in the output.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The failure is token concatenation inside <choice>, not line number duplication.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Why Today Is on Paper</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is manual collation on paper pedagogically essential before attempting automated alignment?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>You will make dozens of tacit judgements today — the record of them, not the variant list, is what Wednesday needs.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It forces the editor to become aware of the dozens of tacit philological decisions and discounting rules that an algorithm must be told explicitly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Human readers normalize effortlessly and silently; working on paper slows the process down so implicit rules can be captured as configuration.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Paper collation is faster and less prone to fatigue than computational alignment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual collation is slow and highly fatiguing; its value is making implicit judgements explicit.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Digital collation tools cannot process non-Latin scripts like Polytonic Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX and modern tools handle Greek and UTF-8 encoded scripts cleanly when configured.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Funding agencies require a hand-written collation card archive for every digital edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no such requirement; the exercise is methodological and pedagogical.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: The Collation Procedure</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary procedural challenge encountered when collating two texts manually word by word?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Re-establishing alignment after an omission is the hard part by hand — and it is exactly what Wednesday's algorithm computes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Re-establishing alignment and resynchronizing the texts after encountering an omission or addition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. After an omission, the two texts fall out of step, requiring careful counting and scanning to find where they re-align.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Translating every foreign lexeme into English before recording its spelling.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Collation records verbatim readings and locations, not real-time translation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ensuring that both manuscripts use the exact same page dimensions and ruling lines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Codicological physical layout does not need to match across witnesses during collation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Converting all Greek characters to ASCII transliterations on the recording sheet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Readings are recorded verbatim in their authentic polytonic script.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: The Variant Taxonomy</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why do orthographic variants carry much lower genealogical value than long omissions or lexical substitutions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Orthographic variants are weak evidence because two scribes can produce them independently; long omissions are strong evidence because they cannot.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Orthographic variants are polygenetic and can be produced independently by multiple scribes sharing period phonology, whereas identical long omissions rarely occur by chance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Independent convergence is common in spelling (e.g., iotacism), whereas a specific lexical replacement or substantial omission points strongly to a shared ancestor.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Orthographic variants cannot be encoded within TEI critical apparatus elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI encodes all types of variants; the distinction is genealogical and philological, not technical.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Omissions and substitutions are always intentional, while spelling changes are always accidental.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Omissions are frequently mechanical errors (homoioteleuton), yet still carry very high stemmatic value.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Orthographic variants only occur in printed editions, never in handwritten manuscripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manuscript transmission is saturated with orthographic variation due to phonological evolution.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Homoioteleuton and Mechanical Omission</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the mechanism of <em>homoioteleuton</em> explain why omissions often form single extended gaps rather than scattered mismatches?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Check every omission's boundaries for similar endings — homoioteleuton is a single cognitive event, which is why Wednesday's algorithm penalizes gap opening rather than gap length.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A scribe's eye skips from one word ending to an identical or similar ending further down the page, dropping the intervening passage in a single cognitive lapse.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The skip occurs in one glance, which is why Gotoh's affine gap penalty models it as an open gap with low extension cost.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A scribe deliberately censors theological passages by systematically altering word endings across adjacent lines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Homoioteleuton is a mechanical visual error caused by similar endings, not deliberate censorship.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Physical ink degradation causes the parchment to lose legibility at fixed mathematical intervals.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Homoioteleuton is a cognitive copying error, not physical damage to the carrier.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The binding of the exemplar drops several leaves simultaneously whenever a quire is restitched.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lost leaves cause large codicological lacunae, whereas homoioteleuton is an eye-skip between similar words.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Transpositions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why do textual transpositions present a fundamental mathematical challenge for variant graph models like CollateX?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Mark transpositions distinctly — Wednesday's algorithm will report each as a separate omission and addition, and your record is what shows that is wrong.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The variant graph must remain a directed acyclic graph (DAG) to preserve linear reading order, so drawing a backward edge to moved text would create a forbidden cycle.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Traversal algorithms would loop infinitely on a cyclic graph, forcing CollateX to handle transpositions via secondary heuristics rather than primary graph edges.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transpositions alter the total character count of the file, invalidating UTF-8 checksums.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. UTF-8 checksums are irrelevant to sequence alignment logic.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dynamic programming matrices cannot compute alignment scores if words contain more than two syllables.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Dynamic programming operates on token sequences regardless of syllable length.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Transpositions can only occur in modern printed editions, so classical algorithms never supported them.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transpositions are common scribal errors and editorial rearrangements in ancient manuscripts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Recording What You Discount</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is maintaining a systematic list of discounted differences just as crucial as recording genuine variants?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The list of differences you discount becomes Wednesday's configuration — and its length measures how much manual collation relies on implicit knowledge.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The discounted list specifies the exact normalization rules needed to prevent automated alignment algorithms from generating massive noise.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Left unconfigured, an algorithm flags every minor capitalization or spelling difference as a substantive variant; the discounted list is the algorithm's configuration specification.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Discounted differences must be submitted to the publisher to justify deletion of manuscript witnesses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Witnesses are not deleted; discounted differences are simply neutralized during substantive collation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It proves to funding bodies that the manual collation required more hours than computational alignment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The discounted list serves a technical and editorial purpose, not a funding audit.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Moodle question banks require every discounted item to be formatted as a true/false quiz question.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The discounted list is used for configuring alignment tools, not quiz generation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Punctuation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the technical and evidential trade-off between stripping punctuation and tokenizing it separately during collation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Decide punctuation handling from what your witnesses actually do — stripping absent punctuation costs nothing, stripping meaningful punctuation costs evidence.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Stripping punctuation simplifies alignment but discards historical evidence of how scribes parsed syntax; tokenizing it preserves evidence at the cost of expanding graph size.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Punctuation carries historical interpretation, but separate tokens enlarge the variant graph and attached punctuation creates spurious lexical mismatches.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Stripping punctuation causes dynamic programming matrices to enter infinite recursion loops.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Stripping punctuation simplifies the matrix; it does not cause recursion errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tokenizing punctuation makes it impossible to detect substantive lexical substitutions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lexical substitutions are still detected; only the graph dimensions increase.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI guidelines strictly prohibit encoding punctuation marks inside <app> apparatus entries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI allows punctuation within apparatus readings if the editor chooses to record it.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Case Study: The Canterbury Tales Project</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How did Peter Robinson's <em>Canterbury Tales Project</em> transform manual collation data into genealogical stemmata?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Phylogenetic stemmatics consumes collation data as its input — the variant record you are building by hand is what those methods run on.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By applying phylogenetic algorithms from evolutionary biology (such as maximum parsimony and neighbour-joining) to distance matrices computed from collation data.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The project treated scribal copies with modification as analogous to biological evolution with mutation, constructing unrooted phylogenetic trees from collation metrics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By using optical character recognition to replace all manual transcriptions with machine vision models.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The breakthrough was applying biological phylogenetic software to structured collation data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By declaring that all fifty-five surviving manuscripts descended from a single lost 1476 Caxton print.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The project mapped manuscript traditions using evolutionary distance, not a simplistic Caxton derivation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By proving that manual index cards produce stemmata with zero error compared to automated graphs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Robinson moved away from Manly & Rickert's manual index card system to automated digital alignment.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Case Study: The Editio Critica Maior and Contamination</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does textual contamination in the Greek New Testament tradition break classical Lachmannian stemmatics?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Contamination breaks tree models, and Greek biblical traditions are heavily contaminated — do not over-interpret a two-witness collation as clean descent.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Contamination occurs when scribes consult multiple exemplars, creating a textual network with multiple parents that cannot be modeled as a single branching tree.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Lachmannian stemmata assume each witness has exactly one parent; when traditions cross-pollinate, tree models collapse and require network methods like the CBGM.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Contamination introduces physical chemical mold onto parchment, preventing multispectral imaging.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual contamination is the genealogical mixture of readings from different exemplars, not physical mold.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Contaminated traditions contain zero substantive variants, making collation unnecessary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Contaminated traditions contain vast numbers of competing substantive variants.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Lachmannian stemmatics was designed exclusively for vernacular Romance languages rather than ancient Greek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Lachmann's method was developed on classical Latin and Greek texts, but assumes uncontaminated stemma trees.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Working Through the Passage</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>During manual collation, what does a continuous stretch of five or more lines with zero recorded variants often indicate?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A long run with no variants may mean lost alignment rather than agreement — check before trusting it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The editor may have lost parallel alignment between the witnesses rather than discovered perfect agreement.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. When texts fall out of step, an editor can easily scan past differences unnoticed; long stretches of agreement should be checked for alignment integrity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The two manuscripts were undeniably copied by the exact same historical scribe on the same day.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scribes copying different exemplars rarely agree verbatim for long stretches without close kinship, but lost alignment must be ruled out first.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The text has transitioned from prose into metrical poetry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Verse passages also contain scribal variation; zero variants suggests possible missed alignment.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The transcription file has been corrupted by an unclosed XML tag.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual paper collation involves visual inspection, not XML parser crashes.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Recording the Collation Digitally</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the structured JSON format for manual collation, why are variant locations recorded separately for both Witness A and Witness B?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Record discounted differences alongside variants — they are Wednesday's configuration, not merely notes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because additions, omissions, and different layout formats cause the same variant site to appear at different folio, line, and word positions in each witness.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Each witness has its own codicological coordinates; recording both is essential for verifying alignment and citations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because JSON schemas require redundant location keys to satisfy valid XML conversion constraints.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. JSON schemas are designed by the editor; dual coordinates reflect codicological reality, not XML constraints.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Witness A is always assumed to be in Greek and Witness B in Latin translation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both witnesses are manuscripts of the same passage, but with different pagination and lineation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Git merge drivers will corrupt files that do not maintain mirrored key-value pairs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks text lines; recording both locations allows human and algorithmic verification.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Writing the Collation Method Document</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must the collation method document (<code>collation/METHOD.md</code>) be written immediately after manual collation rather than postponed?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Every imprecise line in the method document becomes a default you accept under time pressure tomorrow.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Every tacit decision left unrecorded becomes an arbitrary default accepted under time pressure when configuring automated tools.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Capturing discounting rules, tokenization policies, and taxonomy criteria while fresh ensures automated alignment is properly specified.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Late submission of markdown method files triggers automated penalties in the TEI validation suite.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI validation checks XML schema compliance, not the timestamp of your markdown method notes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX cannot execute unless it parses a compiled Markdown documentation header at runtime.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX is configured via Python scripts or JSON input, not by reading METHOD.md directly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Method documents must be registered with the GitHub API before branch merging is permitted.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. METHOD.md is an editorial specification for reproducibility, not a GitHub API requirement.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: What the Manual Method Gives You</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What capability does manual collation provide that deterministic alignment algorithms completely lack?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Manual collation supplies interpretation and classification that the algorithm cannot; the algorithm supplies scale and reproducibility that you cannot.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Continuous contextual interpretation, allowing the scholar to evaluate syntactic sense, recognize transpositions as single events, and classify variant significance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Human editors understand meaning, recognizing why a scribe made a mistake or that moved text is one event, whereas algorithms simply calculate string differences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The ability to collate millions of words across hundreds of witnesses without fatigue error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scaling to millions of words without fatigue is the distinct advantage of automated collation, not manual work.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Exact, mathematically reproducible output that never varies across repetitions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manual collation varies with human attention and fatigue; algorithms provide strict reproducibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automatic extraction of RGB channel layers from multispectral IIIF manifests.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Multispectral image processing is an imaging workflow, not manual collation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Preparing for Wednesday</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it essential to install and test CollateX in your Python environment prior to the automated collation workshop?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Install and test CollateX before Wednesday — installation failures are the commonest way to lose the session.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Environment and dependency installation issues are the most frequent cause of lost workshop time and can be resolved in advance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Testing imports and trivial collation runs beforehand ensures class time is spent on algorithm configuration and philological analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX requires a 24-hour background indexing job before processing its first text file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX aligns short texts in fractions of a second without background pre-indexing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Python packages cannot be installed on Linux workstations once a git repository is initialized.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Package installation via pip is independent of git repository status.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX licenses must be verified against an institutional proxy server every morning.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX is an open-source library requiring no proprietary license verification.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Checklist Before You Leave</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>If a manual collation between two witnesses reveals zero omissions and zero transpositions, what should the editor conclude?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Finding no omissions or transpositions is a finding about your witnesses' relationship, not a failed exercise.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The absence of complex variance is itself an informative finding indicating a close genealogical relationship between the witnesses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Close witnesses may differ only in minor orthographic or morphological ways; lack of dramatic errors is valuable genealogical evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The collation has failed and must be repeated from scratch on an entirely different chapter.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A clean or closely matching textual transmission is a valid historical finding, not a failure.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The editor must fabricate an omission to properly test Wednesday's alignment algorithm.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editors never invent fake manuscript readings in authentic editions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The witnesses must be discarded because identical texts cannot be encoded in TEI XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Close witnesses are easily encoded and provide valuable confirmation of textual stability.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Common Problems Today</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>If a preliminary manual or automated extraction reports disagreement at virtually every single word position, what is the most probable cause?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Disagreement everywhere usually means a broken extraction, and agreement everywhere usually means either close kinship or lost alignment — verify before concluding.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A broken extraction pipeline that concatenated both <orig> and <reg> layers or failed to align the passage starting point.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Pervasive disagreement across the entire text almost always points to an extraction error (like unstripped dual tags) or misaligned start tokens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The two scribes were writing in completely different dialects of ancient Greek that share no vocabulary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Witnesses of the same passage share vocabulary; total mismatch indicates a technical alignment or extraction breakdown.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Greek Unicode polytonic text was converted into Latin ASCII hex codes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hex code conversion would corrupt characters visibly, but extraction concatenation is the common failure.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The manuscript exemplar was written in a non-linear boustrophedon layout.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Medieval Greek manuscripts are not written boustrophedon; the issue is pipeline preprocessing.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: What Good Work Looks Like Here</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What distinguishes high-quality philological collation from a mere mechanical list of differences?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Recording that an omission is bounded by similar endings turns a datum into an interpretation — and changes what the variant is evidence for.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Evaluating the mechanism and context of variants — such as checking omission boundaries for homoioteleuton to distinguish mechanical skips from deliberate edits.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Scholarship transforms raw differences into evidence by analyzing scribal mechanisms, syntactic context, and genealogical significance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ensuring that every single spelling variation is printed in bold red ink in the final apparatus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Good work exercises editorial filtering rather than highlighting noise with typography.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Replacing all Latin grammatical terminology with modern computational software terms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Traditional philological analysis remains the interpretive framework for understanding textual descent.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Rejecting all computational tools in favor of hand-written index cards.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. High-quality work combines rigorous manual analysis with computational alignment.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Two Witnesses and Its Limits</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is it generally impossible to determine which reading is original when collating exactly two witnesses?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Two witnesses record variation and cannot generally determine which reading is original — state that limit rather than overreaching.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Without a third independent witness or external genealogical structure, there is no majority reading to break ties between competing grammatical variants.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. With two witnesses, one can record differences and analyze scribal habits, but establishing originality requires broader witness evidence or strong internal criteria.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Two witnesses cannot be compared using dynamic programming matrices.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pairwise comparison is precisely what dynamic programming does best.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI critical apparatus modules require a minimum of five witnesses before validating XML syntax.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI schemas validate apparatus entries with two or more readings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Copyright law prohibits establishing priority between fewer than three historical artifacts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical manuscripts are in the public domain; the limitation is purely stemmatic.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Genetic Editing: A Different Application</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does genetic editing apply collation tools like CollateX to modern authorial manuscripts?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Treating drafts as witnesses makes the same machinery trace authorial revision — and your own Git history is a genetic edition of your edition.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By treating successive authorial drafts and revision campaigns as distinct witnesses to trace the development of a text over time.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In genetic editions (e.g., Darwin or Beckett projects), drafts represent temporal layers within the creation process rather than scribal copying errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By sequencing the biological DNA of the author from hair samples left on the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Genetic editing is the study of textual genesis and authorial revision, not biological genome sequencing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By automatically deleting all rejected authorial revisions to produce an unblemished clean text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Genetic criticism preserves and visualizes every layer of expansion, deletion, and revision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By proving that modern authors never revise their texts once a first draft is completed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Modern authorial manuscripts are characterized by intense, multi-layered revision campaigns.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Connecting to Week 8</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must an editor establish a clear variant taxonomy and filtering policy before generating Week 8's critical apparatus?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Your taxonomy determines what enters Week 8's apparatus — including everything makes it unreadable, so the filtering policy must be stated.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An apparatus containing every trivial orthographic variation is practically unreadable, so the editor must define which tiers are reported in the main apparatus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Critical editions filter out non-substantive noise so readers can focus on meaningful lexical, morphological, and structural variation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI apparatus module crashes if an edition contains more than ten total variant entries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI handles thousands of entries; filtering is an editorial readability necessity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Orthographic variants are legally protected under fair dealing exceptions and cannot be published.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There are no copyright restrictions on ancient manuscript spelling variants.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Moodle question banks only support multiple-choice questions based on lexical substitutions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Question banks can test any topic; apparatus filtering is a scholarly standard.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Synthesis: The Judgement Behind the Comparison</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In what sense does automated collation NOT perform the textual criticism for the editor?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automated collation produces the dataset on which criticism is performed; today's judgements are the criticism, and they are what the tool must be told.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The algorithm only aligns character strings according to rules it is given; defining what counts as a variant, classifying its type, and interpreting its descent remain human judgements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Automation creates a mathematically rigorous dataset, but textual criticism consists of the philological interpretation performed upon that data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated collation produces corrupt binary output that cannot be read by human scholars.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX exports standard tables, CSV, DOT graphs, and TEI XML.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Algorithms cannot execute unless an editor manually approves every single word match in real time.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Algorithms run autonomously once configured; the human role is configuration, classification, and evaluation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Textual criticism is concerned solely with measuring physical ink weight rather than variant readings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual criticism evaluates textual variation and transmission history.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: A Note on Fatigue and Reliability</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When automated collation identifies a variant in your text that was not present in your manual collation record, how should it be evaluated?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Wednesday will find variants you missed through fatigue — treat those as findings rather than as the tool's false positives.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>As a potential genuine variant missed during manual collation due to human fatigue, which should be verified against the manuscript facsimile.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Machine attention is uniform and indefatigable; discrepancies should be investigated as valuable corrections rather than reflexively dismissed as tool errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As an unrecoverable software glitch caused by processor overheating.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Deterministic algorithms execute logic faithfully; novel variants are often human omissions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As proof that the digital image of the manuscript was altered during download.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Image files remain constant; human attention lapses during repetitive manual comparison.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>As a hallucination generated by the compiler's neural network cache.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX is a deterministic sequence alignment engine, not a generative language model.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Estimating What Automation Must Suppress</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is comparing the count of discounted differences against recorded variants a useful diagnostic before running automated collation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Predict tomorrow's raw difference count from your discounted list — a large discrepancy means either your list is incomplete or the tool tokenizes differently than you assume.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The ratio predicts the expected signal-to-noise ratio and establishes a baseline for how aggressively the normalization pipeline must filter non-substantive variance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. If discounted differences far outnumber variants, an unconfigured run will produce massive noise; predicting the count tests your understanding of the pipeline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>If the count of discounted differences is odd, the collation algorithm will throw a division-by-zero error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Sequence alignment algorithms do not depend on even numbers of discounted tokens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A high count of discounted differences proves that the manuscript was forged in the Renaissance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. High orthographic variation reflects natural linguistic evolution and scribal phonology.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It allows the editor to calculate the exact monetary cost of cloud GPU computing hours.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX runs locally on a standard CPU with negligible computational cost.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Tokenization as a Decision</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is rejoining words split across line breaks an essential preprocessing step in manuscript tokenization?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Rejoin words broken across lines before tokenizing, or your witnesses will differ wherever their line breaks fall differently.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Witnesses break lines at different places, so treating hyphenated fragments as separate tokens would create spurious variant mismatches at every single line ending.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Lineation is an artifact of page layout; failing to rejoin words fractures the alignment at every line break.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Greek grammatical syntax prohibits words from having more than seven letters on a single line.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Greek words can be of any length; scribes split words across lines according to syllabic rules.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Unicode NFC normalization automatically strips all line breaks from XML documents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. NFC normalizes character compositions; it does not remove line break elements or newlines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX cannot parse files containing whitespace characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX splits on whitespace by default; the problem is words broken into two separate chunks.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: What Today Produced</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are half of the outputs produced during manual collation actually specifications for Wednesday's automated alignment rather than finished results?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Half of today's outputs are configuration for tomorrow rather than results — the manual step specifies the automation as well as providing the reference.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because defining tokens, discount rules, normalization layers, and baseline expectations provides the exact configuration required to run automated collation meaningfully.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The manual step produces both a verification reference and the explicit rule specification needed to configure algorithmic alignment.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because manual collation records are discarded as soon as the student leaves the classroom.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The manual record is committed and tagged as the benchmark against which automation is evaluated.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because digital tools refuse to execute unless fed hand-written paper notes via a scanner.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tools consume digital configuration files (JSON/Python) derived from manual analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the university examination board requires half of all coursework to be stored in physical binders.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The dual output reflects the relationship between human ground truth and machine configuration.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: Recording Difference, Interpreting Descent</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the ultimate relationship between recording textual differences and interpreting textual descent?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Collation produces evidence for inferences about descent, and the inferences depend on a classification only judgement supplies.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Recording differences creates the necessary dataset, but determining genealogical descent depends entirely on qualitative variant classification and philological judgement.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Data collection is the foundation, but inferences about stemmatic trees or textual flow require analyzing which variants represent shared ancestral errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Recording differences automatically generates an infallible stemma without requiring variant classification.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Raw difference counts conflate polygenetic spelling with stemmatic errors, leading to erroneous stemmata.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Interpreting descent is done purely by carbon-dating parchment leaves, making variant recording obsolete.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Physical dating provides termini, but textual descent is determined through collation analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Genealogical descent can only be established for modern printed editions with known copyright dates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Stemmatics was developed specifically to reconstruct ancient and medieval manuscript traditions.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

@@ -110,7 +110,7 @@ To guarantee unconditional, permanent access, digital editors compile **Standalo
 
 The layout above is the one this course's own build script produces (Section 14 onward). **Edition Visualization Technology (EVT)** takes a different route to the same goal: rather than compiling a bespoke bundle, you drop your TEI XML and facsimiles into EVT's prebuilt client-side viewer and configure it through a settings file. Either way, the output is a static bundle. The entire edition can be distributed on USB flash drives, attached to archival journal submissions, or hosted for free on GitHub Pages indefinitely (Buzzoni, 2016; Driscoll & Pierazzo, 2016).
 
-**Current status (September 2026).** EVT 3 v2.0.0-beta ("Beta 2") was released on 28 September 2026 ([release announcement](https://visualizationtechnology.wordpress.com/2026/09/28/evt-3-beta-2-evt-3-v2-0-0-beta-available-for-download-and-testing/)). It consolidates configuration into a single YAML file, supports double-end-point attachment for the critical apparatus (compare Module 8), refines line-level image–text highlighting (compare Module 3), and adds an *Errors* button that surfaces encoding mistakes. Running it requires a local web server (VS Code Live Server, or Git/npm), not a double-click. The developers state plainly that the beta is not yet ready for publishing editions; a stable release is planned for 2027. Treat EVT 3 as a tool to explore and test your encoding against, not as the delivery platform for your final package.
+**Current status (September 2026).** EVT 3 v2.0.0-beta ("Beta 2") was released on 28 September 2026 ([release announcement](https://visualizationtechnology.wordpress.com/2026/09/28/evt-3-beta-2-evt-3-v2-0-0-beta-available-for-download-and-testing/)). It consolidates configuration into a single YAML file, supports double-end-point attachment for the critical apparatus (compare Module 15), refines line-level image–text highlighting (compare Module 3), and adds an *Errors* button that surfaces encoding mistakes. Running it requires a local web server (VS Code Live Server, or Git/npm), not a double-click. The developers state plainly that the beta is not yet ready for publishing editions; a stable release is planned for 2027. Treat EVT 3 as a tool to explore and test your encoding against, not as the delivery platform for your final package.
 
 **Vocabulary.** *Serverless edition bundle* — a digital edition compiled into static HTML/JS/CSS files requiring no server-side database. *Edition Visualization Technology (EVT)* — an open-source static client tool for rendering TEI critical and diplomatic editions. *Server decay* — the eventual failure and abandonment of digital projects due to unmaintained server infrastructure.
 
@@ -384,7 +384,7 @@ A hallmark of scholarly critical editions is the **multi-tiered apparatus**: div
 In our digital edition of 1 Thessalonians 2, we establish a **two-tier apparatus layout**:
 
 - **Tier 1 (Significant Textual Variants):** Significant variants affecting the stemma, translation, or theological interpretation;
-- **Tier 2 (Orthographic & Scribal Variants):** Trivial spelling variations, iotacisms, movable nus, and scribal slips (Topic 8; Topic 13.1).
+- **Tier 2 (Orthographic & Scribal Variants):** Trivial spelling variations, iotacisms, movable nus, and scribal slips (Topic 15; Topic 13.1).
 
 ```css
 /* Footnote Stream Base Styling */
@@ -798,7 +798,7 @@ To guarantee that your digital edition can be cited permanently, you must assign
 Two primary persistent identifier systems are employed in computational philology:
 
 1. **Digital Object Identifiers (DOIs):** Managed by DataCite and Crossref, a DOI (e.g., `10.5281/zenodo.1234567`) provides a persistent, globally unique handle that resolves to the current web address of the publication package (Wilkinson et al., 2016).
-2. **Canonical Text Service (CTS) URNs:** Developed by the Homer Multitext project, CTS URNs provide permanent, citation-based identifiers that reference specific texts, versions, and passage passages regardless of where the file is hosted (Smith & Blackwell, 2012; Topic 9).
+2. **Canonical Text Service (CTS) URNs:** Developed by the Homer Multitext project, CTS URNs provide permanent, citation-based identifiers that reference specific texts, versions, and passage passages regardless of where the file is hosted (Smith & Blackwell, 2012; Topic 8).
 
 | CTS URN Component | Segment Value in 1 Thess 2:7 | Ontological Level | Resolving Target |
 | --- | --- | --- | --- |
@@ -953,16 +953,16 @@ The analytical engine of your digital edition performs computational collation, 
 
 #### 26.1 Layer 5: Algorithmic Collation (CollateX)
 
-- Execute Python collation scripts using CollateX to align the four witnesses into a mathematical variant graph and alignment table (Topic 7).
+- Execute Python collation scripts using CollateX to align the four witnesses into a mathematical variant graph and alignment table (Topic 14).
 
 #### 26.2 Layer 6: Parallel Segmentation Critical Apparatus (`<app>`)
 
 - Encode variation units using parallel segmentation (`<app><lem wit="...">...<rdg wit="...">...</app>`);
-- Adjudicate disputed variants using stemmatic authority, *lectio difficilior potior*, and *lectio brevior* (Topic 8; Topic 13.1).
+- Adjudicate disputed variants using stemmatic authority, *lectio difficilior potior*, and *lectio brevior* (Topic 15; Topic 13.1).
 
 #### 26.3 Layer 7: Morphosyntactic Parsing and Lemmatization
 
-- Tokenize words into `<w>` elements carrying `@lemma`, `@pos`, and Leipzig grammatical tags, processed via the Classical Language Toolkit (CLTK) (Topic 9; Topic 10).
+- Tokenize words into `<w>` elements carrying `@lemma`, `@pos`, and Leipzig grammatical tags, processed via the Classical Language Toolkit (CLTK) (Topic 8; Topic 10).
 
 #### 26.4 Layer 8: Stratified Translation and Interlinear Glossing
 

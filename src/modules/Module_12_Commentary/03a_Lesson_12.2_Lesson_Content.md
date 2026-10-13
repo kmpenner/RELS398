@@ -91,7 +91,7 @@ The preprocessing pipeline executes four mandatory transformations:
 
 In classical Latin, enclitics like *-que* ("and"), *-ve* ("or"), and *-ne* (interrogative particle) attach directly to the preceding word without a space. If *virumque* is not split into *virum* and *que*, the word *virum* will fail to match a parallel occurrence of *virum* in another text. Tesserae employs specialized morphological rule-parsers to detach enclitics prior to indexing (Coffee et al., 2012).
 
-Once tokenized and decomposed, every word is mapped to its dictionary lemma using morphological databases such as the Perseus Morpheus engine or the Classical Language Toolkit (CLTK) (Lesson 9.1). The entire corpus is then indexed into an inverted table mapping every lemma to its exact CTS URN or line coordinates (Blackwell & Smith, 2014).
+Once tokenized and decomposed, every word is mapped to its dictionary lemma using morphological databases such as the Perseus Morpheus engine or the Classical Language Toolkit (CLTK) (Lesson 8.1). The entire corpus is then indexed into an inverted table mapping every lemma to its exact CTS URN or line coordinates (Blackwell & Smith, 2014).
 
 **Vocabulary.** *Enclitic* — a grammatically dependent word that attaches phonologically and orthographically to the preceding word. *Lemmatization* — the algorithmic process of grouping together inflected forms of a word so they can be analyzed as a single item. *Stopword* — a high-frequency function word filtered out or downweighted during information retrieval.
 

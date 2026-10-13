@@ -11,13 +11,16 @@ TOPIC_MAP = {
     4: "Module_04_Transcription",
     5: "Module_05_Reconciliation",
     6: "Module_06_Normalization",
-    7: "Module_07_Collation",
-    8: "Module_08_Apparatus",
-    9: "Module_09_Lemmatization",
+    7: "Module_07_Rendering",
+    8: "Module_08_Lemmatization",
+    9: "Module_09_Named_Entities",
     10: "Module_10_Consolidation",
     11: "Module_11_Alignment",
     12: "Module_12_Commentary",
     13: "Module_13_Publication",
+    # Kept but not delivered in 2026: no cohort project has multiple witnesses.
+    14: "Module_14_Collation",
+    15: "Module_15_Apparatus",
 }
 MODULE_MAP = TOPIC_MAP
 
@@ -33,13 +36,15 @@ LESSON_MAP = {
     4:  ["4.1", "4.2", "4.3"],
     5:  ["5.1", "5.2"],                 # Wed Sep 30 closed; two-step by design
     6:  ["6.1", "6.2", "6.3"],
-    7:  ["7.1", "7.2", "7.3"],
+    7:  ["7.1", "7.2", "7.3"],          # Rendering (Publication I)
     8:  ["8.1", "8.2", "8.3"],
-    9:  ["9.1", "9.2", "9.3"],
+    9:  ["9.1", "9.2", "9.3"],          # Named entities; not yet authored
     10: ["10.1", "10.2"],               # Wed Nov 11 closed; consolidation
     11: ["11.1", "11.2", "11.3"],
     12: ["12.1", "12.2", "12.3"],
     13: ["13.1", "13.2", "13.3"],       # studio weeks; no cycle
+    14: ["14.1", "14.2", "14.3"],       # Collation; not delivered 2026
+    15: ["15.1", "15.2", "15.3"],       # Apparatus; not delivered 2026
 }
 
 

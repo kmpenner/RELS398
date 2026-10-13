@@ -1225,7 +1225,7 @@ each methodological component resides in its designated home:
 | `data/facsimiles/` | Topic 3 (IIIF Imaging) | IIIF manifest URLs, canvas coordinates, and high-resolution crops. |
 | `data/transcriptions/` | Topics 4-6 (Transcription/Reconciliation) | Diplomatic transcriptions, consensus texts, and normalized TEI XML files. |
 | `data/apparatus/` | Topics 7-8 (Collation/Apparatus) | Collation matrices, variant alignment trees, and critical apparatus entries. |
-| `data/morphology/` | Topic 9 (Lemmatization) | Morphologically tagged tokens, Greek POS annotations, and lexical keys. |
+| `data/morphology/` | Topic 8 (Lemmatization) | Morphologically tagged tokens, Greek POS annotations, and lexical keys. |
 | `schemas/` | Topic 10 (Validation) | Canonical RELAX NG and ISO Schematron constraint files. |
 | `src/modules/` | Topics 1-13 | Course markdown lessons, reading notes, and research syntheses. |
 
@@ -1261,7 +1261,7 @@ the following checklist:
    your local `main` branch, pushing the clean state to your fork.
 
 3. **Push Active Branches:** Ensure that your current feature branches (including
-   your Topic 9 lemmatization and linguistic markup work) are pushed to `origin`.
+   your Topic 8 lemmatization and linguistic markup work) are pushed to `origin`.
 
 4. **Complete Assignment 3:** Finalize your **Linguistic Markup Assignment**, which
    is formally due this Friday, November 13.

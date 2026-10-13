@@ -311,7 +311,7 @@ The `context` attribute establishes the focal node in the XML tree, while the
 `test` attribute contains an XPath expression evaluated from the perspective of
 that focal node (Kalvesmaki, 2024).
 
-Let us examine a concrete philological rule: in our critical apparatus (Topic 8),
+Let us examine a concrete philological rule: in our critical apparatus (Topic 15),
 every apparatus entry (`<app>`) must contain at least one reading (`<rdg>`) or
 lemma (`<lem>`), and every `<rdg>` element must explicitly specify which manuscript
 witness attests that reading via the `@wit` attribute (TEI Consortium, 2026).
@@ -406,7 +406,7 @@ valid declared identifier.
 
 **Validating Linguistic and Attribute Co-Occurrences**
 
-In Week 9, you encoded morphological and lexical metadata for every Greek word in
+In Week 8, you encoded morphological and lexical metadata for every Greek word in
 your passage using the TEI `<w>` element. A valid linguistic layer requires strict
 co-occurrence rules: each word token must carry a dictionary headword (`@lemma`), a
 grammatical part-of-speech category, and a morphological feature string (TEI
@@ -1022,7 +1022,7 @@ manuscript evidence.
 **Auditing Normalization, Collation, and Variant Apparatus**
 
 The third domain of our audit evaluates the **normalization layer** (Topic 6), the
-**collation results** (Topic 7), and the **critical apparatus** (Topic 8). In this
+**collation results** (Topic 14), and the **critical apparatus** (Topic 15). In this
 domain, reviewers evaluate how the editor mediated between the raw manuscript
 witness and the critical text (TEI Consortium, 2026).
 
@@ -1058,7 +1058,7 @@ philologically justified.
 **Auditing Linguistic Markup and Morphosyntax (Assignment 3)**
 
 The fourth domain of today's audit focuses directly on the **Linguistic Markup
-Assignment (Assignment 3)**, which is formally due today. In Week 9, you lemmatized
+Assignment (Assignment 3)**, which is formally due today. In Week 8, you lemmatized
 and morphologically tagged your assigned Greek passage. Today, peer reviewers will
 audit these linguistic annotations before final submission (TEI Consortium, 2026).
 

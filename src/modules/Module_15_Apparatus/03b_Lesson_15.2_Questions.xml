@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_15_Apparatus/Lesson_15.2_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 15.2: Automated Apparatus Generation with CollateX and Validation.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: From Alignment Graph to Critical Apparatus</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the context of computerized collation, what computational process converts an in-memory variant graph into a TEI critical apparatus?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automated apparatus generation is the serialization of an algorithmic variant graph into standardized TEI XML.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Serialization of the directed acyclic graph's vertices and divergent branches into standardized TEI XML elements like <app>, <lem>, and <rdg>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Automated apparatus generation serializes the abstract nodes and edges of the variant graph into standardized, machine-actionable XML elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Rasterization of vector graph diagrams into high-resolution PNG images for web display.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Apparatus generation produces structured TEI XML data, not rasterized image files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deletion of all divergent graph branches to produce a single uniform text string.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An apparatus preserves divergent paths as variant readings rather than deleting them.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Random permutation of graph vertices to test database indexing speed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Graph traversal follows topological order across aligned witnesses to preserve textual sequence.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The Gothenburg Model: Export Phase Architecture</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>According to the Gothenburg Model of automated collation, why is Phase 5 (Export) dependent on Phase 1 (Tokenization) and Phase 2 (Normalization)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Gothenburg Model isolates apparatus export as Phase 5, meaning exported XML fidelity depends entirely on upstream tokenization and normalization.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because any tokenization error or un-normalized spelling in Phases 1 and 2 flows directly into graph alignment and corrupts the resulting TEI apparatus export.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Gothenburg Model separates concerns into sequential phases; flaws in early token segmentation or normalization cascade downstream into false apparatus variants.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Phase 5 executes first and dictates how raw manuscript folios must be scanned.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The pipeline flows sequentially from Phase 1 (Tokenization) to Phase 5 (Export).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the TEI P5 schema forbids exporting XML unless HTR neural models are embedded in Phase 2.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Gothenburg Model is an architectural pipeline, not a schema validation rule.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because CollateX refuses to run unless all five phases are executed in separate programming languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. All phases can be executed within a unified Python or Java environment.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: CollateX Output Formats and TEI Parallel Segmentation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does CollateX's native TEI export default to generating un-lemmatized <rdg> elements for all witnesses?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CollateX natively exports TEI XML using Parallel Segmentation, producing un-lemmatized <rdg> elements unless a base text is explicitly configured.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because algorithmic collation aligns witnesses neutrally without assuming editorial hierarchy, leaving the assignment of lemma privilege to human scholars.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. By default, CollateX treats all witnesses symmetrically as competing readings in <rdg> tags unless a base text is explicitly designated.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the TEI P5 Relax NG schema strictly forbids the use of the <lem> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The <lem> element is fully standard in TEI; omitting it by default is a methodological design choice in CollateX.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because CollateX can only output plain text files and cannot generate XML tags.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX natively supports TEI XML, GraphML, JSON, and HTML outputs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because designating a lemma causes CollateX to crash due to integer overflow.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX supports base text designation via parameters like base_text='...' without technical issues.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Running CollateX to Generate TEI XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How is automated TEI apparatus generation invoked programmatically using the Python collatex library?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Python collatex.collate() API automates the generation of TEI XML apparatuses directly from programmatic witness collections.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By instantiating a Collation object, adding witness transcriptions, and executing collate(collation, output='tei').</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The collate() function accepts the Collation container and an output parameter (e.g. output='tei') to return serialized XML directly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By writing raw XML tags manually inside an interactive shell without a collation library.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hand-writing XML is the manual method from Lesson 15.1, not programmatic CollateX execution.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By executing an SQL INSERT statement into a proprietary database table.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX operates in Python or Java memory on Collation objects, not via SQL databases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By converting manuscript images into PDF files using standard image viewers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Collation operates on textual transcriptions and token streams.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Anatomy of Generated Parallel Segmentation XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In raw TEI XML generated natively by CollateX, how are identical readings and invariant text structured?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CollateX automatically consolidates identical witnesses into shared <rdg> elements and inlines invariant text, but requires post-processing to add editorial metadata.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Identical witness readings are consolidated into single <rdg> elements with combined @wit values, while invariant text is inlined outside <app> containers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. CollateX merges shared readings into space-separated @wit attributes (e.g. wit="#WitA #WitB") and outputs invariant segments directly in the text stream.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Every single word in the entire document is enclosed in its own distinct <app> container.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Invariant text flows directly as text nodes without redundant <app> tags.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Witness sigla are converted into random hexadecimal strings that cannot be resolved.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX preserves witness identifiers prefixed by '#' in the @wit attribute.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All punctuation marks are stripped and replaced with Latin grammatical glosses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX does not insert grammatical glosses; punctuation handling depends on upstream tokenization.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: The Base Text Assignment in Automated Collation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What methodological change occurs when the base_text parameter is specified during CollateX execution?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Designating a base text in CollateX automatically populates the <lem> element, but structurally privileges that witness's readings.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>CollateX wraps the designated witness's reading in <lem> and places diverging readings in <rdg>, structurally privileging the base text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Specifying a base text transforms the output from a neutral multi-witness list into an asymmetrical apparatus with an established lemma.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX deletes all other witnesses from the output file completely.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Diverging witnesses are preserved in subsequent <rdg> elements inside each <app>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX converts the XML output from Parallel Segmentation to Location-Referenced format.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The linking architecture remains Parallel Segmentation; only element assignment (<lem> vs <rdg>) changes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX forces all readings to match the grammatical syntax of the Vulgate Bible.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX performs mechanical token alignment without applying Latin grammatical rules.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: The Problem of Orthographic Noise in Algorithmic Collation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does un-normalized historical spelling cause severe problems for deterministic collation engines like CollateX?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Un-normalized historical spelling creates severe orthographic noise in CollateX, obscuring substantive variants and fragmenting apparatus entries.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Exact string matching treats superficial phonetic and spelling variations as substantive variants, creating noise and causing alignment drift.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Un-normalized orthography (e.g. 'rois' vs. 'roys') causes CollateX to generate thousands of false variants and misalign subsequent word tokens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Spelling variations cause XML parsers to throw well-formedness syntax errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML parsers handle any valid Unicode string; the problem is algorithmic alignment and noise.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX is programmed to only accept 21st-century modern English spelling.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX is language-agnostic; it fails on orthographic noise because it performs literal character-level string comparisons.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Historical spelling variants automatically trigger copyright restrictions on digital editions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Orthographic noise is a computational alignment challenge, not a legal issue.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: The FALCON Solution: NLP Pre-Processing and Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the FALCON pipeline solve the problem of orthographic noise in computerized collation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The FALCON workflow aligns witnesses on normalized lemmas ('n') while preserving diplomatic surface strings ('t'), eliminating orthographic noise in automated collation.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It enriches tokens with normalized lemmas ('n') for alignment while retaining diplomatic surface forms ('t') for apparatus display.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. FALCON aligns witnesses using normalized dictionary headwords ('n'), preventing alignment drift while preserving raw manuscript spellings ('t').</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It permanently deletes all raw manuscript transcriptions and replaces them with modern translations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. FALCON preserves diplomatic surface forms ('t') and re-injects them into the final edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires all manuscripts to be re-copied by hand into standardized Classical Latin.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The pipeline uses automated NLP lemmatizers (such as Pyrrha or Pie) on historical texts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It disables the Export phase of the Gothenburg Model to prevent XML generation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. FALCON enhances Phase 2 (Normalization) to produce superior TEI XML in Phase 5.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Re-Injecting Critical Variants into TEI XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What occurs during the variant re-injection stage of the FALCON architecture?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Re-injection maps diplomatic surface forms back into aligned graph nodes, automatically classifying variants into substantive and orthographic categories.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Diplomatic surface forms are mapped back onto aligned graph nodes, automatically classifying entries into substantive and orthographic variants.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Re-injection compares surface forms against aligned lemma nodes, outputting invariant text where both match and tagging @type='orthographic' or 'substantive' where they diverge.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The alignment graph is deleted and replaced with a static PDF scan.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Re-injection populates the TEI XML apparatus with rich paleographical readings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All variant readings are stripped of witness sigla to save disk space.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Full witness attestation is preserved across all re-injected readings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The software randomly assigns lemmas to readings using a stochastic seed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Re-injection is fully deterministic, based on aligned lemma and surface token properties.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: The Concept of Stratified Editing</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In Ariane Pinche's paradigm of stratified editing, what is the relationship between the TEI critical apparatus and underlying transcription layers?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Stratified editing preserves raw ATR, diplomatic transcription, normalized tokens, and critical apparatus markup as distinct, reusable layers of scholarship.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The apparatus is the fourth stratum of scholarly knowledge, built upon transparent and reusable lower strata of raw ATR, diplomatic text, and normalized tokens.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Stratified editing treats digital editions as multi-layered architectures where critical apparatuses link back to auditable diplomatic and normalized data layers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The apparatus completely replaces and destroys all earlier transcription and recognition strata.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Traditional print editing destroyed intermediate notes; stratified digital editing explicitly preserves every stratum.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The apparatus is restricted to Stratum 1, while raw HTR outputs are placed in Stratum 4.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Stratum 1 contains raw machine recognition; Stratum 4 contains the synthesized critical apparatus.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Stratified editing requires digital editions to be published exclusively on paper.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Stratified editing is a digital architecture designed for transparent, multi-tiered electronic scholarship.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Managing Transpositions in Algorithmic Apparatuses</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does Parallel Segmentation struggle to represent textual transpositions algorithmically?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Parallel segmentation cannot linearly serialize crossed graph edges, fragmenting complex transpositions into artificial additions and omissions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because crossed edges in a variant graph cannot be serialized into linear, inline XML elements without fragmenting the transposition into artificial additions and omissions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Linear XML nesting cannot model inverted word sequences simultaneously; CollateX typically splits a transposition into separate deletion and insertion units.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because transpositions are prohibited by the TEI P5 textcrit schema.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI supports transpositions via double-endpoint attachment or the <transpose> element; the limitation is inline parallel segmentation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Greek and Latin manuscripts never contain word order variations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Transpositions are among the most common scribal variations in ancient and medieval traditions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because variant graphs are incapable of detecting crossed edges during alignment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Variant graphs detect crossed edges easily; the failure occurs when flattening the 2D graph into 1D inline XML.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Transforming CollateX JSON into TEI XML via Python</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary motivation for writing custom Python scripts to serialize CollateX JSON tables into TEI XML?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Custom Python serialization of CollateX JSON data enables editors to inject project-specific lemma rules, metadata attributes, and advanced XML structures.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To exert precise control over lemma selection rules, metadata injection, reading classifications, and project-specific schema requirements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Custom Python serializers allow editors to enrich raw alignment tables with authoritative sigla, @type classifications, and customized TEI structures.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because CollateX JSON files cannot be opened by any operating system without Python.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. JSON is a universal text format; Python is used to automate rich XML transformations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the TEI Consortium prohibits using native CollateX software.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX is widely endorsed; custom serialization simply provides greater architectural flexibility.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Python scripts run slower than manual data entry by hand.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python serialization processes thousands of alignment columns in seconds.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Generating Location-Referenced and Double-Endpoint Apparatuses Algorithmically</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does an automated two-pass serialization script generate Double-Endpoint Attachment markup without manual overhead?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Algorithmic two-pass serialization enables automated generation of Double-Endpoint Attachment markup without the tedious manual overhead of hand-coding anchor IDs.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Pass 1 inserts unique milestone <anchor/> IDs around base text tokens; Pass 2 builds external <app> entries in <back> targeting those exact @from and @to anchor IDs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An automated two-pass script programmatically generates and pairs hundreds of anchor IDs with external apparatus entries, eliminating tedious manual encoding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Pass 1 validates the XML schema; Pass 2 translates the text into modern English.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pass 1 constructs base text anchors, while Pass 2 generates external apparatus entries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Pass 1 converts text into JSON; Pass 2 converts JSON into rasterized PNG images.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The two-pass architecture operates within XML serialization to construct double-endpoint linkages.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Pass 1 deletes all manuscript witnesses; Pass 2 reconstructs a single witness from memory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both passes preserve multi-witness attestation across the apparatus.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Validation Layer 1: XML Well-Formedness and Schema Validation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What aspects of a generated TEI apparatus are verified during Relax NG schema validation (tei_all.rng)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Schema validation using Relax NG guarantees syntax well-formedness and TEI structural compliance, serving as the first quality gate.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>XML well-formedness, legal tag nesting, mandatory attribute syntax, and structural conformity to TEI P5 rules.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Relax NG schemas validate universal XML syntax and TEI structural rules (e.g. ensuring <lem> appears inside <app> and attributes are valid).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The historical truth and authenticity of every manuscript reading.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schemas validate XML grammar and syntax, not historical or philological truth.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whether the editor passed their university comprehensive exams.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validation tools evaluate digital files, not human credentials.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The market value of the physical manuscript codices.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schema validation is strictly concerned with computational markup compliance.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Validation Layer 2: Schematron Rules for Critical Apparatus</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What critical integrity check does ISO Schematron perform on a TEI apparatus that standard Relax NG schemas cannot?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Schematron rules enforce deep referential integrity, guaranteeing that every cited witness siglum resolves to a valid entry in the TEI witness catalogue.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It enforces business logic assertions, such as verifying that every siglum cited in @wit resolves to an existing <witness> in the <listWit>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Schematron uses XPath rules to validate referential integrity, catching undeclared sigla, un-paired anchors, and empty reading errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It corrects spelling errors in historical Greek transcriptions automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schematron evaluates rule assertions and flags violations; it does not alter historical spellings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It renders 3D interactive graphics of the manuscript bindings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Schematron is a validation language, not a 3D rendering engine.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It compresses XML files into binary zip archives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. File compression is handled by archive utilities, not Schematron.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: The TEI Critical Apparatus Toolbox</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary function of the TEI Critical Apparatus Toolbox developed by Marjorie Burghart?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The TEI Critical Apparatus Toolbox provides an integrated environment for auditing witness consistency, transforming apparatus views, and publishing dynamic editions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To provide an integrated suite for auditing witness consistency, transforming apparatus views, preparing collation streams, and rendering dynamic editions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Toolbox is a dedicated web and standalone tool designed specifically to parse, audit, and display TEI P5 critical apparatus documents.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To replace the TEI P5 Guidelines with a proprietary closed-source standard.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Toolbox is an open-source tool built entirely around the official TEI P5 standard.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To transcribe physical manuscripts automatically using robotic cameras.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Toolbox processes already-encoded TEI XML files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To translate ancient Latin texts into modern vernacular poetry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Toolbox is an apparatus auditing, transformation, and visualization utility.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Toolbox Function 1: Witness Consistency Checking</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the TEI Critical Apparatus Toolbox detect silent data loss across an edited text?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Toolbox's consistency checker detects unintentional witness omissions at variation units, preventing silent data loss.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By cross-referencing every <app> entry against the declared <listWit> scope, generating a matrix that highlights missing or unrecorded witnesses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Toolbox's consistency checker audits every variation unit to verify that all active manuscripts are accounted for as lemmas, variants, or lacunae.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By comparing file checksums against an online Git repository.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks file revisions, while the Toolbox audits witness coverage across variation units.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By deleting variation units that contain fewer than five manuscripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Toolbox reports missing witnesses so editors can fix them, rather than deleting data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By converting all Greek characters into ASCII transliterations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The consistency check operates directly on UTF-8 encoded TEI XML.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Toolbox Function 2: Transforming Parallel Segmentation to Alternate Views</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which three distinct presentations can be dynamically generated from a single TEI Parallel Segmentation file?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A single TEI Parallel Segmentation file can be dynamically transformed into positive apparatuses, negative apparatuses, or complete diplomatic witness reconstructions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Positive apparatus editions, negative apparatus editions, and individual diplomatic witness reconstructions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Because Parallel Segmentation encodes all witness data inline, stylesheets can filter the XML into positive, negative, or single-witness diplomatic views.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Audio podcasts, 3D video game environments, and printed sheet music.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The transformations produce textual and scholarly editions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>PostgreSQL database dumps, binary executable files, and raw HTR training images.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Toolbox transforms TEI XML into standard scholarly reading and apparatus views.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Latin grammatical dictionaries, geographic maps, and financial balance sheets.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The output views represent different presentations of the critical edition.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Toolbox Function 3: Collation Preparation and Normalization Display</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the TEI Critical Apparatus Toolbox assist editors during the front-end preparation of texts for CollateX?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Toolbox prepares raw TEI transcriptions for CollateX by extracting clean normalized or diplomatic token streams.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It allows editors to configure extraction filters that strip interpretive tags and output clean regularized (<reg>) or diplomatic (<orig>) token streams.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Toolbox extracts clean plain-text or tokenized streams from richly annotated TEI files, preventing collation crashes caused by inline markup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It automatically purchases digital manuscript licenses from European archives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Toolbox is a software processing tool, not a licensing agency.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It synthesizes synthetic manuscript variants to inflate edition page counts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly tools process authentic historical data without generating synthetic padding.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It compiles Python code into C++ binaries for supercomputing clusters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Toolbox prepares text streams for collation pipelines.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Validating Lacunae and Physical Gaps</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does an automated validation script track witness availability across physical manuscript damage?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automated validation of lacuna state machines ensures that physically damaged manuscripts are accurately excluded from statistical collation metrics without false omission warnings.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By maintaining a dynamic state machine that toggles witness status to 'lacunose' at <lacunaStart/> and restores it to 'active' at <lacunaEnd/>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A state machine tracks milestone pairs, allowing validators to confirm that unrecorded witnesses within a lacuna span are physically missing rather than erroneously omitted.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By assuming that any manuscript not mentioned in an <app> was destroyed in a library fire.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unrecorded witnesses might be omitted errors; lacuna milestones explicitly delimit physical damage.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By deleting damaged folios from the manuscript catalogue in the header.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Manuscripts remain in <listWit>, with their physical gaps bounded by milestone tags.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By inserting random characters into the text stream to fill missing spaces.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digital editing represents lacunae with milestone elements, not synthetic text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Automated Generation of rdgGrp Hierarchies</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How can automated post-processors organize flat CollateX output into hierarchical <rdgGrp> structures algorithmically?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Deterministic string-distance algorithms and morphological rules can automatically organize flat CollateX output into hierarchical <rdgGrp> structures.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By applying rule-based classifiers and string-distance metrics to group itacisms and orthographic variants under major lexical readings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Post-processing scripts evaluate morphological lemmas and edit distances to automatically nest phonetic sub-variants inside <rdgGrp> elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By prompting random web users to vote on their favorite manuscript spellings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Structuring is performed algorithmically based on morphological and phonetic rules.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By deleting all variant readings that contain more than three vowels.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Grouping organizes variants hierarchically without deleting textual data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By converting every <rdg> element into an independent XML document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <rdgGrp> nests sub-readings inside the existing <app> container.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Benchmarking CollateX Output Against Manual Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When benchmarking automated CollateX output against manual ground truth, what do boundary recall discrepancies usually indicate?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Benchmarking automated apparatuses against manual ground truth quantifies algorithmic precision and pinpoints systematic collation edge cases.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Algorithmic edge cases such as multi-word transpositions or un-normalized spelling differences that caused CollateX to split or shift variation units.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Discrepancies between automated output and human ground truth highlight where algorithms struggled with transpositions or phonetic noise.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That human scholars are always wrong and should never question software output.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hand-crafted ground truth represents the verified gold standard used to evaluate algorithms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That the computer's CPU suffered from hardware memory corruption.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Discrepancies stem from mathematical alignment rules, not hardware defects.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That the TEI P5 Guidelines were violated by the human transcriber.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Discrepancies reflect differences between algorithmic token alignment and human philological interpretation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Case Study: The Beckett Digital Manuscript Project (BDMP)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why did the Beckett Digital Manuscript Project integrate CollateX into its digital infrastructure?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Beckett Digital Manuscript Project proves that CollateX-driven TEI apparatuses are vital for mapping complex genetic draft revisions in modern literature.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To automate the alignment and visualization of complex genetic draft revisions, cancellations, and multilingual self-translations across vast modern archives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The BDMP deployed CollateX to trace the non-linear evolution of Samuel Beckett's works across notebooks, typescripts, and drafts at scale.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To prove that Samuel Beckett never edited or revised his original manuscripts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Beckett revised extensively; CollateX was used specifically to map those complex revisions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To convert English drafts into Classical Greek verse automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The BDMP studies Beckett's English and French genetic dossiers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To replace all human editors with automated neural chatbots.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX assisted human scholars in building an interactive scholarly genetic edition.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Case Study: The Scholastic Commentaries and Texts Archive (SCTA)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the SCTA project publish TEI critical apparatuses within a Linked Open Data ecosystem?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The SCTA transforms TEI apparatus markup into Linked Open Data, connecting variant readings to global SPARQL endpoints and IIIF image canvases.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By assigning persistent URIs to variation units, converting apparatus entries into RDF triples, and connecting variants to SPARQL endpoints and IIIF images.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The SCTA models critical apparatuses as machine-readable Linked Data graphs, allowing global queries across distributed medieval commentaries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By printing paper copies and mailing them to subscribers annually.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The SCTA is an entirely digital, open-access Linked Data platform.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By locking apparatus XML files inside encrypted proprietary databases.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. SCTA data is open and accessible via public SPARQL and REST APIs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By removing all manuscript shelfmarks to protect library secrecy.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The SCTA explicitly links readings to institutional manuscript shelfmarks and IIIF facsimiles.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Case Study: CBGM Data Pipelines</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is strict deterministic validation of TEI apparatus XML critical in the INTF data pipeline for the Greek New Testament?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The INTF data pipeline proves that rigorous deterministic validation of TEI apparatus XML is essential for calculating accurate genealogical coherence in the CBGM.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because the Coherence-Based Genealogical Method (CBGM) relies on apparatus data to compute millions of statistical coherence percentages across the entire manuscript tradition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In the CBGM pipeline, a single malformed siglum or uncaught lacuna corrupts global coherence calculations and distorts the reconstructed initial text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the INTF pipeline deletes manuscripts that fail validation from library archives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Validation protects mathematical data integrity; it has no impact on physical libraries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the German government requires all XML files to use negative apparatus formatting.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The ECM uses comprehensive positive apparatus datasets for algorithmic processing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because New Testament manuscripts contain zero scribal errors or corrections.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The New Testament tradition contains massive scribal variation that the CBGM models mathematically.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Automating the Pipeline: From Transcriptions to Validated Apparatus</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary advantage of chaining tokenization, CollateX collation, serialization, and validation into a single automated build script?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>An automated build pipeline links tokenization, CollateX alignment, TEI serialization, and validation into a fully reproducible editorial workflow.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It ensures complete reproducibility, enabling the entire critical apparatus to be re-collated, re-serialized, and re-validated in seconds whenever transcriptions change.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Automated build pipelines guarantee that corrections in underlying transcriptions immediately propagate through collation and validation without error-prone manual steps.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It eliminates the need to maintain Git version control in the project.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Automated scripts work in harmony with Git version control.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It guarantees that the edition will never require peer review.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Computational automation accelerates data processing but does not replace scholarly peer review.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It prevents students from inspecting the generated XML code.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Automated pipelines output transparent, inspectable XML files.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Common Failure Modes in Deterministic Apparatus Generation</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which of the following is a common failure mode when generating TEI apparatuses algorithmically from raw transcriptions?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Upstream tokenization glitches and alignment drift are the primary causes of malformed apparatus entries in automated collation.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Punctuation attachment during tokenization causing identical words to fail string matching, and un-normalized spelling causing alignment drift.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Upstream tokenization glitches (e.g. attached commas) and phonetic spelling differences are the leading causes of flawed automated apparatuses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The XML serializer running out of unique Unicode characters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unicode provides over 140,000 characters and does not run out.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CollateX attempting to rewrite the manuscript's literary plot.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CollateX is a deterministic token alignment engine with no generative narrative capabilities.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Relax NG schemas refusing to validate XML documents that contain Latin text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI schemas support all historical languages and scripts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Debugging and Repairing Malformed Apparatus Entries</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the golden rule of debugging when an error is flagged in an algorithmically generated TEI apparatus?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Always debug automated apparatus errors by correcting upstream tokenization and normalization rules rather than hand-patching generated XML.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Never hand-edit the generated XML output; always fix the upstream tokenization, normalization, or serialization rule and re-run the build pipeline.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Hand-patching generated files destroys reproducibility; fixing upstream rules ensures all current and future entries are corrected consistently.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manually edit the generated XML file and delete all error warnings from the log.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hand-editing generated files creates fragile, irreproducible editions that break upon re-collation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Discard the manuscript that caused the error from the edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial methodology requires accounting for all witnesses, not discarding difficult evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Disable Schematron validation so the build completes without errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Disabling validation allows corrupt data to enter the edition.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Preparing the Test Suite for AI Experiments</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What three standardized baseline files comprise the evaluation test suite for benchmarking AI apparatus performance in Lesson 15.3?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Today's validated CollateX XML and alignment tables form the deterministic baseline for Friday's AI evaluation experiments.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The hand-crafted manual ground truth XML, the validated deterministic CollateX XML, and the raw CollateX alignment JSON table.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Combining manual ground truth (8.1), deterministic CollateX XML (8.2), and alignment tables provides the multi-tiered benchmark needed to audit AI models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Three scanned JPEG images of 19th-century printed books.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The test suite requires structured, machine-actionable XML and JSON data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Three modern English translations downloaded from Wikipedia.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual criticism evaluates primary manuscript witnesses and structured apparatus markup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Three empty text files used to test file system creation speed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The test suite contains verified ground truth and alignment datasets.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Summary and the Deterministic Baseline</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What core achievement defines Step 2 of the apparatus cycle (Deterministic Automation)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Deterministic CollateX collation combined with Schematron validation delivers high-speed, mathematically reproducible TEI apparatuses, establishing the baseline for AI evaluation.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Delivering high-speed, mathematically reproducible TEI apparatus generation from variant graphs, validated by multi-layered schema and Schematron gates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Step 2 proves that deterministic collation and rigorous validation provide the scalable structural foundation of the digital critical edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Proving that human editors are obsolete and should be replaced by algorithms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Algorithms require human ground truth rules and expert supervision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Eliminating all variant readings to produce a single uniform text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The goal is to accurately preserve and structure variation across all witnesses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Converting all critical editions into static print footnotes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The deterministic pipeline outputs dynamic, machine-actionable TEI XML.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
