@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_07_Rendering/Lesson_7.2_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 7.2: Rendering by Rule: XSLT, CETEIcean, and Print Stylesheets.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: From Hand to Rule</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is Tuesday's hand-made page not enough to publish your whole edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A hand-made page shows what each element should become; today you turn each of those decisions into a rule that renders the whole file automatically.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It covers only a sample of lines and falls out of date every time the TEI file changes; rules can render the whole file again in seconds.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The hand-made page shows what each element should become; rules apply those decisions everywhere, every time.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hand-written HTML is not valid in modern browsers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tuesday's page is ordinary, valid HTML. The problem is scale and upkeep, not validity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hand-made pages cannot include CSS.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tuesday's page used two stylesheets.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The TEI Consortium forbids publishing hand-written HTML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no such rule. Hand-written pages simply do not scale.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: What Deterministic Means</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Your stylesheet drops every &lt;gap/&gt; from the reading view. What does determinism tell you about this error?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A deterministic stylesheet gives identical output every run, so every error can be traced to one rule or one line of TEI, but it will repeat a wrong rule just as faithfully as a right one.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It will happen the same way on every run, and it can be traced to one rule, so fixing that rule fixes it everywhere.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Determinism makes errors traceable and repeatable; it does not make the rules correct.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It cannot be an error, because deterministic programs are always correct.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A deterministic rule repeats a wrong decision just as faithfully as a right one.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It will probably disappear if you run the stylesheet again.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The same input always gives the same output, so the gaps will be dropped again.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It was caused by randomness in the browser.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no randomness to blame; the cause is in the file or the rule.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: Rendering in Real Projects</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Besides publishing, what use of rendering did the cataloguing team described in the lesson find very helpful?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Working projects render TEI with stylesheets both to publish their editions and to proofread their own encoding, and you can do both with today's tools.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An HTML preview of each TEI record, which made proofreading easy on the spot.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Errors that hide among tags stand out in running text, so rendering is also an editor's checking tool.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automatic translation of each record into several languages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The template produced an HTML preview, not translations.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Replacing the TEI records with HTML so the XML could be deleted.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The TEI stayed the source; the HTML was a preview of it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Generating the TEI header automatically from images.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The template transformed existing TEI into a preview page.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Two Routes from TEI to a Web Page</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which statement correctly contrasts the two routes?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>XSLT turns TEI into HTML before you publish; CETEIcean turns it into HTML in the reader's browser; both apply your decisions, but they store them in different places.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>XSLT writes HTML files before publication; CETEIcean turns the TEI into HTML elements in the reader's browser each time the page opens.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Both apply your decisions, but at different times and from different places.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>XSLT works only in the browser; CETEIcean works only on your computer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It is the other way round: XSLT runs beforehand, CETEIcean runs in the browser.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CETEIcean requires you to delete your TEI file after rendering.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CETEIcean needs your TEI file; it builds the page from it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The two routes produce identical files, so the choice makes no difference.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. They store your decisions in different places, which shapes what can go wrong.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: What XSLT Is</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does <code>&lt;xsl:apply-templates/&gt;</code> do inside a template?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>An XSLT stylesheet is a list of templates; each matches one kind of TEI element and writes HTML in its place, then hands the element's contents on to other templates.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It processes the current element's contents, handing each child to whatever template matches it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. That is how the processor moves inward through your file, template by template.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It copies the whole TEI file unchanged into the output.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It processes contents with templates; it does not copy the file wholesale.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It stops processing, so the element's contents are ignored.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It does the opposite: it continues processing inside the element.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It applies Tuesday's CSS to the element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CSS is applied later by the browser; XSLT only writes the HTML.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Setting Up: Python, lxml, and a Small Script</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should the generated page be written into the <code>rendering/</code> folder under a new name such as <code>reading-auto.html</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Install <code>lxml</code>, save the short <code>render.py</code>, and run it with your TEI file, a stylesheet and an output name; write the output beside Tuesday's CSS under a new name.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>So it can find Tuesday's CSS files beside it, and so it never overwrites the hand-made <code>edition.html</code> you need for comparison.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Location lets the stylesheet link work; a new name protects Tuesday's ground truth.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because <code>lxml</code> can only write files whose names end in <code>-auto</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The name is your choice; the point is not to overwrite Tuesday's page.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Python cannot write files at the top of a repository.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It can; the folder matters because the page links to CSS files there.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Git ignores files in other folders.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks files in any folder of the repository.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: The Built-in Rules: What Happens to Elements You Forget</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Your stylesheet has no template for &lt;gap/&gt;. What appears in the output where each gap was?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>An element with no template disappears and its text falls through as plain words; this glues both layers of a <code>&lt;choice&gt;</code> together and silently deletes empty elements such as <code>&lt;gap/&gt;</code>.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Nothing at all; an empty element with no template vanishes without any warning.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The built-in rule processes the element's contents, and an empty element has none.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The word gap in plain text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Element names are never written by the built-in rules; only text content falls through.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An error message that stops the transformation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XSLT gives no error; that is what makes the loss dangerous.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Brackets with the reason taken from the attributes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Only a template you write can produce that.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: The Namespace Pitfall</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>You wrote <code>match="choice"</code>, but your output shows both layers glued together. What is the most likely cause?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Declare the TEI namespace with a <code>tei:</code> prefix and use it in every match; a template without the prefix never fires, and the built-in rules quietly take over.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The template lacks the <code>tei:</code> prefix, so it never matches your TEI elements and the built-in rules take over.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A TEI &lt;choice&gt; and a &lt;choice&gt; in no namespace are different elements to the processor.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Your TEI file is not well-formed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A badly formed file would fail to load at all, not render both layers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tuesday's CSS is overriding the stylesheet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CSS cannot add text; the glued words are in the generated HTML itself.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>XSLT always shows both layers of a &lt;choice&gt;.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A correctly prefixed template can select just one layer.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: The Page Shell</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the root template use <code>&lt;xsl:apply-templates select="//tei:body"/&gt;</code> rather than a bare <code>&lt;xsl:apply-templates/&gt;</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The root template writes the HTML shell, copies your title from the header, keeps <code>charset</code> and <code>lang</code>, and processes only the <code>&lt;body&gt;</code> so the header does not spill onto the page.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>So that only the body is processed; otherwise the text of the &lt;teiHeader&gt; would fall through onto the top of the page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Selecting the body keeps catalogue information out of the reader's view.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the body is the only part of a TEI file that contains text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The header contains plenty of text, which is exactly why it must be excluded.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To make the page load faster in the browser.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The point is what appears on the page, not speed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because XSLT cannot read the header at all.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The same template reads the title from the header with <code>xsl:value-of</code>.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Structure: Divisions, Headings, and Paragraphs</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>With the template <code>&lt;section class="{@type}"&gt;</code>, what does <code>&lt;div type="clause"&gt;</code> become?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Map divisions, headings and paragraphs to HTML equivalents, use <code>{@type}</code> to carry attribute values into classes, and give every structural element in your file its own template.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>&lt;section class="clause"&gt;</code>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The curly braces insert the value of the <code>type</code> attribute.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;section class="{@type}"&gt;</code>, copied literally.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Inside an output attribute, curly braces are evaluated, not copied.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<code>&lt;section class="div"&gt;</code>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>@type</code> means the attribute's value, not the element's name.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nothing, because &lt;div&gt; has no HTML equivalent.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The template maps it to &lt;section&gt;.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Choosing a Layer: The &lt;choice&gt; Template</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Your reading stylesheet's &lt;choice&gt; template selects only <code>tei:reg|tei:expan|tei:corr</code>. Where are the original spellings in the generated page?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A <code>&lt;choice&gt;</code> template that selects only one child writes one layer into the page; giving the output Tuesday's class names lets Tuesday's CSS style it unchanged.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Nowhere; they were never processed, so they are not in the HTML at all.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Unlike Tuesday's page, the XSLT page drops the other layer instead of hiding it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hidden by CSS, as on Tuesday.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is nothing to hide; the stylesheet never wrote them.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In a tooltip on each regularized word.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Only a template you write could add a tooltip.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>At the end of the page, in a list.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Unselected children produce no output anywhere.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Abbreviations and Supplied Letters</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does the predicate in <code>match="tei:hi[@rend='sup']"</code> do?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The reading stylesheet chooses <code>&lt;expan&gt;</code> and marks <code>&lt;ex&gt;</code> for italics; the diplomatic one chooses <code>&lt;abbr&gt;</code> and needs a predicate template for raised letters and every other <code>&lt;hi&gt;</code> your file uses.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It limits the template to &lt;hi&gt; elements whose <code>rend</code> attribute is <code>sup</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Other &lt;hi&gt; values need their own templates, or their text falls through unmarked.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It makes every &lt;hi&gt; in the file superscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The square brackets narrow the match to one value of <code>rend</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes the <code>rend</code> attribute from the TEI file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Stylesheets never change the source file.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It expands the abbreviation automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Expansions come from your &lt;expan&gt;, chosen by the &lt;choice&gt; template.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Line Breaks by Rule</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the reading stylesheet write a line break's space with <code>&lt;xsl:text&gt; &lt;/xsl:text&gt;</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>In the diplomatic view each <code>&lt;lb/&gt;</code> becomes Tuesday's numbered span; in the reading view it becomes a protected space, except a <code>break="no"</code> break, which becomes nothing.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because XSLT normally discards bare whitespace in a stylesheet, and <code>xsl:text</code> protects the space so words do not glue together.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Without it, the last word of one line could join the first word of the next.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because HTML forbids ordinary spaces between words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. HTML uses ordinary spaces; the issue is that the stylesheet would drop the space.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To insert a visible line break in the reading view.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The reading view deliberately lets lines flow; only a space is written.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To keep the line number in the reading view.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Line numbers belong to the diplomatic view.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Words Split Across Lines</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Your reading view shows Pro- vince with a space inside the word. What causes it?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Whitespace before a <code>break="no"</code> line break survives as a stray space; a text template removes it, while the hyphen stays because it belongs to your transcription.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The new line and indentation before the <code>break="no"</code> &lt;lb/&gt; in your XML survive as whitespace, even though the &lt;lb/&gt; itself writes nothing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A text template that trims that whitespace rejoins the word.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The hyphen was added by the stylesheet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The hyphen is in your transcription; the stray space is the problem.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The browser always adds a space after a hyphen.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The space comes from whitespace in your source file.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The &lt;lb/&gt; template writes a space for every break.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The <code>break="no"</code> template writes nothing; the space was already in the file.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Uncertainty by Rule: &lt;unclear&gt; and &lt;gap/&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the generated tooltip read damage, 2 word(s) rather than damage, 2 words?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Give <code>&lt;gap/&gt;</code> a template or it vanishes; attribute value templates can copy its reason and extent into both a tooltip and real text, exactly as written in your TEI.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because the stylesheet copies the attribute values exactly as written and knows nothing about English plurals.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A rule is only as smart as you make it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the TEI file is invalid.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>unit="word"</code> is the normal TEI value; the stylesheet simply copies it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because tooltips cannot display the letter s.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tooltips display any text the HTML gives them.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because CETEIcean rewrote the attribute.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This is the XSLT route; CETEIcean is not involved.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: Two Stylesheets, One Source</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which change is NOT part of turning <code>reading.xsl</code> into <code>diplomatic.xsl</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Save <code>reading.xsl</code>, copy it to <code>diplomatic.xsl</code> with four changes and one extra template, and run both to produce full-length versions of both views.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Editing the TEI file to remove every &lt;reg&gt;.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The source never changes; only the stylesheet's choices do.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Linking <code>diplomatic.css</code> instead of <code>reading.css</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is one of the four changes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Making the &lt;choice&gt; template select <code>orig|abbr|sic</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is one of the four changes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Making each &lt;lb/&gt; write Tuesday's numbered span.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is one of the four changes.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Comparing the Generated Pages with Tuesday's</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the page source, how does today's generated reading page differ from Tuesday's hand-made page?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Compare the generated pages with Tuesday's both on screen and in the page source; the XSLT pages drop one layer entirely, so each view must link to the other.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Tuesday's page contains both layers with one hidden by CSS; today's contains only the reading layer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. That is why each view should link to the other.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They are identical in the page source; only the CSS differs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The XSLT page never wrote the original layer.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Today's page contains both layers and Tuesday's contains one.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It is the other way round.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Today's page contains the TEI markup itself.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The XSLT route publishes ordinary HTML; it is CETEIcean that keeps TEI structure.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Generic Stylesheets Make Generic Decisions</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does using a ready-made TEI stylesheet require of you?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ready-made stylesheets make display decisions without knowing your document, so using one means checking and overriding its choices rather than skipping your own.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Checking each of its display decisions against your own table and overriding those that disagree.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A generic stylesheet moves the work; it does not remove your decisions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nothing; it already knows your document's needs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It was written for many projects at once and knows nothing of your policies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deleting your <code>RENDERING.md</code>, since the stylesheet replaces it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Your table is what you check the stylesheet against.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Rewriting your TEI to match the stylesheet's expectations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The evidence should not bend to a display tool.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: What CETEIcean Does</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does CETEIcean turn <code>&lt;lb n="12"/&gt;</code> into?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CETEIcean renames every TEI element as a <code>tei-</code> custom element and keeps both layers of every <code>&lt;choice&gt;</code>, leaving every display decision to your CSS.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A custom element <code>&lt;tei-lb n="12"&gt;</code>, with its attribute kept.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Every TEI element becomes a tei- element of the same name, in lower case.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An HTML <code>&lt;br&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CETEIcean keeps your structure and renames elements; it does not map lb to br.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nothing; CETEIcean removes empty elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The element is kept, though being empty it shows nothing by itself.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A numbered paragraph.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Any numbering must come from your CSS.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Setting Up CETEIcean</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>You double-click <code>ceteicean.html</code> and see a blank page. What is the fix?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A CETEIcean page loads the library and fetches your TEI file; it must be opened through a local web server, such as Python's <code>http.server</code>, not by double-clicking.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Serve the folder with a local web server, such as <code>python3 -m http.server 8000</code>, and open the page through <code>localhost</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Browsers block a page opened from disk from fetching your TEI file.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Convert the TEI file to HTML first with XSLT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is the other route; CETEIcean needs the TEI file itself.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete the &lt;teiHeader&gt; from your TEI file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The header is not the problem; the browser refused to fetch the file.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Rename the page to <code>index.xml</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The page must stay HTML; it needs to be served, not renamed.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Styling tei- Elements: The Reading View</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Your CETEIcean page shows all your paragraphs and headings run together in one stream. Why?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Browsers display custom elements inline, so your CSS must make every structural <code>tei-</code> element a block, and the layer rules are Tuesday's rules with <code>tei-</code> names.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Browsers display custom elements inline, so <code>tei-p</code> and <code>tei-head</code> need <code>display: block</code> in your CSS.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Nothing is automatic for tei- elements; every structural element needs a display rule.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CETEIcean deletes paragraph breaks from the TEI.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The structure is kept; the browser just does not know how to display it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Your TEI file has no &lt;p&gt; elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The elements are there as tei-p; they lack a display rule.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The local web server strips line breaks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The server delivers the file unchanged.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: The Diplomatic View and the Empty Gap</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do you make gaps visible in a CETEIcean page?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The diplomatic CSS reuses Tuesday's rules with <code>tei-</code> names and the kept <code>n</code> attribute; an empty <code>&lt;gap/&gt;</code> shows nothing until a behavior puts real brackets inside it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Add a behavior, such as <code>c.addBehaviors({ tei: { gap: ["[…]"] } })</code>, which puts real brackets inside every tei-gap.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An empty element shows nothing until a behavior gives it content.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nothing is needed; CETEIcean shows gaps automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An empty tei-gap displays nothing by default.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Write the brackets into your TEI file in place of &lt;gap/&gt;.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That would damage the encoding to fix a display problem.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Set <code>tei-gap { display: block; }</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. An empty block is still empty.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: XSLT or CETEIcean?</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>A reader's browser has JavaScript turned off. Which route still shows your edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>XSLT gives plain HTML with one layer chosen in advance; CETEIcean keeps your TEI in the page with every decision in CSS; choose the one you can maintain and record why.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>XSLT, because its output is plain HTML that needs no script.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. CETEIcean builds the page with JavaScript, so it shows nothing without it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CETEIcean, because it uses the TEI file directly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CETEIcean is itself JavaScript.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both, because neither uses JavaScript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. CETEIcean depends on JavaScript.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Neither, because all web pages need JavaScript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Plain HTML and CSS work without it.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Print Stylesheets</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the print rule show the hidden <code>gap-info</code> text instead of adding the gap details with CSS <code>content</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Put print-only rules inside <code>@media print</code>, reveal on paper the gap details that tooltips carry on screen, and check every editorial mark in the print preview.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Because the details are real text already in the HTML; the print rule only shows them, so they can be copied and read aloud.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Editorial meaning belongs in the HTML; CSS only changes whether it is visible.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because CSS cannot be used when printing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <code>@media print</code> rules are CSS.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because tooltips print automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tooltips never appear on paper, which is the problem being solved.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because <code>gap-info</code> is required by the TEI Guidelines.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It is a class name chosen in the stylesheet.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: From Page to PDF</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>According to the lesson, what is the PDF of your edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The browser's Save as PDF with a good print stylesheet makes a sound PDF; it is one more view of the same source, and this week's work feeds directly into the Print-Ready Publication.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>One more view generated from the same TEI source and rules, alongside the reading and diplomatic views on screen.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. None of the outputs is the edition; the edition is the encoded file and the decisions that render it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The authoritative edition, which replaces the TEI file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The TEI remains the source; the PDF is an output.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Something that can only be made with XSL-FO software.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The browser's Save as PDF with a print stylesheet is a sound route.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A file that must be edited by hand after export.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editing the PDF by hand would break the link to your rules.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Worked Example: The 1791 Decree by XSLT</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Accented letters in Ace's generated page appear as pairs of strange symbols. What should be checked first?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>For a French text, set <code>lang="fr"</code>, keep UTF-8 in both the output setting and the page head, and check every accented letter and every <code>&lt;choice&gt;</code> in both views.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>That <code>xsl:output</code> has <code>encoding="utf-8"</code> and the page head has <code>&lt;meta charset="utf-8"/&gt;</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A missing encoding setting is the usual cause of garbled accents.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That the page says <code>lang="en"</code>.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The page should say <code>lang="fr"</code>, but the language setting does not cause garbled letters.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That every &lt;choice&gt; selects &lt;orig&gt;.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Layer choice does not affect how letters are encoded.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That the decree has no &lt;div&gt; elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Structure has nothing to do with character encoding.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Worked Example: The 1752 Treaty in CETEIcean</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which difference from the decision table does the CETEIcean treaty example reveal?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>CETEIcean renders the treaty lines in both views with Tuesday's rules, but gap details stay hidden in attributes and split-word whitespace survives; record both against your table.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Gap reasons and extents stay hidden in attributes, and split-word whitespace can survive as a stray space.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Both are fidelity gaps to record in <code>RENDERING.md</code>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The regularized spellings are lost entirely.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both layers are in the page; CSS chooses which to show.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Line numbers cannot be shown at all.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The diplomatic CSS shows them from the kept <code>n</code> attribute.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Unclear readings are deleted.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. tei-unclear is styled with a dotted underline.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: The Fidelity Audit: Tool Error or Undecided Decision?</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The generated page shows the text of a &lt;note&gt; on line 30 as plain words, and your <code>RENDERING.md</code> never mentions &lt;note&gt;. What kind of problem is this, and where is it fixed first?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Sort every difference into a tool error, fixed in the rule, or an undecided decision, fixed first in <code>RENDERING.md</code>; a tool's default is never an editorial decision.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An undecided decision; decide in <code>RENDERING.md</code> how notes should appear, then write the rule.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The tool's default chose for you; a default is never an editorial decision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A tool error; fix the stylesheet and leave <code>RENDERING.md</code> alone.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The rule could not carry out a decision that was never made.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>No problem; the tool's output is acceptable as it stands.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Whatever the tool did was not your choice.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A transcription error; delete the &lt;note&gt; from the TEI.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The encoding is fine; the rendering decision is missing.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Hypothetical Scenario: The Vanishing Gap</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which quick check would have caught the vanishing gap in the scenario?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>An empty element with no rule disappears without warning; counting each element in the TEI against its marks on the page catches the loss.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Counting the &lt;gap/&gt; elements in the TEI against the brackets on the rendered page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A count check takes a minute and catches silent losses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Validating the TEI file against the schema.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The TEI was valid; the loss happened in the rendering.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Checking that the page looked clean.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A clean look was exactly what hid the problem.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Running the stylesheet a second time.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A deterministic stylesheet would drop the gap again.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Review and Step 2 Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does completing Step 2 give you for Friday?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Completing Step 2 gives you runnable rules that render your whole document in both views, and an audit that separates tool errors from decisions you had not yet made.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Runnable rules that render the whole document in both views, and an audit separating tool errors from decisions not yet made.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. On Friday an AI-written stylesheet will be audited against Tuesday's page and today's rules.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A finished, final edition that needs no further changes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The rendering will keep changing as your TEI and decisions develop.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A replacement for Tuesday's decision table.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The rules carry out the table; they do not replace it.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A PDF ready for submission.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Print-Ready Publication is due in December; today only starts it.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

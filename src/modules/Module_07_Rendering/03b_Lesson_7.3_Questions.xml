@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_07_Rendering/Lesson_7.3_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 7.3: Rendering with AI: Auditing a Stylesheet You Did Not Write.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Today's Question: Can You Trust a Stylesheet You Did Not Write?</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>An AI-written stylesheet runs without errors and has tidy comments. What does that tell you?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>An AI model can write a stylesheet that looks professional and runs without errors; today's job is to find out whether it carries out your decisions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Only that it runs; whether it carries out your decisions still has to be checked.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A stylesheet can run cleanly while dropping gaps, gluing words or showing the wrong layer.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That it carries out your decision table correctly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Running without errors says nothing about whether the rules match your decisions.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That it is better than the stylesheet you wrote on Wednesday.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Polish is not evidence. Only the audit can compare the two.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>That no audit is needed, because AI models do not make rendering errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Today's lesson is about the errors AI-written stylesheets commonly contain.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: Ask for Rules, Not for a Page</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should you ask the model for a stylesheet rather than a finished page?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Ask the model to write a stylesheet, not a page; a checked stylesheet gives the same output on every run, while every directly generated page needs a fresh audit.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Once checked, a stylesheet gives the same output on every run, while every directly generated page needs a fresh audit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The uncertainty is in the writing, which happens once; the checked rules then behave deterministically.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A model cannot produce HTML, only XSLT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A model can produce HTML directly; that is exactly the risky route.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Stylesheets written by a model are always correct.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. They need auditing too, but only once.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A finished page would be too large to save in your repository.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Size is not the issue; repeatability and checkability are.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: What Goes Wrong When a Model Renders Text Directly</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which risk applies to a model rendering text directly but not to an XSLT stylesheet?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A model rendering text directly can modernize, correct or fill in your words, while a stylesheet can only select and wrap text already in your file, so its errors are easier to find.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It can write words that are not in your TEI, such as filling a gap with plausible text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A stylesheet can select, wrap or omit your text, but it cannot invent new words.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It can omit an element from the page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A stylesheet can also omit an element, for example a gap with no template.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It can show the wrong layer of a &lt;choice&gt;.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A stylesheet can do that too, as the first-child rule shows.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It can produce a page with no language declaration.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both routes can leave out the lang attribute.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Your Three Points of Comparison</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The AI stylesheet and Wednesday's stylesheet disagree about how a &lt;sic&gt; appears. What settles the disagreement?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Check the AI stylesheet against all three standards: the decision table for what should happen, Wednesday's output for every word, and Tuesday's page for how each mark looks.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The decision recorded in RENDERING.md.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The decision table is the authority; the question is which stylesheet carries it out.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wednesday's stylesheet, because you wrote it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Your own rules can be wrong too; the recorded decision is the standard.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The AI stylesheet, because it is newer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Being newer gives it no authority.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Whichever output looks better in the browser.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Appearance is not the test; faithfulness to the recorded decision is.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Writing the Prompt: What the Model Must Know</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How should you choose the sample of TEI lines to paste into the prompt?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Give the model your whole decision table, a sample containing every element you use, the XSLT 1.0 and namespace requirements, your existing class names, and the page shell settings.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By the elements they contain, so that every element in your file appears at least once.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An element missing from the sample is an element the model does not know exists.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Always the first thirty lines of the body.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The first lines may not contain every element you use.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Paste the whole file, since the model needs all the text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. You are asking for rules, so the model needs each kind of element, not every word.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Pick the lines with the fewest tags, so the model is not confused.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The model needs to see your markup, especially the unusual parts.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Writing the Prompt: What the Model Must Not Do</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the main value of listing negative constraints in the prompt?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Name every known failure in the prompt as a rule not to break; the model may still break one, but the list tells you exactly what to look for.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>If the model breaks one, you know at once what it ignored and where to look.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The list does not guarantee compliance, but it makes the model's choices visible.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It guarantees the model will not make those errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A model may still break an explicit rule.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It makes the stylesheet run faster.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The constraints are about correctness, not speed.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces the need for a decision table.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The constraints add to the table; they do not replace it.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: A Complete Prompt</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>You find you cannot write a line of the prompt explaining how &lt;hi&gt; should appear. What does this suggest?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A good stylesheet prompt restates every decision and requirement from this week in plain terms; a line you cannot write points to a decision still missing from RENDERING.md.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A decision about &lt;hi&gt; is still missing from RENDERING.md.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Every line of the prompt restates a decision; a line you cannot write points to one you have not made.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model will know how to display &lt;hi&gt;, so you can leave it out.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That would let the model make the decision for you.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>&lt;hi&gt; cannot be rendered with XSLT 1.0.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. &lt;hi&gt; is easy to render; the difficulty is the missing decision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The prompt is already too long and should be shortened.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A long prompt is expected; the gap is in your decisions.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Running the Model and Saving Its Answer</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why commit the AI stylesheet before you change anything in it?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Save the prompt, save the stylesheet under a new name, and commit both unedited before you change anything, so the record shows exactly what the model wrote.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>So the record shows exactly what the model wrote, before your audit changed it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The unedited baseline is the stylesheet your audit applies to, and the same prompt may give a different answer later.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Git cannot track later changes to an AI-written file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git tracks every change; the point is to keep the original as a baseline.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>So that it overwrites your own reading.xsl.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Save it under a new name; your own stylesheet is one of your standards.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the model's file will be deleted if not committed at once.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Nothing deletes it; the commit is for provenance.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: First Check: Does It Run?</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The AI stylesheet runs without error, but the page body is empty. The stylesheet begins with version 2.0 and xpath-default-namespace. What is happening?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>An error usually points to an XSLT 2.0 feature, and an empty page to a missing tei: prefix; a full page proves only that the stylesheet runs, not that it is right.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>lxml supports only XSLT 1.0 and ignores that setting, so no unprefixed match finds your TEI elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. This is the namespace pitfall in a new form; the fix is the tei: prefix in every match.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Your TEI file has no body.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The same file renders with Wednesday's stylesheet.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The CSS file is hiding the text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The HTML itself is empty; CSS cannot be the cause.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>lxml stops with an error whenever it meets XSLT 2.0.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. With this setting it gives no warning at all, which is what makes it hard to spot.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Second Check: Read It Template by Template</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In your template inventory, a template in the AI stylesheet matches no row of your decision table. What should you do?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Pair every decision with a template and every template with a decision; a decision with no template, or a template with no decision, is where problems hide.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Look closely: it is either something the model added on its own or a sign that your table is missing a decision.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Orphan templates are where problems hide, in either the stylesheet or the table.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ignore it, since extra templates cannot hurt.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The whitespace rule in the sample is an extra template, and it glues words together.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete it without reading it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It might be a genuine improvement, or reveal a missing decision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Copy it into your own stylesheet straight away.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Nothing enters your stylesheet without a decision in RENDERING.md first.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: A Sample AI Stylesheet</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does the sample AI stylesheet show about plausible code?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A stylesheet can use the namespace correctly, select only the body and carry tidy comments while still producing a page that changes, glues together and loses your text.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It uses the namespace correctly and has tidy comments, yet its output changes, glues together and loses the text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Looking well organized is no evidence of correct output.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It fails to run because of a namespace error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It uses the tei: prefix correctly and runs.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It produces exactly the same paragraph as Wednesday's stylesheet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Its paragraph has glued words, the wrong layer and no visible gap.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It was copied from a particular model's answer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It is illustrative, written for the lesson to collect common problems.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: The First Child Is Not Always the Right One</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is select="*[1]" in a &lt;choice&gt; template an error, even when its comment says it shows the edited form?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A rule that picks the first child of &lt;choice&gt; depends on the order of your markup, not on your decision; select each layer by name, whatever its comment says.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It picks whichever child comes first, so the layer shown depends on the order of your markup, not on your decision.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Select each layer by name, such as tei:reg|tei:expan|tei:corr.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI forbids more than one child inside &lt;choice&gt;.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. &lt;choice&gt; always holds alternatives.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>XSLT 1.0 does not support numbered selections.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. *[1] works; it just selects by position.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The first child of &lt;choice&gt; is always &lt;reg&gt;.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The TEI Guidelines do not fix the order of the children.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Cleaning Up Whitespace Glues Words Together</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What happens when normalize-space() is applied to every text node in a TEI paragraph?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Applying normalize-space() to all text deletes the spaces beside every element and glues words together; in mixed content, trim whitespace only where a specific rule requires it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The spaces at the edges of text nodes are removed, so words beside elements are glued together.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. In mixed content, the space between words often sits at the edge of a text node.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Only double spaces are reduced, so nothing visible changes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It also trims leading and trailing spaces, which separate words from elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The stylesheet stops with an error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It runs cleanly, which is why the damage is easy to miss.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Split words at line breaks are joined correctly everywhere.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It changes every text node, not just those before a break=no line break.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: The Silent Gap</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why are brackets added with CSS ::before not an adequate fix for an empty gap span?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A gap template that writes an empty span, or brackets added only by CSS, hides the loss from readers and from copied text; brackets and gap details must be real text in the HTML.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Generated content is not part of the page's text, so it is lost when a reader copies the sentence and cannot be found by search.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Brackets and gap details must be real text in the HTML.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Browsers never display ::before content.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. They display it on screen; the problem is that it is not part of the text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CSS cannot be used with XSLT output.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The XSLT output links CSS files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The brackets would appear twice.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. They appear once on screen; they are just not real text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Line Breaks That Swallow Spaces</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>You change the AI stylesheet's empty &lt;lb/&gt; template to write a space, but add nothing else. What new error appears?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A line-break rule that writes nothing joins the last word of each line to the first word of the next; write a space for ordinary breaks and nothing for break=no, and test both together.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Words split across lines with break=no now show a space inside them, such as Pro- vince.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Fix the ordinary line-break rule and the break=no rule together, and test both.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Every line now begins on a new paragraph.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A space does not start a new paragraph.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The gaps disappear from the page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The line-break rule does not affect the gap template.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>No new error; the fix is complete.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Without a separate break=no rule, split words gain a space.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: The Catch-All Template</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why remove a template with match="*" that simply applies templates to its content?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A catch-all template behaves like the built-in rules but makes every undecided element look deliberate; remove it, so that elements without a rule stay visible as open questions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It makes every undecided element look deliberate, hiding open questions in your rendering.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An element without a rule should stay visible as a question you have not answered.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It overrides all your specific templates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XSLT prefers more specific matches, so it catches only elements without a template.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It causes the stylesheet to crash.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It runs without error.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes the text of every element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It keeps the text; it hides the fact that no decision was made.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: What Is Missing from the Page Shell</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The AI stylesheet writes &lt;em&gt; for supplied letters instead of Tuesday's class ex. Why does this matter if the italics look the same?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Check the AI page shell for lang and meta charset, and check that it uses your existing class names; their absence causes no errors, only quiet failures.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Any CSS rule written for the class ex, in reading.css or the print stylesheet, silently stops applying.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Class names are a contract between your HTML and your CSS.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>&lt;em&gt; is not valid HTML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. &lt;em&gt; is valid; it just breaks the class contract.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Screen readers cannot read &lt;em&gt;.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is not the problem the lesson identifies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It does not matter at all.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Your CSS expects .ex, so rules for that class stop working.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Third Check: Compare the Output Word by Word</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>compare.py reports Words: 17 and 5 for Wednesday's page and the AI page. What does this most likely show?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Compare the visible words of the AI page with Wednesday's checked page; equal word counts and no differences mean no words were lost, changed or glued together.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Words in the AI page have been glued together or lost, so the two texts no longer match.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A clean result has equal word counts and no listed differences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The AI page is more concise and therefore better.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A rendering should not change the number of words in the text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wednesday's page has duplicated words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Wednesday's page is already checked; here the AI page glued words together.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The script is broken, since word counts always match.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The difference is exactly what the script is meant to reveal.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Fourth Check: Count What the Reader Sees</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>count.py reports one gap class on the AI page but zero brackets. What does this mean?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Count each element in the TEI and each class and bracket on the page; a matching class with a missing bracket shows a mark that exists in the code but not for the reader.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The gap exists in the HTML code, but the reader sees no mark of it.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. This is why you count what the reader sees, not only the classes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The gap has been rendered correctly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A class with no visible brackets gives the reader nothing to see.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Your TEI file has no gap.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The class is there because the TEI has a gap.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The script cannot count brackets.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It counts them in the visible text of the body.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Making Undecided Elements Visible</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does the audit template use priority="-1"?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A low-priority audit template that outlines every unhandled element in red turns silent omissions into visible questions; resolve each one in RENDERING.md, then remove the template.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>So that every one of your real templates still wins, and only unhandled elements are outlined.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Without the low priority, the audit template could outrank specific rules such as tei:p.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>So that it runs before all other templates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Priority decides which template wins a match, and -1 makes it lose to your real templates.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>So that it removes unhandled elements from the page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It wraps them in a red-outlined span; it does not remove them.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because XSLT 1.0 requires a priority on every template.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Priority is optional.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Auditing AI-Written CSS for CETEIcean</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which rule in an AI-written CETEIcean stylesheet has the same flaw as *[1] in XSLT?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Audit AI-written CETEIcean CSS for brackets made in CSS, layers chosen by position, misplaced line numbers and accidental display: none; every display choice must be one you recorded.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>tei-choice > :first-child</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. It selects a layer by position; hide and show layers by element name instead.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>tei-orig { display: none; }</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That selects by element name, which is the correct approach.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>tei-p { display: block; }</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That only puts paragraphs on their own lines.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>tei-unclear { color: grey; }</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That styles an element by name.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Sorting What You Find: Three Kinds of Difference</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The audit outlines a &lt;note&gt; in red. Which kind of difference is this?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Sort each difference into an AI error, an undecided decision, or a genuine improvement, and remember that some differences will reveal errors in your own stylesheet.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>An undecided decision: your table never covered the case.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Decide it in RENDERING.md first, then write the rule.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An AI error: the model failed a clear decision.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There was no decision for &lt;note&gt; to fail.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An improvement: the model handled it better.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. A red outline means no rule handled it at all.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Not a difference, so it can be ignored.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Every red box goes into the audit log.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: When the Model Is Right and You Were Wrong</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>The AI stylesheet has a good rule for &lt;hi rend="underline"&gt;, which you overlooked. What do you do first?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>When the model handles a case better than you did, record the decision in RENDERING.md first, then adopt, test and credit the rule; the idea may be the model's, but the decision is yours.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Add a row for it to RENDERING.md, stating how it appears in each view and why.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Decide first, then take, test and credit the rule.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Copy the template into your stylesheet straight away.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Without a row in the table, that is an inherited decision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Discard it, because only your own rules may be used.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Adopting a good rule is reasonable, once the decision is yours.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Replace your whole stylesheet with the AI version.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. One good rule does not make the rest of the AI stylesheet correct.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Fix, Adopt, or Discard</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why should you not keep both reading.xsl and ai-reading.xsl as working versions after the audit?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Fix the AI stylesheet, adopt only its improvements, or discard it; then finish with one checked stylesheet per view and rerun every check on the final version.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A reader who finds both cannot tell which one made your published page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Finish with exactly one checked stylesheet per view.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Git cannot store two XSLT files in one folder.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git can store any number of files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>lxml can only load one stylesheet per computer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no such limit.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The AI stylesheet must always be deleted.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. You may fix it and adopt it; the point is to end with one version.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Worked Example: Auditing an AI Stylesheet for Maud Lewis's Letter</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In Olyvia's audit, the word comparison shows no differences, yet the greeting and signature run into the body. What found the problem?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A word comparison can show no differences while a letter's greeting and signature run into the body; use the audit template and Tuesday's page to catch structural omissions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The audit template and Tuesday's page, because the problem is in structure, not in words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. No single check is enough; a structural omission keeps every word.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The word comparison, on a second run.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Every word is present and in order, so it will report no differences.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The HTML validator.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The page is valid; it just loses the letter's parts.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The count of &lt;choice&gt; elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The problem has nothing to do with &lt;choice&gt;.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Worked Example: The 1752 Treaty and an Inconsistent File</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why did the first-child rule look right on most of Andromeda's lines?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A first-child rule can look right on most lines and fail on a few; counting layer classes on the page against &lt;choice&gt; elements in the TEI finds the exact number of failures.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Most of her &lt;choice&gt; elements put &lt;reg&gt; first, so position happened to give the right layer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The rule depended on element order, which carries no meaning and varied in her file.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The rule was actually correct, and the six lines were transcription errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Her file was valid; the rule depended on an accident of order.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>XSLT corrects the order of children automatically.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XSLT processes the children as they appear.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The reading view does not show &lt;choice&gt; elements.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It shows one layer of each &lt;choice&gt;.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: Recording the AI's Contribution</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Where should you record the AI's contribution to your rendering rules?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Record AI involvement in a comment in the stylesheet, a summary in RENDERING.md, and separate commits for the unedited and corrected versions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>In a comment in the stylesheet, a summary in RENDERING.md, and separate commits for the unedited and corrected versions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Together these show which rules came from a model, which were checked, and who is responsible.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Only in the TEI header, as in Week 6.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Today the model wrote software that displays your text, so the record belongs with the software.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nowhere, since the stylesheet is not part of the edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The stylesheet decides what readers see, so its origins must be recorded.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Only in the final commit message.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Use all three places.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: What This Week Has Built</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When you add lemmas to your TEI in Week 8, what should you do with this week's work?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>This week has produced checked views, rules and reusable checks; rerun them whenever your TEI changes, and treat the decision table as the start of your edition's editorial statement.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Rerun the stylesheets and the checks, and add a row to RENDERING.md for each new element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The scripts and the audit template work on any later version of your edition.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nothing, because rendering is finished.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. New elements will need new decisions and rules.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Start the rendering again from scratch.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The existing rules and checks carry forward.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ask the model to rewrite the whole stylesheet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Add rows and rules for the new elements, then rerun the checks.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Hypothetical Scenario: The Gap That Filled Itself</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the scenario, which single step caused the invented words to be published?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A model rendering text directly can fill a gap with plausible words; asking for rules instead of text, and counting gaps against brackets, protects readers from text that was never there.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Asking a model for text instead of rules, and publishing its text without checking it against the source.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The transcription and encoding were both correct; the failure was in rendering.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A transcription error in the TEI file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The scenario says the transcription was correct.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A missing &lt;gap/&gt; element in the encoding.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The TEI contained the gap, with its reason and extent.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A bug in the XSLT stylesheet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. No stylesheet was used; the page was generated directly.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: Review and Step 3 Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does completing Step 3 give you?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Completing Step 3 gives you final stylesheets you can defend rule by rule, an audit log of everything the model got wrong or right, and checks you can rerun as your edition grows.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Final stylesheets you can defend rule by rule, an audit log, and checks you can rerun as your edition grows.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The three-step cycle for rendering is now complete.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An AI-written stylesheet that replaces your own without review.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Every AI rule has been audited, and adopted only by decision.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A finished Print-Ready Publication.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. This week's work feeds the publication, which is due later.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Permission to skip the decision table in future weeks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Each new element still needs a row in RENDERING.md.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

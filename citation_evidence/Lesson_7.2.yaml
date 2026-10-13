@@ -1,0 +1,83 @@
+lesson: '7.2'
+ignore: []
+entries:
+# ---- Clausen et al. 2026 (s03) ----
+- id: 7.2-01
+  lesson_text: >-
+    One recent manuscript repository stores each manuscript as a TEI document and turns it into the HTML page a visitor sees by running an XSLT stylesheet
+  kind: paraphrase
+  verdict: supported
+  citation: "Clausen et al., 2026"
+  source_file: raw/readings/Module_03_IIIF_Imaging/03_SPECIAL_PROJECTS_CASES_AND_CONTENT_ANALYSIS.pdf
+  pdf_page: 10
+  printed_page: 10
+  passage: >-
+    Each GAMS object provides various REST API-based dissemination methods [57], which can be used to request individual datastreams or to process the primary datastream into an HTML representation (visual user interface of the multimodal manuscript representation) using an XSLT stylesheet.
+  justification: >-
+    The same page states that the manuscripts are represented by a virtual object of type cm:TEI with the TEI document as the primary datastream, so processing the primary datastream into HTML with XSLT is turning the TEI document into the visitor's page.
+- id: 7.2-02
+  lesson_text: >-
+    Its builders note that TEI files and images rendered dynamically through XSLT already give them everything needed to publish critical editions later
+  kind: paraphrase
+  verdict: supported
+  citation: "Clausen et al., 2026"
+  source_file: raw/readings/Module_03_IIIF_Imaging/03_SPECIAL_PROJECTS_CASES_AND_CONTENT_ANALYSIS.pdf
+  pdf_page: 12
+  printed_page: 12
+  passage: >-
+    However, the realized framework for the digital edition of the manuscript text—with its integrated TEI documents and digital facsimiles, dynamically rendered through XSLT stylesheets—already provides all the necessary prerequisites for producing and publishing critical editions as part of the multimodal manuscript representation.
+# ---- Faghihi et al. 2022 (s03) ----
+- id: 7.2-03
+  lesson_text: >-
+    A team that trained cataloguers to edit TEI records directly wrote an XSLT template that produced an HTML preview of each record, and found it very helpful for proofreading on the spot
+  kind: paraphrase
+  verdict: supported
+  citation: "Faghihi et al., 2022"
+  source_file: raw/readings/Module_10_Consolidation/03_Developing_a_new_integrated_editing_platform_for_source_documents_in_classics.pdf
+  pdf_page: 5
+  printed_page: 5
+  passage: >-
+    To compensate for the lack of a data-inputting tool, an XSLT conversion template was produced, which generated a HTML preview of the TEI document and proved very helpful for instant proofreading.
+  justification: >-
+    The preceding sentences on the same page say cataloguers were now able to edit their data and contribute directly to the repository, and that the new workflow required additional training; the template served that training and workflow.
+# ---- Bausi et al. 2015 (s25) ----
+- id: 7.2-04
+  lesson_text: >-
+    XSLT can also produce formatting objects, an intermediate format that other software turns into PDF
+  kind: paraphrase
+  verdict: supported
+  citation: "Bausi et al., 2015"
+  source_file: raw/readings/Module_01_Orientation/02_A_corpus-based_approach_to_philological_issues.pdf
+  pdf_page: 47
+  printed_page: 24
+  passage: >-
+    For the former purpose, this presupposes the design and application of so-called ‘Extensible Stylesheet Language Transformations’ (XSLT), which can be used to transform XML documents into HTML web pages, plain text files, or ‘Extensible Stylesheet Language Formatting Objects’ (XSL-FO) which can subsequently be converted to PDF or other output formats.
+  justification: >-
+    Reused from Lesson 7.1 (7.1-07), where it introduced XSLT in general; here only its XSL-FO to PDF clause is used, for the print route that Lesson 7.2 introduces.
+# ---- Pierazzo 2016 (s25) ----
+- id: 7.2-05
+  lesson_text: >-
+    Different views of the same encoded text can be generated on demand by the reader
+  kind: paraphrase
+  verdict: supported
+  citation: "Pierazzo, 2016"
+  source_file: raw/readings/Module_13_Publication/03_Digital_Scholarly_Editing_in_Practice_Making_Oxford_University_Voltaire.pdf
+  pdf_page: 68
+  printed_page: 51
+  passage: >-
+    In fact, by the application of different sets of rules contained in the so-called stylesheets, if the text has been produced by the means of text encoding, it is possible to visualise it in any number of different formats, for instance as a critical, diplomatic, variorum or as a reading text. These visualisations can be generated dynamically
+  justification: >-
+    The sentence continues across the page break onto pdf page 69 (printed page 52) with the words on-demand by the users, which carry the on-demand point; the first sentence was used in Lesson 7.1 (7.1-02) only for the claim that one file yields several views.
+# ---- Lazzerini & Di Franco 2026 (s23) ----
+- id: 7.2-06
+  lesson_text: >-
+    One Italian research project built its digital editions, including two texts surviving in a single manuscript, with a ready-made viewer called EVT, Edition Visualization Technology
+  kind: paraphrase
+  verdict: supported
+  citation: "Lazzerini & Di Franco, 2026"
+  source_file: raw/readings/Module_13_Publication/08_A_protocol_for_scholarly_digital_editions_The_Italian_point_of_view.pdf
+  pdf_page: 9
+  passage: >-
+    The RETI project (REndering Texts and Images) is a PRIN 2022 research project carried out by the Universities of Pisa, Turin, Molise, and Naples “Federico II”.22 It aims to provide a methodology for producing digital scholarly editions using the software EVT3 (Edition Visualization Technology).23 Within the project, four case studies were developed:
+  justification: >-
+    The same page lists the four case studies and states that the latter two are texts transmitted by a codex unicus, focused on transcription and visualization of the manuscript images; the universities named are Italian.
