@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 8.1 Teaching Plan (2026-10-27)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #20 (Lesson 8.1 &mdash; Manual Grammatical Parsing, Lemmatization, and TEI Linguistic Markup)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Tuesday, October 27, 2026</span>
+                <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 8 (Lemmatization) &middot; Step 1 of 3 (Manual)</span>
+                <span class="badge">Milestone: LEMMATIZATION_POLICIES.md + 20-Word Manual Ground Truth</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students have completed Week 7 (Rendering &amp; Publication I): they have working HTML/CSS stylesheets producing diplomatic and reading views from their normalized TEI files. However, their editions treat text strictly as character strings. None has yet encoded grammatical parts of speech, dictionary headwords, or morphological feature bundles.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student establishes <code>LEMMATIZATION_POLICIES.md</code> citing their authority lexicon, then hand-parses a continuous 20-word passage of their project witness across four columns (Token, Lemma, UPOS, FEATS) and encodes it in TEI XML using <code>&lt;w lemma="..." pos="..."&gt;</code> elements, establishing the gold-standard benchmark for Wednesday's NLP test.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Stan Rogers, &ldquo;The Mary Ellen Carter&rdquo;</strong> (1979). Maritime Canadian folk anthem celebrating perseverance, craft, and raising what was lost.</li>
+            <li><strong>Pedagogical connection:</strong> Grammatical parsing is about recovering the underlying structure beneath weathered, historical surface forms (&ldquo;Rise again!&rdquo;), just as our editors rescue canonical dictionary headwords from centuries of scribal variation.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;When a ship sinks into the sand, its shape is hidden. When a word is written on parchment, its grammar is hidden. Today we bring the grammar back to the surface.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE LEMMATIZATION OBJECTIVE: GROUND TRUTH BEFORE AUTOMATION</h3>
+        <p>A computer cannot understand that <em>treaties</em>, <em>treaty</em>, and <em>treaty's</em> belong to the same word family, or whether <em>left</em> is a noun or a verb. Automated taggers make frequent mistakes on historical documents. Therefore, students must establish an authoritatively verified manual ground truth by hand before testing computational pipelines on Wednesday and Friday.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Ground truth comes first:</strong> Today's 20-word manual parse serves as the immutable gold-standard benchmark against which Wednesday's deterministic tagger (TreeTagger/SpaCy) and Friday's AI model will be scored.<br>
+        <strong>2. Standard citation lexica:</strong> Every lemma must be verified in an authoritative dictionary (OED for English, TLFi for French). Never invent modern colloquial lemmas or leave forms unverified.<br>
+        <strong>3. Standard UPOS tags:</strong> Use the 17 Universal Dependencies UPOS tags (<code>NOUN</code>, <code>VERB</code>, <code>ADJ</code>, <code>DET</code>, <code>PRON</code>, <code>ADP</code>, etc.) rather than ad-hoc labels.<br>
+        <strong>4. Nesting rule:</strong> When combining spelling regularizations from Week 6 with linguistic markup, <code>&lt;choice&gt;</code> always nests inside <code>&lt;w&gt;</code>, never the reverse.<br>
+        <strong>5. Assignment alignment:</strong> Work produced today directly builds the ground-truth baseline for Assignment: Module 8 (Linguistic Markup), due Friday, October 30, at 11:00 PM.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Words Beyond Character Strings</td>
+                <td class="desc-col">
+                    Welcome students. Project raw string search results vs. lemmatized query results. Ask: <em>&ldquo;If you search your edition for 'promise', will you find 'promis'd' or 'promising'? How does a scholar study grammar across millions of words?&rdquo;</em><br>
+                    Outline the week's trajectory: <strong>Tue manual ground truth &rarr; Wed deterministic NLP (TreeTagger/SpaCy) &rarr; Fri AI prompt audit &amp; assignment submission</strong>.
+                </td>
+                <td class="target-col">Concept alignment; whiteboard week roadmap</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Tokens, Lemmas, and TEI &lt;w&gt;</td>
+                <td class="desc-col">
+                    Demonstrate parsing a 4-word clause on the projector (<em>The Chief doth promise</em>). Walk through tokenization, OED lookup (<em>doth</em> &rarr; lemma <em>do</em>, AUX, Present, Third Person Singular), and wrapping tokens in TEI: <code>&lt;w lemma="do" pos="AUX"&gt;doth&lt;/w&gt;</code>.<br>
+                    Show French parallel on whiteboard: <em>L'Assemblée décrète</em> &rarr; <code>&lt;w lemma="le" pos="DET"&gt;L'&lt;/w&gt; &lt;w lemma="assemblée" pos="NOUN"&gt;Assemblée&lt;/w&gt;</code>. Emphasize splitting clitics and keeping punctuation in <code>&lt;pc&gt;</code>.
+                </td>
+                <td class="target-col">Live TEI &lt;w&gt; encoding sample on screen</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:46 &ndash; 8:56<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: Policy Ledger<br>Creating LEMMATIZATION_POLICIES.md</td>
+                <td class="desc-col">
+                    Direct students to initialize <code>LEMMATIZATION_POLICIES.md</code> in their repositories. Enumerate three required rules: (1) dictionary authority baseline (OED vs. TLFi), (2) capitalization rules for lemmas (proper names keep initial capitals; common words stay lowercase), and (3) contraction boundary splits.<br>
+                    <strong>Circulate:</strong> confirm Ace configures French TLFi rules, Olyvia sets 20th-century vernacular guidelines for Maud Lewis, and Andromeda sets 18th-century OED guidelines for the 1752 Treaty.
+                </td>
+                <td class="target-col">Committed <code>LEMMATIZATION_POLICIES.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">8:56 &ndash; 9:12<br>(16 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Hand-Parsing 20-Word Witness Excerpt</td>
+                <td class="desc-col">
+                    Students select 20 consecutive words forming complete clauses from their project document. They construct a 4-column Markdown table (Token, Lemma, UPOS, FEATS) and encode the passage in TEI XML using <code>&lt;w&gt;</code> elements.<br>
+                    Enforce dictionary lookup for every single token: no guessing from intuition. Verify that nested <code>&lt;choice&gt;</code> tags sit inside <code>&lt;w&gt;</code>.
+                </td>
+                <td class="target-col">20-word table + valid TEI XML fragment</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:12 &ndash; 9:17<br>(5 mins)</td>
+                <td class="activity-col">Phase 5: Diagnostics<br>Disambiguation &amp; Crux Check</td>
+                <td class="desc-col">
+                    Pair check: students audit their neighbor's 20-word table. Check for homographs (did <em>will</em> get tagged as noun or verb?), clitic splits (is <em>l'</em> separate from the noun?), and canonical dictionary spelling of lemmas.<br>
+                    Log any ambiguous readings or editorial doubts in a dedicated Cruxes section in their notes.
+                </td>
+                <td class="target-col">Zero unverified lemmas; logged cruxes</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:17 &ndash; 9:20<br>(3 mins)</td>
+                <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Wednesday Preview</td>
+                <td class="desc-col">
+                    Stage gate commit:<br>
+                    <code>git add LEMMATIZATION_POLICIES.md ground_truth_manual.xml &amp;&amp; git commit -m "Week 8 Step 1: manual lemmatization policy ledger and 20-word ground truth"</code><br>
+                    <strong>Preview Wednesday (Meeting #21):</strong> Running automated rule-based taggers (TreeTagger and SpaCy) on this exact excerpt to measure machine accuracy against human scholarship.
+                </td>
+                <td class="target-col">Clean commit on <code>main</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Starter Projection Skeletons &amp; Live Reference</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Starter Projection Card A: 4-Column Ground Truth Table</h4>
+<pre>| Token | Lemma | UPOS | FEATS |
+|---|---|---|---|
+| All | all | DET | PronType=Tot |
+| Treaties | treaty | NOUN | Number=Plur |
+| shall | shall | AUX | VerbForm=Fin |
+| be | be | AUX | VerbForm=Inf |
+| renewed | renew | VERB | Tense=Past|VerbForm=Part |</pre>
+        </div>
+        <div class="card">
+            <h4>Starter Projection Card B: TEI Linguistic XML Fragment</h4>
+<pre>&lt;s&gt;
+  &lt;w lemma="all" pos="DET"&gt;All&lt;/w&gt;
+  &lt;w lemma="treaty" pos="NOUN"&gt;Treaties&lt;/w&gt;
+  &lt;w lemma="shall" pos="AUX"&gt;shall&lt;/w&gt;
+  &lt;w lemma="be" pos="AUX"&gt;be&lt;/w&gt;
+  &lt;w lemma="renew" pos="VERB"&gt;renewed&lt;/w&gt;
+  &lt;pc pos="PUNCT"&gt;.&lt;/pc&gt;
+&lt;/s&gt;</pre>
+        </div>
+    </div>
+
+    <div class="card mt-3">
+        <h4>Pedagogical Checkpoints &amp; Cohort Diagnostics</h4>
+        <ul>
+            <li><strong>Ace (1791 French decree):</strong> Ensure clitics (<em>l'</em>, <em>d'</em>) are split from nouns, adjectives match gender/number agreement, and 18th-century imperfect forms (<em>décrétoit</em>) map to standard modern infinitive <em>décréter</em>.</li>
+            <li><strong>Olyvia (Maud Lewis letters):</strong> Verify that informal contractions (<em>can't</em>, <em>didn't</em>) are split into helping verbs and negative particles, and possessive pronouns (<em>your</em>) map to base lemma <em>you</em>.</li>
+            <li><strong>Andromeda (1752 Treaty):</strong> Check that legal auxiliaries (<em>doth</em>, <em>shall</em>) receive AUX tags with base lemmas (<em>do</em>, <em>shall</em>), and regularized past participles (<em>acknowledged</em>) nest inside <code>&lt;w lemma="acknowledge" pos="VERB"&gt;</code>.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

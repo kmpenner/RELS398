@@ -75,11 +75,11 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #65a30d
     </ul>
 </div>"""
 
-# 5. Workshop
+# 5. Workshop / Assignment
 ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #65a30d; background-color: #f7fee7; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #3f6212; margin-top: 0;">Workshop: Comparative Morphological Parsing & Lemmatization</h4>
-    <p><strong>Overview:</strong> In this workshop, you will parse a 20-word excerpt of your primary manuscript witness across three distinct tiers: (1) manual philological parse using a scholarly lexicon; (2) deterministic NLP tagging with CLTK or TreeTagger; and (3) zero-shot LLM parsing. You will compare accuracy, document edge cases, and build a TEI linguistic XML fragment.</p>
-    <p><strong>Deadlines:</strong> Comparison Post due Friday by 11:00 PM; Peer Reviews due Monday by 11:00 PM.</p>
+    <h4 style="color: #3f6212; margin-top: 0;">Assignment: Module 8 (Linguistic Markup)</h4>
+    <p><strong>Overview:</strong> In this assignment, you will parse a 20-word excerpt of your primary manuscript witness across three distinct tiers: (1) manual grammatical and lexical parse using an authoritative dictionary; (2) deterministic NLP tagging with TreeTagger or SpaCy; and (3) prompt-engineered AI parsing in VS Code. You will compare accuracy, document edge cases and disambiguation failures, and build a TEI linguistic XML fragment using <code>&lt;w&gt;</code> elements with <code>lemma=</code> and <code>pos=</code> attributes.</p>
+    <p><strong>Deadline:</strong> due Friday, October 30, by 11:00 PM.</p>
 </div>"""
 
 ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
@@ -87,15 +87,15 @@ ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
     <ol>
         <li>Select 20 consecutive words from your primary manuscript witness.</li>
         <li><strong>Tier 1 (Manual):</strong> For each word, look up its canonical dictionary lemma and provide a full morphological breakdown (part of speech, gender/number/case or tense/voice/mood) in a Markdown table.</li>
-        <li><strong>Tier 2 (NLP Engine):</strong> Run the excerpt through a computational tagging script (using Python CLTK, Stanza, or TreeTagger) and record the predicted lemmas and POS tags.</li>
+        <li><strong>Tier 2 (NLP Engine):</strong> Run the excerpt through a computational tagging script (using TreeTagger or SpaCy) and record the predicted lemmas and POS tags.</li>
         <li><strong>Tier 3 (LLM):</strong> Query an LLM with a structured system prompt requesting JSON or TEI <code>&lt;w&gt;</code> tags with <code>lemma</code> and <code>pos</code> attributes.</li>
         <li>Encode the excerpt in TEI XML using <code>&lt;w lemma="..." pos="..."&gt;token&lt;/w&gt;</code> elements based on your verified ground truth.</li>
-        <li>Submit your TEI file, your Python/prompt script, and a <strong>300–500 word reflection</strong> analyzing which morphological categories caused the highest failure rate in the automated pipelines.</li>
+        <li>Submit your TEI file, your tagging script/prompts, and a <strong>300–500 word reflection</strong> analyzing which morphological categories caused the highest failure rate in the automated pipelines.</li>
     </ol>
 </div>"""
 
 ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
+    <h4 style="margin-top: 0;">Evaluation Rubric</h4>
     <ul>
         <li><strong>Manual Ground Truth Precision (4 pts):</strong> The 20-word manual parse accurately identifies dictionary lemmas and correct inflectional morphology without grammatical errors.</li>
         <li><strong>TEI Linguistic Markup Validity (3 pts):</strong> The XML cleanly wraps tokens in <code>&lt;w&gt;</code> tags with valid <code>lemma</code> and <code>pos</code> attributes conforming to TEI P5 guidelines.</li>

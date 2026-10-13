@@ -1,0 +1,1854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_8.2</text></category></question>
+<question type="description"><name><text>01 Content: From Hand Parsing to Algorithmic Pipelines</text></name><questiontext format="html"><text><![CDATA[
+<h3>From Hand Parsing to Algorithmic Pipelines</h3>
+<p>Yesterday, in Lesson 8.1, you parsed and lemmatized a twenty-word passage from your manuscript witness by hand. You looked up each word in a scholarly dictionary, chose the correct part-of-speech tag. Recorded its grammatical features. That manual work gave you an authoritatively verified ground truth.</p>
+<p>Today, we take Step 2 of our three-step comparative cycle: deterministic, automated language processing. In modern digital humanities projects, editors cannot parse million-word collections by hand. We need computer programs that can tokenize, tag, and lemmatize text automatically in fractions of a second.</p>
+<p>Yet automation comes with a price. Algorithms follow fixed rules and statistical patterns trained on modern newspapers and books. When an algorithm encounters an eighteenth-century legal treaty, a French Revolutionary. A handwritten folk art letter, it often makes surprising mistakes. Today, you will run automated tagging tools over your text and measure their accuracy directly against yesterday's manual baseline.</p>
+<p><strong>Vocabulary.</strong> <em>Natural Language Processing (NLP)</em> — Computational methods for analyzing, parsing. Understanding human language in digital texts. <em>Deterministic Pipeline</em>. Software that follows fixed algorithms and statistical models, producing the same output for a given input every time.</p>
+<p><strong>Takeaway:</strong> Automated NLP pipelines process large corpora quickly. Their accuracy must be measured against an authoritative manual ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: From Hand Parsing to Algorithmic Pipelines</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must digital textual scholars evaluate automated NLP pipelines against an authoritatively verified manual ground truth?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated NLP pipelines process large corpora quickly, but their accuracy must be measured against an authoritative manual ground truth.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because automated tools are trained on modern data and often make predictable errors on historical prose.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Pre-trained models reflect modern language patterns and must be benchmarked against manual historical truth.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because automated tools always produce zero percent accuracy on all text files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Modern tools often achieve high accuracy, but error rates spike on historical orthography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because university accreditation rules forbid computers from processing historical manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital humanities encourages automated methods when rigorously validated.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because manual parsing deletes all files from the server.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Manual parsing provides the reference benchmark for testing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: How Rule-Based Lemmatizers Work</text></name><questiontext format="html"><text><![CDATA[
+<h3>How Rule-Based Lemmatizers Work</h3>
+<p>The earliest automated lemmatizers relied entirely on explicit rules written by linguists. These programs are called <strong>rule-based lemmatizers</strong>.</p>
+<p>A rule-based program uses two main tools: an internal dictionary of known root words and a set of ending rules. When the program reads an inflected English word like <em>treaties</em>, it checks its rules. A rule says: if a word ends in <em>ies</em>, replace <em>ies</em> with <em>y</em> and check if <em>treaty</em> is in the dictionary. Since <em>treaty</em> is found, the program assigns <em>treaty</em> as the lemma.</p>
+<p>For regular words, rule systems are fast and predictable. However, natural language is full of irregular exceptions. If a program encounters <em>was</em> or <em>went</em>, simple suffix rules fail. The program must consult a large table of irregular forms (<em>went</em> maps to <em>go</em>, <em>was</em> maps to <em>be</em>). If an old word form is missing from that table, the rule system cannot solve it.</p>
+<p><strong>Vocabulary.</strong> <em>Rule-Based System</em> — Software that analyzes language using explicit human-written rules and lookup tables. <em>Suffix Stripping</em> — Removing common word endings (like <em>-ing</em> or <em>-ed</em>) to find a base stem.</p>
+<p><strong>Takeaway:</strong> Rule-based lemmatizers combine ending rules with lookup tables of irregular forms to identify base words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: How Rule-Based Lemmatizers Work</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does a traditional rule-based lemmatizer determine the dictionary headword for an inflected word?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Rule-based lemmatizers combine suffix-stripping rules with lookup tables of irregular forms to identify base words.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By combining suffix-stripping rules with lookup tables of known roots and irregular word forms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Rule-based systems strip standard endings (like -ies to -y) and check irregular tables (like went to go).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By asking human editors questions over a phone network.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Rule-based algorithms execute deterministic local code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By translating the word into binary code and measuring electrical resistance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lemmatization is a symbolic and lexicographical algorithm.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By picking a random word from the first page of a dictionary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Rules follow systematic linguistic algorithms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: Statistical Sequence Taggers: Parts of Speech in Context</text></name><questiontext format="html"><text><![CDATA[
+<h3>Statistical Sequence Taggers: Parts of Speech in Context</h3>
+<p>Identifying parts of speech is harder than simply looking up words in a list. As you saw yesterday, homographs like <em>will</em>, <em>left</em>, and <em>est</em> can belong to multiple grammatical categories. To pick the right tag, an algorithm must look at surrounding words.</p>
+<p>Modern deterministic tools use <strong>statistical sequence models</strong>, such as Hidden Markov Models or Decision trees. These models are trained on large collections of hand-tagged sentences called <strong>training corpora</strong>. By reading millions of tagged words, the algorithm learns word chances: how often a determiner like <em>the</em> is followed by a noun versus a verb.</p>
+<p>When the tagger reads <em>the will of the people</em>, it calculates probabilities. It knows that after <em>the</em>, the word <em>will</em> is far more likely to be a noun than a helping verb. By calculating probabilities across whole sentences, statistical taggers achieve ninety to ninety-five percent accuracy on modern standard texts.</p>
+<p><strong>Vocabulary.</strong> <em>Sequence Model</em>. An algorithm that predicts labels for a sequence of tokens based on surrounding context. <em>Training Corpus</em> — A large body of human-annotated text used to train statistical language algorithms.</p>
+<p><strong>Takeaway:</strong> Statistical taggers calculate probabilities from surrounding sentence context to predict parts of speech for ambiguous words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: Statistical Sequence Taggers: Parts of Speech in Context</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do statistical sequence taggers resolve the part of speech for ambiguous homographs like will or est?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Statistical taggers calculate probabilities from surrounding sentence context to predict parts of speech for ambiguous words.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By calculating transition probabilities from surrounding words in a sentence based on training corpora.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Sequence models evaluate neighboring words (such as preceding determiners) to predict the most likely part of speech.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By selecting whichever part of speech has the shortest English definition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Statistical taggers evaluate surrounding sentence probabilities, not definition lengths.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By refusing to tag any word that appears more than once in a paragraph.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Frequent words are processed on every occurrence in context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By converting the entire text into uppercase letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Case conversion does not resolve part-of-speech probabilities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: TreeTagger: The Probabilistic Decision-Tree Engine</text></name><questiontext format="html"><text><![CDATA[
+<h3>TreeTagger: The Probabilistic Decision-Tree Engine</h3>
+<p>One of the most famous and durable tools in digital humanities is <strong>TreeTagger</strong>, developed by Helmut Schmid at the University of Stuttgart. TreeTagger is widely used because it supports dozens of languages, including English, French, Latin, and German.</p>
+<p>TreeTagger uses decision trees to estimate word chances. A decision tree asks a sequence of yes-or-no questions about neighboring words. For example: Is the previous word a determiner? Is the next word a finite verb? Based on the answers, the tree navigates to a leaf node that assigns the most probable part-of-speech tag and dictionary lemma.</p>
+<p>TreeTagger is fast, lightweight, and deterministic. It processes thousands of words per second on an ordinary laptop. Because it has been refined over three decades, its French and English parameter files handle complex syntax with remarkable stability.</p>
+<p><strong>Vocabulary.</strong> <em>TreeTagger</em>. A standard statistical software tool that uses decision trees to assign part-of-speech tags and lemmas to text. <em>Decision Tree</em> — A branching flowchart algorithm that sorts data by answering a series of categorical questions.</p>
+<p><strong>Takeaway:</strong> TreeTagger uses decision trees to assign parts of speech and lemmas rapidly across many historical and modern languages.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: TreeTagger: The Probabilistic Decision-Tree Engine</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What algorithmic architecture enables Helmut Schmid's TreeTagger to assign parts of speech and lemmas efficiently?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;TreeTagger uses decision trees to assign parts of speech and lemmas rapidly across many historical and modern languages.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A decision tree that evaluates sequences of categorical questions about neighboring words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. TreeTagger uses decision trees to estimate transition probabilities from context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A physical mechanical typewriter installed in a library basement.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TreeTagger is a software application developed in computational linguistics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A search engine crawler that queries public websites in real time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TreeTagger runs locally using pre-compiled parameter files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A random number generator with no linguistic training data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TreeTagger is trained on curated corpora.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: SpaCy and Stanza: Modern Industrial NLP in Python</text></name><questiontext format="html"><text><![CDATA[
+<h3>SpaCy and Stanza: Modern Industrial NLP in Python</h3>
+<p>While TreeTagger remains a classic tool, modern computational linguistics often relies on Python-based libraries like <strong>SpaCy</strong> and <strong>Stanza</strong>.</p>
+<p>SpaCy is designed for fast text analysis. It includes pre-trained neural and statistical pipelines for over twenty languages. In Python, you can load a model with a single line of code and pass text to it directly. SpaCy tokenizes the text, tags parts of speech, extracts lemmas, and builds complete sentence trees in memory.</p>
+<p>Stanza, developed by the Stanford NLP Group, offers similar capabilities with deep support for historical treebanks. For our work in RELS 398, SpaCy provides a fast and accessible way to test automated parsing in VS Code. Models like <code>en_core_web_sm</code> for English and <code>fr_core_news_sm</code> for French give you instant access to standard Universal Dependencies pipelines.</p>
+<p><strong>Vocabulary.</strong> <em>SpaCy</em> — A popular open-source Python library for advanced language processing. <em>Pre-Trained Pipeline</em> — A ready-to-use software package containing statistical models and dictionaries trained on large text datasets.</p>
+<p><strong>Takeaway:</strong> Python libraries like SpaCy provide fast pre-trained language pipelines that tokenize, tag, lemmatiz. Parse sentences with simple code.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: SpaCy and Stanza: Modern Industrial NLP in Python</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What capability distinguishes modern Python NLP libraries like SpaCy and Stanza?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Python libraries like SpaCy provide fast pre-trained language pipelines that tokenize, tag, lemmatize, and parse sentences with simple code.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They provide pre-trained modular pipelines that tokenize, tag parts of speech, lemmatize, and parse syntax with simple code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Libraries like SpaCy package tokenizers, taggers, lemmatizers, and parsers into unified Python pipelines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They physically repair torn parchment in library archives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SpaCy is a computational text-processing library.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They automatically delete all XML files that contain spelling errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Python libraries process text in memory without deleting source files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They require users to write all code in machine binary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SpaCy provides high-level, human-readable Python functions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Setting Up Python for Language Processing in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Setting Up Python for Language Processing in VS Code</h3>
+<p>Running an NLP pipeline does not require complicated software. In VS Code, you can write a short Python script that loads your transcript and runs a language pipeline in a few lines.</p>
+<p>Here is what a complete ten-line Python script looks like using SpaCy:</p>
+<pre><code class="language-python">import spacy
+
+# Load the standard English language model
+nlp = spacy.load(&quot;en_core_web_sm&quot;)
+
+# Read your 20-word text excerpt
+text = &quot;All Treaties shall be renewed by the Governor.&quot;
+
+# Process the text
+doc = nlp(text)
+
+# Print the automated results
+for token in doc:
+    print(f&quot;{token.text:12} {token.lemma_:12} {token.pos_:8} {token.dep_:8}&quot;)
+</code></pre>
+<p>When you run this script, SpaCy processes every token and outputs a clean table showing the surface text, the predicted lemma, the UPOS tag. The grammatical dependency relation.</p>
+<p><strong>Takeaway:</strong> A short Python script using SpaCy can load a pre-trained model and print lemmas, parts of sp. Grammar links in seconds.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Setting Up Python for Language Processing in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What standard Python object in SpaCy holds the processed tokens, lemmas, and syntactic tags for an analyzed sentence?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A short Python script using SpaCy can load a pre-trained model and print lemmas, parts of speech, and syntactic relations in seconds.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A Doc container object iterated over individual Token objects.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Passing text to a SpaCy model returns a Doc object containing Token instances with attributes like lemma_ and pos_.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An unformatted plain-text bitmap image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SpaCy returns structured linguistic Python objects.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A locked PDF file stored in the trash.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Doc object is an active in-memory data structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A hardware serial port address.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Token attributes are accessed via standard Python object properties.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: The Out-of-Vocabulary (OOV) Dilemma</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Out-of-Vocabulary (OOV) Dilemma</h3>
+<p>When an automated tagger reads modern text, it performs with high accuracy. When it reads historical manuscripts, it runs directly into the <strong>Out-of-Vocabulary (OOV)</strong> problem.</p>
+<p>An OOV word is any token that does not exist in the software's training dictionary. Modern language models are trained on contemporary sources like Wikipedia, news articles, and modern books. They know modern vocabulary intimately. However, they have never seen eighteenth-century abbreviations, regional dialect spellings, or archaic contractions.</p>
+<p>When a tagger encounters an OOV word, its dictionary lookup fails. Most taggers fall back to a simple default: they assume the lemma is identical to the surface string. They guess based on common prefixes and suffixes. In historical documents, this causes frequent errors.</p>
+<p><strong>Vocabulary.</strong> <em>Out-of-Vocabulary (OOV)</em>. A word that does not appear in a language model's vocabulary list or dictionary. <em>Graceful Degradation</em> — How software behaves when it meets unexpected input without crashing.</p>
+<p><strong>Takeaway:</strong> The missing word problem occurs when historical words or unusual spellings are missing from an automated model's training dictionary.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: The Out-of-Vocabulary (OOV) Dilemma</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What causes the Out-of-Vocabulary (OOV) problem when running modern NLP pipelines on historical documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Out-of-Vocabulary problem occurs when historical words or unusual spellings are missing from an automated model's training dictionary.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Historical words or archaic spellings do not exist in the modern dictionary data used to train the software.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Models trained on modern texts lack entries for eighteenth-century orthography and scribal variants.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The computer hard drive runs completely out of digital storage space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. OOV refers to missing lexical items in a language model, not disk space.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The text file is encrypted with military-grade passwords.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. OOV occurs on readable, unencrypted historical text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The software refuses to parse words containing more than three vowels.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Word length does not trigger OOV failures; absent lexicon entries do.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Handling Historical Spelling in Deterministic Models</text></name><questiontext format="html"><text><![CDATA[
+<h3>Handling Historical Spelling in Deterministic Models</h3>
+<p>Historical spelling variations present a severe obstacle for deterministic taggers. In Module 6, you saw how eighteenth-century scribes used spellings that look unfamiliar today.</p>
+<p>In Andromeda's 1752 Treaty, words like <em>shew'd</em> (for <em>showed</em>) or <em>promis'd</em> (for <em>promised</em>) confuse modern models. Because <em>shew'd</em> is not in the modern dictionary, the tagger cannot find the lemma <em>show</em>. It may tag <em>shew'd</em> as a noun or invent a fictitious lemma <em>shew'd</em>.</p>
+<p>In Ace's 1791 French decree, eighteenth-century scribes wrote imperfect verb endings with <em>-oit</em> instead of modern <em>-ait</em> (<em>faisoit</em>, <em>décrétoit</em>). A modern French model expects <em>faisait</em> or <em>décrétait</em>. When it sees <em>faisoit</em>, it fails to recognize the verb <em>faire</em>. As an editor, understanding this limitation helps you diagnose why taggers stumble on archival sources.</p>
+<p><strong>Takeaway:</strong> Historical spelling variations like French <em>-oit</em> or English <em>shew'd</em> confuse automated taggers because they deviate from modern training lexica.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Handling Historical Orthography in Deterministic Models</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do eighteenth-century French spellings like décrétoit or English spellings like shew'd trigger errors in modern taggers?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Historical spelling variations like French -oit or English shew'd confuse automated taggers because they deviate from modern training lexica.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Modern training lexica expect standardized forms like décrétait and showed, failing to recognize archaic suffixes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deviations from modern standardized orthography prevent models from matching words in their internal lexica.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Historical scribes wrote in secret mathematical ciphers designed to prevent reading.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Premodern archival records were written for contemporary human comprehension.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Eighteenth-century words contain characters that cannot be rendered in Unicode.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical alphabetic text is fully encoded in UTF-8.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Modern software automatically deletes any word older than fifty years.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Software processes text without temporal deletion rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Universal Dependencies in Automated NLP</text></name><questiontext format="html"><text><![CDATA[
+<h3>Universal Dependencies in Automated NLP</h3>
+<p>A major benefit of modern NLP pipelines like SpaCy and Stanza is that they output standard <strong>Universal Dependencies (UD)</strong> tags by default.</p>
+<p>When SpaCy processes a sentence, its <code>token.pos_</code> attribute returns the exact 17 UPOS tags you learned yesterday (<code>NOUN</code>, <code>VERB</code>, <code>ADJ</code>, <code>DET</code>, <code>PUNCT</code>). Its <code>token.morph</code> attribute provides standard FEATS pairs, such as <code>Number=Plur</code> or <code>Tense=Past</code>.</p>
+<p>This standardization is crucial for our comparative workflow. Because the automated program outputs the same tag names as your manual ground truth from Lesson 8.1, you can compare human and computer decisions directly in code. You do not need to translate between different labeling systems.</p>
+<p><strong>Takeaway:</strong> Modern NLP libraries output Universal Dependencies tags by default, allowing direct side-by-side comparison with your manual ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Universal Dependencies in Automated NLP</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is it beneficial that tools like SpaCy and Stanza output standard Universal Dependencies tags by default?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Modern NLP libraries output Universal Dependencies tags by default, allowing direct side-by-side comparison with your manual ground truth.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Their predictions can be directly compared against your manual ground truth without translating between naming systems.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Shared UPOS and FEATS standards allow immediate side-by-side automated evaluation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces all languages to translate their text into French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Universal Dependencies provides grammatical labels, not translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents students from seeing any errors made by the computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Standardized tags make errors immediately apparent in comparative audits.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It changes the historical author's name in the teiHeader.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Linguistic tagging does not alter metadata author credits.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Tokenization Pitfalls in French: Clitics and Apostrophes</text></name><questiontext format="html"><text><![CDATA[
+<h3>Tokenization Pitfalls in French: Clitics and Apostrophes</h3>
+<p>Before a computer can tag parts of speech, it must tokenize the text. In French, apostrophes create frequent tokenization traps for automated tools.</p>
+<p>In Ace's 1791 decree, phrases like <em>l'assemblée</em> or <em>d'état</em> require splitting the clitic from the noun. Modern French SpaCy models usually handle standard clitics like <em>l'</em> and <em>d'</em> correctly. However, if a historical document contains irregular spacing (such as <em>l ' assemblée</em> or <em>d' accord</em> with extra space), the tokenizer can split in the wrong place.</p>
+<p>Worse, archaic contractions like <em>qu'il</em> or <em>lorsqu'il</em> are sometimes kept as a single token by older taggers. When this happens, the entire multi-word unit receives an inaccurate tag. The second word loses its lemma. Checking token boundaries is always the first diagnostic step when evaluating tagger output.</p>
+<p><strong>Takeaway:</strong> In French text, verify that automated tokenizers split apostrophe clitics cleanly so that articles and nouns receive separate tags.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Tokenization Pitfalls in French: Clitics and Apostrophes</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What common tokenization error occurs when automated taggers process French phrases with apostrophes (like l'assemblée)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;In French text, verify that automated tokenizers split apostrophe clitics cleanly so that articles and nouns receive separate tags.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Failing to split the clitic article from the noun, causing the entire string to be misclassified as a single unit.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Keeping l'assemblée as one token prevents both the determiner and the noun from receiving clean tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting the noun and keeping only the letter L.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tokenizers do not delete words; they split or merge characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replacing the apostrophe with an exclamation mark.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation is preserved or separated, not swapped for other marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translating the French noun into German.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tokenization segments text in its original language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Tokenization Pitfalls in English: Contractions and Hyphens</text></name><questiontext format="html"><text><![CDATA[
+<h3>Tokenization Pitfalls in English: Contractions and Hyphens</h3>
+<p>Historical English documents present their own tokenization challenges. In Maud Lewis's informal correspondence, contractions like <em>can't</em>, <em>it's</em>, and <em>I'll</em> appear frequently.</p>
+<p>Modern English SpaCy tokenizers are programmed to split contractions into syntactic components: <em>ca</em> + <em>n't</em>. <em>i</em> + <em>'ll</em>. However, if the scribe wrote with non-standard punctuation (such as a grave accent instead of an apostrop. Missing spaces), the tokenizer treats the contraction as a single unknown word.</p>
+<p>In Andromeda's 1752 Treaty, legal compounds like <em>hereinafter</em>, <em>whereof</em>, and <em>thereunto</em> pose the opposite problem. Are they single tokens or multiple words? Most modern tokenizers treat <em>whereof</em> as a single token with UPOS <code>ADV</code>. If your project policy in <code>LEMMATIZATION_POLICIES.md</code> specifies a different split, an editorial disagreement occurs.</p>
+<p><strong>Takeaway:</strong> Verify how automated tokenizers handle informal contractions and historical compound adverbs against your project policies.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Tokenization Pitfalls in English: Contractions and Hyphens</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do modern English tokenizers typically handle informal contractions like can't or didn't?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Verify how automated tokenizers handle informal contractions and historical compound adverbs against your project policies.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They split the contraction into two syntactic tokens, separating the auxiliary verb from the negative particle.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Splitting can't into ca + n't allows the helping verb and negative adverb to be tagged independently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete the contraction and insert a question mark.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation and letters are preserved across tokens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They merge the entire paragraph into one giant compound word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tokenizers segment sentences into individual word units.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They convert negative contractions into positive verbs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Grammatical tokenization preserves semantic polarity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Homograph Meaning choice Under the Microscope</text></name><questiontext format="html"><text><![CDATA[
+<h3>Homograph Meaning choice Under the Microscope</h3>
+<p>Yesterday, you learned that homographs like <em>will</em> and <em>est</em> require sentence context to resolve. Today, you can test how well statistical algorithms handle those same ambiguous words.</p>
+<p>In Andromeda's 1752 Treaty, consider the sentence: <em>The Chief will observe this Treaty of his own free will</em>. The word <em>will</em> appears twice. The first <em>will</em> is an auxiliary verb (<code>AUX</code>). The second <em>will</em> is a common noun (<code>NOUN</code>).</p>
+<p>When you run SpaCy over this sentence, the statistical model uses surrounding words to make its choices. Because the first <em>will</em> precedes the infinitive <em>observe</em>, SpaCy predicts <code>AUX</code>. Because the second <em>will</em> follows the adjectives <em>own free</em>, SpaCy predicts <code>NOUN</code>. In this test, the statistical model succeeds! However, if sentence syntax is distorted by archaic word order, the model's predictions often collapse.</p>
+<p><strong>Takeaway:</strong> Statistical models use neighboring words to resolve double meanings, succeeding on standard syntax but stumbling on unusual historical phrasing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Homograph Disambiguation Under the Microscope</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the sentence The Chief will observe this Treaty of his own free will, how does a statistical model determine that the second will is a noun?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Statistical models use neighboring words to disambiguate homographs, succeeding on standard syntax but stumbling on unusual historical phrasing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It evaluates preceding words like own free, recognizing that adjectives typically modify nouns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Neighboring adjective modifiers provide strong statistical evidence that will functions as a noun.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It consults an astrological horoscope to make its choice.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models rely on mathematical transition probabilities from surrounding text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It assumes the first occurrence of any word is a verb and all subsequent occurrences are nouns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tagging evaluates local syntactic context, not arbitrary position rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the second word because repetitions are prohibited.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Repetitions are tagged based on their immediate syntactic environment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Universal Dependencies Syntactic Relations (DEPREL)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Universal Dependencies Syntactic Relations (DEPREL)</h3>
+<p>In addition to tagging parts of speech, modern pipelines analyze sentence grammar by predicting <strong>dependency relations (DEPREL)</strong>.</p>
+<p>In Universal Dependencies, every word in a clause connects to a governing head word through a labeled relation. Here is a summary of the most common dependency tags used by automated tools:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Relation</th>
+      <th>Description</th>
+      <th>Example (Head → Dependent)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>root</code></td>
+      <td>Main clause verb</td>
+      <td>[Sentence] → renewed</td>
+    </tr>
+    <tr>
+      <td><code>nsubj</code></td>
+      <td>Nominal subject</td>
+      <td>renewed → Treaties</td>
+    </tr>
+    <tr>
+      <td><code>obj</code></td>
+      <td>Direct object</td>
+      <td>signed → Treaty</td>
+    </tr>
+    <tr>
+      <td><code>iobj</code></td>
+      <td>Indirect object</td>
+      <td>gave → Chief</td>
+    </tr>
+    <tr>
+      <td><code>amod</code></td>
+      <td>Adjectival modifier</td>
+      <td>Treaty → peaceable</td>
+    </tr>
+    <tr>
+      <td><code>det</code></td>
+      <td>Determiner</td>
+      <td>Treaty → the</td>
+    </tr>
+    <tr>
+      <td><code>case</code></td>
+      <td>Preposition marker</td>
+      <td>Governor → by</td>
+    </tr>
+    <tr>
+      <td><code>punct</code></td>
+      <td>Punctuation mark</td>
+      <td>renewed → .</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These tags show how words work together to build meaning.</p>
+<p><strong>Takeaway:</strong> Relation tags like <code>nsubj</code>, <code>obj</code>. <code>case</code> describe the specific grammatical jobs that words perform in clauses.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Universal Dependencies Syntactic Relations (DEPREL)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which Universal Dependencies relation tag labels the nominal subject of an active transitive verb?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Dependency relation tags like nsubj, obj, and case describe the specific grammatical jobs that words perform in clauses.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;nsubj&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. nsubj identifies the nominal subject governing an active verb predicate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;obj&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. obj identifies the direct object receiving the action.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;amod&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. amod identifies an adjectival modifier.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;punct&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. punct identifies punctuation marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Heads and Dependents in Automated Trees</text></name><questiontext format="html"><text><![CDATA[
+<h3>Heads and Dependents in Automated Trees</h3>
+<p>How do automated parsers connect words into syntactic trees? In dependency grammar, every word has exactly one governing <strong>head</strong>, except for the main verb. This is the <strong>root</strong> of the sentence.</p>
+<p>Consider the passive clause: <em>All Treaties shall be renewed by the Governor</em>. In this sentence, the main past participle <em>renewed</em> is the structural root (Head = 0). The subject noun <em>Treaties</em> points to <em>renewed</em> as its head with relation <code>nsubj:pass</code>. The helping verb <em>shall</em> points to <em>renewed</em> with relation <code>aux</code>. The infinitive <em>be</em> points to <em>renewed</em> with relation <code>aux:pass</code>.</p>
+<p>Prepositional phrases also attach to their heads. In <em>by the Governor</em>, the noun <em>Governor</em> attaches to <em>renewed</em> as an oblique agent (<code>obl</code>). The preposition <em>by</em> attaches to <em>Governor</em> with relation <code>case</code>. The parser builds a complete tree linking every word back to the central verb.</p>
+<p><strong>Vocabulary.</strong> <em>Root</em> — The main governing verb of an independent clause. This has no syntactic head in the sentence. <em>Oblique (obl)</em> — A noun phrase functioning as an adverbial modifier, usually introduced by a preposition.</p>
+<p><strong>Takeaway:</strong> Dependency parsers link every word to a governing head word, creating a rooted tree centered on the main finite verb.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Heads and Dependents in Automated Trees</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What role does the main finite verb serve in a dependency grammar sentence tree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Dependency parsers link every word to a governing head word, creating a rooted tree centered on the main finite verb.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The structural root of the sentence, possessing no governing head within the clause.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The main verb serves as the root (Head = 0) from which all subjects, objects, and modifiers depend.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A minor dependent modifier attached to a punctuation mark.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation attaches to the clause, while the verb governs the sentence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The direct object of the first preposition in the sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prepositions govern nouns; the main finite verb serves as the clause root.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An external metadata tag stored only in the teiHeader.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Verbs are syntactic words in the running text body.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Visualizing Dependency Trees with displaCy</text></name><questiontext format="html"><text><![CDATA[
+<h3>Visualizing Dependency Trees with displaCy</h3>
+<p>Looking at text tables of heads and relation tags can feel abstract. SpaCy provides a built-in visualization tool called <strong>displaCy</strong> that renders syntactic trees into beautiful graphical diagrams.</p>
+<p>With a single Python command, you can launch a local web server or generate an SVG image showing arrows connecting heads to dependents:</p>
+<pre><code class="language-python">from spacy import displacy
+
+# Generate an SVG visualization of the syntax tree
+svg = displacy.render(doc, style=&quot;dep&quot;, jupyter=False)
+
+# Save the SVG image to disk
+with open(&quot;syntax_tree.svg&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+    f.write(svg)
+</code></pre>
+<p>Opening <code>syntax_tree.svg</code> in your browser reveals the sentence structure visually. Curved arrows arc from <em>renewed</em> to <em>Treaties</em>, labeled with <code>nsubj</code>. Seeing the visual tree makes grammatical hierarchies immediately intuitive.</p>
+<p><strong>Vocabulary.</strong> <em>displaCy</em>. A visual rendering tool in spacy that turns dependency trees and entity markup into interactive diagrams. <em>SVG</em> — Vector graphics, an open image format for rendering clean vector lines in web browsers.</p>
+<p><strong>Takeaway:</strong> Visualizing syntax trees with displaCy turns abstract grammar links into clear graphical diagrams of sentence structure.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Visualizing Dependency Trees with displaCy</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What visual insight does the displaCy rendering tool provide to an editor?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Visualizing syntax trees with displaCy turns abstract dependency relations into clear graphical diagrams of sentence structure.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It renders sentence syntax as an interactive graphical diagram with directed arrows linking heads to dependents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. displaCy draws visual arcs between words labeled with their dependency relation tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It generates three-dimensional animated cartoons of manuscript authors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. displaCy renders linguistic dependency trees, not character animations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It displays a satellite map showing where the parchment was manufactured.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. displaCy visualizes grammatical syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It hides all text and shows only black rectangles on screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. displaCy makes sentence structure transparent and legible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: The CoNLL-U Data Pipeline in Python</text></name><questiontext format="html"><text><![CDATA[
+<h3>The CoNLL-U Data Pipeline in Python</h3>
+<p>Yesterday, you learned that CoNLL-U is the global ten-column plain-text exchange format for Universal Dependencies. In Python, you can easily read, modify, and write CoNLL-U files.</p>
+<p>When you run an automated pipeline like SpaCy or Stanza, you can export the results directly into CoNLL-U format using the open-source <code>spacy-conll</code> package or a simple Python loop:</p>
+<pre><code class="language-python">for i, token in enumerate(doc, 1):
+    head_id = token.head.i + 1 if token.head != token else 0
+    print(f&quot;{i}\t{token.text}\t{token.lemma_}\t{token.pos_}\t_\t{token.morph}\t{head_id}\t{token.dep_}\t_\t_&quot;)
+</code></pre>
+<p>This short script produces standard ten-column CoNLL-U output. Because CoNLL-U is plain text, you can save it to <code>nlp_baseline.conllu</code> in your repository and diff it directly against your manual ground truth.</p>
+<p><strong>Takeaway:</strong> Python scripts can format automated NLP predictions directly into standard ten-column CoNLL-U exchange files.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: The CoNLL-U Data Pipeline in Python</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do Python NLP scripts format automated linguistic annotations for export to CoNLL-U files?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Python scripts can format automated NLP predictions directly into standard ten-column CoNLL-U exchange files.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By printing each token as a tab-delimited line with ten standard Universal Dependencies columns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. CoNLL-U files use 10 tab-separated columns for index, surface form, lemma, UPOS, FEATS, and syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By writing encrypted binary code that cannot be opened in text editors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CoNLL-U is a plain-text exchange format.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By printing words diagonally across the terminal screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CoNLL-U requires strict tabular column formatting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By converting all characters into hexadecimal numbers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CoNLL-U uses standard UTF-8 characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Running an NLP Pipeline on the 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Running an NLP Pipeline on the 1752 Treaty</h3>
+<p>Let us look at what happens when we run an automated English SpaCy pipeline on the opening clause from Andromeda's project: <em>All Treaties shall be renewed</em>.</p>
+<p>Here are the automated predictions:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Predicted Lemma</th>
+      <th>Predicted UPOS</th>
+      <th>Predicted Deprel</th>
+      <th>Manual Truth Match?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All</td>
+      <td>all</td>
+      <td><code>DET</code></td>
+      <td><code>det</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>Treaties</td>
+      <td>treaty</td>
+      <td><code>NOUN</code></td>
+      <td><code>nsubj:pass</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>shall</td>
+      <td>shall</td>
+      <td><code>AUX</code></td>
+      <td><code>aux</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>be</td>
+      <td>be</td>
+      <td><code>AUX</code></td>
+      <td><code>aux:pass</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>renewed</td>
+      <td>renew</td>
+      <td><code>VERB</code></td>
+      <td><code>ROOT</code></td>
+      <td>Match</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>On this straightforward legal sentence, the modern model achieves a perfect score! Every lemma matches the OED baseline, every part of sp. The passive dependency structure is correctly analyzed.</p>
+<p><strong>Takeaway:</strong> On formal clauses with standard grammar, modern automated pipelines can achieve high accuracy matching human ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Running an NLP Pipeline on the 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the 1752 Treaty clause All Treaties shall be renewed, why does an automated pipeline achieve high accuracy?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;On formal clauses with standard grammar, modern automated pipelines can achieve high accuracy matching human ground truth.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the vocabulary is formal and standard, and the passive syntax matches patterns in modern training data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Standard spelling and clear syntax allow modern statistical models to predict tags accurately.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the 1752 Treaty was written by modern software programmers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Treaty was composed in the eighteenth century by colonial officials.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the program deleted all difficult words before evaluating accuracy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All words were evaluated in running sequence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because legal documents are prohibited from containing verbs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Legal clauses rely heavily on modal and finite verb structures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Running an NLP Pipeline on the 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Running an NLP Pipeline on the 1791 French Decree</h3>
+<p>Now let us test our automated pipeline on Ace's project: a 1791 French Revolutionary decree.</p>
+<p>When we run French SpaCy (<code>fr_core_news_sm</code>) on <em>L'Assemblée nationale décrète les lois suivantes</em>, here is what the program outputs:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Predicted Lemma</th>
+      <th>Predicted UPOS</th>
+      <th>Predicted Deprel</th>
+      <th>Manual Truth Match?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>L'</td>
+      <td>le</td>
+      <td><code>DET</code></td>
+      <td><code>det</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>Assemblée</td>
+      <td>assemblée</td>
+      <td><code>NOUN</code></td>
+      <td><code>nsubj</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>nationale</td>
+      <td>national</td>
+      <td><code>ADJ</code></td>
+      <td><code>amod</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>décrète</td>
+      <td>décréter</td>
+      <td><code>VERB</code></td>
+      <td><code>ROOT</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>les</td>
+      <td>le</td>
+      <td><code>DET</code></td>
+      <td><code>det</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>lois</td>
+      <td>loi</td>
+      <td><code>NOUN</code></td>
+      <td><code>obj</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>suivantes</td>
+      <td>suivant</td>
+      <td><code>ADJ</code></td>
+      <td><code>amod</code></td>
+      <td>Match</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The model correctly handles the elided article <em>L'</em>, matches the feminine agreement on <em>nationale</em>. Maps the conjugated verb <em>décrète</em> to its infinitive <em>décréter</em>. However, on older passages with eighteenth-century spelling (<em>décrétoit</em>), the model stumbles.</p>
+<p><strong>Takeaway:</strong> French pre-trained models handle standard vocabulary accurately, but require normalized spelling to parse older texts correctly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Running an NLP Pipeline on the 1791 French Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Under what condition does an automated French model begin to fail on an eighteenth-century decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;French pre-trained models handle standard vocabulary accurately, but require normalized spelling to parse older texts correctly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;When it encounters eighteenth-century verbal spellings (like décrétoit) that deviate from modern training lexica.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Archaic spelling variants trigger Out-of-Vocabulary errors and misclassified parts of speech.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the decree mentions the National Assembly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Named entities are handled routinely by modern models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the document is written on handmade rag paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Physical paper composition does not affect digital text algorithms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the French text contains more than five words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Modern pipelines routinely process long texts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Running an NLP Pipeline on Maud Lewis's Letter</text></name><questiontext format="html"><text><![CDATA[
+<h3>Running an NLP Pipeline on Maud Lewis's Letter</h3>
+<p>Next, we test our automated pipeline on Olyvia's project: Maud Lewis's informal 1967 letter: <em>I received your letter today</em>.</p>
+<p>Here are the automated predictions:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Predicted Lemma</th>
+      <th>Predicted UPOS</th>
+      <th>Predicted Deprel</th>
+      <th>Manual Truth Match?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>I</td>
+      <td>I</td>
+      <td><code>PRON</code></td>
+      <td><code>nsubj</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>received</td>
+      <td>receive</td>
+      <td><code>VERB</code></td>
+      <td><code>ROOT</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>your</td>
+      <td>your</td>
+      <td><code>PRON</code></td>
+      <td><code>nmod:poss</code></td>
+      <td>Disagreement</td>
+    </tr>
+    <tr>
+      <td>letter</td>
+      <td>letter</td>
+      <td><code>NOUN</code></td>
+      <td><code>obj</code></td>
+      <td>Match</td>
+    </tr>
+    <tr>
+      <td>today</td>
+      <td>today</td>
+      <td><code>NOUN</code></td>
+      <td><code>obl:tmod</code></td>
+      <td>Match</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Look closely at row three! In our manual ground truth from yesterday, we assigned the canonical lemma <em>you</em> for the possessive pronoun <em>your</em> (following standard dictionary policy). SpaCy predicted <em>your</em> as its own lemma. This is an editorial policy disagreement: does a possessive pronoun map to its base personal p. Does it keep its own lemma?</p>
+<p><strong>Takeaway:</strong> Automated tools may follow different dictionary conventions for pronouns, creating disagreements with your project policies.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Running an NLP Pipeline on Maud Lewis's Letter</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Maud Lewis's sentence I received your letter today, what caused the disagreement between SpaCy and our manual ground truth on your?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated tools may follow different lexicographical conventions for pronouns, creating disagreements with your project policies.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A difference in lexicographical policy regarding whether possessive pronouns take their own lemma or map to you.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editorial policy in our ground truth mapped your to lemma you, whereas SpaCy cited your as its own headword.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;SpaCy concluded that Maud Lewis was writing in sixteenth-century Latin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SpaCy correctly identified the language as English.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;SpaCy deleted the word your because it was misspelled.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The word was spelled correctly; the disagreement concerned dictionary headword conventions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The software crashed and returned a null string.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The tool executed cleanly; the difference was purely lexicographical.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Measuring Machine Accuracy Against Human Ground Truth</text></name><questiontext format="html"><text><![CDATA[
+<h3>Measuring Machine Accuracy Against Human Ground Truth</h3>
+<p>Now that you have run your automated pipeline, how do you evaluate its performance? In computational scholarship, we calculate <strong>token-level accuracy</strong>.</p>
+<p>Token accuracy is the percentage of tokens where the computer's prediction exactly matches your manual ground truth. To calculate accuracy, use this simple formula:</p>
+<pre><code class="language-text">Accuracy = (Number of Correct Tokens) / (Total Number of Tokens) * 100
+</code></pre>
+<p>If your 20-word excerpt contains 18 tokens where both the lemma and the part-of-speech tag match your manual ground truth, your pipeline's accuracy is 90%.</p>
+<p>When evaluating, calculate two separate scores: <strong>POS Accuracy</strong> (did the tagger get the part of speech right?) and <strong>Lemma Accuracy</strong> (did the tagger assign the right dictionary headword?). Often, a tagger identifies that a word is a v. Fails to find the right historical lemma.</p>
+<p><strong>Vocabulary.</strong> <em>Accuracy</em>. The proportion of correct predictions made by a model out of the total number of items tested.</p>
+<p><strong>Takeaway:</strong> Calculate separate accuracy scores for parts of speech and lemmas by comparing automated output directly to your manual ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Measuring Machine Accuracy Against Human Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How is token-level part-of-speech accuracy calculated in computational textual scholarship?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Calculate separate accuracy scores for parts of speech and lemmas by comparing automated output directly to your manual ground truth.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By dividing the number of correctly tagged tokens by the total number of tokens evaluated and multiplying by 100.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Accuracy measures the percentage of machine predictions that match the human ground truth.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By measuring the physical temperature of the computer processor during execution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Processing temperature is hardware diagnostics, not linguistic accuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By counting the number of punctuation marks in the manuscript margin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accuracy measures label agreement on tokens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By multiplying the word count by the price of the software.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commercial software costs have no bearing on scientific accuracy metrics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Calculating Precision, Recall, and F1 Score</text></name><questiontext format="html"><text><![CDATA[
+<h3>Calculating Precision, Recall, and F1 Score</h3>
+<p>Overall accuracy gives a broad overview. However, it can hide critical flaws. If an edition contains ninety common nouns and ten rare verbs, a model that guesses <code>NOUN</code> for everything might score ninety percent accuracy while being completely useless for verbs!</p>
+<p>To evaluate specific grammatical categories, computational linguists use <strong>Precision</strong> and <strong>Recall</strong>:</p>
+<ul>
+  <li><strong>Precision:</strong> When the model predicts a specific tag (like <code>VERB</code>), how often is it actually right?</li>
+  <li><strong>Recall:</strong> Out of all real verbs in your text, how many did the model successfully find?</li>
+</ul>
+
+<p>The <strong>F1 Score</strong> is the harmonic mean of precision and recall, balancing false alarms against missed words. In historical editing, high precision means you can trust the tags the computer assigns. In contrast, high recall means the computer did not overlook rare grammatical constructions.</p>
+<p><strong>Vocabulary.</strong> <em>Precision</em> — The proportion of predicted instances for a category that are correct. <em>Recall</em> — The proportion of actual instances of a category in the text that were successfully retrieved. <em>F1 Score</em> — A balanced score combining precision and recall into a single metric.</p>
+<p><strong>Takeaway:</strong> Precision and recall reveal how well a pipeline performs on specific grammatical classes, balancing false alarms against missed words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Calculating Precision, Recall, and F1 Score</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does Precision measure when evaluating an automated model's performance on verbs?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Precision and recall reveal how well a pipeline performs on specific grammatical classes, balancing false alarms against missed words.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The proportion of words tagged as verbs by the model that were actually verbs in the ground truth.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Precision measures the reliability of positive predictions for a given category.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The physical speed at which the computer monitor refreshes pixels.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Display refresh rates do not measure classification precision.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The total number of words in the entire manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Total word count is corpus size, not category precision.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The font size of the XML elements on the screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Visual typography is separate from statistical precision.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: The Confusion Matrix: Where Models Stumble</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Confusion Matrix: Where Models Stumble</h3>
+<p>When a model makes mistakes, where do those errors happen? To diagnose error patterns, linguists use a tool called a <strong>confusion matrix</strong>.</p>
+<p>A confusion matrix is a table that plots human ground-truth tags against machine predictions. Rows represent the actual human tags, and columns represent what the computer predicted.</p>
+<p>In historical English, taggers frequently confuse nouns and adjectives. In the phrase <em>Peace and Friendship Treaty</em>, the word <em>Peace</em> is a noun functioning as a modifier. A tagger might predict <code>ADJ</code> instead of <code>NOUN</code>. In French, taggers sometimes confuse past participles (<code>VERB</code>) with predicate adjectives (<code>ADJ</code>). Looking at a confusion matrix reveals which grammatical boundaries are most fragile in your document.</p>
+<p><strong>Vocabulary.</strong> <em>Confusion Matrix</em>. A diagnostic table that records how often each actual category is confused with another category by an automated model.</p>
+<p><strong>Takeaway:</strong> A confusion matrix highlights systematic error patterns, showing which parts of speech are most frequently confused by automated models.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: The Confusion Matrix: Where Models Stumble</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What analytical insight does a confusion matrix provide when auditing an automated tagger?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A confusion matrix highlights systematic error patterns, showing which parts of speech are most frequently confused by automated models.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It reveals systematic patterns of error by showing which specific grammatical categories are confused with each other.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A confusion matrix plots actual categories against predicted categories, exposing confusion pairs like ADJ vs NOUN.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It displays an encrypted password required to unlock the operating system.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A confusion matrix is a statistical error-analysis table.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It changes student grades based on random dice rolls.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Confusion matrices are scientific diagnostic tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces all vowels in the document with consonants.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Text characters remain unaltered in diagnostic audits.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Diagnosing Out-of-Vocabulary (OOV) Failures</text></name><questiontext format="html"><text><![CDATA[
+<h3>Diagnosing Out-of-Vocabulary (OOV) Failures</h3>
+<p>The most common error in historical NLP is the Out-of-Vocabulary failure. When an algorithm encounters an unfamiliar word, how does it fail?</p>
+<p>Look for these three common OOV symptoms in your output:</p>
+<ol>
+  <li><strong>Identity Fallback:</strong> The model simply copies the surface spelling into the lemma field (e.g., surface *promis'd* receives lemma *promis'd* instead of *promise*).</li>
+  <li><strong>Fictitious Headwords:</strong> The model applies a modern rule inappropriately, inventing a non-existent word (e.g., predicting *shew* for *shew'd*).</li>
+  <li><strong>Unknown Tags:</strong> The model assigns an `X` (unknown) or default `NOUN` tag to any word it cannot parse.</li>
+</ol>
+
+<p>Whenever you spot an OOV error, record it in your work notes. This provides the evidence you will use to refine your workflow.</p>
+<p><strong>Takeaway:</strong> OOV failures typically show up as copied surface spellings, invented headwords, or default noun tags.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Diagnosing Out-of-Vocabulary (OOV) Failures</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the identity fallback symptom in an Out-of-Vocabulary lemmatization failure?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;OOV failures typically show up as copied surface spellings, invented headwords, or default noun tags.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The model copies the inflected surface spelling directly into the lemma field because it cannot find the root.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. When a model cannot find a headword, it frequently falls back to outputting the surface token as the lemma.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model replaces the user's name on their university ID card.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Identity fallback refers to duplicating surface strings into lemma fields.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model converts all text into French automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Fallback copies the source token verbatim.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The computer reboots into safe mode.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Identity fallback is an algorithm output behavior, not a system crash.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Archaic Inflection Errors: Suffix Errors</text></name><questiontext format="html"><text><![CDATA[
+<h3>Archaic Inflection Errors: Suffix Errors</h3>
+<p>Another major failure mode stems from historical grammar endings that have vanished from modern speech.</p>
+<p>In 18th-century French, imperfect verbs ended in <em>-oit</em> (<em>décrétoit</em>, <em>faisoit</em>). Modern French models are trained on texts using <em>-ait</em> (<em>décrétait</em>, <em>faisait</em>). Because the suffix <em>-oit</em> does not match any regular modern verb paradigm, the model fails to recognize the verb. It may guess that <em>décrétoit</em> is an obscure noun or foreign word.</p>
+<p>In 18th-century English, formal verbs took archaic suffixes (<em>doth</em>, <em>hath</em>, <em>speaketh</em>). While modern English models usually recognize <em>doth</em> as an archaic auxiliary, rarer forms like <em>witnesseth</em> are often misclassified as adjectives or common nouns. Documenting these suffix errors proves why historical texts require specialized domain handling.</p>
+<p><strong>Takeaway:</strong> Historical grammar endings like French <em>-oit</em> or English <em>-eth</em> trigger errors because modern statistical models do not recognize them as active verb suffixes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Archaic Inflection Errors: Suffix Mismatches</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does an eighteenth-century English verb form like witnesseth often deceive modern automated taggers?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Historical inflectional endings like French -oit or English -eth trigger errors because modern statistical models do not recognize them as active verb suffixes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the archaic -eth suffix is absent from active modern verb paradigms, leading models to guess noun or adjective.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Modern language models are trained on contemporary endings and misclassify obsolete inflectional suffixes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because words ending in -th are prohibited in English legal documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Formal legal instruments made extensive use of archaic suffixes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the word contains too many syllables to fit into computer memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Memory buffers easily handle polysyllabic words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the scribe wrote the word using invisible ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical ink is fully visible on the parchment leaf.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Exporting Automated Output to TEI XML</text></name><questiontext format="html"><text><![CDATA[
+<h3>Exporting Automated Output to TEI XML</h3>
+<p>Once your Python script processes your text, you can automatically convert the output into valid TEI XML.</p>
+<p>Here is a simple Python function that writes TEI <code>&lt;w&gt;</code> elements from SpaCy tokens:</p>
+<pre><code class="language-python">def export_tei(doc, output_path):
+    with open(output_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+        f.write(&quot;&lt;s&gt;\n&quot;)
+        for token in doc:
+            if token.is_punct:
+                f.write(f'  &lt;pc pos=&quot;PUNCT&quot;&gt;{token.text}&lt;/pc&gt;\n')
+            else:
+                f.write(f'  &lt;w lemma=&quot;{token.lemma_}&quot; pos=&quot;{token.pos_}&quot;&gt;{token.text}&lt;/w&gt;\n')
+        f.write(&quot;&lt;/s&gt;\n&quot;)
+</code></pre>
+<p>Running this function produces <code>nlp_baseline.xml</code>. Now you have two comparable XML files in your repository: the manual ground truth you hand-crafted yesterday. The automated version produced by the python pipeline today.</p>
+<p><strong>Takeaway:</strong> A short Python loop can convert automated NLP output directly into valid TEI <code>&lt;w&gt;</code> and <code>&lt;pc&gt;</code> XML tags.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Exporting Automated Output to TEI XML</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does a Python script transform processed SpaCy tokens into standard TEI P5 linguistic markup?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A short Python loop can convert automated NLP output directly into valid TEI &lt;w&gt; and &lt;pc&gt; XML tags.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By writing &lt;s&gt; sentence containers enclosing &lt;w lemma="..." pos="..."&gt; words and &lt;pc&gt; punctuation elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Scripting the conversion outputs standard TEI XML preserving tokens and computational annotations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By saving the text as an unformatted audio recording.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Audio recordings cannot serve as TEI XML markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By printing words onto paper and mailing them to a library.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Python scripts write structured XML files directly to disk.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting all attributes and leaving only empty angle brackets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI linguistic markup stores lemmas and POS tags directly in attributes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Auditing the Machine TEI Against the Manual Baseline</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing the Machine TEI Against the Manual Baseline</h3>
+<p>Now comes the crucial scientific step: comparing the two XML files side by side.</p>
+<p>In VS Code, open both files and use the built-in diff viewer:</p>
+<pre><code class="language-bash">code --diff ground_truth_manual.xml nlp_baseline.xml
+</code></pre>
+<p>The diff viewer highlights every discrepancy in red and green. Read through the differences line by line:</p>
+<ul>
+  <li>Did the automated tool split contractions in the same places you did?</li>
+  <li>Did it predict the same dictionary lemma as your OED or TLFi authority?</li>
+  <li>Did it assign the same UPOS tag?</li>
+</ul>
+
+<p>This side-by-side audit reveals the exact error rate of the automated pipeline on historical prose.</p>
+<p><strong>Takeaway:</strong> Diffing your manual XML against the machine-generated XML in VS Code exposes every automated discrepancy instantly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Auditing the Machine TEI Against the Manual Baseline</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What tool in VS Code enables editors to execute a fast, side-by-side audit of manual vs. automated TEI markup?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Diffing your manual XML against the machine-generated XML in VS Code exposes every automated discrepancy instantly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The built-in graphical diff viewer (code --diff file1 file2).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The diff viewer highlights discrepancies in red and green, exposing tag and lemma disagreements instantly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The spellchecker dictionary toggle.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Spellcheckers do not compare two files side by side.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The audio volume mixer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Audio tools have no text comparison capability.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The screen brightness slider.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Brightness controls monitor illumination, not file differences.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Documenting Algorithm Quirks in `NLP_BENCHMARK.md`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting Algorithm Quirks in `NLP_BENCHMARK.md`</h3>
+<p>To preserve your findings, record your results in a project report called <code>NLP_BENCHMARK.md</code>.</p>
+<p>Your benchmark report should include four sections:</p>
+<ol>
+  <li><strong>Pipeline Specifications:</strong> Which tool and model were used (e.g., SpaCy 3.7 with <code>en_core_web_sm</code>)?</li>
+  <li><strong>Accuracy Scores:</strong> Overall token accuracy, POS accuracy, and lemma accuracy percentages.</li>
+  <li><strong>Discrepancy Log:</strong> A table listing every token where the computer disagreed with your manual ground truth.</li>
+  <li><strong>Error Diagnosis:</strong> An analysis explaining why the machine failed (e.g., OOV archaic spelling, homograph ambiguity, tokenization split).</li>
+</ol>
+
+<p>Writing this report ensures that your digital edition maintains full methodological transparency.</p>
+<p><strong>Takeaway:</strong> Record pipeline versions, accuracy scores, discrepancy tables, and error causes in <code>NLP_BENCHMARK.md</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Documenting Algorithm Quirks in NLP_BENCHMARK.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should digital textual editors document automated tool performance in a benchmark report?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Record pipeline versions, accuracy scores, discrepancy tables, and error causes in NLP_BENCHMARK.md.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To maintain scholarly transparency regarding pipeline specifications, overall accuracy, and known error patterns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A benchmark report provides an explicit audit trail documenting computational reliability and limitations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To charge external scholars a licensing fee for reading the edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly documentation supports open, verifiable research.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To prevent search engines from discovering the digital edition online.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Documentation aids scholarly discoverability and citation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI schemas throw fatal validation errors without a markdown benchmark file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML validators check XML schemas independently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Preprocessing Strategies: Can Normalization Rescue the Tagger?</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preprocessing Strategies: Can Normalization Rescue the Tagger?</h3>
+<p>After seeing how historical spellings trip up automated taggers, a natural question arises: can we fix these errors before the tagger runs?</p>
+<p>Yes! This is where your work from Module 6 pays off. In Module 6, you built regularized readings using <code>&lt;reg&gt;</code> tags (<em>acknowledged</em> for <em>acknowledg'd</em>, <em>décrétait</em> for <em>décrétoit</em>).</p>
+<p>If you feed the <strong>regularized reading text</strong> into SpaCy instead of the raw diplomatic transcript, accuracy jumps dramatically! Because the normalized text uses modern spelling, the tagger's dictionary lookups succeed. The model correctly identifies <em>décréter</em> and <em>acknowledge</em>. You can then transfer those accurate lemmas back onto your diplomatic <code>&lt;w&gt;</code> elements.</p>
+<p><strong>Takeaway:</strong> Preprocessing text with Module 6 regularizations dramatically reduces OOV errors and boosts automated tagging accuracy.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Preprocessing Strategies: Can Normalization Rescue the Tagger?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does feeding Module 6 regularized readings into an NLP pipeline improve automated tagging accuracy?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Preprocessing text with Module 6 regularizations dramatically reduces OOV errors and boosts automated tagging accuracy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Modernized spellings match the pipeline's internal dictionary, eliminating Out-of-Vocabulary lookup failures.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Preprocessing historical spelling slips into standard modern equivalents allows dictionary lookups to succeed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the computer to run ten times faster by skipping punctuation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Speed is unchanged; accuracy increases because dictionary matches succeed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all nouns and replaces them with numbers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Normalization updates orthography while preserving linguistic tokens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically translates old French into modern German.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regularization operates within the document's original language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Preparing for Friday's AI-Assisted Parsing Test</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing for Friday's AI-Assisted Parsing Test</h3>
+<p>Today you evaluated a deterministic natural language processing tool. You saw its speed, its consistency, and its vulnerabilities when facing historical language shifts.</p>
+<p>On Friday, in Lesson 8.3, you will test a completely different technology: large language model AI in VS Code Antigravity. Unlike deterministic taggers, modern AI models have seen vast amounts of historical literature during training. They can often recognize eighteenth-century French and archaic English with remarkable intuition.</p>
+<p>However, AI models bring their own risks, including hallucinated lemmas and unpredictable outputs. Today's deterministic baseline and Tuesday's manual ground truth provide the twin reference points you will use to audit Friday's AI output.</p>
+<p><strong>Takeaway:</strong> Today's deterministic NLP benchmark provides the essential comparison point for evaluating Friday's AI language models.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Preparing for Friday's AI-Assisted Parsing Test</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What role will today's deterministic NLP benchmark play in Friday's Lesson 8.3?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Today's deterministic NLP benchmark provides the essential comparison point for evaluating Friday's AI language models.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It provides the second reference point in a three-way comparative audit alongside manual truth and AI prompts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Evaluating AI models requires comparing them against both manual ground truth and deterministic taggers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It will be discarded so that Friday's class can start from scratch.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Each stage of our three-step comparative cycle builds directly on the previous baseline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It will be converted into a commercial mobile phone application.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Course work focuses on critical digital textual scholarship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It will replace the instructor's syllabus.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Benchmarks are analytical research assets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: The Limits and Power of Deterministic Algorithms</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Limits and Power of Deterministic Algorithms</h3>
+<p>Deterministic NLP pipelines are among the most powerful tools in computational textual scholarship. They allow a single researcher to analyze millions of words in minutes, revealing large-scale stylistic patterns and grammatical shifts across centuries.</p>
+<p>Yet algorithms are not infallible authorities. They are statistical mirrors of the data on which they were trained. When turned loose on the rich, irreg. Beautiful prose of historical documents, they require human guidance, careful preprocessing, and rigorous validation.</p>
+<p>By establishing a manual ground truth, measuring machine accuracy. Diagnosing error patterns, you have learned how to use automated tools critically and responsibly. You are no longer just running software; you are conducting rigorous computational scholarship.</p>
+<p><strong>Takeaway:</strong> Deterministic tools offer incredible sp. Scholarly rigor requires measuring their limits against human ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: The Limits and Power of Deterministic Algorithms</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the ultimate scholarly takeaway regarding deterministic NLP tools in digital humanities?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Deterministic tools offer incredible speed and scale, but scholarly rigor requires measuring their limits against human ground truth.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They provide immense scale and speed, but their statistical limits require critical human guidance and validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Algorithms automate large-scale processing, but human expertise remains the essential anchor of accuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They make human reading and textual scholarship completely obsolete.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Automated tools depend entirely on human ground truth and validation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are too slow to be useful for any research project.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic pipelines process thousands of words per second.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They can only process texts written in modern English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic tools support hundreds of modern and historical languages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

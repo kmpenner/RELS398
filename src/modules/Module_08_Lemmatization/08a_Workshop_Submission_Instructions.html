@@ -3,9 +3,9 @@
     <ol>
         <li>Select 20 consecutive words from your primary manuscript witness.</li>
         <li><strong>Tier 1 (Manual):</strong> For each word, look up its canonical dictionary lemma and provide a full morphological breakdown (part of speech, gender/number/case or tense/voice/mood) in a Markdown table.</li>
-        <li><strong>Tier 2 (NLP Engine):</strong> Run the excerpt through a computational tagging script (using Python CLTK, Stanza, or TreeTagger) and record the predicted lemmas and POS tags.</li>
+        <li><strong>Tier 2 (NLP Engine):</strong> Run the excerpt through a computational tagging script (using TreeTagger or SpaCy) and record the predicted lemmas and POS tags.</li>
         <li><strong>Tier 3 (LLM):</strong> Query an LLM with a structured system prompt requesting JSON or TEI <code>&lt;w&gt;</code> tags with <code>lemma</code> and <code>pos</code> attributes.</li>
         <li>Encode the excerpt in TEI XML using <code>&lt;w lemma="..." pos="..."&gt;token&lt;/w&gt;</code> elements based on your verified ground truth.</li>
-        <li>Submit your TEI file, your Python/prompt script, and a <strong>300–500 word reflection</strong> analyzing which morphological categories caused the highest failure rate in the automated pipelines.</li>
+        <li>Submit your TEI file, your tagging script/prompts, and a <strong>300–500 word reflection</strong> analyzing which morphological categories caused the highest failure rate in the automated pipelines.</li>
     </ol>
 </div>

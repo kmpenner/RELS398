@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 8.3 Teaching Plan (2026-10-30)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #22 (Lesson 8.3 &mdash; AI-Assisted Linguistic Markup, Comparative Audit, and Assignment 8 Synthesis)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, October 30, 2026</span>
+                <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 8 (Lemmatization) &middot; Step 3 of 3 (AI-Assisted)</span>
+                <span class="badge">Milestone: ai_prompt_parser.py + ground_truth_ai.xml + LINGUISTIC_AUDIT.md + Assignment 8 submission</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students arrive with Tuesday's manual ground truth (<code>ground_truth_manual.xml</code>) and Wednesday's deterministic pipeline (<code>nlp_baseline.conllu</code>, <code>nlp_baseline.xml</code>, <code>NLP_BENCHMARK.md</code>) committed on <code>main</code>. They have quantified the failure modes of modern NLP models on historical orthography.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student prompts an LLM agent in VS Code using few-shot exemplar constraints to parse their 20-word passage into TEI <code>&lt;w&gt;</code> markup (<code>ground_truth_ai.xml</code>), conducts a three-way comparative audit (Manual vs. NLP vs. AI) in <code>LINGUISTIC_AUDIT.md</code>, and packages their final portfolio for Assignment: Module 8.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Daft Punk, &ldquo;Technologic&rdquo;</strong> (2005, Virgin Records). Relentless, hypnotic recitation of automated computer actions and transformations.</li>
+            <li><strong>Pedagogical connection:</strong> LLMs generate fluent grammatical analyses and schema-conformant markup effortlessly on command (&ldquo;Buy it, use it, break it, fix it, trash it, change it, mail, upgrade it&rdquo;), but they hallucinate subtle lexical distinctions when unconstrained by human ground truth.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;The machine can generate any annotation we prompt it for in seconds. But did it hallucinate a headword, or invent a rule? Today we hold generative AI accountable to human philological truth.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE SYNTHESIS OBJECTIVE: AUDITING AI AGAINST HUMAN BENCHMARKS</h3>
+        <p>Generative models possess remarkable contextual flexibility, often interpreting archaic spellings that break deterministic NLP taggers. However, LLMs also introduce non-deterministic hallucinations, invent citation forms, and succumb to prompt drift. By conducting a rigorous three-way comparative audit (Manual Ground Truth vs. SpaCy/TreeTagger vs. LLM Agent), students discover exactly where AI accelerates scholarship and where human editorial judgment remains irreplaceable.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Ground truth remains the baseline:</strong> Discrepancies between AI and Tuesday's manual truth are errors in the AI, not flaws in the ground truth. Only revise ground truth if genuine historical lexicographical evidence warrants an edit.<br>
+        <strong>2. Strict schema conformity:</strong> AI-generated XML must validate against the TEI schema with exact token alignment (same token count, same token IDs, valid <code>lemma</code> and <code>pos</code> attributes).<br>
+        <strong>3. Diagnostic documentation over blind acceptance:</strong> Students must not simply accept AI output; every disagreement must be analyzed and recorded in <code>LINGUISTIC_AUDIT.md</code>.<br>
+        <strong>4. Assignment submission deadline:</strong> Assignment: Module 8 (Linguistic Markup) is due tonight, Friday, October 30, at 11:00 PM via Moodle submission.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">9:30 &ndash; 9:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Generative AI in Philology</td>
+                <td class="desc-col">
+                    Welcome students. Springboard from Daft Punk: project an LLM parsing output that looks convincing but contains a hallucinated lemma. Ask: <em>&ldquo;How do we distinguish genuine linguistic context from fluent hallucination?&rdquo;</em><br>
+                    Draw the three-way audit matrix on the board: <strong>Human Ground Truth (Gold Standard) vs. Deterministic NLP (Fast &amp; Rigid) vs. LLM Agent (Contextual &amp; Hallucinatory)</strong>.
+                </td>
+                <td class="target-col">Whiteboard comparative matrix; concept alignment</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:36 &ndash; 9:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Few-Shot Prompt Engineering</td>
+                <td class="desc-col">
+                    Project VS Code Antigravity. Demonstrate zero-shot vs. few-shot prompt formulation for historical grammar.<br>
+                    Show how injecting policy rules (e.g., &ldquo;treat modern English 'your' as lemma 'you', UPOS 'PRON'&rdquo;) forces the LLM to conform to editorial guidelines. Execute <code>ai_prompt_parser.py</code> to output validated TEI XML.
+                </td>
+                <td class="target-col">Live prompt execution and generated XML on screen</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:46 &ndash; 9:56<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: AI Pipeline Execution<br>Generating ground_truth_ai.xml</td>
+                <td class="desc-col">
+                    Students execute their AI prompt pipeline on their 20-word excerpt. Ensure model receives language context (18th-century French legal, 1967 Maritime English, 1752 British treaty).<br>
+                    Export results to <code>ground_truth_ai.xml</code>. <strong>Circulate:</strong> verify token count alignment with Tuesday's manual file and schema validity of <code>&lt;w&gt;</code> elements.
+                </td>
+                <td class="target-col">Validated <code>ground_truth_ai.xml</code> on student workstations</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:56 &ndash; 10:12<br>(16 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Three-Way Comparative Audit</td>
+                <td class="desc-col">
+                    Students run a three-way diff and fill out the comparative matrix in <code>LINGUISTIC_AUDIT.md</code>:<br>
+                    Calculate POS Accuracy (%) and Lemma Accuracy (%) for both NLP and AI against Manual Truth.<br>
+                    Classify discrepancy types: Lexicographical Policy, Historical Orthography (OOV), Clitic Segmentation, or Model Hallucination.
+                </td>
+                <td class="target-col">Completed accuracy calculations and discrepancy table in <code>LINGUISTIC_AUDIT.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">10:12 &ndash; 10:17<br>(5 mins)</td>
+                <td class="activity-col">Phase 5: Diagnostics<br>Cohort Comparison &amp; Synthesis</td>
+                <td class="desc-col">
+                    Cross-cohort synthesis: ask Ace, Olyvia, and Andromeda to share their highest discrepancy words.<br>
+                    Highlight where AI excelled (handling archaic spelling variations like <em>shew'd</em>) vs. where deterministic rules were more reliable (consistent tokenization). Emphasize the hybrid editorial workflow.
+                </td>
+                <td class="target-col">Documented cohort insights in final discussion notes</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:17 &ndash; 10:20<br>(3 mins)</td>
+                <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Assignment 8 Submission</td>
+                <td class="desc-col">
+                    Stage gate commit:<br>
+                    <code>git add ai_prompt_parser.py ground_truth_ai.xml LINGUISTIC_AUDIT.md &amp;&amp; git commit -m "Week 8 Step 3: AI linguistic markup and three-way comparative audit"</code><br>
+                    <strong>Submission reminder:</strong> Bundle <code>LEMMATIZATION_POLICIES.md</code>, XML files, and <code>LINGUISTIC_AUDIT.md</code> and upload to Moodle Assignment 8 before 11:00 PM tonight.
+                </td>
+                <td class="target-col">Clean commit on <code>main</code> and Moodle submission ready</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Starter Projection Skeletons &amp; Live Reference</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Starter Projection Card A: Few-Shot AI Prompt Template</h4>
+<pre>System: You are an expert historical philologist and TEI encoder.
+Task: Lemmatize and POS-tag the following historical passage.
+Policy Rules:
+- Output valid TEI &lt;w lemma="..." pos="..."&gt; elements.
+- For English possessives (your), set lemma="you" and pos="PRON".
+- For historical spellings (shew'd), set canonical modern lemma (show).
+Passage:
+All Treaties shall be renewed and confirmed by the Governor.</pre>
+        </div>
+        <div class="card">
+            <h4>Starter Projection Card B: Three-Way Audit Table in LINGUISTIC_AUDIT.md</h4>
+<pre>| Token | Manual Truth (8.1) | NLP Prediction (8.2) | AI Prediction (8.3) | Analysis |
+|---|---|---|---|---|
+| shew'd | lemma: show (VERB) | lemma: shew'd (VERB) | lemma: show (VERB) | AI normalized OOV spelling |
+| your | lemma: you (PRON) | lemma: your (PRON) | lemma: you (PRON) | Prompt rule enforced policy |
+| l' | lemma: le (DET) | lemma: l' (NOUN) | lemma: le (DET) | AI solved clitic elision |</pre>
+        </div>
+    </div>
+
+    <div class="card mt-3">
+        <h4>Pedagogical Checkpoints &amp; Cohort Diagnostics</h4>
+        <ul>
+            <li><strong>Ace (1791 French decree):</strong> Evaluate whether LLM handles elided articles (<em>l'</em>) and archaic imperfect suffixes (<em>-oit</em>) without hallucinating non-existent Latinate lemmas.</li>
+            <li><strong>Olyvia (Maud Lewis letters):</strong> Check how LLM interprets Maritime colloquial contractions and whether it respects the course's canonical headword convention for possessives.</li>
+            <li><strong>Andromeda (1752 Treaty):</strong> Audit legal modal auxiliaries (<em>shall</em>, <em>doth</em>) and verify whether the AI correctly maps archaic past participles to modern dictionary headwords.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

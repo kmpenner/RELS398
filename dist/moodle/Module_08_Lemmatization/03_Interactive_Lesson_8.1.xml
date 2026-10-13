@@ -1,0 +1,1942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_8.1</text></category></question>
+<question type="description"><name><text>01 Content: Words Beyond Strings: Why Editions Need Linguistic Markup</text></name><questiontext format="html"><text><![CDATA[
+<h3>Words Beyond Strings: Why Editions Need Linguistic Markup</h3>
+<p>Over the past seven weeks, you built a real digital edition from scratch. You catalogued your primary witness in a <code>teiHeader</code>. You linked high-resolution images with <code>&lt;facsimile&gt;</code>. You transcribed every line as written. You reconciled your readings against an AI pass. In Module 6, you regularized historical spelling variations using <code>&lt;choice&gt;</code>. Last week, in Module 7, you wrote stylesheets to turn those markup layers into clean reading views.</p>
+<p>Throughout all those steps, your computer treated your text as a string of letters. String searches can find exact words. However, a search cannot understand grammar. A computer cannot deduce that <em>treaties</em>, <em>treaty</em>, and <em>treaty's</em> belong to the same word family. It cannot tell whether <em>left</em> in Maud Lewis's letter means a direction or the past tense of <em>leave</em>. In Ace's 1791 French decree, a search for <em>décrète</em> misses <em>décrété</em> or <em>décrétèrent</em> unless an editor connects them.</p>
+<p>Linguistic markup solves this problem. It adds parts of speech, dictionary headwords, and grammatical details to your text. This turns a simple transcript into a powerful research database. Scholars can search for all past-tense verbs or all adjectives that modify a legal title. Today, you will build this grammatical ground truth by hand.</p>
+<p><strong>Vocabulary.</strong> <em>Linguistic Markup</em> — Adding grammatical labels and dictionary forms to words in an electronic text. <em>String Search</em> — Searching text strictly for matching characters without understanding grammar.</p>
+<p><strong>Takeaway:</strong> String searches only find exact character matches; linguistic markup reveals the grammar and word families beneath the text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Words Beyond Strings: Why Editions Need Linguistic Markup</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does digital textual scholarship require linguistic markup rather than relying exclusively on exact character string searches?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;String searches only find exact character matches; linguistic markup reveals the grammar and word families beneath the text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;String searches cannot connect different inflected word forms to their shared dictionary headword or identify parts of speech.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Simple character matching leaves grammatical relationships and word families hidden; linguistic markup records grammar and lemmas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;String searches require supercomputers and are too slow to run on modern laptops.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. String matching is fast and computationally simple, but it is blind to grammar.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Digital editions are forbidden by TEI guidelines from storing plain character text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI easily accommodates plain text; linguistic markup is an analytical enrichment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Optical character recognition software cannot read printed books without parts of speech.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. OCR extracts characters from images; linguistic analysis happens downstream.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: Tokens, Surface Forms, and Dictionary Lemmas</text></name><questiontext format="html"><text><![CDATA[
+<h3>Tokens, Surface Forms, and Dictionary Lemmas</h3>
+<p>To study text with computers, you must know three basic terms: token, surface form, and lemma.</p>
+<p>A <strong>token</strong> is a single instance of a word or punctuation mark in your text. If the word <em>the</em> appears fifty times on a manuscript page, it counts as fifty tokens.</p>
+<p>A <strong>surface form</strong> is the exact spelling of that token on the historical page. In Andromeda's 1752 Treaty, the surface form might be <em>promis'd</em> or <em>acknowledg'd</em>. In Ace's 1791 decree, it might be <em>décrété</em> or the older spelling <em>décrétoit</em>. Surface forms preserve every scribal quirk, ink blot, and historical spelling.</p>
+<p>A <strong>lemma</strong> is the base headword you look up in a dictionary. For <em>promis'd</em>, <em>promises</em>, and <em>promising</em>, the English lemma is the base verb <em>promise</em>. For <em>treaties</em>, the lemma is <em>treaty</em>. In French, verbs are listed under their infinitive form (<em>décréter</em>). Nouns are listed in the singular (<em>loi</em>). Lemmatization means connecting each surface word on the page to its dictionary lemma.</p>
+<p><strong>Vocabulary.</strong> <em>Token</em> — An individual word or mark in a text. <em>Surface Form</em> — The exact spelling written on the manuscript page. <em>Lemma</em> — The base dictionary headword representing a group of related word forms.</p>
+<p><strong>Takeaway:</strong> Lemmatization links inflected surface words from the manuscript to their standard dictionary headwords.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Tokens, Surface Forms, and Dictionary Lemmas</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the difference between an inflected surface form on a manuscript page and a dictionary lemma?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Lemmatization links inflected surface words from the manuscript to their standard dictionary headwords.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The surface form is the exact spelling written on the page, while the lemma is the standard uninflected dictionary headword.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The surface form preserves historical spelling (e.g. promis'd), while the lemma is the canonical dictionary entry (promise).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The surface form is an uninflected base word, while the lemma is an inflected plural.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The lemma is the uninflected dictionary citation headword.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The surface form only applies to nouns, while lemmas only apply to verbs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both nouns and verbs possess surface forms and dictionary lemmas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The surface form is generated by a computer, while the lemma was written by the historical scribe.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The historical scribe wrote the surface form; modern editors assign the lemma.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The Grammatical Feature List</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Grammatical Feature List</h3>
+<p>Words do more than carry dictionary meanings. In a sentence, words take on different shapes to show their grammatical job. The collection of grammatical traits on a single word is its <strong>feature list</strong>.</p>
+<p>Look at the word <em>writes</em> in Maud Lewis's letters: <em>She writes to Mr. Kinnear</em>. The dictionary lemma is <em>write</em>. Its feature list tells us more: Part of Speech = Verb, Person = Third, Number = Singular, and Tense = Present. In English, pronouns change shape for case: <em>she</em> is a subject, while <em>her</em> is an object or possessive.</p>
+<p>French uses rich feature lists for nearly every word. In the 1791 phrase <em>les assemblées nationales</em>, the noun <em>assemblées</em> is Feminine and Plural. The adjective <em>nationales</em> matches those traits through agreement. When you parse a word by hand, you record both its dictionary headword and its full list of grammatical features.</p>
+<p><strong>Vocabulary.</strong> <em>Word Form</em> — The specific grammatical shape an inflected word takes in a sentence. <em>Feature List</em> — The set of grammatical tags (such as tense, person, number, and gender) that describe a word.</p>
+<p><strong>Takeaway:</strong> A grammatical feature list records all traits—including part of speech, tense, person, gender, and number—for an inflected word.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The Grammatical Feature List</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What information is recorded in a word's grammatical feature list (FEATS)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A grammatical feature list records all traits—including part of speech, tense, person, gender, and number—for an inflected word.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The specific grammatical traits of the inflected word, such as part of speech, tense, person, number, and gender.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A feature list captures the bundle of inflectional traits attached to an inflected word form.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The physical dimensions and ink chemical properties of the parchment leaf.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those are codicological physical traits, not grammatical features.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The market price of the manuscript at auction.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Valuation data does not belong in linguistic feature lists.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The font size and CSS style rules used to display the website.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS formatting is separate from grammatical morphology.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Tokenization in Real Historical Documents</text></name><questiontext format="html"><text><![CDATA[
+<h3>Tokenization in Real Historical Documents</h3>
+<p>Before you can tag or lemmatize words, you must separate your text into tokens. In modern English books, software simply splits text at spaces and punctuation. In old documents, tokenization is trickier.</p>
+<p>Consider the contractions in Maud Lewis's letters: <em>can't</em>, <em>didn't</em>, <em>it's</em>, and <em>I'll</em>. Is <em>can't</em> one token or two? Linguistically, it represents two words: the helping verb <em>can</em> and the negative word <em>not</em>. If you keep them together, software cannot find a dictionary entry for <em>can't</em>. If you split them into <em>can</em> and <em>n't</em>, both parts receive clean tags and lemmas.</p>
+<p>In Ace's 1791 French decree, short words often cling to nouns: <em>l'assemblée</em>, <em>d'état</em>, <em>qu'un</em>. The letter <em>l'</em> is the definite article <em>le</em>. The word <em>assemblée</em> is a noun. Standard French tools split <em>l'assemblée</em> into two tokens: <em>l'</em> (lemma <em>le</em>) and <em>assemblée</em>. In old English treaties, phrases like <em>whereof</em> and <em>thereunto</em> fuse words together. Your tokenization rules decide where each token begins and ends.</p>
+<p><strong>Vocabulary.</strong> <em>Tokenization</em> — Splitting running text into distinct words, symbols, and punctuation marks. <em>Clitic</em> — A short word that attaches phonetically to a neighbor, like French <em>l'</em> or English <em>'ve</em>.</p>
+<p><strong>Takeaway:</strong> Tokenization must split contracted words so that each underlying word receives its own lemma and grammatical tag.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Tokenization in Real Historical Documents</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should contractions like French l'assemblée or English can't be split into separate tokens before lemmatization?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Tokenization must split contracted words so that each underlying word receives its own lemma and grammatical tag.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because each piece represents a distinct underlying word that requires its own lemma and part-of-speech tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Splitting l' into a determiner (le) and assemblée into a noun allows each to receive an accurate dictionary lemma.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because computer operating systems crash if a word contains an apostrophe.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers handle apostrophes without crashing; splitting is done for grammatical accuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI schemas prohibit the use of apostrophes in diplomatic transcriptions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI handles apostrophes easily; tokenization isolates words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because punctuation marks must always be deleted from digital historical editions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation is preserved and tagged with &lt;pc&gt;, not deleted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Words with Multiple Meanings: Homographs</text></name><questiontext format="html"><text><![CDATA[
+<h3>Words with Multiple Meanings: Homographs</h3>
+<p>A major hurdle in grammar tagging is double meanings. In natural human language, one written spelling can represent two completely different words. Words that share an identical spelling but differ in meaning or origin are called <strong>homographs</strong>.</p>
+<p>English has thousands of homographs. In the 1752 Treaty, the word <em>will</em> appears in two ways. It can be a helping verb (<em>the Tribe will observe this Treaty</em>). It can also be a noun (<em>of their own free will</em>). The spelling is identical, but the lemmas and parts of speech are totally different. If a computer guesses without reading the sentence, it often makes a mistake.</p>
+<p>French has the same double meanings. The token <em>est</em> can be a form of the verb <em>être</em> ("is"). It can also be the noun <em>est</em> meaning the East. The word <em>son</em> can mean "his" or "sound". Human readers resolve these puzzles easily by looking at the sentence context. Automated programs often trip over them.</p>
+<p><strong>Vocabulary.</strong> <em>Homograph</em> — A word spelled the same as another word but with a different meaning or part of speech. <em>Disambiguation</em> — Picking the correct meaning or grammatical tag for an ambiguous word in context.</p>
+<p><strong>Takeaway:</strong> Human readers use sentence context to pick the right lemma when two different words share the same spelling.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Words with Multiple Meanings: Homographs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do human editors resolve the grammatical category of homographs like English will or French est?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Human readers use sentence context to pick the right lemma when two different words share the same spelling.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By examining the surrounding sentence context and grammatical role of the word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Context reveals whether will functions as a helping verb or a common noun, and whether est means is or East.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By choosing whichever meaning appears first in an alphabetical dictionary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alphabetical order has no bearing on what an author meant in a sentence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By converting the word to uppercase letters in the TEI transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Casing does not resolve grammatical ambiguity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting the ambiguous word from the historical transcription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors never delete genuine witness words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Verbs: Tense, Person, and Agreement</text></name><questiontext format="html"><text><![CDATA[
+<h3>Verbs: Tense, Person, and Agreement</h3>
+<p>Verbs form the backbone of sentences in English and French. In historical texts, verb endings reveal who acted, when they acted, and whether the action was finished.</p>
+<p>In English, verbs change shape to match third-person subjects (<em>she paints</em>, <em>he writes</em>). Older English used distinct verb endings (<em>thou dost</em>, <em>he hath</em>, <em>she speaketh</em>). The 1752 Treaty uses formal legal style: <em>doth hereby promise and grant</em>. The lemma for <em>doth</em> is <em>do</em>. Its features are Verb, Present Tense, Third Person, Singular.</p>
+<p>French verbs have rich sets of endings. In Ace's 1791 decree, you find past-tense forms like <em>décréta</em> (past definite), <em>décrétoit</em> (older spelling of the imperfect), and <em>a décrété</em> (compound past). In all three cases, the base dictionary lemma is <em>décréter</em>. When tagging verbs, editors separate main verbs that take subjects from infinitives and participles.</p>
+<p><strong>Vocabulary.</strong> <em>Finite Verb</em> — A verb that has a person and tense and serves as the main predicate of a clause. <em>Infinitive</em> — The uninflected base form of a verb, such as <em>to write</em> or <em>décréter</em>.</p>
+<p><strong>Takeaway:</strong> Verb endings show tense, person, and number; manual parsing identifies both the inflected form and its base dictionary infinitive.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Verbs: Tense, Person, and Agreement</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the canonical dictionary lemma for archaic English verbal forms like doth or French imperfect forms like décrétoit?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Verb endings show tense, person, and number; manual parsing identifies both the inflected form and its base dictionary infinitive.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The uninflected base verb or infinitive, such as do for doth and décréter for décrétoit.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The canonical citation lemma for verbs is the base uninflected form or infinitive.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The exact surface spelling preserved as a new separate dictionary entry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Inventing separate lemmas for inflected variants fragments the dictionary index.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The third-person singular past participle form.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Standard English and French lexica cite verbs under base forms or infinitives.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A Latin root from the fifth century.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lemmas are cited in standard modern forms of the language being edited.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Nouns and Adjectives: Gender and Number</text></name><questiontext format="html"><text><![CDATA[
+<h3>Nouns and Adjectives: Gender and Number</h3>
+<p>Nouns name people, places, things, and ideas. Adjectives describe nouns. In modern English, nouns change for number (singular <em>letter</em>, plural <em>letters</em>) and possession (<em>Maud's</em>). English adjectives never change shape for gender or number. The word <em>red</em> stays the same whether describing one apple or ten.</p>
+<p>French works differently. Every French noun has a grammatical gender: masculine or feminine. French nouns also show singular or plural number. Adjectives must match their noun in both gender and number. In the phrase <em>décrets nationaux</em> (national decrees), <em>décrets</em> is masculine plural. The adjective <em>nationaux</em> changes its ending to agree with it. Its base lemma is <em>national</em>.</p>
+<p>In English historical documents, pronouns still show case (<em>they</em>, <em>them</em>, <em>their</em>). Knowing whether a word is a subject, an object, or a modifier helps you understand the legal force of an old document.</p>
+<p><strong>Vocabulary.</strong> <em>Agreement</em> — When modifying words match their head noun in gender, number, or case. <em>Grammatical Gender</em> — A noun class system (masculine or feminine) that controls how modifiers change.</p>
+<p><strong>Takeaway:</strong> French adjectives change their endings to agree with nouns, while English words mainly show number and possession.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Nouns and Adjectives: Gender and Number</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does adjectival inflection in French (such as décrets nationaux) differ from modern English adjectives?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;French adjectives change their endings to agree with nouns, while English words mainly show number and possession.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;French adjectives must change their endings to agree in gender and number with their head noun, whereas English adjectives do not inflect.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. French nationaux agrees with masculine plural décrets; English national does not change endings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;French adjectives never change endings, while English adjectives have twelve distinct cases.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. French adjectives inflect for gender and number; modern English adjectives do not.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;French adjectives only modify pronouns, never nouns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adjectives modify both nouns and pronouns.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;French adjectives are always placed in the teiHeader rather than running text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adjectives occur throughout the running document text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Function Words: Determiners, Prepositions, and Conjunctions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Function Words: Determiners, Prepositions, and Conjunctions</h3>
+<p>Linguists divide words into two big groups: content words and function words. <strong>Content words</strong>—nouns, main verbs, adjectives, and adverbs—carry specific real-world meaning. Languages invent new content words all the time.</p>
+<p><strong>Function words</strong>, on the other hand, act as grammatical glue. They include determiners (<em>the</em>, <em>a</em>, <em>le</em>, <em>ces</em>), prepositions (<em>in</em>, <em>by</em>, <em>sur</em>, <em>dans</em>), and conjunctions (<em>and</em>, <em>but</em>, <em>et</em>, <em>ou</em>). Languages rarely add new function words. While they do not change shape often, function words show how clauses fit together.</p>
+<p>In the 1752 Treaty, prepositions and conjunctions link long legal clauses: <em>between His Excellency Peregrine Thomas Hopson... and Major Jean Baptiste Cope</em>. Here, <em>between</em> and <em>and</em> link names and titles into a clear legal partnership. In your parsing, pay careful attention to function words.</p>
+<p><strong>Vocabulary.</strong> <em>Content Words</em> — Words like nouns and verbs that carry real-world meaning. <em>Function Words</em> — Words like prepositions and conjunctions that connect phrases and show grammar.</p>
+<p><strong>Takeaway:</strong> Function words link nouns and verbs together into complete, well-structured sentences.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Function Words: Determiners, Prepositions, and Conjunctions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What primary role do closed-class function words (like between, and, and dans) play in historical documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Function words link nouns and verbs together into complete, well-structured sentences.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They provide the structural grammatical glue that connects nouns, verbs, and clauses into meaningful sentences.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Prepositions and conjunctions govern syntactic relationships between phrases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They provide the primary creative metaphors and poetic imagery in the text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Open-class content words carry creative imagery; closed-class words provide grammatical structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are temporary filler words that can be omitted from scholarly digital editions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Function words are essential to sentence syntax and legal meaning.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They only appear in spoken conversation, never in legal treaties or government decrees.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Function words are pervasive in formal legal and administrative prose.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: The Universal Dependencies Part-of-Speech Tagset</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Universal Dependencies Part-of-Speech Tagset</h3>
+<p>To help projects share linguistic data across languages, linguists built the <strong>Universal Dependencies (UD)</strong> project. UD created a standard list of 17 Universal Part-of-Speech (UPOS) tags.</p>
+<p>Instead of making up private tags, everyone uses the same labels. Here are the core tags you will use for our course documents:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Meaning</th>
+      <th>Examples in English and French</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>NOUN</code></td>
+      <td>Common noun</td>
+      <td>treaty, letter, assemblée, décrets</td>
+    </tr>
+    <tr>
+      <td><code>PROPN</code></td>
+      <td>Proper name</td>
+      <td>Hopson, Cope, France, Paris</td>
+    </tr>
+    <tr>
+      <td><code>VERB</code></td>
+      <td>Main verb</td>
+      <td>promise, write, décrète, signer</td>
+    </tr>
+    <tr>
+      <td><code>AUX</code></td>
+      <td>Helping verb</td>
+      <td>shall, will, have, est, ont</td>
+    </tr>
+    <tr>
+      <td><code>ADJ</code></td>
+      <td>Adjective</td>
+      <td>peaceable, good, national, royal</td>
+    </tr>
+    <tr>
+      <td><code>DET</code></td>
+      <td>Determiner</td>
+      <td>the, this, le, la, ces</td>
+    </tr>
+    <tr>
+      <td><code>ADP</code></td>
+      <td>Preposition</td>
+      <td>in, between, par, dans</td>
+    </tr>
+    <tr>
+      <td><code>CCONJ</code></td>
+      <td>Coordinating conjunction</td>
+      <td>and, but, et, ou</td>
+    </tr>
+    <tr>
+      <td><code>PUNCT</code></td>
+      <td>Punctuation</td>
+      <td>., ,, ;, :</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Using standard UPOS tags means tools can compare Ace's 1791 French decree directly with Andromeda's 1752 English treaty.</p>
+<p><strong>Vocabulary.</strong> <em>Universal Dependencies (UD)</em> — An open global standard for grammar annotation across languages. <em>UPOS</em> — Universal Part-of-Speech tags, a set of 17 standard labels.</p>
+<p><strong>Takeaway:</strong> The 17 Universal Dependencies UPOS tags give researchers a shared vocabulary for tagging parts of speech across languages.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: The Universal Dependencies Part-of-Speech Tagset</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the purpose of the 17 Universal Part-of-Speech (UPOS) tags in Universal Dependencies?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The 17 Universal Dependencies UPOS tags give researchers a shared vocabulary for tagging parts of speech across languages.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To provide a standardized set of grammatical labels that work consistently across different human languages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The 17 UPOS tags provide a shared grammatical vocabulary for English, French, and other corpora.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To replace standard English spelling with computer binary code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. UPOS tags are grammatical labels, not binary text encodings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To assign grades to student transcriptions automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. UPOS is a linguistic framework, not an educational grading rubric.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To force all historical languages to adopt modern English word order.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. UPOS tags describe grammar without changing historical word order.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Standard Grammatical Features (FEATS)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Standard Grammatical Features (FEATS)</h3>
+<p>A UPOS tag tells you a word's broad class (like <code>NOUN</code> or <code>VERB</code>). It does not record details like past tense or plural number. In Universal Dependencies, those details live in a field called <strong>FEATS</strong> (Features).</p>
+<p>FEATS uses simple pairs separated by vertical bars. For example, the French noun <em>décrets</em> in Ace's text gets: <code>Gender=Masc|Number=Plur</code>. The English verb <em>promised</em> gets: <code>Tense=Past|VerbForm=Fin</code>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Common Values</th>
+      <th>Simple Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Number</code></td>
+      <td><code>Sing</code>, <code>Plur</code></td>
+      <td>treaty (Sing), treaties (Plur)</td>
+    </tr>
+    <tr>
+      <td><code>Gender</code></td>
+      <td><code>Masc</code>, <code>Fem</code></td>
+      <td>roi (Masc), reine (Fem)</td>
+    </tr>
+    <tr>
+      <td><code>Tense</code></td>
+      <td><code>Past</code>, <code>Pres</code></td>
+      <td>wrote (Past), writes (Pres)</td>
+    </tr>
+    <tr>
+      <td><code>Person</code></td>
+      <td><code>1</code>, <code>2</code>, <code>3</code></td>
+      <td>am (1), is (3)</td>
+    </tr>
+    <tr>
+      <td><code>VerbForm</code></td>
+      <td><code>Fin</code>, <code>Inf</code>, <code>Part</code></td>
+      <td>writes (Fin), write (Inf), written (Part)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Standard feature names let researchers search across many files for exact grammar forms, such as all feminine plural adjectives.</p>
+<p><strong>Vocabulary.</strong> <em>FEATS</em> — The field in Universal Dependencies that holds specific grammatical traits like tense and number.</p>
+<p><strong>Takeaway:</strong> The FEATS field records specific grammatical details using simple pairs like <code>Gender=Masc</code> and <code>Number=Plur</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Standard Grammatical Features (FEATS)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does Universal Dependencies store detailed grammatical traits like gender, tense, and number?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The FEATS field records specific grammatical details using simple pairs like Gender=Masc and Number=Plur.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;As standardized attribute-value pairs separated by vertical bars in the FEATS field.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. FEATS uses standard pairs such as Gender=Masc|Number=Plur.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside secret encrypted files stored on a blockchain.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. FEATS values are plain-text attribute-value pairs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By coloring the words green or red in the web browser.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Visual styling is presentation; FEATS is structured linguistic data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By adding hundreds of footnotes to the printed page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. FEATS annotations are structured computational attributes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Authoritative Dictionaries as Citation Baselines</text></name><questiontext format="html"><text><![CDATA[
+<h3>Authoritative Dictionaries as Citation Baselines</h3>
+<p>How do you decide on the official lemma for an old word? In everyday life, people guess word origins. In scholarly editing, every lemma must come from an authoritative dictionary.</p>
+<p>For historical English texts—including the 1752 Treaty and Maud Lewis's letters—our primary authority is the <strong>Oxford English Dictionary (OED)</strong>. The OED tracks spelling history and gives standard modern headwords. If a word is archaic, like <em>whereunto</em>, the OED confirms its canonical dictionary entry.</p>
+<p>For French texts, the primary baseline is the <strong>Trésor de la Langue Française informatisé (TLFi)</strong> and the historical dictionaries of the Académie française. When lemmatizing words in Ace's 1791 decree, checking the TLFi ensures that 18th-century government words map to the headwords recognized by scholars.</p>
+<p><strong>Vocabulary.</strong> <em>Citation Baseline</em> — The standard scholarly dictionary chosen to govern lemma spellings in an edition. <em>OED</em> — Oxford English Dictionary, the historical authority for English. <em>TLFi</em> — Trésor de la Langue Française informatisé, the primary digital lexicon for French.</p>
+<p><strong>Takeaway:</strong> Every lemma should be checked against an authoritative dictionary, such as the OED for English or the TLFi for French.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Authoritative Dictionaries as Citation Baselines</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which scholarly authority serves as the primary citation baseline for historical English lemmas in our course documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Every lemma should be checked against an authoritative dictionary, such as the OED for English or the TLFi for French.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The Oxford English Dictionary (OED).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The OED provides the historical lexicographical authority for English headwords.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A modern social media hashtag index.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Social media tags lack scholarly historical authority.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A bilingual English-Latin pocket phrasebook.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Specialized scholarly editing requires unabridged historical lexica like the OED.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A spellchecker plugin on a smartphone.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commercial spellcheckers do not provide historical citation baselines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: TEI XML Word Elements: `&lt;w&gt;` and `&lt;pc&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>TEI XML Word Elements: `<w>` and `<pc>`</h3>
+<p>The Text Encoding Initiative provides clean tags to mark words and punctuation directly in XML. The two most important tags are <code>&lt;w&gt;</code> (word) and <code>&lt;pc&gt;</code> (punctuation character).</p>
+<p>The <code>&lt;w&gt;</code> tag wraps a single word. Punctuation marks go inside <code>&lt;pc&gt;</code>. Here is how a short clause from the 1752 Treaty looks when segmented into TEI elements:</p>
+<pre><code class="language-xml">&lt;w&gt;The&lt;/w&gt;
+&lt;w&gt;said&lt;/w&gt;
+&lt;w&gt;Chief&lt;/w&gt;
+&lt;w&gt;doth&lt;/w&gt;
+&lt;w&gt;promise&lt;/w&gt;
+&lt;pc&gt;,&lt;/pc&gt;
+</code></pre>
+<p>Wrapping words in <code>&lt;w&gt;</code> makes token boundaries unmistakable for software. Normal spaces between words remain in the file, but programs process each <code>&lt;w&gt;</code> tag as one unit. The <code>&lt;pc&gt;</code> tag marks punctuation clearly, preventing search tools from treating a comma as part of a word.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;w&gt;</code></em> — The TEI tag that encloses a single grammatical word token. <em><code>&lt;pc&gt;</code></em> — The TEI tag that encloses a punctuation mark or symbol.</p>
+<p><strong>Takeaway:</strong> Use the TEI <code>&lt;w&gt;</code> element to enclose words and the <code>&lt;pc&gt;</code> element to enclose punctuation marks.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: TEI XML Word Elements: &lt;w&gt; and &lt;pc&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does TEI P5 recommend encoding an individual word token and an adjacent comma?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use the TEI &lt;w&gt; element to enclose words and the &lt;pc&gt; element to enclose punctuation marks.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Wrapping the word in &lt;w&gt; and the comma in &lt;pc&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. &lt;w&gt; marks a word token and &lt;pc&gt; explicitly marks punctuation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Wrapping both together in a &lt;choice&gt; tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;choice&gt; is used for editorial alternatives, not basic word tokenization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Putting the entire sentence in a single &lt;lb/&gt; milestone.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;lb/&gt; is an empty line-beginning milestone, not a word container.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting the comma so the word can stand alone.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation must be preserved and encoded with &lt;pc&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Adding Attributes: `@lemma` and `@pos`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Adding Attributes: `@lemma` and `@pos`</h3>
+<p>Wrapping words in <code>&lt;w&gt;</code> is only the first step. To add grammatical information, you include attributes. The two main attributes are <code>@lemma</code> and <code>@pos</code>.</p>
+<p>The <code>@lemma</code> attribute holds the dictionary headword. The <code>@pos</code> attribute holds the part-of-speech tag. Here is the same 1752 clause enriched with linguistic attributes:</p>
+<pre><code class="language-xml">&lt;w lemma=&quot;the&quot; pos=&quot;DET&quot;&gt;The&lt;/w&gt;
+&lt;w lemma=&quot;say&quot; pos=&quot;VERB&quot;&gt;said&lt;/w&gt;
+&lt;w lemma=&quot;chief&quot; pos=&quot;NOUN&quot;&gt;Chief&lt;/w&gt;
+&lt;w lemma=&quot;do&quot; pos=&quot;AUX&quot;&gt;doth&lt;/w&gt;
+&lt;w lemma=&quot;promise&quot; pos=&quot;VERB&quot;&gt;promise&lt;/w&gt;
+&lt;pc pos=&quot;PUNCT&quot;&gt;,&lt;/pc&gt;
+</code></pre>
+<p>Look at what this achieves. The surface form <em>said</em> connects to its dictionary headword <em>say</em>. The old auxiliary <em>doth</em> connects to <em>do</em>. A reader sees the original historical words on screen, while a search engine can find <em>do</em> and <em>promise</em> across the whole collection.</p>
+<p><strong>Vocabulary.</strong> <em><code>@lemma</code></em> — The TEI attribute holding the dictionary headword. <em><code>@pos</code></em> — The TEI attribute holding the part-of-speech tag.</p>
+<p><strong>Takeaway:</strong> Adding <code>@lemma</code> and <code>@pos</code> to <code>&lt;w&gt;</code> tags attaches dictionary headwords and grammar tags without altering the original text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Adding Attributes: @lemma and @pos</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Where are dictionary headwords and part-of-speech tags stored on a TEI word token?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Adding @lemma and @pos to &lt;w&gt; tags attaches dictionary headwords and grammar tags without altering the original text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;In the @lemma and @pos attributes directly on the &lt;w&gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. &lt;w lemma="promise" pos="VERB"&gt; records both properties on the word.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside the file name of the digital image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Linguistic attributes belong on the text elements, not image files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In the CSS stylesheet under body font rules.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS controls display styling, not grammatical lemmas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In an unlinked external spreadsheet on a different computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI records linguistic metadata directly on &lt;w&gt; elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Grammar Tags vs. Spelling Normalization</text></name><questiontext format="html"><text><![CDATA[
+<h3>Grammar Tags vs. Spelling Normalization</h3>
+<p>In Module 6, you learned how to clean up historical spellings using <code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>, and <code>&lt;reg&gt;</code>. Students often ask: is lemmatization just another kind of spelling normalization?</p>
+<p>They are two distinct tasks. Spelling normalization updates historical spelling; lemmatization identifies the base grammatical word. In the 1752 Treaty, the scribe wrote <em>acknowledg'd</em>. In Module 6, you normalized that spelling to <em>acknowledged</em>:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;acknowledg'd&lt;/orig&gt;
+  &lt;reg&gt;acknowledged&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>Notice that <em>acknowledged</em> is still an inflected past-tense verb! It is not the dictionary headword; the headword is the infinitive <em>acknowledge</em>. When combining both layers, TEI nests the regularized <code>&lt;choice&gt;</code> tag inside the linguistic <code>&lt;w&gt;</code> tag:</p>
+<pre><code class="language-xml">&lt;w lemma=&quot;acknowledge&quot; pos=&quot;VERB&quot;&gt;
+  &lt;choice&gt;
+    &lt;orig&gt;acknowledg'd&lt;/orig&gt;
+    &lt;reg&gt;acknowledged&lt;/reg&gt;
+  &lt;/choice&gt;
+&lt;/w&gt;
+</code></pre>
+<p>This nesting keeps both editorial choices clear: you standardized the spelling to <em>acknowledged</em>, and you mapped the word to the lemma <em>acknowledge</em>.</p>
+<p><strong>Takeaway:</strong> Normalization updates spelling, while lemmatization identifies the base word; in TEI XML, <code>&lt;choice&gt;</code> nests inside <code>&lt;w&gt;</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Grammar Tags vs. Spelling Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should an editor combine orthographic regularization with linguistic lemmatization in TEI XML?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Normalization updates spelling, while lemmatization identifies the base word; in TEI XML, &lt;choice&gt; nests inside &lt;w&gt;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Nest the &lt;choice&gt; regularization element inside the linguistic &lt;w&gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. &lt;w lemma="acknowledge" pos="VERB"&gt;&lt;choice&gt;&lt;orig&gt;acknowledg'd&lt;/orig&gt;&lt;reg&gt;acknowledged&lt;/reg&gt;&lt;/choice&gt;&lt;/w&gt; keeps both layers intact.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace the &lt;w&gt; tag entirely with &lt;reg&gt; and discard the historical spelling.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Discarding the historical spelling destroys diplomatic evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Put the lemma inside &lt;orig&gt; and the part of speech inside &lt;reg&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;orig&gt; and &lt;reg&gt; hold surface text spellings, not grammatical metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They cannot be combined because TEI schemas forbid using &lt;w&gt; and &lt;choice&gt; in the same file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI fully supports nesting &lt;choice&gt; inside &lt;w&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: External Feature Links with `@ana`</text></name><questiontext format="html"><text><![CDATA[
+<h3>External Feature Links with `@ana`</h3>
+<p>When grammatical annotations grow complex, writing long lists of traits inside tag attributes can make XML hard to read. TEI provides the <code>@ana</code> (analysis) attribute to link a word to an external definition.</p>
+<p>Instead of writing long strings of features, an editor defines grammatical categories in a feature list inside the <code>teiHeader</code>. Then, the <code>&lt;w&gt;</code> tag points to that definition using a link:</p>
+<pre><code class="language-xml">&lt;w lemma=&quot;assemblée&quot; pos=&quot;NOUN&quot; ana=&quot;#fem_sing&quot;&gt;assemblée&lt;/w&gt;
+</code></pre>
+<p>In the header, <code>#fem_sing</code> points to an entry that defines the word as Feminine and Singular. This method, called <strong>stand-off annotation</strong>, keeps your main transcription neat while storing rich linguistic data. For class labs, inline <code>@lemma</code> and <code>@pos</code> attributes are plenty, but large projects use <code>@ana</code> often.</p>
+<p><strong>Vocabulary.</strong> <em><code>@ana</code></em> — A TEI attribute that points to an external analysis definition. <em>Stand-Off Annotation</em> — Storing notes and linguistic data in a separate place from the main text.</p>
+<p><strong>Takeaway:</strong> The <code>@ana</code> attribute links words to external feature lists, keeping transcripts clean while supporting deep grammatical notes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: External Feature Links with @ana</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What advantage does stand-off annotation with @ana offer when encoding detailed linguistic features?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The @ana attribute links words to external feature lists, keeping transcripts clean while supporting deep grammatical notes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It points to centralized feature definitions in the header, keeping the primary text clean and readable.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. @ana links tokens to feature libraries, avoiding repetitive inline attribute bloat.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It speeds up computer internet connections by compressing audio files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. @ana is an XML markup pointer, not an internet compression protocol.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It hides the text from readers who do not have an academic degree.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Stand-off markup organizes data; it does not restrict access.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically translates the document into Spanish.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. @ana references grammatical analyses, not language translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Marking Sentences with `&lt;s&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Marking Sentences with `<s>`</h3>
+<p>Grammar does not end with single words; it also shapes sentences. In TEI P5, complete sentences are wrapped in the <code>&lt;s&gt;</code> (sentence) tag.</p>
+<p>Grouping words into <code>&lt;s&gt;</code> elements is essential for studying syntax. Grammar rules—such as a subject matching its verb—work within sentence boundaries. Here is an example using <code>&lt;s&gt;</code>, <code>&lt;w&gt;</code>, and <code>&lt;pc&gt;</code> together:</p>
+<pre><code class="language-xml">&lt;s&gt;
+  &lt;w lemma=&quot;the&quot; pos=&quot;DET&quot;&gt;The&lt;/w&gt;
+  &lt;w lemma=&quot;treaty&quot; pos=&quot;NOUN&quot;&gt;Treaty&lt;/w&gt;
+  &lt;w lemma=&quot;be&quot; pos=&quot;AUX&quot;&gt;was&lt;/w&gt;
+  &lt;w lemma=&quot;sign&quot; pos=&quot;VERB&quot;&gt;signed&lt;/w&gt;
+  &lt;pc pos=&quot;PUNCT&quot;&gt;.&lt;/pc&gt;
+&lt;/s&gt;
+</code></pre>
+<p>Notice how punctuation marks sit in <code>&lt;pc&gt;</code> tags. This cleanly separates words from sentence endings. In historical texts, punctuation is often irregular. Marking sentence boundaries by hand helps grammar tools parse clauses correctly.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;s&gt;</code></em> — The TEI element that marks a grammatical sentence.</p>
+<p><strong>Takeaway:</strong> Wrapping clauses in <code>&lt;s&gt;</code> elements marks sentence boundaries that guide grammatical analysis.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Marking Sentences with &lt;s&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is wrapping clauses in TEI &lt;s&gt; elements important for computational grammar analysis?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Wrapping clauses in &lt;s&gt; elements marks sentence boundaries that guide grammatical analysis.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because syntactic dependency relations operate within sentence boundaries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Syntactic relationships like subjects and verb objects are bounded by sentence units.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because web browsers cannot render text unless every sentence has an &lt;s&gt; tag.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web browsers display text with standard HTML tags; &lt;s&gt; is for syntactic segmentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because sentences are required to be exactly ten words long in TEI P5.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Sentences have natural varying lengths.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because &lt;s&gt; elements automatically erase spelling errors in old documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;s&gt; marks grammatical sentence boundaries without altering spelling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Parsing Walkthrough 1: The 1752 Peace and Friendship Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Parsing Walkthrough 1: The 1752 Peace and Friendship Treaty</h3>
+<p>Let us look at a hands-on manual parse from Andromeda's project: the 1752 Peace and Friendship Treaty.</p>
+<p>Consider this opening clause: <em>All Treaties shall be renewed</em>. Here is the grammatical breakdown in a clear table:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Surface Word</th>
+      <th>Lemma</th>
+      <th>UPOS</th>
+      <th>Features (FEATS)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All</td>
+      <td>all</td>
+      <td><code>DET</code></td>
+      <td>PronType=Tot</td>
+    </tr>
+    <tr>
+      <td>Treaties</td>
+      <td>treaty</td>
+      <td><code>NOUN</code></td>
+      <td>Number=Plur</td>
+    </tr>
+    <tr>
+      <td>shall</td>
+      <td>shall</td>
+      <td><code>AUX</code></td>
+      <td>VerbForm=Fin</td>
+    </tr>
+    <tr>
+      <td>be</td>
+      <td>be</td>
+      <td><code>AUX</code></td>
+      <td>VerbForm=Inf</td>
+    </tr>
+    <tr>
+      <td>renewed</td>
+      <td>renew</td>
+      <td><code>VERB</code></td>
+      <td>Tense=Past|VerbForm=Part</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notice how each token receives an exact analysis. <em>Treaties</em> maps to the singular lemma <em>treaty</em>. The verb group <em>shall be renewed</em> breaks down into a helping verb (<code>shall</code>), a helping infinitive (<code>be</code>), and a main past participle (<code>renewed</code>, lemma <em>renew</em>).</p>
+<p><strong>Takeaway:</strong> Breaking old legal clauses into tables makes lemmas, parts of speech, and grammatical features clear and simple.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Parsing Walkthrough 1: The 1752 Peace and Friendship Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the 1752 Treaty clause All Treaties shall be renewed, what is the lemma and UPOS tag for Treaties?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Breaking old legal clauses into tables makes lemmas, parts of speech, and grammatical features clear and simple.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Lemma: treaty, UPOS: NOUN.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Treaties is a plural common noun with canonical singular lemma treaty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Lemma: treat, UPOS: VERB.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Treaties is a noun denoting formal agreements, not the verb treat.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Lemma: all, UPOS: DET.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All is the preceding determiner, not the lemma for Treaties.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Lemma: renewed, UPOS: ADJ.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Renewed is the following participle verb.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Parsing Walkthrough 2: The 1791 French Revolutionary Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Parsing Walkthrough 2: The 1791 French Revolutionary Decree</h3>
+<p>Now let us examine a government clause from Ace's project: a 1791 decree from the National Assembly of Revolutionary France.</p>
+<p>Consider this line: <em>L'Assemblée nationale décrète les lois suivantes</em> ("The National Assembly decrees the following laws"). Because French features rich agreement and clitics, we look closely at each ending:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Surface Word</th>
+      <th>Lemma</th>
+      <th>UPOS</th>
+      <th>Features (FEATS)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>L'</td>
+      <td>le</td>
+      <td><code>DET</code></td>
+      <td>Gender=Fem|Number=Sing|PronType=Art</td>
+    </tr>
+    <tr>
+      <td>Assemblée</td>
+      <td>assemblée</td>
+      <td><code>NOUN</code></td>
+      <td>Gender=Fem|Number=Sing</td>
+    </tr>
+    <tr>
+      <td>nationale</td>
+      <td>national</td>
+      <td><code>ADJ</code></td>
+      <td>Gender=Fem|Number=Sing</td>
+    </tr>
+    <tr>
+      <td>décrète</td>
+      <td>décréter</td>
+      <td><code>VERB</code></td>
+      <td>Number=Sing|Person=3|Tense=Pres|VerbForm=Fin</td>
+    </tr>
+    <tr>
+      <td>les</td>
+      <td>le</td>
+      <td><code>DET</code></td>
+      <td>Number=Plur|PronType=Art</td>
+    </tr>
+    <tr>
+      <td>lois</td>
+      <td>loi</td>
+      <td><code>NOUN</code></td>
+      <td>Gender=Fem|Number=Plur</td>
+    </tr>
+    <tr>
+      <td>suivantes</td>
+      <td>suivant</td>
+      <td><code>ADJ</code></td>
+      <td>Gender=Fem|Number=Plur</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Look at the matching pairs. <em>Assemblée</em> is feminine singular, so <em>L'</em> and <em>nationale</em> match it. Next, <em>lois</em> is feminine plural, and <em>suivantes</em> agrees with it. The verb <em>décrète</em> maps to its base infinitive <em>décréter</em>.</p>
+<p><strong>Takeaway:</strong> French manual parsing requires tracking gender and number agreement across phrases and mapping verbs to infinitives.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Parsing Walkthrough 2: The 1791 French Revolutionary Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the 1791 French phrase L'Assemblée nationale décrète les lois suivantes, how do the adjectives agree with their nouns?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;French manual parsing requires tracking gender and number agreement across phrases and mapping verbs to infinitives.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;nationale agrees with feminine singular Assemblée, and suivantes agrees with feminine plural lois.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. French adjectives inflect in gender and number to match their governing nouns.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Both adjectives remain masculine singular regardless of the nouns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. French adjectives must agree in gender and number.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;nationale is a verb, while suivantes is a preposition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both words function as qualifying adjectives.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The adjectives agree with the king rather than the nouns in the sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Grammatical agreement is syntactic, linking modifiers to their head nouns.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Parsing Walkthrough 3: Maud Lewis's Folk Correspondence</text></name><questiontext format="html"><text><![CDATA[
+<h3>Parsing Walkthrough 3: Maud Lewis's Folk Correspondence</h3>
+<p>For our third walkthrough, we examine a line from Olyvia's project: a handwritten 1967 letter by Maud Lewis to Mr. Kinnear.</p>
+<p>Maud Lewis's writing is warm, personal, and informal: <em>I received your letter today</em>. Here is the grammatical breakdown:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Surface Word</th>
+      <th>Lemma</th>
+      <th>UPOS</th>
+      <th>Features (FEATS)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>I</td>
+      <td>I</td>
+      <td><code>PRON</code></td>
+      <td>Case=Nom|Number=Sing|Person=1|PronType=Prs</td>
+    </tr>
+    <tr>
+      <td>received</td>
+      <td>receive</td>
+      <td><code>VERB</code></td>
+      <td>Tense=Past|VerbForm=Fin</td>
+    </tr>
+    <tr>
+      <td>your</td>
+      <td>you</td>
+      <td><code>PRON</code></td>
+      <td>Person=2|Poss=Yes|PronType=Prs</td>
+    </tr>
+    <tr>
+      <td>letter</td>
+      <td>letter</td>
+      <td><code>NOUN</code></td>
+      <td>Number=Sing</td>
+    </tr>
+    <tr>
+      <td>today</td>
+      <td>today</td>
+      <td><code>NOUN</code></td>
+      <td>Number=Sing</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Even personal letters benefit from linguistic tags. The possessive pronoun <em>your</em> links to its base lemma <em>you</em>. The past-tense verb <em>received</em> maps to <em>receive</em>. Tagging Maud Lewis's letters helps researchers trace her vocabulary and informal writing style across her letters.</p>
+<p><strong>Takeaway:</strong> Personal letters follow standard Universal Dependencies tags, recording informal phrasing and everyday vocabulary clearly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Parsing Walkthrough 3: Maud Lewis's Folk Correspondence</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Maud Lewis's sentence I received your letter today, how is the word your analyzed in Universal Dependencies?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Personal letters follow standard Universal Dependencies tags, recording informal phrasing and everyday vocabulary clearly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Lemma: you, UPOS: PRON, Feature: Poss=Yes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Your is a second-person possessive pronoun derived from lemma you.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Lemma: letter, UPOS: NOUN.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Letter is the head noun being modified.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Lemma: your, UPOS: VERB.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Your is a possessive pronoun, not a verb.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Lemma: Maud, UPOS: PROPN.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Maud is the letter writer, not the lemma of the pronoun your.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Handling Old Spellings During Lemmatization</text></name><questiontext format="html"><text><![CDATA[
+<h3>Handling Old Spellings During Lemmatization</h3>
+<p>In historical manuscripts, you will often find words with non-standard spellings. Scribes made spelling slips, used local spellings, or followed conventions that changed over time. How should you lemmatize a word with an unusual spelling?</p>
+<p>The main rule of lemmatization is simple: <strong>the lemma is always modern and canonical, even when the manuscript spelling is unusual.</strong></p>
+<p>In 18th-century English, words like <em>publick</em> or <em>musick</em> ended in <em>ck</em>. The surface form on the page is <em>publick</em>, but the lemma is modern <em>public</em>. In 18th-century French, imperfect verbs ended in <em>-oit</em> (<em>faisoit</em>, <em>étoit</em>). The surface spelling is <em>faisoit</em>, but its lemma is the standard infinitive <em>faire</em>.</p>
+<p>If an editor invented an archaic lemma like <em>faisoir</em> or <em>publick</em>, they would break the dictionary index. A digital edition connects old spellings to modern dictionaries so that readers can search the text using familiar words.</p>
+<p><strong>Vocabulary.</strong> <em>Canonical Lemma</em> — The modern standard headword used to index historical spelling variations in a lexicon.</p>
+<p><strong>Takeaway:</strong> Always assign a modern standard dictionary headword as the lemma, no matter how unusual the spelling is on the page.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Handling Old Spellings During Lemmatization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When lemmatizing an 18th-century word with an archaic spelling (such as French faisoit or English publick), what should the lemma be?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Always assign a modern standard dictionary headword as the lemma, no matter how unusual the spelling is on the page.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The modern standard headword (faire or public).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Lemmas are always modern citation headwords, connecting old spellings to standard dictionaries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An invented historical lemma that preserves the archaic letters exactly (faisoir or publick).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Inventing archaic lemmas breaks dictionary lookups across corpora.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The word left blank because old words cannot have lemmas.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical words map to standard lemmas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A Latin translation of the word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lemmas are cited in the standard form of the document's language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Multi-Word Phrases and Titles</text></name><questiontext format="html"><text><![CDATA[
+<h3>Multi-Word Phrases and Titles</h3>
+<p>In many documents, several words work together as a single unit. These are called <strong>multi-word expressions</strong> or compound terms.</p>
+<p>In English legal texts, you often find fixed formulas like <em>in witness whereof</em>, <em>peace and friendship</em>, or <em>His Excellency</em>. In French government papers, titles like <em>procès-verbal</em> or <em>assemblée nationale</em> represent single official ideas.</p>
+<p>How do you encode them in TEI? In standard tokenization, each written word gets its own <code>&lt;w&gt;</code> tag. However, TEI provides the <code>&lt;phr&gt;</code> (phrase) tag to group multi-word expressions together:</p>
+<pre><code class="language-xml">&lt;phr type=&quot;legal_formula&quot;&gt;
+  &lt;w lemma=&quot;in&quot; pos=&quot;ADP&quot;&gt;in&lt;/w&gt;
+  &lt;w lemma=&quot;witness&quot; pos=&quot;NOUN&quot;&gt;witness&lt;/w&gt;
+  &lt;w lemma=&quot;whereof&quot; pos=&quot;ADV&quot;&gt;whereof&lt;/w&gt;
+&lt;/phr&gt;
+</code></pre>
+<p>This lets search engines analyze each word on its own while still knowing that the three words form a single fixed phrase.</p>
+<p><strong>Vocabulary.</strong> <em>Multi-Word Expression</em> — A group of words that functions together as a single phrase or meaning. <em><code>&lt;phr&gt;</code></em> — The TEI element used to group words into grammatical phrases.</p>
+<p><strong>Takeaway:</strong> Group multi-word legal formulas with <code>&lt;phr&gt;</code> while keeping individual <code>&lt;w&gt;</code> elements for each token.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Multi-Word Phrases and Titles</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How can an editor group multi-word legal formulas like in witness whereof in TEI XML?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Group multi-word legal formulas with &lt;phr&gt; while keeping individual &lt;w&gt; elements for each token.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Wrap the group in a &lt;phr&gt; element while keeping individual &lt;w&gt; tags for each word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. &lt;phr&gt; groups idioms and multi-word units without destroying word-level tokenization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete two of the words and keep only one.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting words corrupts the historical text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Merge all three words into a single long string with no spaces.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Merging words destroys tokenization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace the phrase with an emoji symbol.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions maintain rigorous textual integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Splitting Contractions for Tagging</text></name><questiontext format="html"><text><![CDATA[
+<h3>Splitting Contractions for Tagging</h3>
+<p>As noted earlier, contractions join two words into one printed unit. When preparing text for tagging, you must decide how to handle these words.</p>
+<p>In French, words join with an apostrophe: <em>d'accord</em>, <em>l'homme</em>, <em>qu'il</em>. If you keep <em>d'accord</em> as a single word, it has no single part of speech. It is a preposition plus a noun. In TEI XML, you can tag both words while keeping the apostrophe:</p>
+<pre><code class="language-xml">&lt;w lemma=&quot;de&quot; pos=&quot;ADP&quot;&gt;d'&lt;/w&gt;
+&lt;w lemma=&quot;accord&quot; pos=&quot;NOUN&quot;&gt;accord&lt;/w&gt;
+</code></pre>
+<p>In English, informal words like <em>don't</em> or <em>they'll</em> follow the same pattern:</p>
+<pre><code class="language-xml">&lt;w lemma=&quot;do&quot; pos=&quot;AUX&quot;&gt;do&lt;/w&gt;
+&lt;w lemma=&quot;not&quot; pos=&quot;ADV&quot;&gt;n't&lt;/w&gt;
+</code></pre>
+<p>Notice how the surface letters are shared between the two <code>&lt;w&gt;</code> elements. This preserves the original letters on the page while giving accurate tags to each underlying word.</p>
+<p><strong>Takeaway:</strong> Splitting contracted words across separate <code>&lt;w&gt;</code> tags lets each word receive its own lemma and part of speech.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Splitting Contractions for Tagging</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In French clitic contractions like d'accord or English don't, how should tokens be divided for linguistic markup?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Splitting contracted words across separate &lt;w&gt; tags lets each word receive its own lemma and part of speech.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Split the string so each underlying grammatical word has its own &lt;w&gt; tag with appropriate lemma and POS.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Distributing letters across &lt;w&gt; tags preserves text while giving each word an accurate tag.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Always delete the apostrophe and join the remaining letters into one word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting characters alters the historical evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Treat the apostrophe as a finite verb with lemma apostrophe.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation marks are not verbs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ignore contractions and refuse to parse sentences containing them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Contractions are standard features of natural language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Heads and Modifiers: The Heart of Syntax</text></name><questiontext format="html"><text><![CDATA[
+<h3>Heads and Modifiers: The Heart of Syntax</h3>
+<p>Linguistic annotation goes beyond sorting single words; it also shows how words connect in sentences. The central idea of <strong>dependency grammar</strong> is that words connect through links between <strong>heads</strong> and <strong>modifiers</strong>.</p>
+<p>In every word pair, one word acts as the head, and the other acts as its dependent modifier. In the phrase <em>national decree</em>, the noun <em>decree</em> is the head, and the adjective <em>national</em> is the modifier. If you drop the adjective, the sentence still makes sense (<em>The decree was read</em>). If you drop the noun, the phrase breaks down.</p>
+<p>In a full clause, the main verb serves as the root of the sentence. The subject noun depends on the verb, and the direct object depends on the verb. Seeing this structure is the first step toward syntactic treebanking.</p>
+<p><strong>Vocabulary.</strong> <em>Dependency Grammar</em> — A grammar model based on links between governing heads and dependent modifiers. <em>Head</em> — The main word that governs a grammatical phrase. <em>Modifier</em> — A word that depends on a governing head word.</p>
+<p><strong>Takeaway:</strong> Sentences are organized into trees where dependent words connect directly to governing head words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Heads and Modifiers: The Heart of Syntax</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In dependency grammar, what relationship exists between the words in the phrase national decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Sentences are organized into trees where dependent words connect directly to governing head words.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;decree is the governing head, and national is the dependent modifier.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The noun decree anchors the phrase, while the adjective national modifies it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;national is the head governing the direct object decree.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adjectives modify nouns, not govern them as objects.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Neither word is connected because adjectives cannot relate to nouns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adjectives depend directly on their head nouns.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Both words are sentence roots with no dependencies.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Only the central clause verb serves as the sentence root.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: A First Look at Dependency Relations</text></name><questiontext format="html"><text><![CDATA[
+<h3>A First Look at Dependency Relations</h3>
+<p>Just as Universal Dependencies uses UPOS tags for parts of speech, it uses <strong>relation tags</strong> to label how words connect.</p>
+<p>Here are the six most common relation tags you will see in our historical English and French documents:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Job</th>
+      <th>Example (Head → Modifier)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>root</code></td>
+      <td>Main sentence verb</td>
+      <td>[Sentence] → signed</td>
+    </tr>
+    <tr>
+      <td><code>nsubj</code></td>
+      <td>Subject noun</td>
+      <td>signed → Chief</td>
+    </tr>
+    <tr>
+      <td><code>obj</code></td>
+      <td>Direct object</td>
+      <td>signed → Treaty</td>
+    </tr>
+    <tr>
+      <td><code>amod</code></td>
+      <td>Adjective modifier</td>
+      <td>decree → national</td>
+    </tr>
+    <tr>
+      <td><code>det</code></td>
+      <td>Determiner</td>
+      <td>decree → the</td>
+    </tr>
+    <tr>
+      <td><code>punct</code></td>
+      <td>Punctuation</td>
+      <td>signed → .</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In a sentence like <em>The Chief signed the Treaty</em>, the verb <em>signed</em> is the <code>root</code>. <em>Chief</em> is the <code>nsubj</code> of <em>signed</em>, and <em>Treaty</em> is the <code>obj</code>. Each noun connects to <em>the</em> with a <code>det</code> tag. This gives you the basic grammatical skeleton of the sentence.</p>
+<p><strong>Vocabulary.</strong> <em>Relation Tag</em> — A label that describes the grammatical link between a head word and a modifier. <em><code>root</code></em> — The central verb that anchors an entire sentence.</p>
+<p><strong>Takeaway:</strong> Standard relation tags like <code>nsubj</code>, <code>obj</code>, and <code>amod</code> label how words connect to their governing heads.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: A First Look at Dependency Relations</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which Universal Dependencies relation tag labels the main finite verb of an independent clause?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Standard relation tags like nsubj, obj, and amod label how words connect to their governing heads.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;root&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The central governing verb of an independent clause is tagged as root.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;amod&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. amod is used for adjectival modifiers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;punct&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. punct is used for punctuation marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;det&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. det is used for determiners like the and a.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: The CoNLL-U Plain-Text Format</text></name><questiontext format="html"><text><![CDATA[
+<h3>The CoNLL-U Plain-Text Format</h3>
+<p>In computational linguistics, syntax trees are stored in an open plain-text format called <strong>CoNLL-U</strong>. Every sentence is written as a simple 10-column table.</p>
+<p>Each line in a CoNLL-U file represents one token. Here are the ten columns:</p>
+<ol>
+  <li><strong>ID:</strong> Word number in the sentence (starting at 1).</li>
+  <li><strong>FORM:</strong> Word spelling on the page.</li>
+  <li><strong>LEMMA:</strong> Dictionary headword.</li>
+  <li><strong>UPOS:</strong> Universal part-of-speech tag.</li>
+  <li><strong>XPOS:</strong> Local language tag (often <code>_</code>).</li>
+  <li><strong>FEATS:</strong> Grammatical features list (or <code>_</code>).</li>
+  <li><strong>HEAD:</strong> The ID number of the governing head word (or <code>0</code> for root).</li>
+  <li><strong>DEPREL:</strong> Grammatical relation to the head word.</li>
+  <li><strong>DEPS:</strong> Extra dependency links (often <code>_</code>).</li>
+  <li><strong>MISC:</strong> Extra notes (like <code>SpaceAfter=No</code>).</li>
+</ol>
+
+<p>Because CoNLL-U is plain text, any text editor or script can read it easily. On Wednesday, you will see how automated tools output CoNLL-U tables directly.</p>
+<p><strong>Vocabulary.</strong> <em>CoNLL-U</em> — The standard 10-column plain-text file format used to store Universal Dependencies sentences.</p>
+<p><strong>Takeaway:</strong> CoNLL-U is the global 10-column text format used to store tokens, lemmas, tags, and syntax trees.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: The CoNLL-U Plain-Text Format</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How many standardized columns are used on each token line in a CoNLL-U format file?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CoNLL-U is the global 10-column text format used to store tokens, lemmas, tags, and syntax trees.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Exactly ten columns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. CoNLL-U files use 10 tab-separated columns for token ID, form, lemma, UPOS, FEATS, and syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Two columns: word and definition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CoNLL-U has 10 standard columns.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Fifty columns covering all world languages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CoNLL-U uses 10 columns across all languages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A variable number that changes randomly on every line.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CoNLL-U requires a strict 10-column tabular structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Building Your Manual Ground-Truth Table</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building Your Manual Ground-Truth Table</h3>
+<p>Your main task for this week is to build a <strong>manual ground-truth table</strong> for a 20-word excerpt from your project document. This table serves as the benchmark against which automated tools will be tested.</p>
+<p>To build your table, follow these four simple steps:</p>
+<ol>
+  <li><strong>Pick an Excerpt:</strong> Select 20 words in a row from your transcript that form complete clauses.</li>
+  <li><strong>Tokenize:</strong> Put each word on its own line, separating punctuation and splitting contractions.</li>
+  <li><strong>Look Up Lemmas:</strong> Check each word in your chosen dictionary (OED for English, TLFi for French) to find its canonical headword.</li>
+  <li><strong>Tag Grammar:</strong> Assign the right UPOS tag and record features like number, tense, and gender.</li>
+</ol>
+
+<p>Do not guess from memory. Check your dictionary and write down your reasons in your notes.</p>
+<p><strong>Vocabulary.</strong> <em>Ground Truth</em> — An authoritatively verified dataset built by hand to test automated programs.</p>
+<p><strong>Takeaway:</strong> Your 20-word manual ground-truth table provides the trusted benchmark for testing automated software.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Building Your Manual Ground-Truth Table</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the first step in creating your project's 20-word manual ground-truth table?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Your 20-word manual ground-truth table provides the trusted benchmark for testing automated software.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Select 20 consecutive words from your primary witness that form complete grammatical clauses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Choosing continuous grammatical clauses ensures meaningful syntactic analysis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ask a chatbot to invent twenty random fictional words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ground truth must come from your actual primary manuscript witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Download a modern news article from the internet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Course work is anchored in the enrolled historical witnesses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Guess the parts of speech without looking at a dictionary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ground-truth creation requires authoritative dictionary verification.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Writing Rules in `LEMMATIZATION_POLICIES.md`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Writing Rules in `LEMMATIZATION_POLICIES.md`</h3>
+<p>When annotating historical texts, you will run into questions that need consistent answers. Should proper names stay capitalized in lemmas? How should archaic contractions be split? Which dictionary edition sets the rules?</p>
+<p>To keep your work consistent, record these decisions in a file called <code>LEMMATIZATION_POLICIES.md</code>.</p>
+<p>Your policy file should answer three simple questions:</p>
+<ol>
+  <li><strong>Dictionary Authority:</strong> Which dictionary governs headwords (e.g., OED, TLFi)?</li>
+  <li><strong>Capitalization Rules:</strong> Are proper names capitalized in lemmas (e.g., *France*, *Hopson*) while common nouns stay lower-case?</li>
+  <li><strong>Contraction Rules:</strong> Exactly where are contractions split, and how are missing letters recorded?</li>
+</ol>
+
+<p>Writing these choices down ensures that your edition remains consistent across every page.</p>
+<p><strong>Vocabulary.</strong> <em>Policy Ledger</em> — A document recording your project's rules to keep annotations consistent.</p>
+<p><strong>Takeaway:</strong> Document your dictionary sources, capitalization rules, and contraction splits in <code>LEMMATIZATION_POLICIES.md</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Writing Rules in LEMMATIZATION_POLICIES.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must digital edition projects document their annotation rules in a policy ledger like LEMMATIZATION_POLICIES.md?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Document your dictionary sources, capitalization rules, and contraction splits in LEMMATIZATION_POLICIES.md.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To record decisions on dictionary authorities, capitalization, and contraction boundaries so annotations remain consistent.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. An explicit policy ledger prevents inconsistent editorial decisions across the text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To satisfy commercial copyright laws when selling the manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The policy ledger is a scholarly methodological document, not a commercial contract.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI software will not open XML files without a markdown companion file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML processors parse XML independently; the policy document is for scholars.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To prevent other researchers from citing the edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly documentation invites transparent review and citation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Recording Difficult Readings and Editorial Doubts</text></name><questiontext format="html"><text><![CDATA[
+<h3>Recording Difficult Readings and Editorial Doubts</h3>
+<p>Even skilled editors sometimes disagree on how to parse an old word. A word might fit two parts of speech, or an old sentence might allow two different readings.</p>
+<p>When two people tag the same text separately, the percentage of words where they agree is called <strong>editor agreement</strong>. In digital humanities research, high agreement (often 90% or higher) shows that the project rules are clear.</p>
+<p>When you find a word that has two reasonable readings, do not hide the problem. Put your preferred reading in your table, but add a brief note explaining the alternative. Recording these questions shows scholarly honesty and helps future readers understand difficult spots.</p>
+<p><strong>Vocabulary.</strong> <em>Editor Agreement</em> — The percentage of words where two independent scholars assign matching tags. <em>Textual Crux</em> — A puzzling or ambiguous passage that has more than one valid reading.</p>
+<p><strong>Takeaway:</strong> When an old word allows two different readings, record your top choice and note the alternative reading clearly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Recording Difficult Readings and Editorial Doubts</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should an editor do when a historical word in a manuscript permits two equally plausible grammatical readings?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;When an old word allows two different readings, record your top choice and note the alternative reading clearly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Record the primary interpretation in the table and document the alternative reading in an explanatory note.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Transparently logging editorial doubts records genuine philological cruxes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the sentence from the digital edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting difficult passages destroys historical evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Flip a coin and pretend no ambiguity ever existed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly integrity requires acknowledging genuine interpretive cruxes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace the word with a modern synonym.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors preserve witness readings rather than rewriting history.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Getting Ready for Wednesday's Automated NLP Test</text></name><questiontext format="html"><text><![CDATA[
+<h3>Getting Ready for Wednesday's Automated NLP Test</h3>
+<p>Today's manual parsing is not a standalone drill. It sets up the rest of the week's experiments. Over the next two meetings, you will run computer tools over this exact same passage.</p>
+<p>On Wednesday, in Lesson 8.2, you will run an automated rule-based tagger (like TreeTagger or SpaCy) on your 20-word excerpt. You will compare the computer's results directly against today's manual table. Every place where the computer disagrees with your work will be examined. Did the tool choke on an old spelling, or did it pick the wrong homograph?</p>
+<p>On Friday, in Lesson 8.3, you will test an AI model on the same text. Having a trusted manual ground truth is the only way to measure how well these automated tools perform.</p>
+<p><strong>Takeaway:</strong> Today's manual ground truth is the benchmark you will use to evaluate automated tools on Wednesday and Friday.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Getting Ready for Wednesday's Automated NLP Test</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How will today's manual ground-truth table be used in Wednesday's Lesson 8.2?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Today's manual ground truth is the benchmark you will use to evaluate automated tools on Wednesday and Friday.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It will serve as the trusted benchmark against which the output of automated NLP taggers will be evaluated.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Wednesday's computational tagger output will be scored against today's manual ground truth.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It will be deleted before Wednesday's class begins.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The manual ground truth is the reference standard for the entire module.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It will be converted into a printed poster for library decoration.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The table is an active computational testing asset.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It will be submitted directly to a journal for publication without testing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The table forms Step 1 of our three-step comparative cycle.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: The Scholar as the Ground Truth</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Scholar as the Ground Truth</h3>
+<p>Computers make linguistic tagging fast. Modern programs can process thousands of words in a few seconds. Yet all of that automation depends on human scholarship.</p>
+<p>A computer does not understand the meaning of a 1791 French Revolutionary decree. It does not feel the personal warmth in Maud Lewis's letters, nor the legal weight of the 1752 Treaty. It simply follows statistical patterns learned from modern text. When an algorithm runs into old spelling or unusual grammar, it often breaks down.</p>
+<p>The human editor remains the essential foundation of the digital edition. By looking up lemmas, tagging parts of speech, and encoding them in TEI XML, you create the trusted ground truth that computers cannot produce alone. Today you laid that foundation; tomorrow you will put automated tools to the test against it.</p>
+<p><strong>Takeaway:</strong> Computers process text quickly, but only human editors possess the historical knowledge to create true ground-truth data.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: The Scholar as the Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does computational linguistic analysis in digital humanities ultimately depend on human expertise?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Computers process text quickly, but only human editors possess the historical knowledge to create true ground-truth data.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because algorithms rely on statistical patterns from modern data, while human scholars understand historical language and context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Human editors provide the historical and linguistic knowledge that machines cannot invent.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because computers are incapable of processing text files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers process text with tremendous speed, but lack historical understanding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because human scholars can memorize every word in all world languages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholars rely on dictionaries and critical analysis, not superhuman memory.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because university policies forbid computers from connecting to the internet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital humanities actively leverages modern computational tools guided by human expertise.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

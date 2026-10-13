@@ -1,687 +1,852 @@
-# Lesson 8.1 — Manual Morphological Parsing, Lemmatization, and Treebanking
+# Lesson 8.1 — Manual Grammatical Parsing, Lemmatization, and TEI Linguistic Markup
 
 *RELS 398 / ENGL 398 · Topic 8: Lemmatization · Meeting #20 (Tue Oct 27)*
 
-***Step 1 of the three-step cycle: manual.** Today you parse, lemmatize, and construct syntactic dependency trees for a passage by hand using lexica and established treebank standards. That gold-standard annotation is the reference for Wednesday's rule-based taggers and Friday's AI evaluation.*
+***Step 1 of the three-step cycle: manual.** Today you parse, lemmatize, and record morphological feature bundles for a passage by hand using authoritative lexica. That gold-standard annotation is the reference for Wednesday's rule-based taggers and Friday's AI evaluation.*
 
 ---
 
 ## **01 Content**
 
-**What Lemmatization and Parsing Accomplish**
+**Words Beyond Strings: Why Editions Need Linguistic Markup**
 
-Linguistic annotation transforms a raw sequence of characters into an analytically structured text. In earlier modules of this course, you transcribed manuscript witnesses (Topic 4), reconciled conflicting readings (Topic 5), regularized orthographic divergence (Topic 6), and constructed a critical apparatus of textual variants (Topics 7 and 8). Throughout those stages, your computational unit remained the orthographic string—the literal characters inscribed on parchment or papyrus. While string matching allows editors to collate witnesses and record divergences, it leaves the grammatical engine of the language opaque to computational queries. A computer cannot inherently deduce that the Greek surface forms *ἔγνων*, *γιγνώσκει*, and *γνωσθήσεται* are all manifestations of the same underlying lexical entry, nor can it determine whether a given noun functions as the subject or object of an elided verb.
+Over the past seven weeks, you built a real digital edition from scratch. You catalogued your primary witness in a `teiHeader`. You linked high-resolution images with `<facsimile>`. You transcribed every line as written. You reconciled your readings against an AI pass. In Module 6, you regularized historical spelling variations using `<choice>`. Last week, in Module 7, you wrote stylesheets to turn those markup layers into clean reading views.
 
-Lemmatization is the algorithmic or manual process of mapping an inflected surface token to its canonical dictionary headword, known as the lemma. Morphological parsing decomposes that surface token into its constituent grammatical categories—such as part of speech, person, number, tense, mood, voice, case, and gender. Syntactic dependency treebanking goes one step further by explicitly mapping the structural relationships of government and dependency between words in a sentence, establishing which head term controls each dependent phrase.
+Throughout all those steps, your computer treated your text as a string of letters. String searches can find exact words. However, a search cannot understand grammar. A computer cannot deduce that *treaties*, *treaty*, and *treaty's* belong to the same word family. It cannot tell whether *left* in Maud Lewis's letter means a direction or the past tense of *leave*. In Ace's 1791 French decree, a search for *décrète* misses *décrété* or *décrétèrent* unless an editor connects them.
 
-In a digital edition, these layers of annotation convert text into a rich knowledge graph. Instead of searching merely for strings of characters, an editor or researcher can query for all instances where a verb of perception governs an accusative participle, or locate all occurrences of third-declension feminine abstract nouns across a corpus. This linguistic transparency is essential for tracing syntactic evolution across dialects and historical periods.
+Linguistic markup solves this problem. It adds parts of speech, dictionary headwords, and grammatical details to your text. This turns a simple transcript into a powerful research database. Scholars can search for all past-tense verbs or all adjectives that modify a legal title. Today, you will build this grammatical ground truth by hand.
 
-Together, these operations bridge the divide between philological close reading and computational distant reading. When an edition is annotated with rigorous morphological and syntactic data, scholars can query grammatical constructions across millions of words, analyze stylistic shifts across centuries, and build accurate translation alignments. Today, you will establish the reference ground truth by performing these analytical operations entirely by hand using authoritative lexica and formal grammatical standards.
+**Vocabulary.** *Linguistic Markup* — Adding grammatical labels and dictionary forms to words in an electronic text. *String Search* — Searching text strictly for matching characters without understanding grammar.
 
-**Takeaway:** Lemmatization and morphological parsing convert unstructured character sequences into semantically and grammatically queryable linguistic data.
+**Takeaway:** String searches only find exact character matches; linguistic markup reveals the grammar and word families beneath the text.
 
 ---
 
 ## **02 Content**
 
-**The Anatomy of an Inflected Word Form**
+**Tokens, Surface Forms, and Dictionary Lemmas**
 
-To parse a historical language by hand, an editor must understand the morphological anatomy of the word. Ancient Greek and Latin are synthetic, fusional languages: their words are composed of morphemes—minimal units of meaning or grammatical function—fused together into a single surface token. Unlike agglutinative languages where each morpheme corresponds to a single discrete grammatical feature (such as a separate affix for plural and a separate affix for dative case), fusional languages compress multiple grammatical categories into single, indivisible affixes.
+To study text with computers, you must know three basic terms: token, surface form, and lemma.
 
-A typical inflected word in Greek or Latin contains a lexical root, thematic vowels or derivational affixes that form a stem, and inflectional endings. In verbs, the word may also incorporate an augment or reduplication marking past time or completed aspect, tense-formative suffixes (such as the sigma of the Greek sigmatic aorist), mood morphemes, and primary or secondary personal endings. For instance, in the Classical Greek verb *ἐπαιδεύσαμεν* ("we educated"), the token decomposes into a temporal augment (*ἐ-*), the verbal stem (*παιδευ-*), the aorist tense-formative marker (*-σ-*), and the secondary first-person plural active ending (*-αμεν*).
+A **token** is a single instance of a word or punctuation mark in your text. If the word *the* appears fifty times on a manuscript page, it counts as fifty tokens.
 
-In nominal and adjectival systems, the stem attaches directly to case-number-gender terminations. Because these terminations are fusional, a single morpheme like the Greek *-ων* simultaneously denotes genitive case and plural number across masculine, feminine, and neuter nouns. The philologist’s task during manual parsing is to isolate these constituent layers, stripping inflectional morphology to identify the base lexical stem while recording the full bundle of grammatical features encoded in the surface form.
+A **surface form** is the exact spelling of that token on the historical page. In Andromeda's 1752 Treaty, the surface form might be *promis'd* or *acknowledg'd*. In Ace's 1791 decree, it might be *décrété* or the older spelling *décrétoit*. Surface forms preserve every scribal quirk, ink blot, and historical spelling.
 
-**Takeaway:** Fusional morphology bundles multiple grammatical categories into single affixes, requiring editors to systematically isolate stems, affixes, and inflectional terminations.
+A **lemma** is the base headword you look up in a dictionary. For *promis'd*, *promises*, and *promising*, the English lemma is the base verb *promise*. For *treaties*, the lemma is *treaty*. In French, verbs are listed under their infinitive form (*décréter*). Nouns are listed in the singular (*loi*). Lemmatization means connecting each surface word on the page to its dictionary lemma.
+
+**Vocabulary.** *Token* — An individual word or mark in a text. *Surface Form* — The exact spelling written on the manuscript page. *Lemma* — The base dictionary headword representing a group of related word forms.
+
+**Takeaway:** Lemmatization links inflected surface words from the manuscript to their standard dictionary headwords.
 
 ---
 
 ## **03 Content**
 
-**The Concept of the Lemma and Lexicographical Conventions**
+**The Grammatical Feature List**
 
-The lemma is an abstract lexicographical convention chosen to represent the entire inflectional paradigm of a lexeme. While speakers and scribes produce surface word forms in context, lexica organize vocabulary under standardized citation forms. The choice of citation form is not dictated by universal linguistic principles, but by historical lexicographical tradition specific to each linguistic community.
+Words do more than carry dictionary meanings. In a sentence, words take on different shapes to show their grammatical job. The collection of grammatical traits on a single word is its **feature list**.
 
-In Ancient Greek lexicography, such as the *Greek-English Lexicon* of Liddell, Scott, and Jones (LSJ), verbs are cited in the first-person singular present active indicative (e.g., *παιδεύω*, *ποιέω*, or *δίδωμι*). If a verb is deponent or lacks an active form in standard usage, it is cited in the middle/passive voice (e.g., *γίγνομαι*, *δέχομαι*). In Latin lexicography, such as Lewis and Short or the *Oxford Latin Dictionary*, verbs are similarly cited in the first-person singular present active indicative (e.g., *amo*, *rego*), traditionally accompanied by the second-person singular or present infinitive, perfect active indicative, and supine to identify the principal parts. In contrast, languages like Hebrew or Classical Syriac cite verbs under the third-person masculine singular perfect/past form (the uninflected root), while modern languages like German or French cite the infinitive.
+Look at the word *writes* in Maud Lewis's letters: *She writes to Mr. Kinnear*. The dictionary lemma is *write*. Its feature list tells us more: Part of Speech = Verb, Person = Third, Number = Singular, and Tense = Present. In English, pronouns change shape for case: *she* is a subject, while *her* is an object or possessive.
 
-| Linguistic Tradition | Canonical Verb Citation Form | Sample Surface Form | Canonical Dictionary Lemma |
-|---|---|---|---|
-| Ancient Greek (LSJ) | 1st person singular present active indicative | ἔγνωσαν | γιγνώσκω |
-| Latin (Lewis & Short) | 1st person singular present active indicative | rexerunt | rego |
-| Classical Hebrew (BDB) | 3rd person masculine singular perfect (root) | יִכְתְּבוּ | כָּתַב |
-| Classical Syriac (Payne Smith) | 3rd person masculine singular perfect (root) | ܟܬܰܒܘ | ܟܬܰܒ |
-| Modern English / French | Present active infinitive / Infinitif | wrote / écrivit | write / écrire |
+French uses rich feature lists for nearly every word. In the 1791 phrase *les assemblées nationales*, the noun *assemblées* is Feminine and Plural. The adjective *nationales* matches those traits through agreement. When you parse a word by hand, you record both its dictionary headword and its full list of grammatical features.
 
-When assigning a lemma during manual analysis, the editor must strictly adhere to the chosen authority's citation standard. Assigning the infinitive *παιδεύειν* or the stem *παιδευ-* as a Greek lemma violates the standard and breaks downstream computational collation against Perseus and PROIEL databases.
+**Vocabulary.** *Word Form* — The specific grammatical shape an inflected word takes in a sentence. *Feature List* — The set of grammatical tags (such as tense, person, number, and gender) that describe a word.
 
-**Takeaway:** A lemma is a standardized lexicographical citation form, and manual annotation must strictly follow the reference authority's canonical convention.
+**Takeaway:** A grammatical feature list records all traits—including part of speech, tense, person, gender, and number—for an inflected word.
 
 ---
 
 ## **04 Content**
 
-**Tokenization and Segmental Ambiguity**
+**Tokenization in Real Historical Documents**
 
-Before a word can be assigned a lemma or parsed grammatically, the continuous textual stream of a manuscript must be divided into discrete linguistic tokens. In modern printed texts, white space and punctuation marks provide explicit boundary markers. In pre-modern historical manuscripts, however, scribes routinely wrote in *scriptio continua* (continuous script without word spaces) or utilized idiosyncratic punctuation systems that do not correspond to modern syntactic boundaries.
+Before you can tag or lemmatize words, you must separate your text into tokens. In modern English books, software simply splits text at spaces and punctuation. In old documents, tokenization is trickier.
 
-Tokenization is therefore an interpretive editorial act rather than a purely mechanical division. Even when editing a normalized text with standard spacing, Greek and Latin present complex segmental phenomena where a single orthographic unit contains multiple grammatical words, or where a single grammatical word spans multiple orthographic tokens. Consider the Latin enclitic conjunction *-que* ("and") attached to a noun: *senatusque* constitutes a single orthographic string, but linguistically it consists of two distinct tokens: the noun *senatus* (nominative singular masculine) and the coordinating conjunction *-que*. To parse the sentence correctly, the editor must split *senatusque* into two discrete tokens.
+Consider the contractions in Maud Lewis's letters: *can't*, *didn't*, *it's*, and *I'll*. Is *can't* one token or two? Linguistically, it represents two words: the helping verb *can* and the negative word *not*. If you keep them together, software cannot find a dictionary entry for *can't*. If you split them into *can* and *n't*, both parts receive clean tags and lemmas.
 
-Similar phenomena abound in Ancient Greek with proclitics and enclitics (e.g., *εἴ_γε*, *οὐ_πώποτε*), crasis (the contraction of two words across a boundary, such as *κἀγώ* from *καὶ ἐγώ*), and elision (where a final vowel is dropped before an initial vowel, as in *δ' ἄλλος* for *δὲ ἄλλος*). Prodelision or aphaeresis (where an initial vowel is absorbed by a preceding long vowel or diphthong, such as *ὦ 'γάθ'* for *ὦ ἀγαθέ*) presents an identical challenge. If an editor fails to segment crasis or split enclitics during manual preparation, the resulting composite string cannot be mapped to any valid dictionary lemma.
+In Ace's 1791 French decree, short words often cling to nouns: *l'assemblée*, *d'état*, *qu'un*. The letter *l'* is the definite article *le*. The word *assemblée* is a noun. Standard French tools split *l'assemblée* into two tokens: *l'* (lemma *le*) and *assemblée*. In old English treaties, phrases like *whereof* and *thereunto* fuse words together. Your tokenization rules decide where each token begins and ends.
 
-**Takeaway:** Tokenization is an interpretive philological decision that requires isolating enclitics, crasis, and contracted forms into discrete grammatical units.
+**Vocabulary.** *Tokenization* — Splitting running text into distinct words, symbols, and punctuation marks. *Clitic* — A short word that attaches phonetically to a neighbor, like French *l'* or English *'ve*.
+
+**Takeaway:** Tokenization must split contracted words so that each underlying word receives its own lemma and grammatical tag.
 
 ---
 
 ## **05 Content**
 
-**Morphological Ambiguity and Paradigmatic Syncretism**
+**Words with Multiple Meanings: Homographs**
 
-The central challenge in manual morphological parsing is morphological ambiguity. In an inflected language, a single surface form frequently corresponds to multiple theoretical analyses across different grammatical categories, a phenomenon known as paradigmatic syncretism. Without sentence-level context, the surface form is indeterminate.
+A major hurdle in grammar tagging is double meanings. In natural human language, one written spelling can represent two completely different words. Words that share an identical spelling but differ in meaning or origin are called **homographs**.
 
-Consider the Latin form *profundum*. In isolation, *profundum* can be parsed as:
+English has thousands of homographs. In the 1752 Treaty, the word *will* appears in two ways. It can be a helping verb (*the Tribe will observe this Treaty*). It can also be a noun (*of their own free will*). The spelling is identical, but the lemmas and parts of speech are totally different. If a computer guesses without reading the sentence, it often makes a mistake.
 
-- An accusative singular masculine form of the adjective *profundus* ("deep").
-- A nominative singular neuter form of the adjective *profundus*.
-- An accusative singular neuter form of the adjective *profundus*.
-- A nominative singular neuter substantive noun (*profundum*, "the depth/abyss").
-- An accusative singular neuter substantive noun (*profundum*).
+French has the same double meanings. The token *est* can be a form of the verb *être* ("is"). It can also be the noun *est* meaning the East. The word *son* can mean "his" or "sound". Human readers resolve these puzzles easily by looking at the sentence context. Automated programs often trip over them.
 
-Similarly, the Greek form *λόγου* is unambiguously the genitive singular of *λόγος*, but the form *λόγοι* could theoretically be nominative plural or vocative plural. Forms like *ταύτῃ* can be a dative singular feminine demonstrative pronoun ("to this woman"), an instrumental/manner adverb ("in this way"), or a locative adverb ("here").
+**Vocabulary.** *Homograph* — A word spelled the same as another word but with a different meaning or part of speech. *Disambiguation* — Picking the correct meaning or grammatical tag for an ambiguous word in context.
 
-To resolve these ambiguities during manual analysis, the philologist must examine the syntactic environment: the case government of the governing verb, prepositions, agreement with neighboring nouns or adjectives, and discourse context. Manual parsing establishes the gold-standard benchmark precisely because a trained human scholar can resolve homophony by synthesizing syntactic, semantic, and pragmatic clues that automated algorithms frequently miss.
-
-**Takeaway:** Paradigmatic syncretism creates pervasive surface ambiguity that can only be resolved through systematic analysis of syntactic context and semantic government.
+**Takeaway:** Human readers use sentence context to pick the right lemma when two different words share the same spelling.
 
 ---
 
 ## **06 Content**
 
-**Verbal Complexity: Stems, Aspect, and Principal Parts**
+**Verbs: Tense, Person, and Agreement**
 
-The verbal system of Ancient Greek represents one of the most intricate inflectional systems in Indo-European linguistics, presenting significant hurdles for rule-based and computational parsing. Unlike modern English, which builds verb forms primarily through analytic periphrasis (e.g., "I will have seen"), Ancient Greek utilizes a synthetic system of six distinct principal parts, each exhibiting its own aspectual stem.
+Verbs form the backbone of sentences in English and French. In historical texts, verb endings reveal who acted, when they acted, and whether the action was finished.
 
-These aspectual stems are not derived from one another by simple concatenation of suffixes. Instead, they frequently involve deep phonological alterations, including ablaut (vowel gradation between zero-grade, e-grade, and o-grade), infixation, suffixation, reduplication, and suppletion (where entirely different historical roots combine into a single paradigm). For example, the verb *ὁράω* ("to see") constructs its principal parts from three completely distinct roots:
+In English, verbs change shape to match third-person subjects (*she paints*, *he writes*). Older English used distinct verb endings (*thou dost*, *he hath*, *she speaketh*). The 1752 Treaty uses formal legal style: *doth hereby promise and grant*. The lemma for *doth* is *do*. Its features are Verb, Present Tense, Third Person, Singular.
 
-- Present active stem: *ὁρα-* (*ὁράω*)
-- Future middle stem: *ὀπ-* (*ὄψομαι*)
-- Aorist active stem: *ἰδ-* (*εἶδον*)
-- Perfect active stem: *ὀπωπ-* (*ὄπωπα*)
-- Perfect middle/passive stem: *ἑωρα-* (*ἑώραμαι*)
-- Aorist passive stem: *ὀφθ-* (*ὤφθην*)
+French verbs have rich sets of endings. In Ace's 1791 decree, you find past-tense forms like *décréta* (past definite), *décrétoit* (older spelling of the imperfect), and *a décrété* (compound past). In all three cases, the base dictionary lemma is *décréter*. When tagging verbs, editors separate main verbs that take subjects from infinitives and participles.
 
-When an editor encounters the surface token *δόντι* in a text, simple suffix stripping cannot trace the word back to its dictionary lemma *δίδωμι* ("to give"). The editor must recognize *δόντι* as the masculine/neuter dative singular of the second aorist active participle (root *δο-*). Manual parsing requires the scholar to trace surface aspectual stems back to their parent lexeme through systematic knowledge of historical phonology and principal parts.
+**Vocabulary.** *Finite Verb* — A verb that has a person and tense and serves as the main predicate of a clause. *Infinitive* — The uninflected base form of a verb, such as *to write* or *décréter*.
 
-**Takeaway:** Ancient verbal systems rely on distinct aspectual stems and suppletive roots, requiring philological identification of principal parts rather than naive affix stripping.
+**Takeaway:** Verb endings show tense, person, and number; manual parsing identifies both the inflected form and its base dictionary infinitive.
 
 ---
 
 ## **07 Content**
 
-**Nominal and Adjectival Inflection: Agreement and Case Government**
+**Nouns and Adjectives: Gender and Number**
 
-Nominal systems in historical Indo-European languages convey syntactic relations through nominal declension. In Ancient Greek and Latin, nouns, pronouns, adjectives, and articles inflect for three grammatical dimensions: case (nominative, genitive, dative, accusative, vocative, and in Latin, ablative), number (singular, plural, and in Greek, dual), and grammatical gender (masculine, feminine, neuter).
+Nouns name people, places, things, and ideas. Adjectives describe nouns. In modern English, nouns change for number (singular *letter*, plural *letters*) and possession (*Maud's*). English adjectives never change shape for gender or number. The word *red* stays the same whether describing one apple or ten.
 
-Manual parsing of nominals requires identifying the declension class (first/a-stem, second/o-stem, third/consonantal stem) and verifying grammatical agreement. In Classical Greek, an attributive adjective or definite article must agree with its governing noun in gender, number, and case, even if the noun and adjective belong to completely different declension classes and carry entirely different surface endings. For example, in the phrase *τῇ καλῇ πόλει* ("to the beautiful city"), the article *τῇ* and adjective *καλῇ* belong to the first declension, while the noun *πόλει* belongs to the third declension; nevertheless, all three agree in feminine gender, singular number, and dative case.
+French works differently. Every French noun has a grammatical gender: masculine or feminine. French nouns also show singular or plural number. Adjectives must match their noun in both gender and number. In the phrase *décrets nationaux* (national decrees), *décrets* is masculine plural. The adjective *nationaux* changes its ending to agree with it. Its base lemma is *national*.
 
-Furthermore, manual parsing requires identifying how cases are governed by surrounding syntactic heads. A genitive case may represent possession, partitive relation, source, value, or the object of a specific verb of remembering or ruling; an accusative may represent a direct object, extent of space/time, or an adverbial accusative of respect; a dative may represent an indirect object, instrument, agent, reference, or location. Recording the morphological features of a noun is thus the foundation for determining its syntactic dependency role in the sentence.
+In English historical documents, pronouns still show case (*they*, *them*, *their*). Knowing whether a word is a subject, an object, or a modifier helps you understand the legal force of an old document.
 
-**Takeaway:** Nominal parsing involves identifying declension classes, verifying gender-number-case agreement across phrases, and establishing syntactic case government.
+**Vocabulary.** *Agreement* — When modifying words match their head noun in gender, number, or case. *Grammatical Gender* — A noun class system (masculine or feminine) that controls how modifiers change.
+
+**Takeaway:** French adjectives change their endings to agree with nouns, while English words mainly show number and possession.
 
 ---
 
 ## **08 Content**
 
-**Closed-Class Categories: Particles, Conjunctions, and Prepositions**
+**Function Words: Determiners, Prepositions, and Conjunctions**
 
-While nouns and verbs constitute open lexical classes that constantly admit new words, closed-class functional words—particles, conjunctions, prepositions, and adverbs—form the syntactic connective tissue of historical prose and poetry. In Ancient Greek in particular, particles (*μέν*, *δέ*, *γάρ*, *οὖν*, *ἄν*, *δή*, *τοί*, *καίτοι*) play a vital role in organizing discourse, marking narrative transitions, indicating evidentiality, and modulating modal nuance.
+Linguists divide words into two big groups: content words and function words. **Content words**—nouns, main verbs, adjectives, and adverbs—carry specific real-world meaning. Languages invent new content words all the time.
 
-Closed-class words are predominantly indeclinable: they do not take inflectional endings for case, person, or tense. However, manual parsing of closed-class items is far from trivial. Many functional words are polysemous and homophonous with forms from other word classes. For example, the Greek token *ὡς* can function as an adverb of manner ("as", "how"), a coordinating or subordinating conjunction ("that", "in order that", "since"), a preposition governing the accusative case ("to", used only with persons), or an accentual variant with numerals ("approximately"). Modal particles like *ἄν* or epic *κε(ν)* fundamentally alter the mood semantics of associated optatives and subjunctives, turning potential assertions into counterfactual or deliberative structures.
+**Function words**, on the other hand, act as grammatical glue. They include determiners (*the*, *a*, *le*, *ces*), prepositions (*in*, *by*, *sur*, *dans*), and conjunctions (*and*, *but*, *et*, *ou*). Languages rarely add new function words. While they do not change shape often, function words show how clauses fit together.
 
-Similarly, prepositions (*ἐπί*, *παρά*, *πρός*, *διά*, *κατά*) govern multiple distinct cases, shifting their semantic meaning fundamentally depending on whether the governed noun is in the genitive, dative, or accusative. When parsing a preposition like *παρά*, the editor must record its part of speech (adposition) and document the case of its complement (*παρὰ τοῦ βασιλέως* = "from the king" [genitive/source]; *παρὰ τῷ βασιλεῖ* = "beside the king" [dative/location]; *παρὰ τὸν βασιλέα* = "to the presence of the king" / "contrary to the king" [accusative/motion or opposition]).
+In the 1752 Treaty, prepositions and conjunctions link long legal clauses: *between His Excellency Peregrine Thomas Hopson... and Major Jean Baptiste Cope*. Here, *between* and *and* link names and titles into a clear legal partnership. In your parsing, pay careful attention to function words.
 
-**Takeaway:** Closed-class particles and prepositions must be categorized by their specific syntactic function and case government rather than treated as static lexical glosses.
+**Vocabulary.** *Content Words* — Words like nouns and verbs that carry real-world meaning. *Function Words* — Words like prepositions and conjunctions that connect phrases and show grammar.
+
+**Takeaway:** Function words link nouns and verbs together into complete, well-structured sentences.
 
 ---
 
 ## **09 Content**
 
-**The Universal Dependencies (UD) Taxonomy and UPOS Tagset**
+**The Universal Dependencies Part-of-Speech Tagset**
 
-To ensure that linguistic annotations are computationally interoperable across different languages and software pipelines, the international computational linguistics community established the Universal Dependencies (UD) framework (de Marneffe et al., 2021). UD provides a standardized, cross-linguistically consistent taxonomy for grammatical description, encompassing part-of-speech tagging, morphological features, and syntactic dependency trees.
+To help projects share linguistic data across languages, linguists built the **Universal Dependencies (UD)** project. UD created a standard list of 17 Universal Part-of-Speech (UPOS) tags.
 
-The foundational layer of UD annotation is the Universal Part-of-Speech (UPOS) tagset, which defines exactly 17 coarse-grained categories applicable to any human language. Every token in a text must receive exactly one of these 17 tags:
+Instead of making up private tags, everyone uses the same labels. Here are the core tags you will use for our course documents:
 
-| Universal Tag | Category Label | Grammatical Definition and Historical Examples |
-|---|---|---|
-| `NOUN` | Noun | Common substantives (*λόγος*, *homo*, *urbs*, *βιβλίον*) |
-| `PROPN` | Proper Noun | Names of people, deities, places (*Σωκράτης*, *Roma*, *Ἀθῆναι*) |
-| `VERB` | Verb | Main lexical verbs (*γράφω*, *scribo*, *δίδωμι*, *amavit*) |
-| `AUX` | Auxiliary Verb | Copulas and tense/aspect auxiliaries (*εἰμί*, *sum*, *esse*) |
-| `ADJ` | Adjective | Modifiers specifying nominal attributes (*καλός*, *magnus*) |
-| `ADV` | Adverb | Modifiers of verbs, adjectives, or clauses (*εὖ*, *bene*, *ταχέως*) |
-| `PRON` | Pronoun | Personal, demonstrative, relative pronouns (*ἐγώ*, *hic*, *qui*, *ὅς*) |
-| `DET` | Determiner | Articles and pronominal determiners (*ὁ*, *ἡ*, *τό*, *ille*) |
-| `ADP` | Adposition | Prepositions and postpositions (*ἐν*, *in*, *πρός*, *ad*) |
-| `CCONJ` | Coordinating Conjunction | Coordinators (*καί*, *et*, *sed*, *ἀλλά*, *que*) |
-| `SCONJ` | Subordinating Conjunction | Subordinators (*ὅτι*, *ut*, *si*, *ἐπεί*, *quoniam*) |
-| `NUM` | Numeral | Cardinal numbers (*εἷς*, *tres*, *πέντε*, *centum*) |
-| `PART` | Particle | Grammatical and modal particles (*γάρ*, *μέν*, *δέ*, *ἄν*, *non*) |
-| `INTJ` | Interjection | Exclamations and emotional cries (*ὦ*, *heu*, *vae*) |
-| `PUNCT` | Punctuation | Punctuation marks (periods, commas, semicolons, middot) |
-| `SYM` | Symbol | Mathematical and scribal symbols, currency marks, cruces |
-| `X` | Other / Unanalyzable | Foreign words, corruptions, unparseable fragments |
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Meaning</th>
+      <th>Examples in English and French</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>NOUN</code></td>
+      <td>Common noun</td>
+      <td>treaty, letter, assemblée, décrets</td>
+    </tr>
+    <tr>
+      <td><code>PROPN</code></td>
+      <td>Proper name</td>
+      <td>Hopson, Cope, France, Paris</td>
+    </tr>
+    <tr>
+      <td><code>VERB</code></td>
+      <td>Main verb</td>
+      <td>promise, write, décrète, signer</td>
+    </tr>
+    <tr>
+      <td><code>AUX</code></td>
+      <td>Helping verb</td>
+      <td>shall, will, have, est, ont</td>
+    </tr>
+    <tr>
+      <td><code>ADJ</code></td>
+      <td>Adjective</td>
+      <td>peaceable, good, national, royal</td>
+    </tr>
+    <tr>
+      <td><code>DET</code></td>
+      <td>Determiner</td>
+      <td>the, this, le, la, ces</td>
+    </tr>
+    <tr>
+      <td><code>ADP</code></td>
+      <td>Preposition</td>
+      <td>in, between, par, dans</td>
+    </tr>
+    <tr>
+      <td><code>CCONJ</code></td>
+      <td>Coordinating conjunction</td>
+      <td>and, but, et, ou</td>
+    </tr>
+    <tr>
+      <td><code>PUNCT</code></td>
+      <td>Punctuation</td>
+      <td>., ,, ;, :</td>
+    </tr>
+  </tbody>
+</table>
 
-When annotating by hand, assigning the correct UPOS tag requires distinguishing functional categories that historical grammars often conflated. For instance, the Greek definite article *ὁ, ἡ, τό* is tagged as `DET` (determiner), while demonstrative pronouns like *οὗτος* used independently are tagged as `PRON`.
+Using standard UPOS tags means tools can compare Ace's 1791 French decree directly with Andromeda's 1752 English treaty.
 
-**Takeaway:** The Universal Dependencies UPOS tagset provides 17 standardized, cross-linguistic categories that establish the foundational part-of-speech classification for every token.
+**Vocabulary.** *Universal Dependencies (UD)* — An open global standard for grammar annotation across languages. *UPOS* — Universal Part-of-Speech tags, a set of 17 standard labels.
+
+**Takeaway:** The 17 Universal Dependencies UPOS tags give researchers a shared vocabulary for tagging parts of speech across languages.
 
 ---
 
 ## **10 Content**
 
-**Language-Specific Part-of-Speech Tags (XPOS) and Positional Tagsets**
+**Standard Grammatical Features (FEATS)**
 
-While the 17 UPOS tags provide cross-linguistic consistency, they are too coarse to capture the detailed inflectional distinctions necessary for historical philology. Universal Dependencies therefore accommodates Language-Specific Part-of-Speech (XPOS) tags. In classical computational linguistics, the dominant XPOS standard is the 9-position positional tagset developed for the Perseus Digital Library and the Ancient Greek and Latin Dependency Treebank (AGLDT) (Celano, 2014; Crane, 1991).
+A UPOS tag tells you a word's broad class (like `NOUN` or `VERB`). It does not record details like past tense or plural number. In Universal Dependencies, those details live in a field called **FEATS** (Features).
 
-In the Perseus 9-position XPOS scheme, every token is assigned a fixed-length string of exactly nine characters, where each position corresponds to a specific morphological dimension. If a dimension is not applicable to that word class, it is filled with a hyphen (`-`):
+FEATS uses simple pairs separated by vertical bars. For example, the French noun *décrets* in Ace's text gets: `Gender=Masc|Number=Plur`. The English verb *promised* gets: `Tense=Past|VerbForm=Fin`.
 
-- Position 1: Part of Speech (`n`=noun, `v`=verb, `a`=adjective, `d`=adverb, `l`=article, `p`=pronoun, `c`=conjunction, `r`=preposition, `m`=numeral, `e`=interjection, `u`=punctuation, `g`=particle)
-- Position 2: Person (`1`=1st, `2`=2nd, `3`=3rd)
-- Position 3: Number (`s`=singular, `p`=plural, `d`=dual)
-- Position 4: Tense (`p`=present, `i`=imperfect, `r`=perfect, `l`=pluperfect, `t`=future perfect, `f`=future, `a`=aorist)
-- Position 5: Mood (`i`=indicative, `s`=subjunctive, `o`=optative, `n`=infinitive, `m`=imperative, `p`=participle)
-- Position 6: Voice (`a`=active, `m`=middle, `p`=passive, `e`=middle/passive)
-- Position 7: Gender (`m`=masculine, `f`=feminine, `n`=neuter)
-- Position 8: Case (`n`=nominative, `g`=genitive, `d`=dative, `a`=accusative, `v`=vocative, `b`=ablative)
-- Position 9: Degree (`c`=comparative, `s`=superlative)
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Common Values</th>
+      <th>Simple Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Number</code></td>
+      <td><code>Sing</code>, <code>Plur</code></td>
+      <td>treaty (Sing), treaties (Plur)</td>
+    </tr>
+    <tr>
+      <td><code>Gender</code></td>
+      <td><code>Masc</code>, <code>Fem</code></td>
+      <td>roi (Masc), reine (Fem)</td>
+    </tr>
+    <tr>
+      <td><code>Tense</code></td>
+      <td><code>Past</code>, <code>Pres</code></td>
+      <td>wrote (Past), writes (Pres)</td>
+    </tr>
+    <tr>
+      <td><code>Person</code></td>
+      <td><code>1</code>, <code>2</code>, <code>3</code></td>
+      <td>am (1), is (3)</td>
+    </tr>
+    <tr>
+      <td><code>VerbForm</code></td>
+      <td><code>Fin</code>, <code>Inf</code>, <code>Part</code></td>
+      <td>writes (Fin), write (Inf), written (Part)</td>
+    </tr>
+  </tbody>
+</table>
 
-For example, consider the Latin verb form *rexit* ("he ruled"). Its Perseus XPOS tag is `v3sria---`:
+Standard feature names let researchers search across many files for exact grammar forms, such as all feminine plural adjectives.
 
-- Position 1: `v` (verb)
-- Position 2: `3` (3rd person)
-- Position 3: `s` (singular)
-- Position 4: `r` (perfect tense)
-- Position 5: `i` (indicative mood)
-- Position 6: `a` (active voice)
-- Positions 7–9: `---` (gender, case, and degree not applicable to finite verbs)
+**Vocabulary.** *FEATS* — The field in Universal Dependencies that holds specific grammatical traits like tense and number.
 
-Now consider the Greek noun form *πόλεσιν* ("to the cities"): its XPOS tag is `n-p---fd-` (`n` = noun, `p` = plural, `f` = feminine, `d` = dative). Positional XPOS strings provide an exceptionally compact, deterministic representation of complete inflectional bundles.
-
-**Takeaway:** Positional XPOS tagsets use a 9-character code to record the complete inflectional profile of a historical word form in a standardized, machine-readable syntax.
+**Takeaway:** The FEATS field records specific grammatical details using simple pairs like `Gender=Masc` and `Number=Plur`.
 
 ---
 
 ## **11 Content**
 
-**Morphosyntactic Features (FEATS) in Universal Dependencies**
+**Authoritative Dictionaries as Citation Baselines**
 
-In addition to UPOS and XPOS, the Universal Dependencies standard defines the `FEATS` column, which stores morphological properties as explicit, human-readable key-value pairs separated by vertical bars (de Marneffe et al., 2021). This format eliminates the opacity of positional character codes and aligns with modern semantic web and Linked Open Data standards.
+How do you decide on the official lemma for an old word? In everyday life, people guess word origins. In scholarly editing, every lemma must come from an authoritative dictionary.
 
-Standard UD morphological features for Greek and Latin include:
+For historical English texts—including the 1752 Treaty and Maud Lewis's letters—our primary authority is the **Oxford English Dictionary (OED)**. The OED tracks spelling history and gives standard modern headwords. If a word is archaic, like *whereunto*, the OED confirms its canonical dictionary entry.
 
-- `Person`: `1`, `2`, `3`
-- `Number`: `Sing`, `Plur`, `Dual`
-- `Tense`: `Pres`, `Past` (or `Imp`, `Aor`, `Pqp`, `Fut`)
-- `Aspect`: `Perf`, `Imp`, `Prosp`
-- `Mood`: `Ind`, `Sub`, `Opt`, `Imp`, `Prp`
-- `Voice`: `Act`, `Mid`, `Pass`
-- `VerbForm`: `Fin`, `Inf`, `Part`, `Gerd`, `Gdv`
-- `Gender`: `Masc`, `Fem`, `Neut`
-- `Case`: `Nom`, `Gen`, `Dat`, `Acc`, `Voc`, `Abl`
-- `Degree`: `Cmp`, `Sup`, `Pos`
+For French texts, the primary baseline is the **Trésor de la Langue Française informatisé (TLFi)** and the historical dictionaries of the Académie française. When lemmatizing words in Ace's 1791 decree, checking the TLFi ensures that 18th-century government words map to the headwords recognized by scholars.
 
-For the Latin verb *haesit* ("he clung"), the FEATS string is structured as:  
-`Aspect=Perf|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act`.  
-For the noun *faucibus* ("in the jaws"), the FEATS string is:  
-`Case=Abl|Gender=Fem|Number=Plur`.
+**Vocabulary.** *Citation Baseline* — The standard scholarly dictionary chosen to govern lemma spellings in an edition. *OED* — Oxford English Dictionary, the historical authority for English. *TLFi* — Trésor de la Langue Française informatisé, the primary digital lexicon for French.
 
-When constructing manual annotations, features must be ordered alphabetically by feature name, without spaces around the equal signs or pipes. Empty or inapplicable features are omitted entirely rather than marked with hyphens. The combination of UPOS, XPOS, and FEATS ensures that every token carries both a broad syntactic category and a fully detailed inflectional description.
-
-**Takeaway:** The Universal Dependencies FEATS standard encodes morphological properties as sorted, pipe-delimited key-value pairs for transparent data exchange.
+**Takeaway:** Every lemma should be checked against an authoritative dictionary, such as the OED for English or the TLFi for French.
 
 ---
 
 ## **12 Content**
 
-**Principles of Dependency Grammar for Historical Languages**
+**TEI XML Word Elements: `<w>` and `<pc>`**
 
-Beyond parsing individual words, syntactic annotation models the relationships that bind words into sentences. In modern computational linguistics, two competing paradigms exist: constituency grammar (phrase-structure grammar) and dependency grammar.
+The Text Encoding Initiative provides clean tags to mark words and punctuation directly in XML. The two most important tags are `<w>` (word) and `<pc>` (punctuation character).
 
-Constituency grammar, popularized by Chomskyan linguistics, organizes sentences into nested hierarchical phrases (Noun Phrases, Verb Phrases, Prepositional Phrases). While well-suited for configurational languages like English where word order is rigid and grammatical relations depend on phrase positioning, constituency grammar breaks down when applied to ancient Greek and Latin. Classical languages possess free or pragmatically determined word order, characterized by discontinuous constituents, tmesis, and hyperbaton (the separation of syntactically linked words across long clauses).
+The `<w>` tag wraps a single word. Punctuation marks go inside `<pc>`. Here is how a short clause from the 1752 Treaty looks when segmented into TEI elements:
 
-Dependency grammar, originating in the work of Lucien Tesnière and formalized in Universal Dependencies, models syntactic structure as direct binary relations between words. Every dependency link connects a **head** (the governing word) to a **dependent** (the subordinate word), labeled with a specific grammatical relation (**DEPREL**).
+```xml
+<w>The</w>
+<w>said</w>
+<w>Chief</w>
+<w>doth</w>
+<w>promise</w>
+<pc>,</pc>
+```
 
-In a dependency tree for the Latin sentence *regem cives amant* ("The citizens love the king"):
+Wrapping words in `<w>` makes token boundaries unmistakable for software. Normal spaces between words remain in the file, but programs process each `<w>` tag as one unit. The `<pc>` tag marks punctuation clearly, preventing search tools from treating a comma as part of a word.
 
-- The finite verb *amant* serves as the root head of the clause (`root`).
-- The noun *cives* depends directly on *amant* with the relation `nsubj` (nominal subject).
-- The noun *regem* depends directly on *amant* with the relation `obj` (direct object).
+**Vocabulary.** *`<w>`* — The TEI tag that encloses a single grammatical word token. *`<pc>`* — The TEI tag that encloses a punctuation mark or symbol.
 
-Notice that this structure remains identical regardless of whether the sentence is written *regem cives amant*, *cives amant regem*, or *amant cives regem*. Dependency trees are invariant under word-order permutation, making them the optimal framework for ancient corpora.
-
-**Takeaway:** Dependency grammar models direct head-dependent relations between words, providing a robust syntax model for the flexible word order and hyperbaton of ancient languages.
+**Takeaway:** Use the TEI `<w>` element to enclose words and the `<pc>` element to enclose punctuation marks.
 
 ---
 
 ## **13 Content**
 
-**Syntactic Dependency Relations (DEPREL) in Universal Dependencies**
+**Adding Attributes: `@lemma` and `@pos`**
 
-Universal Dependencies defines a standardized set of Universal Dependency Relations (`DEPREL`) that describe the functional link between a head and its dependent (de Marneffe et al., 2021). When constructing a dependency tree by hand, the editor must assign one of these relations to every non-root token in the sentence:
+Wrapping words in `<w>` is only the first step. To add grammatical information, you include attributes. The two main attributes are `@lemma` and `@pos`.
 
-| Relation Tag | Syntactic Role | Description and Grammatical Context |
-|---|---|---|
-| `root` | Sentence Root | The root node of the sentence (usually the main finite verb) |
-| `nsubj` | Nominal Subject | The nominal subject of an active or stative predicate |
-| `obj` | Direct Object | The core nominal direct object (accusative complement) |
-| `iobj` | Indirect Object | The core nominal indirect object (dative complement) |
-| `csubj` | Clausal Subject | A subordinate clause functioning as the subject |
-| `ccomp` | Clausal Complement | A dependent clause functioning as a core clausal argument |
-| `xcomp` | Open Clausal Complement | A non-finite complement lacking an independent subject (e.g. infinitive) |
-| `obl` | Oblique Nominal | A non-core nominal dependent, adverbial noun, or prepositional phrase |
-| `advmod` | Adverbial Modifier | An adverb modifying a verb, adjective, or clause |
-| `amod` | Adjectival Modifier | An adjective modifying a noun |
-| `nmod` | Nominal Modifier | A noun modifying another noun (e.g. adnominal genitive) |
-| `det` | Determiner | A determiner or article modifying a noun |
-| `case` | Case Marker | A preposition or case particle governing a nominal |
-| `conj` | Conjunct | The second and subsequent conjuncts in a coordinate structure |
-| `cc` | Coordinating Conjunction | The coordinating conjunction linking conjuncts |
-| `mark` | Marker | A subordinating conjunction introducing a clause |
-| `punct` | Punctuation | Punctuation attached to its governing clause head |
+The `@lemma` attribute holds the dictionary headword. The `@pos` attribute holds the part-of-speech tag. Here is the same 1752 clause enriched with linguistic attributes:
 
-In manual treebanking, identifying the correct head is essential. In UD, content words are privileged as heads: in a prepositional phrase like *ἐν τῇ πόλει* ("in the city"), the noun *πόλει* is the head of the phrase, while the preposition *ἐν* attaches to *πόλει* with the relation `case`, and the article *τῇ* attaches to *πόλει* with `det`.
+```xml
+<w lemma="the" pos="DET">The</w>
+<w lemma="say" pos="VERB">said</w>
+<w lemma="chief" pos="NOUN">Chief</w>
+<w lemma="do" pos="AUX">doth</w>
+<w lemma="promise" pos="VERB">promise</w>
+<pc pos="PUNCT">,</pc>
+```
 
-**Takeaway:** Universal Dependencies DEPREL tags specify the exact grammatical relation connecting each dependent word to its governing semantic head.
+Look at what this achieves. The surface form *said* connects to its dictionary headword *say*. The old auxiliary *doth* connects to *do*. A reader sees the original historical words on screen, while a search engine can find *do* and *promise* across the whole collection.
+
+**Vocabulary.** *`@lemma`* — The TEI attribute holding the dictionary headword. *`@pos`* — The TEI attribute holding the part-of-speech tag.
+
+**Takeaway:** Adding `@lemma` and `@pos` to `<w>` tags attaches dictionary headwords and grammar tags without altering the original text.
 
 ---
 
 ## **14 Content**
 
-**The Ancient Greek and Latin Dependency Treebank (AGLDT) Standard**
+**Grammar Tags vs. Spelling Normalization**
 
-The earliest and most extensive gold-standard dependency corpus for classical antiquity is the Ancient Greek and Latin Dependency Treebank (AGLDT), developed under the auspices of the Perseus Digital Library and the Tufts Center for Hellenic Studies (Celano, 2014; Crane, 1991). The AGLDT established the foundational protocols for annotating Greek authors (Homer, Hesiod, Aeschylus, Sophocles, Euripides, Thucydides, Lysias, Plato) and Latin authors (Cicero, Caesar, Virgil, Horace, Ovid, Jerome).
+In Module 6, you learned how to clean up historical spellings using `<choice>`, `<orig>`, and `<reg>`. Students often ask: is lemmatization just another kind of spelling normalization?
 
-The AGLDT was built using the Prague Dependency Treebank annotation schema, which was subsequently mapped onto Universal Dependencies. In the AGLDT Prague-style system, syntactic tags carry specific prefixes and function codes (e.g., `PRED` for predicate, `SBJ` for subject, `OBJ` for object, `ADV` for adverbial, `ATR` for attribute, `PNOM` for predicate nominal, `COORD` for coordination head, and `AuxP` for preposition).
+They are two distinct tasks. Spelling normalization updates historical spelling; lemmatization identifies the base grammatical word. In the 1752 Treaty, the scribe wrote *acknowledg'd*. In Module 6, you normalized that spelling to *acknowledged*:
 
-Consider the phrase *in monte alto* ("on the high mountain"):
+```xml
+<choice>
+  <orig>acknowledg'd</orig>
+  <reg>acknowledged</reg>
+</choice>
+```
 
-- In the legacy AGLDT model: The preposition *in* acts as the head (`AuxP`), governing the noun *monte* (`ADV`), which in turn governs the adjective *alto* (`ATR`).
-- In the Universal Dependencies model: The noun *monte* acts as the content head (`obl`), governing both the preposition *in* (`case`) and the adjective *alto* (`amod`).
+Notice that *acknowledged* is still an inflected past-tense verb! It is not the dictionary headword; the headword is the infinitive *acknowledge*. When combining both layers, TEI nests the regularized `<choice>` tag inside the linguistic `<w>` tag:
 
-The key structural difference between legacy AGLDT and modern UD lies in the treatment of function words. In the legacy AGLDT, prepositions and auxiliary verbs were treated as heads governing content words. In modern UD, content words (nouns, lexical verbs) are consistently treated as heads, while function words (prepositions, auxiliaries, conjunctions) attach as dependents. When consulting classical treebank data, the editor must recognize which standard governs the file.
+```xml
+<w lemma="acknowledge" pos="VERB">
+  <choice>
+    <orig>acknowledg'd</orig>
+    <reg>acknowledged</reg>
+  </choice>
+</w>
+```
 
-**Takeaway:** The AGLDT standard provided the historical foundation for classical treebanking, which has now been harmonized into the content-head architecture of Universal Dependencies.
+This nesting keeps both editorial choices clear: you standardized the spelling to *acknowledged*, and you mapped the word to the lemma *acknowledge*.
+
+**Takeaway:** Normalization updates spelling, while lemmatization identifies the base word; in TEI XML, `<choice>` nests inside `<w>`.
 
 ---
 
 ## **15 Content**
 
-**The PROIEL Treebank Architecture and Biblical Corpora**
+**External Feature Links with `@ana`**
 
-The Pragmatic Resources in Old Indo-European Languages (PROIEL) project, initiated at the University of Oslo, expanded treebanking methodology into early Indo-European translations, focusing on the Greek New Testament, the Latin Vulgate, the Gothic Bible, and Classical Armenian (Haug & Jøhndal, 2008). PROIEL introduced sophisticated theoretical advances to historical treebanking, particularly in the domain of information structure, discourse referentiality, and secondary predication.
+When grammatical annotations grow complex, writing long lists of traits inside tag attributes can make XML hard to read. TEI provides the `@ana` (analysis) attribute to link a word to an external definition.
 
-PROIEL documents not only syntactic dependency trees but also anaphoric links, information packaging (given vs. new information, topic and focus), and non-projective syntactic structures. In PROIEL, secondary predicates (such as predicative participles in Greek genitive absolutes or Latin ablative absolutes) are explicitly represented with dual dependency indices, capturing both their matrix syntactic attachment and their semantic argument government (Haug & Jøhndal, 2008).
+Instead of writing long strings of features, an editor defines grammatical categories in a feature list inside the `teiHeader`. Then, the `<w>` tag points to that definition using a link:
 
-The PROIEL Greek and Latin treebanks have been fully converted into Universal Dependencies format (`grc_proiel` and `la_proiel`), providing over 200,000 syntactically annotated tokens. Because the PROIEL corpus was annotated and verified entirely by expert philologists, it serves as the definitive reference dataset used to train neural parsing models like Stanza and UDPipe. When evaluating automated tools on biblical or Koine Greek, your manual benchmark will be compared directly against PROIEL standards.
+```xml
+<w lemma="assemblée" pos="NOUN" ana="#fem_sing">assemblée</w>
+```
 
-**Takeaway:** The PROIEL treebank provides an expertly annotated, gold-standard reference for biblical and historical corpora, pioneering the integration of syntax, pragmatics, and secondary predication.
+In the header, `#fem_sing` points to an entry that defines the word as Feminine and Singular. This method, called **stand-off annotation**, keeps your main transcription neat while storing rich linguistic data. For class labs, inline `@lemma` and `@pos` attributes are plenty, but large projects use `@ana` often.
+
+**Vocabulary.** *`@ana`* — A TEI attribute that points to an external analysis definition. *Stand-Off Annotation* — Storing notes and linguistic data in a separate place from the main text.
+
+**Takeaway:** The `@ana` attribute links words to external feature lists, keeping transcripts clean while supporting deep grammatical notes.
 
 ---
 
 ## **16 Content**
 
-**Manual Annotation Protocols and Scholarly Lexica**
+**Marking Sentences with `<s>`**
 
-Conducting a rigorous manual parse requires establishing an unambiguous annotation protocol before processing a single line of text. The editor must select and document the scholarly authorities used for lexical identification, morphological disambiguation, and syntax modeling.
+Grammar does not end with single words; it also shapes sentences. In TEI P5, complete sentences are wrapped in the `<s>` (sentence) tag.
 
-For Ancient Greek, the standard lexical authority is the Liddell-Scott-Jones *Greek-English Lexicon* (LSJ), supplemented by the *Diccionario Griego-Español* (DGE) for specialized vocabulary and Lampe’s *Patristic Greek Lexicon* for late antique and early Christian texts. For Latin, the primary authorities are Lewis and Short’s *Latin Dictionary*, the *Thesaurus Linguae Latinae* (ThLL), and the *Oxford Latin Dictionary* (OLD).
+Grouping words into `<s>` elements is essential for studying syntax. Grammar rules—such as a subject matching its verb—work within sentence boundaries. Here is an example using `<s>`, `<w>`, and `<pc>` together:
 
-During manual parsing, the editor must follow a four-step verification protocol for every token:
+```xml
+<s>
+  <w lemma="the" pos="DET">The</w>
+  <w lemma="treaty" pos="NOUN">Treaty</w>
+  <w lemma="be" pos="AUX">was</w>
+  <w lemma="sign" pos="VERB">signed</w>
+  <pc pos="PUNCT">.</pc>
+</s>
+```
 
-1. **Surface Identification:** Record the exact surface string, noting diacritics, breathing marks, and capitalization.
-2. **Lexical Lookup:** Query the reference lexicon to locate the canonical headword, verifying that the proposed lemma matches the dialect and genre of the author.
-3. **Morphological Decomposition:** Deconstruct the word into its principal part, stem, tense/aspect marker, and inflectional termination, assigning the complete bundle of UPOS, XPOS, and FEATS features.
-4. **Syntactic Attachment:** Determine the governing head token within the sentence and assign the appropriate DEPREL relation based on Universal Dependencies guidelines.
+Notice how punctuation marks sit in `<pc>` tags. This cleanly separates words from sentence endings. In historical texts, punctuation is often irregular. Marking sentence boundaries by hand helps grammar tools parse clauses correctly.
 
-Documenting edge cases and controversial interpretations in an editorial log ensures that manual ground truth remains internally consistent and reproducible.
+**Vocabulary.** *`<s>`* — The TEI element that marks a grammatical sentence.
 
-**Takeaway:** A standardized four-step manual protocol backed by authoritative lexica guarantees that gold-standard annotations remain methodologically sound and consistent.
+**Takeaway:** Wrapping clauses in `<s>` elements marks sentence boundaries that guide grammatical analysis.
 
 ---
 
 ## **17 Content**
 
-**TEI P5 Chapter 18: Simple Analytic Mechanisms for Linguistic Annotation**
+**Parsing Walkthrough 1: The 1752 Peace and Friendship Treaty**
 
-Once a text has been parsed and lemmatized by hand, the resulting linguistic analysis must be encoded in a durable, interoperable data format. The international standard for encoding digital scholarly editions is the Text Encoding Initiative (TEI) P5 Guidelines (TEI Consortium, 2026). Chapter 18, titled "Simple Analytic Mechanisms," provides the formal XML schema for representing linguistic segmentation and morphosyntactic analysis.
+Let us look at a hands-on manual parse from Andromeda's project: the 1752 Peace and Friendship Treaty.
 
-Historically, complex linguistic markup in TEI relied on ISO-standard Feature Structures (`<fs>`, `<f>`, `<vAlt>`) encoded in separate standoff documents. While feature structures offer unlimited expressive power for representing overlapping syntactic trees and deep phonetic hierarchies, they introduce massive XML verbosity and syntactic complexity that makes standard text processing cumbersome (TEI Consortium, 2026).
+Consider this opening clause: *All Treaties shall be renewed*. Here is the grammatical breakdown in a clear table:
 
-Chapter 18 defines an inline, lightweight mechanism that attaches analytical metadata directly to the text stream. By wrapping linguistic tokens in dedicated segmentation elements—primarily `<w>` for words, `<pc>` for punctuation, and `<s>` for sentences—editors can embed lemmas, parts of speech, and morphological descriptions directly within the text of their digital edition without separating analysis from the diplomatic reading.
+<table>
+  <thead>
+    <tr>
+      <th>Surface Word</th>
+      <th>Lemma</th>
+      <th>UPOS</th>
+      <th>Features (FEATS)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All</td>
+      <td>all</td>
+      <td><code>DET</code></td>
+      <td>PronType=Tot</td>
+    </tr>
+    <tr>
+      <td>Treaties</td>
+      <td>treaty</td>
+      <td><code>NOUN</code></td>
+      <td>Number=Plur</td>
+    </tr>
+    <tr>
+      <td>shall</td>
+      <td>shall</td>
+      <td><code>AUX</code></td>
+      <td>VerbForm=Fin</td>
+    </tr>
+    <tr>
+      <td>be</td>
+      <td>be</td>
+      <td><code>AUX</code></td>
+      <td>VerbForm=Inf</td>
+    </tr>
+    <tr>
+      <td>renewed</td>
+      <td>renew</td>
+      <td><code>VERB</code></td>
+      <td>Tense=Past|VerbForm=Part</td>
+    </tr>
+  </tbody>
+</table>
 
-**Takeaway:** TEI P5 Chapter 18 defines lightweight inline XML mechanisms that embed morphological analysis directly into the text stream of a digital edition.
+Notice how each token receives an exact analysis. *Treaties* maps to the singular lemma *treaty*. The verb group *shall be renewed* breaks down into a helping verb (`shall`), a helping infinitive (`be`), and a main past participle (`renewed`, lemma *renew*).
+
+**Takeaway:** Breaking old legal clauses into tables makes lemmas, parts of speech, and grammatical features clear and simple.
 
 ---
 
 ## **18 Content**
 
-**The `att.linguistic` Attribute Class in TEI XML**
+**Parsing Walkthrough 2: The 1791 French Revolutionary Decree**
 
-The core of TEI inline linguistic annotation is the `att.linguistic` attribute class (TEI Consortium, 2026). When the Simple Analytic Mechanisms module is enabled in a TEI schema, the `att.linguistic` class equips the `<w>` (word) and `<pc>` (punctuation) elements with a standardized suite of analytical attributes:
+Now let us examine a government clause from Ace's project: a 1791 decree from the National Assembly of Revolutionary France.
 
-- `@lemma`: Contains the canonical dictionary headword associated with the surface token.
-- `@lemmaRef`: A URI linking the lemma directly to an external lexicographical authority, such as an entry in the Perseus Hopper, Logeion, or an online LSJ/Lewis & Short database.
-- `@pos`: Records the primary grammatical category or Part of Speech (typically populated with the Universal Dependencies UPOS tag).
-- `@msd`: Stores the Morphosyntactic Description, populated either with a positional XPOS string (e.g., `v3siia---`) or a structured Universal Dependencies FEATS string (e.g., `Case=Nom|Gender=Masc|Number=Sing`).
-- `@join`: Specifies whether a token is orthographically joined to neighboring tokens (useful for enclitics, proclitics, and hyphenated compounds).
+Consider this line: *L'Assemblée nationale décrète les lois suivantes* ("The National Assembly decrees the following laws"). Because French features rich agreement and clitics, we look closely at each ending:
 
-```xml
-<!-- Example of lightweight TEI inline linguistic annotation -->
-<w xml:id="w1" 
-   lemma="λόγος" 
-   lemmaRef="https://logeion.uchicago.edu/λόγος"
-   pos="NOUN" 
-   msd="Case=Nom|Gender=Masc|Number=Sing">λόγος</w>
-```
+<table>
+  <thead>
+    <tr>
+      <th>Surface Word</th>
+      <th>Lemma</th>
+      <th>UPOS</th>
+      <th>Features (FEATS)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>L'</td>
+      <td>le</td>
+      <td><code>DET</code></td>
+      <td>Gender=Fem|Number=Sing|PronType=Art</td>
+    </tr>
+    <tr>
+      <td>Assemblée</td>
+      <td>assemblée</td>
+      <td><code>NOUN</code></td>
+      <td>Gender=Fem|Number=Sing</td>
+    </tr>
+    <tr>
+      <td>nationale</td>
+      <td>national</td>
+      <td><code>ADJ</code></td>
+      <td>Gender=Fem|Number=Sing</td>
+    </tr>
+    <tr>
+      <td>décrète</td>
+      <td>décréter</td>
+      <td><code>VERB</code></td>
+      <td>Number=Sing|Person=3|Tense=Pres|VerbForm=Fin</td>
+    </tr>
+    <tr>
+      <td>les</td>
+      <td>le</td>
+      <td><code>DET</code></td>
+      <td>Number=Plur|PronType=Art</td>
+    </tr>
+    <tr>
+      <td>lois</td>
+      <td>loi</td>
+      <td><code>NOUN</code></td>
+      <td>Gender=Fem|Number=Plur</td>
+    </tr>
+    <tr>
+      <td>suivantes</td>
+      <td>suivant</td>
+      <td><code>ADJ</code></td>
+      <td>Gender=Fem|Number=Plur</td>
+    </tr>
+  </tbody>
+</table>
 
-By encoding linguistic metadata inside `att.linguistic` attributes, the textual scholar maintains complete separation between the surface reading (the element text content) and the linguistic analysis (the XML attributes), allowing automated scripts to query grammatical features while rendering tools display clean text to human readers.
+Look at the matching pairs. *Assemblée* is feminine singular, so *L'* and *nationale* match it. Next, *lois* is feminine plural, and *suivantes* agrees with it. The verb *décrète* maps to its base infinitive *décréter*.
 
-**Takeaway:** The TEI `att.linguistic` attribute class provides standardized `@lemma`, `@pos`, and `@msd` attributes to store morphological analyses directly on `<w>` elements.
+**Takeaway:** French manual parsing requires tracking gender and number agreement across phrases and mapping verbs to infinitives.
 
 ---
 
 ## **19 Content**
 
-**Segmenting Sentences, Words, and Punctuation in TEI XML**
+**Parsing Walkthrough 3: Maud Lewis's Folk Correspondence**
 
-Encoding an entire text using TEI Chapter 18 requires full structural tokenization. The document hierarchy begins with the sentence or clause element `<s>`, inside which every word is enclosed in `<w>` and every punctuation character is enclosed in `<pc>` (TEI Consortium, 2026).
+For our third walkthrough, we examine a line from Olyvia's project: a handwritten 1967 letter by Maud Lewis to Mr. Kinnear.
 
-The `<pc>` element handles punctuation tokens and includes specialized attributes from the `att.lexicographic` class:
+Maud Lewis's writing is warm, personal, and informal: *I received your letter today*. Here is the grammatical breakdown:
 
-- `@force`: Indicates the strength of the syntactic boundary (`strong` for periods and question marks; `weak` for commas and colons; `inter` for intermediate breaks).
-- `@unit`: Identifies the type of punctuation mark (`sentence`, `clause`, `word`, `quotation`).
+<table>
+  <thead>
+    <tr>
+      <th>Surface Word</th>
+      <th>Lemma</th>
+      <th>UPOS</th>
+      <th>Features (FEATS)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>I</td>
+      <td>I</td>
+      <td><code>PRON</code></td>
+      <td>Case=Nom|Number=Sing|Person=1|PronType=Prs</td>
+    </tr>
+    <tr>
+      <td>received</td>
+      <td>receive</td>
+      <td><code>VERB</code></td>
+      <td>Tense=Past|VerbForm=Fin</td>
+    </tr>
+    <tr>
+      <td>your</td>
+      <td>you</td>
+      <td><code>PRON</code></td>
+      <td>Person=2|Poss=Yes|PronType=Prs</td>
+    </tr>
+    <tr>
+      <td>letter</td>
+      <td>letter</td>
+      <td><code>NOUN</code></td>
+      <td>Number=Sing</td>
+    </tr>
+    <tr>
+      <td>today</td>
+      <td>today</td>
+      <td><code>NOUN</code></td>
+      <td>Number=Sing</td>
+    </tr>
+  </tbody>
+</table>
 
-Consider the encoding of a complete Latin sentence (*Veritas vincit.*):
+Even personal letters benefit from linguistic tags. The possessive pronoun *your* links to its base lemma *you*. The past-tense verb *received* maps to *receive*. Tagging Maud Lewis's letters helps researchers trace her vocabulary and informal writing style across her letters.
 
-```xml
-<s xml:id="s1" n="1">
-  <w xml:id="s1_w1" 
-     lemma="veritas" 
-     pos="NOUN" 
-     msd="Case=Nom|Gender=Fem|Number=Sing">Veritas</w>
-  <w xml:id="s1_w2" 
-     lemma="vinco" 
-     pos="VERB" 
-     msd="Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act">vincit</w>
-  <pc xml:id="s1_pc1" force="strong" unit="sentence">.</pc>
-</s>
-```
-
-Every word and punctuation mark receives a globally unique `@xml:id`. This identifier serves as the indispensable anchor for all subsequent computational layers, including syntactic dependency linking, translation alignment (Topic 11), and scholarly commentary (Topic 12).
-
-**Takeaway:** Full TEI linguistic encoding wraps sentences in `<s>`, words in `<w>`, and punctuation in `<pc>`, assigning unique `@xml:id` anchors to every token.
+**Takeaway:** Personal letters follow standard Universal Dependencies tags, recording informal phrasing and everyday vocabulary clearly.
 
 ---
 
 ## **20 Content**
 
-**Step-by-Step Manual Parsing Walkthrough: Classical Greek Prose**
+**Handling Old Spellings During Lemmatization**
 
-To master the manual annotation workflow, let us examine a complete step-by-step parse of a classical Greek prose sentence from Plato (*Apology* 17a):  
-*Ὅτι μὲν ὑμεῖς, ὦ ἄνδρες Ἀθηναῖοι, πεπόνθατε ὑπὸ τῶν ἐμῶν λόγων, οὐκ οἶδα.*  
-("What effect my words have had upon you, men of Athens, I do not know.")
+In historical manuscripts, you will often find words with non-standard spellings. Scribes made spelling slips, used local spellings, or followed conventions that changed over time. How should you lemmatize a word with an unusual spelling?
 
-Let us trace the manual analysis of each token:
+The main rule of lemmatization is simple: **the lemma is always modern and canonical, even when the manuscript spelling is unusual.**
 
-1. `Ὅτι`: Lemma *ὅτι*, UPOS `SCONJ`, XPOS `c--------`, FEATS `_`, Head: `πεπόνθατε`, DEPREL `mark`. (Subordinating conjunction introducing the clausal complement).
-2. `μὲν`: Lemma *μέν*, UPOS `PART`, XPOS `g--------`, FEATS `_`, Head: `πεπόνθατε`, DEPREL `advmod`. (Discourse particle marking the concessive protasis).
-3. `ὑμεῖς`: Lemma *σύ*, UPOS `PRON`, XPOS `p-p---mn-`, FEATS `Case=Nom|Gender=Masc|Number=Plur|Person=2|PronType=Prs`, Head: `πεπόνθατε`, DEPREL `nsubj`. (Second-person plural subject pronoun).
-4. `ὦ`: Lemma *ὦ*, UPOS `INTJ`, XPOS `e--------`, FEATS `_`, Head: `ἄνδρες`, DEPREL `discourse`. (Vocative interjection).
-5. `ἄνδρες`: Lemma *ἀνήρ*, UPOS `NOUN`, XPOS `n-p---mv-`, FEATS `Case=Voc|Gender=Masc|Number=Plur`, Head: `πεπόνθατε`, DEPREL `vocative`. (Vocative noun of address).
-6. `Ἀθηναῖοι`: Lemma *Ἀθηναῖος*, UPOS `ADJ`, XPOS `a-p---mv-`, FEATS `Case=Voc|Gender=Masc|Number=Plur`, Head: `ἄνδρες`, DEPREL `amod`. (Attributive proper adjective modifying *ἄνδρες*).
-7. `πεπόνθατε`: Lemma *πάσχω*, UPOS `VERB`, XPOS `v2pria---`, FEATS `Aspect=Perf|Mood=Ind|Number=Plur|Person=2|Tense=Past|VerbForm=Fin|Voice=Act`, Head: `οἶδα`, DEPREL `ccomp`. (Second-person plural perfect active indicative verb of *πάσχω*; head of the complement clause).
-8. `ὑπὸ`: Lemma *ὑπό*, UPOS `ADP`, XPOS `r--------`, FEATS `_`, Head: `λόγων`, DEPREL `case`. (Preposition governing genitive of agent).
-9. `τῶν`: Lemma *ὁ*, UPOS `DET`, XPOS `l-p---mg-`, FEATS `Case=Gen|Definite=Def|Gender=Masc|Number=Plur|PronType=Art`, Head: `λόγων`, DEPREL `det`. (Definite article in agreement with *λόγων*).
-10. `ἐμῶν`: Lemma *ἐμός*, UPOS `ADJ`, XPOS `a-p---mg-`, FEATS `Case=Gen|Gender=Masc|Number=Plur|Poss=Yes`, Head: `λόγων`, DEPREL `amod`. (Possessive adjective in agreement with *λόγων*).
-11. `λόγων`: Lemma *λόγος*, UPOS `NOUN`, XPOS `n-p---mg-`, FEATS `Case=Gen|Gender=Masc|Number=Plur`, Head: `πεπόνθατε`, DEPREL `obl`. (Genitive plural noun of agent dependent on *πεπόνθατε*).
-12. `οὐκ`: Lemma *οὐ*, UPOS `PART`, XPOS `d--------`, FEATS `Polarity=Neg`, Head: `οἶδα`, DEPREL `advmod`. (Negative adverbial particle).
-13. `οἶδα`: Lemma *οἶδα*, UPOS `VERB`, XPOS `v1sria---`, FEATS `Aspect=Perf|Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act`, Head: `0` (Root), DEPREL `root`. (First-person singular perfect active indicative verb with present meaning; matrix predicate of the sentence).
+In 18th-century English, words like *publick* or *musick* ended in *ck*. The surface form on the page is *publick*, but the lemma is modern *public*. In 18th-century French, imperfect verbs ended in *-oit* (*faisoit*, *étoit*). The surface spelling is *faisoit*, but its lemma is the standard infinitive *faire*.
 
-This rigorous decomposition leaves no word unaccounted for, providing a complete structural blueprint of the Greek sentence.
+If an editor invented an archaic lemma like *faisoir* or *publick*, they would break the dictionary index. A digital edition connects old spellings to modern dictionaries so that readers can search the text using familiar words.
 
-**Takeaway:** Manual parsing systematically resolves every token's lemma, morphosyntactic feature bundle, and syntactic dependency attachment within the sentence hierarchy.
+**Vocabulary.** *Canonical Lemma* — The modern standard headword used to index historical spelling variations in a lexicon.
+
+**Takeaway:** Always assign a modern standard dictionary headword as the lemma, no matter how unusual the spelling is on the page.
 
 ---
 
 ## **21 Content**
 
-**Step-by-Step Manual Parsing Walkthrough: Poetic Hyperbaton and Dialect**
+**Multi-Word Phrases and Titles**
 
-Manual parsing becomes even more critical when confronting ancient poetry, where meter dictates word placement, creating hyperbaton, dialectal archaisms, and uncontracted forms. Consider the opening line of Homer's *Iliad* (1.1):  
-*Μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος*  
-("Sing, goddess, the wrath of Achilles, Peleus' son.")
+In many documents, several words work together as a single unit. These are called **multi-word expressions** or compound terms.
 
-In this epic line, the direct object *Μῆνιν* stands in the emphatic initial position, separated from its governing verb *ἄειδε* and genitive modifiers by the vocative *θεὰ*:
+In English legal texts, you often find fixed formulas like *in witness whereof*, *peace and friendship*, or *His Excellency*. In French government papers, titles like *procès-verbal* or *assemblée nationale* represent single official ideas.
 
-- Predicate Root: *ἄειδε* (verb)
-- Direct Object: *Μῆνιν* (noun, dependent on *ἄειδε*)
-- Direct Address: *θεὰ* (noun, dependent on *ἄειδε*)
-- Adnominal Modifier: *Ἀχιλῆος* (proper noun, dependent on *Μῆνιν*)
-- Patronymic Modifier: *Πηληϊάδεω* (proper noun, dependent on *Ἀχιλῆος*)
+How do you encode them in TEI? In standard tokenization, each written word gets its own `<w>` tag. However, TEI provides the `<phr>` (phrase) tag to group multi-word expressions together:
 
-Philological analysis reveals several epic dialect features that automated taggers frequently mishandle:
+```xml
+<phr type="legal_formula">
+  <w lemma="in" pos="ADP">in</w>
+  <w lemma="witness" pos="NOUN">witness</w>
+  <w lemma="whereof" pos="ADV">whereof</w>
+</phr>
+```
 
-- *Μῆνιν*: Lemma *μῆνις*, UPOS `NOUN`, XPOS `n-s---fa-`, FEATS `Case=Acc|Gender=Fem|Number=Sing`. Direct object of *ἄειδε*.
-- *ἄειδε*: Lemma *ἀείδω* (Homeric uncontracted form of Attic *ᾄδω*), UPOS `VERB`, XPOS `v2spma---`, FEATS `Aspect=Imp|Mood=Imp|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act`. Root predicate.
-- *θεὰ*: Lemma *θεά*, UPOS `NOUN`, XPOS `n-s---fv-`, FEATS `Case=Voc|Gender=Fem|Number=Sing`. Direct address.
-- *Πηληϊάδεω*: Lemma *Πηληϊάδης*, UPOS `PROPN`, XPOS `n-s---mg-`, FEATS `Case=Gen|Gender=Masc|Number=Sing`. Epic Ionic genitive singular ending in *-εω* with synizesis, modifying *Ἀχιλῆος*.
-- *Ἀχιλῆος*: Lemma *Ἀχιλλεύς*, UPOS `PROPN`, XPOS `n-s---mg-`, FEATS `Case=Gen|Gender=Masc|Number=Sing`. Epic genitive singular with single lambda and uncontracted *-ηος*, modifying *Μῆνιν*.
+This lets search engines analyze each word on its own while still knowing that the three words form a single fixed phrase.
 
-If an editor relies on a standard Classical Attic dictionary lookup, *Πηληϊάδεω* and *Ἀχιλῆος* fail to match standard paradigms. The human philologist recognizes the epic dialectal markers and supplies the proper lemma and case assignment.
+**Vocabulary.** *Multi-Word Expression* — A group of words that functions together as a single phrase or meaning. *`<phr>`* — The TEI element used to group words into grammatical phrases.
 
-**Takeaway:** Poetic hyperbaton and dialectal morphology require human philological expertise to resolve non-projective word order and non-standard inflectional endings.
+**Takeaway:** Group multi-word legal formulas with `<phr>` while keeping individual `<w>` elements for each token.
 
 ---
 
 ## **22 Content**
 
-**Encoding Standoff Syntactic Dependencies in TEI XML**
+**Splitting Contractions for Tagging**
 
-While Chapter 18’s `att.linguistic` attributes provide inline storage for lemmas and morphological features, representing full syntactic dependency graphs within TEI XML requires linking tokens across the document tree. Because XML is strictly hierarchical (a single tree of nested elements), it cannot natively represent intersecting or cross-branching dependency relations without auxiliary linking structures (TEI Consortium, 2026).
+As noted earlier, contractions join two words into one printed unit. When preparing text for tagging, you must decide how to handle these words.
 
-TEI P5 provides the `<linkGrp>` (link group) and `<link>` elements within the Simple Analytic Mechanisms module to encode standoff syntax graphs:
+In French, words join with an apostrophe: *d'accord*, *l'homme*, *qu'il*. If you keep *d'accord* as a single word, it has no single part of speech. It is a preposition plus a noun. In TEI XML, you can tag both words while keeping the apostrophe:
 
 ```xml
-<s xml:id="s1">
-  <w xml:id="s1_w1" lemma="μῆνις" pos="NOUN" msd="Case=Acc|Gender=Fem|Number=Sing">Μῆνιν</w>
-  <w xml:id="s1_w2" lemma="ἀείδω" pos="VERB" msd="Mood=Imp|Number=Sing|Person=2">ἄειδε</w>
-  <w xml:id="s1_w3" lemma="θεά" pos="NOUN" msd="Case=Voc|Gender=Fem|Number=Sing">θεά</w>
-</s>
-
-<linkGrp type="dependency-syntax" corresp="#s1">
-  <link type="root" targets="#s1 #s1_w2"/>
-  <link type="obj" targets="#s1_w2 #s1_w1"/>
-  <link type="vocative" targets="#s1_w2 #s1_w3"/>
-</linkGrp>
+<w lemma="de" pos="ADP">d'</w>
+<w lemma="accord" pos="NOUN">accord</w>
 ```
 
-In this standoff architecture, the `<linkGrp>` element points to the governing sentence (`@corresp="#s1"`). Each `<link>` element specifies the syntactic relation (`@type="obj"`) and records the source and target tokens in the `@targets` attribute (`targets="#s1_w2 #s1_w1"`, indicating that `#s1_w2` is the head and `#s1_w1` is the dependent). Standoff linking cleanly decouples syntax trees from text serialization, allowing an edition to store multiple competing syntactic analyses of the same line.
+In English, informal words like *don't* or *they'll* follow the same pattern:
 
-**Takeaway:** TEI `<linkGrp>` and `<link>` elements represent syntactic dependency graphs by linking head and dependent token IDs without disrupting text hierarchy.
+```xml
+<w lemma="do" pos="AUX">do</w>
+<w lemma="not" pos="ADV">n't</w>
+```
+
+Notice how the surface letters are shared between the two `<w>` elements. This preserves the original letters on the page while giving accurate tags to each underlying word.
+
+**Takeaway:** Splitting contracted words across separate `<w>` tags lets each word receive its own lemma and part of speech.
 
 ---
 
 ## **23 Content**
 
-**The CoNLL-U Format: The Global Exchange Standard for Syntax Trees**
+**Heads and Modifiers: The Heart of Syntax**
 
-While TEI XML is the premier format for archival digital editions, the computational linguistics community exchanges dependency treebanks using the plain-text **CoNLL-U** format. A CoNLL-U file represents each sentence as a series of tab-delimited lines, preceded by comment lines (`# sent_id`, `# text`), followed by a blank line marking the sentence boundary.
+Linguistic annotation goes beyond sorting single words; it also shows how words connect in sentences. The central idea of **dependency grammar** is that words connect through links between **heads** and **modifiers**.
 
-Every token in a CoNLL-U file occupies exactly one line containing ten mandatory fields:
+In every word pair, one word acts as the head, and the other acts as its dependent modifier. In the phrase *national decree*, the noun *decree* is the head, and the adjective *national* is the modifier. If you drop the adjective, the sentence still makes sense (*The decree was read*). If you drop the noun, the phrase breaks down.
 
-| Field Position | Field Identifier | Description and Historical Annotation Example |
-|---|---|---|
-| Position 1 | `ID` | Word index in sentence, integer starting at 1 (`1`, `2`, `3`) |
-| Position 2 | `FORM` | Word form or punctuation symbol as it appears in text (`Μῆνιν`) |
-| Position 3 | `LEMMA` | Lemma or stem of the word form (`μῆνις`) |
-| Position 4 | `UPOS` | Universal part-of-speech tag (`NOUN`) |
-| Position 5 | `XPOS` | Language-specific part-of-speech tag (`n-s---fa-`) |
-| Position 6 | `FEATS` | List of morphological features (`Case=Acc, Gender=Fem, Number=Sing`) |
-| Position 7 | `HEAD` | Head of the current word: ID of parent word or 0 for root (`2`) |
-| Position 8 | `DEPREL` | Universal dependency relation to the HEAD (`obj`) |
-| Position 9 | `DEPS` | Enhanced dependency graph (secondary links, or `_`) |
-| Position 10 | `MISC` | Miscellaneous annotations, e.g. `SpaceAfter=No` or XML IDs |
+In a full clause, the main verb serves as the root of the sentence. The subject noun depends on the verb, and the direct object depends on the verb. Seeing this structure is the first step toward syntactic treebanking.
 
-```
-# sent_id = iliad_1.1
-# text = Μῆνιν ἄειδε θεά
-1	Μῆνιν	μῆνις	NOUN	n-s---fa-	Case=Acc|Gender=Fem|Number=Sing	2	obj	_	_
-2	ἄειδε	ἀείδω	VERB	v2spma---	Mood=Imp|Number=Sing|Person=2	0	root	_	_
-3	θεά	θεά	NOUN	n-s---fv-	Case=Voc|Gender=Fem|Number=Sing	2	vocative	_	SpaceAfter=No
-4	.	.	PUNCT	u--------	_	2	punct	_	_
-```
+**Vocabulary.** *Dependency Grammar* — A grammar model based on links between governing heads and dependent modifiers. *Head* — The main word that governs a grammatical phrase. *Modifier* — A word that depends on a governing head word.
 
-Because all modern NLP parsers (Stanza, UDPipe, Trankit, spaCy) ingest and output CoNLL-U, your manual ground truth will be authored in or converted to CoNLL-U to enable automated scoring against machine taggers.
-
-**Takeaway:** CoNLL-U is the 10-column tab-delimited standard used to exchange and evaluate morphological and syntactic treebanks across all modern NLP software.
+**Takeaway:** Sentences are organized into trees where dependent words connect directly to governing head words.
 
 ---
 
 ## **24 Content**
 
-**Inter-Annotator Agreement in Morphosyntactic Annotation**
+**A First Look at Dependency Relations**
 
-When building a gold-standard reference dataset, a single scholar’s intuition is insufficient to guarantee objectivity. Philologists frequently disagree on ambiguous syntactic attachments, the boundary between adjectival and substantival usage, or the categorization of polysemous particles. To establish an authoritative benchmark, multiple annotators must parse the same text independently, after which their agreement is measured mathematically.
+Just as Universal Dependencies uses UPOS tags for parts of speech, it uses **relation tags** to label how words connect.
 
-Inter-annotator agreement (IAA) is evaluated using statistical metrics that correct for chance agreement:
+Here are the six most common relation tags you will see in our historical English and French documents:
 
-- **Cohen's Kappa ($\kappa$):** Measures agreement between two annotators on categorical classifications (such as UPOS or case assignment).
-- **Fleiss' Kappa:** Extends Cohen's Kappa to three or more annotators.
-- **Krippendorff's Alpha ($\alpha$):** A robust metric that handles missing data and multiple annotators across categorical, ordinal, or interval data.
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Job</th>
+      <th>Example (Head → Modifier)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>root</code></td>
+      <td>Main sentence verb</td>
+      <td>[Sentence] → signed</td>
+    </tr>
+    <tr>
+      <td><code>nsubj</code></td>
+      <td>Subject noun</td>
+      <td>signed → Chief</td>
+    </tr>
+    <tr>
+      <td><code>obj</code></td>
+      <td>Direct object</td>
+      <td>signed → Treaty</td>
+    </tr>
+    <tr>
+      <td><code>amod</code></td>
+      <td>Adjective modifier</td>
+      <td>decree → national</td>
+    </tr>
+    <tr>
+      <td><code>det</code></td>
+      <td>Determiner</td>
+      <td>decree → the</td>
+    </tr>
+    <tr>
+      <td><code>punct</code></td>
+      <td>Punctuation</td>
+      <td>signed → .</td>
+    </tr>
+  </tbody>
+</table>
 
-$$\kappa = \frac{P_o - P_e}{1 - P_e}$$
+In a sentence like *The Chief signed the Treaty*, the verb *signed* is the `root`. *Chief* is the `nsubj` of *signed*, and *Treaty* is the `obj`. Each noun connects to *the* with a `det` tag. This gives you the basic grammatical skeleton of the sentence.
 
-In this formula, $P_o$ is the observed proportional agreement among annotators, and $P_e$ is the hypothetical probability of chance agreement. In morphological tagging of Greek and Latin, expert human annotators typically achieve $\kappa \ge 0.95$ on coarse UPOS tagging, $\kappa \approx 0.90$ on full morphosyntactic feature bundles, and $\kappa \approx 0.85$ on syntactic dependency heads. Disagreements are brought to an adjudication session where scholars debate the philological evidence and establish an agreed consensus gold standard.
+**Vocabulary.** *Relation Tag* — A label that describes the grammatical link between a head word and a modifier. *`root`* — The central verb that anchors an entire sentence.
 
-**Takeaway:** Inter-annotator agreement metrics quantify consensus among human annotators, establishing a statistically validated gold standard for machine evaluation.
+**Takeaway:** Standard relation tags like `nsubj`, `obj`, and `amod` label how words connect to their governing heads.
 
 ---
 
 ## **25 Content**
 
-**Edge Cases in Manual Annotation: Clitics, Crasis, and Tmesis**
+**The CoNLL-U Plain-Text Format**
 
-During manual parsing, several historical linguistic phenomena test the limits of rigid tokenization and dependency modeling:
+In computational linguistics, syntax trees are stored in an open plain-text format called **CoNLL-U**. Every sentence is written as a simple 10-column table.
 
-1. **Clitics and Accent Shifts:** In Ancient Greek, enclitics (*τε*, *γε*, *τις*, *ἐστι*) lean phonologically on the preceding word, frequently causing the host word to receive an additional acute accent on its final syllable (e.g., *ἄνθρωπός τις*). The editor must ensure that the accent on *ἄνθρωπός* is normalized to *ἄνθρωπος* for lemma lookup, while parsing *τις* as an independent indefinite pronoun.
-2. **Crasis:** When two words merge across a boundary (*τοὔνομα* from *τὸ ὄνομα*; *κἀμοί* from *καὶ ἐμοί*), the editor must split the token into two distinct CoNLL-U entries (multi-word token lines `1-2`, followed by sub-tokens `1` and `2`), assigning the lemma *ὁ* to the article component and *ὄνομα* to the noun.
-3. **Tmesis:** In early Greek epic and archaic Latin, prefix preverbs are separated from their verbs by intervening words (e.g., *κατὰ δάκρυ χέουσα* for *καταχέουσα δάκρυ*). In Universal Dependencies, the detached preposition *κατά* is tagged as `ADP` or `ADV` and linked to the verb *χέουσα* with the relation `compound:prt` (compound particle), preserving the semantic unity of the verb without violating word boundaries.
+Each line in a CoNLL-U file represents one token. Here are the ten columns:
 
-Properly documenting these edge cases in your manual parsing notes prevents systematic scoring penalties when testing automated taggers on Wednesday and Friday.
+<ol>
+  <li><strong>ID:</strong> Word number in the sentence (starting at 1).</li>
+  <li><strong>FORM:</strong> Word spelling on the page.</li>
+  <li><strong>LEMMA:</strong> Dictionary headword.</li>
+  <li><strong>UPOS:</strong> Universal part-of-speech tag.</li>
+  <li><strong>XPOS:</strong> Local language tag (often <code>_</code>).</li>
+  <li><strong>FEATS:</strong> Grammatical features list (or <code>_</code>).</li>
+  <li><strong>HEAD:</strong> The ID number of the governing head word (or <code>0</code> for root).</li>
+  <li><strong>DEPREL:</strong> Grammatical relation to the head word.</li>
+  <li><strong>DEPS:</strong> Extra dependency links (often <code>_</code>).</li>
+  <li><strong>MISC:</strong> Extra notes (like <code>SpaceAfter=No</code>).</li>
+</ol>
 
-**Takeaway:** Clitics, crasis, and tmesis require multi-word token segmentation and compound relation tagging to preserve morphological and syntactic integrity.
+Because CoNLL-U is plain text, any text editor or script can read it easily. On Wednesday, you will see how automated tools output CoNLL-U tables directly.
+
+**Vocabulary.** *CoNLL-U* — The standard 10-column plain-text file format used to store Universal Dependencies sentences.
+
+**Takeaway:** CoNLL-U is the global 10-column text format used to store tokens, lemmas, tags, and syntax trees.
 
 ---
 
 ## **26 Content**
 
-**Edge Cases in Manual Annotation: Ellipsis and Null Heads**
+**Building Your Manual Ground-Truth Table**
 
-Pre-modern authors frequently omit words that can be readily inferred from context, creating syntactic structures with elided verbs, omitted copulas, or null subject heads. Representing these null structures in dependency trees requires clear theoretical guidelines.
+Your main task for this week is to build a **manual ground-truth table** for a 20-word excerpt from your project document. This table serves as the benchmark against which automated tools will be tested.
 
-In Classical Greek and Latin, the copula (*εἰμί*, *sum*) is routinely omitted in nominal sentences (*Omnia praeclara rara* = "All excellent things [are] rare"). In Universal Dependencies:
+To build your table, follow these four simple steps:
+<ol>
+  <li><strong>Pick an Excerpt:</strong> Select 20 words in a row from your transcript that form complete clauses.</li>
+  <li><strong>Tokenize:</strong> Put each word on its own line, separating punctuation and splitting contractions.</li>
+  <li><strong>Look Up Lemmas:</strong> Check each word in your chosen dictionary (OED for English, TLFi for French) to find its canonical headword.</li>
+  <li><strong>Tag Grammar:</strong> Assign the right UPOS tag and record features like number, tense, and gender.</li>
+</ol>
 
-- The predicate adjective (*rara*) is promoted to the status of clause **head** (`root`).
-- The subject (*Omnia*) attaches to the predicate adjective as `nsubj`.
-- The modifying adjective (*praeclara*) attaches to *Omnia* as `amod`.
+Do not guess from memory. Check your dictionary and write down your reasons in your notes.
 
-In cases of **gapping** (where a lexical verb is expressed in the first coordinate clause but elided in subsequent coordinate clauses, e.g., *Caesar vicit Gallos, Pompeius Hispanos*), Universal Dependencies utilizes the `orphan` relation. The subject *Pompeius* attaches to the matrix verb *vicit* as a conjunct clause (`conj`), while the object *Hispanos* attaches to *Pompeius* with the relation `orphan`. Understanding these formal conventions allows human editors to construct valid dependency trees even when key syntactic elements are physically absent from the manuscript.
+**Vocabulary.** *Ground Truth* — An authoritatively verified dataset built by hand to test automated programs.
 
-**Takeaway:** Universal Dependencies handles ellipsis and copula omission by promoting predicate words to clause heads and utilizing the `orphan` relation for gapped arguments.
+**Takeaway:** Your 20-word manual ground-truth table provides the trusted benchmark for testing automated software.
 
 ---
 
 ## **27 Content**
 
-**Creating the Ground-Truth Benchmark Dataset**
+**Writing Rules in `LEMMATIZATION_POLICIES.md`**
 
-To prepare for the comparative cycle of Topic 8, you will construct an uncorrupted, representative ground-truth benchmark dataset. The quality of any computational evaluation depends strictly on the representative breadth of its reference test set.
+When annotating historical texts, you will run into questions that need consistent answers. Should proper names stay capitalized in lemmas? How should archaic contractions be split? Which dictionary edition sets the rules?
 
-Your benchmark dataset should comprise approximately 200–300 words of continuous text, selected from the corpus you are editing for your term portfolio. The passage must be chosen to include a balanced distribution of linguistic phenomena:
+To keep your work consistent, record these decisions in a file called `LEMMATIZATION_POLICIES.md`.
 
-- Standard regular nouns and verbs across major declensions and conjugations.
-- At least three closed-class particles, prepositions, or subordinating conjunctions.
-- At least one instance of morphological ambiguity (e.g., case syncretism or homophonous verbal forms).
-- At least one complex syntactic structure (e.g., hyperbaton, a participial clause, or a coordinated compound sentence).
+Your policy file should answer three simple questions:
+<ol>
+  <li><strong>Dictionary Authority:</strong> Which dictionary governs headwords (e.g., OED, TLFi)?</li>
+  <li><strong>Capitalization Rules:</strong> Are proper names capitalized in lemmas (e.g., *France*, *Hopson*) while common nouns stay lower-case?</li>
+  <li><strong>Contraction Rules:</strong> Exactly where are contractions split, and how are missing letters recorded?</li>
+</ol>
 
-Once selected, you will parse every token by hand, recording the surface form, canonical lemma, UPOS tag, Perseus 9-position XPOS tag, UD FEATS string, governing HEAD index, and DEPREL relation. This manual parse will be locked as the definitive ground-truth against which automated systems will be evaluated.
+Writing these choices down ensures that your edition remains consistent across every page.
 
-**Takeaway:** A representative ground-truth dataset spanning regular paradigms, ambiguous forms, and complex syntax is the necessary benchmark for evaluating automated NLP pipelines.
+**Vocabulary.** *Policy Ledger* — A document recording your project's rules to keep annotations consistent.
+
+**Takeaway:** Document your dictionary sources, capitalization rules, and contraction splits in `LEMMATIZATION_POLICIES.md`.
 
 ---
 
 ## **28 Content**
 
-**Documenting the Editorial Annotation Schema**
+**Recording Difficult Readings and Editorial Doubts**
 
-No benchmark dataset is complete without an explicit annotation schema manual. An annotation manual documents the editorial decisions, dictionary editions, and taxonomy interpretations applied during manual parsing, ensuring that another scholar could replicate the dataset with identical results.
+Even skilled editors sometimes disagree on how to parse an old word. A word might fit two parts of speech, or an old sentence might allow two different readings.
 
-Your editorial schema document must record:
+When two people tag the same text separately, the percentage of words where they agree is called **editor agreement**. In digital humanities research, high agreement (often 90% or higher) shows that the project rules are clear.
 
-1. **Lexical Authority:** The exact dictionary version and URL resolver used for lemma selection (e.g., LSJ 1940 via Perseus/Logeion; Lewis & Short 1879).
-2. **Tokenization Rules:** How punctuation, enclitics, elisions, and crasis were segmented into tokens.
-3. **Taxonomic Disambiguation:** How ambiguous parts of speech were categorized (e.g., whether participles were tagged as `VERB` with `VerbForm=Part` or as `ADJ`; whether proper names were tagged as `NOUN` or `PROPN`).
-4. **Dependency Conventions:** How coordinate conjunctions, vocatives, and prepositional phrases were attached to head nodes.
+When you find a word that has two reasonable readings, do not hide the problem. Put your preferred reading in your table, but add a brief note explaining the alternative. Recording these questions shows scholarly honesty and helps future readers understand difficult spots.
 
-Version-controlling this schema document alongside your CoNLL-U and TEI XML files in your Git repository guarantees scientific transparency and replicability.
+**Vocabulary.** *Editor Agreement* — The percentage of words where two independent scholars assign matching tags. *Textual Crux* — A puzzling or ambiguous passage that has more than one valid reading.
 
-**Takeaway:** A comprehensive annotation manual documents lexical authorities and disambiguation rules, ensuring transparency and reproducibility for the gold-standard dataset.
+**Takeaway:** When an old word allows two different readings, record your top choice and note the alternative reading clearly.
 
 ---
 
 ## **29 Content**
 
-**Preparing Ground-Truth Data for Automated Testing**
+**Getting Ready for Wednesday's Automated NLP Test**
 
-To enable automated scoring on Wednesday and Friday, your manual parse must be exported into standardized machine-readable files. You will prepare two synchronized representations of your gold standard:
+Today's manual parsing is not a standalone drill. It sets up the rest of the week's experiments. Over the next two meetings, you will run computer tools over this exact same passage.
 
-1. **`gold_standard.conllu`:** A strictly formatted 10-column CoNLL-U file containing every token, lemma, UPOS, XPOS, FEATS, HEAD, and DEPREL relation.
-2. **`gold_standard_tei.xml`:** A valid TEI P5 Chapter 18 XML document wrapping the passage in `<s>`, `<w>`, and `<pc>` elements with full `att.linguistic` attributes (`@lemma`, `@pos`, `@msd`, `@xml:id`).
+On Wednesday, in Lesson 8.2, you will run an automated rule-based tagger (like TreeTagger or SpaCy) on your 20-word excerpt. You will compare the computer's results directly against today's manual table. Every place where the computer disagrees with your work will be examined. Did the tool choke on an old spelling, or did it pick the wrong homograph?
 
-You can verify the syntactic validity of your CoNLL-U file using the official Universal Dependencies validation script:
+On Friday, in Lesson 8.3, you will test an AI model on the same text. Having a trusted manual ground truth is the only way to measure how well these automated tools perform.
 
-```bash
-python3 shared/scripts/validate_conllu.py --lang grc gold_standard.conllu
-```
-
-Once validated, these gold files will serve as the exact evaluation keys for calculating precision, recall, macro-F1 scores, and Unlabeled/Labeled Attachment Scores (UAS/LAS) across deterministic and AI-assisted pipelines.
-
-**Takeaway:** Exporting manual annotations to validated CoNLL-U and TEI XML files creates the machine-readable evaluation keys required for automated benchmarking.
+**Takeaway:** Today's manual ground truth is the benchmark you will use to evaluate automated tools on Wednesday and Friday.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: The Philologist as the Ground Truth**
+**The Scholar as the Ground Truth**
 
-Today’s manual exercise establishes the foundational methodology of computational philology: computational algorithms do not create linguistic truth; they attempt to approximate the analytical judgments of human philologists. Without an expertly curated, manually verified ground truth, it is impossible to determine whether an automated tagger is operating at 95% accuracy or failing systematically on historical dialect forms.
+Computers make linguistic tagging fast. Modern programs can process thousands of words in a few seconds. Yet all of that automation depends on human scholarship.
 
-By parsing, lemmatizing, and treebanking a passage by hand, you have mastered the anatomical structure of ancient inflected languages and learned the international standards (Universal Dependencies, Perseus XPOS, TEI P5 Chapter 18) that govern digital editions.
+A computer does not understand the meaning of a 1791 French Revolutionary decree. It does not feel the personal warmth in Maud Lewis's letters, nor the legal weight of the 1752 Treaty. It simply follows statistical patterns learned from modern text. When an algorithm runs into old spelling or unusual grammar, it often breaks down.
 
-On Wednesday (Lesson 8.2), you will pass this identical text through deterministic and rule-based NLP engines—including Morpheus, TreeTagger, and the Classical Language Toolkit (CLTK)—to measure how well rule cascades and Markov models reproduce your manual parsing decisions. On Friday (Lesson 8.3), you will evaluate large language models and neural transformers against this same ground truth, investigating precision, recall, and morphological hallucination.
+The human editor remains the essential foundation of the digital edition. By looking up lemmas, tagging parts of speech, and encoding them in TEI XML, you create the trusted ground truth that computers cannot produce alone. Today you laid that foundation; tomorrow you will put automated tools to the test against it.
 
-**Takeaway:** Human philological expertise creates the gold-standard reference against which all deterministic, statistical, and neural models must be measured.
+**Takeaway:** Computers process text quickly, but only human editors possess the historical knowledge to create true ground-truth data.
 
 ---
-
-## References
-
-Celano, G. G. A. (2014). *The Ancient Greek and Latin Dependency Treebank*. Perseus Digital Library.
-
-Crane, G. (1991). Generating and parsing Classical Greek. *Literary and Linguistic Computing*, 6(4), 243–245.
-
-de Marneffe, M.-C., Manning, C. D., Nivre, J., & Zeman, D. (2021). Universal Dependencies. *Computational Linguistics*, 47(2), 255–308.
-
-Haug, D. T. T., & Jøhndal, M. (2008). Creating a parallel treebank of the Old Indo-European Bible translations (PROIEL). In *Proceedings of the Second Workshop on Language Technology for Cultural Heritage Data (LaTeCH 2008)*, 27–34.
-
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and interchange*. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 8.2 Teaching Plan (2026-10-28)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #21 (Lesson 8.2 &mdash; Deterministic NLP Tagging, Lemmatization, and Universal Dependencies)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Wednesday, October 28, 2026</span>
+                <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 8 (Lemmatization) &middot; Step 2 of 3 (Deterministic)</span>
+                <span class="badge">Milestone: tagger_pipeline.py + nlp_baseline.conllu + NLP_BENCHMARK.md</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students arrive with Tuesday's manual ground truth committed on <code>main</code>: <code>LEMMATIZATION_POLICIES.md</code> and the hand-parsed 20-word table (Token, Lemma, UPOS, FEATS). They know what each word's true dictionary headword and grammatical feature bundle is. None has yet run a Python natural language processing pipeline or exported CoNLL-U syntactic trees.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student writes and executes a 10-line Python script (<code>tagger_pipeline.py</code>) using SpaCy or TreeTagger over their 20-word excerpt, outputs a 10-column <code>nlp_baseline.conllu</code> file, diffs the machine predictions against Tuesday's ground truth, and writes <code>NLP_BENCHMARK.md</code> calculating token-level accuracy and diagnosing Out-of-Vocabulary errors.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Kraftwerk, &ldquo;Computer World&rdquo; / &ldquo;Computerwelt&rdquo;</strong> (1981, Kling Klang Studio). Landmark early electronic music exploring automated data processing and algorithmic routines.</li>
+            <li><strong>Pedagogical connection:</strong> Deterministic automation: an algorithm applies statistical models and rules without fatigue or variation. Every error can be traced to missing training data or rigid suffix rules, but the machine executes without understanding meaning.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;When a machine parses fifty thousand words in two seconds without human judgment, what happens when it meets an eighteenth-century spelling?&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE DETERMINISTIC OBJECTIVE: SCALABLE PROCESSING AUDITED BY TRUTH</h3>
+        <p>Hand-parsing works for twenty words; analyzing a complete archive requires computational automation. Deterministic NLP pipelines provide speed, reproducibility, and standard Universal Dependencies output. However, because modern tools are trained on contemporary data, they make systematic errors on historical documents. By measuring machine accuracy against Tuesday's ground truth, students learn to audit computational tools rigorously.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Ground truth remains sovereign:</strong> Never alter Tuesday's manual ground-truth table to match the computer's mistakes. The human ground truth is the benchmark; discrepancies measure the algorithm's error rate.<br>
+        <strong>2. Language-specific models:</strong> Ace must run French models (<code>fr_core_news_sm</code> or French TreeTagger); Andromeda and Olyvia must run English models (<code>en_core_web_sm</code>). Never run English pipelines on French text.<br>
+        <strong>3. Token alignment gate:</strong> Ensure token counts match between the manual table and automated output before calculating accuracy. If the computer merged or split tokens differently, diagnose the tokenization failure first.<br>
+        <strong>4. Assignment continuity:</strong> The accuracy metrics and discrepancy tables produced today form the middle pillar of Assignment: Module 8 (Linguistic Markup), due Friday, October 30, at 11:00 PM.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 &ndash; 10:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>From Human Craft to Machine Speed</td>
+                <td class="desc-col">
+                    Welcome students. Springboard from Kraftwerk: project a thousand-word document parsed in 0.4 seconds. Ask: <em>&ldquo;It was incredibly fast, but is it right? How do we know which words the computer misunderstood?&rdquo;</em><br>
+                    Outline today's roadmap: <strong>Python pipeline script &rarr; CoNLL-U export &rarr; side-by-side diff against Tuesday's ground truth &rarr; benchmark report</strong>.
+                </td>
+                <td class="target-col">Whiteboard roadmap; concept alignment</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:36 &ndash; 10:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Running SpaCy and Inspecting CoNLL-U</td>
+                <td class="desc-col">
+                    Open VS Code on projector. Live-code a 10-line Python script loading <code>en_core_web_sm</code> and processing a 5-word sentence (<em>All Treaties shall be renewed</em>).<br>
+                    Print token text, predicted lemma, UPOS tag, and dependency relation. Show displaCy SVG tree rendering. Demonstrate printing the 10-column CoNLL-U exchange format.
+                </td>
+                <td class="target-col">Live Python execution and CoNLL-U table on screen</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:46 &ndash; 10:56<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: Pipeline Setup<br>Authoring tagger_pipeline.py</td>
+                <td class="desc-col">
+                    Students write <code>tagger_pipeline.py</code> in their project repositories. Configure model loading: Ace loads French (<code>fr_core_news_sm</code>), Andromeda and Olyvia load English (<code>en_core_web_sm</code>).<br>
+                    Run the script on their 20-word excerpt. Output predictions to <code>nlp_baseline.conllu</code> and convert to <code>nlp_baseline.xml</code> using TEI <code>&lt;w&gt;</code> elements. <strong>Circulate:</strong> verify environment dependencies and model downloads.
+                </td>
+                <td class="target-col">Generated <code>nlp_baseline.conllu</code> and <code>nlp_baseline.xml</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">10:56 &ndash; 11:12<br>(16 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Side-by-Side Diff Audit &amp; Scoring</td>
+                <td class="desc-col">
+                    Students execute a side-by-side diff in VS Code:<br>
+                    <code>code --diff ground_truth_manual.xml nlp_baseline.xml</code><br>
+                    Audit each discrepancy: count matching lemmas and matching UPOS tags. Calculate token-level POS accuracy and Lemma accuracy percentages. Initialize <code>NLP_BENCHMARK.md</code> recording results in a discrepancy table.
+                </td>
+                <td class="target-col">Completed accuracy calculations and discrepancy table</td>
+            </tr>
+            <tr>
+                <td class="time-col">11:12 &ndash; 11:17<br>(5 mins)</td>
+                <td class="activity-col">Phase 5: Diagnostics<br>Diagnosing OOV and Suffix Errors</td>
+                <td class="desc-col">
+                    Class diagnostic discussion: categorize why the algorithms failed on specific words. Did the model fail because of Out-of-Vocabulary historical spellings (<em>shew'd</em>, <em>décrétoit</em>)? Did it confuse homographs? Did clitics split incorrectly?<br>
+                    Show that running the model on Module 6 normalized text rescues many OOV errors.
+                </td>
+                <td class="target-col">Error taxonomy recorded in <code>NLP_BENCHMARK.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">11:17 &ndash; 11:20<br>(3 mins)</td>
+                <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Friday Preview</td>
+                <td class="desc-col">
+                    Stage gate commit:<br>
+                    <code>git add tagger_pipeline.py nlp_baseline.conllu nlp_baseline.xml NLP_BENCHMARK.md &amp;&amp; git commit -m "Week 8 Step 2: deterministic NLP pipeline and benchmark audit"</code><br>
+                    <strong>Preview Friday (Meeting #22):</strong> Testing large language model AI prompts on this same passage and executing the three-way comparative audit.
+                </td>
+                <td class="target-col">Clean commit on <code>main</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Starter Projection Skeletons &amp; Live Reference</h3>
+
+    <div class="grid-2">
+        <div class="card">
+            <h4>Starter Projection Card A: 10-Line Python Pipeline</h4>
+<pre>import spacy
+
+nlp = spacy.load("en_core_web_sm")  # or fr_core_news_sm
+text = "All Treaties shall be renewed by the Governor."
+doc = nlp(text)
+
+print(f"{'Token':12} {'Lemma':12} {'UPOS':8} {'Deprel':8}")
+print("-" * 44)
+for token in doc:
+    print(f"{token.text:12} {token.lemma_:12} {token.pos_:8} {token.dep_:8}")</pre>
+        </div>
+        <div class="card">
+            <h4>Starter Projection Card B: Discrepancy Log in NLP_BENCHMARK.md</h4>
+<pre>| Token | Manual Truth (8.1) | Machine Prediction (8.2) | Error Diagnosis |
+|---|---|---|---|
+| your | lemma: you (PRON) | lemma: your (PRON) | Lexicographical policy |
+| décrétoit | lemma: décréter (VERB) | lemma: décrétoit (NOUN) | OOV historical suffix |
+| shew'd | lemma: show (VERB) | lemma: shew'd (VERB) | OOV identity fallback |</pre>
+        </div>
+    </div>
+
+    <div class="card mt-3">
+        <h4>Pedagogical Checkpoints &amp; Cohort Diagnostics</h4>
+        <ul>
+            <li><strong>Ace (1791 French decree):</strong> Watch for eighteenth-century imperfect verb endings (<em>-oit</em>) causing OOV noun misclassifications. Verify that elided determiners (<em>l'</em>) are split from nouns.</li>
+            <li><strong>Olyvia (Maud Lewis letters):</strong> Check whether informal contractions (<em>can't</em>, <em>didn't</em>) are split accurately into auxiliary verbs and negative particles, and audit possessive pronoun headword conventions.</li>
+            <li><strong>Andromeda (1752 Treaty):</strong> Audit legal modal auxiliaries (<em>shall</em>, <em>doth</em>) and verify whether archaic spelling slips in the diplomatic transcript triggered OOV identity fallback in SpaCy.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

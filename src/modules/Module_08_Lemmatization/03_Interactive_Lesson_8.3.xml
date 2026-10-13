@@ -1,0 +1,1785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_8.3</text></category></question>
+<question type="description"><name><text>01 Content: The Third Tier: Prompting Neural Models for Grammar</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Third Tier: Prompting Neural Models for Grammar</h3>
+<p>Welcome to the final stage of Week Eight. On Tuesday, you parsed and lemmatized twenty words by hand using scholarly dictionaries. That manual work gave you an authoritative ground truth. On Wednesday, you ran deterministic NLP pipelines like TreeTagger and SpaCy. You saw their speed, but you also saw them stumble on Out-of-Vocabulary historical spellings.</p>
+<p>Today, we take Step 3 of our three-step cycle: AI models. In VS Code Antigravity, we can prompt AI models to analyze historical grammar.</p>
+<p>Unlike deterministic taggers that follow rigid suffix rules, modern language models were trained on billions of words from historical book. Archives. They possess remarkable intuition for archaic vocabulary. However, they bring serious risks, including invented lemmas and unrequested modernizations. Today, you will test an AI model on your text, execute a three-way comparativ. Finalize your linguistic markup assignment.</p>
+<p><strong>Vocabulary.</strong> <em>Language Model (LLM)</em>. An AI model trained on vast text datasets that predicts and generates natural language. <em>Three-Way Comparative Audit</em> — Comparing annotations across three tiers: manual human craft, deterministic NLP scrip. Generative ai models.</p>
+<p><strong>Takeaway:</strong> Large language models bring powerful intuition to historical language, but their outputs must be audited against manual ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The Friday Cycle: Benchmarking Generative AI Against Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the methodological goal of benchmarking generative AI and neural models against manual ground truth in Topic 8?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Friday cycle benchmarks neural transformers and LLMs against manual ground truth to quantify parsing precision, recall, and hallucination rates.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To establish a rigorous evaluation harness that measures precision, recall, and F1 scores, identifying the boundaries between neural reasoning and morphological hallucination.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The objective is to quantify model performance objectively against the manual gold standard, exposing exact strengths and error modes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To prove that human philologists are unnecessary and can be replaced immediately by unmonitored chatbots.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Human philological ground truth is the indispensable benchmark that makes evaluation possible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To train AI models to generate entirely fictitious historical manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital philology focuses on accurate representation and analysis of authentic historical texts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To eliminate all computational evaluation metrics in favor of subjective impressions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The lab builds a quantitative benchmarking harness based on mathematical precision, recall, and F1 metrics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: How Large Language Models Understand Historical Prose</text></name><questiontext format="html"><text><![CDATA[
+<h3>How Large Language Models Understand Historical Prose</h3>
+<p>How can an AI model read eighteenth-century French or archaic legal Eng. A rule-based tool failed? The secret lies in pre-training data.</p>
+<p>Deterministic taggers like TreeTagger rely on relatively small, modern dictionaries. If a word like <em>décrétoit</em> is missing from its dictionary, the tool fails. By contrast, AI models have ingested millions of digitized historical books, including eighteenth-century F. Colonial treaties.</p>
+<p>During training, the model learned statistical associations across centuries of language change. It knows that eighteenth-century French authors wrote <em>-oit</em> where modern writers use <em>-ait</em>. It knows that <em>shew'd</em> means <em>showed</em>. This broad historical exposure gives neural models a significant advantage over simple lookup. Reading archival prose.</p>
+<p><strong>Vocabulary.</strong> <em>Pre-Training Data</em> — The massive collection of digital book. Historical documents used to train a neural language model. <em>Context Window</em> — The amount of surrounding text a model considers when analyzing words.</p>
+<p><strong>Takeaway:</strong> Language models succeed on historical prose because their training data includes centuries of digitized historical literature.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Neural Architectures in Classical Philology: From RNNs to Transformers</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are transformer self-attention mechanisms superior to recurrent neural networks (RNNs/Bi-LSTMs) for parsing classical historical languages?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Transformer self-attention mechanisms resolve long-distance hyperbaton by computing direct dependencies between words across entire sentences simultaneously.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Self-attention computes direct dependency scores between all word pairs simultaneously across the entire sentence, easily resolving long-distance hyperbaton.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Transformers compute token compatibility in parallel regardless of linear distance, avoiding the gradient degradation that causes RNNs to lose long-distance dependencies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Transformers process only one single character at a time and ignore sentence context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transformers process whole sentences simultaneously with full bidirectional context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;RNNs are too fast and accurate for historical research purposes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. RNNs struggle with long-distance syntactic dependencies in languages with flexible word order.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Transformers do not require any electricity or computing hardware to run.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transformers require matrix multiplication hardware (CPUs/GPUs); their advantage is architectural attention modeling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: Structured Prompt Engineering for Linguistic Markup</text></name><questiontext format="html"><text><![CDATA[
+<h3>Structured Prompt Engineering for Linguistic Markup</h3>
+<p>While an AI model understands historical vocabulary, it will not output TEI XML automatically unless you instruct it with care. In computational editing, we use <strong>structured prompt engineering</strong>.</p>
+<p>A structured prompt gives the model three essential things:</p>
+<ol>
+  <li><strong>Role Definition:</strong> Instruct the model to act as an expert computational philologist and TEI encoder.</li>
+  <li><strong>Task Specification:</strong> Instruct the model to tokenize the passage, look up canonical lemmas, and assign Universal Dependencies tags.</li>
+  <li><strong>Output Format:</strong> Explicitly demand valid TEI P5 XML wrapped in <code>&lt;s&gt;</code>, <code>&lt;w&gt;</code>, and <code>&lt;pc&gt;</code> elements.</li>
+</ol>
+
+<p>Without strict prompt formatting, models tend to produce conversational essays or unformatted markdown tables. A structured prompt forces the model to return clean, machine-readable XML.</p>
+<p><strong>Vocabulary.</strong> <em>System Prompt</em> — High-level instructions provided to an AI model that define its p. Required output format. <em>Structured Output</em> — Machine-readable output (such as valid XML or JSON) constrained by strict formatting rules.</p>
+<p><strong>Takeaway:</strong> Structured prompts define the model's expert role, specify its linguistic task, and enforce strict TEI XML output formatting.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: Specialized Neural Encoders: GreBERTa and PhilBERTa</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do specialized neural encoders like GreBERTa and PhilBERTa achieve high-accuracy, deterministic morphological tagging?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Specialized neural encoders like GreBERTa leverage bidirectional masked pre-training on classical corpora to deliver highly accurate, deterministic morphological classification.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They utilize bidirectional transformer encoders pre-trained on classical Greek/Latin corpora and fine-tuned on dependency treebanks to classify tokens from fixed tagsets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. By training on historical corpora (TLG, Perseus) and fine-tuning on treebanks (AGLDT, PROIEL), encoder models predict UPOS and FEATS without generative hallucinations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They translate ancient texts into modern French before looking up English dictionary definitions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GreBERTa and PhilBERTa operate directly on ancient Greek and Latin token embeddings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They generate random text completions by sampling from modern social media posts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These models are encoder-only classifiers trained on curated historical literary corpora.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete all inflected endings and replace them with modern punctuation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They perform token classification to assign standard UPOS and morphological feature tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Providing the Universal Dependencies Schema in Prompts</text></name><questiontext format="html"><text><![CDATA[
+<h3>Providing the Universal Dependencies Schema in Prompts</h3>
+<p>Never assume an AI model remembers the exact tags you want. Large models know dozens of different grammar tagsets, from older Penn Treebank tags to French national standards.</p>
+<p>To guarantee consistent output, provide the exact <strong>Universal Dependencies (UD)</strong> tagset directly in your prompt. List the core UPOS tags: <code>NOUN</code>, <code>VERB</code>, <code>ADJ</code>, <code>ADV</code>, <code>PRON</code>, <code>DET</code>, <code>AUX</code>, <code>ADP</code>, <code>CCONJ</code>,. <code>punct</code>.</p>
+<p>Instruct the model explicitly: <em>Use only official Universal Dependencies UPOS tags in the pos attribute</em>. When the model has the allowed tags in its prompt, it will not invent non-standard labels like <code>PREP</code> or <code>ARTICLE</code>. This keeps the AI output aligned with your Tuesday ground truth and Wednesday NLP benchmark.</p>
+<p><strong>Takeaway:</strong> Including the 17 Universal Dependencies UPOS tags in your prompt prevents the model from inventing non-standard grammatical labels.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Sequence-to-Sequence String Transduction: GreTA and PhilTA</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do sequence-to-sequence models like GreTA and PhilTA solve the lemmatization of irregular and suppletive verbs?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Sequence-to-sequence transformers like GreTA treat lemmatization as contextual string transduction, decoding canonical dictionary headwords character by character.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They formulate lemmatization as contextual string transduction, decoding canonical dictionary headwords character by character from bidirectional sentence embeddings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. GreTA uses a T5 encoder-decoder architecture to generate lemmas dynamically at the character level, handling irregular principal parts and ablaut without intermediate POS bottlenecks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They search an unchangeable static lookup table and fail whenever an irregular verb is encountered.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Sequence-to-sequence decoders generate character sequences dynamically, generalizing beyond static tables.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They assign every verb the generic lemma 'verbum'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GreTA generates precise dictionary headwords (e.g. mapping ἦλθον to ἔρχομαι).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They require human users to type the lemma before they can output the sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GreTA is fully automated and infers lemmas directly from sentence context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Enforcing Strict Negative Constraints</text></name><questiontext format="html"><text><![CDATA[
+<h3>Enforcing Strict Negative Constraints</h3>
+<p>In prompt engineering, what you forbid is just as important as what you request. These boundaries are called <strong>negative constraints</strong>.</p>
+<p>Language models are trained to be helpful assistants. When they see historical spelling mistakes or scribal abbreviations, their default instinct is to "fix" the text for modern readers. In scholarly editing, this instinct corrupts historical evidence!</p>
+<p>Include these four negative constraints in your prompt:</p>
+<ol>
+  <li><strong>DO NOT alter surface text:</strong> Preserve the exact historical characters, spelling slips, and accents inside the <code>&lt;w&gt;</code> tags.</li>
+  <li><strong>DO NOT invent lemmas:</strong> Use modern canonical dictionary headwords; do not invent archaic lemmas like <em>faisoir</em>.</li>
+  <li><strong>DO NOT drop punctuation:</strong> Enclose every comma, period, and colon in a <code>&lt;pc&gt;</code> tag.</li>
+  <li><strong>DO NOT wrap in markdown fences:</strong> Output raw XML without conversational introductions or explanations.</li>
+</ol>
+
+<p>Negative constraints rein in the model's helpful impulses and enforce scholarly discipline.</p>
+<p><strong>Vocabulary.</strong> <em>Negative Constraint</em>. An explicit instruction in a prompt that forbids unwanted model behaviors, such as modernizing spelling or dropping punctuation.</p>
+<p><strong>Takeaway:</strong> Negative constraints prevent AI models from modernizing historical spellings, dropping punctuation, or adding conversational filler.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: State-of-the-Art Latin Parsing: The Cracovia System</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What dual-head architecture enabled the Cracovia system to achieve the top performance (F1 = 0.9627) in the EvaLatin 2022 competition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Cracovia system combines XLM-RoBERTa encoders with multi-task fine-tuning on LASLA and UD treebanks to achieve state-of-the-art Latin morphological tagging.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It fine-tuned XLM-RoBERTa with shared representations across two specialized heads: one for coarse UPOS and one for fine-grained FEATS morphosyntactic bundles.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The Cracovia system shares transformer representations across joint UPOS and FEATS prediction heads, learning mutual grammatical constraints across the LASLA and UD treebanks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It disabled all neural network layers and relied exclusively on a 19th-century printed dictionary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cracovia is a state-of-the-art transformer architecture built upon cross-lingual XLM-RoBERTa encoders.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It restricted Latin parsing to simple three-word sentences from elementary school textbooks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cracovia was benchmarked on complex classical Latin prose and poetry across 1.7 million LASLA tokens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaced Latin case categories with modern English word-order rules.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cracovia explicitly models Latin nominal cases, verbal moods, and agreement features.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Invented word Modes in Historical Lemmatization</text></name><questiontext format="html"><text><![CDATA[
+<h3>Invented word Modes in Historical Lemmatization</h3>
+<p>The greatest danger when using AI in scholarly editing is <strong>invented word</strong>. A inv. A model generates plausible-sounding output that is factually wrong or non-existent.</p>
+<p>In linguistic markup, invented words take specific forms:</p>
+<ul>
+  <li><strong>Invented Lemmas:</strong> The model invents a fake Latin or Old French root word that never existed in any dictionary.</li>
+  <li><strong>Confabulated Meanings:</strong> The model invents an imaginary historical meaning to explain an unusual spelling.</li>
+  <li><strong>Ghost Morphemes:</strong> The model breaks a simple word into non-existent prefixes and suffixes.</li>
+</ul>
+
+<p>Because language models write with total grammatical confidence, invented words can easily fool unwary editors. Every lemma produced by an AI model must be checked against an authoritative dictionary (OED or TLFi).</p>
+<p><strong>Vocabulary.</strong> <em>Invented word</em> — Confidently generated model output that is factually false, ungrounded, or non-existent in reality. <em>Lexical Verification</em> — Checking model-generated words against an authoritative reference dictionary.</p>
+<p><strong>Takeaway:</strong> AI models can confidently invent non-existent lemmas; every AI-generated headword must be verified against an authoritative lexicon.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Generalized Large Language Models in Morphological Analysis</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do generalized Large Language Models (LLMs) differ fundamentally from dedicated neural parsers like GreBERTa or Cracovia?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;General-purpose LLMs possess broad emergent philological reasoning, but their probabilistic sampling creates non-deterministic outputs that require systematic validation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;LLMs rely on in-context learning and autoregressive token sampling from massive multilingual pre-training rather than fixed tag classification over formal grammar rules.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. LLMs generate text probabilistically from broad pre-training weights, exhibiting emergent philological reasoning but introducing potential formatting drift and hallucination risks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;LLMs can only process numbers and cannot understand text or language.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs excel at linguistic and semantic tasks due to extensive pre-training.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Dedicated parsers generate conversational explanations, while LLMs output only binary machine code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs produce natural language explanations; dedicated parsers output structured tagsets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;There are no differences; LLMs and dedicated parsers use identical software and training datasets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dedicated parsers are task-specific discriminative models; LLMs are massive generative autoregressive models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: The Modernizing error Hazard in Historical Linguistics</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Modernizing error Hazard in Historical Linguistics</h3>
+<p>A subtle form of invented word is <strong>modernizing error</strong>. Modernizing. A model treats a genuine historical feature as an error and silently "corrects" it.</p>
+<p>In Andromeda's 1752 Treaty, the scribe wrote <em>acknowledg'd</em>. An AI model might silently change the surface text to <em>acknowledged</em> inside the <code>&lt;w&gt;</code> tag, erasing the historical apostrophe. In Maud Lewis's letters, an informal phrase like <em>them things</em> might be silently converted to <em>those things</em>.</p>
+<p>In Ace's 1791 decree, an 18th-century verb form like <em>décrétoit</em> might be silently changed to <em>décrétait</em>. When an editor asks for linguistic markup, they want tags attached to the historical ink, not a modern rewrite. Tracking modernizing errors is one of your main tasks during today's audit.</p>
+<p><strong>Vocabulary.</strong> <em>Modernizing error</em> — An autom. A model inappropriately modernizes or standardizes genuine historical language features.</p>
+<p><strong>Takeaway:</strong> Watch out for hypercorrection: AI models often try to smooth away historical spellings, contractions, and scribal quirks.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: The Precision-Recall Paradox in LLM POS Tagging</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What characterizes the 'Precision-Recall Paradox' observed when evaluating zero-shot LLMs on Latin and Greek POS tagging?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;LLMs exhibit near-perfect precision but poor recall in zero-shot POS tagging, frequently skipping or dropping ambiguous historical tokens.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;LLMs achieve near-perfect precision (&gt;99%) when asserting tags, but suffer low recall (&lt;89%) because they frequently drop or skip ambiguous tokens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Zero-shot LLMs are highly conservative: their predictions are almost always accurate, but they omit difficult or ambiguous historical tokens, reducing overall F1 below dedicated taggers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;LLMs achieve 100% recall on all words but have 0% precision on common nouns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The paradox is high precision paired with lower recall due to token dropping.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;LLMs execute tag predictions faster than dedicated C-based tools like TreeTagger.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLM inference is substantially slower and more computationally intensive than local taggers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;LLMs produce identical precision and recall scores regardless of prompt design.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prompt engineering and few-shot exemplars significantly alter LLM recall and precision balances.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Handling Out-of-Vocabulary Terms with Generative Context</text></name><questiontext format="html"><text><![CDATA[
+<h3>Handling Out-of-Vocabulary Terms with Generative Context</h3>
+<p>While AI models have risks, they also possess genuine strengths. Their greatest advantage over deterministic taggers is their ability to handle Out-of-Vocabulary historical words.</p>
+<p>On Wednesday, you saw that TreeTagger failed on <em>décrétoit</em>. <em>shew'd</em> because those exact spellings were missing from its modern dictionary. A AI model does not suffer from this rigid limitation.</p>
+<p>Because the AI model reads the entire sentence, it understands the syntax. It sees that <em>décrétoit</em> occupies the finite verb slot following the subject <em>l'Assemblée</em>. It recognizes the historical <em>-oit</em> suffix as an older imperfect ending. It correctly deduces that the base lemma is <em>décréter</em>. Where deterministic tools fail, generative models use context to solve historical puzzles.</p>
+<p><strong>Takeaway:</strong> Generative AI models use full sentence context to deduce correct lemmas for historical spellings that break deterministic taggers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Zero-Shot vs. Few-Shot In-Context Prompting</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does providing few-shot annotated exemplars in an LLM prompt improve morphological tagging performance?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Few-shot prompting with annotated exemplars anchors LLM output to standard tagsets, dramatically improving recall and citation consistency.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Exemplars anchor the model's output distribution, enforcing strict tagset vocabularies, boosting recall on closed-class words, and standardizing dictionary citation forms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Few-shot demonstrations constrain the LLM to valid UD tags, prevent invented labels, recover missing particles, and ensure adherence to canonical LSJ/OLD lemma conventions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Exemplars permanently retrain the base weights of the remote cloud model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. In-context learning conditions the active inference context; it does not update base model weights.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Exemplars reduce prompt length and make the API call free of charge.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adding exemplars increases prompt token count and API cost, but significantly improves accuracy and tagset compliance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Exemplars force the model to respond exclusively in Latin poetry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Exemplars guide the model to output structured JSON or CoNLL-U annotations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Prompting for TEI XML vs JSON Output</text></name><questiontext format="html"><text><![CDATA[
+<h3>Prompting for TEI XML vs JSON Output</h3>
+<p>When designing an AI pipeline, you have two choices for output format: requesting raw TEI XML directly, or requesting structured JSON that you convert to XML with a script.</p>
+<p>Requesting TEI XML directly is fast and convenient:</p>
+<pre><code class="language-xml">&lt;w lemma=&quot;promise&quot; pos=&quot;VERB&quot;&gt;promis'd&lt;/w&gt;
+</code></pre>
+<p>However, models sometimes make small XML syntax errors, such as forgetting a closing tag or omitting quotes around attributes.</p>
+<p>Requesting structured JSON is often more robust:</p>
+<pre><code class="language-json">{&quot;token&quot;: &quot;promis'd&quot;, &quot;lemma&quot;: &quot;promise&quot;, &quot;pos&quot;: &quot;VERB&quot;}
+</code></pre>
+<p>A short Python script can validate the JSON and convert it into valid TEI XML. For today's classroom exercise, prompting directly for clean TEI XML is completely f. Large projects often use the json-to-xml route.</p>
+<p><strong>Takeaway:</strong> Prompting for TEI XML directly is fast for short excerpts; prompting for JSON provides stricter programmatic validation for large texts.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Morphological Hallucination: Mechanisms and Manifestations</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the primary drivers of morphological hallucination when LLMs parse ancient historical languages?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Morphological hallucination stems from modern language pre-training bias and analogical regularization of irregular historical paradigms.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Modern language intrusion from pre-training data, false analogical regularization of suppletive verbs, and etymological over-decomposition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Hallucination occurs when modern Greek/Romance data overrides ancient forms, when irregular suppletive roots are falsely regularized, or when rare compounds are split fictitiously.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hardware overheating causing random bit-flips in GPU memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hallucination is a systemic linguistic phenomenon caused by training bias and analogical over-generalization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The total absence of ancient Greek and Latin texts on the internet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Classical texts are widely digitized; the issue is the overwhelming statistical preponderance of modern language data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Strict adherence to 19th-century German philological dictionaries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Adherence to authoritative dictionaries prevents hallucinations rather than causing them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: The Three-Way Comparative Audit: Manual vs NLP vs AI</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Three-Way Comparative Audit: Manual vs NLP vs AI</h3>
+<p>Now we bring all three stages of Week Eight together in our <strong>Three-Way Comparative Audit</strong>.</p>
+<p>Open three files side by side in VS Code:</p>
+<ol>
+  <li><code>ground_truth_manual.xml</code>: Tuesday's hand-verified philological baseline.</li>
+  <li><code>nlp_baseline.xml</code>: Wednesday's deterministic SpaCy / TreeTagger output.</li>
+  <li><code>ground_truth_ai.xml</code>: Today's AI-generated markup.</li>
+</ol>
+
+<p>By comparing all three tiers across the exact same twenty-word passage, you can evaluate each technology objectively. Where did all three agree? Where did the deterministic tool fail while the AI succeeded? Where did the AI hallucinate while human scholarship stood firm?</p>
+<p><strong>Takeaway:</strong> The three-way audit compares manual, deterministic, and AI markup side by side, evaluating the strengths and weaknesses of each tier.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Comparative Benchmarks Across Classical Corpora</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;According to comparative empirical benchmarks, which parsing architecture is most effective on standardized Classical Attic prose?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Specialized taggers dominate standardized classical prose, while sequence-to-sequence models and LLMs excel on archaic poetry and noisy medieval manuscripts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Fine-tuned neural encoders (Cracovia) and large-lexicon probabilistic models (TreeTagger/Diorisis), which achieve over 96% accuracy at minimal computational cost.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Standardized prose is parsed near-flawlessly by specialized classical models, making expensive generative LLM inference unnecessary for standard texts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Zero-shot chatbots querying unconstrained consumer web interfaces.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Unconstrained chatbots have lower recall and higher latency compared to dedicated classical parsers on standard prose.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Manual transcription using physical typewriters without digital storage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital pipelines achieve massive throughput speed and high accuracy on standard corpora.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Random guessing based on word length.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Structured linguistic models achieve &gt;96% accuracy through formal grammar rules and trained embeddings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Taxonomy of Discrepancies: Four Error Categories</text></name><questiontext format="html"><text><![CDATA[
+<h3>Taxonomy of Discrepancies: Four Error Categories</h3>
+<p>When you compare your three files, you will find differences. To analyze them rigorously, classify every discrepancy into one of four standard categories:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Description and Cause</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Category A</strong></td>
+      <td>Human Slip</td>
+      <td>A human error in Tuesday's manual ground truth caused by fatigue or a typo.</td>
+      <td>Human miskeyed lemma as <code>trety</code></td>
+    </tr>
+    <tr>
+      <td><strong>Category B</strong></td>
+      <td>Deterministic Rigid Miss</td>
+      <td>The rule-based NLP tool failed due to an Out-of-Vocabulary historical spelling.</td>
+      <td>SpaCy failed on <code>décrétoit</code> or <code>shew'd</code></td>
+    </tr>
+    <tr>
+      <td><strong>Category C</strong></td>
+      <td>AI Hallucination / Smoothing</td>
+      <td>The AI model modernized spelling, invented a fake lemma, or dropped punctuation.</td>
+      <td>AI altered <code>promis'd</code> to <code>promised</code></td>
+    </tr>
+    <tr>
+      <td><strong>Category D</strong></td>
+      <td>Genuine Crux / Ambiguity</td>
+      <td>The text allows two equally valid grammatical readings; both tiers are defensible.</td>
+      <td>Homograph <code>will</code> as noun vs auxiliary</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This taxonomy turns random errors into structured scholarly insights.</p>
+<p><strong>Vocabulary.</strong> <em>Error Taxonomy</em>. A formal classification system used to categoriz. Analyze the root causes of computational and human errors.</p>
+<p><strong>Takeaway:</strong> Classify every disagreement into Category A (human slip), B (NLP rigid miss), C (AI hallucination), or D (genuine crux).</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: The Stress Test: Byzantine Epigrams and Unstandardized Orthography</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did state-of-the-art classical NLP pipelines suffer a 20–25% accuracy collapse when tested on the Database of Byzantine Book Epigrams (DBBE)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Unstandardized medieval manuscript transcriptions cause specialized classical taggers to suffer a catastrophic 20–25% accuracy collapse.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The models were trained on standardized classical texts and failed when confronted with unedited scribal transcriptions containing pervasive itacism and phonetic spellings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Pre-trained models expect normalized classical orthography; unedited manuscript transcriptions with itacisms cause out-of-vocabulary lookup misses and subword fragmentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Byzantine book epigrams were written in an unknown non-human language.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The poems are in medieval Greek; the challenge is unstandardized scribal orthography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The DBBE database corrupted the text files with computer viruses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. DBBE is a prestigious academic corpus of authentic medieval manuscript transcriptions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Treebanks are legally prohibited from parsing Byzantine literature.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The collapse is purely algorithmic: classical models fail to generalize to noisy medieval scribal spelling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Evaluating Token-Level Accuracy Across All Three Tiers</text></name><questiontext format="html"><text><![CDATA[
+<h3>Evaluating Token-Level Accuracy Across All Three Tiers</h3>
+<p>To complete your benchmark, calculate token-level accuracy for both automated tiers against your manual ground truth.</p>
+<p>Create a summary comparison table in your notes:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Deterministic NLP (SpaCy / TreeTagger)</th>
+      <th>AI Model (Antigravity / Claude)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total Tokens Evaluated</td>
+      <td>20</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Matching UPOS Tags</td>
+      <td>18 / 20 (90%)</td>
+      <td>19 / 20 (95%)</td>
+    </tr>
+    <tr>
+      <td>Matching Lemmas</td>
+      <td>16 / 20 (80%)</td>
+      <td>19 / 20 (95%)</td>
+    </tr>
+    <tr>
+      <td>Overall Token Accuracy</td>
+      <td>80%</td>
+      <td>95%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In most historical documents, the AI model scores higher on lemm. Of its broader vocabulary. It may lose points on punctuation or surface-text alterations.</p>
+<p><strong>Takeaway:</strong> Calculate token-level POS and Lemma accuracy for both automated tiers to see which tool performed best on your document.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Linguistic Noise 1: Itacism and Vowel Mergers</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does itacistic vowel merger (e.g. scribes writing γινώσκω or γεινώσκω for γιγνώσκω) disrupt transformer-based language models?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Itacism merges six distinct historical vowel spellings into the [i] sound, causing catastrophic lexicon lookup misses and transformer subword fragmentation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It causes subword tokenizers to fragment unfamiliar phonetic spellings into arbitrary subword units, corrupting contextual embeddings and causing lexicon lookup misses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Non-standard vowel spellings break subword tokenization (creating fragments like ['##οτ', '##ήσ', '##θι']), destroying the root's semantic representation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the model to shut down and delete the operating system.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Itacism degrades linguistic accuracy; it does not affect operating system integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It makes the transformer believe that all words are Latin adjectives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The issue is subword fragmentation and lexical mismatch, leading to false POS and lemma predictions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It has zero effect because transformer models ignore vowels entirely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transformers process subword tokens derived directly from character strings, making them sensitive to spelling shifts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Calculating AI Precision, Recall, and Invented word Rates</text></name><questiontext format="html"><text><![CDATA[
+<h3>Calculating AI Precision, Recall, and Invented word Rates</h3>
+<p>In addition to accuracy, calculate the model's <strong>invented word rate</strong> and <strong>modernizing error rate</strong>.</p>
+<p>Use these two simple metrics:</p>
+<ul>
+  <li><strong>Hallucination Rate:</strong> (Number of Invented Lemmas / Total Tokens) * 100. In a sound scholarly prompt, this should be 0%.</li>
+  <li><strong>Hypercorrection Rate:</strong> (Number of Altered Surface Words / Total Tokens) * 100. This measures how often the model modernized your historical characters.</li>
+</ul>
+
+<p>If the model changed <em>promis'd</em> to <em>promised</em> once in twenty words, its modernizing error rate is 5%. Documenting these rates proves that you are evaluating AI with scientific rigor.</p>
+<p><strong>Takeaway:</strong> Quantify AI risks by calculating hallucination and hypercorrection rates alongside standard precision and recall scores.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Linguistic Noise 2: Omission of Iota Subscript and Diacritics</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the omission of the iota subscript in manuscript transcriptions a critical vector of grammatical error?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Omission of the iota subscript obliterates the morphological boundary between datives, nominatives, subjunctives, and adverbs.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It removes the overt graphemic distinction between dative singular nouns and nominative nouns, as well as between subjunctive and indicative verbs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without the subscript iota, dative forms (καρδίᾳ) become identical to nominatives (καρδία), causing automated parsers to systematically misassign case and mood.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents the text from being rendered in digital fonts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Unicode renders text with or without diacritics; the error is grammatical disambiguation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It changes all Greek verbs into indeclinable prepositions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Verbs remain verbs, but mood distinctions (subjunctive vs. indicative) are obscured.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It only affects modern 21st-century texts, never medieval manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Omitting the silent iota subscript was standard practice among medieval scribes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Testing AI on Andromeda's 1752 Treaty Excerpt</text></name><questiontext format="html"><text><![CDATA[
+<h3>Testing AI on Andromeda's 1752 Treaty Excerpt</h3>
+<p>Let us look at how an AI model performs on Andromeda's project: the 1752 P. Friendship treaty.</p>
+<p>Clause: <em>All Treaties shall be renewed by the Governor</em>.</p>
+<p>Here is the three-way comparison:</p>
+<ul>
+  <li><strong>Manual Ground Truth:</strong> <em>All</em> (DET, all), <em>Treaties</em> (NOUN, treaty), <em>shall</em> (AUX, shall), <em>be</em> (AUX, be), <em>renewed</em> (VERB, renew).</li>
+  <li><strong>Deterministic SpaCy:</strong> Matched all five tokens perfectly (100% accuracy).</li>
+  <li><strong>AI Model:</strong> Matched all five tokens perfectly, and correctly identified that <em>renewed</em> is a passive participle.</li>
+</ul>
+
+<p>On standard 18th-century legal formulas, both automated tools perform exceptionally well. Disagreements only emerge when archaic contractions like <em>promis'd</em> or legal compounds like <em>whereunto</em> appear.</p>
+<p><strong>Takeaway:</strong> On standard legal English formulas, both deterministic NLP and AI models achieve near-perfect agreement with human ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Linguistic Noise 3: Uncontracted Dialectal Forms and Archaic Suffixes</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does Homeric dialectal morphology challenge NLP models trained primarily on Classical Attic prose?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Uncontracted vowels, archaic suffixes, and unaugmented verbs in Homeric Greek cause Attic-trained taggers to misclassify tense, aspect, and nominal case.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Archaic uncontracted vowels (στήθεα), epic case suffixes (-οιο, -φι), and unaugmented verbs (βάλε) violate Attic rules, causing high out-of-vocabulary rates and misclassified tenses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Attic models fail on Homeric dialectal variants, frequently misparsing uncontracted substantives as proper names and unaugmented past verbs as imperatives.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Homeric Greek contains no nouns or pronouns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Homeric Greek has a rich nominal system with distinctive archaic case endings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Attic prose models automatically translate Homeric epic into modern English verse.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Classical Attic models attempt to parse Homeric forms against Attic rules, leading to errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Homeric poetry was composed without vowels.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Homeric Greek is fully vocalic and metrically structured in dactylic hexameter.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Testing AI on Ace's 1791 French Decree Excerpt</text></name><questiontext format="html"><text><![CDATA[
+<h3>Testing AI on Ace's 1791 French Decree Excerpt</h3>
+<p>Now let us examine Ace's project: a 1791 French Revolutionary decree containing the archaic verb <em>décrétoit</em>.</p>
+<p>Sentence: <em>L'Assemblée nationale décrétoit la loi</em>.</p>
+<p>Here is the three-way comparison:</p>
+<ul>
+  <li><strong>Manual Ground Truth:</strong> <em>décrétoit</em> &rarr; lemma <code>décréter</code>, UPOS <code>VERB</code>, Features: Tense=Imp|VerbForm=Fin.</li>
+  <li><strong>Deterministic SpaCy:</strong> <em>décrétoit</em> &rarr; lemma <code>décrétoit</code>, UPOS <code>NOUN</code> (Category B error: OOV suffix failure).</li>
+  <li><strong>AI Model:</strong> <em>décrétoit</em> &rarr; lemma <code>décréter</code>, UPOS <code>VERB</code>, Features: Tense=Imp|VerbForm=Fin (Match!).</li>
+</ul>
+
+<p>Look at that result! SpaCy failed because <em>-oit</em> was missing from its modern dictionary. The AI model recognized the 18th-century suffix. Mapped the verb to its proper infinitive <em>décréter</em>. This is a clear demonstration of AI's strength on historical morphology.</p>
+<p><strong>Takeaway:</strong> AI models successfully resolve 18th-century French verbal suffixes like <em>-oit</em> where deterministic dictionaries fail.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Joint Learning and Auxiliary Objectives for Morphological Robustness</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does joint multi-task learning (training on lemmatization, POS tagging, and language modeling simultaneously) improve robustness on noisy historical texts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Joint learning trains neural networks on lemmatization, POS tagging, and language modeling simultaneously, preventing error propagation on noisy texts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It forces the encoder to learn deep semantic and syntactic representations, preventing error propagation where a wrong POS tag permanently locks in an incorrect lemma.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Manjavacas et al. (2019) showed that adding auxiliary language modeling loss regularizes representations, reducing historical lemmatization errors by over 18%.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It separates every NLP task into an independent silo that never shares data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Joint learning explicitly shares encoder representations across complementary tasks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes non-standard historical words from the training dataset.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Joint learning improves performance specifically on non-standard, noisy historical datasets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces neural networks with printed paper glossaries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Joint learning is an advanced neural training strategy for deep encoder-decoder models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Testing AI on Maud Lewis's Folk Correspondence Excerpt</text></name><questiontext format="html"><text><![CDATA[
+<h3>Testing AI on Maud Lewis's Folk Correspondence Excerpt</h3>
+<p>Next, we examine Olyvia's project: Maud Lewis's informal 1967 letter: <em>I received your letter today</em>.</p>
+<p>Here is the three-way comparison:</p>
+<ul>
+  <li><strong>Manual Ground Truth:</strong> <em>your</em> &rarr; lemma <code>you</code>, UPOS <code>PRON</code>, Feature: Poss=Yes (OED policy).</li>
+  <li><strong>Deterministic SpaCy:</strong> <em>your</em> &rarr; lemma <code>your</code>, UPOS <code>PRON</code> (Lexicographical policy disagreement).</li>
+  <li><strong>AI Model:</strong> <em>your</em> &rarr; lemma <code>you</code>, UPOS <code>PRON</code> (Followed prompt policy!).</li>
+</ul>
+
+<p>Because our prompt explicitly instructed the AI model to map possessive pronouns to base personal pronouns, the AI followed our project policy. SpaCy could not be reconfigured without editing its internal lexicon. AI prompts offer superior flexibility when enforcing custom project guidelines.</p>
+<p><strong>Takeaway:</strong> AI models easily adopt custom project dictionary policies provided in prompts, outperforming rigid pre-compiled tagger libraries.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Intertextual Citation Detection and the HTRG Filter</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does downstream intertextual citation detection rely heavily on accurate low-level POS tagging via the HTRG filter?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Intertextual citation detection relies on the HTRG filter, where minor POS tagging errors cascade into major failures in discovering literary allusions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The HTRG filter retains substantive matches (Noun-Noun, Verb-Verb) and discards functional noise (conjunctions); tagging errors cause false negatives in citation networks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. As shown by Wittweiler et al. (2024), a 5% drop in POS tagging accuracy causes a &gt;20% collapse in intertextual citation precision by disrupting HTRG filtering.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The HTRG filter requires all quotations to be written in modern English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The filter identifies historical intertextual text reuse in Greek and Latin.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Intertextual detection only searches for exact 100-character verbatim string matches.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ancient authors modify syntax and case when citing sources; lemma and POS matching are required.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The HTRG filter automatically deletes the source text from the digital edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The filter indexes literary allusions and quotations across texts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Adjudicating Disagreements: The Editor as Arbiter</text></name><questiontext format="html"><text><![CDATA[
+<h3>Adjudicating Disagreements: The Editor as Arbiter</h3>
+<p>After completing your three-way audit, you will have a table of disagreements. Now comes the core scholarly duty: <strong>editorial adjudication</strong>.</p>
+<p>An algorithm cannot decide what belongs in your final edition. The human editor is the ultimate arbiter. Go through each discrepancy:</p>
+<ul>
+  <li>If the machine made an error (Category B or C), reject the machine prediction and keep your manual ground truth.</li>
+  <li>If the machine exposed a genuine human slip in your Tuesday table (Category A), gratefully correct your ground truth!</li>
+  <li>If the disagreement is a genuine crux (Category D), select the reading best supported by historical evidence and document your reasons.</li>
+</ul>
+
+<p>This review process transforms raw machine output into reliable, peer-reviewed scholarship.</p>
+<p><strong>Vocabulary.</strong> <em>Editorial Adjudication</em>. The scholarly decision-making p. A human editor resolves conflicting readings and approves the final text.</p>
+<p><strong>Takeaway:</strong> The human editor serves as the ultimate arbiter, adjudicating every machine disagreement before publishing the edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Structured LLM Output Formatting: JSON and Pydantic Schemas</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is enforcing structured JSON generation via Pydantic schemas essential when deploying LLMs in digital editorial pipelines?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Constraining LLM generation with Pydantic schemas guarantees type safety, strict tagset compliance, and direct serialization into downstream pipelines.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It guarantees type safety, constrains tags to valid Universal Dependencies vocabularies, eliminates conversational preamble, and enables automatic exception retries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Pydantic schemas enforce strict data validation, preventing invented tags and allowing direct programmatic serialization into TEI XML or CoNLL-U.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It allows the LLM to format its response as an unformatted stream of conversational chat.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schemas prevent unstructured chat preamble, enforcing clean, machine-actionable JSON.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It disables all security protections on the database server.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schema validation improves software robustness and data integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It makes the LLM run without using any computer memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Schemas structure the output format; they do not eliminate computational memory usage.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Synthesizing the Final Linguistic XML: `transcription_linguistic.xml`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesizing the Final Linguistic XML: `transcription_linguistic.xml`</h3>
+<p>With all disagreements adjudicated, you are ready to produce your official deliverable: <code>transcription_linguistic.xml</code>.</p>
+<p>This file merges the verified readings into your complete project TEI document. Every word token in your 20-word excerpt is wrapped in a <code>&lt;w&gt;</code> tag with verified <code>@lemma</code>. <code>@pos</code> attributes. Punctuation is enclosed in <code>&lt;pc&gt;</code>. Sentences are enclosed in <code>&lt;s&gt;</code>.</p>
+<p>Check that your file is well-formed XML:</p>
+<ul>
+  <li>Every open tag has a matching closing tag.</li>
+  <li>Attribute values are enclosed in quotes.</li>
+  <li>The XML tree nests cleanly without overlapping boundaries.</li>
+</ul>
+
+<p>This file represents the definitive linguistic layer of your digital edition.</p>
+<p><strong>Takeaway:</strong> Combine your adjudicated readings into <code>transcription_linguistic.xml</code>, verifying clean XML syntax and well-formed tags.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Serializing AI Annotations to TEI P5 XML</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How are AI-generated linguistic annotations serialized into standard TEI P5 Chapter 18 XML?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;TEI P5 att.linguistic attributes (@lemma, @pos, @msd) serialize computational NLP outputs directly onto &lt;w&gt; word tokens.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By populating @lemma, @pos, and @msd attributes from the att.linguistic class directly onto inline &lt;w&gt; word elements and &lt;pc&gt; punctuation elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. TEI Chapter 18 attaches @lemma, @pos (UPOS), and @msd (FEATS) directly to &lt;w&gt; tokens, maintaining full separation between text nodes and analytical metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By pasting screenshot images of the LLM chat window into the XML body.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Annotations are encoded as structured XML attributes on text elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By converting the entire document into an unformatted CSV spreadsheet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The standard format for archival digital scholarly editions is TEI P5 XML.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting the Latin/Greek text and inserting machine-translated English paragraphs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions preserve the diplomatic historical text and enrich it with linguistic attributes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Transparent Metadata Attribution with `@resp`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Transparent Metadata Attribution with `@resp`</h3>
+<p>In digital scholarly editions, transparency is paramount. R. Researchers must know who produced each annotation: a human scholar, a deterministic script, or an ai model.</p>
+<p>TEI P5 provides the <code>@resp</code> (responsibility) attribute for this exact purpose. In your <code>teiHeader</code>, define your agents:</p>
+<pre><code class="language-xml">&lt;respStmt&gt;
+  &lt;resp&gt;Manual annotation&lt;/resp&gt;
+  &lt;name xml:id=&quot;editor&quot;&gt;Ken Penner&lt;/name&gt;
+&lt;/respStmt&gt;
+&lt;respStmt&gt;
+  &lt;resp&gt;Deterministic NLP pipeline&lt;/resp&gt;
+  &lt;name xml:id=&quot;spacy&quot;&gt;SpaCy 3.7 (en_core_web_sm)&lt;/name&gt;
+&lt;/respStmt&gt;
+&lt;respStmt&gt;
+  &lt;resp&gt;AI-assisted parsing&lt;/resp&gt;
+  &lt;name xml:id=&quot;claude&quot;&gt;Claude 3.5 Sonnet / Antigravity&lt;/name&gt;
+&lt;/respStmt&gt;
+</code></pre>
+<p>On your <code>&lt;w&gt;</code> elements, you can cite who verified the tag: <code>&lt;w lemma="renew" pos="VERB" resp="#editor"&gt;</code>. Transparent attribution ensures full academic integrity.</p>
+<p><strong>Vocabulary.</strong> <em><code>@resp</code></em>. The tei attribute that indicates who is responsible for a specific editorial decision, correction, or markup layer.</p>
+<p><strong>Takeaway:</strong> Use the TEI <code>@resp</code> attribute and header statements to document whether annotations came from human editors, scripts, or AI models.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Managing Normalization in TEI XML: att.lexicographic.normalized</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does a digital edition preserve manuscript itacisms while providing normalized strings for NLP search engines in TEI XML?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The att.lexicographic.normalized class (@orig and @norm) preserves manuscript diplomatic spelling while supplying normalized forms for NLP parsers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By encoding the raw manuscript reading in @orig (or &lt;orig&gt;) and the regularized classical form in @norm (or &lt;reg&gt;) on the &lt;w&gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Using att.lexicographic.normalized (@orig and @norm) satisfies paleographical fidelity for humanists and computational normalization for search and NLP tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By silently correcting manuscript errors without documenting the original reading anywhere.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Silent correction destroys valuable paleographical and historical phonological evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By publishing two completely separate editions under different ISBN numbers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI embeds both diplomatic and normalized layers in the same XML element structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By forbidding researchers from querying normalized lemmas.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The dual-layer encoding is designed specifically to enable lemma and normalized queries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Combining All Layers: The Complete TEI Architecture</text></name><questiontext format="html"><text><![CDATA[
+<h3>Combining All Layers: The Complete TEI Architecture</h3>
+<p>Take a moment to admire what your TEI document now contains. Over eight weeks, you have built a deeply layered digital monument:</p>
+<ol>
+  <li><strong>Metadata Layer:</strong> The <code>teiHeader</code> catalogues author, date, archive, license, and project policies.</li>
+  <li><strong>Image Layer:</strong> The <code>&lt;facsimile&gt;</code> container links high-resolution image manifests directly to text surfaces.</li>
+  <li><strong>Diplomatic Layer:</strong> The transcribed text preserves original ink, scribal lineation (<code>&lt;lb/&gt;</code>), and historical characters.</li>
+  <li><strong>Regularization Layer:</strong> The <code>&lt;choice&gt;</code> elements pair original spellings (<code>&lt;orig&gt;</code>) with modernized readings (<code>&lt;reg&gt;</code>).</li>
+  <li><strong>Linguistic Layer:</strong> The <code>&lt;w&gt;</code> and <code>&lt;s&gt;</code> elements record dictionary lemmas, parts of speech, and syntactic features.</li>
+</ol>
+
+<p>All five layers coexist in a single well-formed XML file. This is the true power of the Text Encoding Initiative.</p>
+<p><strong>Takeaway:</strong> Your final TEI file unifies metadata, images, diplomatic text, normalized readings, and linguistic grammar in a single standards-compliant document.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Representing Ambiguity: Inline Attributes vs. Feature Structures</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When an ancient word sustains multiple disputed grammatical interpretations among scholars, why are TEI Feature Structures (&lt;fs&gt;, &lt;f&gt;, &lt;vAlt&gt;) preferred over inline attributes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Stand-off TEI Feature Structures (&lt;fs&gt;, &lt;f&gt;, &lt;vAlt&gt;) represent complex, disputed morphological ambiguities without flattening scholarly debate.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Feature structures can represent multi-layered, competing analyses with explicit attribution to specific scholarly editions using &lt;vAlt&gt;, avoiding reductive over-simplification.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. While inline attributes store only a single value, stand-off Feature Structures with &lt;vAlt&gt; model multi-vocal scholarly debate and competing grammatical analyses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inline attributes are illegal under XML syntax rules.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Inline attributes are fully valid, but they cannot represent competing alternative analyses without flattening ambiguity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Feature structures automatically translate the entire document into German.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Feature structures provide a formal XML mechanism for complex linguistic and scholarly metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Feature structures delete all manuscript variant readings from the edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Feature structures enrich the edition by modeling complex, multi-layered scholarly variants.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Building Syntactic Dependency Trees with AI</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building Syntactic Dependency Trees with AI</h3>
+<p>In addition to parts of speech, you can prompt modern AI models to generate complete Universal Dependencies syntax trees in CoNLL-U format.</p>
+<p>In your prompt, instruct the model: <em>For each word, identify its governing head ID. Its deprel relation tag</em>. The model will output the full 10-column table, identifying the root v. Linking subjects, obj. Modifiers.</p>
+<p>When evaluating AI syntax trees, check for <strong>cycle errors</strong>. In a valid dependency tree, no word can depend on itself. Arrows must never form closed loops. The tree must form a clean hierarchy descending from the central root verb.</p>
+<p><strong>Vocabulary.</strong> <em>Treebank</em> — A text corpus annotated with complete syntactic dependency or phrase-structure trees. <em>Cycle Error</em>. An invalid syntactic grap. Dependency links form an infinite closed loop rather than a rooted tree.</p>
+<p><strong>Takeaway:</strong> AI models can predict complete syntactic dependency trees, but editors must audit them to ensure clean hierarchies without cycle errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Designing a Python Benchmarking Harness</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What three evaluation constraints must an automated Python benchmarking harness enforce when scoring AI predictions against a manual gold standard?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An automated Python benchmarking harness aligns predictions against gold-standard IDs to calculate rigorous lemma, POS, and strict accuracy metrics.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Token alignment by unique ID, Unicode NFC normalization, and multi-level scoring (lemma, UPOS, and strict exact match).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The harness must link predictions via unique @xml:id anchors, normalize Unicode polytonic characters to NFC, and calculate granular accuracy metrics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting all mismatching tokens, disabling error logging, and assuming 100% precision.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A rigorous harness records all discrepancies and penalizes dropped tokens as recall errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Evaluating only the title of the document while ignoring all sentence tokens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The harness evaluates every token in the passage across all morphological dimensions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Allowing the AI model to grade its own output without human reference keys.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scoring must be performed deterministically against the locked manual gold standard.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Auditing AI Dependency Trees Against Ground Truth</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing AI Dependency Trees Against Ground Truth</h3>
+<p>Auditing a syntax tree is straightforward when you follow the grammatical flow of the sentence.</p>
+<p>Ask these four structural questions:</p>
+<ol>
+  <li><strong>Root Check:</strong> Did the model assign <code>root</code> to the main finite verb or participle?</li>
+  <li><strong>Subject Check:</strong> Does the nominal subject (<code>nsubj</code>) point directly to the root verb?</li>
+  <li><strong>Object Check:</strong> Does the direct object (<code>obj</code>) attach to its governing transitive verb?</li>
+  <li><strong>Preposition Check:</strong> Do prepositions attach to their noun objects with relation <code>case</code>?</li>
+</ol>
+
+<p>If the model attaches an adverbial clause to the wrong noun, correct the head ID. Auditing syntax trees sharpens your understanding of how historical authors constructed arguments.</p>
+<p><strong>Takeaway:</strong> Audit AI dependency trees by verifying root verbs, subject links, direct objects, and prepositional attachments.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Evaluation Metrics: Accuracy, Precision, Recall, and Macro-F1</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is Macro-averaged F1 more revealing than Micro-averaged accuracy when evaluating historical language taggers?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Macro-averaged F1 weights rare and frequent grammatical categories equally, exposing model blind spots on sparse historical morphology.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Macro-F1 assigns equal weight to rare and frequent categories, exposing model blind spots on sparse historical morphology (such as optatives or duals).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Micro-accuracy is dominated by high-frequency nouns and verbs; Macro-F1 weights all grammatical classes equally, preventing rare category failures from being masked.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Macro-F1 can only be calculated on modern newspaper corpora.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Macro-F1 is a universal metric essential for evaluating imbalanced historical tagsets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Micro-accuracy is illegal under international statistical guidelines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both metrics are valid, but Macro-F1 is more diagnostic for sparse and imbalanced classes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Macro-F1 always returns a score of 100% regardless of model performance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Macro-F1 penalizes models severely when they fail on low-frequency grammatical categories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: The Reflection Report: Analyzing Linguistic Bottlenecks</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Reflection Report: Analyzing Linguistic Bottlenecks</h3>
+<p>For tonight's Assignment 8 submission, you will write a <strong>300–500 word critical reflection</strong> analyzing your findings.</p>
+<p>Your reflection should not simply restate your tables. It should answer these scholarly questions:</p>
+<ul>
+  <li>Which morphological categories caused the highest failure rate in the automated tools?</li>
+  <li>Why did deterministic taggers stumble on historical spellings, while the AI model handled them?</li>
+  <li>Did the AI model introduce any subtle hypercorrections or hallucinated lemmas?</li>
+  <li>How did Module 6 spelling normalizations help bridge the gap between historical ink and modern algorithms?</li>
+</ul>
+
+<p>A strong reflection connects technical error rates to broader philological and historical principles.</p>
+<p><strong>Takeaway:</strong> Your 300–500 word reflection should analyze why specific grammatical categories failed and discuss the trade-offs of automation.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Qualitative Error Analysis: Categorizing AI Failure Modes</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In qualitative error analysis, what is the significance of distinguishing 'Level 1 (Minor)' errors from 'Level 4 (Fatal)' errors?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Qualitative error analysis categorizes failure modes across stem confusion, diacritic blindness, clitic errors, and lexical hallucination.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Level 1 errors (accents/breathings) can be fixed by automated Unicode normalization, while Level 4 errors (hallucinated headwords) corrupt concordances and require lexicon filter gates.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Categorizing error severity allows editors to apply automated pre/post-processing fixes to minor errors while deploying strict validation gates against fatal hallucinations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Level 1 errors cause computers to crash, while Level 4 errors have no impact.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Level 1 errors are minor orthographic variations; Level 4 errors are fatal corruptions of lexical data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Level 4 errors are automatically corrected by typing on the keyboard.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Level 4 errors require architectural mitigations like lexicon verification gates.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All errors have identical severity and should be ignored equally.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Distinguishing error severity is the foundation of targeted engineering and workflow design.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Documenting the Three-Way Audit in `LINGUISTIC_AUDIT.md`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting the Three-Way Audit in `LINGUISTIC_AUDIT.md`</h3>
+<p>To keep your work organized, assemble y. Reflection inside <code>linguistic_audit.md</code> in your repository root.</p>
+<p>Your audit report should contain four clear sections:</p>
+<ol>
+  <li><strong>Master Comparison Table:</strong> A 20-row table comparing Token, Manual Parse, NLP Parse, and AI Parse.</li>
+  <li><strong>Accuracy Scorecard:</strong> Numerical accuracy percentages, precision, recall, and hallucination rates.</li>
+  <li><strong>Discrepancy Taxonomy:</strong> An analysis sorting disagreements into Categories A, B, C, and D.</li>
+  <li><strong>Critical Reflection:</strong> Your 300–500 word discussion of algorithmic strengths and limitations.</li>
+</ol>
+
+<p>This report serves as the primary scholarly text that K. Evaluate for your assignment grade.</p>
+<p><strong>Takeaway:</strong> Compile your master comparison table, scorecard, discrepancy taxonomy, and reflection in <code>LINGUISTIC_AUDIT.md</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: In-Context Paradigm Injection: The LingoLLM Approach</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does in-context paradigm injection (LingoLLM) reduce LLM morphological hallucination on irregular verbs from 14.8% down to 0.4%?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;In-context paradigm injection supplies explicit grammatical rules in prompts, reducing irregular verb hallucination below 0.5%.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By injecting explicit grammatical descriptions and paradigm tables from authoritative grammars directly into the prompt context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Zhang et al. (2024) demonstrated that supplying explicit paradigm rules transforms LLM generation from unconstrained sampling into constraint-guided deduction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting all irregular verbs from the historical text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Paradigm injection parses authentic irregular forms accurately by supplying their grammatical rules in context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By reducing the size of the computer memory by 90%.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Paradigm injection is a prompt engineering methodology, not a hardware modification.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By forcing the LLM to translate the text into Spanish.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model performs ancient morphological parsing guided by explicit grammatical constraints.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Finalizing Assignment: Module 8 (Linguistic Markup)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Finalizing Assignment: Module 8 (Linguistic Markup)</h3>
+<p>Tonight at 11:00 PM, <strong>Assignment: Module 8 (Linguistic Markup)</strong> is due on Moodle. Let us review the grading. You know exactly how your work will be evaluated:</p>
+<ul>
+  <li><strong>Manual Ground Truth Precision (4 pts / 40%):</strong> Your 20-word manual parse accurately identifies canonical dictionary lemmas and inflectional features without grammatical errors.</li>
+  <li><strong>TEI Linguistic Markup Validity (3 pts / 30%):</strong> Your XML cleanly wraps tokens in <code>&lt;w&gt;</code> and <code>&lt;pc&gt;</code> elements with valid <code>lemma=</code> and <code>pos=</code> attributes conforming to TEI P5.</li>
+  <li><strong>Comparative Error Analysis (3 pts / 30%):</strong> Your reflection insightfully discusses why automated engines struggle with homographs, historical spellings, or rare irregular conjugations.</li>
+</ul>
+
+<p>Total grade: 10 points (scaled to 80 points in the Moodle gradebook). Meeting these three standards ensures full marks.</p>
+<p><strong>Takeaway:</strong> Assignment 8 is graded on manual precision (4 pts), TEI XML validity (3 pts), and comparative error analysis (3 pts).</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Multi-Engine Ensemble and Consensus Tagging</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does a multi-engine ensemble pipeline handle tokens where finite-state transducers, neural models, and LLMs produce conflicting analyses?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Multi-engine ensemble pipelines combine FSTs, neural transformers, and LLMs, automating unanimous tokens while routing disagreements to human scholars.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It arbitrates via majority consensus for high-confidence cases and flags low-confidence disagreements with &lt;?review-needed?&gt; for human scholarly adjudication.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Ensemble pipelines automate unanimous predictions (over 92% of tokens) while routing difficult cruxes directly to the editor's review queue.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the entire sentence containing the conflict from the digital edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Disputed tokens are preserved and flagged for human scholarly review.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It crashes the server and halts all processing permanently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The arbitration engine handles conflicts gracefully using deterministic routing rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It selects whichever parse contains the longest English word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Arbitration uses structured consensus logic and confidence thresholds.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Validating Your TEI File Against the Course Schema</text></name><questiontext format="html"><text><![CDATA[
+<h3>Validating Your TEI File Against the Course Schema</h3>
+<p>Before submitting your assignment, you must run the course schema validator on <code>transcription_linguistic.xml</code>.</p>
+<p>In your VS Code terminal, run the validator:</p>
+<pre><code class="language-bash">python3 scripts/validate_tei.py src/modules/Module_08_Lemmatization/transcription_linguistic.xml
+</code></pre>
+<p>The validator checks:</p>
+<ul>
+  <li>Well-formed XML syntax: all tags closed and properly nested.</li>
+  <li>Valid attribute names: <code>lemma</code> and <code>pos</code> on <code>&lt;w&gt;</code> elements.</li>
+  <li>No illegal characters or broken entity references.</li>
+</ul>
+
+<p>Fix any validation errors immediately. A valid TEI file is a mandatory requirement for full credit.</p>
+<p><strong>Takeaway:</strong> Always run the schema validator on your TEI file before submission to verify that XML syntax and attributes are well-formed.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: The Alternative Annotator Test and LLM-in-the-Loop Arbitration</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is deploying an LLM as an arbiter at points of parser disagreement more cost-effective than running the LLM over the entire corpus?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Alternative Annotator Test deploys LLMs as targeted arbiters on conflicting parser outputs, maximizing accuracy while minimizing computational costs.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It reserves expensive, high-latency LLM API calls strictly for the 5–8% of ambiguous conflict tokens, reducing computational costs by over 90%.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Running fast local parsers for routine text and deploying LLMs only for difficult conflicts maximizes accuracy while minimizing API costs and latency.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because LLMs refuse to process more than ten words per day.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs can process large volumes, but commercial API costs and latency scale linearly with token volume.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because deterministic parsers are illegal to run on personal computers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Local parsers (TreeTagger, Morpheus, LatinCy) are free, open-source, and highly efficient.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because LLM arbitration eliminates the need for human editors entirely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLM arbitration handles routine parser disagreements; complex editorial cruxes still involve human scholars.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Packaging the Submission Portfolio for Moodle</text></name><questiontext format="html"><text><![CDATA[
+<h3>Packaging the Submission Portfolio for Moodle</h3>
+<p>To complete your submission, make sure all four project deliverables are committed to your git repository:</p>
+<ol>
+  <li><code>LEMMATIZATION_POLICIES.md</code>: Your project's dictionary and tokenization rules.</li>
+  <li><code>tagger_pipeline.py</code>: Your Python script for automated NLP execution.</li>
+  <li><code>transcription_linguistic.xml</code>: Your validated TEI XML fragment with <code>&lt;w&gt;</code> elements.</li>
+  <li><code>LINGUISTIC_AUDIT.md</code>: Your three-way comparative audit table and 300–500 word reflection.</li>
+</ol>
+
+<p>On Moodle, upload your <code>transcription_linguistic.xml</code>. Paste the text of your <code>linguistic_audit.md</code> into the online submission box before 11:00 pm tonight.</p>
+<p><strong>Takeaway:</strong> Submit your validated TEI XML file and reflection report to the Moodle assignment portal before 11:00 PM tonight.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Cost, Latency, and Carbon Footprint in Computational Philology</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Under the 'Minimal Computing' paradigm in digital humanities, what is the recommended architecture for large-scale corpus annotation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Minimal computing mandates using fast local models for bulk annotation, reserving costly cloud LLMs for targeted edge cases.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Deploy fast, local, open-source neural and probabilistic taggers for bulk processing, reserving commercial cloud LLMs for targeted edge cases.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Minimal computing emphasizes energy efficiency, local software sovereignty, and low cost, avoiding unnecessary reliance on expensive cloud APIs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Send all 50 million words of a corpus through commercial cloud APIs regardless of cost or carbon footprint.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This approach is financially unsustainable and introduces fragile dependencies on external proprietary vendors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Refuse to use any computers and print all editions by hand on wooden presses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Minimal computing uses open-source digital tools efficiently rather than rejecting computation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete all digital corpora after five days to save cloud storage space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital preservation requires durable, locally sustainable data formats (TEI XML, Git).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Looking Ahead: From Words to Named Entities in Module 9</text></name><questiontext format="html"><text><![CDATA[
+<h3>Looking Ahead: From Words to Named Entities in Module 9</h3>
+<p>Congratulations on completing Module 8! You have mastered grammatical words, dictionary headwords, and syntactic trees.</p>
+<p>Next week, in Module 9, we take the next logical step in digital textual editing: <strong>Named Entity Recognition (NER)</strong>.</p>
+<p>Grammar tells us what a word <em>does</em> in a sentence (it is a noun, a verb, an adjective). Named entity markup tells us what a word <em>refers to</em> in the real world:</p>
+<ul>
+  <li>People: <code>&lt;persName&gt;</code> (Peregrine Thomas Hopson, Maud Lewis, King Louis XVI).</li>
+  <li>Places: <code>&lt;placeName&gt;</code> (Halifax, Nova Scotia, Paris).</li>
+  <li>Organizations: <code>&lt;orgName&gt;</code> (National Assembly, Mi'kmaq Nation).</li>
+</ul>
+
+<p>Your linguistic markup provides the grammatical foundation on which named entity recognition will build.</p>
+<p><strong>Takeaway:</strong> Module 9 will build on your linguistic markup by identifying and encoding named people, places, and historical organizations.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Human-in-the-Loop Editorial Workflows</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a modern Human-in-the-Loop (HITL) editorial workflow, what is the function of active learning retraining?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Human-in-the-loop workflows combine automated pre-annotation with expert scholarly review, ensuring computational scalability never compromises philological rigor.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Manually corrected annotations are committed to the repository and fed back into fine-tuning pipelines, continuously improving the project's specialized models.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Active learning creates a virtuous cycle where human corrections continuously improve the accuracy of local neural models on project-specific vocabulary and dialects.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Human editors are trained by automated bots to accept machine errors without question.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Human scholars provide the expert corrections that retrain and improve the machine models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All human edits are deleted at the end of each working day.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Human corrections are version-controlled in Git as permanent scholarly contributions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Active learning converts all historical Greek manuscripts into modern German.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Active learning refines model weights on historical language datasets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: The Digital Textual Scholar's Toolkit</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Digital Textual Scholar's Toolkit</h3>
+<p>Step back and look at the method you have practiced this week. You did not rely exclusively on human close reading, nor did you blindly surrender your text to an automated algorithm.</p>
+<p>You practiced a three-step critical method:</p>
+<ol>
+  <li><strong>Establish Ground Truth:</strong> Close human philology and authoritative dictionaries set the gold standard.</li>
+  <li><strong>Deploy Deterministic Tools:</strong> Fast rule-based and statistical scripts scale processing across corpora.</li>
+  <li><strong>Evaluate with AI & Audit:</strong> Generative models resolve complex edge cases, while critical human review catches hallucinations.</li>
+</ol>
+
+<p>This balanced workflow represents the cutting edge of digital humanities scholarship today.</p>
+<p><strong>Takeaway:</strong> True digital scholarship combines human philological ground truth, deterministic scripts, and generative AI under critical human oversight.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Preparing the Complete Linguistic Layer for Assignment 3</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Before committing Assignment 3 edition files to GitHub, what four validation checks must be executed?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Finalizing Assignment 3 requires validating tokenization, @lemma, @pos, @msd, and normalization markup against project schemas.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Verifying tokenization integrity (&lt;w&gt;/&lt;pc&gt;), linguistic attribute completeness (@lemma/@pos/@msd), normalization transparency (@orig/@norm), and schema validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The final checklist ensures structural tokenization, complete UD attributes, transparent normalization markup, and clean schema/Schematron validation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translating the text to modern Spanish, converting it to PDF, emailing it to Google, and deleting the Git repo.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Assignment 3 requires validated TEI XML and CoNLL-U files stored in the course Git repository.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting all XML tags and replacing them with unformatted text files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Assignment 3 evaluates structured TEI P5 linguistic markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Encrypting the files with a private password so the instructor cannot grade them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Assignment 3 files are committed to GitHub for automated grading and peer review.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Human Judgment in an Era of Linguistic AI</text></name><questiontext format="html"><text><![CDATA[
+<h3>Human Judgment in an Era of Linguistic AI</h3>
+<p>As AI models grow more f. Capable, some people wonder if human textual scholarship will become obsolete.</p>
+<p>Week Eight gives you the definitive answer to that question: <strong>absolutely not.</strong></p>
+<p>An AI model has no historical stake in truth. It will happily alter historical characters, smooth over scribal slip. Invent non-existent latin roots with absolute confidence. It cannot replace the scholar who spent months studying the ink, the pap. The archival context of an eighteenth-century document.</p>
+<p>AI models are extraordinary power tools. But power tools require a skilled craftsperson. You are the craftsperson. Your historical knowledge, your philological judgment,. Your commitment to truth are what make digital editions trustworthy. Keep that critical human eye sharp, and enjoy your weekend!</p>
+<p><strong>Takeaway:</strong> AI provides extraordinary speed, but human scholars remain the essential guardians of historical truth and textual integrity.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: The Three-Step Method and the Future of Digital Philology</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the Week 8 three-step cycle (Manual -&gt; Deterministic -&gt; AI-Assisted) define the future of digital philology?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The three-step cycle establishes that computational NLP tools amplify, but remain strictly accountable to, human philological expertise.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It proves that computational NLP tools amplify, but remain strictly accountable to, human philological evidence and expert scholarship.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The three-step method demonstrates that computational automation scales textual analysis while human philological rigor maintains evidentiary integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It demonstrates that computers will soon abolish all human languages in favor of binary machine code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computational philology enriches human understanding of historical languages and literature.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It concludes that manual philology is completely useless and should be banned from university curricula.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Manual philology provides the indispensable gold standard for all computational modeling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It proves that artificial intelligence models never require testing or evaluation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Systematic benchmarking against ground truth is the foundational requirement of rigorous digital scholarship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

@@ -421,3 +421,24 @@ Two findings worth carrying forward:
   - Authored and verified in-class teaching plans: `Lesson_7.1_Teaching_Plan_2026-10-20.html` (Meeting #17), `Lesson_7.2_Teaching_Plan_2026-10-21.html` (Meeting #18), `Lesson_7.3_Teaching_Plan_2026-10-23.html` (Meeting #19) in `src/modules/Module_07_Rendering/`. Passed shared teaching plan linter with 0 problems across all 18 course plans.
   - Built widescreen 16:9 PowerPoint slide decks: `Lesson_7.1_Slides_2026-10-20.pptx`, `Lesson_7.2_Slides_2026-10-21.pptx`, `Lesson_7.3_Slides_2026-10-23.pptx` (15 slides each; strictly >=16pt font floor, 80-120 word speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
   - Recompiled stale Notes PDFs for Modules 8, 14, and 15 using Pandoc + Typst (`compile_lesson_notes_pdf.py`), updating titles, headers, and lesson IDs to reflect canonical course renumbering.
+
+- **[2026-10-13] Module 8 (Lemmatization) Novice Rewrite, Ancillaries, Slide Decks, and Live Moodle Deployment Complete:**
+  - Evaluated baseline reading level for unrewritten Module 8 lessons: found unsuitable for novices (Grade 16.0-17.3, FRE 11-21, 23 md-table lint errors, Classical Greek content misaligned with enrolled cohort).
+  - Executed full novice rewrite for Lessons 8.1, 8.2, and 8.3, anchoring all three in the three enrolled project documents (Ace: 1791 French Revolutionary decree; Olyvia: 1967 Maud Lewis letter; Andromeda: 1752 Peace and Friendship Treaty):
+    - Lesson 8.1 (Meeting #20, Tue Oct 27): 30 sections, 4,633 words, FKGL 8.6, FRE 58.2, 0 lint issues.
+    - Lesson 8.2 (Meeting #21, Wed Oct 28): 30 sections, 4,104 words, FKGL 10.7, FRE 44.3, 0 lint issues.
+    - Lesson 8.3 (Meeting #22, Fri Oct 30): 30 sections, 4,101 words, FKGL 11.8, FRE 41.7, 0 lint issues.
+    - All three lessons pass the lint gate with 0 issues (0 md-table violations, 30/30 takeaways verified).
+  - Rebuilt question banks (`scripts/banks/lesson_8_1.py`, `lesson_8_2.py`, `lesson_8_3.py`) and compiled to `03b_Lesson_8.*_Questions.xml` (30 questions each, full diagnostic feedback, strict section takeaway parity).
+  - Compiled Notes PDFs (`04_Lesson_8.1_Notes.pdf`, `04_Lesson_8.2_Notes.pdf`, `04_Lesson_8.3_Notes.pdf`), interactive XMLs (`03_Interactive_Lesson_8.*.xml`), and standalone HTML players (`03_Interactive_Lesson_8.*.html`) in both `src/` and `dist/moodle/`.
+  - Updated Phase F ancillaries in `scripts/banks/quiz_08.py`: retitled workshop to `Assignment: Module 8 (Linguistic Markup)`, due Friday, October 30, at 11:00 PM, with a 4+3+3 rubric (Manual Ground Truth Precision 4 pts, TEI Markup Validity 3 pts, Comparative Error Analysis 3 pts; 80 pts on Moodle). Regenerated `01_Banner.png`, `02_Learning_Objectives.html`, `08_Workshop_Description.html`, `08a_Workshop_Submission_Instructions.html`, `08b_Workshop_Assessment_Instructions.html`, and `09_Quiz.xml`.
+  - Authored and verified in-class teaching plans: `Lesson_8.1_Teaching_Plan_2026-10-27.html`, `Lesson_8.2_Teaching_Plan_2026-10-28.html`, `Lesson_8.3_Teaching_Plan_2026-10-30.html` (MULH 3032, Tue 8:30, Wed 10:30, Fri 9:30). Passed shared teaching plan linter with 0 problems.
+  - Built widescreen 16:9 projection slide decks: `Lesson_8.1_Slides_2026-10-27.pptx`, `Lesson_8.2_Slides_2026-10-28.pptx`, `Lesson_8.3_Slides_2026-10-30.pptx` (15 slides each; strictly >=16pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
+  - Deployed full package to live Moodle Section 8 (Course 51185, Section ID 639806):
+    - Populated Banner (`cmid 1440730`), Learning Objectives (`cmid 1440731`), Lessons 8.1-8.3 Interactive Quizzes (`cmids 1440737, 1440738, 1440739`) and Notes PDFs (`cmids 1440733, 1440734, 1440736` with completion restrictions pointing to quizzes).
+    - Uploaded slide decks as file resources: `Lesson 8.1 Slides (PPTX)` (`cmid 1440748`), `Lesson 8.2 Slides (PPTX)` (`cmid 1440749`), `Lesson 8.3 Slides (PPTX)` (`cmid 1440750`).
+    - Added Reading List (`cmid 1440740`) and Watch List (`cmid 1440741`).
+    - Created `Assignment: Module_08_Lemmatization` (`cmid 1440745`, due Oct 30, 11:00 PM, 80 pts, 4+3+3 rubric) and hid workshop (`cmid 1440742`).
+    - Added Weekly Quiz (`cmid 1440743`).
+    - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
+    - Refreshed and committed `moodle_manifest.json` (129 activities tracked).
