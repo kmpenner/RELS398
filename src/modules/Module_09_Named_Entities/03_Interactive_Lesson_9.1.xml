@@ -1,0 +1,1753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_9.1</text></category></question>
+<question type="description"><name><text>01 Content: Names Beyond Strings: Why Editions Need Entity Markup</text></name><questiontext format="html"><text><![CDATA[
+<h3>Names Beyond Strings: Why Editions Need Entity Markup</h3>
+<p>Over the past eight weeks, you built a real digital edition from the ground up. You catalogued your witness in a <code>teiHeader</code>. You linked high-resolution images with <code>&lt;facsimile&gt;</code>. You transcribed every line as written. In Module 6, you normalized historical spelling with <code>&lt;choice&gt;</code>. In Module 7, you created stylesheets for online reading. Last week, in Module 8, you added parts of speech and dictionary lemmas to your words.</p>
+<p>Now we take the next major step in digital textual editing: named entities. A computer sees text only as a sequence of letters and spaces. A search for the word <em>Paris</em> finds every instance of those five letters. But the computer does not know if <em>Paris</em> means the capital of France, a small town in Maine, or the mythological Trojan prince.</p>
+<p>Named entity markup solves this problem. It identifies real-world people, geographic places, corporate organizations, and dates in your text. It links those mentions to global authority records. Today, you will establish this ground truth by hand for your own project witness.</p>
+<p><strong>Vocabulary.</strong> <em>Named Entity</em> — A real-world person, place, group, or date mentioned in a text. <em>Entity Disambiguation</em> — Distinguishing between different people or places that share the same name.</p>
+<p><strong>Takeaway:</strong> String searches find matching letters; entity markup reveals the actual people, places, groups, and dates behind those letters.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Names Beyond Strings: Why Editions Need Entity Markup</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is plain-text string searching inadequate for identifying historical entities in a digital scholarly edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Entity markup connects variant historical names to stable real-world entities, overcoming the ambiguities of literal text strings.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A single historical entity can appear under multiple spelling variants, aliases, and titles, while identical strings can refer to completely different entities.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Plain strings cannot distinguish between different people sharing a name or gather variant historical spellings together without semantic entity markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Plain-text search algorithms are illegal under international copyright and manuscript preservation treaties.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Copyright law does not prohibit string searching in digital humanities software.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Modern web browsers refuse to display documents that do not contain semantic XML markup.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web browsers display plain text easily; entity markup serves research and semantic linking.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Text search engines require supercomputers and cannot run on archival documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. String searching is computationally simple and fast, but semantically blind.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: The Four Core Classes: People, Places, Organizations, and Dates</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Four Core Classes: People, Places, Organizations, and Dates</h3>
+<p>In digital humanities, entity recognition focuses on four main categories. Every historical document is shaped by these four classes of information.</p>
+<p>The first class is <strong>people</strong> (<code>persName</code>). This includes authors, monarchs, scribes, soldiers, artists, and correspondents. The second class is <strong>places</strong> (<code>placeName</code>). This covers towns, rivers, provinces, roads, and natural features. The third class is <strong>organizations</strong> (<code>orgName</code>). This includes governments, parliaments, military regiments, churches, and committees. The fourth class is <strong>dates</strong> (<code>date</code>). This covers calendar days, months, years, and historical eras.</p>
+<p>Separating these four classes requires human reading. Consider the word <em>Halifax</em> in Andromeda's 1752 Treaty. Does it mean the colonial town in Nova Scotia, the city in England, or Lord Halifax? The letters are identical. Only human context tells you that the treaty was signed in the coastal settlement of Halifax.</p>
+<p><strong>Vocabulary.</strong> <em>Person Entity</em> — An individual human being named in a text. <em>Place Entity</em> — A physical geographic location. <em>Organization Entity</em> — A group, council, or formal institution. <em>Date Entity</em> — A specific point or span in time.</p>
+<p><strong>Takeaway:</strong> The four core entity types in historical texts are people, places, organizations, and dates.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: The Four Core Classes: People, Places, Organizations, and Dates</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the four primary entity classes standardized in digital humanities research?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Digital entity markup models historical records through four core classes: persons, places, organizations, and dates.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Persons, Places, Organizations, and Dates.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Digital humanities and computational linguistics focus on these four foundational categories to map historical actors, geography, institutions, and chronologies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Fonts, Margins, Bookbindings, and Paper Sizes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are physical and typographic layout features, not semantic named entities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Verbs, Adjectives, Adverbs, and Conjunctions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are grammatical parts of speech, not named entity classes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Manuscripts, Microfilms, Hard Drives, and Flash Drives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are physical and digital storage media, not entity classes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: TEI P5 Chapter 13: The Four Core Elements</text></name><questiontext format="html"><text><![CDATA[
+<h3>TEI P5 Chapter 13: The Four Core Elements</h3>
+<p>The Text Encoding Initiative gives us standard XML tags for names and dates in Chapter 13 of the Guidelines. These tags preserve your transcript while labeling what each name means.</p>
+<p>To tag a person, wrap their name in <code>&lt;persName&gt;</code>. To tag a place, use <code>&lt;placeName&gt;</code>. For an organization, use <code>&lt;orgName&gt;</code>. For a date or time expression, use <code>&lt;date&gt;</code>.</p>
+<p>Look at how these elements appear in practice:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Entity Class</th>
+      <th>TEI Tag</th>
+      <th>Historical Example</th>
+      <th>What It Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Person</td>
+      <td><code>&lt;persName&gt;</code></td>
+      <td>Major Jean Baptiste Cope</td>
+      <td>A real human individual</td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><code>&lt;placeName&gt;</code></td>
+      <td>Chigabenakady</td>
+      <td>A geographic site or territory</td>
+    </tr>
+    <tr>
+      <td>Organization</td>
+      <td><code>&lt;orgName&gt;</code></td>
+      <td>Assemblée nationale</td>
+      <td>A formal group or assembly</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><code>&lt;date&gt;</code></td>
+      <td>22 Novembre 1752</td>
+      <td>A calendar point in time</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These tags leave the ink on the page unchanged. They simply add a digital wrapper that explains what the name is.</p>
+<p><strong>Vocabulary.</strong> <em>TEI Chapter 13</em> — The section of the TEI Guidelines that governs names, dates, people, and places. <em>Element Wrapper</em> — An XML tag placed around historical words without changing their spelling.</p>
+<p><strong>Takeaway:</strong> TEI P5 provides four primary tags—persName, placeName, orgName, and date—to identify historical entities.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: TEI P5 Chapter 13: The Four Core Elements</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which set of XML elements from TEI P5 Chapter 13 encodes the four core entity classes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;TEI Chapter 13 provides specialized elements: &lt;persName&gt;, &lt;placeName&gt;, &lt;orgName&gt;, and &lt;date&gt; for tagging named entities in text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;persName&gt;, &lt;placeName&gt;, &lt;orgName&gt;, and &lt;date&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. TEI P5 Chapter 13 defines &lt;persName&gt; for people, &lt;placeName&gt; for places, &lt;orgName&gt; for institutions, and &lt;date&gt; for chronological points.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;person&gt;, &lt;place&gt;, &lt;organization&gt;, and &lt;calendar&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;person&gt; and &lt;place&gt; describe entity definitions in the header, while &lt;persName&gt;, &lt;placeName&gt;, &lt;orgName&gt;, and &lt;date&gt; tag inline mentions in body text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;name type="person"&gt;, &lt;location&gt;, &lt;corp&gt;, and &lt;time&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. While generic &lt;name&gt; exists, Chapter 13 standardizes specialized tags &lt;persName&gt;, &lt;placeName&gt;, and &lt;orgName&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;who&gt;, &lt;where&gt;, &lt;group&gt;, and &lt;when&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are not standard TEI P5 tags for named entities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Names with Internal Parts: Surnames, Forenames, and Titles</text></name><questiontext format="html"><text><![CDATA[
+<h3>Names with Internal Parts: Surnames, Forenames, and Titles</h3>
+<p>Historical names often contain multiple parts. Scribes combine official titles, first names, family surnames, and nicknames in a single phrase.</p>
+<p>TEI allows you to break down a name into smaller pieces inside the <code>&lt;persName&gt;</code> tag. You can tag a first name with <code>&lt;forename&gt;</code>. You can tag a family name with <code>&lt;surname&gt;</code>. You can mark an official office or military rank with <code>&lt;roleName&gt;</code>.</p>
+<p>Look at the signature in the 1752 Treaty: <em>Major Jean Baptiste Cope</em>. In basic markup, you can tag the whole string as <code>&lt;persName&gt;</code>. In detailed markup, you can tag <em>Major</em> as <code>&lt;roleName&gt;</code>, <em>Jean Baptiste</em> as <code>&lt;forename&gt;</code>, and <em>Cope</em> as <code>&lt;surname&gt;</code>. This helps future scholars search for all military officers or sort people by family name without confusing titles with personal names.</p>
+<p><strong>Vocabulary.</strong> <em>Forename</em> — A given first or middle name. <em>Surname</em> — A family or clan name. <em>Role Name</em> — An official title, military rank, or social office.</p>
+<p><strong>Takeaway:</strong> Detailed tags like forename, surname, and roleName let you break historical names into clear grammatical parts.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Names with Internal Parts: Surnames, Forenames, and Titles</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does TEI allow editors to break down complex personal names into structured subcomponents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Subcomponents like &lt;forename&gt;, &lt;surname&gt;, and &lt;roleName&gt; provide granular structure within parent &lt;persName&gt; tags.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By nesting &lt;forename&gt;, &lt;surname&gt;, &lt;roleName&gt;, or &lt;addName&gt; inside a parent &lt;persName&gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Naming subcomponents like forenames, surnames, and titles can be granularly tagged inside &lt;persName&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By separating the names with semicolons and storing them in an external CSV spreadsheet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI embeds structured subcomponents hierarchically within XML elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By converting the entire personal name into capital letters and removing all vowels.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI preserves historical spellings and casing rather than modifying the surface text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By restricting personal names to exactly two words per individual.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI places no arbitrary word count limits on personal names.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Places with Layers: Towns, Counties, and Countries</text></name><questiontext format="html"><text><![CDATA[
+<h3>Places with Layers: Towns, Counties, and Countries</h3>
+<p>Geographic locations also appear in layers. An address or travel record often moves from a specific building or town to a larger district, province, and nation.</p>
+<p>TEI represents these spatial layers using child elements inside <code>&lt;placeName&gt;</code>. You can tag a village or city with <code>&lt;settlement&gt;</code>. You can tag a county or province with <code>&lt;region&gt;</code>. You can tag an entire sovereign realm with <code>&lt;country&gt;</code>.</p>
+<p>When Maud Lewis writes from <em>Marshalltown, Digby County, Nova Scotia</em>, she names three geographic layers. Marshalltown is a <code>&lt;settlement&gt;</code>. Digby County is a <code>&lt;region type="county"&gt;</code>. Nova Scotia is a <code>&lt;region type="province"&gt;</code>. This keeps your digital map accurate and prevents software from mistaking a tiny village for a whole region.</p>
+<p><strong>Vocabulary.</strong> <em>Settlement</em> — A town, village, or city. <em>Region</em> — A county, state, province, or district. <em>Country</em> — A sovereign nation or land.</p>
+<p><strong>Takeaway:</strong> Nested place tags like settlement and region preserve the spatial layers of historical geography.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Places with Layers: Towns, Counties, and Countries</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which TEI child elements allow editors to capture hierarchical geographic information inside &lt;placeName&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Hierarchical places are cleanly modeled in TEI using &lt;settlement&gt;, &lt;district&gt;, &lt;region&gt;, and &lt;country&gt; inside &lt;placeName&gt;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;settlement&gt;, &lt;district&gt;, &lt;region&gt;, and &lt;country&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. TEI provides geographic hierarchy elements like &lt;settlement&gt; (town/city), &lt;district&gt; (county), &lt;region&gt; (province/state), and &lt;country&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;street&gt;, &lt;postalCode&gt;, &lt;apartmentNumber&gt;, and &lt;floor&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. While postal address elements exist in TEI for modern mail, historical geography uses settlement, district, region, and country.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;latitude&gt;, &lt;longitude&gt;, &lt;altitude&gt;, and &lt;satellite&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Coordinates are recorded using &lt;geo&gt;, not XML element wrappers around text tokens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;forest&gt;, &lt;river&gt;, &lt;mountain&gt;, and &lt;valley&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Specific landforms use &lt;geogName&gt; or feature typing rather than standard administrative hierarchy tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Time on the Page: The Essential @when Attribute</text></name><questiontext format="html"><text><![CDATA[
+<h3>Time on the Page: The Essential @when Attribute</h3>
+<p>Dates in historical documents look very different from modern calendar entries. Scribes write dates in words, Latin phrases, or regnal years. A clerk might write <em>the twenty-second Day of November in the twenty-sixth Year of the Reign of King George</em>.</p>
+<p>A search engine looking for the year 1752 will miss that phrase unless you help it. TEI solves this with the <code>@when</code> attribute on the <code>&lt;date&gt;</code> tag.</p>
+<p>The text inside the tag keeps the scribe's exact words: <code>&lt;date when="1752-11-22"&gt;the twenty-second Day of November&lt;/date&gt;</code>. The <code>@when</code> attribute holds the standardized date in ISO 8601 format (<code>YYYY-MM-DD</code>). This lets computers sort, filter, and timeline historical events while keeping the original manuscript ink visible.</p>
+<p><strong>Vocabulary.</strong> <em>ISO 8601</em> — The international standard format for dates (YYYY-MM-DD). <em>The @when Attribute</em> — The TEI attribute that stores a normalized computer-readable date.</p>
+<p><strong>Takeaway:</strong> The when attribute normalizes historical dates into YYYY-MM-DD format while preserving original manuscript phrasing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Time on the Page: The Essential @when Attribute</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the @when attribute essential when tagging historical dates with the &lt;date&gt; element?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The @when attribute supplies machine-readable ISO 8601 dates (YYYY-MM-DD) for historical temporal expressions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It normalizes ambiguous, non-standard, or archaic scribal phrasing into machine-readable ISO 8601 standard dates (YYYY-MM-DD).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The @when attribute records the normalized date (e.g. @when="1791-08-25") while preserving the original historical text inside the element.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces web browsers to reload the web page at a specific time of day.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The @when attribute is an analytical data attribute, not a browser timer.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the scribe's original historical wording from the digital edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI preserves the historical surface text inside the &lt;date&gt; element unchanged.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It calculates the exact monetary cost of transcribing the historical document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The @when attribute handles temporal data normalization, not project finances.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: When Capital Letters Lie: Scribes and Common Nouns</text></name><questiontext format="html"><text><![CDATA[
+<h3>When Capital Letters Lie: Scribes and Common Nouns</h3>
+<p>In modern English, we capitalize proper names and lowercase common nouns. In eighteenth-century manuscripts, scribes did not follow this rule.</p>
+<p>In the 1752 Treaty and the 1791 French decree, scribes capitalized common nouns for emphasis or elegance. Words like <em>Treaty</em>, <em>Governor</em>, <em>Assembly</em>, <em>Law</em>, and <em>Peace</em> often begin with capital letters. A computer might guess that every capitalized word is a proper name.</p>
+<p>A human editor knows better. Capital letters alone do not make a word a named entity. You must ask whether the word refers to an individual person, a real geographic site, or a formal legal body. Human judgment separates scribe habits from true historical entities.</p>
+<p><strong>Vocabulary.</strong> <em>Proper Noun</em> — A specific name for a person, place, or thing. <em>Common Noun</em> — A general word for a class of items or ideas. <em>Capitalization Drift</em> — Scribe habits of capitalizing ordinary words for decoration or emphasis.</p>
+<p><strong>Takeaway:</strong> Historical scribes capitalized common nouns frequently; editors must look beyond capital letters to find real entities.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: When Capital Letters Lie: Scribes and Common Nouns</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why can an editor not rely solely on capitalization to identify proper named entities in eighteenth-century texts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Capitalization in early modern documents reflects rhetorical emphasis and stylistic convention, not named entity status.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Eighteenth-century scribes and printers frequently capitalized common nouns for emphasis, while some lowercase words are proper names.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Historical orthography routinely capitalized ordinary nouns like 'Treaty', 'Peace', or 'Gold', so capitalization does not guarantee a proper entity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Eighteenth-century printing presses did not possess capital letter blocks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Movable type printing presses included full uppercase type cases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Scribes only capitalized words when writing in secret diplomatic code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Capitalization of common nouns was standard orthographic convention in eighteenth-century English.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Capital letters were wiped from manuscripts during modern museum conservation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Conservation stabilizes paper and ink; it does not erase letter casing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Why Text Strings Fail: Connecting Names to Real Things</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why Text Strings Fail: Connecting Names to Real Things</h3>
+<p>Text strings are slippery. A single historical figure can appear under half a dozen different names in the same archive.</p>
+<p>In Revolutionary France, the king might be called <em>Louis XVI</em>, <em>Louis Seize</em>, <em>le Roi</em>, or <em>Citoyen Capet</em>. In British records, Governor Hopson might be called <em>Peregrine Thomas Hopson</em>, <em>Governor Hopson</em>, or <em>His Excellency</em>. A computer reading plain text sees four different people.</p>
+<p>Authority control solves this problem. It links all those different names to a single, permanent record in an authority database. Instead of treating names as isolated text strings, authority control connects them to real historical entities.</p>
+<p><strong>Vocabulary.</strong> <em>Authority Control</em> — Linking different names and spelling variants to a single official record. <em>Identifier</em> — A unique code or web address that stands for one specific entity.</p>
+<p><strong>Takeaway:</strong> Authority control connects multiple name variants across documents to a single permanent identity.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Why Text Strings Fail: Connecting Names to Real Things</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What fundamental problem arises when two historical individuals in a corpus share the exact same name string?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Disambiguating identical name strings requires linking them to unique entity records rather than matching raw text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;String identity causes polysemy or entity confusion, merging two distinct historical biographies into a single query result.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Two people with the same name string must be disambiguated through unique entity identifiers to prevent conflation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The operating system halts and throws a memory allocation error.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers have no problem storing identical text strings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The XML parser automatically deletes one of the two names from the document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML parsers do not delete content due to shared names.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Both individuals are automatically merged into a single person in real historical records.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The people remain historically distinct; failure to disambiguate is an editorial error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Three Global Registries: Wikidata, VIAF, and GeoNames</text></name><questiontext format="html"><text><![CDATA[
+<h3>Three Global Registries: Wikidata, VIAF, and GeoNames</h3>
+<p>Digital scholars rely on three main open authority registries to link their documents to the wider world.</p>
+<p>First, <strong>Wikidata</strong> is an open knowledge database run by the Wikimedia Foundation. Every person, place, and event gets a unique Q-number. For example, Maud Lewis is <code>Q2302306</code>. King Louis XVI is <code>Q7732</code>.</p>
+<p>Second, <strong>VIAF</strong> (the Virtual International Authority File) combines authority lists from national libraries across the world. It assigns a single number that clusters library records for an author or historical figure.</p>
+<p>Third, <strong>GeoNames</strong> is the world's standard geographic database. It provides coordinates, administrative codes, and variant names for millions of places. For example, Halifax, Nova Scotia, is GeoNames <code>6324729</code>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Registry</th>
+      <th>What It Covers</th>
+      <th>Identifier Format</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wikidata</td>
+      <td>People, things, groups, events</td>
+      <td><code>Q[0-9]+</code></td>
+      <td>Q2302306 (Maud Lewis)</td>
+    </tr>
+    <tr>
+      <td>VIAF</td>
+      <td>Library authority files</td>
+      <td><code>viaf:[0-9]+</code></td>
+      <td>viaf:84035444 (Louis XVI)</td>
+    </tr>
+    <tr>
+      <td>GeoNames</td>
+      <td>Geographic places and features</td>
+      <td><code>geonames:[0-9]+</code></td>
+      <td>geonames:6324729 (Halifax)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Wikidata</em> — A free, multilingual knowledge graph of people, concepts, and places. <em>VIAF</em> — A global registry combining national library authority files. <em>GeoNames</em> — A global database of geographic names and coordinates.</p>
+<p><strong>Takeaway:</strong> Wikidata, VIAF, and GeoNames are the primary public databases used to identify people, libraries, and places.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Three Global Registries: Wikidata, VIAF, and GeoNames</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the primary target domains for Wikidata, VIAF, and GeoNames respectively?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Wikidata, VIAF, and GeoNames serve as foundational global registries for linked open entity data.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Wikidata covers structured general entities, VIAF aggregates library authority records for persons/orgs, and GeoNames standardizes global geographical places.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Wikidata provides structured semantic web items (Q-numbers), VIAF unites international library authorities, and GeoNames identifies spatial places.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Wikidata registers medical patents, VIAF indexes legal deeds, and GeoNames lists real estate prices.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These registries are open scholarly authorities for general knowledge, library catalogues, and geography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Wikidata tracks computer hardware, VIAF monitors internet routers, and GeoNames stores astronomy star maps.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. None of these registries are computer hardware or astronomy registries.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Wikidata, VIAF, and GeoNames are identical copies of Wikipedia with no structural differences.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Each registry has a distinct architecture, identifier schema, and authority scope.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: The TEI @ref Attribute: Building the Linked Data Bridge</text></name><questiontext format="html"><text><![CDATA[
+<h3>The TEI @ref Attribute: Building the Linked Data Bridge</h3>
+<p>In TEI XML, you link an entity to an authority database using the <code>@ref</code> attribute. The <code>@ref</code> attribute holds the web address (URI) or identifier of the official record.</p>
+<p>Look at how the attribute attaches to a name tag:</p>
+<pre><code class="language-xml">&lt;persName ref=&quot;https://www.wikidata.org/wiki/Q2302306&quot;&gt;Maud Lewis&lt;/persName&gt;
+</code></pre>
+<p>The text between the opening and closing tags remains the exact manuscript wording. The <code>@ref</code> attribute builds the bridge to the global web of data.</p>
+<p>When another scholar searches your edition, their software can follow the <code>@ref</code> link to learn Maud Lewis's birth year, artistic style, and museum holdings. You can also write shorter forms like <code>ref="wikidata:Q2302306"</code> if you define the prefix in your header.</p>
+<p><strong>Vocabulary.</strong> <em>The @ref Attribute</em> — The TEI attribute that points to an external authority record or local identifier. <em>Linked Data</em> — A method of publishing structured data so that digital documents can link to one another.</p>
+<p><strong>Takeaway:</strong> The TEI ref attribute embeds authority links into names, connecting local editions to global research networks.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: The TEI @ref Attribute: Building the Linked Data Bridge</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does an editor connect a TEI entity element to an external authority file like Wikidata or GeoNames?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The @ref attribute bridges TEI elements to global Linked Open Data registries through canonical URIs.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By placing the canonical Uniform Resource Identifier (URI) or prefixed identifier in the @ref attribute of the entity element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The @ref attribute stores canonical URIs (e.g. @ref="https://www.wikidata.org/wiki/Q38" or @ref="wikidata:Q38").&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By typing a footnote at the very bottom of the printed page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Footnotes provide human prose, whereas @ref creates machine-actionable Linked Data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By embedding an executable Python script inside the XML text node.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI XML documents do not execute inline Python scripts inside text nodes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By creating a new internet domain name for every historical person.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors link to existing authority registries via established URIs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Local and Regional Registers: Canadian and Indigenous Databases</text></name><questiontext format="html"><text><![CDATA[
+<h3>Local and Regional Registers: Canadian and Indigenous Databases</h3>
+<p>Global databases like Wikidata and VIAF are immense, but they have major blind spots. They focus heavily on famous European rulers, published writers, and large cities. They often overlook regional Canadian artists, local historical figures, and Indigenous communities.</p>
+<p>When you edit regional manuscripts, specialized databases provide far better information. For Canadian figures, the <strong>Dictionary of Canadian Biography (DCB)</strong> gives peer-reviewed historical profiles. The <strong>Canadian Heritage Information Network (CHIN)</strong> catalogues Canadian artists and museum collections.</p>
+<p>For Indigenous places and treaties, <strong>Native Land Digital</strong> maps ancestral territories and treaties. Relying only on colonial databases can erase Indigenous heritage. Always look for authority records that respect the local history of your document.</p>
+<p><strong>Vocabulary.</strong> <em>Regional Authority</em> — A specialized database focused on national or local historical figures. <em>Dictionary of Canadian Biography</em> — The premier scholarly biographical dictionary for Canadian history. <em>Native Land Digital</em> — An Indigenous-led platform mapping ancestral territories and languages.</p>
+<p><strong>Takeaway:</strong> Specialized regional databases provide essential authority records where global databases fall short.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Local and Regional Registers: Canadian and Indigenous Databases</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must editors of Canadian historical documents consult national and regional registries like the Dictionary of Canadian Biography (DCB) alongside global databases?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Regional databases like DCB, Native Land Digital, and local archives provide critical depth missing from global registries.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Global registries like Wikidata have systemic representation gaps regarding regional Canadian historical figures and Indigenous leadership.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Regional and specialized repositories contain rich biographical and historical evidence omitted from broad global databases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Canadian law forbids referencing non-Canadian databases in university publications.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. There is no legal restriction against using international databases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;International databases like Wikidata charge high licensing fees for Canadian users.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Wikidata and VIAF are free and open-access public resources.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Canadian historical figures were legally forbidden from having international records.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Many prominent figures appear internationally, but regional figures are often omitted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: The Verified Absence Rule: When a Person Has No Record</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Verified Absence Rule: When a Person Has No Record</h3>
+<p>What happens when you research a person in your document and find no record in Wikidata, VIAF, or any national archive?</p>
+<p>Many beginners panic and attach an unrelated person who shares the same name. Other beginners leave the name untagged. Both choices damage scholarship. Forcing a fake match introduces false data into the historical record.</p>
+<p>In our course, you follow the <strong>Verified Absence Rule</strong>. If you search the relevant archives and prove that no record exists, that verified absence earns full credit. Document the registries you searched and state clearly that the person is unindexed. Proving that an archive overlooked an ordinary person is an important historical finding.</p>
+<p><strong>Vocabulary.</strong> <em>Verified Absence</em> — Documenting that an entity does not exist in standard authority databases after a thorough search. <em>False Match</em> — Forcing a name to link to an unrelated person who shares a similar spelling.</p>
+<p><strong>Takeaway:</strong> Proving and documenting that a person lacks an authority record earns full credit; never force-fit an incorrect link.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: The Verified Absence Rule: When a Person Has No Record</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Under our course editorial rules, what must an editor do when a historical person cannot be found in Wikidata, VIAF, or regional authority files?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Verified Absence rule requires explicit documentation and local ID minting when no external record exists.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Document a Verified Absence by citing the searched registries, recording search dates, and creating a local project identifier.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. If an exhaustive search reveals no record, editors document the verified absence and mint a local URI (e.g. #person-001) rather than guessing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Invent a plausible-sounding fictional URI and pretend the record exists.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Inventing fake URIs corrupts scholarly linked open data integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the person from the historical transcript to maintain database compliance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors never alter or delete historical witnesses to satisfy database requirements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Halt the entire digital edition project permanently until an external record appears.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly workflows document verified absences locally and proceed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Building Your Own Directory: &lt;particDesc&gt; in the Header</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building Your Own Directory: <particDesc> in the Header</h3>
+<p>When people in your document lack public records in Wikidata, where do you store their biographical information?</p>
+<p>TEI solves this by letting you build your own biographical directory inside the <code>teiHeader</code>. The element is called <code>&lt;particDesc&gt;</code> (participation description). It lives inside the <code>&lt;profileDesc&gt;</code> section of the header.</p>
+<p>Inside <code>&lt;particDesc&gt;</code>, you add a <code>&lt;person&gt;</code> element for each individual and give them an internal ID, like <code>xml:id="person-kinnear"</code>. You record their birth date, occupation, and role in your text. In your transcript, your tag points to this internal ID: <code>&lt;persName ref="#person-kinnear"&gt;Mr. Kinnear&lt;/persName&gt;</code>. This keeps your edition complete and self-contained.</p>
+<p><strong>Vocabulary.</strong> <em>particDesc</em> — The TEI header element that houses a local directory of people mentioned in a document. <em>Local ID</em> — An internal xml:id used to link mentions in the text to descriptions in the header.</p>
+<p><strong>Takeaway:</strong> The particDesc element in the header lets you create a local biographical directory for people without external records.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Building Your Own Directory: &lt;particDesc&gt; in the Header</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Where in a TEI document does an editor define a structured local directory of historical participants and persons?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Local biographical prosopography is formally housed within &lt;profileDesc&gt;/&lt;particDesc&gt; in the TEI Header.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;In the &lt;teiHeader&gt; inside &lt;profileDesc&gt; within the &lt;particDesc&gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The &lt;particDesc&gt; (participation description) element in &lt;profileDesc&gt; holds local &lt;person&gt; and &lt;org&gt; biographical records.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In the &lt;body&gt; inside the very first &lt;p&gt; paragraph.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The body contains the primary text, while metadata directories belong in &lt;teiHeader&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In an external invisible text file saved on the desktop.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Self-contained TEI editions house local prosopographies within &lt;teiHeader&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In the &lt;revisionDesc&gt; change logs at the end of the header.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;revisionDesc&gt; logs editorial changes, not biographical entity directories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Building Your Own Map: &lt;settingDesc&gt; in the Header</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building Your Own Map: <settingDesc> in the Header</h3>
+<p>Just as you create a local directory of people in <code>&lt;particDesc&gt;</code>, you can create a local gazetteer of places in <code>&lt;settingDesc&gt;</code>.</p>
+<p>Historical letters and treaties often mention local creeks, family farms, or Indigenous trails that do not appear in GeoNames. Forcing a local path into a modern city record distorts geography.</p>
+<p>Inside <code>&lt;settingDesc&gt;</code>, you add a <code>&lt;place&gt;</code> element with a unique <code>xml:id</code>, historical notes, and geographic coordinates if known. In your transcript, you point your place tag to your local record: <code>&lt;placeName ref="#place-marshalltown"&gt;Marshalltown&lt;/placeName&gt;</code>. This allows your edition to record local geography with complete historical integrity.</p>
+<p><strong>Vocabulary.</strong> <em>settingDesc</em> — The TEI header element that houses a local gazetteer of places. <em>Local Gazetteer</em> — A project-specific list of place names and geographic notes.</p>
+<p><strong>Takeaway:</strong> The settingDesc element in the header houses a local gazetteer for historical places missing from modern databases.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Building Your Own Map: &lt;settingDesc&gt; in the Header</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which TEI Header element provides a local gazetteer of geographical places mentioned in the text?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The &lt;settingDesc&gt; container in &lt;profileDesc&gt; defines local places, historical names, and geographic coordinates.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;settingDesc&gt;, containing &lt;listPlace&gt; and individual &lt;place&gt; entries.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Inside &lt;profileDesc&gt;, the &lt;settingDesc&gt; element houses &lt;listPlace&gt; with structured &lt;place&gt; definitions and coordinates.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;mapContainer&gt;, containing &lt;gpsCoordinate&gt; elements.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;mapContainer&gt; is not a valid TEI P5 element.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;fileDesc&gt;, containing &lt;titleStmt&gt; sub-elements.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;fileDesc&gt; records bibliographic metadata about the digital file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;layoutDesc&gt;, containing line and column counts.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;layoutDesc&gt; records codicological page layout, not geographic settings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Case Study 1: Political Entities in Ace's 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study 1: Political Entities in Ace's 1791 French Decree</h3>
+<p>Let us look at the entities in Ace's 1791 French Revolutionary decree from the <em>Comité des décrets</em> (British Library Zweig MS 169). This document was produced during a dramatic political shift: the creation of a constitutional monarchy in France.</p>
+<p>Ace's text contains powerful political bodies. The primary group is the <code>&lt;orgName ref="wikidata:Q120563"&gt;l'Assemblée nationale&lt;/orgName&gt;</code> (the National Assembly). The document also mentions the <code>&lt;orgName&gt;Comité des décrets&lt;/orgName&gt;</code>, the legislative committee that verified and printed parliamentary decrees.</p>
+<p>Personal names include the constitutional king, <code>&lt;persName ref="wikidata:Q7732"&gt;Louis XVI&lt;/persName&gt;</code>, and administrative signers like <code>&lt;persName&gt;Dejoly&lt;/persName&gt;</code>. The place of issue is <code>&lt;placeName ref="geonames:2988507"&gt;Paris&lt;/placeName&gt;</code>. Identifying these entities requires understanding the French state in the summer of 1791.</p>
+<p><strong>Vocabulary.</strong> <em>National Assembly</em> — The revolutionary parliamentary body of France from 1789 to 1791. <em>Constitutional Monarchy</em> — A system where a monarch rules alongside an elected parliament under a constitution.</p>
+<p><strong>Takeaway:</strong> Ace's 1791 French decree features formal revolutionary assemblies, royal figures, and administrative signers in Paris.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Case Study 1: Political Entities in Ace's 1791 French Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Ace's 1791 French Revolutionary decree, which entity class best categorizes the 'Comité des décrets'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Institutional governing bodies like the Comité des décrets are encoded as &lt;orgName&gt;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;orgName&gt;, because it represents an official governmental committee and institutional body.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Legislative committees, clubs, and corporate assemblies are tagged as organizations (&lt;orgName&gt;).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;persName&gt;, because it is composed of individual human beings.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The committee is a collective institution, not an individual person.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;placeName&gt;, because the committee met in a physical building in Paris.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The meeting place is geographic, but the committee itself is an organization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;date&gt;, because the decree was approved in August 1791.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree date is temporal, but the committee is an institution.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: The National Assembly and the King: Royal and Legislative Bodies</text></name><questiontext format="html"><text><![CDATA[
+<h3>The National Assembly and the King: Royal and Legislative Bodies</h3>
+<p>In August 1791, power in France was split between the elected National Assembly and King Louis XVI. Decrees had to be approved by the assembly and sanctioned by the king before they became law.</p>
+<p>When encoding these organizations, editors must distinguish between legislative bodies and the crown. The National Assembly is tagged as <code>&lt;orgName&gt;</code>. The king can be tagged as an individual with <code>&lt;persName&gt;</code> or as an office with <code>&lt;roleName&gt;le Roi&lt;/roleName&gt;</code>.</p>
+<p>Notice how the words <em>Nation</em>, <em>Loi</em>, and <em>Roi</em> frequently appear together: "la Nation, la Loi, et le Roi." An automated program might confuse these capitalized words for personal names. A human editor tags <em>la Loi</em> as a concept, <em>la Nation</em> as the body politic, and <em>le Roi</em> as the monarch.</p>
+<p><strong>Vocabulary.</strong> <em>Royal Sanction</em> — The official royal approval required to turn an assembly decree into law. <em>Body Politic</em> — The collective political body of the people or state.</p>
+<p><strong>Takeaway:</strong> Editorial judgment distinguishes royal offices and legal concepts from ordinary personal names in French administrative texts.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: The National Assembly and the King: Royal and Legislative Bodies</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How did political authority in France split in the August 1791 constitutional decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The 1791 decree reflects constitutional monarchy: legislative authority in the National Assembly and royal executive authority in Louis XVI.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Between the legislative power of the elected National Assembly and the executive royal authority of King Louis XVI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The 1791 Constitution established a constitutional monarchy dividing power between the legislative assembly and the crown.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Between the Pope in Rome and the Ottoman Sultan in Istanbul.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The 1791 French decree was an internal French constitutional reorganization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Between private commercial shipping corporations and labor guilds.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree concerns national state sovereignty, not commercial guilds.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Between local parish priests and rural municipal mayors exclusively.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The National Assembly and the monarch held constitutional sovereignty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: French Authority Files: Using BnF and IdRef for Revolutionary Names</text></name><questiontext format="html"><text><![CDATA[
+<h3>French Authority Files: Using BnF and IdRef for Revolutionary Names</h3>
+<p>When researching French historical figures, French national databases offer richer evidence than general English websites.</p>
+<p>Two French registries are essential. First, the <strong>Bibliothèque nationale de France (BnF)</strong> maintains authoritative catalogue records for every person, printer, and institution in French history. Second, <strong>IdRef</strong> is the French higher education authority registry, linking researchers, deputies, and historical manuscripts.</p>
+<p>In Ace's document, legislative deputies and minor clerks who appear only as signatures can often be found in IdRef or the BnF catalogue. Linking to BnF or IdRef alongside Wikidata provides ironclad authority evidence for French digital editions.</p>
+<p><strong>Vocabulary.</strong> <em>BnF</em> — The National Library of France, maintaining standard French authority records. <em>IdRef</em> — The French academic authority registry used by universities and research libraries.</p>
+<p><strong>Takeaway:</strong> The BnF and IdRef registries provide authoritative documentation for French historical figures and institutions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: French Authority Files: Using BnF and IdRef for Revolutionary Names</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which French national databases provide the most authoritative Linked Data records for eighteenth-century French figures?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;BnF and IdRef provide the primary canonical authority registries for French historical persons and institutions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Bibliothèque nationale de France (BnF) and IdRef (Identifiants et Référentiels pour l'enseignement supérieur).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. BnF and IdRef are France's national bibliographic and higher education authority registries, offering detailed French historical biographical records.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The British Royal Navy Admiralty Registry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The British Admiralty does not maintain French domestic political authority files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The United States Library of Congress Copyright Office.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The LC records American copyrights and is not the primary authority for French revolutionary officials.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The International Olympic Committee Historical Database.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The IOC records modern athletic competitions, not French revolutionary history.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Case Study 2: Personal Names in Olyvia's 1967 Maud Lewis Letter</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study 2: Personal Names in Olyvia's 1967 Maud Lewis Letter</h3>
+<p>Olyvia is editing a 1967 handwritten letter by Nova Scotia folk artist Maud Lewis. This witness offers a total contrast to Ace's formal political decree. It is an intimate, twentieth-century personal letter about art and daily life.</p>
+<p>Maud Lewis lived in a tiny painted house in Marshalltown, Nova Scotia. She suffered from severe arthritis and sold painted boards from her home. Her letter to art buyer Leonard Kinnear discusses painting prices, house visits, and her husband Everett.</p>
+<p>The entities here are personal and local: <code>&lt;persName ref="wikidata:Q2302306"&gt;Maud Lewis&lt;/persName&gt;</code>, her husband <code>&lt;persName ref="wikidata:Q96473843"&gt;Everett Lewis&lt;/persName&gt;</code>, and correspondent <code>&lt;persName&gt;Mr. Kinnear&lt;/persName&gt;</code>. The geographic references point to rural Nova Scotia. Understanding these names requires attention to mid-century folk art culture.</p>
+<p><strong>Vocabulary.</strong> <em>Folk Artist</em> — An artist without formal academic training whose work reflects local community culture. <em>Epistolary Witness</em> — A handwritten letter preserved as primary historical evidence.</p>
+<p><strong>Takeaway:</strong> Olyvia's Maud Lewis letter features intimate personal names and rural Maritime locations in mid-century Nova Scotia.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Case Study 2: Personal Names in Olyvia's 1967 Maud Lewis Letter</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do personal letters like Maud Lewis's 1967 correspondence present unique challenges for named entity identification?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Epistolary texts present informal names, first-name mentions, and private local networks requiring local prosopography.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Letters feature informal nicknames, first names without surnames, and references to local neighbors not recorded in global encyclopedias.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Epistolary writing relies on intimate, informal naming that requires careful historical contextualization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Letters are written in secret invisible ink that cannot be digitized.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical correspondence is written in standard ink on paper.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Letters never mention real people or geographic locations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Letters are rich in personal names, family relations, and geographic settings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TEI guidelines explicitly forbid encoding private correspondence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI has extensive guidance specifically for epistolary and correspondence markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: First Names and Nicknames: Resolving 'Everett' in Letters</text></name><questiontext format="html"><text><![CDATA[
+<h3>First Names and Nicknames: Resolving 'Everett' in Letters</h3>
+<p>In personal letters, writers rarely use full formal names. Maud Lewis does not write "my husband Everett Lewis." She simply writes "Everett."</p>
+<p>How should an editor encode a bare first name like "Everett"? In your TEI transcript, you must never alter the text. The tag wraps only the single word: <code>&lt;persName&gt;Everett&lt;/persName&gt;</code>.</p>
+<p>To show who "Everett" is, you use the <code>@ref</code> attribute: <code>&lt;persName ref="wikidata:Q96473843"&gt;Everett&lt;/persName&gt;</code>. The link connects this casual first name to the full biography of Everett Lewis. This preserves the warm, informal tone of the letter while providing full digital clarity for researchers.</p>
+<p><strong>Vocabulary.</strong> <em>Bare Name</em> — A first name or nickname used without a surname or official title. <em>Biographical Resolution</em> — Linking a casual first name to its full canonical identity via an attribute.</p>
+<p><strong>Takeaway:</strong> The ref attribute allows casual first names and nicknames in letters to resolve to complete biographical records.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: First Names and Nicknames: Resolving 'Everett' in Letters</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When Maud Lewis writes 'Everett' without a last name, how should an editor resolve this entity?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Contextual knowledge resolves informal first-name mentions to full historical identities via @ref attributes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tag the mention with &lt;persName&gt; and link via @ref to the authority record for Everett Lewis (or a local project identifier).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Contextual historical knowledge identifies Everett as Maud's husband Everett Lewis, allowing linked disambiguation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Alter the manuscript text by forcibly inserting 'Lewis' into Maud's handwritten sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors never silently alter historical surface text; markup supplies external identity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Refuse to tag the word because it lacks an explicit surname.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Valid entities should be tagged even when expressed informally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Assume 'Everett' refers to the city of Everett, Massachusetts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Archival biographical context clearly identifies Everett Lewis, not a distant city.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Maritime Places: Marshalltown, Digby, and Nova Scotia</text></name><questiontext format="html"><text><![CDATA[
+<h3>Maritime Places: Marshalltown, Digby, and Nova Scotia</h3>
+<p>The geography in Maud Lewis's letter anchors her art in the rural landscape of southwestern Nova Scotia.</p>
+<p>She writes from <em>Marshalltown</em>, located near the town of <em>Digby</em> in <em>Digby County</em>. In GeoNames, Digby has its own entry (<code>geonames:5938959</code>), and Marshalltown has a separate entry (<code>geonames:6066228</code>).</p>
+<p>When encoding these places, an editor captures their geographic relationship:</p>
+<pre><code class="language-xml">&lt;placeName ref=&quot;geonames:6066228&quot;&gt;Marshalltown&lt;/placeName&gt;,
+&lt;placeName ref=&quot;geonames:5938959&quot;&gt;Digby&lt;/placeName&gt;
+</code></pre>
+<p>Local Maritime history is essential here. Without knowing Nova Scotia geography, an automated tool might confuse Digby with Digby Island in British Columbia.</p>
+<p><strong>Vocabulary.</strong> <em>Toponym</em> — The proper name of a place or geographic feature. <em>Geographic Disambiguation</em> — Distinguishing between different towns that share the same name in different regions.</p>
+<p><strong>Takeaway:</strong> Accurate Maritime place tagging links local Nova Scotia communities to precise gazetteer coordinates.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Maritime Places: Marshalltown, Digby, and Nova Scotia</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do the geographic entities in Maud Lewis's letters reflect spatial hierarchy?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Geographical hierarchy cleanly nests local hamlets (Marshalltown) inside counties (Digby) and regions (Nova Scotia).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Marshalltown is a settlement within Digby County, which is situated within the province of Nova Scotia.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Spatial nested hierarchy places the local settlement within its municipal district and provincial region.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Digby is a sovereign nation containing Canada and North America.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digby is a town and county in Nova Scotia, Canada.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Marshalltown, Digby, and Nova Scotia are identical synonymous names for the same street.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They represent three distinct levels of geographic scale.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Nova Scotia is a small house located inside Marshalltown.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Nova Scotia is the Canadian Atlantic province containing Marshalltown.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Case Study 3: Sovereign Entities in Andromeda's 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Case Study 3: Sovereign Entities in Andromeda's 1752 Treaty</h3>
+<p>Andromeda is editing the 1752 Peace and Friendship Treaty concluded in Halifax, Nova Scotia. This diplomatic proclamation is a foundational legal pact between the British Crown and the Mi'kmaq Nation.</p>
+<p>This document contains high-stakes political and sovereign entities. It names the British monarch, King George II, and his colonial representative, Governor Peregrine Thomas Hopson. It names the Mi'kmaw leader, Major Jean-Baptiste Cope, described as the Chief Sachem of the Chignecto tribe.</p>
+<p>The treaty also names nations and sovereign bodies: the <code>&lt;orgName&gt;Tribe of Mickmack Indians&lt;/orgName&gt;</code> and the <code>&lt;orgName&gt;His Majesty's Council&lt;/orgName&gt;</code>. Editing this document requires historical precision, legal understanding, and cultural respect.</p>
+<p><strong>Vocabulary.</strong> <em>Peace and Friendship Treaty</em> — An 18th-century treaty between the British Crown and Indigenous nations in the Maritimes establishing peace and trade without ceding land. <em>Sovereign Entity</em> — A self-governing political nation or royal authority.</p>
+<p><strong>Takeaway:</strong> Andromeda's 1752 Treaty contains sovereign diplomatic entities, British officials, and Mi'kmaw national leadership.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Case Study 3: Sovereign Entities in Andromeda's 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which sovereign nations entered into the 1752 Peace and Friendship Treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The 1752 Treaty engaged sovereign Mi'kmaw leadership and the British colonial crown in mutual diplomatic relations.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The Mi'kmaq Nation (represented by Chief Sachem Jean-Baptiste Cope) and the British Crown (represented by Governor Hopson).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The 1752 Treaty represents a bilateral diplomatic agreement between the Mi'kmaw nation and the British colonial sovereign.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Kingdom of Spain and the Republic of Venice.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Neither Spain nor Venice was party to Nova Scotia peace and friendship treaties.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Hudson's Bay Company and the Russian Empire.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty was concluded between local British colonial authorities and the Mi'kmaq.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The United States of America and the Dominion of Canada.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. In 1752, neither Canada nor the United States existed as independent federal states.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Mi'kmaw Leadership: Chief Sachem Jean-Baptiste Cope</text></name><questiontext format="html"><text><![CDATA[
+<h3>Mi'kmaw Leadership: Chief Sachem Jean-Baptiste Cope</h3>
+<p>The central Indigenous figure in the 1752 Treaty is Major Jean-Baptiste Cope (c. 1698–c. 1760). Cope was a prominent Mi'kmaw leader from Shubenacadie who negotiated with British authorities in Halifax.</p>
+<p>In the treaty text, his name appears with colonial titles: <em>Major Jean Baptiste Cope, Chief Sachem</em>. The title <em>Major</em> was an honorary distinction given by French authorities, while <em>Sachem</em> is an Indigenous leadership title.</p>
+<p>In TEI, you can encode his name with granular precision or as a complete phrase:</p>
+<pre><code class="language-xml">&lt;persName ref=&quot;dcb:cope_jean_baptiste&quot;&gt;
+  &lt;roleName&gt;Major&lt;/roleName&gt;
+  &lt;forename&gt;Jean Baptiste&lt;/forename&gt;
+  &lt;surname&gt;Cope&lt;/surname&gt;
+&lt;/persName&gt;
+</code></pre>
+<p>His scholarly biography is published in the <em>Dictionary of Canadian Biography</em>, providing an authoritative citation link.</p>
+<p><strong>Vocabulary.</strong> <em>Sachem</em> — A traditional title for a chief or sovereign leader in eastern Indigenous nations. <em>Honorary Rank</em> — A military title granted as a diplomatic courtesy rather than an active command.</p>
+<p><strong>Takeaway:</strong> Major Jean-Baptiste Cope's title combines Mi'kmaw and European leadership roles, linking to the Dictionary of Canadian Biography.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Mi'kmaw Leadership: Chief Sachem Jean-Baptiste Cope</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should Chief Sachem Jean-Baptiste Cope's title and personal name be encoded in TEI?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Structured personal names combine &lt;roleName&gt; for diplomatic titles with &lt;forename&gt; and &lt;surname&gt; within &lt;persName&gt;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;persName&gt;&lt;roleName&gt;Chief Sachem&lt;/roleName&gt; &lt;forename&gt;Jean-Baptiste&lt;/forename&gt; &lt;surname&gt;Cope&lt;/surname&gt;&lt;/persName&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Tagging Cope with structured roleName, forename, and surname honors both diplomatic title and personal identity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;title&gt;Chief Sachem&lt;/title&gt;&lt;name&gt;Jean-Baptiste Cope&lt;/name&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;title&gt; denotes creative or published works; diplomatic and political titles belong in &lt;roleName&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;placeName&gt;Jean-Baptiste Cope&lt;/placeName&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cope is a revered historical human leader, not a geographic place.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;orgName&gt;Jean-Baptiste Cope&lt;/orgName&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Cope is an individual human actor, not an impersonal organization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Colonial Government: Governor Peregrine Thomas Hopson</text></name><questiontext format="html"><text><![CDATA[
+<h3>Colonial Government: Governor Peregrine Thomas Hopson</h3>
+<p>The primary British official in the 1752 Treaty is Peregrine Thomas Hopson (1696–1759). Hopson served as Governor of Nova Scotia from 1752 to 1755, following Governor Edward Cornwallis.</p>
+<p>Hopson pursued a deliberate policy of diplomatic reconciliation with the Mi'kmaq. His treaty guaranteed hunting and fishing rights and established a framework for regulated commerce.</p>
+<p>In your markup, Hopson is encoded with his authority link:</p>
+<pre><code class="language-xml">&lt;persName ref=&quot;wikidata:Q7167817&quot;&gt;Peregrine Thomas Hopson&lt;/persName&gt;
+</code></pre>
+<p>Hopson also appears in the <em>Dictionary of Canadian Biography</em>. Linking his name connects the treaty to eighteenth-century British colonial administration records.</p>
+<p><strong>Vocabulary.</strong> <em>Colonial Governor</em> — The appointed royal official representing the British Crown in a colony. <em>Diplomatic Reconciliation</em> — A formal policy aimed at resolving military conflict through legal treaties.</p>
+<p><strong>Takeaway:</strong> Governor Peregrine Thomas Hopson represented the British Crown in the 1752 negotiations, linking to colonial administrative records.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Colonial Government: Governor Peregrine Thomas Hopson</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the 1752 Treaty, what role does Peregrine Thomas Hopson occupy, and how is his authority grounded?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Governor Peregrine Thomas Hopson signed the 1752 Treaty under the authority of King George II.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Governor-in-Chief of Nova Scotia, representing the sovereign authority of King George II of Great Britain.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Hopson held the official colonial commission representing the British monarch.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A private French merchant trading furs without government sanction.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hopson was the official British royal governor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An anonymous clerk with no political authority or signature.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hopson signed and sealed the treaty as Governor-in-Chief.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A Spanish naval admiral stationed in the Mediterranean Sea.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hopson was British governor stationed in Halifax, Nova Scotia.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Historical Toponyms: Chigabenakady and Colonial Renaming</text></name><questiontext format="html"><text><![CDATA[
+<h3>Historical Toponyms: Chigabenakady and Colonial Renaming</h3>
+<p>When editing colonial treaties, you encounter historical place names that colonial officials later altered or Anglicized.</p>
+<p>The treaty refers to Cope's home territory as <em>Chigabenakady</em>. This is the historical English spelling of the Mi'kmaw name <em>Sipekne'katik</em>, which translates to "where the wild groundnuts grow." Today, the town is commonly spelled <em>Shubenacadie</em>.</p>
+<p>If you link <em>Chigabenakady</em> only to the modern Canadian census town in GeoNames, you obscure its Indigenous geography. A responsible digital edition notes the ancestral territory of <em>Sipekne'katik</em> in the header or commentary:</p>
+<pre><code class="language-xml">&lt;placeName ref=&quot;geonames:6147610&quot;&gt;Chigabenakady&lt;/placeName&gt;
+</code></pre>
+<p>Scholarly markup acknowledges original Indigenous place names rather than treating colonial spellings as the only truth.</p>
+<p><strong>Vocabulary.</strong> <em>Sipekne'katik</em> — The traditional Mi'kmaw district name meaning "place of wild groundnuts." <em>Anglicization</em> — Changing a foreign or Indigenous name to fit English spelling and pronunciation habits.</p>
+<p><strong>Takeaway:</strong> Historical treaty markup records original Indigenous place names like Chigabenakady alongside modern gazetteer coordinates.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Historical Toponyms: Chigabenakady and Colonial Renaming</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the historical place name 'Chigabenakady' significant when editing the 1752 Treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Historical toponyms like Chigabenakady reflect authentic Indigenous geography (Sipekne'katik) that predates colonial renaming.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It represents the ancestral Mi'kmaw toponym for Sipekne'katik (anglicized as Shubenacadie), preserving Indigenous geographic heritage before colonial distortion.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Historical editions record indigenous toponyms to preserve authentic place names obscured by later colonial mapping.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It was a fictional mythical kingdom invented by British poets in London.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Chigabenakady is an authentic historical Mi'kmaw regional location.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is the Latin translation of the city of Paris, France.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is an indigenous Mi'kmaw placename in Nova Scotia.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It was a printing typographical error with no real-world meaning.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The toponym refers to the ancestral Shubenacadie river region.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Regnal Years and Calendars: The King's Reign in Dates</text></name><questiontext format="html"><text><![CDATA[
+<h3>Regnal Years and Calendars: The King's Reign in Dates</h3>
+<p>In eighteenth-century British law, dates were measured by the monarch's reign as well as the calendar year. A monarch's regnal year begins on the day they ascend the throne.</p>
+<p>The 1752 Treaty dates its preamble "in the Twenty Sixth Year of the Reign of our Sovereign Lord George the Second." George II became king on June 11, 1727. Therefore, November 1752 fell in his twenty-sixth regnal year.</p>
+<p>When you encode this legal date, wrap the entire phrase and calculate the true calendar date:</p>
+<pre><code class="language-xml">&lt;date when=&quot;1752-11-22&quot;&gt;the Twenty Sixth Year of the Reign of our Sovereign Lord George the Second&lt;/date&gt;
+</code></pre>
+<p>The <code>@when</code> attribute stores the exact day in ISO 8601 format, ensuring your digital timeline remains accurate.</p>
+<p><strong>Vocabulary.</strong> <em>Regnal Year</em> — A year counted from the official accession date of a reigning monarch. <em>Accession</em> — The formal date when a monarch inherits the crown and begins their reign.</p>
+<p><strong>Takeaway:</strong> Legal regnal dates must be calculated and normalized into standard YYYY-MM-DD dates in the when attribute.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Regnal Years and Calendars: The King's Reign in Dates</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is a regnal date in eighteenth-century British official legal documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Regnal years express legal dates by counting the elapsed years of a monarch's reign alongside the Julian or Gregorian calendar.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A date calculated from the anniversary of a monarch's ascension to the throne (e.g. 'the twenty-sixth year of the reign of King George the Second').&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Regnal dating measures legal time relative to the reigning king's coronation year.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A date determined by the position of Jupiter's moons through a telescope.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Astronomical planetary tables were not used for legal regnal dating.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A secret calendar only understood by tax collectors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regnal dating was standard public legal notation throughout the British Empire.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A date that changes every day according to the weather.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regnal years were mathematically fixed by royal accession dates.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Writing Your Editorial Policy: ENTITY_POLICIES.md</text></name><questiontext format="html"><text><![CDATA[
+<h3>Writing Your Editorial Policy: ENTITY_POLICIES.md</h3>
+<p>Before you annotate entities in your text, you must record your editorial rules in a project policy file. You will create <code>ENTITY_POLICIES.md</code> in the root of your repository.</p>
+<p>Your policy document must answer four concrete questions:</p>
+<ol>
+<li><strong>Which authority registries govern your project?</strong> (e.g., Wikidata and VIAF for people; GeoNames and Native Land Digital for places).</li>
+<li><strong>What is your granularity policy?</strong> Do you tag compound names like "Governor Hopson" as a single <code>&lt;persName&gt;</code>, or do you split them into <code>&lt;roleName&gt;</code> and <code>&lt;surname&gt;</code>?</li>
+<li><strong>How do you normalize partial dates?</strong> If a letter says "Feb 1967," do you write <code>when="1967-02"</code>?</li>
+<li><strong>What is your verified absence procedure?</strong> Which databases must you check before declaring a person unindexed?</li>
+</ol>
+<p>Writing these rules down guarantees consistency across your entire manuscript.</p>
+<p><strong>Vocabulary.</strong> <em>Editorial Policy</em> — A written set of rules that defines how an editor makes markup and tagging decisions. <em>Granularity Policy</em> — The decision on how deeply to break names into sub-elements.</p>
+<p><strong>Takeaway:</strong> The ENTITY_POLICIES.md file records your project rules for registries, tagging depth, and date normalization.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Writing Your Editorial Policy: ENTITY_POLICIES.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must a digital edition project compile a formal ENTITY_POLICIES.md document before starting entity annotation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;ENTITY_POLICIES.md locks in editorial rules for entity spans, classification edge cases, and authority linking.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To establish explicit, repeatable decision rules for entity boundaries, ambiguous mentions, missing records, and canonical registries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editorial policy documents ensure consistency, prevent subjective drift, and document methodological constraints.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because computer operating systems refuse to run Python scripts without a markdown file in the folder.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Software execution does not depend on project policy markdown files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To register the project with international patent offices for commercial profit.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly digital editions are academic research projects, not commercial patents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To list the student authors' favorite movies and leisure activities.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ENTITY_POLICIES.md outlines rigorous philological tagging guidelines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: The 20-Entity Ground Truth Table</text></name><questiontext format="html"><text><![CDATA[
+<h3>The 20-Entity Ground Truth Table</h3>
+<p>To create your benchmark for this week's experiments, you will extract twenty entity mentions from your manuscript witness.</p>
+<p>You will organize these twenty entities into a four-column table in your notes or policy file:</p>
+<ol>
+<li><strong>Surface Mention:</strong> The exact text as written on the historical page.</li>
+<li><strong>Entity Class:</strong> Person, Place, Organization, or Date.</li>
+<li><strong>Canonical Name:</strong> The standardized dictionary or biographical name.</li>
+<li><strong>Authority Link:</strong> The URI or ID from Wikidata, GeoNames, or your local header.</li>
+</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Surface Mention</th>
+      <th>Entity Class</th>
+      <th>Canonical Name</th>
+      <th>Authority Link (@ref)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Major Jean Baptiste Cope</td>
+      <td>Person</td>
+      <td>Jean-Baptiste Cope</td>
+      <td><code>dcb:cope_jean_baptiste</code></td>
+    </tr>
+    <tr>
+      <td>Halifax</td>
+      <td>Place</td>
+      <td>Halifax, Nova Scotia</td>
+      <td><code>geonames:6324729</code></td>
+    </tr>
+    <tr>
+      <td>l'Assemblée nationale</td>
+      <td>Organization</td>
+      <td>Assemblée nationale</td>
+      <td><code>wikidata:Q120563</code></td>
+    </tr>
+    <tr>
+      <td>22 Novembre 1752</td>
+      <td>Date</td>
+      <td>1752-11-22</td>
+      <td><code>ISO-8601</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Every entry must be checked by eye against historical sources. This table represents your ground truth.</p>
+<p><strong>Vocabulary.</strong> <em>Ground Truth Table</em> — A verified reference list of entities used to evaluate automated software predictions. <em>Canonical Name</em> — The official, standardized spelling of an entity's name.</p>
+<p><strong>Takeaway:</strong> A 20-entity table establishes the manual benchmark against which computational NER tools will be tested.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: The 20-Entity Ground Truth Table</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the methodological purpose of manually compiling a 20-entity ground truth table?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The manual 20-entity ground truth table establishes the gold standard needed to evaluate automated models.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It serves as the gold-standard benchmark against which automated tools (NER models and LLMs) can be rigorously scored and audited.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. An authoritative human baseline is essential to measure precision, recall, and error rates of machine models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It serves as a decorative graphic to display on the university homepage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ground truth table is an empirical scholarly benchmark.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It fulfills a legal copyright requirement to transfer ownership of the manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ground truth benchmarking is an analytical evaluation method.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces the entire full text of the original historical document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The table benchmarks a curated sample excerpt, not replacing the witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Hand-Authoring ground_truth_entities_manual.xml</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hand-Authoring ground_truth_entities_manual.xml</h3>
+<p>Once your twenty entities are verified in your table, you will encode them into a TEI XML document named <code>ground_truth_entities_manual.xml</code>.</p>
+<p>This file contains the continuous diplomatic transcription of your excerpt, with each entity wrapped in its appropriate tag. Every tag must include a unique <code>xml:id</code> and an authoritative <code>@ref</code> attribute.</p>
+<p>Examine this clean model fragment:</p>
+<pre><code class="language-xml">&lt;p&gt;
+  At &lt;placeName xml:id=&quot;ent-01&quot; ref=&quot;geonames:6324729&quot;&gt;Halifax&lt;/placeName&gt;,
+  concluded with &lt;persName xml:id=&quot;ent-02&quot; ref=&quot;dcb:cope_jean_baptiste&quot;&gt;Major 
+  Jean Baptiste Cope&lt;/persName&gt;, Chief Sachem of 
+  &lt;placeName xml:id=&quot;ent-03&quot; ref=&quot;geonames:6147610&quot;&gt;Chigabenakady&lt;/placeName&gt;,
+  this &lt;date xml:id=&quot;ent-04&quot; when=&quot;1752-11-22&quot;&gt;22d Day of November 1752&lt;/date&gt;.
+&lt;/p&gt;
+</code></pre>
+<p>Notice that commas and periods stay outside the tags. Keeping clean boundaries makes automated comparisons work smoothly on Wednesday.</p>
+<p><strong>Vocabulary.</strong> <em>Diplomatic Wrapper</em> — Wrapping tags around words without altering surface spelling or punctuation. <em>Tag Boundary</em> — The precise starting and ending points of an XML element in a sentence.</p>
+<p><strong>Takeaway:</strong> The manual XML file encodes your twenty verified entities in clean TEI markup with IDs and authority links.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Hand-Authoring ground_truth_entities_manual.xml</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When authoring the manual ground-truth XML fragment, how should entity tags interact with word tokens?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Hand-authored TEI fragments must preserve full text context and maintain well-formed XML token boundaries.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Entity tags must wrap complete word spans cleanly, respecting document hierarchy without crossing structural tags or dropping punctuation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Valid XML demands well-formed nested structures with precise token boundary alignment.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Entity tags must be inserted randomly into the middle of word syllables.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Splitting syllables with entity tags creates invalid tokens and destroys searchability.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All words that are not entities must be deleted from the XML file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Full text context must be preserved for token alignment and reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Entity elements must be written in uppercase HTML rather than lowercase TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI P5 elements are case-sensitive and must be written in lowercase.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Validating Your Entity Markup in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Validating Your Entity Markup in VS Code</h3>
+<p>Before your manual ground truth can serve as an authoritative benchmark, it must pass schema validation in Visual Studio Code.</p>
+<p>In Module 2, you set up the Red Hat XML and Scholarly XML extensions to validate files against RELAX NG schemas. Your <code>ground_truth_entities_manual.xml</code> file must validate to zero errors.</p>
+<p>Watch out for three common mistakes:</p>
+<ol>
+<li><strong>Misspelled Attributes:</strong> Writing <code>href=</code> or <code>link=</code> instead of the TEI standard <code>ref=</code>.</li>
+<li><strong>Invalid Dates:</strong> Writing <code>when="Nov 22 1752"</code> instead of the required <code>when="1752-11-22"</code>.</li>
+<li><strong>Overlapping Tags:</strong> Putting an entity tag across paragraph or line boundaries incorrectly.</li>
+</ol>
+<p>Open the Problems panel in VS Code (<code>Ctrl+Shift+M</code>) to confirm that your file shows zero errors.</p>
+<p><strong>Vocabulary.</strong> <em>Schema Validation</em> — Checking that an XML file follows all the structural rules of a schema. <em>Problems Panel</em> — The VS Code view that displays syntax and schema errors.</p>
+<p><strong>Takeaway:</strong> Schema validation confirms that your entity markup conforms strictly to TEI P5 guidelines with zero errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Validating Your Entity Markup in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which tool in Visual Studio Code verifies that your TEI XML fragment conforms strictly to TEI P5 schema rules?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Real-time TEI schema validation in VS Code catches malformed elements and invalid attributes immediately.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The XML Language Support extension (Red Hat), configured with the TEI P5 Relax NG schema.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Schema validation in VS Code flags syntax errors, invalid elements, and illegal attributes in real time.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Windows Media Player audio equalizer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Media players play sound files; they do not validate XML schemas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Microsoft Excel spreadsheet spellchecker.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Excel is a spreadsheet tool, not an XML schema validator.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Google Chrome cookie settings panel.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Browser cookie settings manage web privacy, not TEI schema validation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: The Stage Gate: Committing Your Manual Entity Baseline</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Stage Gate: Committing Your Manual Entity Baseline</h3>
+<p>You have reached the finish line for Step 1 of Module 9. Today, you established a rigorous manual baseline for historical named entities.</p>
+<p>You documented your editorial rules in <code>ENTITY_POLICIES.md</code>. You researched twenty historical people, places, organizations, and dates in your project witness. You linked them to Wikidata, GeoNames, or your local header. You encoded them in schema-valid TEI XML.</p>
+<p>Before leaving class today, stage and commit your deliverables to your git repository:</p>
+<pre><code class="language-bash">git add ENTITY_POLICIES.md ground_truth_entities_manual.xml
+git commit -m &quot;Week 9 Step 1: establish manual named entity ground truth and authority links&quot;
+</code></pre>
+<p>On Wednesday, in Lesson 9.2, you will run an automated natural language processing tool over this same passage to measure how well computers identify historical entities.</p>
+<p><strong>Vocabulary.</strong> <em>Stage Gate</em> — A required project milestone that must be completed and committed before moving forward. <em>Git Baseline</em> — A committed set of files used as the foundation for future testing.</p>
+<p><strong>Takeaway:</strong> Committing your entity policy and manual XML completes Step 1 and sets up Wednesday's automated NER tests.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: The Stage Gate: Committing Your Manual Entity Baseline</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is committing your manual entity files to git before running automated tools an essential scientific stage gate?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Committing the manual baseline locks in an uncorrupted scientific gold standard before running automated algorithms.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It guarantees an immutable, version-controlled baseline that cannot be accidentally overwritten or biased by subsequent machine predictions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Version control locks in the human gold standard before exposing it to automated experiments.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Git automatically rewrites and improves student code when committed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git records historical snapshots; it does not alter or improve human analysis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because GitHub deletes repositories that do not commit files every two hours.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GitHub does not delete repositories based on hourly commit frequencies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because committing to Git instantly deploys the files to the national library.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Local commits record changes in the working tree without external publication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

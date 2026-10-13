@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 9.2 Teaching Plan (2026-11-04)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #24 (Lesson 9.2 &mdash; Automated Named Entity Recognition (NER) and Gazetteer Lookup)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Wednesday, November 4, 2026</span>
+                <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 9 (Named Entities) &middot; Step 2 of 3 (Automated NER &amp; Gazetteers)</span>
+                <span class="badge">Milestone: spacy_ner.py + ner_baseline.xml + NER_BENCHMARK.md</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students arrive with Tuesday's manual ground truth committed on <code>main</code>: <code>ENTITY_POLICIES.md</code> and the hand-annotated <code>ground_truth_entities_manual.xml</code> (20 entities). They know the exact entities in their witness. None has yet run a Python automated NER pipeline or measured precision and recall on historical text.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student runs an automated Python NER pipeline using SpaCy and rule-based gazetteers over their excerpt, exports predictions to <code>ner_baseline.xml</code>, conducts a side-by-side diff audit in VS Code against Tuesday's ground truth, and compiles <code>NER_BENCHMARK.md</code> calculating Precision, Recall, and F1-score.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Philip Glass, &ldquo;Koyaanisqatsi&rdquo;</strong> (1982, Island Records). Hypnotic minimalist orchestration representing industrial automation, technological velocity, and mechanized routine.</li>
+            <li><strong>Pedagogical connection:</strong> Automated sequence taggers scan thousands of words per second without human fatigue, but they execute mechanically without historical consciousness. When an algorithm encounters eighteenth-century spelling or unfamiliar syntax, it slips into predictable error patterns.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;A statistical tagger can process an entire colonial archive in forty seconds. But can it tell a governor from a merchant, or find an uncatalogued Indigenous leader? Today we measure the machine against human truth.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE DETERMINISTIC OBJECTIVE: SCALABLE PROCESSING AUDITED BY TRUTH</h3>
+        <p>Hand-crafting entity markup works for twenty words; analyzing an archival corpus requires computational automation. Deterministic models and statistical sequence taggers provide reproducibility and scale. However, because modern models are trained on contemporary news, they suffer from Out-of-Vocabulary orthography, boundary slips, and type confusion. By benchmarking machine predictions against Tuesday's ground truth, students learn to audit computational tools scientifically.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Ground truth remains sovereign:</strong> Never alter Tuesday's manual ground-truth table to match the computer's mistakes. Discrepancies measure the algorithm's error rate, not human error.<br>
+        <strong>2. Language-specific pipelines:</strong> Ace runs French SpaCy models (<code>fr_core_news_sm</code>); Andromeda and Olyvia run English models (<code>en_core_web_sm</code>). Never execute English pipelines on French text.<br>
+        <strong>3. Token alignment gate:</strong> Ensure token counts remain aligned between manual and automated files. If the model merged or split tokens differently, diagnose the boundary error before scoring.<br>
+        <strong>4. Assignment continuity:</strong> The accuracy metrics and discrepancy tables compiled today form the central empirical pillar of Assignment: Module 9, due Friday, November 6, at 11:00 PM.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 &ndash; 10:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>The Scale Challenge: Craft vs. Machine</td>
+                <td class="desc-col">
+                    Welcome students. Remind them today is the last day to drop courses without academic penalty. Project a 10-line Python SpaCy script on screen.<br>
+                    Ask: <em>&ldquo;How many hours would it take to hand-annotate a 500-page treaty register? How do we scale our work without abandoning philological standards?&rdquo;</em><br>
+                    Define the core metrics: Precision (quality of predictions), Recall (completeness of retrieval), and F1-score (harmonic balance).
+                </td>
+                <td class="target-col">Class framing; formula review (P/R/F1)</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:36 &ndash; 10:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>SpaCy Pipeline &amp; IOB2 Tags in VS Code</td>
+                <td class="desc-col">
+                    Demonstrate running <code>spacy_ner.py</code> on an excerpt from the 1752 Treaty. Show the generated IOB2 tags (B-PERSON, I-PERSON, O) and SpaCy entity labels (PERSON, GPE, LOC, ORG).<br>
+                    Show an immediate boundary failure on screen: SpaCy tagging 'Governor' as O and 'Hopson' as B-PERSON. Demonstrate how SpaCy's <code>EntityRuler</code> fixes this boundary error deterministically.
+                </td>
+                <td class="target-col">Live Python NER demonstration on projector</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:46 &ndash; 10:56<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: Pipeline Run<br>Exporting ner_baseline.xml</td>
+                <td class="desc-col">
+                    Direct students to run <code>spacy_ner.py</code> over their 20-entity excerpt and export predictions to <code>ner_baseline.xml</code>.<br>
+                    <strong>Circulate:</strong> confirm Ace has loaded <code>fr_core_news_sm</code> and handles elided French articles, Olyvia runs <code>en_core_web_sm</code> over Maud Lewis's informal letters, and Andromeda parses 18th-century treaty syntax.
+                </td>
+                <td class="target-col">Generated <code>ner_baseline.xml</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">10:56 &ndash; 11:12<br>(16 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>VS Code Diff Audit &amp; Calculating P/R/F1</td>
+                <td class="desc-col">
+                    Students open <code>ground_truth_entities_manual.xml</code> and <code>ner_baseline.xml</code> side by side in VS Code using 'Compare Selected'.<br>
+                    Students count True Positives (TP), False Positives (FP), and False Negatives (FN), and calculate Precision, Recall, and F1.<br>
+                    Students author the discrepancy table in <code>NER_BENCHMARK.md</code> classifying each error into our four-part taxonomy (OOV orthography, boundary slips, type confusion, polysemy).
+                </td>
+                <td class="target-col">Completed discrepancy table and metrics in <code>NER_BENCHMARK.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">11:12 &ndash; 11:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Refining Rules &amp; Stage Gate Commit</td>
+                <td class="desc-col">
+                    Review common failure modes across the cohort. Show how adding two custom patterns to <code>EntityRuler</code> improves recall by 15%.<br>
+                    Lead the stage gate commit: <code>git add . &amp;&amp; git commit -m "module 9.2: automated ner baseline and benchmark"</code>.<br>
+                    Preview Friday: <em>&ldquo;On Friday, we unleash Large Language Models on these exact passages to see whether generative AI outperforms statistical sequence models or introduces hallucinations.&rdquo;</em>
+                </td>
+                <td class="target-col">Clean git commit; benchmark report committed</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Check tokenization on <code>l'Assemblée</code> and <code>d'Orléans</code>. Confirm whether French SpaCy confused <code>Comité</code> (ORG) with a geographic location.</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Check whether SpaCy caught informal first names like <code>Everett</code> without surnames. Verify whether <code>Marshalltown</code> was tagged as GPE or LOC.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Audit boundary errors on <code>Chief Sachem Jean-Baptiste Cope</code> and <code>Governor Peregrine Thomas Hopson</code>. Calculate baseline recall on 18th-century capitalization habits.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

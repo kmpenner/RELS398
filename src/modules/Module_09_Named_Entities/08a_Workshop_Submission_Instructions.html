@@ -1,0 +1,11 @@
+<div class="card p-3 mb-3" style="padding: 1.25rem;">
+    <h4 style="margin-top: 0;">Submission Instructions</h4>
+    <ol>
+        <li>Select a 20-entity excerpt from your primary manuscript witness.</li>
+        <li><strong>Tier 1 (Manual Ground Truth):</strong> Compile your editorial policies in <code>ENTITY_POLICIES.md</code>, research authority records (Wikidata, VIAF, GeoNames, DCB), and hand-author <code>ground_truth_entities_manual.xml</code>.</li>
+        <li><strong>Tier 2 (Automated NER Pipeline):</strong> Run a SpaCy tagging script, export predictions to <code>ner_baseline.xml</code>, evaluate precision/recall/F1 against your manual baseline, and compile <code>NER_BENCHMARK.md</code>.</li>
+        <li><strong>Tier 3 (AI Pipeline & Linking):</strong> Run <code>ai_entity_parser.py</code> with system constraints in VS Code Antigravity, validate schema and token alignment, and test authority links against live registries.</li>
+        <li><strong>Three-Way Comparative Audit:</strong> Compile the discrepancy matrix and author your 300–500 word reflection in <code>ENTITY_AUDIT.md</code> classifying errors into our course error taxonomy.</li>
+        <li>Verify all repository files pass schema validation, and submit your portfolio on Moodle before 11:00 PM on Friday, November 6.</li>
+    </ol>
+</div>

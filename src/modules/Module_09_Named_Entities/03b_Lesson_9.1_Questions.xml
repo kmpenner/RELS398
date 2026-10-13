@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_09_Named_Entities/Lesson_9.1_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 9.1: Manual Entity Identification, Authority Record Research, and Canonical Citation.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: Names Beyond Strings: Why Editions Need Entity Markup</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is plain-text string searching inadequate for identifying historical entities in a digital scholarly edition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Entity markup connects variant historical names to stable real-world entities, overcoming the ambiguities of literal text strings.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A single historical entity can appear under multiple spelling variants, aliases, and titles, while identical strings can refer to completely different entities.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Plain strings cannot distinguish between different people sharing a name or gather variant historical spellings together without semantic entity markup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Plain-text search algorithms are illegal under international copyright and manuscript preservation treaties.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Copyright law does not prohibit string searching in digital humanities software.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Modern web browsers refuse to display documents that do not contain semantic XML markup.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Web browsers display plain text easily; entity markup serves research and semantic linking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Text search engines require supercomputers and cannot run on archival documents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. String searching is computationally simple and fast, but semantically blind.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: The Four Core Classes: People, Places, Organizations, and Dates</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What are the four primary entity classes standardized in digital humanities research?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Digital entity markup models historical records through four core classes: persons, places, organizations, and dates.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Persons, Places, Organizations, and Dates.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Digital humanities and computational linguistics focus on these four foundational categories to map historical actors, geography, institutions, and chronologies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Fonts, Margins, Bookbindings, and Paper Sizes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are physical and typographic layout features, not semantic named entities.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Verbs, Adjectives, Adverbs, and Conjunctions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are grammatical parts of speech, not named entity classes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manuscripts, Microfilms, Hard Drives, and Flash Drives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are physical and digital storage media, not entity classes.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: TEI P5 Chapter 13: The Four Core Elements</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which set of XML elements from TEI P5 Chapter 13 encodes the four core entity classes?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>TEI Chapter 13 provides specialized elements: <persName>, <placeName>, <orgName>, and <date> for tagging named entities in text.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<persName>, <placeName>, <orgName>, and <date>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. TEI P5 Chapter 13 defines <persName> for people, <placeName> for places, <orgName> for institutions, and <date> for chronological points.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<person>, <place>, <organization>, and <calendar>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <person> and <place> describe entity definitions in the header, while <persName>, <placeName>, <orgName>, and <date> tag inline mentions in body text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<name type="person">, <location>, <corp>, and <time>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. While generic <name> exists, Chapter 13 standardizes specialized tags <persName>, <placeName>, and <orgName>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<who>, <where>, <group>, and <when>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are not standard TEI P5 tags for named entities.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Names with Internal Parts: Surnames, Forenames, and Titles</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does TEI allow editors to break down complex personal names into structured subcomponents?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Subcomponents like <forename>, <surname>, and <roleName> provide granular structure within parent <persName> tags.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By nesting <forename>, <surname>, <roleName>, or <addName> inside a parent <persName> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Naming subcomponents like forenames, surnames, and titles can be granularly tagged inside <persName>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By separating the names with semicolons and storing them in an external CSV spreadsheet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI embeds structured subcomponents hierarchically within XML elements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By converting the entire personal name into capital letters and removing all vowels.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI preserves historical spellings and casing rather than modifying the surface text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By restricting personal names to exactly two words per individual.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI places no arbitrary word count limits on personal names.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: Places with Layers: Towns, Counties, and Countries</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which TEI child elements allow editors to capture hierarchical geographic information inside <placeName>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Hierarchical places are cleanly modeled in TEI using <settlement>, <district>, <region>, and <country> inside <placeName>.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<settlement>, <district>, <region>, and <country>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. TEI provides geographic hierarchy elements like <settlement> (town/city), <district> (county), <region> (province/state), and <country>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<street>, <postalCode>, <apartmentNumber>, and <floor>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. While postal address elements exist in TEI for modern mail, historical geography uses settlement, district, region, and country.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<latitude>, <longitude>, <altitude>, and <satellite>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Coordinates are recorded using <geo>, not XML element wrappers around text tokens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<forest>, <river>, <mountain>, and <valley>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Specific landforms use <geogName> or feature typing rather than standard administrative hierarchy tags.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: Time on the Page: The Essential @when Attribute</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the @when attribute essential when tagging historical dates with the <date> element?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The @when attribute supplies machine-readable ISO 8601 dates (YYYY-MM-DD) for historical temporal expressions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It normalizes ambiguous, non-standard, or archaic scribal phrasing into machine-readable ISO 8601 standard dates (YYYY-MM-DD).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The @when attribute records the normalized date (e.g. @when="1791-08-25") while preserving the original historical text inside the element.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It forces web browsers to reload the web page at a specific time of day.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The @when attribute is an analytical data attribute, not a browser timer.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes the scribe's original historical wording from the digital edition.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI preserves the historical surface text inside the <date> element unchanged.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It calculates the exact monetary cost of transcribing the historical document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The @when attribute handles temporal data normalization, not project finances.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: When Capital Letters Lie: Scribes and Common Nouns</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why can an editor not rely solely on capitalization to identify proper named entities in eighteenth-century texts?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Capitalization in early modern documents reflects rhetorical emphasis and stylistic convention, not named entity status.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Eighteenth-century scribes and printers frequently capitalized common nouns for emphasis, while some lowercase words are proper names.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Historical orthography routinely capitalized ordinary nouns like 'Treaty', 'Peace', or 'Gold', so capitalization does not guarantee a proper entity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Eighteenth-century printing presses did not possess capital letter blocks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Movable type printing presses included full uppercase type cases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Scribes only capitalized words when writing in secret diplomatic code.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Capitalization of common nouns was standard orthographic convention in eighteenth-century English.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Capital letters were wiped from manuscripts during modern museum conservation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Conservation stabilizes paper and ink; it does not erase letter casing.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Why Text Strings Fail: Connecting Names to Real Things</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What fundamental problem arises when two historical individuals in a corpus share the exact same name string?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Disambiguating identical name strings requires linking them to unique entity records rather than matching raw text.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>String identity causes polysemy or entity confusion, merging two distinct historical biographies into a single query result.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Two people with the same name string must be disambiguated through unique entity identifiers to prevent conflation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The operating system halts and throws a memory allocation error.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Computers have no problem storing identical text strings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The XML parser automatically deletes one of the two names from the document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML parsers do not delete content due to shared names.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Both individuals are automatically merged into a single person in real historical records.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The people remain historically distinct; failure to disambiguate is an editorial error.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Three Global Registries: Wikidata, VIAF, and GeoNames</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What are the primary target domains for Wikidata, VIAF, and GeoNames respectively?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Wikidata, VIAF, and GeoNames serve as foundational global registries for linked open entity data.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Wikidata covers structured general entities, VIAF aggregates library authority records for persons/orgs, and GeoNames standardizes global geographical places.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Wikidata provides structured semantic web items (Q-numbers), VIAF unites international library authorities, and GeoNames identifies spatial places.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wikidata registers medical patents, VIAF indexes legal deeds, and GeoNames lists real estate prices.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These registries are open scholarly authorities for general knowledge, library catalogues, and geography.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wikidata tracks computer hardware, VIAF monitors internet routers, and GeoNames stores astronomy star maps.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. None of these registries are computer hardware or astronomy registries.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wikidata, VIAF, and GeoNames are identical copies of Wikipedia with no structural differences.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Each registry has a distinct architecture, identifier schema, and authority scope.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: The TEI @ref Attribute: Building the Linked Data Bridge</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does an editor connect a TEI entity element to an external authority file like Wikidata or GeoNames?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The @ref attribute bridges TEI elements to global Linked Open Data registries through canonical URIs.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By placing the canonical Uniform Resource Identifier (URI) or prefixed identifier in the @ref attribute of the entity element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The @ref attribute stores canonical URIs (e.g. @ref="https://www.wikidata.org/wiki/Q38" or @ref="wikidata:Q38").</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By typing a footnote at the very bottom of the printed page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Footnotes provide human prose, whereas @ref creates machine-actionable Linked Data.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By embedding an executable Python script inside the XML text node.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI XML documents do not execute inline Python scripts inside text nodes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By creating a new internet domain name for every historical person.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editors link to existing authority registries via established URIs.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Local and Regional Registers: Canadian and Indigenous Databases</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must editors of Canadian historical documents consult national and regional registries like the Dictionary of Canadian Biography (DCB) alongside global databases?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Regional databases like DCB, Native Land Digital, and local archives provide critical depth missing from global registries.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Global registries like Wikidata have systemic representation gaps regarding regional Canadian historical figures and Indigenous leadership.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Regional and specialized repositories contain rich biographical and historical evidence omitted from broad global databases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Canadian law forbids referencing non-Canadian databases in university publications.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. There is no legal restriction against using international databases.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>International databases like Wikidata charge high licensing fees for Canadian users.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Wikidata and VIAF are free and open-access public resources.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Canadian historical figures were legally forbidden from having international records.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Many prominent figures appear internationally, but regional figures are often omitted.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: The Verified Absence Rule: When a Person Has No Record</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Under our course editorial rules, what must an editor do when a historical person cannot be found in Wikidata, VIAF, or regional authority files?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The Verified Absence rule requires explicit documentation and local ID minting when no external record exists.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Document a Verified Absence by citing the searched registries, recording search dates, and creating a local project identifier.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. If an exhaustive search reveals no record, editors document the verified absence and mint a local URI (e.g. #person-001) rather than guessing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Invent a plausible-sounding fictional URI and pretend the record exists.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Inventing fake URIs corrupts scholarly linked open data integrity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Delete the person from the historical transcript to maintain database compliance.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editors never alter or delete historical witnesses to satisfy database requirements.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Halt the entire digital edition project permanently until an external record appears.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly workflows document verified absences locally and proceed.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Building Your Own Directory: &lt;particDesc&gt; in the Header</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Where in a TEI document does an editor define a structured local directory of historical participants and persons?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Local biographical prosopography is formally housed within <profileDesc>/<particDesc> in the TEI Header.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>In the <teiHeader> inside <profileDesc> within the <particDesc> element.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The <particDesc> (participation description) element in <profileDesc> holds local <person> and <org> biographical records.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In the <body> inside the very first <p> paragraph.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The body contains the primary text, while metadata directories belong in <teiHeader>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In an external invisible text file saved on the desktop.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Self-contained TEI editions house local prosopographies within <teiHeader>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>In the <revisionDesc> change logs at the end of the header.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <revisionDesc> logs editorial changes, not biographical entity directories.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Building Your Own Map: &lt;settingDesc&gt; in the Header</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which TEI Header element provides a local gazetteer of geographical places mentioned in the text?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The <settingDesc> container in <profileDesc> defines local places, historical names, and geographic coordinates.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<settingDesc>, containing <listPlace> and individual <place> entries.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Inside <profileDesc>, the <settingDesc> element houses <listPlace> with structured <place> definitions and coordinates.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<mapContainer>, containing <gpsCoordinate> elements.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <mapContainer> is not a valid TEI P5 element.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<fileDesc>, containing <titleStmt> sub-elements.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <fileDesc> records bibliographic metadata about the digital file.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<layoutDesc>, containing line and column counts.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <layoutDesc> records codicological page layout, not geographic settings.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Case Study 1: Political Entities in Ace's 1791 French Decree</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In Ace's 1791 French Revolutionary decree, which entity class best categorizes the 'Comité des décrets'?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Institutional governing bodies like the Comité des décrets are encoded as <orgName>.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<orgName>, because it represents an official governmental committee and institutional body.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Legislative committees, clubs, and corporate assemblies are tagged as organizations (<orgName>).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<persName>, because it is composed of individual human beings.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The committee is a collective institution, not an individual person.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<placeName>, because the committee met in a physical building in Paris.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The meeting place is geographic, but the committee itself is an organization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<date>, because the decree was approved in August 1791.]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The decree date is temporal, but the committee is an institution.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: The National Assembly and the King: Royal and Legislative Bodies</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How did political authority in France split in the August 1791 constitutional decree?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The 1791 decree reflects constitutional monarchy: legislative authority in the National Assembly and royal executive authority in Louis XVI.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Between the legislative power of the elected National Assembly and the executive royal authority of King Louis XVI.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The 1791 Constitution established a constitutional monarchy dividing power between the legislative assembly and the crown.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Between the Pope in Rome and the Ottoman Sultan in Istanbul.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The 1791 French decree was an internal French constitutional reorganization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Between private commercial shipping corporations and labor guilds.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The decree concerns national state sovereignty, not commercial guilds.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Between local parish priests and rural municipal mayors exclusively.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The National Assembly and the monarch held constitutional sovereignty.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: French Authority Files: Using BnF and IdRef for Revolutionary Names</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which French national databases provide the most authoritative Linked Data records for eighteenth-century French figures?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>BnF and IdRef provide the primary canonical authority registries for French historical persons and institutions.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Bibliothèque nationale de France (BnF) and IdRef (Identifiants et Référentiels pour l'enseignement supérieur).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. BnF and IdRef are France's national bibliographic and higher education authority registries, offering detailed French historical biographical records.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The British Royal Navy Admiralty Registry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The British Admiralty does not maintain French domestic political authority files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The United States Library of Congress Copyright Office.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The LC records American copyrights and is not the primary authority for French revolutionary officials.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The International Olympic Committee Historical Database.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The IOC records modern athletic competitions, not French revolutionary history.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: Case Study 2: Personal Names in Olyvia's 1967 Maud Lewis Letter</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why do personal letters like Maud Lewis's 1967 correspondence present unique challenges for named entity identification?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Epistolary texts present informal names, first-name mentions, and private local networks requiring local prosopography.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Letters feature informal nicknames, first names without surnames, and references to local neighbors not recorded in global encyclopedias.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Epistolary writing relies on intimate, informal naming that requires careful historical contextualization.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Letters are written in secret invisible ink that cannot be digitized.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical correspondence is written in standard ink on paper.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Letters never mention real people or geographic locations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Letters are rich in personal names, family relations, and geographic settings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>TEI guidelines explicitly forbid encoding private correspondence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI has extensive guidance specifically for epistolary and correspondence markup.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: First Names and Nicknames: Resolving 'Everett' in Letters</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When Maud Lewis writes 'Everett' without a last name, how should an editor resolve this entity?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Contextual knowledge resolves informal first-name mentions to full historical identities via @ref attributes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Tag the mention with <persName> and link via @ref to the authority record for Everett Lewis (or a local project identifier).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Contextual historical knowledge identifies Everett as Maud's husband Everett Lewis, allowing linked disambiguation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Alter the manuscript text by forcibly inserting 'Lewis' into Maud's handwritten sentence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editors never silently alter historical surface text; markup supplies external identity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Refuse to tag the word because it lacks an explicit surname.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Valid entities should be tagged even when expressed informally.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Assume 'Everett' refers to the city of Everett, Massachusetts.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Archival biographical context clearly identifies Everett Lewis, not a distant city.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Maritime Places: Marshalltown, Digby, and Nova Scotia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do the geographic entities in Maud Lewis's letters reflect spatial hierarchy?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Geographical hierarchy cleanly nests local hamlets (Marshalltown) inside counties (Digby) and regions (Nova Scotia).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Marshalltown is a settlement within Digby County, which is situated within the province of Nova Scotia.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Spatial nested hierarchy places the local settlement within its municipal district and provincial region.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Digby is a sovereign nation containing Canada and North America.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Digby is a town and county in Nova Scotia, Canada.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Marshalltown, Digby, and Nova Scotia are identical synonymous names for the same street.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. They represent three distinct levels of geographic scale.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nova Scotia is a small house located inside Marshalltown.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Nova Scotia is the Canadian Atlantic province containing Marshalltown.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Case Study 3: Sovereign Entities in Andromeda's 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which sovereign nations entered into the 1752 Peace and Friendship Treaty?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The 1752 Treaty engaged sovereign Mi'kmaw leadership and the British colonial crown in mutual diplomatic relations.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The Mi'kmaq Nation (represented by Chief Sachem Jean-Baptiste Cope) and the British Crown (represented by Governor Hopson).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The 1752 Treaty represents a bilateral diplomatic agreement between the Mi'kmaw nation and the British colonial sovereign.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Kingdom of Spain and the Republic of Venice.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Neither Spain nor Venice was party to Nova Scotia peace and friendship treaties.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Hudson's Bay Company and the Russian Empire.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The treaty was concluded between local British colonial authorities and the Mi'kmaq.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The United States of America and the Dominion of Canada.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. In 1752, neither Canada nor the United States existed as independent federal states.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Mi'kmaw Leadership: Chief Sachem Jean-Baptiste Cope</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How should Chief Sachem Jean-Baptiste Cope's title and personal name be encoded in TEI?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Structured personal names combine <roleName> for diplomatic titles with <forename> and <surname> within <persName>.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<persName><roleName>Chief Sachem</roleName> <forename>Jean-Baptiste</forename> <surname>Cope</surname></persName>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Tagging Cope with structured roleName, forename, and surname honors both diplomatic title and personal identity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<title>Chief Sachem</title><name>Jean-Baptiste Cope</name>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. <title> denotes creative or published works; diplomatic and political titles belong in <roleName>.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<placeName>Jean-Baptiste Cope</placeName>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cope is a revered historical human leader, not a geographic place.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<orgName>Jean-Baptiste Cope</orgName>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Cope is an individual human actor, not an impersonal organization.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Colonial Government: Governor Peregrine Thomas Hopson</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the 1752 Treaty, what role does Peregrine Thomas Hopson occupy, and how is his authority grounded?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Governor Peregrine Thomas Hopson signed the 1752 Treaty under the authority of King George II.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Governor-in-Chief of Nova Scotia, representing the sovereign authority of King George II of Great Britain.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Hopson held the official colonial commission representing the British monarch.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A private French merchant trading furs without government sanction.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hopson was the official British royal governor.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An anonymous clerk with no political authority or signature.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hopson signed and sealed the treaty as Governor-in-Chief.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A Spanish naval admiral stationed in the Mediterranean Sea.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hopson was British governor stationed in Halifax, Nova Scotia.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: Historical Toponyms: Chigabenakady and Colonial Renaming</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is the historical place name 'Chigabenakady' significant when editing the 1752 Treaty?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Historical toponyms like Chigabenakady reflect authentic Indigenous geography (Sipekne'katik) that predates colonial renaming.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It represents the ancestral Mi'kmaw toponym for Sipekne'katik (anglicized as Shubenacadie), preserving Indigenous geographic heritage before colonial distortion.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Historical editions record indigenous toponyms to preserve authentic place names obscured by later colonial mapping.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It was a fictional mythical kingdom invented by British poets in London.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Chigabenakady is an authentic historical Mi'kmaw regional location.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It is the Latin translation of the city of Paris, France.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. It is an indigenous Mi'kmaw placename in Nova Scotia.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It was a printing typographical error with no real-world meaning.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The toponym refers to the ancestral Shubenacadie river region.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Regnal Years and Calendars: The King's Reign in Dates</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is a regnal date in eighteenth-century British official legal documents?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Regnal years express legal dates by counting the elapsed years of a monarch's reign alongside the Julian or Gregorian calendar.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A date calculated from the anniversary of a monarch's ascension to the throne (e.g. 'the twenty-sixth year of the reign of King George the Second').</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Regnal dating measures legal time relative to the reigning king's coronation year.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A date determined by the position of Jupiter's moons through a telescope.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Astronomical planetary tables were not used for legal regnal dating.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A secret calendar only understood by tax collectors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Regnal dating was standard public legal notation throughout the British Empire.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A date that changes every day according to the weather.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Regnal years were mathematically fixed by royal accession dates.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Writing Your Editorial Policy: ENTITY_POLICIES.md</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must a digital edition project compile a formal ENTITY_POLICIES.md document before starting entity annotation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>ENTITY_POLICIES.md locks in editorial rules for entity spans, classification edge cases, and authority linking.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To establish explicit, repeatable decision rules for entity boundaries, ambiguous mentions, missing records, and canonical registries.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Editorial policy documents ensure consistency, prevent subjective drift, and document methodological constraints.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because computer operating systems refuse to run Python scripts without a markdown file in the folder.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Software execution does not depend on project policy markdown files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To register the project with international patent offices for commercial profit.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly digital editions are academic research projects, not commercial patents.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To list the student authors' favorite movies and leisure activities.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. ENTITY_POLICIES.md outlines rigorous philological tagging guidelines.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: The 20-Entity Ground Truth Table</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the methodological purpose of manually compiling a 20-entity ground truth table?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The manual 20-entity ground truth table establishes the gold standard needed to evaluate automated models.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It serves as the gold-standard benchmark against which automated tools (NER models and LLMs) can be rigorously scored and audited.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. An authoritative human baseline is essential to measure precision, recall, and error rates of machine models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It serves as a decorative graphic to display on the university homepage.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The ground truth table is an empirical scholarly benchmark.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It fulfills a legal copyright requirement to transfer ownership of the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Ground truth benchmarking is an analytical evaluation method.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces the entire full text of the original historical document.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The table benchmarks a curated sample excerpt, not replacing the witness.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Hand-Authoring ground_truth_entities_manual.xml</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When authoring the manual ground-truth XML fragment, how should entity tags interact with word tokens?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Hand-authored TEI fragments must preserve full text context and maintain well-formed XML token boundaries.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Entity tags must wrap complete word spans cleanly, respecting document hierarchy without crossing structural tags or dropping punctuation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Valid XML demands well-formed nested structures with precise token boundary alignment.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Entity tags must be inserted randomly into the middle of word syllables.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Splitting syllables with entity tags creates invalid tokens and destroys searchability.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>All words that are not entities must be deleted from the XML file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Full text context must be preserved for token alignment and reading.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Entity elements must be written in uppercase HTML rather than lowercase TEI.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. TEI P5 elements are case-sensitive and must be written in lowercase.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Validating Your Entity Markup in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which tool in Visual Studio Code verifies that your TEI XML fragment conforms strictly to TEI P5 schema rules?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Real-time TEI schema validation in VS Code catches malformed elements and invalid attributes immediately.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The XML Language Support extension (Red Hat), configured with the TEI P5 Relax NG schema.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Schema validation in VS Code flags syntax errors, invalid elements, and illegal attributes in real time.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Windows Media Player audio equalizer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Media players play sound files; they do not validate XML schemas.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Microsoft Excel spreadsheet spellchecker.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Excel is a spreadsheet tool, not an XML schema validator.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The Google Chrome cookie settings panel.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Browser cookie settings manage web privacy, not TEI schema validation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: The Stage Gate: Committing Your Manual Entity Baseline</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is committing your manual entity files to git before running automated tools an essential scientific stage gate?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Committing the manual baseline locks in an uncorrupted scientific gold standard before running automated algorithms.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It guarantees an immutable, version-controlled baseline that cannot be accidentally overwritten or biased by subsequent machine predictions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Version control locks in the human gold standard before exposing it to automated experiments.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Git automatically rewrites and improves student code when committed.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Git records historical snapshots; it does not alter or improve human analysis.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because GitHub deletes repositories that do not commit files every two hours.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GitHub does not delete repositories based on hourly commit frequencies.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because committing to Git instantly deploys the files to the national library.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Local commits record changes in the working tree without external publication.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

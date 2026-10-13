@@ -1,0 +1,1853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_9.2</text></category></question>
+<question type="description"><name><text>01 Content: From Hand Craft to Automated Processing: Scaling Entity Recognition</text></name><questiontext format="html"><text><![CDATA[
+<h3>From Hand Craft to Automated Processing: Scaling Entity Recognition</h3>
+<p>Yesterday, you established an authoritative manual baseline for named entities. You read your manuscript witness closely, extracted twenty entity mentions, and linked them to authority files like Wikidata and GeoNames. That manual work is the scientific gold standard of textual scholarship.</p>
+<p>However, hand-tagging does not scale to an entire archive. A single colonial treaty or letter is short enough to annotate by hand in one morning. A national archive containing thousands of parliamentary decrees, diplomatic treaties, and personal letters requires computational automation.</p>
+<p>Today, we take our second step: automated Named Entity Recognition (NER). You will write and run a Python script using SpaCy sequence models to find and tag entities automatically. You will measure the machine's accuracy directly against yesterday's manual baseline.</p>
+<p><strong>Vocabulary.</strong> <em>Automated NER</em> — Using computer software to find and classify proper names in text automatically. <em>Scalability</em> — The ability of a digital method to process thousands of pages rapidly.</p>
+<p><strong>Takeaway:</strong> Hand annotation creates gold-standard benchmarks; automated NER provides the speed needed to process large archival collections.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: From Hand Craft to Automated Processing: Scaling Entity Recognition</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do digital scholars transition from manual entity annotation to automated Natural Language Processing (NER) pipelines?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated NER scales entity identification across large textual corpora that would be impractical to annotate entirely by hand.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Manual markup is precise but too slow to scale across large archival corpora containing thousands of manuscript pages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. While manual annotation establishes rigorous gold standards, automated tools are required to analyze extensive archival corpora at scale.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Manual markup is forbidden by international copyright laws once a document exceeds one hundred words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Copyright law does not prohibit manual scholarly transcription or markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Automated tools eliminate 100% of errors and never require human verification.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Automated models regularly make errors on historical texts, necessitating careful auditing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Computers refuse to display XML files that were typed by human beings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML parsers process valid XML regardless of how it was created.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: How Computers Read Names: Statistical Sequence Models</text></name><questiontext format="html"><text><![CDATA[
+<h3>How Computers Read Names: Statistical Sequence Models</h3>
+<p>A computer cannot understand who a person is or what a town represents. When an automated program reads text, it analyzes statistical patterns across neighboring words.</p>
+<p>Modern NER engines are trained on millions of words in curated digital corpora. The software learns grammatical clues that signal a proper name. For example, if a capitalized word follows the title <em>Governor</em> or <em>Major</em>, statistical probability strongly suggests a personal name (<code>PER</code>). If a word follows a spatial preposition like <em>at</em> or <em>near</em>, the model predicts a location (<code>LOC</code>).</p>
+<p>These statistical sequence models make decisions in fractions of a second. They process entire paragraphs without human fatigue. But because they rely on probability rather than true understanding, they make systematic mistakes when historical language shifts.</p>
+<p><strong>Vocabulary.</strong> <em>Sequence Model</em> — An algorithm that predicts labels for words based on neighboring context. <em>Training Corpus</em> — A large body of digitized text used to teach algorithms statistical language patterns.</p>
+<p><strong>Takeaway:</strong> Statistical sequence models predict entity types by calculating the probability of neighboring words in a clause.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: How Computers Read Names: Statistical Sequence Models</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do statistical sequence models like SpaCy identify named entities in running text?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Statistical sequence models use contextual weights trained on large corpora to predict entity tags probabilistically.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They evaluate tokens and their surrounding contexts using probabilistic machine learning weights trained on annotated language corpora.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Modern sequence models use contextual embeddings and statistical transition weights to predict entity spans and types.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They connect directly to the human author's mind using telepathic sensors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Statistical NLP models rely on mathematical probability and training corpora, not telepathy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They consult a hard-coded alphabetical list containing every word in existence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Static lists are gazetteers; statistical models predict entities based on probabilistic context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They randomly assign entity tags using a digital coin toss.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models optimize predictions mathematically based on contextual training features.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The IOB2 Tagging Standard: Inside, Outside, Beginning</text></name><questiontext format="html"><text><![CDATA[
+<h3>The IOB2 Tagging Standard: Inside, Outside, Beginning</h3>
+<p>To track multi-word entity phrases, natural language processing uses a standard labeling scheme called <strong>IOB2</strong>.</p>
+<p>The letters stand for three spatial states:</p>
+<ol>
+<li>
+<p><strong>B (Beginning):</strong> The very first token of an entity span (e.g., <code>B-PER</code> for <em>Major</em> in <em>Major Cope</em>).</p>
+</li>
+<li>
+<p><strong>I (Inside):</strong> Any subsequent token that continues that same entity span (e.g., <code>I-PER</code> for <em>Cope</em>).</p>
+</li>
+<li>
+<p><strong>O (Outside):</strong> Any token that does not belong to any named entity.</p>
+</li>
+</ol>
+<p>Look at how the IOB2 scheme labels a historical sentence:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>IOB2 Tag</th>
+      <th>Entity Meaning</th>
+      <th>Boundary Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Governor</td>
+      <td><code>B-PER</code></td>
+      <td>Person</td>
+      <td>First word of person name</td>
+    </tr>
+    <tr>
+      <td>Hopson</td>
+      <td><code>I-PER</code></td>
+      <td>Person</td>
+      <td>Continuation of person name</td>
+    </tr>
+    <tr>
+      <td>at</td>
+      <td><code>O</code></td>
+      <td>None</td>
+      <td>Outside any entity</td>
+    </tr>
+    <tr>
+      <td>Halifax</td>
+      <td><code>B-LOC</code></td>
+      <td>Location</td>
+      <td>Single-word place name</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This three-letter scheme prevents software from merging two adjacent names into a single person.</p>
+<p><strong>Vocabulary.</strong> <em>IOB2 Scheme</em> — A standard token-level annotation format using Beginning, Inside, and Outside tags. <em>Entity Span</em> — The complete sequence of words that forms a single named entity.</p>
+<p><strong>Takeaway:</strong> The IOB2 tagging scheme allows computers to distinguish where multi-word entity spans begin, continue, and end.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The IOB2 Tagging Standard: Inside, Outside, Beginning</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the IOB2 tagging scheme, what does the 'B-' prefix indicate?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The IOB2 standard uses B- (Beginning), I- (Inside), and O (Outside) to delimit entity boundaries cleanly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The beginning token of a multi-token or single-token named entity span.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. 'B-' marks the initial token of an entity, distinguishing it from subsequent 'I-' (inside) tokens or 'O' (outside) tokens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A binary token that represents computer bytecode.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. In IOB2 notation, 'B' stands for 'Beginning'.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A bad or corrupted token that must be deleted from memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 'B-' is a standard structural label marking the start of an entity span.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A background color applied to web browser typography.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. IOB2 is a token annotation format, not a CSS display rule.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Two Main Tools: SpaCy and Rule-Based Gazetteers</text></name><questiontext format="html"><text><![CDATA[
+<h3>Two Main Tools: SpaCy and Rule-Based Gazetteers</h3>
+<p>In digital humanities workflows, researchers combine two computational approaches: statistical models and rule-based gazetteers.</p>
+<p><strong>SpaCy</strong> is the modern industry standard for Python natural language processing. It provides pre-trained neural sequence pipelines for English (<code>en_core_web_sm</code>) and French (<code>fr_core_news_sm</code>). SpaCy tokenizes sentences, identifies parts of speech, and extracts entity spans simultaneously.</p>
+<p><strong>Gazetteers</strong> take a different, rule-based approach. A gazetteer is an explicit dictionary list of known places, people, and groups. Instead of guessing based on statistical context, gazetteer matching searches text for exact string matches against verified lists.</p>
+<p>Combining both tools gives editors the best of both worlds: statistical flexibility for new names, and gazetteer precision for known historical places.</p>
+<p><strong>Vocabulary.</strong> <em>SpaCy</em> — An open-source Python library for advanced natural language processing. <em>Gazetteer Matching</em> — Identifying place names by matching text directly against pre-compiled geographic dictionaries.</p>
+<p><strong>Takeaway:</strong> Digital workflows combine statistical models like SpaCy with rule-based gazetteer lookups for maximum accuracy.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Two Main Tools: SpaCy and Rule-Based Gazetteers</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the difference between a statistical NER tagger (like SpaCy) and a rule-based gazetteer?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Gazetteers match known names deterministically; statistical models predict entities contextually.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;SpaCy generalizes based on sentence context and patterns, while a gazetteer matches exact pre-compiled lists of known names.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Gazetteers look up known strings deterministically, whereas statistical models infer entities probabilistically from surrounding context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;SpaCy works only on numbers, while gazetteers work only on punctuation marks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both tools process natural language words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Gazetteers are neural networks running in the cloud, while SpaCy is a printed dictionary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SpaCy is a Python NLP library, and gazetteers are structured lookup lists.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;There is no difference; SpaCy and gazetteer are synonyms for the exact same algorithm.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They represent fundamentally different paradigms: deterministic lookup vs. probabilistic sequence modeling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: A 10-Line Python NER Pipeline in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>A 10-Line Python NER Pipeline in VS Code</h3>
+<p>Running an automated entity recognition pipeline in Visual Studio Code requires only a few lines of Python.</p>
+<p>You import the <code>spacy</code> library, load your pre-trained language model, and pass your manuscript text into the pipeline. SpaCy processes the text and stores all detected entities in the <code>.ents</code> collection.</p>
+<p>Look at the simple script:</p>
+<pre><code class="language-python">import spacy
+
+nlp = spacy.load(&quot;en_core_web_sm&quot;)  # or fr_core_news_sm
+text = &quot;Governor Hopson met Major Cope at Halifax in 1752.&quot;
+doc = nlp(text)
+
+print(f&quot;{'Entity':20} {'Label':10}&quot;)
+print(&quot;-&quot; * 30)
+for ent in doc.ents:
+    print(f&quot;{ent.text:20} {ent.label_:10}&quot;)
+</code></pre>
+<p>Within two seconds, the script prints detected entities alongside standard labels like <code>PERSON</code>, <code>GPE</code> (geopolitical entity), and <code>DATE</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Pre-Trained Pipeline</em> — A machine learning model already trained on millions of words, ready for immediate use. <em>Entity Collection</em> — The list of detected named entity spans stored in SpaCy's document object.</p>
+<p><strong>Takeaway:</strong> A 10-line Python script using SpaCy can automatically extract people, places, and dates from historical text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: A 10-Line Python NER Pipeline in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a standard SpaCy Python script, what object is created when text is passed through the loaded language pipeline (`doc = nlp(text)`)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Passing text into a SpaCy pipeline generates an annotated Doc object containing processed tokens and entity spans.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A Doc container object holding processed Token and Span objects with linguistic and entity annotations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Calling nlp(text) runs the pipeline and returns a Doc object containing tokens, sentences, and entity spans (doc.ents).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A compressed audio recording of the manuscript being read aloud.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SpaCy produces structured linguistic data structures, not audio files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A blank text document with all letters replaced by zeros.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Doc preserves tokens, text, and rich morphological attributes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A raster graphic image of the original manuscript page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SpaCy operates on textual strings and tokens, not raster images.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: SpaCy Entity Labels: PERSON, GPE, LOC, and ORG</text></name><questiontext format="html"><text><![CDATA[
+<h3>SpaCy Entity Labels: PERSON, GPE, LOC, and ORG</h3>
+<p>SpaCy uses its own standard set of entity labels, which map closely to TEI elements.</p>
+<p>The label <code>PERSON</code> corresponds directly to <code>&lt;persName&gt;</code>. The label <code>ORG</code> maps to <code>&lt;orgName&gt;</code>. The label <code>DATE</code> maps to <code>&lt;date&gt;</code>.</p>
+<p>For places, SpaCy divides locations into two categories:</p>
+<ol>
+<li>
+<p><strong>GPE (Geopolitical Entity):</strong> Named administrative territories with a government, such as cities, provinces, and nations (e.g., <em>Halifax</em>, <em>Nova Scotia</em>, <em>France</em>).</p>
+</li>
+<li>
+<p><strong>LOC (Location):</strong> Natural geographic features without a civic government, such as rivers, mountains, and oceans (e.g., <em>the Atlantic Ocean</em>, <em>the Shubenacadie River</em>).</p>
+</li>
+</ol>
+<p>Both <code>GPE</code> and <code>LOC</code> map into TEI <code>&lt;placeName&gt;</code>. Understanding this mapping helps you convert SpaCy output into TEI XML.</p>
+<p><strong>Vocabulary.</strong> <em>GPE</em> — Geopolitical Entity: a place with an organized government, like a city or country. <em>LOC</em> — Non-GPE Location: a physical geographic feature like a mountain or lake.</p>
+<p><strong>Takeaway:</strong> SpaCy tags people, groups, dates, geopolitical entities (GPE), and physical locations (LOC).</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: SpaCy Entity Labels: PERSON, GPE, LOC, and ORG</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In standard SpaCy pipelines, what does the entity label 'GPE' represent?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;GPE (Geopolitical Entity) identifies administrative units like nations and cities, distinguishing them from physical landmarks (LOC).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Geopolitical Entity: countries, cities, and states with defined governments.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. GPE designates political territories (cities, nations), distinct from non-political geographic landmarks (LOC).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;General Purpose Equipment: tools, machinery, and furniture.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GPE stands for Geopolitical Entity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Grammatical Prepositional Element: conjunctions and adverbs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GPE is a named entity label, not a part-of-speech category.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Global Positioning Error: distorted satellite navigation data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GPE is a semantic entity category used in information extraction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: The Out-of-Vocabulary Problem: Historical Orthography Traps</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Out-of-Vocabulary Problem: Historical Orthography Traps</h3>
+<p>Why do modern NER models fail on archival manuscripts? The primary cause is the <strong>Out-of-Vocabulary (OOV)</strong> problem.</p>
+<p>Language models are trained on contemporary digital text: modern news articles, Wikipedia, and digitized books. Modern training corpora reflect modern spelling, grammar, and vocabulary.</p>
+<p>When an automated model encounters eighteenth-century spelling variations, it gets confused. Scribes write <em>shew'd</em>, <em>promis'd</em>, <em>décrétoit</em>, or <em>acknowledg'd</em>. An unrecognized word disrupts the statistical context of the clause. If the model fails to recognize an archaic verb, it often misinterprets surrounding proper names.</p>
+<p>Understanding OOV errors is the first lesson of computational auditing. The machine is not broken; its training data simply lacks eighteenth-century language experience.</p>
+<p><strong>Vocabulary.</strong> <em>Out-of-Vocabulary (OOV)</em> — A word missing from an algorithm's pre-trained dictionary and training data. <em>Training Bias</em> — Systematic model errors caused by training data that reflects only modern digital texts.</p>
+<p><strong>Takeaway:</strong> Modern language models stumble on historical manuscripts because their training data reflects contemporary spelling.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: The Out-of-Vocabulary Problem: Historical Orthography Traps</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do modern pre-trained models like `en_core_web_sm` frequently fail on early modern documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Domain mismatch and historical orthography cause out-of-vocabulary failures in models trained on modern corpora.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They are trained on modern news and web text, making them struggle with archaic spellings, capitalization habits, and obsolete syntax.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The Out-of-Vocabulary (OOV) problem arises because training data distributions diverge sharply from historical manuscript orthography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because early modern documents contain dangerous computer viruses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical texts are harmless human linguistic records.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because pre-trained models refuse to process text written in the Roman alphabet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. English and French models process Roman alphabets natively.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because eighteenth-century scribes deliberately scrambled their letters to trick future computers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical scribes wrote according to the standard conventions of their own era.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Boundary Errors: Where Does a Name Begin and End?</text></name><questiontext format="html"><text><![CDATA[
+<h3>Boundary Errors: Where Does a Name Begin and End?</h3>
+<p>The most common error in automated entity extraction is a <strong>boundary error</strong>. A boundary error occurs when an algorithm tags part of a name correctly but cuts off or extends the entity span.</p>
+<p>Consider the title and name <em>Governor Hopson</em>. Did the model tag <code>Governor Hopson</code> as a single person, or did it tag only <code>Hopson</code>? In Ace's 1791 decree, did the model tag <code>l'Assemblée nationale</code> including the elided article <code>l'</code>, or did it tag only <code>Assemblée nationale</code>?</p>
+<p>Boundary errors severely penalize automated scoring. If your manual ground truth tags <code>Major Jean Baptiste Cope</code> and the computer tags only <code>Jean Baptiste</code>, the algorithm fails both precision and recall tests on that token.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Historical Phrase</th>
+      <th>Manual Truth (9.1)</th>
+      <th>Machine Span (9.2)</th>
+      <th>Error Diagnosis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Governor Hopson</td>
+      <td><code>Governor Hopson</code></td>
+      <td><code>Hopson</code></td>
+      <td>Excluded official role title</td>
+    </tr>
+    <tr>
+      <td>l'Assemblée nationale</td>
+      <td><code>Assemblée nationale</code></td>
+      <td><code>l'Assemblée nationale</code></td>
+      <td>Included French elided article</td>
+    </tr>
+    <tr>
+      <td>Digby County</td>
+      <td><code>Digby County</code></td>
+      <td><code>Digby</code></td>
+      <td>Truncated geographic region</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Boundary Error</em> — When an automated model incorrectly expands or truncates the start or end of an entity span. <em>Exact Match</em> — When an automated prediction matches the manual span's start and end tokens perfectly.</p>
+<p><strong>Takeaway:</strong> Boundary errors occur when an automated tool captures part of a name but misses surrounding titles or geographic words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Boundary Errors: Where Does a Name Begin and End?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is a classic boundary error in automated entity extraction?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Boundary errors clip titles, drop name components, or absorb adjacent punctuation into the entity span.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tagging 'Governor Hopson' as only 'Hopson', omitting the title or capturing trailing punctuation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Boundary errors occur when a model clips a vital part of a name or absorbs adjacent non-entity words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Changing the font color from black to purple in the terminal window.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Terminal styling has nothing to do with entity token boundary extraction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Converting an English word into an ancient Greek translation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Boundary errors concern span coordinates, not linguistic translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Saving a text file with an illegal filename extension.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. File naming is an operating system task separate from token span detection.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Entity Type Confusion: Mixing Up Places, Groups, and People</text></name><questiontext format="html"><text><![CDATA[
+<h3>Entity Type Confusion: Mixing Up Places, Groups, and People</h3>
+<p>A second frequent failure mode is <strong>entity type confusion</strong>. The algorithm identifies the correct word boundary, but assigns the wrong semantic category.</p>
+<p>In Ace's 1791 decree, SpaCy's French model often tags <code>l'Assemblée nationale</code> as a <code>LOC</code> (location) rather than an <code>ORG</code> (organization). The model sees the capital letters and French noun structure and guesses that the Assembly is a physical building rather than a legislative body.</p>
+<p>In Andromeda's treaty, the model often mistakes <code>His Majesty's Council</code> for a person (<code>PER</code>) because it associates <em>Majesty</em> with royalty. Diagnosing type confusion helps editors decide when rule-based filters must override statistical guesses.</p>
+<p><strong>Vocabulary.</strong> <em>Type Confusion</em> — When an algorithm correctly identifies an entity span but assigns the wrong category label. <em>Semantic Ambiguity</em> — Words that can represent both physical places and governing organizations.</p>
+<p><strong>Takeaway:</strong> Automated taggers frequently confuse governing organizations with physical buildings or personal titles.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Entity Type Confusion: Mixing Up Places, Groups, and People</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which example illustrates entity type confusion in an automated NER model?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Entity type confusion occurs when an algorithm correctly locates a name but assigns it to the wrong semantic class.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Classifying 'Assemblée nationale' as a PERSON rather than an ORG.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Type confusion occurs when the span boundaries are correct but the assigned semantic category is wrong.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Recognizing 'Paris' as a place located in France.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correctly identifying Paris as a place is accurate classification, not confusion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Failing to find the word 'and' in a sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Conjunctions are not named entities, so omitting them is correct behavior.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Printing the text to a desktop printer without paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Printer hardware errors are unrelated to entity type confusion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Cohort Corpus A Tests: Ace and the 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Corpus A Tests: Ace and the 1791 French Decree</h3>
+<p>When Ace runs SpaCy's French pipeline (<code>fr_core_news_sm</code>) over the 1791 French Revolutionary decree, several predictable errors emerge.</p>
+<p>First, elided clitics create tokenization traps. In French, the definite article <em>le</em> or <em>la</em> contracts before a vowel into <code>l'</code>. When SpaCy encounters <code>l'Assemblée nationale</code>, does it split <code>l'</code> from <code>Assemblée</code>? If the tokenizer treats <code>l'Assemblée</code> as a single word, the entity boundary becomes corrupted.</p>
+<p>Second, royal and revolutionary dates challenge modern parsers. The phrase <em>ce 25 Août 1791</em> contains historical capitalization and month naming. SpaCy often misses the full date expression, capturing only the year <code>1791</code> while ignoring the day and month.</p>
+<p><strong>Vocabulary.</strong> <em>Clitic Contraction</em> — A contracted word like French l' attached directly to a neighboring noun. <em>Date Truncation</em> — Capturing only a single year number while missing the surrounding calendar phrase.</p>
+<p><strong>Takeaway:</strong> French historical decrees challenge automated parsers with elided articles and complex formal date phrasing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Cohort Corpus A Tests: Ace and the 1791 French Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When Ace runs `fr_core_news_sm` on the 1791 French Revolutionary decree, which language feature challenges the model?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;French historical contractions (l', d') and institutional titles challenge default modern tokenization and tagging.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Elided determiners and prepositions like 'l'Assemblée' and 'd'Orléans', which modern tokenizers may fail to split cleanly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. French contractions and historical royal/legislative formulas test the limits of modern news-trained tokenizers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The entire text being written in Chinese pictograms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree is written in eighteenth-century French.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The manuscript containing only numerical accounting tables without words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree is a legislative narrative text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The French language having no nouns or adjectives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. French possesses rich morphological and nominal structures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Cohort Corpus B Tests: Olyvia and Maud Lewis's Letters</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Corpus B Tests: Olyvia and Maud Lewis's Letters</h3>
+<p>When Olyvia runs SpaCy's English pipeline (<code>en_core_web_sm</code>) over Maud Lewis's 1967 letter, a different set of challenges arises.</p>
+<p>Informal personal correspondence lacks formal official titles. Maud Lewis writes in casual prose, referring to her husband simply as <em>Everett</em>. Because <em>Everett</em> appears without an honorific title like <em>Mr.</em> or <em>Dr.</em>, SpaCy's statistical model assigns lower confidence to the word.</p>
+<p>Furthermore, rural Maritime place names test modern training corpora. SpaCy easily recognizes <em>Halifax</em> and <em>Nova Scotia</em>. But it often completely ignores <em>Marshalltown</em>, treating it as an ordinary common noun. Automated tools trained on global news know world capitals, but they are blind to rural Nova Scotia hamlets.</p>
+<p><strong>Vocabulary.</strong> <em>Low-Resource Toponym</em> — A small village or rural location rarely mentioned in global digital training text. <em>Confidence Score</em> — A mathematical probability value generated by an algorithm indicating its certainty.</p>
+<p><strong>Takeaway:</strong> Modern NER models easily recognize global cities like Halifax but frequently miss rural hamlets like Marshalltown.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Cohort Corpus B Tests: Olyvia and Maud Lewis's Letters</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does `en_core_web_sm` struggle to detect entities in Olyvia's Maud Lewis correspondence?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Informal personal letters lack the formal journalistic context that standard statistical models expect.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Informal colloquial mentions like 'Everett' lack institutional titles or formal journalistic sentence context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Intimate epistolary style diverges from the formal journalistic prose used to train standard news models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Maud Lewis wrote her letters entirely in mathematical equations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Maud Lewis wrote informal personal English letters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The letters were typed on a digital word processor with spellcheck enabled.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The letters were hand-painted or handwritten on paper.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Personal letters are legally exempt from Natural Language Processing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Any textual document can be analyzed using NLP tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Cohort Corpus C Tests: Andromeda and the 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Corpus C Tests: Andromeda and the 1752 Treaty</h3>
+<p>When Andromeda runs SpaCy over the 1752 Peace and Friendship Treaty, the model encounters eighteenth-century legal rhetoric.</p>
+<p>The treaty features long, complex sentences with multiple embedded clauses. In the phrase <em>Major Jean Baptiste Cope, Chief Sachem of the Tribe of Mickmack Indians</em>, SpaCy struggles to separate personal names from sovereign titles.</p>
+<p>The model frequently tags <em>Major Jean Baptiste Cope</em> as a person, but truncates <em>Tribe of Mickmack Indians</em> or misclassifies it as a location. Crucially, SpaCy completely overlooks the Indigenous toponym <em>Chigabenakady</em>, guessing that the archaic word is a foreign term or common noun.</p>
+<p><strong>Vocabulary.</strong> <em>Legal Preamble</em> — The introductory formal declaration of a treaty or law setting out parties and dates. <em>Toponym Blindness</em> — The total failure of an algorithm to recognize an Indigenous or historical place name.</p>
+<p><strong>Takeaway:</strong> Complex 18th-century treaty rhetoric and Indigenous place names cause severe omissions in standard NER pipelines.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Cohort Corpus C Tests: Andromeda and the 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Andromeda's 1752 Treaty, what causes automated models to misclassify 'Major Jean-Baptiste Cope'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Complex historical titles and intercultural naming conventions frequently mislead automated statistical classifiers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The military title 'Major' combined with hyphenated French forenames in an eighteenth-century English diplomatic treaty.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Cross-cultural naming conventions and military honorifics confuse single-language modern models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The treaty was written in computer machine binary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty is written in eighteenth-century diplomatic English.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The text contains no names of any human beings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty prominently names Mi'kmaw and British signatories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Treaties are always rejected by Python libraries as invalid syntax.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Python processes treaty text without difficulty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Measuring Machine Accuracy: Precision, Recall, and F1-Score</text></name><questiontext format="html"><text><![CDATA[
+<h3>Measuring Machine Accuracy: Precision, Recall, and F1-Score</h3>
+<p>To evaluate automated tools scientifically, computational humanists use three standard mathematical metrics: <strong>Precision</strong>, <strong>Recall</strong>, and <strong>F1-Score</strong>.</p>
+<p><strong>Precision</strong> measures correctness: out of all the entities the computer predicted, how many were actually right?
+$$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}$$</p>
+<p><strong>Recall</strong> measures completeness: out of all the true entities in your document, how many did the computer find?
+$$\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}$$</p>
+<p><strong>F1-Score</strong> is the harmonic balance between Precision and Recall. A model that guesses rarely might have high precision, but terrible recall. F1 measures overall reliability.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Core Question</th>
+      <th>Formula</th>
+      <th>What It Penalizes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Precision</td>
+      <td>Were the computer's guesses correct?</td>
+      <td>TP / (TP + FP)</td>
+      <td>False alarms (hallucinated entities)</td>
+    </tr>
+    <tr>
+      <td>Recall</td>
+      <td>Did the computer find all true entities?</td>
+      <td>TP / (TP + FN)</td>
+      <td>Missed entities (silent omissions)</td>
+    </tr>
+    <tr>
+      <td>F1-Score</td>
+      <td>What is the overall balanced score?</td>
+      <td>2 * (P * R) / (P + R)</td>
+      <td>Unbalanced performance</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Precision</em> — The fraction of retrieved entities that are relevant and accurate. <em>Recall</em> — The fraction of true historical entities that the model successfully retrieved. <em>F1-Score</em> — The balanced harmonic mean of precision and recall.</p>
+<p><strong>Takeaway:</strong> Precision measures accuracy, recall measures completeness, and F1-Score balances both metrics into a single score.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Measuring Machine Accuracy: Precision, Recall, and F1-Score</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does the Recall metric measure in named entity evaluation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Recall measures completeness: what percentage of all real ground-truth entities did the model capture?&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The proportion of true entities from the human ground truth that the automated model successfully found.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Recall = True Positives / (True Positives + False Negatives), measuring coverage completeness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The physical speed at which the computer processor completes the calculation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Processing speed is execution throughput, not recall accuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The percentage of predicted entities that turned out to be correct.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is the definition of Precision, not Recall.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The number of spelling errors found in the original manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Recall measures model retrieval performance, not scribal errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Understanding Error Types: False Positives vs. False Negatives</text></name><questiontext format="html"><text><![CDATA[
+<h3>Understanding Error Types: False Positives vs. False Negatives</h3>
+<p>To calculate precision and recall, you must classify every machine decision into one of four bins:</p>
+<ol>
+<li>
+<p><strong>True Positive (TP):</strong> The machine predicted an entity, and your manual ground truth confirms it is correct.</p>
+</li>
+<li>
+<p><strong>False Positive (FP):</strong> The machine predicted an entity that is not in your ground truth (a false alarm).</p>
+</li>
+<li>
+<p><strong>False Negative (FN):</strong> Your ground truth contains an entity that the machine completely missed (an omission).</p>
+</li>
+<li>
+<p><strong>True Negative (TN):</strong> Ordinary words that both you and the machine correctly ignored.</p>
+</li>
+</ol>
+<p>If your 20-entity passage produced 14 True Positives, 3 False Positives, and 6 False Negatives, your Precision is $14 / 17 = 82.4\%$. Your Recall is $14 / 20 = 70.0\%$.</p>
+<p><strong>Vocabulary.</strong> <em>True Positive</em> — A correctly identified named entity. <em>False Positive</em> — An incorrect prediction where ordinary text was falsely tagged as an entity. <em>False Negative</em> — A true entity that the machine completely overlooked.</p>
+<p><strong>Takeaway:</strong> Classifying machine decisions into True Positives, False Positives, and False Negatives allows exact mathematical scoring.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Understanding Error Types: False Positives vs. False Negatives</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What constitutes a False Positive in named entity recognition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A False Positive is an incorrect detection: the model claimed something was an entity when the ground truth says it is not.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The model predicts an entity where none exists in the ground truth, or tags a common noun as a name.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A False Positive is an erroneous prediction, incorrectly claiming a non-entity or wrong span as a name.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model correctly identifies a person and assigns the correct name.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is a True Positive.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model completely misses a real historical person mentioned in the text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Missing a real entity is a False Negative.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model turns off the computer monitor during execution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hardware states are not classification error types.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Automated Gazetteers: Matching Names Against Pre-Compiled Lists</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automated Gazetteers: Matching Names Against Pre-Compiled Lists</h3>
+<p>Statistical sequence models are not the only way to find entities. A <strong>gazetteer pipeline</strong> uses exact dictionary lookup.</p>
+<p>A gazetteer is a simple text file containing known historical names, places, and organizations. When your Python script reads a historical document, it searches every token against the gazetteer list.</p>
+<p>Look at how a simple Python gazetteer operates:</p>
+<pre><code class="language-python">places = {&quot;Halifax&quot;, &quot;Marshalltown&quot;, &quot;Digby&quot;, &quot;Paris&quot;, &quot;Chigabenakady&quot;}
+words = text.split()
+found_places = [w for w in words if w in places]
+</code></pre>
+<p>Gazetteer lookups are lightning fast and 100% predictable. If <em>Chigabenakady</em> is in your list, the computer finds it every time. However, gazetteers cannot identify new, unexpected names that are missing from the list.</p>
+<p><strong>Vocabulary.</strong> <em>Gazetteer Lookup</em> — Finding entities by matching words directly against a pre-compiled list. <em>Dictionary Coverage</em> — The percentage of true entities contained within a gazetteer list.</p>
+<p><strong>Takeaway:</strong> Gazetteer lookups provide fast, reliable matching for known historical names but cannot discover new entities.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Automated Gazetteers: Matching Names Against Pre-Compiled Lists</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary strength and primary weakness of a pure gazetteer lookup approach?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Gazetteers provide rock-solid precision for known entries, but fail completely on novel or uncatalogued variants.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It achieves 100% precision for known names on its list, but has zero recall for novel names or variant spellings not included.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Gazetteers cannot recognize uncatalogued variants (poor recall), but match listed names reliably (high precision).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It runs infinitely fast but destroys all files on the hard drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Gazetteers are safe string-matching algorithms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It can read handwritten manuscripts from photos without OCR, but cannot read print.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Gazetteers operate strictly on digital text strings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires quantum computing hardware to run simple searches.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Gazetteers are simple, lightweight dictionary lookups.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: SpaCy EntityRuler: Combining Rules with Statistical Models</text></name><questiontext format="html"><text><![CDATA[
+<h3>SpaCy EntityRuler: Combining Rules with Statistical Models</h3>
+<p>SpaCy provides a powerful built-in component that bridges rules and statistics: the <strong>EntityRuler</strong>.</p>
+<p>The EntityRuler lets you define custom pattern-matching rules using Python dictionaries. You can specify exact word strings, capitalization patterns, or regular expressions.</p>
+<p>Look at how you teach SpaCy an Indigenous place name that its statistical model missed:</p>
+<pre><code class="language-python">ruler = nlp.add_pipe(&quot;entity_ruler&quot;, before=&quot;ner&quot;)
+patterns = [
+    {&quot;label&quot;: &quot;GPE&quot;, &quot;pattern&quot;: &quot;Chigabenakady&quot;},
+    {&quot;label&quot;: &quot;PERSON&quot;, &quot;pattern&quot;: &quot;Major Jean Baptiste Cope&quot;}
+]
+ruler.add_patterns(patterns)
+</code></pre>
+<p>By placing the EntityRuler <em>before</em> the statistical NER model, your verified historical rules take priority. The computer checks your rules first, and uses statistical predictions only for remaining words.</p>
+<p><strong>Vocabulary.</strong> <em>EntityRuler</em> — A SpaCy component that applies custom pattern-matching rules before statistical models. <em>Rule Precedence</em> — The principle that verified editorial rules override machine statistical guesses.</p>
+<p><strong>Takeaway:</strong> The SpaCy EntityRuler lets you add verified historical names to the pipeline so custom rules override statistical errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: SpaCy EntityRuler: Combining Rules with Statistical Models</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the SpaCy `EntityRuler` enhance a statistical NER pipeline?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The EntityRuler blends rule-based patterns and gazetteers directly into SpaCy's pipeline to correct statistical blind spots.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It injects deterministic pattern-matching rules and gazetteer lists directly into the pipeline, overriding or supplementing statistical predictions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The EntityRuler combines rule-based precision with statistical breadth, allowing custom rules to patch known model weaknesses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It physically measures the margins of the manuscript page in inches.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. EntityRuler is a software component for pattern matching, not a physical measuring stick.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates the entire text into Latin before parsing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. EntityRuler matches token patterns in the target language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all statistical machine learning models from the computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. EntityRuler works harmoniously alongside statistical taggers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Exporting Automated NER to TEI XML: Building ner_baseline.xml</text></name><questiontext format="html"><text><![CDATA[
+<h3>Exporting Automated NER to TEI XML: Building ner_baseline.xml</h3>
+<p>To compare automated predictions directly against yesterday's manual ground truth, the computer's output must be exported in the same file format: TEI XML.</p>
+<p>Your Python script processes your manuscript text, extracts detected entity spans, and wraps them in TEI elements: <code>&lt;persName&gt;</code>, <code>&lt;placeName&gt;</code>, <code>&lt;orgName&gt;</code>, and <code>&lt;date&gt;</code>.</p>
+<p>The script saves the result to <code>ner_baseline.xml</code>. Every automatically detected entity receives an automated ID, such as <code>xml:id="ner-01"</code>. By converting raw SpaCy predictions into structured XML, you prepare the file for direct side-by-side diffing in VS Code.</p>
+<p><strong>Vocabulary.</strong> <em>XML Serialization</em> — Converting computer data structures into formatted, valid XML text. <em>Baseline XML</em> — The unedited automated output file used to benchmark machine accuracy.</p>
+<p><strong>Takeaway:</strong> Exporting automated predictions into ner_baseline.xml creates a standardized XML file ready for direct comparison with ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Exporting Automated NER to TEI XML: Building ner_baseline.xml</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must automated NER predictions be exported into valid TEI XML before running a comparative benchmark?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Exporting predictions to TEI XML aligns machine outputs with the manual baseline for direct scientific auditing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To allow direct, automated token-by-token comparison against the manual ground-truth XML baseline.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Structuring both manual and automated predictions in matching TEI format enables systematic diffing and scoring.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Python scripts cannot write data to any format other than TEI XML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Python can output JSON, CSV, plain text, and many other formats.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Moodle crashes if non-XML files exist in the project directory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Moodle does not inspect internal local development files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because historical manuscripts cannot be stored in modern databases.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical texts are regularly stored across many database architectures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: The VS Code Side-by-Side Diff Audit</text></name><questiontext format="html"><text><![CDATA[
+<h3>The VS Code Side-by-Side Diff Audit</h3>
+<p>Now comes your primary scientific task for today: auditing machine predictions against human ground truth using the VS Code diff viewer.</p>
+<p>Open your project terminal in VS Code and launch the diff viewer:</p>
+<pre><code class="language-bash">code --diff ground_truth_entities_manual.xml ner_baseline.xml
+</code></pre>
+<p>VS Code opens both files in a split-screen view. Differences appear highlighted in red and green:</p>
+<ul>
+<li>
+<p><strong>Green on the Left:</strong> Entities from your manual baseline that the computer missed (False Negatives).</p>
+</li>
+<li>
+<p><strong>Red on the Right:</strong> Entities that the computer hallucinated or tagged incorrectly (False Positives).</p>
+</li>
+<li>
+<p><strong>Aligned Blocks:</strong> Entities where both human and computer agreed perfectly (True Positives).</p>
+</li>
+</ul>
+<p><strong>Vocabulary.</strong> <em>Diff Viewer</em> — A software tool that visually highlights textual differences between two files side by side. <em>Visual Auditing</em> — Inspecting colored diff lines to locate machine errors rapidly.</p>
+<p><strong>Takeaway:</strong> The VS Code diff viewer highlights discrepancies between manual truth and automated predictions in clear color codes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: The VS Code Side-by-Side Diff Audit</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does an editor perform a side-by-side diff audit between `ground_truth_entities_manual.xml` and `ner_baseline.xml` in VS Code?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;VS Code's side-by-side diff view enables rapid, visual auditing of disagreements between manual and machine markup.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By selecting both files in the file explorer and choosing 'Compare Selected' to visually highlight every tag and boundary disagreement.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. VS Code's diff viewer highlights additions, deletions, and structural divergences side-by-side in color.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By printing both files onto transparent plastic sheets and holding them up to a window.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code provides built-in digital diff capabilities on screen.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting both files and rewriting them from memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Auditing requires comparing the existing files directly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By running an audio converter to listen to the files simultaneously.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Textual diffing is visual and programmatic, not acoustic.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Building the Discrepancy Table in NER_BENCHMARK.md</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building the Discrepancy Table in NER_BENCHMARK.md</h3>
+<p>As you inspect the diff, you will record every disagreement in your benchmark report: <code>NER_BENCHMARK.md</code>.</p>
+<p>You will compile a structured discrepancy table with four columns:</p>
+<ol>
+<li>
+<p><strong>Mention:</strong> The historical word string on the manuscript page.</p>
+</li>
+<li>
+<p><strong>Manual Truth (9.1):</strong> Your verified human tag and category.</p>
+</li>
+<li>
+<p><strong>Machine Guess (9.2):</strong> What the automated tool predicted.</p>
+</li>
+<li>
+<p><strong>Error Diagnosis:</strong> Why the machine failed (e.g., OOV spelling, boundary error, type confusion).</p>
+</li>
+</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Mention</th>
+      <th>Manual Truth (9.1)</th>
+      <th>Machine Guess (9.2)</th>
+      <th>Error Diagnosis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Major Cope</td>
+      <td><code>&lt;persName&gt;</code></td>
+      <td><code>Cope (PER)</code></td>
+      <td>Boundary error: dropped title</td>
+    </tr>
+    <tr>
+      <td>Chigabenakady</td>
+      <td><code>&lt;placeName&gt;</code></td>
+      <td>[None]</td>
+      <td>False negative: OOV Indigenous name</td>
+    </tr>
+    <tr>
+      <td>Assemblée</td>
+      <td><code>&lt;orgName&gt;</code></td>
+      <td><code>LOC</code></td>
+      <td>Type confusion: tagged org as place</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Documenting these errors transforms raw numbers into scholarly insight.</p>
+<p><strong>Vocabulary.</strong> <em>Discrepancy Table</em> — A structured log listing every point of disagreement between two annotation passes. <em>Error Diagnosis</em> — Explaining the linguistic or technical reason behind a machine failure.</p>
+<p><strong>Takeaway:</strong> The discrepancy table in NER_BENCHMARK.md records and diagnoses every machine error against manual ground truth.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Building the Discrepancy Table in NER_BENCHMARK.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What information should be recorded for each entry in the `NER_BENCHMARK.md` discrepancy table?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The discrepancy table documents token spans, expected tags, machine predictions, error categories, and philological causes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Token span, manual ground truth tag, machine prediction tag, error classification, and philological explanation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A thorough discrepancy audit logs what was expected, what was predicted, the error type, and the root cause.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The weather outside the library and the temperature of the room.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Environmental weather is irrelevant to computational text benchmarking.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The price of the student's laptop computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hardware costs do not belong in a textual discrepancy report.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The names of all students enrolled in other university departments.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The discrepancy table focuses on the text under investigation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Preprocessing with Module 6 Normalization</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preprocessing with Module 6 Normalization</h3>
+<p>How can an editor improve automated NER accuracy on historical documents? The most effective strategy is <strong>text preprocessing</strong> using our work from Module 6.</p>
+<p>In Module 6, you created normalized reading forms inside <code>&lt;choice&gt;</code> tags. Scribes wrote <em>décrétoit</em> and <em>shew'd</em>; you added normalized forms like <em>décrétait</em> and <em>showed</em>.</p>
+<p>If you feed raw historical ink into SpaCy, OOV errors spike. But if you feed your normalized reading text into the pipeline, dictionary lookups succeed. The model recognizes the modern spelling, predicts the correct entity tags, and transfers those tags back to your diplomatic edition. Preprocessing bridges premodern spelling with modern training models.</p>
+<p><strong>Vocabulary.</strong> <em>Text Preprocessing</em> — Cleaning or regularizing text before passing it to machine learning tools. <em>Normalization Bridge</em> — Using standardized spellings from choice tags to rescue modern NLP tools.</p>
+<p><strong>Takeaway:</strong> Preprocessing text with Module 6 regularized spellings dramatically increases automated NER accuracy on historical documents.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Preprocessing with Module 6 Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does applying Module 6 orthographic normalization before running NER improve automated performance?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Orthographic normalization reduces out-of-vocabulary errors, allowing modern models to recognize historical name tokens.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Standardizing historical spelling variants (e.g. historical 's', contractions) brings words closer to the modern training vocabulary of the model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Normalizing archaic typography resolves out-of-vocabulary mismatches, significantly increasing recall.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all consonants from the manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting consonants renders the text unreadable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It changes the historical text into modern slang.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly normalization standardizes historical orthography without rewriting semantics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces all proper names with generic numbers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Entity recognition requires preserving name tokens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Token Alignment and Overlapping Spans</text></name><questiontext format="html"><text><![CDATA[
+<h3>Token Alignment and Overlapping Spans</h3>
+<p>When evaluating automated models, you must verify that token counts remain aligned.</p>
+<p>If SpaCy splits contractions differently than your manual file, token counts diverge. For example, if your manual ground truth treated <em>can't</em> as two tokens (<code>can</code> and <code>n't</code>) and SpaCy treats it as one token (<code>can't</code>), scoring scripts will throw alignment errors.</p>
+<p>Always run a token alignment check before calculating final precision and recall. If token counts differ, adjust your tokenization settings in Python before computing performance scores.</p>
+<p><strong>Vocabulary.</strong> <em>Token Alignment</em> — Ensuring that two different annotation passes share identical word boundaries and token counts. <em>Alignment Error</em> — A mismatch in token splitting that prevents automated scoring scripts from running.</p>
+<p><strong>Takeaway:</strong> Verifying token alignment between manual and machine files is required before calculating precision and recall.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Token Alignment and Overlapping Spans</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What problem occurs when an automated tagger splits a hyphenated word that the manual baseline treated as a single token?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Token alignment must be preserved or reconciled to calculate accurate mathematical precision and recall scores.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Token misalignment, making automated 1-to-1 evaluation impossible without alignment mapping.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Discrepant token boundaries break automated evaluation matrices unless an alignment map reconciles character offsets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The hard drive immediately formats itself.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Software token mismatch does not damage hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The text automatically translates into French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tokenization differences do not trigger language translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The computer operating system cancels the student's enrollment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Academic enrollment is handled by university administrative servers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Entity Linking: From Tagged Spans to External Records</text></name><questiontext format="html"><text><![CDATA[
+<h3>Entity Linking: From Tagged Spans to External Records</h3>
+<p>Extracting an entity span is only the first half of the task. The second half is <strong>Entity Linking</strong> (also called entity disambiguation or Wikification).</p>
+<p>Entity linking matches an extracted string (like <em>Halifax</em>) to a specific authority record in Wikidata, VIAF, or GeoNames.</p>
+<p>Automated sequence models like SpaCy find the boundaries of names, but standard models do not link them to external URLs by default. To automate entity linking, digital scholars use specialized linking libraries like SpaCy-Entity-Linker or direct API queries against Wikidata.</p>
+<p><strong>Vocabulary.</strong> <em>Entity Linking</em> — Connecting a detected entity span to its specific entry in an external knowledge base. <em>Wikification</em> — Automatically linking text mentions to relevant Wikipedia or Wikidata articles.</p>
+<p><strong>Takeaway:</strong> Entity linking connects raw detected name strings to specific external authority records in public knowledge graphs.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Entity Linking: From Tagged Spans to External Records</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the distinction between Named Entity Recognition (NER) and Named Entity Linking (NEL)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;NER identifies entity boundaries and types; NEL resolves those entities to unique authority records (e.g. Wikidata Q-numbers).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;NER detects name spans and categories in text; NEL resolves those spans to specific external authority database records.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Recognition finds the mentions (who/where), while linking connects them to canonical database identifiers (which exact person/place).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;NER is for books, while NEL is for newspapers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both techniques apply across all genres of text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;NER is done by humans, while NEL can only be done by hand with a pencil.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both tasks can be executed manually or automated programmatically.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;There is no distinction; NER and NEL are identical synonyms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Recognition and linking are two distinct phases of the information extraction pipeline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Wikidata API Queries in Python</text></name><questiontext format="html"><text><![CDATA[
+<h3>Wikidata API Queries in Python</h3>
+<p>You can automate entity linking in Python by sending search requests directly to the Wikidata Web API.</p>
+<p>When your script detects an entity span like <em>Maud Lewis</em>, it formats a search URL and retrieves matching Wikidata entities in JSON format:</p>
+<pre><code class="language-python">import urllib.request, json, urllib.parse
+
+query = urllib.parse.quote(&quot;Maud Lewis&quot;)
+url = f&quot;https://www.wikidata.org/w/api.php?action=wbsearchentities&amp;search={query}&amp;language=en&amp;format=json&quot;
+req = urllib.request.urlopen(url)
+data = json.loads(req.read().decode())
+
+top_result = data[&quot;search&quot;][0]
+print(top_result[&quot;id&quot;], top_result[&quot;label&quot;], top_result[&quot;description&quot;])
+</code></pre>
+<p>Within half a second, the API returns <code>Q2302306</code>: "Canadian folk artist (1903–1970)." Your script captures this ID and writes it into the <code>@ref</code> attribute.</p>
+<p><strong>Vocabulary.</strong> <em>Web API</em> — An online interface that allows software programs to request and receive structured data automatically. <em>JSON</em> — JavaScript Object Notation, the standard data format for web API responses.</p>
+<p><strong>Takeaway:</strong> Python scripts can query the Wikidata API automatically to retrieve Q-identifiers for detected entities.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Wikidata API Queries in Python</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does a Python script query the Wikidata API to find potential matches for an entity string?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Python queries the Wikidata `wbsearchentities` API to retrieve candidate Q-identifiers and descriptions automatically.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By sending an HTTP GET request to the `wbsearchentities` action endpoint with the search string and language parameters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The MediaWiki API endpoint `wbsearchentities` returns structured JSON candidate records with descriptions and Q-identifiers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By sending a printed postcard to the Wikimedia Foundation headquarters in California.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. APIs provide instantaneous automated programmatic access over HTTP.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By scraping every web page on Wikipedia into a local text file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scraping the entire encyclopedia is inefficient; the API provides targeted querying.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By executing a shell command that shuts down the local network router.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. API queries use standard network communication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: The Ambiguity Trap in Automated Linking</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Ambiguity Trap in Automated Linking</h3>
+<p>Automated entity linking works well for famous, unique names. But it falls into catastrophic traps when a name is common or ambiguous.</p>
+<p>Suppose your script searches the Wikidata API for the surname <em>Cope</em> from the 1752 Treaty. The API returns dozens of results: Edward Drinker Cope (the American paleontologist), Arthur Cope (the British portrait painter), and Julian Cope (the rock musician).</p>
+<p>An automated script without historical context often defaults to the most famous modern result. It might link an eighteenth-century Mi'kmaw leader to a twentieth-century rock singer. Human supervision is required to prevent absurd automated linking errors.</p>
+<p><strong>Vocabulary.</strong> <em>Linking Ambiguity</em> — When a search query matches multiple plausible authority records in a knowledge base. <em>Default Bias</em> — An automated algorithm's tendency to select the most popular modern record when multiple matches exist.</p>
+<p><strong>Takeaway:</strong> Automated linking frequently confuses historical figures with famous modern names; human supervision prevents absurd errors.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: The Ambiguity Trap in Automated Linking</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must automated entity linking results be carefully verified when searching for common names?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated search often defaults to prominent modern figures, requiring human disambiguation for historical entities.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Multiple historical figures often share identical names, and automated scripts may link to the most famous modern person instead of the historical actor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Popularity-ranked API results frequently return modern celebrities rather than eighteenth-century colonial or revolutionary figures.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Wikidata deliberately gives false answers to test students.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Wikidata is a collaborative open knowledge base, not a deceptive test.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the internet cannot transfer historical data across national borders.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Internet protocols transmit all digital text globally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because search algorithms only return results written in German.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Wikidata supports multilingual querying across dozens of languages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Handling Verified Absences in Automated Pipelines</text></name><questiontext format="html"><text><![CDATA[
+<h3>Handling Verified Absences in Automated Pipelines</h3>
+<p>What happens when an automated linking script searches Wikidata for a historical person who has no record?</p>
+<p>Standard API scripts are programmed to return the closest fuzzy match. If a minor French clerk or rural correspondent has no entry, the algorithm picks the nearest similar name.</p>
+<p>A scholarly pipeline must include a <strong>similarity threshold gate</strong>. If the API's top match score falls below an editorial confidence threshold (such as 85%), the script must record a null result rather than attaching a false match. The mention remains tagged in TEI XML, but the <code>@ref</code> attribute points to your local <code>&lt;particDesc&gt;</code> in the header.</p>
+<p><strong>Vocabulary.</strong> <em>Confidence Threshold</em> — A minimum mathematical score required before an automated tool accepts an API match. <em>Fuzzy Matching</em> — Searching for strings that are approximately similar rather than exact matches.</p>
+<p><strong>Takeaway:</strong> Setting a strict confidence threshold prevents automated linking scripts from attaching false matches to unindexed people.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Handling Verified Absences in Automated Pipelines</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should an automated linking pipeline do when an API search returns zero matching records for a historical person?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automated pipelines must flag zero-match queries as Verified Absences and mint local identifiers rather than confabulating links.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Assign a local project identifier, flag the entity as a Verified Absence, and log it for human review.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Graceful handling records the absence and assigns a local identifier rather than crashing or assigning a false match.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Invent a random 8-digit number and pretend it is a real Wikidata Q-ID.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Inventing fake identifiers corrupts linked open data integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Crash the entire pipeline and delete all previously parsed documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Pipelines should catch missing records and log them gracefully.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace the person's name in the document with 'Unknown'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editorial pipelines never alter the primary historical text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Synthesizing Results: Writing NER_BENCHMARK.md</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesizing Results: Writing NER_BENCHMARK.md</h3>
+<p>Today's lab culminates in the creation of your formal benchmark report: <code>NER_BENCHMARK.md</code>. This file documents your empirical findings in your project repository.</p>
+<p>Your report must contain four core sections:</p>
+<ol>
+<li>
+<p><strong>Pipeline Configuration:</strong> Detail the model used (<code>en_core_web_sm</code> or <code>fr_core_news_sm</code>), Python version, and parameters.</p>
+</li>
+<li>
+<p><strong>Quantitative Scores:</strong> Report your exact Precision, Recall, and F1-Scores against Tuesday's manual table.</p>
+</li>
+<li>
+<p><strong>Discrepancy Analysis:</strong> Include your four-column discrepancy table diagnosing every machine error.</p>
+</li>
+<li>
+<p><strong>Scholarly Reflection:</strong> A 200–300 word discussion explaining why the automated model struggled with your specific historical witness.</p>
+</li>
+</ol>
+<p><strong>Vocabulary.</strong> <em>Benchmark Report</em> — A formal document reporting the quantitative accuracy and error analysis of a computational tool. <em>Empirical Findings</em> — Results derived from actual experimental data and mathematical measurement.</p>
+<p><strong>Takeaway:</strong> NER_BENCHMARK.md documents your model setup, accuracy scores, error diagnoses, and methodological reflection.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Synthesizing Results: Writing NER_BENCHMARK.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary role of the `NER_BENCHMARK.md` report in your project repository?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;NER_BENCHMARK.md documents experimental precision, recall, F1 scores, and error analyses for reproducible research.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To formally record experimental methodology, performance metrics (P/R/F1), error taxonomy breakdowns, and curated discrepancy tables.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The benchmark document provides a transparent, reproducible scientific audit of automated tool performance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To serve as a marketing advertisement to sell the software to commercial companies.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. NER_BENCHMARK.md is an open scholarly research report.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To complain about the difficulty of university examinations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Academic reports maintain professional scholarly focus.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To provide a fictional narrative about time travel.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The report documents empirical computational linguistics experiments.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: The Error Taxonomy: Four Reasons Machines Fail</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Error Taxonomy: Four Reasons Machines Fail</h3>
+<p>In your benchmark report, classify every error according to our four-part course taxonomy:</p>
+<ol>
+<li>
+<p><strong>Historical Orthography (OOV):</strong> Archaic spellings, contractions, or suffixes confused the model.</p>
+</li>
+<li>
+<p><strong>Boundary Truncation:</strong> The model dropped honorific titles, prepositions, or surrounding words.</p>
+</li>
+<li>
+<p><strong>Type Confusion:</strong> The model assigned the wrong category (e.g., tagging an organization as a place).</p>
+</li>
+<li>
+<p><strong>Toponym Blindness:</strong> The model completely overlooked a regional or Indigenous place name missing from global training data.</p>
+</li>
+</ol>
+<p>This taxonomy proves that you understand <em>why</em> the tool failed, not just that it produced a wrong answer.</p>
+<p><strong>Vocabulary.</strong> <em>Error Taxonomy</em> — A structured classification system that groups mistakes by their underlying technical causes. <em>Toponym Blindness</em> — The total failure of an algorithm to recognize a geographic name.</p>
+<p><strong>Takeaway:</strong> Grouping errors into our four-part taxonomy explains the technical and linguistic causes behind machine failures.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: The Error Taxonomy: Four Reasons Machines Fail</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the four categories in our course error taxonomy for automated NER?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Our error taxonomy diagnoses failures across OOV orthography, boundary errors, type confusion, and contextual ambiguity.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Out-of-Vocabulary (OOV) Orthography, Boundary Errors, Entity Type Confusion, and Contextual Ambiguity / Polysemy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Our course taxonomy classifies errors into OOV orthography, boundary slips, type confusion, and contextual ambiguity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hardware Overheating, Low Battery, Bad Monitor, and Broken Mouse.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are hardware maintenance issues, not linguistic error classes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Syntax Errors, Indentation Errors, Memory Errors, and Type Errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are generic Python programming runtime errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Breakfast, Lunch, Dinner, and Dessert.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are daily meals, not computational error categories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Refining the Pipeline: Adding Custom Rules to Boost Recall</text></name><questiontext format="html"><text><![CDATA[
+<h3>Refining the Pipeline: Adding Custom Rules to Boost Recall</h3>
+<p>Before finalizing your benchmark, you can test how much custom rules improve performance.</p>
+<p>In your Python script, add an <code>EntityRuler</code> containing three or four project-specific patterns. Add patterns for your document's primary historical figures and Indigenous place names.</p>
+<p>Rerun your pipeline and recompute your scores. You will watch your Recall jump from 70% to 90% or higher. Documenting this performance boost shows how human editorial rules rescue general-purpose computer models.</p>
+<p><strong>Vocabulary.</strong> <em>Performance Boost</em> — A measurable increase in accuracy achieved by tuning an algorithm or adding custom rules. <em>Hybrid Pipeline</em> — A computational pipeline that combines human-authored rules with machine-learned statistical models.</p>
+<p><strong>Takeaway:</strong> Adding custom patterns via EntityRuler rescues missing entities and demonstrates the power of hybrid workflows.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Refining the Pipeline: Adding Custom Rules to Boost Recall</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How can an editor demonstrate pipeline improvement in `NER_BENCHMARK.md`?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Iterative pipeline refinement demonstrates how targeted rules improve recall and overall F1 performance.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By running a post-rule benchmark using EntityRuler or custom gazetteers and showing a measurable increase in Recall and F1-score.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Demonstrating iterative improvement via targeted custom rules shows scientific mastery and pipeline control.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By manually deleting all difficult sentences from the test corpus.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Altering the test corpus to artificially inflate scores violates scientific integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By claiming 100% accuracy without providing any supporting data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly claims must be backed by empirical evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By copying another student's test scores into your report.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Academic honesty requires reporting your own experimental data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Preparing for Friday's AI Synthesis Test</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing for Friday's AI Synthesis Test</h3>
+<p>Today's deterministic experiments provide the essential middle tier of our three-step comparative cycle.</p>
+<p>On Tuesday, you established manual ground truth. Today, you tested deterministic natural language processing models, observing their speed, rigidity, and predictable blind spots.</p>
+<p>On Friday, in Lesson 9.3, you will test large language model artificial intelligence prompts on this exact same passage. You will compare human close reading, statistical sequence taggers, and generative AI in a comprehensive three-way audit.</p>
+<p><strong>Vocabulary.</strong> <em>Three-Step Cycle</em> — The course's core method: comparing manual baseline, deterministic automation, and AI models on the same text. <em>Three-Way Audit</em> — A comprehensive comparison evaluating the strengths and weaknesses of three distinct editorial methods.</p>
+<p><strong>Takeaway:</strong> Today's deterministic benchmark establishes the middle comparison tier for Friday's three-way audit with generative AI.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Preparing for Friday's AI Synthesis Test</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is understanding SpaCy's deterministic errors vital before testing Large Language Models in Friday's lab?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Benchmarking deterministic taggers establishes the necessary baseline for evaluating generative LLM performance.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It establishes a clear middle-tier performance baseline, allowing scholars to evaluate whether generative AI solves or exacerbates specific failure modes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Benchmarking deterministic models provides the empirical reference needed to evaluate LLM strengths and hallucination risks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because LLMs refuse to run unless a SpaCy model has run within the previous twenty-four hours.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs run independently of SpaCy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because SpaCy is an artificial intelligence model that writes poetry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SpaCy is a deterministic and statistical sequence processing library.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because generative AI models cannot read English or French words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Generative LLMs excel at multilingual textual understanding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: The Stage Gate: Committing Your Benchmark and Pipeline</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Stage Gate: Committing Your Benchmark and Pipeline</h3>
+<p>You have reached the stage gate for Step 2 of Module 9. Today, you moved from manual cataloguing to automated algorithmic processing.</p>
+<p>You authored a Python NER script, processed your 20-entity excerpt, exported <code>ner_baseline.xml</code>, and conducted a side-by-side diff in VS Code. You computed exact precision and recall scores and diagnosed every error in <code>NER_BENCHMARK.md</code>.</p>
+<p>Stage and commit all four files to your git repository:</p>
+<pre><code class="language-bash">git add ner_pipeline.py ner_baseline.xml NER_BENCHMARK.md
+git commit -m &quot;Week 9 Step 2: deterministic NER pipeline and benchmark audit&quot;
+</code></pre>
+<p>Verify that your working tree on <code>main</code> is clean. On Friday, we bring generative artificial intelligence into our workflow to complete our three-way synthesis.</p>
+<p><strong>Vocabulary.</strong> <em>Stage Gate Commit</em> — A verified git commit that locks in project deliverables before beginning the next phase. <em>Clean Working Tree</em> — A git status showing that all changes are committed and no untracked files remain.</p>
+<p><strong>Takeaway:</strong> Committing your pipeline script, baseline XML, and benchmark report completes Step 2 and prepares your repository for Friday's AI audit.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: The Stage Gate: Committing Your Benchmark and Pipeline</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What artifacts must be committed to git to complete the Module 9 Step 2 stage gate?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Committing your automated baseline, tagging pipeline, and benchmark report secures Step 2 of Module 9.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;`ner_baseline.xml`, the Python tagging script, and the completed `NER_BENCHMARK.md` report.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Committing the baseline XML, execution code, and markdown benchmark locks in your automated testing tier.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A full copy of your computer's operating system kernel.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Operating systems are not committed to project repositories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Only an empty text file named 'done.txt'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Stage gates require complete analytical deliverables.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A screenshot of your desktop wallpaper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Project repositories track research code, data, and analytical reports.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

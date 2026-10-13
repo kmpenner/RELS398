@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 9.3 Teaching Plan (2026-11-06)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #25 (Lesson 9.3 &mdash; AI-Assisted Entity Tagging, Entity Linking, and Comparative Audit)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, November 6, 2026</span>
+                <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 9 (Named Entities) &middot; Step 3 of 3 (AI Synthesis &amp; Portfolio)</span>
+                <span class="badge">Milestone: ai_entity_parser.py + ground_truth_ai.xml + ENTITY_AUDIT.md + Assignment 9 submission</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students arrive with Tuesday's manual ground truth (<code>ground_truth_entities_manual.xml</code>) and Wednesday's automated NER benchmark (<code>ner_baseline.xml</code>, <code>NER_BENCHMARK.md</code>) committed on <code>main</code>. They know exactly how statistical taggers fail on historical orthography.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student runs an LLM parser in VS Code Antigravity using strict negative constraints to generate <code>ground_truth_ai.xml</code>, conducts the three-way comparative audit (Manual vs. SpaCy vs. AI) in <code>ENTITY_AUDIT.md</code>, audits entity links against live Wikidata registries, and packages Assignment: Module 9 for Moodle submission (due 11:00 PM).
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Brian Eno, &ldquo;Another Green World&rdquo;</strong> (1975, Island Records). Contemplative, luminous ambient composition balancing organic acoustic instruments with synthesized textures.</li>
+            <li><strong>Pedagogical connection:</strong> A synthesis of human craft and generative technology: the computer generates rich, fluent structures, but without human grounding, it drifts into hallucination. We bring synthetic models into harmony with empirical philology.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;An AI model will produce complete TEI markup and authority links in three seconds. But did it hallucinate a Wikidata Q-number, or conflate a colonial officer? Today we audit AI through human-in-the-loop scholarship.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE SYNTHESIS OBJECTIVE: AUDITING AI AGAINST HUMAN BENCHMARKS</h3>
+        <p>Generative models possess remarkable semantic breadth, resolving complex boundary errors and contextual nicknames that baffle deterministic sequence taggers. However, LLMs also introduce dangerous factual hallucinations, inventing convincing but synthetic authority URIs. By triangulating Manual Ground Truth, SpaCy, and LLM predictions, students evaluate where AI accelerates research and where human oversight is vital.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Ground truth remains sovereign:</strong> Disagreements between AI predictions and Tuesday's manual ground truth represent machine errors unless genuine new archival evidence emerges.<br>
+        <strong>2. Strict schema and token alignment:</strong> AI-generated XML must pass TEI Relax NG schema validation and maintain 100% token alignment with the primary witness.<br>
+        <strong>3. Active link verification:</strong> Every AI-generated <code>@ref</code> link must be tested against the live Wikidata or GeoNames registry to detect invented Q-numbers.<br>
+        <strong>4. Assignment submission deadline:</strong> Assignment: Module 9 (Named-Entity Markup) is due tonight, Friday, November 6, by 11:00 PM via Moodle submission.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">9:30 &ndash; 9:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Generative AI in Philology: Fluency vs. Factuality</td>
+                <td class="desc-col">
+                    Welcome students. Project an AI hallucination on screen: an LLM inventing a non-existent Wikidata Q-number for a 1752 treaty witness.<br>
+                    Ask: <em>&ldquo;Why does an AI model invent links with complete confidence? How do prompt constraints force models to respect verified absences?&rdquo;</em><br>
+                    Review the three-way comparison architecture: Manual (Gold Standard) vs. SpaCy (Statistical) vs. LLM (Generative).
+                </td>
+                <td class="target-col">Class framing; hallucination hazard demonstration</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:36 &ndash; 9:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Prompting with Negative Constraints in VS Code</td>
+                <td class="desc-col">
+                    Demonstrate running <code>ai_entity_parser.py</code> in VS Code Antigravity. Walk through the prompt template: role definition, TEI schema examples, and explicit negative constraints (<em>"DO NOT invent Q-identifiers; record #person-001 for verified absences"</em>).<br>
+                    Show how the script validates XML output and checks token count alignment against the primary text.
+                </td>
+                <td class="target-col">Live scripted AI prompt run on projector</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:46 &ndash; 9:56<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: AI Pipeline Run<br>Generating ground_truth_ai.xml</td>
+                <td class="desc-col">
+                    Students execute <code>ai_entity_parser.py</code> on their primary witness excerpt and save output to <code>ground_truth_ai.xml</code>.<br>
+                    <strong>Circulate:</strong> confirm Ace parses French revolutionary decrees with French system instructions, Olyvia resolves Maud Lewis's informal letters, and Andromeda tags the 1752 Treaty. Ensure all generated XML files pass schema validation.
+                </td>
+                <td class="target-col">Valid <code>ground_truth_ai.xml</code> generated</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:56 &ndash; 10:12<br>(16 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Three-Way Comparative Audit &amp; Reflection</td>
+                <td class="desc-col">
+                    Students build the Three-Way Discrepancy Matrix in <code>ENTITY_AUDIT.md</code> comparing Manual, SpaCy, and AI predictions side by side.<br>
+                    Students actively test every AI authority link in a browser or via API to catch hallucinated Q-identifiers.<br>
+                    Students author their 300–500 word methodological reflection diagnosing error taxonomy classes (OOV orthography, boundary slips, type confusion, hallucinations) and articulating the human-in-the-loop paradigm.
+                </td>
+                <td class="target-col">Completed <code>ENTITY_AUDIT.md</code> with discrepancy matrix and reflection</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:12 &ndash; 10:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Rubric Review, Packaging &amp; Submission</td>
+                <td class="desc-col">
+                    Walk through the 4 + 3 + 3 grading rubric (80 Moodle points): Manual Precision (4 pts), XML Validity (3 pts), Comparative Analysis (3 pts).<br>
+                    Guide students to package their repository: verify all files are committed to git and ready for Moodle submission.<br>
+                    Remind students: Assignment: Module 9 is due tonight at 11:00 PM via Moodle. Preview Module 10 (Textual Consolidation).
+                </td>
+                <td class="target-col">Repository verified; assignment submission ready; stage gate locked</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Evaluate whether the LLM captured complete institutional spans (<code>&lt;orgName&gt;Comité des décrets&lt;/orgName&gt;</code>) without dropping articles. Check if royal authorities linked to valid BnF/IdRef URIs.</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Check whether the LLM disambiguated <code>Everett</code> to Everett Lewis from context. Verify that local maritime acquaintances without records were flagged as verified absences.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Verify whether the LLM correctly linked <code>Chief Sachem Jean-Baptiste Cope</code> without inventing non-existent Wikidata Q-numbers. Check regnal date normalization in <code>@when</code>.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

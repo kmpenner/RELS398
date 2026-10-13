@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- Category Definition -->
+  <question type="category">
+    <category>
+      <text>$course$/Module_09_Named_Entities/Lesson_9.2_Interactive</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Interactive check questions for Lesson 9.2: Automated Named Entity Recognition (NER) and Gazetteer Lookup.</p>]]></text>
+    </info>
+  </question>
+
+  <!-- 01 Question -->
+  <question type="multichoice">
+    <name>
+      <text>01 Question: From Hand Craft to Automated Processing: Scaling Entity Recognition</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why do digital scholars transition from manual entity annotation to automated Natural Language Processing (NER) pipelines?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automated NER scales entity identification across large textual corpora that would be impractical to annotate entirely by hand.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Manual markup is precise but too slow to scale across large archival corpora containing thousands of manuscript pages.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. While manual annotation establishes rigorous gold standards, automated tools are required to analyze extensive archival corpora at scale.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Manual markup is forbidden by international copyright laws once a document exceeds one hundred words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Copyright law does not prohibit manual scholarly transcription or markup.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automated tools eliminate 100% of errors and never require human verification.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Automated models regularly make errors on historical texts, necessitating careful auditing.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Computers refuse to display XML files that were typed by human beings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. XML parsers process valid XML regardless of how it was created.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 02 Question -->
+  <question type="multichoice">
+    <name>
+      <text>02 Question: How Computers Read Names: Statistical Sequence Models</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How do statistical sequence models like SpaCy identify named entities in running text?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Statistical sequence models use contextual weights trained on large corpora to predict entity tags probabilistically.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They evaluate tokens and their surrounding contexts using probabilistic machine learning weights trained on annotated language corpora.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Modern sequence models use contextual embeddings and statistical transition weights to predict entity spans and types.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They connect directly to the human author's mind using telepathic sensors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Statistical NLP models rely on mathematical probability and training corpora, not telepathy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They consult a hard-coded alphabetical list containing every word in existence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Static lists are gazetteers; statistical models predict entities based on probabilistic context.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>They randomly assign entity tags using a digital coin toss.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Models optimize predictions mathematically based on contextual training features.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 03 Question -->
+  <question type="multichoice">
+    <name>
+      <text>03 Question: The IOB2 Tagging Standard: Inside, Outside, Beginning</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In the IOB2 tagging scheme, what does the 'B-' prefix indicate?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The IOB2 standard uses B- (Beginning), I- (Inside), and O (Outside) to delimit entity boundaries cleanly.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The beginning token of a multi-token or single-token named entity span.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. 'B-' marks the initial token of an entity, distinguishing it from subsequent 'I-' (inside) tokens or 'O' (outside) tokens.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A binary token that represents computer bytecode.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. In IOB2 notation, 'B' stands for 'Beginning'.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A bad or corrupted token that must be deleted from memory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. 'B-' is a standard structural label marking the start of an entity span.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A background color applied to web browser typography.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. IOB2 is a token annotation format, not a CSS display rule.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 04 Question -->
+  <question type="multichoice">
+    <name>
+      <text>04 Question: Two Main Tools: SpaCy and Rule-Based Gazetteers</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the difference between a statistical NER tagger (like SpaCy) and a rule-based gazetteer?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Gazetteers match known names deterministically; statistical models predict entities contextually.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>SpaCy generalizes based on sentence context and patterns, while a gazetteer matches exact pre-compiled lists of known names.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Gazetteers look up known strings deterministically, whereas statistical models infer entities probabilistically from surrounding context.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>SpaCy works only on numbers, while gazetteers work only on punctuation marks.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both tools process natural language words.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Gazetteers are neural networks running in the cloud, while SpaCy is a printed dictionary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. SpaCy is a Python NLP library, and gazetteers are structured lookup lists.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>There is no difference; SpaCy and gazetteer are synonyms for the exact same algorithm.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. They represent fundamentally different paradigms: deterministic lookup vs. probabilistic sequence modeling.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 05 Question -->
+  <question type="multichoice">
+    <name>
+      <text>05 Question: A 10-Line Python NER Pipeline in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In a standard SpaCy Python script, what object is created when text is passed through the loaded language pipeline (`doc = nlp(text)`)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Passing text into a SpaCy pipeline generates an annotated Doc object containing processed tokens and entity spans.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A Doc container object holding processed Token and Span objects with linguistic and entity annotations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Calling nlp(text) runs the pipeline and returns a Doc object containing tokens, sentences, and entity spans (doc.ents).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A compressed audio recording of the manuscript being read aloud.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. SpaCy produces structured linguistic data structures, not audio files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A blank text document with all letters replaced by zeros.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The Doc preserves tokens, text, and rich morphological attributes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A raster graphic image of the original manuscript page.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. SpaCy operates on textual strings and tokens, not raster images.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 06 Question -->
+  <question type="multichoice">
+    <name>
+      <text>06 Question: SpaCy Entity Labels: PERSON, GPE, LOC, and ORG</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In standard SpaCy pipelines, what does the entity label 'GPE' represent?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>GPE (Geopolitical Entity) identifies administrative units like nations and cities, distinguishing them from physical landmarks (LOC).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Geopolitical Entity: countries, cities, and states with defined governments.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. GPE designates political territories (cities, nations), distinct from non-political geographic landmarks (LOC).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>General Purpose Equipment: tools, machinery, and furniture.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GPE stands for Geopolitical Entity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Grammatical Prepositional Element: conjunctions and adverbs.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GPE is a named entity label, not a part-of-speech category.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Global Positioning Error: distorted satellite navigation data.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. GPE is a semantic entity category used in information extraction.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 07 Question -->
+  <question type="multichoice">
+    <name>
+      <text>07 Question: The Out-of-Vocabulary Problem: Historical Orthography Traps</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why do modern pre-trained models like `en_core_web_sm` frequently fail on early modern documents?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Domain mismatch and historical orthography cause out-of-vocabulary failures in models trained on modern corpora.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>They are trained on modern news and web text, making them struggle with archaic spellings, capitalization habits, and obsolete syntax.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The Out-of-Vocabulary (OOV) problem arises because training data distributions diverge sharply from historical manuscript orthography.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because early modern documents contain dangerous computer viruses.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical texts are harmless human linguistic records.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because pre-trained models refuse to process text written in the Roman alphabet.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. English and French models process Roman alphabets natively.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because eighteenth-century scribes deliberately scrambled their letters to trick future computers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical scribes wrote according to the standard conventions of their own era.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 08 Question -->
+  <question type="multichoice">
+    <name>
+      <text>08 Question: Boundary Errors: Where Does a Name Begin and End?</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is a classic boundary error in automated entity extraction?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Boundary errors clip titles, drop name components, or absorb adjacent punctuation into the entity span.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Tagging 'Governor Hopson' as only 'Hopson', omitting the title or capturing trailing punctuation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Boundary errors occur when a model clips a vital part of a name or absorbs adjacent non-entity words.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Changing the font color from black to purple in the terminal window.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Terminal styling has nothing to do with entity token boundary extraction.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Converting an English word into an ancient Greek translation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Boundary errors concern span coordinates, not linguistic translation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Saving a text file with an illegal filename extension.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. File naming is an operating system task separate from token span detection.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 09 Question -->
+  <question type="multichoice">
+    <name>
+      <text>09 Question: Entity Type Confusion: Mixing Up Places, Groups, and People</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Which example illustrates entity type confusion in an automated NER model?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Entity type confusion occurs when an algorithm correctly locates a name but assigns it to the wrong semantic class.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Classifying 'Assemblée nationale' as a PERSON rather than an ORG.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Type confusion occurs when the span boundaries are correct but the assigned semantic category is wrong.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Recognizing 'Paris' as a place located in France.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correctly identifying Paris as a place is accurate classification, not confusion.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Failing to find the word 'and' in a sentence.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Conjunctions are not named entities, so omitting them is correct behavior.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Printing the text to a desktop printer without paper.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Printer hardware errors are unrelated to entity type confusion.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 10 Question -->
+  <question type="multichoice">
+    <name>
+      <text>10 Question: Cohort Corpus A Tests: Ace and the 1791 French Decree</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>When Ace runs `fr_core_news_sm` on the 1791 French Revolutionary decree, which language feature challenges the model?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>French historical contractions (l', d') and institutional titles challenge default modern tokenization and tagging.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Elided determiners and prepositions like 'l'Assemblée' and 'd'Orléans', which modern tokenizers may fail to split cleanly.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. French contractions and historical royal/legislative formulas test the limits of modern news-trained tokenizers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The entire text being written in Chinese pictograms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The decree is written in eighteenth-century French.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The manuscript containing only numerical accounting tables without words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The decree is a legislative narrative text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The French language having no nouns or adjectives.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. French possesses rich morphological and nominal structures.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 11 Question -->
+  <question type="multichoice">
+    <name>
+      <text>11 Question: Cohort Corpus B Tests: Olyvia and Maud Lewis's Letters</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why does `en_core_web_sm` struggle to detect entities in Olyvia's Maud Lewis correspondence?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Informal personal letters lack the formal journalistic context that standard statistical models expect.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Informal colloquial mentions like 'Everett' lack institutional titles or formal journalistic sentence context.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Intimate epistolary style diverges from the formal journalistic prose used to train standard news models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Maud Lewis wrote her letters entirely in mathematical equations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Maud Lewis wrote informal personal English letters.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The letters were typed on a digital word processor with spellcheck enabled.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The letters were hand-painted or handwritten on paper.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Personal letters are legally exempt from Natural Language Processing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Any textual document can be analyzed using NLP tools.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 12 Question -->
+  <question type="multichoice">
+    <name>
+      <text>12 Question: Cohort Corpus C Tests: Andromeda and the 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In Andromeda's 1752 Treaty, what causes automated models to misclassify 'Major Jean-Baptiste Cope'?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Complex historical titles and intercultural naming conventions frequently mislead automated statistical classifiers.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The military title 'Major' combined with hyphenated French forenames in an eighteenth-century English diplomatic treaty.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Cross-cultural naming conventions and military honorifics confuse single-language modern models.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The treaty was written in computer machine binary.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The treaty is written in eighteenth-century diplomatic English.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The text contains no names of any human beings.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The treaty prominently names Mi'kmaw and British signatories.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Treaties are always rejected by Python libraries as invalid syntax.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python processes treaty text without difficulty.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 13 Question -->
+  <question type="multichoice">
+    <name>
+      <text>13 Question: Measuring Machine Accuracy: Precision, Recall, and F1-Score</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does the Recall metric measure in named entity evaluation?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Recall measures completeness: what percentage of all real ground-truth entities did the model capture?</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The proportion of true entities from the human ground truth that the automated model successfully found.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Recall = True Positives / (True Positives + False Negatives), measuring coverage completeness.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The physical speed at which the computer processor completes the calculation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Processing speed is execution throughput, not recall accuracy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The percentage of predicted entities that turned out to be correct.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is the definition of Precision, not Recall.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The number of spelling errors found in the original manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Recall measures model retrieval performance, not scribal errors.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 14 Question -->
+  <question type="multichoice">
+    <name>
+      <text>14 Question: Understanding Error Types: False Positives vs. False Negatives</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What constitutes a False Positive in named entity recognition?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A False Positive is an incorrect detection: the model claimed something was an entity when the ground truth says it is not.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The model predicts an entity where none exists in the ground truth, or tags a common noun as a name.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A False Positive is an erroneous prediction, incorrectly claiming a non-entity or wrong span as a name.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model correctly identifies a person and assigns the correct name.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. That is a True Positive.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model completely misses a real historical person mentioned in the text.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Missing a real entity is a False Negative.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The model turns off the computer monitor during execution.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hardware states are not classification error types.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 15 Question -->
+  <question type="multichoice">
+    <name>
+      <text>15 Question: Automated Gazetteers: Matching Names Against Pre-Compiled Lists</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary strength and primary weakness of a pure gazetteer lookup approach?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Gazetteers provide rock-solid precision for known entries, but fail completely on novel or uncatalogued variants.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It achieves 100% precision for known names on its list, but has zero recall for novel names or variant spellings not included.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Gazetteers cannot recognize uncatalogued variants (poor recall), but match listed names reliably (high precision).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It runs infinitely fast but destroys all files on the hard drive.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Gazetteers are safe string-matching algorithms.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It can read handwritten manuscripts from photos without OCR, but cannot read print.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Gazetteers operate strictly on digital text strings.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It requires quantum computing hardware to run simple searches.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Gazetteers are simple, lightweight dictionary lookups.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 16 Question -->
+  <question type="multichoice">
+    <name>
+      <text>16 Question: SpaCy EntityRuler: Combining Rules with Statistical Models</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does the SpaCy `EntityRuler` enhance a statistical NER pipeline?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The EntityRuler blends rule-based patterns and gazetteers directly into SpaCy's pipeline to correct statistical blind spots.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It injects deterministic pattern-matching rules and gazetteer lists directly into the pipeline, overriding or supplementing statistical predictions.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The EntityRuler combines rule-based precision with statistical breadth, allowing custom rules to patch known model weaknesses.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It physically measures the margins of the manuscript page in inches.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. EntityRuler is a software component for pattern matching, not a physical measuring stick.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It translates the entire text into Latin before parsing.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. EntityRuler matches token patterns in the target language.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes all statistical machine learning models from the computer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. EntityRuler works harmoniously alongside statistical taggers.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 17 Question -->
+  <question type="multichoice">
+    <name>
+      <text>17 Question: Exporting Automated NER to TEI XML: Building ner_baseline.xml</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must automated NER predictions be exported into valid TEI XML before running a comparative benchmark?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Exporting predictions to TEI XML aligns machine outputs with the manual baseline for direct scientific auditing.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To allow direct, automated token-by-token comparison against the manual ground-truth XML baseline.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Structuring both manual and automated predictions in matching TEI format enables systematic diffing and scoring.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Python scripts cannot write data to any format other than TEI XML.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Python can output JSON, CSV, plain text, and many other formats.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Moodle crashes if non-XML files exist in the project directory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Moodle does not inspect internal local development files.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because historical manuscripts cannot be stored in modern databases.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Historical texts are regularly stored across many database architectures.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 18 Question -->
+  <question type="multichoice">
+    <name>
+      <text>18 Question: The VS Code Side-by-Side Diff Audit</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does an editor perform a side-by-side diff audit between `ground_truth_entities_manual.xml` and `ner_baseline.xml` in VS Code?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>VS Code's side-by-side diff view enables rapid, visual auditing of disagreements between manual and machine markup.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By selecting both files in the file explorer and choosing 'Compare Selected' to visually highlight every tag and boundary disagreement.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. VS Code's diff viewer highlights additions, deletions, and structural divergences side-by-side in color.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By printing both files onto transparent plastic sheets and holding them up to a window.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. VS Code provides built-in digital diff capabilities on screen.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By deleting both files and rewriting them from memory.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Auditing requires comparing the existing files directly.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By running an audio converter to listen to the files simultaneously.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Textual diffing is visual and programmatic, not acoustic.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 19 Question -->
+  <question type="multichoice">
+    <name>
+      <text>19 Question: Building the Discrepancy Table in NER_BENCHMARK.md</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What information should be recorded for each entry in the `NER_BENCHMARK.md` discrepancy table?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The discrepancy table documents token spans, expected tags, machine predictions, error categories, and philological causes.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Token span, manual ground truth tag, machine prediction tag, error classification, and philological explanation.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. A thorough discrepancy audit logs what was expected, what was predicted, the error type, and the root cause.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The weather outside the library and the temperature of the room.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Environmental weather is irrelevant to computational text benchmarking.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The price of the student's laptop computer.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Hardware costs do not belong in a textual discrepancy report.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The names of all students enrolled in other university departments.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The discrepancy table focuses on the text under investigation.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 20 Question -->
+  <question type="multichoice">
+    <name>
+      <text>20 Question: Preprocessing with Module 6 Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does applying Module 6 orthographic normalization before running NER improve automated performance?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Orthographic normalization reduces out-of-vocabulary errors, allowing modern models to recognize historical name tokens.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Standardizing historical spelling variants (e.g. historical 's', contractions) brings words closer to the modern training vocabulary of the model.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Normalizing archaic typography resolves out-of-vocabulary mismatches, significantly increasing recall.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It deletes all consonants from the manuscript.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Deleting consonants renders the text unreadable.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It changes the historical text into modern slang.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly normalization standardizes historical orthography without rewriting semantics.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>It replaces all proper names with generic numbers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Entity recognition requires preserving name tokens.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 21 Question -->
+  <question type="multichoice">
+    <name>
+      <text>21 Question: Token Alignment and Overlapping Spans</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What problem occurs when an automated tagger splits a hyphenated word that the manual baseline treated as a single token?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Token alignment must be preserved or reconciled to calculate accurate mathematical precision and recall scores.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Token misalignment, making automated 1-to-1 evaluation impossible without alignment mapping.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Discrepant token boundaries break automated evaluation matrices unless an alignment map reconciles character offsets.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The hard drive immediately formats itself.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Software token mismatch does not damage hardware.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The text automatically translates into French.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Tokenization differences do not trigger language translation.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The computer operating system cancels the student's enrollment.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Academic enrollment is handled by university administrative servers.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 22 Question -->
+  <question type="multichoice">
+    <name>
+      <text>22 Question: Entity Linking: From Tagged Spans to External Records</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the distinction between Named Entity Recognition (NER) and Named Entity Linking (NEL)?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>NER identifies entity boundaries and types; NEL resolves those entities to unique authority records (e.g. Wikidata Q-numbers).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>NER detects name spans and categories in text; NEL resolves those spans to specific external authority database records.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Recognition finds the mentions (who/where), while linking connects them to canonical database identifiers (which exact person/place).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NER is for books, while NEL is for newspapers.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both techniques apply across all genres of text.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NER is done by humans, while NEL can only be done by hand with a pencil.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Both tasks can be executed manually or automated programmatically.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>There is no distinction; NER and NEL are identical synonyms.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Recognition and linking are two distinct phases of the information extraction pipeline.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 23 Question -->
+  <question type="multichoice">
+    <name>
+      <text>23 Question: Wikidata API Queries in Python</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How does a Python script query the Wikidata API to find potential matches for an entity string?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Python queries the Wikidata `wbsearchentities` API to retrieve candidate Q-identifiers and descriptions automatically.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By sending an HTTP GET request to the `wbsearchentities` action endpoint with the search string and language parameters.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The MediaWiki API endpoint `wbsearchentities` returns structured JSON candidate records with descriptions and Q-identifiers.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By sending a printed postcard to the Wikimedia Foundation headquarters in California.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. APIs provide instantaneous automated programmatic access over HTTP.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By scraping every web page on Wikipedia into a local text file.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scraping the entire encyclopedia is inefficient; the API provides targeted querying.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By executing a shell command that shuts down the local network router.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. API queries use standard network communication.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 24 Question -->
+  <question type="multichoice">
+    <name>
+      <text>24 Question: The Ambiguity Trap in Automated Linking</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why must automated entity linking results be carefully verified when searching for common names?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automated search often defaults to prominent modern figures, requiring human disambiguation for historical entities.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Multiple historical figures often share identical names, and automated scripts may link to the most famous modern person instead of the historical actor.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Popularity-ranked API results frequently return modern celebrities rather than eighteenth-century colonial or revolutionary figures.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because Wikidata deliberately gives false answers to test students.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Wikidata is a collaborative open knowledge base, not a deceptive test.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because the internet cannot transfer historical data across national borders.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Internet protocols transmit all digital text globally.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because search algorithms only return results written in German.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Wikidata supports multilingual querying across dozens of languages.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 25 Question -->
+  <question type="multichoice">
+    <name>
+      <text>25 Question: Handling Verified Absences in Automated Pipelines</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What should an automated linking pipeline do when an API search returns zero matching records for a historical person?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Automated pipelines must flag zero-match queries as Verified Absences and mint local identifiers rather than confabulating links.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Assign a local project identifier, flag the entity as a Verified Absence, and log it for human review.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Graceful handling records the absence and assigns a local identifier rather than crashing or assigning a false match.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Invent a random 8-digit number and pretend it is a real Wikidata Q-ID.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Inventing fake identifiers corrupts linked open data integrity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Crash the entire pipeline and delete all previously parsed documents.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Pipelines should catch missing records and log them gracefully.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Replace the person's name in the document with 'Unknown'.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Editorial pipelines never alter the primary historical text.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 26 Question -->
+  <question type="multichoice">
+    <name>
+      <text>26 Question: Synthesizing Results: Writing NER_BENCHMARK.md</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What is the primary role of the `NER_BENCHMARK.md` report in your project repository?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>NER_BENCHMARK.md documents experimental precision, recall, F1 scores, and error analyses for reproducible research.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To formally record experimental methodology, performance metrics (P/R/F1), error taxonomy breakdowns, and curated discrepancy tables.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. The benchmark document provides a transparent, reproducible scientific audit of automated tool performance.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To serve as a marketing advertisement to sell the software to commercial companies.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. NER_BENCHMARK.md is an open scholarly research report.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To complain about the difficulty of university examinations.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Academic reports maintain professional scholarly focus.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To provide a fictional narrative about time travel.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. The report documents empirical computational linguistics experiments.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 27 Question -->
+  <question type="multichoice">
+    <name>
+      <text>27 Question: The Error Taxonomy: Four Reasons Machines Fail</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What are the four categories in our course error taxonomy for automated NER?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Our error taxonomy diagnoses failures across OOV orthography, boundary errors, type confusion, and contextual ambiguity.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Out-of-Vocabulary (OOV) Orthography, Boundary Errors, Entity Type Confusion, and Contextual Ambiguity / Polysemy.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Our course taxonomy classifies errors into OOV orthography, boundary slips, type confusion, and contextual ambiguity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Hardware Overheating, Low Battery, Bad Monitor, and Broken Mouse.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are hardware maintenance issues, not linguistic error classes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Syntax Errors, Indentation Errors, Memory Errors, and Type Errors.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are generic Python programming runtime errors.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Breakfast, Lunch, Dinner, and Dessert.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. These are daily meals, not computational error categories.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 28 Question -->
+  <question type="multichoice">
+    <name>
+      <text>28 Question: Refining the Pipeline: Adding Custom Rules to Boost Recall</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>How can an editor demonstrate pipeline improvement in `NER_BENCHMARK.md`?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Iterative pipeline refinement demonstrates how targeted rules improve recall and overall F1 performance.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>By running a post-rule benchmark using EntityRuler or custom gazetteers and showing a measurable increase in Recall and F1-score.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Demonstrating iterative improvement via targeted custom rules shows scientific mastery and pipeline control.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By manually deleting all difficult sentences from the test corpus.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Altering the test corpus to artificially inflate scores violates scientific integrity.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By claiming 100% accuracy without providing any supporting data.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Scholarly claims must be backed by empirical evidence.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>By copying another student's test scores into your report.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Academic honesty requires reporting your own experimental data.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 29 Question -->
+  <question type="multichoice">
+    <name>
+      <text>29 Question: Preparing for Friday's AI Synthesis Test</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Why is understanding SpaCy's deterministic errors vital before testing Large Language Models in Friday's lab?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Benchmarking deterministic taggers establishes the necessary baseline for evaluating generative LLM performance.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>It establishes a clear middle-tier performance baseline, allowing scholars to evaluate whether generative AI solves or exacerbates specific failure modes.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Benchmarking deterministic models provides the empirical reference needed to evaluate LLM strengths and hallucination risks.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because LLMs refuse to run unless a SpaCy model has run within the previous twenty-four hours.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. LLMs run independently of SpaCy.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because SpaCy is an artificial intelligence model that writes poetry.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. SpaCy is a deterministic and statistical sequence processing library.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Because generative AI models cannot read English or French words.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Generative LLMs excel at multilingual textual understanding.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- 30 Question -->
+  <question type="multichoice">
+    <name>
+      <text>30 Question: The Stage Gate: Committing Your Benchmark and Pipeline</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What artifacts must be committed to git to complete the Module 9 Step 2 stage gate?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Committing your automated baseline, tagging pipeline, and benchmark report secures Step 2 of Module 9.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>`ner_baseline.xml`, the Python tagging script, and the completed `NER_BENCHMARK.md` report.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correct. Committing the baseline XML, execution code, and markdown benchmark locks in your automated testing tier.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A full copy of your computer's operating system kernel.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Operating systems are not committed to project repositories.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Only an empty text file named 'done.txt'.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Stage gates require complete analytical deliverables.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A screenshot of your desktop wallpaper.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrect. Project repositories track research code, data, and analytical reports.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

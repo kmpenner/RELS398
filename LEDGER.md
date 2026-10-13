@@ -442,3 +442,25 @@ Two findings worth carrying forward:
     - Added Weekly Quiz (`cmid 1440743`).
     - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
     - Refreshed and committed `moodle_manifest.json` (129 activities tracked).
+
+- **[2026-10-13] Module 9 (Named Entities) Novice Authoring, Ancillaries, Slide Decks, and Live Moodle Deployment Complete:**
+  - Evaluated suitability of Module 8 for the students' project corpora: confirmed 100% suited and already deployed.
+  - Authored complete, novice-accessible lessons for Module 9 (Lessons 9.1, 9.2, 9.3) anchored in the three student witnesses (Ace: 1791 French Revolutionary decree; Olyvia: 1967 Maud Lewis letter; Andromeda: 1752 Peace and Friendship Treaty):
+    - Lesson 9.1 (Meeting #23, Tue Nov 3): 30 sections, 5,520 words, FKGL 10.7, FRE 39.8, 0 lint issues.
+    - Lesson 9.2 (Meeting #24, Wed Nov 4): 30 sections, 5,277 words, FKGL 11.1, FRE 35.8, 0 lint issues.
+    - Lesson 9.3 (Meeting #25, Fri Nov 6): 30 sections, 5,064 words, FKGL 11.6, FRE 31.7, 0 lint issues.
+    - All three lessons pass the lint gate with 0 issues (clean HTML tables, 30/30 takeaways verified).
+  - Built question data modules (`scripts/banks/lesson_9_1.py`, `lesson_9_2.py`, `lesson_9_3.py`) and compiled question banks to `03b_Lesson_9.*_Questions.xml` (30 questions each, full diagnostic feedback, strict section parity).
+  - Compiled offline Notes PDFs (`04_Lesson_9.1_Notes.pdf`, `04_Lesson_9.2_Notes.pdf`, `04_Lesson_9.3_Notes.pdf`) to `dist/moodle/Module_09_Named_Entities/` using Pandoc + Typst, updating pandoc markdown reader in `compile_lesson_notes_pdf.py` (`markdown-citations`) to defuse bare `@when` and `@ref` attributes.
+  - Compiled interactive Moodle XMLs (`03_Interactive_Lesson_9.*.xml`) and standalone HTML players (`03_Interactive_Lesson_9.*.html`) into both `src/modules/` and `dist/moodle/`.
+  - Assembled Phase F ancillaries via `scripts/banks/quiz_09.py`: generated spruce-green 1200x300 banner (`01_Banner.png`), Reading List, Watch List, Assignment 9 suite with 4+3+3 rubric (due Friday, November 6, by 11:00 PM, 80 Moodle points), and 10-question Weekly Quiz (`09_Quiz.xml`).
+  - Authored and verified in-class teaching plans: `Lesson_9.1_Teaching_Plan_2026-11-03.html`, `Lesson_9.2_Teaching_Plan_2026-11-04.html`, `Lesson_9.3_Teaching_Plan_2026-11-06.html` (MULH 3032, Tue 8:30, Wed 10:30, Fri 9:30). Passed `lint_teaching_plan.py` with 0 problems.
+  - Built widescreen 16:9 projection slide decks: `Lesson_9.1_Slides_2026-11-03.pptx`, `Lesson_9.2_Slides_2026-11-04.pptx`, `Lesson_9.3_Slides_2026-11-06.pptx` (15 slides each; strictly >=16.0pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
+  - Deployed full package to live Moodle Section 9 (Course 51185, Section ID 639807):
+    - Populated Banner (`cmid 1440772`), Learning Objectives (`cmid 1440762`), Lessons 9.1-9.3 Interactive Quizzes (`cmids 1440777, 1440779, 1440780`), and Notes PDFs (`cmids 1440774, 1440775, 1440776` with completion restrictions pointing to quizzes).
+    - Uploaded slide decks as file resources via `mkmod.js`: `Lesson 9.1 Slides (PPTX)` (`cmid 1440784`), `Lesson 9.2 Slides (PPTX)` (`cmid 1440785`), `Lesson 9.3 Slides (PPTX)` (`cmid 1440786`).
+    - Added Reading List (`cmid 1440781`) and Watch List (`cmid 1440782`).
+    - Created `Assignment: Module_09_Named_Entities` (`cmid 1440787`, due Nov 6, 11:00 PM, 80 pts, 4+3+3 rubric) via `ws2assign.js`, and hid workshop (`cmid 1440770`).
+    - Added Weekly Quiz (`cmid 1440783`).
+    - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
+    - Refreshed and committed `moodle_manifest.json` (145 activities tracked across 16 sections).

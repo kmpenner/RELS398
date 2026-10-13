@@ -1,0 +1,1812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_9.3</text></category></question>
+<question type="description"><name><text>01 Content: The AI Revolution in Philology: Flexible Models for Historical Prose</text></name><questiontext format="html"><text><![CDATA[
+<h3>The AI Revolution in Philology: Flexible Models for Historical Prose</h3>
+<p>Over the past two meetings, you explored two different ways to find historical entities. On Tuesday, you established human ground truth through close reading and authority research. On Wednesday, you ran deterministic natural language processing pipelines using SpaCy and gazetteer lists. You saw that while automated models process archives in seconds, rigid statistical rules struggle with archaic spelling and complex syntax.</p>
+<p>Today, we complete our three-step comparative cycle by introducing generative artificial intelligence. Large language models (LLMs) operate fundamentally differently from traditional statistical sequence taggers. Instead of analyzing text through isolated token windows, generative models process rich, multi-sentence semantic context.</p>
+<p>Generative AI understands historical rhetorical patterns and informal prose with remarkable flexibility. But it brings severe hazards: non-deterministic output, prompt drift, and fabricated facts. Today, you will command an AI model in VS Code, audit its predictions against human ground truth, and synthesize your final portfolio for Assignment 9.</p>
+<p><strong>Vocabulary.</strong> <em>Generative AI</em> — Large language models that generate structured text, code, or annotations based on contextual prompts. <em>Context Window</em> — The span of text that a language model can process and analyze simultaneously.</p>
+<p><strong>Takeaway:</strong> Generative AI brings contextual flexibility to historical prose but requires rigorous human auditing to prevent hallucinations.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The AI Revolution in Philology: Flexible Models for Historical Prose</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are modern Large Language Models (LLMs) uniquely powerful for processing historical prose compared to older statistical taggers?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;LLMs bring deep semantic context and world knowledge to historical texts, surpassing the narrow window of traditional sequence taggers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Their billions of parameters capture rich contextual semantics, multilingual syntax, and world knowledge across centuries of textual history.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. LLMs leverage deep contextual representations and vast multilingual pretraining to handle complex historical vocabulary and syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;LLMs contain physical time-travel antennas that communicate directly with dead authors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs are computational language models trained on digital text corpora, not supernatural devices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;LLMs are guaranteed to be 100% error-free and never require human review.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs frequently hallucinate facts or syntax, requiring rigorous human verification.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;LLMs can only process text written in binary machine code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs process natural human languages fluently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: Why LLMs Excel at Historical Names: Semantic and Syntactic Depth</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why LLMs Excel at Historical Names: Semantic and Syntactic Depth</h3>
+<p>Traditional sequence taggers like SpaCy evaluate each word primarily through local grammatical transitions. If an unfamiliar word appears, the statistical chain fractures.</p>
+<p>Large language models are trained on billions of parameters across historical books, encyclopedias, and diverse web corpora. They understand that an eighteenth-century phrase like <em>in the twenty-sixth year of His Majesty's reign</em> functions as a calendar expression, even though it contains no numbers.</p>
+<p>Furthermore, LLMs handle informal language with ease. When Maud Lewis refers casually to <em>Everett</em>, an AI model recognizes from the surrounding letter that Everett is her husband. It connects the casual mention to his full identity without needing an explicit honorific title like <em>Mr.</em> or <em>Governor</em>.</p>
+<p><strong>Vocabulary.</strong> <em>Semantic Depth</em> — An algorithm's ability to understand overarching meaning rather than superficial word patterns. <em>Implicit Entity</em> — A person or place referred to indirectly through kinship words, pronouns, or titles.</p>
+<p><strong>Takeaway:</strong> Large language models interpret complex historical syntax and informal names by analyzing broad semantic meaning.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Why LLMs Excel at Historical Names: Semantic and Syntactic Depth</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do LLMs overcome the boundary errors that plague statistical sequence taggers like SpaCy?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Broad contextual attention allows LLMs to resolve complex entity spans and honorific titles without clipping.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They model entire sentence structures and rhetorical discourse, recognizing that honorifics, titles, and multipart names belong to a single entity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Global attention mechanisms allow LLMs to understand complex noun phrases and honorific formulas far better than local window taggers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete all titles from historical documents before reading them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs retain and analyze titles within their semantic context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They look up every word in a printed book using a robotic scanner.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs operate as digital neural networks processing token embeddings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They force every person's name to be exactly three words long.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs accommodate variable-length entity spans naturally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The Hallucination Hazard: Inventing Plausible Fiction</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Hallucination Hazard: Inventing Plausible Fiction</h3>
+<p>The greatest strength of generative AI is also its greatest danger: its fluency. Language models are probabilistic token predictors, not factual databases.</p>
+<p>When an AI model does not know an authority identifier, it does not stop and admit defeat. Instead, it predicts what a plausible identifier ought to look like. If you ask an unconstrained model to find the Wikidata Q-identifier for a minor French clerk or a local colonial settler, it will effortlessly invent a fake number like <code>Q9847125</code>.</p>
+<p>To the untrained eye, the generated XML looks flawless: tags match, attributes are present, and the format validates. But the identifier points to an unrelated modern topic, or to a web page that does not exist. Digital humanists must never accept AI output without verifying external links.</p>
+<p><strong>Vocabulary.</strong> <em>Model Hallucination</em> — When an AI model generates plausible-sounding but completely fabricated facts or identifiers. <em>Fluent Falsehood</em> — Text that appears grammatically correct and convincing but is factually untrue.</p>
+<p><strong>Takeaway:</strong> Language models invent plausible-sounding authority identifiers when unconstrained; editors must verify all external links.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The Hallucination Hazard: Inventing Plausible Fiction</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the 'hallucination hazard' when using generative AI for named entity linking?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The hallucination hazard occurs when generative models invent plausible but non-existent identifiers or historical facts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The model confabulates plausible-sounding but completely fictitious Wikidata Q-identifiers, historical biographies, or citations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Generative models prioritize probabilistic linguistic fluency and will invent synthetic URLs or Q-numbers if ungrounded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model displays animated psychedelic graphics on the computer monitor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. In machine learning, hallucination refers to confabulated or ungrounded factual claims, not visual graphics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The computer catches fire due to excessive processor heat.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hallucination is a semantic fidelity failure, not physical combustion.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model deletes all punctuation marks from the English language.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Punctuation handling is unrelated to the hallucination of non-existent entity records.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Prompt Engineering: Zero-Shot vs. Few-Shot Annotation</text></name><questiontext format="html"><text><![CDATA[
+<h3>Prompt Engineering: Zero-Shot vs. Few-Shot Annotation</h3>
+<p>The quality of AI-generated markup depends entirely on prompt engineering. How you instruct the model determines whether you receive scholarly markup or useless fiction.</p>
+<p>In <strong>zero-shot prompting</strong>, you give the model an instruction with no examples: <em>Tag the named entities in this eighteenth-century text</em>. The model guesses at your conventions, invents custom XML tags, and modernizes spelling without your permission.</p>
+<p>In <strong>few-shot prompting</strong>, you provide explicit persona instructions, strict rules, and two or three concrete input-output examples. By showing the model exactly how you want tags, IDs, and attributes formatted, you lock its output into valid TEI XML.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Prompting Strategy</th>
+      <th>Input Structure</th>
+      <th>Typical Failure Modes</th>
+      <th>Scholarly Suitability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Zero-Shot</td>
+      <td>Bare instruction without examples</td>
+      <td>Custom tags, modernizes spelling, invents URIs</td>
+      <td>Unsuitable for academic editions</td>
+    </tr>
+    <tr>
+      <td>Few-Shot</td>
+      <td>Persona + strict rules + 2-3 exemplars</td>
+      <td>Minor boundary slips, prompt drift on long texts</td>
+      <td>Standard for digital scholarship</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Zero-Shot Prompting</em> — Giving an AI model a task without providing demonstration examples. <em>Few-Shot Prompting</em> — Providing an AI model with several concrete input-output examples to guide its behavior.</p>
+<p><strong>Takeaway:</strong> Few-shot prompting with concrete examples forces language models to follow strict TEI schema guidelines.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Prompt Engineering: Zero-Shot vs. Few-Shot Annotation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What distinguishes a 'few-shot' prompt from a 'zero-shot' prompt in named entity tagging?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Few-shot prompts provide concrete exemplary demonstrations, guiding the model toward strict schema compliance and boundary accuracy.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A few-shot prompt provides curated input/output examples demonstrating the exact desired XML structure and edge-case handling before the test text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Providing concrete demonstration examples anchors the model's output syntax and dramatically reduces structural errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A zero-shot prompt costs ten dollars, while a few-shot prompt is free.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Zero-shot and few-shot refer to in-context learning examples, not financial costs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A few-shot prompt can only run three times before expiring.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prompts can be executed repeatedly without limitation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A zero-shot prompt is written in Chinese, while a few-shot prompt is written in German.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both prompting strategies can be authored in any language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Injecting Editorial Policies: Positive and Negative Constraints</text></name><questiontext format="html"><text><![CDATA[
+<h3>Injecting Editorial Policies: Positive and Negative Constraints</h3>
+<p>To achieve reliable results, your system prompt must incorporate the rules from your <code>ENTITY_POLICIES.md</code> file.</p>
+<p>Scholarly prompts require two types of constraints:</p>
+<ol>
+<li>
+<p><strong>Positive Constraints:</strong> Explicit rules stating what the model must do (e.g., <em>Use TEI persName, placeName, orgName, and date tags; normalize dates using the when attribute in YYYY-MM-DD format</em>).</p>
+</li>
+<li>
+<p><strong>Negative Constraints:</strong> Explicit prohibitions stating what the model must never do (e.g., <em>Do NOT alter historical spelling inside tags; do NOT invent authority identifiers; do NOT include conversational preamble</em>).</p>
+</li>
+</ol>
+<p>Negative constraints are essential. They prevent the model from modernizing eighteenth-century spellings like <em>shew'd</em> or adding polite commentary before the XML.</p>
+<p><strong>Vocabulary.</strong> <em>Positive Constraint</em> — An instruction that directs an algorithm on what actions or formats it must produce. <em>Negative Constraint</em> — A rule forbidding an algorithm from performing specific actions, such as altering text.</p>
+<p><strong>Takeaway:</strong> Combining positive guidelines with negative constraints keeps AI models focused on strict schema conformity.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Injecting Editorial Policies: Positive and Negative Constraints</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must prompt templates include explicit negative constraints (e.g. 'DO NOT invent Q-identifiers')?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Negative constraints explicitly block models from inventing fake identifiers when no authoritative record exists.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Generative models are biased toward providing complete answers and will invent synthetic IDs to fill perceived gaps unless explicitly forbidden.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Negative constraints override generative confabulation defaults and enforce the Verified Absence rule.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because negative words make the computer processor run faster.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Negative constraints guide semantic generation; they do not alter hardware clock speeds.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because positive rules are forbidden by computer programming syntax.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both positive and negative instructions are valid natural language constraints.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To force the model to delete the text if an entity is missing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Negative constraints prevent fake data generation while keeping text intact.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Automating AI Prompts in VS Code: ai_entity_parser.py</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automating AI Prompts in VS Code: ai_entity_parser.py</h3>
+<p>In today's lab, you will not copy and paste text into a public web chat. Instead, you will execute a Python script in VS Code called <code>ai_entity_parser.py</code>.</p>
+<p>The script reads your manuscript excerpt, packages it with your system prompt and few-shot examples, and sends it to the language model API. It captures the generated XML, validates its structure, and saves it to <code>ground_truth_entities_ai.xml</code>.</p>
+<p>Automating the interaction through code gives you an exact, reproducible record of your parameters, temperature settings, and model versions. Every step in your editorial workflow is documented in your repository.</p>
+<p><strong>Vocabulary.</strong> <em>API Script</em> — A programmatic script that communicates with a remote server or model automatically. <em>Reproducibility</em> — The scientific principle that an experiment can be run by others and produce the same results.</p>
+<p><strong>Takeaway:</strong> Automating AI queries through Python scripts creates an exact, reproducible audit trail in your project repository.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Automating AI Prompts in VS Code: ai_entity_parser.py</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do scholars use a scripted Python runner (`ai_entity_parser.py`) in VS Code rather than manual interactive web chats?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Scripted API execution locks in model parameters, ensures reproducible results, and preserves audit trails.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A scripted runner ensures deterministic parameters (e.g. temperature=0.0), structured logging, repeatable execution, and version control.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Scripted pipelines guarantee reproducibility, parameter consistency, and automated integration into downstream audit workflows.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because web browsers are illegal for university researchers to open.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web browsers are standard research tools, but manual chatting is non-reproducible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because interactive chats automatically erase the user's hard drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web chat interfaces do not erase storage devices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Python scripts cannot connect to cloud AI models.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Python is the primary programming language used to interface with AI APIs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: The TEI XML Schema Quality Gate</text></name><questiontext format="html"><text><![CDATA[
+<h3>The TEI XML Schema Quality Gate</h3>
+<p>Before you compare AI predictions against your human baseline, the generated XML must pass two strict quality gates.</p>
+<p>The first gate is <strong>well-formedness and validation</strong>. Every opening tag must have a matching closing tag. Attribute names must be spelled correctly (<code>ref=</code>, not <code>link=</code>). Date formats must conform to ISO 8601.</p>
+<p>The second gate is <strong>textual integrity</strong>. The AI must not alter a single character of your manuscript witness. If the model modernized <em>décrétoit</em> to <em>décrétait</em> or expanded abbreviations without using <code>&lt;choice&gt;</code>, the file fails the quality gate immediately.</p>
+<p>Open the Problems panel in VS Code (<code>Ctrl+Shift+M</code>) to confirm that <code>ground_truth_entities_ai.xml</code> validates to zero errors.</p>
+<p><strong>Vocabulary.</strong> <em>Quality Gate</em> — A mandatory validation test that a file must pass before being accepted into a pipeline. <em>Textual Integrity</em> — Preserving the exact characters of the primary manuscript without unauthorized alterations.</p>
+<p><strong>Takeaway:</strong> AI-generated XML must pass schema validation and preserve original spelling before being audited.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: The TEI XML Schema Quality Gate</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the very first quality gate an AI-generated TEI XML fragment must pass before evaluation?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI outputs must pass schema validation first; malformed XML is immediately rejected as invalid.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Well-formed XML syntax and strict TEI P5 Relax NG schema validation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. An output with unclosed tags, illegal attributes, or malformed nesting cannot be integrated into a scholarly edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Conversion into an MP3 audio file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions evaluate structured textual XML, not audio conversions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Approval by a commercial advertising agency.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commercial advertising has no role in scholarly XML validation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A spelling check against modern slang dictionaries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical texts preserve archaic orthography and validate against formal TEI schemas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: The Token Alignment Gate: Matching Entity Spans</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Token Alignment Gate: Matching Entity Spans</h3>
+<p>Before calculating accuracy scores, you must verify <strong>token alignment</strong> between your manual and AI files.</p>
+<p>An automated script cannot calculate precision if the two files disagree on word boundaries. For example, if your manual file tagged <code>Major Jean Baptiste Cope</code> as twenty characters and the AI split the title into separate elements, the comparison script must align those spans.</p>
+<p>Ensure that both files contain the exact same continuous passage. In <code>ai_entity_parser.py</code>, you can run an automated alignment checker that verifies word counts before running the comparative evaluation.</p>
+<p><strong>Vocabulary.</strong> <em>Span Alignment</em> — Matching start and end word positions between two different annotation files. <em>Alignment Gate</em> — A verification step ensuring that text spans match before mathematical scoring begins.</p>
+<p><strong>Takeaway:</strong> Verifying span alignment between manual and AI files ensures that mathematical scoring is fair and accurate.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: The Token Alignment Gate: Matching Entity Spans</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the 'Token Alignment Gate' essential when validating LLM predictions against the manual ground truth?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The token alignment gate ensures the LLM did not silently alter, modernize, or drop primary witness tokens.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;LLMs may subtly rephrase, modernize, or drop words from the primary text, destroying direct token-for-token comparability.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Generative models occasionally 'clean up' or alter historical text; verification ensures the underlying witness tokens remain untouched.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because tokens in computer memory decay if not measured every five minutes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital tokens in memory do not physically decay.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because token alignment is required by the local electric company.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Utility companies do not regulate computational linguistics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because non-aligned tokens cause the computer monitor to turn upside down.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Visual display orientation is unrelated to textual token indexing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: The Three-Way Comparative Diff in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Three-Way Comparative Diff in VS Code</h3>
+<p>Now comes the heart of our module: the <strong>Three-Way Comparative Audit</strong>. You will compare all three passes side by side in Visual Studio Code:</p>
+<ol>
+<li>
+<p><strong>Manual Ground Truth (<code>ground_truth_entities_manual.xml</code>):</strong> The human baseline (Tuesday).</p>
+</li>
+<li>
+<p><strong>Deterministic NLP (<code>ner_baseline.xml</code>):</strong> The SpaCy sequence model (Wednesday).</p>
+</li>
+<li>
+<p><strong>AI-Assisted Model (<code>ground_truth_entities_ai.xml</code>):</strong> The LLM prompt output (Friday).</p>
+</li>
+</ol>
+<p>Open VS Code split editors to view the files simultaneously, or run split diffs:</p>
+<pre><code class="language-bash">code --diff ground_truth_entities_manual.xml ground_truth_entities_ai.xml
+</code></pre>
+<p>You can now observe exactly where the deterministic tool stumbled, where the AI succeeded, and where both failed.</p>
+<p><strong>Vocabulary.</strong> <em>Three-Way Audit</em> — A comparative study evaluating manual, deterministic, and AI methods on the same passage. <em>Split Editor</em> — A screen layout displaying multiple files side by side in an editor.</p>
+<p><strong>Takeaway:</strong> The three-way audit compares manual, deterministic, and AI annotations side by side to reveal their relative strengths.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: The Three-Way Comparative Diff in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What three distinct tiers of data are compared in the Three-Way Comparative Audit?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Three-Way Comparative Audit contrasts manual ground truth, statistical NLP, and generative AI predictions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tier 1: Manual Human Ground Truth; Tier 2: Deterministic/Statistical NLP (SpaCy); Tier 3: Generative AI (LLM).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The audit triangulates human expertise, statistical machine learning, and generative AI across identical text spans.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Three different translations of the Bible into modern Spanish.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The audit compares three annotation methodologies on the student's primary witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Three different web browsers running on three different operating systems.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Software browsing environments are not the subject of the linguistic audit.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Three random files chosen from the internet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The comparison evaluates three structured tiers on the same manuscript excerpt.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Scoring the AI Pass: Precision, Recall, and F1-Score</text></name><questiontext format="html"><text><![CDATA[
+<h3>Scoring the AI Pass: Precision, Recall, and F1-Score</h3>
+<p>Just as you measured SpaCy's accuracy on Wednesday, you will now calculate mathematical scores for the AI model.</p>
+<p>Count your True Positives, False Positives, and False Negatives:</p>
+<ul>
+<li>
+<p><strong>Precision:</strong> How many of the AI's entity tags matched your manual ground truth?</p>
+</li>
+<li>
+<p><strong>Recall:</strong> Did the AI discover all twenty entities that you identified by hand?</p>
+</li>
+<li>
+<p><strong>F1-Score:</strong> What is the balanced harmonic score of the AI model?</p>
+</li>
+</ul>
+<p>Compare these numbers directly against Wednesday's SpaCy scores. In most historical documents, generative AI achieves higher Recall than SpaCy because it recognizes unusual syntax, but it may have lower Precision due to over-tagging common nouns.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Precision (%)</th>
+      <th>Recall (%)</th>
+      <th>F1-Score (%)</th>
+      <th>Primary Failure Mode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Manual Baseline (9.1)</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>Slow, labor-intensive craft</td>
+    </tr>
+    <tr>
+      <td>Deterministic NLP (9.2)</td>
+      <td>78.5%</td>
+      <td>65.0%</td>
+      <td>71.1%</td>
+      <td>OOV spelling, toponym blindness</td>
+    </tr>
+    <tr>
+      <td>Generative AI (9.3)</td>
+      <td>88.2%</td>
+      <td>90.0%</td>
+      <td>89.1%</td>
+      <td>Over-tagging, invented URIs</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Comparative Metrics</em> — Using identical mathematical formulas to benchmark two different technologies against a single human baseline. <em>Over-Tagging</em> — Tagging ordinary capitalized nouns as entities when they are merely general concepts.</p>
+<p><strong>Takeaway:</strong> Computing comparative scores reveals that AI models often achieve higher recall than rule-based taggers but require auditing for precision.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Scoring the AI Pass: Precision, Recall, and F1-Score</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;If an LLM identifies 18 entity spans correctly, misses 2 ground truth entities, and hallucinates 2 false entities, what are its Precision and Recall?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Calculating precision (TP/(TP+FP)) and recall (TP/(TP+FN)) provides empirical accuracy metrics for LLM performance.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Precision = 90% (18/20), Recall = 90% (18/20), and F1-score = 90%.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Precision = TP/(TP+FP) = 18/20 = 0.90; Recall = TP/(TP+FN) = 18/20 = 0.90; F1 = 2*(0.9*0.9)/(0.9+0.9) = 0.90.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Precision = 50%, Recall = 100%, and F1-score = 75%.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. With 18 true positives out of 20 predictions and 20 targets, precision and recall are both 90%.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Precision = 100%, Recall = 0%, and F1-score = 0%.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A model with 18 correct hits does not have zero recall.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Precision = 10%, Recall = 10%, and F1-score = 10%.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Mathematical calculations must follow standard evaluation formulas.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Building the Three-Way Discrepancy Matrix</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building the Three-Way Discrepancy Matrix</h3>
+<p>In your capstone report, <code>ENTITY_AUDIT.md</code>, you will compile a comprehensive comparative matrix across all twenty mentions.</p>
+<p>The table features five columns:</p>
+<ol>
+<li>
+<p><strong>Mention:</strong> The raw text string in the manuscript.</p>
+</li>
+<li>
+<p><strong>Manual Ground Truth (9.1):</strong> Your verified human tag and authority link.</p>
+</li>
+<li>
+<p><strong>Deterministic NLP (9.2):</strong> What SpaCy predicted.</p>
+</li>
+<li>
+<p><strong>Generative AI (9.3):</strong> What the LLM predicted.</p>
+</li>
+<li>
+<p><strong>Scholarly Analysis:</strong> Which method succeeded and why.</p>
+</li>
+</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Mention</th>
+      <th>Manual Truth (9.1)</th>
+      <th>NLP (9.2)</th>
+      <th>AI (9.3)</th>
+      <th>Analysis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Major Cope</td>
+      <td><code>persName (dcb:cope)</code></td>
+      <td><code>Cope (PER)</code></td>
+      <td><code>persName (dcb:cope)</code></td>
+      <td>AI included title and linked DCB correctly</td>
+    </tr>
+    <tr>
+      <td>Chigabenakady</td>
+      <td><code>placeName (geonames)</code></td>
+      <td>[Missed]</td>
+      <td><code>placeName</code></td>
+      <td>AI recognized place; prompt prevented fake ID</td>
+    </tr>
+    <tr>
+      <td>Assemblée</td>
+      <td><code>orgName (wikidata)</code></td>
+      <td><code>LOC</code></td>
+      <td><code>orgName</code></td>
+      <td>AI resolved organization type cleanly</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Discrepancy Matrix</em> — A multi-column table displaying side-by-side annotations across three distinct workflows. <em>Scholarly Analysis</em> — Evaluating the theoretical and practical reasons behind divergent machine readings.</p>
+<p><strong>Takeaway:</strong> The three-way discrepancy matrix provides a clear, side-by-side comparison of human, statistical, and AI annotations.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Building the Three-Way Discrepancy Matrix</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary analytical function of the Three-Way Discrepancy Matrix in `ENTITY_AUDIT.md`?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Three-Way Discrepancy Matrix maps token-by-token consensus and divergence across human, statistical, and generative methods.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To place Manual, SpaCy, and LLM annotations side by side for every disputed token, revealing exactly where and why methods diverge.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The matrix provides a structured, comparative view of consensus and divergence across all three methodologies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To calculate the monthly financial cost of running university servers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The matrix evaluates linguistic annotation agreement, not server costs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To serve as a cryptographic key for encrypting credit card numbers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly matrices are analytical tables, not encryption ciphers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To list all books published in the seventeenth century.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The matrix focuses specifically on the excerpt under audit.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Cohort Synthesis A: Ace and French Revolutionary Entities</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Synthesis A: Ace and French Revolutionary Entities</h3>
+<p>Let us look at how the three methods performed on Ace's 1791 French Revolutionary decree.</p>
+<p>On Wednesday, SpaCy's French sequence model struggled with elided articles and legislative committees. It tagged <code>l'Assemblée nationale</code> as a location and completely overlooked minor signers like <code>Dejoly</code>.</p>
+<p>The generative AI model performed significantly better. Informed by prompt context about 1791 constitutional France, the AI recognized that the National Assembly was a legislative body (<code>orgName</code>). It separated the elided article <code>l'</code> from the entity span. However, the AI attempted to invent a French national archive identifier for <code>Dejoly</code> that did not exist. Ace's manual ground truth was essential to catch the hallucination.</p>
+<p><strong>Vocabulary.</strong> <em>Contextual Recovery</em> — When an AI model uses broad historical understanding to identify an entity that rigid taggers missed. <em>Fabricated Identifier</em> — A fake archive number invented by an AI model to satisfy a prompt request.</p>
+<p><strong>Takeaway:</strong> In French revolutionary texts, AI models resolve complex institutional bodies but tend to invent fake archive identifiers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Cohort Synthesis A: Ace and French Revolutionary Entities</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Ace's 1791 French Revolutionary decree, how did the LLM typically compare with SpaCy on institutional names like 'Comité des décrets'?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;LLMs demonstrate superior syntactic boundary retention on multi-token French political institutions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The LLM captured the complete organizational span (&lt;orgName&gt;) without dropping determiners, whereas SpaCy frequently truncated boundaries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. LLMs handle French institutional multi-word nominal expressions with superior boundary completeness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The LLM refused to read French and translated everything into Japanese.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multilingual LLMs handle French historical text natively.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;SpaCy achieved 100% perfection while the LLM produced only random punctuation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both tools produced valuable data, but LLMs demonstrated superior span recognition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Neither tool was able to find any words in the decree.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both pipelines extracted entities successfully.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Cohort Synthesis B: Olyvia and Maud Lewis's Folk Correspondence</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Synthesis B: Olyvia and Maud Lewis's Folk Correspondence</h3>
+<p>In Olyvia's Maud Lewis letter, the three-way comparison highlights the difference between rigid models and contextual models on informal writing.</p>
+<p>SpaCy struggled with casual first names and rural place names. It tagged <em>Everett</em> with low confidence and missed <em>Marshalltown</em> entirely because the hamlet was absent from modern training corpora.</p>
+<p>The generative AI model easily identified <em>Everett</em> as a person and <em>Marshalltown</em> as a place. Because LLMs have ingested regional Canadian culture and art history, the model recognized Maud Lewis's rural home. However, the AI tended to over-tag common objects, attempting to tag <em>paintings</em> or <em>cards</em> as corporate works. Olyvia's manual policy restrained the model's over-enthusiasm.</p>
+<p><strong>Vocabulary.</strong> <em>Cultural Ingestion</em> — An AI model's ability to recall regional artistic or cultural facts from its training data. <em>Over-Generalization</em> — Tagging ordinary everyday items as formal cultural titles.</p>
+<p><strong>Takeaway:</strong> In informal correspondence, AI models recognize rural places and first names but tend to over-tag common descriptive words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Cohort Synthesis B: Olyvia and Maud Lewis's Folk Correspondence</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Olyvia's Maud Lewis letters, what significant advantage did the LLM demonstrate over deterministic gazetteers?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;LLMs use surrounding epistolary discourse to disambiguate informal personal first names into full biographical identities.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The LLM inferred from epistolary context that 'Everett' was Maud's husband Everett Lewis, whereas gazetteers missed the bare first name.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Contextual reasoning allows LLMs to resolve informal personal references that static gazetteers miss completely.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The LLM bought an antique painting from Maud Lewis.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Software models cannot purchase material physical art.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The gazetteer deleted all vowel letters from the text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Gazetteers do not delete characters from text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The LLM refused to process letters written by female artists.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models process texts without demographic discrimination.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Cohort Synthesis C: Andromeda and the 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Synthesis C: Andromeda and the 1752 Treaty</h3>
+<p>In Andromeda's 1752 Treaty, the three-way comparison demonstrates the high stakes of diplomatic and Indigenous sovereignty.</p>
+<p>SpaCy suffered from toponym blindness, completely skipping the Indigenous district of <em>Chigabenakady</em>. It truncated <em>Major Jean Baptiste Cope</em> into a bare surname and confused sovereign councils with physical buildings.</p>
+<p>The generative AI model succeeded in capturing full composite titles: <code>Major Jean Baptiste Cope, Chief Sachem</code>. Guided by prompt rules, it recognized <em>Chigabenakady</em> as a geographic place. However, when asked to link the place, the AI attempted to attach a modern colonial municipality in Ontario with a similar name. Andromeda's manual ground truth rescued the historical Mi'kmaw territory from automated geographic displacement.</p>
+<p><strong>Vocabulary.</strong> <em>Geographic Displacement</em> — When an automated tool attaches a historical place to a modern municipality in the wrong province. <em>Composite Title</em> — An entity mention that combines multiple honorary, military, and sovereign titles.</p>
+<p><strong>Takeaway:</strong> In colonial treaties, AI models capture complex composite titles but require human oversight to prevent geographic displacement.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Cohort Synthesis C: Andromeda and the 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Andromeda's 1752 Treaty, what critical hazard was observed when the LLM linked Chief Sachem Jean-Baptiste Cope to external databases?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Meticulous auditing is necessary to catch hallucinated Q-identifiers or entity conflation for historical figures.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Risk of hallucinating non-existent Wikidata Q-numbers or conflating Jean-Baptiste Cope with other historical figures of the same name.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Linking historical Indigenous leaders requires meticulous verification to ensure models do not invent IDs or conflate distinct persons.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The LLM rewrote the treaty as a science fiction novel.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. System prompts constrain the model to factual annotation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The LLM deleted the British Crown from world history.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Entity linking models do not alter world historical reality.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The treaty text turned into an image of a pirate ship.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Textual parsing yields structured text data, not cartoon images.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: The Four Discrepancy Classes in ENTITY_AUDIT.md</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Four Discrepancy Classes in ENTITY_AUDIT.md</h3>
+<p>In your audit report, classify every point of disagreement into our four-part course taxonomy:</p>
+<ol>
+<li>
+<p><strong>Boundary Mismatches:</strong> Differences in where an entity span starts or ends (e.g., dropping or keeping official titles).</p>
+</li>
+<li>
+<p><strong>Category Disagreements:</strong> Classifying an entity as a place (<code>placeName</code>) versus an organization (<code>orgName</code>).</p>
+</li>
+<li>
+<p><strong>Authority Linking Errors:</strong> Attaching an incorrect Wikidata QID, or inventing a fake URI where no record exists.</p>
+</li>
+<li>
+<p><strong>Historical Orthography Failures:</strong> OOV spelling slips or archaic punctuation that caused a model to miss an entity.</p>
+</li>
+</ol>
+<p>Discuss at least three specific case studies in detail in your report, explaining what each error reveals about digital tools.</p>
+<p><strong>Vocabulary.</strong> <em>Boundary Mismatch</em> — When two annotation passes identify the same entity but disagree on its starting or ending words. <em>Category Disagreement</em> — When annotators agree on a name span but disagree on its semantic entity class.</p>
+<p><strong>Takeaway:</strong> Classifying errors into boundary, category, linking, and spelling failures provides a structured framework for critical reflection.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: The Four Discrepancy Classes in ENTITY_AUDIT.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In `ENTITY_AUDIT.md`, what characterizes a 'Class 4: Factual Confabulation / Hallucinated Link' discrepancy?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Class 4 discrepancies represent ungrounded hallucinations where models invent fake identifiers or link to wrong entities.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The model correctly identifies a name span but invents a fictional URI or attributes the entity to a completely wrong historical individual.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Class 4 discrepancies represent ungrounded hallucinations that corrupt Linked Open Data integrity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A minor typo where a lowercase letter is capitalized.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Typographical capitalization is an orthographic discrepancy, not a factual hallucination.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The computer losing internet connectivity for two seconds.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Network disconnects are infrastructure glitches, not model semantic classifications.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A student submitting their assignment ten minutes early.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Submission timing has nothing to do with entity error taxonomy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Auditing Entity Links: Detecting Invented Q-Identifiers</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing Entity Links: Detecting Invented Q-Identifiers</h3>
+<p>Auditing authority links requires active verification, not passive reading. You must test every URI generated by the model.</p>
+<p>Open each link in your web browser. If the AI generated <code>ref="wikidata:Q7732"</code>, verify that the link opens the Wikidata page for King Louis XVI. If the link returns an HTTP 404 error, or opens an article about a Swedish municipality, the model hallucinated.</p>
+<p>When you discover an invented identifier, document it prominently in your audit report. Explain why the model invented the link and how your manual ground truth protected your edition from data corruption.</p>
+<p><strong>Vocabulary.</strong> <em>Link Verification</em> — Testing an automated hyperlink in a web browser to ensure it points to the correct historical entity. <em>HTTP 404</em> — The standard web error code indicating that a requested page or identifier does not exist.</p>
+<p><strong>Takeaway:</strong> Editors must click and verify every automated authority link in a browser to catch hallucinated identifiers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Auditing Entity Links: Detecting Invented Q-Identifiers</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the required verification procedure to audit an AI-generated Wikidata link (`@ref="wikidata:Q..."`)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Every AI-generated authority URI must be actively verified against the live registry to detect invented Q-numbers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Manually load the URL in a browser or query the Wikidata API to confirm the Q-number exists and refers to the exact historical entity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Scholars never take AI links at face value; every URI must be verified against the live registry.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Assume that if the number starts with 'Q' it must be 100% accurate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. LLMs frequently generate syntactically valid but non-existent Q-numbers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ask the AI model a second time if it is telling the truth.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models will confidently re-affirm their own hallucinations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Print the number on a piece of paper and bury it in the library.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly verification is digital, empirical, and transparent.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: The Fallacy of Pure Automation</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Fallacy of Pure Automation</h3>
+<p>Our three-step comparative cycle leads to a vital scholarly conclusion: the fallacy of pure automation.</p>
+<p>Software companies often market automated language models as total replacements for human editorial labor. They claim that an algorithm can parse, tag, and publish historical archives in minutes without human supervision.</p>
+<p>Our experiments prove that pure automation produces silent, corrupting errors across historical collections. An un-audited algorithm quietly drops Indigenous place names, mislinks historical leaders to modern celebrities, and fabricates authority records. Speed without human verification produces digital noise, not scholarship.</p>
+<p><strong>Vocabulary.</strong> <em>Pure Automation</em> — Relying entirely on software pipelines without human editorial verification. <em>Silent Error</em> — An automated mistake that passes computer checks without throwing an error, escaping notice.</p>
+<p><strong>Takeaway:</strong> Relying entirely on automated tools produces silent errors that corrupt historical truth across archival collections.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: The Fallacy of Pure Automation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the 'Fallacy of Pure Automation' in computational textual scholarship?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Fallacy of Pure Automation assumes machine models can replace human historical expertise without rigorous critical review.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The mistaken belief that advanced AI models can completely replace human philological judgment and produce critical editions without expert review.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Automated models lack true historical consciousness and accountability; human scholarship remains indispensable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The belief that computers should never be used in university classrooms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital tools are valuable partners in research when guided by human expertise.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The idea that steam engines are more efficient than modern electricity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Industrial history is unrelated to textual automation ethics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The claim that all historical documents were written by automated robots.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical witnesses were authored by human historical agents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: The Human-in-the-Loop Scholarly Model</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Human-in-the-Loop Scholarly Model</h3>
+<p>If pure automation fails, what is the proper role of computational tools in digital editing? The answer is the <strong>Human-in-the-Loop</strong> model.</p>
+<p>In a human-in-the-loop workflow, computational tools and generative models act as rapid first-pass draft assistants. They scan thousands of words, extract initial candidate spans, and suggest possible authority links in seconds.</p>
+<p>The human philologist remains in control. The human scholar establishes ground truth, writes editorial rules, audits machine predictions, resolves edge cases, and verifies historical truth. This model combines computational speed with gold-standard scholarly rigor.</p>
+<p><strong>Vocabulary.</strong> <em>Human-in-the-Loop</em> — A workflow where automated systems generate draft annotations that are audited and verified by human experts. <em>First-Pass Assistant</em> — Using an algorithm to produce an initial draft that human editors refine.</p>
+<p><strong>Takeaway:</strong> The human-in-the-loop model combines computer processing speed with human philological rigor and historical judgment.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: The Human-in-the-Loop Scholarly Model</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What defines the 'Human-in-the-Loop' methodology championed in our course?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Human-in-the-Loop paradigm leverages computational speed while anchoring final editorial authority in human scholarship.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Automated tools propose scalable drafts, while trained human scholars audit, adjudicate, correct, and curate the authoritative edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Technology accelerates extraction, but human judgment remains the sovereign intellectual authority in critical editing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Human editors are trapped inside a computer server rack.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 'Human-in-the-loop' is an intellectual methodology, not physical confinement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Computers are completely banned and students must write exclusively with quill pens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. We utilize cutting-edge computational tools alongside rigorous human oversight.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Students must accept all computer outputs without question.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Blindly accepting computer outputs is the antithesis of critical scholarship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Assignment 9 Overview: The Named-Entity Markup Portfolio</text></name><questiontext format="html"><text><![CDATA[
+<h3>Assignment 9 Overview: The Named-Entity Markup Portfolio</h3>
+<p>Today's lab provides the materials for <strong>Assignment: Module 9 (Named-Entity Markup)</strong>, due tonight, Friday, November 6, by 11:00 PM.</p>
+<p>Your assignment brings together the work of all three meetings into a unified digital portfolio in your git repository.</p>
+<p>Your portfolio must contain:</p>
+<ol>
+<li>
+<p><code>ENTITY_POLICIES.md</code>: Your declared authority registries, granularity policy, and date rules.</p>
+</li>
+<li>
+<p><code>ground_truth_entities_manual.xml</code>: Your 20-entity human gold standard (Tuesday).</p>
+</li>
+<li>
+<p><code>ner_baseline.xml</code> and <code>NER_BENCHMARK.md</code>: Your deterministic SpaCy baseline and scores (Wednesday).</p>
+</li>
+<li>
+<p><code>ground_truth_entities_ai.xml</code>: Your AI-assisted TEI markup (Friday).</p>
+</li>
+<li>
+<p><code>ENTITY_AUDIT.md</code>: Your capstone three-way comparative audit report.</p>
+</li>
+</ol>
+<p><strong>Vocabulary.</strong> <em>Entity Portfolio</em> — The complete set of policy files, XML transcripts, and audit reports that document your entity markup. <em>Capstone Report</em> — The final synthesis report that evaluates all experimental findings across a module.</p>
+<p><strong>Takeaway:</strong> Assignment 9 bundles your policy rules, manual XML, SpaCy baseline, AI markup, and three-way audit into a final portfolio.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Assignment 9 Overview: The Named-Entity Markup Portfolio</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What core components comprise the completed Assignment 9 portfolio for Module 9?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Assignment 9 portfolio brings together manual ground truth, automated benchmarks, AI audits, and critical reflection.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;`ground_truth_entities_manual.xml`, `ner_baseline.xml`, `ai_entity_parser.py`, `ENTITY_POLICIES.md`, `NER_BENCHMARK.md`, and `ENTITY_AUDIT.md`.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The portfolio unites the three annotation tiers, policy documentation, benchmark reports, and the comparative synthesis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A 100-page creative fiction screenplay set on Mars.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Assignment 9 is a technical digital editing portfolio.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A collection of watercolor paintings of campus buildings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The portfolio is a computational philology deliverable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Only a blank text file with the student's name.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Complete analytical code, data, and reflections are required.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: The 4 + 3 + 3 Grading Rubric (80 Moodle Points)</text></name><questiontext format="html"><text><![CDATA[
+<h3>The 4 + 3 + 3 Grading Rubric (80 Moodle Points)</h3>
+<p>Assignment 9 is evaluated on our standard course rubric: 4 + 3 + 3 raw points, scaled to 80 points in the Moodle gradebook.</p>
+<p>The three dimensions evaluate your scholarship across the three-step cycle:</p>
+<ul>
+<li>
+<p><strong>Dimension 1: Manual Ground Truth Precision (4 pts / 32 moodle pts):</strong> Accurate identification of twenty entities, correct category typing, valid date normalization, and rigorous authority linking (including verified absences).</p>
+</li>
+<li>
+<p><strong>Dimension 2: TEI Entity Markup Validity (3 pts / 24 moodle pts):</strong> Well-formed XML, schema conformity, correct attribute usage (<code>ref=</code>, <code>when=</code>), unique IDs, and span alignment across all files.</p>
+</li>
+<li>
+<p><strong>Dimension 3: Comparative Error Analysis (3 pts / 24 moodle pts):</strong> Mathematical accuracy scoring (Precision, Recall, F1), complete discrepancy matrix, and insightful 300–500 word methodological reflection.</p>
+</li>
+</ul>
+<p><strong>Vocabulary.</strong> <em>Rubric Dimension</em> — A specific grading criterion evaluating a core academic skill or technical deliverable. <em>Scale Weight</em> — Converting raw rubric points into course gradebook values.</p>
+<p><strong>Takeaway:</strong> Assignment 9 is evaluated on manual precision (4 pts), XML validity (3 pts), and comparative error analysis (3 pts).</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: The 4 + 3 + 3 Grading Rubric (80 Moodle Points)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How are raw marks allocated across the three dimensions of the Assignment 9 grading rubric?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The standard course rubric allocates 4 points to manual ground truth, 3 to XML validity, and 3 to comparative analysis.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;4 points for Manual Precision and Ground Truth, 3 points for TEI XML Validity, and 3 points for Comparative Error Analysis (scaled to 80 Moodle points).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The rubric balances philological rigor (4 pts), technical encoding validity (3 pts), and critical comparative analysis (3 pts).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;10 points for typing speed and 0 points for accuracy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Speed is not a grading criterion in digital humanities scholarship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;1 point for each color used in the student's terminal window.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Grading assesses scholarly and computational craft, not terminal aesthetics.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;100 points assigned randomly by a lottery machine.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Assessment follows our transparent, criteria-based rubric.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Rubric Dimension 1: Manual Precision and Policy Rigor</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rubric Dimension 1: Manual Precision and Policy Rigor</h3>
+<p>To earn full marks on Dimension 1, your manual ground truth must reflect exemplary philological craft.</p>
+<p>Every entity mention in your twenty-item table must be verified against historical evidence. Personal names must be checked against biographical dictionaries. Place names must be verified in gazetteers. Dates must be correctly calculated into ISO 8601 timestamps.</p>
+<p>Your <code>ENTITY_POLICIES.md</code> must clearly define your rules for compound names and regional registries. If an entity lacks a public record, you must document the search evidence to claim a verified absence. Fabricated links or unverified guesses lose marks on this dimension.</p>
+<p><strong>Vocabulary.</strong> <em>Policy Rigor</em> — Strictly adhering to declared editorial rules across an entire document. <em>Search Evidence</em> — Documenting the databases and catalogues queried during authority research.</p>
+<p><strong>Takeaway:</strong> Dimension 1 awards full marks for verified authority links, accurate date calculations, and documented absence policies.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Rubric Dimension 1: Manual Precision and Policy Rigor</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What must a student demonstrate to earn the full 4 points on Rubric Dimension 1?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Dimension 1 assesses the rigor, accuracy, and policy consistency of your manual ground truth.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A flawless 20-entity manual ground truth table with verified authority links (or documented absences) and an explicit, thorough ENTITY_POLICIES.md.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Dimension 1 rewards philological accuracy, exhaustive authority searches, and clear editorial policy formulation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Writing the entire report in rhyming poetry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly documentation requires clear academic prose.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Guessing random URLs for entities without verifying them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Unverified URLs result in mark deductions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Including zero people or places in the report.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Identifying and encoding core entities is required.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Rubric Dimension 2: TEI XML Validity and Token Alignment</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rubric Dimension 2: TEI XML Validity and Token Alignment</h3>
+<p>Dimension 2 evaluates your technical XML craft and schema compliance.</p>
+<p>Your XML files (<code>ground_truth_entities_manual.xml</code> and <code>ground_truth_entities_ai.xml</code>) must validate to zero errors against the course schema in VS Code. All tags must close properly, and element names must match TEI P5 Chapter 13.</p>
+<p>Crucially, your entity tags must respect token boundaries. Leading articles should remain outside the tags unless part of a proper title. Punctuation must not be accidentally swallowed inside place or person tags. Clean, valid XML earns full marks on this dimension.</p>
+<p><strong>Vocabulary.</strong> <em>Schema Compliance</em> — An XML document that satisfies all syntax and structural constraints of its schema. <em>Punctuation Hygiene</em> — Keeping commas, periods, and quotation marks outside entity tags.</p>
+<p><strong>Takeaway:</strong> Dimension 2 awards full marks for schema-valid XML, clean token boundaries, and proper attribute syntax.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Rubric Dimension 2: TEI XML Validity and Token Alignment</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is required to achieve full marks on Rubric Dimension 2 (TEI XML Validity)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Dimension 2 requires strict TEI P5 validity, well-formed tags, valid attributes, and consistent token alignment.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Strict TEI P5 schema compliance, well-formed syntax, valid @when ISO dates, proper @ref URIs, and preserved token alignment across all versions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Dimension 2 evaluates structural XML validity, schema conformance, and precise token boundary maintenance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Submitting an unformatted text file with broken HTML tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Invalid markup violates the core technical standards of the dimension.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Renaming all TEI tags to custom made-up words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Markup must conform strictly to TEI P5 guidelines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Converting all XML files into binary video files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI deliverables must be valid, well-formed XML.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Rubric Dimension 3: Comparative Analysis and Critical Synthesis</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rubric Dimension 3: Comparative Analysis and Critical Synthesis</h3>
+<p>Dimension 3 evaluates your critical reflection and computational understanding.</p>
+<p>Your capstone report, <code>ENTITY_AUDIT.md</code>, must present mathematically accurate Precision, Recall, and F1 scores for both SpaCy and the AI model. Your discrepancy matrix must categorize every disagreement cleanly.</p>
+<p>The core of Dimension 3 is your 300–500 word reflection. You must explain <em>why</em> the tools behaved differently. Discuss what your findings reveal about the limits of automation and the necessity of human ground truth in digital textual scholarship.</p>
+<p><strong>Vocabulary.</strong> <em>Critical Synthesis</em> — Combining experimental data, technical observations, and historical context into an insightful essay. <em>Methodological Reflection</em> — Analyzing how digital tools shape our understanding of historical evidence.</p>
+<p><strong>Takeaway:</strong> Dimension 3 awards full marks for mathematically sound scoring, clear error diagnosis, and insightful reflection.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Rubric Dimension 3: Comparative Analysis and Critical Synthesis</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What distinguishes an outstanding submission on Rubric Dimension 3 (Comparative Analysis)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Dimension 3 demands deep critical reflection, empirical metric calculations, and insightful failure mode analysis.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A rigorous 300–500 word reflection analyzing why tools failed, evaluating trade-offs, and calculating accurate mathematical metrics (P/R/F1).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. High marks require insightful philological reflection on computational failure modes and precise empirical evaluation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Simply stating 'the computer worked fine' without providing data or error analysis.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Superficial claims without evidence receive minimal marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Copying Wikipedia articles about artificial intelligence word for word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Academic integrity requires original analysis of the student's own experiments.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Claiming that human beings will never need to read books again.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Analysis must engage critically with the human-in-the-loop paradigm.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Common Pitfalls to Avoid in Assignment 9</text></name><questiontext format="html"><text><![CDATA[
+<h3>Common Pitfalls to Avoid in Assignment 9</h3>
+<p>Review your portfolio against these four common student traps before submitting:</p>
+<ol>
+<li>
+<p><strong>Submitting Broken XML:</strong> Always run schema validation in VS Code before committing. An unclosed tag or invalid attribute breaks the entire file.</p>
+</li>
+<li>
+<p><strong>Missing Authority Links:</strong> Every entity tag must carry an authoritative <code>@ref</code> attribute or point to a local header record.</p>
+</li>
+<li>
+<p><strong>Empty Error Diagnoses:</strong> In your discrepancy table, do not simply write "machine was wrong." Explain <em>why</em> it failed (e.g., OOV spelling, title truncation, type confusion).</p>
+</li>
+<li>
+<p><strong>Vague Reflection:</strong> Avoid generic statements like "AI is very smart but makes mistakes." Ground your essay in specific words from your project witness.</p>
+</li>
+</ol>
+<p><strong>Vocabulary.</strong> <em>Submission Audit</em> — A final systematic review of all project files against rubric requirements before submission. <em>Vague Critique</em> — Unsubstantiated opinions that lack specific textual or empirical evidence.</p>
+<p><strong>Takeaway:</strong> Avoid common pitfalls by validating XML, checking authority links, and writing specific error diagnoses.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Common Pitfalls to Avoid in Assignment 9</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which of the following is a critical pitfall that will lose marks in Assignment 9?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Failing to verify AI-generated authority links is a major pitfall that corrupts linked data integrity.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Accepting AI-generated Wikidata Q-numbers without testing whether the links resolve to the real historical person.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Trusting unverified links allows hallucinated identifiers into your edition, directly violating course policy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Formatting your code cleanly and adding informative comments.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Clean, commented code is encouraged and rewarded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Citing peer-reviewed academic literature in your reflection.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Scholarly citation is expected and rewarded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Committing your work to git with clear commit messages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Version control discipline is a required core competency.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Authoring the Methodological Reflection in ENTITY_AUDIT.md</text></name><questiontext format="html"><text><![CDATA[
+<h3>Authoring the Methodological Reflection in ENTITY_AUDIT.md</h3>
+<p>Your reflection in <code>ENTITY_AUDIT.md</code> should read like a published scholarly note in digital humanities.</p>
+<p>Structure your essay in three short, focused paragraphs:</p>
+<ol>
+<li>
+<p><strong>The Machine's Blind Spots:</strong> Discuss where automated models stumbled on your specific document (e.g., archaic French imperfect verbs, Maritime nicknames, or Indigenous toponyms).</p>
+</li>
+<li>
+<p><strong>The Power and Peril of AI:</strong> Contrast SpaCy's rigid sequence modeling with the LLM's fluent contextual understanding, highlighting any subtle hallucinations you caught.</p>
+</li>
+<li>
+<p><strong>The Role of the Digital Editor:</strong> Conclude with a strong argument defending the irreplaceable role of human scholarship in the era of artificial intelligence.</p>
+</li>
+</ol>
+<p><strong>Vocabulary.</strong> <em>Scholarly Note</em> — A concise, formal academic essay discussing a specific methodological or historical problem. <em>Editorial Defense</em> — An evidence-based argument articulating the value of human historical scholarship.</p>
+<p><strong>Takeaway:</strong> A well-structured three-paragraph reflection articulates the methodological lessons of your three-way entity audit.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Authoring the Methodological Reflection in ENTITY_AUDIT.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What should the tone and structure of your reflection in `ENTITY_AUDIT.md` resemble?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The methodological reflection in ENTITY_AUDIT.md should read as a rigorous, peer-reviewed research note.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A professional peer-reviewed research note in computational philology, combining empirical metrics with deep historical insight.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Your reflection should read like an academic contribution, articulating why specific linguistic structures resist automation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An angry online product review complaining about customer service.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly reflections maintain professional, academic discourse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A casual text message full of abbreviations and emojis.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Course policy strictly prohibits informal text speak and emojis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A sales pitch trying to convince people to buy a new smartphone.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly documentation is analytical, objective, and evidence-based.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Packaging Your Repository for Submission</text></name><questiontext format="html"><text><![CDATA[
+<h3>Packaging Your Repository for Submission</h3>
+<p>Before submitting your assignment on Moodle, verify that your project repository is completely organized and clean.</p>
+<p>Ensure that all five core files reside in their proper locations on the <code>main</code> branch. Open your terminal in VS Code and verify git status:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<p>Your working tree should report: <code>nothing to commit, working tree clean</code>. If any uncommitted changes appear, stage and commit them with a descriptive commit message. A tidy repository ensures that instructors can inspect your code and XML without friction.</p>
+<p><strong>Vocabulary.</strong> <em>Repository Hygiene</em> — Maintaining clean, organized project folders without stray temporary files or uncommitted changes. <em>Descriptive Commit</em> — A git commit message that explains exactly what changes were made and why.</p>
+<p><strong>Takeaway:</strong> Verifying that your git repository is clean and properly organized ensures a smooth submission process on Moodle.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Packaging Your Repository for Submission</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Before submitting Assignment 9, what directory structure must be verified in your course repository?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Repository cleanliness and correct file placement under Module 9 ensure reproducible project grading.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;All files must be cleanly organized under `src/modules/Module_09_Named_Entities/` and committed to your git branch.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Orderly project organization ensures your build scripts and audit trails are fully reproducible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All files must be scattered randomly across the root drive of the computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Projects must follow structured repository conventions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All files must be compressed into ten password-protected ZIP archives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Repositories should remain transparent, uncorrupted, and directly accessible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;All files must be deleted immediately before grading begins.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deleting files prevents evaluation and results in zero marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Submitting on Moodle: The Assignment Form</text></name><questiontext format="html"><text><![CDATA[
+<h3>Submitting on Moodle: The Assignment Form</h3>
+<p>Assignment 9 is submitted through the official Moodle assignment activity: <strong>Assignment: Module 9 (Named-Entity Markup)</strong>.</p>
+<p>The assignment activity accepts two submission methods:</p>
+<ol>
+<li>
+<p><strong>Repository Link:</strong> A direct web link to your public or private GitHub repository branch.</p>
+</li>
+<li>
+<p><strong>ZIP Bundle:</strong> A compressed archive containing your five project files (<code>ENTITY_POLICIES.md</code>, manual XML, baseline XML, AI XML, and <code>ENTITY_AUDIT.md</code>).</p>
+</li>
+</ol>
+<p>Review your submission in the Moodle preview before clicking final submit. The assignment deadline is tonight, Friday, November 6, at 11:00 PM.</p>
+<p><strong>Vocabulary.</strong> <em>Online Submission</em> — Submitting digital project links or compressed archives directly through a learning management system. <em>Submission Due Date</em> — The formal deadline by which student work must be recorded in the system.</p>
+<p><strong>Takeaway:</strong> Submit your repository link or ZIP bundle through Moodle Assignment 9 before tonight's 11:00 PM deadline.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Submitting on Moodle: The Assignment Form</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When is Assignment 9 due, and where is it submitted?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Assignment 9 is due Friday, November 6, 2026, by 11:00 PM on Moodle.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Friday, November 6, 2026, by 11:00 PM, submitted through the official Moodle Assignment activity.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. As scheduled in the syllabus, Assignment 9 is due Friday night at 11:00 PM via Moodle.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Three weeks after the semester ends, via postal letter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deadlines are fixed in the course syllabus.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Submitted via private WhatsApp message to another student.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All official coursework must be submitted through Moodle.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Assignment 9 is optional and has no deadline.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Assignment 9 is a required credit milestone in the course.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: The Bigger Picture: From Words to Historical Networks</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Bigger Picture: From Words to Historical Networks</h3>
+<p>Take a moment to appreciate how far your digital edition has developed.</p>
+<p>In Week 4, your text was a raw diplomatic transcription. In Week 6, you normalized its spelling. In Week 8, you gave each word a part of speech and dictionary lemma. Today, in Week 9, you connected your text to the global web of historical people, places, and organizations.</p>
+<p>Your edition is no longer an isolated document sitting on a hard drive. It is an interconnected node in global historical scholarship. Researchers studying Revolutionary Paris, Maritime folk art, or eighteenth-century Mi'kmaw diplomacy can find your document and link their data to yours.</p>
+<p><strong>Vocabulary.</strong> <em>Interconnected Node</em> — A digital edition whose authority links connect it directly into global semantic networks. <em>Scholarly Network</em> — The worldwide web of linked open data connecting archives, libraries, and museums.</p>
+<p><strong>Takeaway:</strong> Entity markup transforms an isolated transcription into an interconnected node within global scholarly networks.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: The Bigger Picture: From Words to Historical Networks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does named entity markup prepare a digital corpus for future network analysis and historical GIS mapping?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Entity markup transforms textual narratives into queryable knowledge graphs for historical network and spatial analysis.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Structured entities provide the nodes and edges required to visualize social interaction networks and plot geographical trajectories over space and time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Linked entities transform static text into interconnected knowledge graphs, enabling network science and spatial humanities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts text into radio waves broadcast into deep space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Entity data powers digital humanities visualizations, not extraterrestrial broadcasts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically prints 3D plastic statues of historical figures.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Spatial and network analysis creates digital maps and graphs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all books from university library shelves.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital humanities enhances and contextualizes physical archival collections.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Looking Ahead: Module 10 and Textual Consolidation</text></name><questiontext format="html"><text><![CDATA[
+<h3>Looking Ahead: Module 10 and Textual Consolidation</h3>
+<p>Next week, we move into <strong>Module 10: Consolidation</strong>.</p>
+<p>Over the first nine modules, you learned and practiced every individual stage of the digital textual pipeline: cataloguing, imaging, transcription, reconciliation, normalization, rendering, lemmatization, and entity markup.</p>
+<p>In Module 10, you will consolidate these diverse markup layers into a unified, publication-ready TEI master edition. You will resolve overlapping tags, streamline your <code>teiHeader</code>, and prepare your complete digital edition for final scholarly publication.</p>
+<p><strong>Vocabulary.</strong> <em>Textual Consolidation</em> — Merging and reconciling multiple markup layers into a unified, master digital edition. <em>Master Edition</em> — The definitive, fully encoded digital text that combines all analytical annotations.</p>
+<p><strong>Takeaway:</strong> Module 10 consolidates all nine digital markup layers into a unified, publication-ready master edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Looking Ahead: Module 10 and Textual Consolidation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the focus of Module 10 next week as we build toward the final project?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Module 10 consolidates transcription, normalization, and markup into a unified, publication-grade digital edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Textual consolidation: uniting transcription, normalization, linguistic markup, and entity tagging into a cohesive, publication-ready TEI edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Module 10 integrates all preceding analytical layers into a unified digital critical apparatus and publication pipeline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Abandoning all digital work and switching to finger painting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Module 10 consolidates our computational philology workflow.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Learning how to design smartphone video games from scratch.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Coursework focuses on digital methods for historical documents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Erasing all project work and starting over from Week 1.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Module 10 builds directly on all previous modules to produce the final edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: The Final Stage Gate: Committing Your Completed Portfolio</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Final Stage Gate: Committing Your Completed Portfolio</h3>
+<p>You have reached the final stage gate for Topic 9: Named Entities.</p>
+<p>You mastered the three-step comparative cycle: establishing human ground truth, testing deterministic NLP pipelines, and auditing generative artificial intelligence. You held automated models accountable to historical facts and proved the necessity of human scholarship.</p>
+<p>Stage and commit all remaining files to your repository on the <code>main</code> branch:</p>
+<pre><code class="language-bash">git add ai_entity_parser.py ground_truth_entities_ai.xml ENTITY_AUDIT.md
+git commit -m &quot;Week 9 Step 3: AI entity markup and three-way comparative audit&quot;
+</code></pre>
+<p>Submit your portfolio on Moodle before 11:00 PM tonight. Congratulations on completing Module 9!</p>
+<p><strong>Vocabulary.</strong> <em>Portfolio Completion</em> — Successfully delivering all required policy, baseline, and audit files for a course module. <em>Final Stage Gate</em> — The concluding milestone that locks in all project deliverables for grading.</p>
+<p><strong>Takeaway:</strong> Committing your AI parser, markup, and capstone audit completes Module 9 and locks in your final portfolio for submission.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: The Final Stage Gate: Committing Your Completed Portfolio</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the final action required to complete Topic 9 before closing your work session?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Completing the final stage gate requires verifying linter gates, committing clean files, and updating the ledger.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Verify all files pass linting and schema checks, then commit the entire Module 9 package to git with a clear, descriptive message.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Running the final linter gate and committing your complete portfolio locks in your work for the module.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Shut down the computer by pulling the power cord out of the wall without saving.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Improper shutdown risks data corruption and loses unsaved work.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Post your private passwords to public social media websites.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Security credentials must always be protected.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete your local repository from the computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The working tree must be preserved and committed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

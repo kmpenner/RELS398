@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 9.1 Teaching Plan (2026-11-03)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #23 (Lesson 9.1 &mdash; Manual Entity Identification, Authority Record Research, and Canonical Citation)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Tuesday, November 3, 2026</span>
+                <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 9 (Named Entities) &middot; Step 1 of 3 (Manual Ground Truth)</span>
+                <span class="badge">Milestone: ENTITY_POLICIES.md + 20-Entity Manual Ground Truth</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students have completed Week 8 (Morphological Analysis &amp; Lemmatization): they understand word tokens, dictionary lemmas, and linguistic markup with <code>&lt;w&gt;</code>. However, their editions treat people, places, organizations, and dates strictly as raw character strings. None has yet connected text mentions to real-world authority records or encoded semantic named entities.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student establishes <code>ENTITY_POLICIES.md</code> citing their authority registries, then hand-identifies and annotates a 20-entity excerpt from their project witness using TEI Chapter 13 tags (<code>&lt;persName&gt;</code>, <code>&lt;placeName&gt;</code>, <code>&lt;orgName&gt;</code>, <code>&lt;date @when&gt;</code>) with linked <code>@ref</code> URIs or documented verified absences, establishing the gold-standard benchmark for Wednesday's NER test.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Stan Rogers, &ldquo;Fogarty's Cove&rdquo;</strong> (1977, Barn Swallow Records). Maritime classic celebrating authentic local geography, shorelines, and enduring regional heritage.</li>
+            <li><strong>Pedagogical connection:</strong> Historical named entities are deeply anchored in specific human communities and geographic landscapes. Manual authority research connects fragile paper names to real historical people and places.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;A character string on a page is just ink. When we connect that ink to a person who lived or a place on the coast, we transform a transcript into a historical knowledge graph. Today we establish the human ground truth.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE ENTITY IDENTIFICATION OBJECTIVE: GROUND TRUTH BEFORE AUTOMATION</h3>
+        <p>A computer cannot inherently know whether 'Paris' refers to the capital of France or a mythological Trojan prince, or whether 'Hopson' was a colonial governor or a private merchant. Automated entity recognition models make frequent boundary and type errors on historical documents. Therefore, students must establish an authoritatively verified manual ground truth before testing computational algorithms on Wednesday and Friday.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Ground truth comes first:</strong> Today's 20-entity manual parse serves as the immutable gold-standard benchmark against which Wednesday's SpaCy NER model and Friday's LLM agent will be evaluated.<br>
+        <strong>2. Standard authority registries:</strong> Link entities to canonical registries (Wikidata, VIAF, GeoNames, BnF, or DCB) using the <code>@ref</code> attribute. Never guess unverified URIs.<br>
+        <strong>3. The Verified Absence rule:</strong> If exhaustive searching in reputable databases reveals no record for a historical actor, document a Verified Absence and mint a local project identifier (e.g. <code>#person-001</code>).<br>
+        <strong>4. Temporal normalization:</strong> Every <code>&lt;date&gt;</code> tag must carry an ISO 8601 normalized date in the <code>@when</code> attribute (YYYY-MM-DD).<br>
+        <strong>5. Assignment alignment:</strong> Work produced today builds the essential foundation for Assignment: Module 9 (Named-Entity Markup), due Friday, November 6, at 11:00 PM.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Names Beyond Strings &amp; Linked Data</td>
+                <td class="desc-col">
+                    Welcome students. Project the three student witnesses on screen. Ask: <em>&ldquo;When Ace's decree mentions 'l'Assemblée nationale', or Olyvia's letter says 'Everett', or Andromeda's treaty names 'Major Cope', how does a computer know who they are?&rdquo;</em><br>
+                    Outline the three-tiered module roadmap: <strong>Tue manual ground truth &rarr; Wed automated NER &amp; gazetteers &rarr; Fri AI prompt audit &amp; portfolio synthesis</strong>.
+                </td>
+                <td class="target-col">Concept alignment; whiteboard week trajectory</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>TEI Chapter 13 &amp; Authority Registers</td>
+                <td class="desc-col">
+                    Demonstrate tagging a clause on the projector: <code>&lt;persName ref="https://www.wikidata.org/wiki/Q7169421"&gt;Governor Hopson&lt;/persName&gt;</code> and <code>&lt;date when="1752-11-22"&gt;twenty-second Day of November&lt;/date&gt;</code>.<br>
+                    Show live lookup in Wikidata and GeoNames. Demonstrate the Verified Absence workflow: how to document that a local Halifax witness has no Wikidata record and assign <code>#person-001</code> in <code>&lt;particDesc&gt;</code>.
+                </td>
+                <td class="target-col">Live TEI entity markup demo on projector</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:46 &ndash; 8:56<br>(10 mins)</td>
+                <td class="activity-col">Phase 3: Policy Ledger<br>Authoring ENTITY_POLICIES.md</td>
+                <td class="desc-col">
+                    Direct students to initialize <code>ENTITY_POLICIES.md</code> in their module repository. Enumerate four essential policy sections: (1) core entity class definitions, (2) span boundary conventions (including honorifics and titles), (3) preferred authority registries, and (4) Verified Absence criteria.<br>
+                    <strong>Circulate:</strong> confirm Ace selects BnF/IdRef for French revolutionary entities, Olyvia establishes local Maritime prosopography rules, and Andromeda sets DCB/Native Land Digital rules for the 1752 Treaty.
+                </td>
+                <td class="target-col">Committed <code>ENTITY_POLICIES.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">8:56 &ndash; 9:12<br>(16 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Extracting 20 Entities &amp; Encoding XML</td>
+                <td class="desc-col">
+                    Students work in deep focus on their project manuscripts. Each student extracts 20 entity mentions, researches authority records, and compiles their ground truth table.<br>
+                    Students author <code>ground_truth_entities_manual.xml</code> wrapping their excerpt in TEI Chapter 13 tags with validated <code>@ref</code> and <code>@when</code> attributes.<br>
+                    <strong>Instructor roving:</strong> inspect boundary choices (e.g. <code>Chief Sachem</code> inside vs. outside <code>&lt;persName&gt;</code>) and check XML well-formedness in VS Code.
+                </td>
+                <td class="target-col">Hand-crafted <code>ground_truth_entities_manual.xml</code> (20 entities)</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:12 &ndash; 9:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Validation &amp; Stage Gate Commit</td>
+                <td class="desc-col">
+                    Guide students to validate their XML against the TEI Relax NG schema in VS Code. Verify zero validation errors.<br>
+                    Lead the stage gate commit: <code>git add . &amp;&amp; git commit -m "module 9.1: manual entity ground truth baseline"</code>.<br>
+                    Preview Wednesday: <em>&ldquo;Tomorrow we run SpaCy and gazetteers over these exact texts to see where statistical algorithms succeed and where they fail.&rdquo;</em>
+                </td>
+                <td class="target-col">Validated XML; clean git commit; stage gate locked</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Verify institutional markup: <code>&lt;orgName&gt;Assemblée nationale&lt;/orgName&gt;</code> and <code>&lt;orgName&gt;Comité des décrets&lt;/orgName&gt;</code>. Ensure French royal authority links use BnF or IdRef URIs where available.</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Verify informal epistolary references: <code>&lt;persName ref="wikidata:Q96473843"&gt;Everett&lt;/persName&gt;</code>. Confirm spatial hierarchy for <code>&lt;placeName&gt;Marshalltown&lt;/placeName&gt;</code> in Digby County.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Verify diplomatic titles: <code>&lt;persName&gt;&lt;roleName&gt;Chief Sachem&lt;/roleName&gt; Jean-Baptiste Cope&lt;/persName&gt;</code>. Check historical toponym <code>Chigabenakady</code> linked to ancestral Sipekne'katik geography.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
