@@ -137,25 +137,16 @@
 
 ## 5. Active Milestone & Next Target
 
-- **Current Phase:** Phase C/D Content & Bank Rebuild for Week 3 (Module 03: IIIF and Imaging) per Ken's 2026-09-10 Triad Specification.
-- **Verification Gate:** `python3 scripts/lint_lesson_content.py --course-dir .` (36/36 clean, 0 issues) & `python3 scripts/status.py`.
+- **Current Phase:** Week 7 (Module 07: Publication I / Rendering) delivery preparation, followed by Week 8 (Module 08: Lemmatization novice rewrite before Oct 27) and Week 9 (Module 09: Named Entities authoring before Nov 3).
+- **Verification Gate:** `python3 scripts/lint_lesson_content.py --lessons 7.1,7.2,7.3` (0 issues) & `python3 scripts/status.py`.
 - **Immediate Next Steps:**
-  1. ~~Author 30-section content for **Lesson 3.1 (Manual)**~~ — **done 2026-09-11**: TEI `<facsimile>`, `<surface>`, `<zone>`; physical document photography/scanning across media (epigraphs, papyri, scrolls, codices, maps, etc.); scale/color targets; advanced physical/optical recovery (multispectral, infrared, raking light, RTI). Question bank rebuilt 30/30, Notes PDF (cmid 1431331) and Interactive Quiz (cmid 1431379) deployed live to Moodle Section 3.
-  2. ~~Author 30-section content for **Lesson 3.2 (Deterministic / Algorithmic)**~~ — **done 2026-09-11**: IIIF standard (Image API, Presentation API, Manifest, Canvas); open-source editing software (GIMP, ImageMagick, libvips); deterministic image operations (cropping, contrast, color adjustment, masking, deskewing, sharpening); file storage formats (JPEG, GIF, PNG, TIFF, PDF). Question bank rebuilt 30/30, Notes PDF (cmid 1431385) and Interactive Quiz (cmid 1431386) deployed live to Moodle Section 3.
-  3. ~~Author 30-section content for **Lesson 3.3 (AI-Assisted Imaging)**~~ — **done 2026-09-11**: AI layout analysis (DIA) and automated bounding boxes for zones; baseline detection; smart image organization and sequence naming; AI alignment of `<facsimile>` elements with transcribed text. Question bank rebuilt 30/30, Notes PDF (cmid 1431387) and Interactive Quiz (cmid 1431388) deployed live to Moodle Section 3.
-  4. ~~Align question banks (`scripts/banks/lesson_3_2.py`, `3_3.py`) 30/30 in page order~~ — **done 2026-09-11**.
-  5. ~~Compile notes PDFs, interactive XML, and HTML players for 3.2 and 3.3~~ — **done 2026-09-11**.
-  4. ~~Correct `03a_Lesson_2.2_Lesson_Content.md` (Red Hat XML does not validate RELAX NG)~~ — **done 2026-09-10**, lint clean.
-  5. ~~Fix `populate_moodle_topic.py` bank-import ordering~~ — **done 2026-09-10** (`shared` a3584b3): restructured into 3a sync content → 3b delete quizzes → 3c purge+import → 3d create quizzes. Also fixed the same bug on the Weekly Quiz path and moved Notes-PDF restrictions to after quiz recreation, and excluded attempt-protected quizzes from the purge.
-  6. ~~Regenerate Lesson 2.3 companion media~~ — **done**: regenerated 2026-09-09, deployed to live Moodle 2026-09-10 (brief audio 1431119, detailed audio 1431121; new cmids because labels/resources are delete-and-recreate). **The infographic was later regenerated again for the rebuilt 2.3 — see item 11 — and its live cmid is now 1431247 (1431118 is dead).**
-  7. Remaining novice rewrites: 16 lessons from the 2026-08-26 bulk-authored cohort (Modules 08–13). Modules 03–07 were hand-authored and already read in range. (1.1, 2.1, 2.2, 2.3 rewritten.)
-  8. ~~**`labs/` is a nested git repo with no remote.**~~ — **Settled 2026-09-12 (Ken):** No remote yet, until GitHub is taught in class; keep local commits intact in workspace.
-  9. **Regenerate slide images for Lessons 2.2 and 2.3.** 2.2's 30 images date from **2026-08-26** (pre-rewrite; image 20 is a CTS URN slide). 2.3's date from **2026-09-09** (the pre-trim 2.3, so they still illustrate the merged-out sections). Both depict superseded content — 2.2's image 20 is titled "CTS URN Anatomy", a section that no longer exists. NOT in flight; stopped at Ken's instruction. ~15 images of quota remain unspent, and Ken asked for **2.3 to be prioritised**. Fix the notebook sources first (see the source-staleness note). Both lessons are currently deployed text-only.
-  10. **`lesson_2_1.py`'s question names do not match its markdown section titles** (they use loose thematic names), unlike 1.1, 2.2 and 2.3 which now follow the strict one-to-one convention. Worth normalising.
-  11. ~~**The 2.3 infographic is now stale**~~ — **DONE 2026-09-10**: regenerated for the rebuilt lesson and deployed (commit 73114db). Verified live by hash.
-  12. **Sandbox blocks Chrome downloads.** See the note below before running any media generation.
-  14. **The 2.2 infographic is stale** — still the 2026-09-09 build for the previous 2.2, and it is live.
-  15. **`--item` cannot replace a quiz.** `populate_moodle_topic.py --item` delegates to `update_moodle_item.py`, whose heuristics cover only notes/infographic/audio/banner/objectives, so replacing a single lesson's quiz is impossible without either a full `--topic` run (which re-purges the Weekly Quiz bank and churns the whole section) or an ad-hoc script. Recommended fix: a quiz branch in `update_moodle_item.py` reusing the proven ordering — delete quiz → empty both category sets → import → create against the imported category id. Not yet requested by Ken.
+  1. Author in-class teaching plans for Module 7 (Meetings #17 Tue Oct 20, #18 Wed Oct 21, #19 Fri Oct 23) in `src/modules/Module_07_Rendering/`.
+  2. Build widescreen PowerPoint slide decks for Lessons 7.1, 7.2, and 7.3 matching the 16pt floor and 80–120 word speaker notes constraints.
+  3. Create Module 7 section ancillaries: `01_Banner.png`, `05_Reading_List.html`, `06_Watch_List.html`, and Module 7 Weekly Quiz.
+  4. Generate slide illustrations via Gemini Notebook LM for Lessons 7.1–7.3, then compile interactive XML (`03_Interactive_Lesson_7.x.xml`) and standalone HTML players (`03_Interactive_Lesson_7.x.html`).
+  5. Deploy Module 07 package to live Moodle Section 7 (course 51185).
+  6. Undertake novice rewrite of Module 08 (Lemmatization) re-anchoring from Greek/CLTK to the cohort's three documents (French 1791 decree, Maud Lewis letters, 1752 Peace and Friendship Treaty) before Oct 27.
+  7. Author Module 09 (Named Entities) 30-section lessons and question banks before Nov 3.
 
 ### Sandbox caveat: Chrome cannot download to ~/Downloads
 
@@ -194,6 +185,16 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+- **[2026-10-13]**: **Module 7 (Rendering / Publication I) authored and verified across all deliverables.**
+  - **Lessons 7.1–7.3 authored for the novice cohort:**
+    - **Lesson 7.1 (Manual):** Display decisions, content vs. presentation, diplomatic vs. reading views, hand-writing HTML/CSS ground truth with `<span class="...">`, CSS class-driven layer visibility. (FK 7.6, FRE 67.9, 7,561 words, 30 sections).
+    - **Lesson 7.2 (Deterministic):** XSLT 1.0 fundamentals (templates, `apply-templates`, `value-of`), `xsltproc` transformation, and CETEIcean in-browser rendering (`tei-` custom elements, CSS rules, behavioral attachment) with local `http.server`. (FK 8.2, FRE 65.5, 7,593 words, 30 sections).
+    - **Lesson 7.3 (AI-Assisted Stylesheets & Audit):** Prompting AI for stylesheets rather than finished pages, four-part audit framework (1: does it run; 2: inspect template logic; 3: word-by-word text diff via `compare.py`; 4: element count audit via `count.py`), low-priority catch-all audit templates, auditing CETEIcean CSS, and transparent TEI Header/comment attribution. (FK 8.4, FRE 66.0, 9,296 words, 30 sections).
+  - **Question banks built and verified:** 30 questions each in `scripts/banks/lesson_7_{1,2,3}.py` and compiled into `03b_Lesson_7.{1,2,3}_Questions.xml`. Strict 1:1 alignment with lesson headings and takeaways; raw tags escaped as `&lt;...&gt;` per the display standard.
+  - **Offline Notes PDFs compiled:** `dist/moodle/Module_07_Rendering/04_Lesson_7.{1,2,3}_Notes.pdf` compiled via Typst template; visual inspection confirms code blocks wrap cleanly.
+  - **Citation verification passed:** `citation_evidence.py` check passes with 0 errors across 7.1, 7.2, and 7.3 (`Lesson_7.{1,2,3}.yaml` evidence records in place).
+  - **Lint gate passed:** `lint_lesson_content.py --lessons 7.1,7.2,7.3` reports clean (0 issues).
+  - **Pending for Module 7:** In-class teaching plans and slide decks for Meetings #17–19, slide images from Gemini Notebook LM, and subsequent interactive XML / HTML player compilation.
 - **[2026-10-07]**: **Three mis-timed teaching plans corrected and a lint gate added.** Plans 2.1 (2026-09-08), 3.3 (2026-09-18) and 5.2 (2026-10-02) all carried the previous meeting's clock time: the badge and every `time-col` row shifted together, so each document was internally consistent and wrong for its weekday. Root cause is the authoring pattern — a plan is copied from the previous meeting and the time is the one fact nobody re-derives; Friday's 9:30 is what breaks, because the Tue→Wed 8:30→10:30 jump is visible enough to catch. New `shared/scripts/lint_teaching_plan.py` (plus a `runpy` shim at `398/scripts/lint_teaching_plan.py`) parses the expected block out of the syllabus's own `Class Meetings:` line and checks filename/weekday/date, the badge, every schedule row, and stray `HH:MM` in prose; PM times are skipped as deadlines. The prose rule exists because the first pass at 3.3 left "not at 11:19" in a sentence. Verified by reintroducing both bug shapes on scratch copies, not just by watching it pass. Live run: 12 plans, 0 problems. Rule recorded as §E5 item 8 in `shared/LESSON_PIPELINE.md`.
 - **[2026-10-03]**: **Week 6 plans, decks, content fixes and deploy finished.**
   - **Plans** (all pass `lint_teaching_plan.py`):
