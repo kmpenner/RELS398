@@ -1,1138 +1,1256 @@
-# Lesson 13.3 — Multi-Modal Publishing: Compiling Web, Interactive HTML, and Print-Ready PDF Packages
+# Lesson 13.3 — Multi-Modal Publishing, Minimal Computing, and Long-Term Archiving
 
 *RELS 398 / ENGL 398 · Topic 13: Publication · Meeting #36 (Fri Dec 4)*
 
-***Studio and publication assembly week (no three-step cycle).** Today you complete the semester-long publication assembly, compiling your TEI XML master into responsive web applications, standalone offline HTML packages, and print-ready PDF volumes via CSS Paged Media, while establishing multi-tiered open access licensing and FAIR archiving.*
+***Studio and publication assembly week (no three-step cycle).** Today you complete our capstone publication studio, compiling your TEI XML master into responsive web applications, standalone offline packages, and print-ready PDF volumes, while establishing multi-tiered open access licensing and FAIR archiving with Zenodo DOIs and GitHub Releases.*
 
 ---
 
 ## **01 Content**
 
-**The Multi-Modal Imperative: Why Digital Scholarly Editions Must Output to Multiple Media**
+**The Multi-Modal Vision: Publishing Beyond a Single Screen**
 
-A fundamental paradox of contemporary digital scholarship is that while researchers create editions using rich, multi-layered XML knowledge graphs, end-users consume scholarship across radically divergent reading environments (Sahle, 2016; Driscoll & Pierazzo, 2016). Some scholars require an interactive, deep-zoom web application to examine high-resolution IIIF manuscript facsimiles alongside diplomatic transcriptions. Others require a standalone, portable HTML package that functions offline during fieldwork without internet access. Still others—including peer reviewers, university libraries, and classroom students—require a beautifully typeset, archival print-ready PDF with running line numbers and traditional critical apparatus footnotes (Sahle, 2016; Pierazzo, 2016).
+Welcome to our final class meeting of the semester. Today we complete our capstone publication studio. Over the past twelve weeks, you built rich TEI XML files. You transcribed handwriting, normalized spellings, linked historical entities, and authored commentary notes.
 
-This reality establishes the **Multi-Modal Imperative**: a true Digital Scholarly Edition (DSE) must not restrict itself to a single medium or proprietary interface. It must compile into multiple optimized presentation formats from a single, authoritative TEI XML source (Sahle, 2016; Turska et al., 2016).
+Now your work must reach the world. A major trap in digital humanities is locking your edition inside a single website. If that website goes offline, your research disappears.
 
-| Publication Modality | Primary Reading Context | Core Technical Medium | Target Scholarly Audience |
-| --- | --- | --- | --- |
-| **Interactive Web Application** | Online research portal, classroom teaching | Dynamic HTML5, IIIF, Web Components | Digital humanists, general researchers |
-| **Standalone Offline Package** | Fieldwork, archival preservation, USB drives | Static HTML5, Lunr.js, embedded assets | Traveling scholars, archival repositories |
-| **Print-Ready PDF Codex** | Formal citation, physical reading, library print | CSS Paged Media / LaTeX `reledmac` / PDF/A | Traditional philologists, academic libraries |
-| **Linked Open Data / Raw API** | Computational linguistics, automated ingestion | CTS URN endpoints, JSON-LD, TEI XML | Data scientists, machine learning pipelines |
+A true digital scholarly edition is **multi-modal**. This means it compiles into several distinct formats from one master XML file. Different readers need different reading environments:
 
-Historically, publishers treated print and digital as competing, mutually exclusive paradigms. In modern computational philology, however, print and web are recognized as complementary modalities of the same underlying semantic model (Sahle, 2016; Pierazzo, 2016). By automating the compilation pipeline from your TEI master file, you achieve total intellectual consistency across every reading surface.
+1. An **interactive website** for online research with image zoom and popups;
+2. A **standalone offline package** that runs on a laptop without internet access;
+3. A **print-ready PDF** for library archiving, physical reading, and formal citation.
 
-**Vocabulary.** *Multi-modal publishing* — the automated generation of distinct publication formats (web, standalone HTML, print PDF, linked data) from a single master XML source. *Scholarly affordance* — the specific reading, analytical, or annotative capabilities provided by a particular medium. *Single source of truth* — maintaining one canonical dataset from which all derivative deliverables are compiled.
+Because all these formats compile from the same TEI source, you maintain total consistency. You never copy and paste text between separate files.
 
-**Takeaway:** A digital scholarly edition must fulfill the multi-modal imperative by compiling into web, standalone offline, and print-ready formats from a single TEI XML master.
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Publication Format</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Technical Medium</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Primary Advantage</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Best Audience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Interactive Web App</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">HTML5, CSS3, JavaScript</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Dynamic facsimiles, search, and popup commentary</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Online scholars and students</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Standalone Offline Zip</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Static HTML and Lunr.js</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Runs anywhere without an internet connection</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Field researchers and museum kiosks</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Print-Ready PDF Codex</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">CSS Paged Media / Typst</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Fixed page numbers and bottom footnotes</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Academic libraries and book readers</td>
+    </tr>
+  </tbody>
+</table>
+
+**Vocabulary.** *Multi-Modal Publishing* — compiling multiple distinct media formats like web, offline zip, and print PDF from one master XML source. *Single Source of Truth* — maintaining one canonical master dataset to ensure all derived publications remain identical. *Reading Environment* — the physical or digital context in which an audience reads and engages with a text.
+
+**Takeaway:** A digital scholarly edition must compile into interactive web, offline standalone, and print-ready formats from a single master TEI XML file.
 
 ---
 
 ## **02 Content**
 
-**Deconstructing Medium-Specific Affordances: Screen vs. Page vs. Raw Data**
+**Medium-Specific Affordances: Screen vs. Page vs. Raw Data**
 
-To publish effectively across multiple formats, an editor must understand the unique **medium-specific affordances** and constraints of each target channel (Pierazzo, 2016; Sahle, 2016).
+To publish across multiple media, you must understand **affordances**. An affordance is what a specific medium allows a user to do. Different media have distinct strengths and limitations.
 
-A digital screen is fluid, boundless, and interactive, but it is ephemeral and prone to distraction. A physical printed page is bounded, fixed, and permanent, but it is static and spatially constrained. Raw data is queryable and machine-actionable, but it is illegible to human readers without a rendering interface (Coombs et al., 1987; Renear, 2004).
+A digital screen is fluid, interactive, and boundless. It allows users to zoom into high-resolution manuscript scans, click on popup notes, and toggle between diplomatic and normalized spelling. However, web pages can be distracting and require battery power or internet access.
 
-| Medium Dimension | The Interactive Web Screen | The Paginated Print Page | The Raw Data / XML Corpus |
-| --- | --- | --- | --- |
-| **Spatial Model** | Continuous vertical scrolling / dynamic viewports | Fixed two-dimensional page grid ($A_4$, US Letter) | Non-visual tree hierarchy / graph network |
-| **Interaction Model** | Clickable popovers, image zooming, layer toggles | Static linear reading, marginal annotations | XPath queries, SPARQL endpoints, NLP pipelines |
-| **Apparatus Placement** | Interactive hover popups / collapsible sidebar drawers | Multi-tiered footnotes at page bottom | Parallel segmentation elements inline |
-| **Citation Stability** | URI anchors, CTS URNs, Git commit hashes | Fixed page numbers and verse line numbers | Persistent identifiers (PIDs), DOIs, XPath coordinates |
-| **Preservation Horizon** | Dependent on server maintenance and web standards | Decades to centuries on acid-free paper / PDF/A | High bit preservation; schema version dependent |
+A physical printed page is fixed, permanent, and tactile. It has clear page numbers, stable margins, and footnotes at the bottom of the page. It never suffers from dead batteries or broken web links. However, it cannot play audio, show deep-zoom scans, or toggle views.
 
-An editor must never attempt to force a print layout onto a smartphone screen, nor should they attempt to paste web hyperlinks onto a printed page. Instead, the transformation pipeline must translate abstract scholarly features into the idiom best suited for each medium:
+Raw TEI XML is machine-actionable data. Computers can search it, index it, and analyze it with computational tools. However, human readers cannot read raw XML comfortably without a rendering interface. A skilled editor designs formats that play to the strengths of each medium.
 
-- On the web, variant readings expand inside smooth interactive popovers (`<pb-popover>`);
-- In print, those exact same variants are formatted into compact, Greek-typeset footnote lines at the foot of the page;
-- In raw data exports, they are structured as machine-actionable parallel segmentation nodes (`<app><lem>...<rdg>...</app>`) (Turska et al., 2016; Fischer, 2020).
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Feature</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Interactive Web Screen</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Printed Book Page (PDF)</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Raw TEI XML Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Spatial Layout</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Continuous vertical scroll or split panes</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Fixed two-dimensional page grid</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Hierarchical tree structure</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Commentary Placement</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Interactive popups and sidebar cards</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Numbered footnotes at page bottom</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Standoff note tags with target IDs</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Citation Anchor</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Web URI and HTML element IDs</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Fixed page number and line number</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">XML xml:id and XPath expression</td>
+    </tr>
+  </tbody>
+</table>
 
-**Vocabulary.** *Medium-specific affordance* — the distinctive functional properties and reading behaviors enabled by a specific physical or digital medium. *Spatial bounding* — the fixed physical dimensions of a printed sheet of paper. *Citation stability* — the guarantee that a reference cited today will resolve to the exact same passage decades later.
+**Vocabulary.** *Affordance* — the unique functional capabilities and reading behaviors provided by a specific medium. *Spatial Layout* — the physical or digital organization of text and images across a display surface. *Citation Anchor* — the fixed reference point used by scholars to cite a specific sentence or passage.
 
-**Takeaway:** Effective multi-modal publishing honors the distinct affordances of screens (interactivity), pages (stability), and raw data (computability).
+**Takeaway:** Understanding medium-specific affordances allows editors to optimize commentary, layouts, and citations for screens, printed pages, and data streams.
 
 ---
 
 ## **03 Content**
 
-**Responsive Web Edition Architecture: Client-Side Interaction and Semantic HTML5**
+**What is Minimal Computing in Digital Humanities?**
 
-The primary public gateway to your digital edition is the **Responsive Web Application** (Turska et al., 2016; Stadler et al., 2016).
+In recent years, digital humanities scholars have embraced **minimal computing**. Minimal computing is a design philosophy that asks: what is the simplest technology that can accomplish our scholarly goals?
 
-Modern digital edition web design has abandoned heavyweight, proprietary server software in favor of **Semantic HTML5** enhanced with modern CSS grid layouts and lightweight JavaScript Web Components. This architecture guarantees that your edition renders cleanly across desktop workstations, tablets, and smartphones (Turska et al., 2016).
+Many early digital humanities projects used complicated technology. They required database servers, custom web applications, and expensive cloud hosting. When project grants ran out after three years, nobody could pay the hosting bills. The servers were shut down, and decades of scholarly research disappeared.
 
-| Interface Region | Sub-Components & Technology | Functional Capability |
-| --- | --- | --- |
-| **Left Viewport (Facsimile)** | Deep-zoom IIIF canvas, OpenSeadragon, surface overlay | Multi-resolution zooming, surface bounding box highlight |
-| **Right Viewport (Critical Text)** | Polytonic Greek text, `<pb-view>`, dynamic popovers | Reading layer toggles, interactive apparatus inspection |
-| **Bottom Drawer (Commentary)** | Collapsible `<pb-drawer>`, Leipzig interlinear grid | Synchronized philological notes, four-line morphological glosses |
+Minimal computing avoids this trap. It emphasizes:
 
-The core components of a responsive digital edition interface include:
+1. **Static files** (plain HTML, CSS, and JS) instead of live database servers;
+2. **Open formats** (TEI XML, Markdown, plain text) that any computer can read;
+3. **Low infrastructure demands** that work on slow internet connections;
+4. **Zero ongoing hosting costs** by using free platforms like GitHub Pages.
 
-1. **Synchronized Dual Viewport:** A two-column responsive grid pairing high-resolution IIIF manuscript images on the left with transformed TEI reading text on the right;
-2. **Dynamic Layer Toggles:** User controls allowing readers to switch seamlessly between diplomatic uncial transcription, normalized reading text, and Leipzig-aligned interlinear glosses;
-3. **Interactive Critical Apparatus:** Variants displayed via unobtrusive dotted underlines that open informative popovers upon click or hover;
-4. **Contextual Commentary Drawer:** A slide-out sidebar or bottom panel that displays linked philological, historical, and intertextual notes without obscuring the base text (Turska et al., 2016; Berti, 2026).
+A minimal computing edition does not require a full-time system administrator. It runs anywhere and survives for decades.
 
-By building on standard Semantic HTML5 tags (`<article>`, `<section>`, `<nav>`, `<aside>`), you ensure that screen readers, search engine web crawlers, and assistive technologies can parse your scholarship with maximum accessibility (Barzaghi et al., 2025; Wilkinson et al., 2016).
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Dimension</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Complex Database Architecture</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Minimal Computing Architecture</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Server Requirement</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Requires live SQL/NoSQL database and server runtime</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Plain web server serving static files</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Maintenance Cost</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">High; monthly server hosting and regular security patches</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Zero; free hosting on GitHub Pages or institutional storage</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Preservation Risk</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">High; site breaks when server software updates</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Very low; plain HTML files remain readable for decades</td>
+    </tr>
+  </tbody>
+</table>
 
-**Vocabulary.** *Responsive web architecture* — a web design approach that dynamically adapts layout and typography to fit any screen size or device. *Dual viewport* — an interface layout that displays manuscript images and transcribed text side by side. *Semantic HTML5* — using standard HTML tags that convey structural meaning rather than generic container divisions.
+**Vocabulary.** *Minimal Computing* — a philosophy favoring simple, sustainable, and durable technologies with low maintenance demands. *Static Files* — web files like HTML and CSS that are delivered to the browser exactly as stored, without server processing. *Infrastructure Fragility* — the vulnerability of complex digital projects to server obsolescence and funding loss.
 
-**Takeaway:** Responsive web editions combine semantic HTML5, CSS grid layouts, and interactive components to deliver synchronized facsimiles, texts, and commentaries.
+**Takeaway:** Minimal computing ensures digital editions survive for decades by using simple static files that require zero server maintenance or hosting budgets.
 
 ---
 
 ## **04 Content**
 
-**Building Standalone, Serverless HTML Packages (EVT and Static Bundles)**
+**The Fragility of the Digital Archive**
 
-While dynamic client-server platforms like TEI Publisher offer rich backend querying, they carry a major vulnerability: **server dependency**. If an institution shuts down its XML database server or fails to renew its hosting contract, the digital edition vanishes from the internet (Sahle, 2016; Driscoll & Pierazzo, 2016).
+Print books are remarkably durable. A printed book from 1752 or 1791 can sit on a library shelf for centuries. As long as the paper stays dry, anyone who speaks the language can open it and read it.
 
-To guarantee unconditional, permanent access, digital editors compile **Standalone Serverless HTML Packages**. A standalone package is a self-contained directory containing pure HTML, CSS, JavaScript, and pre-rendered SVG assets that opens directly in any web browser without requiring an internet connection, a web server, or a backend database (Buzzoni, 2016).
+Digital files are far more fragile. Digital humanities projects face several severe preservation hazards:
 
-| File / Directory Path | Asset Function | Technical Content |
-| --- | --- | --- |
-| `index.html` | Entry point | Self-contained offline viewer (double-clickable when data is inlined; otherwise served locally) |
-| `assets/css/` | Visual stylesheets | `edition.css` with embedded Cardo & Noto Serif WOFF2 fonts |
-| `assets/js/` | Client runtime | `edition.js` viewer logic + pre-compiled Lunr `search-index.js` |
-| `assets/images/` | Facsimile storage | High-resolution JPEG/WebP local manuscript page images |
-| `data/` | Master XML archives | `1thess_edition.xml` source and `1thess_odd.odd` specification |
-| `LICENSE.md` | Legal licensing | Multi-tiered CC BY 4.0, CC0 1.0, and MIT statements |
+1. **Link Rot:** Web addresses change over time. Studies show that over half of web links in academic papers break within ten years.
+2. **Software Obsolescence:** Software tools and plugins disappear. Flash animations, custom browser extensions, and obsolete server scripts stop functioning.
+3. **Format Decay:** Proprietary word processor files from the 1990s often cannot be opened by modern software without data loss.
 
-| Deployment Architecture | Server Required? | Offline Usable? | Archival Durability | Maintenance Cost |
-| --- | --- | --- | --- | --- |
-| **Server-Dependent Stack** (eXist-db) | Yes (Java/XML Server) | No (Requires network) | Medium (Vulnerable to server decay) | High (Ongoing server administration) |
-| **Standalone Static Package** (custom build / EVT) | No (File system) | Yes (100% offline) | Extremely High (Decades in any browser) | Zero (Static hosting on GitHub/Zenodo) |
+Scholarly editors must guard against these threats. We use open standards like TEI XML because XML is plain text that any operating system can read. We avoid closed, proprietary tools that lock data away behind commercial licenses.
 
-The layout above is the one this course's own build script produces (Section 14 onward). **Edition Visualization Technology (EVT)** takes a different route to the same goal: rather than compiling a bespoke bundle, you drop your TEI XML and facsimiles into EVT's prebuilt client-side viewer and configure it through a settings file. Either way, the output is a static bundle. The entire edition can be distributed on USB flash drives, attached to archival journal submissions, or hosted for free on GitHub Pages indefinitely (Buzzoni, 2016; Driscoll & Pierazzo, 2016).
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Preservation Hazard</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Cause of Failure</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Digital Humanities Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Link Rot</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Domain changes and site reorganizations break URLs</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Minting persistent DOIs through Zenodo</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Database Rot</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Live databases crash when hosting contracts expire</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Compiling static HTML and storing master XML in git</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Format Obsolescence</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Proprietary software files become unreadable</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Using open plain-text TEI XML and PDF/A standards</td>
+    </tr>
+  </tbody>
+</table>
 
-**Current status (September 2026).** EVT 3 v2.0.0-beta ("Beta 2") was released on 28 September 2026 ([release announcement](https://visualizationtechnology.wordpress.com/2026/09/28/evt-3-beta-2-evt-3-v2-0-0-beta-available-for-download-and-testing/)). It consolidates configuration into a single YAML file, supports double-end-point attachment for the critical apparatus, refines line-level image–text highlighting (compare Module 3), and adds an *Errors* button that surfaces encoding mistakes. Running it requires a local web server (VS Code Live Server, or Git/npm), not a double-click. The developers state plainly that the beta is not yet ready for publishing editions; a stable release is planned for 2027. Treat EVT 3 as a tool to explore and test your encoding against, not as the delivery platform for your final package.
+**Vocabulary.** *Link Rot* — the gradual process by which web links break and point to missing 404 pages over time. *Format Obsolescence* — the inability of modern computers to read outdated, proprietary file formats. *Plain-Text Preservation* — storing data as unformatted text files to ensure universal readability across all future computer systems.
 
-**Vocabulary.** *Serverless edition bundle* — a digital edition compiled into static HTML/JS/CSS files requiring no server-side database. *Edition Visualization Technology (EVT)* — an open-source static client tool for rendering TEI critical and diplomatic editions. *Server decay* — the eventual failure and abandonment of digital projects due to unmaintained server infrastructure.
-
-**Takeaway:** Standalone, serverless HTML packages eliminate database dependencies, allowing editions to run offline and survive indefinitely as static files.
+**Takeaway:** Digital editions protect against link rot and format obsolescence by using open plain-text TEI XML and permanent digital identifiers.
 
 ---
 
 ## **05 Content**
 
-**Client-Side Full-Text Search with Lunr.js and Standoff Indices**
+**Compiling Standalone Offline HTML Packages**
 
-A common objection to static, serverless editions is the perceived loss of search functionality. Without a backend database like eXist-db or Elasticsearch, how can users perform full-text and entity queries? (Stadler et al., 2016).
+One of the most practical deliverables of a digital edition is a **standalone offline package**. An offline package is a self-contained folder containing everything needed to run your edition without an internet connection.
 
-The solution in modern web engineering is **Client-Side Indexing with Lunr.js**. Lunr.js is a lightweight, full-text search engine written entirely in JavaScript that runs locally inside the user's browser (Barzaghi et al., 2025).
+It bundles together:
 
-The build pipeline compiles a pre-computed JSON search index at build time:
+1. The compiled `index.html` file containing the document text and paratexts;
+2. The `style.css` stylesheet providing typography and layouts;
+3. A local `images/` directory containing optimized manuscript facsimiles;
+4. Lightweight JavaScript files that provide interactive toggles and note popups.
 
-```javascript
-// Sample Pre-Compiled Lunr.js Search Index: search-index.js
-const searchIndex = lunr(function () {
-  this.ref('id');
-  this.field('passage');
-  this.field('greek_surface');
-  this.field('lemma');
-  this.field('pos');
-  this.field('english_gloss');
-  this.field('commentary');
+You can compress this entire directory into a single `.zip` file. A researcher can download the zip, extract it onto their laptop, and double-click `index.html`. The complete edition opens instantly in their web browser.
 
-  // Ingest Pre-Extracted Tokens from TEI XML
-  editionTokens.forEach(function (token) {
-    this.add(token);
-  }, this);
-});
+Offline packages are invaluable for researchers traveling to archives with poor Wi-Fi, for classroom teaching without network lags, and for deposit in university library repositories.
+
+```text
+edition_offline_package/
+  index.html          # Standalone reading interface
+  style.css           # Local typography and layout rules
+  app.js              # Lightweight offline interaction scripts
+  images/             # Optimized manuscript scans and seals
+    page_01.jpg
+    seal_01.png
+  README.txt          # Quick-start instructions for scholars
 ```
 
-| Search Modality | Query Syntax | In-Browser Client Execution |
-| --- | --- | --- |
-| **Surface Greek Match** | `νηπιοι` | Scans surface forms across all transcribed witnesses |
-| **Morphological Lemma Search** | `lemma:λόγος` | Returns all inflected tokens linked to lemma *λόγος* |
-| **Part-of-Speech Filter** | `pos:N-NSM` | Filters for nominative singular masculine nouns |
-| **Commentary Full-Text** | `commentary:Thessalonica` | Searches all stand-off commentary notes and glosses |
+**Vocabulary.** *Standalone Offline Package* — a self-contained folder of HTML, CSS, JS, and image assets that runs locally without internet connectivity. *Asset Bundling* — gathering all referenced images, styles, and scripts into a local directory structure. *Zero-Dependency Web Page* — an HTML document that requires no external content delivery networks (CDNs) to display properly.
 
-Because the entire index is pre-computed during the build step and stored as a compact JSON file (~100 KB), search queries execute instantly in the browser without sending network requests to a server (Barzaghi et al., 2025).
-
-**Vocabulary.** *Lunr.js* — a client-side JavaScript full-text search engine designed for static web applications. *Pre-computed index* — a search index generated during build time and serialized into JSON for instant browser querying. *Zero-latency search* — search queries evaluated in local memory without network round-trips.
-
-**Takeaway:** Pre-compiling search indices with Lunr.js enables instant full-text, lemma, and commentary searching directly inside static, serverless web editions.
+**Takeaway:** Standalone offline packages bundle HTML, CSS, scripts, and images into portable zip files that run anywhere without internet access.
 
 ---
 
 ## **06 Content**
 
-**The CSS Paged Media Standard: W3C Paged Media Modules for Print Layout**
+**Offline Client-Side Search with Lunr.js**
 
-While web browsers excel at fluid screens, producing an archival print edition requires dividing continuous text into discrete, physical pages with running headers, page numbers, footnotes, and margins. For decades, this was accomplished using proprietary desktop publishing tools (such as Adobe InDesign) or complex XML formatting objects (XSL-FO) (Turska et al., 2016).
+A major advantage of digital editions is full-text search. Readers want to search for names, places, and historical terms across your witness. However, traditional search engines require a live database server running in the cloud.
 
-Today, the modern standard for print generation from XML is **CSS Paged Media**, standardized by the W3C (World Wide Web Consortium, 2026; Turska et al., 2016).
+To maintain minimal computing principles, digital humanists use **client-side search**. A popular tool for this is **Lunr.js**. Lunr.js is a lightweight JavaScript search library that runs entirely inside the reader's browser.
 
-**CSS Paged Media** extends standard CSS with page-specific rules:
+Here is how it works:
 
-```css
-/* Page Geometry and Running Margin Boxes */
-@page {
-  size: 7in 10in; /* Standard Academic Monograph Royal Octavo */
-  margin: 20mm 15mm 25mm 15mm;
+1. During the build process, a script parses your TEI XML and extracts all words, sentences, and notes;
+2. The script compiles this text into a compact JSON search index;
+3. When a reader types a word into your edition's search box, Lunr.js searches the pre-built index in memory;
+4. Search results appear in less than ten milliseconds, with sentence excerpts and clickable links.
 
-  @top-left {
-    content: "RELS 398 / ENGL 398 Digital Critical Edition";
-    font-family: 'Cardo', serif;
-    font-size: 8pt;
-    font-variant: small-caps;
-  }
-  @top-right {
-    content: string(heading-text);
-    font-family: 'Cardo', serif;
-    font-size: 8pt;
-    font-style: italic;
-  }
-  @bottom-center {
-    content: counter(page);
-    font-family: 'Cardo', serif;
-    font-size: 9pt;
-  }
-}
-```
+Because the search runs inside the browser, it works perfectly offline. It requires zero server processing and costs nothing to run.
 
-| CSS Paged Media Rule | Primary Function | Output Result |
-| --- | --- | --- |
-| `@page` | Defines physical trim size, bleed, and margins | 7x10 inch monograph page with 20mm margins |
-| `@top-left / @top-right` | Defines running headers | Injects book title and current chapter heading |
-| `@bottom-center` | Defines running footer | Injects dynamic page counter (`counter(page)`) |
-| `break-before: page` | Enforces structural page breaks | Forces chapters to begin on fresh pages |
-| `float: footnote` | Relegates elements to page bottom | Generates paginated critical apparatus footnotes |
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Search Architecture</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Where Search Executes</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Server Requirement</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Offline Capability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Server-Side Search (SQL/Elastic)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Remote cloud server database</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Requires live active server process</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Fails completely without internet</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Client-Side Search (Lunr.js)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Inside the user's web browser</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Zero; static JSON index file</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Functions 100% offline anywhere</td>
+    </tr>
+  </tbody>
+</table>
 
-By defining print layouts with standard CSS, you reuse your existing web styling rules, eliminating the need to learn complex auxiliary typesetting languages (Turska et al., 2016).
+**Vocabulary.** *Client-Side Search* — executing search queries directly inside the user's browser using JavaScript rather than on a remote server. *Lunr.js* — a lightweight JavaScript search library designed for static websites. *Search Index* — a pre-computed data structure mapping words to their locations in a text to enable instant lookups.
 
-**Vocabulary.** *CSS Paged Media* — W3C CSS specifications governing the pagination and printing of web documents. `@page` — CSS at-rule used to define the dimensions, orientation, and margins of a printed page. *Running header* — repetitive text printed at the top of successive pages indicating title or chapter.
-
-**Takeaway:** The CSS Paged Media standard enables scholars to design beautiful, paginated print layouts using familiar CSS syntax.
+**Takeaway:** Client-side search tools like Lunr.js enable instant full-text search inside the browser without requiring a database server or internet connection.
 
 ---
 
 ## **07 Content**
 
-**Typesetting Pages with CSS: `@page` Selectors, Bleeds, and Running Headers**
+**Print-Ready PDF Publishing with CSS Paged Media and Typst**
 
-Professional book design requires distinct layouts for different parts of a book: left-hand (verso) and right-hand (recto) pages have mirror margins to accommodate the binding gutter; title pages suppress running headers; and chapter beginnings require extra top spacing (Turska et al., 2016).
+While web interfaces are dynamic, academic libraries and philologists still require printed codex volumes. A digital scholarly edition must be able to compile into a formal, beautifully typeset PDF.
 
-CSS Paged Media accommodates these requirements through specialized **page pseudo-class selectors**:
+Historically, converting XML to print required mastering LaTeX, a powerful but difficult typesetting language. Today, modern digital publishing provides streamlined alternatives:
 
-```css
-/* Recto (Right-Hand Page): Wider Inner Left Gutter */
-@page :right {
-  margin-left: 25mm;  /* Binding Gutter */
-  margin-right: 15mm;
-  @top-right {
-    content: counter(page);
-  }
-  @top-left {
-    content: string(chapter-title);
-  }
-}
+1. **CSS Paged Media:** Uses standard CSS rules with special paged extensions (`@page`, `@top-left`, `marks: crop`). Tools like Weasyprint convert your HTML and CSS into print PDFs.
+2. **Typst:** A modern, lightning-fast markup and typesetting system. Typst combines the typographic power of LaTeX with clean, readable syntax.
+3. **Pandoc:** An open-source document converter that transforms Markdown and XML into PDF via Typst or LaTeX.
 
-/* Verso (Left-Hand Page): Wider Inner Right Gutter */
-@page :left {
-  margin-left: 15mm;
-  margin-right: 25mm;  /* Binding Gutter */
-  @top-left {
-    content: counter(page);
-  }
-  @top-right {
-    content: "1 Thessalonians 2: A Digital Critical Edition";
-  }
-}
+These modern tools automate page layout. They calculate page breaks, generate running headers, create tables of contents, and place numbered footnotes cleanly at the bottom of the page.
 
-/* First Page of Chapter: Suppress Running Headers */
-@page :first {
-  @top-left { content: none; }
-  @top-right { content: none; }
-  margin-top: 40mm;
-}
-```
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Typesetting Tool</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Syntax Style</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Compilation Speed</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Primary Strength</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Typst</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Modern clean markup</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Instantaneous (&lt; 1 second)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Beautiful default typography and fast compilation</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">CSS Paged Media (Weasyprint)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Standard CSS with @page rules</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Fast (2&ndash;5 seconds)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Reuses existing HTML and CSS web styles directly</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">LaTeX (reledmac)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Dense macro commands</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Slow (10&ndash;30 seconds)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Complex multi-tiered classical apparatus layouts</td>
+    </tr>
+  </tbody>
+</table>
 
-| Page Selector | Target Surface | Design Requirement Addressed |
-| --- | --- | --- |
-| `@page :right` | Recto (Odd Pages) | Wider left margin for book spine gutter; chapter title header |
-| `@page :left` | Verso (Even Pages) | Wider right margin for book spine gutter; edition title header |
-| `@page :first` | Chapter Opening Pages | Clears running header; increases top margin for chapter title |
-| `@page :blank` | Empty Verso Buffer Pages | Suppresses all headers and footers on blank buffer pages |
+**Vocabulary.** *CSS Paged Media* — W3C specifications that extend CSS to handle pagination, margins, page numbers, and running headers for print. *Typst* — a modern, fast typesetting system designed as an accessible alternative to LaTeX. *Running Header* — small header text repeated at the top of printed pages showing chapter titles and page numbers.
 
-Using pseudo-class selectors guarantees that your compiled PDF exhibits the exact typographic polish of an academic university press monograph (Turska et al., 2016; Fischer, 2020).
-
-**Vocabulary.** *Recto* — the front or right-hand page of a bound book (always odd-numbered). *Verso* — the back or left-hand page of a bound book (always even-numbered). *Binding gutter* — the extra margin space added to the inner edge of a page to ensure text is not obscured by book binding.
-
-**Takeaway:** Using `@page :left`, `@page :right`, and `@page :first` selectors establishes mirror binding gutters and professional academic running headers.
+**Takeaway:** Modern tools like Typst and CSS Paged Media convert TEI XML into elegant, print-ready PDF volumes with automatic page numbering and running headers.
 
 ---
 
 ## **08 Content**
 
-**Margin Boxes and Page Numbering in CSS Paged Media**
+**Structuring the Print Critical Apparatus**
 
-In the CSS Paged Media model, the page margin is not merely empty white space; it is divided into sixteen distinct **margin boxes** surrounding the central content area (World Wide Web Consortium, 2026; Turska et al., 2016).
+When preparing a printed edition, commentary notes must be adapted to the physical page. On a website, commentary can hide inside clickable popups. On a printed page, there is no clicking. Every note must be visible on the paper.
 
-| Margin Box Position | Margin Box Identifier | Standard Scholarly Function |
-| --- | --- | --- |
-| **Top Left / Right Corners** | `@top-left-corner`, `@top-right-corner` | Volume numbers, edition brand stamps |
-| **Top Margin (Running Headers)** | `@top-left`, `@top-center`, `@top-right` | Book titles, chapter headings, section markers |
-| **Left / Right Outer Margins** | `@left-middle`, `@right-middle` | Line numbers, marginal glosses, folio indicators |
-| **Bottom Margin (Running Footers)** | `@bottom-left`, `@bottom-center`, `@bottom-right` | Page numbering, archival DOI / Zenodo stamps |
+In print editions, commentary is presented as a **critical apparatus**. The apparatus is organized into numbered footnotes at the bottom of the page or in endnotes at the end of the text.
 
-These margin boxes allow editors to position complex metadata with absolute precision:
+Footnotes must be formatted with scholarly rigor:
 
-- **String Sets for Dynamic Headers:** When a chapter title (`<head>`) appears on a page, CSS captures its text using `string-set: chapter-title content()`. The margin box retrieves it dynamically using `content: string(chapter-title);`
-- **Page Counters:** CSS maintains page counters that can be formatted as Arabic numerals (`counter(page)`), Roman numerals for front matter (`counter(page, lower-roman)`), or total page counts (`counter(pages)`).
+1. Each note begins with a superscript number matching the anchor in the text;
+2. The note quotes the referenced word or lemma in bold or italics;
+3. A closing square bracket (`]`) separates the lemma from the critical commentary;
+4. Concise philological definitions, historical facts, and bibliographic citations follow.
 
-```css
-/* Front Matter Page Numbering (Roman Numerals) */
-.front-matter {
-  page: front;
-}
-@page front {
-  @bottom-center {
-    content: counter(page, lower-roman);
-  }
-}
+This standard layout allows scholars to consult commentary instantly while reading without flipping pages.
 
-/* Main Text Page Numbering (Arabic Numerals) */
-.main-text {
-  page: main;
-  counter-reset: page 1;
-}
-@page main {
-  @bottom-center {
-    content: counter(page, decimal);
-  }
-}
+```
+---------------------------------------------------------------------
+1 truckhouse] A British colonial trading post established by Governor
+Hopson in 1752, where Mi'kmaq exchanged furs for British goods at
+fixed government rates. See Nova Scotia Archives RG 1 vol 430.
 ```
 
-| Margin Box Name | Position on Page | Standard Critical Edition Usage |
-| --- | --- | --- |
-| `@top-center` | Centered top margin | Running biblical book and chapter citation (e.g., *1 Thess 2:1–12*) |
-| `@left-middle` | Outer left vertical margin | Line numbering milestones (e.g., line 5, 10, 15, 20) |
-| `@bottom-center` | Centered bottom margin | Page number (Arabic or Roman numeral) |
-| `@bottom-right` | Bottom right corner | Archival volume DOI or Zenodo PID stamp |
+**Vocabulary.** *Critical Apparatus* — the organized system of notes and references explaining textual variants, historical context, and emendations. *Lemma* — the specific word or phrase quoted at the start of a critical note to identify the passage being explained. *Lemma Separator* — the square bracket (]) used in traditional philology to separate the lemma from the note.
 
-**Vocabulary.** *Margin box* — one of sixteen predefined layout areas in the page margin defined by CSS Paged Media. `string-set` — CSS property that copies text content from a document node into a named string variable. `counter-reset` — CSS property initializing or restarting a counter (such as resetting page numbers to 1).
-
-**Takeaway:** CSS margin boxes provide sixteen dedicated layout containers for dynamic running headers, folio markers, and multi-scheme page counters.
+**Takeaway:** Print editions structure commentary as a critical apparatus at the bottom of the page, citing the lemma with a closing square bracket and clear historical notes.
 
 ---
 
 ## **09 Content**
 
-**Evaluating CSS Paged Media Rendering Engines: Paged.js vs. WeasyPrint vs. Vivliostyle**
+**PDF/A: The Archival Standard for Digital Documents**
 
-To compile HTML and CSS Paged Media stylesheets into physical PDF files, developers use specialized **Paged Media rendering engines** (Turska et al., 2016).
+When generating a PDF for long-term preservation, not all PDFs are equal. Standard PDFs can contain active JavaScript, external font links, and embedded audio. Over time, these dependencies break, causing the document to render incorrectly.
 
-Three primary open-source engines lead the digital humanities field:
+To solve this problem, the International Organization for Standardization created **PDF/A**. PDF/A is a specialized subset of PDF designed specifically for digital preservation.
 
-| Rendering Engine | Architecture & Core Technology | Primary Strengths | Primary Liabilities | Optimal Use Case |
-| --- | --- | --- | --- | --- |
-| **Paged.js** | Client-side JavaScript polyfill running inside Chromium headless | Direct browser preview; interactive debugging in DevTools; 100% standard CSS support | Requires Node.js / headless browser runner for PDF compilation | Interactive development, browser preview, classroom lab |
-| **WeasyPrint** | Standalone Python / Cairo / Pango rendering engine | Zero browser dependencies; clean CLI automation; native PDF/A and bookmark support | Slightly slower on complex multi-tier footnote layouts | Automated Python build pipelines, CI/CD runners, server batch jobs |
-| **Vivliostyle** | TypeScript rendering engine based on Chromium | Excellent East Asian typography; advanced page float control; CLI & GUI apps | Heavier dependency tree | Complex multilingual layouts, e-book conversions |
+PDF/A enforces strict preservation rules:
 
-In a typical publishing workflow:
+1. **100% Font Embedding:** Every font used in the document must be embedded directly inside the PDF file. The document will display correctly even if the original font is deleted from the computer.
+2. **Device-Independent Color:** Colors are defined using standard color profiles so pages look identical on all screens and printers.
+3. **No External Dependencies:** External hyperlinks to outside scripts or dynamic media are prohibited.
+4. **Structured Metadata:** Rich XML metadata (XMP) is embedded inside the PDF header, detailing author, title, date, and license.
 
-1. **Development & Design Phase:** Use **Paged.js** inside the browser to visually inspect and refine your layout in real time using Chrome DevTools;
-2. **Automated Production Build:** Execute **WeasyPrint** or **Paged.js CLI** inside a Python script or GitHub Actions workflow to compile the final publication PDF automatically (Turska et al., 2016; Barzaghi et al., 2025).
+When submitting your final digital edition PDF, compiling to PDF/A guarantees your work remains readable for decades.
 
-**Vocabulary.** *Paged.js* — an open-source JavaScript polyfill that renders CSS Paged Media layouts inside any web browser. *WeasyPrint* — an open-source Python library that transforms HTML and CSS into print-ready PDF documents. *Headless browser* — a web browser running without a graphical user interface, controlled programmatically via command line.
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Preservation Rule</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Standard PDF Behavior</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Archival PDF/A Requirement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Font Handling</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Often links to system fonts; breaks if font missing</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Mandatory 100% embedded fonts inside the file</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Embedded Code</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Permits active JavaScript and executable macros</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Strictly prohibited; only static content allowed</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Preservation Horizon</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Uncertain; dependent on proprietary viewers</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Guaranteed 50+ year visual fidelity under ISO 19005</td>
+    </tr>
+  </tbody>
+</table>
 
-**Takeaway:** Paged.js enables interactive in-browser layout design, while WeasyPrint provides automated Python-based PDF compilation.
+**Vocabulary.** *PDF/A* — an ISO-standardized version of PDF specialized for digital preservation and archiving. *Font Embedding* — storing the full outline data of every typeface inside the document file. *XMP Metadata* — Extensible Metadata Platform, an XML format for embedding bibliographic metadata inside digital files.
+
+**Takeaway:** Compiling to the PDF/A archival standard embeds all fonts and metadata directly inside the file, guaranteeing permanent visual preservation.
 
 ---
 
 ## **10 Content**
 
-**The Classical Print Tradition: LaTeX, `reledmac`, and Typst Comparison**
+**The FAIR Data Principles: Findable and Accessible**
 
-While CSS Paged Media represents the cutting edge of web-to-print compilation, textual editing has a rich history of typesetting systems designed specifically for philology. An editor should understand how CSS Paged Media compares to traditional systems like **LaTeX (`reledmac`)** and modern alternatives like **Typst** (Fischer, 2020; Sahle, 2016).
+Publishing a digital edition is not just about making a website; it is about contributing to global scholarly knowledge. Today, research funding agencies and universities require research data to follow the **FAIR Data Principles**.
 
-| Typesetting System | Core Architecture | Apparatus Strategy | Primary Strengths | Primary Liabilities |
-| --- | --- | --- | --- | --- |
-| **Classical LaTeX (`reledmac`)** | TeX macro engine (~5GB TeX Live) | Multi-tier `\Afootnote`, sub-line lemmas | Unmatched micro-typography and line-breaking algorithms | Steep learning curve; disconnected from web CSS |
-| **Modern CSS Paged Media** | Paged.js / WeasyPrint | `float: footnote`, CSS flexbox | Unified web/print styling; native HTML5/TEI processing model | Requires tuning for deep multi-tier apparatus pages |
-| **Next-Generation Typst** | Standalone Rust engine (<100ms) | Footnote stream / custom functions | Blazing fast compilation; clean syntax | Developing critical apparatus package ecosystem |
+FAIR stands for:
 
-| Feature Dimension | LaTeX (`reledmac`) | CSS Paged Media (Paged.js / WeasyPrint) | Typst |
-| --- | --- | --- | --- |
-| **Apparatus Capability** | Multi-tier footnotes, sub-line lemmas, line numbering | Multi-tier footnotes, CSS float footnotes | Developing footnote apparatus libraries |
-| **Pipeline Integration** | Requires TEI-to-LaTeX XSLT stylesheets | Direct compilation from TEI ODD Processing Model | Requires TEI-to-Typst conversion scripts |
-| **Installation Footprint** | Massive TeX Live distribution (~5 GB) | Lightweight npm / Python package (~50 MB) | Single standalone binary (~20 MB) |
-| **Styling Language** | Low-level TeX macros | Standard W3C CSS3 | Custom Rust-like syntax |
+- **F**indable
+- **A**ccessible
+- **I**nteroperable
+- **R**eusable
 
-For traditional book publication with massive, four-tier apparatuses spanning hundreds of variants per page, LaTeX `reledmac` remains an industry standard. However, for modern digital humanities projects seeking a single, maintainable pipeline bridging web and print from ODD, **CSS Paged Media** is the recommended standard (Turska et al., 2016; Fischer, 2020).
+Let us examine the first two principles:
 
-**Vocabulary.** *`reledmac`* — a comprehensive LaTeX package designed for typesetting critical editions with multiple apparatus streams and line numbers. *Typst* — a modern, Rust-based markup-based typesetting system designed as an alternative to LaTeX. *Micro-typography* — fine adjustments to kerning, tracking, and line breaking to produce optimal visual harmony.
+1. **Findable:** Your edition must have rich metadata and a unique, persistent identifier (such as a DOI). Search engines and library catalogues must be able to discover your project easily.
+2. **Accessible:** Your edition must be stored in a trusted repository where anyone can download it using standard, open communication protocols (like HTTP). There should be no paywalls or proprietary barriers preventing scholars from accessing the text.
 
-**Takeaway:** CSS Paged Media unifies web and print workflows, while LaTeX `reledmac` and Typst offer specialized micro-typographic alternatives.
+Following these principles ensures your scholarship reaches a worldwide audience and remains discoverable for generations.
+
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Principle</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Core Requirement</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Implementation in RELS 398</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Findable (F)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Persistent identifier (DOI) and rich searchable metadata</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Depositing edition on Zenodo and minting an official DOI</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Accessible (A)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Open, free retrieval via standard protocols without barriers</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Public repository on GitHub and open access download on Zenodo</td>
+    </tr>
+  </tbody>
+</table>
+
+**Vocabulary.** *FAIR Data Principles* — international guidelines establishing that research data must be Findable, Accessible, Interoperable, and Reusable. *Persistent Identifier (PID)* — a permanent digital handle that remains valid even if web server addresses change. *Open Access* — the free, unrestricted online availability of research scholarship and data.
+
+**Takeaway:** The Findable and Accessible principles ensure your digital edition can be discovered through persistent DOIs and downloaded freely by scholars worldwide.
 
 ---
 
 ## **11 Content**
 
-**Compiling Multi-Tiered Critical Apparatuses for Paginated Print Output**
+**The FAIR Data Principles: Interoperable and Reusable**
 
-A hallmark of scholarly critical editions is the **multi-tiered apparatus**: dividing the bottom of the page into distinct horizontal bands dedicated to different categories of textual evidence (Fischer, 2020; Maas, 1958).
+The second half of the FAIR framework addresses how other scholars and computers can work with your data: **Interoperable** and **Reusable**.
 
-In our digital edition of 1 Thessalonians 2, we establish a **two-tier apparatus layout**:
+1. **Interoperable:** Data should use formal, standardized vocabularies so computers can integrate it with other datasets. By encoding your document in standard TEI XML and linking people and places to Wikidata and GeoNames, your edition is fully interoperable. Other digital humanists can combine your text with maps, timelines, and linguistic corpora without manual reformatting.
 
-- **Tier 1 (Significant Textual Variants):** Significant variants affecting the stemma, translation, or theological interpretation;
-- **Tier 2 (Orthographic & Scribal Variants):** Trivial spelling variations, iotacisms, movable nus, and scribal slips (Topic 6; Topic 13.1).
+2. **Reusable:** Data must have clear, unambiguous licensing and detailed provenance. Other scholars must know legally how they are permitted to reuse your work. Your project must clearly declare author credits, historical sources, and computational tools.
 
-```css
-/* Footnote Stream Base Styling */
-@page {
-  @footnotes {
-    border-top: 1px solid #333;
-    padding-top: 8pt;
-    margin-top: 15pt;
-  }
-}
+When your edition is interoperable and reusable, other researchers can build upon your research, cite your findings, and incorporate your primary witness into larger global archives.
 
-/* Tier 1: Significant Textual Variants (Bold Lemma, Bracket, Sigla) */
-.app-tier1 {
-  float: footnote;
-  font-family: 'Cardo', serif;
-  font-size: 8.5pt;
-  line-height: 1.25;
-  margin-bottom: 2pt;
-}
-.app-tier1 .lemma {
-  font-weight: bold;
-}
-.app-tier1 .bracket::after {
-  content: '] ';
-}
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Principle</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Core Requirement</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Implementation in RELS 398</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Interoperable (I)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Standard formats and shared vocabularies for data exchange</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Valid TEI P5 XML schema and Linked Open Data URIs</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Reusable (R)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Clear licenses, detailed provenance, and documentation</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Creative Commons licenses, README.md, and LEDGER.md</td>
+    </tr>
+  </tbody>
+</table>
 
-/* Tier 2: Orthographic / Trivial Variants (Smaller Monospace / Italic) */
-.app-tier2 {
-  float: footnote;
-  font-family: 'Cardo', serif;
-  font-size: 7.5pt;
-  color: #444;
-  line-height: 1.15;
-}
-```
+**Vocabulary.** *Interoperability* — the ability of computer systems and software to exchange and interpret shared data without friction. *Reusability* — providing clear licensing and documentation so future researchers can legally and practically reuse data. *Data Provenance* — the documented history of data creation, revision, and computational processing.
 
-| Apparatus Tier | Content Categorization | Print Typography | Sample Rendered Footnote Line |
-| --- | --- | --- | --- |
-| **Tier 1: Substantive** | Major variants, transpositions, omissions | 8.5pt Cardo, bold lemma, standard sigla | `7 νήπιοι] א B C*; ἤπιοι A C2 D Ψ 33 1739 𝔐` |
-| **Tier 2: Orthographic** | Iotacisms, movable nus, spelling slips | 7.5pt Cardo, muted gray, compact | `7 εγενηθημεν] εγενηθημεθα D* · 8 ομειρομενοι] ιμειρομενοι B` |
-
-By using CSS `float: footnote`, the rendering engine automatically calculates page breaks, ensuring that footnotes always appear at the bottom of the exact page where their corresponding text occurs (Turska et al., 2016; Fischer, 2020).
-
-**Vocabulary.** *Multi-tiered apparatus* — a critical apparatus divided into separate horizontal bands for substantive vs. orthographic variants. `float: footnote` — CSS Paged Media property that moves an element from the text stream to the bottom footnote area. *Substantive variant* — a textual variation that affects meaning or syntax.
-
-**Takeaway:** Using CSS `float: footnote` and distinct classes formats multi-tiered critical apparatuses at the foot of each page automatically.
+**Takeaway:** Encoding in TEI XML and declaring explicit open licenses satisfies the Interoperable and Reusable principles, empowering global scholars to build upon your work.
 
 ---
 
 ## **12 Content**
 
-**Managing Polytonic Greek Fonts and Typography (Cardo, New Athena Unicode, Noto Serif)**
+**Persistent Identifiers: Why URLs Break and DOIs Endure**
 
-Typesetting ancient Greek texts requires specialized **polytonic Unicode fonts** that support the full range of Greek diacritics: acute, grave, and circumflex accents; rough and smooth breathings; iota subscripts ($\alpha, \eta, \omega$ with $\iota$); and uncial manuscript glyphs (TEI Consortium, 2026).
+When a scholar cites a book, they cite the author, title, publisher, and year. That citation remains valid forever because library catalogues index books by stable metadata.
 
-If a publication uses system fonts that lack proper Greek glyph coverage, the system will fall back to mismatched fonts, resulting in jarring typographical errors termed "tofu" (missing character boxes) or misaligned diacritics.
+On the internet, citations are notoriously fragile. If you cite a plain web address like `http://myproject.org/edition.html`, that link will probably break within a few years. When the domain name expires or the university redesigns its website, your URL leads to a broken 404 page.
 
-Three premier open-source font families are standard for academic Greek publication:
+To solve this, the scholarly community uses **Persistent Identifiers (PIDs)**. The most famous persistent identifier is the **DOI (Digital Object Identifier)**.
 
-| Font Family | Designer / Institution | Primary Typographic Style | Best Use Case |
-| --- | --- | --- | --- |
-| **Cardo** | David Perry (Scholars Press) | Classical Renaissance humanist typeface based on Aldus Manutius | Critical texts, scholarly apparatuses, formal academic monographs |
-| **New Athena Unicode** | American Philological Association (SCS) | Specialized epigraphical and papyrological font with extensive symbols | Diplomatic transcriptions, papyrus editions, epigraphy |
-| **Noto Serif / Noto Sans** | Google Fonts Internationalization Project | Clean, modern, highly legible universal multilingual typeface | Screen reading, mobile interfaces, clean commentary text |
+A DOI looks like `10.5281/zenodo.1234567`. It does not point to a specific server. Instead, it points to a central global directory managed by the International DOI Foundation. When someone clicks `https://doi.org/10.5281/zenodo.1234567`, the registry automatically redirects them to the current live location of your files. If you move your files to a new server, you update the redirect target once in the registry, and every printed citation remains valid.
 
-```css
-/* Embedding Web Open Font Format (WOFF2) for Universal Rendering */
-@font-face {
-  font-family: 'Cardo';
-  src: url('../fonts/Cardo-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Identifier Type</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Example Format</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">What Happens When Server Moves</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Scholarly Reliability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Standard URL</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-family: monospace;">http://university.edu/~user/text.html</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Link breaks completely; 404 Not Found error</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Very low; high risk of link rot within 3&ndash;5 years</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Persistent DOI</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-family: monospace;">https://doi.org/10.5281/zenodo.1234567</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Registry updates redirect target; citation never breaks</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Permanent; international ISO standard guarantee</td>
+    </tr>
+  </tbody>
+</table>
 
-@font-face {
-  font-family: 'Cardo';
-  src: url('../fonts/Cardo-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
+**Vocabulary.** *DOI (Digital Object Identifier)* — a permanent alphanumeric string assigned by an authorized agency to identify digital content permanently. *Central DOI Directory* — the global registry that resolves DOIs to their current web addresses. *Citation Stability* — the guarantee that a scholarly reference will remain discoverable across decades.
 
-.greek-text {
-  font-family: 'Cardo', 'New Athena Unicode', serif;
-  font-feature-settings: "kern" 1, "liga" 1;
-  text-rendering: optimizeLegibility;
-}
-```
-
-Embedding `@font-face` definitions directly inside your CSS and packaging the `.woff2` font files with your edition guarantees that polytonic Greek characters render with flawless typographic accuracy on every device and in every compiled PDF (Turska et al., 2016).
-
-**Vocabulary.** *Polytonic Greek* — the Greek writing system featuring the full traditional system of accents, breathings, and iota subscripts. *WOFF2 (Web Open Font Format 2.0)* — a highly compressed font format optimized for web and digital publishing. *Glyph fallback* — the undesirable visual glitch occurring when a system substitutes missing characters with default system fonts.
-
-**Takeaway:** Packaging dedicated polytonic Greek fonts (Cardo, New Athena Unicode) ensures flawless diacritic rendering across web and print media.
+**Takeaway:** Persistent DOIs protect your edition against link rot by providing permanent redirection through the international DOI registry.
 
 ---
 
 ## **13 Content**
 
-**Archival PDF Standards: PDF/A Compliance and Long-Term Preservation**
+**Depositing Research Data with Zenodo**
 
-A standard PDF file generated by a typical desktop application is not suitable for long-term archival preservation. Standard PDFs often depend on external fonts installed on the host operating system, contain active JavaScript scripts, reference external URLs, and use non-standard color profiles that can degrade over time (International Organization for Standardization, 2020).
+To mint an official DOI for your digital edition, you need to deposit your files in a certified research repository. The leading platform for open humanities data is **Zenodo**.
 
-For scholarly publication, academic libraries and digital repositories mandate **PDF/A (PDF for Archiving)** compliance (ISO 19005 standard) (International Organization for Standardization, 2020).
+Zenodo is a free, open-access research repository operated by **CERN** (the European Organization for Nuclear Research) and supported by the European Commission. CERN is committed to maintaining Zenodo permanently, guaranteeing long-term data preservation.
 
-**PDF/A** enforces strict preservation constraints:
+When you upload your digital edition package to Zenodo:
 
-1. **100% Font Embedding:** Every glyph used in the text must be fully embedded within the PDF binary;
-2. **Device-Independent Color:** Colors must be defined using standard sRGB or CMYK ICC profiles;
-3. **No Dynamic Content:** Interactive JavaScript, external audio/video streams, and proprietary encryption are strictly prohibited;
-4. **Embedded XMP Metadata:** Bibliographical metadata (title, author, DOI, license) must be embedded in machine-readable Extensible Metadata Platform (XMP) XML (International Organization for Standardization, 2020; Wilkinson et al., 2016).
+1. Zenodo stores multiple redundant copies of your files in secure archival data centers;
+2. Zenodo mints an official, internationally recognized DOI for your deposit;
+3. Zenodo generates a permanent citation page with structured metadata;
+4. Your edition is indexed by Google Scholar, OpenAIRE, and international university library catalogues.
 
-```
-   WeasyPrint PDF/A Compilation Command:
-   weasyprint --pdf-variant pdf/a-3b \
-              --pdf-metadata-title "1 Thessalonians 2 Digital Critical Edition" \
-              --pdf-metadata-author "RELS 398 Editing Team" \
-              build/print.html build/1thess_edition_v1.0.0_archival.pdf
-```
+Depositing your project on Zenodo elevates your work from a student class project to a formal, citable contribution to digital textual scholarship.
 
-| PDF Standard | Target Use Case | Preserved Capabilities |
-| --- | --- | --- |
-| **PDF/A-1b** | Basic visual preservation | Guarantees exact visual reproduction over decades |
-| **PDF/A-2u** | Unicode semantic preservation | Preserves exact Unicode text extraction and searchability |
-| **PDF/A-3b** | Compound data archiving | Allows embedding the raw TEI XML source file *inside* the PDF binary |
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Repository Feature</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Zenodo Implementation</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Benefit to Your Edition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Operating Institution</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">CERN (European Organization for Nuclear Research)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Permanent institutional backing and secure infrastructure</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">DOI Assignment</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Automatic minting via DataCite registration agency</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Official, citable DOI for CVs and academic papers</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Cost to Researchers</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">100% free for open-access datasets up to 50 GB</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Zero hosting fees or recurring financial maintenance</td>
+    </tr>
+  </tbody>
+</table>
 
-Compiling to **PDF/A-3b** represents the gold standard of digital preservation: the PDF serves as a human-readable printed book, while simultaneously carrying the raw TEI XML master file embedded inside itself as an attachment (Wilkinson et al., 2016).
+**Vocabulary.** *Zenodo* — a trusted, open-access digital research repository operated by CERN that provides free long-term data storage and DOIs. *CERN* — the European Organization for Nuclear Research, providing global scientific infrastructure. *DataCite* — the leading global registration agency that mints DOIs for research datasets.
 
-**Vocabulary.** *PDF/A* — an ISO-standardized version of the Portable Document Format specialized for long-term digital preservation. *Font embedding* — including the complete binary font data within a document file. *Compound archiving (PDF/A-3)* — embedding raw data files (such as XML) directly inside an archival PDF container.
-
-**Takeaway:** Compiling print editions to PDF/A-3b guarantees long-term visual preservation while embedding the raw TEI XML source directly inside the PDF.
+**Takeaway:** Zenodo provides free, permanent archival storage and mints an official citable DOI for your capstone digital edition.
 
 ---
 
 ## **14 Content**
 
-**Automated Multi-Modal Compilation Pipelines via Python and Shell Automation**
+**Linking GitHub to Zenodo for Automated Releases**
 
-To eliminate manual errors and ensure 100% reproducibility, multi-modal publishing must be orchestrated by an **automated build pipeline** (Barzaghi et al., 2025; Topic 1).
+One of the most powerful workflows in modern digital scholarship is linking your **GitHub code repository** directly to **Zenodo**.
 
-A master build script (such as `build_edition.py` or a `Makefile`) automates the entire sequence from source TEI XML to finished web and PDF deliverables:
+When you link GitHub to Zenodo, you automate the archiving process:
 
-```python
-# build_edition.py: Master Publication Pipeline Script
-import subprocess
-import shutil
-from pathlib import Path
+1. In your Zenodo account settings, you authorize GitHub and flip the switch for your edition repository;
+2. In GitHub, whenever you are ready to publish a new milestone, you create a formal **Release** and assign a version tag (like `v1.0.0`);
+3. GitHub automatically sends a snapshot of your repository to Zenodo;
+4. Zenodo archives the code, extracts metadata from your repository, and mints a brand-new DOI in seconds.
 
-def build_all():
-    print("=== Step 1: Running Quality Assurance Linter ===")
-    subprocess.run(["python3", "scripts/lint_lesson_content.py", "--course-dir", "."], check=True)
+Zenodo also manages versioning automatically. It provides a "Concept DOI" that always points to your newest release, as well as distinct "Version DOIs" for specific milestones. Scholars can cite the exact version of your edition they used in their research.
 
-    print("=== Step 2: Compiling ODD to Relax NG and Schematron ===")
-    subprocess.run([
-        "java", "-jar", "bin/saxon-he.jar",
-        "-s:odds/edition.odd", "-xsl:scripts/odd2relaxng.xsl", "-o:build/edition.rng"
-    ], check=True)
-
-    print("=== Step 3: Validating Master TEI XML against Generated Schema ===")
-    subprocess.run(["xmllint", "--noout", "--relaxng", "build/edition.rng", "data/edition.xml"], check=True)
-
-    print("=== Step 4: Compiling Interactive Web Application ===")
-    subprocess.run([
-        "java", "-jar", "bin/saxon-he.jar",
-        "-s:data/edition.xml", "-xsl:scripts/tei2html-web.xsl", "-o:dist/web/index.html"
-    ], check=True)
-
-    print("=== Step 5: Compiling Standalone Lunr.js Search Index ===")
-    subprocess.run(["python3", "scripts/generate_search_index.py", "data/edition.xml", "dist/web/assets/js/search-index.js"], check=True)
-
-    print("=== Step 6: Compiling Print-Ready PDF via WeasyPrint ===")
-    subprocess.run([
-        "weasyprint", "--pdf-variant", "pdf/a-3b",
-        "dist/web/index.html", "dist/pdf/1thess_edition_archival.pdf"
-    ], check=True)
-
-    print("=== Multi-Modal Build Successfully Completed! ===")
-
-if __name__ == "__main__":
-    build_all()
+```text
+1. GitHub Repository (Active Editing)
+   -> Create Tagged Release (v1.0.0)
+2. Zenodo Automated Ingestion
+   -> Archive Snapshot and Mint DOI
+3. Permanent Citable DOI: 10.5281/zenodo.1234567
 ```
 
-| Pipeline Step | Tool Invoked | Deliverable Generated |
-| --- | --- | --- |
-| **1. Lint Gate** | Python linter | Validates takeaways, tables, and markup rules |
-| **2. ODD Compilation** | Saxon XSLT | `build/edition.rng` schema |
-| **3. Validation** | `xmllint` | Validates `data/edition.xml` |
-| **4. Web Compilation** | Saxon XSLT | `dist/web/index.html` interactive portal |
-| **5. Search Index** | Python extraction | `dist/web/assets/js/search-index.js` |
-| **6. Archival PDF** | WeasyPrint | `dist/pdf/1thess_edition_archival.pdf` (PDF/A-3b) |
+**Vocabulary.** *GitHub-Zenodo Integration* — an automated bridge that archives GitHub repository releases directly into Zenodo. *Concept DOI* — a master DOI that resolves to the latest version of a project across all its releases. *Version DOI* — a persistent identifier pointing specifically to an individual release snapshot of a project.
 
-Running a single command (`python3 build_edition.py`) regenerates every publication artifact in seconds, guaranteeing that your deliverables never drift out of sync (Barzaghi et al., 2025; Wilkinson et al., 2016).
-
-**Vocabulary.** *Automated build pipeline* — a scripted workflow that executes compilation, validation, and packaging tasks in sequence. *Lint gate* — a strict validation checkpoint that halts the build pipeline if formatting or schema errors are detected. *Reproducible research* — the principle that any scholar can re-run the build pipeline to generate identical deliverables.
-
-**Takeaway:** An automated Python build pipeline orchestrates validation, ODD compilation, search indexing, and PDF generation with a single command.
+**Takeaway:** The GitHub-Zenodo integration automatically archives tagged releases, minting permanent DOIs without manual file uploads.
 
 ---
 
 ## **15 Content**
 
-**Multi-Tiered Open Access Licensing Architecture for Digital Editions**
+**Structuring the Capstone Edition Portfolio**
 
-A digital critical edition is a complex intellectual artifact composed of heterogeneous assets: historical manuscript texts, editorial introductions, conjectural emendations, critical translations, morphological taggings, RDF knowledge graphs, and transformation software code (Sahle, 2016; Barzaghi et al., 2025).
+For your final RELS 398 / ENGL 398 course deliverable, you will assemble a comprehensive **Digital Edition Portfolio**. This portfolio represents the culmination of your entire semester's research and technical work.
 
-Because these assets serve different scholarly functions, applying a single blanket license (such as standard "All Rights Reserved" copyright) cripples the edition's utility. A digital scholarly edition requires a **Multi-Tiered Open Access Licensing Architecture** (Barzaghi et al., 2025; Driscoll & Pierazzo, 2016).
+A complete portfolio contains five core components organized cleanly in your repository:
 
-| Licensing Tier | Governing Legal Instrument | Project Assets Governed | Scholarly Objective |
-| --- | --- | --- | --- |
-| **Tier 1: Creative Prose** | Creative Commons Attribution (CC BY 4.0) | Critical text, translation, historical introduction, commentary | Protects scholarly credit and attribution for authors |
-| **Tier 2: Structured Data** | Creative Commons Zero (CC0 1.0 Universal) | Raw tokens, collation matrices, POS tags, RDF knowledge graphs | Eliminates attribution stacking for data aggregators |
-| **Tier 3: Software & Tools**| Open Source License (MIT / GPL-3.0) | ODD schemas, XSLT/XQuery pipelines, Python scripts, Web Components | Maximizes computational reproducibility and software reuse |
+1. **Master TEI XML File (`edition_master.xml`):** The fully validated master document integrating `<teiHeader>`, `<editorialDecl>`, `<facsimile>`, diplomatic/normalized text, and `<standOff>` commentary notes.
+2. **Archival Facsimiles (`images/`):** High-resolution scans of the primary document with transparent zone coordinates.
+3. **Standalone Web Package (`dist/web/`):** Responsive HTML and CSS files ready for web hosting or offline browsing.
+4. **Print-Ready PDF Codex (`dist/pdf/`):** A beautifully typeset PDF/A document with running headers, line numbers, and bottom apparatus footnotes.
+5. **Project Introduction & Ledger (`README.md` and `LEDGER.md`):** Complete documentation of provenance, editorial principles, AI disclosures, and settled decisions.
 
-This multi-tiered architecture achieves three vital objectives:
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Portfolio Component</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">File Path</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Primary Quality Gate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Master TEI XML</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-family: monospace;">edition_master.xml</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Zero schema validation errors; valid internal pointer IDs</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Web Application</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-family: monospace;">dist/web/index.html</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Responsive layout; functional commentary popups; 0 broken links</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Print PDF Codex</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-family: monospace;">dist/pdf/edition.pdf</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">PDF/A compliant; embedded fonts; clean footnote apparatus</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Editorial Ledger</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-family: monospace;">LEDGER.md</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Documented decisions, settled policies, and AI provenance</td>
+    </tr>
+  </tbody>
+</table>
 
-1. **Academic Recognition:** CC BY 4.0 ensures that human authors receive proper academic citation for their prose, translation, and editorial analysis;
-2. **Computational Reusability:** CC0 ensures that algorithms, data aggregators, and Linked Open Data graphs can ingest raw tokens without legal friction;
-3. **Software Freedom:** MIT licensing allows other digital humanists to fork and reuse your build scripts and ODD stylesheets (Barzaghi et al., 2025; Wilkinson et al., 2016).
+**Vocabulary.** *Digital Edition Portfolio* — the complete bundle of master XML data, facsimile images, web layouts, print PDFs, and documentation representing a completed editing project. *Quality Gate* — a strict verification check that must pass before a milestone is accepted. *Portfolio Assembly* — gathering and testing all semester components into a unified directory structure.
 
-**Vocabulary.** *Multi-tiered licensing* — applying different, specialized open access licenses to distinct layers of a digital project. *Legal friction* — contractual or copyright barriers that prevent computational reuse of research data. *Open access* — the free, unrestricted online availability of scholarly research.
-
-**Takeaway:** Multi-tiered licensing pairs CC BY 4.0 for prose, CC0 for structured data, and MIT for software to maximize scholarly impact and legal reusability.
+**Takeaway:** The final capstone portfolio unifies your master TEI XML, archival facsimiles, responsive web edition, print PDF, and documentation into a single citable release.
 
 ---
 
 ## **16 Content**
 
-**The Creative Commons Suite: Applying CC BY 4.0 to Critical Texts and Translations**
+**The Project Ledger (LEDGER.md): Documenting Decisions**
 
-For human-authored scholarly prose, critical translations, and commentary notes, the international gold standard is the **Creative Commons Attribution 4.0 International License (CC BY 4.0)** (Creative Commons, 2026; Barzaghi et al., 2025).
+Throughout this course, you have maintained a project ledger called `LEDGER.md`. In professional digital textual scholarship, keeping an active ledger is essential for governance and reproducibility.
 
-Under CC BY 4.0:
+An editorial project involves hundreds of micro-decisions. How did you decide to regularize a misspelled word? Why did you link a person to one specific Wikidata record instead of another? What criteria did you use to date an undated letter?
 
-- **Share:** Anyone is free to copy, distribute, and transmit the work in any medium or format;
-- **Adapt:** Anyone is free to remix, transform, and build upon the material for any purpose, including commercial applications;
-- **Attribution Condition:** The user must give appropriate credit, provide a link to the license, and indicate if changes were made (Creative Commons, 2026).
+If you do not write these decisions down, you will forget your own reasoning within three months. Furthermore, external peer reviewers will not be able to evaluate the integrity of your scholarship.
 
-| Creative Commons License | Permitted Uses | Commercial Use? | Adaptations Allowed? | Recommended for DSE? |
-| --- | --- | --- | --- | --- |
-| **CC BY 4.0** | Share, adapt, remix | Yes (with attribution) | Yes (with attribution) | **Yes (Gold Standard)** |
-| **CC BY-SA 4.0** | Share, adapt | Yes (with attribution) | Yes (Share-Alike copyleft) | Acceptable |
-| **CC BY-NC 4.0** | Share, adapt | No (Non-commercial only) | Yes (Non-commercial) | Discouraged (Restricts repositories) |
-| **CC BY-ND 4.0** | Share only | Yes (with attribution) | No (No derivatives) | Strongly Discouraged (Blocks NLP) |
+Your `LEDGER.md` documents:
 
-Why is **CC BY-NC (Non-Commercial)** discouraged in digital humanities?
+1. **Settled Decisions:** Editorial choices that are locked and finalized;
+2. **Methodological Provenance:** Dictionaries and archival records consulted;
+3. **Computational Logs:** Software versions, prompts, and verification audits.
 
-1. Defining "commercial" is legally ambiguous—it often inadvertently blocks university libraries, non-profit academic publishers, and open-access repositories from mirroring your data;
-2. It prevents commercial search engines and open-source AI models from indexing your scholarship (Creative Commons, 2026; Wilkinson et al., 2016).
+Keeping a clear ledger establishes an unbroken chain of custody for your scholarly findings.
 
-Applying standard **CC BY 4.0** guarantees maximum dissemination while securing your legal right to scholarly attribution (Barzaghi et al., 2025).
+```markdown
+## Settled Decisions
+1. Orthography: Regularized 18th-century verb endings (-oit to -ait)
+   using Dictionnaire de l'Académie française (5e éd., 1798).
+2. Entity Resolution: Linked Shubenacadie Chief Jean-Baptiste Cope
+   to Wikidata Q104853241 based on 1752 treaty council minutes.
+3. AI Assistance: Drafted philological notes with LLM assistance;
+   verified 100% against the Oxford English Dictionary.
+```
 
-**Vocabulary.** *CC BY 4.0* — Creative Commons Attribution 4.0 International license permitting free sharing and adaptation with credit. *Attribution requirement* — the legal obligation to cite the original authors and provide a link to the source edition. *Copyleft* — a licensing principle requiring derivative works to be released under the same license.
+**Vocabulary.** *Project Ledger* — a markdown file tracking editorial decisions, settled policies, and methodological provenance across an editing project. *Methodological Provenance* — the documented reasoning and evidence supporting scholarly choices. *Settled Decision* — a locked editorial baseline that prevents endless revisiting of resolved questions.
 
-**Takeaway:** CC BY 4.0 is the gold standard for critical editions, maximizing global dissemination while guaranteeing proper scholarly citation.
+**Takeaway:** The project ledger records your editorial decisions and methodological reasoning, ensuring scholarly transparency and reproducibility.
 
 ---
 
 ## **17 Content**
 
-**The CC0 1.0 Public Domain Dedication: Liberating Data, Tokens, and RDF Triples**
+**Open Access Licensing in Practice: CC BY, CC0, and MIT**
 
-While creative prose requires attribution via CC BY, raw structured data—such as token lists, lemma mappings, collation matrices, and RDF knowledge triples—should be dedicated to the public domain under **Creative Commons Zero (CC0 1.0 Universal)** (Creative Commons, 2026; Wilkinson et al., 2016).
+A digital edition contains different kinds of intellectual property. It contains original prose, structured data, and computer code. Applying a single generic license to the whole project is often legally ineffective.
 
-Under copyright law across most international jurisdictions (including Canada, the United States, and the European Union), **facts, data points, and mechanical historical observations are not copyrightable** (Feist Publications v. Rural Telephone Service Co., 1991). A 4th-century Greek manuscript reading is a historical fact, not modern creative intellectual property.
+Professional digital humanities projects use **multi-tiered licensing**:
 
-```xml
-<!-- CC0 Declaration for Structured Datasets inside TEI Header -->
-<availability status="free">
-  <licence target="https://creativecommons.org/publicdomain/zero/1.0/">
-    <p>To the extent possible under law, the editors have waived all copyright and
-    related or neighboring rights to the raw token lists, morphosyntactic tags,
-    collation matrices, and RDF graphs in this edition under CC0 1.0 Universal.</p>
-  </licence>
-</availability>
-```
+1. **Creative Commons Attribution 4.0 (CC BY 4.0):** Applied to your original prose, historical introductions, and commentary notes. Anyone may share and adapt your writing, as long as they give you proper scholarly credit.
+2. **Creative Commons CC0 1.0 Universal (Public Domain Dedication):** Applied to your TEI XML markup, entity registries, and metadata. Dedicating metadata to the public domain allows libraries and search engines to ingest your records freely without legal friction.
+3. **The MIT License:** Applied to your build scripts, Python tools, and CSS stylesheets. The MIT license is a standard open-source software license permitting free code reuse.
 
-| Data Asset | Legal Status under CC0 | Reusability Benefit |
-| --- | --- | --- |
-| **Morphological Tags** | Public Domain Dedication | Can be ingested by CLTK or TreeTagger training sets |
-| **Collation Matrices** | Public Domain Dedication | Can be fed into phylogenetic tree algorithms |
-| **CIDOC-CRM Triples** | Public Domain Dedication | Can be merged into global LOD knowledge graphs (Wikidata) |
-| **Coordinate Boxes** | Public Domain Dedication | Can be used to train computer vision OCR pipelines |
+Declaring these licenses explicitly in your `README.md` and TEI header eliminates legal ambiguity for future researchers.
 
-Dedicating data to CC0 eliminates "attribution stacking"—a catastrophic legal scenario where an algorithm combining datasets from 500 digital editions would be legally forced to print 500 separate attribution notices for every automated query (Wilkinson et al., 2016; Barzaghi et al., 2025).
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Edition Asset Layer</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Recommended License</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Legal Effect</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Scholarly Benefit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Prose &amp; Commentary</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">CC BY 4.0 International</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Free sharing and adaptation with attribution</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Protects academic credit while maximizing impact</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">TEI XML &amp; Metadata</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">CC0 1.0 Universal</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Public domain dedication without restrictions</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Enables automated library and database indexing</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Software &amp; Scripts</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">MIT License</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Permissive open-source software license</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Allows other digital editors to reuse build tools</td>
+    </tr>
+  </tbody>
+</table>
 
-**Vocabulary.** *CC0 1.0 Universal* — a legal tool that allows copyright owners to waive all copyright and dedicate their data to the worldwide public domain. *Attribution stacking* — the accumulation of burdensome legal attribution requirements when combining hundreds of independent datasets. *Non-copyrightability of facts* — the legal principle that factual and historical data cannot be copyrighted.
+**Vocabulary.** *Multi-Tiered Licensing* — applying distinct open licenses to different asset types like prose, metadata, and code within a single project. *CC BY 4.0* — an open license requiring users to give attribution to the original author. *CC0 1.0 Universal* — dedicating data to the public domain by waiving all copyright rights.
 
-**Takeaway:** Dedicating structured tokens and RDF graphs to CC0 eliminates legal attribution stacking and maximizes Linked Open Data reusability.
+**Takeaway:** Multi-tiered open access licensing protects your scholarly authorship while permitting global research reuse and library indexing.
 
 ---
 
 ## **18 Content**
 
-**Open Source Software Licensing: MIT and GNU GPL-3.0 for Build Scripts and ODDs**
+**Cohort Archiving: Ace's French Revolutionary Decree**
 
-A digital scholarly edition is not merely a publication; it is also a software system. The Python collation scripts, ODD transformation pipelines, XSLT stylesheets, and Web Component interfaces that power your edition are software code (Sahle, 2016; Barzaghi et al., 2025).
+Let us examine how our three cohort students will archive their completed editions on Zenodo and GitHub.
 
-To ensure that your technical labor benefits future scholars, code assets must be released under standard **Open Source Software (OSS) Licenses** (Open Source Initiative, 2026).
+Ace is archiving the 1791 French decree *Loi relative à la fabrication des assignats*. When Ace deposits the project on Zenodo, the metadata must accurately capture the document's historical coordinates:
 
-Two primary open-source licenses dominate digital humanities:
+- **Title:** *A Digital Scholarly Edition of the French Revolutionary Decree on Assignats (June 19, 1791)*
+- **Creators:** Ace (Editor), Kenneth Penner (Instructor)
+- **Description:** A digital documentary edition of the National Assembly decree authorizing small 5-livre paper currency notes, featuring diplomatic transcription of Imprimerie Royale printings and modernized French.
+- **Keywords:** French Revolution, assignats, paper money, Imprimerie Royale, monetary policy, TEI XML, 1791.
+- **Archival Custody:** Archives nationales de France (Paris), Série C (Procès-verbaux de l'Assemblée nationale).
 
-| Open Source License | License Philosophy | Permissions Granted | Requirements & Restrictions |
-| --- | --- | --- | --- |
-| **MIT License** | Permissive, minimalist | Free use, modification, distribution, sublicensing, commercial use | Requires preserving original copyright notice; zero warranties |
-| **GNU GPL-3.0** | Strong copyleft | Free use, modification, distribution | Mandates that any derivative software must also be open source under GPL-3.0 |
+Ace uploads the master TEI XML, high-resolution scans of the decree, the dual-column HTML package, and the print PDF codex. Zenodo mints an official DOI, giving Ace a permanent academic citation for graduate school applications.
 
-```
-// Standard MIT License Header for Python / ODD / XSLT Files
-/*
- * Copyright (c) 2026 RELS 398 Digital Editing Studio
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction...
- */
-```
+**Vocabulary.** *Archival Coordinates* — the official title, series, box, and shelfmark identifying a document's physical location in an archive. *Monetary Policy* — government actions regulating the money supply, currency printing, and financial stability. *Assignat* — paper money issued by the French National Assembly during the French Revolution backed by nationalized church property.
 
-For digital humanities build pipelines, the **MIT License** is strongly recommended because its simplicity allows other researchers to freely copy, adapt, and integrate your transformation scripts into their own university repositories without complex legal restrictions (Barzaghi et al., 2025).
-
-**Vocabulary.** *MIT License* — a permissive open-source software license granting unrestricted rights to use, copy, modify, and distribute code. *GNU GPL-3.0* — a strong copyleft software license requiring all modified versions to remain open source. *Open Source Initiative (OSI)* — the international organization maintaining the formal open source definition.
-
-**Takeaway:** Releasing build scripts and ODD stylesheets under the MIT Open Source License enables other scholars to freely adapt and reuse your computational pipelines.
+**Takeaway:** Ace's Zenodo deposit preserves the 1791 French Revolutionary currency decree with complete archival coordinates, bilingual XML, and a citable DOI.
 
 ---
 
 ## **19 Content**
 
-**Formalizing Licensing Declarations in the TEI Header `<publicationStmt>`**
+**Cohort Archiving: Olyvia's Maud Lewis Letter**
 
-In Lesson 13.1, you introduced the basic `<publicationStmt>`. Today, we formalize the complete **multi-tiered licensing statement** using machine-actionable TEI P5 elements (TEI Consortium, 2026; Barzaghi et al., 2025).
+Olyvia is archiving the 1967 personal letter written by celebrated Nova Scotia folk artist Maud Lewis to collector Leonard Kinnear.
 
-Within `<publicationStmt>`, multiple `<licence>` elements are nested inside `<availability>`, each carrying a `@target` URI pointing to the formal legal deed:
+Olyvia's Zenodo deposit captures the unique cultural and epistolary value of the artifact:
 
-```xml
-<publicationStmt>
-  <publisher>St. Francis Xavier University Digital Humanities Press</publisher>
-  <pubPlace>Antigonish, Nova Scotia, Canada</pubPlace>
-  <date when="2026-12-04">December 4, 2026</date>
-  <idno type="DOI">10.5281/zenodo.1234567</idno>
-  <idno type="CTS-URN">urn:cts:greekLit:tlg0031.tlg052.rels398-crit:2.1-2.12</idno>
-  
-  <availability status="restricted">
-    <!-- Tier 1: Editorial Text, Translation, Commentary (CC BY 4.0) -->
-    <licence target="https://creativecommons.org/licenses/by/4.0/">
-      <p>The scholarly introduction, critical edition text, English translation,
-      and commentary notes are licensed under a Creative Commons Attribution 4.0
-      International License (CC BY 4.0).</p>
-    </licence>
+- **Title:** *An Epistolary Digital Edition of Maud Lewis's Letter to Leonard Kinnear, October 25, 1967*
+- **Creators:** Olyvia (Editor), Kenneth Penner (Instructor)
+- **Description:** A single-witness digital documentary edition of a handwritten letter by folk artist Maud Lewis, documenting her cottage life in Marshalltown, roadside painting sales, and correspondence with collector Leonard Kinnear.
+- **Keywords:** Maud Lewis, Nova Scotia folk art, Digby County, Marshalltown, epistolary edition, Canadian art history, TEI XML.
+- **Archival Context:** Kinnear Family Papers; related folk art holdings in the Art Gallery of Nova Scotia (Halifax).
 
-    <!-- Tier 2: Raw Tokens, Lemmas, Collation Data (CC0 1.0) -->
-    <licence target="https://creativecommons.org/publicdomain/zero/1.0/">
-      <p>All underlying structured data, token lists, alignment tables, and
-      RDF assertions are dedicated to the public domain under CC0 1.0 Universal.</p>
-    </licence>
+Olyvia bundles the postal envelope facsimiles, letter page scans, diplomatic transcription with preserved line breaks, and interactive popups of Maud's painted oxen. The resulting Zenodo DOI creates a permanent scholarly resource for Canadian art historians.
 
-    <!-- Tier 3: ODD Stylesheets and Build Code (MIT License) -->
-    <licence target="https://opensource.org/licenses/MIT">
-      <p>All transformation stylesheets (ODD/XSLT), Python collation scripts, and
-      automated build pipelines are released under the MIT Open Source License.</p>
-    </licence>
-  </availability>
-</publicationStmt>
-```
+**Vocabulary.** *Folk Art* — art created by self-taught artists that reflects traditional community life and personal aesthetic expression. *Epistolary Edition* — a scholarly edition focused on letters and personal correspondence. *Single-Witness Fidelity* — preserving the authentic physical and linguistic features of a unique surviving artifact.
 
-| TEI Element | Attribute | Semantic Function |
-| --- | --- | --- |
-| `<availability>` | `@status="restricted"` | Indicates that use is governed by explicit license conditions |
-| `<licence>` | `@target="https://..."` | Machine-actionable URI pointing to the authoritative legal license |
-| `<p>` | Prose description | Human-readable explanation of which specific asset layer is governed |
-
-Embedding machine-actionable license URIs enables automated search engines and data harvesters to verify the legal reusability of your edition without human intervention (Wilkinson et al., 2016; Barzaghi et al., 2025).
-
-**Vocabulary.** `<licence>` — TEI element within `<availability>` documenting the legal terms under which a text is published. `@target` — attribute containing the canonical URL of the license deed. *Machine-actionable licensing* — expressing copyright terms in structured XML that software crawlers can parse automatically.
-
-**Takeaway:** Embedding explicit `<licence>` elements with canonical URLs inside `<publicationStmt>` formalizes the multi-tiered licensing structure in machine-readable XML.
+**Takeaway:** Olyvia's Zenodo deposit preserves Maud Lewis's 1967 handwritten letter, providing art historians with high-resolution facsimiles, diplomatic text, and a permanent DOI.
 
 ---
 
 ## **20 Content**
 
-**The FAIR Guiding Principles for Textual Data: Findable, Accessible, Interoperable, Reusable**
+**Cohort Archiving: Andromeda's 1752 Peace and Friendship Treaty**
 
-In 2016, an international consortium of research institutions established the **FAIR Guiding Principles** for scientific and humanities data management (Wilkinson et al., 2016).
+Andromeda is archiving the foundational 1752 Peace and Friendship Treaty negotiated at Halifax between Mi'kmaw Chief Jean-Baptiste Cope and Nova Scotia Governor Peregrine Hopson.
 
-To achieve true scholarly impact, a digital edition must satisfy all four FAIR pillars:
+Andromeda's deposit addresses sensitive and critical legal history:
 
-| FAIR Pillar | Meaning in Textual Scholarship | Implementation in RELS 398 Edition |
-| --- | --- | --- |
-| **F — Findable** | Data must be assigned persistent identifiers and indexed in searchable repositories | Minting Zenodo DOIs and Canonical Text Service (CTS) URNs |
-| **A — Accessible** | Data must be retrievable via open, standardized communication protocols | Hosting on public GitHub repositories, Zenodo, and open HTTP/HTTPS |
-| **I — Interoperable** | Data must use formal, shared vocabularies and standard schemas | Encoding in standard TEI P5 XML, CIDOC-CRM RDF, and IIIF |
-| **R — Reusable** | Data must possess rich provenance and unambiguous open licensing | Documenting `<revisionDesc>`, `<editorialDecl>`, and CC BY/CC0 licenses |
+- **Title:** *A Digital Documentary Edition of the 1752 Peace and Friendship Treaty between the Mi'kmaq and the British Crown*
+- **Creators:** Andromeda (Editor), Kenneth Penner (Instructor)
+- **Description:** A digital edition of the November 22, 1752 treaty, featuring clause-by-clause legal transcription, scanned Mi'kmaw totem marks and wax seals, and extensive commentary on treaty rights jurisprudence.
+- **Keywords:** Peace and Friendship Treaties, Mi'kma'ki, Jean-Baptiste Cope, Peregrine Hopson, Halifax, Indigenous treaties, Canadian legal history, TEI XML.
+- **Archival Custody:** Nova Scotia Archives (Halifax), Record Group 1, volume 430, number 2.
 
-A digital edition that exists only on an obscure, private server behind a login screen violates every FAIR principle. By engineering your edition to be FAIR-compliant, you ensure that your philological scholarship remains discoverable and reusable by global research networks for generations (Wilkinson et al., 2016; Barzaghi et al., 2025).
+Andromeda's deposit provides a dignified legal presentation, clean PDF codex, and complete historical commentary. The persistent DOI ensures this foundational treaty text is accessible to legal scholars, Indigenous communities, and historians worldwide.
 
-**Vocabulary.** *FAIR Principles* — a set of international guidelines ensuring that digital research data is Findable, Accessible, Interoperable, and Reusable. *Data stewardship* — the long-term ethical and technical preservation of scholarly research outputs. *Open protocol* — a publicly available, non-proprietary communication standard (such as HTTP or REST).
+**Vocabulary.** *Treaty Rights Jurisprudence* — the body of legal precedents and court decisions interpreting the rights guaranteed by historical treaties. *Nation-to-Nation Agreement* — a formal diplomatic treaty negotiated between sovereign political entities. *Archival Record Group (RG)* — a major classification unit in an archive grouping records from an official government body.
 
-**Takeaway:** The FAIR principles guarantee that digital editions are Findable via persistent IDs, Accessible via open protocols, Interoperable via TEI XML, and Reusable via open licensing.
+**Takeaway:** Andromeda's Zenodo deposit establishes a permanent, open-access digital edition of the 1752 treaty with legal commentary and high-resolution totem facsimiles.
 
 ---
 
 ## **21 Content**
 
-**Persistent Identifiers (PIDs): DOIs, Handle.Net, and CTS URN Resolution**
+**Creating a GitHub Release for Your Edition**
 
-In the digital world, web URLs are notoriously fragile. Academic studies show that over 50% of web links cited in scholarly literature break within ten years—a crisis known as **link rot** or **reference rot** (Klein et al., 2014).
+Once your files are tested and organized in your local Git repository, you are ready to publish an official **GitHub Release**. A release marks a frozen, tagged milestone in the history of your project.
 
-To guarantee that your digital edition can be cited permanently, you must assign **Persistent Identifiers (PIDs)** (Klein et al., 2014; Wilkinson et al., 2016).
+To create a release in GitHub:
 
-Two primary persistent identifier systems are employed in computational philology:
+1. Ensure all your latest changes are committed to the `main` branch;
+2. Navigate to the **Releases** tab in your GitHub repository and click **Draft a new release**;
+3. Assign a semantic version tag like `v1.0.0`;
+4. Give your release a descriptive title, such as *RELS 398 Capstone Digital Edition (v1.0.0)*;
+5. Write detailed release notes summarizing your project scope, historical witness, and editorial principles;
+6. Attach compiled binary assets, such as your standalone offline `.zip` package and print-ready `.pdf` codex.
 
-1. **Digital Object Identifiers (DOIs):** Managed by DataCite and Crossref, a DOI (e.g., `10.5281/zenodo.1234567`) provides a persistent, globally unique handle that resolves to the current web address of the publication package (Wilkinson et al., 2016).
-2. **Canonical Text Service (CTS) URNs:** Developed by the Homer Multitext project, CTS URNs provide permanent, citation-based identifiers that reference specific texts, versions, and passage passages regardless of where the file is hosted (Smith & Blackwell, 2012; Topic 8).
+Clicking **Publish release** freezes this snapshot permanently in Git history and triggers the automated transfer to Zenodo.
 
-| CTS URN Component | Segment Value in 1 Thess 2:7 | Ontological Level | Resolving Target |
-| --- | --- | --- | --- |
-| **Scheme Prefix** | `urn:cts` | Protocol standard | Canonical Text Service protocol |
-| **Textgroup Namespace**| `greekLit` | Namespace | Ancient Greek literary corpus |
-| **Author Identifier** | `tlg0031` | Author authority | Pauline Corpus / New Testament |
-| **Work Identifier** | `tlg052` | Work authority | First Epistle to the Thessalonians |
-| **Edition Identifier** | `rels398-crit` | Edition version | RELS 398 Digital Critical Edition |
-| **Passage Pointer** | `2.7` | Passage node | Chapter 2, Verse 7 |
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Release Field</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Recommended Value</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Tag Version</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-family: monospace;">v1.0.0</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Semantic versioning tag marking the first full production release</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Release Title</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Capstone Digital Scholarly Edition (v1.0.0)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Clear, human-readable title for visitors and catalogues</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Attached Binaries</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-family: monospace;">edition_offline.zip, edition_codex.pdf</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Direct download links for offline readers and library archivists</td>
+    </tr>
+  </tbody>
+</table>
 
-| Identifier System | Scope of Resolution | Example Identifier | Scholarly Function |
-| --- | --- | --- | --- |
-| **DOI (DataCite)** | Whole Edition Package | `10.5281/zenodo.1234567` | Permanent bibliographical citation of the released edition archive |
-| **CTS URN** | Exact Verse / Passage | `urn:cts:greekLit:tlg0031.tlg052.rels398-crit:2.7` | Machine-actionable pointer resolving to an exact textual verse |
-| **Pleiades URI** | Historical Place Entity | `https://pleiades.stoa.org/places/491741` | Permanent linked data identifier for *Thessalonica* |
-| **VIAF Identifier** | Historical Person Entity | `http://viaf.org/viaf/100178828` | Permanent authority identifier for *Apostle Paul* |
+**Vocabulary.** *GitHub Release* — a formal, tagged snapshot of a repository accompanied by release notes and downloadable binary files. *Semantic Versioning* — a version numbering system (Major.Minor.Patch, like 1.0.0) reflecting the nature of project updates. *Release Notes* — a written summary describing features, fixes, and files included in a publication release.
 
-**Vocabulary.** *Persistent Identifier (PID)* — a long-lasting digital reference that reliably points to a unique digital object even if its underlying web URL changes. *Link rot* — the phenomenon where hyperlinks cease to function because target web pages move or disappear. *Canonical Text Service (CTS) URN* — a URN syntax providing citation-based identification of textual passages.
-
-**Takeaway:** Assigning DOIs and CTS URNs guarantees persistent, unalterable citation resolution, insulating your scholarship against link rot.
+**Takeaway:** Publishing a GitHub Release freezes an official versioned snapshot of your edition and attaches downloadable offline zip and PDF files.
 
 ---
 
 ## **22 Content**
 
-**Long-Term Data Preservation: Archiving Master Packages on Zenodo and Dataverse**
+**Preparing Your Web Edition for GitHub Pages**
 
-Publishing code on a GitHub repository is essential for collaboration, but **GitHub is not an archival repository**. Commercial platforms can change their terms of service, delete inactive repositories, or shut down entirely (Barzaghi et al., 2025; Wilkinson et al., 2016).
+In addition to depositing your source files on Zenodo, you want your interactive web edition to be live and readable online. The simplest, most durable way to host a static digital edition is **GitHub Pages**.
 
-To guarantee long-term preservation for decades, academic institutions use **trusted digital repositories**, such as **Zenodo** (hosted by CERN) and **Harvard Dataverse** (Wilkinson et al., 2016).
+GitHub Pages is a free hosting service that serves web pages directly from your GitHub repository. It does not require setting up a database or managing a web server.
 
-When preparing an archival release package for Zenodo:
+To launch GitHub Pages:
 
-1. **Tag a Semantic Release in Git:** Tag your milestone commit with a formal version number (e.g., `git tag -a v1.0.0 -m "Release v1.0.0"`);
-2. **Compile the Complete Multi-Modal Bundle:** Assemble the ZIP archive containing TEI XML, ODD, standalone HTML, PDF/A-3b, fonts, and licenses;
-3. **Automated Zenodo Deposit:** Connect GitHub to Zenodo via OAuth webhooks. When a GitHub Release is published, Zenodo automatically archives a permanent snapshot of the repository, mints a citable DOI, and stores the data across redundant European server nodes (Wilkinson et al., 2016; Barzaghi et al., 2025).
+1. Place your compiled `index.html`, `style.css`, and `images/` directory in a folder named `docs/` or directly at the root of your repository;
+2. Navigate to your repository **Settings** and select **Pages**;
+3. Under **Source**, choose the `main` branch and specify the `/docs` folder;
+4. Click **Save**.
 
-| Zenodo Deposit Requirement | Included Package File | Verification Status |
-| --- | --- | --- |
-| **1. Master XML Source** | `data/edition.xml` | Fully validated against compiled Relax NG |
-| **2. Compiled Schemas** | `build/edition.rng` + Schematron | Standalone schemas for independent validation |
-| **3. Literate ODD Spec** | `odds/edition.odd` | Complete encoding model and behaviour rules |
-| **4. Standalone HTML Bundle**| `dist/web/` | Double-clickable offline edition with Lunr search |
-| **5. Archival Print Volume** | `dist/pdf/edition_archival.pdf` | ISO 19005-3 compliant PDF/A-3b volume |
-| **6. Machine Metadata** | `CITATION.cff` & `LICENSE.md` | Automated citation format and license deeds |
+Within sixty seconds, GitHub gives you a secure live public web address, such as `https://username.github.io/edition/`. Anyone with an internet browser can now explore your digital edition worldwide.
 
-Archiving on Zenodo guarantees that even if your university server goes offline tomorrow, your complete edition will remain permanently accessible to the global research community (Wilkinson et al., 2016).
+```
+Repository Settings -> Pages
+  Source: Deploy from a branch
+  Branch: main /docs
+  Status: Live at https://username.github.io/my-edition/
+```
 
-**Vocabulary.** *Trusted digital repository* — an archival data storage institution committed to long-term data preservation, persistent indexing, and open access. *Zenodo* — an open-access general-purpose repository developed by CERN under the European Open Science Cloud (EOSC). *Semantic release snapshot* — an immutable, point-in-time archival copy of a software or data release.
+**Vocabulary.** *GitHub Pages* — a free static web hosting service provided by GitHub that turns a repository into a live public website. *Docs Folder Workflow* — storing compiled public website files in a dedicated /docs directory inside a repository. *Live Public URL* — an active web address accessible by any user on the internet over standard HTTPS.
 
-**Takeaway:** Depositing versioned release bundles into trusted repositories like Zenodo mints citable DOIs and guarantees redundant, multi-decade preservation.
+**Takeaway:** GitHub Pages provides free, permanent static web hosting directly from your repository, making your edition instantly accessible to the public.
 
 ---
 
 ## **23 Content**
 
-**Mitigating Software Obsolescence and Link Rot in Digital Humanities**
+**Documenting AI Provenance and Human-in-the-Loop Audit**
 
-In digital humanities, the greatest threat to scholarship is not physical degradation (like rotting paper); it is **software obsolescence** and **technical dependency rot** (Sahle, 2016; Driscoll & Pierazzo, 2016).
+Throughout this semester, you explored how computational tools and Large Language Models (LLMs) can assist digital editing. You used language models to assist with translation drafting and initial commentary suggestions.
 
-Projects created in 2005 using Macromedia Flash, proprietary Java applets, or custom PHP 4 scripts are today completely dead and unopenable on modern computers. To ensure your digital edition survives fifty years from now, you must design for **graceful degradation** and **format durability** (Sahle, 2016; Turska et al., 2016).
+In academic scholarship, using AI tools is entirely acceptable provided that it is accompanied by **transparent methodological provenance**. You must never hide the tools you used.
 
-| Fragile / Ephemeral Practice | Resilient / Archival Strategy | Preservation Rationale |
-| --- | --- | --- |
-| Storing text in MySQL / relational tables | Storing text in pure TEI P5 XML | XML is plain-text UTF-8; readable without database software |
-| Complex server-side web frameworks | Standalone, static HTML5 + Web Components | Static HTML opens in any browser without server dependencies |
-| Dynamic vector graphics rendered via Flash | Scalable Vector Graphics (SVG) | SVG is an open W3C XML standard supported natively |
-| Proprietary binary image formats | IIIF + standard uncompressed TIFF / WebP | Open international standard backed by global libraries |
-| Unversioned local scripts | Git version control + Docker container | Docker preserves the exact execution environment |
+In your `README.md` and edition paratexts, you must include a formal **AI Disclosure Statement**:
 
-By isolating your scholarship in human-readable plain text (TEI XML) and compiling to open web standards (HTML5/SVG/PDF/A), you ensure that future scholars can read your edition even if every software tool used today becomes obsolete (Sahle, 2016; Wilkinson et al., 2016).
+1. Name the specific models, versions, and platforms consulted (e.g. Claude 3.5 Sonnet, Gemini 1.5 Pro, local Gemma);
+2. Document the prompt templates used to generate initial drafts;
+3. State the dates when queries were run;
+4. Detail your **Human-in-the-Loop verification protocol**: how human editors audited every suggested date, name, and definition against primary facsimiles and peer-reviewed reference works.
 
-**Vocabulary.** *Software obsolescence* — the process whereby software tools, formats, or operating systems become unsupported and unusable. *Graceful degradation* — the ability of a system to maintain core functionality even when advanced features fail. *Plain-text durability* — the indefinite readability of ASCII and UTF-8 encoded text without specialized decoding software.
+Scholarly authority does not come from doing everything by hand; it comes from rigorous verification and complete methodological transparency.
 
-**Takeaway:** Grounding your edition in plain-text TEI XML, static HTML5, and open standards protects your scholarship against software obsolescence.
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Disclosure Area</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Required Information</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Ethical Standard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Model Specification</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Exact model name, version number, and provider API</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Reproducibility and computational transparency</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Human Verification</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Reference works consulted to verify AI drafts (OED, SEDRA)</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Scholarly accuracy and human accountability</td>
+    </tr>
+  </tbody>
+</table>
+
+**Vocabulary.** *AI Disclosure Statement* — a formal declaration in an edition documenting all artificial intelligence tools used during research. *Human-in-the-Loop (HITL)* — a workflow where human experts review, verify, and correct automated or AI-generated outputs. *Computational Transparency* — full disclosure of all software tools and algorithms used in research.
+
+**Takeaway:** Full disclosure of AI models and human-in-the-loop verification protocols establishes scholarly trust and upholds academic integrity.
 
 ---
 
 ## **24 Content**
 
-**Assembling the 10-Layer Digital Edition Portfolio Architecture**
+**Archival Checksums: Verifying Data Integrity with SHA-256**
 
-Over the past fourteen weeks, you have methodically constructed all ten intellectual and technical layers of a professional Digital Scholarly Edition (Sahle, 2016; Pierazzo, 2016).
+When archiving digital files for decades, how do you know a file has not been corrupted or altered? Digital files can experience "bit rot," where physical storage degradation flips bits on a hard drive.
 
-Today, we assemble these ten layers into a unified **Digital Edition Portfolio**:
+To guarantee file integrity, archivists use **cryptographic checksums**. A checksum is a unique mathematical fingerprint generated from the exact bytes of a file. The international standard for data integrity is **SHA-256**.
 
-| Portfolio Layer Number | Editorial & Computational Layer | Primary Technologies & Standards | Core Scholarly Contribution |
-| --- | --- | --- | --- |
-| **Layer 10** | Multi-Modal Publishing Packages | TEI Processing Model, CSS Paged Media, WeasyPrint | Web, standalone HTML, and PDF/A-3b print volumes |
-| **Layer 9** | Commentary Knowledge Graphs | `<standOff>`, CTS URNs, Pleiades, VIAF, CiTO | Multi-tier historical, intertextual notes in LOD |
-| **Layer 8** | Stratified Translation Models | Leipzig Glossing Rules, CTS passage alignment | Aligned morphological glosses and critical English text |
-| **Layer 7** | Morphosyntactic Annotation | `<w>`, `@lemma`, `@pos`, CLTK parsing | Lemmatized tokens and morphosyntactic tagging |
-| **Layer 6** | Critical Apparatus Modeling | Parallel Segmentation (`<app>`, `<lem>`, `<rdg>`) | Critical text constitution and variant apparatus |
-| **Layer 5** | Algorithmic Collation | CollateX, dynamic programming, variant graphs | Automated alignment matrix across all four witnesses |
-| **Layer 4** | Historical Normalization | `<choice>`, `<orig>`, `<reg>` | Dual diplomatic and regularized lexical views |
-| **Layer 3** | Ground-Truth Transcription | `<lb>`, `<del>`, `<add>`, `<abbr>`, *nomina sacra* | Paleographical fidelity to manuscript ink |
-| **Layer 2** | Digital Facsimile Integration | IIIF Image API, OpenSeadragon, `@facs` | High-resolution deep-zoom manuscript folios |
-| **Layer 1** | Codicological Metadata | `<msDesc>`, `<physDesc>`, repository shelfmarks | Physical support, quire structure, hand analysis |
+If a file changes by even a single comma or space, its SHA-256 checksum changes completely. When you publish your release, you generate a checksum for each file and record them in a file named `CHECKSUMS.txt`.
 
-Each layer builds upon the foundation beneath it: codicological metadata grounds the physical manuscript images; diplomatic markup transcribes the ink; normalization aligns spelling; collation reveals variants; the apparatus formalizes editorial decisions; morphological tagging parses syntax; commentary enriches context; and the processing model publishes the whole into multi-modal packages (Sahle, 2016; Pierazzo, 2016).
+Anyone who downloads your edition can run `sha256sum -c CHECKSUMS.txt` in their terminal. If the check returns "OK", they have mathematical proof that their copy is 100% identical to your original archive.
 
-In the remaining sections, we review the synthesis of these layers and execute the final Quality Assurance audit.
+```bash
+# Generating SHA-256 checksums in terminal
+sha256sum edition_master.xml dist/pdf/edition.pdf > CHECKSUMS.txt
+```
 
-**Vocabulary.** *10-layer portfolio architecture* — the complete, integrated hierarchy of philological, linguistic, codicological, and computational data forming a digital scholarly edition. *Vertical integration* — the seamless flow of data from base codicology up through the published interface.
+```
+CHECKSUMS.txt content:
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  edition_master.xml
+5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8  edition.pdf
+```
 
-**Takeaway:** The 10-layer portfolio architecture integrates codicology, facsimiles, transcriptions, normalizations, collations, apparatuses, morphology, translations, commentaries, and publication pipelines into an inseparable whole.
+**Vocabulary.** *Cryptographic Checksum* — a fixed-length string generated by an algorithm representing the unique byte contents of a file. *SHA-256* — a secure cryptographic hashing algorithm that produces a 256-bit mathematical fingerprint. *Bit Rot* — the gradual physical decay of storage media resulting in silent file corruption.
+
+**Takeaway:** SHA-256 checksums provide cryptographic proof of data integrity, allowing scholars to verify that downloaded files are authentic and uncorrupted.
 
 ---
 
 ## **25 Content**
 
-**Layer 1–4 Integration: Codicology, Facsimiles, Transcriptions, and Normalizations**
+**Writing a Professional Citation for Your Digital Edition**
 
-The foundation of your digital edition connects the material reality of ancient manuscripts to digital transcriptions:
+If you want other scholars to cite your work, you must provide them with a clear, standardized citation. Do not force readers to guess how to cite your digital edition.
 
-#### 25.1 Layer 1: Codicological Metadata (`<msDesc>`)
+Include a dedicated **"How to Cite This Edition"** section at the bottom of your `README.md` and in your TEI header. Provide citations in standard academic styles, such as Chicago, MLA, and APA.
 
-- Formulate complete descriptions of all four witnesses (Codex Sinaiticus $\aleph$, Codex Vaticanus $B$, Codex Alexandrinus $A$, Codex Ephraemi Rescriptus $C$);
-- Document shelfmarks, holding repositories, quire structures, dimensions, scribal hands, and historical provenance in `<msDesc>` (Topic 2; Topic 13.1).
+A professional digital edition citation includes:
 
-#### 25.2 Layer 2: IIIF Digital Facsimiles (`@facs`)
+1. **Editor Name(s):** The scholar(s) who transcribed, edited, and annotated the text;
+2. **Edition Title:** In italics, followed by the descriptor *[Digital Scholarly Edition]*;
+3. **Institutional Context:** St. Francis Xavier University;
+4. **Publication Year:** The year of release (2026);
+5. **Persistent Identifier:** The permanent DOI link pointing to Zenodo.
 
-- Bind page milestones (`<pb>`) and surface coordinates (`<surface>`) to high-resolution IIIF image manifests;
-- Ensure deep-zoom panning and canvas navigation synchronize with text scrolling (Topic 3; Topic 13.2).
+```markdown
+### How to Cite This Edition (Chicago Style)
+Penner, Andromeda, ed. *The 1752 Peace and Friendship Treaty: A Digital
+Documentary Edition*. Antigonish, NS: St. Francis Xavier University, 2026.
+https://doi.org/10.5281/zenodo.1234567.
+```
 
-#### 25.3 Layer 3: Diplomatic Ground-Truth Transcription
+**Vocabulary.** *Scholarly Citation* — a formal reference providing bibliographic details necessary to locate and verify an academic source. *Chicago Manual of Style* — the standard citation guideline used in history and humanities disciplines. *Citation Descriptor* — a bracketed note like [Digital Scholarly Edition] indicating the medium of a published source.
 
-- Record the exact paleographical realities of the manuscripts: line breaks (`<lb>`), scribal deletions (`<del>`), additions (`<add>`), abbreviations, and *nomina sacra* (Topic 4; Topic 5).
-
-#### 25.4 Layer 4: Orthographic Normalization (`<choice>`)
-
-- Wrap phonetic iotacisms, movable nus, and non-standard uncial spellings in `<choice><orig>...</orig><reg>...</reg></choice>`, enabling dual diplomatic and regularized views (Topic 6).
-
-| Foundation Layer | Key TEI Elements | Primary Verification Milestone |
-| --- | --- | --- |
-| **Layer 1: Codicology** | `<msDesc>`, `<physDesc>`, `<handDesc>` | Complete repository shelfmarks and physical quire structures |
-| **Layer 2: Facsimiles** | `<pb facs="...">`, `<surface>` | IIIF canvas URIs resolve to high-resolution images |
-| **Layer 3: Diplomatic** | `<lb>`, `<del>`, `<add>`, `<abbr>` | Verbatim character-for-character reproduction of manuscript ink |
-| **Layer 4: Normalization**| `<choice>`, `<orig>`, `<reg>` | Clean separation of historical spelling from dictionary headwords |
-
-**Vocabulary.** *Diplomatic fidelity* — the precise, unregularized recording of physical manuscript text. *Surface coordinate binding* — linking XML text elements directly to $(x, y, w, h)$ bounding boxes on a digital facsimile image.
-
-**Takeaway:** Layers 1–4 establish the material and paleographical foundation, connecting codicological metadata, IIIF facsimiles, diplomatic transcriptions, and normalized spellings.
+**Takeaway:** Providing formal Chicago, MLA, and APA citations with persistent DOIs enables future researchers to cite your digital scholarship accurately.
 
 ---
 
 ## **26 Content**
 
-**Layer 5–8 Integration: Rendering, Morphosyntax, Named Entities, and Translations**
+**Peer Review and Scholarly Evaluation of Digital Editions**
 
-The analytical engine of your digital edition performs computational presentation, linguistic parsing, entity linking, and translation:
+How is a digital edition evaluated by the academic community? In traditional publishing, a monograph is reviewed based on prose arguments and press reputation. In digital textual scholarship, peer review evaluates both philological quality and computational architecture.
 
-#### 26.1 Layer 5: Web & Print Rendering Stylesheets
+Organizations like the **Institute for Documentology and Scholarly Editing (IDE)** have published formal criteria for reviewing digital scholarly editions:
 
-- Author CSS rules, XSLT transformations, and CETEIcean behaviors for diplomatic and reading views (Topic 7).
+1. **Methodological Transparency:** Are transcription, normalization, and emendation policies clearly explained in the introduction?
+2. **Markup Quality:** Does the TEI XML conform to valid schemas? Are entities linked to verified Linked Open Data records?
+3. **Material Witness Fidelity:** Does the edition provide high-resolution facsimiles and respect the physical artifact?
+4. **Technical Sustainability:** Is the edition built with open formats and minimal computing principles, free from server fragility?
 
-#### 26.2 Layer 6: Morphosyntactic Parsing and Lemmatization
+When your capstone portfolio satisfies these criteria, your work achieves the status of peer-reviewed digital scholarship.
 
-- Tokenize words into `<w>` elements carrying `@lemma`, `@pos`, and grammatical tags (Topic 8; Topic 10).
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Evaluation Dimension</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Key Scholarly Question</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Passing Evidence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Editorial Transparency</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Are all regularizations and emendations fully documented?</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Detailed &lt;editorialDecl&gt; and project LEDGER.md</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Data Integrity</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Is the master XML valid and free from broken pointers?</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">100% schema validation pass in VS Code</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Long-Term Survival</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Will the edition remain functional in twenty years?</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Static HTML, PDF/A, and Zenodo DOI archive</td>
+    </tr>
+  </tbody>
+</table>
 
-#### 26.3 Layer 7: Named Entity Recognition and Authority Linking
+**Vocabulary.** *Digital Edition Peer Review* — the systematic academic evaluation of an electronic scholarly edition based on textual, technical, and interface standards. *IDE (Institut für Dokumentologie und Editorik)* — a leading international organization that establishes peer review standards for digital editions.
 
-- Tag historical persons, places, organizations, and dates with `@ref` links to authority files (Topic 9).
-
-#### 26.4 Layer 8: Stratified Translation and Interlinear Glossing
-
-- Construct the four-line interlinear gloss (surface, lemma, POS, English gloss) and author a formal-equivalent scholarly translation linked via CTS URNs (Topic 11).
-
-| Analytical Layer | Key TEI Markup | Primary Verification Milestone |
-| --- | --- | --- |
-| **Layer 5: Collation** | CollateX JSON / Alignment Tables | Mathematical identification of all variation points |
-| **Layer 6: Apparatus** | `<app>`, `<lem>`, `<rdg>`, `<listWit>` | Explicit editorial constitution of the critical text |
-| **Layer 7: Morphology** | `<w lemma="..." pos="...">` | 100% token lemmatization and morphosyntactic tagging |
-| **Layer 8: Translation** | `<interlinear>`, `<translation>` | Four-line aligned Leipzig gloss and critical English translation |
-
-**Vocabulary.** *Algorithmic alignment* — using dynamic programming algorithms (Needleman-Wunsch) to align divergent manuscript streams. *Morphosyntactic tagging* — assigning grammatical part-of-speech and inflectional codes to individual words.
-
-**Takeaway:** Layers 5–8 execute the philological analysis, generating automated collations, critical apparatuses, linguistic parses, and stratified translations.
+**Takeaway:** Peer review of digital editions evaluates both philological rigor and computational sustainability, requiring valid XML, clear policies, and durable archiving.
 
 ---
 
 ## **27 Content**
 
-**Layer 9–10 Integration: Commentary Knowledge Graphs and Multi-Modal Publishing Packages**
+**Final Quality Gate: Pre-Deposit Verification Checklist**
 
-The final layers of the edition enrich the text with Linked Open Data commentary and compile all assets into multi-modal publication deliverables:
+Before tagging your release and depositing files on Zenodo, you must pass the final **Pre-Deposit Verification Checklist**. This checklist ensures that your project contains zero embarrassing defects.
 
-#### 27.1 Layer 9: Interactive Stand-Off Commentary Knowledge Graphs
+The checklist covers five critical verification gates:
 
-- Author scholarly notes inside `<standOff>` categorized into philological, historical, intertextual, and structural tiers;
-- Anchor notes to base text tokens using CTS URNs and target Pleiades, VIAF, and CiTO ontological URIs (Topic 12).
+1. **Schema Gate:** Run XML validation on `edition_master.xml`. Verify zero syntax errors and zero orphaned note targets.
+2. **HTML Gate:** Test `index.html` in your browser. Verify that all five commentary popups open properly and that image paths load cleanly.
+3. **PDF Gate:** Inspect `dist/pdf/edition.pdf`. Confirm that fonts are embedded, margins are balanced, and footnotes appear on correct pages.
+4. **Metadata Gate:** Confirm that `README.md` includes complete archival coordinates, AI disclosures, and citation text.
+5. **Checksum Gate:** Run `sha256sum` to generate `CHECKSUMS.txt`.
 
-#### 27.2 Layer 10: Multi-Modal Publication Packages
+Taking thirty minutes to complete this checklist protects your academic reputation and ensures your edition is ready for permanent deposit.
 
-- Configure ODD Processing Models (`<model>`, `@behaviour`, `@predicate`) to automate rendering across web popovers and print footnotes (Topic 13.2);
-- Compile the interactive web portal, standalone offline HTML bundle (EVT), and archival print-ready PDF (PDF/A-3b) (Topic 13.3).
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Checklist Item</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Verification Tool</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Required Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">TEI Schema Validation</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Red Hat XML extension in VS Code</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Green checkmark; 0 errors, 0 warnings</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Link and Pointer Audit</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Browser DevTools (F12) Network Tab</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Zero 404 errors; all 5 note targets resolve</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Archival Checksums</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">sha256sum command in terminal</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">CHECKSUMS.txt generated with accurate hashes</td>
+    </tr>
+  </tbody>
+</table>
 
-| Enrichment & Output Layer | Technical Mechanism | Primary Deliverable |
-| --- | --- | --- |
-| **Layer 9: Commentary** | `<standOff>`, CTS URNs, Linked Open Data | Semantic knowledge graph linking text to Pleiades / VIAF / CiTO |
-| **Layer 10: Publication** | ODD Processing Model, CSS Paged Media | Interactive Web Portal, Static HTML Bundle, Archival PDF/A-3b |
+**Vocabulary.** *Pre-Deposit Checklist* — a systematic verification protocol executed immediately before freezing a release and archiving files. *Orphaned Target* — an internal note pointer referencing an anchor ID that does not exist in the document text. *Zero-Error Standard* — requiring that all schemas and links validate completely before publication.
 
-Integrating these final layers transforms your structured XML repository into a globally connected, fully published digital critical edition (Sahle, 2016; Barzaghi et al., 2025).
-
-**Vocabulary.** *Linked Open Data (LOD)* — publishing structured data using URIs and RDF to connect information across global research databases. *Multi-modal deliverable suite* — the complete set of generated web, standalone HTML, and print PDF artifacts.
-
-**Takeaway:** Layers 9–10 complete the edition, integrating Linked Open Data commentary graphs and compiling multi-modal publishing packages.
+**Takeaway:** The pre-deposit verification checklist guarantees that your master XML, web layouts, print PDF, and metadata are 100% verified before permanent release.
 
 ---
 
 ## **28 Content**
 
-**The Final Quality Assurance (QA) Checklist: 12 Gates to Publication**
+**Today's Studio Lab: Building the Release Package**
 
-Before publishing your digital critical edition to Zenodo and GitHub, you must execute the **12-Gate Quality Assurance Checklist**. A defect at any gate halts publication until corrected (Driscoll & Pierazzo, 2016; Barzaghi et al., 2025).
+In today's final classroom studio lab in Mulroney Hall 3032, you will assemble and test your complete release package.
 
-| Gate # | Quality Assurance Gate | Verification Action | Pass / Fail Criterion |
-| --- | --- | --- | --- |
-| **Gate 1** | **XML Well-Formedness** | Run `xmllint --noout data/*.xml` | Zero XML syntax or unclosed tag errors |
-| **Gate 2** | **ODD Schema Validation** | Validate XML against compiled Relax NG (`.rng`) | Zero schema invalidity errors in VS Code and validation pipelines |
-| **Gate 3** | **Content Linter** | Run `python3 scripts/lint_lesson_content.py` | Exactly 0 lint issues across all course lessons |
-| **Gate 4** | **Pointer Integrity** | Verify all `@wit` values match `<listWit>` IDs | Zero broken or unresolved `#wit-` pointers |
-| **Gate 5** | **Apparatus Alignment** | Check `<lem>` text matches base reading text verbatim | Zero discrepancies between lemma and reading view |
-| **Gate 6** | **Stemma Consistency** | Check shared errors against stemma branches | Sibling manuscripts share confirmed conjunctive errors |
-| **Gate 7** | **Commentary Anchors** | Check all stand-off note CTS URN target pointers | Zero dangling or invalid token ID references |
-| **Gate 8** | **LOD Link Health** | Verify all Pleiades / VIAF / DOI URIs resolve | Zero 404 broken links in `<publicationStmt>` or notes |
-| **Gate 9** | **Font Embedding** | Check Cardo and Noto Serif WOFF2 fonts load | Polytonic Greek renders with zero missing glyphs |
-| **Gate 10**| **Offline Package** | Open `dist/web/index.html` locally in browser | Web edition and Lunr search function 100% offline |
-| **Gate 11**| **PDF/A Compliance** | Validate PDF with VeraPDF / WeasyPrint validator | 100% compliance with ISO 19005-3 (PDF/A-3b) |
-| **Gate 12**| **Licensing Complete** | Verify CC BY 4.0, CC0, and MIT statements | Multi-tiered licensing explicitly declared in header |
+Your lab workflow follows three structured stages:
 
-Document the results of your audit in `FINAL_QA_AUDIT.md`. Once all 12 gates are certified green, your edition is cleared for release (Barzaghi et al., 2025).
+1. **Compile Offline Deliverables:** Build your standalone offline HTML package and print-ready PDF codex. Test that the offline package opens and searches properly without internet access.
+2. **Assemble Repository Structure:** Organize your project files into standard directories (`src/`, `dist/web/`, `dist/pdf/`, `images/`). Run `sha256sum` to generate your `CHECKSUMS.txt` manifest.
+3. **Draft Release Notes:** In your repository, draft the release notes for version `v1.0.0`. Document your project scope, historical artifact details, and open licensing terms.
 
-**Vocabulary.** *Quality Assurance (QA) gate* — a mandatory verification checkpoint that must pass before software or research data is published. *Pointer integrity* — the programmatic verification that all internal XML ID references resolve successfully. *VeraPDF* — an industry-standard open-source validator for PDF/A compliance.
+I will circulate throughout the lab to inspect your directory trees, test offline packages, and verify checksum outputs.
 
-**Takeaway:** The 12-Gate QA Checklist verifies XML validity, schema compliance, pointer integrity, font embedding, offline functionality, and PDF/A standards prior to release.
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Lab Stage</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Student Action in VS Code</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Target Deliverable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Stage 1: Compilation</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Generate offline web bundle and print-ready PDF</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">dist/web/ and dist/pdf/ populated</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Stage 2: Checksums</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Run sha256sum across master files and binaries</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Verified CHECKSUMS.txt manifest</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Stage 3: Release Draft</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Draft release notes and verify Zenodo metadata fields</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">v1.0.0 release notes prepared in README.md</td>
+    </tr>
+  </tbody>
+</table>
+
+**Vocabulary.** *Release Package* — the structured bundle of validated XML, compiled web pages, PDFs, and checksums prepared for public archiving. *Checksum Manifest* — a plain-text file listing cryptographic hashes for every file in a dataset. *Verification Stage* — a distinct checkpoint during project assembly confirming quality before release.
+
+**Takeaway:** Today's studio lab guides you to compile offline packages, generate cryptographic checksums, and draft your official release notes in VS Code.
 
 ---
 
 ## **29 Content**
 
-**Post-Publication Life Cycle: Community Feedback, Errata, and Versioned Releases**
+**The December Exam Period Deliverable and Timeline**
 
-In the traditional print world, publishing a book was a final, immutable event. In digital scholarship, publication marks the beginning of an ongoing **scholarly life cycle** (Sahle, 2016; Pierazzo, 2016).
+As our semester concludes, let us review the final course evaluation timeline and requirements.
 
-As other scholars and students read your edition, they will discover new evidence: an overlooked scribal correction in Codex Ephraemi, a new papyrus fragment published in *Oxyrhynchus Papyri*, or an improved syntactical parse for a difficult verse. A digital scholarly edition must maintain a formal mechanism for incorporating community feedback and publishing **versioned releases** (Barzaghi et al., 2025; Topic 1).
+First, remember that **Assignment 12 (Scholarly Commentary)** is due tonight, **Friday, December 4 at 11:00 PM**. Assignment 12 evaluates your five hand-authored commentary notes and your `COMMENTARY.md` reflection ledger (80 points total).
 
-| Life Cycle Stage | Operational Action | Computational Mechanism |
-| --- | --- | --- |
-| **1. Reader Feedback** | Reader submits issue on GitHub | GitHub Issues (e.g., `#42: Typo in 1 Thess 2:8 lem`) |
-| **2. Editorial Triage** | Editorial board reviews and opens branch | `git checkout -b fix/issue-42-lemma-typo` |
-| **3. XML Revision & QA**| Edits XML, updates `<revisionDesc>`, runs QA | `xmllint` + Relax NG + `lint_lesson_content.py` |
-| **4. Versioned Release**| Merges PR, bumps semantic version tag | `git tag -a v1.0.1 -m "Patch release v1.0.1"` |
-| **5. Automated Archive**| Zenodo webhook archives snapshot | Mints versioned sub-DOI linked to master concept DOI |
+Second, your final course deliverable is the **Comprehensive Digital Edition Portfolio**. This is your capstone submission for the course.
 
-| Semantic Version | Change Category | Example Trigger in Digital Edition |
-| --- | --- | --- |
-| **Patch Release (v1.0.1)** | Minor errata, typographical fixes | Correcting a misspelled English gloss or fixing a broken Pleiades link |
-| **Minor Release (v1.1.0)** | New scholarly content, added witnesses | Collating an additional minuscules witness or adding a new commentary tier |
-| **Major Release (v2.0.0)** | Major structural or theoretical revision | Changing the editorial constitution from eclectic to documentary Bédierism |
+- **Submission Window:** December Exam Period, December 10 to 19, 2026;
+- **Total Value:** 100 points (the capstone culmination of your semester);
+- **Grading Rubric:** Evaluates single-witness transcription accuracy (20 pts), TEI XML schema validity (20 pts), named entity linking and LOD (20 pts), critical commentary depth (20 pts), and multi-modal publishing with Zenodo DOI (20 pts).
 
-Maintaining an active, version-controlled repository ensures that your scholarship remains an enduring, reliable foundation for future philological research (Barzaghi et al., 2025; Wilkinson et al., 2016).
+You have plenty of time during the exam period to polish your layout, double-check your shelfmarks, and finalize your Zenodo deposit.
 
-**Vocabulary.** *Scholarly life cycle* — the ongoing process of maintaining, correcting, and updating a digital edition post-publication. *Semantic versioning* — standard version numbering scheme (`MAJOR.MINOR.PATCH`). *Zenodo versioning* — Zenodo's capability to maintain a master DOI representing all versions while assigning individual DOIs to each specific release snapshot.
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Deliverable</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Due Date &amp; Time</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Points</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Submission Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Assignment 12: Commentary</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Tonight, Fri Dec 4 &middot; 11:00 PM</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">80 pts</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Moodle Workshop Section 12</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Capstone Edition Portfolio</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Exam Period: Dec 10&ndash;19, 2026</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">100 pts</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Moodle Section 13 &amp; GitHub Repository</td>
+    </tr>
+  </tbody>
+</table>
 
-**Takeaway:** Post-publication maintenance uses GitHub Issues, semantic versioning, and automated Zenodo archiving to integrate scholarly feedback and publish versioned releases.
+**Vocabulary.** *Capstone Portfolio* — the comprehensive final project deliverable synthesizing all semester learning into a finished publication. *Exam Period Submission Window* — the designated university schedule window (Dec 10–19) for submitting final projects and portfolios. *Holistic Evaluation* — grading that assesses the overall integration, rigor, and craft of a complete digital project.
+
+**Takeaway:** Assignment 12 is due tonight at 11:00 PM, and your final Capstone Digital Edition Portfolio is submitted during the December Exam Period (Dec 10–19).
 
 ---
 
 ## **30 Content**
 
-**Synthesis & Epilogue: The Transformed Philologist and the Future of Digital Scholarly Editing**
+**Course Synthesis: The Journey from Novice to Digital Editor**
 
-Over the course of this semester in RELS 398 / ENGL 398, you have accomplished a profound transformation: you have evolved from a reader of static printed texts into a **computational philologist and digital editor** (Sahle, 2016; Pierazzo, 2016).
+Take a moment to reflect on how far you have traveled since September. When you entered Mulroney Hall 3032 in early September, you had never opened VS Code. You had never typed a command into a terminal. You had never written an XML tag.
 
-You have mastered the complete arc of textual scholarship:
+Over thirteen weeks, you conquered the fundamental crafts of digital textual scholarship:
 
-1. **Codicology & Facsimiles:** Grounding texts in physical manuscript materiality and high-resolution IIIF canvases (Topics 2–3);
-2. **Diplomatic & Normalized Markup:** Mastering the delicate boundary between historical manuscript reality and standardized lexical forms (Topics 4–6);
-3. **Computational Collation & Stemmatology:** Aligning witnesses via CollateX, constructing stemmata codicum, and applying the CBGM to open traditions (Topics 7–8; Topic 13.1);
-4. **Linguistic Parsing & Translation:** Tokenizing syntax via CLTK and authoring Leipzig-aligned interlinear glosses (Topics 9–11);
-5. **Commentary Knowledge Graphs:** Structuring stand-off annotations with Linked Open Data ontologies (Topic 12);
-6. **Multi-Modal Publishing & Stewardship:** Configuring the TEI Processing Model in ODD, compiling web/PDF packages, and releasing under CC BY/CC0/MIT open access standards (Topic 13).
+- You learned to navigate the file system and control code with Git;
+- You bound digital facsimiles and encoded diplomatic transcriptions in TEI XML;
+- You resolved orthographic variations and parsed linguistic features;
+- You connected historical people and places to global Linked Open Data registries;
+- You authored scholarly commentary notes and designed responsive web layouts;
+- Today, you published multi-modal editions with persistent DOIs and open licenses.
 
-As Patrick Sahle and Elena Pierazzo have shown, a digital scholarly edition is not merely a computerized version of a paper book. It is a new paradigm of knowledge representation: an open, transparent, reproducible, and multi-modal research environment that honors the historical complexity of our shared textual heritage (Sahle, 2016; Pierazzo, 2016).
+You have preserved three remarkable historical voices: an 18th-century French Revolutionary decree, an intimate handwritten letter by Maud Lewis, and a foundational 1752 Peace and Friendship Treaty.
 
-Congratulations on completing your digital scholarly edition!
+Your editions are rigorous, accessible, and durable. You are no longer novices; you are published digital scholarly editors. Congratulations on an extraordinary semester of scholarship.
 
-**Takeaway:** Digital scholarly editing transforms philology by uniting deep manuscript knowledge, rigorous computational modeling, and multi-modal open stewardship into an enduring digital edition.
+<table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #002d62; color: #ffffff;">
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Phase</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Skills Acquired</th>
+      <th style="padding: 10px; border: 1px solid #cbd5e1; text-align: left;">Scholarly Transformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Weeks 1&ndash;4</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">VS Code, Terminal, Git, Cataloguing, Facsimiles</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">From computer novices to confident codicologists</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Weeks 5&ndash;9</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">TEI XML, Normalization, Lemmatization, NER, LOD</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">From transcribers to computational linguists</td>
+    </tr>
+    <tr style="background-color: #f8fafc;">
+      <td style="padding: 10px; border: 1px solid #cbd5e1; font-weight: bold;">Weeks 10&ndash;13</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">Alignment, Commentary, Processing Model, Zenodo</td>
+      <td style="padding: 10px; border: 1px solid #cbd5e1;">From students to published digital textual editors</td>
+    </tr>
+  </tbody>
+</table>
 
----
+**Vocabulary.** *Scholarly Transformation* — the developmental growth of students from initial beginners to confident, independent digital editors. *Textual Stewardship* — the ethical and academic responsibility of preserving and publishing historical voices faithfully. *Digital Textual Editor* — a scholar capable of transcribing, encoding, annotating, and publishing historical primary documents.
 
-## References
-
-Barzaghi, S., Palmero Aprosio, A., Paolucci, F., & Peroni, S. (2025). The semantic digital edition of Aldo Moro's writings: A workflow supporting data sharing and replicability. *ACM Journal on Computing and Cultural Heritage, 18*(2), Article 24. https://doi.org/10.1145/3725534
-
-Berti, M. (2026). Annotating the ancient world: Critical annotations and digital editions. In *Charting the Future of Historical Humanities* (pp. 45–68). Brepols. https://doi.org/10.1484/M.LECTIO-EB.5.151800
-
-Buzzoni, M. (2016). A protocol for scholarly digital editions? The Italian point of view. In M. J. Driscoll & E. Pierazzo (Eds.), *Digital Scholarly Editing: Theories and Practices* (pp. 89–108). Open Book Publishers. https://doi.org/10.11647/OBP.0095.05
-
-Coombs, J. H., Renear, A. H., & DeRose, S. J. (1987). Markup systems and the future of scholarly text processing. *Communications of the ACM, 30*(11), 933–947. https://doi.org/10.1145/32206.32209
-
-Creative Commons. (2026). *About the CC licenses*. Creative Commons. https://creativecommons.org/about/cclicenses/
-
-Driscoll, M. J., & Pierazzo, E. (Eds.). (2016). *Digital scholarly editing: Theories and practices*. Open Book Publishers. https://doi.org/10.11647/OBP.0095
-
-Feist Publications, Inc., v. Rural Telephone Service Co., 499 U.S. 340 (1991). https://supreme.justia.com/cases/federal/us/499/340/
-
-Fischer, F. (2020). 6.3 Representing the critical text. In P. Roelli (Ed.), *Handbook of Stemmatology: History, Methodology, Digital Approaches* (pp. 405–424). De Gruyter. https://doi.org/10.1515/9783110684384-006
-
-International Organization for Standardization. (2020). *Document management — Electronic document file format for long-term preservation — Part 3: Use of ISO 32000-1 with support for embedded files (PDF/A-3)* (ISO Standard No. 19005-3:2012/Amd 1:2020). ISO. https://www.iso.org/standard/76508.html
-
-Klein, M., Van de Sompel, H., Sanderson, R., Shankar, H., Balakireva, L., Zhou, K., & Tobin, R. (2014). Scholarly context not found: One in five articles suffers from reference rot. *PLOS ONE, 9*(12), Article e115253. https://doi.org/10.1371/journal.pone.0115253
-
-Maas, P. (1958). *Textual criticism* (B. Flower, Trans.). Oxford University Press.
-
-Open Source Initiative. (2026). *The Open Source Definition*. Open Source Initiative. https://opensource.org/osd
-
-Pierazzo, E. (2015). *Digital scholarly editing: Theories, models and methods*. Ashgate Publishing / Routledge. https://doi.org/10.4324/9781315577227
-
-Pierazzo, E. (2016). Modelling digital scholarly editions: 'In the making'. In M. J. Driscoll & E. Pierazzo (Eds.), *Digital Scholarly Editing: Theories and Practices* (pp. 61–77). Open Book Publishers. https://doi.org/10.11647/OBP.0095.04
-
-Renear, A. H. (2004). Text encoding. In S. Schreibman, R. Siemens, & J. Unsworth (Eds.), *A Companion to Digital Humanities* (pp. 218–239). Blackwell. https://doi.org/10.1002/9780470999875.ch17
-
-Sahle, P. (2016). What is a scholarly digital edition? In M. J. Driscoll & E. Pierazzo (Eds.), *Digital Scholarly Editing: Theories and Practices* (pp. 19–39). Open Book Publishers. https://doi.org/10.11647/OBP.0095.02
-
-Smith, N., & Blackwell, C. (2012). *The CITE architecture: Canonical Text Services*. Center for Hellenic Studies, Harvard University. http://www.homermultitext.org/hmt-doc/cite/texts/ctsom2.html
-
-Stadler, P., Illetschko, M., & Veit, J. (2016). Towards a digital edition of the Carl Maria von Weber complete works. *International Journal of Humanities and Arts Computing, 10*(1), 67–85. https://doi.org/10.3366/ijhac.2016.0160
-
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and interchange* (Version 4.8.1). TEI Consortium. https://www.tei-c.org/release/doc/tei-p5-doc/en/html/
-
-Turska, M., Cummings, J., & Rahtz, S. (2016). Challenging the myth of presentation in digital editions: The TEI Processing Model. *Journal of the Text Encoding Initiative, 9*, 1–22. https://doi.org/10.4000/jtei.1467
-
-Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., Appleton, G., Axton, M., Baak, A., ... & Mons, B. (2016). The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data, 3*, Article 160018. https://doi.org/10.1038/sdata.2016.18
-
-World Wide Web Consortium. (2026). *CSS Paged Media Module Level 3* (W3C Working Draft). World Wide Web Consortium. https://www.w3.org/TR/css-page-3/
+**Takeaway:** Over thirteen weeks, you evolved from terminal novices into published digital scholarly editors, preserving vital historical witnesses for the global community.

@@ -1,0 +1,2362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_13.3</text></category></question>
+<question type="description"><name><text>01 Content: The Multi-Modal Vision: Publishing Beyond a Single Screen</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Multi-Modal Vision: Publishing Beyond a Single Screen</h3>
+<p>Welcome to our final class meeting of the semester. Today we complete our capstone publication studio. Over the past twelve weeks, you built rich TEI XML files. You transcribed handwriting, normalized spellings, linked historical entities, and authored commentary notes.</p>
+<p>Now your work must reach the world. A major trap in digital humanities is locking your edition inside a single website. If that website goes offline, your research disappears.</p>
+<p>A true digital scholarly edition is <strong>multi-modal</strong>. This means it compiles into several distinct formats from one master XML file. Different readers need different reading environments:</p>
+<ol>
+<li>An <strong>interactive website</strong> for online research with image zoom and popups;</li>
+<li>A <strong>standalone offline package</strong> that runs on a laptop without internet access;</li>
+<li>A <strong>print-ready PDF</strong> for library archiving, physical reading, and formal citation.</li>
+</ol>
+<p>Because all these formats compile from the same TEI source, you maintain total consistency. You never copy and paste text between separate files.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Publication Format</th>
+      <th>Technical Medium</th>
+      <th>Primary Advantage</th>
+      <th>Best Audience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Interactive Web App</td>
+      <td>HTML5, CSS3, JavaScript</td>
+      <td>Dynamic facsimiles, search, and popup commentary</td>
+      <td>Online scholars and students</td>
+    </tr>
+    <tr>
+      <td>Standalone Offline Zip</td>
+      <td>Static HTML and Lunr.js</td>
+      <td>Runs anywhere without an internet connection</td>
+      <td>Field researchers and museum kiosks</td>
+    </tr>
+    <tr>
+      <td>Print-Ready PDF Codex</td>
+      <td>CSS Paged Media / Typst</td>
+      <td>Fixed page numbers and bottom footnotes</td>
+      <td>Academic libraries and book readers</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Multi-Modal Publishing</em> — compiling multiple distinct media formats like web, offline zip, and print PDF from one master XML source. <em>Single Source of Truth</em> — maintaining one canonical master dataset to ensure all derived publications remain identical. <em>Reading Environment</em> — the physical or digital context in which an audience reads and engages with a text.</p>
+<p><strong>Takeaway:</strong> A digital scholarly edition must compile into interactive web, offline standalone, and print-ready formats from a single master TEI XML file.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The Multi-Modal Vision: Publishing Beyond a Single Screen</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must a true digital scholarly edition output to multiple distinct publication formats?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A digital scholarly edition must compile into interactive web, offline standalone, and print-ready formats from a single master TEI XML file.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Different readers require different environments, such as interactive websites for study, offline packages for travel, and print PDFs for formal citation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Compiling multiple formats from a single master XML file ensures broad access while preserving data consistency.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Federal law prohibits publishing scholarship on more than one computer monitor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multi-modal publishing is a scholarly best practice, not a legal restriction.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Digital editions must delete their underlying XML after creating a website.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The master TEI XML file is preserved permanently as the single source of truth.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Readers are only allowed to read historical documents on smartphones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multi-modal editions support mobile devices, desktop monitors, and physical printed books.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: Medium-Specific Affordances: Screen vs. Page vs. Raw Data</text></name><questiontext format="html"><text><![CDATA[
+<h3>Medium-Specific Affordances: Screen vs. Page vs. Raw Data</h3>
+<p>To publish across multiple media, you must understand <strong>affordances</strong>. An affordance is what a specific medium allows a user to do. Different media have distinct strengths and limitations.</p>
+<p>A digital screen is fluid, interactive, and boundless. It allows users to zoom into high-resolution manuscript scans, click on popup notes, and toggle between diplomatic and normalized spelling. However, web pages can be distracting and require battery power or internet access.</p>
+<p>A physical printed page is fixed, permanent, and tactile. It has clear page numbers, stable margins, and footnotes at the bottom of the page. It never suffers from dead batteries or broken web links. However, it cannot play audio, show deep-zoom scans, or toggle views.</p>
+<p>Raw TEI XML is machine-actionable data. Computers can search it, index it, and analyze it with computational tools. However, human readers cannot read raw XML comfortably without a rendering interface. A skilled editor designs formats that play to the strengths of each medium.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Interactive Web Screen</th>
+      <th>Printed Book Page (PDF)</th>
+      <th>Raw TEI XML Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Spatial Layout</td>
+      <td>Continuous vertical scroll or split panes</td>
+      <td>Fixed two-dimensional page grid</td>
+      <td>Hierarchical tree structure</td>
+    </tr>
+    <tr>
+      <td>Commentary Placement</td>
+      <td>Interactive popups and sidebar cards</td>
+      <td>Numbered footnotes at page bottom</td>
+      <td>Standoff note tags with target IDs</td>
+    </tr>
+    <tr>
+      <td>Citation Anchor</td>
+      <td>Web URI and HTML element IDs</td>
+      <td>Fixed page number and line number</td>
+      <td>XML xml:id and XPath expression</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Affordance</em> — the unique functional capabilities and reading behaviors provided by a specific medium. <em>Spatial Layout</em> — the physical or digital organization of text and images across a display surface. <em>Citation Anchor</em> — the fixed reference point used by scholars to cite a specific sentence or passage.</p>
+<p><strong>Takeaway:</strong> Understanding medium-specific affordances allows editors to optimize commentary, layouts, and citations for screens, printed pages, and data streams.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Medium-Specific Affordances: Screen vs. Page vs. Raw Data</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the scholarly affordance of a fixed printed page compared to an interactive digital screen?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Understanding medium-specific affordances allows editors to optimize commentary, layouts, and citations for screens, printed pages, and data streams.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A printed page provides fixed, permanent layout with stable page and line numbers that never suffer from link rot or battery failure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. While screens excel at interactivity and zooming, print provides permanent, distraction-free reading grids.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A printed page can play high-definition video animations of scribes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Physical paper cannot display video; that is an affordance of digital screens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A printed page automatically rewrites its sentences every five years.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Print pages are static and permanent once printed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A printed page can only be read inside a bank vault.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Print books are portable and universally readable without electricity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: What is Minimal Computing in Digital Humanities?</text></name><questiontext format="html"><text><![CDATA[
+<h3>What is Minimal Computing in Digital Humanities?</h3>
+<p>In recent years, digital humanities scholars have embraced <strong>minimal computing</strong>. Minimal computing is a design philosophy that asks: what is the simplest technology that can accomplish our scholarly goals?</p>
+<p>Many early digital humanities projects used complicated technology. They required database servers, custom web applications, and expensive cloud hosting. When project grants ran out after three years, nobody could pay the hosting bills. The servers were shut down, and decades of scholarly research disappeared.</p>
+<p>Minimal computing avoids this trap. It emphasizes:</p>
+<ol>
+<li><strong>Static files</strong> (plain HTML, CSS, and JS) instead of live database servers;</li>
+<li><strong>Open formats</strong> (TEI XML, Markdown, plain text) that any computer can read;</li>
+<li><strong>Low infrastructure demands</strong> that work on slow internet connections;</li>
+<li><strong>Zero ongoing hosting costs</strong> by using free platforms like GitHub Pages.</li>
+</ol>
+<p>A minimal computing edition does not require a full-time system administrator. It runs anywhere and survives for decades.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Complex Database Architecture</th>
+      <th>Minimal Computing Architecture</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Server Requirement</td>
+      <td>Requires live SQL/NoSQL database and server runtime</td>
+      <td>Plain web server serving static files</td>
+    </tr>
+    <tr>
+      <td>Maintenance Cost</td>
+      <td>High; monthly server hosting and regular security patches</td>
+      <td>Zero; free hosting on GitHub Pages or institutional storage</td>
+    </tr>
+    <tr>
+      <td>Preservation Risk</td>
+      <td>High; site breaks when server software updates</td>
+      <td>Very low; plain HTML files remain readable for decades</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Minimal Computing</em> — a philosophy favoring simple, sustainable, and durable technologies with low maintenance demands. <em>Static Files</em> — web files like HTML and CSS that are delivered to the browser exactly as stored, without server processing. <em>Infrastructure Fragility</em> — the vulnerability of complex digital projects to server obsolescence and funding loss.</p>
+<p><strong>Takeaway:</strong> Minimal computing ensures digital editions survive for decades by using simple static files that require zero server maintenance or hosting budgets.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: What is Minimal Computing in Digital Humanities?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does minimal computing prevent digital editions from disappearing when grant funding ends?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Minimal computing ensures digital editions survive for decades by using simple static files that require zero server maintenance or hosting budgets.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It uses static files and open formats that require zero ongoing server maintenance, database costs, or administrative upkeep.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Plain HTML, CSS, and TEI XML files survive for decades on free static storage without server crashes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces researchers to type all documents on mechanical typewriters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Minimal computing uses modern digital tools like Git, HTML5, and TEI XML.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all images and commentary to make files smaller than one kilobyte.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Minimal computing supports high-resolution images and rich scholarship without server bloat.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires paying expensive monthly fees to cloud software corporations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Minimal computing explicitly avoids expensive recurring subscription fees.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: The Fragility of the Digital Archive</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Fragility of the Digital Archive</h3>
+<p>Print books are remarkably durable. A printed book from 1752 or 1791 can sit on a library shelf for centuries. As long as the paper stays dry, anyone who speaks the language can open it and read it.</p>
+<p>Digital files are far more fragile. Digital humanities projects face several severe preservation hazards:</p>
+<ol>
+<li><strong>Link Rot:</strong> Web addresses change over time. Studies show that over half of web links in academic papers break within ten years.</li>
+<li><strong>Software Obsolescence:</strong> Software tools and plugins disappear. Flash animations, custom browser extensions, and obsolete server scripts stop functioning.</li>
+<li><strong>Format Decay:</strong> Proprietary word processor files from the 1990s often cannot be opened by modern software without data loss.</li>
+</ol>
+<p>Scholarly editors must guard against these threats. We use open standards like TEI XML because XML is plain text that any operating system can read. We avoid closed, proprietary tools that lock data away behind commercial licenses.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Preservation Hazard</th>
+      <th>Cause of Failure</th>
+      <th>Digital Humanities Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Link Rot</td>
+      <td>Domain changes and site reorganizations break URLs</td>
+      <td>Minting persistent DOIs through Zenodo</td>
+    </tr>
+    <tr>
+      <td>Database Rot</td>
+      <td>Live databases crash when hosting contracts expire</td>
+      <td>Compiling static HTML and storing master XML in git</td>
+    </tr>
+    <tr>
+      <td>Format Obsolescence</td>
+      <td>Proprietary software files become unreadable</td>
+      <td>Using open plain-text TEI XML and PDF/A standards</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Link Rot</em> — the gradual process by which web links break and point to missing 404 pages over time. <em>Format Obsolescence</em> — the inability of modern computers to read outdated, proprietary file formats. <em>Plain-Text Preservation</em> — storing data as unformatted text files to ensure universal readability across all future computer systems.</p>
+<p><strong>Takeaway:</strong> Digital editions protect against link rot and format obsolescence by using open plain-text TEI XML and permanent digital identifiers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: The Fragility of the Digital Archive</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is 'link rot', and why is it a severe hazard for digital scholarship?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Digital editions protect against link rot and format obsolescence by using open plain-text TEI XML and permanent digital identifiers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The process by which web addresses change or expire over time, causing scholarly links to return broken 404 errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Over half of academic web links break within ten years; persistent DOIs prevent this decay.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The physical rusting of computer cables in humid library basements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Link rot refers to broken web hyperlinks and expired domain names.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A computer virus that deletes punctuation marks from historical texts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Link rot is caused by changing web URLs and server migrations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The inability of modern printers to print digital documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Link rot affects web links, not printer hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Compiling Standalone Offline HTML Packages</text></name><questiontext format="html"><text><![CDATA[
+<h3>Compiling Standalone Offline HTML Packages</h3>
+<p>One of the most practical deliverables of a digital edition is a <strong>standalone offline package</strong>. An offline package is a self-contained folder containing everything needed to run your edition without an internet connection.</p>
+<p>It bundles together:</p>
+<ol>
+<li>The compiled <code>index.html</code> file containing the document text and paratexts;</li>
+<li>The <code>style.css</code> stylesheet providing typography and layouts;</li>
+<li>A local <code>images/</code> directory containing optimized manuscript facsimiles;</li>
+<li>Lightweight JavaScript files that provide interactive toggles and note popups.</li>
+</ol>
+<p>You can compress this entire directory into a single <code>.zip</code> file. A researcher can download the zip, extract it onto their laptop, and double-click <code>index.html</code>. The complete edition opens instantly in their web browser.</p>
+<p>Offline packages are invaluable for researchers traveling to archives with poor Wi-Fi, for classroom teaching without network lags, and for deposit in university library repositories.</p>
+<pre><code class="language-text">edition_offline_package/
+  index.html          # Standalone reading interface
+  style.css           # Local typography and layout rules
+  app.js              # Lightweight offline interaction scripts
+  images/             # Optimized manuscript scans and seals
+    page_01.jpg
+    seal_01.png
+  README.txt          # Quick-start instructions for scholars
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Standalone Offline Package</em> — a self-contained folder of HTML, CSS, JS, and image assets that runs locally without internet connectivity. <em>Asset Bundling</em> — gathering all referenced images, styles, and scripts into a local directory structure. <em>Zero-Dependency Web Page</em> — an HTML document that requires no external content delivery networks (CDNs) to display properly.</p>
+<p><strong>Takeaway:</strong> Standalone offline packages bundle HTML, CSS, scripts, and images into portable zip files that run anywhere without internet access.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Compiling Standalone Offline HTML Packages</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the contents and benefits of a standalone offline HTML package?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Standalone offline packages bundle HTML, CSS, scripts, and images into portable zip files that run anywhere without internet access.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It bundles HTML, CSS, JavaScript, and optimized images into a portable zip file that runs anywhere without an internet connection.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Scholars can open index.html directly from a laptop or USB drive during archival fieldwork.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It contains an encrypted password that only university presidents can open.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Offline packages are designed for open, frictionless access.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires an active internet connection to download every paragraph.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Offline packages are completely self-contained and run without network access.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts all historical documents into spreadsheet financial ledgers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The package preserves the full reading layout, facsimiles, and commentary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Offline Client-Side Search with Lunr.js</text></name><questiontext format="html"><text><![CDATA[
+<h3>Offline Client-Side Search with Lunr.js</h3>
+<p>A major advantage of digital editions is full-text search. Readers want to search for names, places, and historical terms across your witness. However, traditional search engines require a live database server running in the cloud.</p>
+<p>To maintain minimal computing principles, digital humanists use <strong>client-side search</strong>. A popular tool for this is <strong>Lunr.js</strong>. Lunr.js is a lightweight JavaScript search library that runs entirely inside the reader's browser.</p>
+<p>Here is how it works:</p>
+<ol>
+<li>During the build process, a script parses your TEI XML and extracts all words, sentences, and notes;</li>
+<li>The script compiles this text into a compact JSON search index;</li>
+<li>When a reader types a word into your edition's search box, Lunr.js searches the pre-built index in memory;</li>
+<li>Search results appear in less than ten milliseconds, with sentence excerpts and clickable links.</li>
+</ol>
+<p>Because the search runs inside the browser, it works perfectly offline. It requires zero server processing and costs nothing to run.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Search Architecture</th>
+      <th>Where Search Executes</th>
+      <th>Server Requirement</th>
+      <th>Offline Capability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Server-Side Search (SQL/Elastic)</td>
+      <td>Remote cloud server database</td>
+      <td>Requires live active server process</td>
+      <td>Fails completely without internet</td>
+    </tr>
+    <tr>
+      <td>Client-Side Search (Lunr.js)</td>
+      <td>Inside the user's web browser</td>
+      <td>Zero; static JSON index file</td>
+      <td>Functions 100% offline anywhere</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Client-Side Search</em> — executing search queries directly inside the user's browser using JavaScript rather than on a remote server. <em>Lunr.js</em> — a lightweight JavaScript search library designed for static websites. <em>Search Index</em> — a pre-computed data structure mapping words to their locations in a text to enable instant lookups.</p>
+<p><strong>Takeaway:</strong> Client-side search tools like Lunr.js enable instant full-text search inside the browser without requiring a database server or internet connection.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Offline Client-Side Search with Lunr.js</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does client-side search with Lunr.js operate without a live database server?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Client-side search tools like Lunr.js enable instant full-text search inside the browser without requiring a database server or internet connection.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It searches a pre-built static JSON index entirely inside the user's web browser memory in milliseconds.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This provides instant full-text search offline with zero server processing or hosting costs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It sends every search query to a remote supercomputer via satellite.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lunr.js runs 100% locally inside the web browser.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires readers to manually read through the entire dictionary before searching.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The pre-compiled JSON index allows instant computational lookups.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It only searches for numbers and ignores all historical words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lunr.js provides comprehensive full-text search across all transcribed words and notes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Print-Ready PDF Publishing with CSS Paged Media and Typst</text></name><questiontext format="html"><text><![CDATA[
+<h3>Print-Ready PDF Publishing with CSS Paged Media and Typst</h3>
+<p>While web interfaces are dynamic, academic libraries and philologists still require printed codex volumes. A digital scholarly edition must be able to compile into a formal, beautifully typeset PDF.</p>
+<p>Historically, converting XML to print required mastering LaTeX, a powerful but difficult typesetting language. Today, modern digital publishing provides streamlined alternatives:</p>
+<ol>
+<li><strong>CSS Paged Media:</strong> Uses standard CSS rules with special paged extensions (<code>@page</code>, <code>@top-left</code>, <code>marks: crop</code>). Tools like Weasyprint convert your HTML and CSS into print PDFs.</li>
+<li><strong>Typst:</strong> A modern, lightning-fast markup and typesetting system. Typst combines the typographic power of LaTeX with clean, readable syntax.</li>
+<li><strong>Pandoc:</strong> An open-source document converter that transforms Markdown and XML into PDF via Typst or LaTeX.</li>
+</ol>
+<p>These modern tools automate page layout. They calculate page breaks, generate running headers, create tables of contents, and place numbered footnotes cleanly at the bottom of the page.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Typesetting Tool</th>
+      <th>Syntax Style</th>
+      <th>Compilation Speed</th>
+      <th>Primary Strength</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Typst</td>
+      <td>Modern clean markup</td>
+      <td>Instantaneous (&lt; 1 second)</td>
+      <td>Beautiful default typography and fast compilation</td>
+    </tr>
+    <tr>
+      <td>CSS Paged Media (Weasyprint)</td>
+      <td>Standard CSS with @page rules</td>
+      <td>Fast (2&ndash;5 seconds)</td>
+      <td>Reuses existing HTML and CSS web styles directly</td>
+    </tr>
+    <tr>
+      <td>LaTeX (reledmac)</td>
+      <td>Dense macro commands</td>
+      <td>Slow (10&ndash;30 seconds)</td>
+      <td>Complex multi-tiered classical apparatus layouts</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>CSS Paged Media</em> — W3C specifications that extend CSS to handle pagination, margins, page numbers, and running headers for print. <em>Typst</em> — a modern, fast typesetting system designed as an accessible alternative to LaTeX. <em>Running Header</em> — small header text repeated at the top of printed pages showing chapter titles and page numbers.</p>
+<p><strong>Takeaway:</strong> Modern tools like Typst and CSS Paged Media convert TEI XML into elegant, print-ready PDF volumes with automatic page numbering and running headers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Print-Ready PDF Publishing with CSS Paged Media and Typst</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What advantages do modern typesetting tools like Typst and CSS Paged Media offer over legacy LaTeX?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Modern tools like Typst and CSS Paged Media convert TEI XML into elegant, print-ready PDF volumes with automatic page numbering and running headers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They provide clean, readable syntax, rapid compilation, and automatic page layouts with running headers and footnotes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Modern tools simplify the creation of professional print codex volumes without LaTeX's dense syntax.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They prevent users from printing documents on physical paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These tools are specifically designed to generate high-quality print-ready PDFs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They only work if the document contains zero words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They typeset complex books, critical editions, and scholarly articles.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They require users to manually calculate the coordinates of every letter on the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Typst and CSS Paged Media calculate page breaks and line layouts automatically.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Structuring the Print Critical Apparatus</text></name><questiontext format="html"><text><![CDATA[
+<h3>Structuring the Print Critical Apparatus</h3>
+<p>When preparing a printed edition, commentary notes must be adapted to the physical page. On a website, commentary can hide inside clickable popups. On a printed page, there is no clicking. Every note must be visible on the paper.</p>
+<p>In print editions, commentary is presented as a <strong>critical apparatus</strong>. The apparatus is organized into numbered footnotes at the bottom of the page or in endnotes at the end of the text.</p>
+<p>Footnotes must be formatted with scholarly rigor:</p>
+<ol>
+<li>Each note begins with a superscript number matching the anchor in the text;</li>
+<li>The note quotes the referenced word or lemma in bold or italics;</li>
+<li>A closing square bracket (<code>]</code>) separates the lemma from the critical commentary;</li>
+<li>Concise philological definitions, historical facts, and bibliographic citations follow.</li>
+</ol>
+<p>This standard layout allows scholars to consult commentary instantly while reading without flipping pages.</p>
+<pre><code>---------------------------------------------------------------------
+1 truckhouse] A British colonial trading post established by Governor
+Hopson in 1752, where Mi'kmaq exchanged furs for British goods at
+fixed government rates. See Nova Scotia Archives RG 1 vol 430.
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Critical Apparatus</em> — the organized system of notes and references explaining textual variants, historical context, and emendations. <em>Lemma</em> — the specific word or phrase quoted at the start of a critical note to identify the passage being explained. <em>Lemma Separator</em> — the square bracket (]) used in traditional philology to separate the lemma from the note.</p>
+<p><strong>Takeaway:</strong> Print editions structure commentary as a critical apparatus at the bottom of the page, citing the lemma with a closing square bracket and clear historical notes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Structuring the Print Critical Apparatus</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How is a traditional critical footnote formatted at the bottom of a printed edition page?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Print editions structure commentary as a critical apparatus at the bottom of the page, citing the lemma with a closing square bracket and clear historical notes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It cites the lemma from the text followed by a closing square bracket, then provides the philological or historical explanation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. For example: '1 truckhouse] A British colonial trading post established in 1752...'.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It hides the note text in invisible white ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Print footnotes must be clearly visible and legible at the bottom of the page.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces historical notes with modern advertisements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions present verified historical and philological commentary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prints all notes upside down at the top of the title page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Standard apparatus notes appear as numbered footnotes directly below the referenced text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: PDF/A: The Archival Standard for Digital Documents</text></name><questiontext format="html"><text><![CDATA[
+<h3>PDF/A: The Archival Standard for Digital Documents</h3>
+<p>When generating a PDF for long-term preservation, not all PDFs are equal. Standard PDFs can contain active JavaScript, external font links, and embedded audio. Over time, these dependencies break, causing the document to render incorrectly.</p>
+<p>To solve this problem, the International Organization for Standardization created <strong>PDF/A</strong>. PDF/A is a specialized subset of PDF designed specifically for digital preservation.</p>
+<p>PDF/A enforces strict preservation rules:</p>
+<ol>
+<li><strong>100% Font Embedding:</strong> Every font used in the document must be embedded directly inside the PDF file. The document will display correctly even if the original font is deleted from the computer.</li>
+<li><strong>Device-Independent Color:</strong> Colors are defined using standard color profiles so pages look identical on all screens and printers.</li>
+<li><strong>No External Dependencies:</strong> External hyperlinks to outside scripts or dynamic media are prohibited.</li>
+<li><strong>Structured Metadata:</strong> Rich XML metadata (XMP) is embedded inside the PDF header, detailing author, title, date, and license.</li>
+</ol>
+<p>When submitting your final digital edition PDF, compiling to PDF/A guarantees your work remains readable for decades.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Preservation Rule</th>
+      <th>Standard PDF Behavior</th>
+      <th>Archival PDF/A Requirement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Font Handling</td>
+      <td>Often links to system fonts; breaks if font missing</td>
+      <td>Mandatory 100% embedded fonts inside the file</td>
+    </tr>
+    <tr>
+      <td>Embedded Code</td>
+      <td>Permits active JavaScript and executable macros</td>
+      <td>Strictly prohibited; only static content allowed</td>
+    </tr>
+    <tr>
+      <td>Preservation Horizon</td>
+      <td>Uncertain; dependent on proprietary viewers</td>
+      <td>Guaranteed 50+ year visual fidelity under ISO 19005</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>PDF/A</em> — an ISO-standardized version of PDF specialized for digital preservation and archiving. <em>Font Embedding</em> — storing the full outline data of every typeface inside the document file. <em>XMP Metadata</em> — Extensible Metadata Platform, an XML format for embedding bibliographic metadata inside digital files.</p>
+<p><strong>Takeaway:</strong> Compiling to the PDF/A archival standard embeds all fonts and metadata directly inside the file, guaranteeing permanent visual preservation.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: PDF/A: The Archival Standard for Digital Documents</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is PDF/A required for permanent digital preservation rather than standard PDF?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Compiling to the PDF/A archival standard embeds all fonts and metadata directly inside the file, guaranteeing permanent visual preservation.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;PDF/A mandates 100% embedded fonts and prohibits external scripts, guaranteeing that pages render identically decades into the future.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Standard PDFs can break when system fonts or external links disappear; PDF/A is self-contained.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;PDF/A automatically translates documents into ancient Egyptian hieroglyphs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. PDF/A preserves the exact visual appearance of the original text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;PDF/A files can only be opened once before they erase themselves.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. PDF/A is an ISO standard designed for permanent, indefinite preservation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;PDF/A requires paying annual royalty fees to printer manufacturers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. PDF/A is an open international standard freely supported by modern readers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: The FAIR Data Principles: Findable and Accessible</text></name><questiontext format="html"><text><![CDATA[
+<h3>The FAIR Data Principles: Findable and Accessible</h3>
+<p>Publishing a digital edition is not just about making a website; it is about contributing to global scholarly knowledge. Today, research funding agencies and universities require research data to follow the <strong>FAIR Data Principles</strong>.</p>
+<p>FAIR stands for:</p>
+<ul>
+<li><strong>F</strong>indable</li>
+<li><strong>A</strong>ccessible</li>
+<li><strong>I</strong>nteroperable</li>
+<li><strong>R</strong>eusable</li>
+</ul>
+<p>Let us examine the first two principles:</p>
+<ol>
+<li><strong>Findable:</strong> Your edition must have rich metadata and a unique, persistent identifier (such as a DOI). Search engines and library catalogues must be able to discover your project easily.</li>
+<li><strong>Accessible:</strong> Your edition must be stored in a trusted repository where anyone can download it using standard, open communication protocols (like HTTP). There should be no paywalls or proprietary barriers preventing scholars from accessing the text.</li>
+</ol>
+<p>Following these principles ensures your scholarship reaches a worldwide audience and remains discoverable for generations.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Principle</th>
+      <th>Core Requirement</th>
+      <th>Implementation in RELS 398</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Findable (F)</td>
+      <td>Persistent identifier (DOI) and rich searchable metadata</td>
+      <td>Depositing edition on Zenodo and minting an official DOI</td>
+    </tr>
+    <tr>
+      <td>Accessible (A)</td>
+      <td>Open, free retrieval via standard protocols without barriers</td>
+      <td>Public repository on GitHub and open access download on Zenodo</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>FAIR Data Principles</em> — international guidelines establishing that research data must be Findable, Accessible, Interoperable, and Reusable. <em>Persistent Identifier (PID)</em> — a permanent digital handle that remains valid even if web server addresses change. <em>Open Access</em> — the free, unrestricted online availability of research scholarship and data.</p>
+<p><strong>Takeaway:</strong> The Findable and Accessible principles ensure your digital edition can be discovered through persistent DOIs and downloaded freely by scholars worldwide.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: The FAIR Data Principles: Findable and Accessible</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What actions satisfy the Findable and Accessible principles in our capstone digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Findable and Accessible principles ensure your digital edition can be discovered through persistent DOIs and downloaded freely by scholars worldwide.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Depositing the edition on Zenodo with rich metadata and a persistent DOI, and making files freely downloadable via GitHub.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This ensures search engines can locate the project and scholars can retrieve it without paywalls.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Keeping the edition hidden on a password-protected personal thumb drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. FAIR principles require research data to be discoverable and openly accessible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Selling access to the XML transcription for one hundred dollars per download.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Open accessibility avoids commercial paywalls and restrictions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting the project repository as soon as the final grade is submitted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Archiving ensures permanent preservation and scholarly citation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: The FAIR Data Principles: Interoperable and Reusable</text></name><questiontext format="html"><text><![CDATA[
+<h3>The FAIR Data Principles: Interoperable and Reusable</h3>
+<p>The second half of the FAIR framework addresses how other scholars and computers can work with your data: <strong>Interoperable</strong> and <strong>Reusable</strong>.</p>
+<ol>
+<li>
+<p><strong>Interoperable:</strong> Data should use formal, standardized vocabularies so computers can integrate it with other datasets. By encoding your document in standard TEI XML and linking people and places to Wikidata and GeoNames, your edition is fully interoperable. Other digital humanists can combine your text with maps, timelines, and linguistic corpora without manual reformatting.</p>
+</li>
+<li>
+<p><strong>Reusable:</strong> Data must have clear, unambiguous licensing and detailed provenance. Other scholars must know legally how they are permitted to reuse your work. Your project must clearly declare author credits, historical sources, and computational tools.</p>
+</li>
+</ol>
+<p>When your edition is interoperable and reusable, other researchers can build upon your research, cite your findings, and incorporate your primary witness into larger global archives.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Principle</th>
+      <th>Core Requirement</th>
+      <th>Implementation in RELS 398</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Interoperable (I)</td>
+      <td>Standard formats and shared vocabularies for data exchange</td>
+      <td>Valid TEI P5 XML schema and Linked Open Data URIs</td>
+    </tr>
+    <tr>
+      <td>Reusable (R)</td>
+      <td>Clear licenses, detailed provenance, and documentation</td>
+      <td>Creative Commons licenses, README.md, and LEDGER.md</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Interoperability</em> — the ability of computer systems and software to exchange and interpret shared data without friction. <em>Reusability</em> — providing clear licensing and documentation so future researchers can legally and practically reuse data. <em>Data Provenance</em> — the documented history of data creation, revision, and computational processing.</p>
+<p><strong>Takeaway:</strong> Encoding in TEI XML and declaring explicit open licenses satisfies the Interoperable and Reusable principles, empowering global scholars to build upon your work.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: The FAIR Data Principles: Interoperable and Reusable</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does using standard TEI XML and explicit open licensing fulfill Interoperability and Reusability?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Encoding in TEI XML and declaring explicit open licenses satisfies the Interoperable and Reusable principles, empowering global scholars to build upon your work.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Standard TEI XML allows external software to process the data, while open licenses (CC BY, CC0) legally define how others may reuse it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Interoperability enables computational data sharing; reusability provides legal clarity and documentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces all other researchers to use the exact same operating system as the editor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Open formats ensure data can be processed across any operating system.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prohibits anyone from ever reading the document again.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. FAIR data principles maximize global scholarly reuse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts all XML tags into proprietary closed binary data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Interoperability requires standard, open semantic formats.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Persistent Identifiers: Why URLs Break and DOIs Endure</text></name><questiontext format="html"><text><![CDATA[
+<h3>Persistent Identifiers: Why URLs Break and DOIs Endure</h3>
+<p>When a scholar cites a book, they cite the author, title, publisher, and year. That citation remains valid forever because library catalogues index books by stable metadata.</p>
+<p>On the internet, citations are notoriously fragile. If you cite a plain web address like <code>http://myproject.org/edition.html</code>, that link will probably break within a few years. When the domain name expires or the university redesigns its website, your URL leads to a broken 404 page.</p>
+<p>To solve this, the scholarly community uses <strong>Persistent Identifiers (PIDs)</strong>. The most famous persistent identifier is the <strong>DOI (Digital Object Identifier)</strong>.</p>
+<p>A DOI looks like <code>10.5281/zenodo.1234567</code>. It does not point to a specific server. Instead, it points to a central global directory managed by the International DOI Foundation. When someone clicks <code>https://doi.org/10.5281/zenodo.1234567</code>, the registry automatically redirects them to the current live location of your files. If you move your files to a new server, you update the redirect target once in the registry, and every printed citation remains valid.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Identifier Type</th>
+      <th>Example Format</th>
+      <th>What Happens When Server Moves</th>
+      <th>Scholarly Reliability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Standard URL</td>
+      <td>http://university.edu/~user/text.html</td>
+      <td>Link breaks completely; 404 Not Found error</td>
+      <td>Very low; high risk of link rot within 3&ndash;5 years</td>
+    </tr>
+    <tr>
+      <td>Persistent DOI</td>
+      <td>https://doi.org/10.5281/zenodo.1234567</td>
+      <td>Registry updates redirect target; citation never breaks</td>
+      <td>Permanent; international ISO standard guarantee</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>DOI (Digital Object Identifier)</em> — a permanent alphanumeric string assigned by an authorized agency to identify digital content permanently. <em>Central DOI Directory</em> — the global registry that resolves DOIs to their current web addresses. <em>Citation Stability</em> — the guarantee that a scholarly reference will remain discoverable across decades.</p>
+<p><strong>Takeaway:</strong> Persistent DOIs protect your edition against link rot by providing permanent redirection through the international DOI registry.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Persistent Identifiers: Why URLs Break and DOIs Endure</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does a persistent DOI remain stable even if a university changes its web servers?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Persistent DOIs protect your edition against link rot by providing permanent redirection through the international DOI registry.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The DOI points to an international registry that automatically redirects users to the current live address of the files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. If files move to a new server, updating the redirect target in the registry preserves all published citations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The DOI physically stops computer servers from ever being turned off.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Servers can change; the DOI registry handles redirection seamlessly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A DOI only works if printed on special archival parchment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. DOIs function digitally across web browsers, catalogues, and printed citations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A DOI deletes all previous versions of a website to save disk space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. DOIs provide permanent, versioned citation anchors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Depositing Research Data with Zenodo</text></name><questiontext format="html"><text><![CDATA[
+<h3>Depositing Research Data with Zenodo</h3>
+<p>To mint an official DOI for your digital edition, you need to deposit your files in a certified research repository. The leading platform for open humanities data is <strong>Zenodo</strong>.</p>
+<p>Zenodo is a free, open-access research repository operated by <strong>CERN</strong> (the European Organization for Nuclear Research) and supported by the European Commission. CERN is committed to maintaining Zenodo permanently, guaranteeing long-term data preservation.</p>
+<p>When you upload your digital edition package to Zenodo:</p>
+<ol>
+<li>Zenodo stores multiple redundant copies of your files in secure archival data centers;</li>
+<li>Zenodo mints an official, internationally recognized DOI for your deposit;</li>
+<li>Zenodo generates a permanent citation page with structured metadata;</li>
+<li>Your edition is indexed by Google Scholar, OpenAIRE, and international university library catalogues.</li>
+</ol>
+<p>Depositing your project on Zenodo elevates your work from a student class project to a formal, citable contribution to digital textual scholarship.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Repository Feature</th>
+      <th>Zenodo Implementation</th>
+      <th>Benefit to Your Edition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Operating Institution</td>
+      <td>CERN (European Organization for Nuclear Research)</td>
+      <td>Permanent institutional backing and secure infrastructure</td>
+    </tr>
+    <tr>
+      <td>DOI Assignment</td>
+      <td>Automatic minting via DataCite registration agency</td>
+      <td>Official, citable DOI for CVs and academic papers</td>
+    </tr>
+    <tr>
+      <td>Cost to Researchers</td>
+      <td>100% free for open-access datasets up to 50 GB</td>
+      <td>Zero hosting fees or recurring financial maintenance</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Zenodo</em> — a trusted, open-access digital research repository operated by CERN that provides free long-term data storage and DOIs. <em>CERN</em> — the European Organization for Nuclear Research, providing global scientific infrastructure. <em>DataCite</em> — the leading global registration agency that mints DOIs for research datasets.</p>
+<p><strong>Takeaway:</strong> Zenodo provides free, permanent archival storage and mints an official citable DOI for your capstone digital edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Depositing Research Data with Zenodo</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What institutional backing and capabilities make Zenodo the premier repository for open editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Zenodo provides free, permanent archival storage and mints an official citable DOI for your capstone digital edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Operated permanently by CERN, Zenodo provides free archival storage, DataCite DOIs, and indexing across global library catalogues.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. CERN's long-term commitment ensures your capstone edition remains safe and citable indefinitely.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Zenodo is a commercial social network that sells student research to advertisers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Zenodo is an open-access, non-profit academic repository operated by CERN.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Zenodo charges students five hundred dollars for every uploaded XML file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Zenodo is completely free for open-access research datasets up to 50 GB.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Zenodo only accepts projects written in computer machine code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Zenodo welcomes humanities editions, datasets, code, and PDF codices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Linking GitHub to Zenodo for Automated Releases</text></name><questiontext format="html"><text><![CDATA[
+<h3>Linking GitHub to Zenodo for Automated Releases</h3>
+<p>One of the most powerful workflows in modern digital scholarship is linking your <strong>GitHub code repository</strong> directly to <strong>Zenodo</strong>.</p>
+<p>When you link GitHub to Zenodo, you automate the archiving process:</p>
+<ol>
+<li>In your Zenodo account settings, you authorize GitHub and flip the switch for your edition repository;</li>
+<li>In GitHub, whenever you are ready to publish a new milestone, you create a formal <strong>Release</strong> and assign a version tag (like <code>v1.0.0</code>);</li>
+<li>GitHub automatically sends a snapshot of your repository to Zenodo;</li>
+<li>Zenodo archives the code, extracts metadata from your repository, and mints a brand-new DOI in seconds.</li>
+</ol>
+<p>Zenodo also manages versioning automatically. It provides a "Concept DOI" that always points to your newest release, as well as distinct "Version DOIs" for specific milestones. Scholars can cite the exact version of your edition they used in their research.</p>
+<pre><code class="language-text">1. GitHub Repository (Active Editing)
+   -&gt; Create Tagged Release (v1.0.0)
+2. Zenodo Automated Ingestion
+   -&gt; Archive Snapshot and Mint DOI
+3. Permanent Citable DOI: 10.5281/zenodo.1234567
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>GitHub-Zenodo Integration</em> — an automated bridge that archives GitHub repository releases directly into Zenodo. <em>Concept DOI</em> — a master DOI that resolves to the latest version of a project across all its releases. <em>Version DOI</em> — a persistent identifier pointing specifically to an individual release snapshot of a project.</p>
+<p><strong>Takeaway:</strong> The GitHub-Zenodo integration automatically archives tagged releases, minting permanent DOIs without manual file uploads.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Linking GitHub to Zenodo for Automated Releases</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does connecting GitHub to Zenodo streamline the digital publication workflow?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The GitHub-Zenodo integration automatically archives tagged releases, minting permanent DOIs without manual file uploads.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Creating a tagged release in GitHub triggers Zenodo to automatically archive a snapshot and mint a permanent DOI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This automates the archival pipeline, providing both Concept DOIs and version-specific DOIs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically writes your entire final paper without any human input.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The integration manages release archiving, not textual authoring.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes your local files as soon as a release is tagged.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Your repository remains intact; Zenodo simply archives a frozen copy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires re-typing the entire XML document into a web form.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The transfer is automated through GitHub's API.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Structuring the Capstone Edition Portfolio</text></name><questiontext format="html"><text><![CDATA[
+<h3>Structuring the Capstone Edition Portfolio</h3>
+<p>For your final RELS 398 / ENGL 398 course deliverable, you will assemble a comprehensive <strong>Digital Edition Portfolio</strong>. This portfolio represents the culmination of your entire semester's research and technical work.</p>
+<p>A complete portfolio contains five core components organized cleanly in your repository:</p>
+<ol>
+<li><strong>Master TEI XML File (<code>edition_master.xml</code>):</strong> The fully validated master document integrating <code>&lt;teiHeader&gt;</code>, <code>&lt;editorialDecl&gt;</code>, <code>&lt;facsimile&gt;</code>, diplomatic/normalized text, and <code>&lt;standOff&gt;</code> commentary notes.</li>
+<li><strong>Archival Facsimiles (<code>images/</code>):</strong> High-resolution scans of the primary document with transparent zone coordinates.</li>
+<li><strong>Standalone Web Package (<code>dist/web/</code>):</strong> Responsive HTML and CSS files ready for web hosting or offline browsing.</li>
+<li><strong>Print-Ready PDF Codex (<code>dist/pdf/</code>):</strong> A beautifully typeset PDF/A document with running headers, line numbers, and bottom apparatus footnotes.</li>
+<li><strong>Project Introduction &amp; Ledger (<code>README.md</code> and <code>LEDGER.md</code>):</strong> Complete documentation of provenance, editorial principles, AI disclosures, and settled decisions.</li>
+</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Portfolio Component</th>
+      <th>File Path</th>
+      <th>Primary Quality Gate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Master TEI XML</td>
+      <td>edition_master.xml</td>
+      <td>Zero schema validation errors; valid internal pointer IDs</td>
+    </tr>
+    <tr>
+      <td>Web Application</td>
+      <td>dist/web/index.html</td>
+      <td>Responsive layout; functional commentary popups; 0 broken links</td>
+    </tr>
+    <tr>
+      <td>Print PDF Codex</td>
+      <td>dist/pdf/edition.pdf</td>
+      <td>PDF/A compliant; embedded fonts; clean footnote apparatus</td>
+    </tr>
+    <tr>
+      <td>Editorial Ledger</td>
+      <td>LEDGER.md</td>
+      <td>Documented decisions, settled policies, and AI provenance</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Digital Edition Portfolio</em> — the complete bundle of master XML data, facsimile images, web layouts, print PDFs, and documentation representing a completed editing project. <em>Quality Gate</em> — a strict verification check that must pass before a milestone is accepted. <em>Portfolio Assembly</em> — gathering and testing all semester components into a unified directory structure.</p>
+<p><strong>Takeaway:</strong> The final capstone portfolio unifies your master TEI XML, archival facsimiles, responsive web edition, print PDF, and documentation into a single citable release.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Structuring the Capstone Edition Portfolio</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What five core components must be included in your final Capstone Edition Portfolio?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The final capstone portfolio unifies your master TEI XML, archival facsimiles, responsive web edition, print PDF, and documentation into a single citable release.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Master TEI XML, high-resolution facsimiles, responsive web app, print PDF codex, and complete README/LEDGER documentation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This comprehensive bundle satisfies both digital humanities standards and traditional philological rigor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A handwritten diary, five blank floppy disks, and a receipt from a local coffee shop.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The portfolio consists of formal digital textual files and documentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Only an unformatted Word document with no XML markup or images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The capstone evaluates your mastery of TEI XML, web layouts, and archiving.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A video recording of the student typing at their desk with no project files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The submission is an integrated repository containing data, media, and code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: The Project Ledger (LEDGER.md): Documenting Decisions</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Project Ledger (LEDGER.md): Documenting Decisions</h3>
+<p>Throughout this course, you have maintained a project ledger called <code>LEDGER.md</code>. In professional digital textual scholarship, keeping an active ledger is essential for governance and reproducibility.</p>
+<p>An editorial project involves hundreds of micro-decisions. How did you decide to regularize a misspelled word? Why did you link a person to one specific Wikidata record instead of another? What criteria did you use to date an undated letter?</p>
+<p>If you do not write these decisions down, you will forget your own reasoning within three months. Furthermore, external peer reviewers will not be able to evaluate the integrity of your scholarship.</p>
+<p>Your <code>LEDGER.md</code> documents:</p>
+<ol>
+<li><strong>Settled Decisions:</strong> Editorial choices that are locked and finalized;</li>
+<li><strong>Methodological Provenance:</strong> Dictionaries and archival records consulted;</li>
+<li><strong>Computational Logs:</strong> Software versions, prompts, and verification audits.</li>
+</ol>
+<p>Keeping a clear ledger establishes an unbroken chain of custody for your scholarly findings.</p>
+<pre><code class="language-markdown">## Settled Decisions
+1. Orthography: Regularized 18th-century verb endings (-oit to -ait)
+   using Dictionnaire de l'Académie française (5e éd., 1798).
+2. Entity Resolution: Linked Shubenacadie Chief Jean-Baptiste Cope
+   to Wikidata Q104853241 based on 1752 treaty council minutes.
+3. AI Assistance: Drafted philological notes with LLM assistance;
+   verified 100% against the Oxford English Dictionary.
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Project Ledger</em> — a markdown file tracking editorial decisions, settled policies, and methodological provenance across an editing project. <em>Methodological Provenance</em> — the documented reasoning and evidence supporting scholarly choices. <em>Settled Decision</em> — a locked editorial baseline that prevents endless revisiting of resolved questions.</p>
+<p><strong>Takeaway:</strong> The project ledger records your editorial decisions and methodological reasoning, ensuring scholarly transparency and reproducibility.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: The Project Ledger (LEDGER.md): Documenting Decisions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is maintaining a project ledger (LEDGER.md) essential for scholarly reproducibility?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The project ledger records your editorial decisions and methodological reasoning, ensuring scholarly transparency and reproducibility.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It documents settled decisions, regularization rules, and computational logs, establishing a transparent chain of custody for your scholarship.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without a ledger, the rationale behind editorial choices is lost over time, preventing rigorous peer review.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It lists the daily lunch schedule of everyone in the university building.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ledger records scholarly and technical editorial decisions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It encrypts editorial mistakes so peer reviewers cannot discover them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ledger ensures transparent, honest documentation of research methods.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces the primary historical text with personal opinions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ledger is a paratext documenting editorial governance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Open Access Licensing in Practice: CC BY, CC0, and MIT</text></name><questiontext format="html"><text><![CDATA[
+<h3>Open Access Licensing in Practice: CC BY, CC0, and MIT</h3>
+<p>A digital edition contains different kinds of intellectual property. It contains original prose, structured data, and computer code. Applying a single generic license to the whole project is often legally ineffective.</p>
+<p>Professional digital humanities projects use <strong>multi-tiered licensing</strong>:</p>
+<ol>
+<li><strong>Creative Commons Attribution 4.0 (CC BY 4.0):</strong> Applied to your original prose, historical introductions, and commentary notes. Anyone may share and adapt your writing, as long as they give you proper scholarly credit.</li>
+<li><strong>Creative Commons CC0 1.0 Universal (Public Domain Dedication):</strong> Applied to your TEI XML markup, entity registries, and metadata. Dedicating metadata to the public domain allows libraries and search engines to ingest your records freely without legal friction.</li>
+<li><strong>The MIT License:</strong> Applied to your build scripts, Python tools, and CSS stylesheets. The MIT license is a standard open-source software license permitting free code reuse.</li>
+</ol>
+<p>Declaring these licenses explicitly in your <code>README.md</code> and TEI header eliminates legal ambiguity for future researchers.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Edition Asset Layer</th>
+      <th>Recommended License</th>
+      <th>Legal Effect</th>
+      <th>Scholarly Benefit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Prose &amp; Commentary</td>
+      <td>CC BY 4.0 International</td>
+      <td>Free sharing and adaptation with attribution</td>
+      <td>Protects academic credit while maximizing impact</td>
+    </tr>
+    <tr>
+      <td>TEI XML &amp; Metadata</td>
+      <td>CC0 1.0 Universal</td>
+      <td>Public domain dedication without restrictions</td>
+      <td>Enables automated library and database indexing</td>
+    </tr>
+    <tr>
+      <td>Software &amp; Scripts</td>
+      <td>MIT License</td>
+      <td>Permissive open-source software license</td>
+      <td>Allows other digital editors to reuse build tools</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Multi-Tiered Licensing</em> — applying distinct open licenses to different asset types like prose, metadata, and code within a single project. <em>CC BY 4.0</em> — an open license requiring users to give attribution to the original author. <em>CC0 1.0 Universal</em> — dedicating data to the public domain by waiving all copyright rights.</p>
+<p><strong>Takeaway:</strong> Multi-tiered open access licensing protects your scholarly authorship while permitting global research reuse and library indexing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Open Access Licensing in Practice: CC BY, CC0, and MIT</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is multi-tiered licensing recommended across the different asset layers of a digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Multi-tiered open access licensing protects your scholarly authorship while permitting global research reuse and library indexing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It applies CC BY to prose for attribution, CC0 to metadata for library indexing, and MIT to scripts for software reuse.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Different asset types have different legal requirements; multi-tiered licensing handles each appropriately.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents anyone outside Canada from viewing the project website.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Open licenses enable global research access and collaboration.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires readers to sign a physical contract before reading each page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Creative Commons licenses operate automatically without paperwork.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It surrenders all student rights to commercial database corporations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Multi-tiered licensing preserves student attribution while encouraging ethical open reuse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Cohort Archiving: Ace's French Revolutionary Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Archiving: Ace's French Revolutionary Decree</h3>
+<p>Let us examine how our three cohort students will archive their completed editions on Zenodo and GitHub.</p>
+<p>Ace is archiving the 1791 French decree <em>Loi relative à la fabrication des assignats</em>. When Ace deposits the project on Zenodo, the metadata must accurately capture the document's historical coordinates:</p>
+<ul>
+<li><strong>Title:</strong> <em>A Digital Scholarly Edition of the French Revolutionary Decree on Assignats (June 19, 1791)</em></li>
+<li><strong>Creators:</strong> Ace (Editor), Kenneth Penner (Instructor)</li>
+<li><strong>Description:</strong> A digital documentary edition of the National Assembly decree authorizing small 5-livre paper currency notes, featuring diplomatic transcription of Imprimerie Royale printings and modernized French.</li>
+<li><strong>Keywords:</strong> French Revolution, assignats, paper money, Imprimerie Royale, monetary policy, TEI XML, 1791.</li>
+<li><strong>Archival Custody:</strong> Archives nationales de France (Paris), Série C (Procès-verbaux de l'Assemblée nationale).</li>
+</ul>
+<p>Ace uploads the master TEI XML, high-resolution scans of the decree, the dual-column HTML package, and the print PDF codex. Zenodo mints an official DOI, giving Ace a permanent academic citation for graduate school applications.</p>
+<p><strong>Vocabulary.</strong> <em>Archival Coordinates</em> — the official title, series, box, and shelfmark identifying a document's physical location in an archive. <em>Monetary Policy</em> — government actions regulating the money supply, currency printing, and financial stability. <em>Assignat</em> — paper money issued by the French National Assembly during the French Revolution backed by nationalized church property.</p>
+<p><strong>Takeaway:</strong> Ace's Zenodo deposit preserves the 1791 French Revolutionary currency decree with complete archival coordinates, bilingual XML, and a citable DOI.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Cohort Archiving: Ace's French Revolutionary Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What key metadata coordinates should Ace include when depositing the 1791 assignat decree on Zenodo?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Ace's Zenodo deposit preserves the 1791 French Revolutionary currency decree with complete archival coordinates, bilingual XML, and a citable DOI.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Title, National Assembly context, Imprimerie Royale printing, Archives nationales de France custody, and monetary policy keywords.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Precise archival coordinates and historical keywords ensure the deposit is discoverable by French Revolutionary historians.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Listing the document as an anonymous twentieth-century Canadian novel.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Metadata must accurately reflect the 1791 French Revolutionary legislative artifact.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Claiming the document was written by King Louis XIV in 1650.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree was passed by the National Assembly in June 1791.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Omitting all dates and keywords so nobody can search for the document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Rich metadata is required to satisfy FAIR data principles.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Cohort Archiving: Olyvia's Maud Lewis Letter</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Archiving: Olyvia's Maud Lewis Letter</h3>
+<p>Olyvia is archiving the 1967 personal letter written by celebrated Nova Scotia folk artist Maud Lewis to collector Leonard Kinnear.</p>
+<p>Olyvia's Zenodo deposit captures the unique cultural and epistolary value of the artifact:</p>
+<ul>
+<li><strong>Title:</strong> <em>An Epistolary Digital Edition of Maud Lewis's Letter to Leonard Kinnear, October 25, 1967</em></li>
+<li><strong>Creators:</strong> Olyvia (Editor), Kenneth Penner (Instructor)</li>
+<li><strong>Description:</strong> A single-witness digital documentary edition of a handwritten letter by folk artist Maud Lewis, documenting her cottage life in Marshalltown, roadside painting sales, and correspondence with collector Leonard Kinnear.</li>
+<li><strong>Keywords:</strong> Maud Lewis, Nova Scotia folk art, Digby County, Marshalltown, epistolary edition, Canadian art history, TEI XML.</li>
+<li><strong>Archival Context:</strong> Kinnear Family Papers; related folk art holdings in the Art Gallery of Nova Scotia (Halifax).</li>
+</ul>
+<p>Olyvia bundles the postal envelope facsimiles, letter page scans, diplomatic transcription with preserved line breaks, and interactive popups of Maud's painted oxen. The resulting Zenodo DOI creates a permanent scholarly resource for Canadian art historians.</p>
+<p><strong>Vocabulary.</strong> <em>Folk Art</em> — art created by self-taught artists that reflects traditional community life and personal aesthetic expression. <em>Epistolary Edition</em> — a scholarly edition focused on letters and personal correspondence. <em>Single-Witness Fidelity</em> — preserving the authentic physical and linguistic features of a unique surviving artifact.</p>
+<p><strong>Takeaway:</strong> Olyvia's Zenodo deposit preserves Maud Lewis's 1967 handwritten letter, providing art historians with high-resolution facsimiles, diplomatic text, and a permanent DOI.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Cohort Archiving: Olyvia's Maud Lewis Letter</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What archival coordinates and cultural context define Olyvia's Maud Lewis Zenodo deposit?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Olyvia's Zenodo deposit preserves Maud Lewis's 1967 handwritten letter, providing art historians with high-resolution facsimiles, diplomatic text, and a permanent DOI.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Marshalltown cottage life, roadside painting sales, Leonard Kinnear correspondence, and links to Art Gallery of Nova Scotia holdings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This captures the material and epistolary significance of Maud Lewis's folk art correspondence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Describing the letter as an official British military battle order from the War of 1812.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The artifact is a 1967 personal letter by Nova Scotia folk artist Maud Lewis.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting Maud Lewis's name and attributing the letter to an anonymous politician.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Olyvia's edition honors Maud Lewis's unique voice and artistic legacy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Stating that the letter was written on stone tablets in ancient Rome.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The letter was written on personal paper stationery in Digby County in 1967.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Cohort Archiving: Andromeda's 1752 Peace and Friendship Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Archiving: Andromeda's 1752 Peace and Friendship Treaty</h3>
+<p>Andromeda is archiving the foundational 1752 Peace and Friendship Treaty negotiated at Halifax between Mi'kmaw Chief Jean-Baptiste Cope and Nova Scotia Governor Peregrine Hopson.</p>
+<p>Andromeda's deposit addresses sensitive and critical legal history:</p>
+<ul>
+<li><strong>Title:</strong> <em>A Digital Documentary Edition of the 1752 Peace and Friendship Treaty between the Mi'kmaq and the British Crown</em></li>
+<li><strong>Creators:</strong> Andromeda (Editor), Kenneth Penner (Instructor)</li>
+<li><strong>Description:</strong> A digital edition of the November 22, 1752 treaty, featuring clause-by-clause legal transcription, scanned Mi'kmaw totem marks and wax seals, and extensive commentary on treaty rights jurisprudence.</li>
+<li><strong>Keywords:</strong> Peace and Friendship Treaties, Mi'kma'ki, Jean-Baptiste Cope, Peregrine Hopson, Halifax, Indigenous treaties, Canadian legal history, TEI XML.</li>
+<li><strong>Archival Custody:</strong> Nova Scotia Archives (Halifax), Record Group 1, volume 430, number 2.</li>
+</ul>
+<p>Andromeda's deposit provides a dignified legal presentation, clean PDF codex, and complete historical commentary. The persistent DOI ensures this foundational treaty text is accessible to legal scholars, Indigenous communities, and historians worldwide.</p>
+<p><strong>Vocabulary.</strong> <em>Treaty Rights Jurisprudence</em> — the body of legal precedents and court decisions interpreting the rights guaranteed by historical treaties. <em>Nation-to-Nation Agreement</em> — a formal diplomatic treaty negotiated between sovereign political entities. <em>Archival Record Group (RG)</em> — a major classification unit in an archive grouping records from an official government body.</p>
+<p><strong>Takeaway:</strong> Andromeda's Zenodo deposit establishes a permanent, open-access digital edition of the 1752 treaty with legal commentary and high-resolution totem facsimiles.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Cohort Archiving: Andromeda's 1752 Peace and Friendship Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does Andromeda's Zenodo deposit document the archival custody and legal significance of the 1752 treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Andromeda's Zenodo deposit establishes a permanent, open-access digital edition of the 1752 treaty with legal commentary and high-resolution totem facsimiles.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By citing Nova Scotia Archives RG 1 vol 430, documenting Cope-Hopson negotiations, and highlighting Mi'kmaw totem marks and treaty rights.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Complete legal metadata and high-resolution totem facsimiles ensure the deposit serves legal scholars and Indigenous communities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By presenting the treaty as a private real estate bill of sale.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The 1752 treaty is a sovereign nation-to-nation peace and friendship agreement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By claiming the treaty was signed in Paris between France and Spain.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty was negotiated and signed at Halifax, Nova Scotia.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By omitting the names of Mi'kmaw leaders who signed the agreement.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The edition specifically highlights Chief Jean-Baptiste Cope and Mi'kmaw signatories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Creating a GitHub Release for Your Edition</text></name><questiontext format="html"><text><![CDATA[
+<h3>Creating a GitHub Release for Your Edition</h3>
+<p>Once your files are tested and organized in your local Git repository, you are ready to publish an official <strong>GitHub Release</strong>. A release marks a frozen, tagged milestone in the history of your project.</p>
+<p>To create a release in GitHub:</p>
+<ol>
+<li>Ensure all your latest changes are committed to the <code>main</code> branch;</li>
+<li>Navigate to the <strong>Releases</strong> tab in your GitHub repository and click <strong>Draft a new release</strong>;</li>
+<li>Assign a semantic version tag like <code>v1.0.0</code>;</li>
+<li>Give your release a descriptive title, such as <em>RELS 398 Capstone Digital Edition (v1.0.0)</em>;</li>
+<li>Write detailed release notes summarizing your project scope, historical witness, and editorial principles;</li>
+<li>Attach compiled binary assets, such as your standalone offline <code>.zip</code> package and print-ready <code>.pdf</code> codex.</li>
+</ol>
+<p>Clicking <strong>Publish release</strong> freezes this snapshot permanently in Git history and triggers the automated transfer to Zenodo.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Release Field</th>
+      <th>Recommended Value</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tag Version</td>
+      <td>v1.0.0</td>
+      <td>Semantic versioning tag marking the first full production release</td>
+    </tr>
+    <tr>
+      <td>Release Title</td>
+      <td>Capstone Digital Scholarly Edition (v1.0.0)</td>
+      <td>Clear, human-readable title for visitors and catalogues</td>
+    </tr>
+    <tr>
+      <td>Attached Binaries</td>
+      <td>edition_offline.zip, edition_codex.pdf</td>
+      <td>Direct download links for offline readers and library archivists</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>GitHub Release</em> — a formal, tagged snapshot of a repository accompanied by release notes and downloadable binary files. <em>Semantic Versioning</em> — a version numbering system (Major.Minor.Patch, like 1.0.0) reflecting the nature of project updates. <em>Release Notes</em> — a written summary describing features, fixes, and files included in a publication release.</p>
+<p><strong>Takeaway:</strong> Publishing a GitHub Release freezes an official versioned snapshot of your edition and attaches downloadable offline zip and PDF files.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Creating a GitHub Release for Your Edition</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What steps are required to publish an official tagged release in your GitHub repository?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Publishing a GitHub Release freezes an official versioned snapshot of your edition and attaches downloadable offline zip and PDF files.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Ensure changes are committed, tag a version (v1.0.0), write detailed release notes, and attach offline zip and PDF files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Publishing a release creates a permanent historical milestone and triggers automated archiving.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the repository and re-upload files as an anonymous email attachment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Releases are created cleanly within the GitHub web interface or command line.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Print out the code on paper and mail it to GitHub headquarters in California.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GitHub Releases are managed digitally through Git version tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Change all passwords so nobody can ever log into the repository again.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Releases mark public milestones for open research access.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Preparing Your Web Edition for GitHub Pages</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing Your Web Edition for GitHub Pages</h3>
+<p>In addition to depositing your source files on Zenodo, you want your interactive web edition to be live and readable online. The simplest, most durable way to host a static digital edition is <strong>GitHub Pages</strong>.</p>
+<p>GitHub Pages is a free hosting service that serves web pages directly from your GitHub repository. It does not require setting up a database or managing a web server.</p>
+<p>To launch GitHub Pages:</p>
+<ol>
+<li>Place your compiled <code>index.html</code>, <code>style.css</code>, and <code>images/</code> directory in a folder named <code>docs/</code> or directly at the root of your repository;</li>
+<li>Navigate to your repository <strong>Settings</strong> and select <strong>Pages</strong>;</li>
+<li>Under <strong>Source</strong>, choose the <code>main</code> branch and specify the <code>/docs</code> folder;</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>Within sixty seconds, GitHub gives you a secure live public web address, such as <code>https://username.github.io/edition/</code>. Anyone with an internet browser can now explore your digital edition worldwide.</p>
+<pre><code>Repository Settings -&gt; Pages
+  Source: Deploy from a branch
+  Branch: main /docs
+  Status: Live at https://username.github.io/my-edition/
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>GitHub Pages</em> — a free static web hosting service provided by GitHub that turns a repository into a live public website. <em>Docs Folder Workflow</em> — storing compiled public website files in a dedicated /docs directory inside a repository. <em>Live Public URL</em> — an active web address accessible by any user on the internet over standard HTTPS.</p>
+<p><strong>Takeaway:</strong> GitHub Pages provides free, permanent static web hosting directly from your repository, making your edition instantly accessible to the public.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Preparing Your Web Edition for GitHub Pages</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do you deploy your compiled static web edition to GitHub Pages?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;GitHub Pages provides free, permanent static web hosting directly from your repository, making your edition instantly accessible to the public.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Place compiled files in docs/, enable Pages in repository settings pointing to main/docs, and obtain your live URL.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. GitHub Pages builds and serves your static edition over HTTPS in less than a minute.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Purchase an expensive dedicated database server from a commercial cloud provider.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GitHub Pages is completely free and requires no database setup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Convert all HTML files into password-protected Microsoft Word files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GitHub Pages serves open standard HTML, CSS, and JavaScript.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Send a paper letter to the university registrar requesting server permissions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. GitHub Pages is self-service and activates instantly in repository settings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Documenting AI Provenance and Human-in-the-Loop Audit</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting AI Provenance and Human-in-the-Loop Audit</h3>
+<p>Throughout this semester, you explored how computational tools and Large Language Models (LLMs) can assist digital editing. You used language models to assist with translation drafting and initial commentary suggestions.</p>
+<p>In academic scholarship, using AI tools is entirely acceptable provided that it is accompanied by <strong>transparent methodological provenance</strong>. You must never hide the tools you used.</p>
+<p>In your <code>README.md</code> and edition paratexts, you must include a formal <strong>AI Disclosure Statement</strong>:</p>
+<ol>
+<li>Name the specific models, versions, and platforms consulted (e.g. Claude 3.5 Sonnet, Gemini 1.5 Pro, local Gemma);</li>
+<li>Document the prompt templates used to generate initial drafts;</li>
+<li>State the dates when queries were run;</li>
+<li>Detail your <strong>Human-in-the-Loop verification protocol</strong>: how human editors audited every suggested date, name, and definition against primary facsimiles and peer-reviewed reference works.</li>
+</ol>
+<p>Scholarly authority does not come from doing everything by hand; it comes from rigorous verification and complete methodological transparency.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Disclosure Area</th>
+      <th>Required Information</th>
+      <th>Ethical Standard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Model Specification</td>
+      <td>Exact model name, version number, and provider API</td>
+      <td>Reproducibility and computational transparency</td>
+    </tr>
+    <tr>
+      <td>Human Verification</td>
+      <td>Reference works consulted to verify AI drafts (OED, SEDRA)</td>
+      <td>Scholarly accuracy and human accountability</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>AI Disclosure Statement</em> — a formal declaration in an edition documenting all artificial intelligence tools used during research. <em>Human-in-the-Loop (HITL)</em> — a workflow where human experts review, verify, and correct automated or AI-generated outputs. <em>Computational Transparency</em> — full disclosure of all software tools and algorithms used in research.</p>
+<p><strong>Takeaway:</strong> Full disclosure of AI models and human-in-the-loop verification protocols establishes scholarly trust and upholds academic integrity.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Documenting AI Provenance and Human-in-the-Loop Audit</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must your README.md include a formal AI disclosure and human-in-the-loop audit protocol?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Full disclosure of AI models and human-in-the-loop verification protocols establishes scholarly trust and upholds academic integrity.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Methodological transparency demands full disclosure of computational tools, proving that human editors verified all AI outputs against primary sources.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Academic integrity requires transparent disclosure of models, prompts, dates, and verification reference works.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Using computational tools is strictly forbidden in universities and results in automatic expulsion.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI tools are valuable when disclosed transparently and audited by human editors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To allow computer models to claim legal copyright ownership over historical texts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Human editors retain copyright and academic responsibility for the edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To prove that human beings did not read any part of the historical document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The human-in-the-loop protocol proves that human editors audited every fact.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Archival Checksums: Verifying Data Integrity with SHA-256</text></name><questiontext format="html"><text><![CDATA[
+<h3>Archival Checksums: Verifying Data Integrity with SHA-256</h3>
+<p>When archiving digital files for decades, how do you know a file has not been corrupted or altered? Digital files can experience "bit rot," where physical storage degradation flips bits on a hard drive.</p>
+<p>To guarantee file integrity, archivists use <strong>cryptographic checksums</strong>. A checksum is a unique mathematical fingerprint generated from the exact bytes of a file. The international standard for data integrity is <strong>SHA-256</strong>.</p>
+<p>If a file changes by even a single comma or space, its SHA-256 checksum changes completely. When you publish your release, you generate a checksum for each file and record them in a file named <code>CHECKSUMS.txt</code>.</p>
+<p>Anyone who downloads your edition can run <code>sha256sum -c CHECKSUMS.txt</code> in their terminal. If the check returns "OK", they have mathematical proof that their copy is 100% identical to your original archive.</p>
+<pre><code class="language-bash"># Generating SHA-256 checksums in terminal
+sha256sum edition_master.xml dist/pdf/edition.pdf &gt; CHECKSUMS.txt
+</code></pre>
+<pre><code>CHECKSUMS.txt content:
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  edition_master.xml
+5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8  edition.pdf
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Cryptographic Checksum</em> — a fixed-length string generated by an algorithm representing the unique byte contents of a file. <em>SHA-256</em> — a secure cryptographic hashing algorithm that produces a 256-bit mathematical fingerprint. <em>Bit Rot</em> — the gradual physical decay of storage media resulting in silent file corruption.</p>
+<p><strong>Takeaway:</strong> SHA-256 checksums provide cryptographic proof of data integrity, allowing scholars to verify that downloaded files are authentic and uncorrupted.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Archival Checksums: Verifying Data Integrity with SHA-256</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do SHA-256 cryptographic checksums protect digital editions against bit rot and file tampering?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;SHA-256 checksums provide cryptographic proof of data integrity, allowing scholars to verify that downloaded files are authentic and uncorrupted.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They provide unique mathematical fingerprints for each file; if even a single byte changes, the checksum changes completely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Verifying checksums with sha256sum -c proves that downloaded files are authentic and uncorrupted.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They automatically compress all files into tiny images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Checksums are cryptographic hashes used for verification, not compression.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They scramble the text so nobody can read it without paying a fee.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Checksums verify integrity without encrypting or altering file contents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They predict the future weather in the archive building.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SHA-256 is a mathematical hashing algorithm.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Writing a Professional Citation for Your Digital Edition</text></name><questiontext format="html"><text><![CDATA[
+<h3>Writing a Professional Citation for Your Digital Edition</h3>
+<p>If you want other scholars to cite your work, you must provide them with a clear, standardized citation. Do not force readers to guess how to cite your digital edition.</p>
+<p>Include a dedicated <strong>"How to Cite This Edition"</strong> section at the bottom of your <code>README.md</code> and in your TEI header. Provide citations in standard academic styles, such as Chicago, MLA, and APA.</p>
+<p>A professional digital edition citation includes:</p>
+<ol>
+<li><strong>Editor Name(s):</strong> The scholar(s) who transcribed, edited, and annotated the text;</li>
+<li><strong>Edition Title:</strong> In italics, followed by the descriptor <em>[Digital Scholarly Edition]</em>;</li>
+<li><strong>Institutional Context:</strong> St. Francis Xavier University;</li>
+<li><strong>Publication Year:</strong> The year of release (2026);</li>
+<li><strong>Persistent Identifier:</strong> The permanent DOI link pointing to Zenodo.</li>
+</ol>
+<pre><code class="language-markdown">### How to Cite This Edition (Chicago Style)
+Penner, Andromeda, ed. *The 1752 Peace and Friendship Treaty: A Digital
+Documentary Edition*. Antigonish, NS: St. Francis Xavier University, 2026.
+https://doi.org/10.5281/zenodo.1234567.
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Scholarly Citation</em> — a formal reference providing bibliographic details necessary to locate and verify an academic source. <em>Chicago Manual of Style</em> — the standard citation guideline used in history and humanities disciplines. <em>Citation Descriptor</em> — a bracketed note like [Digital Scholarly Edition] indicating the medium of a published source.</p>
+<p><strong>Takeaway:</strong> Providing formal Chicago, MLA, and APA citations with persistent DOIs enables future researchers to cite your digital scholarship accurately.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Writing a Professional Citation for Your Digital Edition</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What elements are essential when providing a Chicago-style citation for your digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Providing formal Chicago, MLA, and APA citations with persistent DOIs enables future researchers to cite your digital scholarship accurately.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Editor name, italicized edition title with [Digital Scholarly Edition], institution, year, and persistent Zenodo DOI URL.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. For example: Penner, Andromeda, ed. The 1752 Peace and Friendship Treaty... https://doi.org/10.5281/zenodo.1234567.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Only the student's first name and the date they submitted the assignment.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Formal citations include full editor names, titles, institution, year, and DOIs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A link to a personal social media account with no project information.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Citations must point to persistent scholarly repositories like Zenodo.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A statement that the text is secret and must not be cited in academic papers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Providing citations encourages other scholars to reference your research.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Peer Review and Scholarly Evaluation of Digital Editions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Peer Review and Scholarly Evaluation of Digital Editions</h3>
+<p>How is a digital edition evaluated by the academic community? In traditional publishing, a monograph is reviewed based on prose arguments and press reputation. In digital textual scholarship, peer review evaluates both philological quality and computational architecture.</p>
+<p>Organizations like the <strong>Institute for Documentology and Scholarly Editing (IDE)</strong> have published formal criteria for reviewing digital scholarly editions:</p>
+<ol>
+<li><strong>Methodological Transparency:</strong> Are transcription, normalization, and emendation policies clearly explained in the introduction?</li>
+<li><strong>Markup Quality:</strong> Does the TEI XML conform to valid schemas? Are entities linked to verified Linked Open Data records?</li>
+<li><strong>Material Witness Fidelity:</strong> Does the edition provide high-resolution facsimiles and respect the physical artifact?</li>
+<li><strong>Technical Sustainability:</strong> Is the edition built with open formats and minimal computing principles, free from server fragility?</li>
+</ol>
+<p>When your capstone portfolio satisfies these criteria, your work achieves the status of peer-reviewed digital scholarship.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Evaluation Dimension</th>
+      <th>Key Scholarly Question</th>
+      <th>Passing Evidence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Editorial Transparency</td>
+      <td>Are all regularizations and emendations fully documented?</td>
+      <td>Detailed &lt;editorialDecl&gt; and project LEDGER.md</td>
+    </tr>
+    <tr>
+      <td>Data Integrity</td>
+      <td>Is the master XML valid and free from broken pointers?</td>
+      <td>100% schema validation pass in VS Code</td>
+    </tr>
+    <tr>
+      <td>Long-Term Survival</td>
+      <td>Will the edition remain functional in twenty years?</td>
+      <td>Static HTML, PDF/A, and Zenodo DOI archive</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Digital Edition Peer Review</em> — the systematic academic evaluation of an electronic scholarly edition based on textual, technical, and interface standards. <em>IDE (Institut für Dokumentologie und Editorik)</em> — a leading international organization that establishes peer review standards for digital editions.</p>
+<p><strong>Takeaway:</strong> Peer review of digital editions evaluates both philological rigor and computational sustainability, requiring valid XML, clear policies, and durable archiving.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Peer Review and Scholarly Evaluation of Digital Editions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What key criteria do organizations like the IDE use to evaluate digital scholarly editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Peer review of digital editions evaluates both philological rigor and computational sustainability, requiring valid XML, clear policies, and durable archiving.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Methodological transparency, TEI schema validity, material witness fidelity, and technical sustainability via open formats.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Digital editions are reviewed both as philological scholarship and as sustainable data architecture.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;How many animated cartoon characters appear on the homepage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Academic review focuses on textual fidelity, rigor, and technical design.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the website requires an expensive monthly paid subscription.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Reviewers value open access, standards compliance, and long-term durability.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the edition was written entirely in modern slang.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions maintain absolute fidelity to historical primary sources.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Final Quality Gate: Pre-Deposit Verification Checklist</text></name><questiontext format="html"><text><![CDATA[
+<h3>Final Quality Gate: Pre-Deposit Verification Checklist</h3>
+<p>Before tagging your release and depositing files on Zenodo, you must pass the final <strong>Pre-Deposit Verification Checklist</strong>. This checklist ensures that your project contains zero embarrassing defects.</p>
+<p>The checklist covers five critical verification gates:</p>
+<ol>
+<li><strong>Schema Gate:</strong> Run XML validation on <code>edition_master.xml</code>. Verify zero syntax errors and zero orphaned note targets.</li>
+<li><strong>HTML Gate:</strong> Test <code>index.html</code> in your browser. Verify that all five commentary popups open properly and that image paths load cleanly.</li>
+<li><strong>PDF Gate:</strong> Inspect <code>dist/pdf/edition.pdf</code>. Confirm that fonts are embedded, margins are balanced, and footnotes appear on correct pages.</li>
+<li><strong>Metadata Gate:</strong> Confirm that <code>README.md</code> includes complete archival coordinates, AI disclosures, and citation text.</li>
+<li><strong>Checksum Gate:</strong> Run <code>sha256sum</code> to generate <code>CHECKSUMS.txt</code>.</li>
+</ol>
+<p>Taking thirty minutes to complete this checklist protects your academic reputation and ensures your edition is ready for permanent deposit.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Checklist Item</th>
+      <th>Verification Tool</th>
+      <th>Required Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TEI Schema Validation</td>
+      <td>Red Hat XML extension in VS Code</td>
+      <td>Green checkmark; 0 errors, 0 warnings</td>
+    </tr>
+    <tr>
+      <td>Link and Pointer Audit</td>
+      <td>Browser DevTools (F12) Network Tab</td>
+      <td>Zero 404 errors; all 5 note targets resolve</td>
+    </tr>
+    <tr>
+      <td>Archival Checksums</td>
+      <td>sha256sum command in terminal</td>
+      <td>CHECKSUMS.txt generated with accurate hashes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Pre-Deposit Checklist</em> — a systematic verification protocol executed immediately before freezing a release and archiving files. <em>Orphaned Target</em> — an internal note pointer referencing an anchor ID that does not exist in the document text. <em>Zero-Error Standard</em> — requiring that all schemas and links validate completely before publication.</p>
+<p><strong>Takeaway:</strong> The pre-deposit verification checklist guarantees that your master XML, web layouts, print PDF, and metadata are 100% verified before permanent release.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Final Quality Gate: Pre-Deposit Verification Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What five verification gates must pass before tagging a production release and depositing files?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The pre-deposit verification checklist guarantees that your master XML, web layouts, print PDF, and metadata are 100% verified before permanent release.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Schema validation, HTML link/popup audit, PDF layout inspection, metadata completeness, and SHA-256 checksum generation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Passing all five gates ensures your portfolio is free from broken links, validation errors, or missing metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Checking that all files have been deleted from the computer hard drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The checklist verifies that all required files exist and validate perfectly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Printing out five hundred copies of the text on photographic paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The quality gate is a digital verification protocol in VS Code and terminal.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Submitting the assignment without opening or testing any of the compiled files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A quality gate requires active verification before submission.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Today's Studio Lab: Building the Release Package</text></name><questiontext format="html"><text><![CDATA[
+<h3>Today's Studio Lab: Building the Release Package</h3>
+<p>In today's final classroom studio lab in Mulroney Hall 3032, you will assemble and test your complete release package.</p>
+<p>Your lab workflow follows three structured stages:</p>
+<ol>
+<li><strong>Compile Offline Deliverables:</strong> Build your standalone offline HTML package and print-ready PDF codex. Test that the offline package opens and searches properly without internet access.</li>
+<li><strong>Assemble Repository Structure:</strong> Organize your project files into standard directories (<code>src/</code>, <code>dist/web/</code>, <code>dist/pdf/</code>, <code>images/</code>). Run <code>sha256sum</code> to generate your <code>CHECKSUMS.txt</code> manifest.</li>
+<li><strong>Draft Release Notes:</strong> In your repository, draft the release notes for version <code>v1.0.0</code>. Document your project scope, historical artifact details, and open licensing terms.</li>
+</ol>
+<p>I will circulate throughout the lab to inspect your directory trees, test offline packages, and verify checksum outputs.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Lab Stage</th>
+      <th>Student Action in VS Code</th>
+      <th>Target Deliverable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Stage 1: Compilation</td>
+      <td>Generate offline web bundle and print-ready PDF</td>
+      <td>dist/web/ and dist/pdf/ populated</td>
+    </tr>
+    <tr>
+      <td>Stage 2: Checksums</td>
+      <td>Run sha256sum across master files and binaries</td>
+      <td>Verified CHECKSUMS.txt manifest</td>
+    </tr>
+    <tr>
+      <td>Stage 3: Release Draft</td>
+      <td>Draft release notes and verify Zenodo metadata fields</td>
+      <td>v1.0.0 release notes prepared in README.md</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Release Package</em> — the structured bundle of validated XML, compiled web pages, PDFs, and checksums prepared for public archiving. <em>Checksum Manifest</em> — a plain-text file listing cryptographic hashes for every file in a dataset. <em>Verification Stage</em> — a distinct checkpoint during project assembly confirming quality before release.</p>
+<p><strong>Takeaway:</strong> Today's studio lab guides you to compile offline packages, generate cryptographic checksums, and draft your official release notes in VS Code.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Today's Studio Lab: Building the Release Package</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the three focused stages of today's classroom studio lab in Mulroney Hall 3032?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Today's studio lab guides you to compile offline packages, generate cryptographic checksums, and draft your official release notes in VS Code.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Compile offline HTML/PDF packages, assemble repository directory structure with SHA-256 checksums, and draft release notes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Students prepare and test their complete publication package for final submission.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Play online video games for fifty minutes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Today's lab is dedicated to capstone edition assembly and testing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the TEI XML files created throughout the semester.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The lab builds directly upon your validated master TEI files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Reformat the computer hard drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Students work directly in VS Code within their existing project repositories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: The December Exam Period Deliverable and Timeline</text></name><questiontext format="html"><text><![CDATA[
+<h3>The December Exam Period Deliverable and Timeline</h3>
+<p>As our semester concludes, let us review the final course evaluation timeline and requirements.</p>
+<p>First, remember that <strong>Assignment 12 (Scholarly Commentary)</strong> is due tonight, <strong>Friday, December 4 at 11:00 PM</strong>. Assignment 12 evaluates your five hand-authored commentary notes and your <code>COMMENTARY.md</code> reflection ledger (80 points total).</p>
+<p>Second, your final course deliverable is the <strong>Comprehensive Digital Edition Portfolio</strong>. This is your capstone submission for the course.</p>
+<ul>
+<li><strong>Submission Window:</strong> December Exam Period, December 10 to 19, 2026;</li>
+<li><strong>Total Value:</strong> 100 points (the capstone culmination of your semester);</li>
+<li><strong>Grading Rubric:</strong> Evaluates single-witness transcription accuracy (20 pts), TEI XML schema validity (20 pts), named entity linking and LOD (20 pts), critical commentary depth (20 pts), and multi-modal publishing with Zenodo DOI (20 pts).</li>
+</ul>
+<p>You have plenty of time during the exam period to polish your layout, double-check your shelfmarks, and finalize your Zenodo deposit.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Deliverable</th>
+      <th>Due Date &amp; Time</th>
+      <th>Points</th>
+      <th>Submission Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Assignment 12: Commentary</td>
+      <td>Tonight, Fri Dec 4 &middot; 11:00 PM</td>
+      <td>80 pts</td>
+      <td>Moodle Workshop Section 12</td>
+    </tr>
+    <tr>
+      <td>Capstone Edition Portfolio</td>
+      <td>Exam Period: Dec 10&ndash;19, 2026</td>
+      <td>100 pts</td>
+      <td>Moodle Section 13 &amp; GitHub Repository</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Capstone Portfolio</em> — the comprehensive final project deliverable synthesizing all semester learning into a finished publication. <em>Exam Period Submission Window</em> — the designated university schedule window (Dec 10–19) for submitting final projects and portfolios. <em>Holistic Evaluation</em> — grading that assesses the overall integration, rigor, and craft of a complete digital project.</p>
+<p><strong>Takeaway:</strong> Assignment 12 is due tonight at 11:00 PM, and your final Capstone Digital Edition Portfolio is submitted during the December Exam Period (Dec 10–19).</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: The December Exam Period Deliverable and Timeline</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the submission timeline and evaluation weight of the Capstone Digital Edition Portfolio?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Assignment 12 is due tonight at 11:00 PM, and your final Capstone Digital Edition Portfolio is submitted during the December Exam Period (Dec 10–19).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Submitted during the December Exam Period (Dec 10–19), worth 100 points as the capstone culmination of the semester.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Assignment 12 is due tonight at 11:00 PM; the final capstone portfolio is submitted during the exam period.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Due today at noon, worth five bonus points.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The portfolio is submitted during the December Exam Period and is worth 100 points.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Due in September 2027, with no grade assigned.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Submissions are due between Dec 10 and Dec 19 for fall term grading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;There are no remaining assignments or deadlines in the course.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Assignment 12 is due tonight at 11:00 PM, followed by the capstone portfolio.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Course Synthesis: The Journey from Novice to Digital Editor</text></name><questiontext format="html"><text><![CDATA[
+<h3>Course Synthesis: The Journey from Novice to Digital Editor</h3>
+<p>Take a moment to reflect on how far you have traveled since September. When you entered Mulroney Hall 3032 in early September, you had never opened VS Code. You had never typed a command into a terminal. You had never written an XML tag.</p>
+<p>Over thirteen weeks, you conquered the fundamental crafts of digital textual scholarship:</p>
+<ul>
+<li>You learned to navigate the file system and control code with Git;</li>
+<li>You bound digital facsimiles and encoded diplomatic transcriptions in TEI XML;</li>
+<li>You resolved orthographic variations and parsed linguistic features;</li>
+<li>You connected historical people and places to global Linked Open Data registries;</li>
+<li>You authored scholarly commentary notes and designed responsive web layouts;</li>
+<li>Today, you published multi-modal editions with persistent DOIs and open licenses.</li>
+</ul>
+<p>You have preserved three remarkable historical voices: an 18th-century French Revolutionary decree, an intimate handwritten letter by Maud Lewis, and a foundational 1752 Peace and Friendship Treaty.</p>
+<p>Your editions are rigorous, accessible, and durable. You are no longer novices; you are published digital scholarly editors. Congratulations on an extraordinary semester of scholarship.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Skills Acquired</th>
+      <th>Scholarly Transformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Weeks 1&ndash;4</td>
+      <td>VS Code, Terminal, Git, Cataloguing, Facsimiles</td>
+      <td>From computer novices to confident codicologists</td>
+    </tr>
+    <tr>
+      <td>Weeks 5&ndash;9</td>
+      <td>TEI XML, Normalization, Lemmatization, NER, LOD</td>
+      <td>From transcribers to computational linguists</td>
+    </tr>
+    <tr>
+      <td>Weeks 10&ndash;13</td>
+      <td>Alignment, Commentary, Processing Model, Zenodo</td>
+      <td>From students to published digital textual editors</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Scholarly Transformation</em> — the developmental growth of students from initial beginners to confident, independent digital editors. <em>Textual Stewardship</em> — the ethical and academic responsibility of preserving and publishing historical voices faithfully. <em>Digital Textual Editor</em> — a scholar capable of transcribing, encoding, annotating, and publishing historical primary documents.</p>
+<p><strong>Takeaway:</strong> Over thirteen weeks, you evolved from terminal novices into published digital scholarly editors, preserving vital historical witnesses for the global community.</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Course Synthesis: The Journey from Novice to Digital Editor</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What transformative progression did our student cohort achieve over the thirteen weeks of this course?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Over thirteen weeks, you evolved from terminal novices into published digital scholarly editors, preserving vital historical witnesses for the global community.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Progressed from command-line novices to confident digital textual editors capable of transcribing, encoding, annotating, and archiving primary witnesses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Over thirteen weeks, students mastered VS Code, Git, TEI XML, NER, LOD, and minimal computing publication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Learned how to repair broken television sets and vacuum cleaners.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The course focused on digital methods for historical primary documents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Decided that historical documents should never be studied again.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Students preserved and published three vital primary witnesses with scholarly rigor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Forgot everything they knew about reading and writing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Students gained sophisticated philological and computational editing skills.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

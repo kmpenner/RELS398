@@ -140,22 +140,30 @@
 
 ## 5. Active Milestone & Next Target
 
-- **Current Phase:** Modules 7, 8, 9, 10, 11, and 12 complete and deployed to Moodle Course 51185 (Sections 7, 8, 9, 10, 11, 12). Next Target: Week 13 (Module 13: Publication II — Digital Editions, Critical Paratexts, and Minimal Computing, Meetings #34–36, Dec 1–4).
-- **Completed Module 12 Assets (2026-10-14):**
-  1. Authoring and verification of in-class teaching plans: `Lesson_12.1_Teaching_Plan_2026-11-24.html` (Meeting #31), `Lesson_12.2_Teaching_Plan_2026-11-25.html` (Meeting #32), `Lesson_12.3_Teaching_Plan_2026-11-27.html` (Meeting #33) in `src/modules/Module_12_Commentary/` (passed shared linter 0 problems).
-  2. Widescreen PowerPoint slide decks built: `Lesson_12.1_Slides_2026-11-24.pptx`, `Lesson_12.2_Slides_2026-11-25.pptx`, `Lesson_12.3_Slides_2026-11-27.pptx` (15 slides each, strictly >=16pt font floor, 80–120 word notes per slide) in `src/` and mirrored to `dist/moodle/`.
-  3. Module 12 Section ancillaries assembled: `01_Banner.png`, `05_Reading_List.html`, `06_Watch_List.html`, `09_Quiz_Description.html`, and `09_Quiz.xml` (10-question quiz with diagnostic feedback) via `scripts/banks/quiz_12.py`.
-  4. Deployed full package to live Moodle Section 12 (16 activities in canonical order).
+- **Current Phase:** Modules 8, 9, 10, 11, 12, and 13 fully authored, verified, and deployed to live Moodle Course 51185. All 13 core instructional modules adapted for the undergraduate novice cohort.
+- **Completed Module 13 Assets (2026-10-14):**
+  1. Authored complete, novice-accessible lessons for Module 13 (Lessons 13.1, 13.2, 13.3) for the Capstone Publication Studio:
+     - Lesson 13.1 (Meeting #34, Tue Dec 1, 8:30 AM): Editorial principles, methodology, TEI `<editorialDecl>`, machine-actionable policy declarations, and open access licensing (FKGL 11.5, FRE 33.6, 11.9 words/sent, 0 lint issues).
+     - Lesson 13.2 (Meeting #35, Wed Dec 2, 10:30 AM): TEI Processing Model, ODD customization, single source of truth, and presentation styles via CSS Flexbox/Grid (FKGL 10.6, FRE 39.8, 11.5 words/sent, 0 lint issues).
+     - Lesson 13.3 (Meeting #36, Fri Dec 4, 10:30 AM - Wednesday timetable): Multi-modal publishing, minimal computing, FAIR data, Zenodo DOIs, GitHub Releases, and course synthesis (FKGL 11.0, FRE 35.4, 10.7 words/sent, 0 lint issues).
+  2. Question banks built: `scripts/banks/lesson_13_1.py`, `lesson_13_2.py`, `lesson_13_3.py` and compiled into `03b_Lesson_13.*_Questions.xml` (30 questions each, full diagnostic feedback, strict 1:1 section parity).
+  3. Offline Notes PDFs compiled: `dist/moodle/Module_13_Publication/04_Lesson_13.{1,2,3}_Notes.pdf` via Pandoc + Typst.
+  4. Interactive Moodle XMLs (`03_Interactive_Lesson_13.*.xml`) and standalone HTML players (`03_Interactive_Lesson_13.*.html`) compiled into both `src/modules/` and `dist/moodle/`.
+  5. In-class teaching plans: `Lesson_13.1_Teaching_Plan_2026-12-01.html`, `Lesson_13.2_Teaching_Plan_2026-12-02.html`, `Lesson_13.3_Teaching_Plan_2026-12-04.html` (Wednesday timetable 10:30 AM for Fri Dec 4). All pass `lint_teaching_plan.py` with 0 problems.
+  6. Widescreen 16:9 projection slide decks: `Lesson_13.1_Slides_2026-12-01.pptx`, `Lesson_13.2_Slides_2026-12-02.pptx`, `Lesson_13.3_Slides_2026-12-04.pptx` (15 slides each, >=16pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
+  7. Section 13 ancillaries assembled via `scripts/banks/quiz_13.py`: `01_Banner.png`, `02_Learning_Objectives.html`, `05_Reading_List.html`, `06_Watch_List.html`, `08_Workshop_Description.html`, `08a_Workshop_Submission_Instructions.html`, `08b_Workshop_Assessment_Instructions.html`, `09_Quiz_Description.html`, `09_Quiz.xml` (10-question quiz with diagnostic feedback, single-witness fidelity replacing stemma codicum).
+  8. Deployed full package to live Moodle Section 13 (Course 51185, Section ID 639811):
+     - Populated Banner (`cmid 1440922`), Learning Objectives (`cmid 1440923`), Lessons 13.1-13.3 Interactive Quizzes (`cmids 1440927, 1440928, 1440929`), and Notes PDFs (`cmids 1440924, 1440925, 1440926`).
+     - Uploaded slide decks via `mkmod.js`: `Lesson 13.1 Slides (PPTX)` (`cmid 1440934`), `Lesson 13.2 Slides (PPTX)` (`cmid 1440935`), `Lesson 13.3 Slides (PPTX)` (`cmid 1440936`).
+     - Added Reading List (`cmid 1440930`) and Watch List (`cmid 1440931`).
+     - Created `Assignment: Module_13_Publication` (`cmid 1440937`, due Dec 10–19 exam period window, 100 pts) via `ws2assign.js`, and hid workshop (`cmid 1440932`).
+     - Added Weekly Quiz (`cmid 1440933`).
+     - Synchronized canonical order (Quiz -> Notes PDF -> Slides PPTX per lesson) via `order.js`.
+     - Manifest refreshed and dumped: 206 activities tracked across 16 sections.
 - **Immediate Next Targets:**
-  1. Module 13 (Publication II) novice rewrite planning and authoring for Meetings #34–36 (Dec 1–4).
-  2. Module 13 slide decks, teaching plans, question banks, and live Moodle deployment.
-- **Immediate Next Targets:**
-  1. Module 8 (Lemmatization) novice rewrite planning and authoring for Meetings #20–22 (Oct 27–30).
-  2. Module 9 (Named Entities) lesson authoring and question banks for Meetings #23–25 (Nov 3–6).
-  4. Generate slide illustrations via Gemini Notebook LM for Lessons 7.1–7.3, then compile interactive XML (`03_Interactive_Lesson_7.x.xml`) and standalone HTML players (`03_Interactive_Lesson_7.x.html`).
-  5. Deploy Module 07 package to live Moodle Section 7 (course 51185).
-  6. Undertake novice rewrite of Module 08 (Lemmatization) re-anchoring from Greek/CLTK to the cohort's three documents (French 1791 decree, Maud Lewis letters, 1752 Peace and Friendship Treaty) before Oct 27.
-  7. Author Module 09 (Named Entities) 30-section lessons and question banks before Nov 3.
+  1. Compile interactive Moodle XML and standalone HTML players for Module 7 (Lessons 7.1, 7.2, 7.3) with `--no-images`.
+  2. Deploy Module 7 to live Moodle Section 7 (Course 51185, Section ID 639805) with slide decks, Notes PDFs, interactive quizzes, reading/watch lists, and weekly quiz.
+  3. Ensure all course assets are clean and synchronized for Week 7 (starting Tue Oct 20).
 
 ### Sandbox caveat: Chrome cannot download to ~/Downloads
 
@@ -536,4 +544,27 @@ Two findings worth carrying forward:
     - Added Weekly Quiz (`cmid 1440917`).
     - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
     - Refreshed and committed `moodle_manifest.json` (190 activities tracked across 16 sections).
+
+- **[2026-10-14] Module 13 (Publication II — Capstone Digital Editions & Archiving) Novice Authoring, Ancillaries, Slide Decks, and Live Moodle Deployment Complete:**
+  - Evaluated baseline reading level and doctoral philology: obsolete version centered on multi-witness stemma codicum, eliminatio codicum descriptorum, CollateX variant graphs, and Homeric scholia.
+  - Authored complete, novice-accessible lessons for Module 13 (Lessons 13.1, 13.2, 13.3) for the Capstone Publication Studio grounded in the three student witnesses (Ace: 1791 French Revolutionary decree; Olyvia: 1967 Maud Lewis letter; Andromeda: 1752 Peace and Friendship Treaty):
+    - Lesson 13.1 (Meeting #34, Tue Dec 1, 8:30–9:20 AM): 30 sections, 7,208 words, FKGL 11.5, FRE 33.6, 11.9 words/sent, 0 lint issues. Teaches the intellectual architecture of a digital edition, single-witness documentary fidelity, formulating clear editorial principles, machine-actionable policy declarations in TEI `<editorialDecl>` (`<correction>`, `<normalization>`, `<segmentation>`, `<interpretation>`), naming authority files and lexicons, open-access licensing (CC BY 4.0, CC0), and drafting the edition introduction narrative.
+    - Lesson 13.2 (Meeting #35, Wed Dec 2, 10:30–11:20 AM): 30 sections, 7,166 words, FKGL 10.6, FRE 39.8, 11.5 words/sent, 0 lint issues. Teaches the TEI Processing Model, ODD (One Document Does It All) customization as a single source of truth, separation of semantic markup from visual display, core behaviours (`paragraph`, `heading`, `note`, `link`, `list`, `table`), CSS Flexbox and Grid layouts, styling personal/place names, facsimile image side-by-side display, interactive popup modal notes, and automated compilation of schemas and stylesheets.
+    - Lesson 13.3 (Meeting #36, Fri Dec 4, 10:30–11:20 AM - Wednesday timetable): 30 sections, 7,143 words, FKGL 11.0, FRE 35.4, 10.7 words/sent, 0 lint issues. Teaches multi-modal publishing (interactive web apps, standalone offline zero-dependency packages with Lunr.js search, print-ready PDF codices via CSS Paged Media / Typst and PDF/A archiving), minimal computing principles, FAIR open data (Findable, Accessible, Interoperable, Reusable), persistent identifiers (Zenodo DOIs, Concept DOIs vs Version DOIs), automated GitHub Releases ingestion, dual licensing code vs prose, paratextual citation standards, pre-publication quality checklists, and course synthesis reflecting on the 13-week journey from absolute novices to published digital editors.
+    - All three lessons pass the lint gate with 0 issues (clean HTML tables, 30/30 takeaways verified).
+  - Built question data modules (`scripts/banks/lesson_13_1.py`, `lesson_13_2.py`, `lesson_13_3.py`) and compiled question banks to `03b_Lesson_13.*_Questions.xml` (30 questions each, full diagnostic feedback, strict section parity, 1:1 match).
+  - Compiled offline Notes PDFs (`04_Lesson_13.1_Notes.pdf`, `04_Lesson_13.2_Notes.pdf`, `04_Lesson_13.3_Notes.pdf`) to `dist/moodle/Module_13_Publication/` using Pandoc + Typst.
+  - Compiled interactive Moodle XMLs (`03_Interactive_Lesson_13.*.xml`) and standalone HTML players (`03_Interactive_Lesson_13.*.html`) into both `src/modules/` and `dist/moodle/`.
+  - Assembled Phase F ancillaries via `scripts/banks/quiz_13.py`: generated dark bronze / midnight blue 1200x300 banner (`01_Banner.png`), Reading List, Watch List, Assignment 13 suite with 4+3+3 rubric (due during December Exam Period, Dec 10–19, 100 Moodle points), and 10-question Weekly Quiz (`09_Quiz.xml`). Purged all stemma codicum / genealogical recension questions, replacing them with single-witness documentary fidelity.
+  - Authored and verified in-class teaching plans: `Lesson_13.1_Teaching_Plan_2026-12-01.html` (Tue 8:30–9:20 AM), `Lesson_13.2_Teaching_Plan_2026-12-02.html` (Wed 10:30–11:20 AM), `Lesson_13.3_Teaching_Plan_2026-12-04.html` (Fri 10:30–11:20 AM under StFX Wednesday timetable rule) in MULH 3032. Passed `lint_teaching_plan.py` with 0 problems.
+  - Built widescreen 16:9 projection slide decks: `Lesson_13.1_Slides_2026-12-01.pptx`, `Lesson_13.2_Slides_2026-12-02.pptx`, `Lesson_13.3_Slides_2026-12-04.pptx` (15 slides each; strictly >=16.0pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
+  - Deployed full package to live Moodle Section 13 (Course 51185, Section ID 639811):
+    - Populated Banner (`cmid 1440922`), Learning Objectives (`cmid 1440923`), Lessons 13.1-13.3 Interactive Quizzes (`cmids 1440927, 1440928, 1440929`), and Notes PDFs (`cmids 1440924, 1440925, 1440926` with completion restrictions pointing to quizzes).
+    - Uploaded slide decks as file resources via `mkmod.js`: `Lesson 13.1 Slides (PPTX)` (`cmid 1440934`), `Lesson 13.2 Slides (PPTX)` (`cmid 1440935`), `Lesson 13.3 Slides (PPTX)` (`cmid 1440936`).
+    - Added Reading List (`cmid 1440930`) and Watch List (`cmid 1440931`).
+    - Created `Assignment: Module_13_Publication` (`cmid 1440937`, due Dec 10–19 exam period window, 100 pts) via `ws2assign.js`, and hid workshop (`cmid 1440932`).
+    - Added Weekly Quiz (`cmid 1440933`).
+    - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
+    - Refreshed and committed `moodle_manifest.json` (206 activities tracked across 16 sections).
+
 

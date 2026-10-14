@@ -1,0 +1,2258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_13.2</text></category></question>
+<question type="description"><name><text>01 Content: From Raw XML to the Web: The Need for Presentation</text></name><questiontext format="html"><text><![CDATA[
+<h3>From Raw XML to the Web: The Need for Presentation</h3>
+<p>Raw TEI XML is a rich data format. It records textual structure, physical handwriting, and critical commentary with precision. However, raw XML is not designed for everyday reading. Web browsers do not know how to display tags like <code>&lt;persName&gt;</code> or <code>&lt;del&gt;</code> without clear instructions.</p>
+<p>If you open an XML document in a standard browser, you see a raw text tree. You see angle brackets, attribute strings, and unformatted paragraphs. Everyday readers find this view confusing and difficult to navigate. A successful digital edition requires an attractive and readable visual interface.</p>
+<p>Visual presentation transforms structured data into an engaging reading experience. It adds readable typography, generous line spacing, and balanced margins. It also creates interactive features such as clickable notes, image viewers, and search panels.</p>
+<p>By separating underlying data from visual display, you preserve both functions. Your TEI XML remains an archival record. At the same time, your web presentation delivers an accessible edition to the public.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Primary Format</th>
+      <th>Core Purpose</th>
+      <th>Target Audience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data Layer</td>
+      <td>TEI XML</td>
+      <td>Archival preservation and semantic structure</td>
+      <td>Computers, search engines, and scholars</td>
+    </tr>
+    <tr>
+      <td>Presentation Layer</td>
+      <td>HTML5 and CSS3</td>
+      <td>Visual reading layout and interaction</td>
+      <td>Students, researchers, and the public</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Data Layer</em> — the structured XML markup that encodes semantic meaning independently of display. <em>Presentation Layer</em> — the visual interface composed of HTML and CSS that displays text to human readers. <em>Raw XML Tree</em> — the unformatted hierarchical display of elements, attributes, and tags shown by default in web browsers.</p>
+<p><strong>Takeaway:</strong> Separating semantic data from visual presentation allows digital editions to maintain archival integrity while delivering readable web layouts.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: From Raw XML to the Web: The Need for Presentation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is raw TEI XML unsuitable as a primary reading interface for everyday readers?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Separating semantic data from visual presentation allows digital editions to maintain archival integrity while delivering readable web layouts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Raw XML displays unformatted syntax, angle brackets, and attributes that distract readers from the historical text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Separating semantic XML data from HTML/CSS presentation ensures both archival preservation and accessible reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Web browsers are legally forbidden from opening XML documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Browsers can open XML, but they display a raw syntax tree that is difficult to read.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XML files lose their content unless converted to images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML preserves content permanently; presentation simply formats it for human eyes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XML tags can only be read on specialized supercomputers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML is a lightweight plain-text format readable on any personal computer.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: The Legacy Trap: Monolithic XSLT Stylesheets</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Legacy Trap: Monolithic XSLT Stylesheets</h3>
+<p>In the early decades of the digital humanities, publishing a TEI edition required writing complex XSLT stylesheets. XSLT stands for Extensible Stylesheet Language Transformations. It is a programming language designed to convert XML into other formats like HTML or PDF.</p>
+<p>While XSLT is very powerful, it created serious maintenance challenges. Projects often accumulated thousands of lines of dense code. Editorial rules, XPath expressions, and HTML tags were mixed together in single files. This created fragile systems that only dedicated programmers could maintain.</p>
+<p>When editors changed a tag in their schema, the transformation stylesheet often broke. If the original programmer left the project, nobody knew how to fix the broken templates. Many early digital editions stopped working because their custom scripts could not be updated.</p>
+<p>Furthermore, custom stylesheets could rarely be shared between projects. Every university built its own separate publishing software from scratch. The digital humanities community needed a standardized and declarative approach to visual rendering.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Publishing Approach</th>
+      <th>How Rules Are Written</th>
+      <th>Maintenance Effort</th>
+      <th>Cross-Project Reuse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bespoke XSLT (Legacy)</td>
+      <td>Complex procedural programming templates</td>
+      <td>Very high; requires advanced programming staff</td>
+      <td>Rare; code is tightly coupled to one project</td>
+    </tr>
+    <tr>
+      <td>Processing Model (Modern)</td>
+      <td>Declarative rules inside the project ODD schema</td>
+      <td>Low; editors configure abstract behaviors directly</td>
+      <td>Universal; standard rules run on any modern platform</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>XSLT</em> — a programming language used to transform XML documents into HTML, PDF, or text formats. <em>Maintenance Debt</em> — the accumulated cost and difficulty of maintaining complex or obsolete custom code over time. <em>Procedural Code</em> — instructions that detail every programmatic step rather than declaring the desired result.</p>
+<p><strong>Takeaway:</strong> Custom XSLT stylesheets created fragile digital editions that were expensive to maintain and difficult to share across institutions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: The Legacy Trap: Monolithic XSLT Stylesheets</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What major problem arose from relying on bespoke XSLT stylesheets in early digital editing projects?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Custom XSLT stylesheets created fragile digital editions that were expensive to maintain and difficult to share across institutions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Bespoke XSLT stylesheets were complex and fragile, creating high maintenance debt when schemas evolved or programmers left.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Hand-crafted XSLT mixed parsing logic and presentation tags, making stylesheets difficult to maintain or share.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XSLT could only produce plain text files without any formatting.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XSLT is very powerful and can output HTML and PDF, but complex bespoke code became unmaintainable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XSLT was outlawed by the TEI Consortium in 2005.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XSLT is an open W3C standard, but modern projects prefer declarative processing models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TEI documents could not be parsed by XML transformation engines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI is valid XML and transforms easily; the issue was procedural stylesheet fragility.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The TEI Processing Model: Declarative Rendering</text></name><questiontext format="html"><text><![CDATA[
+<h3>The TEI Processing Model: Declarative Rendering</h3>
+<p>To overcome the fragility of custom scripts, the TEI Consortium created the Processing Model. Introduced in Chapter 22 of the TEI Guidelines, this model offers a declarative system for document publication.</p>
+<p>Declarative modeling means stating what you want rather than programming how to build it. Instead of writing fifty lines of procedural code to render a deleted word, you assign a simple behavior rule. You declare that <code>&lt;del&gt;</code> has the behavior <code>inline</code> with a strikethrough style.</p>
+<p>The Processing Model maps hundreds of diverse TEI elements onto a small set of standardized behaviors. These behaviors include familiar concepts like paragraphs, headings, lists, notes, and graphics. Software engines translate these abstract behaviors into valid web layouts automatically.</p>
+<p>This design returns control to scholarly editors. You do not need to be a software engineer to publish your edition. By writing clear rendering rules in your schema, you ensure your text displays accurately across all media.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Abstract Behaviour</th>
+      <th>Rendered HTML Output</th>
+      <th>Visual Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&lt;p&gt;</td>
+      <td>paragraph</td>
+      <td>&lt;p&gt;...&lt;/p&gt;</td>
+      <td>Block text with vertical paragraph spacing</td>
+    </tr>
+    <tr>
+      <td>&lt;head&gt;</td>
+      <td>heading</td>
+      <td>&lt;h2&gt;...&lt;/h2&gt;</td>
+      <td>Prominent bold section heading</td>
+    </tr>
+    <tr>
+      <td>&lt;persName&gt;</td>
+      <td>inline</td>
+      <td>&lt;span class="persName"&gt;</td>
+      <td>Flowing inline text with optional highlight</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>TEI Processing Model</em> — a standardized system for expressing publication and rendering rules directly within TEI schemas. <em>Declarative Rendering</em> — defining visual intentions through high-level rules rather than low-level procedural code. <em>Abstract Behaviour</em> — a platform-neutral rendering instruction such as heading, paragraph, or note.</p>
+<p><strong>Takeaway:</strong> The TEI Processing Model replaces thousands of lines of procedural code with standardized, declarative rendering instructions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The TEI Processing Model: Declarative Rendering</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the TEI Processing Model simplify the publication of encoded documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The TEI Processing Model replaces thousands of lines of procedural code with standardized, declarative rendering instructions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It maps complex TEI tags onto a compact set of standardized, abstract rendering behaviors declared directly in the schema.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Instead of writing procedural code, editors declare high-level behaviors like paragraph, heading, and note.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces XML markup with unformatted Markdown files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Processing Model operates directly on TEI XML documents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires editors to write binary machine code for every element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Processing Model is high-level and declarative, not low-level machine code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It restricts digital editions to displaying only five words per page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The model handles complete documents across diverse web and print media.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: The ODD Concept: One Document Does It All</text></name><questiontext format="html"><text><![CDATA[
+<h3>The ODD Concept: One Document Does It All</h3>
+<p>In TEI scholarship, the acronym ODD stands for <strong>One Document Does It All</strong>. An ODD file is an XML document that contains everything needed to define and document a digital editing project.</p>
+<p>Before ODD was created, projects maintained separate files for documentation, validation schemas, and stylesheets. Over time, these files drifted apart. The written guidelines described one set of rules, while the schema enforced another, and the stylesheets expected a third.</p>
+<p>ODD solves this problem by creating a single source of truth. An ODD file brings together three critical components:</p>
+<ol>
+<li>Human-readable prose explaining your editorial principles;</li>
+<li>Formal schema declarations defining authorized elements and attributes;</li>
+<li>Processing models specifying how elements should be displayed.</li>
+</ol>
+<p>When you compile an ODD file, automated tools generate your validation schemas and publication code from the same source. If you update a rule in your ODD, your documentation, schemas, and web layouts update together.</p>
+<table>
+  <thead>
+    <tr>
+      <th>ODD Section</th>
+      <th>XML Elements</th>
+      <th>Compiled Product</th>
+      <th>Primary Beneficiary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Prose Manual</td>
+      <td>&lt;body&gt;, &lt;div&gt;, &lt;p&gt;</td>
+      <td>Editorial handbook in HTML or PDF</td>
+      <td>Editors and students</td>
+    </tr>
+    <tr>
+      <td>Schema Specification</td>
+      <td>&lt;schemaSpec&gt;, &lt;elementSpec&gt;</td>
+      <td>Relax NG (.rng) and Schematron (.sch) schemas</td>
+      <td>XML validators in VS Code</td>
+    </tr>
+    <tr>
+      <td>Processing Models</td>
+      <td>&lt;model&gt;, &lt;modelSequence&gt;</td>
+      <td>Web stylesheets and transformation scripts</td>
+      <td>Web browsers and publishing engines</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>ODD (One Document Does It All)</em> — a TEI XML format that integrates prose documentation, schema declarations, and rendering models into a single file. <em>Single Source of Truth</em> — a design principle where data and rules are defined in one authoritative location to avoid drift. <em>Schema Compilation</em> — the automated process of converting an ODD file into formal validation schemas like Relax NG.</p>
+<p><strong>Takeaway:</strong> An ODD file acts as the single source of truth for an edition, generating guidelines, validation schemas, and web stylesheets from one master file.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: The ODD Concept: One Document Does It All</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does an ODD file function as a 'single source of truth' for a digital editing project?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An ODD file acts as the single source of truth for an edition, generating guidelines, validation schemas, and web stylesheets from one master file.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It unites human-readable prose guidelines, formal schema specifications, and visual processing models in one XML master file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Compiling an ODD automatically generates Relax NG validation schemas and publication stylesheets from a single source.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces all project team members to use the exact same computer monitor.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ODD is a document format, not a hardware requirement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes previous editions to prevent other scholars from reading them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ODD defines project schemas and workflows transparently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts all historical languages into modern English automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ODD manages schemas and publication rules, not automated translation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: The Structure of an ODD File: schemaSpec and elementSpec</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Structure of an ODD File: schemaSpec and elementSpec</h3>
+<p>An ODD file is written using standard TEI XML markup. Its root element is <code>&lt;TEI&gt;</code>, and its metadata lives inside <code>&lt;teiHeader&gt;</code>. The core technical work occurs inside <code>&lt;text&gt;&lt;body&gt;</code> within the <code>&lt;schemaSpec&gt;</code> element.</p>
+<p>The <code>&lt;schemaSpec&gt;</code> tag establishes the name, prefix, and identity of your custom schema. Inside this container, you select the TEI modules your project needs using <code>&lt;moduleRef&gt;</code> tags. For example, loading <code>moduleRef key="core"</code> imports fundamental tags like paragraphs and titles.</p>
+<p>To customize a specific tag, you add an <code>&lt;elementSpec&gt;</code> block. You set <code>@ident</code> to the name of the tag and <code>@mode="change"</code> to modify its behavior. This tells the processor that you are refining an existing TEI element rather than inventing a new one.</p>
+<p>Inside <code>&lt;elementSpec&gt;</code>, you nest <code>&lt;model&gt;</code> tags. Each <code>&lt;model&gt;</code> defines a specific rendering behavior for that element. This clean structure keeps all rules for an element organized in one clear location.</p>
+<pre><code class="language-xml">&lt;elementSpec ident=&quot;persName&quot; mode=&quot;change&quot;&gt;
+  &lt;desc&gt;Encodes personal names with popups linking to Wikidata&lt;/desc&gt;
+  &lt;model behaviour=&quot;inline&quot; cssClass=&quot;tei-persName&quot;&gt;
+    &lt;param name=&quot;ref&quot; value=&quot;@ref&quot;/&gt;
+  &lt;/model&gt;
+&lt;/elementSpec&gt;
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>schemaSpec</em> — the root container in an ODD file defining the project schema and module imports. <em>elementSpec</em> — an ODD block that customizes the rules, attributes, and models for a specific TEI element. <em>moduleRef</em> — a declaration that imports a standard module of elements from the TEI Guidelines.</p>
+<p><strong>Takeaway:</strong> An ODD file organizes customizations inside elementSpec containers, where each tag receives its description, rules, and rendering models.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: The Structure of an ODD File: schemaSpec and elementSpec</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Where are specific element customizations and rendering models declared inside an ODD file?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An ODD file organizes customizations inside elementSpec containers, where each tag receives its description, rules, and rendering models.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Inside elementSpec containers nested within the schemaSpec block.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Each elementSpec names a TEI element and defines its rules, descriptions, and model behaviors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside the computer operating system registry files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. All rules are encoded cleanly in standard TEI XML inside the ODD file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In external binary configuration files that cannot be edited in VS Code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. ODD files are plain XML editable in any text editor like VS Code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside random comments scattered throughout the project readme.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Customizations are formally structured inside elementSpec elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Core Processing Model Behaviours: Inlines and Blocks</text></name><questiontext format="html"><text><![CDATA[
+<h3>Core Processing Model Behaviours: Inlines and Blocks</h3>
+<p>At the heart of the Processing Model are predefined <strong>behaviours</strong>. A behaviour tells the publishing software how to treat an element in the final output. The two most fundamental layout behaviours are <code>inline</code> and <code>block</code>.</p>
+<p>An <code>inline</code> behaviour renders an element within the natural flow of surrounding text. Words continue across the line without creating line breaks. You use <code>inline</code> for personal names (<code>&lt;persName&gt;</code>), place names (<code>&lt;placeName&gt;</code>), dates (<code>&lt;date&gt;</code>), and highlighted phrases (<code>&lt;hi&gt;</code>).</p>
+<p>A <code>block</code> behaviour creates a distinct rectangular area that starts on a new line and pushes subsequent content below it. In web browsers, blocks are rendered as <code>&lt;div&gt;</code> or <code>&lt;section&gt;</code> elements. You use <code>block</code> for divisions, author statements, and editorial notes.</p>
+<p>A closely related behaviour is <code>paragraph</code>. It formats text with standard paragraph margins and indentation, rendering as an HTML <code>&lt;p&gt;</code> tag. Distinguishing between inline and block flows forms the basis of all clean web typography.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Behaviour</th>
+      <th>Typical TEI Tags</th>
+      <th>HTML Rendering</th>
+      <th>Layout Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>inline</td>
+      <td>&lt;persName&gt;, &lt;placeName&gt;, &lt;date&gt;</td>
+      <td>&lt;span class="..."&gt;</td>
+      <td>Flows seamlessly within the current text line</td>
+    </tr>
+    <tr>
+      <td>block</td>
+      <td>&lt;div&gt;, &lt;byline&gt;, &lt;docDate&gt;</td>
+      <td>&lt;div class="..."&gt;</td>
+      <td>Starts on a new line; occupies full available width</td>
+    </tr>
+    <tr>
+      <td>paragraph</td>
+      <td>&lt;p&gt;, &lt;ab&gt;</td>
+      <td>&lt;p&gt;</td>
+      <td>Block text with vertical margin spacing</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Inline Behaviour</em> — a rendering mode where content flows inside the existing line without creating vertical breaks. <em>Block Behaviour</em> — a rendering mode where content starts on a new line and occupies the full horizontal space. <em>Predefined Behaviour</em> — a standard keyword in the TEI Processing Model specifying a layout function.</p>
+<p><strong>Takeaway:</strong> The inline and block behaviours establish the core structure of web layouts, determining whether text flows horizontally or breaks into distinct vertical blocks.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Core Processing Model Behaviours: Inlines and Blocks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the fundamental difference between inline and block rendering behaviors?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The inline and block behaviours establish the core structure of web layouts, determining whether text flows horizontally or breaks into distinct vertical blocks.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Inline elements flow seamlessly within existing text lines, while block elements start on a new line and occupy the full width.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Inline tags include persName and hi; block tags include div, p, and byline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inline elements are displayed in red, while block elements are displayed in blue.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Behaviors dictate structural layout, while CSS controls colors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inline elements can only contain numbers, while blocks can only contain letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both behaviors can contain any character text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inline elements are hidden from view, while block elements are visible.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both elements are visible; inline flows horizontally while block creates vertical divisions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Document Structure Behaviours: Sections and Breaks</text></name><questiontext format="html"><text><![CDATA[
+<h3>Document Structure Behaviours: Sections and Breaks</h3>
+<p>Historical documents possess physical boundaries that do not always match modern reading units. A letter may cross two physical pages. A legal decree may contain formal margin notes and line breaks. The Processing Model provides special behaviours to handle physical divisions.</p>
+<p>The <code>heading</code> behaviour formats titles and section banners. When applied to <code>&lt;head&gt;</code>, it generates appropriate HTML header tags (<code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>) based on the nesting level of the parent <code>&lt;div&gt;</code>. This creates a clear visual hierarchy for readers.</p>
+<p>The <code>break</code> behaviour handles milestone markers like page breaks (<code>&lt;pb/&gt;</code>) and line breaks (<code>&lt;lb/&gt;</code>). Instead of enclosing text, milestone tags mark specific physical points in the document.</p>
+<p>In a diplomatic edition, you might render <code>&lt;lb/&gt;</code> as a visible line break (<code>&lt;br&gt;</code>) to preserve handwritten lineation. In a normalized reading view, you might suppress <code>&lt;lb/&gt;</code> or replace it with a space so sentences flow continuously. The Processing Model makes this distinction easy to configure.</p>
+<pre><code class="language-xml">&lt;elementSpec ident=&quot;pb&quot; mode=&quot;change&quot;&gt;
+  &lt;model behaviour=&quot;break&quot; type=&quot;page&quot;&gt;
+    &lt;param name=&quot;label&quot; value=&quot;concat('[Page ', @n, ']')&quot;/&gt;
+  &lt;/model&gt;
+&lt;/elementSpec&gt;
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Heading Behaviour</em> — a rendering instruction that formats title text with prominent size and weight based on section level. <em>Break Behaviour</em> — a rendering rule for milestone elements that inserts page or line breaks into the output stream. <em>Milestone Element</em> — an empty XML tag like pb or lb marking a physical transition point rather than enclosing content.</p>
+<p><strong>Takeaway:</strong> The heading and break behaviours allow editors to represent document divisions and physical manuscript milestones without disrupting reading flow.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Document Structure Behaviours: Sections and Breaks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do the heading and break behaviors assist in rendering historical documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The heading and break behaviours allow editors to represent document divisions and physical manuscript milestones without disrupting reading flow.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Heading generates hierarchical section titles, while break formats milestone markers like page breaks and line breaks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Milestone tags mark physical manuscript points like pb and lb without enclosing textual content.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Heading deletes introductory text, while break stops the web browser from running.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Heading formats titles and break inserts line or page transitions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Heading converts text to uppercase, while break divides words into individual letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Behaviors handle document structure and milestone transitions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Heading encrypts section names, while break splits documents into separate files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Heading formats h2/h3 headers and break formats physical milestones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: Critical Editing Behaviours: Notes and Popups</text></name><questiontext format="html"><text><![CDATA[
+<h3>Critical Editing Behaviours: Notes and Popups</h3>
+<p>Commentary notes are essential for historical understanding, but long notes can clutter the primary text. If every historical explanation appeared inline, readers would lose the thread of the original author's voice.</p>
+<p>The Processing Model provides the <code>note</code> behaviour to manage annotations cleanly. The <code>note</code> behaviour instructs the publishing engine to separate the commentary from the text flow. The note can be displayed in three main ways:</p>
+<ol>
+<li>In a side margin alongside the referenced sentence;</li>
+<li>As a traditional footnote at the bottom of the reading pane;</li>
+<li>Inside an interactive popup modal triggered by clicking an anchor.</li>
+</ol>
+<p>In web editions, popup notes and margin sidebars are very popular. Readers can click on an annotated phrase to inspect historical context, dictionary definitions, or authority links. When finished, they close the popup and continue reading smoothly.</p>
+<pre><code class="language-xml">&lt;elementSpec ident=&quot;note&quot; mode=&quot;change&quot;&gt;
+  &lt;model behaviour=&quot;note&quot;&gt;
+    &lt;param name=&quot;place&quot; value=&quot;'margin'&quot;/&gt;
+  &lt;/model&gt;
+&lt;/elementSpec&gt;
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Note Behaviour</em> — a rendering rule that decouples annotations from main text and places them in margins, footnotes, or popups. <em>Interactive Popup</em> — a lightweight web modal that displays commentary upon clicking an anchor without navigating away. <em>Margin Sidebar</em> — a vertical reading column alongside the text used for displaying glosses and commentary.</p>
+<p><strong>Takeaway:</strong> The note behaviour separates commentary from the main text flow, presenting critical explanations in sidebars, footnotes, or interactive popups.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: Critical Editing Behaviours: Notes and Popups</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is the note behavior valuable for presenting scholarly commentary in web editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The note behaviour separates commentary from the main text flow, presenting critical explanations in sidebars, footnotes, or interactive popups.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It decouples annotations from the primary text flow, displaying notes in margins, footnotes, or interactive popups.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This prevents lengthy commentary notes from cluttering or interrupting the historical text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It erases commentary notes permanently before publishing the website.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The note behavior formats and displays commentary cleanly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces all notes with automated advertisements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The behavior structures academic commentary for readers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts notes into sound effects that play whenever a word is read.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Note behaviors control visual placement in margins, footnotes, or popups.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Alternate Text Behaviours: Choice and Variations</text></name><questiontext format="html"><text><![CDATA[
+<h3>Alternate Text Behaviours: Choice and Variations</h3>
+<p>Documentary editing frequently requires presenting two views of the same word. Scribes make spelling errors that editors regularize. Historical texts contain archaic abbreviations that editors expand. In TEI XML, these pairings are captured inside the <code>&lt;choice&gt;</code> element.</p>
+<p>The Processing Model offers the <code>alternate</code> behaviour specifically for <code>&lt;choice&gt;</code>. The <code>alternate</code> behaviour instructs the publishing engine to display one reading as default while making the second reading accessible on demand.</p>
+<p>For example, when displaying <code>&lt;choice&gt;&lt;orig&gt;publiq&lt;/orig&gt;&lt;reg&gt;public&lt;/reg&gt;&lt;/choice&gt;</code>, you can configure the web edition to show the normalized word "public" in reading view. Readers who hover or click on the word see a small badge displaying the original scribal spelling "publiq".</p>
+<p>Alternatively, you can provide an interface toggle that switches the entire document between diplomatic and normalized views. The <code>alternate</code> behaviour makes this multi-view publication straightforward without duplicating the underlying text.</p>
+<pre><code class="language-xml">&lt;elementSpec ident=&quot;choice&quot; mode=&quot;change&quot;&gt;
+  &lt;model behaviour=&quot;alternate&quot;&gt;
+    &lt;param name=&quot;default&quot; value=&quot;reg&quot;/&gt;
+    &lt;param name=&quot;alternate&quot; value=&quot;orig&quot;/&gt;
+  &lt;/model&gt;
+&lt;/elementSpec&gt;
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Alternate Behaviour</em> — a rendering model that pairs primary and secondary readings, allowing readers to toggle between them. <em>Interactive Hover Badge</em> — a visual indicator displaying regularized spellings or expansions when the cursor moves over a word. <em>Diplomatic View</em> — a presentation that displays exact physical manuscript spellings and line breaks.</p>
+<p><strong>Takeaway:</strong> The alternate behaviour enables multi-view reading, allowing users to inspect diplomatic spellings and normalized readings from a single encoded text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Alternate Text Behaviours: Choice and Variations</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the alternate behavior support multi-view digital editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The alternate behaviour enables multi-view reading, allowing users to inspect diplomatic spellings and normalized readings from a single encoded text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It pairs primary and secondary readings in choice elements, allowing readers to toggle between diplomatic and normalized spellings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Readers can view original scribal spelling or modernized text from a single master XML file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the author's words and substitutes modern poetry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alternate presents verified readings like orig/reg or sic/corr.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It alternates the text color between red and green on every line.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alternate manages textual variations and editorial choices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It randomly switches words every five seconds to confuse the reader.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Alternate provides controlled, user-selectable views of editorial pairs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Tabular and Graphic Behaviours: Tables and Figures</text></name><questiontext format="html"><text><![CDATA[
+<h3>Tabular and Graphic Behaviours: Tables and Figures</h3>
+<p>Historical documents frequently contain non-textual or semi-structured data. Financial records include accounting ledgers. Decrees and letters include official stamps, wax seals, and illustrations. The Processing Model provides dedicated behaviours for these elements.</p>
+<p>For structured information encoded in <code>&lt;table&gt;</code>, <code>&lt;row&gt;</code>, and <code>&lt;cell&gt;</code>, the Processing Model supplies matching <code>table</code>, <code>row</code>, and <code>cell</code> behaviours. These compile directly into semantic HTML <code>&lt;table&gt;</code> elements with responsive borders and padding.</p>
+<p>For facsimiles and illustrations, the <code>graphic</code> and <code>figure</code> behaviours embed digital images into the reading pane. You pass the image file path or URL to the <code>url</code> parameter. The publishing engine generates an HTML <code>&lt;img&gt;</code> tag with appropriate dimensions.</p>
+<p>You can also pair transcribed text directly with its corresponding facsimile zone. Clicking on a transcribed paragraph highlights the exact region on the high-resolution page image, demonstrating rigorous documentary evidence.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Behaviour</th>
+      <th>Required Parameters</th>
+      <th>HTML Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&lt;graphic&gt;</td>
+      <td>graphic</td>
+      <td>url, title, width</td>
+      <td>&lt;img src="..." alt="..."&gt;</td>
+    </tr>
+    <tr>
+      <td>&lt;table&gt;</td>
+      <td>table</td>
+      <td>columns, border</td>
+      <td>&lt;table class="..."&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Graphic Behaviour</em> — a rendering instruction that embeds digital images and facsimile zones into the document flow. <em>Table Behaviour</em> — a rendering rule that formats rows and cells into structured tabular displays. <em>Facsimile Zone Pairing</em> — linking a transcribed section directly to coordinates on a manuscript image.</p>
+<p><strong>Takeaway:</strong> The graphic and table behaviours integrate manuscript images, wax seals, and structured accounting ledgers directly alongside transcribed text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Tabular and Graphic Behaviours: Tables and Figures</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do graphic and table behaviors enhance documentary fidelity in digital editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The graphic and table behaviours integrate manuscript images, wax seals, and structured accounting ledgers directly alongside transcribed text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They embed high-resolution manuscript facsimiles and format structured accounting ledgers alongside transcribed text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Graphic displays images and facsimile surfaces, while table structures financial ledgers and matrices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They replace written sentences with animated video clips.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Graphic and table handle images and tabular data directly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They remove all images to reduce web page loading times to zero.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. High-resolution facsimiles provide essential evidence in documentary editing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They force all tables to be displayed as unformatted comma-separated text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Table behaviors produce styled semantic HTML tables.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Conditional Behaviours: The @predicate Attribute</text></name><questiontext format="html"><text><![CDATA[
+<h3>Conditional Behaviours: The @predicate Attribute</h3>
+<p>An element should not always be rendered in the exact same way. Its visual appearance often depends on its context, its type, or the surrounding elements. The Processing Model handles this flexibility using the <code>@predicate</code> attribute.</p>
+<p>The <code>@predicate</code> attribute contains an XPath expression that tests a condition. If the condition evaluates to true, the model rule applies. If it evaluates to false, the publishing engine skips that rule and checks the next model.</p>
+<p>For example, consider the <code>&lt;note&gt;</code> element. A brief marginal gloss requires different styling than a lengthy historical commentary note. By testing <code>@place='margin'</code> in a predicate, you route marginal notes to a sidebar while routing unassigned notes to footnotes.</p>
+<p>You can also use predicates to differentiate categories of commentary. You can apply distinctive color badges to philological notes, historical biographies, and legal intertextual references across your edition.</p>
+<pre><code class="language-xml">&lt;elementSpec ident=&quot;note&quot; mode=&quot;change&quot;&gt;
+  &lt;model predicate=&quot;@type='philological'&quot; behaviour=&quot;note&quot; cssClass=&quot;note-lexical&quot;/&gt;
+  &lt;model predicate=&quot;@type='historical'&quot; behaviour=&quot;note&quot; cssClass=&quot;note-history&quot;/&gt;
+  &lt;model behaviour=&quot;note&quot; cssClass=&quot;note-default&quot;/&gt;
+&lt;/elementSpec&gt;
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Predicate</em> — an XPath expression inside a model tag that tests conditions before applying a rendering rule. <em>Conditional Rendering</em> — displaying an element differently based on its attributes or document context. <em>Fallback Model</em> — the default model without a predicate placed at the end of an element specification to catch remaining cases.</p>
+<p><strong>Takeaway:</strong> The predicate attribute uses XPath expressions to apply different rendering behaviors and styles based on element context and attributes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Conditional Behaviours: The @predicate Attribute</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the predicate attribute enable conditional rendering in the Processing Model?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The predicate attribute uses XPath expressions to apply different rendering behaviors and styles based on element context and attributes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It uses XPath expressions to test conditions, applying specific behaviors and styles based on element attributes or context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Predicates allow different styling for philological notes versus historical notes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically corrects grammatical mistakes in student writing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Predicates are conditional tests in XPath, not automated grammar checkers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes any element that contains more than ten characters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Predicates route elements to appropriate rendering rules without deleting data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces web browsers to reload the entire operating system.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Predicates simply evaluate XPath conditions during document rendering.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Multi-Channel Publishing: The @output Attribute</text></name><questiontext format="html"><text><![CDATA[
+<h3>Multi-Channel Publishing: The @output Attribute</h3>
+<p>A major strength of the TEI Processing Model is its support for multi-channel publishing. A digital scholarly edition should not be restricted to a single medium. Scholars need responsive web pages, downloadable PDF facsimiles, and print-ready proofs.</p>
+<p>The <code>@output</code> attribute allows you to tailor rendering rules to specific publication media. You can assign different models for <code>@output="web"</code>, <code>@output="print"</code>, or <code>@output="epub"</code>.</p>
+<p>When compiling for the web, you might render <code>&lt;ref&gt;</code> as a clickable hyperlink leading to Wikidata. When compiling for print PDF, you might render that same <code>&lt;ref&gt;</code> with a formal printed citation or URL in parentheses.</p>
+<p>Because all these rules live inside the same ODD file, you never duplicate your editorial work. A single master TEI file generates both an interactive web edition and an elegant print book.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Output Target</th>
+      <th>@output Value</th>
+      <th>Rendering Strategy</th>
+      <th>Typical Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Interactive Web</td>
+      <td>web</td>
+      <td>Clickable popups, image zoom, responsive sidebars</td>
+      <td>Online public reading interface</td>
+    </tr>
+    <tr>
+      <td>Archival Print PDF</td>
+      <td>print</td>
+      <td>Fixed page numbers, bottom footnotes, running headers</td>
+      <td>Formal library preservation and print publishing</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Multi-Channel Publishing</em> — generating multiple distinct media outputs like web, print, and ebook from a single master XML source. <em>Output Attribute</em> — an attribute on model tags specifying which media channel a rule targets. <em>Preservation PDF</em> — a fixed-layout document optimized for long-term archiving and physical printing.</p>
+<p><strong>Takeaway:</strong> The output attribute targets rendering rules to specific media, allowing one ODD file to generate both interactive websites and archival print PDFs.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Multi-Channel Publishing: The @output Attribute</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary benefit of using the output attribute on model rules?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The output attribute targets rendering rules to specific media, allowing one ODD file to generate both interactive websites and archival print PDFs.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It allows editors to target specific media, generating both interactive web editions and print PDFs from one ODD file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Rules with output='web' provide clickable popups, while output='print' provides formal page footnotes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It limits publication exclusively to social media platforms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The output attribute targets standard media formats like web, print, and epub.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires purchasing a separate software license for every reader.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Processing Model is open-source and free for all users.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents documents from being printed on physical paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The print target is specifically optimized for high-quality paper printing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Formatting with CSS: Linking ODD to Web Styles</text></name><questiontext format="html"><text><![CDATA[
+<h3>Formatting with CSS: Linking ODD to Web Styles</h3>
+<p>While behaviours define structure, <strong>Cascading Style Sheets (CSS)</strong> control visual aesthetics. CSS dictates fonts, colors, borders, line spacing, and layout positions. The Processing Model connects abstract behaviors to CSS using the <code>@cssClass</code> attribute.</p>
+<p>When an engine transforms a TEI element, it adds the class specified in <code>@cssClass</code> to the resulting HTML tag. For example, <code>&lt;model behaviour="inline" cssClass="tei-persName"&gt;</code> produces <code>&lt;span class="tei-persName"&gt;</code>.</p>
+<p>You then write clean CSS rules in an external stylesheet. You can define subtle background tints, small-caps fonts, or borders for specific classes. Keeping styling rules in external CSS keeps your ODD schema focused on structural meaning.</p>
+<p>This separation makes redesigning your edition simple. If you decide to change your site font or color palette, you edit a single CSS file. You never need to touch your underlying TEI XML or recompile your schemas.</p>
+<pre><code class="language-css">/* External edition stylesheet */
+.tei-persName {
+  font-weight: 500;
+  color: #002d62;
+  border-bottom: 1px dotted #c59b27;
+}
+
+.tei-placeName {
+  font-style: italic;
+  color: #0f172a;
+}
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>CSS (Cascading Style Sheets)</em> — the standard language used to style the visual presentation of HTML web pages. <em>cssClass Attribute</em> — an attribute on model tags that assigns CSS class names to generated HTML elements. <em>External Stylesheet</em> — a separate .css file containing style rules that apply across an entire website.</p>
+<p><strong>Takeaway:</strong> The cssClass attribute binds ODD model rules to external CSS stylesheets, keeping visual styling modular and easy to update.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Formatting with CSS: Linking ODD to Web Styles</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the cssClass attribute connect declarative ODD models to visual styles?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The cssClass attribute binds ODD model rules to external CSS stylesheets, keeping visual styling modular and easy to update.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It attaches a class name to generated HTML tags, allowing external CSS stylesheets to control typography, colors, and borders.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This keeps structural rendering rules in the ODD schema while keeping styling modular in external CSS.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It embeds raw binary styling code inside the TEI XML header.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS is kept in clean external stylesheets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts all fonts to comic sans automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors choose their own typography in CSS stylesheets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It disables web browsers from using Cascading Style Sheets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It explicitly enables CSS by assigning classes to rendered elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Modern Web Layouts: CSS Flexbox for Editions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Modern Web Layouts: CSS Flexbox for Editions</h3>
+<p>Historical editions frequently require displaying related content side by side. Editors often want to display a page image directly next to its transcription, or a French primary text next to its English translation.</p>
+<p><strong>CSS Flexbox</strong> is a modern layout system designed for aligning items in rows or columns. By applying <code>display: flex</code> to a container, you create a flexible layout that adjusts automatically to different screen widths.</p>
+<p>In a bilingual or dual-view edition, Flexbox makes aligning sentences straightforward. You create a container <code>&lt;div&gt;</code> with two child columns: one for the primary witness and one for the translation. Flexbox keeps the columns equal in height and cleanly aligned.</p>
+<p>Flexbox also handles responsive wrapping. On wide desktop screens, the two texts sit comfortably side by side. On narrow smartphone screens, Flexbox wraps the second column below the first, preserving readability without horizontal scrolling.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Flexbox Property</th>
+      <th>Standard Value</th>
+      <th>Visual Effect in Edition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>display</td>
+      <td>flex</td>
+      <td>Activates flexible box layout on the parent container</td>
+    </tr>
+    <tr>
+      <td>flex-direction</td>
+      <td>row / column</td>
+      <td>Arranges child panes horizontally in a row or vertically in a column</td>
+    </tr>
+    <tr>
+      <td>gap</td>
+      <td>24px</td>
+      <td>Creates consistent spacing between the side-by-side reading panes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>CSS Flexbox</em> — a flexible CSS layout model that arranges child elements along horizontal or vertical axes. <em>Side-by-Side Reading Pane</em> — a split-screen display showing image and text or source and translation together. <em>Responsive Wrapping</em> — the automatic stacking of side-by-side columns into vertical rows on smaller screens.</p>
+<p><strong>Takeaway:</strong> CSS Flexbox provides an adaptable layout system for presenting manuscript images, transcriptions, and translations in side-by-side reading panes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Modern Web Layouts: CSS Flexbox for Editions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is CSS Flexbox widely used for displaying historical documentary editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CSS Flexbox provides an adaptable layout system for presenting manuscript images, transcriptions, and translations in side-by-side reading panes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It aligns manuscript facsimiles, transcriptions, and translations into flexible, equal-height side-by-side reading panes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Flexbox provides responsive horizontal alignment that stacks cleanly on smaller screens.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces all text to bounce up and down across the screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Flexbox is a modern layout system, not an animation effect.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires users to write their own browser plugins before reading.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Flexbox is built into every modern web browser natively.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It only works on computers manufactured before 1995.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Flexbox is a modern W3C standard supported across all contemporary devices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Grid Layouts: CSS Grid for Edition Headers and Metadata</text></name><questiontext format="html"><text><![CDATA[
+<h3>Grid Layouts: CSS Grid for Edition Headers and Metadata</h3>
+<p>While Flexbox is ideal for one-dimensional rows or columns, <strong>CSS Grid</strong> is designed for two-dimensional layouts with rows and columns. In a digital edition, CSS Grid is the best tool for structuring edition headers and metadata panels.</p>
+<p>A historical edition header displays diverse information. It presents archival shelfmarks, document dates, repository names, licensing badges, and editorial credits. Displaying this data as a plain bulleted list looks unpolished.</p>
+<p>With CSS Grid, you define a structured grid template. You can allocate specific areas for repository details, thumbnail images, and legal badges. Each item snaps into its designated cell, creating a clean card layout.</p>
+<p>CSS Grid also makes responsive adjustment easy. On desktop displays, metadata can span three balanced columns. On mobile screens, the grid collapses into a neat single column with one CSS rule.</p>
+<pre><code class="language-css">/* Responsive metadata header grid */
+.edition-header-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  background-color: #f8fafc;
+  padding: 20px;
+  border: 1px solid #cbd5e1;
+}
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>CSS Grid</em> — a two-dimensional CSS layout engine that positions elements across defined rows and columns. <em>Grid Template</em> — a CSS rule that defines the number, sizes, and names of grid columns and rows. <em>Metadata Panel</em> — a structured card display presenting archival and bibliographic details at the top of an edition.</p>
+<p><strong>Takeaway:</strong> CSS Grid structures complex archival metadata and edition headers into polished, multi-column card layouts that adapt across screen sizes.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Grid Layouts: CSS Grid for Edition Headers and Metadata</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What makes CSS Grid the optimal choice for edition headers and metadata panels?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CSS Grid structures complex archival metadata and edition headers into polished, multi-column card layouts that adapt across screen sizes.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It structures complex multi-item information into clean, responsive two-dimensional card layouts with rows and columns.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Grid excels at organizing archival shelfmarks, dates, repository details, and badges into balanced cards.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces all text with mathematical coordinate graphs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS Grid arranges HTML layout cards cleanly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents editions from displaying images or hyperlinks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Grid containers can hold any combination of text, images, and links.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It limits web pages to a single unformatted vertical column.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Grid specifically enables sophisticated multi-column layouts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Styling Inline Entities: People, Places, and Dates</text></name><questiontext format="html"><text><![CDATA[
+<h3>Styling Inline Entities: People, Places, and Dates</h3>
+<p>In Modules 8 and 9, you encoded named entities like <code>&lt;persName&gt;</code>, <code>&lt;placeName&gt;</code>, and <code>&lt;date&gt;</code>. You also linked these entities to external Linked Open Data authorities like Wikidata and GeoNames. When publishing, you must decide how to style these elements.</p>
+<p>Novice web designers often make the mistake of using garish neon colors for entities. Highlighting every name in bright yellow or purple creates visual noise that distracts readers from the historical text.</p>
+<p>Professional editions use subtle typographic styling. You might apply a gentle slate blue color to people, a quiet italic font to places, or a thin dotted underline. The text remains comfortable to read as continuous prose.</p>
+<p>You can then add interactive tooltips. When a reader moves their cursor over a person's name, a small popup displays the person's birth dates and a link to their Wikidata profile. This provides immediate scholarly enrichment without visual clutter.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Entity Type</th>
+      <th>Recommended CSS Styling</th>
+      <th>Interactive Hover Behavior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Personal Name (&lt;persName&gt;)</td>
+      <td>Deep navy text (#002d62), subtle dotted underline</td>
+      <td>Tooltip with biographical dates and Wikidata URI link</td>
+    </tr>
+    <tr>
+      <td>Place Name (&lt;placeName&gt;)</td>
+      <td>Soft slate color (#0f172a), italic font style</td>
+      <td>Tooltip with geographic coordinates and GeoNames link</td>
+    </tr>
+    <tr>
+      <td>Date (&lt;date&gt;)</td>
+      <td>Neutral dark text, subtle gray border-bottom</td>
+      <td>Tooltip showing normalized ISO date (YYYY-MM-DD)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Visual Noise</em> — excessive colors, lines, and highlights that overwhelm the eye and distract from reading. <em>Interactive Tooltip</em> — a small information box that appears when hovering over an annotated word. <em>Subtle Typographic Styling</em> — using muted colors and gentle underlines rather than garish highlights to indicate markup.</p>
+<p><strong>Takeaway:</strong> Muted typographic styling and interactive tooltips enrich named entities with Linked Open Data without cluttering the reading experience.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Styling Inline Entities: People, Places, and Dates</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the recommended design practice for styling named entities in a digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Muted typographic styling and interactive tooltips enrich named entities with Linked Open Data without cluttering the reading experience.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Use subtle typographic accents like muted tones or thin dotted underlines, paired with interactive tooltips for Linked Open Data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Subtle styling avoids visual noise, preserving comfortable long-form reading while offering rich data on demand.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Highlight every entity in bright flashing neon colors across the entire text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Bright neon highlights create visual clutter and distract readers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hide all named entities completely so nobody can see who was involved.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Entities should be identifiable, but styled with typographic subtlety.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replace historical names with randomly generated modern celebrity names.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions maintain absolute fidelity to historical entities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Styling Documentary Features: Deletions and Additions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Styling Documentary Features: Deletions and Additions</h3>
+<p>Documentary editing honors the physical reality of the manuscript. Historical authors cross out words, insert phrases above lines, and write in margins. Representing these interventions clearly is a vital test of edition design.</p>
+<p>The <code>&lt;del&gt;</code> element records deleted text. In CSS, you should render deletions using <code>text-decoration: line-through</code>. You can also soften the text color to a muted gray (<code>#64748b</code>). This visually signals that the words were cancelled while leaving them legible to scholars.</p>
+<p>The <code>&lt;add&gt;</code> element records additions. You can format additions using <code>vertical-align: super</code> with a slightly smaller font size, imitating handwritten interlinear text. Alternatively, you can surround additions with caret symbols or a soft green border.</p>
+<p>Providing an editorial toggle for documentary layers is best practice. Readers who want a clean reading experience can hide cancelled text with one click. Readers conducting genetic textual analysis can view every strikeout in full detail.</p>
+<pre><code class="language-css">/* Documentary editing styles */
+.tei-del {
+  text-decoration: line-through;
+  color: #64748b;
+  opacity: 0.85;
+}
+
+.tei-add {
+  vertical-align: super;
+  font-size: 0.85em;
+  color: #0f766e;
+}
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Genetic Textual Analysis</em> — the study of authorial revisions, drafts, and cancellations to understand how a text evolved. <em>Strikethrough Rendering</em> — styling deleted words with a horizontal line across them using text-decoration: line-through. <em>Interlinear Text</em> — handwritten words inserted between normal lines of writing.</p>
+<p><strong>Takeaway:</strong> Clear CSS styling for deletions and additions visualizes physical revisions while allowing readers to inspect scribal corrections effortlessly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Styling Documentary Features: Deletions and Additions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should physical manuscript deletions and additions be styled in a documentary web edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Clear CSS styling for deletions and additions visualizes physical revisions while allowing readers to inspect scribal corrections effortlessly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Render deletions with strikethrough lines and muted color, and additions with superscript positioning or distinct tints.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This clearly communicates scribal revisions to scholars while maintaining readability.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Erase deleted words silently from the edition so readers never know they existed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Documentary editing preserves cancellations as vital evidence of authorial intent.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Display deleted words in giant red letters that cover the rest of the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Muted strikethrough lines signal cancellation without obscuring surrounding text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Convert all scribal additions into separate downloadable sound files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Additions are visual text features formatted with superscript or carets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Cohort Presentation: Ace's French Revolutionary Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Presentation: Ace's French Revolutionary Decree</h3>
+<p>Let us examine how these presentation principles apply to the three cohort editions. Ace is editing the 1791 French decree <em>Loi relative à la fabrication des assignats</em>. This document was printed by the Imprimerie Royale during the French Revolution.</p>
+<p>Ace's edition requires formal legislative presentation. The decree opens with a royal proclamation and legal promulgation formula. Ace should format the royal banner using a centered, high-contrast serif font that evokes 18th-century French typography.</p>
+<p>The decree contains numbered articles specifying small denomination currency notes of 5 livres. Ace can style each article with prominent bold headings and numbered bullet badges. This helps modern legal historians compare specific clauses.</p>
+<p>Finally, Ace's edition benefits from a dual-column layout. The left column displays the diplomatic transcription, preserving historical long-s characters and 18th-century spelling. The right column displays regularized modern French, allowing instant comparison.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Document Feature</th>
+      <th>TEI Encoding</th>
+      <th>Recommended Web Presentation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Royal Title Banner</td>
+      <td>&lt;head type="main"&gt;</td>
+      <td>Centered, uppercase serif header with royal fleur-de-lis separator</td>
+    </tr>
+    <tr>
+      <td>Numbered Decree Articles</td>
+      <td>&lt;div type="article" n="1"&gt;</td>
+      <td>Indented card blocks with bold Roman numeral badges (Article I)</td>
+    </tr>
+    <tr>
+      <td>Bilingual Text Alignment</td>
+      <td>&lt;linkGrp type="translation"&gt;</td>
+      <td>Synchronized two-column Flexbox layout with sentence highlighting</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Promulgation Formula</em> — formal legal language opening an official decree that declares the law active and binding. <em>Dual-Column Layout</em> — a split display presenting diplomatic historical text side by side with modern regularized prose. <em>Legislative Typography</em> — formal serif fonts and structural numbering appropriate for official government decrees.</p>
+<p><strong>Takeaway:</strong> Ace's French decree requires formal legislative typography, numbered article cards, and a dual-column display comparing diplomatic and modernized text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Cohort Presentation: Ace's French Revolutionary Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What presentation features are most important for Ace's 1791 French Revolutionary decree edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Ace's French decree requires formal legislative typography, numbered article cards, and a dual-column display comparing diplomatic and modernized text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Formal legislative typography, numbered decree articles, and a dual-column layout comparing diplomatic text with modernized French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This captures the official nature of the Imprimerie Royale print and facilitates historical linguistic comparison.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Bright comic book illustrations and informal handwritten fonts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree is an official legal artifact requiring formal legislative typography.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hiding the French text and only showing modern English summaries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scholarly editions showcase the primary historical language alongside translations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting the royal title banner to pretend the king was never involved.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The decree reflects the 1791 constitutional monarchy, requiring authentic historical paratexts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Cohort Presentation: Olyvia's Maud Lewis Letter</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Presentation: Olyvia's Maud Lewis Letter</h3>
+<p>Olyvia is editing the 1967 personal letter written by Nova Scotia folk artist Maud Lewis to collector Leonard Kinnear. This document has completely different presentation needs than a royal decree. It is an intimate, handwritten epistolary artifact.</p>
+<p>Maud wrote from her tiny house in Marshalltown, Digby County. Her letter was written on personal stationery with irregular line spacing and informal phrasing. Preserving this intimate feel requires warm and informal styling choices.</p>
+<p>Olyvia should preserve physical line breaks (<code>&lt;lb/&gt;</code>) in her default layout. This retains the rhythm of Maud's handwritten sentences. Maud's phonetic spellings and corrections should be displayed with gentle strikeout styling rather than erased.</p>
+<p>Olyvia's web layout should feature a side-by-side view. The left pane displays high-resolution scans of the postal envelope and handwritten pages. The right pane displays the transcription. Olyvia can also embed thumbnail images of Maud's paintings referenced in the letter.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Letter Component</th>
+      <th>TEI Encoding</th>
+      <th>Recommended Web Presentation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Postal Stationery Header</td>
+      <td>&lt;opener&gt;&lt;dateline&gt;</td>
+      <td>Right-aligned dateline with vintage postmark badge styling</td>
+    </tr>
+    <tr>
+      <td>Handwritten Lineation</td>
+      <td>&lt;lb/&gt;</td>
+      <td>Preserved line breaks with comfortable, handwritten line spacing</td>
+    </tr>
+    <tr>
+      <td>Artistic References</td>
+      <td>&lt;rs type="artwork"&gt;</td>
+      <td>Clickable links opening thumbnail popups of Maud's painted oxen</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Epistolary Artifact</em> — a primary historical document consisting of a personal or official written letter. <em>Postal Stationery</em> — the physical writing paper, cards, or envelopes used for historical correspondence. <em>Facsimile-First Layout</em> — an edition interface that emphasizes direct comparison between manuscript scans and transcription.</p>
+<p><strong>Takeaway:</strong> Olyvia's Maud Lewis edition emphasizes the intimate epistolary artifact, pairing handwritten lineation and physical stationery with folk art popups.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Cohort Presentation: Olyvia's Maud Lewis Letter</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which design strategy best reflects the epistolary nature of Olyvia's 1967 Maud Lewis letter?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Olyvia's Maud Lewis edition emphasizes the intimate epistolary artifact, pairing handwritten lineation and physical stationery with folk art popups.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Preserving handwritten lineation, displaying postal stationery headers, and embedding popups for referenced folk art paintings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This honors the intimate physical artifact while connecting Maud's words to her artwork.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Formatting the personal letter as a formal international peace treaty.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The document is an intimate handwritten letter requiring epistolary presentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Erasing all line breaks to force the letter into a single giant paragraph.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Preserving line breaks captures the natural rhythm of Maud's handwritten sentences.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replacing Maud's handwriting scans with stock photos of modern cities.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. High-resolution facsimiles of the actual stationery provide crucial material context.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Cohort Presentation: Andromeda's 1752 Peace and Friendship Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Presentation: Andromeda's 1752 Peace and Friendship Treaty</h3>
+<p>Andromeda is editing the 1752 Peace and Friendship Treaty negotiated at Halifax between Mi'kmaw Chief Jean-Baptiste Cope and Nova Scotia Governor Peregrine Hopson. This foundational diplomatic document requires dignified and legally precise presentation.</p>
+<p>The treaty consists of eight formal articles establishing peace, hunting rights, and British trade truckhouses. Andromeda should format the articles with clear visual divisions. Each clause should feature its Roman numeral heading and full legal text.</p>
+<p>A crucial feature of the treaty is the witness and signature section. Mi'kmaw delegates signed using totem marks, while colonial council members signed their names beside red wax seals. Andromeda's web layout must present these signatures and seal marks clearly.</p>
+<p>Andromeda should also implement interactive popup commentary notes. When readers click on historical terms like "truckhouse" or "liberty of hunting," a popup explains eighteenth-century legal definitions and treaty rights jurisprudence.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Treaty Section</th>
+      <th>TEI Encoding</th>
+      <th>Recommended Web Presentation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numbered Treaty Articles</td>
+      <td>&lt;div type="article" n="4"&gt;</td>
+      <td>Spacious numbered legal blocks with gold Roman numeral headings</td>
+    </tr>
+    <tr>
+      <td>Totem Marks &amp; Seals</td>
+      <td>&lt;figure&gt;&lt;graphic&gt;&lt;/figure&gt;</td>
+      <td>Inline graphics displaying scanned totem marks and wax seals</td>
+    </tr>
+    <tr>
+      <td>Legal Commentary</td>
+      <td>&lt;note type="legal"&gt;</td>
+      <td>Interactive side popups explaining treaty rights jurisprudence</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Treaty Clause</em> — an individual numbered legal article within a formal international or diplomatic agreement. <em>Totem Mark</em> — a personal pictographic signature drawn by Indigenous leaders representing their clan or identity. <em>Wax Seal</em> — an impression stamped in heated wax on an official document to authenticate legal authority.</p>
+<p><strong>Takeaway:</strong> Andromeda's treaty edition requires dignified legal typography, visual representations of totem marks and seals, and interactive commentary popups.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Cohort Presentation: Andromeda's 1752 Peace and Friendship Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should Andromeda's web edition represent the diplomatic signatures and clauses of the 1752 treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Andromeda's treaty edition requires dignified legal typography, visual representations of totem marks and seals, and interactive commentary popups.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;With spacious legal clauses, numbered Roman numerals, inline graphics of Mi'kmaw totem marks and wax seals, and legal popups.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This respects the diplomatic solemnity of the agreement and highlights Indigenous and colonial signatories.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By removing all references to Mi'kmaw delegates and presenting the treaty as a private business contract.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty is a nation-to-nation peace agreement signed by Mi'kmaw leaders with totem marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By converting the treaty clauses into rhyming stanzas of poetry.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The edition must maintain legal fidelity and formal clause structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By omitting the wax seals because they take up too much screen space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Scanned seals and totem marks authenticate the legal authority of the historical witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Building Interactive Toggles with HTML and CSS</text></name><questiontext format="html"><text><![CDATA[
+<h3>Building Interactive Toggles with HTML and CSS</h3>
+<p>A hallmark of modern digital editions is user choice. Different readers visit your site with different goals. A paleographer wants to inspect exact abbreviations. A high school teacher wants modern spelling. A legal researcher wants to highlight commentary notes.</p>
+<p>Instead of building three separate websites, you can provide <strong>interactive toggles</strong>. A toggle allows readers to switch visual layers on and off in real time without reloading the page.</p>
+<p>You can build lightweight toggles using pure HTML and CSS. By using hidden <code>&lt;input type="checkbox"&gt;</code> elements, you can change display properties based on whether the checkbox is checked. For example, checking "Show Normalized Spelling" hides <code>&lt;orig&gt;</code> and displays <code>&lt;reg&gt;</code>.</p>
+<p>Alternatively, a few lines of clean JavaScript can toggle CSS classes on the main document container. This provides an intuitive interface with clickable buttons at the top of your reading pane.</p>
+<pre><code class="language-html">&lt;!-- View control toolbar --&gt;
+&lt;div class=&quot;edition-toolbar&quot;&gt;
+  &lt;button onclick=&quot;toggleView('diplomatic')&quot;&gt;Diplomatic View&lt;/button&gt;
+  &lt;button onclick=&quot;toggleView('normalized')&quot;&gt;Normalized View&lt;/button&gt;
+  &lt;button onclick=&quot;toggleNotes()&quot;&gt;Toggle Commentary&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>View Toggle</em> — an interactive user control that switches between different visual rendering modes of a text. <em>Layered Presentation</em> — designing an interface where distinct editorial layers can be displayed or hidden on demand. <em>Zero-Reload Interface</em> — updating visual layouts instantly in the browser without making a new request to a server.</p>
+<p><strong>Takeaway:</strong> Interactive toggles give readers control over their reading experience, allowing them to switch between diplomatic and normalized views effortlessly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Building Interactive Toggles with HTML and CSS</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the pedagogical purpose of providing interactive view toggles in a digital edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Interactive toggles give readers control over their reading experience, allowing them to switch between diplomatic and normalized views effortlessly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They empower diverse users to switch between diplomatic, normalized, and commentary views on demand without reloading.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Toggles accommodate different research needs, from paleographical analysis to smooth long-form reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They prevent unauthorized visitors from reading the primary source.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Toggles enrich access by offering multiple verified views of the text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They force readers to restart their web browser whenever they change views.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Modern toggles update layout instantly without page reloads.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They randomly delete sentences to test if the reader is paying attention.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Toggles switch between structured editorial layers transparently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Typography for Historical Texts: Hierarchy and Readability</text></name><questiontext format="html"><text><![CDATA[
+<h3>Typography for Historical Texts: Hierarchy and Readability</h3>
+<p>Web typography directly impacts how long people will engage with your scholarship. Reading 18th-century prose or handwritten letters requires concentration. Poor typographic choices make historical texts exhausting to read.</p>
+<p>Good typography begins with choosing appropriate typefaces. For historical editions, high-quality serif fonts like Georgia, Garamond, or EB Garamond are ideal. Serif fonts have distinctive letter strokes that guide the human eye smoothly across lines of text.</p>
+<p>Spacing is equally critical. You should maintain a generous line height of approximately <code>1.6</code> to <code>1.8</code>. Lines that are packed too tightly cause readers to lose their place. Paragraph margins should provide clear breathing room between thoughts.</p>
+<p>Finally, ensure sufficient color contrast. Avoid harsh pure black text on pure white backgrounds, which causes glare. A deep charcoal (<code>#0f172a</code>) on an off-white or soft cream background (<code>#f8fafc</code>) creates an elegant reading environment that satisfies WCAG accessibility standards.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Typographic Property</th>
+      <th>Recommended Value</th>
+      <th>Pedagogical Rationale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Font Family</td>
+      <td>EB Garamond, Georgia, serif</td>
+      <td>Evokes historical print culture while maintaining high digital clarity</td>
+    </tr>
+    <tr>
+      <td>Line Height</td>
+      <td>1.65 (165% of font size)</td>
+      <td>Prevents line collision and supports sustained reading comfort</td>
+    </tr>
+    <tr>
+      <td>Measure (Line Length)</td>
+      <td>65 to 75 characters per line</td>
+      <td>Optimal reading width; prevents eye fatigue across widescreen monitors</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Measure</em> — the horizontal length of a line of text, ideally between 65 and 75 characters for optimal reading comfort. <em>Line Height</em> — the vertical space between baseline lines of text. <em>WCAG Contrast Standards</em> — international accessibility guidelines requiring sufficient contrast between text and background colors.</p>
+<p><strong>Takeaway:</strong> Thoughtful typography with serif typefaces, generous line height, and balanced contrast ensures sustained reading comfort for historical editions.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Typography for Historical Texts: Hierarchy and Readability</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are serif typefaces with generous line spacing recommended for historical text editions?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Thoughtful typography with serif typefaces, generous line height, and balanced contrast ensures sustained reading comfort for historical editions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Serif letterforms guide the eye smoothly across long lines, while generous spacing prevents eye fatigue during sustained reading.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Combining quality serifs with 1.6 line height and balanced contrast ensures comfortable reading.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Serif fonts load one hundred times faster than sans-serif fonts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Font loading speed depends on file size, not letterform design.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Serif typefaces are required by federal copyright legislation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Typography choices are based on legibility, aesthetics, and user comfort.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Line spacing should be zero so all text forms a solid block of ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Zero line spacing causes overlapping text that is completely unreadable.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Responsive Design: Supporting Mobile and Desktop</text></name><questiontext format="html"><text><![CDATA[
+<h3>Responsive Design: Supporting Mobile and Desktop</h3>
+<p>Today, more than half of all web traffic occurs on mobile devices. Students, researchers, and museum visitors frequently access digital editions from smartphones and tablets. If your edition only works on a giant desktop monitor, half your audience cannot use it.</p>
+<p><strong>Responsive web design</strong> means designing layouts that adapt gracefully to any screen size. You implement responsive design using CSS <strong>media queries</strong> (<code>@media</code>). Media queries detect the screen width and apply tailored style rules.</p>
+<p>On a wide desktop monitor, a split-screen view works wonderfully. The manuscript facsimile sits on the left, and the transcription sits on the right. Both panes have plenty of room to breathe.</p>
+<p>On a smartphone screen, a split view becomes unusable because each column would be only a few inches wide. Using a media query, you instruct the layout to stack the facsimile above the text. Readers scroll down naturally, enjoying both images and text without pinching and zooming.</p>
+<pre><code class="language-css">/* Responsive media query for mobile screens */
+@media (max-width: 768px) {
+  .edition-container {
+    flex-direction: column;
+  }
+  .facsimile-pane, .text-pane {
+    width: 100%;
+  }
+}
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Responsive Design</em> — the practice of designing web layouts that adapt seamlessly to smartphones, tablets, and desktop computers. <em>Media Query</em> — a CSS technique that applies style rules only when specific device conditions like screen width are met. <em>Horizontal Pinch-Zoom</em> — an awkward mobile user experience where users must zoom in to read tiny side-by-side text columns.</p>
+<p><strong>Takeaway:</strong> Responsive design uses CSS media queries to stack side-by-side reading panes vertically on mobile screens, ensuring universal accessibility.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Responsive Design: Supporting Mobile and Desktop</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does responsive web design accommodate users accessing editions on smartphones?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Responsive design uses CSS media queries to stack side-by-side reading panes vertically on mobile screens, ensuring universal accessibility.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It uses CSS media queries to stack side-by-side reading panes vertically, eliminating horizontal scrolling on small screens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Responsive layouts adapt fluidly, ensuring mobile readers can view facsimiles and text comfortably.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It blocks mobile phones from accessing the website entirely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Responsive design ensures mobile devices are fully supported.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all images and commentary when viewed on a phone.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Responsive design reorganizes layouts without stripping essential scholarly content.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces smartphone users to download a paid mobile application.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Responsive web pages run natively in any standard mobile browser.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Accessibility (a11y) in Digital Textual Editions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Accessibility (a11y) in Digital Textual Editions</h3>
+<p>Accessibility in web design means ensuring that everyone, including people with visual, auditory, or motor disabilities, can read and navigate your website. In digital humanities, accessibility is an ethical commitment to open scholarship.</p>
+<p>The first step in accessibility is using <strong>semantic HTML</strong>. Instead of building your entire page out of generic <code>&lt;div&gt;</code> tags, use meaningful elements like <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;footer&gt;</code>. Screen readers use these tags to help blind users navigate between sections.</p>
+<p>Second, provide descriptive <strong>alt text</strong> for all images. An image tag like <code>&lt;img src="treaty.jpg" alt="1752 Peace and Friendship Treaty manuscript page showing wax seals"&gt;</code> allows screen readers to describe the artifact to visually impaired scholars.</p>
+<p>Third, ensure full <strong>keyboard navigation</strong>. Every interactive button, popup note, and view toggle must be reachable using the Tab key and activatable with the Enter or Space key. Never rely solely on mouse clicks for essential scholarship.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Accessibility Feature</th>
+      <th>Technical Implementation</th>
+      <th>Beneficiary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Semantic Structure</td>
+      <td>&lt;main&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;nav&gt;</td>
+      <td>Screen reader users navigating page landmarks</td>
+    </tr>
+    <tr>
+      <td>Descriptive Alt Text</td>
+      <td>alt="Physical description of manuscript scan"</td>
+      <td>Users with visual impairments or slow connections</td>
+    </tr>
+    <tr>
+      <td>Keyboard Navigability</td>
+      <td>tabindex="0", :focus outline styles</td>
+      <td>Users navigating via keyboard without a mouse</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Accessibility (a11y)</em> — the design of software and web interfaces to be usable by people of all abilities and disabilities. <em>Screen Reader</em> — assistive software that reads aloud web content and navigation landmarks for visually impaired users. <em>Semantic HTML</em> — HTML elements that convey their structural role and meaning rather than just visual styling.</p>
+<p><strong>Takeaway:</strong> Accessible editions use semantic HTML landmarks, descriptive alt text, and full keyboard navigation to ensure all scholars can explore historical documents.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Accessibility (a11y) in Digital Textual Editions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What three core practices ensure a digital edition meets high web accessibility standards?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Accessible editions use semantic HTML landmarks, descriptive alt text, and full keyboard navigation to ensure all scholars can explore historical documents.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Using semantic HTML landmarks, providing descriptive alt text for images, and enabling full keyboard navigation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. These practices ensure screen reader users and keyboard-only users can navigate the edition independently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Using unformatted plain text, disabling all images, and removing links.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. True accessibility enriches rich media with semantic tags and alternatives.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Requiring biometric fingerprint scans before viewing historical documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accessibility removes barriers to access rather than creating new ones.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Writing the entire edition in encrypted computer code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editions must be clear, transparent, and navigable for all users.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Web Components and TEI Publisher</text></name><questiontext format="html"><text><![CDATA[
+<h3>Web Components and TEI Publisher</h3>
+<p>In modern digital publishing platforms, such as <strong>TEI Publisher</strong>, developers use <strong>Web Components</strong>. Web Components are reusable custom HTML tags that encapsulate complex interactive behaviors into single elements.</p>
+<p>Instead of writing hundreds of lines of custom JavaScript to build a facsimile image viewer, you insert a custom tag like <code>&lt;pb-facsimile&gt;</code>. The component automatically handles deep zooming, coordinate panning, and image tile loading.</p>
+<p>Similarly, a tag like <code>&lt;pb-view&gt;</code> connects directly to an ODD file. It takes a TEI document, sends it to the processing engine, and renders the styled output inside the web page.</p>
+<p>Web Components make digital edition design modular. You assemble your reading interface using pre-built, robust components. This approach saves hundreds of hours of coding while delivering professional features.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Web Component</th>
+      <th>Built-In Function</th>
+      <th>Underlying Technology</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&lt;pb-view&gt;</td>
+      <td>Renders styled TEI XML using ODD processing models</td>
+      <td>TEI Processing Model and XQuery engine</td>
+    </tr>
+    <tr>
+      <td>&lt;pb-facsimile&gt;</td>
+      <td>Interactive deep-zoom pan and zoom image viewer</td>
+      <td>OpenSeadragon and IIIF Image API</td>
+    </tr>
+    <tr>
+      <td>&lt;pb-timeline&gt;</td>
+      <td>Interactive historical timeline showing document dates</td>
+      <td>SVG graphics and structured TEI date events</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Web Components</em> — a suite of standard web platform technologies allowing creation of reusable custom HTML elements. <em>TEI Publisher</em> — an open-source publishing framework that transforms TEI documents using the Processing Model. <em>IIIF (International Image Interoperability Framework)</em> — an open standard for delivering high-resolution manuscript images over the web.</p>
+<p><strong>Takeaway:</strong> Web Components package complex interactive features like deep-zoom image viewers and ODD renderers into reusable custom HTML tags.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Web Components and TEI Publisher</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What advantage do Web Components provide when building digital publishing platforms?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Web Components package complex interactive features like deep-zoom image viewers and ODD renderers into reusable custom HTML tags.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They package complex behaviors like deep-zoom image viewers and ODD rendering into reusable custom HTML tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Components like pb-facsimile and pb-view make building digital editions modular and robust.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They replace web browsers with physical printed books.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web components are modern browser technologies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They automatically delete the project repository after thirty days.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web components are durable, reusable interface building blocks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They require users to manually type out binary code to view an image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web components handle complex pan-and-zoom functionality behind simple tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Static Site Generation: Minimal Computing for Editions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Static Site Generation: Minimal Computing for Editions</h3>
+<p>When publishing a digital project, scholars must consider its long-term survival. Complex websites that rely on active databases and server-side software often break after a few years. When server security updates occur or hosting budgets expire, database-driven sites go offline.</p>
+<p>To prevent this decay, digital humanists embrace <strong>minimal computing</strong>. A primary minimal computing strategy is <strong>static site generation</strong>. Instead of running a live database server, you pre-compile your entire edition into plain HTML, CSS, and JavaScript files.</p>
+<p>Static files do not require an active database or server runtime. They can be hosted on simple, free platforms like <strong>GitHub Pages</strong> or institutional web servers. A static website is virtually immune to database security vulnerabilities.</p>
+<p>Most importantly, static editions last for decades. A folder of well-written HTML, CSS, and images will render just as cleanly in thirty years as it does today. Minimal computing ensures your scholarship endures.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Architecture</th>
+      <th>Hosting Infrastructure</th>
+      <th>Security Risk</th>
+      <th>Long-Term Durability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dynamic Database Edition</td>
+      <td>PHP/MySQL server or eXist-db database</td>
+      <td>High; requires regular security patches and server upkeep</td>
+      <td>Low; breaks when server versions or databases drift</td>
+    </tr>
+    <tr>
+      <td>Static Minimal Edition</td>
+      <td>Plain files on GitHub Pages or static web storage</td>
+      <td>None; no database or server-side execution</td>
+      <td>Decades; plain HTML and CSS remain universally supported</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Minimal Computing</em> — a digital humanities philosophy emphasizing simple, durable, and sustainable technologies with low infrastructure demands. <em>Static Site Generation</em> — pre-compiling web pages into plain HTML, CSS, and JS files that run without an active server database. <em>GitHub Pages</em> — a free hosting service that serves static websites directly from a GitHub code repository.</p>
+<p><strong>Takeaway:</strong> Static site generation embodies minimal computing, producing durable HTML files that survive for decades without server maintenance or database costs.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Static Site Generation: Minimal Computing for Editions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is static site generation considered a cornerstone of sustainable digital humanities?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Static site generation embodies minimal computing, producing durable HTML files that survive for decades without server maintenance or database costs.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Pre-compiled static HTML and CSS files endure for decades without requiring active server databases or security maintenance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Minimal computing eliminates database vulnerabilities and ongoing server costs, ensuring long-term survival.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Static sites can only display black-and-white text without graphics.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Static websites can include high-resolution images, rich styling, and interactive features.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Static sites automatically erase themselves after five years.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Plain HTML and CSS files survive indefinitely because they have zero software dependencies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Static sites require paying expensive monthly fees to cloud database companies.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Static sites can be hosted completely free on platforms like GitHub Pages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Previewing Your Edition Locally in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Previewing Your Edition Locally in VS Code</h3>
+<p>Before publishing your edition to the global web, you must test its visual presentation locally. You need an environment where you can edit styles and see the results instantly without uploading files to a remote server.</p>
+<p>In <strong>VS Code</strong>, the most useful tool for local testing is the <strong>Live Server</strong> extension. Live Server starts a lightweight local web server on your machine with one click. When you open your edition HTML file in Live Server, it opens in your web browser at a local address like <code>http://127.0.0.1:5500</code>.</p>
+<p>Whenever you save a change to your HTML or CSS file in VS Code, Live Server automatically refreshes the browser page. This live reload feature allows you to fine-tune margins, fonts, and colors rapidly.</p>
+<p>Inside your browser, you can press <code>F12</code> to open the <strong>Developer Tools</strong>. The browser inspector allows you to inspect specific HTML elements, test CSS changes in real time, and diagnose why a layout rule is not behaving as expected.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Environment</th>
+      <th>Primary Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Live Server Extension</td>
+      <td>VS Code</td>
+      <td>Launches local server with automatic browser refresh on file save</td>
+    </tr>
+    <tr>
+      <td>Browser DevTools (F12)</td>
+      <td>Chrome / Firefox</td>
+      <td>Inspects DOM elements, debugs CSS rules, and simulates mobile screens</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Live Server</em> — a development tool that hosts files locally and automatically refreshes connected browsers upon saving edits. <em>Browser DevTools (F12)</em> — built-in diagnostic tools inside web browsers used to inspect HTML elements and test CSS styles live. <em>Local Development Loop</em> — the rapid cycle of editing code, saving, and observing instant updates on a local test server.</p>
+<p><strong>Takeaway:</strong> Using VS Code Live Server and browser developer tools enables rapid local testing and fine-tuning of your digital edition layouts.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Previewing Your Edition Locally in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do VS Code Live Server and browser DevTools accelerate edition development?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Using VS Code Live Server and browser developer tools enables rapid local testing and fine-tuning of your digital edition layouts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Live Server provides instant browser reloads upon saving, while DevTools allow real-time inspection of HTML and CSS rules.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This rapid local feedback loop lets editors refine typography, margins, and layouts efficiently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They automatically translate 18th-century French into modern German.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Live Server and DevTools are web development and inspection tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They upload your files to public search engines without your permission.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Live Server runs strictly on your local machine (127.0.0.1).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They convert your computer into a physical printing press.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They provide an interactive digital preview inside your local web browser.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Quality Gate: Validating HTML and CSS Outputs</text></name><questiontext format="html"><text><![CDATA[
+<h3>Quality Gate: Validating HTML and CSS Outputs</h3>
+<p>Before your digital edition is ready for publication, you must pass a final quality audit. Just as you validated your TEI XML against schemas, you must validate your compiled web presentation.</p>
+<p>A robust quality audit checks four essential dimensions:</p>
+<ol>
+<li><strong>HTML Well-Formedness:</strong> Verify that all HTML tags close correctly and that nesting rules are obeyed.</li>
+<li><strong>CSS Linkage:</strong> Confirm that all external stylesheets load without 404 errors and that class names match your ODD declarations.</li>
+<li><strong>Asset Paths:</strong> Test every image URL to verify that facsimile scans and seal graphics display properly.</li>
+<li><strong>Interactive Pointers:</strong> Click every commentary note and entity link to verify that anchor IDs resolve without broken references.</li>
+</ol>
+<p>Running these checks prevents embarrassing glitches when users visit your site. Catching broken paths or overlapping text early ensures your edition reflects rigorous scholarly craftsmanship.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Audit Area</th>
+      <th>Common Novice Defect</th>
+      <th>Verification Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Image Assets</td>
+      <td>Broken relative path (e.g. missing images/ folder prefix)</td>
+      <td>Inspect browser network tab (F12) for 404 HTTP errors</td>
+    </tr>
+    <tr>
+      <td>Commentary Popups</td>
+      <td>Clicking note does nothing because target ID has a typo</td>
+      <td>Manual click test on all 5 commentary anchors</td>
+    </tr>
+    <tr>
+      <td>Mobile Layout</td>
+      <td>Horizontal scrolling required on narrow phone screens</td>
+      <td>Test using browser responsive device toolbar (Ctrl+Shift+M)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Quality Audit</em> — a systematic pre-publication review verifying markup validity, link integrity, and visual presentation. <em>Asset Resolution</em> — the successful loading of linked external files like images and stylesheets without 404 errors. <em>Broken Pointer</em> — an interactive link or reference pointing to an anchor ID that does not exist in the document.</p>
+<p><strong>Takeaway:</strong> A pre-publication quality audit verifies HTML validity, image asset paths, commentary pointers, and mobile responsiveness across your entire edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Quality Gate: Validating HTML and CSS Outputs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What key areas must be audited before publishing your digital edition to the web?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A pre-publication quality audit verifies HTML validity, image asset paths, commentary pointers, and mobile responsiveness across your entire edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;HTML syntax validity, external stylesheet linkage, image asset paths, commentary pointer resolution, and mobile responsiveness.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Systematically verifying these areas eliminates broken links, 404 errors, and layout glitches.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Whether the website matches the color of the author's modern automobile.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Quality audits verify technical markup, asset resolution, and responsiveness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Checking that all files have been converted into proprietary Word documents.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editions are delivered in open web formats like HTML and CSS.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Verifying that no human beings have read the text prior to publication.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Peer review and human verification are essential quality standards.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Today's Studio Lab: Designing Your Edition Styles</text></name><questiontext format="html"><text><![CDATA[
+<h3>Today's Studio Lab: Designing Your Edition Styles</h3>
+<p>In today's studio lab in Mulroney Hall 3032, you will transition from abstract markup to visual presentation. You will create the styling rules that govern your project's web appearance.</p>
+<p>Your lab workflow follows three focused steps:</p>
+<ol>
+<li><strong>Define Your Style Rules:</strong> In your project stylesheet (<code>style.css</code>), establish your typographic palette. Choose a clean serif body font, set line height to 1.65, and define subtle styles for personal names, place names, and dates.</li>
+<li><strong>Implement Feature Styling:</strong> Configure styles tailored to your document. Ace creates dual-column bilingual alignment. Olyvia styles handwritten line breaks and strikeout deletions. Andromeda formats treaty clauses with Roman numerals and seal graphics.</li>
+<li><strong>Test in Browser:</strong> Launch Live Server in VS Code. Inspect your styled edition in your browser and test your interactive note popups.</li>
+</ol>
+<p>I will circulate during the lab to help you fine-tune CSS selectors and test responsive layouts.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Student Action in VS Code</th>
+      <th>Deliverable Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Step 1: Typography</td>
+      <td>Configure body font, line height, and entity classes in style.css</td>
+      <td>Base typography stylesheet established</td>
+    </tr>
+    <tr>
+      <td>Step 2: Document Layout</td>
+      <td>Build Flexbox columns, note popups, and documentary styles</td>
+      <td>Document-specific presentation rules active</td>
+    </tr>
+    <tr>
+      <td>Step 3: Verification</td>
+      <td>Launch Live Server and audit layout across desktop and mobile views</td>
+      <td>Zero layout glitches; verified local preview</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Styling Rules</em> — CSS declarations specifying color, typography, spacing, and borders for specific element classes. <em>Local Preview</em> — viewing and interacting with a website hosted temporarily on your own computer before uploading it. <em>Feature Styling</em> — designing custom visual rules for unique documentary traits like seals, deletions, or parallel columns.</p>
+<p><strong>Takeaway:</strong> Today's lab guides you to define typographic rules, implement document-specific layouts, and verify your presentation locally in VS Code.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Today's Studio Lab: Designing Your Edition Styles</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the three core milestones of today's classroom studio lab in Mulroney Hall 3032?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Today's lab guides you to define typographic rules, implement document-specific layouts, and verify your presentation locally in VS Code.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Define base typographic style rules, implement document-specific feature layouts, and verify rendering locally in Live Server.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Students craft stylesheets for their witness, build layouts, and test interactive popups locally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Write a twenty-page paper on ancient Greek pottery.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Today's lab focuses on digital edition styling and web presentation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the XML files created earlier in the semester.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The lab builds directly upon the semester's master TEI XML files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Reinstall the computer operating system from scratch.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Students work directly in VS Code with their existing workspace files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Summary and Looking Ahead to Friday's Milestone</text></name><questiontext format="html"><text><![CDATA[
+<h3>Summary and Looking Ahead to Friday's Milestone</h3>
+<p>Today, you crossed a major milestone in digital textual scholarship. You explored how the TEI Processing Model replaces thousands of lines of fragile procedural code with standardized, declarative rendering rules.</p>
+<p>You discovered how ODD files serve as single sources of truth, uniting human guidelines, validation schemas, and presentation stylesheets. You also learned how modern web standards like CSS Flexbox and Grid structure primary facsimiles, transcriptions, and commentary into elegant reading interfaces.</p>
+<p>Remember the university schedule notice for this week: Thursday is the StFX Patronal Feast Day, so classes do not meet. On Friday, December 4, StFX runs on a Wednesday timetable. Our final class meeting of the semester will take place at <strong>10:30 AM in Mulroney Hall 3032</strong>.</p>
+<p>On Friday, we complete our capstone publication studio. We will explore multi-modal publishing, minimal computing, FAIR open data principles, and long-term archiving with Zenodo DOIs and GitHub Releases. Bring your styled edition, and let us prepare for public release.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Meeting</th>
+      <th>Date &amp; Time</th>
+      <th>Focus Topic</th>
+      <th>Capstone Deliverable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Meeting #35 (Today)</td>
+      <td>Wed Dec 2 &middot; 10:30 AM</td>
+      <td>TEI Processing Model, ODD, and CSS presentation</td>
+      <td>Styled edition preview in Live Server</td>
+    </tr>
+    <tr>
+      <td>Meeting #36 (Friday)</td>
+      <td>Fri Dec 4 &middot; 10:30 AM (Wed schedule)</td>
+      <td>Multi-modal publishing, FAIR data, Zenodo archiving</td>
+      <td>Zenodo deposit &amp; GitHub release portfolio</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Vocabulary.</strong> <em>Patronal Feast Day</em> — an official university holiday celebrating St. Francis Xavier on December 3, during which classes are suspended. <em>Wednesday Timetable</em> — an academic scheduling practice where Friday classes follow Wednesday meeting times to balance course contact hours. <em>Long-Term Archiving</em> — depositing research datasets into trusted repositories with permanent digital identifiers.</p>
+<p><strong>Takeaway:</strong> Today you styled your digital edition with modern web layouts; on Friday at 10:30 AM, we conclude our capstone studio with multi-modal archiving and public release.</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Summary and Looking Ahead to Friday's Milestone</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When and where will our final class meeting take place, and what is its capstone focus?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Today you styled your digital edition with modern web layouts; on Friday at 10:30 AM, we conclude our capstone studio with multi-modal archiving and public release.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Friday, December 4 at 10:30 AM in Mulroney Hall 3032 (Wednesday timetable), focusing on multi-modal publishing, FAIR data, and Zenodo archiving.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Thursday is Patronal Feast Day; Friday runs on a Wednesday timetable to complete our capstone publication studio.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Saturday at midnight in the campus library basement, focusing on video games.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Meeting 36 takes place Friday at 10:30 AM in MULH 3032.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Classes are permanently cancelled and no final deliverables are required.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Friday concludes the studio and prepares the final portfolio deposit.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Friday at 8:30 AM in the university gymnasium.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. StFX runs a Wednesday timetable on Friday Dec 4, meeting at 10:30 AM in Mulroney 3032.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

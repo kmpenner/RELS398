@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 13.1 Teaching Plan (2026-12-01)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #34 (Lesson 13.1 &mdash; Formulating Editorial Principles &amp; the Edition Introduction)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Tuesday, December 1, 2026</span>
+                <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 13 (Publication) &middot; Meeting 1 of 3</span>
+                <span class="badge">Milestone: Editorial Studio Launch, Preface Authoring, &amp; TEI &lt;editorialDecl&gt;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students have completed all discrete analytical and markup phases: cataloguing (Module 2), facsimile binding (Module 3), transcription (Module 4), reconciliation (Module 5), normalization (Module 6), lemmatization (Module 8), named entities (Module 9), translation alignment (Module 11), and commentary (Module 12). Today they transition from component authoring to portfolio synthesis in our capstone publication studio.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student drafts a comprehensive narrative Editorial Introduction in <code>README.md</code>, populates the machine-actionable TEI <code>&lt;editorialDecl&gt;</code> (with explicit <code>&lt;correction&gt;</code>, <code>&lt;normalization&gt;</code>, and <code>&lt;interpretation&gt;</code> policies), establishes multi-tiered open access licensing in <code>&lt;publicationStmt&gt;</code>, and validates their unified master XML document.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>The Beatles, &ldquo;In My Life&rdquo;</strong> (1965, Parlophone). A reflective look across places, people, and memories from the past.</li>
+            <li><strong>Pedagogical connection:</strong> Assembling a scholarly edition requires reflecting on the entire semester's journey—looking back across every editorial choice and articulating the principles that shaped your work.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;All semester, you have worked as transcribers, codicologists, linguists, and commentators. Today, we enter the capstone publication studio. A digital edition without an introduction is like a library without a catalogue or a house without a front door. Today, you author the gateway to your research, articulating the scholarly principles that will guide readers through your historical witness.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE EDITORIAL STUDIO DIRECTIVE: METHODOLOGICAL TRANSPARENCY</h3>
+        <p>A scholarly edition is defined by its transparency. Every regularization, linguistic gloss, and commentary note must be justified by an explicit editorial policy declared in the introduction and encoded in the TEI header.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Single-witness documentary fidelity:</strong> Do not collate phantom witnesses; focus on absolute fidelity to your unique primary artifact.<br>
+        <strong>2. Complete archival coordinates:</strong> The introduction must state the exact repository name, geographic location, and archival call number/shelfmark.<br>
+        <strong>3. Explicit normalization rules:</strong> Do not use vague generalizations; state the specific orthographic rules applied (e.g. 18th-century verb endings, folk phonetic spellings).<br>
+        <strong>4. Transparent computational provenance:</strong> Formally disclose all AI drafting tools and document the human-in-the-loop verification protocol.<br>
+        <strong>5. Multi-tiered open licensing:</strong> Declare explicit Creative Commons licensing (CC BY 4.0 for prose, CC0 for metadata, MIT for scripts).</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Entering the Publication Studio</td>
+                <td class="desc-col">
+                    Welcome students. Announce the launch of Week 13 Capstone Studio (no three-step cycle).<br>
+                    Review the eight editorial layers uniting into the final edition portfolio.<br>
+                    Explain the twofold introduction: narrative preface for humans and XML metadata for software.
+                </td>
+                <td class="target-col">Studio launched; portfolio architecture framed</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Encoding the TEI &lt;editorialDecl&gt;</td>
+                <td class="desc-col">
+                    Demonstrate on projector: building a complete <code>&lt;editorialDecl&gt;</code> inside VS Code.<br>
+                    Show how to structure <code>&lt;correction&gt;</code>, <code>&lt;normalization&gt;</code>, and <code>&lt;interpretation&gt;</code>.<br>
+                    Illustrate how declaring dictionaries (OED, Académie française) validates linguistic tags.
+                </td>
+                <td class="target-col">Projector demo of TEI editorial declaration</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:46 &ndash; 8:58<br>(12 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Authoring the Narrative Introduction</td>
+                <td class="desc-col">
+                    Students author the historical and material preface in their project <code>README.md</code>.<br>
+                    Document document context, physical description (paper, ink, seals), and provenance.<br>
+                    Instructor circulates to ensure students provide specific archival shelfmarks.
+                </td>
+                <td class="target-col">Narrative preface drafted in <code>README.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">8:58 &ndash; 9:12<br>(14 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>TEI Master Assembly &amp; Licensing</td>
+                <td class="desc-col">
+                    Students integrate header, facsimile, text body, and standoff commentary into <code>edition_master.xml</code>.<br>
+                    Add <code>&lt;publicationStmt&gt;</code> with CC BY 4.0 license and repository metadata.<br>
+                    Execute schema validation in VS Code (verifying 0 syntax errors, valid pointers).
+                </td>
+                <td class="target-col"><code>edition_master.xml</code> assembled and validated</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:12 &ndash; 9:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Peer Review &amp; Wednesday Setup</td>
+                <td class="desc-col">
+                    Brief peer review: students exchange introductions to verify clarity and shelfmark accuracy.<br>
+                    Review common beginner flaws (vague normalization rules, broken targets).<br>
+                    Preview Wednesday: <em>&ldquo;Tomorrow, we shift from principles to visual design: styling TEI with the Processing Model and CSS.&rdquo;</em>
+                </td>
+                <td class="target-col">Peer check complete; Wednesday setup framed</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Introduce the National Assembly legislative crisis, the monetary depreciation of assignats, the 5-livre small denomination decree, Imprimerie Royale typography, and Voltairean spelling regularization.</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> Introduce Maud Lewis's Marshalltown cottage life, \$6.00 roadside painting sales, correspondence with collector Leonard Kinnear, and phonetic folk spelling preservation policies.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Introduce the Halifax peace negotiations between Mi'kmaw Chief Jean-Baptiste Cope and Governor Peregrine Hopson, treaty truckhouses, hunting/fishing guarantees, and Nova Scotia Archives custody (RG 1 vol 430 no 2).</li>
+        </ul>
+    </div>
+
+</body>
+</html>

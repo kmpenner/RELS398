@@ -45,8 +45,8 @@ obj_html = """<div class="card p-3 mb-3 border-info" style="border-left: 5px sol
     <h4 style="color: #b45309; margin-top: 0;">Module 13: Digital Edition Publication & Archiving — Learning Objectives</h4>
     <p>By the end of this module, students will be able to:</p>
     <ul>
-        <li><strong>Formulate</strong> a comprehensive scholarly Editorial Declaration in TEI <code>&lt;editorialDecl&gt;</code>, detailing explicit policies for transcription, normalization, collation, and apparatus selection.</li>
-        <li><strong>Reconstruct and defend</strong> a manuscript stemma codicum using genealogical error analysis and the principle of <em>eliminatio codicum descriptorum</em>.</li>
+        <li><strong>Formulate</strong> a comprehensive scholarly Editorial Declaration in TEI <code>&lt;editorialDecl&gt;</code>, detailing explicit policies for transcription, normalization, rendering, and named-entity markup.</li>
+        <li><strong>Document and defend</strong> the textual transmission and documentary history of your primary witness within the scholarly introduction.</li>
         <li><strong>Author</strong> a TEI Processing Model ODD customization, mapping semantic markup to multi-target presentation behaviors (<code>&lt;model&gt;</code>, <code>@behaviour</code>, <code>@predicate</code>).</li>
         <li><strong>Compile</strong> multi-modal distribution packages (interactive web editions, responsive offline HTML players, and print-ready PDF/A volumes via CSS Paged Media) from a single canonical TEI XML master.</li>
         <li><strong>Implement</strong> multi-tiered open access licensing (Creative Commons and open source software licenses) and deposit archival edition portfolios according to FAIR data principles with persistent Zenodo DOIs.</li>
@@ -85,7 +85,7 @@ ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #d97706; b
 ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Assemble your comprehensive TEI P5 master document containing: full <code>&lt;teiHeader&gt;</code> with cataloguing and <code>&lt;editorialDecl&gt;</code>; diplomatic facsimile links; consensus normalized reading text; critical apparatus (<code>&lt;app&gt;</code>); morphological markup (<code>&lt;w&gt;</code>); translation alignment; and scholarly commentary notes.</li>
+        <li>Assemble your comprehensive TEI P5 master document containing: full <code>&lt;teiHeader&gt;</code> with cataloguing and <code>&lt;editorialDecl&gt;</code>; diplomatic facsimile links; single-witness documentary markup (<code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>, <code>&lt;reg&gt;</code>, <code>&lt;del&gt;</code>, <code>&lt;add&gt;</code>); morphological markup (<code>&lt;w&gt;</code>); translation alignment; and scholarly commentary notes.</li>
         <li>Execute the 12-gate quality assurance verification sweep (schema validation, pointer integrity, zero lint issues).</li>
         <li>Compile the multi-modal outputs: an interactive offline HTML edition and a formatted PDF volume via CSS Paged Media.</li>
         <li>Include a <code>LICENSE.md</code> explicitly specifying your multi-tiered licensing (e.g. CC BY 4.0 for edition text, CC0 for metadata, MIT for custom scripts).</li>
@@ -124,13 +124,13 @@ questions = [
           ("A DSE is a text typed entirely by an artificial intelligence model without human oversight.", 0, "Incorrect. Scholarly digital editing demands expert human editorial rigor."),
           ("A DSE must contain animated dancing cartoon characters on every page.", 0, "Incorrect. Scholarly digital editions are rigorous academic research tools.")
       ]),
-    ("02 Question: Principle of Eliminatio Codicum Descriptorum",
-      "In classical stemmatology, what is the principle of *eliminatio codicum descriptorum*?",
+    ("02 Question: Single-Witness Documentary Fidelity",
+      "In single-witness documentary editing, how does an editor treat historical spelling quirks, physical cancellations, and scribal additions?",
       [
-          ("The elimination from the critical apparatus of manuscripts proven to be direct copies of an extant surviving exemplar, since they provide no independent genealogical testimony.", 100, "Correct. If manuscript B is demonstrated to be an exact copy of manuscript A (which still survives), B's readings derive entirely from A and cannot provide independent evidence for the archetype."),
-          ("The physical burning of inferior paper manuscripts in an incinerator.", 0, "Incorrect. Scribes and archivists preserve all historical artifacts regardless of stemmatic derivation."),
-          ("The deletion of all footnotes containing Latin words.", 0, "Incorrect. Scholarly editions preserve historical languages and critical conventions."),
-          ("The removal of punctuation marks from modern English translations.", 0, "Incorrect. Punctuation regularizes translation readability.")
+          ("The editor records them diplomatically with physical fidelity, provides normalized views through markup, and explains their significance in standoff commentary rather than inventing composite readings.", 100, "Correct. Documentary editing respects the unique historical artifact, recording authentic material strokes rather than smoothing text into an idealized modern composite."),
+          ("The editor silently deletes all strange spellings and rewrites the text in modern slang.", 0, "Incorrect. Documentary editing preserves historical voices rather than erasing them."),
+          ("The editor burns the original manuscript in an incinerator if it contains spelling errors.", 0, "Incorrect. Historical artifacts are conserved and preserved with scholarly care."),
+          ("The editor forces the text to match a modern printed textbook.", 0, "Incorrect. The edition reflects the surviving primary witness, not an anachronistic reprint.")
       ]),
     ("03 Question: Function of TEI editorialDecl",
       "Within a TEI header, what is the specific role of the `<editorialDecl>` element in `<encodingDesc>`?",
