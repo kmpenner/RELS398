@@ -1,0 +1,1734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_7.1</text></category></question>
+<question type="description"><name><text>01 Content: Your Edition So Far, and Why Nobody Can Read It Yet</text></name><questiontext format="html"><text><![CDATA[
+<h3>Your Edition So Far, and Why Nobody Can Read It Yet</h3>
+<p>Over six weeks you have built something real. You catalogued your document in a <code>teiHeader</code>, linked it to its image, transcribed it line by line, reconciled your transcription against an AI pass, and recorded your normalization decisions inside <code>&lt;choice&gt;</code> elements. Your file <code>transcription_normalized.xml</code> now holds two layers of your document at once: what the page says, letter for letter, and what a modern reader needs it to say.</p>
+<p>Now try a simple test. Send that file to a friend who has never taken this course and ask them to read your document. They will open a screen full of angle brackets, attributes and nested tags. The words of the 1752 Treaty, the 1791 decree, or Maud Lewis's letter are all in there, but they are buried in markup. Your friend sees code, not a document.</p>
+<p>This is not a flaw in your work. A TEI file is designed to be precise for machines and for editors, not pleasant for readers. Turning that file into something a person can read is a separate step, and this week is about that step. It is the first stage of publication: making your edition visible.</p>
+<p><strong>Vocabulary.</strong> <em>Rendering</em> — Turning an encoded file into a form a person can read, such as a web page or a printed page. <em>Publication</em> — Making an edition available to readers outside the project, in a form they can use.</p>
+<p><strong>Takeaway:</strong> A valid TEI file is a complete record of your document but not yet a publication; rendering is the step that turns it into something a reader can use.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Your Edition So Far, and Why Nobody Can Read It Yet</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your file &lt;code&gt;transcription_normalized.xml&lt;/code&gt; is valid TEI. Why is it not yet a publication?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A valid TEI file is a complete record of your document but not yet a publication; rendering is the step that turns it into something a reader can use.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Its words are buried in markup that machines and editors can read but an ordinary reader cannot; it still has to be rendered.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A TEI file is a precise record, not a reader-friendly page. Rendering turns it into something a reader can use.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It is missing the transcription, which is only added at the publication stage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The transcription is already in the file; you built it in Weeks 4 to 6.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Valid TEI files are encrypted and must be unlocked before anyone can open them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI is plain text. The problem is that the markup hides the document from a non-specialist reader.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A TEI file cannot hold accented letters, so it must be converted before publication.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI files are UTF-8 and hold any script. The issue is readability, not character support.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: Content and Presentation Are Two Different Things</text></name><questiontext format="html"><text><![CDATA[
+<h3>Content and Presentation Are Two Different Things</h3>
+<p>Everything this week rests on one idea: what a text <em>is</em> and how it <em>looks</em> are separate questions. Your TEI file answers the first question. It says that a word was abbreviated, that a line ended here, that a letter was hard to read. It does not say that the abbreviation should be shown in italics, or that the unclear letter should have a dotted line under it. Those are presentation choices, and they belong somewhere else.</p>
+<p>Layout belongs to the rendering of an edition's data, not to the data themselves, which is why some digital projects treat display as a separate scholarly task (Huskey, 2024).</p>
+<p>Keeping the two apart has a practical payoff. If you decide next month that abbreviations look better in grey than in italics, you change one display rule and every abbreviation in the edition changes with it. You never touch the transcription. The evidence stays fixed while the presentation is free to improve.</p>
+<p>The same idea drives the web itself. HTML records the structure of a page (this is a heading, this is a paragraph), and a separate language, CSS, records how that structure should look. You will write both today.</p>
+<p><strong>Vocabulary.</strong> <em>Content</em> — What a text is and says, recorded in the markup. <em>Presentation</em> — How the text is displayed: fonts, spacing, colour, what is shown and what is hidden.</p>
+<p><strong>Takeaway:</strong> Keep what your document says (the TEI file) separate from how it looks (the display rules), so you can change the look without ever touching the evidence.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Content and Presentation Are Two Different Things</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;You decide that abbreviations should appear in grey instead of italics. If content and presentation are kept separate, what must you change?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Keep what your document says (the TEI file) separate from how it looks (the display rules), so you can change the look without ever touching the evidence.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;One display rule; the transcription itself is never touched.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Keeping the look in display rules means you can improve the presentation without altering the evidence.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Every abbreviation in the TEI file, one by one.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That would mix presentation into the data. The point of the split is that the file stays fixed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The &amp;lt;teiHeader&amp;gt;, which stores all colour settings for the edition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The header records metadata about the document, not how it should be displayed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Nothing; once a TEI file is written, its appearance can never change.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Separating presentation is exactly what lets appearance change freely.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: One File, Many Views</text></name><questiontext format="html"><text><![CDATA[
+<h3>One File, Many Views</h3>
+<p>Because the content is separate from the presentation, one TEI file can be shown in more than one way. This is the most powerful thing a digital edition can do that a printed book cannot.</p>
+<p>Because an encoded text can be run through different sets of rules held in stylesheets, the same file can be shown as a diplomatic text, a critical text, or a reading text (Pierazzo, 2016).</p>
+<p>For your project, two views matter most. A <strong>diplomatic view</strong> shows the document as it is: original spellings, abbreviations as written, the original line breaks. A <strong>reading view</strong> shows the document as a modern reader needs it: regularized spelling, expanded abbreviations, lines flowing into paragraphs. Both views come from the same file. Neither one is the "real" text; they are two honest windows onto it.</p>
+<p>You already built both layers in Week 6. Every <code>&lt;choice&gt;</code> holds an <code>&lt;orig&gt;</code> for the diplomatic view and a <code>&lt;reg&gt;</code> for the reading view. Rendering is simply the act of choosing, for each view, which child of each <code>&lt;choice&gt;</code> to show.</p>
+<p><strong>Vocabulary.</strong> <em>View</em> — One particular way of displaying an edition, such as diplomatic or reading. <em>Stylesheet</em> — A set of rules that tells software how to display or transform marked-up text.</p>
+<p><strong>Takeaway:</strong> One encoded file can produce several views; your diplomatic and reading views both come from the <code>&lt;choice&gt;</code> layers you built in Week 6.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: One File, Many Views</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How can one TEI file produce both a diplomatic view and a reading view?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;One encoded file can produce several views; your diplomatic and reading views both come from the &amp;lt;choice&amp;gt; layers you built in Week 6.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Each &amp;lt;choice&amp;gt; holds both layers, and each view's rules choose which child of each &amp;lt;choice&amp;gt; to show.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The Week 6 &amp;lt;orig&amp;gt;/&amp;lt;reg&amp;gt; layers are the raw material; rendering picks one layer per view.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The editor keeps two separate transcriptions, one for each view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A single file holds both layers; two files would drift apart.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The browser guesses which spelling a reader probably wants.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The choice is made by explicit display rules written by the editor, not by the browser.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Only the reading view comes from the file; the diplomatic view is a photograph.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both views come from the same encoded file. A diplomatic view is a transcription, not an image.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: The Diplomatic View</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Diplomatic View</h3>
+<p>The diplomatic view is for readers who care about the document as an object. A historian of the French Revolution may want to see exactly how a clerk in 1791 spelled and abbreviated official titles. A scholar of Maritime folk art may want to see where Maud Lewis broke her lines and how she spelled words in her own hand. A legal historian may want to see the 1752 Treaty's capitalization and punctuation exactly as the printer set them.</p>
+<p>So the diplomatic view shows what you put inside <code>&lt;orig&gt;</code>, <code>&lt;abbr&gt;</code>, and <code>&lt;sic&gt;</code>. It keeps every line break where the page put it, usually with a line number in the margin so a reader can cite "line 14" and be understood. It marks unclear letters and gaps so the reader knows exactly where your reading is uncertain.</p>
+<p>A diplomatic view is not a photograph. It is still your interpretation, because you decided what each letter was. But it is the interpretation that stays as close to the page as type allows. It is the view you check against the image when a reading is in doubt.</p>
+<p><strong>Vocabulary.</strong> <em>Diplomatic view</em> — A display that follows the document's own spelling, abbreviation and line breaks as closely as possible. <em>Line number</em> — A number shown beside each line so readers can cite a precise location.</p>
+<p><strong>Takeaway:</strong> The diplomatic view shows the original layer of your file, line by line, for readers who need the document as it actually appears.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: The Diplomatic View</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which reader is best served by the diplomatic view?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The diplomatic view shows the original layer of your file, line by line, for readers who need the document as it actually appears.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A historian who wants to see exactly how a clerk in 1791 spelled and abbreviated official titles.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The diplomatic view keeps original spelling, abbreviations and line breaks for readers who need the document as it appears.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A first-year student who wants to read the treaty's terms quickly in modern spelling.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That reader needs the reading view, with regularized spelling and expanded abbreviations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A reader who wants a summary of the document instead of its text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Neither view summarizes; both present the full text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A reader who wants the editor's commentary on the document's significance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commentary is a separate layer of the edition, not what the diplomatic view provides.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: The Reading View, and What It Hides</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Reading View, and What It Hides</h3>
+<p>The reading view is for readers who care about what the document says. A student reading the 1752 Treaty for its terms should not have to decode eighteenth-century spellings in every clause. A reader of Maud Lewis's letter wants to follow her news, not stumble over missing apostrophes. So the reading view shows <code>&lt;reg&gt;</code>, <code>&lt;expan&gt;</code> and <code>&lt;corr&gt;</code>, and lets the lines flow together into ordinary paragraphs.</p>
+<p>That convenience has a cost. A smooth reading view hides the editor's work, and it can hide it so well that readers forget anyone made a choice at all.</p>
+<p>A clean reading text, with almost no visible trace of the editing behind it, can give readers the false impression that the text is stable and finished (Pierazzo, 2016).</p>
+<p>Your job is to make the reading view easy without making it dishonest. A short note at the top of the page saying what was regularized, and a clear way to reach the diplomatic view, cost almost nothing. Later sections show you how to build both.</p>
+<p><strong>Vocabulary.</strong> <em>Reading view</em> — A display that shows regularized spelling and expanded abbreviations, with lines joined into paragraphs. <em>Silent intervention</em> — An editorial change that the reader cannot see or detect.</p>
+<p><strong>Takeaway:</strong> The reading view makes the document easy to read but hides your interventions; always tell readers what was changed and how to see the original.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: The Reading View, and What It Hides</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the main risk of a smooth reading view?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The reading view makes the document easy to read but hides your interventions; always tell readers what was changed and how to see the original.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It hides the editor's interventions so well that readers may think the text is stable and untouched.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A clean reading text can give a false impression of certainty; tell readers what was changed and how to see the original.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It always contains more spelling errors than the diplomatic view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The reading view has regularized spelling; its risk is concealment, not errors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It cannot be displayed in a web browser.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Reading views display in any browser.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the original layer from the TEI file permanently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Rendering never changes the file; the original layer is simply not shown in this view.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Who Is Your Reader?</text></name><questiontext format="html"><text><![CDATA[
+<h3>Who Is Your Reader?</h3>
+<p>Before you decide how anything should look, decide who will read your edition and why. This is not a formality. Your answers will settle dozens of small display questions later.</p>
+<p>Print editions tried to serve every kind of reader with one product because of cost, but a digital edition can offer different outputs for different readers (Pierazzo, 2016).</p>
+<p>Think about your own document. Andromeda's 1752 Treaty will be read by people studying Mi'kmaw–British relations, and some of them will read the treaty for its legal promises, word by word. They need accurate article numbers and visible line references. Olyvia's Maud Lewis letter may reach readers who love her paintings and have never seen her handwriting; they need a warm, readable page and perhaps a link to the image. Ace's 1791 decree will interest historians of the Revolution who want to cite the exact wording, and students who need the French to be readable on a screen.</p>
+<p>Write down two or three real readers for your edition before you go on. Name what each one needs to do with it: read it through, check a word, quote a line, compare it with the image.</p>
+<p><strong>Vocabulary.</strong> <em>Audience</em> — The specific readers an edition is built for. <em>Use case</em> — A concrete task a reader wants to perform with the edition, such as quoting a line.</p>
+<p><strong>Takeaway:</strong> Decide who your readers are and what they need to do before you make any display decision; the right look depends on the reader.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Who Is Your Reader?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should you name your readers before making any display decision?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Decide who your readers are and what they need to do before you make any display decision; the right look depends on the reader.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the right look depends on what each reader needs to do: read through, check a word, quote a line, or compare with the image.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Digital editions can serve different readers with different outputs, but only if you know who they are.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Moodle requires a reader list before a page can be uploaded.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This is an editorial reason, not a platform requirement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because each reader must be given a separate TEI file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. One file serves all readers; the views differ, not the file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because naming readers lets you skip the reading view entirely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Knowing your readers usually shows that you need both views.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Screens, Phones, and Paper</text></name><questiontext format="html"><text><![CDATA[
+<h3>Screens, Phones, and Paper</h3>
+<p>Your readers will not all see your page the same way. Some will open it on a laptop, some on a phone on the bus, and some will print it to read with a pencil.</p>
+<p>The same text read on a phone, a tablet, a laptop, or a sheet of printed paper can give a quite different reading experience (Pierazzo, 2016).</p>
+<p>This matters for display decisions. A diplomatic view with long lines and line numbers in a wide margin works on a laptop but may break badly on a narrow phone screen. Colour that marks an unclear reading on screen may vanish on a black-and-white printer. Hover tooltips that explain a gap do not exist on paper at all.</p>
+<p>Today you will build for the laptop screen first, because that is where you will check your work. But keep the other two in mind as you make each decision. Ask of every choice: will this still make sense on a phone? Will it still make sense on paper? On Wednesday you will add a print stylesheet that answers the paper question directly.</p>
+<p><strong>Vocabulary.</strong> <em>Device</em> — The screen or medium on which a reader encounters the edition. <em>Responsive layout</em> — A page design that adapts to different screen widths.</p>
+<p><strong>Takeaway:</strong> Every display decision should survive a phone screen and a printed page, not just your laptop.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Screens, Phones, and Paper</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which display choice is most likely to fail on a printed page?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Every display decision should survive a phone screen and a printed page, not just your laptop.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Explaining a gap only in a hover tooltip.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Tooltips do not exist on paper, so the gap mark itself must be clear without them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Using a serif font for the reading view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Serif fonts print well; this choice survives every medium.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Putting each heading in an &amp;lt;h2&amp;gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Headings print as headings; this is good structure on any device.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Showing line numbers in the diplomatic view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Line numbers print well and help readers cite precise locations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: The Rendering Decision Table</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Rendering Decision Table</h3>
+<p>Now comes the core manual work of the day. Open your <code>transcription_normalized.xml</code> and list every element that appears inside your <code>&lt;body&gt;</code>. Then, for each one, decide how it should look in each view. Write the decisions in a new file called <code>RENDERING.md</code>, just as you wrote <code>NORMALIZATION.md</code> in Week 6.</p>
+<p>Here is the shape of the table. Your rows will depend on which elements your file actually uses.</p>
+<table>
+  <thead>
+    <tr><th>TEI element</th><th>What it records</th><th>Diplomatic view</th><th>Reading view</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>&lt;lb/&gt;</code></td><td>A line break on the page</td><td>New line, with a line number</td><td>No break; text flows on</td></tr>
+    <tr><td><code>&lt;orig&gt;</code> / <code>&lt;reg&gt;</code></td><td>Original and regularized spelling</td><td>Show <code>orig</code></td><td>Show <code>reg</code></td></tr>
+    <tr><td><code>&lt;abbr&gt;</code> / <code>&lt;expan&gt;</code></td><td>Abbreviation and its expansion</td><td>Show <code>abbr</code></td><td>Show <code>expan</code>, supplied letters in italics</td></tr>
+    <tr><td><code>&lt;sic&gt;</code> / <code>&lt;corr&gt;</code></td><td>An error and its correction</td><td>Show <code>sic</code></td><td>Show <code>corr</code></td></tr>
+    <tr><td><code>&lt;unclear&gt;</code></td><td>Letters that are hard to read</td><td>Dotted underline</td><td>Dotted underline</td></tr>
+    <tr><td><code>&lt;gap/&gt;</code></td><td>Text that could not be read at all</td><td>[…] with reason on hover</td><td>[…] with reason on hover</td></tr>
+  </tbody>
+</table>
+
+<p>Every row is a decision you can defend, and every row will become a rule in code.</p>
+<p><strong>Vocabulary.</strong> <em>Rendering decision</em> — A recorded rule for how one TEI element appears in one view. <em><code>RENDERING.md</code></em> — The file in your repository where you record every rendering decision.</p>
+<p><strong>Takeaway:</strong> List every element your file uses and decide, in writing, how each one appears in each view; the table in <code>RENDERING.md</code> is today's main deliverable.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: The Rendering Decision Table</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does each row of the table in &lt;code&gt;RENDERING.md&lt;/code&gt; record?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;List every element your file uses and decide, in writing, how each one appears in each view; the table in &lt;code&gt;RENDERING.md&lt;/code&gt; is today's main deliverable.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;For one TEI element in your file, how it should appear in the diplomatic view and in the reading view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Every row is a decision you can defend, and every row becomes a rule in code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The number of times each element appears in the TEI Guidelines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The table concerns your file and your decisions, not the Guidelines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A list of every spelling you regularized in Week 6.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That list belongs in &lt;code&gt;NORMALIZATION.md&lt;/code&gt;; this table records display decisions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The CSS code for each element, written before any decision is made.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Decisions come first, in plain words; code follows them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Deciding About Line Breaks</text></name><questiontext format="html"><text><![CDATA[
+<h3>Deciding About Line Breaks</h3>
+<p>Line breaks are the first decision, and they are less simple than they look. In Week 4 you recorded every line break on the page with <code>&lt;lb/&gt;</code>, often with a number: <code>&lt;lb n="7"/&gt;</code>.</p>
+<p>In the diplomatic view, the answer is clear: each <code>&lt;lb/&gt;</code> starts a new line, and its number appears in the margin. In the reading view, the usual answer is that line breaks disappear and the text runs on as a paragraph. But watch what happens to the words on either side.</p>
+<p>Suppose an illustrative line from a letter reads <code>the paintings&lt;lb n="4"/&gt;were sent</code>. If the reading view simply deletes the break, the words may run together as <em>paintingswere</em>. Whether that happens depends on whether there is a space or a new line in your file next to the <code>&lt;lb/&gt;</code>. Check your own file now and see how you typed your line breaks.</p>
+<p>Then there are words split across two lines. If a printer broke <em>Governor</em> as <em>Gover-</em> at the end of one line and <em>nor</em> at the start of the next, the reading view should rejoin it as <em>Governor</em>, with no hyphen and no space. TEI marks this with <code>&lt;lb break="no"/&gt;</code>. Write down what your reading view does with that hyphen: keep it, or remove it.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;lb/&gt;</code></em> — An empty TEI element marking the start of a new line on the page. <em><code>break="no"</code></em> — An attribute on <code>&lt;lb/&gt;</code> saying the line break falls inside a word.</p>
+<p><strong>Takeaway:</strong> Decide what each view does with line breaks, and check that removing a break in the reading view never glues two words together or leaves a stray hyphen.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Deciding About Line Breaks</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the reading view, line breaks disappear. What must you check when that happens?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Decide what each view does with line breaks, and check that removing a break in the reading view never glues two words together or leaves a stray hyphen.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;That no two words are glued together and no stray hyphen is left inside a word split across lines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Whitespace around each &amp;lt;lb/&amp;gt;, and &lt;code&gt;break="no"&lt;/code&gt; on split words, decide how the text rejoins.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That every line still begins with a capital letter.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lines in the reading view run on; capitalization follows the text, not the old line starts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the line numbers are still shown in the margin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Line numbers belong to the diplomatic view; the reading view usually drops them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the TEI file has been edited to remove every &amp;lt;lb/&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The file keeps every &amp;lt;lb/&amp;gt;; only the display ignores them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Deciding About `&lt;choice&gt;`: Original and Regularized Spelling</text></name><questiontext format="html"><text><![CDATA[
+<h3>Deciding About `<choice>`: Original and Regularized Spelling</h3>
+<p>Your Week 6 work produced many <code>&lt;choice&gt;</code> elements like this one:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;orig&gt;publick&lt;/orig&gt;
+  &lt;reg resp=&quot;#editor&quot;&gt;public&lt;/reg&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>The basic rule is simple. The diplomatic view shows the <code>&lt;orig&gt;</code>; the reading view shows the <code>&lt;reg&gt;</code>. But there are two further decisions to make, and you should record both.</p>
+<p>First, should the reading view show any sign that a word was regularized? Some editions show nothing. Others put a faint mark under the word, or let the reader hover over it to see the original. A light signal respects the reader who wants a smooth text while keeping the editing visible to the reader who wants to check.</p>
+<p>Second, what happens to Maud Lewis's grammar? In Week 6 you decided to regularize her spelling (<em>dont</em> to <em>don't</em>) but never her grammar (<em>we was</em> stays <em>we was</em>). Your rendering must keep that promise. If <em>we was</em> has no <code>&lt;choice&gt;</code> around it, it will appear the same in both views, which is exactly right. The rendering never makes an editorial decision that the encoding did not make first.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;choice&gt;</code></em> — A TEI element grouping alternative encodings of the same passage. <em>Regularization signal</em> — A visual hint in the reading view that a word's spelling was standardized.</p>
+<p><strong>Takeaway:</strong> Show <code>&lt;orig&gt;</code> in the diplomatic view and <code>&lt;reg&gt;</code> in the reading view, decide whether regularized words carry a visible hint, and never let the display change anything the encoding did not.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Deciding About &lt;choice&gt;: Original and Regularized Spelling</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In Maud Lewis's letter, &lt;em&gt;we was&lt;/em&gt; has no &amp;lt;choice&amp;gt; around it. How should it appear?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Show &amp;lt;orig&amp;gt; in the diplomatic view and &amp;lt;reg&amp;gt; in the reading view, decide whether regularized words carry a visible hint, and never let the display change anything the encoding did not.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Exactly as written in both views, because the rendering never makes a decision the encoding did not make.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The Week 6 policy regularized her spelling but not her grammar, and the display must keep that promise.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;As &lt;em&gt;we were&lt;/em&gt; in the reading view, since readers expect standard grammar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That would be a silent intervention the encoding never recorded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hidden in the reading view, since it is non-standard.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hiding her words would drop text from the edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;With &lt;em&gt;[sic]&lt;/em&gt; after it in both views.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Her vernacular grammar is not an error and must never be marked as one.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Deciding About Abbreviations</text></name><questiontext format="html"><text><![CDATA[
+<h3>Deciding About Abbreviations</h3>
+<p>Abbreviations follow the same pattern as spelling. The diplomatic view shows <code>&lt;abbr&gt;</code>, and the reading view shows <code>&lt;expan&gt;</code>. The extra decision here is how to show the letters you supplied.</p>
+<p>Suppose the 1752 Treaty abbreviates <em>Governor</em> as <em>Gov^r</em>, with a raised <em>r</em>. Your encoding might be:</p>
+<pre><code class="language-xml">&lt;choice&gt;
+  &lt;abbr&gt;Gov&lt;hi rend=&quot;sup&quot;&gt;r&lt;/hi&gt;&lt;/abbr&gt;
+  &lt;expan&gt;Gov&lt;ex&gt;erno&lt;/ex&gt;r&lt;/expan&gt;
+&lt;/choice&gt;
+</code></pre>
+<p>The <code>&lt;ex&gt;</code> element marks the letters that are not on the page. A common print convention puts supplied letters in italics or round brackets, so the reader sees <em>Gov(erno)r</em> and knows which letters the editor added. Another choice is to show the expansion plainly and let the diplomatic view carry the evidence.</p>
+<p>Decide which convention you will use, and use it everywhere. The worst outcome is a page where some expansions are marked and others are not, because the reader can no longer tell which letters came from the page. If your file does not use <code>&lt;ex&gt;</code>, you can only show whole expansions; note that limit in <code>RENDERING.md</code>.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;expan&gt;</code></em> — A TEI element holding the full form of an abbreviated word. <em><code>&lt;ex&gt;</code></em> — A TEI element marking letters an editor supplied when expanding an abbreviation.</p>
+<p><strong>Takeaway:</strong> Show abbreviations in the diplomatic view and expansions in the reading view, and choose one consistent way to mark the letters you supplied.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Deciding About Abbreviations</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the worst outcome when displaying expanded abbreviations?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Show abbreviations in the diplomatic view and expansions in the reading view, and choose one consistent way to mark the letters you supplied.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Marking supplied letters in some expansions but not in others, so readers cannot tell which letters came from the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Pick one convention, such as italics for &amp;lt;ex&amp;gt;, and use it everywhere.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Showing the abbreviation in the diplomatic view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is the correct behaviour of the diplomatic view.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Putting supplied letters in italics.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Italics is one acceptable convention, as long as it is used consistently.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Recording in &lt;code&gt;RENDERING.md&lt;/code&gt; that your file does not use &amp;lt;ex&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Recording that limit is good practice, not a problem.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Deciding About Errors and Corrections</text></name><questiontext format="html"><text><![CDATA[
+<h3>Deciding About Errors and Corrections</h3>
+<p>Some of you used <code>&lt;sic&gt;</code> and <code>&lt;corr&gt;</code> in Week 6 to record a real mistake on the page and your correction of it. This pair needs more care than spelling, because it involves a judgment that the writer got something wrong.</p>
+<p>The diplomatic view shows <code>&lt;sic&gt;</code>, the text as written. The reading view shows <code>&lt;corr&gt;</code>, your correction. But should the reading view also say that a correction was made? A common print convention adds <em>[sic]</em> after an error that is kept, or puts the corrected letters in square brackets.</p>
+<p>Think about what your readers need. If Ace finds that a printer set the same word twice in the 1791 decree, a reader of the French text will be grateful for the correction and will probably want a small signal that it was made. If you are not sure whether something is really an error, you should not have used <code>&lt;sic&gt;</code> at all; go back and check your Week 6 rule ledger.</p>
+<p>Remember the Week 6 warning about Maud Lewis: her vernacular grammar is not an error and must never carry <code>&lt;sic&gt;</code>. If your rendering shows a <em>[sic]</em> anywhere in her letter, check that the encoding underneath it is correct.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;sic&gt;</code></em> — A TEI element marking text that is apparently wrong but reproduced as written. <em><code>&lt;corr&gt;</code></em> — A TEI element holding the editor's correction of an error.</p>
+<p><strong>Takeaway:</strong> Show the error in the diplomatic view and the correction in the reading view, and give readers a visible signal whenever you have corrected the writer.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Deciding About Errors and Corrections</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does &amp;lt;sic&amp;gt;/&amp;lt;corr&amp;gt; need more care in display than &amp;lt;orig&amp;gt;/&amp;lt;reg&amp;gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Show the error in the diplomatic view and the correction in the reading view, and give readers a visible signal whenever you have corrected the writer.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because it records a judgment that the writer got something wrong, so readers deserve a visible signal that you corrected them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A correction is a stronger intervention than a spelling regularization, and should be shown as such.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because browsers cannot display the &amp;lt;corr&amp;gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Browsers display whatever HTML you produce; the issue is editorial, not technical.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because corrections must be hidden from the diplomatic view and the reading view alike.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The diplomatic view shows &amp;lt;sic&amp;gt; and the reading view shows &amp;lt;corr&amp;gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because &amp;lt;sic&amp;gt; is only used for vernacular grammar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Vernacular grammar is not an error and should never carry &amp;lt;sic&amp;gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Deciding About Uncertainty: `&lt;unclear&gt;` and `&lt;gap/&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Deciding About Uncertainty: `<unclear>` and `<gap/>`</h3>
+<p>Uncertainty must be visible in every view. A reader who quotes your edition needs to know which words you read with confidence and which you could only guess.</p>
+<p>The <code>&lt;unclear&gt;</code> element marks letters you read but are not sure of. A widely used convention places a dot under each uncertain letter, but that is hard to do in a web page. A dotted underline is a practical substitute on screen. Whatever you choose, do not use colour alone, because colour disappears on a black-and-white printout and some readers cannot distinguish it.</p>
+<p>The <code>&lt;gap/&gt;</code> element marks text you could not read at all, such as a hole, a stain, or a torn edge. It is empty, so there is no text to show. You must decide what stands in for it. A common choice is <code>[…]</code>, with the reason (<code>reason="illegible"</code>, <code>reason="damage"</code>) and the extent (<code>quantity="2" unit="word"</code>) available to the reader, perhaps in a tooltip.</p>
+<p>Unlike spelling, uncertainty usually looks the same in both views. A word you could not read in the diplomatic view is just as unreadable in the reading view. Hiding it would make the reading view claim a certainty you do not have.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;unclear&gt;</code></em> — A TEI element marking text that is present but difficult to read with certainty. <em><code>&lt;gap/&gt;</code></em> — An empty TEI element marking text that has been left out because it cannot be read.</p>
+<p><strong>Takeaway:</strong> Show uncertain readings and gaps in both views, with a mark that does not depend on colour alone.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Deciding About Uncertainty: &lt;unclear&gt; and &lt;gap/&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should &amp;lt;unclear&amp;gt; text not be marked by colour alone?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Show uncertain readings and gaps in both views, with a mark that does not depend on colour alone.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Colour vanishes on a black-and-white printout and some readers cannot distinguish it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Use a mark such as a dotted underline, so uncertainty stays visible in every medium.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Colour is not allowed in CSS.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS supports colour; the problem is relying on it as the only signal.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Uncertain readings should be hidden in the reading view anyway.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hiding uncertainty would claim a certainty you do not have; show it in both views.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TEI forbids colour attributes on &amp;lt;unclear&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Display rules live in the stylesheet, not in TEI attributes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Deciding About Structure: Headings, Paragraphs, Signatures</text></name><questiontext format="html"><text><![CDATA[
+<h3>Deciding About Structure: Headings, Paragraphs, Signatures</h3>
+<p>So far you have decided about words. Now decide about the larger shape of the document. Your <code>&lt;body&gt;</code> probably contains structural elements such as <code>&lt;div&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;closer&gt;</code>, <code>&lt;signed&gt;</code>, or <code>&lt;pb/&gt;</code>.</p>
+<p>The 1752 Treaty is organized in numbered articles. If you encoded each one as <code>&lt;div type="article" n="3"&gt;</code> with a <code>&lt;head&gt;</code>, the reader will expect each article to start on its own line with a visible heading. The 1791 decree likely opens with a formal preamble and then numbered articles of its own. Maud Lewis's letter has an opening greeting, a body, and a closing with her signature, which a reader expects to see set apart at the end.</p>
+<p>Write down how each structural element should look. Headings should look like headings. Paragraphs should look like paragraphs, with space between them. A signature usually sits on its own line, often set to the right. A page break, <code>&lt;pb/&gt;</code>, may appear in the diplomatic view as a small marker such as "[page 2]" and may vanish in the reading view.</p>
+<p>These choices seem obvious, but they still have to be made, and an automated tool on Wednesday will make them for you unless you have decided first.</p>
+<p><strong>Vocabulary.</strong> <em>Structural element</em> — A TEI element that records the organization of a text, such as a division, heading, or paragraph. <em><code>&lt;pb/&gt;</code></em> — An empty TEI element marking the start of a new page.</p>
+<p><strong>Takeaway:</strong> Decide how headings, paragraphs, closings and page breaks should look, so that the shape of the original document is visible to the reader.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Deciding About Structure: Headings, Paragraphs, Signatures</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why decide how structural elements such as &amp;lt;head&amp;gt;, &amp;lt;closer&amp;gt; and &amp;lt;pb/&amp;gt; should look, when the answers seem obvious?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Decide how headings, paragraphs, closings and page breaks should look, so that the shape of the original document is visible to the reader.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because an automated tool will make those choices for you unless you have decided first.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Your decisions become the standard for judging Wednesday's and Friday's tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because structural elements are invalid TEI unless they have a display rule.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Validity does not depend on display; the decision is editorial.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because browsers refuse to show paragraphs without explicit spacing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Browsers show paragraphs by default; the point is deciding deliberately.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because structural elements are deleted in the reading view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Structure is usually kept in both views so the shape of the document stays visible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: What HTML Is</text></name><questiontext format="html"><text><![CDATA[
+<h3>What HTML Is</h3>
+<p>With your decisions recorded, you can now build the page. Web pages are written in HTML, the HyperText Markup Language. You will find it familiar, because it is a markup language like TEI: it uses tags in angle brackets, opening and closing pairs, and attributes.</p>
+<p>Here is a complete, minimal HTML page:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Letter of Maud Lewis, 13 February 1967&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;reading.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Letter of Maud Lewis, 13 February 1967&lt;/h1&gt;
+    &lt;p&gt;The text of the letter goes here.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The <code>&lt;head&gt;</code> holds information about the page: its character encoding, its title (shown in the browser tab), and a link to the stylesheet. The <code>&lt;body&gt;</code> holds what the reader sees. <code>&lt;h1&gt;</code> is a top-level heading and <code>&lt;p&gt;</code> is a paragraph.</p>
+<p>Save this as <code>edition.html</code> in a new folder called <code>rendering/</code>, then double-click it. It opens in your web browser. Every time you change the file, save it and refresh the browser to see the result.</p>
+<p><strong>Vocabulary.</strong> <em>HTML</em> — The markup language used to structure web pages. <em><code>&lt;head&gt;</code> and <code>&lt;body&gt;</code></em> — The two parts of an HTML page: information about the page, and the content the reader sees.</p>
+<p><strong>Takeaway:</strong> HTML is a markup language like TEI, with a <code>&lt;head&gt;</code> for information about the page and a <code>&lt;body&gt;</code> for what the reader sees.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: What HTML Is</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a minimal HTML page, what does the &amp;lt;head&amp;gt; contain?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;HTML is a markup language like TEI, with a &amp;lt;head&amp;gt; for information about the page and a &amp;lt;body&amp;gt; for what the reader sees.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Information about the page, such as its character encoding, its title and a link to the stylesheet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The &amp;lt;body&amp;gt; holds what the reader sees; the &amp;lt;head&amp;gt; holds information about the page.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The first heading of the document, shown in large type.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is &amp;lt;h1&amp;gt;, which goes in the &amp;lt;body&amp;gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The full transcription of the document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The transcription goes in the &amp;lt;body&amp;gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI header copied unchanged from your XML file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. HTML's &amp;lt;head&amp;gt; is not the &amp;lt;teiHeader&amp;gt;; it holds page settings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: HTML Is Forgiving, and That Is Dangerous</text></name><questiontext format="html"><text><![CDATA[
+<h3>HTML Is Forgiving, and That Is Dangerous</h3>
+<p>There is one big difference between HTML and the XML you have written all term. XML is strict. If you leave a tag unclosed in your TEI file, VS Code reports an error and the file is invalid. HTML is forgiving. If you leave a tag unclosed in a web page, the browser quietly guesses what you meant and shows something anyway.</p>
+<p>That sounds friendly, but for an editor it is a trap. A browser's guess can hide words, swallow a closing note into a heading, or apply italics to the rest of the page. Nothing warns you. The page simply looks a little wrong, or worse, looks fine while the structure underneath is broken.</p>
+<p>So you will check your HTML deliberately. Free tools such as the W3C Markup Validation Service (validator.w3.org) will read your file and list every unclosed tag and misplaced element. Run your page through it before you commit. Treat any error it reports the same way you treated a TEI schema error: fix it before you go on.</p>
+<p>Two characters need special care in both XML and HTML. A literal ampersand must be written <code>&amp;amp;</code>, and a literal less-than sign must be written <code>&amp;lt;</code>. If the 1752 Treaty uses an ampersand for <em>and</em>, check how it appears in your page.</p>
+<p><strong>Vocabulary.</strong> <em>Well-formed</em> — Following the basic rules of a markup language, such as closing every tag. <em>HTML validator</em> — A tool that checks a web page for structural errors the browser would silently accept.</p>
+<p><strong>Takeaway:</strong> Browsers silently repair broken HTML, so check your page with a validator rather than trusting how it looks.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: HTML Is Forgiving, and That Is Dangerous</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;You leave a tag unclosed in your HTML page. What happens?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Browsers silently repair broken HTML, so check your page with a validator rather than trusting how it looks.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The browser silently guesses what you meant and shows something anyway, possibly hiding or misplacing text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That is why you check the page with a validator rather than trusting how it looks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The browser refuses to open the page and shows an error.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is how strict XML tools behave; browsers repair HTML quietly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;VS Code automatically deletes the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. No tool deletes your file; the danger is a silent repair.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Nothing; unclosed tags have no effect in HTML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They can change the structure and appearance of everything after them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Mapping TEI Elements to HTML</text></name><questiontext format="html"><text><![CDATA[
+<h3>Mapping TEI Elements to HTML</h3>
+<p>HTML has a small, fixed set of elements. It has no <code>&lt;choice&gt;</code>, no <code>&lt;orig&gt;</code>, no <code>&lt;unclear&gt;</code>. So how do you carry TEI's rich vocabulary into a web page? The usual answer is to use two general-purpose HTML elements and label them with a <code>class</code> attribute.</p>
+<p>The <code>&lt;span&gt;</code> element wraps a piece of text inside a line, with no effect of its own. The <code>&lt;div&gt;</code> element wraps a larger block. The <code>class</code> attribute gives each one a name that a stylesheet can find. So the TEI on the left becomes the HTML on the right:</p>
+<table>
+  <thead>
+    <tr><th>TEI</th><th>Hand-written HTML</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>&lt;choice&gt;</code></td><td><code>&lt;span class="choice"&gt;</code></td></tr>
+    <tr><td><code>&lt;orig&gt;publick&lt;/orig&gt;</code></td><td><code>&lt;span class="orig"&gt;publick&lt;/span&gt;</code></td></tr>
+    <tr><td><code>&lt;reg&gt;public&lt;/reg&gt;</code></td><td><code>&lt;span class="reg"&gt;public&lt;/span&gt;</code></td></tr>
+    <tr><td><code>&lt;unclear&gt;Kinn&lt;/unclear&gt;</code></td><td><code>&lt;span class="unclear"&gt;Kinn&lt;/span&gt;</code></td></tr>
+    <tr><td><code>&lt;div type="article" n="3"&gt;</code></td><td><code>&lt;section class="article" id="art3"&gt;</code></td></tr>
+    <tr><td><code>&lt;head&gt;</code> inside an article</td><td><code>&lt;h2&gt;</code></td></tr>
+  </tbody>
+</table>
+
+<p>Notice the pattern: you keep the TEI name as the class name. That makes the HTML easy to check against your XML, line by line. Where HTML has a real equivalent, such as <code>&lt;p&gt;</code> for a paragraph or <code>&lt;h2&gt;</code> for a heading, use it.</p>
+<p><strong>Vocabulary.</strong> <em><code>&lt;span&gt;</code></em> — A general HTML element that wraps inline text without changing its appearance. <em><code>class</code></em> — An HTML attribute that names an element so a stylesheet can find and style it.</p>
+<p><strong>Takeaway:</strong> Carry each TEI element into HTML as a <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code> whose <code>class</code> repeats the TEI name, using real HTML elements where they exist.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Mapping TEI Elements to HTML</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do you carry a TEI &amp;lt;orig&amp;gt; element into hand-written HTML?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Carry each TEI element into HTML as a &amp;lt;span&amp;gt; or &amp;lt;div&amp;gt; whose &lt;code&gt;class&lt;/code&gt; repeats the TEI name, using real HTML elements where they exist.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;As &lt;code&gt;&amp;lt;span class="orig"&amp;gt;&lt;/code&gt;, keeping the TEI name as the class name.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Matching class names to TEI names makes the HTML easy to check against the XML.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;As &amp;lt;orig&amp;gt;, because HTML has the same elements as TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. HTML has a small fixed set of elements and no &amp;lt;orig&amp;gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;As &amp;lt;h1&amp;gt;, so that original spellings stand out.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &amp;lt;h1&amp;gt; is a top-level heading and would break the page's structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting it, since HTML cannot represent original spellings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A &amp;lt;span&amp;gt; with a class can represent any TEI element.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Line Breaks in HTML</text></name><questiontext format="html"><text><![CDATA[
+<h3>Line Breaks in HTML</h3>
+<p>HTML ignores the line breaks in your source file. If you type three lines of text inside a <code>&lt;p&gt;</code>, the browser runs them together into one paragraph. To make a new line appear, you need an element that creates one.</p>
+<p>For your edition, mark each TEI <code>&lt;lb/&gt;</code> with an empty <code>&lt;span&gt;</code> that carries the line number:</p>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;span class=&quot;lb&quot; data-n=&quot;1&quot;&gt;&lt;/span&gt;We the Subscribers
+  &lt;span class=&quot;lb&quot; data-n=&quot;2&quot;&gt;&lt;/span&gt;Delegates from the Tribe
+&lt;/p&gt;
+</code></pre>
+<p>The <code>data-n</code> attribute is HTML's way of holding a custom value, here the line number from <code>&lt;lb n="2"/&gt;</code>. On its own, this empty span does nothing. In the next sections, your diplomatic stylesheet will turn each <code>lb</code> span into a new line with its number in the margin, and your reading stylesheet will leave it as nothing at all.</p>
+<p>Notice the space or new line before each span in the example. That whitespace is what stops two words from gluing together in the reading view when the break disappears. For a word split across lines, where TEI has <code>&lt;lb break="no"/&gt;</code>, write the span with no space on either side, so the two halves rejoin into one word.</p>
+<p>These lines are illustrative. Use the real words and line numbers from your own file.</p>
+<p><strong>Vocabulary.</strong> <em><code>data-</code> attribute</em> — An HTML attribute for storing a custom value, such as a line number. <em>Whitespace</em> — Spaces, tabs and new lines; in HTML they decide whether words stay apart.</p>
+<p><strong>Takeaway:</strong> Mark each line break with an empty <code>&lt;span class="lb"&gt;</code> carrying its number, and watch the whitespace around it so words neither merge nor split wrongly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Line Breaks in HTML</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does each &lt;code&gt;&amp;lt;span class="lb"&amp;gt;&lt;/code&gt; in the example have a space or new line before it?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Mark each line break with an empty &lt;code&gt;&amp;lt;span class="lb"&amp;gt;&lt;/code&gt; carrying its number, and watch the whitespace around it so words neither merge nor split wrongly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;So that when the break disappears in the reading view, the words on either side stay apart.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Whitespace decides whether words merge; split words marked &lt;code&gt;break="no"&lt;/code&gt; get no space.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because HTML requires a space before every element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. HTML has no such rule; the space is there for the reading view.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To make the line numbers larger.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Whitespace has no effect on the size of line numbers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;So that the validator ignores the span.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Validators check every element regardless of spacing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: What CSS Is</text></name><questiontext format="html"><text><![CDATA[
+<h3>What CSS Is</h3>
+<p>CSS, Cascading Style Sheets, is the language that decides how HTML looks. A CSS file is a list of rules. Each rule has a <strong>selector</strong>, which says which elements it applies to, and a set of <strong>declarations</strong>, which say what to do to them.</p>
+<pre><code class="language-css">p {
+  font-family: Georgia, serif;
+  line-height: 1.6;
+}
+
+.unclear {
+  text-decoration: underline dotted;
+}
+</code></pre>
+<p>The first rule says: every <code>&lt;p&gt;</code> should use a serif font with comfortable spacing between lines. The second rule starts with a full stop, which makes it apply to every element whose class is <code>unclear</code>. It gives those elements a dotted underline.</p>
+<p>The property you will use most this week is <code>display</code>. Setting <code>display: none;</code> on an element hides it completely, as if it were not there. Setting <code>display: block;</code> makes an element start on a new line. These two settings, with one extra rule for line breaks in the next section, are enough to build both your views.</p>
+<p>Save your rules in a separate file, such as <code>reading.css</code>, in the same <code>rendering/</code> folder, and connect it with the <code>&lt;link&gt;</code> line in your page's <code>&lt;head&gt;</code>. Change a rule, save, refresh, and see what happens.</p>
+<p><strong>Vocabulary.</strong> <em>CSS</em> — The language that controls how HTML elements look. <em>Selector</em> — The part of a CSS rule that says which elements the rule applies to.</p>
+<p><strong>Takeaway:</strong> CSS is a list of rules, each pairing a selector with declarations; <code>display: none</code> hides an element and <code>display: block</code> puts it on its own line.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: What CSS Is</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does the CSS declaration &lt;code&gt;display: none;&lt;/code&gt; do?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CSS is a list of rules, each pairing a selector with declarations; &lt;code&gt;display: none&lt;/code&gt; hides an element and &lt;code&gt;display: block&lt;/code&gt; puts it on its own line.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It hides the selected elements completely, as if they were not on the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This one declaration is enough to hide one layer of every &amp;lt;choice&amp;gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the selected elements from the HTML file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS never changes the file; it only controls how it is shown.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It puts each selected element on its own line.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is &lt;code&gt;display: block;&lt;/code&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It gives the selected elements a dotted underline.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is &lt;code&gt;text-decoration: underline dotted;&lt;/code&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Two Stylesheets, One Page</text></name><questiontext format="html"><text><![CDATA[
+<h3>Two Stylesheets, One Page</h3>
+<p>Here is the central move of the day. You will write one HTML page that contains both layers of every <code>&lt;choice&gt;</code>, and two stylesheets that each show one layer. This is the content–presentation split from section 02, built with your own hands.</p>
+<p>Your <code>diplomatic.css</code> hides the reading layer and shows each line on its own, numbered:</p>
+<pre><code class="language-css">.reg, .expan, .corr { display: none; }
+
+.lb::before {
+  content: &quot;\A&quot; attr(data-n) &quot;  &quot;;
+  white-space: pre;
+  color: #666;
+}
+</code></pre>
+<p>The line-break rule needs a word of explanation. The <code>::before</code> part adds generated text just before each <code>lb</code> span. In that text, <code>\A</code> is CSS's code for a new line, <code>attr(data-n)</code> is the line number, and the two spaces separate the number from the words. The setting <code>white-space: pre;</code> tells the browser to obey that new line instead of collapsing it. You might expect <code>display: block;</code> on the span to do the job, but try it: the number lands on a line by itself and the words drop to the line below, because the empty block holds only the number.</p>
+<p>Your <code>reading.css</code> hides the original layer and lets the lines flow:</p>
+<pre><code class="language-css">.orig, .abbr, .sic { display: none; }
+
+.lb { display: inline; }
+.expan .ex { font-style: italic; }
+</code></pre>
+<p>To switch views, change one word in the <code>&lt;link&gt;</code> line of your page, from <code>diplomatic.css</code> to <code>reading.css</code>, and refresh. The words on the page never change. Only the rules change, and the page transforms. When you see it happen with your own document, the idea behind the whole week becomes concrete.</p>
+<p><strong>Vocabulary.</strong> <em>Diplomatic stylesheet</em> — A CSS file that shows the original layer and the page's line breaks. <em>Reading stylesheet</em> — A CSS file that shows the regularized layer as flowing text.</p>
+<p><strong>Takeaway:</strong> Put both layers into one HTML page and write two stylesheets that each hide one layer; switching the stylesheet switches the view without touching the text.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Two Stylesheets, One Page</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;You change the &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; in your page from &lt;code&gt;diplomatic.css&lt;/code&gt; to &lt;code&gt;reading.css&lt;/code&gt;. What changes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Put both layers into one HTML page and write two stylesheets that each hide one layer; switching the stylesheet switches the view without touching the text.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Only which layer is shown and how the lines flow; the words in the page stay exactly the same.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Switching the stylesheet switches the view without touching the text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Every &amp;lt;orig&amp;gt; in the HTML is rewritten as a &amp;lt;reg&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both layers stay in the HTML; the stylesheet only hides one of them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI file is regenerated from the HTML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Nothing flows back into the TEI file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The page loses its line numbers permanently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Switching back to the diplomatic stylesheet brings them back.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Worked Example: A Line of the 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Worked Example: A Line of the 1752 Treaty</h3>
+<p>Let us put the pieces together for one illustrative line. Suppose your TEI for one line of the 1752 Treaty reads:</p>
+<pre><code class="language-xml">&lt;lb n=&quot;12&quot;/&gt;the &lt;choice&gt;&lt;abbr&gt;Gov&lt;hi rend=&quot;sup&quot;&gt;r&lt;/hi&gt;&lt;/abbr&gt;&lt;expan&gt;Gov&lt;ex&gt;erno&lt;/ex&gt;r&lt;/expan&gt;&lt;/choice&gt;
+and &lt;choice&gt;&lt;orig&gt;Councill&lt;/orig&gt;&lt;reg&gt;Council&lt;/reg&gt;&lt;/choice&gt; of
+</code></pre>
+<p>Your hand-written HTML for the same line is:</p>
+<pre><code class="language-html">&lt;span class=&quot;lb&quot; data-n=&quot;12&quot;&gt;&lt;/span&gt;the &lt;span class=&quot;choice&quot;&gt;&lt;span class=&quot;abbr&quot;&gt;Gov&lt;sup&gt;r&lt;/sup&gt;&lt;/span&gt;&lt;span class=&quot;expan&quot;&gt;Gov&lt;span class=&quot;ex&quot;&gt;erno&lt;/span&gt;r&lt;/span&gt;&lt;/span&gt;
+and &lt;span class=&quot;choice&quot;&gt;&lt;span class=&quot;orig&quot;&gt;Councill&lt;/span&gt;&lt;span class=&quot;reg&quot;&gt;Council&lt;/span&gt;&lt;/span&gt; of
+</code></pre>
+<p>With <code>diplomatic.css</code>, the reader sees a new line numbered 12 reading <em>the Gov^r and Councill of</em>. With <code>reading.css</code>, the reader sees <em>the Gov</em>erno<em>r and Council of</em> running on from the line before, with the supplied letters in italics.</p>
+<p>Check three things. Is every TEI element present in the HTML? Is every word present, in the same order? Is there a space between every pair of words in both views? These checks are what you will repeat for every line you render today.</p>
+<p><strong>Vocabulary.</strong> <em>Worked example</em> — A fully solved instance of a task, shown step by step. <em>Line-by-line check</em> — Comparing the source and the rendering one line at a time for missing elements or words.</p>
+<p><strong>Takeaway:</strong> For each line, check that every element and every word of the TEI appears in the HTML, in order, with correct spacing in both views.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Worked Example: A Line of the 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;After rendering a line by hand, which check matters most?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For each line, check that every element and every word of the TEI appears in the HTML, in order, with correct spacing in both views.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;That every TEI element and every word appears in the HTML, in order, with correct spacing in both views.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. This line-by-line check is what you repeat for every line you render.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the line looks the same as in a printed edition of the treaty.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Your views follow your own decisions, not another edition's layout.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the HTML is shorter than the TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Length says nothing about whether text was lost.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the abbreviation has been removed from the HTML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both the abbreviation and the expansion stay in the HTML; the stylesheets choose.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Worked Example: Maud Lewis's Letter</text></name><questiontext format="html"><text><![CDATA[
+<h3>Worked Example: Maud Lewis's Letter</h3>
+<p>A personal letter raises different questions from a treaty. Olyvia's page is handwritten, informal and short. The reader is likely to care about Maud Lewis's voice and her news more than about line numbers.</p>
+<p>So the reading view of a letter may look like a letter. The greeting sits on its own line. The body runs as paragraphs. The closing and signature sit at the end, set to the right. Your HTML can use real elements for these parts:</p>
+<pre><code class="language-html">&lt;p class=&quot;salute&quot;&gt;Dear Mr. Kinnear&lt;/p&gt;
+&lt;p&gt;…the body of the letter…&lt;/p&gt;
+&lt;p class=&quot;closer&quot;&gt;Yours truly&lt;br&gt;
+  &lt;span class=&quot;signed&quot;&gt;Maud Lewis&lt;/span&gt;&lt;/p&gt;
+</code></pre>
+<p>These lines are illustrative; copy the real wording from your own transcription. In your <code>reading.css</code>, a rule such as <code>.closer { text-align: right; }</code> sets the closing apart.</p>
+<p>The diplomatic view of a letter keeps every one of her line breaks, because how she filled the page is part of the evidence. Readers who compare your diplomatic view with the photograph should be able to find each line in both. Check also that her vernacular grammar is identical in both views, as your Week 6 policy requires.</p>
+<p><strong>Vocabulary.</strong> <em>Salutation</em> — The greeting that opens a letter. <em>Closer</em> — The closing formula and signature that end a letter; TEI records it with <code>&lt;closer&gt;</code>.</p>
+<p><strong>Takeaway:</strong> A letter's reading view should look like a letter, with its greeting and signature set apart, while its diplomatic view keeps every original line break.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Worked Example: Maud Lewis's Letter</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should the reading view of a personal letter differ from its diplomatic view?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A letter's reading view should look like a letter, with its greeting and signature set apart, while its diplomatic view keeps every original line break.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The reading view can look like a letter, with greeting and signature set apart, while the diplomatic view keeps every original line break.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. How the writer filled the page is evidence, so the diplomatic view preserves it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The reading view should drop the greeting and signature as unimportant.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Dropping text from any view is a fidelity failure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The diplomatic view should correct the writer's grammar.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The diplomatic view stays closest to the page; her grammar is never corrected.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They should be identical, since a letter has no structure.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A letter has a clear structure that both views should respect in their own way.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Worked Example: The 1791 Decree and French Text</text></name><questiontext format="html"><text><![CDATA[
+<h3>Worked Example: The 1791 Decree and French Text</h3>
+<p>Ace's decree is in French, and that adds two technical requirements that are easy to forget.</p>
+<p>First, the page must declare its character encoding. The line <code>&lt;meta charset="utf-8"&gt;</code> in the <code>&lt;head&gt;</code> tells the browser to read the file as UTF-8, the same encoding your TEI file uses. Without it, accented letters such as <em>é</em>, <em>è</em>, <em>à</em> and <em>ç</em> can appear as strings of nonsense symbols on some computers.</p>
+<p>Second, the page must declare its language. Write <code>&lt;html lang="fr"&gt;</code> at the top, instead of <code>lang="en"</code>. This tells browsers, search engines and screen readers that the text is French. A screen reader will then pronounce <em>Assemblée nationale</em> as French words rather than mangling them with English sounds. If your page mixes languages, such as an English introduction above a French text, you can put <code>lang="fr"</code> on the element that holds the French and leave the rest in English.</p>
+<p>The same applies to any project with more than one language. If Andromeda's treaty contains any Mi'kmaw words or names, the right language code on those words helps readers and their software treat them properly.</p>
+<p><strong>Vocabulary.</strong> <em>Character encoding</em> — The system that maps stored bytes to letters; UTF-8 covers all the world's scripts. <em><code>lang</code> attribute</em> — An HTML attribute declaring the language of an element's text.</p>
+<p><strong>Takeaway:</strong> Declare <code>&lt;meta charset="utf-8"&gt;</code> and the correct <code>lang</code> on every page, so accented letters display correctly and software knows what language it is reading.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Worked Example: The 1791 Decree and French Text</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does &lt;code&gt;&amp;lt;html lang="fr"&amp;gt;&lt;/code&gt; do for the 1791 decree?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Declare &lt;code&gt;&amp;lt;meta charset="utf-8"&amp;gt;&lt;/code&gt; and the correct &lt;code&gt;lang&lt;/code&gt; on every page, so accented letters display correctly and software knows what language it is reading.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It tells browsers, search engines and screen readers that the text is French, so a screen reader pronounces it correctly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Declaring the language, together with UTF-8, lets software treat the text properly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates the page into French automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The attribute declares the language; it does not translate anything.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It makes accented letters display without a character encoding.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Accents depend on &lt;code&gt;&amp;lt;meta charset="utf-8"&amp;gt;&lt;/code&gt;, which you still need.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It hides the English introduction from French readers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It hides nothing; mixed-language pages can set &lt;code&gt;lang&lt;/code&gt; on individual elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Text That Matters Belongs in the HTML, Not the CSS</text></name><questiontext format="html"><text><![CDATA[
+<h3>Text That Matters Belongs in the HTML, Not the CSS</h3>
+<p>CSS can add text to a page. A rule such as <code>.gap::before { content: "[…]"; }</code> makes the brackets appear wherever there is a gap. It is tempting to use this trick for every editorial mark: brackets, <em>[sic]</em>, line numbers, and so on.</p>
+<p>Be careful. Text added by CSS is decoration, not content. In many browsers it cannot be selected, copied or searched, and some screen readers skip it. A reader who copies a sentence of your reading view into their own notes may lose every bracket that told them where the gaps were. Their quotation will then claim more certainty than your edition does.</p>
+<p>So follow a simple rule. If a mark carries editorial meaning (a gap, a correction, an uncertain reading), put it in the HTML as real text, for example <code>&lt;span class="gap" title="2 words, ink stain"&gt;[…]&lt;/span&gt;</code>. Use CSS only for appearance: colour, spacing, fonts, underlines, and hiding one layer or the other. Line numbers in the diplomatic margin are a fair exception, because they label the text rather than form part of it.</p>
+<p>The <code>title</code> attribute in that example gives a small pop-up explanation when the reader hovers over the gap. It works on a laptop, but not on a phone or on paper, so the brackets themselves must still be clear without it.</p>
+<p><strong>Vocabulary.</strong> <em>Generated content</em> — Text inserted by a CSS rule rather than written in the HTML. <em><code>title</code> attribute</em> — An HTML attribute whose text appears as a tooltip when the pointer rests on an element.</p>
+<p><strong>Takeaway:</strong> Put every editorial mark that carries meaning into the HTML as real text; use CSS only to change how things look.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Text That Matters Belongs in the HTML, Not the CSS</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should the &lt;em&gt;[…]&lt;/em&gt; that marks a gap be written into the HTML rather than added by a CSS rule?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Put every editorial mark that carries meaning into the HTML as real text; use CSS only to change how things look.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Text added by CSS may not be copied, searched or read aloud, so a reader quoting the page could lose the mark.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editorial marks that carry meaning must be real text; CSS is for appearance.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;CSS cannot add text to a page at all.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS can add text with &lt;code&gt;content&lt;/code&gt;, which is exactly why the rule is needed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;HTML text always prints in a larger font than CSS text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Font size is not the issue; copying and accessibility are.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Validators reject pages that use CSS-generated content.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Generated content is valid; it is simply not reliable for meaningful marks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Making the Page Readable for Everyone</text></name><questiontext format="html"><text><![CDATA[
+<h3>Making the Page Readable for Everyone</h3>
+<p>A scholarly edition is published for readers, and some of your readers will use screen magnifiers, screen readers, or high-contrast settings. Building with them in mind costs little if you do it from the start.</p>
+<p>Use real headings (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>) for real headings, in order, because screen-reader users jump from heading to heading to find their place. Keep enough contrast between text and background; grey text on a white page may look elegant but can be hard to read. Never use colour as the only signal of an editorial state. An unclear reading marked only in red is invisible to a reader who cannot tell red from black, and to anyone with a black-and-white printer.</p>
+<p>Set a comfortable line length and line spacing for the reading view. Very long lines are tiring to read on a wide screen. A rule such as <code>body { max-width: 40em; margin: auto; }</code> keeps the text in a readable column.</p>
+<p>Finally, add a short statement at the top of each view, in plain words. For a reading view it might say that this is the reading view, that spelling has been regularized and abbreviations expanded, that supplied letters are in italics, and that the diplomatic view shows the original spelling. This one statement answers the warning in section 05. It tells every reader what kind of text they are looking at.</p>
+<p><strong>Vocabulary.</strong> <em>Accessibility</em> — Designing so that readers with different abilities and tools can use the page. <em>Contrast</em> — The difference in brightness between text and its background.</p>
+<p><strong>Takeaway:</strong> Use real headings, strong contrast, more than colour to mark editorial states, and a plain statement at the top of each view saying what the reader is seeing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Making the Page Readable for Everyone</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which practice makes your edition more accessible?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use real headings, strong contrast, more than colour to mark editorial states, and a plain statement at the top of each view saying what the reader is seeing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Using real headings in order, strong contrast, more than colour to mark editorial states, and a plain statement of what each view shows.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. These cost little when built in from the start and help every reader.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Using light grey text on a white page for elegance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Low contrast makes text hard to read for many people.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Marking unclear readings in red only.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Colour alone is invisible to some readers and to black-and-white printers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Making headings with bold paragraphs instead of heading elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Screen-reader users navigate by real heading elements.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Checking That Nothing Was Lost</text></name><questiontext format="html"><text><![CDATA[
+<h3>Checking That Nothing Was Lost</h3>
+<p>When you have rendered your passage, check it as carefully as you checked your transcription. Rendering by hand is a new chance to make mistakes: a word left out while copying, two spans in the wrong order, a gap that turned into nothing.</p>
+<p>Use three checks. First, read the diplomatic view aloud while following the image of your document with your finger. Every word on the page should be on the screen, in the same line. Second, read the reading view aloud while following your TEI file. Every <code>&lt;reg&gt;</code>, <code>&lt;expan&gt;</code> and <code>&lt;corr&gt;</code> should appear, and every word outside a <code>&lt;choice&gt;</code> should appear in both views. Third, count. Pick ten lines and count the words in your TEI and in each view. If the numbers differ, find out why before you go on.</p>
+<p>Record what you find in <code>RENDERING.md</code>, under a heading such as "Checks". If you found and fixed a problem, say what it was. That record is part of the work, just as your reconciliation notes were in Week 5.</p>
+<p><strong>Vocabulary.</strong> <em>Fidelity check</em> — A deliberate comparison confirming that a rendering preserves every word and mark of its source. <em>Read-back</em> — Reading a rendering aloud against its source to catch omissions.</p>
+<p><strong>Takeaway:</strong> Check your rendering against both the image and the TEI file, word by word and line by line, and record every problem you find and fix.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Checking That Nothing Was Lost</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which of these is one of the three fidelity checks for your hand-made rendering?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Check your rendering against both the image and the TEI file, word by word and line by line, and record every problem you find and fix.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Counting the words in ten lines of the TEI and in each view, and explaining any difference.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Together with two read-backs, against the image and the TEI file, the count catches dropped words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Asking a friend whether the page looks attractive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Appearance is not fidelity; the checks compare words and lines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Running a spell checker on the reading view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A spell checker cannot tell whether text was dropped, and would flag legitimate original spellings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Checking that the page loads in under one second.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Speed has nothing to do with whether the rendering preserves the text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Why Do This by Hand?</text></name><questiontext format="html"><text><![CDATA[
+<h3>Why Do This by Hand?</h3>
+<p>On Wednesday you will render the same file automatically, and in seconds. So why spend a class building a page by hand? Because the automatic version is only as good as the decisions behind it, and you cannot judge a tool's decisions until you have made your own.</p>
+<p>The idea of generating editions automatically from one encoded file is not new. Manuscript scholars note that a carefully annotated file can produce both diplomatic and critical editions, in print and online, automatically (Bausi et al., 2015). The usual tool is XSLT, a language that can transform an XML document into an HTML web page, a plain-text file, or a formatting-object file that is then turned into a PDF (Bausi et al., 2015). Working projects build this into their routine: in one recent music-and-text edition project, the encoders tested their transcription and edition versions with XSLT stylesheets before storing the files in Git (Weigl et al., 2025).</p>
+<p>Your hand-made page is your ground truth, just as your manual transcription was in Week 4. On Wednesday you will hold the XSLT output up against it. On Friday you will hold an AI-written stylesheet up against it. Every difference will be either a mistake by the tool or a decision you had not thought to make. Either way, you will only see it because you did this first.</p>
+<p><strong>Vocabulary.</strong> <em>XSLT</em> — A language for transforming XML documents into other forms, such as HTML. <em>Ground truth</em> — A carefully checked result used as the standard for judging automated results.</p>
+<p><strong>Takeaway:</strong> Your hand-made page is the ground truth for this week; without it, you cannot tell whether Wednesday's and Friday's automatic renderings are right.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Why Do This by Hand?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why build the page by hand before using XSLT on Wednesday?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Your hand-made page is the ground truth for this week; without it, you cannot tell whether Wednesday's and Friday's automatic renderings are right.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the hand-made page is the ground truth against which the automatic and AI renderings are measured.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. You can only judge a tool's decisions after you have made your own.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because XSLT cannot transform XML into HTML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Transforming XML into HTML is exactly what XSLT is for.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the hand-made page will replace the TEI file as the master copy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The TEI file remains the master; the page is one rendering of it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because automatic renderings are never used in real editing projects.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Real projects test their encodings with XSLT stylesheets routinely.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Hypothetical Scenario: The Quotation That Went Wrong</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hypothetical Scenario: The Quotation That Went Wrong</h3>
+<p><em>This scenario is invented to illustrate the risk; it describes no real person or edition.</em></p>
+<p>A student writing a paper on colonial treaty language finds an online edition of a mid-eighteenth-century treaty. The page is clean and pleasant to read. The student quotes a clause in the paper, word for word, and comments on how "modern" the treaty's spelling seems for its date.</p>
+<p>The professor checks the clause against a photograph of the original. The original spellings are quite different. The edition had regularized every word, which was a reasonable choice for a reading view. But the page gave no sign of it: no statement at the top, no hint on changed words, and no link to a diplomatic view. The student had no way to know.</p>
+<p>Who made the mistake? The student should have checked the edition's introduction. But the edition made the mistake easy. Its encoding may have been flawless, with every <code>&lt;orig&gt;</code> and <code>&lt;reg&gt;</code> in place, and its rendering still misled a careful reader.</p>
+<p>Ask yourself which of today's decisions would have prevented this. A one-sentence statement at the top of the page. A light mark on regularized words. A link to the diplomatic view. Each is cheap, and each belongs in your <code>RENDERING.md</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Hypothetical scenario</em> — An invented situation used to show a real risk. <em>Rendering statement</em> — A short note on a page telling readers which view they are seeing and what was changed.</p>
+<p><strong>Takeaway:</strong> A perfect encoding can still mislead readers if the rendering hides its interventions; a rendering statement and a link to the diplomatic view prevent it.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Hypothetical Scenario: The Quotation That Went Wrong</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the scenario, the edition's encoding was flawless. What misled the student?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A perfect encoding can still mislead readers if the rendering hides its interventions; a rendering statement and a link to the diplomatic view prevent it.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The rendering regularized every word without any statement, hint or link to the diplomatic view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A perfect encoding can still mislead if the rendering hides its interventions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI file was missing every &amp;lt;orig&amp;gt; element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The scenario says the encoding had every &amp;lt;orig&amp;gt; and &amp;lt;reg&amp;gt; in place.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The photograph of the original was mislabelled.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The photograph is how the professor caught the problem.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Regularization is never acceptable in a reading view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regularizing was reasonable; hiding it was the failure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Saving Your Work in Git</text></name><questiontext format="html"><text><![CDATA[
+<h3>Saving Your Work in Git</h3>
+<p>Your rendering is part of your edition, so it belongs in your repository with everything else. Organize it so that anyone, including you in December, can see how the parts fit together.</p>
+<p>A simple layout is:</p>
+<table>
+  <thead>
+    <tr><th>File</th><th>What it holds</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>RENDERING.md</code></td><td>Your decision table, your readers, and your checks</td></tr>
+    <tr><td><code>rendering/edition.html</code></td><td>The hand-written page with both layers</td></tr>
+    <tr><td><code>rendering/diplomatic.css</code></td><td>Rules for the diplomatic view</td></tr>
+    <tr><td><code>rendering/reading.css</code></td><td>Rules for the reading view</td></tr>
+  </tbody>
+</table>
+
+<p>Commit in small steps, as you learned in Week 1. Commit <code>RENDERING.md</code> once your decisions are written, before you write any code, with a message such as <code>docs: record rendering decisions for diplomatic and reading views</code>. Commit the HTML and each stylesheet separately once they work. If a later change breaks the page, these small commits let you see exactly what changed and step back.</p>
+<p>The order of those commits also tells a story. It shows that you decided first and coded second, which is the method of the whole course.</p>
+<p><strong>Vocabulary.</strong> <em>Repository layout</em> — The arrangement of folders and files in a project, chosen so others can find their way. <em>Atomic commit</em> — A commit that records one complete, self-contained change.</p>
+<p><strong>Takeaway:</strong> Keep <code>RENDERING.md</code>, your HTML page and both stylesheets in your repository, and commit your decisions before your code.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Saving Your Work in Git</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In what order should you commit your Step 1 work?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Keep &lt;code&gt;RENDERING.md&lt;/code&gt;, your HTML page and both stylesheets in your repository, and commit your decisions before your code.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;code&gt;RENDERING.md&lt;/code&gt; first, once your decisions are written, then the HTML and each stylesheet separately once they work.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Small commits in that order show that you decided first and coded second.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Everything in one commit at the end of the week.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. One large commit hides the order of your work and makes mistakes hard to undo.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The stylesheets first, then the decisions that justify them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Decisions come before code.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Only the HTML; decision files do not belong in the repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;code&gt;RENDERING.md&lt;/code&gt; is part of your edition and belongs in the repository.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Review and Step 1 Checklist</text></name><questiontext format="html"><text><![CDATA[
+<h3>Review and Step 1 Checklist</h3>
+<p>Today you moved your edition from a file that only machines and editors can read to a page that anyone can open in a browser. More importantly, you made every display decision yourself, in writing, before any tool could make it for you.</p>
+<p>Before you leave, confirm each item below:</p>
+<ol>
+  <li><strong>Readers named:</strong> Does <code>RENDERING.md</code> name two or three real readers of your edition and what each needs to do with it?</li>
+  <li><strong>Decision table complete:</strong> Does it give a diplomatic and a reading decision for every element in your <code>&lt;body&gt;</code>, including line breaks, every <code>&lt;choice&gt;</code> pair, <code>&lt;unclear&gt;</code>, <code>&lt;gap/&gt;</code>, and structural elements?</li>
+  <li><strong>Page built:</strong> Does <code>rendering/edition.html</code> hold at least ten lines of your document, with both layers of every <code>&lt;choice&gt;</code>, and the correct <code>charset</code> and <code>lang</code>?</li>
+  <li><strong>Two views working:</strong> Do <code>diplomatic.css</code> and <code>reading.css</code> each produce the right view when linked?</li>
+  <li><strong>Honest marks:</strong> Are gaps and uncertain readings visible in both views without relying on colour, and does each view carry a rendering statement?</li>
+  <li><strong>Checked and valid:</strong> Have you done the read-back and word-count checks, and does the page pass the HTML validator?</li>
+  <li><strong>Committed:</strong> Are your decisions and your code committed in separate, clearly described commits?</li>
+</ol>
+
+<p>On Wednesday you will render the same file automatically with XSLT and with CETEIcean, and compare the results with the page you made today.</p>
+<p><strong>Vocabulary.</strong> <em>Step 1 milestone</em> — The completed manual rendering and decision record, fixed as the standard for the rest of the week.</p>
+<p><strong>Takeaway:</strong> Completing Step 1 gives you a written set of display decisions and a hand-made page that carries them out, the standard against which every automatic rendering this week will be judged.</p>
+<hr />
+<h2>References</h2>
+<p>Bausi, A., Borbone, P. G., Briquel-Chatonnet, F., Buzi, P., Gippert, J., Macé, C., Maniaci, M., Melissakis, Z., Parodi, L. E., &amp; Witakowski, W. (Eds.). (2015). <em>Comparative oriental manuscript studies: An introduction</em>. COMSt.</p>
+<p>Huskey, S. J. (2024). Committing to reproducibility and explainability: Using Git as a research journal. <em>International Journal of Digital Humanities, 6</em>, 9–21. https://doi.org/10.1007/s42803-023-00076-9</p>
+<p>Pierazzo, E. (2016). Modelling digital scholarly editing: From Plato to Heraclitus. In M. J. Driscoll &amp; E. Pierazzo (Eds.), <em>Digital scholarly editing: Theories and practices</em> (pp. 41–58). Open Book Publishers. https://doi.org/10.11647/OBP.0095.03</p>
+<p>Weigl, D. M., Janjuš, O., Rosmer, S., de Valk, R., Burghoff, H., Schöning, K., Kyriazis, I., Jaklin, J., Rauber, A., Bürgermeister, M., Steindl, C., &amp; Bischoff, S. (2025). Collaborative workflows for encoding, validating, and publishing a multimodal digital edition. In <em>Proceedings of the 12th International Conference on Digital Libraries for Musicology (DLfM 2025)</em>. ACM. https://doi.org/10.1145/3748336.3748349</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Review and Step 1 Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which pair of items is required for Step 1 of the rendering week?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Completing Step 1 gives you a written set of display decisions and a hand-made page that carries them out, the standard against which every automatic rendering this week will be judged.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A complete decision table in &lt;code&gt;RENDERING.md&lt;/code&gt; and a hand-made HTML page with diplomatic and reading stylesheets.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Together they are the standard against which every automatic rendering this week is judged.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An XSLT stylesheet and a CETEIcean page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Those are Wednesday's work; Step 1 is manual.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An AI-generated stylesheet and its audit report.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is Friday's work.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A printed PDF of the edition and a new TEI schema.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Print stylesheets come on Wednesday, and no new schema is needed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

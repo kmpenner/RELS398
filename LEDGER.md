@@ -140,30 +140,11 @@
 
 ## 5. Active Milestone & Next Target
 
-- **Current Phase:** Modules 8, 9, 10, 11, 12, and 13 fully authored, verified, and deployed to live Moodle Course 51185. All 13 core instructional modules adapted for the undergraduate novice cohort.
-- **Completed Module 13 Assets (2026-10-14):**
-  1. Authored complete, novice-accessible lessons for Module 13 (Lessons 13.1, 13.2, 13.3) for the Capstone Publication Studio:
-     - Lesson 13.1 (Meeting #34, Tue Dec 1, 8:30 AM): Editorial principles, methodology, TEI `<editorialDecl>`, machine-actionable policy declarations, and open access licensing (FKGL 11.5, FRE 33.6, 11.9 words/sent, 0 lint issues).
-     - Lesson 13.2 (Meeting #35, Wed Dec 2, 10:30 AM): TEI Processing Model, ODD customization, single source of truth, and presentation styles via CSS Flexbox/Grid (FKGL 10.6, FRE 39.8, 11.5 words/sent, 0 lint issues).
-     - Lesson 13.3 (Meeting #36, Fri Dec 4, 10:30 AM - Wednesday timetable): Multi-modal publishing, minimal computing, FAIR data, Zenodo DOIs, GitHub Releases, and course synthesis (FKGL 11.0, FRE 35.4, 10.7 words/sent, 0 lint issues).
-  2. Question banks built: `scripts/banks/lesson_13_1.py`, `lesson_13_2.py`, `lesson_13_3.py` and compiled into `03b_Lesson_13.*_Questions.xml` (30 questions each, full diagnostic feedback, strict 1:1 section parity).
-  3. Offline Notes PDFs compiled: `dist/moodle/Module_13_Publication/04_Lesson_13.{1,2,3}_Notes.pdf` via Pandoc + Typst.
-  4. Interactive Moodle XMLs (`03_Interactive_Lesson_13.*.xml`) and standalone HTML players (`03_Interactive_Lesson_13.*.html`) compiled into both `src/modules/` and `dist/moodle/`.
-  5. In-class teaching plans: `Lesson_13.1_Teaching_Plan_2026-12-01.html`, `Lesson_13.2_Teaching_Plan_2026-12-02.html`, `Lesson_13.3_Teaching_Plan_2026-12-04.html` (Wednesday timetable 10:30 AM for Fri Dec 4). All pass `lint_teaching_plan.py` with 0 problems.
-  6. Widescreen 16:9 projection slide decks: `Lesson_13.1_Slides_2026-12-01.pptx`, `Lesson_13.2_Slides_2026-12-02.pptx`, `Lesson_13.3_Slides_2026-12-04.pptx` (15 slides each, >=16pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
-  7. Section 13 ancillaries assembled via `scripts/banks/quiz_13.py`: `01_Banner.png`, `02_Learning_Objectives.html`, `05_Reading_List.html`, `06_Watch_List.html`, `08_Workshop_Description.html`, `08a_Workshop_Submission_Instructions.html`, `08b_Workshop_Assessment_Instructions.html`, `09_Quiz_Description.html`, `09_Quiz.xml` (10-question quiz with diagnostic feedback, single-witness fidelity replacing stemma codicum).
-  8. Deployed full package to live Moodle Section 13 (Course 51185, Section ID 639811):
-     - Populated Banner (`cmid 1440922`), Learning Objectives (`cmid 1440923`), Lessons 13.1-13.3 Interactive Quizzes (`cmids 1440927, 1440928, 1440929`), and Notes PDFs (`cmids 1440924, 1440925, 1440926`).
-     - Uploaded slide decks via `mkmod.js`: `Lesson 13.1 Slides (PPTX)` (`cmid 1440934`), `Lesson 13.2 Slides (PPTX)` (`cmid 1440935`), `Lesson 13.3 Slides (PPTX)` (`cmid 1440936`).
-     - Added Reading List (`cmid 1440930`) and Watch List (`cmid 1440931`).
-     - Created `Assignment: Module_13_Publication` (`cmid 1440937`, due Dec 10–19 exam period window, 100 pts) via `ws2assign.js`, and hid workshop (`cmid 1440932`).
-     - Added Weekly Quiz (`cmid 1440933`).
-     - Synchronized canonical order (Quiz -> Notes PDF -> Slides PPTX per lesson) via `order.js`.
-     - Manifest refreshed and dumped: 206 activities tracked across 16 sections.
+- **Current Phase:** All instructional modules (Modules 1 through 13) are 100% authored, verified, and deployed to live Moodle Course 51185 (220 activities tracked across 16 sections in `moodle_manifest.json`). The entire curriculum is adapted for the undergraduate novice cohort.
 - **Immediate Next Targets:**
-  1. Compile interactive Moodle XML and standalone HTML players for Module 7 (Lessons 7.1, 7.2, 7.3) with `--no-images`.
-  2. Deploy Module 7 to live Moodle Section 7 (Course 51185, Section ID 639805) with slide decks, Notes PDFs, interactive quizzes, reading/watch lists, and weekly quiz.
-  3. Ensure all course assets are clean and synchronized for Week 7 (starting Tue Oct 20).
+  1. Week 7 instruction begins Tuesday, October 20, 2026 (Meeting #17, 8:30–9:20 AM in MULH 3032): Lesson 7.1 (Rendering Primary Sources: Presentation Layers and Ground Truth Styling).
+  2. Monitor student lab work and assignment submissions across the three document projects (Ace: 1791 French decree; Olyvia: 1967 Maud Lewis letter; Andromeda: 1752 Peace and Friendship Treaty).
+  3. Prepare for `/stand` session conclusion.
 
 ### Sandbox caveat: Chrome cannot download to ~/Downloads
 
@@ -202,16 +183,25 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
-- **[2026-10-13]**: **Module 7 (Rendering / Publication I) authored and verified across all deliverables.**
+- **[2026-10-14]**: **Module 7 (Rendering / Publication I) Deliverables & Live Moodle Deployment Complete.**
   - **Lessons 7.1–7.3 authored for the novice cohort:**
     - **Lesson 7.1 (Manual):** Display decisions, content vs. presentation, diplomatic vs. reading views, hand-writing HTML/CSS ground truth with `<span class="...">`, CSS class-driven layer visibility. (FK 7.6, FRE 67.9, 7,561 words, 30 sections).
     - **Lesson 7.2 (Deterministic):** XSLT 1.0 fundamentals (templates, `apply-templates`, `value-of`), `xsltproc` transformation, and CETEIcean in-browser rendering (`tei-` custom elements, CSS rules, behavioral attachment) with local `http.server`. (FK 8.2, FRE 65.5, 7,593 words, 30 sections).
     - **Lesson 7.3 (AI-Assisted Stylesheets & Audit):** Prompting AI for stylesheets rather than finished pages, four-part audit framework (1: does it run; 2: inspect template logic; 3: word-by-word text diff via `compare.py`; 4: element count audit via `count.py`), low-priority catch-all audit templates, auditing CETEIcean CSS, and transparent TEI Header/comment attribution. (FK 8.4, FRE 66.0, 9,296 words, 30 sections).
   - **Question banks built and verified:** 30 questions each in `scripts/banks/lesson_7_{1,2,3}.py` and compiled into `03b_Lesson_7.{1,2,3}_Questions.xml`. Strict 1:1 alignment with lesson headings and takeaways; raw tags escaped as `&lt;...&gt;` per the display standard.
   - **Offline Notes PDFs compiled:** `dist/moodle/Module_07_Rendering/04_Lesson_7.{1,2,3}_Notes.pdf` compiled via Typst template; visual inspection confirms code blocks wrap cleanly.
+  - **Interactive XML and HTML players compiled:** Generated `03_Interactive_Lesson_7.{1,2,3}.xml` and `03_Interactive_Lesson_7.{1,2,3}.html` with `--no-images` into both `src/modules/` and `dist/moodle/`.
+  - **Teaching plans authored and verified:** `Lesson_7.1_Teaching_Plan_2026-10-20.html` (Tue 8:30–9:20 AM), `Lesson_7.2_Teaching_Plan_2026-10-21.html` (Wed 10:30–11:20 AM), `Lesson_7.3_Teaching_Plan_2026-10-23.html` (Fri 9:30–10:20 AM) in MULH 3032. Passed `lint_teaching_plan.py` with 0 problems.
+  - **Widescreen slide decks built:** `Lesson_7.1_Slides_2026-10-20.pptx`, `Lesson_7.2_Slides_2026-10-21.pptx`, `Lesson_7.3_Slides_2026-10-23.pptx` (15 slides each, >=16pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
+  - **Section ancillaries assembled:** `01_Banner.png`, `02_Learning_Objectives.html`, `05_Reading_List.html`, `06_Watch_List.html`, `09_Quiz_Description.html`, and `09_Quiz.xml` via `scripts/banks/quiz_07.py`.
+  - **Deployed to live Moodle Section 7 (Course 51185, Section ID 639805):**
+    - Created Banner (`cmid 1440938`), Learning Objectives (`cmid 1440939`), Lessons 7.1–7.3 Interactive Quizzes (`cmids 1440943, 1440944, 1440945`), Notes PDFs (`cmids 1440940, 1440941, 1440942`), and Weekly Quiz (`cmid 1440948`).
+    - Uploaded widescreen slide decks via `mkmod.js`: `Lesson 7.1 Slides (PPTX)` (`cmid 1440949`), `Lesson 7.2 Slides (PPTX)` (`cmid 1440950`), `Lesson 7.3 Slides (PPTX)` (`cmid 1440951`).
+    - Added Reading List (`cmid 1440946`) and Watch List (`cmid 1440947`). (No workshop per schedule: rendering counts toward the print-ready publication).
+    - Synchronized canonical order (Quiz -> Notes PDF -> Slides PPTX per lesson) via `order.js`.
+    - Manifest refreshed and dumped: 220 activities tracked across 16 sections.
   - **Citation verification passed:** `citation_evidence.py` check passes with 0 errors across 7.1, 7.2, and 7.3 (`Lesson_7.{1,2,3}.yaml` evidence records in place).
   - **Lint gate passed:** `lint_lesson_content.py --lessons 7.1,7.2,7.3` reports clean (0 issues).
-  - **Pending for Module 7:** In-class teaching plans and slide decks for Meetings #17–19, slide images from Gemini Notebook LM, and subsequent interactive XML / HTML player compilation.
 - **[2026-10-07]**: **Three mis-timed teaching plans corrected and a lint gate added.** Plans 2.1 (2026-09-08), 3.3 (2026-09-18) and 5.2 (2026-10-02) all carried the previous meeting's clock time: the badge and every `time-col` row shifted together, so each document was internally consistent and wrong for its weekday. Root cause is the authoring pattern — a plan is copied from the previous meeting and the time is the one fact nobody re-derives; Friday's 9:30 is what breaks, because the Tue→Wed 8:30→10:30 jump is visible enough to catch. New `shared/scripts/lint_teaching_plan.py` (plus a `runpy` shim at `398/scripts/lint_teaching_plan.py`) parses the expected block out of the syllabus's own `Class Meetings:` line and checks filename/weekday/date, the badge, every schedule row, and stray `HH:MM` in prose; PM times are skipped as deadlines. The prose rule exists because the first pass at 3.3 left "not at 11:19" in a sentence. Verified by reintroducing both bug shapes on scratch copies, not just by watching it pass. Live run: 12 plans, 0 problems. Rule recorded as §E5 item 8 in `shared/LESSON_PIPELINE.md`.
 - **[2026-10-03]**: **Week 6 plans, decks, content fixes and deploy finished.**
   - **Plans** (all pass `lint_teaching_plan.py`):

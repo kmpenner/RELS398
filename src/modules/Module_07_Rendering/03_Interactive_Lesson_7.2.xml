@@ -1,0 +1,1825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_7.2</text></category></question>
+<question type="description"><name><text>01 Content: From Hand to Rule</text></name><questiontext format="html"><text><![CDATA[
+<h3>From Hand to Rule</h3>
+<p>On Tuesday you wrote HTML for ten or more lines of your document, one span at a time. It worked, and it taught you exactly what each TEI element should become. But it would not scale. Andromeda's treaty runs to many articles, Ace's decree to many clauses, and Olyvia's letter, though short, will be revised again before December. Every time the TEI file changes, a hand-made page falls out of date.</p>
+<p>The answer is the same one you reached in Week 6. On Tuesday of that week you regularized spelling by hand; on Wednesday you wrote <code>normalize.py</code>, which applied your rules to the whole text in seconds. Today you do the same for rendering. Each row of your <code>RENDERING.md</code> table becomes a rule that a program can apply to every element of its kind, everywhere in the file.</p>
+<p>The work changes character. Yesterday the question was how one line should look. Today the question is how every <code>&lt;choice&gt;</code>, every <code>&lt;lb/&gt;</code> and every <code>&lt;gap/&gt;</code> should look, wherever it occurs, including places you have not looked at closely. A rule is a promise about cases you have not seen.</p>
+<p><strong>Vocabulary.</strong> <em>Rule-based rendering</em> — Producing a reader's view by applying written rules to every element of a given kind. <em>Scaling</em> — Applying a method to a whole document, or many documents, instead of a sample.</p>
+<p><strong>Takeaway:</strong> A hand-made page shows what each element should become; today you turn each of those decisions into a rule that renders the whole file automatically.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: From Hand to Rule</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is Tuesday's hand-made page not enough to publish your whole edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A hand-made page shows what each element should become; today you turn each of those decisions into a rule that renders the whole file automatically.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It covers only a sample of lines and falls out of date every time the TEI file changes; rules can render the whole file again in seconds.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The hand-made page shows what each element should become; rules apply those decisions everywhere, every time.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hand-written HTML is not valid in modern browsers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tuesday's page is ordinary, valid HTML. The problem is scale and upkeep, not validity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hand-made pages cannot include CSS.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tuesday's page used two stylesheets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The TEI Consortium forbids publishing hand-written HTML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. There is no such rule. Hand-written pages simply do not scale.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: What Deterministic Means</text></name><questiontext format="html"><text><![CDATA[
+<h3>What Deterministic Means</h3>
+<p>A deterministic program gives the same output every time it receives the same input. Run your stylesheet on Monday or in December, on your laptop or on a classmate's, and the page it produces from the same TEI file will be identical, character for character.</p>
+<p>That property is what makes a rendering trustworthy. If a reader finds an error in your reading view, you can trace it. Either the TEI file says something wrong, or one rule in the stylesheet does something wrong. There is no third possibility, no mood or randomness in the tool. You fix the file or the rule, run it again, and the error is gone everywhere it occurred.</p>
+<p>Compare this with what you will meet on Friday. An AI model asked to render the same file twice may produce two different pages, and neither will come with a list of the rules it followed. Today's tools are less clever but fully accountable: every choice they make is written down in a file you can read.</p>
+<p>Determinism does not mean correctness. A deterministic rule that drops every gap will drop every gap, faithfully, every time. That is why the comparison with Tuesday's page matters so much.</p>
+<p><strong>Vocabulary.</strong> <em>Deterministic</em> — Always producing the same output from the same input. <em>Traceable</em> — Able to be followed back to the exact rule or data that caused it.</p>
+<p><strong>Takeaway:</strong> A deterministic stylesheet gives identical output every run, so every error can be traced to one rule or one line of TEI, but it will repeat a wrong rule just as faithfully as a right one.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: What Deterministic Means</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your stylesheet drops every &amp;lt;gap/&amp;gt; from the reading view. What does determinism tell you about this error?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A deterministic stylesheet gives identical output every run, so every error can be traced to one rule or one line of TEI, but it will repeat a wrong rule just as faithfully as a right one.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It will happen the same way on every run, and it can be traced to one rule, so fixing that rule fixes it everywhere.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Determinism makes errors traceable and repeatable; it does not make the rules correct.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It cannot be an error, because deterministic programs are always correct.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A deterministic rule repeats a wrong decision just as faithfully as a right one.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It will probably disappear if you run the stylesheet again.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The same input always gives the same output, so the gaps will be dropped again.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It was caused by randomness in the browser.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. There is no randomness to blame; the cause is in the file or the rule.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: Rendering in Real Projects</text></name><questiontext format="html"><text><![CDATA[
+<h3>Rendering in Real Projects</h3>
+<p>Rule-based rendering is not a classroom exercise; it is how working editions are published. One recent manuscript repository stores each manuscript as a TEI document and turns it into the HTML page a visitor sees by running an XSLT stylesheet (Clausen et al., 2026).</p>
+<p>Its builders note that TEI files and images rendered dynamically through XSLT already give them everything needed to publish critical editions later (Clausen et al., 2026). In other words, the investment in a careful encoding pays off because rules can turn it into new kinds of pages as the project grows.</p>
+<p>Rendering also serves the editors themselves, long before any reader arrives. A team that trained cataloguers to edit TEI records directly wrote an XSLT template that produced an HTML preview of each record, and found it very helpful for proofreading on the spot (Faghihi et al., 2022). A page is easier to proofread than raw markup, because errors that hide among the tags stand out in running text.</p>
+<p>You will use your stylesheets the same way. Each time you change your TEI file between now and December, run the stylesheet and read the result. It is a quick check that your markup still says what you think it says.</p>
+<p><strong>Vocabulary.</strong> <em>Repository</em> — A managed collection of digital objects, such as TEI files and images, with ways to view and retrieve them. <em>Preview</em> — A rendering made for the editor's own checking rather than for publication.</p>
+<p><strong>Takeaway:</strong> Working projects render TEI with stylesheets both to publish their editions and to proofread their own encoding, and you can do both with today's tools.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: Rendering in Real Projects</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Besides publishing, what use of rendering did the cataloguing team described in the lesson find very helpful?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Working projects render TEI with stylesheets both to publish their editions and to proofread their own encoding, and you can do both with today's tools.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;An HTML preview of each TEI record, which made proofreading easy on the spot.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Errors that hide among tags stand out in running text, so rendering is also an editor's checking tool.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Automatic translation of each record into several languages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The template produced an HTML preview, not translations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replacing the TEI records with HTML so the XML could be deleted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The TEI stayed the source; the HTML was a preview of it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Generating the TEI header automatically from images.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The template transformed existing TEI into a preview page.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Two Routes from TEI to a Web Page</text></name><questiontext format="html"><text><![CDATA[
+<h3>Two Routes from TEI to a Web Page</h3>
+<p>There are two common ways to turn a TEI file into a web page, and today you will try both.</p>
+<p>The first route transforms the file in advance. A program reads your TEI, applies a stylesheet written in XSLT, and writes out a new HTML file. You then publish that HTML file. The reader's browser never sees your TEI at all; it receives an ordinary web page, like the one you wrote by hand on Tuesday.</p>
+<p>The second route transforms the file in the reader's browser. You publish the TEI file itself, together with a small JavaScript library called CETEIcean. When a reader opens the page, CETEIcean fetches the TEI file and turns each TEI element into a matching HTML element on the spot. You then style those elements with CSS, much as you did on Tuesday.</p>
+<table>
+  <thead>
+    <tr><th></th><th>XSLT</th><th>CETEIcean</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>When the transformation happens</td><td>Before publication, on your computer</td><td>Each time a reader opens the page</td></tr>
+    <tr><td>What you publish</td><td>HTML files</td><td>Your TEI file, a small HTML page, and CSS</td></tr>
+    <tr><td>Where your decisions live</td><td>Mostly in the XSLT stylesheet</td><td>Mostly in the CSS</td></tr>
+    <tr><td>Language to learn</td><td>XSLT</td><td>CSS, with a little JavaScript</td></tr>
+  </tbody>
+</table>
+
+<p>Both routes are deterministic, and both can carry out the decisions in your <code>RENDERING.md</code>. They differ in where those decisions are written down, and that difference shapes what can go wrong.</p>
+<p><strong>Vocabulary.</strong> <em>XSLT</em> — A language for writing rules that transform one XML document into another document, such as an HTML page. <em>CETEIcean</em> — A JavaScript library that displays TEI in a web browser by turning TEI elements into custom HTML elements.</p>
+<p><strong>Takeaway:</strong> XSLT turns TEI into HTML before you publish; CETEIcean turns it into HTML in the reader's browser; both apply your decisions, but they store them in different places.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Two Routes from TEI to a Web Page</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which statement correctly contrasts the two routes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;XSLT turns TEI into HTML before you publish; CETEIcean turns it into HTML in the reader's browser; both apply your decisions, but they store them in different places.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;XSLT writes HTML files before publication; CETEIcean turns the TEI into HTML elements in the reader's browser each time the page opens.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Both apply your decisions, but at different times and from different places.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XSLT works only in the browser; CETEIcean works only on your computer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is the other way round: XSLT runs beforehand, CETEIcean runs in the browser.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;CETEIcean requires you to delete your TEI file after rendering.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CETEIcean needs your TEI file; it builds the page from it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The two routes produce identical files, so the choice makes no difference.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. They store your decisions in different places, which shapes what can go wrong.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: What XSLT Is</text></name><questiontext format="html"><text><![CDATA[
+<h3>What XSLT Is</h3>
+<p>XSLT stands for Extensible Stylesheet Language Transformations. An XSLT stylesheet is itself an XML file, made of <strong>templates</strong>. Each template says: when you meet an element of this kind, write out this instead.</p>
+<p>Here is one template:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tei:p&quot;&gt;
+  &lt;p&gt;&lt;xsl:apply-templates/&gt;&lt;/p&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The <code>match</code> attribute names the element the template applies to, here every TEI <code>&lt;p&gt;</code>. The body of the template is what gets written to the output: an HTML <code>&lt;p&gt;</code>, and inside it the instruction <code>&lt;xsl:apply-templates/&gt;</code>. That instruction means: now process everything inside this element, using whatever templates match it. So the paragraph's words, its <code>&lt;choice&gt;</code> elements and its line breaks are each handed to their own templates in turn.</p>
+<p>This is the whole idea. The processor walks through your TEI file from the top, finds the template that matches each element, writes what the template says, and moves inward. Your stylesheet is a list of templates, roughly one per row of your decision table.</p>
+<p>On Tuesday you read that XSLT can turn one XML file into a web page, a plain-text file, or a file that becomes a PDF. Today you write the stylesheet yourself.</p>
+<p><strong>Vocabulary.</strong> <em>Template</em> — An XSLT rule that matches one kind of element and says what to write in its place. <em><code>xsl:apply-templates</code></em> — The XSLT instruction that processes an element's contents with whatever templates match them.</p>
+<p><strong>Takeaway:</strong> An XSLT stylesheet is a list of templates; each matches one kind of TEI element and writes HTML in its place, then hands the element's contents on to other templates.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: What XSLT Is</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does &lt;code&gt;&amp;lt;xsl:apply-templates/&amp;gt;&lt;/code&gt; do inside a template?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An XSLT stylesheet is a list of templates; each matches one kind of TEI element and writes HTML in its place, then hands the element's contents on to other templates.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It processes the current element's contents, handing each child to whatever template matches it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That is how the processor moves inward through your file, template by template.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It copies the whole TEI file unchanged into the output.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It processes contents with templates; it does not copy the file wholesale.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It stops processing, so the element's contents are ignored.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It does the opposite: it continues processing inside the element.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It applies Tuesday's CSS to the element.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS is applied later by the browser; XSLT only writes the HTML.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Setting Up: Python, lxml, and a Small Script</text></name><questiontext format="html"><text><![CDATA[
+<h3>Setting Up: Python, lxml, and a Small Script</h3>
+<p>You already have Python from Week 6. To run XSLT you need one more package, <code>lxml</code>, which contains a complete XSLT processor. Install it once from the VS Code terminal:</p>
+<pre><code class="language-bash">python3 -m pip install lxml
+</code></pre>
+<p>On Windows, type <code>py</code> instead of <code>python3</code> if that is how you ran <code>normalize.py</code>. Then save this short script as <code>rendering/render.py</code> in your repository:</p>
+<pre><code class="language-python">import sys
+from lxml import etree
+
+xml_file, xsl_file, out_file = sys.argv[1], sys.argv[2], sys.argv[3]
+transform = etree.XSLT(etree.parse(xsl_file))
+result = transform(etree.parse(xml_file))
+with open(out_file, &quot;wb&quot;) as f:
+    f.write(etree.tostring(result, method=&quot;html&quot;, encoding=&quot;utf-8&quot;))
+print(&quot;Wrote&quot;, out_file)
+</code></pre>
+<p>The script takes three names: your TEI file, a stylesheet, and the HTML file to write. It reads the stylesheet, applies it to the TEI file, and saves the result. From the top of your repository you will run it like this:</p>
+<pre><code class="language-bash">python3 rendering/render.py transcription_normalized.xml rendering/reading.xsl rendering/reading-auto.html
+</code></pre>
+<p>Write the output into the <code>rendering/</code> folder, next to Tuesday's CSS files, so the generated page can find them. Use a new name such as <code>reading-auto.html</code>, so the generated page never overwrites your hand-made <code>edition.html</code>. You need both for the comparison later today.</p>
+<p><strong>Vocabulary.</strong> <em><code>lxml</code></em> — A Python package for reading, writing and transforming XML, including an XSLT processor. <em>Command-line argument</em> — A value typed after a script's name that tells the script what to work on.</p>
+<p><strong>Takeaway:</strong> Install <code>lxml</code>, save the short <code>render.py</code>, and run it with your TEI file, a stylesheet and an output name; write the output beside Tuesday's CSS under a new name.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Setting Up: Python, lxml, and a Small Script</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should the generated page be written into the &lt;code&gt;rendering/&lt;/code&gt; folder under a new name such as &lt;code&gt;reading-auto.html&lt;/code&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Install &lt;code&gt;lxml&lt;/code&gt;, save the short &lt;code&gt;render.py&lt;/code&gt;, and run it with your TEI file, a stylesheet and an output name; write the output beside Tuesday's CSS under a new name.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;So it can find Tuesday's CSS files beside it, and so it never overwrites the hand-made &lt;code&gt;edition.html&lt;/code&gt; you need for comparison.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Location lets the stylesheet link work; a new name protects Tuesday's ground truth.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because &lt;code&gt;lxml&lt;/code&gt; can only write files whose names end in &lt;code&gt;-auto&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The name is your choice; the point is not to overwrite Tuesday's page.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Python cannot write files at the top of a repository.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It can; the folder matters because the page links to CSS files there.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Git ignores files in other folders.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Git tracks files in any folder of the repository.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: The Built-in Rules: What Happens to Elements You Forget</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Built-in Rules: What Happens to Elements You Forget</h3>
+<p>Before you write templates, you need to know what XSLT does with an element that has no template. The answer surprises almost everyone, and it is the source of most rendering errors.</p>
+<p>XSLT has a few <strong>built-in rules</strong> that apply when none of your templates match. For an element, the built-in rule writes nothing for the element itself but processes its contents. For text, the built-in rule copies the text to the output. Together they mean that an element without a template simply disappears, and its words fall through into the page as plain text.</p>
+<p>Think about what that does to a <code>&lt;choice&gt;</code>. Suppose you forgot to write a template for it. The built-in rule processes both children, and both children's text falls through:</p>
+<pre><code class="language-text">That the GovrGovernor and CouncillCouncil of the Pro-vince
+</code></pre>
+<p>Both layers appear, glued together. That error is loud and easy to spot. A quieter one follows from the same rule. An empty element, such as <code>&lt;gap/&gt;</code> or <code>&lt;lb/&gt;</code>, has no contents to fall through. Without a template it vanishes without a trace, and nothing on the page tells you something is missing.</p>
+<p><strong>Vocabulary.</strong> <em>Built-in rule</em> — A default behaviour XSLT applies to any element or text that no template matches. <em>Fall-through</em> — The way an unmatched element's text passes into the output as plain text.</p>
+<p><strong>Takeaway:</strong> An element with no template disappears and its text falls through as plain words; this glues both layers of a <code>&lt;choice&gt;</code> together and silently deletes empty elements such as <code>&lt;gap/&gt;</code>.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: The Built-in Rules: What Happens to Elements You Forget</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your stylesheet has no template for &amp;lt;gap/&amp;gt;. What appears in the output where each gap was?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An element with no template disappears and its text falls through as plain words; this glues both layers of a &lt;code&gt;&amp;lt;choice&amp;gt;&lt;/code&gt; together and silently deletes empty elements such as &lt;code&gt;&amp;lt;gap/&amp;gt;&lt;/code&gt;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Nothing at all; an empty element with no template vanishes without any warning.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The built-in rule processes the element's contents, and an empty element has none.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The word gap in plain text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Element names are never written by the built-in rules; only text content falls through.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An error message that stops the transformation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XSLT gives no error; that is what makes the loss dangerous.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Brackets with the reason taken from the attributes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Only a template you write can produce that.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: The Namespace Pitfall</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Namespace Pitfall</h3>
+<p>The garbled line in the last section can also appear when you <em>did</em> write a <code>&lt;choice&gt;</code> template. If it does, the cause is almost always the namespace.</p>
+<p>Every element in your TEI file belongs to the TEI namespace, which your root element declares with <code>xmlns="http://www.tei-c.org/ns/1.0"</code>. To an XSLT processor, a TEI <code>&lt;choice&gt;</code> and a <code>&lt;choice&gt;</code> in no namespace are different elements. A template written as <code>match="choice"</code> matches the second kind only, so it never fires on your file, and the built-in rules take over.</p>
+<p>The fix is to declare the TEI namespace in your stylesheet, give it a short prefix, and use the prefix in every match:</p>
+<pre><code class="language-xml">&lt;xsl:stylesheet version=&quot;1.0&quot;
+    xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+    xmlns:tei=&quot;http://www.tei-c.org/ns/1.0&quot;
+    exclude-result-prefixes=&quot;tei&quot;&gt;
+</code></pre>
+<p>Now <code>match="tei:choice"</code> means a TEI <code>&lt;choice&gt;</code>, and it matches. The attribute <code>exclude-result-prefixes="tei"</code> keeps the prefix declaration out of your HTML.</p>
+<p>If your output ever shows both layers of every <code>&lt;choice&gt;</code> side by side, check the prefixes first. It is the most common mistake in XSLT for TEI.</p>
+<p><strong>Vocabulary.</strong> <em>Namespace</em> — A unique name, written as a web address, that marks which vocabulary an element belongs to. <em>Prefix</em> — A short label, such as <code>tei:</code>, that stands for a namespace inside a stylesheet.</p>
+<p><strong>Takeaway:</strong> Declare the TEI namespace with a <code>tei:</code> prefix and use it in every match; a template without the prefix never fires, and the built-in rules quietly take over.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: The Namespace Pitfall</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;You wrote &lt;code&gt;match="choice"&lt;/code&gt;, but your output shows both layers glued together. What is the most likely cause?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Declare the TEI namespace with a &lt;code&gt;tei:&lt;/code&gt; prefix and use it in every match; a template without the prefix never fires, and the built-in rules quietly take over.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The template lacks the &lt;code&gt;tei:&lt;/code&gt; prefix, so it never matches your TEI elements and the built-in rules take over.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A TEI &amp;lt;choice&amp;gt; and a &amp;lt;choice&amp;gt; in no namespace are different elements to the processor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Your TEI file is not well-formed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A badly formed file would fail to load at all, not render both layers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Tuesday's CSS is overriding the stylesheet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CSS cannot add text; the glued words are in the generated HTML itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;XSLT always shows both layers of a &amp;lt;choice&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A correctly prefixed template can select just one layer.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: The Page Shell</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Page Shell</h3>
+<p>Your first template matches the whole document and writes the outer frame of the web page: the same shell you wrote by hand on Tuesday.</p>
+<pre><code class="language-xml">&lt;xsl:output method=&quot;html&quot; encoding=&quot;utf-8&quot;/&gt;
+
+&lt;xsl:template match=&quot;/&quot;&gt;
+  &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+      &lt;meta charset=&quot;utf-8&quot;/&gt;
+      &lt;title&gt;&lt;xsl:value-of select=&quot;//tei:titleStmt/tei:title[1]&quot;/&gt;&lt;/title&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;reading.css&quot;/&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;xsl:apply-templates select=&quot;//tei:body&quot;/&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The <code>match="/"</code> means the whole document. The <code>xsl:value-of</code> instruction copies text from your file into the page, here the first title in your <code>teiHeader</code>, so the browser tab shows your document's title. The <code>select</code> attribute on <code>xsl:apply-templates</code> restricts processing to your <code>&lt;body&gt;</code>. Without it, every word of your <code>teiHeader</code> would fall through into the top of the page.</p>
+<p>Notice that the shell carries over two decisions from Tuesday: the <code>charset</code> that keeps accents intact and the <code>lang</code> that tells software which language it is reading. The link points to Tuesday's <code>reading.css</code>, which is why you write the output into the same folder.</p>
+<p><strong>Vocabulary.</strong> <em><code>xsl:value-of</code></em> — The XSLT instruction that writes the text of a selected element into the output. <em><code>select</code></em> — An attribute giving an XPath expression that picks out which part of the document to use.</p>
+<p><strong>Takeaway:</strong> The root template writes the HTML shell, copies your title from the header, keeps <code>charset</code> and <code>lang</code>, and processes only the <code>&lt;body&gt;</code> so the header does not spill onto the page.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: The Page Shell</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does the root template use &lt;code&gt;&amp;lt;xsl:apply-templates select="//tei:body"/&amp;gt;&lt;/code&gt; rather than a bare &lt;code&gt;&amp;lt;xsl:apply-templates/&amp;gt;&lt;/code&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The root template writes the HTML shell, copies your title from the header, keeps &lt;code&gt;charset&lt;/code&gt; and &lt;code&gt;lang&lt;/code&gt;, and processes only the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; so the header does not spill onto the page.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;So that only the body is processed; otherwise the text of the &amp;lt;teiHeader&amp;gt; would fall through onto the top of the page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Selecting the body keeps catalogue information out of the reader's view.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the body is the only part of a TEI file that contains text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The header contains plenty of text, which is exactly why it must be excluded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To make the page load faster in the browser.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The point is what appears on the page, not speed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because XSLT cannot read the header at all.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The same template reads the title from the header with &lt;code&gt;xsl:value-of&lt;/code&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Structure: Divisions, Headings, and Paragraphs</text></name><questiontext format="html"><text><![CDATA[
+<h3>Structure: Divisions, Headings, and Paragraphs</h3>
+<p>Next come the structural elements. These are the easiest templates, because HTML has close equivalents.</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tei:div&quot;&gt;
+  &lt;section class=&quot;{@type}&quot;&gt;&lt;xsl:apply-templates/&gt;&lt;/section&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match=&quot;tei:head&quot;&gt;&lt;h2&gt;&lt;xsl:apply-templates/&gt;&lt;/h2&gt;&lt;/xsl:template&gt;
+
+&lt;xsl:template match=&quot;tei:p&quot;&gt;&lt;p&gt;&lt;xsl:apply-templates/&gt;&lt;/p&gt;&lt;/xsl:template&gt;
+</code></pre>
+<p>The curly braces in <code>class="{@type}"</code> are new. They are called an <strong>attribute value template</strong>: XSLT replaces the expression inside the braces with its value. <code>@type</code> means the <code>type</code> attribute of the current element. So <code>&lt;div type="article"&gt;</code> becomes <code>&lt;section class="article"&gt;</code>, and a <code>&lt;div type="clause"&gt;</code> in Ace's decree becomes <code>&lt;section class="clause"&gt;</code>. One template handles every kind of division.</p>
+<p>A letter has its own structure. If Olyvia's file uses <code>&lt;opener&gt;</code>, <code>&lt;salute&gt;</code>, <code>&lt;closer&gt;</code> and <code>&lt;signed&gt;</code>, each needs a template, or each will fall through as plain text and lose the separation from the body that she decided on yesterday. A template such as <code>&lt;xsl:template match="tei:closer"&gt;&lt;p class="closer"&gt;&lt;xsl:apply-templates/&gt;&lt;/p&gt;&lt;/xsl:template&gt;</code> brings back the class her <code>reading.css</code> already styles.</p>
+<p><strong>Vocabulary.</strong> <em>Attribute value template</em> — Curly braces inside an output attribute, telling XSLT to insert a computed value. <em><code>@</code></em> — In XPath, the sign that names an attribute rather than an element.</p>
+<p><strong>Takeaway:</strong> Map divisions, headings and paragraphs to HTML equivalents, use <code>{@type}</code> to carry attribute values into classes, and give every structural element in your file its own template.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Structure: Divisions, Headings, and Paragraphs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;With the template &lt;code&gt;&amp;lt;section class="{@type}"&amp;gt;&lt;/code&gt;, what does &lt;code&gt;&amp;lt;div type="clause"&amp;gt;&lt;/code&gt; become?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Map divisions, headings and paragraphs to HTML equivalents, use &lt;code&gt;{@type}&lt;/code&gt; to carry attribute values into classes, and give every structural element in your file its own template.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;code&gt;&amp;lt;section class="clause"&amp;gt;&lt;/code&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The curly braces insert the value of the &lt;code&gt;type&lt;/code&gt; attribute.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;code&gt;&amp;lt;section class="{@type}"&amp;gt;&lt;/code&gt;, copied literally.</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Inside an output attribute, curly braces are evaluated, not copied.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;code&gt;&amp;lt;section class="div"&amp;gt;&lt;/code&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;code&gt;@type&lt;/code&gt; means the attribute's value, not the element's name.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Nothing, because &amp;lt;div&amp;gt; has no HTML equivalent.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The template maps it to &amp;lt;section&amp;gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Choosing a Layer: The `&lt;choice&gt;` Template</text></name><questiontext format="html"><text><![CDATA[
+<h3>Choosing a Layer: The `<choice>` Template</h3>
+<p>Here is where today's method parts ways with Tuesday's. On Tuesday your HTML held both layers of every <code>&lt;choice&gt;</code>, and the CSS hid one of them. An XSLT stylesheet can do something more decisive: it can write only one layer into the page.</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tei:choice&quot;&gt;
+  &lt;xsl:apply-templates select=&quot;tei:reg|tei:expan|tei:corr&quot;/&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The vertical bar means or; spaces around it are allowed but not needed. This template says: when you meet a <code>&lt;choice&gt;</code>, process only its <code>&lt;reg&gt;</code>, <code>&lt;expan&gt;</code> or <code>&lt;corr&gt;</code> child, and ignore the rest. The <code>&lt;orig&gt;</code>, <code>&lt;abbr&gt;</code> and <code>&lt;sic&gt;</code> are never processed, so their text never reaches the page.</p>
+<p>Then give the chosen children the same class names you used by hand on Tuesday, so that Tuesday's CSS still applies:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tei:reg|tei:expan|tei:corr|tei:ex|tei:unclear&quot;&gt;
+  &lt;span class=&quot;{local-name()}&quot;&gt;&lt;xsl:apply-templates/&gt;&lt;/span&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The function <code>local-name()</code> gives the element's name without its prefix, so a <code>&lt;reg&gt;</code> becomes <code>&lt;span class="reg"&gt;</code> and an <code>&lt;unclear&gt;</code> becomes <code>&lt;span class="unclear"&gt;</code>. One template covers five elements and repeats exactly the naming convention from Tuesday's section 17.</p>
+<p><strong>Vocabulary.</strong> <em><code>|</code> (union)</em> — In XPath, joins two selections, meaning this one or that one. <em><code>local-name()</code></em> — An XPath function returning an element's name without any namespace prefix.</p>
+<p><strong>Takeaway:</strong> A <code>&lt;choice&gt;</code> template that selects only one child writes one layer into the page; giving the output Tuesday's class names lets Tuesday's CSS style it unchanged.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Choosing a Layer: The &lt;choice&gt; Template</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your reading stylesheet's &amp;lt;choice&amp;gt; template selects only &lt;code&gt;tei:reg|tei:expan|tei:corr&lt;/code&gt;. Where are the original spellings in the generated page?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A &lt;code&gt;&amp;lt;choice&amp;gt;&lt;/code&gt; template that selects only one child writes one layer into the page; giving the output Tuesday's class names lets Tuesday's CSS style it unchanged.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Nowhere; they were never processed, so they are not in the HTML at all.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Unlike Tuesday's page, the XSLT page drops the other layer instead of hiding it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Hidden by CSS, as on Tuesday.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. There is nothing to hide; the stylesheet never wrote them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In a tooltip on each regularized word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Only a template you write could add a tooltip.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;At the end of the page, in a list.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Unselected children produce no output anywhere.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Abbreviations and Supplied Letters</text></name><questiontext format="html"><text><![CDATA[
+<h3>Abbreviations and Supplied Letters</h3>
+<p>Abbreviations deserve a closer look, because they combine two of your decisions. In the diplomatic view the reader sees the abbreviation as written, perhaps with a raised letter. In the reading view the reader sees the expansion, with the letters you supplied in italics.</p>
+<p>Take the illustrative line from Tuesday's worked example:</p>
+<pre><code class="language-xml">&lt;choice&gt;&lt;abbr&gt;Gov&lt;hi rend=&quot;sup&quot;&gt;r&lt;/hi&gt;&lt;/abbr&gt;&lt;expan&gt;Gov&lt;ex&gt;erno&lt;/ex&gt;r&lt;/expan&gt;&lt;/choice&gt;
+</code></pre>
+<p>In the reading stylesheet, the <code>&lt;choice&gt;</code> template chooses <code>&lt;expan&gt;</code>. The shared template from section 11 writes <code>&lt;span class="expan"&gt;</code>, and inside it, the <code>&lt;ex&gt;</code> becomes <code>&lt;span class="ex"&gt;</code>. Tuesday's rule <code>.expan .ex { font-style: italic; }</code> then sets <em>erno</em> in italics. The result reads Gov<em>erno</em>r, with the editor's contribution visible.</p>
+<p>In the diplomatic stylesheet, the <code>&lt;choice&gt;</code> template chooses <code>&lt;abbr&gt;</code> instead, and the raised letter needs one more template:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tei:hi[@rend='sup']&quot;&gt;&lt;sup&gt;&lt;xsl:apply-templates/&gt;&lt;/sup&gt;&lt;/xsl:template&gt;
+</code></pre>
+<p>The square brackets in the match are a <strong>predicate</strong>: a condition the element must meet. This template matches only a <code>&lt;hi&gt;</code> whose <code>rend</code> attribute is <code>sup</code>. If your file uses <code>&lt;hi&gt;</code> with other values, such as underlining, each needs its own template, or its text will fall through without any mark.</p>
+<p><strong>Vocabulary.</strong> <em>Predicate</em> — A condition in square brackets that narrows which elements a match or selection applies to. <em>Supplied letters</em> — Letters added by the editor to complete an abbreviation, recorded in TEI with <code>&lt;ex&gt;</code>.</p>
+<p><strong>Takeaway:</strong> The reading stylesheet chooses <code>&lt;expan&gt;</code> and marks <code>&lt;ex&gt;</code> for italics; the diplomatic one chooses <code>&lt;abbr&gt;</code> and needs a predicate template for raised letters and every other <code>&lt;hi&gt;</code> your file uses.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Abbreviations and Supplied Letters</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does the predicate in &lt;code&gt;match="tei:hi[@rend='sup']"&lt;/code&gt; do?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The reading stylesheet chooses &lt;code&gt;&amp;lt;expan&amp;gt;&lt;/code&gt; and marks &lt;code&gt;&amp;lt;ex&amp;gt;&lt;/code&gt; for italics; the diplomatic one chooses &lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt; and needs a predicate template for raised letters and every other &lt;code&gt;&amp;lt;hi&amp;gt;&lt;/code&gt; your file uses.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It limits the template to &amp;lt;hi&amp;gt; elements whose &lt;code&gt;rend&lt;/code&gt; attribute is &lt;code&gt;sup&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Other &amp;lt;hi&amp;gt; values need their own templates, or their text falls through unmarked.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It makes every &amp;lt;hi&amp;gt; in the file superscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The square brackets narrow the match to one value of &lt;code&gt;rend&lt;/code&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes the &lt;code&gt;rend&lt;/code&gt; attribute from the TEI file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Stylesheets never change the source file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It expands the abbreviation automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Expansions come from your &amp;lt;expan&amp;gt;, chosen by the &amp;lt;choice&amp;gt; template.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Line Breaks by Rule</text></name><questiontext format="html"><text><![CDATA[
+<h3>Line Breaks by Rule</h3>
+<p>Line breaks are where the two views differ most, and they are empty elements, so a missing template would delete them silently. Write them carefully.</p>
+<p>In the diplomatic stylesheet, reproduce Tuesday's markup exactly:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tei:lb&quot;&gt;
+  &lt;span class=&quot;lb&quot; data-n=&quot;{@n}&quot;&gt;&lt;/span&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>Every <code>&lt;lb n="12"/&gt;</code> becomes <code>&lt;span class="lb" data-n="12"&gt;&lt;/span&gt;</code>, the same empty span you typed by hand, and Tuesday's <code>diplomatic.css</code> turns it into a new numbered line.</p>
+<p>In the reading stylesheet, a line break should become a space, so that the last word of one line does not glue onto the first word of the next:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tei:lb&quot;&gt;&lt;xsl:text&gt; &lt;/xsl:text&gt;&lt;/xsl:template&gt;
+&lt;xsl:template match=&quot;tei:lb[@break='no']&quot;/&gt;
+</code></pre>
+<p>The <code>xsl:text</code> element writes exactly what it contains, here a single space. XSLT normally throws away whitespace inside a stylesheet, so a bare space would be lost; <code>xsl:text</code> protects it. The second template, which is empty, handles a word split across two lines. A break marked <code>break="no"</code> produces nothing at all, so the two halves can rejoin. When two templates match the same element, the more specific one, with the predicate, wins.</p>
+<p><strong>Vocabulary.</strong> <em><code>xsl:text</code></em> — The XSLT element that writes its exact contents, including spaces, to the output. <em>Template priority</em> — The rule that a more specific match, such as one with a predicate, wins over a general one.</p>
+<p><strong>Takeaway:</strong> In the diplomatic view each <code>&lt;lb/&gt;</code> becomes Tuesday's numbered span; in the reading view it becomes a protected space, except a <code>break="no"</code> break, which becomes nothing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Line Breaks by Rule</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does the reading stylesheet write a line break's space with &lt;code&gt;&amp;lt;xsl:text&amp;gt; &amp;lt;/xsl:text&amp;gt;&lt;/code&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;In the diplomatic view each &lt;code&gt;&amp;lt;lb/&amp;gt;&lt;/code&gt; becomes Tuesday's numbered span; in the reading view it becomes a protected space, except a &lt;code&gt;break="no"&lt;/code&gt; break, which becomes nothing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because XSLT normally discards bare whitespace in a stylesheet, and &lt;code&gt;xsl:text&lt;/code&gt; protects the space so words do not glue together.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Without it, the last word of one line could join the first word of the next.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because HTML forbids ordinary spaces between words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. HTML uses ordinary spaces; the issue is that the stylesheet would drop the space.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To insert a visible line break in the reading view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The reading view deliberately lets lines flow; only a space is written.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To keep the line number in the reading view.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Line numbers belong to the diplomatic view.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Words Split Across Lines</text></name><questiontext format="html"><text><![CDATA[
+<h3>Words Split Across Lines</h3>
+<p>The empty template for <code>break="no"</code> is not quite enough. Many TEI files put each <code>&lt;lb/&gt;</code> at the start of a new line in the XML, like this:</p>
+<pre><code class="language-xml">of the Pro-
+&lt;lb n=&quot;13&quot; break=&quot;no&quot;/&gt;vince
+</code></pre>
+<p>The new line and indentation between <em>Pro-</em> and the <code>&lt;lb/&gt;</code> are ordinary text in the file. The <code>&lt;lb/&gt;</code> produces nothing, but that whitespace survives, and the browser shows <em>Pro- vince</em> with a space in the middle of the word.</p>
+<p>A template for text can remove it. This one matches any piece of text that sits directly before a <code>break="no"</code> line break, squeezes out its extra whitespace, and keeps one space at the front only if there was one:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;text()[following-sibling::node()[1][self::tei:lb[@break='no']]]&quot;&gt;
+  &lt;xsl:if test=&quot;normalize-space(substring(.,1,1))='' and normalize-space(.)!=''&quot;&gt;
+    &lt;xsl:text&gt; &lt;/xsl:text&gt;
+  &lt;/xsl:if&gt;
+  &lt;xsl:value-of select=&quot;normalize-space(.)&quot;/&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>You do not need to master every part of this. Read it as a recipe: copy it into your reading stylesheet, run it, and search the output for the split words in your file. Notice what it does not do. The hyphen in <em>Pro-vince</em> stays, because it is written in your transcription. If your Week 6 policy removed such hyphens in the reading text, that decision belongs in a <code>&lt;choice&gt;</code> in your TEI, not in a hidden trick in the stylesheet.</p>
+<p><strong>Vocabulary.</strong> <em><code>normalize-space()</code></em> — An XPath function that trims leading and trailing whitespace and reduces internal runs of whitespace to single spaces. <em>Recipe</em> — A tested piece of code you reuse without needing to rebuild it from first principles.</p>
+<p><strong>Takeaway:</strong> Whitespace before a <code>break="no"</code> line break survives as a stray space; a text template removes it, while the hyphen stays because it belongs to your transcription.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Words Split Across Lines</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your reading view shows Pro- vince with a space inside the word. What causes it?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Whitespace before a &lt;code&gt;break="no"&lt;/code&gt; line break survives as a stray space; a text template removes it, while the hyphen stays because it belongs to your transcription.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The new line and indentation before the &lt;code&gt;break="no"&lt;/code&gt; &amp;lt;lb/&amp;gt; in your XML survive as whitespace, even though the &amp;lt;lb/&amp;gt; itself writes nothing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A text template that trims that whitespace rejoins the word.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The hyphen was added by the stylesheet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The hyphen is in your transcription; the stray space is the problem.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The browser always adds a space after a hyphen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The space comes from whitespace in your source file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The &amp;lt;lb/&amp;gt; template writes a space for every break.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The &lt;code&gt;break="no"&lt;/code&gt; template writes nothing; the space was already in the file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Uncertainty by Rule: `&lt;unclear&gt;` and `&lt;gap/&gt;`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Uncertainty by Rule: `<unclear>` and `<gap/>`</h3>
+<p>Your decision table says that uncertainty shows in both views. The <code>&lt;unclear&gt;</code> element is already handled: the shared template from section 11 writes <code>&lt;span class="unclear"&gt;</code>, and Tuesday's dotted underline applies.</p>
+<p>The <code>&lt;gap/&gt;</code> element needs its own template, because it is empty. Without one, it vanishes. With one, you can do better than Tuesday's hand-typed brackets, because attribute value templates can copy the reason and extent straight from your TEI:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tei:gap&quot;&gt;
+  &lt;span class=&quot;gap&quot; title=&quot;{@reason}, {@quantity} {@unit}(s)&quot;&gt;[…&lt;span class=&quot;gap-info&quot;&gt;&lt;xsl:value-of select=&quot;concat(' ',@quantity,' ',@unit,'(s), ',@reason)&quot;/&gt;&lt;/span&gt;]&lt;/span&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>For <code>&lt;gap reason="damage" quantity="2" unit="word"/&gt;</code>, this writes brackets with a tooltip reading <em>damage, 2 word(s)</em>. It also writes the same information as real text inside a <code>gap-info</code> span. For now, add <code>.gap-info { display: none; }</code> to both CSS files; in section 24 you will make that text appear on paper, where tooltips do not exist.</p>
+<p>Two details are worth noticing. The <code>concat()</code> function joins pieces of text, and the space at its start is inside quotation marks so it survives. And the stylesheet copies attribute values exactly as they are, which is why the output says <em>word(s)</em>: XSLT does not know English plurals. A rule can only be as smart as you make it.</p>
+<p><strong>Vocabulary.</strong> <em><code>concat()</code></em> — An XPath function that joins several pieces of text into one. <em>Tooltip</em> — A short explanation that appears when the pointer rests on an element, set by the HTML <code>title</code> attribute.</p>
+<p><strong>Takeaway:</strong> Give <code>&lt;gap/&gt;</code> a template or it vanishes; attribute value templates can copy its reason and extent into both a tooltip and real text, exactly as written in your TEI.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Uncertainty by Rule: &lt;unclear&gt; and &lt;gap/&gt;</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does the generated tooltip read damage, 2 word(s) rather than damage, 2 words?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Give &lt;code&gt;&amp;lt;gap/&amp;gt;&lt;/code&gt; a template or it vanishes; attribute value templates can copy its reason and extent into both a tooltip and real text, exactly as written in your TEI.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the stylesheet copies the attribute values exactly as written and knows nothing about English plurals.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A rule is only as smart as you make it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the TEI file is invalid.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;code&gt;unit="word"&lt;/code&gt; is the normal TEI value; the stylesheet simply copies it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because tooltips cannot display the letter s.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tooltips display any text the HTML gives them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because CETEIcean rewrote the attribute.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This is the XSLT route; CETEIcean is not involved.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Two Stylesheets, One Source</text></name><questiontext format="html"><text><![CDATA[
+<h3>Two Stylesheets, One Source</h3>
+<p>You now have every template for the reading view. Save them together, inside the <code>xsl:stylesheet</code> element from section 08, as <code>rendering/reading.xsl</code>. Then copy the file to <code>rendering/diplomatic.xsl</code> and change four things:</p>
+<table>
+  <thead>
+    <tr><th>Template</th><th><code>reading.xsl</code></th><th><code>diplomatic.xsl</code></th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Page shell</td><td>Links <code>reading.css</code></td><td>Links <code>diplomatic.css</code></td></tr>
+    <tr><td><code>&lt;choice&gt;</code></td><td>Selects <code>reg | expan | corr</code></td><td>Selects <code>orig | abbr | sic</code></td></tr>
+    <tr><td>Shared span template</td><td><code>reg | expan | corr | ex | unclear</code></td><td><code>orig | abbr | sic | unclear</code></td></tr>
+    <tr><td><code>&lt;lb/&gt;</code></td><td>A space, or nothing for <code>break="no"</code></td><td>Tuesday's numbered span</td></tr>
+  </tbody>
+</table>
+
+<p>The diplomatic stylesheet also needs the raised-letter template from section 12, and it does not need the split-word recipe, since each line keeps its own break. Run both:</p>
+<pre><code class="language-bash">python3 rendering/render.py transcription_normalized.xml rendering/reading.xsl rendering/reading-auto.html
+python3 rendering/render.py transcription_normalized.xml rendering/diplomatic.xsl rendering/diplomatic-auto.html
+</code></pre>
+<p>Open each result in your browser. Your whole document, not just ten lines, now appears in both views. The two stylesheets are a precise, runnable copy of your <code>RENDERING.md</code> table, and the differences between them are exactly the differences between the two columns of that table.</p>
+<p>It is possible to write a single stylesheet that takes the view as a setting, but two short files are easier to read and to compare.</p>
+<p><strong>Vocabulary.</strong> <em>Source file</em> — The one authoritative file, here your TEI, from which every view is generated. <em>Stylesheet pair</em> — Two stylesheets applied to the same source to produce two views.</p>
+<p><strong>Takeaway:</strong> Save <code>reading.xsl</code>, copy it to <code>diplomatic.xsl</code> with four changes and one extra template, and run both to produce full-length versions of both views.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Two Stylesheets, One Source</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which change is NOT part of turning &lt;code&gt;reading.xsl&lt;/code&gt; into &lt;code&gt;diplomatic.xsl&lt;/code&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Save &lt;code&gt;reading.xsl&lt;/code&gt;, copy it to &lt;code&gt;diplomatic.xsl&lt;/code&gt; with four changes and one extra template, and run both to produce full-length versions of both views.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Editing the TEI file to remove every &amp;lt;reg&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The source never changes; only the stylesheet's choices do.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Linking &lt;code&gt;diplomatic.css&lt;/code&gt; instead of &lt;code&gt;reading.css&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is one of the four changes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Making the &amp;lt;choice&amp;gt; template select &lt;code&gt;orig|abbr|sic&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is one of the four changes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Making each &amp;lt;lb/&amp;gt; write Tuesday's numbered span.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is one of the four changes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Comparing the Generated Pages with Tuesday's</text></name><questiontext format="html"><text><![CDATA[
+<h3>Comparing the Generated Pages with Tuesday's</h3>
+<p>Now open Tuesday's hand-made <code>edition.html</code> and today's generated pages side by side, on the same lines, in the same view.</p>
+<p>First look at the screen. The words should match, the italics should match, and gaps and unclear readings should carry the same marks. Then look underneath. In your browser, right-click and choose View Page Source for each page. Tuesday's page contains both layers of every <code>&lt;choice&gt;</code>, one hidden by CSS. Today's reading page contains only the reading layer. The original spellings are not hidden; they are simply not there.</p>
+<p>This difference matters for what readers can do. A reader of Tuesday's page could, with a little effort, recover the original spelling from the source. A reader of today's reading page cannot; for that, they need the diplomatic page. Neither approach is wrong, but your rendering statement should now tell readers where to find the other view, and both pages should link to each other.</p>
+<p>Record each difference you find in <code>RENDERING.md</code>, under a new heading such as Step 2 comparison. Some differences will be improvements: the generated gap carries its reason, and the whole document is present. Others will be problems. Section 28 shows how to sort them.</p>
+<p><strong>Vocabulary.</strong> <em>Page source</em> — The HTML file as the browser received it, before CSS hides or shows anything. <em>Side-by-side comparison</em> — Viewing two renderings of the same lines together to find every difference.</p>
+<p><strong>Takeaway:</strong> Compare the generated pages with Tuesday's both on screen and in the page source; the XSLT pages drop one layer entirely, so each view must link to the other.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Comparing the Generated Pages with Tuesday's</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the page source, how does today's generated reading page differ from Tuesday's hand-made page?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Compare the generated pages with Tuesday's both on screen and in the page source; the XSLT pages drop one layer entirely, so each view must link to the other.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Tuesday's page contains both layers with one hidden by CSS; today's contains only the reading layer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. That is why each view should link to the other.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They are identical in the page source; only the CSS differs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The XSLT page never wrote the original layer.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Today's page contains both layers and Tuesday's contains one.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is the other way round.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Today's page contains the TEI markup itself.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The XSLT route publishes ordinary HTML; it is CETEIcean that keeps TEI structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Generic Stylesheets Make Generic Decisions</text></name><questiontext format="html"><text><![CDATA[
+<h3>Generic Stylesheets Make Generic Decisions</h3>
+<p>You may wonder why you are writing a stylesheet at all, when ready-made stylesheets for TEI exist. The TEI Consortium itself maintains a large set that can turn almost any TEI file into HTML.</p>
+<p>Ready-made stylesheets are valuable, but they must make decisions without knowing your document. A generic stylesheet has to pick some way to display <code>&lt;choice&gt;</code> for every project at once. It might show both layers, or one, or put one in a tooltip. Whatever it picks, it picks for a parliamentary decree and a painter's letter alike. It does not know that Olyvia's policy forbids regularizing Maud Lewis's grammar, or that Andromeda's readers need the treaty's article numbers.</p>
+<p>So a generic stylesheet does not remove the need for your decision table. It moves the work: instead of writing templates, you must check every one of its decisions against yours and override those that disagree. For a large project that is often worth it. For a single document with a short decision table, a stylesheet of your own is shorter than the list of overrides.</p>
+<p>The same reasoning applies on Friday. An AI model asked to write you a stylesheet will produce something generic unless you give it your table, and even then you must check every rule.</p>
+<p><strong>Vocabulary.</strong> <em>Generic stylesheet</em> — A stylesheet written to render many projects' files, with display decisions made in advance. <em>Override</em> — A rule you add to replace a decision someone else's stylesheet made.</p>
+<p><strong>Takeaway:</strong> Ready-made stylesheets make display decisions without knowing your document, so using one means checking and overriding its choices rather than skipping your own.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Generic Stylesheets Make Generic Decisions</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does using a ready-made TEI stylesheet require of you?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Ready-made stylesheets make display decisions without knowing your document, so using one means checking and overriding its choices rather than skipping your own.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Checking each of its display decisions against your own table and overriding those that disagree.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A generic stylesheet moves the work; it does not remove your decisions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Nothing; it already knows your document's needs.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It was written for many projects at once and knows nothing of your policies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deleting your &lt;code&gt;RENDERING.md&lt;/code&gt;, since the stylesheet replaces it.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Your table is what you check the stylesheet against.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Rewriting your TEI to match the stylesheet's expectations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The evidence should not bend to a display tool.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: What CETEIcean Does</text></name><questiontext format="html"><text><![CDATA[
+<h3>What CETEIcean Does</h3>
+<p>Now for the second route. CETEIcean is a JavaScript library that runs in the reader's browser. It does not convert TEI into ordinary HTML elements such as <code>&lt;p&gt;</code> and <code>&lt;span&gt;</code>. Instead, it keeps your TEI structure and renames each element.</p>
+<p>Every TEI element becomes a <strong>custom element</strong> whose name is <code>tei-</code> followed by the TEI name in lower case. Your <code>&lt;choice&gt;</code> becomes <code>&lt;tei-choice&gt;</code>, your <code>&lt;lb/&gt;</code> becomes <code>&lt;tei-lb&gt;</code>, and your <code>teiHeader</code> becomes <code>&lt;tei-teiheader&gt;</code>. Attributes are kept, so <code>&lt;lb n="12"/&gt;</code> becomes <code>&lt;tei-lb n="12"&gt;</code>. The structure of the page in the browser is a one-for-one copy of your TEI file.</p>
+<p>That has a striking consequence: nothing is chosen in advance. Both layers of every <code>&lt;choice&gt;</code> arrive in the page, just as they did in Tuesday's hand-made HTML. Every display decision, including which layer to show, is left to your CSS.</p>
+<p>In that sense CETEIcean is closer to Tuesday's method than XSLT is. On Tuesday you hand-wrote spans named after TEI elements; CETEIcean writes the same kind of named elements for you, automatically, for the whole file.</p>
+<p><strong>Vocabulary.</strong> <em>Custom element</em> — An HTML element with a made-up name containing a hyphen, which browsers accept and display without built-in styling. <em><code>tei-</code> element</em> — The custom element CETEIcean creates for each TEI element, such as <code>&lt;tei-choice&gt;</code>.</p>
+<p><strong>Takeaway:</strong> CETEIcean renames every TEI element as a <code>tei-</code> custom element and keeps both layers of every <code>&lt;choice&gt;</code>, leaving every display decision to your CSS.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: What CETEIcean Does</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does CETEIcean turn &lt;code&gt;&amp;lt;lb n="12"/&amp;gt;&lt;/code&gt; into?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CETEIcean renames every TEI element as a &lt;code&gt;tei-&lt;/code&gt; custom element and keeps both layers of every &lt;code&gt;&amp;lt;choice&amp;gt;&lt;/code&gt;, leaving every display decision to your CSS.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A custom element &lt;code&gt;&amp;lt;tei-lb n="12"&amp;gt;&lt;/code&gt;, with its attribute kept.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Every TEI element becomes a tei- element of the same name, in lower case.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;An HTML &lt;code&gt;&amp;lt;br&amp;gt;&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CETEIcean keeps your structure and renames elements; it does not map lb to br.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Nothing; CETEIcean removes empty elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The element is kept, though being empty it shows nothing by itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A numbered paragraph.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Any numbering must come from your CSS.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Setting Up CETEIcean</text></name><questiontext format="html"><text><![CDATA[
+<h3>Setting Up CETEIcean</h3>
+<p>A CETEIcean page is a small HTML file that loads the library and tells it which TEI file to fetch. Save this as <code>rendering/ceteicean.html</code>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;My edition&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;cetei-reading.css&quot;&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/CETEIcean@1.9.5/dist/CETEI.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;TEI&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+      const c = new CETEI();
+      c.getHTML5(&quot;../transcription_normalized.xml&quot;, function (data) {
+        document.getElementById(&quot;TEI&quot;).appendChild(data);
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The <code>&lt;script src&gt;</code> line loads CETEIcean version 1.9.5 from a public server. The second script creates a CETEIcean object, asks it to fetch your TEI file from the folder above, and places the result inside the empty <code>&lt;div&gt;</code>.</p>
+<p>If you double-click this file, you will see a blank page. Browsers refuse to let a page fetch other files from your disk, for security. You need a small local web server. From the top of your repository, run:</p>
+<pre><code class="language-bash">python3 -m http.server 8000
+</code></pre>
+<p>Then open <code>http://localhost:8000/rendering/ceteicean.html</code> in your browser. Press Ctrl+C in the terminal when you are finished to stop the server.</p>
+<p><strong>Vocabulary.</strong> <em>Local web server</em> — A program on your own computer that serves files to your browser as a website would. <em>CDN</em> — A content delivery network, a public server that hosts libraries such as CETEIcean for pages to load.</p>
+<p><strong>Takeaway:</strong> A CETEIcean page loads the library and fetches your TEI file; it must be opened through a local web server, such as Python's <code>http.server</code>, not by double-clicking.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Setting Up CETEIcean</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;You double-click &lt;code&gt;ceteicean.html&lt;/code&gt; and see a blank page. What is the fix?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A CETEIcean page loads the library and fetches your TEI file; it must be opened through a local web server, such as Python's &lt;code&gt;http.server&lt;/code&gt;, not by double-clicking.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Serve the folder with a local web server, such as &lt;code&gt;python3 -m http.server 8000&lt;/code&gt;, and open the page through &lt;code&gt;localhost&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Browsers block a page opened from disk from fetching your TEI file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Convert the TEI file to HTML first with XSLT.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That is the other route; CETEIcean needs the TEI file itself.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Delete the &amp;lt;teiHeader&amp;gt; from your TEI file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The header is not the problem; the browser refused to fetch the file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Rename the page to &lt;code&gt;index.xml&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The page must stay HTML; it needs to be served, not renamed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Styling `tei-` Elements: The Reading View</text></name><questiontext format="html"><text><![CDATA[
+<h3>Styling `tei-` Elements: The Reading View</h3>
+<p>When the page first loads, it will look like an unbroken stream of words. That is because browsers know nothing about custom elements, so they display every one of them inline, like a <code>&lt;span&gt;</code>. Your headings and paragraphs run together. CSS must give each structural element its display.</p>
+<p>Save this as <code>rendering/cetei-reading.css</code>:</p>
+<pre><code class="language-css">tei-head { display: block; font-size: 1.4em; font-weight: bold; margin: 1em 0 0.5em; }
+tei-p    { display: block; margin-bottom: 1em; }
+
+tei-orig, tei-abbr, tei-sic { display: none; }
+tei-expan tei-ex { font-style: italic; }
+tei-unclear { text-decoration: underline dotted; }
+</code></pre>
+<p>Compare these rules with Tuesday's <code>reading.css</code>. They are almost identical. Where Tuesday's selector was <code>.orig</code>, a class you wrote by hand, today's is <code>tei-orig</code>, an element CETEIcean wrote. The selector <code>tei-expan tei-ex</code> means an <code>&lt;ex&gt;</code> anywhere inside an <code>&lt;expan&gt;</code>, just like Tuesday's <code>.expan .ex</code>.</p>
+<p>Notice the first two rules. On Tuesday and in your XSLT, a TEI <code>&lt;p&gt;</code> became an HTML <code>&lt;p&gt;</code>, which browsers already display as a block. Here nothing is automatic. If your file uses <code>&lt;closer&gt;</code>, <code>&lt;salute&gt;</code>, list items or table rows, each needs a <code>display</code> rule too, or it will run into its neighbours.</p>
+<p><strong>Vocabulary.</strong> <em>Inline element</em> — An element that flows within a line of text, like a word, rather than starting a new line. <em>Descendant selector</em> — A CSS selector with a space, such as <code>tei-expan tei-ex</code>, matching one element inside another.</p>
+<p><strong>Takeaway:</strong> Browsers display custom elements inline, so your CSS must make every structural <code>tei-</code> element a block, and the layer rules are Tuesday's rules with <code>tei-</code> names.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Styling tei- Elements: The Reading View</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Your CETEIcean page shows all your paragraphs and headings run together in one stream. Why?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Browsers display custom elements inline, so your CSS must make every structural &lt;code&gt;tei-&lt;/code&gt; element a block, and the layer rules are Tuesday's rules with &lt;code&gt;tei-&lt;/code&gt; names.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Browsers display custom elements inline, so &lt;code&gt;tei-p&lt;/code&gt; and &lt;code&gt;tei-head&lt;/code&gt; need &lt;code&gt;display: block&lt;/code&gt; in your CSS.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Nothing is automatic for tei- elements; every structural element needs a display rule.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;CETEIcean deletes paragraph breaks from the TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The structure is kept; the browser just does not know how to display it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Your TEI file has no &amp;lt;p&amp;gt; elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The elements are there as tei-p; they lack a display rule.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The local web server strips line breaks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The server delivers the file unchanged.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: The Diplomatic View and the Empty Gap</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Diplomatic View and the Empty Gap</h3>
+<p>The diplomatic view in CETEIcean follows the same pattern. Save this as <code>rendering/cetei-diplomatic.css</code>, and change the <code>&lt;link&gt;</code> in a copy of your page, <code>ceteicean-diplomatic.html</code>, to point to it:</p>
+<pre><code class="language-css">tei-head { display: block; font-size: 1.4em; font-weight: bold; }
+tei-p    { display: block; }
+
+tei-reg, tei-expan, tei-corr { display: none; }
+tei-lb::before { content: &quot;\A&quot; attr(n) &quot;  &quot;; white-space: pre; color: #666; }
+tei-hi[rend=&quot;sup&quot;] { vertical-align: super; font-size: 0.75em; }
+tei-unclear { text-decoration: underline dotted; }
+</code></pre>
+<p>The line-break rule is Tuesday's rule with one change: the line number now comes from the <code>n</code> attribute, which CETEIcean kept, rather than from a <code>data-n</code> you typed.</p>
+<p>Now find a gap in your document. It is not there. Your <code>&lt;gap/&gt;</code> became an empty <code>&lt;tei-gap&gt;</code>, and an empty element shows nothing. This is the CETEIcean version of the problem from section 07, and you must fix it with a <strong>behavior</strong>: a rule, written in JavaScript, that CETEIcean applies to every element of a kind. Add one line before <code>getHTML5</code> in both pages:</p>
+<pre><code class="language-javascript">c.addBehaviors({ tei: { gap: [&quot;[…]&quot;] } });
+</code></pre>
+<p>This puts real brackets inside every <code>&lt;tei-gap&gt;</code>, as text that can be copied and read aloud. To show the reason and extent as well, a longer behavior can read the attributes; for today, record in <code>RENDERING.md</code> that CETEIcean's gaps carry brackets only.</p>
+<p><strong>Vocabulary.</strong> <em>Behavior</em> — In CETEIcean, a JavaScript rule that changes how every element of one kind is displayed. <em>Empty element</em> — An element with no content, such as <code>&lt;gap/&gt;</code> or <code>&lt;lb/&gt;</code>, which displays nothing unless a rule supplies something.</p>
+<p><strong>Takeaway:</strong> The diplomatic CSS reuses Tuesday's rules with <code>tei-</code> names and the kept <code>n</code> attribute; an empty <code>&lt;gap/&gt;</code> shows nothing until a behavior puts real brackets inside it.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: The Diplomatic View and the Empty Gap</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do you make gaps visible in a CETEIcean page?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The diplomatic CSS reuses Tuesday's rules with &lt;code&gt;tei-&lt;/code&gt; names and the kept &lt;code&gt;n&lt;/code&gt; attribute; an empty &lt;code&gt;&amp;lt;gap/&amp;gt;&lt;/code&gt; shows nothing until a behavior puts real brackets inside it.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Add a behavior, such as &lt;code&gt;c.addBehaviors({ tei: { gap: ["[…]"] } })&lt;/code&gt;, which puts real brackets inside every tei-gap.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. An empty element shows nothing until a behavior gives it content.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Nothing is needed; CETEIcean shows gaps automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. An empty tei-gap displays nothing by default.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Write the brackets into your TEI file in place of &amp;lt;gap/&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. That would damage the encoding to fix a display problem.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Set &lt;code&gt;tei-gap { display: block; }&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. An empty block is still empty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: XSLT or CETEIcean?</text></name><questiontext format="html"><text><![CDATA[
+<h3>XSLT or CETEIcean?</h3>
+<p>You have now rendered your file both ways. Which should your edition use in December? The answer depends on your readers and on what you want to maintain.</p>
+<table>
+  <thead>
+    <tr><th>Question</th><th>XSLT</th><th>CETEIcean</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Does the page work without JavaScript?</td><td>Yes, it is plain HTML</td><td>No</td></tr>
+    <tr><td>Can readers download your TEI?</td><td>Only if you publish it separately</td><td>Yes, the page is built from it</td></tr>
+    <tr><td>Where do I change a decision?</td><td>The stylesheet, then run it again</td><td>The CSS, then refresh</td></tr>
+    <tr><td>What happens to an element I forgot?</td><td>Its text falls through; empty ones vanish</td><td>It shows inline as plain text; empty ones vanish</td></tr>
+    <tr><td>Can it pick one layer at build time?</td><td>Yes</td><td>No; both layers are always in the page</td></tr>
+  </tbody>
+</table>
+
+<p>There is also a third route you will meet in December: ready-made edition viewers. One Italian research project built its digital editions, including two texts surviving in a single manuscript, with a ready-made viewer called EVT, Edition Visualization Technology (Lazzerini &amp; Di Franco, 2026). Viewers like EVT offer facsimile and text side by side with little coding, but, like generic stylesheets, they bring their own decisions.</p>
+<p>For a single document in this course, either of today's routes is sound. Choose the one whose rules you can read and maintain, and record your choice and its reason in <code>RENDERING.md</code>.</p>
+<p><strong>Vocabulary.</strong> <em>Maintenance</em> — The ongoing work of keeping an edition correct and working as files and tools change. <em>Edition viewer</em> — Ready-made software that displays TEI editions, often with images, through a fixed interface.</p>
+<p><strong>Takeaway:</strong> XSLT gives plain HTML with one layer chosen in advance; CETEIcean keeps your TEI in the page with every decision in CSS; choose the one you can maintain and record why.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: XSLT or CETEIcean?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;A reader's browser has JavaScript turned off. Which route still shows your edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;XSLT gives plain HTML with one layer chosen in advance; CETEIcean keeps your TEI in the page with every decision in CSS; choose the one you can maintain and record why.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;XSLT, because its output is plain HTML that needs no script.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. CETEIcean builds the page with JavaScript, so it shows nothing without it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;CETEIcean, because it uses the TEI file directly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CETEIcean is itself JavaScript.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Both, because neither uses JavaScript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. CETEIcean depends on JavaScript.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Neither, because all web pages need JavaScript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Plain HTML and CSS work without it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Print Stylesheets</text></name><questiontext format="html"><text><![CDATA[
+<h3>Print Stylesheets</h3>
+<p>Some readers will print your edition, and many will save it as a PDF. A page designed for a screen does not always survive the trip to paper. Tooltips disappear, links cannot be clicked, and a heading can be stranded at the bottom of a page with its text on the next.</p>
+<p>CSS lets you write rules that apply only when printing, inside an <code>@media print</code> block. Add this to the end of your <code>reading.css</code>:</p>
+<pre><code class="language-css">@media print {
+  .gap-info { display: inline; }
+  h2 { break-after: avoid; }
+  @page { margin: 2cm; }
+}
+</code></pre>
+<p>The first rule is the payoff from section 15. On screen, the <code>gap-info</code> text stays hidden behind the tooltip; on paper, the same real text appears inside the brackets, so a printed gap reads <em>[… 2 word(s), damage]</em>. Nothing was added by CSS; the words were in the HTML all along, and the print rule merely shows them. That keeps faith with Tuesday's section 24.</p>
+<p>The second rule asks the browser not to break a page directly after a heading. The <code>@page</code> rule sets the paper margins.</p>
+<p>To test, open your generated reading page and choose Print in your browser. The preview shows exactly what the print rules do. Check every gap, every unclear reading and every italic expansion. If any editorial mark depends on colour, it will now be grey or invisible, and your print rules should give it another form.</p>
+<p><strong>Vocabulary.</strong> <em><code>@media print</code></em> — A CSS block whose rules apply only when a page is printed or saved as a PDF. <em>Print preview</em> — The browser's display of how a page will look on paper, before printing.</p>
+<p><strong>Takeaway:</strong> Put print-only rules inside <code>@media print</code>, reveal on paper the gap details that tooltips carry on screen, and check every editorial mark in the print preview.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Print Stylesheets</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why does the print rule show the hidden &lt;code&gt;gap-info&lt;/code&gt; text instead of adding the gap details with CSS &lt;code&gt;content&lt;/code&gt;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Put print-only rules inside &lt;code&gt;@media print&lt;/code&gt;, reveal on paper the gap details that tooltips carry on screen, and check every editorial mark in the print preview.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the details are real text already in the HTML; the print rule only shows them, so they can be copied and read aloud.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editorial meaning belongs in the HTML; CSS only changes whether it is visible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because CSS cannot be used when printing.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. &lt;code&gt;@media print&lt;/code&gt; rules are CSS.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because tooltips print automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tooltips never appear on paper, which is the problem being solved.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because &lt;code&gt;gap-info&lt;/code&gt; is required by the TEI Guidelines.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. It is a class name chosen in the stylesheet.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: From Page to PDF</text></name><questiontext format="html"><text><![CDATA[
+<h3>From Page to PDF</h3>
+<p>The quickest PDF of your edition comes from the browser itself. Open a generated view, choose Print, and select Save as PDF as the destination. Your print stylesheet controls the result. For a short document with clean print rules, this is a respectable PDF.</p>
+<p>XSLT can also produce formatting objects, an intermediate format that other software turns into PDF (Bausi et al., 2015). That route gives fine control over page layout, footnotes and running heads, and large print-oriented projects use it. It is also a substantial skill of its own, and you will not need it for this course.</p>
+<p>The deeper point is that the PDF is one more view generated from the same source. Different views of the same encoded text can be generated on demand by the reader (Pierazzo, 2016). A reading view on screen, a diplomatic view on screen, and a printed reading view are three outputs of one TEI file and a handful of rules. None of them is the edition; the edition is the encoded file and the decisions that render it.</p>
+<p>This matters for the Print-Ready Publication you will submit in December. Your PDF will be judged on whether it carries out documented decisions faithfully, not on whether it was made with expensive software. Today's stylesheets, print rules and <code>RENDERING.md</code> are the start of that submission.</p>
+<p><strong>Vocabulary.</strong> <em>XSL-FO</em> — Extensible Stylesheet Language Formatting Objects, an XML format describing printed pages, which software converts to PDF. <em>Output</em> — One generated form of an edition, such as a web page or a PDF.</p>
+<p><strong>Takeaway:</strong> The browser's Save as PDF with a good print stylesheet makes a sound PDF; it is one more view of the same source, and this week's work feeds directly into the Print-Ready Publication.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: From Page to PDF</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;According to the lesson, what is the PDF of your edition?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The browser's Save as PDF with a good print stylesheet makes a sound PDF; it is one more view of the same source, and this week's work feeds directly into the Print-Ready Publication.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;One more view generated from the same TEI source and rules, alongside the reading and diplomatic views on screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. None of the outputs is the edition; the edition is the encoded file and the decisions that render it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The authoritative edition, which replaces the TEI file.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The TEI remains the source; the PDF is an output.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Something that can only be made with XSL-FO software.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The browser's Save as PDF with a print stylesheet is a sound route.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A file that must be edited by hand after export.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editing the PDF by hand would break the link to your rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Worked Example: The 1791 Decree by XSLT</text></name><questiontext format="html"><text><![CDATA[
+<h3>Worked Example: The 1791 Decree by XSLT</h3>
+<p>Ace's decree shows how the stylesheets handle a French text. Suppose one illustrative line of the TEI reads:</p>
+<pre><code class="language-xml">&lt;lb n=&quot;4&quot;/&gt;qui &lt;choice&gt;&lt;orig&gt;étoient&lt;/orig&gt;&lt;reg&gt;étaient&lt;/reg&gt;&lt;/choice&gt; réunis
+</code></pre>
+<p>The reading stylesheet chooses <code>&lt;reg&gt;</code> and writes:</p>
+<pre><code class="language-html">qui &lt;span class=&quot;reg&quot;&gt;étaient&lt;/span&gt; réunis
+</code></pre>
+<p>The diplomatic stylesheet chooses <code>&lt;orig&gt;</code> and writes a numbered line reading <em>qui étoient réunis</em>.</p>
+<p>Three adjustments make the stylesheets right for Ace's file. First, change <code>&lt;html lang="en"&gt;</code> in the page shell to <code>&lt;html lang="fr"&gt;</code>, because the page is French. Second, keep <code>encoding="utf-8"</code> in <code>xsl:output</code> and <code>&lt;meta charset="utf-8"/&gt;</code> in the head. Open the result and check every accented letter: <em>é</em>, <em>è</em>, <em>à</em>, <em>ç</em>. If any appears as a pair of strange symbols, one of those two settings is missing. Third, if the decree's divisions are articles or clauses, check that <code>class="{@type}"</code> produced the class names your CSS expects.</p>
+<p>Then do the line-by-line check from Tuesday on ten lines. Every regularized form should appear in the reading view and every original form in the diplomatic view, with nothing glued together and nothing missing.</p>
+<p><strong>Vocabulary.</strong> <em><code>xsl:output</code></em> — The XSLT element that sets the kind of output, such as HTML, and its character encoding. <em>Mojibake</em> — Garbled characters that appear when text is read with the wrong encoding.</p>
+<p><strong>Takeaway:</strong> For a French text, set <code>lang="fr"</code>, keep UTF-8 in both the output setting and the page head, and check every accented letter and every <code>&lt;choice&gt;</code> in both views.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Worked Example: The 1791 Decree by XSLT</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Accented letters in Ace's generated page appear as pairs of strange symbols. What should be checked first?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;For a French text, set &lt;code&gt;lang="fr"&lt;/code&gt;, keep UTF-8 in both the output setting and the page head, and check every accented letter and every &lt;code&gt;&amp;lt;choice&amp;gt;&lt;/code&gt; in both views.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;That &lt;code&gt;xsl:output&lt;/code&gt; has &lt;code&gt;encoding="utf-8"&lt;/code&gt; and the page head has &lt;code&gt;&amp;lt;meta charset="utf-8"/&amp;gt;&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A missing encoding setting is the usual cause of garbled accents.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the page says &lt;code&gt;lang="en"&lt;/code&gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The page should say &lt;code&gt;lang="fr"&lt;/code&gt;, but the language setting does not cause garbled letters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That every &amp;lt;choice&amp;gt; selects &amp;lt;orig&amp;gt;.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Layer choice does not affect how letters are encoded.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;That the decree has no &amp;lt;div&amp;gt; elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Structure has nothing to do with character encoding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Worked Example: The 1752 Treaty in CETEIcean</text></name><questiontext format="html"><text><![CDATA[
+<h3>Worked Example: The 1752 Treaty in CETEIcean</h3>
+<p>Andromeda's treaty shows the CETEIcean route. Take the illustrative lines from Tuesday, now with a damaged word:</p>
+<pre><code class="language-xml">&lt;lb n=&quot;11&quot;/&gt;That the &lt;choice&gt;&lt;abbr&gt;Gov&lt;hi rend=&quot;sup&quot;&gt;r&lt;/hi&gt;&lt;/abbr&gt;&lt;expan&gt;Gov&lt;ex&gt;erno&lt;/ex&gt;r&lt;/expan&gt;&lt;/choice&gt;
+&lt;lb n=&quot;12&quot;/&gt;and &lt;choice&gt;&lt;orig&gt;Councill&lt;/orig&gt;&lt;reg&gt;Council&lt;/reg&gt;&lt;/choice&gt; of the Pro-&lt;lb n=&quot;13&quot; break=&quot;no&quot;/&gt;vince
+&lt;lb n=&quot;14&quot;/&gt;shall &lt;unclear&gt;meet&lt;/unclear&gt; &lt;gap reason=&quot;damage&quot; quantity=&quot;2&quot; unit=&quot;word&quot;/&gt; yearly.
+</code></pre>
+<p>With <code>cetei-reading.css</code> and the gap behavior, the reading view runs the lines together as one sentence: That the Gov<em>erno</em>r and Council of the Pro-vince shall meet […] yearly. The word <em>meet</em> carries a dotted underline. With <code>cetei-diplomatic.css</code>, the same file shows four numbered lines: <em>Gov</em> with a raised <em>r</em>, <em>Councill</em> with its double <em>l</em>, and <em>Pro-</em> ending line 12.</p>
+<p>Now look closely at what CETEIcean did not do. The gap shows brackets, but its reason and extent are only in the attributes, invisible on screen and on paper. And if the <code>&lt;lb break="no"/&gt;</code> in your file sits on a new line of the XML, the reading view shows <em>Pro- vince</em>, because CSS cannot remove whitespace the way the XSLT recipe in section 14 did. Each of these is a difference from your decision table, and each goes into <code>RENDERING.md</code>.</p>
+<p>These lines are illustrative. Use the real lines from your own file, and choose at least one that contains a gap or an unclear reading.</p>
+<p><strong>Vocabulary.</strong> <em>Attribute-only information</em> — Data recorded in an element's attributes that no reader sees unless a rule displays it. <em>Fidelity gap</em> — A place where a rendering shows less than the source records.</p>
+<p><strong>Takeaway:</strong> CETEIcean renders the treaty lines in both views with Tuesday's rules, but gap details stay hidden in attributes and split-word whitespace survives; record both against your table.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Worked Example: The 1752 Treaty in CETEIcean</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which difference from the decision table does the CETEIcean treaty example reveal?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CETEIcean renders the treaty lines in both views with Tuesday's rules, but gap details stay hidden in attributes and split-word whitespace survives; record both against your table.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Gap reasons and extents stay hidden in attributes, and split-word whitespace can survive as a stray space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Both are fidelity gaps to record in &lt;code&gt;RENDERING.md&lt;/code&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The regularized spellings are lost entirely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both layers are in the page; CSS chooses which to show.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Line numbers cannot be shown at all.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The diplomatic CSS shows them from the kept &lt;code&gt;n&lt;/code&gt; attribute.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Unclear readings are deleted.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. tei-unclear is styled with a dotted underline.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: The Fidelity Audit: Tool Error or Undecided Decision?</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Fidelity Audit: Tool Error or Undecided Decision?</h3>
+<p>Every difference between a generated page and Tuesday's page has one of two causes, and sorting them is today's most important task.</p>
+<p>A <strong>tool error</strong> is a place where your decision was clear but the rule failed to carry it out. The namespace prefix was missing; a template selected the wrong child; a gap had no template and vanished. The fix is in the stylesheet or the CSS.</p>
+<p>An <strong>undecided decision</strong> is a place where the tool met something your table never addressed. Perhaps your file contains a <code>&lt;hi rend="underline"&gt;</code> you never mentioned, or a <code>&lt;note&gt;</code> that appears on line 30, beyond the ten lines you rendered by hand. The rule had to do something, and whatever it did was not your choice. The fix is in <code>RENDERING.md</code> first: make the decision, then write the rule.</p>
+<table>
+  <thead>
+    <tr><th>What you see</th><th>Likely cause</th><th>Where to fix it</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Both layers glued together</td><td>Tool error: missing prefix or template</td><td>Stylesheet</td></tr>
+    <tr><td>A gap or line break missing</td><td>Tool error: no template or behavior for an empty element</td><td>Stylesheet or behavior</td></tr>
+    <tr><td>Words from an element you never listed</td><td>Undecided decision</td><td><code>RENDERING.md</code>, then the rule</td></tr>
+    <tr><td>Header text at the top of the page</td><td>Tool error: body not selected</td><td>Page shell</td></tr>
+  </tbody>
+</table>
+
+<p>Run a quick search to catch undecided elements. Open your TEI file in VS Code, list every element name inside <code>&lt;body&gt;</code>, and tick each one off against your table. Any element without a row is undecided, however the tool happened to display it.</p>
+<p><strong>Vocabulary.</strong> <em>Tool error</em> — A failure of a rule to carry out a clear, recorded decision. <em>Undecided decision</em> — A case the decision table never addressed, so that a tool's default chose instead of the editor.</p>
+<p><strong>Takeaway:</strong> Sort every difference into a tool error, fixed in the rule, or an undecided decision, fixed first in <code>RENDERING.md</code>; a tool's default is never an editorial decision.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: The Fidelity Audit: Tool Error or Undecided Decision?</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;The generated page shows the text of a &amp;lt;note&amp;gt; on line 30 as plain words, and your &lt;code&gt;RENDERING.md&lt;/code&gt; never mentions &amp;lt;note&amp;gt;. What kind of problem is this, and where is it fixed first?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Sort every difference into a tool error, fixed in the rule, or an undecided decision, fixed first in &lt;code&gt;RENDERING.md&lt;/code&gt;; a tool's default is never an editorial decision.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;An undecided decision; decide in &lt;code&gt;RENDERING.md&lt;/code&gt; how notes should appear, then write the rule.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The tool's default chose for you; a default is never an editorial decision.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A tool error; fix the stylesheet and leave &lt;code&gt;RENDERING.md&lt;/code&gt; alone.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The rule could not carry out a decision that was never made.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;No problem; the tool's output is acceptable as it stands.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Whatever the tool did was not your choice.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A transcription error; delete the &amp;lt;note&amp;gt; from the TEI.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The encoding is fine; the rendering decision is missing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Hypothetical Scenario: The Vanishing Gap</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hypothetical Scenario: The Vanishing Gap</h3>
+<p><em>This scenario is invented to illustrate the risk; it describes no real person or edition.</em></p>
+<p>An editor publishes an online reading text of a damaged eighteenth-century letter. The stylesheet was adapted from a colleague's project, which had no damaged documents and so no template for <code>&lt;gap/&gt;</code>. The page looks clean and complete.</p>
+<p>A historian quotes a sentence from it in an article, arguing that the writer made a promise without conditions. A reviewer later checks the manuscript and finds a hole in the paper exactly where a condition might have stood. The TEI file recorded it correctly, with a <code>&lt;gap reason="damage" quantity="3" unit="word"/&gt;</code>. The rendering dropped it silently, because an empty element with no template produces nothing.</p>
+<p>No one was careless with the evidence. The transcription was right, and the encoding was right. The failure was a missing rule, and it went unnoticed because nobody compared the rendered page against the source, element by element.</p>
+<p>Ask yourself how this week's steps would have caught it. Tuesday's decision table would have listed <code>&lt;gap/&gt;</code> as an element that must show in both views. Today's audit would have found that the generated page had fewer brackets than the TEI had gaps. A simple count, gaps in the file against brackets on the page, takes a minute.</p>
+<p><strong>Vocabulary.</strong> <em>Silent failure</em> — An error that produces no warning and leaves output that looks correct. <em>Count check</em> — Comparing the number of occurrences of an element in the source with the number of marks in the rendering.</p>
+<p><strong>Takeaway:</strong> An empty element with no rule disappears without warning; counting each element in the TEI against its marks on the page catches the loss.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Hypothetical Scenario: The Vanishing Gap</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which quick check would have caught the vanishing gap in the scenario?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;An empty element with no rule disappears without warning; counting each element in the TEI against its marks on the page catches the loss.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Counting the &amp;lt;gap/&amp;gt; elements in the TEI against the brackets on the rendered page.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A count check takes a minute and catches silent losses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Validating the TEI file against the schema.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The TEI was valid; the loss happened in the rendering.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Checking that the page looked clean.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A clean look was exactly what hid the problem.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Running the stylesheet a second time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A deterministic stylesheet would drop the gap again.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Review and Step 2 Checklist</text></name><questiontext format="html"><text><![CDATA[
+<h3>Review and Step 2 Checklist</h3>
+<p>Today you turned your decision table into rules and rendered your whole document twice, once by XSLT and once by CETEIcean. You also learned where each route fails silently, and you compared both against the page you made by hand.</p>
+<p>Before you leave, confirm each item below:</p>
+<ol>
+  <li><strong>XSLT stylesheets:</strong> Do <code>rendering/reading.xsl</code> and <code>rendering/diplomatic.xsl</code> use the <code>tei:</code> prefix, select only the <code>&lt;body&gt;</code>, and have a template for every element in your decision table?</li>
+  <li><strong>Generated pages:</strong> Do <code>reading-auto.html</code> and <code>diplomatic-auto.html</code> show your whole document, with the correct <code>charset</code> and <code>lang</code>, and link to each other?</li>
+  <li><strong>CETEIcean pages:</strong> Do both CETEIcean views load through a local server, with every structural element displayed as a block and every gap showing brackets?</li>
+  <li><strong>Print rules:</strong> Does the print preview of your reading view show gap details as text and keep every editorial mark visible without colour?</li>
+  <li><strong>Audit recorded:</strong> Does <code>RENDERING.md</code> list each difference from Tuesday's page as a tool error or an undecided decision, with what you did about it?</li>
+  <li><strong>Count check:</strong> Do the numbers of gaps, unclear readings and <code>&lt;choice&gt;</code> elements in your TEI match the marks in each generated view?</li>
+  <li><strong>Committed:</strong> Are <code>render.py</code>, the stylesheets, the CETEIcean pages and the updated <code>RENDERING.md</code> committed in clearly described commits?</li>
+</ol>
+
+<p>On Friday you will ask an AI model to write a stylesheet for the same file, and audit its output against Tuesday's page and today's rules, element by element.</p>
+<p><strong>Vocabulary.</strong> <em>Step 2 milestone</em> — The completed rule-based rendering and audit, fixed as the second point of comparison for Friday.</p>
+<p><strong>Takeaway:</strong> Completing Step 2 gives you runnable rules that render your whole document in both views, and an audit that separates tool errors from decisions you had not yet made.</p>
+<hr />
+<h2>References</h2>
+<p>Bausi, A., Borbone, P. G., Briquel-Chatonnet, F., Buzi, P., Gippert, J., Macé, C., Maniaci, M., Melissakis, Z., Parodi, L. E., &amp; Witakowski, W. (Eds.). (2015). <em>Comparative oriental manuscript studies: An introduction</em>. COMSt.</p>
+<p>Clausen, H., Brenner, S., Schreiner, M., &amp; Vetter, W. (2026). Multimodal manuscript representation: Toward an open repository for manuscript research data. <em>The European Physical Journal Plus, 141</em>, 445. https://doi.org/10.1140/epjp/s13360-025-07133-y</p>
+<p>Faghihi, Y., Holford, M., &amp; Jones, H. (2022). Teaching the Text Encoding Initiative: Context, community and collaboration. <em>Journal of Open Humanities Data, 8</em>, 15. https://doi.org/10.5334/johd.72</p>
+<p>Lazzerini, F., &amp; Di Franco, M. (2026). Creating a digital critical edition of a classical text with XML/TEI. <em>Umanistica Digitale, 23</em>. https://doi.org/10.60923/issn.2532-8816/23486</p>
+<p>Pierazzo, E. (2016). Modelling digital scholarly editing: From Plato to Heraclitus. In M. J. Driscoll &amp; E. Pierazzo (Eds.), <em>Digital scholarly editing: Theories and practices</em> (pp. 41–58). Open Book Publishers. https://doi.org/10.11647/OBP.0095.03</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Review and Step 2 Checklist</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What does completing Step 2 give you for Friday?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Completing Step 2 gives you runnable rules that render your whole document in both views, and an audit that separates tool errors from decisions you had not yet made.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Runnable rules that render the whole document in both views, and an audit separating tool errors from decisions not yet made.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. On Friday an AI-written stylesheet will be audited against Tuesday's page and today's rules.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A finished, final edition that needs no further changes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The rendering will keep changing as your TEI and decisions develop.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A replacement for Tuesday's decision table.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The rules carry out the table; they do not replace it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A PDF ready for submission.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The Print-Ready Publication is due in December; today only starts it.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>
