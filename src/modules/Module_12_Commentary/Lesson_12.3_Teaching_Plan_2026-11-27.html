@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 12.3 Teaching Plan (2026-11-27)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #33 (Lesson 12.3 &mdash; AI-Assisted Commentary Drafting &amp; Philological Vetting)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, November 27, 2026</span>
+                <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 12 (Commentary) &middot; Meeting 3 of 3</span>
+                <span class="badge">Milestone: AI Drafting, Negative Constraints, &amp; Three-Way Comparative Audit</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students authored manual commentary notes on Tuesday (establishing baseline ground truth) and tested rule-based text reuse algorithms on Wednesday. Today they evaluate generative AI models as drafting assistants. Students must understand that while models draft fluent prose rapidly, they operate statistically and can fabricate citations, hallucinate non-existent treaty clauses, or introduce modern anachronisms.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student prompts an AI model using structured negative constraints, conducts a forensic hallucination hunt on generated outputs, audits candidate notes against primary witnesses, records editorial decisions in <code>COMMENTARY.md</code>, and integrates vetted notes into TEI <code>&lt;standOff&gt;</code> with explicit <code>@resp</code> provenance.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Joni Mitchell, &ldquo;Both Sides, Now&rdquo;</strong> (1969, Reprise). A meditative reflection on illusions, shifting perspectives, and seeing reality from both sides.</li>
+            <li><strong>Pedagogical connection:</strong> Evaluating commentary requires looking from both sides: celebrating computational power while maintaining sharp human skepticism against generative illusions.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;On Tuesday, you wrote notes with careful human hands. On Wednesday, algorithms scanned words mechanically. Today, we invite artificial intelligence into the scriptorium. AI writes with astonishing speed and fluency, but like looking at clouds from both sides, its smooth prose can hide illusions and fabricated facts. Today, you are the forensic editor who holds the model accountable.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE COMMENTARY DIRECTIVE: HUMAN-IN-THE-LOOP FORENSIC AUDITING</h3>
+        <p>A digital edition is not an uncritical echo of machine-generated text. Every AI draft must pass through a strict four-step forensic audit (quotations, entities, citations, and XML anchors) before being admitted into a scholarly edition.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Zero trust for unvetted citations:</strong> Never accept a book title, volume number, or archival shelfmark without verifying it in primary library catalogs.<br>
+        <strong>2. Negative prompt constraints mandatory:</strong> Every prompt must explicitly forbid invented citations and demand <code>[UNVERIFIED]</code> flags for uncertain claims.<br>
+        <strong>3. Maintain transparent provenance:</strong> Always mark machine-generated notes with <code>resp="#ai-draft"</code> and human editors with <code>resp="#human-editor"</code>.<br>
+        <strong>4. The COMMENTARY.md ledger:</strong> Every student must maintain an audit ledger documenting decisions (Accept, Revise, Reject, Flag).<br>
+        <strong>5. Assignment 12 due date:</strong> Assignment 12 (Scholarly Commentary, 80 points) is due Friday, December 4 at 11:00 PM.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">9:30 &ndash; 9:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>The AI Assistant in Textual Scholarship</td>
+                <td class="desc-col">
+                    Welcome students. Frame Step 3 of the comparative cycle.<br>
+                    Contrast semantic inference with Wednesday's rule-based lexical matching.<br>
+                    Define the epistemic boundary: broad public context vs. unique local archival witnesses.
+                </td>
+                <td class="target-col">Step 3 framed; epistemic boundaries established</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:36 &ndash; 9:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Structured Prompts &amp; Negative Constraints</td>
+                <td class="desc-col">
+                    Demonstrate on projector: prompting inside VS Code for historical commentary.<br>
+                    Show the difference between a sloppy open prompt and a constrained system prompt.<br>
+                    Illustrate negative guardrails: forbidding invented citations and demanding <code>[UNVERIFIED]</code> flags.
+                </td>
+                <td class="target-col">Projector demo of structured prompt engineering</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:46 &ndash; 9:58<br>(12 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>The Hallucination Hunt</td>
+                <td class="desc-col">
+                    Students run structured prompts on their primary witness in VS Code.<br>
+                    Students conduct a forensic fact-checking audit: checking dates, names, and cited volumes.<br>
+                    Instructor circulates to help students identify subtle hallucinations and anachronisms.
+                </td>
+                <td class="target-col">Unvetted drafts generated; hallucinations caught</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:58 &ndash; 10:12<br>(14 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>Three-Way Comparative Audit</td>
+                <td class="desc-col">
+                    Students populate the Three-Way Comparative Audit Matrix in <code>COMMENTARY.md</code>.<br>
+                    Compare Manual (Tue) vs Deterministic (Wed) vs AI-Assisted (Fri) across precision, speed, and error profile.<br>
+                    Convert vetted notes to TEI <code>&lt;standOff&gt;</code> XML with <code>@resp</code> provenance.
+                </td>
+                <td class="target-col"><code>COMMENTARY.md</code> ledger updated; TEI XML saved</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:12 &ndash; 10:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Editorial Agency &amp; Assignment 12 Launch</td>
+                <td class="desc-col">
+                    Summarize the week: manual precision, algorithmic scale, and vetted AI synthesis.<br>
+                    Review the Assignment 12 grading rubric (4+3+3: 40% Ground Truth, 30% TEI Standoff, 30% Comparative Ledger).<br>
+                    Remind students of the due date: Friday, December 4 at 11:00 PM.
+                </td>
+                <td class="target-col">Synthesis complete; Assignment 12 launched</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Prompt for historical context on paper <em>assignats</em>, 5-livre currency shortages, and National Assembly committees; vet French legal terminology (<em>cours forcé</em>) against 18th-century revolutionary usage.</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> Prompt for Digby local history, 1960s painting prices, and correspondent Leonard Kinnear; enforce strict guardrails preventing the model from confusing private mail with commercial art gallery exhibitions.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Prompt for diplomatic negotiations between Governor Peregrine Hopson and Chief Jean-Baptiste Cope; enforce negative constraints forbidding 21st-century court citations; catch hallucinations regarding non-existent treaty articles.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

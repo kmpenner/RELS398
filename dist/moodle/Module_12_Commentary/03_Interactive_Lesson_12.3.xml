@@ -1,0 +1,2051 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_12.3</text></category></question>
+<question type="description"><name><text>01 Content: Entering Step 3: AI-Assisted Commentary Drafting</text></name><questiontext format="html"><text><![CDATA[
+<h3>Entering Step 3: AI-Assisted Commentary Drafting</h3>
+<p>This week we have examined how editors build scholarly commentary for historical documents. On Tuesday, you drafted notes by hand. You identified linguistic puzzles, historical people, and literary echoes in your text. On Wednesday, you explored rule-based algorithms. You tested stoplists, phrase matching, and W3C Web Annotation links.</p>
+<p>Today is Friday, Meeting #33. We arrive at Step 3 of our comparative cycle: <strong>artificial intelligence</strong>.</p>
+<p>Large language models (such as Claude and Gemini) can draft commentary notes quickly. Unlike simple keyword matching, AI models understand syntax and semantic meaning. They can summarize complex historical context, translate archaic phrasing, and draft explanatory paragraphs in seconds.</p>
+<p>However, computational speed introduces serious editorial hazards. Language models predict plausible words based on statistical patterns. They do not consult verified archives unless we guide them. They can fabricate citations, misinterpret legal terms, and smooth away real historical difficulties.</p>
+<p>Today you will evaluate AI models as drafting assistants. You will test their suggestions against your Tuesday manual notes and Wednesday rule-based results.</p>
+<p><strong>Vocabulary.</strong> <em>Generative AI</em> — computational models that generate text by predicting probable words from training data. <em>Human-in-the-Loop (HITL)</em> — an editorial workflow where human scholars review and approve every automated proposal.</p>
+<p><strong>Takeaway:</strong> AI models generate commentary quickly through semantic inference, but human editors must verify every claim against primary sources.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: Entering Step 3: AI-Assisted Commentary Drafting</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must human editors audit commentary notes drafted by generative AI models?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models generate commentary quickly through semantic inference, but human editors must verify every claim against primary sources.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because AI models predict words based on statistical patterns and can fabricate citations unless checked against primary sources.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Language models predict plausible text but do not inherently know whether historical claims or citations are true.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because AI models cannot generate English sentences grammatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Modern AI models write fluent, highly grammatical prose; the danger is factual inaccuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the TEI guidelines strictly forbid computers from drafting XML.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI markup supports recording computational provenance through the @resp attribute.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because AI models run too slowly to produce useful drafts in a classroom.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Generative models produce drafts in seconds; speed is their main advantage.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: Semantic Inference vs Lexical Matching</text></name><questiontext format="html"><text><![CDATA[
+<h3>Semantic Inference vs Lexical Matching</h3>
+<p>To understand AI commentary, we must contrast <strong>lexical matching</strong> with <strong>semantic inference</strong>:</p>
+<ul>
+  <li><strong>Lexical Matching (Wednesday):</strong> Finds exact words or lemmatized forms. If two documents use different words for the same idea, keyword matching fails.</li>
+  <li><strong>Semantic Inference (Friday):</strong> Models words in high-dimensional vector spaces. The AI recognizes related concepts, synonyms, and thematic motifs even when no words match directly.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Analytical Feature</th>
+      <th>Rule-Based Matching (Wed)</th>
+      <th>AI Semantic Inference (Fri)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Matching Basis</strong></td>
+      <td>Exact character strings and word stems</td>
+      <td>Contextual meanings and thematic associations</td>
+    </tr>
+    <tr>
+      <td><strong>Synonym Handling</strong></td>
+      <td>Blind to synonyms unless manually listed</td>
+      <td>Understands equivalent concepts easily</td>
+    </tr>
+    <tr>
+      <td><strong>Primary Weakness</strong></td>
+      <td>Misses idea paraphrases</td>
+      <td>Invents connections that never existed historically</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For example, consider Andromeda's 1752 Peace and Friendship Treaty. The text mentions "liberty of hunting and fishing." A rule-based search only finds identical legal phrasing. An AI model recognizes idea links to colonial resource rights and Mi'kmaw sovereignty.</p>
+<p><strong>Takeaway:</strong> Semantic inference allows AI models to connect related ideas across different vocabularies, acting as powerful hypothesis generators.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: Semantic Inference vs Lexical Matching</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does AI semantic inference differ from rule-based lexical matching when analyzing historical texts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Semantic inference allows AI models to connect related ideas across different vocabularies, acting as powerful hypothesis generators.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Semantic inference recognizes related concepts, synonyms, and themes even when no exact words are shared.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. By modeling words in high-dimensional vector spaces, AI connects thematic ideas across differing vocabularies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Semantic inference only works on numbers and dates, while lexical matching works on letters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both techniques analyze textual words and phrases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Semantic inference guarantees 100% historical truth with zero errors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Semantic inference is prone to hallucinating connections that never existed.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Lexical matching understands poetic metaphors better than neural networks.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Lexical matching is blind to metaphors unless words match character-for-character.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: AI Capabilities in Commentary Drafting</text></name><questiontext format="html"><text><![CDATA[
+<h3>AI Capabilities in Commentary Drafting</h3>
+<p>When given clear guidelines, modern AI models excel at specific editorial tasks:</p>
+<ul>
+  <li><strong>Drafting Historical Context:</strong> Summarizing background events, political institutions, and social customs of an era.</li>
+  <li><strong>Explaining Technical Terms:</strong> Defining historical legal phrases, archaic units of currency, and specialized trade jargon.</li>
+  <li><strong>Paraphrasing Complex Syntax:</strong> Unpacking convoluted legal clauses into plain language for modern readers.</li>
+  <li><strong>Structuring Data:</strong> Formatting prose notes into structured TEI XML or JSON-LD tags.</li>
+</ul>
+
+<p>Consider our cohort documents:</p>
+<ul>
+  <li><strong>Ace (1791 French Decree):</strong> The model explains the monetary depreciation of paper <em>assignats</em> during the French Revolution.</li>
+  <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> The model identifies folk art terminology, Nova Scotia postal routes, and regional prices in 1967.</li>
+  <li><strong>Andromeda (1752 Treaty):</strong> The model outlines the roles of Governor Peregrine Hopson and Mi'kmaw Chief Jean-Baptiste Cope in Halifax.</li>
+</ul>
+
+<p>The model acts as an eager research assistant. It produces a first draft in seconds, saving hours of initial typing.</p>
+<p><strong>Takeaway:</strong> AI models speed up commentary drafting by providing historical summaries, defining specialized terms, and structuring note metadata.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: AI Capabilities in Commentary Drafting</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which editorial task is an AI assistant best suited to perform when drafting commentary?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models speed up commentary drafting by providing historical summaries, defining specialized terms, and structuring note metadata.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Summarizing broad historical context, explaining archaic terms, and structuring prose notes into XML templates.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. AI models excel at rapid contextual summarization, term definition, and data formatting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Conducting physical chemical tests on the paper fibers of the manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI software has no physical sensors to test paper fibers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Guaranteeing that archival documents in local libraries will never suffer fire damage.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital software cannot provide physical disaster protection.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Replacing human historians on academic editorial boards.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI is an editorial assistant, not a replacement for human scholarship.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: The Epistemic Hazard: Citation Hallucination</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Epistemic Hazard: Citation Hallucination</h3>
+<p>Despite their fluency, large language models present a major risk: <strong>hallucination</strong>.</p>
+<p>Language models are word-predicting text generators. They predict what word sounds natural next in a sentence. They do not know whether a historical claim is true or false. When asked for evidence, models often invent convincing details:</p>
+<ul>
+  <li><strong>Fabricated Primary Sources:</strong> Citing archive files, treaty articles, or court cases that do not exist.</li>
+  <li><strong>Ghost Citations:</strong> Inventing author names, book titles, volume numbers, and page references that look scholarly but are completely fictitious.</li>
+  <li><strong>False Quotations:</strong> Producing plausible quotations in archaic English or French that never appear in real historical documents.</li>
+</ul>
+
+<p>In ordinary conversation, a minor error may go unnoticed. In a scholarly edition, an invented citation destroys the credibility of your research. A digital edition must be dependable. Readers rely on your notes to understand primary evidence.</p>
+<p><strong>Vocabulary.</strong> <em>Hallucination</em> — a phenomenon where an AI model generates false information, citations, or quotations while sounding confident and authoritative. <em>Epistemic integrity</em> — the truthfulness and verifiable accuracy of scholarly claims.</p>
+<p><strong>Takeaway:</strong> Because AI models predict words statistically, they can fabricate citations and historical evidence that appear completely genuine.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: The Epistemic Hazard: Citation Hallucination</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is citation hallucination in generative AI commentary?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Because AI models predict words statistically, they can fabricate citations and historical evidence that appear completely genuine.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The fabrication of non-existent primary sources, book titles, archive references, or volume numbers that appear genuine.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Because models predict plausible-sounding words, they frequently invent realistic citations that do not exist.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;A technical glitch that deletes the user's hard drive during an AI query.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hallucination refers to generating false textual information, not disk formatting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When an AI model translates French text into Italian instead of English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Language confusion is a translation error, not citation fabrication.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When a scanner misreads a letter due to low optical resolution.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Optical character misrecognition is an OCR scanning error.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Cohort Hallucination Audit: Treaty Clauses and Maud Lewis</text></name><questiontext format="html"><text><![CDATA[
+<h3>Cohort Hallucination Audit: Treaty Clauses and Maud Lewis</h3>
+<p>Let us examine real examples of model hallucinations from our three student projects.</p>
+<p>When asked to provide historical notes for Andromeda's 1752 Treaty, an unconstrained model claimed:</p>
+<p>
+<em>"Article 9 of the 1752 Treaty specifies that all trade disputes shall be adjudicated before the Court of Admiralty in Boston."</em>
+</p>
+
+<p>This claim sounds official. But the 1752 Treaty contains only eight articles. Article 9 does not exist. Furthermore, trade disputes were managed in Halifax, not Boston. The model hallucinated the clause by blending details from older colonial records.</p>
+<p>Similarly, when asked about Olyvia's 1967 letter from Maud Lewis to Leonard Kinnear, a model asserted:</p>
+<p>
+<em>"Leonard Kinnear was a prominent art dealer in Montreal who hosted Lewis's first solo gallery exhibition in November 1966."</em>
+</p>
+
+<p>This statement is entirely false. Leonard Kinnear was an amateur collector from New Brunswick who corresponded with Maud Lewis by mail. Maud Lewis never had a solo gallery show in Montreal in 1966.</p>
+<p><strong>Takeaway:</strong> Never accept AI claims about archival people or legal articles without checking the primary documents directly.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Cohort Hallucination Audit: Treaty Clauses and Maud Lewis</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did the AI model hallucinate an 'Article 9' when prompted about Andromeda's 1752 Peace and Friendship Treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Never accept AI claims about archival people or legal articles without checking the primary documents directly.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the model blended patterns from other colonial records, failing to recognize that the 1752 treaty contains only eight articles.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The model generated plausible colonial legal language without checking the primary document's eight-article boundary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the 1752 Treaty was written in modern French.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The 1752 Halifax treaty was composed in English.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the Nova Scotia Archives removed Article 9 in 2020.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The historical 1752 manuscript has always consisted of eight articles.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because AI models refuse to read treaties written before 1800.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models process texts from all historical eras.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Historical Anachronism and Conceptual Flattening</text></name><questiontext format="html"><text><![CDATA[
+<h3>Historical Anachronism and Conceptual Flattening</h3>
+<p>A second major danger is <strong>anachronism</strong>. AI models are trained mostly on modern internet text. As a result, they frequently project modern concepts onto historical documents:</p>
+<ul>
+  <li><strong>Modern Legal Definitions:</strong> Interpreting 18th-century treaties using 21st-century contract law concepts.</li>
+  <li><strong>Modern Economic Concepts:</strong> Treating 1791 French <em>assignats</em> like modern fiat currency rather than land-backed revolutionary bonds.</li>
+  <li><strong>Biographical Misunderstandings:</strong> Describing Maud Lewis's folk paintings using modern commercial art marketing terminology.</li>
+</ul>
+
+<p>This tendency causes <strong>idea flattening</strong>. The model erases the unique historical oddities of the past. It replaces strange historical practices with familiar modern ideas.</p>
+<p>Scholarly commentary must highlight the strangeness of the past. It should explain how historical people thought within their own time. When an AI replaces 18th-century concepts with modern clichés, the editor must step in and correct the text.</p>
+<p><strong>Vocabulary.</strong> <em>Anachronism</em> — placing an event, person, or idea in a time period where it does not belong. <em>idea flattening</em> — erasing historical differences by describing past ideas with modern categories.</p>
+<p><strong>Takeaway:</strong> AI models tend to project modern ideas onto historical records, requiring editors to guard against anachronism.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Historical Anachronism and Conceptual Flattening</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is 'conceptual flattening' in AI-generated historical commentary?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models tend to project modern ideas onto historical records, requiring editors to guard against anachronism.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Erasing unique historical differences by explaining past ideas through familiar modern categories.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Conceptual flattening strips away the distinctive historical peculiarities of 18th-century practices.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Compressing an image file into a low-resolution JPEG.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Conceptual flattening is an intellectual distortion of historical ideas, not image compression.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ironing a wrinkled parchment page before photography.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Physical conservation is unrelated to conceptual flattening.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Converting all fonts in a TEI file to Arial.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Font styling is a layout choice, not conceptual flattening.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Automation Bias and Editorial Vigilance</text></name><questiontext format="html"><text><![CDATA[
+<h3>Automation Bias and Editorial Vigilance</h3>
+<p>When working with AI tools, editors face a psychological trap called <strong>automation bias</strong>.</p>
+<p>Automation bias is the human tendency to trust automated systems uncritically. When an AI outputs a beautifully written, grammatical paragraph with clear headings, our brains assume it is correct. We read quickly and miss factual errors.</p>
+<p>To fight automation bias, you must adopt <strong>editorial vigilance</strong>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Vigilance Habit</th>
+      <th>Action in VS Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Verify Every Date</strong></td>
+      <td>Check dates against archival metadata files in your workspace.</td>
+    </tr>
+    <tr>
+      <td><strong>Check Every Person</strong></td>
+      <td>Look up historical figures in authority records like the Dictionary of Canadian Biography.</td>
+    </tr>
+    <tr>
+      <td><strong>Confirm Quotations</strong></td>
+      <td>Search your transcription file using <code>Ctrl+F</code> to confirm the exact quoted string.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Treat every AI output as an unverified draft written by an eager student intern.</p>
+<p><strong>Takeaway:</strong> Automation bias leads scholars to trust fluent AI prose; editors must actively verify dates, names, and quotes against primary files.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Automation Bias and Editorial Vigilance</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How can an editor counter automation bias when reviewing AI commentary drafts in VS Code?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Automation bias leads scholars to trust fluent AI prose; editors must actively verify dates, names, and quotes against primary files.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By actively verifying every date, person, and quoted string against primary files in the workspace.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editorial vigilance requires checking every factual claim rather than trusting fluent prose uncritically.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By accepting all suggestions without reading them to finish the assignment faster.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Uncritical acceptance is the exact definition of automation bias.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By turning off the computer monitor and guessing the answers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Guessing blindly does not produce scholarly work.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting the primary transcription file completely.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Primary transcription files are the foundation of your digital edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: The Epistemic Boundary: Public History vs Archival Witnesses</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Epistemic Boundary: Public History vs Archival Witnesses</h3>
+<p>To evaluate AI assistance, you must know what language models know and what they do not know.</p>
+<p>Language models have vast knowledge of <strong>broad public history</strong>:</p>
+<ul>
+  <li>They know the major dates and battles of the French Revolution.</li>
+  <li>They know the names of British colonial governors and French monarchs.</li>
+  <li>They know general information about famous artists and historic treaties.</li>
+</ul>
+
+<p>However, models have no direct access to <strong>unique archival witnesses</strong>:</p>
+<ul>
+  <li>The model has never seen the physical letter Maud Lewis mailed to Leonard Kinnear in 1967.</li>
+  <li>The model does not know the exact ink corrections on Ace's copy of the 1791 French decree.</li>
+  <li>The model cannot see the wax seals or margin notations on Andromeda's 1752 treaty manuscript.</li>
+</ul>
+
+<p>This division defines your <strong>epistemic boundary</strong>. Use AI to draft general historical context. But rely exclusively on your own eyes and transcription files for the unique features of your manuscript.</p>
+<p><strong>Takeaway:</strong> AI models excel at general historical background but know nothing about the physical peculiarities of your unique archival manuscript.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: The Epistemic Boundary: Public History vs Archival Witnesses</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What falls outside an AI model's epistemic boundary when analyzing unique archival manuscripts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models excel at general historical background but know nothing about the physical peculiarities of your unique archival manuscript.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The physical ink strokes, unique margin notes, and specific archival corrections on your particular manuscript copy.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. While models know broad historical facts, they have never inspected the physical peculiarities of your unique witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The year the French Revolution began.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. General public dates fall squarely within the AI model's training data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The names of famous British monarchs like King George II.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Broad historical figures are well known to AI models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The general definition of paper currency in economic history.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Broad conceptual history is easily handled by AI models.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: Designing Structured System Prompts for Commentary</text></name><questiontext format="html"><text><![CDATA[
+<h3>Designing Structured System Prompts for Commentary</h3>
+<p>Casual prompts produce poor commentary. If you ask an AI model, "Tell me about this document," it returns rambling paragraphs filled with generic opinions.</p>
+<p>A scholarly <strong>system prompt</strong> guides the model with clear rules:</p>
+<ol>
+  <li><strong>Role Definition:</strong> State the exact scholarly role (for example, "You are an assistant editor in digital documentary editing").</li>
+  <li><strong>Document Context:</strong> Provide the exact title, date, author, and archival repository of your source.</li>
+  <li><strong>Target Span:</strong> Supply the exact sentence or phrase you want to annotate, including its <code>xml:id</code> anchor.</li>
+  <li><strong>Target Category:</strong> Specify whether you want a philological, historical, or intertextual note.</li>
+  <li><strong>Audience Level:</strong> Ask for clear, concise prose suitable for undergraduate researchers.</li>
+</ol>
+
+<p>When you provide concrete boundaries, the model focuses its attention on the specific passage. Its answers become factual, relevant, and useful.</p>
+<p><strong>Takeaway:</strong> Structured system prompts define roles, context, target spans, and categories, forcing the AI to generate disciplined commentary drafts.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: Designing Structured System Prompts for Commentary</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary benefit of including the target span's xml:id in a commentary system prompt?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Structured system prompts define roles, context, target spans, and categories, forcing the AI to generate disciplined commentary drafts.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It anchors the model's attention to an exact passage and ensures the output note links to a stable XML identifier.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Providing the specific xml:id tethers the generated note directly to your transcription markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically purchases a software license for the AI model.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. An xml:id is a markup identifier, not a financial payment token.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents anyone on the internet from reading your commentary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML IDs organize internal document structure, not internet firewalls.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It forces the model to write in Latin instead of English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Language output is governed by role instructions, not XML ID tags.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Negative Prompt Constraints and Guardrails</text></name><questiontext format="html"><text><![CDATA[
+<h3>Negative Prompt Constraints and Guardrails</h3>
+<p>Positive instructions tell the AI what to do. <strong>Negative constraints</strong> tell the AI what it is strictly forbidden from doing.</p>
+<p>Negative guardrails are your best defense against hallucinated citations:</p>
+<ul>
+  <li><em>"Do NOT invent secondary source citations or page numbers."</em></li>
+  <li><em>"Do NOT assume modern legal meanings for 18th-century terms."</em></li>
+  <li><em>"If a historical fact is unverified or uncertain, explicitly write [UNVERIFIED]."</em></li>
+  <li><em>"Cite only primary sources included in the prompt context."</em></li>
+  <li><em>"Keep explanations under 100 words per note."</em></li>
+</ul>
+
+<p>Forcing the model to output <code>[UNVERIFIED]</code> is especially effective. It gives the model permission to admit uncertainty instead of inventing a plausible lie.</p>
+<p>When you inspect the generated draft in VS Code, you can search for <code>[UNVERIFIED]</code> to see exactly where you need to do manual archive research.</p>
+<p><strong>Takeaway:</strong> Negative prompt constraints prevent hallucinations by explicitly forbidding invented citations and demanding [UNVERIFIED] flags for uncertain claims.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Negative Prompt Constraints and Guardrails</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is instructing an AI model to output '[UNVERIFIED]' for uncertain claims an effective guardrail?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Negative prompt constraints prevent hallucinations by explicitly forbidding invented citations and demanding [UNVERIFIED] flags for uncertain claims.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It permits the model to admit ignorance rather than inventing a plausible lie or hallucinated citation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Demanding an explicit flag for uncertainty breaks the model's tendency to fabricate facts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because [UNVERIFIED] causes VS Code to shut down automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VS Code treats [UNVERIFIED] as ordinary text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the TEI validator crashes if it encounters uncertainty.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI markup supports editorial uncertainty through elements like &lt;unclear&gt; and &lt;certainty&gt;.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because it proves that the student did not do any homework.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Identifying unverified claims is an essential step in honest research.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Schema-Constrained Generation: Structured JSON and TEI Output</text></name><questiontext format="html"><text><![CDATA[
+<h3>Schema-Constrained Generation: Structured JSON and TEI Output</h3>
+<p>Raw text output from an AI model is difficult to integrate into digital editions. You must manually copy, paste, and reformat every sentence.</p>
+<p>Instead, you can instruct the model to produce <strong>schema-constrained output</strong> using JSON or TEI XML:</p>
+<pre><code>{
+  "target_id": "seg_assignat_01",
+  "category": "historical",
+  "lemma": "assignats",
+  "draft_note": "Paper currency issued during the French Revolution, backed by confiscated church lands.",
+  "confidence": "high",
+  "sources": [
+    "Archives Parlementaires, vol. 26"
+  ]
+}</code></pre>
+
+<p>Demanding structured fields forces the model to separate its claims into distinct parts:</p>
+<ul>
+  <li><code>target_id</code> ensures the note links to an anchor in your transcription.</li>
+  <li><code>category</code> matches your editorial taxonomy from Lesson 12.1.</li>
+  <li><code>lemma</code> identifies the exact word being explained.</li>
+  <li><code>sources</code> isolates citations so you can verify them individually.</li>
+</ul>
+
+<p>Structured output simplifies validation and allows automated scripts to parse the results.</p>
+<p><strong>Takeaway:</strong> Requesting JSON or XML output forces the model to structure its commentary notes into distinct, machine-readable fields.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Schema-Constrained Generation: Structured JSON and TEI Output</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why is requesting JSON or XML output better than requesting free-flowing paragraphs for digital commentary?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Requesting JSON or XML output forces the model to structure its commentary notes into distinct, machine-readable fields.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It forces the model to separate targets, categories, claims, and citations into machine-readable fields that scripts can parse.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Schema-constrained outputs allow automated validation and seamless integration into digital editions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because JSON files take up zero bytes of storage space on disk.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. JSON files occupy memory like any text file.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because free-flowing paragraphs are illegal under copyright law.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Prose paragraphs are completely legal but harder to parse computationally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because XML cannot be read by human beings.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML is designed to be readable by both humans and machines.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: Anchoring AI Notes to Stable XML Identifiers</text></name><questiontext format="html"><text><![CDATA[
+<h3>Anchoring AI Notes to Stable XML Identifiers</h3>
+<p>In Lesson 12.1, you created stable anchors in your transcription files using <code>xml:id</code> attributes. Every note pointed to an anchor with a <code>@target</code> reference.</p>
+<p>When you generate notes with an AI assistant, you must maintain this anchoring discipline:</p>
+<ul>
+  <li>Provide the AI with the list of valid `xml:id` attributes from your document.</li>
+  <li>Instruct the model to link every proposed note to an existing ID.</li>
+  <li>Forbid the model from creating new, unanchored notes.</li>
+</ul>
+
+<p>Consider this example from Ace's 1791 decree:</p>
+<pre><code>&lt;!-- In your transcription file --&gt;
+&lt;seg xml:id="seg_loi_1791_03"&gt;fabrication des assignats&lt;/seg&gt;
+
+&lt;!-- In the AI-generated note --&gt;
+&lt;note type="historical" target="#seg_loi_1791_03" resp="#ai-draft"&gt;
+  The French National Assembly authorized assignat production to stabilize public debt.
+&lt;/note&gt;</code></pre>
+
+<p>Notice the <code>@resp</code> attribute. It records that this note was drafted by an AI model. Anchoring notes to stable IDs keeps your edition organized.</p>
+<p><strong>Takeaway:</strong> AI-drafted commentary notes must point to valid xml:id anchors in your transcription, with provenance tracked in the resp attribute.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: Anchoring AI Notes to Stable XML Identifiers</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In TEI standoff commentary, what is the role of the @resp attribute on an AI-generated note?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI-drafted commentary notes must point to valid xml:id anchors in your transcription, with provenance tracked in the resp attribute.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It transparently attributes the note's drafting origin to an AI assistant rather than human scholarship.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The @resp attribute tracks editorial provenance, distinguishing machine drafts from human vetting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It specifies how many seconds the AI took to draft the sentence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The @resp attribute indicates responsibility, not execution runtime.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It changes the background color of the webpage to red.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Provenance attributes carry editorial metadata, not visual styling.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It prevents other scholars from citing the note.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Stating machine provenance informs readers without preventing citation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: Philological Vetting: 18th-Century French and Colonial English</text></name><questiontext format="html"><text><![CDATA[
+<h3>Philological Vetting: 18th-Century French and Colonial English</h3>
+<p>AI models often misread historical vocabulary because words evolve over time. Editors must vet every linguistic claim:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Historical Word</th>
+      <th>AI Modern Misreading</th>
+      <th>Vetted Historical Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>cours forcé</strong> (1791 French)</td>
+      <td>Forced running or fast pace</td>
+      <td>Mandatory legal tender status for paper currency.</td>
+    </tr>
+    <tr>
+      <td><strong>Truckhouse</strong> (1752 Treaty)</td>
+      <td>A garage or repair depot for trucks</td>
+      <td>A government trading post for regulated bartering of furs and goods.</td>
+    </tr>
+    <tr>
+      <td><strong>Febuary</strong> (1967 Maud Lewis)</td>
+      <td>A spelling mistake that should be corrected</td>
+      <td>A phonetic folk spelling reflecting maritime Canadian speech patterns.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When vetting AI drafts, check historical dictionaries. For 18th-century French, check the 1798 <em>Dictionnaire de l'Académie française</em>. For colonial English, check the Oxford English Dictionary's historical quotations.</p>
+<p><strong>Takeaway:</strong> Philological vetting catches humorous or misleading modern readings of historical vocabulary, restoring true archival meaning.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: Philological Vetting: 18th-Century French and Colonial English</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did the unvetted AI model incorrectly define 'Truckhouse' as an automobile repair garage in the 1752 Treaty?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Philological vetting catches humorous or misleading modern readings of historical vocabulary, restoring true archival meaning.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because the model applied a modern 20th-century definition instead of the historical 18th-century meaning of a regulated fur-trading post.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Historical vetting catches anachronistic vocabulary shifts and restores authentic archival meaning.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the British army used pickup trucks during the Seven Years' War.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Motor vehicles were invented over a century after the 1752 treaty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the treaty was translated into German before reaching Halifax.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The treaty was negotiated in English and Mi'kmaq.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the scribe wrote 'garage' in the margins of the manuscript.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The word garage does not appear in 18th-century colonial treaty manuscripts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: Intertextual Allusion Detection: Real vs Imagined Parallels</text></name><questiontext format="html"><text><![CDATA[
+<h3>Intertextual Allusion Detection: Real vs Imagined Parallels</h3>
+<p>AI models excel at detecting thematic allusions across literary and legal traditions. Because they have seen millions of books, they notice echoes that human editors overlook.</p>
+<p>However, models frequently confuse thematic resemblance with actual textual borrowing:</p>
+<ul>
+  <li><strong>Thematic Resemblance:</strong> Two texts discuss the same topic (such as peace, trade, or winter cold) using standard cultural imagery.</li>
+  <li><strong>Textual Borrowing:</strong> An author deliberately adapts or quotes an earlier document.</li>
+</ul>
+
+<p>For example, when examining Andromeda's 1752 Treaty, an AI might suggest an allusion to John Locke's <em>Second Treatise of Government</em> regarding property rights. While Locke influenced colonial thinking, there is no evidence the Halifax treaty authors quoted Locke directly.</p>
+<p>Conversely, the model might correctly identify borrowing between the 1752 Treaty and the 1725 Dummer's Treaty. In that case, identical phrasing confirms genuine textual reuse.</p>
+<p>The editor's job is to distinguish between genuine historical borrowing and accidental conceptual overlap.</p>
+<p><strong>Takeaway:</strong> AI models discover interesting thematic parallels, but editors must verify whether an echo represents genuine historical borrowing or coincidence.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: Intertextual Allusion Detection: Real vs Imagined Parallels</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How should an editor verify an AI model's claim that a document quotes an earlier historical work?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models discover interesting thematic parallels, but editors must verify whether an echo represents genuine historical borrowing or coincidence.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By confirming that both texts share distinctive verbatim phrasing or documented historical borrowing, rather than mere thematic coincidence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Editors must distinguish deliberate borrowing from general cultural or topical overlap.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By accepting the claim if the AI sounds confident and polite.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI confidence has no correlation with historical accuracy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By deleting both documents from the course syllabus.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors analyze documents rather than deleting them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By checking if both texts were printed in the exact same year.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Borrowing occurs across different years; identical printing dates do not prove intertextuality.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: Entity Linking and Authority Control (Wikidata and VIAF)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Entity Linking and Authority Control (Wikidata and VIAF)</h3>
+<p>In Lesson 12.1 and Module 9, you explored named entities. Commentary notes frequently explain historical persons and geographic places.</p>
+<p>You can ask an AI model to propose authority control identifiers for historical entities:</p>
+<ul>
+  <li><strong>Wikidata QIDs:</strong> Persistent identifiers for people, concepts, and places across all languages.</li>
+  <li><strong>VIAF IDs:</strong> Virtual International Authority File numbers used by global research libraries.</li>
+</ul>
+
+<p>Here is how an AI assistant might propose authority links:</p>
+<pre><code>{
+  "entity": "Peregrine Hopson",
+  "role": "Governor of Nova Scotia (1752-1753)",
+  "wikidata_qid": "Q7168019",
+  "viaf_id": "104473859"
+}</code></pre>
+
+<p>Always verify these identifiers in your browser before adding them to your TEI header or note tags. AI models occasionally mix up people with similar names, such as confusing Peregrine Hopson with his uncle or military colleagues.</p>
+<p><strong>Takeaway:</strong> AI models can draft Wikidata and VIAF identifiers for historical entities, but editors must confirm that each link points to the correct individual.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: Entity Linking and Authority Control (Wikidata and VIAF)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should editors verify Wikidata QIDs and VIAF IDs proposed by an AI model?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;AI models can draft Wikidata and VIAF identifiers for historical entities, but editors must confirm that each link points to the correct individual.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because models can confuse individuals sharing similar names, linking a historical figure to the wrong person.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Authority identifiers must point to the exact historical person, not an uncle or namesake.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Wikidata charges a fee every time a QID is accessed.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Wikidata is a free, open-access knowledge base.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because VIAF IDs expire after thirty days.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. VIAF identifiers are permanent, persistent library authority numbers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI XML does not allow external web links.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI supports external authority links through attributes like @ref and @corresp.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: Detecting Model Sycophancy and Leading Prompts</text></name><questiontext format="html"><text><![CDATA[
+<h3>Detecting Model Sycophancy and Leading Prompts</h3>
+<p>Language models suffer from a behavioral flaw known as <strong>sycophancy</strong>. They tend to agree with whatever opinion or premise the user presents.</p>
+<p>If you write a leading prompt:</p>
+<p>
+<em>"Explain how Maud Lewis deliberately encoded anti-war political messages in this 1967 letter."</em>
+</p>
+
+<p>The AI will not correct your mistaken assumption. Instead, it will draft an elaborate, fluent argument defending your false premise. It will invent reasons why Maud Lewis's mention of paint prices was a subtle critique of the Vietnam War.</p>
+<p>To avoid sycophancy, always use <strong>neutral, open-ended prompts</strong>:</p>
+<p>
+<em>"Analyze the primary subject matter of this 1967 letter. Does the text contain political commentary, or does it focus on commercial sales and personal news? Cite exact lines."</em>
+</p>
+
+<p>Neutral phrasing encourages the model to report evidence rather than flatter your preconceptions.</p>
+<p><strong>Vocabulary.</strong> <em>Sycophancy</em> — the tendency of AI models to agree with the user's suggestions and validate false premises rather than giving objective facts.</p>
+<p><strong>Takeaway:</strong> Write neutral prompts without leading assumptions to prevent AI models from generating flattering but false historical theories.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: Detecting Model Sycophancy and Leading Prompts</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What happens when an editor prompts an AI model with a leading, biased question?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Write neutral prompts without leading assumptions to prevent AI models from generating flattering but false historical theories.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The model exhibits sycophancy, flattering the editor by generating elaborate justifications for the false premise.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Language models tend to confirm user biases unless prompted neutrally.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model immediately disconnects from the internet in protest.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models do not have emotional protests; they generate text matching the prompt's tone.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model deletes all files in the editor's workspace.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Text generation queries cannot delete local project files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The model forces the user to retake the course quiz.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI chat interfaces do not administer university course grading policies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Multi-Model Cross-Verification Pipelines</text></name><questiontext format="html"><text><![CDATA[
+<h3>Multi-Model Cross-Verification Pipelines</h3>
+<p>A powerful technique for vetting commentary is <strong>multi-model cross-verification</strong>.</p>
+<p>Instead of trusting a single AI model, you send the same structured prompt to two different models (for example, Claude and Gemini) or run the same model at two different temperature settings:</p>
+<ol>
+  <li><strong>Generate Draft A:</strong> Prompt Model 1 for historical and philological notes.</li>
+  <li><strong>Generate Draft B:</strong> Prompt Model 2 using the identical system prompt and document context.</li>
+  <li><strong>Run Comparison:</strong> Compare the outputs side by side in VS Code.</li>
+  <li><strong>Isolate Disagreements:</strong> Where both models agree on dates, names, and meanings, confidence is higher. Where they disagree, you have located a potential error or ambiguity.</li>
+</ol>
+
+<p>This cross-check is especially helpful for historical dates and translations of archaic words. Discrepancies between models immediately highlight where human archive verification is needed.</p>
+<p><strong>Takeaway:</strong> Running prompts across two different models highlights factual disagreements and flags passages that require close human review.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Multi-Model Cross-Verification Pipelines</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a multi-model verification pipeline, what does a disagreement between two AI models signify?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Running prompts across two different models highlights factual disagreements and flags passages that require close human review.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It flags a factual discrepancy, ambiguous historical evidence, or a translation difficulty requiring close human investigation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Where models disagree, the human editor must examine primary sources to establish ground truth.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It proves that both computers have suffered permanent hardware failures.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Model disagreement is a standard statistical outcome, not a hardware breakdown.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It means the historical document must be completely discarded.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ambiguity in historical texts is normal and requires scholarly interpretation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It indicates that one of the models has become sentient.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI models are pattern-matching software tools, not conscious beings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: The Four-Step Forensic Fact-Checking Protocol</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Four-Step Forensic Fact-Checking Protocol</h3>
+<p>When auditing an AI-generated commentary draft, follow this four-step forensic protocol:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Audit Focus</th>
+      <th>Action in VS Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Step 1</strong></td>
+      <td><strong>Quotation Check</strong></td>
+      <td>Search your transcription file to confirm that every quoted string matches character for character.</td>
+    </tr>
+    <tr>
+      <td><strong>Step 2</strong></td>
+      <td><strong>Entity Check</strong></td>
+      <td>Verify people, places, and organizations against authoritative biographical dictionaries and gazetteers.</td>
+    </tr>
+    <tr>
+      <td><strong>Step 3</strong></td>
+      <td><strong>Citation Check</strong></td>
+      <td>Search library catalogs or digital repositories to verify that cited secondary works actually exist.</td>
+    </tr>
+    <tr>
+      <td><strong>Step 4</strong></td>
+      <td><strong>Anchor Check</strong></td>
+      <td>Confirm that the target <code>xml:id</code> exists in your transcription and covers the intended span.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This protocol takes only a few minutes per note, but it ensures that your digital edition maintains high scholarly standards.</p>
+<p><strong>Takeaway:</strong> Follow a four-step audit protocol—checking quotations, entities, citations, and XML anchors—before accepting any AI note.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: The Four-Step Forensic Fact-Checking Protocol</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the first step in the four-step forensic fact-checking protocol for AI commentary?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Follow a four-step audit protocol—checking quotations, entities, citations, and XML anchors—before accepting any AI note.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;A quotation check, confirming that every quoted string matches the primary transcription character for character.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Step 1 verifies that the AI did not alter, modernize, or fabricate the quoted manuscript words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Publishing the unvetted draft on social media.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Unvetted drafts should never be published publicly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Translating the note into Latin and back into English.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Round-trip translation adds noise rather than verifying quotes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Formatting the text as a printed PDF book.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Verification must occur before final presentation typesetting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Human-in-the-Loop (HITL) Validation Protocols</text></name><questiontext format="html"><text><![CDATA[
+<h3>Human-in-the-Loop (HITL) Validation Protocols</h3>
+<p>In a digital edition, the AI is an assistant, not an author. The human editor bears full intellectual and ethical responsibility for the finished edition.</p>
+<p>To manage this responsibility, adopt a formal <strong>HITL decision framework</strong>:</p>
+<ul>
+  <li><strong>ACCEPT:</strong> The AI draft is factually accurate, beautifully written, properly anchored, and well cited. You adopt it with minimal copyediting.</li>
+  <li><strong>REVISE:</strong> The draft contains good historical insight, but its tone is modern, its wording is wordy, or a minor date is wrong. You rewrite the text.</li>
+  <li><strong>REJECT:</strong> The draft contains fabricated citations, hallucinated legal clauses, or anachronistic theories. You discard the note completely.</li>
+  <li><strong>FLAG:</strong> The draft makes an intriguing historical claim that you cannot verify immediately. You mark it for archive investigation.</li>
+</ul>
+
+<p>Documenting your decisions ensures transparent editorial practice.</p>
+<p><strong>Takeaway:</strong> The human editor holds final authority, classifying every AI proposal as Accept, Revise, Reject, or Flag.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Human-in-the-Loop (HITL) Validation Protocols</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Under the HITL decision framework, when should an editor choose the REVISE action for an AI draft?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The human editor holds final authority, classifying every AI proposal as Accept, Revise, Reject, or Flag.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;When the draft provides sound historical context, but its prose contains modern clichés, wordiness, or a minor factual error.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. REVISE salvages useful background while polishing style and correcting minor inaccuracies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the draft is completely fabricated and must be thrown into the trash.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Fabricated notes should be marked REJECT, not REVISE.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the draft is 100% perfect and needs no changes whatsoever.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Flawless notes should be marked ACCEPT.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;When the editor does not know what the document means.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Unresolved questions should be marked FLAG for further archive research.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: The Commentary Ledger: COMMENTARY.md</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Commentary Ledger: COMMENTARY.md</h3>
+<p>To track your editorial decisions, create a tracking ledger called <code>COMMENTARY.md</code> in your project folder.</p>
+<p>A commentary ledger records the provenance and verification history of every note:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Anchor ID</th>
+      <th>Category</th>
+      <th>Draft Origin</th>
+      <th>Decision</th>
+      <th>Audit Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>#seg_01</code></td>
+      <td>Historical</td>
+      <td>AI (Claude 3.5)</td>
+      <td><strong>REVISE</strong></td>
+      <td>Corrected hallucinated 1792 date to 1791; trimmed wordiness.</td>
+    </tr>
+    <tr>
+      <td><code>#seg_02</code></td>
+      <td>Linguistic</td>
+      <td>Manual (Tuesday)</td>
+      <td><strong>ACCEPT</strong></td>
+      <td>Verified against 1798 Academy dictionary.</td>
+    </tr>
+    <tr>
+      <td><code>#seg_03</code></td>
+      <td>Intertextual</td>
+      <td>Rule-based (Wed)</td>
+      <td><strong>REJECT</strong></td>
+      <td>Spurious 3-gram match on common legal formula.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Maintaining this ledger fulfills your course requirement for transparent research. It shows your instructor exactly how you applied human expertise to evaluate computational suggestions.</p>
+<p><strong>Takeaway:</strong> The COMMENTARY.md ledger logs the origin, audit notes, and editorial decision for every note in your digital edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: The Commentary Ledger: COMMENTARY.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the scholarly purpose of maintaining a COMMENTARY.md ledger in your repository?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The COMMENTARY.md ledger logs the origin, audit notes, and editorial decision for every note in your digital edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To document the provenance, audit notes, and editorial decisions for every commentary note with full transparency.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. A ledger provides an auditable record demonstrating how human expertise governed computational drafting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To hide computational mistakes from course instructors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ledger explicitly documents mistakes and corrections to demonstrate critical thinking.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To replace the need for writing a final term paper.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The ledger is a research tracking tool, not a substitute for scholarly writing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To store encrypted passwords for your GitHub account.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Security credentials must never be stored in markdown repository files.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Hands-On: Prompting for Ace's 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On: Prompting for Ace's 1791 French Decree</h3>
+<p>Let us apply these methods to our three student projects, starting with Ace's 1791 decree (<em>Loi relative à la fabrication des assignats</em>).</p>
+<p>Open VS Code and open your AI chat window. Enter a disciplined system prompt:</p>
+<pre><code>Role: Assistant scholarly editor in 18th-century French digital history.
+Source: 1791 National Assembly decree on assignats (Paris, Imprimerie Royale).
+Target Span: "fabrication des assignats de 5 livres" (xml:id="seg_assig_05")
+Task: Draft a concise historical commentary note explaining why 5-livre assignats were introduced in 1791.
+Constraints:
+
+- Maximum 80 words.
+- Do NOT invent secondary citations.
+- Explicitly mention the shift from large-denomination notes to small currency for daily wages.
+- If citing a decree date, verify it against standard revolutionary calendars.</code></pre>
+
+<p>Review the generated response:</p>
+<ul>
+  <li>Does it explain that early assignats were only issued in large sums (such as 1,000 livres), causing coin shortages?</li>
+  <li>Does it describe how 5-livre notes were created to pay everyday workers and soldiers?</li>
+  <li>Did the model fabricate any non-existent committee names?</li>
+</ul>
+
+<p><strong>Takeaway:</strong> Prompting for historical decrees requires specifying denominations, legislative context, and strict negative constraints against fake dates.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Hands-On: Prompting for Ace's 1791 French Decree</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When prompting for historical commentary on the 1791 assignat decree, why specify the 5-livre denomination?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Prompting for historical decrees requires specifying denominations, legislative context, and strict negative constraints against fake dates.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because 5-livre notes represented a crucial shift to small currency for paying workers and soldiers, addressing coin hoarding.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Denomination context explains the economic necessity of issuing small paper notes during the Revolution.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because 5 livres was the exact price of an iPad in 1791 Paris.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Consumer electronics did not exist in 18th-century France.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because King Louis XVI refused to touch paper money larger than five livres.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The King's personal preferences did not govern revolutionary monetary policy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the French language only had words for numbers up to five.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. French mathematics and vocabulary possessed complete numerical systems.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Hands-On: Prompting for Olyvia's 1967 Maud Lewis Letter</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On: Prompting for Olyvia's 1967 Maud Lewis Letter</h3>
+<p>Next, let us prompt for Olyvia's project: Maud Lewis's February 1967 letter to Leonard Kinnear.</p>
+<p>Enter this prompt in VS Code:</p>
+<pre><code>Role: Assistant editor in Canadian folk art and maritime social history.
+Source: Maud Lewis, handwritten letter to Leonard Kinnear, Feb 1967 (Digby, NS).
+Target Span: "The price of the paintings is \$6.00" (xml:id="seg_price_01")
+Task: Draft a biographical and economic commentary note on Maud Lewis's pricing in 1967.
+Constraints:
+
+- Maximum 75 words.
+- Explain her modest pricing despite growing national publicity following the 1965 CBC documentary.
+- Note that Leonard Kinnear was a private correspondent in Moncton, New Brunswick.
+- Do NOT claim she employed gallery agents or held formal exhibitions.</code></pre>
+
+<p>Examine the result:</p>
+<ul>
+  <li>Did the model accurately mention her husband Everett's role in roadside sales?</li>
+  <li>Did it mention the CBC *Telescope* broadcast from 1965 that made her famous across Canada?</li>
+  <li>Did it keep the explanation grounded in regional Nova Scotia folk art?</li>
+</ul>
+
+<p><strong>Takeaway:</strong> Prompting for personal letters requires strict biographical guardrails to avoid confusing private correspondence with commercial gallery business.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Hands-On: Prompting for Olyvia's 1967 Maud Lewis Letter</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must prompts regarding Maud Lewis's 1967 letter include guardrails against mentioning commercial art galleries?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Prompting for personal letters requires strict biographical guardrails to avoid confusing private correspondence with commercial gallery business.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because Maud Lewis sold her paintings directly from her Digby home or through personal mail, not through formal commercial galleries.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Guardrails prevent the model from projecting modern commercial art marketing onto a humble folk artist.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because commercial art galleries were strictly illegal in Nova Scotia in 1967.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commercial galleries existed in Canada, but Maud Lewis did not use them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Maud Lewis was an undercover police detective.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Maud Lewis was an internationally celebrated Canadian folk painter.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the letter was written on gallery letterhead.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The letter was handwritten on plain correspondence paper.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Hands-On: Prompting for Andromeda's 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On: Prompting for Andromeda's 1752 Treaty</h3>
+<p>Now let us prompt for Andromeda's document: the 1752 Peace and Friendship Treaty concluded at Halifax.</p>
+<p>Enter this prompt:</p>
+<pre><code>Role: Assistant documentary editor in 18th-century Mi'kmaq-British treaty history.
+Source: 1752 Peace and Friendship Treaty, Halifax, Nova Scotia.
+Target Span: "free liberty of Hunting and Fishing as usual" (xml:id="seg_hunt_01")
+Task: Draft a legal and historical commentary note explaining the meaning of this clause in 1752.
+Constraints:
+
+- Maximum 90 words.
+- Mention Governor Peregrine Hopson and Chief Jean-Baptiste Cope.
+- Connect to earlier agreements (1725 Dummer's Treaty).
+- Note that this clause recognized ongoing Mi'kmaw resource harvesting rights.
+- Do NOT cite modern court decisions or 21st-century legal cases.</code></pre>
+
+<p>Audit the response:</p>
+<ul>
+  <li>Did the model describe the diplomatic relationship between Cope and Hopson accurately?</li>
+  <li>Did it follow the negative constraint forbidding 21st-century legal references?</li>
+  <li>Did it stay focused on the historical context of 1752?</li>
+</ul>
+
+<p><strong>Takeaway:</strong> Treaty commentary requires careful historical balancing, connecting 18th-century agreements to prior treaties while excluding modern legal anachronisms.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Hands-On: Prompting for Andromeda's 1752 Treaty</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should a prompt for the 1752 Treaty forbid citing 21st-century court cases?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Treaty commentary requires careful historical balancing, connecting 18th-century agreements to prior treaties while excluding modern legal anachronisms.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To ensure the generated commentary explains the agreement within its authentic 1752 historical and diplomatic context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Historical commentary explains what terms meant to the original signatories, avoiding modern legal anachronism.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because 21st-century court cases are secret and classified.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Modern court judgments are public legal records.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because Canadian courts have never cited the 1752 Treaty.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Canadian courts have extensively analyzed historical peace treaties.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the AI model will crash if it reads modern legal citations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Models process modern legal text easily; the constraint preserves historical focus.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Hands-On: The Hallucination Hunt (Catching Fabricated Sources)</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On: The Hallucination Hunt (Catching Fabricated Sources)</h3>
+<p>Now you will practice forensic editing. Below is an unvetted AI commentary draft containing three deliberate errors:</p>
+<p>
+<em>"In the 1752 Halifax Treaty, Article 12 established a joint British-Mi'kmaw naval patrol on the Shubenacadie River. According to Dr. Ronald MacFarlane's 1984 monograph, 'Colonial Treaties of Acadia' (University of Toronto Press, p. 142), Chief Jean-Baptiste Cope personally delivered twenty beaver pelts to Halifax in January 1753 to purchase five British cannons."</em>
+</p>
+
+<p>Find the three hallucinations:</p>
+<ol>
+  <li><strong>The Article Number:</strong> The 1752 Treaty has only 8 articles. Article 12 is fictitious.</li>
+  <li><strong>The Monograph and Citation:</strong> "Dr. Ronald MacFarlane" and his book *Colonial Treaties of Acadia* (1984) do not exist. The AI made up the author, book, publisher, and page.</li>
+  <li><strong>The Cannon Purchase:</strong> Chief Cope never traded pelts for British cannons in January 1753. This claim is completely invented.</li>
+</ol>
+
+<p>Spotting these fabrications proves why the human editor must never trust unverified citations.</p>
+<p><strong>Takeaway:</strong> Practicing hallucination hunts sharpens your editorial eye to catch fake articles, phantom books, and invented historical events.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Hands-On: The Hallucination Hunt (Catching Fabricated Sources)</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the hallucination hunt exercise, how do we know the citation to 'Dr. Ronald MacFarlane (1984)' was fabricated?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Practicing hallucination hunts sharpens your editorial eye to catch fake articles, phantom books, and invented historical events.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;No scholar by that name published 'Colonial Treaties of Acadia' with University of Toronto Press in 1984; the model invented the citation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Verifying citations against library catalogs confirms that the book and author do not exist.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because books published in 1984 were printed entirely in purple ink.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 1984 books were printed using standard black ink.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because University of Toronto Press only publishes medical books.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. University of Toronto Press is a renowned publisher of Canadian history.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because all treaties from Acadia were destroyed in a flood in 1800.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Treaties from the Maritime region survive in official government archives.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Hands-On: Vetting Tone, Grammar, and Style</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On: Vetting Tone, Grammar, and Style</h3>
+<p>In addition to catching factual errors, you must vet the writing style of AI drafts. Language models often produce wordy, cliché-filled prose:</p>
+<ul>
+  <li><strong>Eliminate Buzzwords:</strong> Remove empty phrases like "serves as a testament to," "rich tapestry," and "plays a pivotal role."</li>
+  <li><strong>Prefer Active Voice:</strong> Change "The assignats were seen by the assembly as being" to "The assembly issued assignats to."</li>
+  <li><strong>Cut Redundant Explanations:</strong> Keep your notes concise so readers can read them quickly without losing their place in the primary document.</li>
+</ul>
+
+<p>Here is a before-and-after revision:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Unvetted AI Draft</th>
+      <th>Vetted Human Revision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>This pivotal clause stands as a profound testament to the complex sociopolitical dynamics of 1752 Halifax, illuminating the ongoing negotiations.</td>
+      <td>Article 4 guaranteed Mi'kmaw hunting and fishing rights, continuing terms first established in the 1725 Dummer's Treaty.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Crisp, concise prose is the mark of good scholarship.</p>
+<p><strong>Takeaway:</strong> Vetting style means removing AI clichés and wordiness, producing clear and direct explanations for your readers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Hands-On: Vetting Tone, Grammar, and Style</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why should editors eliminate clichés like 'serves as a testament to' and 'rich tapestry' from AI drafts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Vetting style means removing AI clichés and wordiness, producing clear and direct explanations for your readers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Because empty buzzwords inflate sentence length without providing specific historical evidence or clear explanation.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Scholarly commentary values direct, concise prose that explains concrete evidence without decorative filler.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the words 'testament' and 'tapestry' are copyright protected by Microsoft.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Common words cannot be copyrighted by software companies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI XML does not permit the letter 'T' inside note elements.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI supports all standard Unicode alphabetic characters.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because students lose points if their notes contain fewer than 500 words.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Concise commentary notes are preferred over bloated, repetitive text.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Hands-On: Converting Vetted AI Notes to TEI Standoff XML</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On: Converting Vetted AI Notes to TEI Standoff XML</h3>
+<p>Once you have verified and polished an AI-drafted note, you encode it into your document's TEI <code>&lt;standOff&gt;</code> section.</p>
+<p>Use the TEI tagging standards you mastered in Lesson 12.1:</p>
+<pre><code>&lt;standOff&gt;
+  &lt;interpGrp type="commentary"&gt;
+    &lt;note xml:id="note_assig_05"
+          target="#seg_assig_05"
+          type="historical"
+          resp="#ai-draft"&gt;
+      &lt;p&gt;The National Assembly issued five-livre assignats in May 1791 
+      to relieve a severe shortage of small silver coinage for daily wages.&lt;/p&gt;
+      &lt;bibl&gt;Archives Parlementaires, 26:145.&lt;/bibl&gt;
+    &lt;/note&gt;
+  &lt;/interpGrp&gt;
+&lt;/standOff&gt;</code></pre>
+
+<p>Notice how we record responsibility:</p>
+<ul>
+  <li><code>resp="#ai-draft"</code> records that the initial draft was machine-generated.</li>
+  <li>In your TEI header, declare `<respStmt>` to credit the human editor who audited and verified the note.</li>
+</ul>
+
+<p>This encoding preserves complete transparency while maintaining standard TEI P5 compliance.</p>
+<p><strong>Takeaway:</strong> Encode vetted notes into TEI standOff elements, using resp attributes to maintain transparent records of AI assistance and human editing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Hands-On: Converting Vetted AI Notes to TEI Standoff XML</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Where are commentary notes stored within a TEI document according to the standoff annotation model?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Encode vetted notes into TEI standOff elements, using resp attributes to maintain transparent records of AI assistance and human editing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Inside the &lt;standOff&gt; element, grouped in an &lt;interpGrp&gt; and linked to the transcription via @target attributes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Standoff markup keeps the primary transcription clean by isolating interpretive notes in a separate container.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Scattered randomly between words inside &lt;w&gt; tags.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. In-line note embedding clutters primary transcription markup.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In a separate Microsoft Word document saved on a flash drive.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI standoff commentary is stored in the same XML file or linked XML document.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In the computer's motherboard BIOS memory.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI markup is stored in standard text files, not motherboard hardware memory.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Hands-On: Serializing Vetted Commentary as W3C JSON-LD</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On: Serializing Vetted Commentary as W3C JSON-LD</h3>
+<p>To make your vetted commentary available across the web, serialize it using the W3C Web Annotation Data Model you studied on Wednesday.</p>
+<p>Here is a complete JSON-LD annotation for Olyvia's Maud Lewis note:</p>
+<pre><code>{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "id": "https://rels398.stfx.ca/annotations/maud_01",
+  "type": "Annotation",
+  "motivation": "commenting",
+  "creator": {
+    "id": "https://rels398.stfx.ca/editors/olyvia",
+    "type": "Person",
+    "name": "Olyvia"
+  },
+  "generator": {
+    "type": "Software",
+    "name": "Claude 3.5 Sonnet"
+  },
+  "target": {
+    "source": "https://rels398.stfx.ca/texts/lewis_kinnear_1967.xml",
+    "selector": {
+      "type": "TextQuoteSelector",
+      "exact": "The price of the paintings is \$6.00"
+    }
+  },
+  "body": {
+    "type": "TextualBody",
+    "value": "Maud Lewis maintained modest prices of \$4 to \$6 for paintings sold from her Digby cottage during the late 1960s.",
+    "format": "text/plain"
+  }
+}</code></pre>
+
+<p>Notice the clear distinction between <code>creator</code> (the student editor) and <code>generator</code> (the AI drafting tool). This format makes your commentary shareable across modern web viewers.</p>
+<p><strong>Takeaway:</strong> Serializing vetted notes as W3C JSON-LD distinguishes human creator from AI generator, enabling open web annotation sharing.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Hands-On: Serializing Vetted Commentary as W3C JSON-LD</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a W3C Web Annotation JSON-LD file, what is the role of the TextQuoteSelector?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Serializing vetted notes as W3C JSON-LD distinguishes human creator from AI generator, enabling open web annotation sharing.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It anchors the annotation to exact words in the target document, ensuring resilience even if character offsets shift slightly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. TextQuoteSelector matches exact text snippets, making annotations robust against minor markup edits.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically purchases the painting mentioned in the text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web annotations describe data; they do not conduct financial purchases.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes any quotation marks found in the document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Selectors identify text spans; they do not alter source content.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates the annotation into Chinese characters.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Language translation is governed by separate processes, not quotation selectors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: The Three-Way Comparative Audit Matrix</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Three-Way Comparative Audit Matrix</h3>
+<p>We have now tested three distinct methods for building scholarly commentary. Let us compare them across key editorial dimensions:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>1. Manual (Tue)</th>
+      <th>2. Deterministic (Wed)</th>
+      <th>3. AI-Assisted (Fri)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Drafting Speed</strong></td>
+      <td>Slow (15-30 min/note)</td>
+      <td>Instantaneous</td>
+      <td>Very fast (seconds)</td>
+    </tr>
+    <tr>
+      <td><strong>Precision</strong></td>
+      <td>High (human verified)</td>
+      <td>Variable (spurious matches)</td>
+      <td>Medium (plausible errors)</td>
+    </tr>
+    <tr>
+      <td><strong>Recall</strong></td>
+      <td>Low (limited by memory)</td>
+      <td>High for exact phrases</td>
+      <td>High for thematic motifs</td>
+    </tr>
+    <tr>
+      <td><strong>Error Type</strong></td>
+      <td>Omission, human fatigue</td>
+      <td>Literalism, formula matches</td>
+      <td>Hallucination, anachronism</td>
+    </tr>
+    <tr>
+      <td><strong>Required Skill</strong></td>
+      <td>Philological expertise</td>
+      <td>Scripting and thresholds</td>
+      <td>Forensic fact-checking</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This comparative matrix demonstrates that no single method is sufficient on its own. The best digital editions combine manual expertise, rule-based algorithms, and vetted AI assistance.</p>
+<p><strong>Takeaway:</strong> Combining manual close reading, rule-based text search, and vetted AI drafts creates a resilient and balanced commentary workflow.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: The Three-Way Comparative Audit Matrix</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;According to the Three-Way Comparative Audit Matrix, what is the primary strength of manual commentary authoring (Tuesday)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Combining manual close reading, rule-based text search, and vetted AI drafts creates a resilient and balanced commentary workflow.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;High precision and verified accuracy, guided by careful human reading and historical expertise.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Manual drafting ensures trustworthy scholarship, though it requires significant time and labor.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It takes zero seconds to draft fifty notes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Manual authoring is slow and labor-intensive.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically checks every library in the world simultaneously.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Human memory and search capacity are limited.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It requires no knowledge of historical grammar or context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Manual commentary depends directly on human philological and historical knowledge.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Ethical Transparency and Scholarly Provenance</text></name><questiontext format="html"><text><![CDATA[
+<h3>Ethical Transparency and Scholarly Provenance</h3>
+<p>Using AI tools in academic research requires strict ethical transparency. Hiding AI assistance is academic dishonesty. Disclosing it clearly is good digital scholarship.</p>
+<p>In your edition's TEI header or introductory paratext, include an <strong>Editorial Method Statement</strong>:</p>
+<p>
+<em>"Commentary notes in this digital edition were drafted using Claude 3.5 Sonnet as a research assistant. All generated claims, historical dates, and citations were audited, corrected, and verified against primary archival documents by the editor. Fabricated references and anachronistic interpretations were rejected. Final editorial responsibility rests entirely with the human editor."</em>
+</p>
+
+<p>This statement clarifies that the AI served as a tool for initial drafting, while human expertise ensured truthfulness and historical accuracy.</p>
+<p><strong>Takeaway:</strong> Ethical scholarship requires full disclosure of AI drafting tools, documenting editorial audit procedures, and claiming final human responsibility.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Ethical Transparency and Scholarly Provenance</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must a digital edition include an Editorial Method Statement disclosing AI assistance?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Ethical scholarship requires full disclosure of AI drafting tools, documenting editorial audit procedures, and claiming final human responsibility.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To uphold academic integrity by making research methods transparent and establishing human responsibility for final claims.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Transparent disclosure is essential for ethical scholarship and reproducible research.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To allow the AI model to receive university course credit.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. AI software cannot earn academic degrees or university credit.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the government fines scholars who use computers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital scholarship is widely encouraged and supported by academic institutions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To prevent students from submitting their homework on time.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Method statements clarify research procedures; they do not delay submissions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Synthesis: Completing the Commentary Cycle and Preparing for Assignment 12</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesis: Completing the Commentary Cycle and Preparing for Assignment 12</h3>
+<p>Congratulations! You have completed the Three-Step Comparative Cycle for Topic 12:</p>
+<ol>
+  <li><strong>Lesson 12.1 (Manual):</strong> You authored historical, linguistic, and intertextual notes by hand and encoded them into TEI <code>&lt;standOff&gt;</code> and <code>&lt;interpGrp&gt;</code> elements.</li>
+  <li><strong>Lesson 12.2 (Deterministic):</strong> You scanned for text reuse using stoplists, n-grams, and TF-IDF formulas, serializing notes as W3C JSON-LD.</li>
+  <li><strong>Lesson 12.3 (AI-Assisted):</strong> You tested AI drafting assistants with negative constraints, audited outputs for hallucinations, and logged decisions in <code>COMMENTARY.md</code>.</li>
+</ol>
+
+<p><strong>Assignment 12 Details:</strong></p>
+<ul>
+  <li><strong>Due Date:</strong> Friday, December 4, at 11:00 PM.</li>
+  <li><strong>Total Value:</strong> 80 points on Moodle.</li>
+  <li><strong>Grading Rubric (4+3+3):</strong>
+    <ol>
+      <li><strong>Manual Ground Truth Precision (4 points / 40%):</strong> Accurate, scholarly commentary notes anchored to your primary transcription file.</li>
+      <li><strong>Standoff TEI Markup Validity (3 points / 30%):</strong> Well-formed TEI XML using <code>&lt;standOff&gt;</code>, <code>&lt;interpGrp&gt;</code>, and <code>@target</code> attributes.</li>
+      <li><strong>Comparative Audit Reflection (3 points / 30%):</strong> A completed <code>COMMENTARY.md</code> ledger comparing manual, rule-based, and AI-assisted notes with honest audit reflections.</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Submit your files on Moodle by December 4. Your commentary edition will serve as the foundation for our final publication modules!</p>
+<p><strong>Takeaway:</strong> Assignment 12 brings together manual precision, standoff TEI markup, and comparative audit reflections, due Friday, December 4 at 11:00 PM.</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: Completing the Commentary Cycle and Preparing for Assignment 12</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the three components of the 4+3+3 grading rubric for Assignment 12?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Assignment 12 brings together manual precision, standoff TEI markup, and comparative audit reflections, due Friday, December 4 at 11:00 PM.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Manual Ground Truth Precision (4 pts), Standoff TEI Markup Validity (3 pts), and Comparative Audit Reflection (3 pts).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The rubric evaluates accurate notes (40%), valid TEI standoff markup (30%), and the COMMENTARY.md ledger (30%).&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Attendance (4 pts), Typing Speed (3 pts), and Laptop Battery Life (3 pts).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Course assignments evaluate digital editing skills, not typing speed or battery life.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Buying Coffee (4 pts), Cleaning the Lab (3 pts), and Printing Posters (3 pts).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Assignment 12 evaluates textual editing, TEI markup, and critical reflection.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Memorizing Dates (4 pts), Drawing Maps (3 pts), and Reciting Speeches (3 pts).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The course focuses on digital scholarly editing methods.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

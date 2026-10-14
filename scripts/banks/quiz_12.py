@@ -45,11 +45,11 @@ obj_html = """<div class="card p-3 mb-3 border-info" style="border-left: 5px sol
     <h4 style="color: #0369a1; margin-top: 0;">Module 12: Digital Scholarly Commentary — Learning Objectives</h4>
     <p>By the end of this module, students will be able to:</p>
     <ul>
-        <li><strong>Classify</strong> scholarly commentary into distinct epistemological categories: philological/linguistic, historical/contextual, and intertextual text-reuse.</li>
-        <li><strong>Encode</strong> granular inline and stand-off commentary notes in TEI P5 using <code>&lt;note&gt;</code>, <code>&lt;anchor&gt;</code>, and <code>@target</code> pointer mechanisms.</li>
-        <li><strong>Apply</strong> algorithmic text-reuse discovery frameworks (such as Tesserae n-gram frequency matching) to detect intertextual allusions across classical and historical corpora.</li>
-        <li><strong>Model</strong> annotations using the W3C Web Annotation Data Model, specifying targets, bodies, motivations, and selectors in JSON-LD.</li>
-        <li><strong>Audit and vet</strong> AI-generated commentary notes, catching fabricated citations, anachronistic interpretations, and unsupported claims.</li>
+        <li><strong>Classify</strong> scholarly commentary into distinct categories: philological/linguistic, historical/contextual, and intertextual text reuse.</li>
+        <li><strong>Construct</strong> stable <code>xml:id</code> anchors and encode commentary notes in TEI P5 using <code>&lt;standOff&gt;</code>, <code>&lt;interpGrp&gt;</code>, <code>&lt;note&gt;</code>, and <code>@target</code>.</li>
+        <li><strong>Detect</strong> formulaic text reuse using stoplists, TF-IDF rarity weighting, and regex proximity searches across document collections.</li>
+        <li><strong>Model</strong> linked annotations using the W3C Web Annotation Data Model, specifying targets, bodies, motivations, and <code>TextQuoteSelector</code> in JSON-LD.</li>
+        <li><strong>Audit and vet</strong> AI-generated commentary notes with strict negative constraints, catching hallucinated citations, anachronisms, and fake treaty clauses.</li>
     </ul>
 </div>"""
 
@@ -67,38 +67,39 @@ reading_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #c29b
 # 4. Watch List
 watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #0284c7; background-color: #f0f9ff; border-radius: 6px; padding: 1.25rem;">
     <h4 style="color: #0369a1; margin-top: 0;">Curated Media & Technical Walkthroughs</h4>
-    <p>Review these video demonstrations before completing your workshop assignment:</p>
+    <p>Review these video demonstrations before completing your commentary assignment:</p>
     <ul>
-        <li><strong>From Marginalia to Linked Annotations:</strong> Historical origins and modern digital commentary architecture (22 mins).</li>
-        <li><strong>Encoding Standoff Commentary in TEI XML:</strong> Anchoring notes with <code>&lt;anchor&gt;</code> and <code>&lt;ptr&gt;</code> in VS Code (24 mins).</li>
-        <li><strong>Detecting Intertextual Text Reuse with Tesserae:</strong> Algorithmic allusion matching across historical corpora (20 mins).</li>
+        <li><strong>From Marginalia to Linked Annotations:</strong> Historical origins and digital commentary architecture (22 mins).</li>
+        <li><strong>Encoding Standoff Commentary in TEI XML:</strong> Anchoring notes with <code>&lt;standOff&gt;</code> and <code>&lt;interpGrp&gt;</code> in VS Code (24 mins).</li>
+        <li><strong>Linked Web Annotations & AI Fact-Checking:</strong> W3C JSON-LD selectors and auditing computational drafts (20 mins).</li>
     </ul>
 </div>"""
 
-# 5. Workshop
-ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #0284c7; background-color: #f0f9ff; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #0369a1; margin-top: 0;">Workshop: Multi-Tiered Scholarly Commentary & Intertextual Linking</h4>
-    <p><strong>Overview:</strong> In this workshop, you will author five scholarly commentary notes for your primary witness passage spanning three distinct categories (philological, historical, intertextual). You will encode them using stand-off TEI markup, connect them to Linked Open Data authorities, and compare your manual analysis against an automated text-reuse discovery query.</p>
-    <p><strong>Deadlines:</strong> Comparison Post due Friday by 11:00 PM; Peer Reviews due Monday by 11:00 PM.</p>
+# 5. Workshop / Assignment
+ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #eab308; background-color: #fefce8; border-radius: 6px; padding: 1.25rem;">
+    <h4 style="color: #854d0e; margin-top: 0;">Assignment: Module 12 (Scholarly Commentary & Annotation)</h4>
+    <p><strong>Overview:</strong> In this milestone, you will author scholarly commentary notes for a 5-sentence passage from your primary witness text spanning three distinct categories (philological, historical, intertextual). You will encode them using stand-off TEI markup, export a W3C JSON-LD annotation with a <code>TextQuoteSelector</code>, and conduct a Three-Way Comparative Audit (Manual vs Deterministic vs AI) recorded in <code>COMMENTARY.md</code>.</p>
+    <p><strong>Due Date:</strong> Friday, December 4, by 11:00 PM.</p>
 </div>"""
 
 ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Draft five scholarly commentary notes on your passage: at least one philological (explaining grammar/idiom), one historical/cultural (explaining realia/context), and one intertextual (documenting an allusion or scripture citation).</li>
-        <li>Encode the notes in TEI XML using stand-off <code>&lt;back&gt;&lt;div type="commentary"&gt;&lt;note target="#token-or-anchor" type="..."&gt;...&lt;/note&gt;&lt;/div&gt;&lt;/back&gt;</code>.</li>
-        <li>Link at least two notes to external Linked Open Data authorities (e.g. Pleiades URI for places, VIAF for historical figures, or CTS URN for classical passages).</li>
-        <li>Run an intertextual text-reuse check (via Tesserae or targeted corpus search) and evaluate whether automated n-gram matching detected your allusion.</li>
-        <li>Submit your TEI XML file and a <strong>300–500 word reflection</strong> discussing the trade-offs between inline vs. stand-off commentary architecture.</li>
+        <li>Select a 5-sentence passage from your primary witness text and establish stable <code>xml:id</code> anchors on words and phrases.</li>
+        <li>Hand-author five scholarly commentary notes across the three core categories (at least one philological, one historical, and one intertextual).</li>
+        <li>Encode the notes inside a TEI <code>&lt;standOff&gt;</code> container using <code>&lt;interpGrp type="commentary"&gt;</code>, <code>&lt;note type="..." target="#id"&gt;</code>, and <code>@resp</code> attributes.</li>
+        <li>Convert at least one note into a valid W3C Web Annotation JSON-LD file (<code>annotation.json</code>) using a resilient <code>TextQuoteSelector</code>.</li>
+        <li>Run an AI drafting prompt with negative constraints in VS Code, conduct a forensic fact-checking audit (catching hallucinations and anachronisms), and record your editorial decisions (Accept, Revise, Reject, Flag).</li>
+        <li>Submit your TEI XML file (<code>commentary_edition.xml</code>), <code>annotation.json</code>, and a <strong>300–500 word reflection in COMMENTARY.md</strong> comparing precision, speed, and error profiles across Manual, Deterministic, and AI methods.</li>
     </ol>
 </div>"""
 
 ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
+    <h4 style="margin-top: 0;">Grading Rubric (80 Points Total)</h4>
     <ul>
-        <li><strong>Commentary Categorization & Erudition (4 pts):</strong> The commentary notes exhibit genuine scholarly depth, clearly distinguishing between linguistic glosses, historical context, and verified literary allusions.</li>
-        <li><strong>Stand-Off TEI & LOD Pointers (3 pts):</strong> The stand-off markup is valid, accurately anchored to text coordinates, and includes functional Linked Open Data URI attributes.</li>
-        <li><strong>Text Reuse & Architecture Reflection (3 pts):</strong> The 300–500 word analysis insightfully critiques the limitations of purely statistical text-reuse algorithms and defends the selected TEI annotation model.</li>
+        <li><strong>Manual Ground Truth Precision (4 pts / 32 pts scaled):</strong> The five hand-authored commentary notes exhibit genuine scholarly depth, accurate historical context, verified philological definitions, and exact textual citations.</li>
+        <li><strong>Standoff TEI Markup Validity (3 pts / 24 pts scaled):</strong> The <code>&lt;standOff&gt;</code> container is well-formed, all <code>@target</code> URI pointers include the required <code>#</code> prefix and resolve to valid <code>xml:id</code> anchors, and provenance is recorded via <code>@resp</code>.</li>
+        <li><strong>Comparative Three-Way Audit & Reflection (3 pts / 24 pts scaled):</strong> The 300–500 word reflection in <code>COMMENTARY.md</code> insightfully compares precision, recall, speed, and error profiles across manual, rule-based, and AI methods, documenting vetted and rejected claims.</li>
     </ul>
 </div>"""
 
@@ -110,7 +111,7 @@ for mod_p in [dist_mod, src_mod]:
     (mod_p / "08_Workshop_Description.html").write_text(ws_desc, encoding="utf-8")
     (mod_p / "08a_Workshop_Submission_Instructions.html").write_text(ws_sub, encoding="utf-8")
     (mod_p / "08b_Workshop_Assessment_Instructions.html").write_text(ws_assess, encoding="utf-8")
-    (mod_p / "09_Quiz_Description.html").write_text("<p>Comprehensive weekly knowledge check covering scholarly commentary taxonomy, TEI standoff notes, Tesserae intertextual discovery, and W3C Web Annotation standards.</p>", encoding="utf-8")
+    (mod_p / "09_Quiz_Description.html").write_text("<p>Comprehensive weekly knowledge check covering scholarly commentary taxonomy, TEI standoff notes, text reuse discovery, and W3C Web Annotation standards.</p>", encoding="utf-8")
 
 print("Wrote HTML and Banner files.")
 
@@ -127,7 +128,7 @@ questions = [
     ("02 Question: Inline vs Stand-Off Commentary Architecture",
       "Why do modern digital critical editions strongly prefer 'stand-off' commentary notes over 'inline' `<note>` elements?",
       [
-          ("Stand-off notes reside outside the primary narrative body (e.g. in `<back>`), preventing editorial prose from interrupting the syntactic flow of the source text and facilitating multiple overlapping commentary layers.", 100, "Correct. Stand-off markup maintains clean separation between source text and editorial interpretation, allowing multiple scholars to annotate the same coordinates without tag overlapping collisions."),
+          ("Stand-off notes reside outside the primary narrative body (e.g. in `<standOff>`), preventing editorial prose from interrupting the syntactic flow of the source text and facilitating multiple overlapping commentary layers.", 100, "Correct. Stand-off markup maintains clean separation between source text and editorial interpretation, allowing multiple scholars to annotate the same coordinates without tag overlapping collisions."),
           ("Because inline notes are illegal under Canadian intellectual property laws.", 0, "Incorrect. Markup architecture is an engineering and philological decision, not a legal statute."),
           ("Because web browsers refuse to display any webpage containing inline notes.", 0, "Incorrect. Browsers can render any valid HTML/XML structure."),
           ("Because stand-off notes automatically delete the source text to save server bandwidth.", 0, "Incorrect. Stand-off notes point to the source text via URI targets; they never delete it.")
@@ -140,13 +141,13 @@ questions = [
           ("By converting the whole paragraph into an uncompressed JPEG picture.", 0, "Incorrect. Converting text to raster images destroys machine readability and searchability."),
           ("By renaming all tags `<div1>`, `<div2>`, and `<div3>`.", 0, "Incorrect. Arbitrary tag renaming does not resolve structural overlapping.")
       ]),
-    ("04 Question: Operational Principles of Tesserae",
-      "How does the Tesserae intertextual discovery tool identify literary text reuse across classical texts?",
+    ("04 Question: Operational Principles of Text Reuse Algorithms",
+      "How do text reuse discovery algorithms identify shared phrases across historical corpora?",
       [
-          ("It uses frequency-weighted n-gram matching, calculating scores based on the rarity of shared words and their proximity within sentences.", 100, "Correct. Tesserae finds intertextual allusions by scoring pairs of shared words inversely proportional to their overall corpus frequencies and positional distance."),
-          ("It reads the author's personal diary to find written confessions of plagiarism.", 0, "Incorrect. Tesserae is an automated computational text analysis tool operating on digital corpora."),
-          ("It translates both texts into binary Morse code and compares the audio frequencies.", 0, "Incorrect. Tesserae evaluates lexical frequency vectors, not acoustic sound waves."),
-          ("It checks whether both authors purchased books from the same bookstore.", 0, "Incorrect. Ancient authors lived centuries before modern commercial book chains.")
+          ("They use frequency-weighted n-gram matching, calculating scores based on the rarity of shared words and their proximity within sentences.", 100, "Correct. Text reuse tools find intertextual allusions by scoring pairs of shared words inversely proportional to their overall corpus frequencies and positional distance."),
+          ("They read the author's personal diary to find written confessions of plagiarism.", 0, "Incorrect. Text reuse algorithms are automated computational text analysis tools operating on digital corpora."),
+          ("They translate both texts into binary Morse code and compares the audio frequencies.", 0, "Incorrect. Algorithms evaluate lexical frequency vectors, not acoustic sound waves."),
+          ("They check whether both authors purchased books from the same bookstore.", 0, "Incorrect. Historical authors lived centuries before modern commercial book chains.")
       ]),
     ("05 Question: W3C Web Annotation Data Model",
       "In the W3C Web Annotation Data Model (JSON-LD), what are the two essential components linked together by an `Annotation` object?",
@@ -165,9 +166,9 @@ questions = [
           ("By converting all surrounding words into secret passwords.", 0, "Incorrect. Selectors operate on transparent plaintext context strings.")
       ]),
     ("07 Question: Linking Notes to Linked Open Data Authorities",
-      "Why is enriching commentary notes with Linked Open Data URIs (such as Pleiades for places and VIAF for people) methodologically valuable?",
+      "Why is enriching commentary notes with Linked Open Data URIs (such as Wikidata or VIAF for people) methodologically valuable?",
       [
-          ("It disambiguates entities unambiguously and links the edition to the global semantic web, enabling automated cross-project querying and interactive spatial mapping.", 100, "Correct. Resolvable authority URIs eliminate naming ambiguities (e.g. distinguishing Antioch in Syria from Antioch in Pisidia) and integrate the text with global knowledge graphs."),
+          ("It disambiguates entities unambiguously and links the edition to the global semantic web, enabling automated cross-project querying and interactive spatial mapping.", 100, "Correct. Resolvable authority URIs eliminate naming ambiguities (e.g. distinguishing Governor Peregrine Hopson from relatives) and integrate the text with global knowledge graphs."),
           ("Because it increases the purchase price of the digital edition on commercial ebook stores.", 0, "Incorrect. Linked Open Data promotes open scholarship, not commercial price gouging."),
           ("Because university servers crash if an XML file contains fewer than ten web links.", 0, "Incorrect. Servers do not require external links to function."),
           ("Because it allows the user to play 3D computer games inside the footnote.", 0, "Incorrect. Linked Data facilitates rigorous scholarly research, not video gaming.")
@@ -175,17 +176,17 @@ questions = [
     ("08 Question: AI Hallucinations in Historical Commentary",
       "When using generative AI to assist in drafting historical commentary notes, what is a frequent, treacherous hallucination hazard?",
       [
-          ("Fabricating scholarly citations (inventing non-existent books, authors, or journal page numbers) and projecting anachronistic modern theological or social concepts onto premodern sources.", 100, "Correct. LLMs frequently generate completely fabricated but highly convincing bibliographies and project anachronistic concepts back into antiquity."),
+          ("Fabricating scholarly citations (inventing non-existent books, authors, or journal page numbers) and projecting anachronistic modern legal or social concepts onto historical sources.", 100, "Correct. LLMs frequently generate completely fabricated but highly convincing bibliographies and project anachronistic concepts back into earlier centuries."),
           ("Translating the text into completely flawless ancient Sumerian cuneiform.", 0, "Incorrect. Models typically fail at low-resource ancient scripts rather than producing flawless translations."),
           ("Refusing to write any sentence that contains the letter 'e'.", 0, "Incorrect. Models have no constraint against standard letters unless explicitly prompted."),
           ("Deleting all comments made by the instructor on Moodle.", 0, "Incorrect. Generating text in a chat prompt cannot interact with or delete remote Moodle forum posts.")
       ]),
     ("09 Question: Distinguishing Literary Allusion from Coincidental Overlap",
-      "Why must algorithmic text-reuse matches (e.g. from Tesserae) be verified by a human scholar before being published as an intertextual commentary note?",
+      "Why must algorithmic text-reuse matches be verified by a human scholar before being published as an intertextual commentary note?",
       [
           ("Because statistical algorithms frequently flag coincidental collocations of common grammatical words or stock idioms that lack any intentional literary or historical allusion.", 100, "Correct. Algorithms detect string similarities; only human philologists can evaluate whether shared vocabulary reflects genuine intertextual dialogue, formulaic convention, or random chance."),
           ("Because computers are legally prohibited from publishing literary criticism.", 0, "Incorrect. Computational analysis is widely published in academic venues."),
-          ("Because all ancient authors wrote completely unique sentences that never shared a single word.", 0, "Incorrect. Historical texts share vast lexical conventions and literary allusions."),
+          ("Because all historical authors wrote completely unique sentences that never shared a single word.", 0, "Incorrect. Historical texts share vast lexical conventions and literary allusions."),
           ("Because digital editions are only allowed to have one commentary note per chapter.", 0, "Incorrect. Digital editions impose no arbitrary limits on commentary density.")
       ]),
     ("10 Question: Quality Assurance for TEI Commentary Markup",

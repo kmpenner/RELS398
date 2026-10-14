@@ -140,12 +140,15 @@
 
 ## 5. Active Milestone & Next Target
 
-- **Current Phase:** Modules 7, 8, 9, 10, and 11 complete and deployed to Moodle Course 51185 (Sections 7, 8, 9, 10, 11). Next Target: Week 12 (Module 12: Commentary & Annotation, Meetings #31–33, Nov 24–27).
-- **Completed Module 7 Assets (2026-10-13):**
-  1. Authoring and verification of in-class teaching plans: `Lesson_7.1_Teaching_Plan_2026-10-20.html` (Meeting #17), `Lesson_7.2_Teaching_Plan_2026-10-21.html` (Meeting #18), `Lesson_7.3_Teaching_Plan_2026-10-23.html` (Meeting #19) in `src/modules/Module_07_Rendering/` (passed shared linter 18/18 plans with 0 problems).
-  2. Widescreen PowerPoint slide decks built: `Lesson_7.1_Slides_2026-10-20.pptx`, `Lesson_7.2_Slides_2026-10-21.pptx`, `Lesson_7.3_Slides_2026-10-23.pptx` (15 slides each, strictly >=16pt font floor, 80–120 word notes per slide) in `src/` and mirrored to `dist/moodle/`.
-  3. Module 7 Section ancillaries assembled: `01_Banner.png`, `05_Reading_List.html`, `06_Watch_List.html`, `09_Quiz_Description.html`, and `09_Quiz.xml` (10-question quiz with diagnostic feedback) via `scripts/banks/quiz_07.py`.
-  4. Notes PDFs recompiled for Modules 8, 14, and 15 with canonical renumbered headers.
+- **Current Phase:** Modules 7, 8, 9, 10, 11, and 12 complete and deployed to Moodle Course 51185 (Sections 7, 8, 9, 10, 11, 12). Next Target: Week 13 (Module 13: Publication II — Digital Editions, Critical Paratexts, and Minimal Computing, Meetings #34–36, Dec 1–4).
+- **Completed Module 12 Assets (2026-10-14):**
+  1. Authoring and verification of in-class teaching plans: `Lesson_12.1_Teaching_Plan_2026-11-24.html` (Meeting #31), `Lesson_12.2_Teaching_Plan_2026-11-25.html` (Meeting #32), `Lesson_12.3_Teaching_Plan_2026-11-27.html` (Meeting #33) in `src/modules/Module_12_Commentary/` (passed shared linter 0 problems).
+  2. Widescreen PowerPoint slide decks built: `Lesson_12.1_Slides_2026-11-24.pptx`, `Lesson_12.2_Slides_2026-11-25.pptx`, `Lesson_12.3_Slides_2026-11-27.pptx` (15 slides each, strictly >=16pt font floor, 80–120 word notes per slide) in `src/` and mirrored to `dist/moodle/`.
+  3. Module 12 Section ancillaries assembled: `01_Banner.png`, `05_Reading_List.html`, `06_Watch_List.html`, `09_Quiz_Description.html`, and `09_Quiz.xml` (10-question quiz with diagnostic feedback) via `scripts/banks/quiz_12.py`.
+  4. Deployed full package to live Moodle Section 12 (16 activities in canonical order).
+- **Immediate Next Targets:**
+  1. Module 13 (Publication II) novice rewrite planning and authoring for Meetings #34–36 (Dec 1–4).
+  2. Module 13 slide decks, teaching plans, question banks, and live Moodle deployment.
 - **Immediate Next Targets:**
   1. Module 8 (Lemmatization) novice rewrite planning and authoring for Meetings #20–22 (Oct 27–30).
   2. Module 9 (Named Entities) lesson authoring and question banks for Meetings #23–25 (Nov 3–6).
@@ -511,3 +514,26 @@ Two findings worth carrying forward:
     - Added Weekly Quiz (`cmid 1440836`).
     - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
     - Refreshed and committed `moodle_manifest.json` (174 activities tracked across 16 sections).
+
+- **[2026-10-14] Module 12 (Commentary & Annotation) Novice Authoring, Ancillaries, Slide Decks, and Live Moodle Deployment Complete:**
+  - Evaluated baseline reading level: obsolete version focused on doctoral-level Greek philology (Venetus A scholia, Alexandrian signs, Grundtvig, 1 Thess 2:2 Greek parsing).
+  - Authored complete, novice-accessible lessons for Module 12 (Lessons 12.1, 12.2, 12.3) teaching scholarly commentary, text reuse discovery, and AI-assisted drafting grounded in the three student witnesses (Ace: 1791 French Revolutionary decree; Olyvia: 1967 Maud Lewis letter; Andromeda: 1752 Peace and Friendship Treaty):
+    - Lesson 12.1 (Meeting #31, Tue Nov 24): 30 sections, 6,048 words, FKGL 11.7, FRE 37.5, 0 lint issues. Teaches the purpose of scholarly commentary, editorial layers of a digital edition, three commentary categories (philological, historical, intertextual), establishing stable `xml:id` anchors, and encoding standoff notes in TEI P5 (`<standOff>`, `<interpGrp>`, `<note>`, and `@target`).
+    - Lesson 12.2 (Meeting #32, Wed Nov 25): 30 sections, 5,387 words, FKGL 12.1, FRE 36.1, 0 lint issues. Teaches deterministic text reuse discovery, stoplists, word rarity and TF-IDF weighting, proximity scoring, the W3C Web Annotation Data Model (Annotation, Target, Body, Motivation), and serializing notes as W3C JSON-LD with resilient `TextQuoteSelector`.
+    - Lesson 12.3 (Meeting #33, Fri Nov 27): 30 sections, 4,073 words, FKGL 11.5, FRE 35.4, 0 lint issues. Teaches AI-assisted commentary drafting, structured system prompts, negative constraints against hallucinations, catching fabricated citations and fake treaty articles, philological vetting of historical vocabulary (*cours forcé*, *truckhouse*), the four-step forensic audit protocol, the Three-Way Comparative Audit (Manual vs Deterministic vs AI), and documenting editorial decisions in `COMMENTARY.md`.
+    - All three lessons pass the lint gate with 0 issues (clean HTML tables, 30/30 takeaways verified).
+  - Built question data modules (`scripts/banks/lesson_12_1.py`, `lesson_12_2.py`, `lesson_12_3.py`) and compiled question banks to `03b_Lesson_12.*_Questions.xml` (30 questions each, full diagnostic feedback, strict section parity).
+  - Compiled offline Notes PDFs (`04_Lesson_12.1_Notes.pdf`, `04_Lesson_12.2_Notes.pdf`, `04_Lesson_12.3_Notes.pdf`) to `dist/moodle/Module_12_Commentary/` using Pandoc + Typst.
+  - Compiled interactive Moodle XMLs (`03_Interactive_Lesson_12.*.xml`) and standalone HTML players (`03_Interactive_Lesson_12.*.html`) into both `src/modules/` and `dist/moodle/`.
+  - Assembled Phase F ancillaries via `scripts/banks/quiz_12.py`: generated warm terracotta / dark earth 1200x300 banner (`01_Banner.png`), Reading List, Watch List, Assignment 12 suite with 4+3+3 rubric (due Friday, December 4, by 11:00 PM, 80 Moodle points), and 10-question Weekly Quiz (`09_Quiz.xml`).
+  - Authored and verified in-class teaching plans: `Lesson_12.1_Teaching_Plan_2026-11-24.html` (Tue 8:30–9:20 AM), `Lesson_12.2_Teaching_Plan_2026-11-25.html` (Wed 10:30–11:20 AM), `Lesson_12.3_Teaching_Plan_2026-11-27.html` (Fri 9:30–10:20 AM) in MULH 3032. Passed `lint_teaching_plan.py` with 0 problems.
+  - Built widescreen 16:9 projection slide decks: `Lesson_12.1_Slides_2026-11-24.pptx`, `Lesson_12.2_Slides_2026-11-25.pptx`, `Lesson_12.3_Slides_2026-11-27.pptx` (15 slides each; strictly >=16.0pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
+  - Deployed full package to live Moodle Section 12 (Course 51185, Section ID 639810):
+    - Populated Banner (`cmid 1440906`), Learning Objectives (`cmid 1440907`), Lessons 12.1-12.3 Interactive Quizzes (`cmids 1440911, 1440912, 1440913`), and Notes PDFs (`cmids 1440908, 1440909, 1440910` with completion restrictions pointing to quizzes).
+    - Uploaded slide decks as file resources via `mkmod.js`: `Lesson 12.1 Slides (PPTX)` (`cmid 1440918`), `Lesson 12.2 Slides (PPTX)` (`cmid 1440919`), `Lesson 12.3 Slides (PPTX)` (`cmid 1440920`).
+    - Added Reading List (`cmid 1440914`) and Watch List (`cmid 1440915`).
+    - Created `Assignment: Module_12_Commentary` (`cmid 1440921`, due Dec 4, 11:00 PM, 80 pts, 4+3+3 rubric) via `ws2assign.js`, and hid workshop (`cmid 1440916`).
+    - Added Weekly Quiz (`cmid 1440917`).
+    - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
+    - Refreshed and committed `moodle_manifest.json` (190 activities tracked across 16 sections).
+

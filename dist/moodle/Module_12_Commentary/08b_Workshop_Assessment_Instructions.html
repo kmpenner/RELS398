@@ -1,8 +1,8 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
+    <h4 style="margin-top: 0;">Grading Rubric (80 Points Total)</h4>
     <ul>
-        <li><strong>Commentary Categorization & Erudition (4 pts):</strong> The commentary notes exhibit genuine scholarly depth, clearly distinguishing between linguistic glosses, historical context, and verified literary allusions.</li>
-        <li><strong>Stand-Off TEI & LOD Pointers (3 pts):</strong> The stand-off markup is valid, accurately anchored to text coordinates, and includes functional Linked Open Data URI attributes.</li>
-        <li><strong>Text Reuse & Architecture Reflection (3 pts):</strong> The 300–500 word analysis insightfully critiques the limitations of purely statistical text-reuse algorithms and defends the selected TEI annotation model.</li>
+        <li><strong>Manual Ground Truth Precision (4 pts / 32 pts scaled):</strong> The five hand-authored commentary notes exhibit genuine scholarly depth, accurate historical context, verified philological definitions, and exact textual citations.</li>
+        <li><strong>Standoff TEI Markup Validity (3 pts / 24 pts scaled):</strong> The <code>&lt;standOff&gt;</code> container is well-formed, all <code>@target</code> URI pointers include the required <code>#</code> prefix and resolve to valid <code>xml:id</code> anchors, and provenance is recorded via <code>@resp</code>.</li>
+        <li><strong>Comparative Three-Way Audit & Reflection (3 pts / 24 pts scaled):</strong> The 300–500 word reflection in <code>COMMENTARY.md</code> insightfully compares precision, recall, speed, and error profiles across manual, rule-based, and AI methods, documenting vetted and rejected claims.</li>
     </ul>
 </div>

@@ -1,0 +1,2004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz><question type="category"><category><text>course/03_Interactive_Lesson_12.2</text></category></question>
+<question type="description"><name><text>01 Content: The Algorithmic Search for Text Reuse</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Algorithmic Search for Text Reuse</h3>
+<p>Yesterday you wrote commentary notes by hand. You researched historical dictionaries and tracked down legal citations. That manual work is rewarding. However, it is slow. A scholar can only read one sentence at a time. No human editor can memorize thousands of archival pages to spot every hidden cross-reference.</p>
+<p>rule-based algorithms solve this scale problem. A rule-based tool runs fixed mathematical and word rules. When given the same input, it always produces the same output. It does not guess or hallucinate like an artificial intelligence model.</p>
+<p>In text analysis, rule-based algorithms look for text reuse. They scan large collections of documents to find repeated phrases, shared legal formulas, and literary echoes.</p>
+<p>Consider our three course documents:</p>
+<ul>
+  <li><strong>Andromeda (1752 Treaty):</strong> Did the British authorities copy specific clauses from the earlier 1725 Dummer's Treaty? An algorithm can compare both texts in seconds.</li>
+  <li><strong>Ace (1791 French Decree):</strong> Does the decree reuse standard formulas from the 1789 Declaration of the Rights of Man? An algorithm highlights every matching phrase.</li>
+  <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> Did Maud Lewis use standard phrases when selling her art to collectors? A comparison across her surviving letters reveals her recurring formulas.</li>
+</ul>
+
+<p><strong>Vocabulary.</strong> <em>rule-based Algorithm</em> — a digital process with predictable, rule-based behavior that always yields identical results for a given input. <em>Text Reuse</em> — the repetition of identical or modified text across different documents.</p>
+<p><strong>Takeaway:</strong> rule-based text reuse algorithms scan vast document collections using fixed rules to discover shared phrases and citations beyond human memory.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>01 Question: The Algorithmic Search for Text Reuse</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do scholars use deterministic algorithms to search for text reuse across historical archives?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;rule-based text reuse algorithms scan vast document collections using fixed rules to discover shared phrases and citations beyond human memory.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They scan vast document collections using fixed rules to discover shared phrases and citations beyond human memory limits.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deterministic algorithms run predictable, rule-based operations that never hallucinate, surfacing connections humans miss.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They rewrite historical documents into modern slang automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Text reuse algorithms detect shared phrasing, not slang rewriting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They delete older archival documents to free up server hard drive space.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Algorithms preserve and analyze historical texts, never delete them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They replace human historians with automated robots that grade student papers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Text discovery tools assist scholars with discovery rather than replacing scholarly evaluation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>02 Content: The Mechanics of Text Reuse: word vs. sentence</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Mechanics of Text Reuse: word vs. sentence</h3>
+<p>When writers borrow from earlier texts, they reuse language in different ways. Some writers copy word-for-word. Others modify phrases to fit new contexts.</p>
+<p>Text reuse falls into two main forms:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Reuse Type</th>
+      <th>Definition</th>
+      <th>Detection Difficulty</th>
+      <th>Cohort Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Verbatim Reuse</strong></td>
+      <td>Exact, word-for-word repetition of a phrase</td>
+      <td>Easy (simple string matching in VS Code)</td>
+      <td><em>"saving to the said Tribe the free liberty of Hunting"</em> in 1725 and 1752 treaties.</td>
+    </tr>
+    <tr>
+      <td><strong>Modified Reuse</strong></td>
+      <td>Shared vocabulary with altered word order or grammar</td>
+      <td>Moderate (requires lemmatization and proximity rules)</td>
+      <td>French decree modifying a 1790 finance law: changing past tense verbs to modern legal mandates.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Simple string search in VS Code (<code>Cmd+F</code>) finds verbatim loans easily. But when authors change a word or reorder a clause, simple search fails. Advanced tools use statistical proximity and n-grams to detect these subtle connections.</p>
+<p><strong>Vocabulary.</strong> <em>Verbatim Reuse</em> — copying text character-for-character without modification. <em>Modified Reuse</em> — adapting an earlier text through summary, grammatical changes, or word omissions.</p>
+<p><strong>Takeaway:</strong> Text reuse ranges from verbatim copying to modified summary, requiring different algorithmic detection strategies.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>02 Question: The Mechanics of Text Reuse: word vs. sentence</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the difference between verbatim text reuse and modified text reuse in historical documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Text reuse ranges from verbatim copying to modified summary, requiring different algorithmic detection strategies.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Verbatim reuse is exact, word-for-word repetition, while modified reuse adapts language through paraphrase, word order changes, or omission.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Verbatim loans are easily detected by string matching, whereas modified reuse requires proximity scoring and lemmatization.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Verbatim reuse occurs only in poetry, while modified reuse occurs only in legal statutes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Both forms of text reuse occur across all genres of historical writing.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Verbatim reuse is always illegal plagiarism, while modified reuse is always authorized.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical text reuse was a standard scribal and legal drafting practice, not modern copyright infringement.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Verbatim reuse changes the language, while modified reuse keeps all characters identical.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. This completely reverses the definitions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>03 Content: The Tesserae Framework: Principles of text-linking Discovery</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Tesserae Framework: Principles of text-linking Discovery</h3>
+<p>One of the most famous digital humanities tools for finding text reuse is the <em>Tesserae Project</em>, developed at the University at Buffalo. Originally designed for classical Latin and Greek poetry, its core principles apply to historical documents in any language.</p>
+<p>Tesserae operates on a simple principle: <strong>pairing of shared meaningful words</strong>.</p>
+<ol>
+  <li>The algorithm breaks texts into small segments (usually sentences or poetic lines).</li>
+  <li>It ignores common filler words like "the", "and", and "in".</li>
+  <li>It searches for pairs of sentences that share two or more rare vocabulary words.</li>
+  <li>It scores each match based on how close the words appear to each other and how rare those words are in the wider language.</li>
+</ol>
+
+<p>If two sentences share two common words like "king" and "day", the score is low. But if two sentences share rare terms like "assignats" and "counterfeiting", the algorithm flags a strong text-linking link.</p>
+<p><strong>Vocabulary.</strong> <em>Tesserae</em> — an open-source digital tool that finds text-linking parallels using word pairing scoring. <em>pairing</em> — the appearance of two or more specific words within the same sentence or window of text.</p>
+<p><strong>Takeaway:</strong> The Tesserae framework discovers text reuse by scoring the pairing of shared words based on rarity and physical proximity.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>03 Question: The Tesserae Framework: Principles of text-linking Discovery</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the Tesserae framework discover text reuse between historical texts?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The Tesserae framework discovers text reuse by scoring the pairing of shared words based on rarity and physical proximity.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;By identifying and scoring sentence pairs that share two or more rare vocabulary words within a close textual window.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Tesserae calculates match scores based on word rarity and physical proximity between shared terms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By comparing the color and chemical composition of the ink on digitized manuscripts.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tesserae analyzes digital text strings, not physical chemical ink properties.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By translating both documents into classical Greek and counting the syllables.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tesserae operates directly on the target vocabulary of the texts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By asking human volunteers to vote on which text is more beautifully written.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Tesserae is an automated computational algorithm, not a crowd-sourced voting platform.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>04 Content: Preprocessing: Stoplists and Normalization</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preprocessing: Stoplists and Normalization</h3>
+<p>Before an algorithm can compare historical texts, you must prepare the data. If you feed raw transcriptions into an algorithm, punctuation marks, capital letters, and common words distort the results.</p>
+<p>Text preprocessing involves three essential steps:</p>
+<ol>
+  <li><strong>Punctuation Removal:</strong> Periods, commas, and hyphens are stripped so words match cleanly.</li>
+  <li><strong>Case Folding:</strong> Converting all letters to lowercase so that "Treaty" matches "treaty".</li>
+  <li><strong>Applying a Stoplist:</strong> Filtering out the most common grammatical words in the language.</li>
+</ol>
+
+<p>A <em>stoplist</em> is a list of high-frequency words that carry little distinct meaning. In English, a stoplist contains words such as <em>the, of, and, to, in, that, is, was</em>. In French, it contains <em>le, la, les, de, et, en, du, pour</em>.</p>
+<p>If you omit the stoplist, almost every sentence matches every other sentence because they all contain "the" and "and". Removing stopwords allows the algorithm to focus exclusively on meaningful nouns, verbs, and adjectives.</p>
+<p><strong>Vocabulary.</strong> <em>Stoplist</em> — a curated list of high-frequency words excluded from digital search to prevent noise. <em>Case Folding</em> — normalizing all text to lowercase to ensure uniform matching.</p>
+<p><strong>Takeaway:</strong> Preprocessing historical text through case folding, punctuation removal, and stoplists is essential for finding meaningful text reuse.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>04 Question: Preprocessing: Stoplists and Normalization</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must editors apply a stoplist before running text reuse algorithms on primary documents?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Preprocessing historical text through case folding, punctuation removal, and stoplists is essential for finding meaningful text reuse.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To filter out ubiquitous grammatical words (like 'the', 'and', 'in') that would otherwise cause every sentence to match by accident.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Removing high-frequency stopwords prevents false matches and forces the algorithm to focus on meaningful content words.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To delete all swear words from historical manuscripts before students read them.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. A stoplist filters high-frequency function words, not offensive language.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To prevent unauthorized users from downloading the document from GitHub.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Stoplists are data preprocessing tools, not security access controls.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because XML parsers crash if they encounter the word 'the'.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. XML parsers process common words without difficulty.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>05 Content: Word Rarity and TF-IDF Weighting</text></name><questiontext format="html"><text><![CDATA[
+<h3>Word Rarity and TF-IDF Weighting</h3>
+<p>How does an algorithm know which words are truly important? In human reading, your brain naturally focuses on specialized words. Computers achieve this using a statistical formula called <strong>TF-IDF</strong> (Term Frequency–Inverse Document Frequency).</p>
+<p>TF-IDF evaluates words based on two balances:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Formula Meaning</th>
+      <th>Effect on Word Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Term Frequency (TF)</strong></td>
+      <td>How often a word appears in a specific sentence</td>
+      <td>Words appearing multiple times score higher within that passage.</td>
+    </tr>
+    <tr>
+      <td><strong>Inverse Document Frequency (IDF)</strong></td>
+      <td>How rare the word is across the whole corpus</td>
+      <td>Words that appear everywhere receive near-zero weight. Rare words receive high scores.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For example, in Andromeda's treaty, the word "governor" appears on almost every page, so its IDF score is low. But the word "Truckhouse" appears in only two articles. Its high IDF score signals to the algorithm that this sentence contains a unique legal provision.</p>
+<p><strong>Vocabulary.</strong> <em>TF-IDF</em> — a statistical weight measuring how important a word is to a specific document within a collection. <em>Inverse Document Frequency</em> — a calculation that boosts rare terms and discounts ubiquitous words.</p>
+<p><strong>Takeaway:</strong> TF-IDF weighting mathematically models scholarly intuition by prioritizing rare, distinctive terms over ubiquitous vocabulary.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>05 Question: Word Rarity and TF-IDF Weighting</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the TF-IDF statistical weighting formula, how does Inverse Document Frequency (IDF) help identify important text parallels?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;TF-IDF weighting mathematically models scholarly intuition by prioritizing rare, distinctive terms over ubiquitous vocabulary.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It assigns high numerical weights to rare terms while discounting common words that appear across the entire corpus.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. IDF ensures that specialized legal terms like 'Truckhouse' score much higher than generic words like 'governor'.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It counts the total number of pages in the printed book.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. IDF evaluates vocabulary rarity across documents, not physical page counts.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It measures how fast the user can type words on a keyboard.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. IDF is an algorithmic text analysis metric, not a human typing test.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes any word that appears fewer than three times in the document.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. IDF boosts rare words rather than deleting them.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>06 Content: Distance Scoring: Word Proximity</text></name><questiontext format="html"><text><![CDATA[
+<h3>Distance Scoring: Word Proximity</h3>
+<p>Vocabulary rarity alone is not enough to confirm text reuse. Two rare words might appear in the same document simply by accident. To confirm an intentional borrow or legal formula, algorithms measure physical word distance.</p>
+<p>Consider two sentences:</p>
+<ul>
+  <li><strong>Sentence A:</strong> <em>"The Chief agreed to establish a Truckhouse on the Shubenacadie River."</em> (The words "Truckhouse" and "Shubenacadie" are separated by only 3 words).</li>
+  <li><strong>Sentence B:</strong> <em>"A Truckhouse was opened in January. At the same time, five months later troops surveyed the distant Shubenacadie."</em> (The words are separated by 14 words).</li>
+</ul>
+
+<p>Sentence A shows high phrase density. The words appear tightly grouped, suggesting a formulaic legal clause. Sentence B shows low phrase density.</p>
+<p>rule-based tools like Tesserae calculate a distance score: words that appear close together receive a bonus. At the same time, words spread across long paragraphs are penalized.</p>
+<p><strong>Vocabulary.</strong> <em>Phrase Density</em> — the closeness of matching words within a text span. <em>Proximity Penalty</em> — reducing a match score when shared words are separated by many intervening terms.</p>
+<p><strong>Takeaway:</strong> Measuring word proximity ensures that algorithms prioritize compact, formulaic phrases over accidental, distant word pairings.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>06 Question: Distance Scoring: Word Proximity</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do intertextual discovery algorithms apply a proximity penalty when matching words in a candidate passage?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Measuring word proximity ensures that algorithms prioritize compact, formulaic phrases over accidental, distant word pairings.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Words appearing close together in a compact phrase indicate intentional borrowing, while words spread far apart are often coincidental.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Compact phrase density is a strong indicator of formulaic legal text reuse or direct quotation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because computer memory runs out if words are more than ten inches apart on screen.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Proximity scoring is an analytical heuristic, not a memory hardware constraint.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To force historical authors to write shorter sentences in the future.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Algorithms analyze historical text as written; they cannot alter past authors.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because long sentences are forbidden in digital editions.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital editions accommodate historical sentences of any length.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>07 Content: Precision vs. Recall in Algorithmic Discovery</text></name><questiontext format="html"><text><![CDATA[
+<h3>Precision vs. Recall in Algorithmic Discovery</h3>
+<p>When configuring any automated search tool, editors face a fundamental trade-off: <strong>Precision vs. Recall</strong>.</p>
+<p>These two concepts measure search quality:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Definition</th>
+      <th>High Setting Outcome</th>
+      <th>Risk of Extreme Setting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Precision</strong></td>
+      <td>What percentage of discovered matches are genuine historical connections?</td>
+      <td>Almost every result is a true parallel.</td>
+      <td>You miss many subtle, modified echoes (False Negatives).</td>
+    </tr>
+    <tr>
+      <td><strong>Recall</strong></td>
+      <td>What percentage of all true historical connections did the tool find?</td>
+      <td>The tool captures nearly every parallel in the archive.</td>
+      <td>The editor must sort through hundreds of irrelevant false alarms (False Positives).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In digital editing, we usually aim for balanced settings: strict enough to filter out pure noise. However, broad enough to surface unexpected connections.</p>
+<p><strong>Vocabulary.</strong> <em>Precision</em> — the proportion of retrieved results that are relevant. <em>Recall</em> — the proportion of all relevant items that were successfully retrieved.</p>
+<p><strong>Takeaway:</strong> Editorial tool configuration balances precision against recall, trading off between missing subtle parallels and filtering out false alarms.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>07 Question: Precision vs. Recall in Algorithmic Discovery</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When configuring an automated text reuse tool, what happens if an editor sets the match threshold for extremely high precision?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Editorial tool configuration balances precision against recall, trading off between missing subtle parallels and filtering out false alarms.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The tool returns almost exclusively genuine historical parallels, but misses many subtle or modified borrowings (false negatives).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. High precision minimizes false alarms at the expense of lower recall, missing modified or paraphrased text reuse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The tool crashes the computer and deletes all project files.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Changing match thresholds adjusts search stringency without crashing systems.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The tool captures 100% of all parallels with zero missed items.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Capturing all parallels describes high recall, which typically lowers precision.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The tool begins generating fictional hallucinations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Deterministic algorithms run fixed mathematical rules and never hallucinate.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>08 Content: What rule-based Algorithms Catch</text></name><questiontext format="html"><text><![CDATA[
+<h3>What rule-based Algorithms Catch</h3>
+<p>rule-based text reuse tools are remarkably powerful within their specific domain. They excel at finding patterns that human eyes overlook during long reading sessions.</p>
+<p>rule-based algorithms reliably catch:</p>
+<ul>
+  <li><strong>Verbatim legal Formulas:</strong> In Ace's French decrees, phrases like <em>"l'Assemblée Nationale a décrété et décrète"</em> appear across hundreds of parliamentary laws. An algorithm tags every occurrence instantly.</li>
+  <li><strong>uniform Treaty Clauses:</strong> In Andromeda's 1752 treaty, formal promises of peace match earlier 1725 articles word-for-word across separate archival volumes.</li>
+  <li><strong>Commercial Boilerplate:</strong> In Olyvia's Maud Lewis letters, recurring sales phrases (such as asking for payment by money order or listing price per painting) are surfaced across different correspondents.</li>
+  <li><strong>Direct Quotations:</strong> Unattributed citations from earlier official notices or scripture are highlighted with mathematical certainty.</li>
+</ul>
+
+<p><strong>Vocabulary.</strong> <em>Boilerplate</em> — uniform, formulaic text reused in legal or administrative documents with little modification. <em>Verbatim Match</em> — an exact character-level match between two passages.</p>
+<p><strong>Takeaway:</strong> rule-based tools excel at surfacing verbatim legal formulas, commercial boilerplate, and direct legal cross-references.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>08 Question: What rule-based Algorithms Catch</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which type of textual connection are deterministic algorithms most effective at detecting across historical corpora?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;rule-based tools excel at surfacing verbatim legal formulas, commercial boilerplate, and direct legal cross-references.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Verbatim statutory formulas, standardized treaty articles, and identical commercial boilerplate.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Deterministic tools excel at surfacing exact lexical repetitions that span across large archival collections.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Subtle psychological motivations of historical figures.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Psychological motivations require deep historical interpretation, not string matching.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Ironic literary metaphors that contain no shared vocabulary.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Algorithms cannot detect metaphors that share zero vocabulary.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Predictions of 21st-century technological inventions in 18th-century treaties.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical documents do not predict future technologies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>09 Content: What rule-based Algorithms Miss</text></name><questiontext format="html"><text><![CDATA[
+<h3>What rule-based Algorithms Miss</h3>
+<p>While rule-based algorithms are fast and reliable, they have serious blind spots. Because they operate on literal vocabulary matching, they fail whenever meaning is conveyed through non-literal language.</p>
+<p>rule-based algorithms fail to detect:</p>
+<ul>
+  <li><strong>Synonym Substitution:</strong> If a later French decree replaces <em>"fabrication"</em> with <em>"création"</em>, a word-matching tool sees zero connection.</li>
+  <li><strong>Conceptual Parallels:</strong> If an author alludes to an idea without using the author's exact words, the algorithm is completely blind to the connection.</li>
+  <li><strong>Ironic Reversals:</strong> If a writer mocks an earlier political decree by negating its phrasing, string tools miss the rhetorical nuance.</li>
+  <li><strong>Spelling Variations:</strong> In historical manuscripts, if Maud Lewis spells "February" as "Febuary", an un-normalized string search misses the match.</li>
+</ul>
+
+<p>This is why automated tools cannot work alone. They require a human editor to review candidates, understand synonyms, and evaluate historical intent.</p>
+<p><strong>Vocabulary.</strong> <em>Synonymic Substitution</em> — replacing a word with an equivalent term having the same meaning. <em>False Negative</em> — a genuine historical parallel that an automated tool failed to discover.</p>
+<p><strong>Takeaway:</strong> rule-based tools are blind to synonyms, conceptual allusions, and spelling variations, requiring human oversight to catch missed connections.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>09 Question: What rule-based Algorithms Miss</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do deterministic word-matching algorithms fail to detect conceptual allusions and paraphrases?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;rule-based tools are blind to synonyms, conceptual allusions, and spelling variations, requiring human oversight to catch missed connections.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;They match literal character strings and lemmas, making them blind to synonym substitutions, structural metaphors, and conceptual echoes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. If an author expresses the same idea using different words, simple string matching algorithms see zero connection.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because digital computers are not permitted to read historical literature.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Computers can process literature, but string algorithms lack semantic comprehension.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because all historical authors wrote in secret encrypted code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Archival documents were written in standard natural languages of their era.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because algorithms only operate on numbers, not text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. String algorithms process text characters directly.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>10 Content: Auditing Algorithmic Output Against Tuesday's Ground Truth</text></name><questiontext format="html"><text><![CDATA[
+<h3>Auditing Algorithmic Output Against Tuesday's Ground Truth</h3>
+<p>In the three-step cycle, Tuesday's manual notes serve as your <strong>gold standard ground truth</strong>. Today, you test whether an automated search algorithm can discover the same notes you wrote by hand.</p>
+<p>When auditing algorithmic output:</p>
+<ol>
+  <li><strong>Run the Search:</strong> Execute your automated search across your project corpus.</li>
+  <li><strong>Compare Matches:</strong> Did the algorithm find the text-linking references you identified on Tuesday?
+    <ul>
+      <li>If yes, the algorithm validated your manual discovery and saved time.</li>
+      <li>If it found references you missed, the algorithm expanded your research.</li>
+      <li>If it missed references you found, analyze why (e.g., did synonym substitution hide the parallel?).</li>
+    </ul>
+  </li>
+  <li><strong>Log False Alarms:</strong> Note how many coincidental word pairs the tool reported that have no historical relationship.</li>
+</ol>
+
+<p>This comparative audit reveals the true capabilities and limits of automated tools.</p>
+<p><strong>Vocabulary.</strong> <em>Audit</em> — a systematic evaluation of digital output against an established, verified benchmark. <em>Gold Standard</em> — human-verified data used to evaluate automated accuracy.</p>
+<p><strong>Takeaway:</strong> Auditing algorithmic results against manual ground truth reveals tool strengths, uncovers missed parallels, and identifies false positives.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>10 Question: Auditing Algorithmic Output Against Tuesday's Ground Truth</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In the three-step comparative cycle, how does auditing algorithmic results against Tuesday's manual notes advance your research?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Auditing algorithmic results against manual ground truth reveals tool strengths, uncovers missed parallels, and identifies false positives.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It reveals whether the algorithm validated your hand-crafted discoveries, identifies newly surfaced true parallels, and tallies false alarms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Benchmarking against ground truth allows scholars to measure algorithmic precision and identify blind spots.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It allows students to discard their primary sources and submit computer code instead.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The primary sources remain the foundation of the edition.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It proves that human scholars should never read primary sources manually.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Manual reading creates the ground truth benchmark that makes evaluation possible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It changes the date of the historical treaty in official government archives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Auditing digital tools has no effect on historical chronology.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>11 Content: Beyond the Local File: The Need for Web Annotation</text></name><questiontext format="html"><text><![CDATA[
+<h3>Beyond the Local File: The Need for Web Annotation</h3>
+<p>In Lesson 12.1, you stored notes inside the TEI <code>&lt;standOff&gt;</code> block of your local XML file. That local structure is ideal for publishing a self-contained edition. But what happens when you want to share annotations across the open internet?</p>
+<p>Historical scholarship increasingly happens across distributed web platforms:</p>
+<ul>
+  <li>A researcher at the Nova Scotia Archives wants to annotate a digitized scan of the 1752 Treaty on their website.</li>
+  <li>A student at StFX wants to link their commentary note to that remote archive scan without asking the archivist for write access to their server.</li>
+  <li>An art historian wants to attach an explanatory note directly to a Maud Lewis painting hosted on the Art Gallery of Nova Scotia website.</li>
+</ul>
+
+<p>You cannot edit the XML files of remote museum servers. To allow anyone to annotate any web document without modifying the underlying server files, the World Wide Web Consortium (W3C) created the <strong>Web Annotation Data Model</strong>.</p>
+<p><strong>Vocabulary.</strong> <em>Distributed Annotation</em> — attaching comments to remote web resources without modifying the host server's source files. <em>W3C</em> — the World Wide Web Consortium, the international standards organization for the web.</p>
+<p><strong>Takeaway:</strong> Web annotation standards allow scholars to attach commentary to remote archival images and texts across the internet without altering host servers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>11 Question: Beyond the Local File: The Need for Web Annotation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why did the scholarly community develop international web annotation standards beyond local TEI XML standoff files?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Web annotation standards allow scholars to attach commentary to remote archival images and texts across the internet without altering host servers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To allow scholars to attach commentary to remote archival scans and web pages without requiring write access to the host museum servers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Web annotation decouples notes from host server storage, allowing decentralized commentary across the public internet.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI XML was permanently banned by the United Nations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI XML remains the premier international standard for text encoding.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To force all digital editions to be viewed exclusively on mobile phones.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web standards ensure device independence across all platforms.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because local hard drives cannot store more than five annotations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Local storage capacity is not the issue; cross-institutional sharing is.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>12 Content: The W3C Web Annotation Data Model</text></name><questiontext format="html"><text><![CDATA[
+<h3>The W3C Web Annotation Data Model</h3>
+<p>Published as an official W3C Recommendation in 2017, the <em>Web Annotation Data Model</em> formalizes how digital notes are structured on the web.</p>
+<p>The model is built on a clean three-part structure:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Role in Model</th>
+      <th>Plain English Meaning</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Annotation</strong></td>
+      <td>The overarching container</td>
+      <td>The note object itself, with metadata (author, date, motivation).</td>
+      <td>Created by Ace on Nov 25, 2026.</td>
+    </tr>
+    <tr>
+      <td><strong>Target</strong></td>
+      <td>What is being annotated</td>
+      <td>The destination web page, image region, or text sentence.</td>
+      <td>A specific line in the 1791 French decree scan.</td>
+    </tr>
+    <tr>
+      <td><strong>Body</strong></td>
+      <td>What the note says</td>
+      <td>The explanatory comment, transcription, or classification.</td>
+      <td>"Assignats were paper currency issued in 1789."</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>By standardizing notes into Annotation, Target, and Body, annotations become shareable across any software platform on the web.</p>
+<p><strong>Vocabulary.</strong> <em>Annotation Body</em> — the content or comment being attached to a target. <em>Annotation Target</em> — the specific resource, web page, or image region being annotated.</p>
+<p><strong>Takeaway:</strong> The W3C Web Annotation Data Model structures commentary into three universal components: the Annotation, the Target, and the Body.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>12 Question: The W3C Web Annotation Data Model</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What are the three core structural components of every annotation in the W3C Web Annotation Data Model?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The W3C Web Annotation Data Model structures commentary into three universal components: the Annotation, the Target, and the Body.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;The Annotation container, the Target (what is being annotated), and the Body (what the annotation says).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The W3C specification structures every annotation into Annotation, Target, and Body.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Header, the Paragraph, and the Footer.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These describe traditional HTML document layout sections.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Username, the Password, and the Credit Card.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These are e-commerce authentication fields.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;The Input, the Processor, and the Output.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. These describe general computing architecture.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>13 Content: JSON-LD: The Language of Web Annotations</text></name><questiontext format="html"><text><![CDATA[
+<h3>JSON-LD: The Language of Web Annotations</h3>
+<p>While TEI uses XML, modern web architecture predominantly uses JSON (JavaScript Object Notation). To represent semantic linked data, web annotations use <strong>JSON-LD</strong> (JSON for Linked Data).</p>
+<p>JSON-LD allows plain JSON objects to act as linked data by including a <code>@context</code> declaration:</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;http://www.w3.org/ns/anno.jsonld&quot;,
+  &quot;id&quot;: &quot;http://example.org/annotations/anno1&quot;,
+  &quot;type&quot;: &quot;Annotation&quot;,
+  &quot;motivation&quot;: &quot;commenting&quot;,
+  &quot;body&quot;: {
+    &quot;type&quot;: &quot;TextualBody&quot;,
+    &quot;value&quot;: &quot;Peregrine Hopson served as Governor of Nova Scotia from 1752 to 1753.&quot;,
+    &quot;format&quot;: &quot;text/plain&quot;
+  },
+  &quot;target&quot;: &quot;https://archives.novascotia.ca/treaty1752#clause3&quot;
+}
+</code></pre>
+<p>Notice how intuitive this is:</p>
+<ul>
+  <li><code>@context</code> tells web software that this file follows official W3C rules.</li>
+  <li><code>motivation</code> states why the note was made (e.g., commenting).</li>
+  <li><code>body</code> contains the student's historical note.</li>
+  <li><code>target</code> points to the live URL of the treaty in the Nova Scotia Archives.</li>
+</ul>
+
+<p><strong>Vocabulary.</strong> <em>JSON-LD</em> — a lightweight data format that encodes Linked Open Data within standard JSON syntax. <em><code>@context</code></em> — a JSON-LD property linking property names to uniform web ontologies.</p>
+<p><strong>Takeaway:</strong> JSON-LD serializes W3C Web Annotations into a web-native, machine-readable format that connects commentary to live URLs.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>13 Question: JSON-LD: The Language of Web Annotations</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a W3C Web Annotation serialized in JSON-LD, what is the role of the @context property?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;JSON-LD serializes W3C Web Annotations into a web-native, machine-readable format that connects commentary to live URLs.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It links property names to standardized W3C linked data vocabularies, ensuring that web software interprets keys like 'body' and 'target' correctly.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The @context declaration provides the semantic schema mapping that turns plain JSON into Linked Open Data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It hides the author's email address from computer hackers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. @context defines ontology mappings, not user privacy settings.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically translates the note into seven different foreign languages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. @context maps data keys, not human language translations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It tells the web browser to delete the file after twenty-four hours.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web annotations are persistent data objects.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>14 Content: The W3C Motivation Taxonomy</text></name><questiontext format="html"><text><![CDATA[
+<h3>The W3C Motivation Taxonomy</h3>
+<p>Why did an editor create a note? In human writing, you understand an author's goal from tone and context. Computers need explicit signals.</p>
+<p>The W3C standard provides a controlled vocabulary of <strong>motivations</strong>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>W3C Motivation</th>
+      <th>Scholarly Purpose</th>
+      <th>Cohort Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>commenting</code></td>
+      <td>Explaining meaning, history, or context</td>
+      <td>Explaining who Governor Hopson was.</td>
+    </tr>
+    <tr>
+      <td><code>identifying</code></td>
+      <td>Attaching an authority record to a person or place</td>
+      <td>Linking "Marshalltown" to its GeoNames entry.</td>
+    </tr>
+    <tr>
+      <td><code>linking</code></td>
+      <td>Connecting one text directly to another</td>
+      <td>Linking the 1752 treaty to the 1725 treaty text.</td>
+    </tr>
+    <tr>
+      <td><code>transcribing</code></td>
+      <td>Providing a reading of physical handwriting on an image</td>
+      <td>Transcribing Maud Lewis's handwritten letter on a photograph.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Declaring your motivation allows web software to display notes appropriately—for example, showing <code>identifying</code> tags as clickable badges and <code>commenting</code> notes as sidebars.</p>
+<p><strong>Vocabulary.</strong> <em>Motivation</em> — the declared scholarly purpose or reason why an annotation was created. <em>Taxonomy</em> — a structured classification system.</p>
+<p><strong>Takeaway:</strong> Specifying a W3C motivation (<code>commenting</code>, <code>identifying</code>, <code>linking</code>) clarifies the scholarly purpose of each digital note for web software.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>14 Question: The W3C Motivation Taxonomy</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which W3C motivation should be assigned to an annotation that attaches an external authority record to a person or place?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Specifying a W3C motivation (`commenting`, `identifying`, `linking`) clarifies the scholarly purpose of each digital note for web software.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;motivation: 'identifying'&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The 'identifying' motivation signals that the annotation attaches an authoritative identity or gazetteer record to a textual entity.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;motivation: 'bookmarking'&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 'Bookmarking' records a location for future reading, not authority identification.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;motivation: 'moderating'&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 'Moderating' evaluates forum comment quality, not entity authority linking.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;motivation: 'questioning'&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. 'Questioning' raises doubts or queries, whereas authority tagging identifies entities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>15 Content: The Anchoring Problem on the Dynamic Web</text></name><questiontext format="html"><text><![CDATA[
+<h3>The Anchoring Problem on the Dynamic Web</h3>
+<p>On the public web, anchoring annotations is much harder than inside your local XML file. Websites change constantly. Website redesigns modify HTML layout. Text is updated, and image coordinates shift.</p>
+<p>If your annotation simply says: <em>"Attach this note to character 450 on page X"</em>, any minor update to the web page will break your anchor. The note either appears in the wrong spot or disappears completely.</p>
+<p>To make web annotations durable across website edits, the W3C standard invented <strong>Selectors</strong>. A selector is a smart mechanism that describes how to find the target passage even if the page layout shifts.</p>
+<p><strong>Vocabulary.</strong> <em>Dynamic Web</em> — web pages whose content or styling changes over time through database updates or redesigns. <em>Selector</em> — an algorithm or pattern that locates a target passage within a digital document.</p>
+<p><strong>Takeaway:</strong> Web annotations require resilient selectors to ensure notes stay attached to target text even when website layouts are updated.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>15 Question: The Anchoring Problem on the Dynamic Web</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why are raw character offsets especially unreliable for anchoring annotations on public web pages?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Web annotations require resilient selectors to ensure notes stay attached to target text even when website layouts are updated.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Website redesigns, template updates, and text revisions constantly shift character positions, causing notes to attach to the wrong text or disappear.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Dynamic web pages change frequently, making fragile character counts obsolete upon any layout update.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because web browsers cannot count characters higher than ten.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Browsers process millions of characters, but DOM positions shift during edits.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the W3C strictly outlaws using numbers on web pages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Numbers are standard data types in all web protocols.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because character offsets cause computer screens to flicker.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Anchor fragility is a data consistency problem, not a visual display glitch.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>16 Content: The `TextQuoteSelector`: Robust Text Anchoring</text></name><questiontext format="html"><text><![CDATA[
+<h3>The `TextQuoteSelector`: Robust Text Anchoring</h3>
+<p>The most resilient selector for web text is the <strong><code>TextQuoteSelector</code></strong>. Instead of counting characters or HTML divs, it uses the text itself, surrounded by its immediate context.</p>
+<p>A <code>TextQuoteSelector</code> records three strings:</p>
+<ol>
+  <li><strong>`exact`:</strong> The exact text being annotated.</li>
+  <li><strong>`prefix`:</strong> The few words immediately preceding the target in the original page.</li>
+  <li><strong>`suffix`:</strong> The few words immediately following the target in the original page.</li>
+</ol>
+
+<p>Here is a JSON-LD example for Maud Lewis's letter:</p>
+<pre><code class="language-json">&quot;selector&quot;: {
+  &quot;type&quot;: &quot;TextQuoteSelector&quot;,
+  &quot;exact&quot;: &quot;I have two small paintings done&quot;,
+  &quot;prefix&quot;: &quot;Dear Mr. Kinnear, &quot;,
+  &quot;suffix&quot;: &quot;, one of oxen and one of cats.&quot;
+}
+</code></pre>
+<p>Even if the web archivist changes the webpage font, wraps the letter in new HTML tags, or adds introductory paragraphs, the browser can search for the prefix, exact text, and suffix, reattaching the note perfectly!</p>
+<p><strong>Vocabulary.</strong> <em><code>TextQuoteSelector</code></em> — a resilient W3C selector that locates a target by matching the exact phrase and its immediate surrounding words. <em>Prefix / Suffix</em> — context strings used to disambiguate identical phrases on a page.</p>
+<p><strong>Takeaway:</strong> The <code>TextQuoteSelector</code> ensures annotations survive web redesigns by locking onto the target phrase and its surrounding context words.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>16 Question: The TextQuoteSelector: Robust Text Anchoring</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the W3C TextQuoteSelector ensure that an annotation stays attached to its target text even if the webpage HTML changes?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;The `TextQuoteSelector` ensures annotations survive web redesigns by locking onto the target phrase and its surrounding context words.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It records the exact target phrase along with its immediate prefix and suffix words, allowing software to search for and relocate the phrase in context.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The combination of prefix, exact text, and suffix disambiguates repeated phrases and survives surrounding HTML redesigns.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It locks the remote museum server so that archivists cannot edit their own web pages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Annotations cannot lock or restrict remote server administration.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It downloads the entire internet into a single text file on your laptop.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Selectors store small context strings, not entire websites.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It converts the webpage into an uneditable paper printout.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Web annotations operate dynamically within digital browsers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>17 Content: Positional and Image Selectors</text></name><questiontext format="html"><text><![CDATA[
+<h3>Positional and Image Selectors</h3>
+<p>While text quotes are ideal for prose, historical documents also include digitized facsimile images, maps. Archival photographs. W3C defines specialized selectors for these media.</p>
+<p>Key selector types include:</p>
+<ul>
+  <li><strong>`TextPositionSelector`:</strong> Records starting and ending character numbers (e.g., characters 100 to 145). Fast to compute, but fragile on updated web pages.</li>
+  <li><strong>`FragmentSelector`:</strong> Points to standard media fragments. For IIIF images, it defines a rectangular bounding box:
+    <pre><code>"selector": {
+  "type": "FragmentSelector",
+  "conformsTo": "http://www.w3.org/TR/media-frags/",
+  "value": "xywh=160,240,400,120"
+}</code></pre>
+  </li>
+</ul>
+
+<p>With an image fragment selector, you can attach a note directly to King Louis XVI's signature at the bottom of Ace's French decree, or to Maud Lewis's painted signature on an archival photograph!</p>
+<p><strong>Vocabulary.</strong> <em>Media Fragment</em> — a W3C standard for addressing temporal or spatial regions of media files using URL coordinates (<code>xywh</code>). <em>Bounding Box</em> — the rectangular pixel boundaries enclosing an image feature.</p>
+<p><strong>Takeaway:</strong> Image fragment selectors allow scholars to attach commentary directly to specific visual regions on digitized manuscript scans and photographs.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>17 Question: Positional and Image Selectors</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Which W3C selector allows an editor to attach a commentary note to a specific visual region on a high-resolution digitized treaty scan?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Image fragment selectors allow scholars to attach commentary directly to specific visual regions on digitized manuscript scans and photographs.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;FragmentSelector with spatial media fragment coordinates (e.g., xywh=160,240,400,120).&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Spatial fragment selectors define rectangular bounding boxes on images and facsimiles conforming to media fragment standards.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;TextQuoteSelector without any image data.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Text quote selectors match text strings, not pixel coordinates on image facsimiles.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;CSS FontSelector with color values.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Font selectors style typography, not spatial image coordinates.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;GPS GeolocationSelector for outdoor satellite tracking.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Digital image coordinates address pixel space on a canvas, not satellite GPS.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>18 Content: Selector Chains for Maximum Durability</text></name><questiontext format="html"><text><![CDATA[
+<h3>Selector Chains for Maximum Durability</h3>
+<p>What happens if a website changes so drastically that a single selector fails? Professional web annotation platforms solve this by using <strong>Selector Chains</strong>.</p>
+<p>In a selector chain, an annotation includes multiple selectors in a list:</p>
+<ol>
+  <li>First, the browser tries a fast <code>FragmentSelector</code> or <code>TextPositionSelector</code>.</li>
+  <li>If the position shifted due to page edits, the browser falls back to the resilient <code>TextQuoteSelector</code>.</li>
+  <li>If the exact words were slightly modernized, an XPath selector attempts to locate the containing paragraph.</li>
+</ol>
+
+<p>By combining fast positional lookups with robust text quote searches, selector chains ensure that historical notes survive for years on the evolving web.</p>
+<p><strong>Vocabulary.</strong> <em>Selector Chain</em> — an ordered list of fallback selectors that increases the likelihood of successfully resolving a digital annotation anchor. <em>Graceful Degradation</em> — software behavior where a system falls back to secondary methods if the primary method fails.</p>
+<p><strong>Takeaway:</strong> Combining positional lookups and text quote selectors into chains guarantees maximum durability for digital commentary on the web.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>18 Question: Selector Chains for Maximum Durability</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do robust web annotation platforms combine multiple selectors into an ordered selector chain?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Combining positional lookups and text quote selectors into chains guarantees maximum durability for digital commentary on the web.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To implement graceful degradation, attempting fast positional lookups first and falling back to resilient text quote matching if page edits occurred.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Selector chains maximize speed when pages are static and guarantee recovery when pages are modified.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To confuse search engines so that competing universities cannot read the annotations.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Selector chains enhance data recovery, not obfuscation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because the W3C requires every annotation to be written in three different computer languages.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Selector chains are an anchoring resilience strategy within JSON-LD.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To force users to click three times before viewing a note.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Selector chains execute automatically behind the scenes without extra clicks.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>19 Content: Collaborative Web Annotation with Hypothes.is</text></name><questiontext format="html"><text><![CDATA[
+<h3>Collaborative Web Annotation with Hypothes.is</h3>
+<p>To see W3C web annotation in real-world practice, scholars use tools like <strong>Hypothes.is</strong>.</p>
+<p>Hypothes.is is an open-source platform that brings an annotation layer to any website or PDF online:</p>
+<ul>
+  <li>You install a browser extension or add a simple script to your web page.</li>
+  <li>When you highlight text on any website (such as the Nova Scotia Archives or the British Library), a sidebar opens.</li>
+  <li>You type your commentary note, add tags (like `#treaty` or `#assignats`), and click save.</li>
+  <li>Behind the scenes, Hypothes.is automatically generates a full W3C JSON-LD annotation with a `TextQuoteSelector`!</li>
+  <li>Your notes can be private for personal research, shared with a classroom group, or published publicly.</li>
+</ul>
+
+<p>This means our three students could collaborate on annotating historical treaty scans across different universities in real time.</p>
+<p><strong>Vocabulary.</strong> <em>Hypothes.is</em> — an open-source digital platform that enables collaborative annotation across public web pages and online PDFs. <em>Annotation Layer</em> — a digital interface overlaying notes on top of web content without modifying the host site.</p>
+<p><strong>Takeaway:</strong> Platforms like Hypothes.is operationalize the W3C standard, allowing students and scholars to annotate live web pages and PDFs collaboratively.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>19 Question: Collaborative Web Annotation with Hypothes.is</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How does the Hypothes.is platform operationalize W3C web annotation standards for classroom teaching?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Platforms like Hypothes.is operationalize the W3C standard, allowing students and scholars to annotate live web pages and PDFs collaboratively.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It allows students and instructors to highlight and annotate live web pages and online PDFs collaboratively, generating standard JSON-LD notes behind the scenes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Hypothes.is provides an accessible browser overlay that generates W3C-compliant annotations across public websites and PDFs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It replaces the university library catalog with a private social media chat room.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hypothes.is is an academic annotation platform, not social media chat.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically grades student essays using generative artificial intelligence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hypothes.is is a human collaborative annotation tool, not an automated grading bot.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It blocks all students from accessing historical archives online.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hypothes.is facilitates collaborative engagement with online archives.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>20 Content: Semantic Tagging and Authority Linking with Recogito</text></name><questiontext format="html"><text><![CDATA[
+<h3>Semantic Tagging and Authority Linking with Recogito</h3>
+<p>Another celebrated digital humanities platform built on W3C standards is <strong>Recogito</strong>, created by the Pelagios Network.</p>
+<p>Recogito is specifically designed for historical documents, maps, and archival scans:</p>
+<ul>
+  <li>It allows editors to upload historical texts or high-resolution images.</li>
+  <li>When you highlight a place name like "Halifax" or "Digby", Recogito automatically queries global gazetteers (such as GeoNames and Pleiades).</li>
+  <li>It displays a map showing the historical location and prompts you to confirm the match.</li>
+  <li>Once confirmed, Recogito stores the annotation in W3C format, complete with authority URIs and latitude/longitude coordinates.</li>
+</ul>
+
+<p>Recogito bridges the gap between text reading and geographic visualization, turning text mentions into interactive maps.</p>
+<p><strong>Vocabulary.</strong> <em>Recogito</em> — a digital humanities tool for collaborative semantic annotation of historical texts, maps. Images. <em>Geoparsing</em> — identifying place names in text and mapping them to geographic coordinates.</p>
+<p><strong>Takeaway:</strong> Recogito demonstrates how W3C web annotations connect textual mentions of places to interactive maps and global gazetteers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>20 Question: Semantic Tagging and Authority Linking with Recogito</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What primary scholarly capability does the Recogito platform provide when annotating historical texts and maps?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Recogito demonstrates how W3C web annotations connect textual mentions of places to interactive maps and global gazetteers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It allows editors to highlight place names, automatically queries global gazetteers like GeoNames, and plots historical entities on interactive maps.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Recogito links textual place mentions to geographic coordinates and visualizes them on interactive maps.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically purchases antique maps from online auction websites.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Recogito is a scholarly research tool, not an e-commerce purchasing bot.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes all historical place names and replaces them with modern postal codes.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Recogito preserves historical toponyms while linking them to gazetteer records.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It translates English documents into computer assembly code.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Recogito performs semantic annotation and geoparsing, not low-level code compilation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>21 Content: Linked Open Data and Knowledge Graphs</text></name><questiontext format="html"><text><![CDATA[
+<h3>Linked Open Data and Knowledge Graphs</h3>
+<p>When you connect commentary notes to global authority files (such as Wikidata, GeoNames, or VIAF), your digital edition joins a global <strong>Knowledge Graph</strong>.</p>
+<p>In a traditional library catalog, documents sit on separate shelves. But in a Linked Open Data knowledge graph, data forms a web of relationships:</p>
+<ul>
+  <li><em>Peregrine Hopson</em> (Wikidata Q7168341) <strong>[was governor of]</strong> <em>Nova Scotia</em> (Wikidata Q1952).</li>
+  <li><em>The Treaty of 1752</em> <strong>[was signed by]</strong> <em>Jean-Baptiste Cope</em> (Wikidata Q6169974).</li>
+  <li><em>Maud Lewis</em> (Wikidata Q432374) <strong>[lived in]</strong> <em>Digby County</em> (Wikidata Q257776).</li>
+</ul>
+
+<p>When your edition exports its annotations in JSON-LD, external researchers can query these relationships computationally, discovering connections between colonial Canada, revolutionary Europe, and twentieth-century art history.</p>
+<p><strong>Vocabulary.</strong> <em>Knowledge Graph</em> — a structured network of interconnected concepts, entities. Relationships encoded in linked data standards. <em>RDF (Resource Description Framework)</em> — the foundational W3C data model for linked data.</p>
+<p><strong>Takeaway:</strong> Linking annotations to global authorities integrates local student editions into a worldwide knowledge graph of historical data.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>21 Question: Linked Open Data and Knowledge Graphs</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In a Linked Open Data knowledge graph, how are historical entities connected to one another?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Linking annotations to global authorities integrates local student editions into a worldwide knowledge graph of historical data.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Through subject-predicate-object semantic statements (triples) linking persistent URIs, such as Hopson [governed] Nova Scotia.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Knowledge graphs encode relationships between real-world entities using standardized RDF triples.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By saving all historical documents in one giant Microsoft Excel spreadsheet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Knowledge graphs use graph databases and linked data standards, not local flat spreadsheets.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By printing paper cards and mailing them to the national archives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Linked Open Data is a decentralized digital web architecture.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;By ensuring that all historical figures have identical personal names.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. URIs disambiguate figures with similar names, preserving distinct historical identities.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>22 Content: Querying Commentary Networks with SPARQL</text></name><questiontext format="html"><text><![CDATA[
+<h3>Querying Commentary Networks with SPARQL</h3>
+<p>How do researchers query vast knowledge graphs? In relational databases, developers use SQL. In the world of Linked Open Data, scholars use <strong>SPARQL</strong> (SPARQL Protocol and RDF Query Language).</p>
+<p>A SPARQL query searches for graph patterns across linked datasets. For example, a researcher can ask:</p>
+<pre><code>SELECT ?treaty ?governor ?date WHERE {
+  ?treaty wdt:P31 wd:Q131569 .       # is a treaty
+  ?treaty wdt:P1001 wd:Q1952 .       # jurisdiction: Nova Scotia
+  ?treaty wdt:P580 ?date .           # signed date
+  ?treaty wdt:P110 ?governor .       # signed by governor
+}</code></pre>
+
+<p>In a single query taking less than one second, the database returns every colonial treaty signed in Nova Scotia, its signing date, and the governing British official!</p>
+<p>By authoring standards-compliant commentary, our student editions prepare historical data for this advanced digital scholarship.</p>
+<p><strong>Vocabulary.</strong> <em>SPARQL</em> — the standard semantic query language used to retrieve and manipulate data stored in Resource Description Framework (RDF) format. <em>Graph Pattern</em> — a query template specifying conditions that data nodes and links must satisfy.</p>
+<p><strong>Takeaway:</strong> SPARQL enables scholars to execute complex relational queries across distributed linked data networks and digital commentaries.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>22 Question: Querying Commentary Networks with SPARQL</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What is the primary role of the SPARQL query language in digital humanities research?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;SPARQL enables scholars to execute complex relational queries across distributed linked data networks and digital commentaries.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It executes structured relational queries across distributed Linked Open Data graphs to extract specific historical entities and relationships.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. SPARQL allows researchers to query complex RDF graphs across the web to answer multi-variable historical research questions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It formats text into decorative italic fonts in Microsoft Word.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SPARQL is a semantic query language, not a word processor styling tool.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It checks whether student laptops are connected to the university Wi-Fi network.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SPARQL queries databases, not campus network hardware.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It deletes spam emails from the instructor's inbox automatically.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. SPARQL queries graph data, not email servers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>23 Content: Comparing TEI Standoff XML vs. W3C JSON-LD</text></name><questiontext format="html"><text><![CDATA[
+<h3>Comparing TEI Standoff XML vs. W3C JSON-LD</h3>
+<p>As a digital editor, you now know two major annotation frameworks: TEI Standoff XML (Lesson 12.1) and W3C Web Annotation JSON-LD (Lesson 12.2). Which one should you use?</p>
+<p>Both frameworks have distinct architectural strengths:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>TEI Standoff XML</th>
+      <th>W3C JSON-LD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Primary Purpose</strong></td>
+      <td>Long-term archival preservation of texts</td>
+      <td>Dynamic, web-native sharing across sites</td>
+    </tr>
+    <tr>
+      <td><strong>File Relationship</strong></td>
+      <td>Self-contained inside the edition document</td>
+      <td>External notes pointing to remote URLs</td>
+    </tr>
+    <tr>
+      <td><strong>Schema Validation</strong></td>
+      <td>Strict XML Schema / Relax NG validation</td>
+      <td>Flexible JSON Schema and RDF graphs</td>
+    </tr>
+    <tr>
+      <td><strong>Best Humanities Use</strong></td>
+      <td>Publishing complete critical scholarly editions</td>
+      <td>Annotating remote archives, images, and maps</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In modern digital publishing, projects often maintain primary source editions in TEI XML, then export notes to JSON-LD for interactive web exploration.</p>
+<p><strong>Vocabulary.</strong> <em>Data data sharing</em> — the ability of different digital systems and software to exchange and interpret data seamlessly. <em>Serialization</em> — converting structured in-memory data objects into a text format (like XML or JSON) for storage or transmission.</p>
+<p><strong>Takeaway:</strong> TEI XML is ideal for archival textual editions, while W3C JSON-LD excels at web-native sharing and distributed annotation across remote servers.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>23 Question: Comparing TEI Standoff XML vs. W3C JSON-LD</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why do many digital publishing projects maintain their primary source edition in TEI XML while exporting annotations to W3C JSON-LD?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;TEI XML is ideal for archival textual editions, while W3C JSON-LD excels at web-native sharing and distributed annotation across remote servers.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;TEI XML provides rigorous archival validation for the primary text, while JSON-LD provides lightweight interoperability for interactive web browsers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Combining TEI XML for archival depth with JSON-LD for web distribution leverages the unique strengths of both standards.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because TEI XML cannot be opened on computers made after 2010.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. TEI XML is completely compatible with modern computing systems.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because JSON-LD files are completely immune to computer viruses.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. JSON-LD is a data serialization format; security depends on system architecture.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because universities require all student work to be stored in at least ten conflicting formats.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Combining complementary standards is a deliberate, reasoned architectural strategy.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>24 Content: Hands-On Exercise: Searching for Text Reuse in VS Code</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On Exercise: Searching for Text Reuse in VS Code</h3>
+<p>Let us practice finding text reuse deterministically in Visual Studio Code.</p>
+<p>Follow these practical steps:</p>
+<ol>
+  <li><strong>Identify Candidate Phrases:</strong> Review your primary witness passage. Highlight a formulaic phrase (e.g., <em>"free liberty of hunting"</em> in Andromeda's treaty, or <em>"l'Assemblée Nationale"</em> in Ace's decree).</li>
+  <li><strong>Use VS Code Multi-File Search:</strong> Press <code>Cmd+Shift+F</code> (macOS) or <code>Ctrl+Shift+F</code> (Windows) to open global search across your workspace.</li>
+  <li><strong>Configure Search Boundaries:</strong>
+    <ul>
+      <li>In the <em>files to include</em> box, type <code>src/</code> or your historical corpus directory.</li>
+      <li>Search for the exact phrase to detect verbatim loans.</li>
+      <li>Use regex mode (click the <code>.*</code> icon) to search with flexible word gaps: <code>liberty\s+(?:\w+\s+){1,4}hunting</code>. This finds "liberty" and "hunting" separated by up to four words!</li>
+    </ul>
+  </li>
+  <li><strong>Review Discovered Matches:</strong> Record matching filenames, line numbers, and surrounding context.</li>
+</ol>
+
+<p><strong>Vocabulary.</strong> <em>Multi-File Search</em> — querying an entire folder or project directory simultaneously in an editor. <em>Regular Expression Proximity</em> — using regex wildcards to match words within a specified distance.</p>
+<p><strong>Takeaway:</strong> Use VS Code multi-file and regex search to detect verbatim formulas and proximity matches across your project corpus.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>24 Question: Hands-On Exercise: Searching for Text Reuse in VS Code</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When searching for text reuse across your workspace in VS Code, what is the advantage of using regex proximity search over plain string search?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Use VS Code multi-file and regex search to detect verbatim formulas and proximity matches across your project corpus.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It allows you to find two meaningful words that appear near each other even if minor intervening words or punctuation differ.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Regex patterns like 'liberty\s+(?:\w+\s+){1,4}hunting' capture modified text reuse that exact string search misses.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically translates the document into medieval Latin.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Regex search queries local text; it does not translate languages.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It turns off all computer security firewalls permanently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Text search within an editor has no impact on system firewalls.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It guarantees that 100% of discovered matches are intentional plagiarisms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Editors must still evaluate whether discovered proximity matches represent genuine text reuse.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>25 Content: Hands-On Exercise: Converting a TEI Note to W3C JSON-LD</text></name><questiontext format="html"><text><![CDATA[
+<h3>Hands-On Exercise: Converting a TEI Note to W3C JSON-LD</h3>
+<p>Now let us convert one of the manual standoff notes you wrote on Tuesday into a W3C Web Annotation JSON-LD object.</p>
+<p>Take your historical note identifying Governor Hopson or Chief Cope from Lesson 12.1:</p>
+<ol>
+  <li>Create a new file named <code>annotation.json</code> in your project folder.</li>
+  <li>Add the standard W3C <code>@context</code> and <code>type</code> headers.</li>
+  <li>Set the <code>motivation</code> to <code>"commenting"</code>.</li>
+  <li>Put your note text into the <code>body</code> object.</li>
+  <li>In the <code>target</code> object, specify the source URL and build a <code>TextQuoteSelector</code> with <code>exact</code>, <code>prefix</code>, and <code>suffix</code> strings from your document.</li>
+</ol>
+
+<p>Here is the completed conversion template:</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;http://www.w3.org/ns/anno.jsonld&quot;,
+  &quot;type&quot;: &quot;Annotation&quot;,
+  &quot;motivation&quot;: &quot;commenting&quot;,
+  &quot;body&quot;: {
+    &quot;type&quot;: &quot;TextualBody&quot;,
+    &quot;value&quot;: &quot;Major Jean-Baptiste Cope was principal Chief of the Shubenacadie Mi'kmaq who led treaty negotiations.&quot;,
+    &quot;format&quot;: &quot;text/plain&quot;
+  },
+  &quot;target&quot;: {
+    &quot;source&quot;: &quot;https://archives.novascotia.ca/treaties/1752/&quot;,
+    &quot;selector&quot;: {
+      &quot;type&quot;: &quot;TextQuoteSelector&quot;,
+      &quot;exact&quot;: &quot;Major Jean Baptiste Cope&quot;,
+      &quot;prefix&quot;: &quot;between His Excellency Peregrine Thomas Hopson and &quot;,
+      &quot;suffix&quot;: &quot;, Chief Sachem of the Tribe&quot;
+    }
+  }
+}
+</code></pre>
+<p><strong>Vocabulary.</strong> <em>Data Conversion</em> — translating data from one representation format into another while preserving semantic meaning. <em>TextualBody</em> — a W3C entity representing plain or HTML text content inside an annotation.</p>
+<p><strong>Takeaway:</strong> Converting TEI standoff notes into W3C JSON-LD makes your commentary accessible to web browsers and external digital archives.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>25 Question: Hands-On Exercise: Converting a TEI Note to W3C JSON-LD</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;When translating a TEI standoff note into a W3C Web Annotation JSON-LD object, where does the note text reside?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Converting TEI standoff notes into W3C JSON-LD makes your commentary accessible to web browsers and external digital archives.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Inside the 'body' property within a 'TextualBody' object.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. The W3C specification places annotation comments inside the body property, typically with type 'TextualBody'.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside the computer's operating system kernel.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Note data resides inside the JSON-LD data structure.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;In the filename of the computer hard drive partition.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Textual content is encoded in the file body, not disk partition labels.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Inside an invisible comment hidden from web browsers.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. The body is the primary visible content payload of the annotation.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>26 Content: Designing a rule-based Commentary Index Table</text></name><questiontext format="html"><text><![CDATA[
+<h3>Designing a rule-based Commentary Index Table</h3>
+<p>In your digital edition, readers need a way to browse notes by category without reading every page linearly. A rule-based commentary index provides this structured access.</p>
+<p>An effective index table includes five core columns:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Note ID</th>
+      <th>Anchor Target</th>
+      <th>Category &amp. Subtype</th>
+      <th>Headword / Topic</th>
+      <th>External Authority Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>note_01</code></td>
+      <td><code>#s3</code></td>
+      <td>Historical / Biographical</td>
+      <td>Chief Jean-Baptiste Cope</td>
+      <td>Dictionary of Canadian Biography (biographi.ca)</td>
+    </tr>
+    <tr>
+      <td><code>note_02</code></td>
+      <td><code>#w14</code></td>
+      <td>Philological / word</td>
+      <td>Truckhouse</td>
+      <td>Oxford English Dictionary</td>
+    </tr>
+    <tr>
+      <td><code>note_03</code></td>
+      <td><code>#s5</code></td>
+      <td>text-linking / Legal</td>
+      <td>1725 Dummer's Treaty</td>
+      <td>Nova Scotia Archives RG 1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Publishing this index at the end of your edition allows students and researchers to navigate annotations directly by topic.</p>
+<p><strong>Vocabulary.</strong> <em>Commentary Index</em> — a structured tabular directory listing all annotations in an edition by identifier, category. Target. <em>Headword</em> — the primary term or title identifying a specific reference entry.</p>
+<p><strong>Takeaway:</strong> A commentary index table organizes all edition notes into a clear directory with categories, headwords, and authority links.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>26 Question: Designing a rule-based Commentary Index Table</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What key metadata columns should be included in a commentary index table to enable efficient thematic browsing?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;A commentary index table organizes all edition notes into a clear directory with categories, headwords, and authority links.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Note ID, Anchor Target, Category/Subtype, Headword/Topic, and External Authority Link.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. These five columns provide a complete directory allowing readers to navigate notes by identifier, domain, topic, and linked data authority.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Author's home address, social security number, and bank account balance.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Private personal data must never be recorded in digital edition tables.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Monitor refresh rate, keyboard serial number, and room temperature.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Hardware metrics are irrelevant to scholarly commentary indexes.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Three random numbers chosen by rolling dice.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Commentary indexes require accurate, verified scholarly metadata.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>27 Content: Evaluating Candidate Matches: The Human Gatekeeper</text></name><questiontext format="html"><text><![CDATA[
+<h3>Evaluating Candidate Matches: The Human Gatekeeper</h3>
+<p>When running automated discovery tools, remember that an algorithmic match is only a <strong>proposal</strong>. It is not a proven fact.</p>
+<p>Every automated candidate must pass three human evaluative gates:</p>
+<ol>
+  <li><strong>Gate 1: Historical Plausibility:</strong> Was the earlier text physically accessible to the author? (Maud Lewis in 1967 Digby could not have borrowed phrasing from an unpublished private diary in Paris).</li>
+  <li><strong>Gate 2: Idiomatic Coincidence:</strong> Is the match simply a standard everyday greeting or common speech idiom rather than an intentional literary allusion?</li>
+  <li><strong>Gate 3: Editorial Significance:</strong> Does documenting this connection actually help the reader understand the text, or does it clutter the edition with useless trivia?</li>
+</ol>
+
+<p>If a candidate match fails any of these gates, reject it. Your reputation as an editor depends on filtering out noise.</p>
+<p><strong>Vocabulary.</strong> <em>Candidate Match</em> — a potential text parallel surfaced by an algorithm that requires human verification. <em>Evaluative Gate</em> — a strict quality checkpoint a match must satisfy before being admitted to an edition.</p>
+<p><strong>Takeaway:</strong> Treat all algorithmic matches as proposals; apply strict historical plausibility and significance gates before accepting notes into your edition.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>27 Question: Evaluating Candidate Matches: The Human Gatekeeper</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Why must editors apply a historical plausibility gate before accepting an algorithmic match into a scholarly commentary?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Treat all algorithmic matches as proposals; apply strict historical plausibility and significance gates before accepting notes into your edition.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;To verify that the earlier text was historically accessible to the author, eliminating coincidental phrase overlaps that could not represent real influence.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. An algorithm only knows that words match; human historians must verify whether historical contact and transmission were plausible.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To ensure that the modern digital edition will never be criticized online.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Plausibility gates guarantee scholarly rigor, but do not prevent critique.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Because copyright law requires all historical authors to sign digital consent forms.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Historical texts from the 18th and 20th centuries do not require retrospective digital consent.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;To force the algorithm to run faster on modern computer processors.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Evaluative gates are human intellectual reviews conducted after the algorithm runs.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>28 Content: Documenting rule-based Discoveries in `COMMENTARY.md`</text></name><questiontext format="html"><text><![CDATA[
+<h3>Documenting rule-based Discoveries in `COMMENTARY.md`</h3>
+<p>Open your <code>COMMENTARY.md</code> research ledger. Today you record your rule-based experiments and audit findings.</p>
+<p>Add a new section titled <code>## Wednesday Audit: rule-based Discovery</code>:</p>
+<ol>
+  <li><strong>Search Strategy:</strong> What keywords, regex proximity patterns, or multi-file searches did you execute?</li>
+  <li><strong>Algorithm Results Table:</strong>
+    <ul>
+      <li>Matches Found: list every surfaced parallel with source location.</li>
+      <li>Classification: label each as True Positive (genuine historical link) or False Positive (coincidental overlap).</li>
+    </ul>
+  </li>
+  <li><strong>Ground Truth Comparison:</strong> Did the automated search catch the notes you wrote on Tuesday? What did it miss, and why?</li>
+  <li><strong>W3C Export Verification:</strong> Confirm that your <code>annotation.json</code> file passes JSON-LD syntax validation.</li>
+</ol>
+
+<p>Documenting these metrics proves that your edition rests on disciplined comparative research.</p>
+<p><strong>Vocabulary.</strong> <em>True Positive</em> — an automated match that represents a genuine, verified historical connection. <em>False Positive</em> — an automated match caused by accidental similarity that carries no real historical link.</p>
+<p><strong>Takeaway:</strong> Record search strategies, true/false positive counts, and ground truth comparisons in <code>COMMENTARY.md</code> to document your algorithmic audit.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>28 Question: Documenting rule-based Discoveries in COMMENTARY.md</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;In your research ledger, why is it essential to distinguish between True Positives and False Positives in your algorithm results table?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Record search strategies, true/false positive counts, and ground truth comparisons in `COMMENTARY.md` to document your algorithmic audit.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;It provides an honest, empirical measurement of algorithm precision, documenting which candidate matches were real connections and which were noise.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Tracking true vs false positives documents the efficacy and limitations of automated text reuse tools.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It automatically deletes all false matches from the internet permanently.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Ledgers record scholarly observations; they do not delete remote web data.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It proves that computer algorithms are always completely useless.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Documenting precision demonstrates the complementary value of automated search alongside human vetting.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;It allows the student to avoid writing their final exam.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Research ledgers document laboratory milestones, not exam exemptions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>29 Content: Preparing for Friday: The Shift to AI-Assisted Commentary</text></name><questiontext format="html"><text><![CDATA[
+<h3>Preparing for Friday: The Shift to AI-Assisted Commentary</h3>
+<p>Today you explored rule-based tools. You saw that algorithms excel at rigid, verbatim matching. However, struggle with synonyms, summaries, and cultural meaning.</p>
+<p>This sets the stage for Friday's final step in the comparative cycle: <strong>Artificial Intelligence</strong>.</p>
+<p>Large language models (like Gemini and Claude) operate completely differently from rule-based tools:</p>
+<ul>
+  <li>They understand synonyms, context, and semantic meaning.</li>
+  <li>They can draft fluent, informative explanations of complex historical events in seconds.</li>
+  <li><strong>However:</strong> Unlike rule-based tools, language models can hallucinate plausible-sounding falsehoods, invent non-existent book citations, and misdate historical treaties.</li>
+</ul>
+
+<p>On Friday, we will test whether AI models can draft accurate commentary notes for Ace, Olyvia. Andromeda's documents, and we will audit their suggestions against Tuesday's manual ground truth and today's rule-based findings.</p>
+<p><strong>Vocabulary.</strong> <em>Hallucination</em> — a phenomenon where a generative language model produces plausible-sounding but factually fabricated information. <em>Three-Way Cycle</em> — comparing manual human work, rule-based algorithms, and generative AI models.</p>
+<p><strong>Takeaway:</strong> rule-based tools provide predictable string matching, setting the stage for evaluating AI models that understand semantic context but risk factual hallucination.</p>
+<hr />
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>29 Question: Preparing for Friday: The Shift to AI-Assisted Commentary</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;What fundamental difference distinguishes generative large language models from deterministic search algorithms?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;rule-based tools provide predictable string matching, setting the stage for evaluating AI models that understand semantic context but risk factual hallucination.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Language models understand semantic context and generate fluent prose, but carry a significant risk of hallucinating plausible-sounding falsehoods.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Generative AI excels at synthesizing context and fluency, but requires rigorous verification against hallucinations.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Language models only work when disconnected from the internet.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Generative models operate through cloud APIs and local servers.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Deterministic algorithms can think and feel emotions, while language models cannot.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Neither tool possesses consciousness; deterministic tools follow fixed rules, while LLMs predict token distributions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;Language models never make factual errors under any circumstances.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Generative models frequently hallucinate fake citations and historical inaccuracies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+  
+  <question type="description"><name><text>30 Content: Synthesis: The Complementarity of Tools</text></name><questiontext format="html"><text><![CDATA[
+<h3>Synthesis: The Complementarity of Tools</h3>
+<p>Today you expanded your digital editing toolkit from local XML files to automated search algorithms and international web standards.</p>
+<p>You learned:</p>
+<ul>
+  <li>How rule-based algorithms use stoplists, TF-IDF rarity, and word proximity to uncover text reuse.</li>
+  <li>Why algorithms excel at finding verbatim legal boilerplate but miss conceptual summaries.</li>
+  <li>How the W3C Web Annotation Data Model structures commentary into Annotation, Target, and Body.</li>
+  <li>Why the <code>TextQuoteSelector</code> ensures notes survive website updates on the dynamic web.</li>
+  <li>How Linked Open Data and knowledge graphs connect local archival notes to global scholarship.</li>
+</ul>
+
+<p>Neither manual research nor automated algorithms can solve the challenges of digital editing alone. Manual work ensures intellectual depth. Rule-based tools provide archival scale. Web standards ensure global accessibility. When combined, they produce resilient, world-class scholarly editions.</p>
+<p><strong>Vocabulary.</strong> <em>Complementarity</em> — the way different tools and methods compensate for each other's weaknesses when combined effectively. <em>Scholarly Rigor</em> — adhering to strict evidential and methodological standards in research.</p>
+<p><strong>Takeaway:</strong> Combining manual human depth, rule-based archival scale, and W3C web standards produces durable, connected digital scholarly editions.</p>
+]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
+<question type="multichoice">
+    <name>
+      <text>30 Question: Synthesis: The Complementarity of Tools</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;How do manual scholarship, deterministic algorithms, and W3C web standards complement one another in digital edition design?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Combining manual human depth, rule-based archival scale, and W3C web standards produces durable, connected digital scholarly editions.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>&lt;p&gt;Manual research provides intellectual depth, deterministic tools provide archival scale, and web standards provide global interoperability.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Correct. Combining human depth, algorithmic scale, and open web standards produces resilient, world-class digital editions.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They compete against one another until only one single tool survives.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Different tools serve complementary functions within an integrated workflow.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They allow editors to publish historical editions without reading the primary text.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Rigorous digital editing requires deep engagement with the primary witness.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>&lt;p&gt;They ensure that no student ever needs to learn computer skills again.&lt;/p&gt;</text>
+      <feedback format="html">
+        <text>&lt;p&gt;Incorrect. Modern humanities scholarship integrates advanced digital and conceptual competencies.&lt;/p&gt;</text>
+      </feedback>
+    </answer>
+  </question>
+
+
+</quiz>

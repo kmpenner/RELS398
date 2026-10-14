@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 12.1 Teaching Plan (2026-11-24)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #31 (Lesson 12.1 &mdash; Drafting Scholarly Commentary by Hand)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Tuesday, November 24, 2026</span>
+                <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 12 (Commentary) &middot; Meeting 1 of 3</span>
+                <span class="badge">Milestone: Manual Annotation, Stable Anchors, &amp; TEI Standoff Encoding</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students have aligned parallel translations and generated Leipzig glosses in Module 11. They are confident navigating two-column split editors in VS Code. However, they have never authored formal scholarly commentary notes or structured them as standoff XML. They need clear criteria for what justifies an explanatory note rather than subjective rambling.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student selects a 5-sentence passage from their primary witness, establishes stable <code>xml:id</code> anchors, constructs a valid TEI <code>&lt;standOff&gt;</code> container, and hand-authors five rich commentary notes spanning philological, historical, and intertextual categories with precise <code>@target</code> pointers.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Paul Simon, &ldquo;Rewrite&rdquo;</strong> (2011, Hear Music / Concord). A reflective song on revision, memory, narrative perspective, and illuminating the past.</li>
+            <li><strong>Pedagogical connection:</strong> Commentary gives historical voices context and clarity, allowing modern readers to perceive what historical authors took for granted.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;A transcription gives us the author's words, but historical context gives us their world. Today, we step into the shoes of the scholarly commentator, authoring notes that illuminate the linguistic, legal, and biographical world behind our witnesses.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE COMMENTARY DIRECTIVE: STRUCTURED STANDOFF ANNOTATION</h3>
+        <p>A digital edition is not an uncritical photocopy. By categorizing notes into philological, historical, and intertextual domains within a standoff <code>&lt;standOff&gt;</code> block, students transform raw transcriptions into durable, searchable scholarly editions.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Separate layers strictly:</strong> Keep the base transcription clean inside <code>&lt;body&gt;</code>; place all scholarly annotations inside <code>&lt;standOff&gt;</code>.<br>
+        <strong>2. Stable anchors only:</strong> Every note must point to an explicit anchor via <code>@target</code> (e.g. <code>target="#s1"</code> or <code>target="#w4"</code>). Never rely on character offsets or line numbers.<br>
+        <strong>3. The mandatory hash prefix:</strong> The hash symbol (<code>#</code>) is strictly required in all local <code>@target</code> values.<br>
+        <strong>4. Three core categories:</strong> Every note must specify <code>@type</code> as <code>philological</code>, <code>historical</code>, or <code>intertextual</code>.<br>
+        <strong>5. Tuesday ground truth baseline:</strong> Today's five hand-authored notes in <code>commentary_manual.xml</code> establish the gold standard used to audit Wednesday's authority matching and Friday's AI prompt generation.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>The Epistemology of Commentary</td>
+                <td class="desc-col">
+                    Welcome students. Contrast printed footnotes with digital linked commentary.<br>
+                    Introduce the three core categories: philological (words/grammar), historical (people/places/events), and intertextual (cited laws/treaties/artworks).
+                </td>
+                <td class="target-col">Orientation to Topic 12; three-step cycle framing</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>TEI Standoff Shell in VS Code</td>
+                <td class="desc-col">
+                    Demonstrate on projector: building a clean <code>&lt;standOff&gt;</code> container in VS Code.<br>
+                    Show how to tag a sentence anchor <code>&lt;s xml:id="s1"&gt;</code> and point to it with <code>&lt;note target="#s1" type="historical"&gt;</code>.<br>
+                    Explain why inline notes break when text crosses structural boundaries.
+                </td>
+                <td class="target-col">Projector demo of standoff shell &amp; <code>@target</code> syntax</td>
+            </tr>
+            <tr>
+                <td class="time-col">8:46 &ndash; 8:58<br>(12 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Philological &amp; Lexical Notes</td>
+                <td class="desc-col">
+                    Students open their witness text in VS Code and locate two archaic or specialized words.<br>
+                    Students wrap target words in <code>&lt;w xml:id="..."&gt;</code> or note sentence IDs, look up definitions in historical dictionaries, and author two philological notes.<br>
+                    Instructor circulates to ensure notes cite reliable dictionaries (OED, Acad&eacute;mie fran&ccedil;aise).
+                </td>
+                <td class="target-col">2 philological notes in <code>commentary_manual.xml</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">8:58 &ndash; 9:12<br>(14 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>Historical &amp; Intertextual Notes</td>
+                <td class="desc-col">
+                    Students identify one named historical figure, one location or institution, and one referenced external work.<br>
+                    Students author two historical notes with biographical dates and one intertextual note linking to external archives or collections.<br>
+                    Demonstrate adding authority links via <code>&lt;persName ref="https://..."&gt;</code>.
+                </td>
+                <td class="target-col">2 historical notes &amp; 1 intertextual note authored</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:12 &ndash; 9:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Link Audit &amp; Wednesday Preview</td>
+                <td class="desc-col">
+                    Students run a <code>Cmd+F</code> search on every target ID to confirm 0 orphaned pointers.<br>
+                    Review student commentary notes on screen. Celebrate their research: <em>&ldquo;You have transformed a raw transcription into an informative critical edition.&rdquo;</em><br>
+                    Preview Wednesday: <em>&ldquo;Tomorrow we connect our notes to global authority files and test deterministic cross-referencing tools.&rdquo;</em>
+                </td>
+                <td class="target-col">5 verified notes saved; link audit clean</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Focus on historical notes explaining <em>assignats</em>, paper currency depreciation, the <em>Comit&eacute; des d&eacute;crets</em>, and royal sanction procedures under the constitutional monarchy of 1791.</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Focus on biographical and medical notes on Maud Lewis's rheumatoid arthritis, her cottage in Marshalltown near Digby, and intertextual links to her celebrated cat and oxen paintings in the Art Gallery of Nova Scotia.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Focus on legal and diplomatic notes explaining Governor Peregrine Hopson, Shubenacadie Mi'kmaq Chief Jean-Baptiste Cope, the 1752 truckhouse trading system, and links to the 1725 Dummer's Treaty.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 12.2 Teaching Plan (2026-11-25)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #32 (Lesson 12.2 &mdash; Deterministic Discovery &amp; Linked Web Annotation)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Wednesday, November 25, 2026</span>
+                <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 12 (Commentary) &middot; Meeting 2 of 3</span>
+                <span class="badge">Milestone: Text Reuse Detection, W3C Data Model, &amp; JSON-LD Export</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            Students successfully authored manual commentary notes and encoded them in TEI standoff XML yesterday. They understand the difference between lexical, historical, and intertextual categories. Today they encounter computational text reuse detection and web-native linked annotations. They need reassurance that algorithms propose connections but humans decide their validity.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Each student uses multi-file regex search in VS Code to discover formulaic text reuse across their corpus, evaluates candidate matches against Tuesday's manual notes, and converts one TEI standoff note into a valid W3C Web Annotation in JSON-LD using a resilient <code>TextQuoteSelector</code>.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Talking Heads, &ldquo;Once in a Lifetime&rdquo;</strong> (1980, Sire Records). The classic new-wave anthem exploring recurring patterns, water flowing underground, and recognizing systemic repetition.</li>
+            <li><strong>Pedagogical connection:</strong> <em>&ldquo;Same as it ever was.&rdquo;</em> When you analyze historical legal treaties and decrees, you discover that governments reuse identical formulas across centuries.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;David Byrne sang 'Same as it ever was' about the circular patterns of modern life. Today, we discover that historical scribes and colonial administrators lived by the exact same principle, copying legal boilerplate from treaty to treaty. Today, we use algorithms to surface that hidden text reuse.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE WEB ANNOTATION DIRECTIVE: INTEROPERABLE OPEN DATA</h3>
+        <p>A scholarly edition should not remain trapped inside an isolated desktop file. By adopting the W3C Web Annotation Data Model, students publish machine-readable commentary that connects directly to digitized scans in remote archives and museum collections across the globe.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. The human gatekeeper:</strong> An algorithmic match is an empirical proposal, not a verified fact; students must audit every match against historical plausibility.<br>
+        <strong>2. Stoplists are mandatory:</strong> Never execute raw text comparison without filtering out high-frequency grammatical stopwords.<br>
+        <strong>3. Tripartite W3C structure:</strong> Every web annotation must contain an Annotation container, a Target, and a Body.<br>
+        <strong>4. Resilient context selectors:</strong> Always include <code>prefix</code> and <code>suffix</code> inside your <code>TextQuoteSelector</code> so notes survive webpage redesigns.<br>
+        <strong>5. Wednesday audit logging:</strong> Record all true positive and false positive discoveries in <code>COMMENTARY.md</code> to benchmark algorithmic performance against Tuesday's ground truth.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">10:30 &ndash; 10:36<br>(6 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Algorithms as Research Accelerators</td>
+                <td class="desc-col">
+                    Welcome students. Contrast human memory limits with algorithmic scale.<br>
+                    Explain the mechanics of text reuse: stoplists, TF-IDF rarity weighting, and word proximity distance scoring.
+                </td>
+                <td class="target-col">Orientation to Step 2; deterministic principles framed</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:36 &ndash; 10:46<br>(10 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Regex Text Reuse Search in VS Code</td>
+                <td class="desc-col">
+                    Demonstrate on projector: opening multi-file search (<code>Cmd+Shift+F</code>) across the corpus.<br>
+                    Show how to run proximity searches using regex: <code>liberty\s+(?:\w+\s+){1,4}hunting</code>.<br>
+                    Illustrate why algorithms catch verbatim loans but miss paraphrases and synonyms.
+                </td>
+                <td class="target-col">Projector demo of multi-file regex discovery</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:46 &ndash; 10:58<br>(12 mins)</td>
+                <td class="activity-col">Phase 3: Lab A<br>Auditing Text Reuse Candidates</td>
+                <td class="desc-col">
+                    Students execute regex searches across their project files and related historical sources.<br>
+                    Students filter matches through the three evaluative gates (plausibility, coincidence, significance).<br>
+                    Instructor circulates to help students classify candidates as True Positives or False Positives.
+                </td>
+                <td class="target-col">Audit table logged in <code>COMMENTARY.md</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">10:58 &ndash; 11:12<br>(14 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>W3C JSON-LD Annotation Export</td>
+                <td class="desc-col">
+                    Introduce the W3C Web Annotation Data Model (Annotation, Target, Body).<br>
+                    Demonstrate building a <code>TextQuoteSelector</code> with <code>exact</code>, <code>prefix</code>, and <code>suffix</code>.<br>
+                    Students convert one of yesterday's TEI notes into a valid <code>annotation.json</code> file.
+                </td>
+                <td class="target-col">Valid <code>annotation.json</code> file created</td>
+            </tr>
+            <tr>
+                <td class="time-col">11:12 &ndash; 11:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>Knowledge Graphs &amp; Friday Setup</td>
+                <td class="desc-col">
+                    Show how JSON-LD connects local notes to global knowledge graphs via Wikidata and SPARQL.<br>
+                    Congratulate students on mastering open web standards.<br>
+                    Preview Friday: <em>&ldquo;On Friday, we introduce generative AI models to draft commentary notes, and we audit their output against Tuesday's ground truth.&rdquo;</em>
+                </td>
+                <td class="target-col">JSON-LD validated; Friday setup complete</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Focus on identifying shared statutory boilerplate between the 1791 assignat decree and earlier 1789/1790 financial acts; evaluate why exact string search misses paraphrased legal mandates.</li>
+            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Focus on identifying formulaic phrasing across Maud Lewis's correspondence (pricing formulas, descriptions of paintings); build a <code>TextQuoteSelector</code> targeting the online image record at the Art Gallery of Nova Scotia.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Focus on tracing verbatim clauses shared between the 1752 treaty and the 1725 Dummer's Treaty; test how adjusting stoplists filters out noise while isolating substantive trade agreements.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

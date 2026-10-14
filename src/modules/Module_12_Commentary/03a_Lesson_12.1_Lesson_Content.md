@@ -2,125 +2,172 @@
 
 *RELS 398 / ENGL 398 · Topic 12: Commentary · Meeting #31 (Tue Nov 24)*
 
-***Step 1 of the three-step cycle: manual.** Today you draft scholarly commentary notes by hand across philological, historical, and intertextual categories, establishing anchors and encoding them via TEI §17 standoff mechanisms (`<interpGrp>`, `<note>`, `<ptr>`). That manual corpus becomes the reference against which Wednesday's deterministic intertextual discovery and Friday's AI commentary drafting are measured.*
+***Step 1 of the three-step cycle: manual.** Today you draft scholarly commentary notes by hand across language, historical, and intertextual categories. You establish stable anchors in your document and encode notes using TEI standoff mechanisms (`<standOff>`, `<interpGrp>`, `<note>`, and `@target`). That manual reference corpus becomes the baseline against which Wednesday's deterministic cross-referencing and Friday's AI commentary drafting are evaluated.*
 
 ---
 
 ## **01 Content**
 
-**The Epistemology of Scholarly Commentary**
+**The Purpose of Scholarly Commentary**
 
-The scholarly commentary is one of the oldest intellectual technologies in the Western and Near Eastern philological traditions. When an editor adds an explanatory note to a historical text, they are not merely decorating the base transcription with extraneous observations; they are actively constructing an interpretive bridge across historical, linguistic, and cultural distance. Far from being a passive paratext or an auxiliary appendage, commentary constitutes a primary genre of critical thought through which communities negotiate textual authority, preserve linguistic heritage, and mediate meaning for contemporary readers (Tafdrup et al., 2026).
+When you transcribe an archive document, you record the characters written on the page. But historical documents do not speak for themselves. Words change meaning across centuries. Historical names refer to people whom modern readers do not recognize. Legal terms reflect political systems that no longer exist. 
 
-The practice of systematic textual annotation originated in the Hellenistic Mediterranean, where the Alexandrian grammarians—most notably Zenodotus of Ephesus, Aristophanes of Byzantium, and Aristarchus of Samothrace—developed specialized critical signs (such as the *obelos*, the *asteriskos*, and the *diplê*) to flag suspected scribal interpolations, metrical anomalies, and mythological parallels in Homeric epic (Blackwell & Smith, 2014). In the medieval manuscript tradition, this impulse materialized in the physical layout of the page: manuscripts such as the famous Venetus A of Homer's *Iliad* enveloped the central poetic text within dense, multi-layered margins containing ancient *scholia* compiled over centuries. The medieval page functioned as an asynchronous, distributed workspace where generations of scholars entered into dialogue with the base text and with one another.
+Scholarly commentary bridges this gap. An explanatory note is not merely decorative trivia. It is an intentional interpretative bridge across time, language. Culture. When you add a commentary note, you help your reader understand why a passage matters and what it meant to its original audience.
 
-In the print era, the physical constraints of the codex flattened this dynamic dialogue into rigid typographic conventions: the critical apparatus at the bottom of the page, the endnote section at the back of the volume, and the separate multi-volume commentary. While print stabilized citation practices, it isolated annotations within proprietary volumes, preventing dynamic cross-referencing and obscuring the interconnected nature of textual knowledge (Schmidt, 2010).
+In our course, you have already transcribed your document (Module 4), normalized unusual spellings (Module 6), tagged linguistic roots (Module 8), marked historical entities (Module 9). Aligned translations (Module 11). Commentary is the editorial layer that ties these threads together into a rich research edition.
 
-The digital medium restores and vastly expands the relational architecture of historical commentary. In a digital scholarly edition, commentary ceases to be a static footnote trapped at the bottom of a printed page; it becomes an active, queryable node within an extensible knowledge graph. By linking textual spans to external authority files, digital gazetteers, and intertextual databases, digital commentary transforms the reading experience from linear consumption into an exploratory traversal of cultural history.
+Consider our cohort documents:
+<ul>
+  <li><strong>Ace (1791 French Decree):</strong> Explains the financial crisis of the French Revolution, the value of paper <em>assignats</em>, and the King's declining standard.</li>
+  <li><strong>Olyvia (1967 Maud Lewis Letter):</strong> explains Maud's severe rheumatoid arthritis, her cottage near Digby, her pricing of paintings, and her correspondent Leonard Kinnear.</li>
+  <li><strong>Andromeda (1752 Peace Treaty):</strong> Details the diplomatic negotiations between Mi'kmaq Chief Jean-Baptiste Cope and Nova Scotia Governor Peregrine Hopson at Halifax.</li>
+</ul>
 
-**Vocabulary.** *Paratext* — material surrounding the main text (notes, prefaces, apparatus) that frames its reception. *Scholia* — ancient or medieval marginal and interlinear notes explaining grammar, history, or rhetoric. *Epistemology* — the philosophical investigation of what constitutes knowledge and how interpretive claims are justified.
+**Vocabulary.** *Commentary* — scholarly notes that explain historical context, difficult vocabulary, or literary references in a primary text. *Paratext* — editorial material surrounding a base text, including introductions, footnotes, and appendices.
 
-**Takeaway:** Scholarly commentary is an active epistemological practice that transforms historical texts from isolated documents into connected networks of cultural interpretation.
+**Takeaway:** Scholarly commentary is an active editorial practice that provides the historical, linguistic, and cultural context readers need to understand primary documents.
 
 ---
 
 ## **02 Content**
 
-**Commentary as Layered Hermeneutics**
+**The Editorial Layers of a Digital Edition**
 
-To design an effective digital commentary, an editor must distinguish commentary from the other critical layers of a scholarly edition: the diplomatic transcription, the critical apparatus, and the translation. While these layers frequently inform one another, they perform fundamentally distinct methodological operations and make different epistemic claims upon the text.
+A scholarly edition is built out of distinct, complementary layers. Beginners often mix these layers together into one long, confusing paragraph. Keeping each layer separate is essential for clear scholarship and clean digital markup.
 
-The diplomatic transcription records the physical characters and layout inscribed upon the historical carrier (Lesson 4.1). The critical apparatus records textual variance across surviving witnesses to document transmission history and justify emendations (Lessons 7.1 and 8.1). The translation renders the semantic content of the source text into a modern target language while preserving rhetorical and syntactical nuances (Lesson 11.1). Commentary, by contrast, provides the meta-critical explanation: it unpacks why a specific variant reading matters, why a grammatical construction is anomalous, who a named historical figure was, or what literary tradition an allusion engages.
+The primary layers include:
+<table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+  <thead>
+<tr style="background-color: #f1f5f9. Border-bottom: 2px solid #cbd5e1. ">
+<th style="padding: 8px. Text-align: left. ">Editorial Layer</th>
+<th style="padding: 8px. Text-align: left. ">Primary Focus</th>
+<th style="padding: 8px. Text-align: left. ">Core Question Answered</th>
+<th style="padding: 8px. Text-align: left. ">Example from Cohort</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Diplomatic Transcription</strong></td>
+<td style="padding: 8px. ">Physical ink on paper</td>
+<td style="padding: 8px. "><em>What exact characters are on the page?</em></td>
+<td style="padding: 8px. ">Recording Maud Lewis's spelling "Febuary" and line breaks.</td>
+    </tr>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Normalization</strong></td>
+<td style="padding: 8px. ">Standardized orthography</td>
+<td style="padding: 8px. "><em>How does this map to modern spelling?</em></td>
+<td style="padding: 8px. ">Wrapping 1791 French "assignats" with <code>&lt. Choice&gt. </code> tags.</td>
+    </tr>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Translation Alignment</strong></td>
+<td style="padding: 8px. ">Bilingual equivalence</td>
+<td style="padding: 8px. "><em>What does this mean in another language?</em></td>
+<td style="padding: 8px. ">Aligning French decree sentences with modern English translations.</td>
+    </tr>
+    <tr>
+<td style="padding: 8px. "><strong>Scholarly Commentary</strong></td>
+<td style="padding: 8px. ">Historical and cultural meaning</td>
+<td style="padding: 8px. "><em>Why does this matter, and what does it signify?</em></td>
+<td style="padding: 8px. ">Explaining who Governor Hopson was and the Truckhouse trade system in 1752.</td>
+    </tr>
+  </tbody>
+</table>
 
-| Editorial Layer | Primary Object of Analysis | Epistemic Goal | Core Question Answered |
-| --- | --- | --- | --- |
-| Diplomatic Transcription | Physical manuscript witness | Paleographical fidelity | *What strokes are on the page?* |
-| Critical Apparatus | Collated variants across witnesses | Textual genealogy and emendation | *What did different scribes transmit?* |
-| Critical Translation | Semantic and pragmatic structure | Linguistic accessibility | *How does this mean in another language?* |
-| Scholarly Commentary | Cultural, historical, and linguistic context | Hermeneutic explanation | *What does this passage signify and evoke?* |
+By maintaining clear boundaries between text record, translation. Commentary, your digital edition allows readers to toggle views easily between raw witness text and critical annotations.
 
-Commentary is inherently multi-vocal and layered. A single line of ancient Greek or Latin poetry may simultaneously require an explanation of an irregular Doric dialect form, a historical note on a Hellenistic battle, an intertextual reference to Hesiod's *Theogony*, and an overarching analysis of poetic meter. When an editor combines these disparate observations into a single undifferentiated footnote, the underlying data becomes opaque to computational analysis (Schmidt, 2010).
+**Vocabulary.** *Diplomatic Layer* — the exact record of physical textual features without editorial correction. *interpretive Layer* — the interpretive commentary that unpacks meaning and historical meaning.
 
-Digital scholarship addresses this complexity through layered hermeneutics. By decomposing commentary into explicit, semantically typed categories, the digital editor allows readers and analytical algorithms to filter, aggregate, and query specific interpretive threads across an entire corpus without wading through irrelevant prose.
-
-**Vocabulary.** *Hermeneutics* — the theory and methodology of interpretation, particularly of historical and literary texts. *Multi-vocality* — the presence of multiple interpretive voices or analytical perspectives within an edition. *Typological decomposition* — separating complex qualitative commentary into distinct, standardized categories.
-
-**Takeaway:** Commentary provides the interpretive rationale behind textual phenomena, requiring structured categorization to remain computationally tractable and pedagogically effective.
+**Takeaway:** Commentary provides the interpretive rationale behind textual features, remaining distinct from physical text record and linguistic normalization.
 
 ---
 
 ## **03 Content**
 
-**The Four Core Categories of Scholarly Notes**
+**The Three Core Categories of Commentary Notes**
 
-A robust digital commentary requires a disciplined taxonomy. Without explicit categorization, commentary degrades into an idiosyncratic collection of notes that cannot be searched, compared across editions, or converted into linked open data. Based on established traditions in classical and medieval philology and modern digital edition best practices, we formalize four core categories of scholarly commentary.
+To organize your commentary in Visual Studio Code, you must classify each note into a recognized category. Without standard categories, commentary quickly becomes cluttered and impossible to index.
 
-These four categories span the micro-linguistic to the macro-historical levels of textual analysis:
+Scholars organize commentary notes into three core categories:
+<table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+  <thead>
+<tr style="background-color: #f1f5f9. Border-bottom: 2px solid #cbd5e1. ">
+<th style="padding: 8px. Text-align: left. ">Category</th>
+<th style="padding: 8px. Text-align: left. ">Scope</th>
+<th style="padding: 8px. Text-align: left. ">Primary Questions Addressed</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>1. language & Lexical</strong></td>
+<td style="padding: 8px. ">Words, idioms, and grammar</td>
+<td style="padding: 8px. ">What does this rare term mean? Why is this grammatical form unusual?</td>
+    </tr>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>2. Historical & Contextual</strong></td>
+<td style="padding: 8px. ">People, places, laws, and dates</td>
+<td style="padding: 8px. ">Who was this person? Where was this place? What historical event caused this?</td>
+    </tr>
+    <tr>
+<td style="padding: 8px. "><strong>3. Intertextual & Citational</strong></td>
+<td style="padding: 8px. ">Connections to other documents</td>
+<td style="padding: 8px. ">What law, treaty, letter, or scripture does this passage quote or echo?</td>
+    </tr>
+  </tbody>
+</table>
 
-| Commentary Category | Core Domain | Primary Focus of Scholarly Notes | Typical Reference Types |
-| --- | --- | --- | --- |
-| Philological / Morphosyntactic | Linguistic mechanics | Irregular morphology, rare vocabulary, syntax, dialectal forms | Lexica, grammars, paleographical treatises |
-| Historical / Geographic / Prosopographical | Real-world context | Historical persons, places, events, political institutions, realia | Gazetteers, authority files, historical encyclopedias |
-| Intertextual / Citational | Textual relations | Direct citations, verbal echoes, allusions, structural parallels | Authoritative editions, parallel corpus databases |
-| Structural / Rhetorical / Thematic | Macro-level form | Narrative voice, rhetorical figures, discourse shifts, themes | Rhetorical manuals, literary and theological commentaries |
+Each category serves a specific reading need. A reader studying historical currency in revolutionary France needs historical notes on assignats. A linguist studying Nova Scotia folk speech needs lexical notes on Maud Lewis's colloquialisms. A legal historian needs intertextual links to earlier colonial treaties.
 
-When drafting notes by hand, the editor must assign every observation to one of these primary categories. This disciplined classification prevents analytical drift and lays the groundwork for standard encoding in TEI XML and the W3C Web Annotation Data Model.
+**Vocabulary.** *Taxonomy* — a structured system of grouping. *Controlled Vocabulary* — a standardized set of pre-defined terms used for labeling data.
 
-By maintaining strict boundaries between these four types, a digital project can render distinct views for different audiences—such as hiding advanced philological debates for introductory language students or isolating historical place names for spatial GIS mapping (Francese, 2014; Simon et al., 2017).
-
-**Vocabulary.** *Prosopography* — the historical study of persons, their genealogies, and their social connections. *Realia* — physical objects, customs, and material culture specific to a historical era. *Taxonomy* — a formal system of classification for ordering complex phenomena.
-
-**Takeaway:** Digital commentary must be structured around four rigorous categories: philological, historical, intertextual, and structural-thematic.
+**Takeaway:** Grouping commentary into language, historical, and intertextual categories ensures consistent annotation and enables automated indexing.
 
 ---
 
 ## **04 Content**
 
-**Category 1: Philological and Morphosyntactic Notes**
+**Category 1: language and Lexical Notes**
 
-Philological notes are the bedrock of classical and historical commentary. Their primary objective is to resolve linguistic friction—to guide the reader through anomalous grammar, dialectal variations, rare lexical items, and archaic syntactic constructions that hinder comprehension or introduce interpretive ambiguity.
+language notes examine language, vocabulary, and grammar. They explain archaic terms, obsolete meanings, legal jargon, and regional dialect phrases.
 
-In historical Greek and Latin texts, philological notes frequently address dialectal shifts (such as Aeolic or Ionic forms in epic verse), Hellenistic koiné developments (such as the loss of the optative mood or confusion of prepositions), and irregular morphological paradigms. For example, when encountering a rare hapax legomenon or an archaic genitive singular in Homeric Greek (such as -οιο instead of -ου), the philological note provides the normalized lemma, identifies the morphological parsing, cites relevant grammar references, and explains the semantic nuances in context (Francese, 2014).
+In historical documents, familiar words often carried different meanings in earlier centuries. For example:
+<ul>
+  <li>In Andromeda's 1752 Treaty, the phrase <em>"Truckhouse"</em> does not mean a garage or motor vehicle shop. In colonial Nova Scotia, a truckhouse was a government-run trading post where Mi'kmaq hunters exchanged furs for European goods at fixed rates. A language note clarifies this definition.</li>
+  <li>In Ace's 1791 French decree, the word <em>"assignats"</em> originally referred to state bonds. However, Rapidly transformed into paper bank notes subject to runaway inflation. A lexical note explains this shift.</li>
+  <li>In Olyvia's 1967 letter, Maud Lewis mentions she cannot paint quickly due to her hands being <em>"crooked."</em> A lexical and medical note clarifies that Maud suffered from juvenile rheumatoid arthritis that deformed her fingers.</li>
+</ul>
 
-Furthermore, philological commentary directly intersects with textual criticism. Where the editor has accepted an emendation or preferred a difficult reading (*lectio difficilior*) in the critical apparatus, the philological note provides the extensive rationale:
+When drafting a language note:
+<ol>
+  <li>Define the specific word or phrase concisely.</li>
+  <li>Identify the historical language period or dialect.</li>
+  <li>Cite an trusted dictionary or glossary (such as the Oxford English Dictionary or the Dictionnaire de l'Académie française).</li>
+</ol>
 
-| Scholarly Component | Editorial Content for 1 Thess 2:7 Example |
-| --- | --- |
-| Target Passage | 1 Thess 2:7 (ἐγενήθημεν νήπιοι / ἤπιοι) |
-| Apparatus Reading | νήπιοι א B C* vs ἤπιοι A C2 D Ψ |
-| Morphosyntax | Adjective nominative masculine plural (νήπιος "infant" vs ἤπιος "gentle") |
-| Philological Rationale | The reading νήπιοι represents the *lectio difficilior*. Although the metaphor shifts abruptly to a "nursing mother", the Alexandrian witnesses and scribal assimilation to ἐγενήθημεν favor the nasal. |
+**Vocabulary.** *word study* — the historical study of language, literature, and how texts transmit meaning over time. *Truckhouse* — an 18th-century government trading post in British North America.
 
-When authoring philological notes by hand, maintain a concise, standardized format: begin with the targeted lemma or phrase, declare the grammatical category or parsing, cite standard lexica or grammars (e.g., LSJ, BDAG, Smyth, or Kühner-Blass), and explain the precise interpretative consequence of the construction.
-
-**Vocabulary.** *Hapax legomenon* — a word that occurs only once within a specified corpus or text. *Lectio difficilior* — the more difficult reading, often preferred in textual criticism because scribes tend to smooth difficult text. *Morphosyntax* — the interaction between morphological word-forms and syntactic sentence structures.
-
-**Takeaway:** Philological notes explicate linguistic anomalies, grammatical parsing, and text-critical decisions to establish baseline semantic comprehension.
+**Takeaway:** language notes clarify obsolete vocabulary, historical legal terminology, and regional expressions to prevent modern misinterpretation.
 
 ---
 
 ## **05 Content**
 
-**Category 2: Historical, Prosopographical, and Geographic Notes**
+**Category 2: Historical and Contextual Notes**
 
-Historical commentary grounds the literary work in its material and political environment. Ancient and medieval texts assume a vast store of cultural background knowledge that contemporary readers possessed naturally but modern readers lack. The historical note identifies historical persons (prosopography), physical locations (topography/geography), political offices, military events, and social customs.
+Historical notes supply the factual background readers need to understand the social world behind the text. They identify historical figures, geographical locations, political institutions, and material culture.
 
-However, a digital historical note should not merely summarize an encyclopedia article. Its function is to explain the specific relevance of the historical entity within the narrative or argumentative logic of the passage. For example, identifying the city of *Philippi* in a commentary on Acts requires noting not only that it was a city in eastern Macedonia, but specifically that it held the status of a Roman colony (*colonia Iulia Augusta Philippensis*) with the *ius Italicum*, which directly explains the legal privileges and civic pride depicted in the biblical narrative (Simon et al., 2017).
+Historical notes answer questions such as:
+<ul>
+  <li><strong>People:</strong> Who was Peregrine Thomas Hopson? (He was the British Governor of Nova Scotia from 1752 to 1753, known for negotiating peaceful relations with local First Nations).</li>
+  <li><strong>Places:</strong> Where is Marshalltown, Nova Scotia? (A small rural community in Digby County where Maud and Everett Lewis lived in a tiny one-room painted cottage).</li>
+  <li><strong>Institutions:</strong> What was the <em>Assemblée Nationale</em> in 1791? (The revolutionary legislative parliament of France that stripped King Louis XVI of absolute power).</li>
+  <li><strong>Material Culture:</strong> What was an <em>assignat de 5 livres</em> made of? (Handmade rag paper watermarked with royal seals and revolutionary slogans to discourage counterfeiting).</li>
+</ul>
 
-In modern digital workflows, historical notes must be formulated to interface with global Linked Open Data (LOD) authority files. When an editor annotates a historical figure or ancient settlement, the note should explicitly reference persistent, machine-readable identifiers:
+A strong historical note does not copy an entire encyclopedia article. Instead, it provides three to four concise sentences giving only the facts relevant to the document passage.
 
-| Entity Type | Entity Mentioned | Linked Open Data Authority | Persistent Identifier URI |
-| --- | --- | --- | --- |
-| Person | Julius Caesar | VIAF / Wikidata | `https://viaf.org/viaf/286265178` |
-| Place | Philippi | Pleiades Ancient Places Gazetteer | `https://pleiades.stoa.org/places/501482` |
-| Event | Battle of Actium | Wikidata | `https://www.wikidata.org/wiki/Q160181` |
-| Group | Pharisees | Library of Congress (LCNAF) | `http://id.loc.gov/authorities/names/sh85100581` |
+**Vocabulary.** *biography* — the study of the lives, careers, and social networks of historical individuals. *Realia* — real-world physical objects, customs, and institutions characteristic of a historical culture.
 
-By anchoring manual historical notes to global gazetteers like Pleiades and authority registries like VIAF, the editor ensures that the commentary is not a closed silo, but a bridge to the broader semantic web (Simon et al., 2017).
-
-**Vocabulary.** *Linked Open Data (LOD)* — structured data published on the web in standard formats that can be automatically interlinked across diverse repositories. *Gazetteer* — a geographic dictionary or directory used in conjunction with maps and historical texts. *Pleiades* — a community-built digital gazetteer of ancient places.
-
-**Takeaway:** Historical notes identify persons, places, and realia, providing cultural context while anchoring entities to persistent linked open data identifiers.
+**Takeaway:** Historical notes identify people, places, dates, and institutions, giving readers the essential background context behind the text.
 
 ---
 
@@ -128,878 +175,758 @@ By anchoring manual historical notes to global gazetteers like Pleiades and auth
 
 **Category 3: Intertextual and Citational Notes**
 
-Intertextual commentary documents the web of literary relations that connects a text to preceding and contemporary works. Authors in antiquity and the Middle Ages composed within rich traditions of imitation, citation, and allusion (*mimesis* and *aemulatio*), frequently embedding unacknowledged quotations, subtle verbal echoes, or structural parodies into their writing (Coffee et al., 2012).
+Historical documents are rarely created in isolation. They quote laws, echo previous treaties, cite personal correspondence. Allude to literature. Intertextual notes uncover and explain these connections.
 
-Intertextual notes must distinguish between different degrees of textual connection:
+Consider how our three student documents rely on external texts:
+<ul>
+  <li><strong>Andromeda's 1752 Treaty:</strong> Article 1 explicitly reaffirms the earlier Peace Treaty of 1725 signed at Boston. An intertextual note explains what the 1725 treaty set and links the reader to its text in the Nova Scotia Archives.</li>
+  <li><strong>Ace's 1791 Decree:</strong> The decree cites earlier financial legislation passed on September 29, 1790. An intertextual note provides the date, legislative session. Volume number of the earlier law.</li>
+  <li><strong>Olyvia's 1967 Letter:</strong> Maud Lewis writes in response to an order from Leonard Kinnear. An intertextual note links Maud's letter to Kinnear's original inquiry and points out the specific folk paintings delivered to him.</li>
+</ul>
 
-| Intertextual Level | Definition and Criteria | Example Phenomenon |
-| --- | --- | --- |
-| Explicit Direct Citation | Author explicitly introduces an external text with a citation formula | "As it is written in the prophet Isaiah..." |
-| Strict Verbal Borrowing | Verbatim or near-verbatim text reuse without an explicit formula | Quoting a classical poetic verse or liturgical formula |
-| Literary Allusion / Echo | Non-verbatim borrowing sharing rare vocabulary and syntactic shape | Adapting Homeric epic phraseology in Hellenistic prose |
-| Structural / Thematic Parallel | Shared narrative architecture or conceptual schema without shared words | Modeling a journey narrative upon the Homeric Nekyia |
+When writing intertextual notes, specify whether the connection is a direct quotation, a formal legal cross-reference, an allusion, or a thematic parallel.
 
-In the DanteSources project, researchers established an explicit ontology (integrating CiTO, the Citation Typing Ontology) to categorize how Dante Alighieri engaged with his classical and medieval sources in the *Divine Comedy* and *Convivio* (Bartalesi et al., 2018). An intertextual note must not simply state "cf. Homer"; it must specify whether the author is explicitly quoting, implicitly parodying, directly translating, or conceptually refuting the cited source.
+**Vocabulary.** *textual linking* — the relational network connecting a text to other written or cultural works. *Citation* — a formal reference to a specific published source, archive document, or legal code.
 
-When drafting intertextual notes manually, record: (1) the exact source work and hierarchical passage, (2) the nature of the relationship (e.g., citation, allusion, polemical response), (3) the shared lexical or structural tokens, and (4) the literary significance of the borrowing. This structured manual record serves as the benchmark against which automated intertextual search engines (like Tesserae) are evaluated (Coffee et al., 2012).
-
-**Vocabulary.** *Allusion* — an indirect or covert reference in literature to another work, person, or event. *CiTO (Citation Typing Ontology)* — a formal semantic ontology that characterizes the nature and purpose of citations between works. *Mimesis* — the classical literary practice of imitating and transforming authoritative model texts.
-
-**Takeaway:** Intertextual notes categorize the precise nature of textual borrowing, distinguishing between explicit quotations, subtle echoes, and conceptual parallels.
+**Takeaway:** Intertextual notes identify and explain citations, legal cross-references, and literary echoes that link a document to a wider network of texts.
 
 ---
 
 ## **07 Content**
 
-**Category 4: Structural, Rhetorical, and Exegetical Notes**
+**The Dilemma of Text Anchors**
 
-The fourth category operates at the macro-level of literary form and theological or philosophical exegesis. Structural and rhetorical notes do not dissect individual words or identify external persons; instead, they analyze how the author constructs an argument, manages narrative pacing, deploys classical rhetorical figures, and articulates major conceptual themes.
+Before you can attach a commentary note to a digital text, you must solve a technical problem: how do you connect the note to the exact word or sentence it explains?
 
-In ancient rhetoric, authors structured speeches and treatises according to established formal divisions: the *exordium* (introduction), *narratio* (statement of facts), *propositio* (thesis), *probatio* (argumentation/proof), *refutatio* (rebuttal of objections), and *peroratio* (conclusion). A structural commentary note tracks these macro-level transitions, marking where the author pivots from narrative exposition to theological exhortation (e.g., moving from indicative theological statements to imperative ethical commands in Pauline epistles).
+In early digital humanities projects, editors tried using raw character offsets. For example, a database might record: <em>"Attach Note 1 to characters 142 through 158."</em> This approach proved disastrous. Whenever an editor fixed a spelling typo or added a missed word at the beginning of the file, every single character offset shifted, breaking all subsequent links.
 
-Rhetorical commentary similarly explicates figures of speech and thought:
+Digital editions solve this problem by assigning permanent identifiers directly into the markup. Rather than counting characters, we give each structural unit a unique `xml:id` attribute:
+```xml
+<s xml:id="s12">The said Tribe shall have free liberty to hunt.</s>
+```
+A note can now securely point to `#s12`. Even if you insert ten new paragraphs earlier in the file, `#s12` remains stable, and the link never breaks.
 
-| Rhetorical Dimension | Analytical Focus in Commentary | Scholarly Function |
-| --- | --- | --- |
-| Formal Discursive Unit | Identifying *exordium*, *probatio*, or *peroratio* | Maps overall argumentative architecture |
-| Syntactic Figures | Documenting *chiasmus*, *parallelism*, *antithesis* | Explains stylistic rhythm and emphasis |
-| Tropes and Schemes | Analyzing *metaphor*, *allegory*, *irony* | Unpacks figurative and symbolic meaning |
-| Exegetical Synthesis | Tracing covenantal, ethical, or metaphysical themes | Connects local passage to author's broader theology |
+**Vocabulary.** *Anchor* — a designated target point or passage in a digital document to which an annotation is attached. *Character Offset* — counting raw character positions from the start of a file, an fragile method for digital annotation.
 
-Structural and exegetical notes provide the interpretive framework that gives coherence to the micro-level philological and historical notes. When encoded digitally, they allow scholars to analyze how rhetorical structures align with thematic developments across complex literary works (Klie et al., 2018).
-
-**Vocabulary.** *Exegesis* — critical explanation or interpretation of a text, especially religious or philosophical literature. *Typology* — a method of biblical interpretation wherein people, events, or institutions in the Old Testament are viewed as prefigurations of the New Testament. *Antithesis* — a rhetorical figure wherein contrasting ideas are placed in sharp juxtaposition.
-
-**Takeaway:** Structural and rhetorical notes explicate discourse architecture, argumentative transitions, and macro-level interpretive motifs.
+**Takeaway:** Robust digital commentary relies on stable XML identifier anchors rather than fragile character offsets that break when text is revised.
 
 ---
 
 ## **08 Content**
 
-**The Dilemma of the Anchor**
+**scope of Anchors: Words, Spans, and Sentences**
 
-Once commentary notes are drafted, the digital editor faces a profound architectural challenge: how should these notes be attached to the text? In print, notes are bound to physical page coordinates or footnote superscript numbers. In digital editions, this connection is governed by the **anchor mechanism**—the computational method used to link an interpretive note to a specific span of source text.
+When annotating a document in VS Code, you must decide how broad or narrow your anchor should be. This choice is called anchor scope.
 
-Historically, early digital humanities systems attached notes using raw **character byte offsets** (e.g., "start at character 1,420 and end at character 1,455"). While computationally trivial to compute, byte offsets are catastrophically brittle. The moment an editor corrects a single typo upstream, normalizes a spelling, or inserts an omitted punctuation mark, every subsequent byte offset across the entire document shifts out of alignment, corrupting the commentary corpus (Sanderson et al., 2017).
+There are three common levels of scope:
+<table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+  <thead>
+<tr style="background-color: #f1f5f9. Border-bottom: 2px solid #cbd5e1. ">
+<th style="padding: 8px. Text-align: left. ">Anchor Level</th>
+<th style="padding: 8px. Text-align: left. ">TEI Element</th>
+<th style="padding: 8px. Text-align: left. ">Best Suited For</th>
+<th style="padding: 8px. Text-align: left. ">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Word Token</strong></td>
+<td style="padding: 8px. "><code>&lt. W xml:id="w1"&gt. </code></td>
+<td style="padding: 8px. ">Lexical glosses, archaic words</td>
+<td style="padding: 8px. ">Explaining the single word <code>&lt. W xml:id="w4"&gt. Truckhouse&lt. /w&gt. </code></td>
+    </tr>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Arbitrary Phrase</strong></td>
+<td style="padding: 8px. "><code>&lt. Seg xml:id="seg1"&gt. </code></td>
+<td style="padding: 8px. ">Idioms, compound titles, historical events</td>
+<td style="padding: 8px. "><code>&lt. Seg xml:id="seg2"&gt. Fabrication des assignats&lt. /seg&gt. </code></td>
+    </tr>
+    <tr>
+<td style="padding: 8px. "><strong>Full Sentence / Clause</strong></td>
+<td style="padding: 8px. "><code>&lt. S xml:id="s1"&gt. </code></td>
+<td style="padding: 8px. ">Historical context, legal obligations</td>
+<td style="padding: 8px. ">Explaining Article 4 of the 1752 Treaty on trade monopolies</td>
+    </tr>
+  </tbody>
+</table>
 
-Alternative approaches, such as relying purely on XML Document Object Model (DOM) paths or XPath queries (e.g., `/TEI/text/body/div[2]/p[4]/w[12]`), offer higher stability against character edits within sibling nodes. However, they break instantly if structural markup is refactored—such as when a paragraph is subdivided into lines, or when two chapters are merged (Schmidt, 2010).
+For novice editors, anchoring notes to sentences (`<s>`) or distinct phrases (`<seg>`) is usually the cleanest approach. It avoids cluttering every single word with an identifier while giving readers precise references.
 
-| Anchor Mechanism | How It Identifies Text | Failure Mode | Resilience Rating |
-| --- | --- | --- | --- |
-| Byte Offset | Integer character position from file start | Breaks on any upstream edit | Very Low |
-| Pure DOM/XPath | XML tree address of the containing element | Breaks when markup hierarchy changes | Moderate |
-| Unique `xml:id` | Explicit identifier assigned to text element | Highly stable; requires pre-tagging every word | High |
-| Canonical URN | Standardized hierarchical intellectual citation | Independent of files, markup, and domains | Exceptional |
+**Vocabulary.** *scope* — the scale or level of detail of an anchor (word, phrase, sentence, or paragraph). *Segmentation* — dividing running text into discrete syntactic units with `<seg>` or `<s>`.
 
-To build durable digital editions that survive software updates, markup revisions, and web migration, editors must employ stable, technology-independent addressing mechanisms.
-
-**Vocabulary.** *Anchor* — the precise mechanism or selector that binds an annotation to a specific target in a digital document. *Byte offset* — the position of a character expressed as a numerical distance in bytes from the start of a file. *Brittleness* — the vulnerability of an automated link to break when the underlying source document undergoes minor revisions.
-
-**Takeaway:** Primitive character offsets break when text is edited; digital commentary requires resilient anchor mechanisms based on unique IDs and canonical citation schemes.
+**Takeaway:** Match your anchor scope to the purpose of the note: use word anchors for lexical glosses, and sentence or phrase anchors for historical commentary.
 
 ---
 
 ## **09 Content**
 
-**Canonical Text Services (CTS) and CITE Architecture**
+**The Problem of Overlapping Markup**
 
-To resolve the fragility of digital text anchors, Christopher Blackwell and Neel Smith developed the **Canonical Text Services (CTS)** protocol and the **CITE Architecture** at Harvard University's Center for Hellenic Studies (Blackwell & Smith, 2014). The foundational insight of the CTS model is that digital humanities projects must cite *intellectual works*, not arbitrary digital files or temporary web URLs.
+XML is a hierarchical data structure. Every opening tag must be closed within the same parent element. This rule makes XML tidy and predictable. However, It creates headaches when modeling historical documents.
 
-When a classical scholar cites "Homer, *Iliad* 1.1," that citation remains valid whether the reader is looking at a 10th-century Byzantine parchment, an 18th-century printed edition, or a modern TEI XML file on GitHub. The CTS protocol translates this timeless scholarly citation practice into a formal, machine-actionable syntax: the **CTS Uniform Resource Name (URN)** (Blackwell & Smith, 2014).
+In a physical manuscript or printed treaty, textual features frequently overlap:
+<ul>
+  <li>A sentence may start near the bottom of folio 1r and finish at the top of folio 1v.</li>
+  <li>A commentary note might explain a three-word phrase that straddles two printed lines.</li>
+  <li>A historical event note might cover the second half of sentence 3 and the first half of sentence 4.</li>
+</ul>
 
-A CTS URN is a persistent, globally unique identifier structured into five distinct hierarchical components:
+If you try to nest an inline `<note>` across an element boundary, the XML parser throws a fatal error:
+```xml
+<!-- INVALID XML: OVERLAPPING TAGS -->
+<s xml:id="s1">King George <note>rules Great Britain</s>
+<s xml:id="s2">and Ireland</note> happily.</s>
+```
+The browser or validator will refuse to open the document. To solve this problem without breaking XML rules, modern digital editions use standoff markup.
 
-| CTS URN Component | Formal Segment | Purpose in Citation | Example Value |
-| --- | --- | --- | --- |
-| Protocol Scheme | `urn:cts:` | Declares the formal URI scheme and protocol | `urn:cts:` |
-| Namespace | `greekLit:` | Domain authority or disciplinary corpus | `greekLit:` |
-| Textgroup | `tlg0012:` | Author or traditional corpus grouping | `tlg0012` (Homer) |
-| Work | `tlg001:` | Specific intellectual composition | `tlg001` (*Iliad*) |
-| Version | `perseus-grc2:` | Specific digital edition or translation | `perseus-grc2` |
-| Passage | `1.1-1.5` | Hierarchical canonical citation range | `1.1-1.5` (Book 1, lines 1–5) |
+**Vocabulary.** *Well-Formed XML* — XML that strictly obeys syntactic rules, including proper tag nesting and closing. *Overlapping Hierarchy* — when two conceptual structures (such as physical lines and grammatical sentences) cross paths without nesting neatly.
 
-By utilizing CTS URNs within digital commentary, an editor binds notes to the abstract, canonical hierarchy of the work rather than to a transient HTML page.
-
-**Vocabulary.** *CTS URN* — Canonical Text Services Uniform Resource Name; a standardized, syntax-governed identifier for citing textual passages. *CITE Architecture* — Collection, Index, Text, Extension; a computational framework for citing scholarly resources. *Textgroup* — the authorial or traditional grouping of related works within CTS.
-
-**Takeaway:** CTS URNs provide technology-independent, persistent identifiers that link commentary to canonical intellectual works rather than fragile web files.
+**Takeaway:** XML requires strict tree nesting, making it impossible to overlap inline tags across element boundaries.
 
 ---
 
 ## **10 Content**
 
-**Hierarchical Addressability with CTS URNs**
+**Introduction to TEI Standoff Markup**
 
-The true power of CTS URNs lies in their hierarchical addressability. Because the URN syntax models the internal structure of the literary work, a digital system can address the text at multiple granularities—from an entire multi-volume work down to a single word or character token (Blackwell & Smith, 2014).
+Standoff markup separates your commentary notes from the base text record. Instead of embedding notes directly inside the running text, you store them in a dedicated `<standOff>` section at the end of your TEI document.
 
-Consider how a digital commentary can target different structural depths of the same historical text using CTS syntax:
+In standoff architecture:
+<ol>
+  <li>The base text remains clean, diplomatic, and unobstructed by long editorial paragraphs.</li>
+  <li>Each note lives in the `<standOff>` container and includes a `@target` attribute pointing back to one or more text anchors.</li>
+  <li>Multiple notes can target the same word without tangling code.</li>
+  <li>A note can target multiple separated sentences without violating XML nesting rules.</li>
+</ol>
 
-| Citation Level | CTS URN Suffix | Target Scope | Primary Commentary Use Case |
-| --- | --- | --- | --- |
-| Corpus / Work | `tlg0012.tlg001:1-24` | Entire epic | Overarching thematic introductions and structural overviews |
-| Section / Book | `tlg0012.tlg001:1` | Complete Book 1 | Narrative division notes and compositional outlines |
-| Line / Verse | `tlg0012.tlg001:1.1` | Single verse line | Line-level context, historical realia, and poetic meter |
-| Range | `tlg0012.tlg001:1.1-1.7` | Opening proem | Rhetorical units, extended speeches, and allegories |
-| Token Sub-reference | `tlg0012.tlg001:1.1@μῆνιν[1]` | First token occurrence | Morphosyntactic parsing and lexical definitions |
+Here is the basic structure of a TEI document with standoff markup:
+```xml
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>...</teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="tr_s1">Done at Halifax this 22nd day of November 1752.</s>
+      </p>
+    </body>
+  </text>
+  <standOff>
+    <note target="#tr_s1" type="historical">
+      Signed in the Council Chamber by Governor Peregrine Hopson.
+    </note>
+  </standOff>
+</TEI>
+```
 
-This sub-reference syntax (`@token[index]`) allows an editor to anchor a philological note directly to a specific grammatical word without requiring the underlying XML document to insert intrusive markup tags around that word (Blackwell & Smith, 2014). If a sentence contains two instances of the particle καί, `@καί[2]` unambiguously targets the second occurrence.
+**Vocabulary.** *Standoff Markup* — encoding annotations and editorial data in a separate container outside the primary text, linked via URI pointers. *Inline Markup* — placing tags directly around or inside the words of the running text.
 
-Furthermore, CTS URNs support version-independent addressing. If an editor omits the version segment (`tlg0012.tlg001:1.1`), the commentary attaches to *any* edition or translation of Homer's *Iliad* that implements the CTS protocol, enabling cross-edition commentary sharing across institutions.
-
-**Vocabulary.** *Sub-reference* — an extended syntax in CTS URNs (using `@`) that targets specific words or characters within a canonical passage. *Hierarchical granularity* — the ability of an addressing system to operate across multiple nested levels of a text. *Version independence* — the property of a citation that allows it to resolve across different editions of the same work.
-
-**Takeaway:** CTS URN sub-references allow commentary to target entire chapters, verse ranges, or individual words with mathematical precision and cross-edition durability.
+**Takeaway:** Standoff markup places annotations in a separate `<standOff>` section, keeping base text clean and allowing complex, multi-point linking.
 
 ---
 
 ## **11 Content**
 
-**The Overlapping Hierarchies Problem in XML**
+**TEI Chapter 17: Simple Analytic Mechanisms**
 
-When implementing digital commentary within standard markup languages like XML, textual scholars inevitably run into a fundamental technical barrier: the **overlapping hierarchies problem** (Schmidt, 2010).
+The TEI P5 Guidelines provide a dedicated module for scholarly interpretation: Chapter 17, titled *Simple Analytic Mechanisms*. This chapter defines standardized elements for attaching interpretations, thematic analyses, and structured commentary to texts.
 
-Standard XML enforces the **Ordered Hierarchy of Content Objects (OHCO)** model. In this model, every document is treated as a strictly nested tree structure: elements must open and close cleanly within their parent containers (`<a><b></b></a>`). Overlapping tags (`<a><b></a></b>`) are strictly forbidden and cause XML parsers to fail instantly.
+The primary elements defined in Chapter 17 include:
+<ul>
+<li><code>&lt. Interp&gt. </code>: Defines a single interpretive category, theme, or topic (for example: "Colonial Trade Policy" or "Paper Currency Depreciation").</li>
+<li><code>&lt. InterpGrp&gt. </code>: Groups related interpretations into a shared domain (such as historical themes or linguistic registers).</li>
+<li><code>&lt. Span&gt. </code>: Associates an interpretive element with a specific span of text using <code>@from</code> and <code>@to</code> pointers.</li>
+<li><code>&lt. SpanGrp&gt. </code>: A collection of related <code>&lt. Span&gt. </code> elements.</li>
+</ul>
 
-However, historical cultural heritage texts are not single trees; they are multi-dimensional fabrics containing multiple concurrent, non-coincident hierarchies:
+Using Chapter 17 elements turns your commentary from unstructured footnotes into searchable semantic data that computers can analyze and index.
 
-| Concurrent Hierarchy | Structural Units Involved | Conflict Example with Standard XML |
-| --- | --- | --- |
-| Physical Carrier | Pages, columns, line breaks (`<pb/>`, `<cb/>`, `<lb/>`) | A sentence begins on Page 1 Col B and ends on Page 2 Col A |
-| Literary / Metrical | Stanzas, poetic lines, stichs (`<lg>`, `<l>`) | A syntactic clause crosses from line 14 into line 15 |
-| Syntactic / Linguistic | Sentences, clauses, phrases (`<s>`, `<cl>`, `<phr>`) | A quotation begins mid-clause and spans three poetic lines |
-| Editorial Commentary | Philological and historical notes (`<note>`) | An interpretive note targets a phrase spanning across a line break |
+**Vocabulary.** *Simple Analytic Mechanisms* — the TEI module (Chapter 17) providing elements for qualitative annotation, thematic tagging, and textual analysis. *Semantic Annotation* — tagging text with structured data that describes its meaning and context.
 
-As Desmond Schmidt has extensively argued, embedding interpretive commentary directly into the primary XML text stream forces the editor to choose one hierarchy as dominant while artificially fragmenting or corrupting all concurrent hierarchies (Schmidt, 2010). If an editor creates an inline `<note>` tag that begins in the middle of one metrical line and extends across a page break into the next sentence, standard XML cannot represent this without convoluted milestone elements (`<milestone/>`) or fragmented tags.
-
-Embedding commentary directly into the base text stream creates severe maintenance liabilities: it clutters the transcription, obscures paleographical data, complicates collaborative editing, and risks breaking document validation whenever a note is edited (Schmidt, 2010).
-
-**Vocabulary.** *OHCO model* — Ordered Hierarchy of Content Objects; the theoretical model underlying XML that treats documents as strictly nested trees. *Overlapping hierarchies* — a condition where two or more logical structural systems in a document cross boundaries without nesting. *Milestone tag* — an empty XML tag used to mark a boundary in a secondary hierarchy without enclosing content.
-
-**Takeaway:** Embedded XML markup cannot natively handle overlapping physical, metrical, and interpretive structures, necessitating externalized annotation architectures.
+**Takeaway:** TEI Chapter 17 provides standardized elements (`<interpGrp>`, `<interp>`, and `<span>`) for encoding structured interpretive metadata.
 
 ---
 
 ## **12 Content**
 
-**Introduction to TEI Stand-Off Markup**
+**Encoding Controlled Interpretations with `<interpGrp>`**
 
-To overcome the overlapping hierarchies problem and decouple interpretive commentary from primary manuscript transcriptions, the Text Encoding Initiative (TEI) introduced **stand-off markup** (TEI Consortium, 2026).
+When annotating historical texts, editors often want to tag recurring themes. For instance, in colonial treaties, passages repeatedly discuss trade, military defense, gift exchange, or territorial boundaries.
 
-In stand-off markup, annotations, linguistic parsings, and commentary notes do not reside inline within the flow of the transcription. Instead, the primary text remains pristine, containing only the baseline transcription and stable structural tags. All editorial interpretations, historical notes, and intertextual cross-references are stored in a dedicated, external container element: the `<standOff>` element (TEI Consortium, 2026).
-
-The `<standOff>` container is placed at the document level (as a child of `<TEI>`, following `<teiHeader>` and parallel to `<text>`), or in an entirely separate XML document:
-
+Rather than typing these themes freely into every note, you define a controlled vocabulary using `<interpGrp>` in your `<standOff>` block:
 ```xml
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
-    <!-- Catalogue and metadata -->
-  </teiHeader>
-  <text>
-    <body>
-      <div type="chapter" n="1">
-        <p>
-          <w xml:id="w1">Ἐν</w>
-          <w xml:id="w2">ἀρχῇ</w>
-          <w xml:id="w3">ἦν</w>
-          <w xml:id="w4">ὁ</w>
-          <w xml:id="w5">λόγος</w>
-        </p>
-      </div>
-    </body>
-  </text>
-  <standOff>
-    <!-- All commentary notes, interpretations, and LOD links live here -->
-  </standOff>
-</TEI>
+<standOff>
+  <interpGrp type="treaty_themes">
+    <interp xml:id="th_trade">Commercial Regulations and Truckhouses</interp>
+    <interp xml:id="th_peace">Cessation of Hostilities</interp>
+    <interp xml:id="th_provision">Annual Rations and Subsidy</interp>
+    <interp xml:id="th_jurisdiction">Legal Trials and Prisoner Return</interp>
+  </interpGrp>
+</standOff>
 ```
+Once these themes are declared, any note or sentence can reference them using the `@ana` (analysis) attribute:
+```xml
+<s xml:id="s4" ana="#th_trade">The said Tribe shall have free liberty to bring to Sale...</s>
+```
+A web browser or search tool can now instantly retrieve every sentence in the edition dealing with trade regulations.
 
-This architectural separation provides transformative advantages for the digital editor:
+**Vocabulary.** *Controlled Vocabulary* — an trusted, pre-defined list of authorized terms used for consistent tagging. *`@ana` Attribute* — a TEI attribute that points to an interpretive definition explaining the passage.
 
-- **Transcription Integrity:** The diplomatic or critical text remains clean, easily readable, and protected from accidental corruption during commentary revisions.
-- **Infinite Interpretive Layers:** Multiple scholars can author competing or specialized commentary layers (e.g., a linguistic layer, a theological layer, a feminist critical layer) referencing the same base text without interference.
-- **Overlapping Spans:** Commentary notes can target arbitrary spans of text that cross line, sentence, or page boundaries without causing XML validation errors (Schmidt, 2010).
-
-**Vocabulary.** *Stand-off markup* — a markup technique where annotations and structural codes are stored outside the primary text stream and connected via pointers. `<standOff>` — the official TEI container element for contextual and interpretive data. *Separation of concerns* — a software architecture principle separating distinct domains of data to enhance maintainability.
-
-**Takeaway:** TEI stand-off markup externalizes commentary into a dedicated container, preserving transcription integrity while supporting infinite overlapping interpretive layers.
+**Takeaway:** Defining themes in an `<interpGrp>` sets up a controlled vocabulary that makes commentary themes systematically searchable across an entire edition.
 
 ---
 
 ## **13 Content**
 
-**TEI §17 Simple Analytic Mechanisms**
+**Pointing and Linking: The Syntax of `@target`**
 
-Chapter 17 of the TEI P5 Guidelines, titled *Simple Analytic Mechanisms*, provides the formal toolkit for encoding scholarly commentary, thematic analyses, and interpretive groupings in stand-off architectures (TEI Consortium, 2026).
+To connect a standoff note to its text anchor, TEI uses URI pointers in the `@target` attribute. Understanding this syntax is essential for avoiding broken links.
 
-Rather than forcing commentary into generic, untyped paragraph tags, TEI §17 provides specialized semantic elements designed to express complex hermeneutic judgments:
+The key rules for `@target` pointers are:
+<ol>
+<li><strong>The Hash Prefix (`#`):</strong> When pointing to an element in the same XML file, you must begin the value with a hash symbol (`#`). The hash tells the system to look for an <code>xml:id</code> within the current document. Writing <code>target="s1"</code> is an error. Write <code>target="#s1"</code>.</li>
+  <li><strong>Multiple Targets:</strong> A single note can explain multiple sentences or words. Separate each target ID with a space: <code>target="#s1 #s2"</code>.</li>
+  <li><strong>Cross-Document Linking:</strong> To point to an element in another file, write the file path followed by the hash and ID: <code>target="witness_a.xml#s1"</code>.</li>
+</ol>
 
-| TEI Element | Full Formal Name | Core Function in Commentary | Key Attributes |
-| --- | --- | --- | --- |
-| `<interpGrp>` | Interpretation Group | Groups related interpretive notes by category, theme, or author | `@type`, `@subtype`, `@resp` |
-| `<interp>` | Interpretation | Formal statement of an interpretive or conceptual analysis | `@xml:id`, `@type`, `@inst`, `@resp` |
-| `<spanGrp>` | Span Group | Groups a collection of contiguous or non-contiguous text spans | `@type`, `@resp`, `@target` |
-| `<span>` | Span | Associates an interpretive note with a specific span of characters/words | `@xml:id`, `@from`, `@to`, `@target` |
-| `<ptr>` | Pointer | Empty pointing element establishing an unambiguous directional link | `@target`, `@type`, `@cRef` |
-| `<link>` | Link | Bidirectional or multi-target association between multiple nodes | `@targets`, `@type`, `@resp` |
+Here is an example connecting one historical note to two related sentences:
+```xml
+<note target="#s1 #s2" type="historical">
+  These opening clauses establish the formal diplomatic protocol between British colonial authorities and the Shubenacadie Mi'kmaq delegation.
+</note>
+```
 
-These elements function as an integrated relational network. An editor creates an `<interpGrp>` declaring a broad category of commentary (e.g., `type="philological"`), populates it with individual `<interp>` or `<note>` elements containing the explanatory prose, and connects those notes to targeted words in the `<text>` using `<ptr>` or `<span>` elements (TEI Consortium, 2026).
+**Vocabulary.** *Fragment Identifier* — the part of a URI beginning with `#` that specifies a unique element within a document. *URI (Uniform Resource Identifier)* — a standardized string that points out a digital resource.
 
-By adopting TEI §17 mechanisms, a digital scholarly edition transforms humanistic prose into a structured, machine-actionable database of critical arguments.
-
-**Vocabulary.** *TEI P5* — the current fifth version of the Text Encoding Initiative Guidelines. *Analytic mechanism* — a formal markup structure designed to encode textual analysis and interpretation. *Relational network* — a system of data objects connected by explicit, typed references.
-
-**Takeaway:** TEI §17 provides standardized analytic elements (`<interpGrp>`, `<interp>`, `<span>`, `<ptr>`) for formalizing humanistic commentary into structured, queryable data.
+**Takeaway:** The `@target` attribute links standoff notes to text anchors using the `#id` syntax, supporting multiple space-separated targets.
 
 ---
 
 ## **14 Content**
 
-**Encoding Editorial Interpretations with `<interpGrp>` and `<interp>`**
+**standard Inline `<note>` vs. Standoff `<note>`**
 
-The `<interpGrp>` (interpretation group) and `<interp>` (interpretation) elements allow editors to declare analytical categories and attach interpretive labels to text spans.
+Beginners frequently ask: when should I use a standard inline `<note>`. When should I use standoff `<note>`?
 
-The `<interpGrp>` element acts as a thematic container, collecting interpretations that belong to a single domain of inquiry. For example, an editor can create separate groups for rhetorical figures, theological concepts, and prosopographical identifications. Individual `<interp>` elements inside the group define specific values within that domain (TEI Consortium, 2026):
+Both methods have legitimate roles in digital publishing:
+<table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+  <thead>
+<tr style="background-color: #f1f5f9. Border-bottom: 2px solid #cbd5e1. ">
+<th style="padding: 8px. Text-align: left. ">Feature</th>
+<th style="padding: 8px. Text-align: left. ">Inline <code>&lt. Note&gt. </code></th>
+<th style="padding: 8px. Text-align: left. ">Standoff <code>&lt. Note&gt. </code></th>
+    </tr>
+  </thead>
+  <tbody>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Location in File</strong></td>
+<td style="padding: 8px. ">Directly inside <code>&lt. P&gt. </code> or <code>&lt. S&gt. </code> text</td>
+<td style="padding: 8px. ">Inside <code>&lt. StandOff&gt. </code> at end of document</td>
+    </tr>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Best Use Case</strong></td>
+<td style="padding: 8px. ">Simple author footnotes printed in source</td>
+<td style="padding: 8px. ">Modern scholarly commentary and critical notes</td>
+    </tr>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Readability of Base Text</strong></td>
+<td style="padding: 8px. ">Poor (cluttered by lengthy note text)</td>
+<td style="padding: 8px. ">Excellent (base text remains clean)</td>
+    </tr>
+    <tr>
+<td style="padding: 8px. "><strong>Multi-Point Linking</strong></td>
+<td style="padding: 8px. ">Impossible (anchored only to its insertion spot)</td>
+<td style="padding: 8px. ">Supported (can target multiple words or sentences)</td>
+    </tr>
+  </tbody>
+</table>
 
-```xml
-<standOff>
-  <!-- Rhetorical Analysis Group -->
-  <interpGrp type="rhetoric" resp="#kmp">
-    <interp xml:id="rhet-antithesis">Antithesis: contrasting parallel clauses</interp>
-    <interp xml:id="rhet-chiasmus">Chiasmus: ABBA syntactic inversion</interp>
-    <interp xml:id="rhet-metaphor">Metaphor: source-domain conceptual transfer</interp>
-  </interpGrp>
+For modern scholarly commentary in our course projects, standoff notes are preferred. They keep your text record clean and allow rich cross-referencing.
 
-  <!-- Thematic and Theological Group -->
-  <interpGrp type="theology" resp="#kmp">
-    <interp xml:id="theo-covenant">Covenant theology and divine promise</interp>
-    <interp xml:id="theo-eschatology">Eschatological judgment and restoration</interp>
-  </interpGrp>
-</standOff>
-```
+**Vocabulary.** *Inline Note* — an explanatory note inserted directly into the stream of the primary text. *Standoff Container* — a dedicated section of an XML file reserved for external annotations.
 
-Once defined, these interpretations can be linked to the base text in two ways:
-
-- **In-text association:** Adding the `@ana` (analysis) or `@inst` (instance) attribute directly to a text element in the body: `<seg ana="#rhet-antithesis">...</seg>`.
-- **Stand-off association:** Using a separate `<link>` element in the `<standOff>` container to pair the text span with the interpretation ID without modifying the transcription stream (Schmidt, 2010).
-
-This structure ensures consistency across a multi-editor project. When multiple scholars annotate a corpus, they select from a controlled vocabulary of `<interp>` definitions, eliminating terminological divergence and enabling macro-level comparative queries.
-
-**Vocabulary.** *Controlled vocabulary* — an authoritative, restricted list of terms used for indexing and categorizing data. `@ana` — TEI attribute used to associate any text element with an external interpretive definition (`<interp>`). `@resp` — TEI attribute designating the scholar responsible for an editorial assertion.
-
-**Takeaway:** `<interpGrp>` and `<interp>` formalize controlled vocabularies of editorial interpretation, linking analytical concepts to text spans via standard attributes.
+**Takeaway:** Use inline notes only for original author footnotes found in the source. Use standoff notes for modern scholarly commentary.
 
 ---
 
 ## **15 Content**
 
-**Pointing and Linking: The `<ptr>` and `<link>` Elements**
+**Typing Commentary Notes with `@type` and `@subtype`**
 
-Connecting stand-off commentary to the base transcription requires precise pointing syntax. In TEI XML, this is achieved primarily through the empty `<ptr>` (pointer) and `<link>` elements (TEI Consortium, 2026).
+In TEI XML, an untyped `<note>` is treated as generic text. To allow stylesheets and reading interfaces to filter notes intelligently, always specify the category using the `@type` and `@subtype` attributes.
 
-The `<ptr>` element creates a unidirectional link from the location where it is placed to one or more target resources declared in its `@target` attribute. The `@target` attribute uses Uniform Resource Identifiers (URIs). Within the same document, an internal link is expressed using a fragment identifier (`#id`):
+Recommended values for scholarly commentary include:
+<ul>
+  <li><code>@type="language"</code>: Linguistic, grammatical, and lexical notes.
+    <ul>
+      <li><code>subtype="lexical"</code>: Explaining rare or archaic vocabulary.</li>
+      <li><code>subtype="morphosyntax"</code>: Analyzing unusual grammar or word forms.</li>
+    </ul>
+  </li>
+  <li><code>@type="historical"</code>: Historical context, realia, and biography.
+    <ul>
+      <li><code>subtype="biographical"</code>: naming historical persons.</li>
+      <li><code>subtype="geographical"</code>: explaining locations and boundaries.</li>
+      <li><code>subtype="institutional"</code>: Explaining laws, councils, or monetary systems.</li>
+    </ul>
+  </li>
+  <li><code>@type="intertextual"</code>: References to external texts.
+    <ul>
+      <li><code>subtype="citation"</code>: Direct quotation or legal statute reference.</li>
+      <li><code>subtype="allusion"</code>: Echo or thematic parallel.</li>
+    </ul>
+  </li>
+</ul>
 
+Here is a typed note for Ace's 1791 decree:
 ```xml
-<!-- In the standOff container -->
-<note xml:id="note-01" type="philological" resp="#kmp">
-  <ptr target="#w5 #w6"/>
-  The phrase <mentioned>ὁ λόγος</mentioned> reflects Hellenistic Jewish
-  adaptations of the Sapiential literature (cf. Prov 8:22), functioning here
-  as the divine mediating principle.
+<note target="#s3" type="historical" subtype="institutional">
+  The Comité des décrets was the parliamentary committee responsible for drafting the official text of laws passed by the National Assembly before royal sanction.
 </note>
 ```
 
-When connecting multiple disjoint elements or establishing complex multi-party associations, the `<link>` element is preferred. The `<link>` element resides inside a `<linkGrp>` (link group) in the `<standOff>` section and lists all participating nodes in its `@targets` attribute:
+**Vocabulary.** *Attribute Value* — the specific setting assigned to an XML attribute in quotation marks. *Facet* — a distinct dimension or subcategory of metadata.
 
-```xml
-<standOff>
-  <linkGrp type="intertextual-alignment" resp="#kmp">
-    <!-- Links text span w1-w5 to Septuagint Genesis 1:1 and to a commentary note -->
-    <link targets="#seg-john1-1 #lxx-gen1-1 #note-intertext-gen"/>
-  </linkGrp>
-</standOff>
-```
-
-| Pointing Syntax | Example | Scope | Resolution Mechanism |
-| --- | --- | --- | --- |
-| Same-Document ID | `target="#w12"` | Within current XML file | Resolves to element with matching `xml:id` |
-| Cross-Document File | `target="edition_b.xml#w12"` | Local repository file | Relative file path + XML ID |
-| Canonical CTS URN | `target="urn:cts:greekLit:tlg0012.tlg001:1.1"` | Global corpus | Resolved via CTS resolver service |
-| Web URL / LOD URI | `target="https://pleiades.stoa.org/places/501482"` | Global semantic web | Standard HTTP GET resolution |
-
-By utilizing standard URI pointing mechanisms, TEI pointers seamlessly bridge local document structures with global linked open data architectures (Simon et al., 2017).
-
-**Vocabulary.** *Fragment identifier* — the portion of a URI following a `#` symbol that specifies a distinct anchor within a document. *Unidirectional link* — a link that points in one direction from source to target. *Link group (`<linkGrp>`)* — a TEI container for organizing related `<link>` elements.
-
-**Takeaway:** `<ptr>` and `<link>` elements use URI and fragment identifier syntax to create unambiguous connections between stand-off notes, text spans, and external resources.
+**Takeaway:** Classify every commentary note using `@type` and `@subtype` so digital editions can filter annotations by analytical domain.
 
 ---
 
 ## **16 Content**
 
-**Discrete In-Text Spanning with `<seg>` and `<spanGrp>`**
+**Structuring Rich Note Bodies**
 
-While pointing to individual word IDs (`#w1`) is effective for single-word glosses, scholarly commentary frequently targets multi-word phrases, clauses, or complex syntactic units that do not correspond to existing structural tags like `<p>` or `<l>`. To mark these targets without corrupting document grammar, TEI provides the generic `<seg>` (segment) and stand-off `<span>` elements (TEI Consortium, 2026).
+A scholarly commentary note is not just a plain string of text. Inside a `<note>`, you frequently quote foreign words, cite books, or mention historical dates. TEI provides phrase-level elements to structure the interior of your note:
 
-The `<seg>` element can be wrapped directly around arbitrary text sequences in the body:
+<ul>
+<li><code>&lt. Mentioned&gt. </code>: Marks a word or phrase from the base text being discussed (e.g., <code>&lt. Mentioned&gt. Truckhouse&lt. /mentioned&gt. </code>).</li>
+<li><code>&lt. Gloss&gt. </code>: Provides a concise modern definition or equivalent phrase.</li>
+<li><code>&lt. Cit&gt. </code> and <code>&lt. Quote&gt. </code>: Embeds a quotation from a secondary source or historical dictionary.</li>
+<li><code>&lt. Bibl&gt. </code>: Provides a book citation for the scholarly source supporting your note.</li>
+<li><code>&lt. Ref target="https://..."&gt. </code>: Provides a clickable link to a digital archive or standard record.</li>
+</ul>
 
+Here is a fully structured note for Olyvia's Maud Lewis letter:
 ```xml
-<p>
-  <seg xml:id="seg-cl1">Ἐν ἀρχῇ ἦν ὁ λόγος</seg>, 
-  καὶ <seg xml:id="seg-cl2">ὁ λόγος ἦν πρὸς τὸν θεόν</seg>...
-</p>
+<note target="#w8" type="philological" subtype="lexical">
+  <mentioned>crooked</mentioned>: Used here by Lewis to describe the physical deformity of her hands caused by rheumatoid arthritis. See <bibl>Lance Woolaver, <title>Maud Lewis: The Heart on the Door</title> (1995), p. 42</bibl>.
+</note>
 ```
 
-However, if wrapping a `<seg>` element disrupts an existing hierarchy (for instance, if the target span crosses from the end of one sentence into the beginning of another, or crosses a poetic line break), the stand-off `<span>` element within a `<spanGrp>` provides a completely non-invasive alternative (TEI Consortium, 2026):
+**Vocabulary.** *Phrase-Level Element* — an XML element designed to mark words or short phrases within a paragraph or note. *book Reference* — formal citation details attributing information to published scholarship.
 
-```xml
-<standOff>
-  <spanGrp type="rhetorical-unit" resp="#kmp">
-    <!-- Span defined by explicit start (@from) and end (@to) targets -->
-    <span xml:id="span-proem" from="#w1" to="#w15">
-      The opening syntactic period establishes the timeless ontological status
-      of the subject prior to creation.
-    </span>
-  </spanGrp>
-</standOff>
-```
-
-In this stand-off architecture:
-
-- `@from` specifies the `xml:id` of the first token in the span.
-- `@to` specifies the `xml:id` of the final token in the span.
-- The base text remains completely unmodified, containing no inline boundary tags.
-
-This approach resolves the overlapping hierarchies problem completely: any number of overlapping or nested `<span>` elements can target intersecting ranges across the text without conflicting with one another or breaking XML validation (Schmidt, 2010).
-
-**Vocabulary.** `<seg>` — a TEI element used to segment arbitrary text spans in the body for analytic or linguistic purposes. `<span>` — a stand-off element defining a text range via start and end boundary attributes. *Non-invasive markup* — annotation techniques that record textual properties without altering the base transcription stream.
-
-**Takeaway:** Stand-off `<span>` elements define multi-word commentary targets via `@from` and `@to` boundaries, enabling overlapping spans without inserting intrusive inline tags.
+**Takeaway:** Structure the interior of commentary notes using `<mentioned>`, `<gloss>`, and `<bibl>` to maintain academic rigor and book attribution.
 
 ---
 
 ## **17 Content**
 
-**Traditional Inline `<note>` vs Stand-Off Notes**
+**Attributing Editorial credit with `@resp`**
 
-In TEI encoding, an editor must choose between two distinct methods for storing commentary notes: **inline notes** and **stand-off notes**. Both are fully conformant with the TEI P5 Guidelines, but they represent very different architectural philosophies.
+Scholarly commentary is an act of interpretation. Different scholars may hold conflicting views about a historical passage, or notes may be drafted by student editors and revised by instructors.
 
-An **inline note** embeds the `<note>` element directly within the prose stream at the exact point of occurrence:
+TEI tracks editorial authorship using the `@resp` (credit) attribute. The value of `@resp` is a pointer to an editor defined in the `teiHeader`:
+<ol>
+<li>In your <code>&lt. TeiHeader&gt. </code>, list all contributors inside <code>&lt. TitleStmt&gt. </code> with unique <code>xml:id</code> values:
+<pre><code>&lt. Editor xml:id="al"&gt. Ace Long&lt. /editor&gt. 
+&lt;editor xml:id="kp"&gt;Ken Penner&lt;/editor&gt;</code></pre>
+  </li>
+  <li>In your standoff notes, attribute each note to its author using <code>@resp</code>:
+<pre><code>&lt. Note target="#s1" type="historical" resp="#al"&gt. 
+  Drafted by Ace Long analyzing Revolutionary monetary policy.
+&lt;/note&gt;</code></pre>
+  </li>
+</ol>
 
-```xml
-<!-- INLINE ENCODING -->
-<p>
-  Ἐν ἀρχῇ ἦν ὁ λόγος
-  <note type="philological" resp="#kmp">
-    The term <mentioned>λόγος</mentioned> carries both Hellenistic philosophical
-    and Jewish sapiential resonances.
-  </note>
-  καὶ ὁ λόγος ἦν πρὸς τὸν θεόν...
-</p>
-```
+When artificial intelligence is used to generate draft commentary (as we will explore in Lesson 12.3), clarity requires tagging those notes with `resp="#gemini"` or `resp="#ai"` to distinguish machine suggestions from verified human scholarship.
 
-A **stand-off note** stores the `<note>` in the `<standOff>` section, connecting to the text via a pointer:
+**Vocabulary.** *Provenance* — the documented history of ownership, creation, and editorial credit for a text or annotation. *`@resp` Attribute* — an XML attribute naming the person or tool responsible for a specific markup decision.
 
-```xml
-<!-- STAND-OFF ENCODING -->
-<standOff>
-  <note xml:id="n-logos-phil" type="philological" target="#w5" resp="#kmp">
-    The term <mentioned>λόγος</mentioned> carries both Hellenistic philosophical
-    and Jewish sapiential resonances.
-  </note>
-</standOff>
-```
-
-| Architectural Criterion | Inline `<note>` Model | Stand-Off `<note>` Model |
-| --- | --- | --- |
-| Visual Legibility of Base Text | Poor; prose is fragmented by long notes | Excellent; base text stream is clean |
-| Overlapping Spans | Impossible without milestone hacks | Native; arbitrary spans supported |
-| Multi-Editorial Collaboration | Fragile; merge conflicts in base file | Robust; notes can live in separate modular files |
-| Processing Complexity | Low; notes are parsed in document order | Moderate; requires pointer resolution |
-| Conversion to Linked Open Data (RDF) | Cumbersome | Direct mapping to W3C Web Annotation graphs |
-
-For small, single-editor projects with brief glosses, inline notes offer simplicity. However, for large-scale scholarly editions, multi-institutional collaborations, and rich multi-layered commentaries, stand-off notes are universally preferred (Schmidt, 2010; Tafdrup et al., 2026).
-
-**Vocabulary.** *Inline encoding* — placing markup and annotations directly inside the primary text stream. *Merge conflict* — a version control collision occurring when multiple contributors edit the same lines of a file concurrently. *Modularity* — the degree to which a system's components can be separated and recombined.
-
-**Takeaway:** Stand-off notes are superior to inline notes for scholarly commentary because they preserve transcription clarity, prevent merge conflicts, and support multi-layered annotations.
+**Takeaway:** Attribute every commentary note to its human author or AI assistant using `@resp` to maintain scholarly clarity and honesty.
 
 ---
 
 ## **18 Content**
 
-**Typing Commentary Notes in TEI**
+**Connecting Commentary to External standard Files**
 
-To ensure that commentary notes can be filtered, styled, and searched systematically, the TEI `<note>` element must be enriched with standardized metadata attributes. An untyped `<note>` tag represents a missed opportunity for computational analysis (TEI Consortium, 2026).
+A major advantage of digital commentary over printed footnotes is linked open data. When you mention a historical person, place, or institution, you can connect your note directly to global standard files using the `@ref` attribute.
 
-The five essential attributes for structuring scholarly notes in TEI are:
+Standard international standard files include:
+<ul>
+  <li><strong>Wikidata:</strong> Persistent global identifiers for people, places. Events (e.g., <code>https://www.wikidata.org/wiki/Q131376</code> for King Louis XVI).</li>
+  <li><strong>GeoNames:</strong> Global geographic database of historical and modern places (e.g., <code>https://www.geonames.org/6355375</code> for Digby, Nova Scotia).</li>
+  <li><strong>BnF (Bibliothèque nationale de France):</strong> trusted identifiers for French historical figures and legal bodies.</li>
+  <li><strong>Canadian Dictionary of Biography:</strong> trusted biographies for figures such as Governor Peregrine Hopson and Chief Jean-Baptiste Cope.</li>
+</ul>
 
+Here is an example linking a historical note to both Wikidata and the Canadian Biography:
 ```xml
-<note xml:id="n-actium-hist"
-      type="historical"
-      subtype="battle"
-      resp="#kmp"
-      cert="high"
-      source="#cambridge-ancient-history">
-  <ptr target="#w42"/>
-  The naval engagement at Actium (31 BCE) consolidated Octavian's sole dominance
-  over the Roman world, terminating the civil wars of the late Republic.
+<note target="#s2" type="historical" subtype="biographical">
+  Governor <persName ref="https://www.wikidata.org/wiki/Q7168341">Peregrine Thomas Hopson</persName> assumed office in Halifax in August 1752.
 </note>
 ```
 
-- `@xml:id` — A unique document-level identifier allowing the note to be targeted by pointers, cross-references, and external RDF graphs.
-- `@type` — The primary category of commentary, conforming to our four-part taxonomy (`philological`, `historical`, `intertextual`, `structural`).
-- `@subtype` — A granular domain-specific sub-classification (e.g., `morphology`, `syntax`, `lexicon`, `geography`, `prosopography`, `allusion`, `rhetoric`).
-- `@resp` — An explicit reference to the editor or agent responsible for authoring the note (pointing to an `xml:id` in the `<teiHeader>` `<respStmt>`).
-- `@cert` — The degree of editorial certainty regarding the interpretive assertion (`high`, `medium`, `low`, `unknown`).
-- `@source` — A bibliographic pointer to the reference work, grammar, or primary edition supporting the assertion.
+**Vocabulary.** *Linked Open Data (LOD)* — structured data published on the web in standardized formats allowing computers to connect related concepts across repositories. *standard Record* — an set, unique record in a library catalog that clearly points out an entity.
 
-By consistently applying these attributes, the digital edition enables dynamic user interfaces where readers can toggle specific commentary layers—such as viewing only philological notes for language learning, or viewing only historical notes for contextual study (Francese, 2014).
-
-**Vocabulary.** `@subtype` — a TEI attribute providing a secondary, finer classification within a primary `@type`. `@cert` — a TEI attribute declaring the degree of editorial certainty for an assertion. *Dynamic filtering* — the capability of a digital interface to show or hide content based on user-selected metadata criteria.
-
-**Takeaway:** Enriching `<note>` elements with `@type`, `@subtype`, `@resp`, `@cert`, and `@source` enables multi-dimensional filtering and transparent scholarly accountability.
+**Takeaway:** Enrich commentary notes with standard URIs (`@ref`) to link your local edition to the global web of historical and geographical data.
 
 ---
 
 ## **19 Content**
 
-**Structuring Complex Note Bodies**
+**Step-by-Step: Preparing Your Document for Annotation in VS Code**
 
-A scholarly commentary note is rarely a flat string of prose. It often contains internal structural complexity, including quoted historical texts, foreign language terms, bibliographic citations, and cross-references to other notes within the edition (TEI Consortium, 2026).
+Before drafting notes, you must prepare your base TEI XML file in Visual Studio Code. Follow these practical steps:
 
-TEI provides rich inline elements to structure the internal body of a `<note>`:
+<ol>
+  <li><strong>Open Your File in VS Code:</strong> Launch VS Code and open your project file (e.g., <code>witness.xml</code>).</li>
+  <li><strong>Verify XML Well-Formedness:</strong> Check the bottom status bar for Red Hat XML validation errors. Ensure the file has 0 errors before proceeding.</li>
+  <li><strong>Review Existing Identifiers:</strong> Check whether your sentences or clauses already carry <code>xml:id</code> attributes from earlier modules. If they do not, add sequential identifiers:
+<pre><code>&lt. P&gt. 
+&lt. S xml:id="s1"&gt. First sentence of witness...&lt. /s&gt. 
+&lt. S xml:id="s2"&gt. Second sentence of witness...&lt. /s&gt. 
+&lt;/p&gt;</code></pre>
+  </li>
+  <li><strong>Split Your Editor:</strong> Press <code>Cmd+\</code> (macOS) or <code>Ctrl+\</code> (Windows) to open a two-column editor. Put your base text on the left and your new commentary file (<code>commentary.xml</code>) on the right.</li>
+<li><strong>Add the Standoff Container:</strong> If you are working within a single TEI file, scroll to the bottom right before the closing <code>&lt. /TEI&gt. </code> tag and create the <code>&lt. StandOff&gt. </code> element:
+<pre><code>&lt. StandOff&gt. 
+&lt. !-- Commentary notes will go here --&gt. 
+&lt;/standOff&gt;
+&lt;/TEI&gt;</code></pre>
+  </li>
+</ol>
 
-```xml
-<note xml:id="n-pauline-grace" type="philological" subtype="semantics" resp="#kmp">
-  <ptr target="#w18"/>
-  <p>
-    The noun <mentioned xml:lang="grc">χάρις</mentioned> operates here within
-    the semantic field of Hellenistic benefaction systems rather than abstract
-    post-Reformation theological categories (see <bibl><author>Jouette Bassler</author>,
-    <title>Divine Impartiality</title>, <biblScope unit="page">12–18</biblScope></bibl>).
-  </p>
-  <p>
-    For the sociolinguistic background of asymmetric reciprocity in Greco-Roman
-    patronage, compare <ref target="#n-patronage-hist">Note 14.2</ref> and the
-    parallel usage in <cit><bibl>IG II² 1006.15</bibl><quote xml:lang="grc">εὐνοίας
-    ἕνεκα καὶ χάριτος</quote></cit>.
-  </p>
-</note>
-```
+**Vocabulary.** *Split Editor* — viewing two files or two panes of the same file side-by-side in VS Code. *Anchor Preparation* — ensuring all target passages carry unique, well-formed `xml:id` values.
 
-Key inline structuring elements include:
-
-- `<mentioned>` — Marks linguistic forms, words, or letters cited as the object of discussion rather than used in narrative prose.
-- `<quote>` and `<cit>` — Encapsulates quoted source material paired with its bibliographic citation (`<bibl>`).
-- `<bibl>` and `<biblScope>` — Formats structured secondary literature references with author, title, volume, and page boundaries.
-- `<ref>` — Creates active cross-references to other notes, chapters, or appendices in the digital edition.
-- `<gloss>` — Supplies a concise translation or semantic gloss for a foreign-language term.
-
-Structuring note bodies with these elements ensures that bibliographic citations can be extracted into automated reading lists, linguistic terms can be indexed in glossaries, and cross-reference links remain functional across web builds (Francese, 2014).
-
-**Vocabulary.** `<mentioned>` — a TEI element used to mark words or phrases mentioned as linguistic objects rather than used in communication. `<cit>` — a TEI container element combining a quotation with a bibliographic reference. *Semantic field* — the organization of related words and concepts within a language.
-
-**Takeaway:** Structuring note bodies with `<mentioned>`, `<cit>`, `<bibl>`, and `<ref>` allows digital publishing systems to automatically build bibliographies, indexes, and internal link networks.
+**Takeaway:** Prepare your document in VS Code by verifying XML well-formedness, setting sequential `xml:id` anchors, and setting up a two-column editor layout.
 
 ---
 
 ## **20 Content**
 
-**Connecting to External Authority Files**
+**Hands-On Walkthrough: Drafting language Notes**
 
-A major goal of digital scholarship is to break out of institutional silos by connecting local textual observations to the global **Linked Open Data (LOD)** cloud (Simon et al., 2017). When an editor writes a historical or geographic note, they should not stop at prose description; they should link the entity to global authority files.
+Now let us practice drafting a language note. Select a sentence from your document that contains an archaic, dialectal, or specialized technical word.
 
-In TEI stand-off commentary, external authorities are integrated using the `ref` attribute or `<ref>` elements pointing to persistent Linked Open Data Uniform Resource Identifiers (URIs):
+Follow this workflow:
+<ol>
+<li><strong>Locate the Target Word:</strong> Identify the word in your base text. Wrap it in a <code>&lt. W&gt. </code> tag with an <code>xml:id</code>, or identify the containing sentence ID:
+<pre><code>&lt. W xml:id="w_assignat"&gt. Assignats&lt. /w&gt. </code></pre>
+  </li>
+  <li><strong>Research the Word:</strong> Look up the historical usage in an trusted dictionary. Determine when the term entered common use and how its meaning shifted.</li>
+<li><strong>Draft the Note in Standoff:</strong> Inside <code>&lt. StandOff&gt. </code>, add a typed note referencing the word anchor:
+<pre><code>&lt. Note target="#w_assignat" type="language" subtype="lexical" resp="#al"&gt. 
+&lt. Mentioned&gt. Assignats&lt. /mentioned&gt. : Originally paper bonds issued in 1789 secured against confiscated clergy lands (biens nationaux), assignats functioned as legal tender paper currency by 1791, experiencing massive runaway inflation.
+&lt;/note&gt;</code></pre>
+  </li>
+  <li><strong>Verify the Pointer:</strong> In VS Code, search for <code>w_assignat</code> to confirm that the ID in the base text matches the note target exactly.</li>
+</ol>
 
-```xml
-<standOff>
-  <!-- Prosopographical Register linking local IDs to global LOD URIs -->
-  <listPerson>
-    <person xml:id="pers-cleopatra">
-      <persName xml:lang="grc">Κλεοπάτρα</persName>
-      <persName xml:lang="en">Cleopatra VII Philopator</persName>
-      <idno type="URI">https://viaf.org/viaf/67256875</idno>
-      <idno type="URI">https://www.wikidata.org/wiki/Q635</idno>
-    </person>
-  </listPerson>
+**Vocabulary.** *dictionary work* — the scholarly discipline and practice of compiling dictionaries and analyzing word histories. *runaway inflation* — rapid, out-of-control currency depreciation, as seen with French revolutionary assignats.
 
-  <!-- Geographic Register linking ancient toponyms to Pleiades -->
-  <listPlace>
-    <place xml:id="place-alexandria">
-      <placeName xml:lang="grc">Ἀλεξάνδρεια</placeName>
-      <placeName xml:lang="en">Alexandria, Egypt</placeName>
-      <idno type="URI">https://pleiades.stoa.org/places/727070</idno>
-      <location>
-        <geo>31.2001 29.9187</geo>
-      </location>
-    </place>
-  </listPlace>
-</standOff>
-```
-
-| Entity Domain | Primary Authority Registry | Description & Strengths |
-| --- | --- | --- |
-| Historical Places | **Pleiades Gazetteer** | The definitive spatial registry for ancient Mediterranean geography; provides coordinates, historical names, and bibliographies. |
-| Global Entities | **Wikidata** | Structured multilingual knowledge base; ideal for wide-ranging historical concepts, events, and objects. |
-| Authors & Persons | **VIAF (Virtual International Authority File)** | Merges national library authority records into globally unique identifiers for historical and modern authors. |
-| Classical Works | **Perseus / CTS Catalogues** | Standardized URN catalogues for classical Greek and Latin literature. |
-
-By incorporating `<listPerson>` and `<listPlace>` registers into the `<standOff>` container, local notes can simply reference `#pers-cleopatra` or `#place-alexandria`. Downstream rendering engines can then automatically pull coordinates for interactive mapping, fetch external biographies, and connect the edition to other projects across the web (Simon et al., 2017).
-
-**Vocabulary.** *Authority file* — a standardized record that establishes the recognized heading and unique identifier for an entity. *VIAF* — Virtual International Authority File; a collaborative service aggregating national library authority files. *Toponym* — the proper name of a geographical place.
-
-**Takeaway:** Encoding Linked Open Data URIs in `<listPerson>` and `<listPlace>` registers connects local commentary notes to global mapping and prosopographical databases.
+**Takeaway:** Author language notes by naming specialized terms, researching their historical definitions, and linking them to word or sentence anchors via `@target`.
 
 ---
 
 ## **21 Content**
 
-**Case Study: Dickinson College Commentaries (DCC)**
+**Hands-On Walkthrough: Drafting Historical Notes**
 
-The **Dickinson College Commentaries (DCC)** project, directed by Christopher Francese, provides a premier real-world model for designing digital scholarly commentaries tailored for pedagogy and scholarship (Francese, 2014).
+Next, draft a historical commentary note for an institution, person, or geographical landmark mentioned in your witness.
 
-The DCC project addresses a fundamental pedagogical dilemma in classical studies: traditional printed commentaries are often burdened with arcane 19th-century text-critical debates that overwhelm intermediate readers, while simplified student editions omit crucial cultural and linguistic nuance. DCC resolves this by developing an innovative, multi-layered digital architecture:
+Let us draft a note for Andromeda's 1752 Treaty mentioning Chief Jean-Baptiste Cope:
+<ol>
+  <li><strong>Identify the Anchor in Base Text:</strong>
+<pre><code>&lt. S xml:id="tr_s3"&gt. Between His Excellency Peregrine Thomas Hopson... and Major Jean Baptiste Cope, Chief Sachem of the Tribe of Mickmack Indians...&lt. /s&gt. </code></pre>
+  </li>
+  <li><strong>Gather Biographical Facts:</strong>
+    <ul>
+      <li>Jean-Baptiste Cope was a prominent Mi'kmaq leader of the Shubenacadie district.</li>
+      <li>He negotiated the 1752 treaty to secure hunting, fishing. Trading rights while seeking to protect his community from military conflict.</li>
+      <li>The treaty was signed in Halifax in November 1752.</li>
+    </ul>
+  </li>
+  <li><strong>Compose the Standoff Note:</strong>
+<pre><code>&lt. Note target="#tr_s3" type="historical" subtype="biographical" resp="#ag"&gt. 
+Major &lt. PersName ref="https://www.biographi.ca/en/bio/cope_jean_baptiste_3E.html"&gt. Jean-Baptiste Cope&lt. /persName&gt. (died c. 1758–1760) was a prominent Mi'kmaq leader who led negotiations for the Treaty of 1752 at Halifax. The title "Major" was an honorary military designation recognized by both French and British standards.
+&lt;/note&gt;</code></pre>
+  </li>
+</ol>
 
-| DCC Pedagogical Tier | Implementation Mechanism | Learning Outcome |
-| --- | --- | --- |
-| Tier 1: Core Vocabulary Scaffolding | Algorithmically isolates words outside top 1,000 core lemmas | Provides running glosses without manual glossing fatigue |
-| Tier 2: Grammatical & Philological Notes | Direct links to digital Allen & Greenough / Smyth sections | Teaches syntax through active reference consultation |
-| Tier 3: Linked Realia & Spatial Media | Embeds Pleiades-aligned historical maps and images | Visualizes ancient topography and material culture |
+Notice how this note concisely provides the dates, historical role. Explanation of his title, without cluttering the main reading text.
 
-A cornerstone of the DCC methodology is its algorithmic vocabulary filtering (Francese, 2014). By cross-referencing Latin and Greek texts against frequency data from the *Thesaurus Linguae Graecae* (TLG) and the *Laboratoire d'Analyse Statistique des Langues Anciennes* (LASLA), DCC isolates the core vocabulary (lemmas accounting for 70–80% of running words in classical literature). The human editors then focus their manual commentary on non-core vocabulary and complex syntax, saving hundreds of hours of repetitive glossing.
+**Vocabulary.** *Chief Sachem* — an Anglicized colonial term for a principal regional leader or political spokesperson among northeastern Indigenous nations. *Honorary Title* — a formal title conferred as an honor or diplomatic recognition.
 
-Furthermore, DCC links every grammatical explanation directly to sections of standard digital reference grammars (such as Allen & Greenough for Latin or Smyth for Greek), transforming the commentary into an active learning environment (Francese, 2014).
-
-**Vocabulary.** *Vocabulary scaffolding* — providing targeted lexical support based on empirical frequency metrics to assist reading comprehension. *LASLA* — Laboratoire d'Analyse Statistique des Langues Anciennes; a research institute providing lemmatized Latin linguistic corpora.
-
-**Takeaway:** Dickinson College Commentaries demonstrates how algorithmic vocabulary filtering and linked grammatical references create powerful, multi-tiered digital commentary editions.
+**Takeaway:** Historical notes explain persons and institutions by synthesizing verified biographical facts and linking them to external biographical dictionaries.
 
 ---
 
 ## **22 Content**
 
-**Case Study: Scholarly Commentary in *Grundtvig's Works***
+**Hands-On Walkthrough: Drafting Intertextual Notes**
 
-The Danish digital edition of *Grundtvig's Works* (*Grundtvigs Værker*, GV) represents one of the largest and most ambitious digital scholarly editing projects in modern European humanities (Tafdrup et al., 2026). N.F.S. Grundtvig (1783–1872) was a towering Danish theologian, poet, and philosopher whose massive written corpus spans over 1,000 published works and extensive manuscripts.
+Now draft an intertextual note connecting your document to an earlier or contemporary text.
 
-The primary editorial mission of the GV project is historical mediation. Grundtvig’s 19th-century Danish is heavily archaizing, steeped in Scandinavian mythology, and saturated with obscure biblical allusions. Over more than a decade, the editorial team manually produced an astonishing volume of scholarly commentary:
+Let us examine Maud Lewis's 1967 letter from Olyvia's project. Maud mentions that she has paintings ready for Mr. Kinnear:
+<ol>
+  <li><strong>Identify the Textual Reference:</strong>
+<pre><code>&lt. S xml:id="ml_s5"&gt. I have two small paintings done, one of oxen and one of cats.&lt. /s&gt. </code></pre>
+  </li>
+  <li><strong>Trace the Art Historical Intertext:</strong>
+    <ul>
+      <li>Maud Lewis repeatedly painted specific iconic compositions throughout her career: pairs of black and white cats in flowerbeds. Oxen teams decorated with floral yokes.</li>
+      <li>Her letters frequently negotiate the sale of these standard subjects for small sums (often $4 to $6).</li>
+    </ul>
+  </li>
+  <li><strong>Draft the Intertextual Note:</strong>
+<pre><code>&lt. Note target="#ml_s5" type="intertextual" subtype="allusion" resp="#ol"&gt. 
+  Maud Lewis's reference to "oxen" and "cats" points to her most celebrated serial folk art compositions. Similar compositions from 1965–1967 are preserved in the permanent collection of the Art Gallery of Nova Scotia (accession numbers 1984.001 and 1987.014).
+&lt;/note&gt;</code></pre>
+  </li>
+</ol>
 
-| Annotation Metric in GV Edition | Total Count Produced | Editorial Labor Requirement |
-| --- | --- | --- |
-| Explanatory Commentary Notes | 158,000+ notes | Deep manual historical, theological, and lexical research |
-| Named Entity Annotations | 166,430+ entities | Disambiguating historical, mythological, and geographic entities |
-| Biblical & Intertextual Citations | 10,980+ citations | Tracing unacknowledged Lutheran scriptural and hymn paraphrases |
+This note connects a casual personal letter to surviving physical art objects in public museum collections, greatly enhancing the scholarly value of the edition.
 
-As Tafdrup et al. (2026) document, every single note in the GV edition represents an intensive act of manual scholarship. Editors had to trace obscure biblical paraphrases where Grundtvig reworded Danish Lutheran liturgical texts without quotation marks, cross-reference 19th-century Scandinavian political debates, and formulate standardized explanations in TEI-compliant XML.
+**Vocabulary.** *Intertextual Web* — the network of related documents, visual artworks, or cultural artifacts referenced by a historical text. *Accession Number* — a unique identifier assigned by a museum or library to an object in its permanent collection.
 
-The GV case study underscores the irreplaceable value of human editorial expertise: manual note drafting captures subtle theological subversions, ironic parodies, and local historical resonances that no automated system can detect from scratch. However, the GV team also recognized that the sheer scale of the corpus created massive labor bottlenecks, prompting them to explore how deterministic algorithms and generative AI could assist in identifying prospective candidates for human verification (Tafdrup et al., 2026).
-
-**Vocabulary.** *Historical mediation* — the editorial practice of explaining historical, theological, and linguistic distance for modern readers. *Archaism* — the deliberate use of outdated or ancient language forms and styles. *Liturgical paraphrase* — rewording liturgical or biblical texts into poetry or prose.
-
-**Takeaway:** The *Grundtvig's Works* edition demonstrates the irreplaceable depth of manual scholarly commentary alongside the labor limits that motivate computational assistance.
+**Takeaway:** Intertextual notes connect primary documents to related legal statutes, personal correspondence, and preserved museum artifacts.
 
 ---
 
 ## **23 Content**
 
-**Hands-On Exercise: Establishing the Ground-Truth Passage**
+**Validating Pointers and Link Integrity in VS Code**
 
-Today’s manual exercise establishes the reference dataset for Topic 12. You will select a complex, multi-dimensional passage from your course witness corpus (or a shared classical/biblical test passage, such as 1 Thessalonians 2:1–12 or a section of the *Acts of the Apostles*), transcribe the base text, assign persistent token identifiers, and author a comprehensive set of commentary notes by hand.
+A broken link in a digital edition is just as bad as a 404 error on a website. If a note targets `#s99` but there is no element with `xml:id="s99"`, readers and software cannot display the annotation.
 
-Follow this systematic step-by-step workflow:
+You can easily audit your link integrity in VS Code:
+<ol>
+  <li><strong>Use VS Code Find (`Cmd+F` / `Ctrl+F`):</strong> Copy the ID target (e.g., <code>tr_s3</code>). Press <code>Cmd+F</code> and paste the text. You must see at least two matches:
+    <ul>
+<li>The declaration in the text: <code>&lt. S xml:id="tr_s3"&gt. </code></li>
+<li>The target in your note: <code>&lt. Note target="#tr_s3"&gt. </code></li>
+    </ul>
+    If you only see one match, you have an orphaned pointer.
+  </li>
+  <li><strong>Use Red Hat XML Extension:</strong> The XML extension flags duplicate `xml:id` values. Every `xml:id` across your file must be completely unique.</li>
+  <li><strong>Verify the Hash Prefix:</strong> Run a quick regex search in VS Code for <code>target="[^#]</code>. This finds any `@target` attribute where you forgot to include the required `#` symbol!</li>
+</ol>
 
-| Step | Operation | Technical Requirement | Output Artifact |
-| --- | --- | --- | --- |
-| 1 | Select Text Segment | Choose a 10–15 verse/line passage with rich historical and linguistic features | Base text transcription |
-| 2 | Assign Token IDs | Tokenize the passage and wrap words in `<w xml:id="...">` elements | Machine-addressable base XML |
-| 3 | Create Stand-Off Shell | Build the `<standOff>` container with empty `<interpGrp>` elements | Stand-off architecture |
-| 4 | Draft Philological Notes | Author 3–4 notes on difficult morphology, syntax, and rare vocabulary | Philological note corpus |
-| 5 | Draft Historical Notes | Author 3–4 notes on persons, places, and cultural realia with LOD URIs | Historical note corpus |
-| 6 | Draft Intertextual Notes | Author 2–3 notes identifying allusions and citations with precise sources | Intertextual note corpus |
-| 7 | Draft Structural Notes | Author 1–2 notes analyzing discourse structure and rhetorical figures | Structural note corpus |
-| 8 | Validate & Link | Connect notes to text IDs via `<ptr>` and validate against TEI schemas | Clean, validated TEI file |
+**Vocabulary.** *Orphaned Pointer* — an annotation link pointing to an ID that does not exist in the document. *Link Integrity* — the state where every internal and external URI resolves to a valid, existing destination.
 
-Begin by creating your base XML document. Ensure that every word token receives a deterministic `xml:id` following a consistent naming scheme: `w-1`, `w-2`, `w-3`, or `w-12-1-1` (specifying Topic, Chapter, and Word index). These IDs will serve as the anchors for all subsequent manual, deterministic, and AI-assisted annotations.
-
-**Vocabulary.** *Ground truth* — the verified, authoritative reference dataset against which automated and experimental models are tested. *Tokenization* — the process of segmenting a continuous text stream into discrete words and punctuation marks. *Deterministic identifier* — an ID generated by a predictable rule that remains consistent across processing runs.
-
-**Takeaway:** Establishing a stable ground-truth passage with explicit token IDs is the foundational prerequisite for all digital commentary encoding.
+**Takeaway:** Validate link integrity in VS Code by verifying that every `@target` includes the `#` prefix and matches an existing `xml:id`.
 
 ---
 
 ## **24 Content**
 
-**Hands-On Exercise: Drafting Philological Notes by Hand**
+**Case Study: The Dickinson College Commentaries Model**
 
-With your base text tokenized and assigned `xml:id` attributes, author your philological commentary notes. Focus on explaining linguistic features that require grammatical expertise and lexicon consultation.
+To understand how professional digital humanities projects handle commentary, consider the *Dickinson College Commentaries* (DCC) directed by Christopher Francese.
 
-When drafting each note by hand, structure your content into three explicit components:
+DCC publishes digital editions of historical Latin and Greek texts designed specifically for intermediate students and researchers. Their commentary model follows several principles that match our course approach:
+<ul>
+  <li><strong>Clear Separation of Layers:</strong> The base reading text is displayed cleanly on the left. Meanwhile, vocabulary glosses and historical notes appear in collapsible sidebars on the right.</li>
+  <li><strong>Controlled Vocabulary Tiers:</strong> Notes are strictly divided into vocabulary explanations, grammatical analyses, and historical/geographical context.</li>
+  <li><strong>Linked Open Data Gazetteers:</strong> Every ancient toponym links to the <em>Pleiades</em> gazetteer of ancient places. This provides coordinates and map views.</li>
+  <li><strong>Novice-Centered Explanations:</strong> Instead of assuming graduate-level language knowledge, DCC notes explain historical idioms in clear, accessible English.</li>
+</ul>
 
-1. **Target Identification:** The exact lemma, word form, and token ID (`#w-X`).
-2. **Morphosyntactic Classification:** Parsing details (case, number, gender, tense, voice, mood) and syntactical category (e.g., *genitive of source*, *dative of disadvantage*, *historical present*).
-3. **Hermeneutic Explanation:** Why this specific grammatical form matters for the meaning of the passage, citing authoritative lexica (LSJ, BDAG) or standard grammars.
+By adopting this modular, user-focused architecture, our student editions achieve the same clarity and usability as major university digital projects.
 
-| Philological Note Field | Editorial Analysis for 1 Thess 2:2 |
-| --- | --- |
-| Target Identifier | `#w14` (ἐπαρρησιασάμεθα) |
-| Morphological Parsing | Verb, 1st person plural, aorist middle deponent indicative of παρρησιάζομαι |
-| Reference Citations | BDAG 781b; Smyth §1890 |
-| Semantic Nuance | In classical Athenian democracy, παρρησία denoted the citizen's civic right of free speech; in early Christian literature it denotes courageous proclamation in the face of civic opposition. |
+**Vocabulary.** *Toponym* — the proper name of a place or geographical feature. *Gazetteer* — a geographical dictionary or directory providing coordinates and historical information about places.
 
-Draft at least three distinct philological notes for your selected passage. Ensure that your notes address genuine linguistic complexities rather than trivial definitions.
-
-**Vocabulary.** *Deponent verb* — a verb with passive or middle morphological forms but an active semantic meaning. *Parrhesia* — in ancient Greece, the practice and civic right of speaking candidly and boldly. *Semantic shift* — the evolution of word meanings over historical time.
-
-**Takeaway:** Philological drafting requires precise morphological parsing, standard lexical citations, and contextual explanations of semantic nuance.
+**Takeaway:** The Dickinson College Commentaries model shows how clean visual separation, controlled categories, and linked gazetteers make historical texts accessible to students.
 
 ---
 
 ## **25 Content**
 
-**Hands-On Exercise: Drafting Historical and Intertextual Notes by Hand**
+**Case Study: Scholarly Commentary in Legal and archive Editions**
 
-Next, author the historical, prosopographical, and intertextual commentary notes for your test passage. These notes require consulting historical gazetteers, classical reference works, and biblical cross-reference tools.
+While classical editions often emphasize literary style, archive and legal editions (such as the *Early Canadiana Online* project or the French *Archives Parlementaires*) require a distinct commentary strategy.
 
-For **historical notes**, identify every proper noun, political title, and cultural custom. Record:
+When annotating colonial proclamations or revolutionary statutes:
+<ul>
+  <li><strong>Focus on standard and Sanction:</strong> The commentary must explain who held the legal standard to issue the document. In Ace's 1791 decree, notes must explain why the King's seal appears alongside the signature of the President of the National Assembly.</li>
+  <li><strong>Documenting Legal Precedents:</strong> In Andromeda's 1752 Treaty, the commentary must trace how each article reflects British colonial policies set in earlier treaties with First Nations across the Atlantic seaboard.</li>
+  <li><strong>Social Impact vs. Official Rhetoric:</strong> Official legal decrees often claim that laws were universally welcomed. Scholarly notes provide the reality check, detailing public protests, financial panic, or indigenous sovereignty concerns omitted from the official record.</li>
+</ul>
 
-- The historical identity of the entity.
-- The precise relevance of this background to the argument of the text.
-- The persistent Linked Open Data URI (Pleiades for places, VIAF/Wikidata for persons).
+Editorial neutrality does not mean ignoring historical controversy. It means documenting multiple perspectives using verified archive evidence.
 
-For **intertextual notes**, identify citations, allusions, and structural echoes. Record:
+**Vocabulary.** *Statute* — a formal written enactment of a legislative standard that governs a city, state, or country. *Royal Sanction* — the formal approval of a bill by a monarch, necessary for legislation to take legal effect in constitutional monarchies.
 
-- The target passage and the source passage.
-- The nature of the intertextual link (explicit quotation, verbal allusion, structural parallel).
-- The exact shared lemmas or conceptual motifs.
-
-| Annotation Layer | Target Tokens | Primary Source / Authority URI | Hermeneutic Rationale |
-| --- | --- | --- | --- |
-| Historical Note | `#w8` (Φιλίπποις) | `https://pleiades.stoa.org/places/501482` | Roman colony status; mistreatment of Roman citizens violated Lex Julia |
-| Intertextual Note | `#w22-#w25` (τὸ εὐαγγέλιον τοῦ θεοῦ) | LXX Isaiah 52:7 / Priene Inscription | Echoes Isaianic herald while subverting the Roman imperial cult's *euangelia* |
-
-Author at least three historical/LOD notes and two intertextual notes for your passage.
-
-**Vocabulary.** *Lex Julia* — ancient Roman legislation safeguarding citizens against arbitrary physical abuse without trial. *Imperial cult* — the official religious veneration of Roman emperors as divine benefactors across the empire. *Priene Inscription* — famous 9 BCE Greek inscription from Asia Minor using *euangelia* for Caesar Augustus.
-
-**Takeaway:** Historical notes anchor entities to LOD URIs, while intertextual notes articulate the literary and ideological dimensions of textual echoes.
+**Takeaway:** archive and legal commentary studies legislative standard, historical precedents, and the social realities behind official administrative rhetoric.
 
 ---
 
 ## **26 Content**
 
-**Hands-On Exercise: Constructing the Stand-Off TEI Header and Architecture**
+**Designing Your Commentary Editorial Policy**
 
-Now, translate your manual drafting sheets into a fully compliant TEI XML document utilizing `<standOff>` architecture. Open your editor and construct the document skeleton.
+Before drafting a complete set of notes, professional editors establish an Editorial Policy. Without a written policy, you will inevitably write too many notes on some paragraphs and none on others.
 
-In the `<teiHeader>`, declare the metadata for your commentary edition, including the `<respStmt>` defining your editorial identity (which will be referenced by `@resp` attributes in your notes):
+Your commentary policy should answer four basic questions:
+<table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+  <thead>
+<tr style="background-color: #f1f5f9. Border-bottom: 2px solid #cbd5e1. ">
+<th style="padding: 8px. Text-align: left. ">Policy Question</th>
+<th style="padding: 8px. Text-align: left. ">Decision Criteria</th>
+<th style="padding: 8px. Text-align: left. ">Example Standard</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>Who is your target reader?</strong></td>
+<td style="padding: 8px. ">Determines assumed prior knowledge</td>
+<td style="padding: 8px. ">Undergraduate humanities students who need explanations of 18th-century currency.</td>
+    </tr>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>What triggers a lexical note?</strong></td>
+<td style="padding: 8px. ">Threshold for obsolete vocabulary</td>
+<td style="padding: 8px. ">Any word absent from a standard modern collegiate dictionary, or used in an obsolete sense.</td>
+    </tr>
+<tr style="border-bottom: 1px solid #e2e8f0. ">
+<td style="padding: 8px. "><strong>What entities require naming?</strong></td>
+<td style="padding: 8px. ">Selection rule for historical figures</td>
+<td style="padding: 8px. ">Every named historical person and every geographical location mentioned in the text.</td>
+    </tr>
+    <tr>
+<td style="padding: 8px. "><strong>What is the maximum note length?</strong></td>
+<td style="padding: 8px. ">Prevents sprawling essays</td>
+<td style="padding: 8px. ">Notes must be concise (between 30 and 75 words) with at least one external reference.</td>
+    </tr>
+  </tbody>
+</table>
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
-    <fileDesc>
-      <titleStmt>
-        <title>Scholarly Digital Commentary: 1 Thessalonians 2:1–8</title>
-        <author>Ken M. Penner</author>
-        <respStmt>
-          <resp>Commentary author and encoder</resp>
-          <name xml:id="kmp">Ken M. Penner</name>
-        </respStmt>
-      </titleStmt>
-      <publicationStmt>
-        <publisher>RELS 398 Digital Humanities Laboratory</publisher>
-        <date>2026</date>
-        <availability><licence target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</licence></availability>
-      </publicationStmt>
-      <sourceDesc>
-        <p>Transcribed from Codex Sinaiticus (London, BL Add. MS 43725).</p>
-      </sourceDesc>
-    </fileDesc>
-  </teiHeader>
-  
-  <text>
-    <body>
-      <div type="chapter" n="2">
-        <p>
-          <w xml:id="w1">Αὐτοὶ</w> <w xml:id="w2">γὰρ</w> <w xml:id="w3">οἴδατε</w>,
-          <w xml:id="w4">ἀδελφοί</w>, <w xml:id="w5">τὴν</w> <w xml:id="w6">εἴσοδον</w>
-          <w xml:id="w7">ἡμῶν</w> <w xml:id="w8">τὴν</w> <w xml:id="w9">πρὸς</w>
-          <w xml:id="w10">ὑμᾶς</w>...
-        </p>
-      </div>
-    </body>
-  </text>
-  
-  <standOff>
-    <!-- We will populate interpretation groups and notes here -->
-  </standOff>
-</TEI>
-```
+Documenting these guidelines in a short `COMMENTARY.md` file guarantees consistency across all your edition notes.
 
-Ensure that your schema declaration points to the official TEI P5 RelaxNG schema (`tei_all.rng`). This allows your XML editor to validate your stand-off elements in real time.
+**Vocabulary.** *Editorial Policy* — a written statement governing the principles, scope, and formatting standards applied by an editor to a text. *Annotation Threshold* — the set criteria that determine whether a textual feature merits an explanatory note.
 
-**Vocabulary.** `tei_all.rng` — the complete, unrestricted RelaxNG schema containing all TEI P5 modules and elements. `<publicationStmt>` — TEI header element detailing the publication and licensing of the electronic document. `<sourceDesc>` — TEI header element recording the physical manuscript or printed edition source.
-
-**Takeaway:** Building the TEI document shell establishes formal editorial metadata, licensing, and schema validation for the stand-off commentary.
+**Takeaway:** Establish a clear commentary editorial policy defining target audience, entity naming rules, and note length limits before writing.
 
 ---
 
 ## **27 Content**
 
-**Hands-On Exercise: Linking Pointers and Validating TEI Markup**
+**Hands-On Exercise: Building the Standoff TEI Shell**
 
-Now populate the `<standOff>` section with your drafted notes, utilizing structured `<interpGrp>`, `<listPlace>`, `<listPerson>`, and `<note>` elements with active pointer connections.
+Let us now build the complete standoff TEI XML shell in VS Code. Create a new file named `commentary_hand.xml` or open your existing project TEI file.
 
-Follow this complete stand-off encoding pattern:
-
+Assemble the following components:
 ```xml
-<standOff>
-  <!-- 1. Controlled Interpretive Vocabulary -->
-  <interpGrp type="commentary-taxonomy" resp="#kmp">
-    <interp xml:id="cat-phil">Philological and morphosyntactic analysis</interp>
-    <interp xml:id="cat-hist">Historical, geographic, and prosopographical realia</interp>
-    <interp xml:id="cat-intertext">Intertextual citation, allusion, and text reuse</interp>
-    <interp xml:id="cat-struct">Structural, rhetorical, and exegetical analysis</interp>
-  </interpGrp>
-
-  <!-- 2. Geographic Register with Pleiades URI -->
-  <listPlace>
-    <place xml:id="pl-philippi">
-      <placeName xml:lang="grc">Φίλιπποι</placeName>
-      <placeName xml:lang="en">Philippi</placeName>
-      <idno type="URI">https://pleiades.stoa.org/places/501482</idno>
-    </place>
-  </listPlace>
-
-  <!-- 3. Structured Commentary Notes -->
-  <note xml:id="note-12-1" type="philological" subtype="grammar" resp="#kmp" target="#w14">
-    <p>The verb <mentioned xml:lang="grc">ἐπαρρησιασάμεθα</mentioned> denotes bold public speech...</p>
-  </note>
-
-  <note xml:id="note-12-2" type="historical" subtype="topography" resp="#kmp" target="#w8">
-    <p>Reference to mistreatment at <ref target="#pl-philippi">Philippi</ref> evokes civic Roman status...</p>
-  </note>
-
-  <note xml:id="note-12-3" type="intertextual" subtype="echo" resp="#kmp" target="#w22 #w23 #w24 #w25">
-    <p>The formula <mentioned xml:lang="grc">τὸ εὐαγγέλιον τοῦ θεοῦ</mentioned> echoes LXX Isa 52:7...</p>
-  </note>
-</standOff>
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Scholarly Commentary on Primary Witness</title>
+        <editor xml:id="ed1">Student Editor</editor>
+      </titleStmt>
+      <publicationStmt>
+        <p>RELS 398 Digital Methods Course Project</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Authored commentary anchored to primary archival witness.</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div type="transcription">
+        <!-- Your base text with xml:id anchors -->
+      </div>
+    </body>
+  </text>
+  <standOff>
+    <interpGrp type="categories">
+      <interp xml:id="cat_phil">Philological &amp; Lexical</interp>
+      <interp xml:id="cat_hist">Historical &amp; Contextual</interp>
+      <interp xml:id="cat_inter">Intertextual &amp; Citational</interp>
+    </interpGrp>
+    <div type="commentary">
+      <!-- Your typed standoff notes go here -->
+    </div>
+  </standOff>
+</TEI>
 ```
 
-Once encoded, validate the document. Check that:
+Verify that your file validates against the TEI schema in VS Code.
 
-1. Every `@target` URI correctly resolves to an existing `xml:id` in the document.
-2. All `<note>` elements contain mandatory `@type` and `@resp` attributes.
-3. XML syntax is well-formed with no unclosed tags or unescaped ampersands.
+**Vocabulary.** *TEI Shell* — the foundational XML document structure containing `teiHeader`, `text`, and optional `standOff` containers. *Well-Formedness Check* — confirming that all opening tags match closing tags and syntax is valid.
 
-**Vocabulary.** *Well-formedness* — the structural syntax rule in XML requiring all tags to be properly closed, quoted, and nested. *Schema validity* — the property of an XML document conforming to a formal grammar ruleset (such as TEI RelaxNG). `@target` resolution — verifying that a pointer URI matches an actual existing target identifier.
-
-**Takeaway:** Populating `<standOff>` with typed `<note>`, `<interpGrp>`, and `<listPlace>` elements creates a valid, fully linked TEI commentary file.
+**Takeaway:** The standoff TEI shell provides a robust structure combining the `teiHeader`, base text record `<body>`, and annotations in `<standOff>`.
 
 ---
 
 ## **28 Content**
 
-**Designing the Editorial Statement for Commentary**
+**Authoring a Five-Note Reference Corpus**
 
-A digital scholarly edition is incomplete without an explicit **Editorial Statement** explaining the principles, boundaries, and scope of its commentary. Just as an editor must publish their normalization policy (Topic 6) and rendering rules (Topic 7), they must define their commentary rationale in the `<editorialDecl>` of the `<teiHeader>` (TEI Consortium, 2026).
+For today's lab milestone, you will author five high-quality commentary notes by hand on a single excerpt of your document.
 
-The commentary editorial statement must address four fundamental questions:
+Your five notes must include:
+<ol>
+  <li><strong>Two language / Lexical Notes:</strong> Explaining an archaic term, unusual spelling, or technical legal phrase.</li>
+  <li><strong>Two Historical / Contextual Notes:</strong> explaining a named person, place, or institution, complete with an external standard URI (Wikidata, GeoNames, or Dictionary of Canadian Biography).</li>
+  <li><strong>One Intertextual Note:</strong> Explaining a cross-reference, legal precedent, letter, or museum collection object.</li>
+</ol>
 
-1. **Target Audience and Pedagogical Level:** Is the commentary intended for introductory students (requiring extensive vocabulary scaffolding and basic historical glosses), advanced researchers (focusing on complex text-critical and intertextual debates), or a hybrid audience (Francese, 2014)?
-2. **Annotation Thresholds:** What criteria trigger a note? Are all proper nouns annotated, or only those whose significance is not obvious? What degree of lexical rarity triggers a grammatical note?
-3. **Citation Standards:** What edition standards and authority gazetteers are privileged? How are biblical, classical, and epigraphic sources cited?
-4. **Attribution and Methodology:** Who authored the notes? How are collaborative interventions, peer reviews, and computational tools credited?
+Here is a checklist for every note you write:
+<ul>
+  <li>Does the note carry a valid `@target` starting with `#`?</li>
+  <li>Does it specify `@type` and `@subtype`?</li>
+  <li>Does it identify the author using `@resp`?</li>
+  <li>Does the text inside avoid fluff, providing concise, verified information?</li>
+</ul>
 
-```xml
-<encodingDesc>
-  <editorialDecl>
-    <interpretation>
-      <p>Commentary notes are classified according to a four-tier taxonomy: philological,
-      historical, intertextual, and structural. Philological notes are provided for all words
-      falling outside the core 1,000 Hellenistic Greek vocabulary list. Historical place names
-      are linked to the Pleiades Gazetteer. Intertextual notes distinguish between explicit
-      citations (marked via CiTO properties) and verbal allusions. All notes are authored in
-      stand-off XML and licensed under CC BY 4.0.</p>
-    </interpretation>
-  </editorialDecl>
-</encodingDesc>
-```
+This hand-authored five-note set is your manual reference corpus.
 
-Documenting these policies ensures that your commentary remains transparent, reproducible, and methodologically coherent.
+**Vocabulary.** *Reference Corpus* — a verified, hand-curated dataset used as the gold standard for measuring automated and AI tools. *Gold Standard* — ground-truth data created with maximum human accuracy.
 
-**Vocabulary.** `<editorialDecl>` — TEI header element providing details of editorial practices applied during text encoding. `<interpretation>` — TEI sub-element describing the scope of interpretive and analytic annotations. *Annotation threshold* — the explicit editorial criteria determining when a textual feature warrants an explanatory note.
-
-**Takeaway:** The commentary editorial statement formalizes selection criteria, target audience levels, citation standards, and attribution protocols.
+**Takeaway:** Authoring five diverse commentary notes creates a reliable manual gold standard for evaluating deterministic search tools and AI models.
 
 ---
 
 ## **29 Content**
 
-**Preparing the Manual Reference Corpus for Algorithmic Auditing**
+**Documenting Your Manual Notes in `COMMENTARY.md`**
 
-The manual commentary notes you have authored and encoded today are not merely a standalone assignment. They constitute the **ground-truth reference corpus** for the entire three-step cycle of Topic 12.
+In professional software development and digital editing, data files are accompanied by records. In your project workspace, create a markdown file named `COMMENTARY.md`.
 
-Tomorrow (Lesson 12.2), we will deploy deterministic intertextual discovery algorithms—specifically the Tesserae project’s n-gram and TF-IDF scoring engine—to automatically search for text reuse across our corpus (Coffee et al., 2012). On Friday (Lesson 12.3), we will prompt Large Language Models (LLMs) to draft philological, historical, and intertextual commentary notes across the exact same passage (Tafdrup et al., 2026).
+In `COMMENTARY.md`, record:
+<ol>
+  <li><strong>Document Summary:</strong> Title, archive shelfmark, date, and selected passage.</li>
+  <li><strong>Note Inventory Table:</strong> A table listing each note's ID, target anchor, category, and core topic.</li>
+  <li><strong>Sources Consulted:</strong> A book list of dictionaries, historical books. archive registers used to verify your facts.</li>
+  <li><strong>Editorial Reflection (150–250 words):</strong> Discuss the challenges of manual commentary. Which notes took the longest to research? Where did modern dictionaries fail to explain historical terms?</li>
+</ol>
 
-To prepare your manual data for systematic comparison, compile an audit summary table recording the baseline metrics of your manual pass:
+This markdown ledger tracks your editorial decisions and will be updated on Wednesday and Friday as you compare manual notes with algorithmic and AI-assisted annotation.
 
-| Annotation Category | Total Notes Authored | Unique Text Tokens Targeted | External LOD URIs Linked | Primary Reference Works Consulted |
-| --- | --- | --- | --- | --- |
-| Philological | 3 | 4 | 0 | BDAG, Smyth, BDF |
-| Historical / Geographic | 3 | 3 | 3 (Pleiades, VIAF) | OCD, Pleiades, Brill Pauly |
-| Intertextual / Citational | 2 | 6 | 0 | NA28 Cross-refs, Rahlfs LXX |
-| Structural / Rhetorical | 1 | 15 | 0 | Lausberg, Bullinger |
-| **Total / Baseline** | **9 notes** | **28 tokens** | **3 authorities** | — |
+**Vocabulary.** *records Ledger* — a structured text record tracking editorial decisions, research sources, and audit findings over time. *book list* — a systematic list of books, articles, and archive documents cited in scholarly work.
 
-Save this summary. Tomorrow and Friday, you will evaluate how many of these manual discoveries the automated tools replicate, how many they miss (false negatives), and how many spurious leads they generate (false positives).
-
-**Vocabulary.** *Ground-truth corpus* — the verified human reference dataset used to benchmark automated algorithms. *False negative* — an authentic feature that an automated algorithm fails to detect. *False positive* — a spurious candidate generated by an algorithm that does not represent a true match.
-
-**Takeaway:** Compiling a structured audit summary of today's manual notes establishes the quantitative baseline for auditing automated and AI tools later this week.
+**Takeaway:** Document your research process and note inventory in `COMMENTARY.md` to maintain a permanent record of your editorial sources and methodology.
 
 ---
 
 ## **30 Content**
 
-**Synthesis: The Human-in-the-Loop Foundation of Digital Commentary**
+**Synthesis: The Human-in-the-Loop Foundation**
 
-The core thesis of today’s lesson is that digital scholarly commentary is not a collection of isolated footnotes, but a structured, multi-dimensional knowledge network.
+Today you have explored the foundational craft of scholarly commentary. You learned why commentary is an essential interpretive layer of a digital edition, distinct from physical text record and linguistic normalization.
 
-We have established that:
+You mastered key technical skills in Visual Studio Code:
+<ul>
+  <li>Classifying notes into language, historical, and intertextual categories.</li>
+  <li>setting stable, non-breaking `xml:id` anchors in running text.</li>
+  <li>Encoding annotations in a clean TEI `<standOff>` container using Chapter 17 principles.</li>
+  <li>Connecting notes to text anchors via `@target` with proper `#` URI syntax.</li>
+  <li>Enriching commentary with Linked Open Data standard records and book citations.</li>
+</ul>
 
-1. **Epistemology:** Commentary transforms historical transcriptions from inert text streams into active, dialogical knowledge sites, continuing a scholarly lineage stretching from Alexandrian grammarians to modern linked data networks (Blackwell & Smith, 2014; Tafdrup et al., 2026).
-2. **Typological Discipline:** Effective digital commentary must be decomposed into explicit, standardized categories—philological, historical, intertextual, and structural—to prevent analytical drift and enable computational queries.
-3. **Architectural Separation:** The overlapping hierarchies of historical texts and interpretive layers cannot be handled cleanly by embedded inline tags. TEI stand-off markup (`<standOff>`, `<interpGrp>`, `<note>`, `<ptr>`) solves the overlap problem by decoupling annotations from base transcriptions (Schmidt, 2010).
-4. **Canonical Addressing:** Stable, persistent addressing through CTS URNs and Linked Open Data URIs ensures that digital commentary survives file refactoring, schema migrations, and web link rot (Blackwell & Smith, 2014; Simon et al., 2017).
+As we move forward in Week 12, remember: no computer algorithm and no artificial intelligence model can replace human judgment. Tomorrow, we will test deterministic tools for finding intertextual cross-references. On Friday, we will test large language models for drafting notes. But whatever automated tools propose, you—the human scholar—remain the final standard.
 
-Manual commentary drafting requires immense erudition, hermeneutic reflection, and rigorous philological discipline. It represents the gold standard of scholarly depth. However, its labor-intensive nature creates severe scalability bottlenecks for large cultural heritage corpora (Tafdrup et al., 2026).
+**Vocabulary.** *Human-in-the-Loop* — a workflow model where automated and AI systems assist humans, but human experts make all final critical decisions. *Scholarly Judgment* — the informed, critical evaluation of historical evidence and textual meaning.
 
-**For Wednesday:** Install and review the Tesserae intertextual discovery documentation; examine how deterministic frequency-weighted algorithms detect text reuse across classical corpora.
-
-**Takeaway:** Manual commentary provides the irreplaceable ground truth of scholarly depth, structured through TEI stand-off markup to anchor subsequent computational discovery.
-
----
-
-## References
-
-Bartalesi, V., Meghini, C., & Metilli, D. (2018). *A web application for exploring primary sources: The DanteSources case study*. Italian National Research Council (ISTI-CNR). https://openportal.isti.cnr.it/data/2018/384308/2018_384308.preprint.pdf
-
-Blackwell, C. W., & Smith, N. (2014). *The Canonical Text Services URN specification, version 2.0.rc.1*. Center for Hellenic Studies, Harvard University. https://cite-architecture.github.io/ctsurn_spec/
-
-Coffee, N., Koenig, J.-P., Poornima, S., Forstall, C. W., Ossewaarde, R., & Jacobson, S. L. (2012). The Tesserae Project: Intertextual analysis of Latin poetry. *Literary and Linguistic Computing, 28*(2), 221–228. https://doi.org/10.1093/llc/fqs033
-
-Francese, C. (2014). *About DCC: Overview and pedagogical principles*. Dickinson College Commentaries. https://dcc.dickinson.edu/about-dcc
-
-Klie, J.-C., Bugert, M., Boullosa, B., Eckart de Castilho, R., & Gurevych, I. (2018). The INCEpTION platform: Machine-assisted and knowledge-oriented interactive annotation. In *Proceedings of the 27th International Conference on Computational Linguistics: System Demonstrations* (pp. 5–9). Association for Computational Linguistics. https://aclanthology.org/C18-2002/
-
-Sanderson, R., Ciccarese, P., & Young, B. (Eds.). (2017). *Web Annotation Data Model* (W3C Recommendation 23 February 2017). World Wide Web Consortium. https://www.w3.org/TR/annotation-model/
-
-Schmidt, D. (2010). The inadequacy of embedded markup for cultural heritage texts. *Literary and Linguistic Computing, 25*(3), 337–356. https://doi.org/10.1093/llc/fqq007
-
-Simon, R., Barker, E., Desoto, P., & Isaksen, L. (2017). *Linked data annotation without the pointy brackets: Introducing Recogito 2*. Pelagios Network. https://www.researchgate.net/publication/316865029_Linked_Data_Annotation_Without_the_Pointy_Brackets_Introducing_Recogito_2
-
-Tafdrup, J., Bjerring-Hansen, J., & Hansen, J. N. (2026). Convergences. AI, editorial practice, and the Danish Digital Scholarly Edition of Grundtvig’s Works. *International Journal of Digital Humanities, 8*, 191–211. https://doi.org/10.1007/s42803-026-00125-z
-
-TEI Consortium. (2026). *TEI P5: Guidelines for electronic text encoding and interchange* (Version 4.8.1). https://www.tei-c.org/release/doc/tei-p5-doc/en/html/
+**Takeaway:** Manual commentary sets up the irreplaceable human gold standard against which all automated and AI-assisted annotation tools must be evaluated.
