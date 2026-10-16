@@ -557,4 +557,20 @@ Two findings worth carrying forward:
     - Synchronized activity order via `order.js` to match canonical course pattern (Quiz -> Notes PDF -> Slides PPTX per lesson).
     - Refreshed and committed `moodle_manifest.json` (206 activities tracked across 16 sections).
 
+- **[2026-10-15] Week 7 Readiness, Student Scaffolding, Authority Linking Audit & Moodle Activity Polish (Ken / Antigravity):**
+  - **Moodle Section 7 Polish**: Renamed Weekly Quiz on live Moodle Course 51185 (`cmid 1440948`) from raw directory string `Module_07_Rendering: Weekly Quiz` to clean student-facing name `Module 7 Weekly Quiz: Rendering & Digital Publication`.
+  - **Student Scaffolding Authored**: Created `labs/RENDERING_TEMPLATE.md` with complete dual-view Decision Table mapping (TEI element -> Diplomatic View HTML/CSS -> Reading View HTML/CSS -> Editorial Rationale & Safeguards), document-specific instructions for each student project (Ace: 1791 French Revolutionary decree; Olyvia: 1967 Maud Lewis letter; Andromeda: 1752 Peace and Friendship Treaty), and Lesson 7.1 implementation checklist.
+  - **Authority Linking Audit & Corrections**: Corrected 21 files across `src/` and `dist/` where synthetic Wikidata Q-identifiers had been inserted by automated text generation:
+    - Maud Lewis: corrected from `Q2302306` (sea urchin) / `Q432374` (amphibian) to canonical `Q1479154` (Canadian folk artist, 1903–1970).
+    - Everett Lewis: corrected from `Q96473843` (Spanish actress) to canonical `Q115223560` (Maud Lewis's spouse).
+    - National Constituent Assembly: corrected from `Q120563` (Friedrich Wolters) to `Q876424` (Assemblée nationale constituante).
+    - Jean-Baptiste Cope: corrected from `Q6169974` (Yessi Mena) to `Q6168886` (Mi'kmaq leader).
+    - Digby County, NS: corrected from `Q257776` (Letňany Airport) to `Q2630244` (county in Nova Scotia).
+    - Peregrine Hopson: corrected from `Q7168341` (Peri Bearman) / `Q7167817` (insect) to `Q7167799` (Governor of Nova Scotia).
+    - Louis XVI: corrected in 12.1 from `Q131376` (Pachycephalosauria) to canonical `Q7732`.
+    - Verified all 4 modified lesson sources (9.1, 9.2, 12.1, 12.2) pass `lint_lesson_content.py` with 0 issues.
+  - **Cohort Verification**: Confirmed Lesson 12.1 "Dickinson" reference is to the *Dickinson College Commentaries* (DCC) digital platform, not a leftover from the dropped student Jay.
+  - **Week 7 Ready for Tuesday Oct 20 (8:30 AM, MULH 3032)**: Lesson 7.1 teaching plan, 15-slide widescreen projection deck with speaker notes, interactive quiz, notes PDF, and announcement draft (`ANNOUNCEMENT_WEEK7.md`) are aligned and ready.
+
+
 

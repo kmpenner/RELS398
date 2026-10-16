@@ -465,7 +465,7 @@
   <question type="description"><name><text>09 Content: Three Global Registries: Wikidata, VIAF, and GeoNames</text></name><questiontext format="html"><text><![CDATA[
 <h3>Three Global Registries: Wikidata, VIAF, and GeoNames</h3>
 <p>Digital scholars rely on three main open authority registries to link their documents to the wider world.</p>
-<p>First, <strong>Wikidata</strong> is an open knowledge database run by the Wikimedia Foundation. Every person, place, and event gets a unique Q-number. For example, Maud Lewis is <code>Q2302306</code>. King Louis XVI is <code>Q7732</code>.</p>
+<p>First, <strong>Wikidata</strong> is an open knowledge database run by the Wikimedia Foundation. Every person, place, and event gets a unique Q-number. For example, Maud Lewis is <code>Q1479154</code>. King Louis XVI is <code>Q7732</code>.</p>
 <p>Second, <strong>VIAF</strong> (the Virtual International Authority File) combines authority lists from national libraries across the world. It assigns a single number that clusters library records for an author or historical figure.</p>
 <p>Third, <strong>GeoNames</strong> is the world's standard geographic database. It provides coordinates, administrative codes, and variant names for millions of places. For example, Halifax, Nova Scotia, is GeoNames <code>6324729</code>.</p>
 <table>
@@ -482,7 +482,7 @@
       <td>Wikidata</td>
       <td>People, things, groups, events</td>
       <td><code>Q[0-9]+</code></td>
-      <td>Q2302306 (Maud Lewis)</td>
+      <td>Q1479154 (Maud Lewis)</td>
     </tr>
     <tr>
       <td>VIAF</td>
@@ -551,10 +551,10 @@
 <h3>The TEI @ref Attribute: Building the Linked Data Bridge</h3>
 <p>In TEI XML, you link an entity to an authority database using the <code>@ref</code> attribute. The <code>@ref</code> attribute holds the web address (URI) or identifier of the official record.</p>
 <p>Look at how the attribute attaches to a name tag:</p>
-<pre><code class="language-xml">&lt;persName ref=&quot;https://www.wikidata.org/wiki/Q2302306&quot;&gt;Maud Lewis&lt;/persName&gt;
+<pre><code class="language-xml">&lt;persName ref=&quot;https://www.wikidata.org/wiki/Q1479154&quot;&gt;Maud Lewis&lt;/persName&gt;
 </code></pre>
 <p>The text between the opening and closing tags remains the exact manuscript wording. The <code>@ref</code> attribute builds the bridge to the global web of data.</p>
-<p>When another scholar searches your edition, their software can follow the <code>@ref</code> link to learn Maud Lewis's birth year, artistic style, and museum holdings. You can also write shorter forms like <code>ref="wikidata:Q2302306"</code> if you define the prefix in your header.</p>
+<p>When another scholar searches your edition, their software can follow the <code>@ref</code> link to learn Maud Lewis's birth year, artistic style, and museum holdings. You can also write shorter forms like <code>ref="wikidata:Q1479154"</code> if you define the prefix in your header.</p>
 <p><strong>Vocabulary.</strong> <em>The @ref Attribute</em> — The TEI attribute that points to an external authority record or local identifier. <em>Linked Data</em> — A method of publishing structured data so that digital documents can link to one another.</p>
 <p><strong>Takeaway:</strong> The TEI ref attribute embeds authority links into names, connecting local editions to global research networks.</p>
 <hr />
@@ -818,7 +818,7 @@
   <question type="description"><name><text>15 Content: Case Study 1: Political Entities in Ace's 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
 <h3>Case Study 1: Political Entities in Ace's 1791 French Decree</h3>
 <p>Let us look at the entities in Ace's 1791 French Revolutionary decree from the <em>Comité des décrets</em> (British Library Zweig MS 169). This document was produced during a dramatic political shift: the creation of a constitutional monarchy in France.</p>
-<p>Ace's text contains powerful political bodies. The primary group is the <code>&lt;orgName ref="wikidata:Q120563"&gt;l'Assemblée nationale&lt;/orgName&gt;</code> (the National Assembly). The document also mentions the <code>&lt;orgName&gt;Comité des décrets&lt;/orgName&gt;</code>, the legislative committee that verified and printed parliamentary decrees.</p>
+<p>Ace's text contains powerful political bodies. The primary group is the <code>&lt;orgName ref="wikidata:Q876424"&gt;l'Assemblée nationale&lt;/orgName&gt;</code> (the National Assembly). The document also mentions the <code>&lt;orgName&gt;Comité des décrets&lt;/orgName&gt;</code>, the legislative committee that verified and printed parliamentary decrees.</p>
 <p>Personal names include the constitutional king, <code>&lt;persName ref="wikidata:Q7732"&gt;Louis XVI&lt;/persName&gt;</code>, and administrative signers like <code>&lt;persName&gt;Dejoly&lt;/persName&gt;</code>. The place of issue is <code>&lt;placeName ref="geonames:2988507"&gt;Paris&lt;/placeName&gt;</code>. Identifying these entities requires understanding the French state in the summer of 1791.</p>
 <p><strong>Vocabulary.</strong> <em>National Assembly</em> — The revolutionary parliamentary body of France from 1789 to 1791. <em>Constitutional Monarchy</em> — A system where a monarch rules alongside an elected parliament under a constitution.</p>
 <p><strong>Takeaway:</strong> Ace's 1791 French decree features formal revolutionary assemblies, royal figures, and administrative signers in Paris.</p>
@@ -978,7 +978,7 @@
 <h3>Case Study 2: Personal Names in Olyvia's 1967 Maud Lewis Letter</h3>
 <p>Olyvia is editing a 1967 handwritten letter by Nova Scotia folk artist Maud Lewis. This witness offers a total contrast to Ace's formal political decree. It is an intimate, twentieth-century personal letter about art and daily life.</p>
 <p>Maud Lewis lived in a tiny painted house in Marshalltown, Nova Scotia. She suffered from severe arthritis and sold painted boards from her home. Her letter to art buyer Leonard Kinnear discusses painting prices, house visits, and her husband Everett.</p>
-<p>The entities here are personal and local: <code>&lt;persName ref="wikidata:Q2302306"&gt;Maud Lewis&lt;/persName&gt;</code>, her husband <code>&lt;persName ref="wikidata:Q96473843"&gt;Everett Lewis&lt;/persName&gt;</code>, and correspondent <code>&lt;persName&gt;Mr. Kinnear&lt;/persName&gt;</code>. The geographic references point to rural Nova Scotia. Understanding these names requires attention to mid-century folk art culture.</p>
+<p>The entities here are personal and local: <code>&lt;persName ref="wikidata:Q1479154"&gt;Maud Lewis&lt;/persName&gt;</code>, her husband <code>&lt;persName ref="wikidata:Q115223560"&gt;Everett Lewis&lt;/persName&gt;</code>, and correspondent <code>&lt;persName&gt;Mr. Kinnear&lt;/persName&gt;</code>. The geographic references point to rural Nova Scotia. Understanding these names requires attention to mid-century folk art culture.</p>
 <p><strong>Vocabulary.</strong> <em>Folk Artist</em> — An artist without formal academic training whose work reflects local community culture. <em>Epistolary Witness</em> — A handwritten letter preserved as primary historical evidence.</p>
 <p><strong>Takeaway:</strong> Olyvia's Maud Lewis letter features intimate personal names and rural Maritime locations in mid-century Nova Scotia.</p>
 <hr />
@@ -1031,7 +1031,7 @@
 <h3>First Names and Nicknames: Resolving 'Everett' in Letters</h3>
 <p>In personal letters, writers rarely use full formal names. Maud Lewis does not write "my husband Everett Lewis." She simply writes "Everett."</p>
 <p>How should an editor encode a bare first name like "Everett"? In your TEI transcript, you must never alter the text. The tag wraps only the single word: <code>&lt;persName&gt;Everett&lt;/persName&gt;</code>.</p>
-<p>To show who "Everett" is, you use the <code>@ref</code> attribute: <code>&lt;persName ref="wikidata:Q96473843"&gt;Everett&lt;/persName&gt;</code>. The link connects this casual first name to the full biography of Everett Lewis. This preserves the warm, informal tone of the letter while providing full digital clarity for researchers.</p>
+<p>To show who "Everett" is, you use the <code>@ref</code> attribute: <code>&lt;persName ref="wikidata:Q115223560"&gt;Everett&lt;/persName&gt;</code>. The link connects this casual first name to the full biography of Everett Lewis. This preserves the warm, informal tone of the letter while providing full digital clarity for researchers.</p>
 <p><strong>Vocabulary.</strong> <em>Bare Name</em> — A first name or nickname used without a surname or official title. <em>Biographical Resolution</em> — Linking a casual first name to its full canonical identity via an attribute.</p>
 <p><strong>Takeaway:</strong> The ref attribute allows casual first names and nicknames in letters to resolve to complete biographical records.</p>
 <hr />
@@ -1255,7 +1255,7 @@
 <p>The primary British official in the 1752 Treaty is Peregrine Thomas Hopson (1696–1759). Hopson served as Governor of Nova Scotia from 1752 to 1755, following Governor Edward Cornwallis.</p>
 <p>Hopson pursued a deliberate policy of diplomatic reconciliation with the Mi'kmaq. His treaty guaranteed hunting and fishing rights and established a framework for regulated commerce.</p>
 <p>In your markup, Hopson is encoded with his authority link:</p>
-<pre><code class="language-xml">&lt;persName ref=&quot;wikidata:Q7167817&quot;&gt;Peregrine Thomas Hopson&lt;/persName&gt;
+<pre><code class="language-xml">&lt;persName ref=&quot;wikidata:Q7167799&quot;&gt;Peregrine Thomas Hopson&lt;/persName&gt;
 </code></pre>
 <p>Hopson also appears in the <em>Dictionary of Canadian Biography</em>. Linking his name connects the treaty to eighteenth-century British colonial administration records.</p>
 <p><strong>Vocabulary.</strong> <em>Colonial Governor</em> — The appointed royal official representing the British Crown in a colony. <em>Diplomatic Reconciliation</em> — A formal policy aimed at resolving military conflict through legal treaties.</p>
@@ -1513,7 +1513,7 @@
       <td>l'Assemblée nationale</td>
       <td>Organization</td>
       <td>Assemblée nationale</td>
-      <td><code>wikidata:Q120563</code></td>
+      <td><code>wikidata:Q876424</code></td>
     </tr>
     <tr>
       <td>22 Novembre 1752</td>

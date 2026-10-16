@@ -1401,7 +1401,7 @@ data = json.loads(req.read().decode())
 top_result = data[&quot;search&quot;][0]
 print(top_result[&quot;id&quot;], top_result[&quot;label&quot;], top_result[&quot;description&quot;])
 </code></pre>
-<p>Within half a second, the API returns <code>Q2302306</code>: "Canadian folk artist (1903–1970)." Your script captures this ID and writes it into the <code>@ref</code> attribute.</p>
+<p>Within half a second, the API returns <code>Q1479154</code>: "Canadian folk artist (1903–1970)." Your script captures this ID and writes it into the <code>@ref</code> attribute.</p>
 <p><strong>Vocabulary.</strong> <em>Web API</em> — An online interface that allows software programs to request and receive structured data automatically. <em>JSON</em> — JavaScript Object Notation, the standard data format for web API responses.</p>
 <p><strong>Takeaway:</strong> Python scripts can query the Wikidata API automatically to retrieve Q-identifiers for detected entities.</p>
 <hr />

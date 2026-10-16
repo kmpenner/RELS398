@@ -584,7 +584,7 @@ top_result = data["search"][0]
 print(top_result["id"], top_result["label"], top_result["description"])
 ```
 
-Within half a second, the API returns `Q2302306`: "Canadian folk artist (1903–1970)." Your script captures this ID and writes it into the `@ref` attribute.
+Within half a second, the API returns `Q1479154`: "Canadian folk artist (1903–1970)." Your script captures this ID and writes it into the `@ref` attribute.
 
 **Vocabulary.** *Web API* — An online interface that allows software programs to request and receive structured data automatically. *JSON* — JavaScript Object Notation, the standard data format for web API responses.
 

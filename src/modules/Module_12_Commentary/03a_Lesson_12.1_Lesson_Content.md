@@ -552,7 +552,7 @@ A major advantage of digital commentary over printed footnotes is linked open da
 
 Standard international standard files include:
 <ul>
-  <li><strong>Wikidata:</strong> Persistent global identifiers for people, places. Events (e.g., <code>https://www.wikidata.org/wiki/Q131376</code> for King Louis XVI).</li>
+  <li><strong>Wikidata:</strong> Persistent global identifiers for people, places. Events (e.g., <code>https://www.wikidata.org/wiki/Q7732</code> for King Louis XVI).</li>
   <li><strong>GeoNames:</strong> Global geographic database of historical and modern places (e.g., <code>https://www.geonames.org/6355375</code> for Digby, Nova Scotia).</li>
   <li><strong>BnF (Bibliothèque nationale de France):</strong> trusted identifiers for French historical figures and legal bodies.</li>
   <li><strong>Canadian Dictionary of Biography:</strong> trusted biographies for figures such as Governor Peregrine Hopson and Chief Jean-Baptiste Cope.</li>
@@ -561,7 +561,7 @@ Standard international standard files include:
 Here is an example linking a historical note to both Wikidata and the Canadian Biography:
 ```xml
 <note target="#s2" type="historical" subtype="biographical">
-  Governor <persName ref="https://www.wikidata.org/wiki/Q7168341">Peregrine Thomas Hopson</persName> assumed office in Halifax in August 1752.
+  Governor <persName ref="https://www.wikidata.org/wiki/Q7167799">Peregrine Thomas Hopson</persName> assumed office in Halifax in August 1752.
 </note>
 ```
 

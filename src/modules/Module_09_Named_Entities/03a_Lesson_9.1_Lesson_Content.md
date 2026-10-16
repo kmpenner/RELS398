@@ -179,7 +179,7 @@ Authority control solves this problem. It links all those different names to a s
 
 Digital scholars rely on three main open authority registries to link their documents to the wider world.
 
-First, **Wikidata** is an open knowledge database run by the Wikimedia Foundation. Every person, place, and event gets a unique Q-number. For example, Maud Lewis is `Q2302306`. King Louis XVI is `Q7732`.
+First, **Wikidata** is an open knowledge database run by the Wikimedia Foundation. Every person, place, and event gets a unique Q-number. For example, Maud Lewis is `Q1479154`. King Louis XVI is `Q7732`.
 
 Second, **VIAF** (the Virtual International Authority File) combines authority lists from national libraries across the world. It assigns a single number that clusters library records for an author or historical figure.
 
@@ -199,7 +199,7 @@ Third, **GeoNames** is the world's standard geographic database. It provides coo
       <td style="padding: 0.5rem;">Wikidata</td>
       <td style="padding: 0.5rem;">People, things, groups, events</td>
       <td style="padding: 0.5rem;"><code>Q[0-9]+</code></td>
-      <td style="padding: 0.5rem;">Q2302306 (Maud Lewis)</td>
+      <td style="padding: 0.5rem;">Q1479154 (Maud Lewis)</td>
     </tr>
     <tr style="border-bottom: 1px solid #e2e8f0;">
       <td style="padding: 0.5rem;">VIAF</td>
@@ -230,12 +230,12 @@ In TEI XML, you link an entity to an authority database using the `@ref` attribu
 
 Look at how the attribute attaches to a name tag:
 ```xml
-<persName ref="https://www.wikidata.org/wiki/Q2302306">Maud Lewis</persName>
+<persName ref="https://www.wikidata.org/wiki/Q1479154">Maud Lewis</persName>
 ```
 
 The text between the opening and closing tags remains the exact manuscript wording. The `@ref` attribute builds the bridge to the global web of data.
 
-When another scholar searches your edition, their software can follow the `@ref` link to learn Maud Lewis's birth year, artistic style, and museum holdings. You can also write shorter forms like `ref="wikidata:Q2302306"` if you define the prefix in your header.
+When another scholar searches your edition, their software can follow the `@ref` link to learn Maud Lewis's birth year, artistic style, and museum holdings. You can also write shorter forms like `ref="wikidata:Q1479154"` if you define the prefix in your header.
 
 **Vocabulary.** *The @ref Attribute* — The TEI attribute that points to an external authority record or local identifier. *Linked Data* — A method of publishing structured data so that digital documents can link to one another.
 
@@ -313,7 +313,7 @@ Inside `<settingDesc>`, you add a `<place>` element with a unique `xml:id`, hist
 
 Let us look at the entities in Ace's 1791 French Revolutionary decree from the *Comité des décrets* (British Library Zweig MS 169). This document was produced during a dramatic political shift: the creation of a constitutional monarchy in France.
 
-Ace's text contains powerful political bodies. The primary group is the `<orgName ref="wikidata:Q120563">l'Assemblée nationale</orgName>` (the National Assembly). The document also mentions the `<orgName>Comité des décrets</orgName>`, the legislative committee that verified and printed parliamentary decrees.
+Ace's text contains powerful political bodies. The primary group is the `<orgName ref="wikidata:Q876424">l'Assemblée nationale</orgName>` (the National Assembly). The document also mentions the `<orgName>Comité des décrets</orgName>`, the legislative committee that verified and printed parliamentary decrees.
 
 Personal names include the constitutional king, `<persName ref="wikidata:Q7732">Louis XVI</persName>`, and administrative signers like `<persName>Dejoly</persName>`. The place of issue is `<placeName ref="geonames:2988507">Paris</placeName>`. Identifying these entities requires understanding the French state in the summer of 1791.
 
@@ -363,7 +363,7 @@ Olyvia is editing a 1967 handwritten letter by Nova Scotia folk artist Maud Lewi
 
 Maud Lewis lived in a tiny painted house in Marshalltown, Nova Scotia. She suffered from severe arthritis and sold painted boards from her home. Her letter to art buyer Leonard Kinnear discusses painting prices, house visits, and her husband Everett.
 
-The entities here are personal and local: `<persName ref="wikidata:Q2302306">Maud Lewis</persName>`, her husband `<persName ref="wikidata:Q96473843">Everett Lewis</persName>`, and correspondent `<persName>Mr. Kinnear</persName>`. The geographic references point to rural Nova Scotia. Understanding these names requires attention to mid-century folk art culture.
+The entities here are personal and local: `<persName ref="wikidata:Q1479154">Maud Lewis</persName>`, her husband `<persName ref="wikidata:Q115223560">Everett Lewis</persName>`, and correspondent `<persName>Mr. Kinnear</persName>`. The geographic references point to rural Nova Scotia. Understanding these names requires attention to mid-century folk art culture.
 
 **Vocabulary.** *Folk Artist* — An artist without formal academic training whose work reflects local community culture. *Epistolary Witness* — A handwritten letter preserved as primary historical evidence.
 
@@ -379,7 +379,7 @@ In personal letters, writers rarely use full formal names. Maud Lewis does not w
 
 How should an editor encode a bare first name like "Everett"? In your TEI transcript, you must never alter the text. The tag wraps only the single word: `<persName>Everett</persName>`.
 
-To show who "Everett" is, you use the `@ref` attribute: `<persName ref="wikidata:Q96473843">Everett</persName>`. The link connects this casual first name to the full biography of Everett Lewis. This preserves the warm, informal tone of the letter while providing full digital clarity for researchers.
+To show who "Everett" is, you use the `@ref` attribute: `<persName ref="wikidata:Q115223560">Everett</persName>`. The link connects this casual first name to the full biography of Everett Lewis. This preserves the warm, informal tone of the letter while providing full digital clarity for researchers.
 
 **Vocabulary.** *Bare Name* — A first name or nickname used without a surname or official title. *Biographical Resolution* — Linking a casual first name to its full canonical identity via an attribute.
 
@@ -458,7 +458,7 @@ Hopson pursued a deliberate policy of diplomatic reconciliation with the Mi'kmaq
 
 In your markup, Hopson is encoded with his authority link:
 ```xml
-<persName ref="wikidata:Q7167817">Peregrine Thomas Hopson</persName>
+<persName ref="wikidata:Q7167799">Peregrine Thomas Hopson</persName>
 ```
 Hopson also appears in the *Dictionary of Canadian Biography*. Linking his name connects the treaty to eighteenth-century British colonial administration records.
 
@@ -568,7 +568,7 @@ You will organize these twenty entities into a four-column table in your notes o
       <td style="padding: 0.5rem;">l'Assemblée nationale</td>
       <td style="padding: 0.5rem;">Organization</td>
       <td style="padding: 0.5rem;">Assemblée nationale</td>
-      <td style="padding: 0.5rem;"><code>wikidata:Q120563</code></td>
+      <td style="padding: 0.5rem;"><code>wikidata:Q876424</code></td>
     </tr>
     <tr>
       <td style="padding: 0.5rem;">22 Novembre 1752</td>
