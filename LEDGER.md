@@ -574,3 +574,10 @@ Two findings worth carrying forward:
 
 
 
+
+- **[2026-10-17]**: **Module 7 media sets landed; manifest resynced.**
+  - `03c_Lesson_7.{1,2,3}_Images/` scaffolding (`.style`, `.sources.json`) and
+    `03d_Lesson_7.{1,2,3}_Media/` (`infographic.jpg`, `.media-prompts`, plus `brief.m4a` /
+    `detailed.m4a` which stay gitignored by design and reach the course via the Drive mirror).
+  - `moodle_manifest.json` regenerated (2026-10-17T16:22Z) — records three new Module 4 audio
+    resources (Lesson 4.1 Brief/Detailed Audio, cmids 1441736/1441737) alongside Module 7.
