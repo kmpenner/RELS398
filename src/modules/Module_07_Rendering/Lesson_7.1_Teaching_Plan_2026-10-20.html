@@ -17,7 +17,7 @@
                 <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
                 <span class="badge">Context: Week 7 (Publication I: Rendering) &middot; Step 1 of 3 (Manual)</span>
-                <span class="badge">Milestone: RENDERING.md Decision Table + index_manual.html</span>
+                <span class="badge">Milestone: RENDERING.md Decision Table + rendering/edition.html</span>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student establishes an explicit Rendering Decision Table in <code>RENDERING.md</code> mapping every TEI element in their document to two distinct views (diplomatic and reading), then hand-authors <code>index_manual.html</code> alongside <code>diplomatic.css</code> and <code>reading.css</code> for a 15&ndash;20 line excerpt, verifying full character fidelity against source images.
+            Each student establishes an explicit Rendering Decision Table in <code>RENDERING.md</code> mapping every TEI element in their document to two distinct views (diplomatic and reading), then hand-authors <code>rendering/edition.html</code> alongside <code>rendering/diplomatic.css</code> and <code>rendering/reading.css</code> for a 15&ndash;20 line excerpt, verifying full character fidelity against source images.
         </div>
     </div>
 
@@ -80,8 +80,8 @@
                 <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
                 <td class="activity-col">Phase 2: Live Demo<br>HTML Architecture &amp; Two Views</td>
                 <td class="desc-col">
-                    Demonstrate converting a 3-line TEI fragment into HTML in VS Code. Map TEI elements to semantic HTML wrappers (<code>&lt;div class="tei-p"&gt;</code>, <code>&lt;span class="tei-orig"&gt;</code>, <code>&lt;span class="tei-reg"&gt;</code>).<br>
-                    Show how two tiny CSS files switch views entirely: <code>diplomatic.css</code> sets <code>.tei-reg { display: none; }</code> and <code>.tei-lb { display: block; }</code>, while <code>reading.css</code> sets <code>.tei-orig { display: none; }</code> and <code>.tei-lb { display: inline; }</code>.
+                    Demonstrate converting a 3-line TEI fragment into HTML in VS Code. Map TEI elements to semantic HTML wrappers, keeping the TEI element name as the CSS class (<code>&lt;span class="choice"&gt;</code>, <code>&lt;span class="orig"&gt;</code>, <code>&lt;span class="reg"&gt;</code>).<br>
+                    Show how two tiny CSS files switch views entirely: <code>diplomatic.css</code> sets <code>.reg { display: none; }</code> and generates the line numbers with a <code>.lb::before</code> rule, while <code>reading.css</code> sets <code>.orig { display: none; }</code> and <code>.lb { display: inline; }</code>.
                 </td>
                 <td class="target-col">Dual-view CSS toggle on projector screen</td>
             </tr>
@@ -89,19 +89,20 @@
                 <td class="time-col">8:46 &ndash; 8:56<br>(10 mins)</td>
                 <td class="activity-col">Phase 3: Decision Table<br>Formalizing RENDERING.md</td>
                 <td class="desc-col">
-                    Direct students to create <code>RENDERING.md</code> in their course repositories. Build the Decision Table together: enumerate elements used across the cohort (<code>p</code>, <code>lb</code>, <code>choice</code>, <code>orig</code>, <code>reg</code>, <code>abbr</code>, <code>expan</code>, <code>unclear</code>, <code>gap</code>, <code>head</code>, <code>closer</code>).<br>
-                    For each element, specify behavior in both Diplomatic and Reading views. <strong>Circulate:</strong> confirm Ace covers French accents, Olyvia addresses letter salutations/closers, and Andromeda records treaty articles.
+                    Direct students to create <code>RENDERING.md</code> in their course repositories. Build the Decision Table together: enumerate the elements that actually occur in their files (<code>p</code>, <code>lb</code>, <code>choice</code>, <code>orig</code>, <code>reg</code>, <code>abbr</code>, <code>expan</code>, <code>sic</code>, <code>corr</code>, <code>gap</code>, <code>pb</code>).<br>
+                    For each element, specify behavior in both Diplomatic and Reading views. <strong>Circulate:</strong> confirm Ace covers French accents and the two damaged gaps, Olyvia addresses the letter's salutation and signature, and Andromeda records the word-split line breaks and the two hyphenated breaks in plain text.<br>
+                    <strong>&lt;unclear&gt; specimen:</strong> no normalized file contains an uncertain reading, so show Andromeda her own Week 4 file <code>Andromeda_1752_Treaty_Proclamation.xml</code>, which has five <code>&lt;unclear&gt;</code> elements with no <code>@reason</code> and no <code>@resp</code> &mdash; the exact case where the student must decide what the reader is told.
                 </td>
                 <td class="target-col"><code>RENDERING.md</code> with complete element table</td>
             </tr>
             <tr>
                 <td class="time-col">8:56 &ndash; 9:12<br>(16 mins)</td>
-                <td class="activity-col">Phase 4: Protected Lab<br>Hand-Crafting index_manual.html</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Hand-Crafting edition.html</td>
                 <td class="desc-col">
-                    Students extract a representative 15&ndash;20 line excerpt from <code>transcription_normalized.xml</code> and hand-code <code>index_manual.html</code>, <code>diplomatic.css</code>, and <code>reading.css</code>.<br>
+                    Students extract a representative 15&ndash;20 line excerpt from <code>transcription_normalized.xml</code> and hand-code <code>rendering/edition.html</code>, <code>rendering/diplomatic.css</code>, and <code>rendering/reading.css</code>.<br>
                     Enforce UTF-8 charset declaration and language tag. Verify that both views render correctly when linking each stylesheet in the HTML header.
                 </td>
-                <td class="target-col">Valid <code>index_manual.html</code> with dual stylesheets</td>
+                <td class="target-col">Valid <code>rendering/edition.html</code> with dual stylesheets</td>
             </tr>
             <tr>
                 <td class="time-col">9:12 &ndash; 9:17<br>(5 mins)</td>
@@ -116,8 +117,10 @@
                 <td class="time-col">9:17 &ndash; 9:20<br>(3 mins)</td>
                 <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Wednesday Preview</td>
                 <td class="desc-col">
-                    Stage gate commit:<br>
-                    <code>git add RENDERING.md index_manual.html diplomatic.css reading.css &amp;&amp; git commit -m "Week 7 Step 1: manual rendering decision table, HTML baseline, and dual stylesheets"</code><br>
+                    Stage gate commit, in three steps so the history shows the decisions came before the code:<br>
+                    <code>git add RENDERING.md &amp;&amp; git commit -m "docs: record rendering decisions for diplomatic and reading views"</code><br>
+                    <code>git add rendering/edition.html &amp;&amp; git commit -m "feat(rendering): add hand-authored dual-layer edition page"</code><br>
+                    <code>git add rendering/diplomatic.css rendering/reading.css &amp;&amp; git commit -m "feat(rendering): add diplomatic and reading stylesheets"</code><br>
                     <strong>Preview Wednesday (Meeting #18):</strong> Automating this transformation across the full document using XSLT templates and CETEIcean.
                 </td>
                 <td class="target-col">Clean commit on <code>main</code></td>
@@ -138,34 +141,44 @@
   &lt;link rel="stylesheet" href="diplomatic.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;div class="tei-text"&gt;
-    &lt;div class="tei-p"&gt;
-      &lt;span class="tei-lb" data-n="1"&gt;&lt;/span&gt;The
-      &lt;span class="tei-choice"&gt;
-        &lt;span class="tei-orig"&gt;publick&lt;/span&gt;
-        &lt;span class="tei-reg"&gt;public&lt;/span&gt;
+  &lt;main class="tei-body"&gt;
+    &lt;p&gt;
+      &lt;span class="lb" data-n="1"&gt;&lt;/span&gt;The
+      &lt;span class="choice"&gt;
+        &lt;span class="orig"&gt;publick&lt;/span&gt;
+        &lt;span class="reg"&gt;public&lt;/span&gt;
       &lt;/span&gt; good of this Province...
-    &lt;/div&gt;
-  &lt;/div&gt;
+    &lt;/p&gt;
+  &lt;/main&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
         </div>
         <div class="card">
             <h4>Starter Projection Card B: Dual CSS Toggles</h4>
+            <p>Verified in Chrome: with this rule the generated number and the words share one line. Using <code>&lt;br&gt;</code> instead puts the number alone on the line above it.</p>
 <pre>/* diplomatic.css */
-.tei-orig { display: inline; }
-.tei-reg  { display: none; }
-.tei-abbr { display: inline; }
-.tei-expan{ display: none; }
-.tei-lb   { display: block; }
-.tei-lb::before { content: attr(data-n) " "; color: #64748b; }
+.orig { display: inline; }
+.reg  { display: none; }
+.abbr { display: inline; }
+.expan{ display: none; }
+.sic  { display: inline; }
+.corr { display: none; }
+
+/* the line number, generated before the line it numbers */
+.lb::before {
+  content: "\A" attr(data-n) "  ";
+  white-space: pre;
+  color: #64748b;
+}
 
 /* reading.css */
-.tei-orig { display: none; }
-.tei-reg  { display: inline; text-decoration: underline dotted #94a3b8; }
-.tei-abbr { display: none; }
-.tei-expan{ display: inline; }
-.tei-lb   { display: inline; }</pre>
+.orig { display: none; }
+.reg  { display: inline; }
+.abbr { display: none; }
+.expan{ display: inline; }
+.sic  { display: none; }
+.corr { display: inline; }
+.lb   { display: inline; }</pre>
         </div>
     </div>
 
@@ -194,7 +207,9 @@
         <div class="card">
             <h4>Common Diagnostic Pitfalls</h4>
             <ul>
-                <li><strong>Collapsing Whitespace:</strong> Writing <code>&lt;span class="tei-choice"&gt;&lt;span class="tei-orig"&gt;word &lt;/span&gt;...&lt;/span&gt;</code> leaves missing whitespace in the reading view. Keep whitespace outside the <code>tei-choice</code> wrapper.</li>
+                <li><strong>Collapsing Whitespace:</strong> Writing <code>&lt;span class="choice"&gt;&lt;span class="orig"&gt;word &lt;/span&gt;...&lt;/span&gt;</code> leaves missing whitespace in the reading view. Keep whitespace outside the <code>choice</code> wrapper.</li>
+                <li><strong>Stray Hyphen at a Broken Word:</strong> Where the source has <code>Pro-&lt;lb/&gt;vince</code>, dropping the break leaves <code>Pro- vince</code>. The reading view must rejoin the word, or the student must record why the hyphen stays.</li>
+                <li><strong>Colours as the Only Signal:</strong> A gap marked only in red disappears on a black-and-white printout and for a reader who cannot tell red from black. Use a shape &mdash; a dotted underline, a bracket &mdash; not a colour alone.</li>
                 <li><strong>Lost Accented Glyphs:</strong> Omitting <code>&lt;meta charset="utf-8"&gt;</code> causes browsers to corrupt French accented characters (<em>&eacute;</em>, <em>&agrave;</em>) into mojibake. Verify UTF-8 declaration immediately.</li>
                 <li><strong>Direct CSS Overwriting:</strong> Students hard-coding inline styles in HTML. Remind them: zero inline styles; all display logic lives in external CSS files.</li>
             </ul>
@@ -202,9 +217,9 @@
         <div class="card">
             <h4>Cohort Document Specifics</h4>
             <ul>
-                <li><strong>ACE &middot; 1791 French Decree:</strong> Ensure the heading layout (<code>&lt;head&gt;</code>) retains centered small-caps presentation in both views, while preserving acute accents on capital letters in the reading view.</li>
-                <li><strong>OLYVIA &middot; Maud Lewis Letter:</strong> Ensure letter salutation (<code>&lt;opener&gt;</code>) and signature block (<code>&lt;closer&gt;</code>) are styled with proper margins in the reading view, while preserving line breaks exactly in the diplomatic view.</li>
-                <li><strong>ANDROMEDA &middot; 1752 Treaty:</strong> Ensure Roman-numeral article numbers and paragraph indentations render cleanly, with thorn abbreviations (<em>y<sup>e</sup></em>) displayed in diplomatic and expanded (<em>the</em>) in reading.</li>
+                <li><strong>ACE &middot; 1791 French Decree:</strong> The whole file is French, so the page needs <code>lang="fr"</code> and a UTF-8 declaration. Two <code>&lt;gap&gt;</code> elements mark torn paper; render <code>[…]</code> in both views. The one <code>&lt;hi rend="superscript"&gt;</code> (in the abbreviated month) becomes <code>&lt;sup&gt;</code>.</li>
+                <li><strong>OLYVIA &middot; Maud Lewis Letter:</strong> Her file has no <code>&lt;opener&gt;</code> or <code>&lt;closer&gt;</code> — the greeting and signature are ordinary paragraphs, so she must <em>add</em> the structure as CSS classes and say so. Her vernacular grammar sits outside every <code>&lt;choice&gt;</code> and must appear identically in both views.</li>
+                <li><strong>ANDROMEDA &middot; 1752 Treaty:</strong> Eleven line breaks split words inside <code>&lt;orig&gt;</code> (<code>Friend-&lt;lb n="50"/&gt;ſhip</code>), so the reading view must rejoin them with no hyphen and no space. Three further hyphenated breaks sit in plain text (<code>Pro-&lt;lb/&gt;vince</code>) and need a ruling. Two long s survive outside any <code>&lt;choice&gt;</code>, so they show in the reading view too.</li>
             </ul>
         </div>
     </div>
