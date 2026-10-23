@@ -19,6 +19,7 @@
 ## 2. Settled Decisions (Locked Baseline)
 
 - **[2026-08-25] Three-Step Comparative Cycle:** Most weeks run Tue (manual baseline) → Wed (deterministic rule script) → Fri (AI-assisted model). Lessons 1.1–1.2, 3.1–3.3, 5.1–5.2, 10.1–10.2, 13.1–13.3 deviate by design per schedule.
+- **[2026-10-23] Friday diff activity (Ken).** The third (Friday) lesson of each Three-Step week includes a diff activity. Students diff the week's manual, deterministic and AI results for that phase. They then combine the best of all three into one synthesized result. Auditing the AI output against the other two is not enough; the activity ends with a merged result. Every Friday plan and deck from 8.3 onward includes it. Lessons 6.3 (three-way audit) and 7.3 (three-point audit) audited the AI output but did not end with a merged result.
 - **[2026-08-26] Section & Length Model:** Exactly 30 sections per lesson (`## **01 Content**` … `## **30 Content**`), ~8,500–9,500 words per lesson, closing with `**Takeaway:** …`.
 - **[2026-08-27] Fixed Build Order:** `content → question bank → PDF notes → images → interactive XML → HTML player → companion media`.
 - **[2026-08-28] Module-Specific Visual Styles:** Each module maintains a dedicated, content-tailored visual style in its `Module_NN_*/.style` and lesson image folders (`03c_*_Images/.style`) reflecting its domain (manuscripts, paleography, IIIF, XML, NLP).
