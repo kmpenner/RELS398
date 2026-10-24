@@ -17,7 +17,7 @@
                 <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
                 <span class="badge">Context: Week 9 (Named Entities) &middot; Step 3 of 3 (AI Synthesis &amp; Portfolio)</span>
-                <span class="badge">Milestone: ai_entity_parser.py + ground_truth_ai.xml + ENTITY_AUDIT.md + Assignment 9 submission</span>
+                <span class="badge">Milestone: ai_entity_parser.py + ground_truth_ai.xml + entities_merged.xml + ENTITY_AUDIT.md + Assignment 9 submission</span>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student runs an LLM parser in VS Code Antigravity using strict negative constraints to generate <code>ground_truth_ai.xml</code>, conducts the three-way comparative audit (Manual vs. SpaCy vs. AI) in <code>ENTITY_AUDIT.md</code>, audits entity links against live Wikidata registries, and packages Assignment: Module 9 for Moodle submission (due 11:00 PM).
+            Each student runs an LLM parser in VS Code Antigravity using strict negative constraints to generate <code>ground_truth_ai.xml</code>, diffs the manual, SpaCy and AI results, audits AI entity links against live Wikidata registries, merges the best reading of each entity into <code>entities_merged.xml</code> with each choice recorded in <code>ENTITY_AUDIT.md</code>, and packages Assignment: Module 9 for Moodle submission (due 11:00 PM).
         </div>
     </div>
 
@@ -49,7 +49,7 @@
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Ground truth remains sovereign:</strong> Disagreements between AI predictions and Tuesday's manual ground truth represent machine errors unless genuine new archival evidence emerges.<br>
+        <p><strong>1. Manual is the default, not the winner by fiat:</strong> In the merge, Tuesday's reading stands unless the SpaCy or AI reading is better and the student can show why (archival evidence, a verified registry record). A machine that catches a real error in the manual file is the method working; record it.<br>
         <strong>2. Strict schema and token alignment:</strong> AI-generated XML must pass TEI Relax NG schema validation and maintain 100% token alignment with the primary witness.<br>
         <strong>3. Active link verification:</strong> Every AI-generated <code>@ref</code> link must be tested against the live Wikidata or GeoNames registry to detect invented Q-numbers.<br>
         <strong>4. Assignment submission deadline:</strong> Assignment: Module 9 (Named-Entity Markup) is due tonight, Friday, November 6, by 11:00 PM via Moodle submission.</p>
@@ -96,18 +96,28 @@
                 <td class="target-col">Valid <code>ground_truth_ai.xml</code> generated</td>
             </tr>
             <tr>
-                <td class="time-col">9:56 &ndash; 10:12<br>(16 mins)</td>
-                <td class="activity-col">Phase 4: Protected Lab<br>Three-Way Comparative Audit &amp; Reflection</td>
+                <td class="time-col">9:56 &ndash; 10:04<br>(8 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Three-Way Diff &amp; Link Check</td>
                 <td class="desc-col">
                     Students build the Three-Way Discrepancy Matrix in <code>ENTITY_AUDIT.md</code> comparing Manual, SpaCy, and AI predictions side by side.<br>
                     Students actively test every AI authority link in a browser or via API to catch hallucinated Q-identifiers.<br>
-                    Students author their 300–500 word methodological reflection diagnosing error taxonomy classes (OOV orthography, boundary slips, type confusion, hallucinations) and articulating the human-in-the-loop paradigm.
+                    The 300–500 word methodological reflection is finished after class, before the 11:00 PM deadline; it diagnoses error taxonomy classes (OOV orthography, boundary slips, type confusion, hallucinations) and articulating the human-in-the-loop paradigm.
                 </td>
-                <td class="target-col">Completed <code>ENTITY_AUDIT.md</code> with discrepancy matrix and reflection</td>
+                <td class="target-col">Discrepancy matrix in <code>ENTITY_AUDIT.md</code>; every AI link tested</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:04 &ndash; 10:12<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Diff Activity<br>Merge the Best of All Three</td>
+                <td class="desc-col">
+                    Slide 13. With the three files open side by side, students go entity by entity and keep the best span, type and <code>@ref</code> from manual, SpaCy or AI, saving the result as <code>entities_merged.xml</code>.<br>
+                    In <code>ENTITY_AUDIT.md</code>, add a <strong>Merged</strong> column: mark each choice M, S or A with a one-line reason. No AI-supplied Q-number enters the merge until it has been opened live and confirmed.<br>
+                    <strong>Circulate:</strong> check token alignment and that the merged file validates.
+                </td>
+                <td class="target-col">Valid <code>entities_merged.xml</code>; Merged column with sources and reasons</td>
             </tr>
             <tr>
                 <td class="time-col">10:12 &ndash; 10:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Rubric Review, Packaging &amp; Submission</td>
+                <td class="activity-col">Phase 6: Synthesis<br>Rubric Review, Packaging &amp; Submission</td>
                 <td class="desc-col">
                     Walk through the 4 + 3 + 3 grading rubric (80 Moodle points): Manual Precision (4 pts), XML Validity (3 pts), Comparative Analysis (3 pts).<br>
                     Guide students to package their repository: verify all files are committed to git and ready for Moodle submission.<br>

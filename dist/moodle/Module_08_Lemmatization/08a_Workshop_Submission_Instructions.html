@@ -2,10 +2,11 @@
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
         <li>Select 20 consecutive words from your primary manuscript witness.</li>
-        <li><strong>Tier 1 (Manual):</strong> For each word, look up its canonical dictionary lemma and provide a full morphological breakdown (part of speech, gender/number/case or tense/voice/mood) in a Markdown table.</li>
-        <li><strong>Tier 2 (NLP Engine):</strong> Run the excerpt through a computational tagging script (using TreeTagger or SpaCy) and record the predicted lemmas and POS tags.</li>
-        <li><strong>Tier 3 (LLM):</strong> Query an LLM with a structured system prompt requesting JSON or TEI <code>&lt;w&gt;</code> tags with <code>lemma</code> and <code>pos</code> attributes.</li>
-        <li>Encode the excerpt in TEI XML using <code>&lt;w lemma="..." pos="..."&gt;token&lt;/w&gt;</code> elements based on your verified ground truth.</li>
-        <li>Submit your TEI file, your tagging script/prompts, and a <strong>300–500 word reflection</strong> analyzing which morphological categories caused the highest failure rate in the automated pipelines.</li>
+        <li><strong>Tier 1 (Manual):</strong> For each word, look up its canonical dictionary lemma and provide a full morphological breakdown (part of speech, gender/number/case or tense/voice/mood) in a Markdown table (<code>LEMMATIZATION_POLICIES.md</code>).</li>
+        <li><strong>Tier 2 (NLP Engine):</strong> Run the excerpt through a computational tagging script (using SpaCy or TreeTagger) and record the predicted lemmas, POS tags, and token accuracy in <code>NLP_BENCHMARK.md</code>.</li>
+        <li><strong>Tier 3 (LLM):</strong> Query an AI model in VS Code using structured prompt engineering with Universal Dependencies UPOS constraints and negative constraints.</li>
+        <li><strong>Three-Way Diff &amp; Merge:</strong> Perform a three-way diff (Manual vs NLP vs AI) in <code>LINGUISTIC_AUDIT.md</code>. Merge the best reading of each token into <code>linguistic_merged.xml</code>, noting the source (M/N/A) and rationale for every choice. Manual is the default, not the winner by fiat.</li>
+        <li><strong>TEI Encoding:</strong> Synthesize <code>transcription_linguistic.xml</code> using <code>&lt;w lemma="..." pos="..." resp="..."&gt;token&lt;/w&gt;</code> elements, validating against the course schema with <code>xmllint</code>.</li>
+        <li><strong>Reflection:</strong> Submit your validated TEI XML file, tagging script/prompts, and a <strong>300–500 word reflection</strong> in <code>LINGUISTIC_AUDIT.md</code> analyzing automated error patterns, OOV rates, and morphological disambiguation.</li>
     </ol>
 </div>

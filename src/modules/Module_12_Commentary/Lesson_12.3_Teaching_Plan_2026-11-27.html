@@ -99,18 +99,28 @@
                 <td class="target-col">Unvetted drafts generated; hallucinations caught</td>
             </tr>
             <tr>
-                <td class="time-col">9:58 &ndash; 10:12<br>(14 mins)</td>
+                <td class="time-col">9:58 &ndash; 10:06<br>(8 mins)</td>
                 <td class="activity-col">Phase 4: Lab B<br>Three-Way Comparative Audit</td>
                 <td class="desc-col">
                     Students populate the Three-Way Comparative Audit Matrix in <code>COMMENTARY.md</code>.<br>
                     Compare Manual (Tue) vs Deterministic (Wed) vs AI-Assisted (Fri) across precision, speed, and error profile.<br>
-                    Convert vetted notes to TEI <code>&lt;standOff&gt;</code> XML with <code>@resp</code> provenance.
+                    Mark each note Accept, Revise, Reject or Flag.
                 </td>
                 <td class="target-col"><code>COMMENTARY.md</code> ledger updated; TEI XML saved</td>
             </tr>
             <tr>
-                <td class="time-col">10:12 &ndash; 10:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Editorial Agency &amp; Assignment 12 Launch</td>
+                <td class="time-col">10:06 &ndash; 10:14<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Diff &amp; Merge<br>The Best of All Three</td>
+                <td class="desc-col">
+                    Students diff the manual, deterministic and AI commentaries lemma by lemma and keep the best note for each in <code>commentary_merged.xml</code> (TEI <code>&lt;standOff&gt;</code>, <code>@resp</code> set to the kept source).<br>
+                    Record the source of each kept note (M/D/A) in a Merged column in <code>COMMENTARY.md</code>. Manual is the default, not the winner by fiat; no AI date, name or citation enters the merge unverified.<br>
+                    Run <code>xmllint --noout</code>.
+                </td>
+                <td class="target-col"><code>commentary_merged.xml</code>; 0 syntax errors</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:14 &ndash; 10:20<br>(6 mins)</td>
+                <td class="activity-col">Phase 6: Synthesis<br>Editorial Agency &amp; Assignment 12 Launch</td>
                 <td class="desc-col">
                     Summarize the week: manual precision, algorithmic scale, and vetted AI synthesis.<br>
                     Review the Assignment 12 grading rubric (4+3+3: 40% Ground Truth, 30% TEI Standoff, 30% Comparative Ledger).<br>

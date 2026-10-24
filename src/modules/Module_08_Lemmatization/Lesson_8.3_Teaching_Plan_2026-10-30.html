@@ -17,7 +17,7 @@
                 <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
                 <span class="badge">Context: Week 8 (Lemmatization) &middot; Step 3 of 3 (AI-Assisted)</span>
-                <span class="badge">Milestone: ai_prompt_parser.py + ground_truth_ai.xml + LINGUISTIC_AUDIT.md + Assignment 8 submission</span>
+                <span class="badge">Milestone: ai_prompt_parser.py + ground_truth_ai.xml + linguistic_merged.xml + LINGUISTIC_AUDIT.md + Assignment 8 submission</span>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student prompts an LLM agent in VS Code using few-shot exemplar constraints to parse their 20-word passage into TEI <code>&lt;w&gt;</code> markup (<code>ground_truth_ai.xml</code>), conducts a three-way comparative audit (Manual vs. NLP vs. AI) in <code>LINGUISTIC_AUDIT.md</code>, and packages their final portfolio for Assignment: Module 8.
+            Each student prompts an LLM agent in VS Code using few-shot exemplar constraints to parse their 20-word passage into TEI <code>&lt;w&gt;</code> markup (<code>ground_truth_ai.xml</code>), diffs the manual, NLP and AI results and merges the best reading of each token into <code>linguistic_merged.xml</code>, records each choice in <code>LINGUISTIC_AUDIT.md</code>, and packages their final portfolio for Assignment: Module 8.
         </div>
     </div>
 
@@ -49,7 +49,7 @@
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Ground truth remains the baseline:</strong> Discrepancies between AI and Tuesday's manual truth are errors in the AI, not flaws in the ground truth. Only revise ground truth if genuine historical lexicographical evidence warrants an edit.<br>
+        <p><strong>1. Manual is the default, not the winner by fiat:</strong> In the merge, Tuesday's reading stands unless the NLP or AI reading is better and the student can show it from the authority lexicon (OED, TLFi). A machine that catches a real error in the manual file is the method working; record it.<br>
         <strong>2. Strict schema conformity:</strong> AI-generated XML must validate against the TEI schema with exact token alignment (same token count, same token IDs, valid <code>lemma</code> and <code>pos</code> attributes).<br>
         <strong>3. Diagnostic documentation over blind acceptance:</strong> Students must not simply accept AI output; every disagreement must be analyzed and recorded in <code>LINGUISTIC_AUDIT.md</code>.<br>
         <strong>4. Assignment submission deadline:</strong> Assignment: Module 8 (Linguistic Markup) is due tonight, Friday, October 30, at 11:00 PM via Moodle submission.</p>
@@ -95,8 +95,8 @@
                 <td class="target-col">Validated <code>ground_truth_ai.xml</code> on student workstations</td>
             </tr>
             <tr>
-                <td class="time-col">9:56 &ndash; 10:12<br>(16 mins)</td>
-                <td class="activity-col">Phase 4: Protected Lab<br>Three-Way Comparative Audit</td>
+                <td class="time-col">9:56 &ndash; 10:04<br>(8 mins)</td>
+                <td class="activity-col">Phase 4: Protected Lab<br>Three-Way Diff</td>
                 <td class="desc-col">
                     Students run a three-way diff and fill out the comparative matrix in <code>LINGUISTIC_AUDIT.md</code>:<br>
                     Calculate POS Accuracy (%) and Lemma Accuracy (%) for both NLP and AI against Manual Truth.<br>
@@ -105,21 +105,31 @@
                 <td class="target-col">Completed accuracy calculations and discrepancy table in <code>LINGUISTIC_AUDIT.md</code></td>
             </tr>
             <tr>
-                <td class="time-col">10:12 &ndash; 10:17<br>(5 mins)</td>
-                <td class="activity-col">Phase 5: Diagnostics<br>Cohort Comparison &amp; Synthesis</td>
+                <td class="time-col">10:04 &ndash; 10:12<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Diff Activity<br>Merge the Best of All Three</td>
                 <td class="desc-col">
-                    Cross-cohort synthesis: ask Ace, Olyvia, and Andromeda to share their highest discrepancy words.<br>
+                    Slide 13. With the three files open side by side, students go token by token and keep the best lemma and POS from manual, NLP or AI, saving the result as <code>linguistic_merged.xml</code>.<br>
+                    In <code>LINGUISTIC_AUDIT.md</code>, add a <strong>Merged</strong> column: mark each choice M, N or A with a one-line reason. Manual stands unless a lexicon shows the other reading is better.<br>
+                    <strong>Circulate:</strong> check token count and IDs match Tuesday's file and the merged file validates.
+                </td>
+                <td class="target-col">Valid <code>linguistic_merged.xml</code>; Merged column with sources and reasons</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:12 &ndash; 10:17<br>(5 mins)</td>
+                <td class="activity-col">Phase 6: Diagnostics<br>Cohort Comparison &amp; Synthesis</td>
+                <td class="desc-col">
+                    Cross-cohort synthesis: ask Ace, Olyvia, and Andromeda to share their highest discrepancy words and one token where the merged file took a machine reading over their own.<br>
                     Highlight where AI excelled (handling archaic spelling variations like <em>shew'd</em>) vs. where deterministic rules were more reliable (consistent tokenization). Emphasize the hybrid editorial workflow.
                 </td>
                 <td class="target-col">Documented cohort insights in final discussion notes</td>
             </tr>
             <tr>
                 <td class="time-col">10:17 &ndash; 10:20<br>(3 mins)</td>
-                <td class="activity-col">Phase 6: Stage Gate<br>Commit &amp; Assignment 8 Submission</td>
+                <td class="activity-col">Phase 7: Stage Gate<br>Commit &amp; Assignment 8 Submission</td>
                 <td class="desc-col">
                     Stage gate commit:<br>
-                    <code>git add ai_prompt_parser.py ground_truth_ai.xml LINGUISTIC_AUDIT.md &amp;&amp; git commit -m "Week 8 Step 3: AI linguistic markup and three-way comparative audit"</code><br>
-                    <strong>Submission reminder:</strong> Bundle <code>LEMMATIZATION_POLICIES.md</code>, XML files, and <code>LINGUISTIC_AUDIT.md</code> and upload to Moodle Assignment 8 before 11:00 PM tonight.
+                    <code>git add ai_prompt_parser.py ground_truth_ai.xml linguistic_merged.xml LINGUISTIC_AUDIT.md &amp;&amp; git commit -m "Week 8 Step 3: AI linguistic markup, three-way diff and merged file"</code><br>
+                    <strong>Submission reminder:</strong> Bundle <code>LEMMATIZATION_POLICIES.md</code>, XML files (including <code>linguistic_merged.xml</code>), and <code>LINGUISTIC_AUDIT.md</code> and upload to Moodle Assignment 8 before 11:00 PM tonight.
                 </td>
                 <td class="target-col">Clean commit on <code>main</code> and Moodle submission ready</td>
             </tr>
@@ -141,12 +151,12 @@ Passage:
 All Treaties shall be renewed and confirmed by the Governor.</pre>
         </div>
         <div class="card">
-            <h4>Starter Projection Card B: Three-Way Audit Table in LINGUISTIC_AUDIT.md</h4>
-<pre>| Token | Manual Truth (8.1) | NLP Prediction (8.2) | AI Prediction (8.3) | Analysis |
-|---|---|---|---|---|
-| shew'd | lemma: show (VERB) | lemma: shew'd (VERB) | lemma: show (VERB) | AI normalized OOV spelling |
-| your | lemma: you (PRON) | lemma: your (PRON) | lemma: you (PRON) | Prompt rule enforced policy |
-| l' | lemma: le (DET) | lemma: l' (NOUN) | lemma: le (DET) | AI solved clitic elision |</pre>
+            <h4>Starter Projection Card B: Three-Way Audit and Merge Table in LINGUISTIC_AUDIT.md</h4>
+<pre>| Token | Manual Truth (8.1) | NLP Prediction (8.2) | AI Prediction (8.3) | Merged | Analysis |
+|---|---|---|---|---|---|
+| shew'd | lemma: show (VERB) | lemma: shew'd (VERB) | lemma: show (VERB) | M | AI normalized OOV spelling |
+| your | lemma: you (PRON) | lemma: your (PRON) | lemma: you (PRON) | M | Prompt rule enforced policy |
+| l' | lemma: le (DET) | lemma: l' (NOUN) | lemma: le (DET) | M | AI solved clitic elision |</pre>
         </div>
     </div>
 

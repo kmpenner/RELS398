@@ -590,3 +590,15 @@ Two findings worth carrying forward:
     `detailed.m4a` which stay gitignored by design and reach the course via the Drive mirror).
   - `moodle_manifest.json` regenerated (2026-10-17T16:22Z) — records three new Module 4 audio
     resources (Lesson 4.1 Brief/Detailed Audio, cmids 1441736/1441737) alongside Module 7.
+
+- **[2026-10-23] Week 8 (Module 08: Lemmatization) Full Alignment & Live Moodle Deployment Complete (Ken / Antigravity):**
+  - **Lesson 8.3 Question Bank Alignment**: Completely rewrote `scripts/banks/lesson_8_3.py` with 30 questions matching the novice cohort rewrite of `03a_Lesson_8.3_Lesson_Content.md` (purging obsolete Greek/Latin questions on GreBERTa, PhilTA, and Byzantine itacisms).
+  - **Compiled Deliverables**: Recompiled `03b_Lesson_8.3_Questions.xml`, `03_Interactive_Lesson_8.3.xml`, and standalone HTML player `03_Interactive_Lesson_8.3.html` into both `src/modules/` and `dist/moodle/`.
+  - **Live Moodle Quiz Redeployment**: Successfully replaced live quiz `Lesson 8.3: Interactive Quiz` (`cmid 1444140`) on Course 51185, purged old category 235989, imported fresh questions, repaginated to 1 question/page, restored position before `Lesson 8.3 Notes (PDF)`, and rebound completion restriction.
+  - **Slide Deck 8.3 Synchronized**: Copied 16-slide projection deck containing the new Slide 13 ("Diff and Merge: The Best of All Three") to `dist/moodle/` and updated live Moodle file resource `Lesson 8.3 Slides (PPTX)` (`cmid 1444141`).
+  - **Student Scaffolding Authored in `labs/`**: Authored and committed `labs/LEMMATIZATION_TEMPLATE.md` (20-token ground truth table, Universal Dependencies 17 UPOS reference, three-way diff & merge matrix, benchmarking scorecard, and reflection template), `labs/tagger_pipeline.py` (SpaCy pipeline exporting CoNLL-U and TEI XML), and `labs/ai_prompt_parser.py` (structured LLM prompt generator with few-shot exemplars for French decree, Maud Lewis letter, and 1752 Treaty).
+  - **Python NLP Provisioning**: Installed `spacy` in `/home/kmpenner/projects/RELS/.venv` and downloaded language models `en_core_web_sm` and `fr_core_news_sm`.
+  - **Assignment & Watch List Polish**: Updated `08_Workshop_Description.html` and `08a_Workshop_Submission_Instructions.html` with `linguistic_merged.xml` and `LINGUISTIC_AUDIT.md` requirements; updated live Moodle assignment `Assignment: Module 8 (Linguistic Markup)` (`cmid 1440745`); updated `06_Watch_List.html` with accessible documentation links and redeployed (`cmid 1444142`); renamed Weekly Quiz (`cmid 1440743`) to clean `Module 8: Weekly Quiz`.
+  - **Schedule Update**: Aligned `src/syllabus/RELS 398 Schedule.tex` to reflect SpaCy/TreeTagger and the Friday diff activity; recompiled `RELS 398 Schedule.pdf` with XeLaTeX (5 pages) and mirrored to `dist/syllabus/`.
+  - **Manifest Resync**: Regenerated `moodle_manifest.json` (236 activities tracked across 16 sections).
+
