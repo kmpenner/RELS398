@@ -610,4 +610,19 @@ Two findings worth carrying forward:
   - **No late penalty applied** — neither the syllabus nor the assignment settings state a late policy. Moodle due date is Fri 11 Sep 2026 23:59; the schedule and this ledger say 18 Sep (already an open discrepancy).
   - **Andromeda Julian did not submit** — gradebook shows "-" (no submission), not a zero.
   - Verified in the live gradebook (course 51185): Ace Long `Module_01=8.00, Module_02=16.00, Module_03=32.00, Module_04=48.00, Module_05=24.00, Module_06=16.00`, course total 53.97; Olyvia Kingston `Module_02=48.00`, course total 70.83; Andromeda Julian course total 97.22.
-  - **Still open:** Modules 8–13 (cmids 1440745, 1440787, 1440808, 1440840, 1440921, 1440937) have no submissions and no grades for anyone. `Module 13` (cmid 1440937) is not recorded in this ledger. Module 8 is named "Module 8 (Linguistic Markup)" in Moodle but `Module_08_Lemmatization` here. Syllabus weights "Cataloguing & Metadata" at 5% while each module carries 80 points — unreconciled.
+  - **Still open:** Modules 8–13 (cmids 1440745, 1440787, 1440808, 1440840, 1440921, 1440937) have no submissions and no grades for anyone. `Module 13` (cmid 1440937) is not recorded in this ledger. Module 8 is named "Module 8 (Linguistic Markup)" in Moodle but `Module_08_Lemmatization` here.
+- **[2026-10-26] Settled (Ken): Gradebook Restructuring & Alignment with Syllabus Breakdown:**
+  - **Syllabus Categories Created:** Created `Cataloguing & Metadata` (max 5.00, `cg70420`), `Transcription` (max 15.00, `cg70422`), and `Normalization & Regularization` (max 5.00, `cg70423`) under the course root category `cg67270` using Simple weighted mean of grades.
+  - **Assignment Allocation:**
+    - Moved `Assignment: Module_02_Cataloguing` (`ig256922`, 80 pts) into `Cataloguing & Metadata` (5%).
+    - Moved `Assignment: Module_04_Transcription` (`ig256924`, 80 pts) and `Assignment: Module_05_Reconciliation` (`ig256925`, 80 pts) into `Transcription` (15%), splitting the component evenly at 7.5% each.
+    - Moved `Assignment: Module_06_Normalization` (`ig256920`, 80 pts) into `Normalization & Regularization` (5%).
+  - **Quarantine Formative Quizzes:** Created category `Interactive Lessons & Quizzes` (`cg70425`, max 0.00) and moved all 49 lesson and weekly quizzes into it so they do not distort or inflate course grades (0%).
+  - **Cleaned Zero-Weight Buckets:**
+    - Moved `Assignment: Module_01_Orientation` (`ig256921`) and `Assignment: Module_03_IIIF_Imaging` (`ig256923`), along with all 12 un-assessed workshop activities, into `Not for marks` (`cg70389`, max 0.00).
+    - `Upcoming` (`cg70388`, max 0.00) now contains strictly the 6 future assignments (Modules 8–13), ensuring the running course total reflects only work due so far (active denominator: 25.00 points).
+  - **Course Grade Display:** Set `report_user_showtotalsifcontainhidden` to `1` ("Show totals excluding hidden items") so students can view their running course total and category totals.
+  - **Verified Running Totals:**
+    - Ace Long: 35.00% (Cataloguing 1.00/5 + Transcription 6.75/15 + Normalization 1.00/5 = 8.75 / 25.00).
+    - Olyvia Kingston: 12.00% (Cataloguing 3.00/5 = 3.00 / 25.00).
+    - Andromeda Julian: 0.00% (no submissions to date).
