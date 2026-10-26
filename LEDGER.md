@@ -602,3 +602,12 @@ Two findings worth carrying forward:
   - **Schedule Update**: Aligned `src/syllabus/RELS 398 Schedule.tex` to reflect SpaCy/TreeTagger and the Friday diff activity; recompiled `RELS 398 Schedule.pdf` with XeLaTeX (5 pages) and mirrored to `dist/syllabus/`.
   - **Manifest Resync**: Regenerated `moodle_manifest.json` (236 activities tracked across 16 sections).
 
+
+- **[2026-10-26] Module_02_Cataloguing (cmid 1438719) graded — all RELS 398 coursework now marked.**
+  - **Ace Long: 16.00 / 80.** `Witness.xml` only, submitted 24 days late. Rubric 1/4 TEI, 1/3 authority, 0/3 AI audit. The file does not parse as XML (`xml:id="Front page"` is not an NCName), and still fails TEI P5 validation with that fixed (`fileDesc` text content, `fasimile`, `phyDesc`, no `msContents`). No comparison submitted.
+  - **Olyvia Kingston: 48.00 / 80.** Three files, submitted 40 days late. Rubric 3/4 TEI (`my txt.txt` validates once the empty `<respStmt>` is removed), 2/3 authority (LCNAF and VIAF correct; no archival registry checked), 1/3 AI audit. The Word comparison is ~190 words against the 300–500 required, and the two errors it cites ("Shelia M. Kinnear", "bifolium") are not in her `gemini.xml` — that file describes a different auction lot (4-D8HE4T, six letters), which is the error her own audit should have caught.
+  - Rubric scaling (10 points × 8 = 80) was applied; the rubric exists only as text in the assignment description.
+  - **No late penalty applied** — neither the syllabus nor the assignment settings state a late policy. Moodle due date is Fri 11 Sep 2026 23:59; the schedule and this ledger say 18 Sep (already an open discrepancy).
+  - **Andromeda Julian did not submit** — gradebook shows "-" (no submission), not a zero.
+  - Verified in the live gradebook (course 51185): Ace Long `Module_01=8.00, Module_02=16.00, Module_03=32.00, Module_04=48.00, Module_05=24.00, Module_06=16.00`, course total 53.97; Olyvia Kingston `Module_02=48.00`, course total 70.83; Andromeda Julian course total 97.22.
+  - **Still open:** Modules 8–13 (cmids 1440745, 1440787, 1440808, 1440840, 1440921, 1440937) have no submissions and no grades for anyone. `Module 13` (cmid 1440937) is not recorded in this ledger. Module 8 is named "Module 8 (Linguistic Markup)" in Moodle but `Module_08_Lemmatization` here. Syllabus weights "Cataloguing & Metadata" at 5% while each module carries 80 points — unreconciled.
