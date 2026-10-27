@@ -1,18 +1,7 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Verify that your local repository root contains your baseline passes: <code>witness.xml</code> (Pass 1 manual) and <code>transcription_ai.xml</code> (Pass 2 Gemini Antigravity).</li>
-        <li>Open both files in VS Code's side-by-side diff viewer (<code>code --diff witness.xml transcription_ai.xml</code>) alongside your high-resolution manuscript image.</li>
-        <li>Create <code>transcription_reconciled.xml</code> to house your synthesized readings. Adjudicate every discrepancy across the four error categories:
-            <ul>
-                <li><strong>Category A (Human Fatigue):</strong> Gemini read correctly what you missed &rarr; accept machine reading into reconciled file.</li>
-                <li><strong>Category B (AI Smoothing/Hallucination):</strong> Gemini normalized spelling, expanded abbreviations, or hallucinated words &rarr; reject machine reading and defend authentic manuscript ink.</li>
-                <li><strong>Category C (Physical Ambiguity):</strong> Damaged or faded ink &rarr; mark with <code>&lt;unclear&gt;</code> or <code>&lt;gap/&gt;</code>.</li>
-                <li><strong>Category D (Layout/Structural Divergence):</strong> Verify <code>&lt;p&gt;</code> paragraph wrappers (or verse <code>&lt;lg&gt;&lt;l&gt;</code>) and physical line break milestones (<code>&lt;lb/&gt;</code>).</li>
-            </ul>
-        </li>
-        <li>Validate <code>transcription_reconciled.xml</code> to <strong>0 errors</strong> against <code>msdesc.rng</code>.</li>
-        <li>Write a <strong>300–500 word reflection report</strong> in <code>RECONCILIATION.md</code> documenting: (1) quantitative diff overview, (2) concrete adjudication examples across categories, and (3) qualitative evaluation of the AI vision model.</li>
-        <li>Commit all four files (<code>witness.xml</code>, <code>transcription_ai.xml</code>, <code>transcription_reconciled.xml</code>, and <code>RECONCILIATION.md</code>) to your Git repository on branch <code>main</code>.</li>
+        <li>Submit three files: your witness file, an AI transcription of the same page (<code>transcription_ai.xml</code>), and your reconciled version (<code>transcription_reconciled.xml</code>) in which you checked every difference against the image and kept the reading the page supports.</li>
+        <li>In the online text box, write a short note (no minimum length) on what kinds of differences you found and which reading you kept.</li>
     </ol>
 </div>

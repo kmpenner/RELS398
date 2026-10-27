@@ -1,8 +1,8 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Evaluation Rubric</h4>
+    <h4 style="margin-top: 0;">Grading Rubric (10 pts, scaled to 80)</h4>
     <ul>
-        <li><strong>Manual Ground Truth Precision (4 pts):</strong> The 20-entity manual parse reflects exemplary philological rigor, with verified authority links, documented verified absences, and an explicit <code>ENTITY_POLICIES.md</code> document.</li>
-        <li><strong>TEI XML Markup Validity (3 pts):</strong> The XML conforms strictly to TEI P5 guidelines, maintains valid <code>@when</code> ISO dates and <code>@ref</code> URIs, and preserves unbroken token alignment across all versions.</li>
-        <li><strong>Comparative Error Analysis (3 pts):</strong> The 300–500 word reflection insightfully diagnoses computational failure modes (OOV orthography, boundary slips, type confusion, hallucinations) with accurate mathematical metrics (P/R/F1).</li>
+        <li><strong>Manual identification and linking (4 pts):</strong> the 10 entities are correctly typed and every link points to the right record, or the absence is recorded.</li>
+        <li><strong>Merged TEI file (4 pts):</strong> <code>entities_merged.xml</code> is well-formed, uses the right elements, and every <code>@ref</code> resolves.</li>
+        <li><strong>Comparison and reflection (2 pts):</strong> the counts are honest and the reflection names at least one machine error, such as a wrong or invented link.</li>
     </ul>
 </div>

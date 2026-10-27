@@ -76,32 +76,11 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #0284c7
 </div>"""
 
 # 5. Workshop / Assignment
-ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #eab308; background-color: #fefce8; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #854d0e; margin-top: 0;">Assignment: Module 12 (Scholarly Commentary & Annotation)</h4>
-    <p><strong>Overview:</strong> In this milestone, you will author scholarly commentary notes for a 5-sentence passage from your primary witness text spanning three distinct categories (philological, historical, intertextual). You will encode them using stand-off TEI markup, export a W3C JSON-LD annotation with a <code>TextQuoteSelector</code>, and conduct a Three-Way Comparative Audit (Manual vs Deterministic vs AI) recorded in <code>COMMENTARY.md</code>.</p>
-    <p><strong>Due Date:</strong> Friday, December 4, by 11:00 PM.</p>
-</div>"""
+ws_desc = (src_mod / "08_Workshop_Description.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Submission Instructions</h4>
-    <ol>
-        <li>Select a 5-sentence passage from your primary witness text and establish stable <code>xml:id</code> anchors on words and phrases.</li>
-        <li>Hand-author five scholarly commentary notes across the three core categories (at least one philological, one historical, and one intertextual).</li>
-        <li>Encode the notes inside a TEI <code>&lt;standOff&gt;</code> container using <code>&lt;interpGrp type="commentary"&gt;</code>, <code>&lt;note type="..." target="#id"&gt;</code>, and <code>@resp</code> attributes.</li>
-        <li>Convert at least one note into a valid W3C Web Annotation JSON-LD file (<code>annotation.json</code>) using a resilient <code>TextQuoteSelector</code>.</li>
-        <li>Run an AI drafting prompt with negative constraints in VS Code, conduct a forensic fact-checking audit (catching hallucinations and anachronisms), and record your editorial decisions (Accept, Revise, Reject, Flag).</li>
-        <li>Submit your TEI XML file (<code>commentary_edition.xml</code>), <code>annotation.json</code>, and a <strong>300–500 word reflection in COMMENTARY.md</strong> comparing precision, speed, and error profiles across Manual, Deterministic, and AI methods.</li>
-    </ol>
-</div>"""
+ws_sub = (src_mod / "08a_Workshop_Submission_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Grading Rubric (80 Points Total)</h4>
-    <ul>
-        <li><strong>Manual Ground Truth Precision (4 pts / 32 pts scaled):</strong> The five hand-authored commentary notes exhibit genuine scholarly depth, accurate historical context, verified philological definitions, and exact textual citations.</li>
-        <li><strong>Standoff TEI Markup Validity (3 pts / 24 pts scaled):</strong> The <code>&lt;standOff&gt;</code> container is well-formed, all <code>@target</code> URI pointers include the required <code>#</code> prefix and resolve to valid <code>xml:id</code> anchors, and provenance is recorded via <code>@resp</code>.</li>
-        <li><strong>Comparative Three-Way Audit & Reflection (3 pts / 24 pts scaled):</strong> The 300–500 word reflection in <code>COMMENTARY.md</code> insightfully compares precision, recall, speed, and error profiles across manual, rule-based, and AI methods, documenting vetted and rejected claims.</li>
-    </ul>
-</div>"""
+ws_assess = (src_mod / "08b_Workshop_Assessment_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
 # 6. Write HTML components
 for mod_p in [dist_mod, src_mod]:

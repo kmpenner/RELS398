@@ -1,8 +1,8 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Evaluation Rubric</h4>
+    <h4 style="margin-top: 0;">Grading Rubric (10 pts, scaled to 80)</h4>
     <ul>
-        <li><strong>Manual Ground Truth Precision (4 pts):</strong> The 20-word manual parse accurately identifies dictionary lemmas and correct inflectional morphology without grammatical errors.</li>
-        <li><strong>TEI Linguistic Markup Validity (3 pts):</strong> The XML cleanly wraps tokens in <code>&lt;w&gt;</code> tags with valid <code>lemma</code> and <code>pos</code> attributes conforming to TEI P5 guidelines.</li>
-        <li><strong>Comparative Error Analysis (3 pts):</strong> The 300–500 word analysis insightfully discusses why automated engines struggle with homographs, dialectal forms, or rare irregular conjugations.</li>
+        <li><strong>Manual lemmas and POS (4 pts):</strong> the 10 hand-assigned lemmas and tags are correct for the language and period of your document.</li>
+        <li><strong>Merged TEI file (4 pts):</strong> <code>linguistic_merged.xml</code> is well-formed, wraps every token in <code>&lt;w&gt;</code> with <code>lemma</code>, <code>pos</code> and <code>resp</code>, and matches the choices in your table.</li>
+        <li><strong>Comparison and reflection (2 pts):</strong> the table is complete and the reflection names at least one concrete machine error and why it happened.</li>
     </ul>
 </div>

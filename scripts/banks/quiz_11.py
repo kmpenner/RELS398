@@ -77,32 +77,11 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #eab308
 </div>"""
 
 # 5. Workshop / Assignment
-ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #eab308; background-color: #fefce8; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #854d0e; margin-top: 0;">Assignment: Module 11 (Alignment & Interlinear Glossing)</h4>
-    <p><strong>Overview:</strong> In this milestone, you will align a 10-sentence passage from your primary witness text with a modern translation. You will author four-line Interlinear Glossed Text (IGT) for three representative sentences according to the Leipzig Glossing Rules and encode the alignment as stand-off TEI <code>&lt;linkGrp&gt;</code> XML.</p>
-    <p><strong>Due Date:</strong> Friday, November 27, by 11:00 PM.</p>
-</div>"""
+ws_desc = (src_mod / "08_Workshop_Description.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Submission Instructions</h4>
-    <ol>
-        <li>Select a 10-sentence section of your primary witness text and an authoritative modern translation.</li>
-        <li>Open both files in a two-column split editor in VS Code (<code>View &gt; Editor Layout &gt; Two Columns</code>).</li>
-        <li>Align the sentences into parallel pairs (assigning <code>xml:id="s1"</code>, <code>xml:id="s2"</code> ... to source sentences, and <code>xml:id="t1"</code>, <code>xml:id="t2"</code> ... to target translation sentences).</li>
-        <li>For 3 sentences, construct a full four-line Leipzig Interlinear Gloss: (Line 1: Source text, Line 2: Morpheme segmentation, Line 3: Grammatical gloss with capitalized category tags and Rule 2 punctuation, Line 4: Free idiomatic translation in quotation marks).</li>
-        <li>Encode the entire alignment in a TEI XML document utilizing a stand-off <code>&lt;linkGrp type="translation-alignment"&gt;&lt;link target="#s1 #t1"/&gt;...&lt;/linkGrp&gt;</code> structure.</li>
-        <li>Submit your reconciled TEI XML files (<code>alignment_reconciled.xml</code> and <code>gloss_reconciled.xml</code>) and a <strong>300–500 word reflection in ALIGNMENT.md</strong> discussing your three-way audit findings (Manual vs. Gale-Church vs. AI).</li>
-    </ol>
-</div>"""
+ws_sub = (src_mod / "08a_Workshop_Submission_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Grading Rubric (80 Points Total)</h4>
-    <ul>
-        <li><strong>Leipzig Glossing Rule Precision (4 pts / 32 pts scaled):</strong> The four-line gloss strictly adheres to Leipzig conventions (hyphens for morpheme boundaries, periods for fused grammatical categories, standardized uppercase abbreviations for grammatical categories).</li>
-        <li><strong>TEI Stand-Off Linkage Integrity (3 pts / 24 pts scaled):</strong> The <code>&lt;linkGrp&gt;</code> element is properly structured, all <code>@target</code> URI pointers include the required <code>#</code> prefix, and all IDs resolve cleanly to valid sentence tags.</li>
-        <li><strong>Comparative Three-Way Audit & Reflection (3 pts / 24 pts scaled):</strong> The 300–500 word reflection in <code>ALIGNMENT.md</code> insightfully evaluates precision and recall across manual, deterministic, and AI methods, diagnosing structural shifts and model failure modes.</li>
-    </ul>
-</div>"""
+ws_assess = (src_mod / "08b_Workshop_Assessment_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
 # 6. Write HTML components
 for mod_p in [dist_mod, src_mod]:

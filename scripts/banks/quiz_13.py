@@ -76,31 +76,11 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #d97706
 </div>"""
 
 # 5. Workshop
-ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #d97706; background-color: #fffbeb; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #b45309; margin-top: 0;">Workshop: Final Edition Compilation & Multi-Modal Portfolio Assembly</h4>
-    <p><strong>Overview:</strong> In this capstone workshop, you will assemble, validate, and compile your semester-long scholarly edition portfolio. You will verify your full TEI document against our 12-gate quality assurance checklist, generate interactive web and print-ready PDF versions, and prepare an archival package ready for Zenodo and GitHub deposit.</p>
-    <p><strong>Deadlines:</strong> Final Edition Submission due during December Exam Period; Peer Audit due by December 18.</p>
-</div>"""
+ws_desc = (src_mod / "08_Workshop_Description.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Submission Instructions</h4>
-    <ol>
-        <li>Assemble your comprehensive TEI P5 master document containing: full <code>&lt;teiHeader&gt;</code> with cataloguing and <code>&lt;editorialDecl&gt;</code>; diplomatic facsimile links; single-witness documentary markup (<code>&lt;choice&gt;</code>, <code>&lt;orig&gt;</code>, <code>&lt;reg&gt;</code>, <code>&lt;del&gt;</code>, <code>&lt;add&gt;</code>); morphological markup (<code>&lt;w&gt;</code>); translation alignment; and scholarly commentary notes.</li>
-        <li>Execute the 12-gate quality assurance verification sweep (schema validation, pointer integrity, zero lint issues).</li>
-        <li>Compile the multi-modal outputs: an interactive offline HTML edition and a formatted PDF volume via CSS Paged Media.</li>
-        <li>Include a <code>LICENSE.md</code> explicitly specifying your multi-tiered licensing (e.g. CC BY 4.0 for edition text, CC0 for metadata, MIT for custom scripts).</li>
-        <li>Submit your complete edition ZIP repository and a <strong>300–500 word final editorial statement</strong> reflecting on how digital methods fundamentally altered your understanding of your primary historical witness.</li>
-    </ol>
-</div>"""
+ws_sub = (src_mod / "08a_Workshop_Submission_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric</h4>
-    <ul>
-        <li><strong>TEI Master Completeness & Validity (4 pts):</strong> The edition contains all required editorial layers, fully validates against the official TEI schema with 0 errors, and exhibits complete pointer resolution.</li>
-        <li><strong>Multi-Modal Presentation Fidelity (3 pts):</strong> The compiled HTML player and PDF deliverables render cleanly, legibly, and responsively across desktop, print, and mobile viewports.</li>
-        <li><strong>FAIR Compliance & Scholarly Reflection (3 pts):</strong> The portfolio provides explicit open licenses, comprehensive documentation, and a mature philological reflection on digital editorial methodology.</li>
-    </ul>
-</div>"""
+ws_assess = (src_mod / "08b_Workshop_Assessment_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
 # 6. Write HTML components
 for mod_p in [dist_mod, src_mod]:

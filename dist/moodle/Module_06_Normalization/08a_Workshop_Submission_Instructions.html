@@ -1,10 +1,8 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Select a 20-line excerpt from your consensus diplomatic transcription (<code>transcription_reconciled.xml</code>).</li>
-        <li><strong>Step 1 (Manual):</strong> Hand-encode all orthographic variations and abbreviations using valid TEI <code>&lt;choice&gt;&lt;orig&gt;...&lt;/orig&gt;&lt;reg resp="#editor"&gt;...&lt;/reg&gt;&lt;/choice&gt;</code> and <code>&lt;choice&gt;&lt;abbr&gt;...&lt;/abbr&gt;&lt;expan resp="#editor"&gt;...&lt;/expan&gt;&lt;/choice&gt;</code>, saving this gold standard as <code>transcription_reconciled_manual.xml</code>.</li>
-        <li><strong>Step 2 (Deterministic Regex):</strong> Apply your explicit orthographic rules using regular expressions with word boundaries (<code>\b</code>) and capture groups directly in the VS Code editor (or via an optional Python <code>re.sub()</code> script), saving the output as <code>transcription_reconciled_regex.xml</code>.</li>
-        <li><strong>Step 3 (AI-Assisted):</strong> Pass the raw consensus excerpt to Gemini in VS Code Antigravity with a structured system prompt, negative constraints against modernizing syntax, and few-shot examples, saving the output as <code>transcription_reconciled_ai.xml</code>.</li>
-        <li><strong>Step 4 (Synthesis & Reflection):</strong> Synthesize your final validated <code>transcription_normalized.xml</code> by adopting confirmed corrections while rejecting hypercorrections. Submit all four XML files and a <strong>300–500 word comparative reflection</strong> in <code>NORMALIZATION.md</code> evaluating precision, recall, and hypercorrection rates across the three passes.</li>
+        <li>Write <code>NORMALIZATION.md</code>: a short statement of your normalization policy and a table of rules (each with an id, a category, the original and normalized form, and the TEI element used).</li>
+        <li>Apply your rules by hand to your reconciled transcription using <code>&lt;choice&gt;</code> with <code>&lt;orig&gt;</code>/<code>&lt;reg&gt;</code> or <code>&lt;abbr&gt;</code>/<code>&lt;expan&gt;</code>; paste or attach the result.</li>
+        <li>Have an AI model apply the same rules and, in <code>NORMALIZATION.md</code>, write a short note (no minimum length) comparing its result with yours.</li>
     </ol>
 </div>

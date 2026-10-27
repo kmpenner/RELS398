@@ -1,10 +1,8 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Open your chosen manuscript witness image in VS Code or your IIIF viewer alongside a plain text file (<code>ground_truth.txt</code>).</li>
-        <li>Transcribe the entire page by hand line by line, preserving original orthography, abbreviations, and line breaks.</li>
-        <li>Run the same page through Transkribus (automated baseline detection and transcription) and an LLM/VLM vision prompt.</li>
-        <li>Compare the outputs against your human ground truth: calculate CER, record where the machine failed (e.g. damaged ink, ligatures, margin notes), and identify any hallucinations.</li>
-        <li>Submit your transcription files and a <strong>300–500 word comparative reflection</strong> evaluating the limits of automated transcription on unique cultural artifacts.</li>
+        <li>Transcribe your page by hand as a diplomatic transcription in <code>ground_truth.txt</code> (or <code>.xml</code>): keep the original spelling, mark each line with <code>&lt;lb n="..."/&gt;</code>, and mark what you cannot read with <code>&lt;unclear/&gt;</code>.</li>
+        <li>Run the same page through Transkribus or an AI model.</li>
+        <li>In the online text box, paste the machine output and write a short comparison (no minimum length) of where it differs from your reading and why ground truth matters.</li>
     </ol>
 </div>

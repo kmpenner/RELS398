@@ -76,32 +76,11 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #ea580c
 </div>"""
 
 # 5. Assignment
-ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #ea580c; background-color: #fff7ed; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #9a3412; margin-top: 0;">Assignment: Module 10 (Consolidation & CI/CD)</h4>
-    <p><strong>Overview:</strong> In this consolidation milestone, you will collaborate with a partner to intentionally create, inspect, and resolve a Git merge conflict in a shared TEI XML file. You will then run an exhaustive validation sweep across all your semester edition files, ensuring 100% schema compliance before the final publishing modules.</p>
-    <p><strong>Due Date:</strong> Friday, November 13, by 11:00 PM.</p>
-</div>"""
+ws_desc = (src_mod / "08_Workshop_Description.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Submission Instructions</h4>
-    <ol>
-        <li>Create a feature branch in your repository and invite your partner as a collaborator or work via fork/PR.</li>
-        <li>Concurrently edit the same line of TEI XML in both branches to produce an intentional merge conflict.</li>
-        <li>Open the conflicted file in VS Code, evaluate both conflicting readings against your facsimile evidence, combine them correctly into a single valid TEI block, and delete all conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>).</li>
-        <li>Verify well-formedness with <code>xmllint --noout</code> and complete the merge commit.</li>
-        <li>Run a complete validation sweep on all TEI XML files in your project directory against the official TEI All Relax NG schema, verifying zero validation errors.</li>
-        <li>Submit your merged Git commit hash, terminal validation sweep log, and a <strong>300–500 word reflection</strong> on how continuous integration safeguards scholarly editions against accidental regression.</li>
-    </ol>
-</div>"""
+ws_sub = (src_mod / "08a_Workshop_Submission_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Grading Rubric (80 Points Total)</h4>
-    <ul>
-        <li><strong>Conflict Adjudication & XML Integrity (4 pts / 32 pts scaled):</strong> The resolved XML file contains zero orphaned conflict markers and passes well-formedness and schema checks without data loss.</li>
-        <li><strong>Validation Sweep Exhaustiveness (3 pts / 24 pts scaled):</strong> The terminal log confirms that all accumulated edition files (metadata, facsimiles, diplomatic transcription, normalized choice markup, reading stylesheets, lemmatization, named entities) were audited and passed with 0 errors.</li>
-        <li><strong>Continuous Integration Reflection (3 pts / 24 pts scaled):</strong> The 300–500 word analysis insightfully discusses how automated CI checks and disciplined Git branching protect complex digital editions from configuration drift.</li>
-    </ul>
-</div>"""
+ws_assess = (src_mod / "08b_Workshop_Assessment_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
 # 6. Write HTML components
 for mod_p in [dist_mod, src_mod]:

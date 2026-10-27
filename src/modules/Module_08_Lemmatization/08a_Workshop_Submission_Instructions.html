@@ -1,12 +1,11 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Select 20 consecutive words from your primary manuscript witness.</li>
-        <li><strong>Tier 1 (Manual):</strong> For each word, look up its canonical dictionary lemma and provide a full morphological breakdown (part of speech, gender/number/case or tense/voice/mood) in a Markdown table (<code>LEMMATIZATION_POLICIES.md</code>).</li>
-        <li><strong>Tier 2 (NLP Engine):</strong> Run the excerpt through a computational tagging script (using SpaCy or TreeTagger) and record the predicted lemmas, POS tags, and token accuracy in <code>NLP_BENCHMARK.md</code>.</li>
-        <li><strong>Tier 3 (LLM):</strong> Query an AI model in VS Code using structured prompt engineering with Universal Dependencies UPOS constraints and negative constraints.</li>
-        <li><strong>Three-Way Diff &amp; Merge:</strong> Perform a three-way diff (Manual vs NLP vs AI) in <code>LINGUISTIC_AUDIT.md</code>. Merge the best reading of each token into <code>linguistic_merged.xml</code>, noting the source (M/N/A) and rationale for every choice. Manual is the default, not the winner by fiat.</li>
-        <li><strong>TEI Encoding:</strong> Synthesize <code>transcription_linguistic.xml</code> using <code>&lt;w lemma="..." pos="..." resp="..."&gt;token&lt;/w&gt;</code> elements, validating against the course schema with <code>xmllint</code>.</li>
-        <li><strong>Reflection:</strong> Submit your validated TEI XML file, tagging script/prompts, and a <strong>300–500 word reflection</strong> in <code>LINGUISTIC_AUDIT.md</code> analyzing automated error patterns, OOV rates, and morphological disambiguation.</li>
+        <li>Choose <strong>10 consecutive words</strong> from your reconciled transcription.</li>
+        <li><strong>Manual:</strong> for each word, record its dictionary lemma and its part of speech (UPOS tag) in a table in <code>LINGUISTIC_AUDIT.md</code>.</li>
+        <li><strong>spaCy and AI:</strong> run the same 10 words through spaCy (the in-class script) and through an AI model in VS Code; add their lemma and POS to the same table, one column each.</li>
+        <li><strong>Merge:</strong> in a final column, mark which reading you keep for each word (M, N or A) and why, in a few words. Manual is the default, not the winner by fiat.</li>
+        <li>Encode the merged result as <code>linguistic_merged.xml</code> using <code>&lt;w lemma="..." pos="..." resp="..."&gt;token&lt;/w&gt;</code>, and check it is well-formed.</li>
+        <li>Submit <code>LINGUISTIC_AUDIT.md</code> (table plus a <strong>150&ndash;250 word reflection</strong> at the end of the same file: which kinds of words did the machines get wrong?) and <code>linguistic_merged.xml</code>.</li>
     </ol>
 </div>

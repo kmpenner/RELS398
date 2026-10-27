@@ -74,32 +74,11 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #047857
 </div>"""
 
 # 5. Workshop / Assignment Description & Instructions
-ws_desc = """<div class="card p-3 mb-3" style="border-left: 5px solid #047857; background-color: #ecfdf5; border-radius: 6px; padding: 1.25rem;">
-    <h4 style="color: #065f46; margin-top: 0;">Assignment: Module 9 (Named-Entity Markup)</h4>
-    <p><strong>Overview:</strong> In this capstone portfolio assignment, you will identify, annotate, and link 20 entities from your primary manuscript witness across three distinct tiers: (1) manual TEI markup with authority linking; (2) deterministic NLP tagging with SpaCy and gazetteers; and (3) prompt-engineered AI parsing in VS Code Antigravity. You will measure precision, recall, and F1 scores, compile a three-way discrepancy matrix, and author a 300–500 word critical methodological reflection in <code>ENTITY_AUDIT.md</code>.</p>
-    <p><strong>Deadline:</strong> due Friday, November 6, by 11:00 PM.</p>
-</div>"""
+ws_desc = (src_mod / "08_Workshop_Description.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_sub = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Submission Instructions</h4>
-    <ol>
-        <li>Select a 20-entity excerpt from your primary manuscript witness.</li>
-        <li><strong>Tier 1 (Manual Ground Truth):</strong> Compile your editorial policies in <code>ENTITY_POLICIES.md</code>, research authority records (Wikidata, VIAF, GeoNames, DCB), and hand-author <code>ground_truth_entities_manual.xml</code>.</li>
-        <li><strong>Tier 2 (Automated NER Pipeline):</strong> Run a SpaCy tagging script, export predictions to <code>ner_baseline.xml</code>, evaluate precision/recall/F1 against your manual baseline, and compile <code>NER_BENCHMARK.md</code>.</li>
-        <li><strong>Tier 3 (AI Pipeline & Linking):</strong> Run <code>ai_entity_parser.py</code> with system constraints in VS Code Antigravity, validate schema and token alignment, and test authority links against live registries.</li>
-        <li><strong>Three-Way Comparative Audit:</strong> Compile the discrepancy matrix and author your 300–500 word reflection in <code>ENTITY_AUDIT.md</code> classifying errors into our course error taxonomy.</li>
-        <li>Verify all repository files pass schema validation, and submit your portfolio on Moodle before 11:00 PM on Friday, November 6.</li>
-    </ol>
-</div>"""
+ws_sub = (src_mod / "08a_Workshop_Submission_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
-ws_assess = """<div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Evaluation Rubric</h4>
-    <ul>
-        <li><strong>Manual Ground Truth Precision (4 pts):</strong> The 20-entity manual parse reflects exemplary philological rigor, with verified authority links, documented verified absences, and an explicit <code>ENTITY_POLICIES.md</code> document.</li>
-        <li><strong>TEI XML Markup Validity (3 pts):</strong> The XML conforms strictly to TEI P5 guidelines, maintains valid <code>@when</code> ISO dates and <code>@ref</code> URIs, and preserves unbroken token alignment across all versions.</li>
-        <li><strong>Comparative Error Analysis (3 pts):</strong> The 300–500 word reflection insightfully diagnoses computational failure modes (OOV orthography, boundary slips, type confusion, hallucinations) with accurate mathematical metrics (P/R/F1).</li>
-    </ul>
-</div>"""
+ws_assess = (src_mod / "08b_Workshop_Assessment_Instructions.html").read_text(encoding="utf-8")  # src HTML is the source of truth; edit it, not this file
 
 # 6. Write HTML components
 for mod_p in [dist_mod, src_mod]:

@@ -1,11 +1,10 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Select a 5-sentence passage from your primary witness text and establish stable <code>xml:id</code> anchors on words and phrases.</li>
-        <li>Hand-author five scholarly commentary notes across the three core categories (at least one philological, one historical, and one intertextual).</li>
-        <li>Encode the notes inside a TEI <code>&lt;standOff&gt;</code> container using <code>&lt;interpGrp type="commentary"&gt;</code>, <code>&lt;note type="..." target="#id"&gt;</code>, and <code>@resp</code> attributes.</li>
-        <li>Convert at least one note into a valid W3C Web Annotation JSON-LD file (<code>annotation.json</code>) using a resilient <code>TextQuoteSelector</code>.</li>
-        <li>Run an AI drafting prompt with negative constraints in VS Code, conduct a forensic fact-checking audit (catching hallucinations and anachronisms), and record your editorial decisions (Accept, Revise, Reject, Flag).</li>
-        <li>Submit your TEI XML file (<code>commentary_edition.xml</code>), <code>annotation.json</code>, and a <strong>300–500 word reflection in COMMENTARY.md</strong> comparing precision, speed, and error profiles across Manual, Deterministic, and AI methods.</li>
+        <li>Choose a passage of up to <strong>5 sentences</strong> and add <code>xml:id</code> anchors to the words you will comment on.</li>
+        <li><strong>Manual:</strong> write <strong>three notes</strong>: one philological, one historical and one intertextual, each with its source.</li>
+        <li><strong>AI:</strong> ask an AI model to draft notes on the same passage. In a table in <code>COMMENTARY.md</code>, mark each AI note Accept, Revise, Reject or Flag, with a reason; check every fact it states.</li>
+        <li>Encode the notes you keep as <code>commentary_merged.xml</code>: a <code>&lt;standOff&gt;</code> containing <code>&lt;note type="..." target="#id" resp="..."&gt;</code>. Check it is well-formed.</li>
+        <li>Submit <code>COMMENTARY.md</code> (table and a <strong>150&ndash;250 word reflection</strong> at the end of the same file) and <code>commentary_merged.xml</code>.</li>
     </ol>
 </div>

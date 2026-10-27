@@ -1,10 +1,8 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
-    <h4 style="margin-top: 0;">Peer Assessment Rubric (10 pts)</h4>
-    <p style="font-size:0.92rem; color:#475569; margin-top:0;">Peer review is blind and constructive: for each criterion, state what earns credit and name one thing that would improve it. "Looks good" earns nothing.</p>
+    <h4 style="margin-top: 0;">Grading Rubric (10 pts, scaled to 80)</h4>
     <ul>
-        <li><strong>TEI XML Validity &amp; Codicological Fit (4 pts):</strong> The <code>msDesc</code> snippet is well-formed and validates against TEI P5, and the codicological elements it uses <em>actually describe this object</em>. Two failure modes to watch for: (a) malformed or out-of-order markup; (b) a technically valid snippet that has been force-fitted to a template &mdash; empty <code>&lt;handNote&gt;</code> elements on a printed document, invented quite structures, or a <code>&lt;supportDesc&gt;</code> that says nothing verifiable. Omission with a stated reason scores full marks; fabrication scores zero on this criterion.</li>
-        <li><strong>Authority Control &amp; Sourcing (3 pts):</strong> The submission names the authority files that genuinely govern this document and records stable identifiers in their correct syntax (ARK, call number, VIAF, or equivalent). Credit the justification, not the quantity of links. A well-argued statement that a standard registry has <em>no</em> record for the object &mdash; with evidence that it was checked &mdash; earns the same credit as a successful lookup. Citing an irrelevant registry without explaining why it applies does not.</li>
-        <li><strong>Critical AI Audit (3 pts):</strong> The comparison precisely diagnoses at least two <em>subtle</em> model errors &mdash; failures that pass schema validation &mdash; and explains why deterministic validation caught the structural ones but could not catch the false ones. The strongest responses show a case where the schema passed a confident falsehood, and say what a human had to catch instead.</li>
+        <li><strong>Catalogue record (6 pts):</strong> the description is accurate to the document and uses the right <code>msDesc</code> elements.</li>
+        <li><strong>Well-formed and sourced (2 pts):</strong> the file parses, and identifiers and links point to the right records.</li>
+        <li><strong>AI comparison (2 pts):</strong> the comparison names specific differences and checks them against the sources.</li>
     </ul>
-    <p style="margin-bottom:0; font-size:0.92rem; color:#475569;"><strong>Marking guide:</strong> 9&ndash;10 exceptional; 7&ndash;8 solid and defensible; 5&ndash;6 complete but uncritical (typically: valid markup, real identifiers, but an AI audit that only catches obvious errors); below 5 means a criterion is unaddressed or the markup does not validate.</p>
 </div>

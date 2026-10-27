@@ -1,11 +1,10 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Select a 10-sentence section of your primary witness text and an authoritative modern translation.</li>
-        <li>Open both files in a two-column split editor in VS Code (<code>View &gt; Editor Layout &gt; Two Columns</code>).</li>
-        <li>Align the sentences into parallel pairs (assigning <code>xml:id="s1"</code>, <code>xml:id="s2"</code> ... to source sentences, and <code>xml:id="t1"</code>, <code>xml:id="t2"</code> ... to target translation sentences).</li>
-        <li>For 3 sentences, construct a full four-line Leipzig Interlinear Gloss: (Line 1: Source text, Line 2: Morpheme segmentation, Line 3: Grammatical gloss with capitalized category tags and Rule 2 punctuation, Line 4: Free idiomatic translation in quotation marks).</li>
-        <li>Encode the entire alignment in a TEI XML document utilizing a stand-off <code>&lt;linkGrp type="translation-alignment"&gt;&lt;link target="#s1 #t1"/&gt;...&lt;/linkGrp&gt;</code> structure.</li>
-        <li>Submit your reconciled TEI XML files (<code>alignment_reconciled.xml</code> and <code>gloss_reconciled.xml</code>) and a <strong>300–500 word reflection in ALIGNMENT.md</strong> discussing your three-way audit findings (Manual vs. Gale-Church vs. AI).</li>
+        <li>Choose <strong>5 consecutive sentences</strong> and a modern translation (published, or your own).</li>
+        <li><strong>Manual and AI:</strong> pair each source sentence with its translation by hand, then ask an AI model to do the same; record both in a table in <code>ALIGNMENT.md</code>, marking where they differ and which you keep.</li>
+        <li>Encode the merged alignment as <code>alignment_merged.xml</code>: <code>xml:id="s1"</code>&hellip; on source sentences, <code>xml:id="t1"</code>&hellip; on translation sentences, and a <code>&lt;linkGrp type="translation-alignment"&gt;</code> of <code>&lt;link target="#s1 #t1"/&gt;</code> elements. Check it is well-formed.</li>
+        <li>Write a four-line Leipzig gloss for <strong>one</strong> sentence in <code>ALIGNMENT.md</code>.</li>
+        <li>Submit <code>ALIGNMENT.md</code> (table, gloss, and a <strong>150&ndash;250 word reflection</strong> at the end of the same file) and <code>alignment_merged.xml</code>.</li>
     </ol>
 </div>
