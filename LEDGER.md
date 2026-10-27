@@ -626,3 +626,9 @@ Two findings worth carrying forward:
     - Ace Long: 35.00% (Cataloguing 1.00/5 + Transcription 6.75/15 + Normalization 1.00/5 = 8.75 / 25.00).
     - Olyvia Kingston: 12.00% (Cataloguing 3.00/5 = 3.00 / 25.00).
     - Andromeda Julian: 0.00% (no submissions to date).
+- **[2026-10-27] Lesson 8.1 Slides Updated on Moodle (Course 51185, cmid 1440748):**
+  - Updated `Lesson_8.1_Slides_2026-10-27.pptx` (16 slides, 83,441 bytes):
+    - Slide 6: Corrected surface tokenization of *"can't"* to `ca` + `n't` to preserve exact character-by-character reading fidelity.
+    - Slide 13: Refined `les (DET, le, Fem, Plur)` to fully articulate noun phrase agreement chain.
+    - Slide 14: Added complete final deliverable model for Ace's French Revolutionary Decree (TLFi authority, clitic splitting, spelling regularization inside `<choice>`, and TEI P5 linguistic XML structure).
+  - Deployed in place via `replacefile.js` to live Moodle resource `Lesson 8.1 Slides (PPTX)` (`cmid 1440748`); verified served size matches local build (83,441 bytes).
