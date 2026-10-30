@@ -1,0 +1,48 @@
+name: TEI XML Validation Gate
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint-and-validate:
+    name: Schema Validation (xmllint)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install XML Validation Tooling
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libxml2-utils
+
+      - name: Step 1 - Check XML Well-Formedness
+        run: |
+          echo "Checking XML well-formedness across all .xml files..."
+          find . -name "*.xml" -not -path "*/.*" | while read -r xmlfile; do
+            echo "Checking: $xmlfile"
+            xmllint --noout "$xmlfile" || exit 1
+          done
+          echo "All XML files are well-formed."
+
+      - name: Step 2 - Validate TEI Against msdesc.rng Schema
+        run: |
+          if [ -f schemas/msdesc.rng ]; then
+            SCHEMA="schemas/msdesc.rng"
+          elif [ -f msdesc.rng ]; then
+            SCHEMA="msdesc.rng"
+          else
+            echo "::warning ::msdesc.rng schema not found at root or schemas/; skipping schema validation."
+            exit 0
+          fi
+          
+          echo "Validating TEI XML files against $SCHEMA..."
+          find . -name "*.xml" -not -path "*/.*" -not -name "msdesc.rng" | while read -r xmlfile; do
+            echo "Validating: $xmlfile"
+            xmllint --noout --relaxng "$SCHEMA" "$xmlfile" || exit 1
+          done
+          echo "All TEI XML files conform strictly to RELAX NG schema."

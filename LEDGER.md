@@ -105,6 +105,17 @@
     - Schedule (1418426) and Syllabus (1418425) PDFs replaced.
     - Manifest refreshed.
   - **Left alone:** Modules 1–6, which are already delivered.
+- **[2026-10-29] Future Course Offering — Early GitHub Onboarding & Direct Submissions (Ken):**
+  - **Directive:** In the next offering of RELS/ENGL 398, introduce GitHub explicitly in Week 1 / Week 2 (connecting local git in Lesson 1.2 to remote repositories / GitHub Classroom in Lesson 2.1).
+  - **Submission Architecture:** Transition student assignment submissions from Moodle file attachments to GitHub repositories (commits, tags, or pull requests).
+  - **Pedagogical & Operational Rationale:**
+    - **Eliminates Submission Chaos:** Resolves the friction observed during Fall 2026 grading (where students uploaded loose `.docx`, renamed `.txt`, or broken XML files to Moodle weeks late without diffs or version history).
+    - **Authentic DH/RSE Practice:** Enforces professional version control, clear commit histories as evidence of process, and PR-based peer review.
+    - **Automated Validation Gates:** Enables GitHub Actions CI/CD to run `xmllint` against `labs/msdesc.rng` on every push, giving students immediate feedback on XML well-formedness and schema compliance before submission.
+    - **Workspace Alignment:** Aligns directly with the `labs/<Student>/` repository architecture already built into the course structure.
+- **[2026-10-29] Future Course Offering — Student Anonymization & Canonical Demo Witness (Ken):**
+  - **Cohort Anonymization:** Completely anonymize lecture slides, teaching plans, and lesson content for the next offering. Remove all real student names (Ace, Olyvia, Andromeda, Jay) and replace them with generic track classifications (e.g., Track A: Legal/Diplomatic, Track B: Administrative/Continental, Track C: Vernacular/Epistolary).
+  - **Canonical Anchor Witness:** Replace the idiosyncratic 3-cohort switching during in-class lectures with a single, typical, highly standardized pedagogical witness (e.g., Early Modern English or canonical bilingual manuscript) for all teacher demonstrations. Students learn on the standardized anchor text and apply the skills to their own diverse primary witnesses in the lab.
 
 ---
 
@@ -184,6 +195,10 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+- **[2026-10-29]**: **Decks 8.3 and 9.1-9.3 corrected; 8.3 live; Ace's Module 8 worked deliverables added.**
+  - The fixes follow `AUDIT_SLIDES_2026-10-29.md`. They include the wrong Wikidata IDs in 9.1, the 9.2 EntityRuler patterns (now verified to match), and the lyrics removed from 8.3 and 9.1.
+  - The 8.3 slides resource is **cmid 1444141**, not 1440750 (that id returns 404). The file was replaced on Moodle and the served size matches the local file. The 9.x decks (cmids 1440784-1440786) are fixed locally only and not yet uploaded.
+  - `labs/Ace/LINGUISTIC_AUDIT.md` and `labs/Ace/linguistic_merged.xml` cover the whole document (271 words). spaCy scores 78% on lemma and 85% on UPOS against manual, and all 70 disagreements merge to M. The AI column is not yet run; it comes from the Antigravity add-on in VS Code, not from a script or API. Outside Ace's 24 words, the manual column is a reference annotation.
 - **[2026-10-19]**: **Week 7 rendering scaffolding corrected against the students' actual files.** Three defects found, all fixed and verified:
   - **`labs/RENDERING_TEMPLATE.md` rewritten.** The old template contradicted Lesson 7.1 in five places and was missing six rows for elements the students actually have. Fixed: `<lb/>` now maps to `<span class="lb" data-n="N"></span>` with a `::before` rule (**not** `<br>`, which the browser test proves puts the line number alone on the line above); CSS classes now repeat the TEI name (`class="choice"`, not `class="tei-choice"`) per §17; added rows for `<sic>`, `<corr>`, `<gap/>`, `<pb/>`, `<hi>` and `<body>`; removed the claim about "scribal cancellations/additions" (no `<del>`/`<add>`/`<hand>` in any file) and the `<persName>`/`<placeName>`/`<orgName>`/`<date>` rows (header-only); checklist filenames and the three-step commit sequence now match §29. A new §5, "Elements Your Document Does Not Use," tells students to record their absences deliberately.
   - **`labs/RENDERING_INVENTORY.md` added** — the per-student element inventory with counts, attributes and the three defects each document forces on the student.
@@ -449,7 +464,7 @@ Two findings worth carrying forward:
   - Built widescreen 16:9 projection slide decks: `Lesson_8.1_Slides_2026-10-27.pptx`, `Lesson_8.2_Slides_2026-10-28.pptx`, `Lesson_8.3_Slides_2026-10-30.pptx` (15 slides each; strictly >=16pt font floor, 80-120 words speaker notes per slide). Output to `src/` and mirrored to `dist/moodle/`.
   - Deployed full package to live Moodle Section 8 (Course 51185, Section ID 639806):
     - Populated Banner (`cmid 1440730`), Learning Objectives (`cmid 1440731`), Lessons 8.1-8.3 Interactive Quizzes (`cmids 1440737, 1440738, 1440739`) and Notes PDFs (`cmids 1440733, 1440734, 1440736` with completion restrictions pointing to quizzes).
-    - Uploaded slide decks as file resources: `Lesson 8.1 Slides (PPTX)` (`cmid 1440748`), `Lesson 8.2 Slides (PPTX)` (`cmid 1440749`), `Lesson 8.3 Slides (PPTX)` (`cmid 1440750`).
+    - Uploaded slide decks as file resources: `Lesson 8.1 Slides (PPTX)` (`cmid 1440748`), `Lesson 8.2 Slides (PPTX)` (`cmid 1440749`), `Lesson 8.3 Slides (PPTX)` (`cmid 1444141`; 1440750 was wrong).
     - Added Reading List (`cmid 1440740`) and Watch List (`cmid 1440741`).
     - Created `Assignment: Module_08_Lemmatization` (`cmid 1440745`, due Oct 30, 11:00 PM, 80 pts, 4+3+3 rubric) and hid workshop (`cmid 1440742`).
     - Added Weekly Quiz (`cmid 1440743`).

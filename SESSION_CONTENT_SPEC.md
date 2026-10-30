@@ -34,6 +34,8 @@ The tools form a deliberate **ladder**, and the current lessons have it out of o
 
 So the intended progression is **shell → editor → AI**, and the current lessons front-load the editor and the AI into 1.1. The 2.1 change is the clearest signal: the header is built with `echo >` and `>>` *before* VS Code appears in 2.2.
 
+**Future Offering Requirement (2026-10-29, Ken):** Teach remote **GitHub** alongside git early on (by Lesson 2.1 at the latest). Students will submit all assignments and project milestones directly via GitHub repositories/classroom rather than Moodle file upload forms. This prevents loose unversioned files, provides clear process audit trails, and enables automated CI schema testing (`xmllint`) on every commit.
+
 Also note **1.1's spec is the pipeline**, which currently lives in **1.2** (s10–19, "The Workflow: Eight Stages").
 
 ## Gap analysis
