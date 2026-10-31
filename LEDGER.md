@@ -116,9 +116,6 @@
 - **[2026-10-29] Future Course Offering — Student Anonymization & Canonical Demo Witness (Ken):**
   - **Cohort Anonymization:** Completely anonymize lecture slides, teaching plans, and lesson content for the next offering. Remove all real student names (Ace, Olyvia, Andromeda, Jay) and replace them with generic track classifications (e.g., Track A: Legal/Diplomatic, Track B: Administrative/Continental, Track C: Vernacular/Epistolary).
   - **Canonical Anchor Witness:** Replace the idiosyncratic 3-cohort switching during in-class lectures with a single, typical, highly standardized pedagogical witness (e.g., Early Modern English or canonical bilingual manuscript) for all teacher demonstrations. Students learn on the standardized anchor text and apply the skills to their own diverse primary witnesses in the lab.
-- **[2026-10-29] Future Course Offering — Student Anonymization & Canonical Demo Witness (Ken):**
-  - **Cohort Anonymization:** Completely anonymize lecture slides, teaching plans, and lesson content for the next offering. Remove all real student names (Ace, Olyvia, Andromeda, Jay) and replace them with generic track classifications (e.g., Track A: Legal/Diplomatic, Track B: Administrative/Continental, Track C: Vernacular/Epistolary).
-  - **Canonical Anchor Witness:** Replace the idiosyncratic 3-cohort switching during in-class lectures with a single, typical, highly standardized pedagogical witness (e.g., Early Modern English or canonical bilingual manuscript) for all teacher demonstrations. Students learn on the standardized anchor text and apply the skills to their own diverse primary witnesses in the lab.
 
 ---
 
