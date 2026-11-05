@@ -29,24 +29,44 @@ The curriculum will strictly implement the deliberate pedagogical progression sp
        Lesson 2.3: Antigravity / Copilot / Claude
                  ▲
                  │
-       [ Stage 2: Code Editor ]
-       Lesson 2.2: VS Code + Red Hat XML + RELAX NG / Schematron
+       [ Stage 2: Code Editor & Schema CI ]
+       Lesson 2.2: VS Code + Red Hat XML + RELAX NG + GitHub Actions CI
                  ▲
                  │
-       [ Stage 1: Terminal & Shell ]
-       Lesson 1.2: Bash + Plain Text + Local Git
-       Lesson 2.1: TEI Header via `echo >` / `>>` + Remote GitHub
+       [ Stage 1: Terminal, Shell, Git, & GitHub ]
+       Lesson 1.2: Bash + Plain Text + Local Git + Remote GitHub Push & PRs
+       Lesson 2.1: TEI Header via `echo >` / `>>` committed & pushed to GitHub
 ```
 
-### Revised Schedule for Weeks 1 & 2
+### Revised Schedule for Weeks 1 & 2 (Relocating Module 10's GitHub Material to Week 1–2)
+
+In Fall 2026, distributed Git, GitHub remotes, pull requests, and CI/CD were deferred until **Module 10 (Week 10)**. Moving GitHub onboarding to **Week 1 (Lesson 1.2) and Week 2 (Lessons 2.1–2.2)** ensures that **every single assignment starting with Module 2 is submitted on GitHub**, while freeing Week 10 in the 13-week schedule for **Multi-Witness Collation** across the 1760–1761 Halifax Treaty exemplars.
 
 | Lesson | Focus | Core Tools & Concepts | Student Deliverable |
 | :--- | :--- | :--- | :--- |
-| **1.1** | **The Scholarly Edition Pipeline** | 10 tasks across 3 modes (Manual, Deterministic, AI). No front-loaded software tours. | Selection of primary witness folio / document. |
-| **1.2** | **FAIR Data, Shell, & Local Git** | Bash terminal navigation, plain text, Markdown, `git init`, `git add`, `git commit`. | Local git repo with `README.md` and document metadata. |
-| **2.1** | **TEI Header & GitHub Remote** | Writing a valid `<teiHeader>` in bash using `echo >` and `echo >>`. Authenticating GitHub via `gh`/SSH and pushing remote. | First pushed commit on GitHub repository containing `header.xml`. |
-| **2.2** | **VS Code & Schema Validation** | VS Code installation, Red Hat XML extension, RELAX NG (`msdesc.rng`), schema validation errors. | Schema-validated XML in VS Code; GitHub Actions CI turn green. |
-| **2.3** | **AI Assistance in TEI Authoring** | Prompt engineering for TEI header completion under strict negative constraints. | Three-way audit of manual vs. AI header elements. |
+| **1.1** | **The Scholarly Edition Pipeline** | 10 tasks across 3 modes (Manual, Deterministic, AI), anchored in the 1760–1761 Halifax Treaties. | Selection of primary witness / district exemplar. |
+| **1.2** | **FAIR Data, Shell, Git, & GitHub** | Bash navigation, plain text, Markdown, `git init`/`add`/`commit`, **GitHub authentication (`gh`), remote push, and Pull Request workflow** (relocated from old Lesson 10.1). | Live GitHub repository with pushed `README.md` and document metadata. |
+| **2.1** | **TEI Header in Shell & GitHub Push** | Writing a valid `<teiHeader>` in bash using `echo >` and `echo >>`. Pushing branch and opening first PR on GitHub. | Pushed commit/PR on GitHub containing `header.xml`. |
+| **2.2** | **VS Code, RELAX NG, & GitHub Actions CI** | VS Code installation, Red Hat XML extension, `msdesc.rng`, and **automated GitHub Actions CI validation gates** (relocated from old Lesson 10.2). | Schema-validated XML in VS Code; GitHub Actions CI badge turns green. |
+| **2.3** | **AI Assistance in TEI Authoring** | Prompt engineering for TEI header completion under strict negative constraints; three-way diff and merge on GitHub. | First formal assignment submitted via GitHub Pull Request / Release tag (`v-module-02`). |
+
+### Re-sequenced 13-Module Semester Map
+
+By absorbing old `Module_10_Consolidation` (GitHub & CI/CD) into Modules 1 and 2, the 13-week semester accommodates **Collation & Critical Apparatus** using the multiple district exemplars of the 1760–1761 Halifax Treaties:
+
+1. **Module 01:** Orientation — The 10-Task Pipeline, FAIR Data, Unix Shell, Git, & GitHub Onboarding *(absorbs Lesson 10.1)*
+2. **Module 02:** Cataloguing, `<teiHeader>`, Authority Control, & GitHub Actions CI Validation *(absorbs Lesson 10.2)*
+3. **Module 03:** Archival Imaging, IIIF Manifests, & Facsimile Zones (`<zone>`, `<figure>` clan totems)
+4. **Module 04:** Diplomatic Transcription (18th-Century Paleography, HTR/OCR, Vision LLMs)
+5. **Module 05:** Multi-Pass Transcription Reconciliation & Side-by-Side Diffing on GitHub
+6. **Module 06:** Spelling Normalization & Editorial Regularization (`<choice>`, `<orig>`/`<reg>`, `<abbr>`/`<expan>`)
+7. **Module 07:** Web Rendering & Digital Publication I (HTML/CSS/XSLT Diplomatic vs. Reading Views)
+8. **Module 08:** Morphological Analysis & Lemmatization (`<w>`, `@lemma`, `@pos` UPOS, `@msd` FEATS)
+9. **Module 09:** Named-Entity Markup & Prosopography (`<persName>`, `<placeName>`, `<orgName>`, Wikidata/VIAF)
+10. **Module 10:** Multi-Witness Collation & Textual Criticism *(restored to schedule! Collating the 1760–1761 Halifax Treaty district exemplars across GitHub repositories)*
+11. **Module 11:** Parallel Text Alignment & Interlinear Glossing
+12. **Module 12:** Translation, Commentary, & Explanatory Apparatus
+13. **Module 13:** Publication II — Print-Ready Codices (Typst/PDF), Archival Packaging, & Zenodo/GitHub Releases
 
 ---
 

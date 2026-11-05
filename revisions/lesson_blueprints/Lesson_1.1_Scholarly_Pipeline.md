@@ -31,8 +31,6 @@
 ---
 
 ### In-Class Springboard & Exercise
-* **Hook:** Show two versions of a 1752 legal clause: raw ink scan vs. interactive digital edition.
-* **Exercise:** Students select their project witness for the term from the three primary corpus tracks:
-  1. *Archival Legal Witness:* 1752 Peace and Friendship Treaty.
-  2. *Revolutionary Witness:* 1791 French Revolutionary Decree (Louis XVI Address).
-  3. *Modern Personal Witness:* 1967 Maud Lewis Folk Correspondence.
+* **Hook:** Show two versions of the 1760–1761 Halifax Peace and Friendship Treaty ("Truckhouse" clause and clan totem signatures): raw archival parchment scan (`NS Archives RG 1 vol. 430`) vs. interactive digital edition with multi-witness collation.
+* **Anchor Demo Corpus:** The instructor introduces the **1760–1761 Halifax Treaties** (LaHave, Shubenacadie/Chibenaccadie, Richibucto, Miramichi exemplars) as the universal classroom demo across all 13 weeks.
+* **Exercise:** Students select their individual project witness (either an assigned district exemplar of the 1760–1761 treaties for collaborative multi-witness editing, or an approved historical witness from the three genre tracks: Diplomatic/Legal, Administrative/Continental, or Epistolary/Vernacular).
