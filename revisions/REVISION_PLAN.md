@@ -109,15 +109,17 @@ In the Fall 2026 offering, student names (Ace, Olyvia, Andromeda, and previously
   * **Track 3 (Epistolary / Vernacular):** Modern Vernacular Correspondence (e.g., 20th-century personal letters).
 * **Privacy Compliance:** Protects student intellectual property and privacy while allowing the course materials to be shared, open-sourced, or archived publicly without FERPA/privacy violations.
 
-### 2. A Canonical "Anchor Witness" for Classroom Demos
+### 2. Canonical Anchor Witness for Classroom Demos: The 1760–1761 Halifax Treaties
 A major friction in Fall 2026 was that lecture demonstrations constantly toggled between three disparate, highly eccentric documents (an 18th-century French decree with clitics and imperfect verb forms, a 1752 colonial treaty with archaic legal formulas, and a 1967 folk letter with colloquial Maritime dialect).
 
-For the next offering:
-* **One Typical Anchor Witness for In-Class Demos:** The instructor adopts a single, well-documented, canonical witness (e.g., a standard Early Modern English printed witness like Shakespeare First Folio / King James Bible, or a canonical Latin/English manuscript leaf) as the **universal lecture demonstration**.
-* **Pedagogical Benefits:**
-  * **Cleaner Pedagogy:** Core markup concepts (element nesting, clitic splitting, authority lookup, regularized spelling) are taught on a text with predictable, transparent orthography.
-  * **Standard Benchmark:** All students see the exact same reference baseline modeled before they attempt to apply those principles to their own eccentric project documents.
-  * **Independence in the Lab:** In-class demos use the anchor witness; students apply the methods to their independent document during the workshop phase.
+For the next offering, the **1760–1761 Halifax Peace and Friendship Treaties ("Burial of the Hatchet" treaties)** will serve as the universal classroom demonstration corpus:
+* **Archival Witnesses:** Surviving parchment exemplars in Nova Scotia Archives (`RG 1 vol. 430`) and the UK National Archives (`CO 217`), negotiated between Governor Charles Lawrence / Jonathan Belcher and Mi'kmaw and Wolastoqey district chiefs (e.g., Paul Laurent of LaHave, Claude Rene of Shubenacadie/Chibenaccadie, Battiste Jerome of Richibucto, Michel Augustine of Richibucto, Francis Joseph of Miramichi).
+* **Pedagogical & Curriculum Advantages:**
+  * **Multi-Witness Collation & Apparatus (Modules 14/15 or Collation Week):** Because distinct Mi'kmaw districts signed separate parchment copies sharing the same core boilerplate (including the famous "Truckhouse" clause at the center of *R. v. Marshall* [1999]) with scribal variants, differing dates, district names, and signatories, the 1760–1761 treaties provide authentic multi-witness collation and parallel alignment material.
+  * **Pictographic Signatures & IIIF Zones (Module 3):** Each chief signed with their personal clan totem/mark (bird, fish, bow, animal) alongside British signatures and wax seals, providing an exceptional demonstration for TEI `<figure>`, `<graphic>`, `<signed>`, and IIIF SVG bounding zones (`<zone>`).
+  * **18th-Century Paleography & Regularization (Modules 4–6):** Manageable length (~600 words), clear 1760s legal script, standard suspensions/abbreviations (`&c.`, superscript contractions), and transparent archaic orthography for `<choice><orig><reg>`.
+  * **Linguistic & Named-Entity Markup (Modules 8–9):** Rich modal auxiliaries, legal formulas, and high-recognition historical persons, Mi'kmaw districts, and colonial institutions.
+  * **Independence in the Lab:** In-class demos use the 1760–1761 treaties (or compare two district exemplars like LaHave vs. Shubenacadie); students then apply the exact same methods to their own independent project witness during the workshop phase.
 
 ---
 
