@@ -52,21 +52,21 @@ In Fall 2026, distributed Git, GitHub remotes, pull requests, and CI/CD were def
 
 ### Re-sequenced 13-Module Semester Map
 
-By absorbing old `Module_10_Consolidation` (GitHub & CI/CD) into Modules 1 and 2, the 13-week semester accommodates **Collation & Critical Apparatus** using the multiple district exemplars of the 1760–1761 Halifax Treaties:
+By absorbing old `Module_10_Consolidation` (GitHub & CI/CD) into Modules 1 and 2, and folding **Reconciliation** into the Friday session of **Transcription Week** (matching the Three-Step Comparative Cycle where Friday always executes the 3-way diff and merge), the 13-week semester accommodates both **Multi-Witness Collation** (at Week 6, immediately after Normalization) and a dedicated **Dual Alignment Week** (at Week 10, after Translation, aligning the text to both the IIIF image and the translation):
 
-1. **Module 01:** Orientation — The 10-Task Pipeline, FAIR Data, Unix Shell, Git, & GitHub Onboarding *(absorbs Lesson 10.1)*
-2. **Module 02:** Cataloguing, `<teiHeader>`, Authority Control, & GitHub Actions CI Validation *(absorbs Lesson 10.2)*
-3. **Module 03:** Archival Imaging, IIIF Manifests, & Facsimile Zones (`<zone>`, `<figure>` clan totems)
-4. **Module 04:** Diplomatic Transcription (18th-Century Paleography, HTR/OCR, Vision LLMs)
-5. **Module 05:** Multi-Pass Transcription Reconciliation & Side-by-Side Diffing on GitHub
-6. **Module 06:** Spelling Normalization & Editorial Regularization (`<choice>`, `<orig>`/`<reg>`, `<abbr>`/`<expan>`)
-7. **Module 07:** Web Rendering & Digital Publication I (HTML/CSS/XSLT Diplomatic vs. Reading Views)
-8. **Module 08:** Morphological Analysis & Lemmatization (`<w>`, `@lemma`, `@pos` UPOS, `@msd` FEATS)
-9. **Module 09:** Named-Entity Markup & Prosopography (`<persName>`, `<placeName>`, `<orgName>`, Wikidata/VIAF)
-10. **Module 10:** Multi-Witness Collation & Textual Criticism *(restored to schedule! Collating the 1760–1761 Halifax Treaty district exemplars across GitHub repositories)*
-11. **Module 11:** Parallel Text Alignment & Interlinear Glossing
-12. **Module 12:** Translation, Commentary, & Explanatory Apparatus
-13. **Module 13:** Publication II — Print-Ready Codices (Typst/PDF), Archival Packaging, & Zenodo/GitHub Releases
+1. **Module 01 (W1):** Orientation — The 10-Task Pipeline, FAIR Data, Unix Shell, Git, & GitHub Onboarding *(absorbs Lesson 10.1)*
+2. **Module 02 (W2):** Cataloguing, `<teiHeader>`, Authority Control, & GitHub Actions CI Validation *(absorbs Lesson 10.2)*
+3. **Module 03 (W3):** Archival Imaging & IIIF Manifests (Photography/Scanning, ImageMagick/GIMP, IIIF Image & Presentation APIs)
+4. **Module 04 (W4):** Diplomatic Transcription & Reconciliation *(Tue: Manual paleography; Wed: Deterministic HTR/OCR; Fri: Vision LLM + 3-Way Diff & Reconciled Merge — combines old Modules 4 and 5)*
+5. **Module 05 (W5):** Spelling Normalization & Editorial Regularization (`<choice>`, `<orig>`/`<reg>`, `<abbr>`/`<expan>`)
+6. **Module 06 (W6):** Multi-Witness Collation & Critical Apparatus (`<app>`, `<lem>`, `<rdg>`, CollateX — collating the normalized 1760–1761 Halifax Treaty district exemplars into an established text)
+7. **Module 07 (W7):** Morphological Analysis & Lemmatization (`<w>`, `@lemma`, `@pos` UPOS, `@msd` FEATS — layered onto the collated text)
+8. **Module 08 (W8):** Named-Entity Markup & Prosopography (`<persName>`, `<placeName>`, `<orgName>`, Wikidata/VIAF — tagging the collated text and variant apparatus signatories)
+9. **Module 09 (W9):** Philological Translation & Interlinear Glossing (Manual translation, deterministic MT, AI translation & 3-way merge)
+10. **Module 10 (W10):** Dual Alignment — Text-to-Image (`<facsimile>`/`<zone>` $\leftrightarrow$ `@facs`) & Text-to-Translation (`<linkGrp>`/`<link>` bitext alignment)
+11. **Module 11 (W11):** Digital Scholarly Commentary & Explanatory Notes (`<standOff>`, `<note target="#...">`, W3C Web Annotations)
+12. **Module 12 (W12):** Publication I (Web Rendering) — HTML/CSS/XSLT Interactive Edition (rendering image-zone highlights, diplomatic/eclectic toggles, parallel translation, and apparatus)
+13. **Module 13 (W13):** Publication II (Print & Archive) — Print-Ready Codices (Typst/PDF), Archival Packaging, & Zenodo/GitHub Releases
 
 ---
 

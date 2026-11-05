@@ -30,16 +30,16 @@ Every week follows the **Three-Step Comparative Cycle**:
 └── submissions/
     ├── Module_01_Orientation/    # Week 1: Witness Selection, FAIR, & Initial GitHub Commit
     ├── Module_02_Cataloguing/    # Week 2: TEI Header, Authority Control, & CI Validation
-    ├── Module_03_IIIF_Imaging/   # Week 3: IIIF Manifests, Facsimile, & SVG Bounding Zones
-    ├── Module_04_Transcription/  # Week 4: Diplomatic Transcription
-    ├── Module_05_Reconciliation/ # Week 5: Multi-Pass Reconciliation & GitHub Diffs
-    ├── Module_06_Normalization/  # Week 6: Regularization & Word Separation (<choice>)
-    ├── Module_07_Rendering/      # Week 7: HTML/CSS/XSLT Diplomatic vs. Reading Views
-    ├── Module_08_Lemmatization/  # Week 8: Linguistic Markup (UPOS & FEATS)
-    ├── Module_09_Named_Entities/ # Week 9: Named Entity Recognition & Prosopography
-    ├── Module_10_Collation/      # Week 10: Multi-Witness Collation & Critical Apparatus
-    ├── Module_11_Alignment/      # Week 11: Parallel Text Alignment & Glossing
-    ├── Module_12_Commentary/     # Week 12: Translation & Historical Commentary
+    ├── Module_03_IIIF_Imaging/   # Week 3: Archival Imaging & IIIF Manifests
+    ├── Module_04_Transcription/  # Week 4: Diplomatic Transcription & 3-Way Reconciliation
+    ├── Module_05_Normalization/  # Week 5: Regularization & Word Separation (<choice>)
+    ├── Module_06_Collation/      # Week 6: Multi-Witness Collation & Apparatus (<app>/<lem>/<rdg>)
+    ├── Module_07_Lemmatization/  # Week 7: Linguistic Markup (UPOS & FEATS on collated text)
+    ├── Module_08_Named_Entities/ # Week 8: Named Entity Recognition & Prosopography
+    ├── Module_09_Translation/    # Week 9: Translation & Interlinear Glossing
+    ├── Module_10_Alignment/      # Week 10: Dual Alignment (Text-to-Image @facs & Text-to-Translation <linkGrp>)
+    ├── Module_11_Commentary/     # Week 11: Historical & Philological Commentary (<standOff>/<note>)
+    ├── Module_12_Web_Rendering/  # Week 12: HTML/CSS/XSLT Interactive Web Edition
     └── Module_13_Publication/    # Week 13: Print-Ready Codex & GitHub/Zenodo Release
 ```
 
