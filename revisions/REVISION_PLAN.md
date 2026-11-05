@@ -50,23 +50,28 @@ In Fall 2026, distributed Git, GitHub remotes, pull requests, and CI/CD were def
 | **2.2** | **VS Code, RELAX NG, & GitHub Actions CI** | VS Code installation, Red Hat XML extension, `msdesc.rng`, and **automated GitHub Actions CI validation gates** (relocated from old Lesson 10.2). | Schema-validated XML in VS Code; GitHub Actions CI badge turns green. |
 | **2.3** | **AI Assistance in TEI Authoring** | Prompt engineering for TEI header completion under strict negative constraints; three-way diff and merge on GitHub. | First formal assignment submitted via GitHub Pull Request / Release tag (`v-module-02`). |
 
-### Re-sequenced 13-Module Semester Map
+### Re-sequenced 13-Module Semester Map (Option A: Early Web Publication + Progressive ODD & Rendering)
 
-By absorbing old `Module_10_Consolidation` (GitHub & CI/CD) into Modules 1 and 2, and folding **Reconciliation** into the Friday session of **Transcription Week** (matching the Three-Step Comparative Cycle where Friday always executes the 3-way diff and merge), the 13-week semester accommodates both **Multi-Witness Collation** (at Week 6, immediately after Normalization) and a dedicated **Dual Alignment Week** (at Week 10, after Translation, aligning the text to both the IIIF image and the translation):
+By placing **Web Publication I at Week 5** (immediately after Week 4 Diplomatic Transcription) and introducing **progressive TEI ODD (One Document Does it all) development**, every subsequent week (Weeks 6–12) follows a unified three-part cumulative pattern in the student's GitHub repository:
+1. **New TEI Markup** added to the edition XML.
+2. **ODD Schema Customization** (`edition.odd` $\rightarrow$ compiled `.rng`) enabling the new module/elements and enforcing project-specific closed value lists (e.g., constraining `@pos` to the 17 UPOS tags in Week 8, or `@wit` to declared treaty witnesses in Week 7) validated by GitHub Actions CI.
+3. **Live Web Rendering Update** (CSS/XSLT/Processing Model) immediately exposing the new editorial layer on the student's live **GitHub Pages** site.
 
-1. **Module 01 (W1):** Orientation — The 10-Task Pipeline, FAIR Data, Unix Shell, Git, & GitHub Onboarding *(absorbs Lesson 10.1)*
-2. **Module 02 (W2):** Cataloguing, `<teiHeader>`, Authority Control, & GitHub Actions CI Validation *(absorbs Lesson 10.2)*
-3. **Module 03 (W3):** Archival Imaging & IIIF Manifests (Photography/Scanning, ImageMagick/GIMP, IIIF Image & Presentation APIs)
-4. **Module 04 (W4):** Diplomatic Transcription & Reconciliation *(Tue: Manual paleography; Wed: Deterministic HTR/OCR; Fri: Vision LLM + 3-Way Diff & Reconciled Merge — combines old Modules 4 and 5)*
-5. **Module 05 (W5):** Spelling Normalization & Editorial Regularization (`<choice>`, `<orig>`/`<reg>`, `<abbr>`/`<expan>`)
-6. **Module 06 (W6):** Multi-Witness Collation & Critical Apparatus (`<app>`, `<lem>`, `<rdg>`, CollateX — collating the normalized 1760–1761 Halifax Treaty district exemplars into an established text)
-7. **Module 07 (W7):** Morphological Analysis & Lemmatization (`<w>`, `@lemma`, `@pos` UPOS, `@msd` FEATS — layered onto the collated text)
-8. **Module 08 (W8):** Named-Entity Markup & Prosopography (`<persName>`, `<placeName>`, `<orgName>`, Wikidata/VIAF — tagging the collated text and variant apparatus signatories)
-9. **Module 09 (W9):** Philological Translation & Interlinear Glossing (Manual translation, deterministic MT, AI translation & 3-way merge)
-10. **Module 10 (W10):** Dual Alignment — Text-to-Image (`<facsimile>`/`<zone>` $\leftrightarrow$ `@facs`) & Text-to-Translation (`<linkGrp>`/`<link>` bitext alignment)
-11. **Module 11 (W11):** Digital Scholarly Commentary & Explanatory Notes (`<standOff>`, `<note target="#...">`, W3C Web Annotations)
-12. **Module 12 (W12):** Publication I (Web Rendering) — HTML/CSS/XSLT Interactive Edition (rendering image-zone highlights, diplomatic/eclectic toggles, parallel translation, and apparatus)
-13. **Module 13 (W13):** Publication II (Print & Archive) — Print-Ready Codices (Typst/PDF), Archival Packaging, & Zenodo/GitHub Releases
+| Week | Module | Focus | Cumulative Markup + ODD + Live Web View |
+| :--- | :--- | :--- | :--- |
+| **W1** | **Module 01** | **Orientation, Shell, Git, & GitHub** | Pipeline overview (1.1); FAIR, Bash, Git, & **remote GitHub push** (1.2, absorbs old 10.1). |
+| **W2** | **Module 02** | **1. Cataloguing & Schema CI** | `<teiHeader>` via shell `echo >>` (2.1); VS Code, base ODD/`msdesc.rng`, & **GitHub Actions CI** (2.2, absorbs old 10.2); AI `<msDesc>` & 3-way merge (2.3). |
+| **W3** | **Module 03** | **2. Archival Imaging & IIIF** | Physical photography/scanning (3.1); ImageMagick/GIMP & IIIF manifests (3.2); AI image enhancement & macro-layout (3.3). |
+| **W4** | **Module 04** | **3. Diplomatic Transcription & Reconciliation** | Manual paleography (`witness.xml`, 4.1); deterministic HTR/OCR (4.2); Vision LLM + **3-way reconciliation** (`transcription_reconciled.xml`, 4.3 — combines old M4 & M5). |
+| **W5** | **Module 05** | **4. Web Publication I & ODD Foundations** | Publish the diplomatic transcription + IIIF image to **GitHub Pages** (HTML/CSS/XSLT); initialize `edition.odd` documenting diplomatic elements (`<pb/>`, `<lb/>`, `<hi>`, `<unclear>`, `<gap/>`). |
+| **W6** | **Module 06** | **5. Normalization & Regularization** | *Markup*: `<choice>`, `<orig>`/`<reg>`, `<abbr>`/`<expan>`. *ODD*: enable choice elements & `@resp` constraints. *Web*: add live **Diplomatic vs. Reading View toggle**. |
+| **W7** | **Module 07** | **6. Multi-Witness Collation** | *Markup*: `<app>`, `<lem>`, `<rdg wit="...">` across the 1760–1761 Halifax Treaty exemplars. *ODD*: add `textcrit` module & closed `@wit` list. *Web*: interactive apparatus variant popovers. |
+| **W8** | **Module 08** | **7. Lemmatization & Morphology** | *Markup*: `<w @lemma @pos @msd>`, `<pc>`, `<s>` on the collated text. *ODD*: add `analysis` module & closed `<valList>` of the **17 UPOS tags**. *Web*: word-level morphology inspector on hover. |
+| **W9** | **Module 09** | **8. Named-Entity Markup** | *Markup*: `<persName>`, `<placeName>`, `<orgName>` with `@ref`. *ODD*: add `namesdates` module & `@type`/`@ref` rules. *Web*: highlighted entities with prosopography/gazetteer cards. |
+| **W10** | **Module 10** | **9. Translation & Interlinear Glossing** | *Markup*: parallel translation division & Leipzig interlinear glosses. *ODD*: `@xml:lang` and division constraints. *Web*: facing-column translation pane. |
+| **W11** | **Module 11** | **10. Dual Alignment (Text $\leftrightarrow$ Image & Text $\leftrightarrow$ Translation)** | *Markup*: `@facs` linking text/totems to IIIF `<zone>` coordinates + `<linkGrp>`/`<link>` aligning source `<s>`/`<w>` to translation. *ODD*: `linking` module rules. *Web*: synchronized image-zone & bitext highlighting. |
+| **W12** | **Module 12** | **11. Digital Scholarly Commentary** | *Markup*: `<standOff>`, `<note target="#..." type="...">`. *ODD*: closed `<valList>` for `<note/@type>` (`philological`, `historical`, `legal`). *Web*: interactive commentary notes panel. |
+| **W13** | **Module 13** | **12. Publication II (Print Codex, ODD Docs, & Archive)** | Compile final `edition.odd` into human-readable project documentation + custom `.rng`; typeset print critical edition codex (Typst/PDF); publish GitHub Release & Zenodo archival DOI. |
 
 ---
 

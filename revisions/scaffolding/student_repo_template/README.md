@@ -23,24 +23,25 @@ Every week follows the **Three-Step Comparative Cycle**:
 ├── .github/workflows/
 │   └── tei_validate.yml      # Automated GitHub Actions validation on every push
 ├── schemas/
-│   └── msdesc.rng             # Course RELAX NG schema for TEI P5 manuscript validation
+│   ├── edition.odd            # Progressive TEI ODD customization (updated weekly from Week 5)
+│   └── msdesc.rng             # Compiled RELAX NG schema for TEI P5 validation
 ├── docs/
-│   └── WORKFLOW_GUIDE.md      # Step-by-step git, validation, and submission guide
+│   └── WORKFLOW_GUIDE.md      # Step-by-step git, validation, ODD, and submission guide
 ├── LEDGER.md                  # Your personal editorial policy and settled decisions
 └── submissions/
     ├── Module_01_Orientation/    # Week 1: Witness Selection, FAIR, & Initial GitHub Commit
     ├── Module_02_Cataloguing/    # Week 2: TEI Header, Authority Control, & CI Validation
     ├── Module_03_IIIF_Imaging/   # Week 3: Archival Imaging & IIIF Manifests
     ├── Module_04_Transcription/  # Week 4: Diplomatic Transcription & 3-Way Reconciliation
-    ├── Module_05_Normalization/  # Week 5: Regularization & Word Separation (<choice>)
-    ├── Module_06_Collation/      # Week 6: Multi-Witness Collation & Apparatus (<app>/<lem>/<rdg>)
-    ├── Module_07_Lemmatization/  # Week 7: Linguistic Markup (UPOS & FEATS on collated text)
-    ├── Module_08_Named_Entities/ # Week 8: Named Entity Recognition & Prosopography
-    ├── Module_09_Translation/    # Week 9: Translation & Interlinear Glossing
-    ├── Module_10_Alignment/      # Week 10: Dual Alignment (Text-to-Image @facs & Text-to-Translation <linkGrp>)
-    ├── Module_11_Commentary/     # Week 11: Historical & Philological Commentary (<standOff>/<note>)
-    ├── Module_12_Web_Rendering/  # Week 12: HTML/CSS/XSLT Interactive Web Edition
-    └── Module_13_Publication/    # Week 13: Print-Ready Codex & GitHub/Zenodo Release
+    ├── Module_05_Web_Publication/# Week 5: Diplomatic Web Edition (GitHub Pages) & ODD Foundations
+    ├── Module_06_Normalization/  # Week 6: Regularization (<choice>), ODD Rules, & Reading View Toggle
+    ├── Module_07_Collation/      # Week 7: Multi-Witness Collation (<app>/<lem>/<rdg>), ODD @wit, & Web Apparatus
+    ├── Module_08_Lemmatization/  # Week 8: Linguistic Markup (UPOS/FEATS), Closed ODD @pos, & Hover Inspector
+    ├── Module_09_Named_Entities/ # Week 9: Named Entity Recognition, ODD @ref, & Prosopography Cards
+    ├── Module_10_Translation/    # Week 10: Translation, Interlinear Glossing, & Facing-Column View
+    ├── Module_11_Alignment/      # Week 11: Dual Alignment (Text-to-Image @facs & Text-to-Translation <linkGrp>)
+    ├── Module_12_Commentary/     # Week 12: Historical & Philological Commentary (<standOff>/<note>)
+    └── Module_13_Publication/    # Week 13: Print-Ready Codex (Typst/PDF), ODD Docs, & Zenodo Release
 ```
 
 ---
