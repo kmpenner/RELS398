@@ -17,7 +17,7 @@
                 <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
                 <span class="badge">Context: Week 9 (Named Entities) &middot; Step 3 of 3 (AI Synthesis &amp; Portfolio)</span>
-                <span class="badge">Milestone: ai_entity_parser.py + ground_truth_ai.xml + entities_merged.xml + ENTITY_AUDIT.md + Assignment 9 submission</span>
+                <span class="badge">Milestone: ground_truth_ai.xml (Antigravity) + entities_merged.xml + ENTITY_AUDIT.md submitted</span>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student runs an LLM parser in VS Code Antigravity using strict negative constraints to generate <code>ground_truth_ai.xml</code>, diffs the manual, SpaCy and AI results, audits AI entity links against live Wikidata registries, merges the best reading of each entity into <code>entities_merged.xml</code> with each choice recorded in <code>ENTITY_AUDIT.md</code>, and packages Assignment: Module 9 for Moodle submission (due 11:00 PM).
+            Each student runs the Antigravity add-on in VS Code with a prompt carrying strict negative constraints to generate <code>ground_truth_ai.xml</code>, diffs the manual, SpaCy and AI results, audits AI entity links against live Wikidata registries, merges the best reading of each entity into <code>entities_merged.xml</code> with each choice recorded in <code>ENTITY_AUDIT.md</code>, and packages Assignment: Module 9 for Moodle submission (due 11:00 PM).
         </div>
     </div>
 
@@ -50,7 +50,7 @@
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
         <p><strong>1. Manual is the default, not the winner by fiat:</strong> In the merge, Tuesday's reading stands unless the SpaCy or AI reading is better and the student can show why (archival evidence, a verified registry record). A machine that catches a real error in the manual file is the method working; record it.<br>
-        <strong>2. Strict schema and token alignment:</strong> AI-generated XML must pass TEI Relax NG schema validation and maintain 100% token alignment with the primary witness.<br>
+        <strong>2. Well-formed and word-for-word:</strong> AI-generated XML must be well-formed and keep every word of the primary witness unchanged.<br>
         <strong>3. Active link verification:</strong> Every AI-generated <code>@ref</code> link must be tested against the live Wikidata or GeoNames registry to detect invented Q-numbers.<br>
         <strong>4. Assignment submission deadline:</strong> Assignment: Module 9 (Named-Entity Markup) is due tonight, Friday, November 6, by 11:00 PM via Moodle submission.</p>
     </div>
@@ -81,16 +81,16 @@
                 <td class="time-col">9:36 &ndash; 9:46<br>(10 mins)</td>
                 <td class="activity-col">Phase 2: Live Demo<br>Prompting with Negative Constraints in VS Code</td>
                 <td class="desc-col">
-                    Demonstrate running <code>ai_entity_parser.py</code> in VS Code Antigravity. Walk through the prompt template: role definition, TEI schema examples, and explicit negative constraints (<em>"DO NOT invent Q-identifiers; record #person-001 for verified absences"</em>).<br>
-                    Show how the script validates XML output and checks token count alignment against the primary text.
+                    Demonstrate the Antigravity add-on in VS Code on a passage file. Walk through the prompt: role definition, TEI schema examples, and explicit negative constraints (<em>"DO NOT invent Q-identifiers; record #person-001 for verified absences"</em>).<br>
+                    Show how to save its proposal as <code>ground_truth_ai.xml</code>, copy the prompt into ENTITY_AUDIT.md, and check the file is well-formed.
                 </td>
-                <td class="target-col">Live scripted AI prompt run on projector</td>
+                <td class="target-col">Live Antigravity prompt run on projector</td>
             </tr>
             <tr>
                 <td class="time-col">9:46 &ndash; 9:56<br>(10 mins)</td>
                 <td class="activity-col">Phase 3: AI Pipeline Run<br>Generating ground_truth_ai.xml</td>
                 <td class="desc-col">
-                    Students execute <code>ai_entity_parser.py</code> on their primary witness excerpt and save output to <code>ground_truth_ai.xml</code>.<br>
+                    Students run the Antigravity add-on on their 10-entity passage and save output to <code>ground_truth_ai.xml</code>.<br>
                     <strong>Circulate:</strong> confirm Ace parses French revolutionary decrees with French system instructions, Olyvia resolves Maud Lewis's informal letters, and Andromeda tags the 1752 Treaty. Ensure all generated XML files pass schema validation.
                 </td>
                 <td class="target-col">Valid <code>ground_truth_ai.xml</code> generated</td>
@@ -101,7 +101,7 @@
                 <td class="desc-col">
                     Students build the Three-Way Discrepancy Matrix in <code>ENTITY_AUDIT.md</code> comparing Manual, SpaCy, and AI predictions side by side.<br>
                     Students actively test every AI authority link in a browser or via API to catch hallucinated Q-identifiers.<br>
-                    The 300–500 word methodological reflection is finished after class, before the 11:00 PM deadline; it diagnoses error taxonomy classes (OOV orthography, boundary slips, type confusion, hallucinations) and articulating the human-in-the-loop paradigm.
+                    The 150–250 word reflection is finished after class, before the 11:00 PM deadline; it diagnoses error taxonomy classes (OOV orthography, boundary slips, type confusion, hallucinations) and articulating the human-in-the-loop paradigm.
                 </td>
                 <td class="target-col">Discrepancy matrix in <code>ENTITY_AUDIT.md</code>; every AI link tested</td>
             </tr>
@@ -119,9 +119,9 @@
                 <td class="time-col">10:12 &ndash; 10:20<br>(8 mins)</td>
                 <td class="activity-col">Phase 6: Synthesis<br>Rubric Review, Packaging &amp; Submission</td>
                 <td class="desc-col">
-                    Walk through the 4 + 3 + 3 grading rubric (80 Moodle points): Manual Precision (4 pts), XML Validity (3 pts), Comparative Analysis (3 pts).<br>
+                    Walk through the 4 + 4 + 2 grading rubric (80 Moodle points): Manual identification and linking (4 pts), Merged TEI file (4 pts), Comparison and reflection (2 pts).<br>
                     Guide students to package their repository: verify all files are committed to git and ready for Moodle submission.<br>
-                    Remind students: Assignment: Module 9 is due tonight at 11:00 PM via Moodle. Preview Module 10 (Textual Consolidation).
+                    Remind students: Assignment: Module 9 is due tonight at 11:00 PM via Moodle. Preview Module 10 (Editorial Consolidation &amp; CI/CD).
                 </td>
                 <td class="target-col">Repository verified; assignment submission ready; stage gate locked</td>
             </tr>
@@ -131,9 +131,9 @@
     <div class="card">
         <h4>Cohort Differentiated Checkpoints</h4>
         <ul>
-            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Evaluate whether the LLM captured complete institutional spans (<code>&lt;orgName&gt;Comité des décrets&lt;/orgName&gt;</code>) without dropping articles. Check if royal authorities linked to valid BnF/IdRef URIs.</li>
+            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Evaluate whether the AI captured complete spans such as <code>&lt;orgName&gt;l'Assemblée Nationale&lt;/orgName&gt;</code> and <code>&lt;placeName&gt;Pays Bas autrichiens&lt;/placeName&gt;</code>, and normalized <code>31 x bre 1791</code> in <code>@when</code>. Check if royal authorities linked to valid BnF/IdRef URIs.</li>
             <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Check whether the LLM disambiguated <code>Everett</code> to Everett Lewis from context. Verify that local maritime acquaintances without records were flagged as verified absences.</li>
-            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Verify whether the LLM correctly linked <code>Chief Sachem Jean-Baptiste Cope</code> without inventing non-existent Wikidata Q-numbers. Check regnal date normalization in <code>@when</code>.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Verify whether the AI correctly linked <code>Major Jean Baptiste Cope</code> without inventing non-existent Wikidata Q-numbers. Check regnal date normalization in <code>@when</code>.</li>
         </ul>
     </div>
 

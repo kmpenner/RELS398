@@ -105,6 +105,10 @@
     - Schedule (1418426) and Syllabus (1418425) PDFs replaced.
     - Manifest refreshed.
   - **Left alone:** Modules 1–6, which are already delivered.
+- **[2026-11-05]**: **Lesson 9.3 deck and teaching plan aligned with the trimmed Module 9 brief, and the deck uploaded.**
+  - Deck: the AI step is now the Antigravity add-on in VS Code. The `ai_entity_parser.py` slide, the Python prompt block and temperature=0 are gone. Deliverables are now ENTITY_AUDIT.md (10 entities, two counts per tool, a 150-250 word reflection) plus entities_merged.xml. The rubric is now 4 + 4 + 2, and the check is well-formedness, not P/R/F1 or Relax NG. Notes rewritten for slides 6-8 and 14-16.
+  - Plan: the same fixes, Module 10 renamed to Editorial Consolidation & CI/CD, and Ace's and Andromeda's cohort checkpoints corrected to entities that are actually in their texts. lint_teaching_plan passes.
+  - Moodle: cmid 1440786 was replaced via replacefile.js and serves 84,702 bytes, matching local. The 9.1 (1440784, 92,756 bytes) and 9.2 (1440785, 92,636 bytes) decks were then replaced from dist too, and their served sizes match.
 - **[2026-10-29] Future Course Offering — Early GitHub Onboarding & Direct Submissions (Ken):**
   - **Directive:** In the next offering of RELS/ENGL 398, introduce GitHub explicitly in Week 1 / Week 2 (connecting local git in Lesson 1.2 to remote repositories / GitHub Classroom in Lesson 2.1).
   - **Submission Architecture:** Transition student assignment submissions from Moodle file attachments to GitHub repositories (commits, tags, or pull requests).
@@ -113,9 +117,10 @@
     - **Authentic DH/RSE Practice:** Enforces professional version control, clear commit histories as evidence of process, and PR-based peer review.
     - **Automated Validation Gates:** Enables GitHub Actions CI/CD to run `xmllint` against `labs/msdesc.rng` on every push, giving students immediate feedback on XML well-formedness and schema compliance before submission.
     - **Workspace Alignment:** Aligns directly with the `labs/<Student>/` repository architecture already built into the course structure.
-- **[2026-10-29] Future Course Offering — Student Anonymization & Canonical Demo Witness (Ken):**
+- **[2026-10-29 / 2026-11-05] Future Course Offering — Student Anonymization & Canonical Demo Witness (1760–1761 Halifax Treaties) (Ken):**
   - **Cohort Anonymization:** Completely anonymize lecture slides, teaching plans, and lesson content for the next offering. Remove all real student names (Ace, Olyvia, Andromeda, Jay) and replace them with generic track classifications (e.g., Track A: Legal/Diplomatic, Track B: Administrative/Continental, Track C: Vernacular/Epistolary).
-  - **Canonical Anchor Witness:** Replace the idiosyncratic 3-cohort switching during in-class lectures with a single, typical, highly standardized pedagogical witness (e.g., Early Modern English or canonical bilingual manuscript) for all teacher demonstrations. Students learn on the standardized anchor text and apply the skills to their own diverse primary witnesses in the lab.
+  - **Canonical Anchor Witness (1760–1761 Halifax Peace and Friendship Treaties):** Replace the idiosyncratic 3-cohort switching during in-class lectures with the **1760–1761 Halifax Treaties ("Burial of the Hatchet" treaties)** (Nova Scotia Archives RG 1 vol. 430 / UK National Archives CO 217; *R. v. Marshall* [1999]).
+    - **Why 1760–1761:** Multiple surviving district exemplars (LaHave, Shubenacadie/Chibenaccadie, Richibucto, Miramichi) share core boilerplate (including the "Truckhouse" clause) with real scribal variants, dates, district names, and pictographic Mi'kmaw clan totem signatures. This supports every module in the pipeline—from `<msDesc>` and IIIF `<zone>`/`<figure>` totem markup to 18th-century paleography, `<choice>` regularization, UPOS/FEATS, NER, and authentic multi-witness collation—while students apply the demonstrated methods to their own independent documents in the lab.
 
 ---
 
