@@ -200,6 +200,14 @@ Two findings worth carrying forward:
 ---
 
 ## 6. Recent Workstream Ledger
+- **[2026-11-07] Module 10 Gemini Notebook Companion Media Generated & Deployed (Ken / Antigravity):**
+  - Staged and uploaded `Lesson_10.1_part1.md`, `Lesson_10.1_part2.md`, `Lesson_10.2_part1.md`, and `Lesson_10.2_part2.md` to course NotebookLM workspace (`baa262c1-2987-4e7b-a213-9cf8dc43460b`).
+  - Generated full companion media suites via `generate_lesson_media.py`:
+    - **Lesson 10.1:** Full media suite generated: Brief audio (`brief.m4a`, 0.9 MB, 1:46), Detailed Deep Dive audio (`detailed.m4a`, 22.7 MB, 47:05), and revision infographic (`infographic.jpg`, 244 KB, 1600px).
+    - **Lesson 10.2:** Full media suite generated: Brief audio (`brief.m4a`, 0.9 MB, 1:48), Detailed Deep Dive audio (`detailed.m4a`, 26.8 MB, 55:33), and validation diagram infographic (`infographic.jpg`, 244 KB, 1600px).
+  - Deployed to live Moodle Course 51185 Section 10 (id 639808):
+    - `Lesson 10.1: Infographic` (`cmid 1449289`), `Lesson 10.1 Brief Audio Overview` (`cmid 1449290`), and `Lesson 10.1 Detailed Audio Discussion` (`cmid 1449293`) positioned before `Lesson 10.1: Interactive Quiz`.
+    - `Lesson 10.2: Infographic` (`cmid 1449291`), `Lesson 10.2 Brief Audio Overview` (`cmid 1449292`), and `Lesson 10.2 Detailed Audio Discussion` (`cmid 1449294`) positioned before `Lesson 10.2: Interactive Quiz`.
 - **[2026-10-29]**: **Decks 8.3 and 9.1-9.3 corrected; 8.3 live; Ace's Module 8 worked deliverables added.**
   - The fixes follow `AUDIT_SLIDES_2026-10-29.md`. They include the wrong Wikidata IDs in 9.1, the 9.2 EntityRuler patterns (now verified to match), and the lyrics removed from 8.3 and 9.1.
   - The 8.3 slides resource is **cmid 1444141**, not 1440750 (that id returns 404). The file was replaced on Moodle and the served size matches the local file. The 9.x decks (cmids 1440784-1440786) are fixed locally only and not yet uploaded.
