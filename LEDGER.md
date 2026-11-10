@@ -670,4 +670,23 @@ Two findings worth carrying forward:
 - **[2026-10-27] Settled (Ken): unattempted quizzes count as zero.** cg70425 "exclude empty grades" turned off. Quizzes for Modules 8-13 stay in `Upcoming` (cg70388), so they do not count until they are moved into cg70425 as they come due. **Move each module's quizzes when its week ends** (`gbmove.js`, e.g. `[["ig257650",70425],...]`). Quizzes have no close dates in Moodle. Running totals: Ace 82.35, Andromeda 26.35, Olyvia 13.50 (below her 14.0 before any quiz weighting). Syllabus wording updated and recompiled.
 - **[2026-10-27] Settled (Ken): leave as is.** Olyvia's total drops below her pre-weighting 14.0; Ken declined a carve-out or override.
 - **[2026-11-09] Module 10 Infographics Deployed:** Generated and saved lesson infographics for Lessons 10.1 and 10.2 (`infographic.jpg` in `src/` and `dist/moodle/`).
+- **[2026-11-09] Lesson 10.1 Live Demonstration Repository Prepared (`rels-398-demo`)**:
+  - Prepared standalone demonstration repository at `398/demo/` (symlinked to `~/projects/rels-398-demo`) and published to GitHub at `https://github.com/kmpenner/rels-398-demo`.
+  - Staged canonical TEI P5 witness edition (`witness.xml`) for the Maud Lewis letter (1967-02-13), linking high-resolution facsimile scan (`letter.jpg`), vendoring `msdesc.rng`, and validating 100% clean with `xmllint --noout` and Relax NG.
+  - Added `.github/PULL_REQUEST_TEMPLATE.md` with pre-flight checklists (manuscript evidence, authority IDs, syntax gate).
+  - Added structured `.github/ISSUE_TEMPLATE/` (`paleographical_query.md`, `schema_defect.md`) and Friday CI preview workflow (`.github/workflows/validate.yml`).
+  - Authored complete instructor cheatsheet in `DEMO_WALKTHROUGH.md` matching classroom schedule (8:30–9:20 AM in MULH 3032), outlining exact commands for remote checking, creating `feature/date-audit`, opening PR, triggering merge conflict, performing editorial synthesis, running syntax gate, and committing resolution.
+  - Included automated `reset_demo.sh` script to reset repository cleanly for rehearsals and live presentation. Added `demo/` to `398/.gitignore`.
+  - Rebuilt Lesson 10.1 projection slide deck (`Lesson_10.1_Slides_2026-11-10.pptx` and `.pdf` in `src/` and `dist/moodle/`) via `scratch/build_slides_10.1.py`:
+    - Slide 8 updated with real clone and remote configuration for `https://github.com/kmpenner/rels-398-demo.git`.
+    - Slide 13 aligned with `witness.xml` line 65 inline review comment on proposed date audit.
+    - Slide 14 aligned with HEAD vs `feature/date-audit` conflict delimiters and synthesis markup.
+    - Slide 15 updated with Workshop 10 deliverable checklist (`CONSOLIDATION.md`, merge commit hash, validation output).
+    - Preserved 100% compliance with >=16pt font floor and 80–120 word speaker notes band across all 15 slides.
+- **[2026-11-10] Switched `rels-398-demo` and Lesson 10.1 Slides to Ace's 1791 French Revolutionary Decree (`BL Zweig MS 169`)**:
+  - Updated `398/demo/` and pushed commit `71006bb` to `https://github.com/kmpenner/rels-398-demo`: replaced Maud Lewis witness (`letter.jpg`) with Ace Long's Louis XVI decree (`decree.jpg`), rebuilt `witness.xml` from `labs/Ace/transcription_regularized.xml` + all 10 verified named entities (`labs/Ace/ENTITY_AUDIT.md`), added `<revisionDesc>`, and verified 100% valid against `xmllint --noout`, `msdesc.rng`, and GitHub Actions CI (`4280503...` passed).
+  - Updated `DEMO_WALKTHROUGH.md` and `reset_demo.sh` to stage the real `feature/french-entities` conflict on line 113 (`wikidata:Q780457` Legislative Assembly vs `wikidata:Q876424` Constituent Assembly, grounded in `31 xbre 1791` = December 31 on line 115).
+  - Rebuilt `Lesson_10.1_Slides_2026-11-10.pptx` and `.pdf` (in `src/` and `dist/moodle/`) via `scratch/build_slides_10.1.py` with Ace's decree examples on Slides 13–15 and expanded code/card heights verified by 150 DPI `pdftoppm` visual proof; updated `deck_kit.py` with `oo_convert.sh` PDF fallback. Re-authenticated Moodle via SAML SSO (`auth/saml2/login.php`) and deployed updated deck in place to Moodle `cmid 1440806` (`replacefile.js`), verified served size matches local build (`79,615` bytes).
+
+
 
