@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELS 398 / ENGL 398 &mdash; Lesson 10.2 Teaching Plan (2026-11-13)</title>
+    <link rel="stylesheet" href="../../../../shared/teaching-plans/teaching_plan.css">
+</head>
+<body>
+
+    <div class="header-box">
+        <div class="header-title">
+            <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
+            <h1>Instructor Teaching Plan: Meeting #27 (Lesson 10.2 &mdash; Receiving a Pull Request)</h1>
+            <div class="meta-badges">
+                <span class="badge">Date: Friday, November 13, 2026</span>
+                <span class="badge">Time: 9:30 &ndash; 10:20 AM (50 mins)</span>
+                <span class="badge">Room: MULH 3032</span>
+                <span class="badge">Context: Week 10 (Consolidation) &middot; Meeting 2 of 2</span>
+                <span class="badge">Milestone: Pull request reviewed and merged; conflict resolved; validation sweep clean</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-banner">
+        <div>
+            <strong>PEDAGOGICAL ENTRY STATE AUDIT:</strong><br>
+            On Tuesday (10.1) the class met the git vocabulary and connected repositories to GitHub as <code>origin</code>. The session ran short: it ended at the moment Ace received a pull request notification. Nobody has yet reviewed or merged a pull request, brought a merge back to the laptop, or resolved a merge conflict. Expect the vocabulary to be half-remembered; the recap on slide 4 is there to fix that, not to reteach it.
+        </div>
+        <div>
+            <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
+            Using Ace's waiting pull request as the live example, walk through the owner's four steps (read, review, decide, merge) and the routine that follows every merge (<code>checkout main</code>, <code>fetch origin</code>, <code>merge origin/main</code>, <code>log</code>). Then every student makes and resolves a conflict in their own repository and runs <code>xmllint --noout</code> on every TEI file, so that most of the Module 10 assignment is finished before they leave.
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Before Class (5 minutes)</h4>
+        <ul>
+            <li>Confirm Ace's pull request is still open and note whether GitHub reports conflicts; if it has been merged or closed, open a one-line pull request on a teaching repository to use instead.</li>
+            <li>Ask Ace beforehand whether she is willing to drive on the projector; if not, drive from her repository yourself with her permission.</li>
+            <li>Have the manuscript image for the changed line open in a second tab.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
+        <ul>
+            <li><strong>Kraftwerk, &ldquo;Autobahn&rdquo;</strong> (1974, Philips / Vertigo). Built on a steady, repeating machine rhythm.</li>
+            <li><strong>Pedagogical connection:</strong> Git collaboration is a small set of moves repeated the same way every time. A pull request is a car at the on-ramp: it joins main only when the owner lets it in.</li>
+            <li><strong>Springboard at minute 0:</strong> &ldquo;On Tuesday Ace got a pull request. Nothing in her edition has changed yet. Today we learn what the owner does next.&rdquo;</li>
+        </ul>
+    </div>
+
+    <div class="requirement-callout">
+        <h3>THE OBJECTIVE: THE PULL REQUEST AS AN EDITORIAL DECISION</h3>
+        <p>A pull request is a proposal, not a change. Main changes only at the merge, and only after someone has read the changed lines against the manuscript image. When two readings collide, Git refuses to guess and hands the decision back to the editor, who resolves it from evidence and records the choice in a commit.</p>
+    </div>
+
+    <div class="caution-callout">
+        <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
+        <p><strong>1. Review against the image:</strong> Every changed reading in Files changed is checked against the facsimile, not memory.<br>
+        <strong>2. Fixes go on the same branch:</strong> An author answers review comments with add, commit and push on the existing branch, never a second pull request.<br>
+        <strong>3. Bring every merge home:</strong> After any merge on GitHub, run checkout main, fetch, merge and log before starting new work.<br>
+        <strong>4. No leftover markers:</strong> A resolved file contains no conflict markers and passes <code>xmllint --noout</code>.<br>
+        <strong>5. Module 10 assignment deadline:</strong> Due tonight, Friday, November 13, at 11:00 PM: merge commit hash, validation output, and a 100&ndash;150 word note in <code>CONSOLIDATION.md</code>.</p>
+    </div>
+
+    <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="time-col">Time</th>
+                <th class="activity-col">Phase &amp; Activity</th>
+                <th class="desc-col">Pedagogical Purpose &amp; Instructor Action</th>
+                <th class="target-col">Output Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-col">9:30 &ndash; 9:37<br>(7 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Where We Stopped (slides 1&ndash;4)</td>
+                <td class="desc-col">
+                    Slide 3: pick up exactly where Tuesday ended. Ask: <em>&ldquo;Has anything in Ace's main changed yet?&rdquo;</em> (No: the request is waiting.)<br>
+                    Slide 4: two-minute recap. Point to a word, students say what it does. Places: repository, main, branch, remote, origin, fork. Moves: clone, add, commit, push, fetch, checkout, merge, log.
+                </td>
+                <td class="target-col">Shared starting point; vocabulary refreshed</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:37 &ndash; 9:49<br>(12 mins)</td>
+                <td class="activity-col">Phase 2: Live Walkthrough<br>Handling Ace's Pull Request (slides 5&ndash;8)</td>
+                <td class="desc-col">
+                    <strong>Read</strong> (slide 5): open the pull request; read title and description; check the direction line (base main &larr; compare branch); tour Conversation, Commits, Checks, Files changed.<br>
+                    <strong>Review</strong> (slide 6): in Files changed, read one red/green pair against the image; leave one inline comment and one suggestion.<br>
+                    <strong>Decide</strong> (slide 7): Review changes &rarr; Approve (or Request changes, if the reading is wrong; then show the author pushing a fix to the same branch).<br>
+                    <strong>Merge</strong> (slide 8): Merge pull request &rarr; Confirm; delete the branch. If GitHub reports conflicts, stop and say we will resolve one together in a moment.
+                </td>
+                <td class="target-col">Ace's pull request reviewed and merged on GitHub</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:49 &ndash; 9:55<br>(6 mins)</td>
+                <td class="activity-col">Phase 3: Demo<br>Bring the Merge Home; Read a Conflict (slides 9&ndash;10)</td>
+                <td class="desc-col">
+                    Slide 9, on Ace's laptop: <code>git checkout main</code>, <code>git fetch origin</code>, <code>git merge origin/main</code>, <code>git log --oneline -3</code>. The merge commit appears at the top. Say once: <code>git pull</code> is fetch plus merge.<br>
+                    Slide 10: the three markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch</code>) and the four-step fix: compare with the image, keep one reading, delete the markers, validate and commit.
+                </td>
+                <td class="target-col">Local main matches origin; markers understood</td>
+            </tr>
+            <tr>
+                <td class="time-col">9:55 &ndash; 10:12<br>(17 mins)</td>
+                <td class="activity-col">Phase 4: Lab<br>Module 10 Assignment in the Room (slide 11)</td>
+                <td class="desc-col">
+                    Each student, in their own repository: <code>git checkout -b fix/one-reading</code>, change one line, commit; <code>git checkout main</code>, change the same line differently, commit; <code>git merge fix/one-reading</code> to raise the conflict; resolve from the image; add, commit, push.<br>
+                    Then <code>xmllint --noout</code> on every .xml file, <code>git log -1</code> for the hash, and start <code>CONSOLIDATION.md</code>.<br>
+                    <strong>Circulate:</strong> leftover markers, editing on the wrong branch (check <code>git status</code>), forgetting to push.
+                </td>
+                <td class="target-col">Resolved, pushed merge commit; 0 validation errors</td>
+            </tr>
+            <tr>
+                <td class="time-col">10:12 &ndash; 10:20<br>(8 mins)</td>
+                <td class="activity-col">Phase 5: Synthesis<br>CI Preview &amp; Wrap-Up (slides 12&ndash;13)</td>
+                <td class="desc-col">
+                    Slide 12 (2 mins): <code>validate.yml</code> as a preview only. It would show a tick or cross in the Checks tab; it is not part of tonight's assignment.<br>
+                    Slide 13: retell the full cycle in one breath; run the before-you-leave checklist; assignment due 11:00 PM tonight. Next week: the publication phase.
+                </td>
+                <td class="target-col">Cycle summarized; deadline confirmed</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="card">
+        <h4>If Time Runs Short</h4>
+        <ul>
+            <li>Shorten slide 4 to one minute and skip the suggestion on slide 6; do not cut the lab below 15 minutes.</li>
+            <li>Drop slide 12 entirely; it is a preview.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Cohort Differentiated Checkpoints</h4>
+        <ul>
+            <li><strong>Ace (1791 French Revolutionary decree):</strong> Her pull request is the live example. Check that she reviews against the image, merges, and brings main home. A natural conflict line: the <code>x bre</code> date expansion (d&eacute;cembre).</li>
+            <li><strong>Olyvia (1967 Maud Lewis letter):</strong> Conflict on a <code>&lt;date @when&gt;</code> value; check the note cites the postmark or letter evidence.</li>
+            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Conflict on a <code>&lt;placeName&gt;</code> reading; check no markers remain and every file passes <code>xmllint --noout</code>.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>Moved Out of This Meeting</h4>
+        <ul>
+            <li>GitHub Actions <code>validate.yml</code> lab, Schematron rules, <code>xml-model</code> association, validation tiers, and branch protection (previewed on slide 12 only).</li>
+            <li>The four-layer peer review exchange (Ace &rarr; Olyvia &rarr; Andromeda &rarr; Ace). Not yet rescheduled.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

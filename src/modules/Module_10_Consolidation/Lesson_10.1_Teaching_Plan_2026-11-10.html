@@ -11,13 +11,13 @@
     <div class="header-box">
         <div class="header-title">
             <h2>RELS 398.10 / ENGL 398.10 &middot; Digital Methods for Historical Documents</h2>
-            <h1>Instructor Teaching Plan: Meeting #26 (Lesson 10.1 &mdash; Collaborative Git Workflows for Digital Textual Scholarship)</h1>
+            <h1>Instructor Teaching Plan: Meeting #26 (Lesson 10.1 &mdash; The Working Vocabulary of Git)</h1>
             <div class="meta-badges">
                 <span class="badge">Date: Tuesday, November 10, 2026</span>
                 <span class="badge">Time: 8:30 &ndash; 9:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
                 <span class="badge">Context: Week 10 (Consolidation) &middot; Meeting 1 of 2</span>
-                <span class="badge">Milestone: GitHub Remotes, Feature Branch, PR, &amp; Conflict Adjudication</span>
+                <span class="badge">Milestone: Git vocabulary; repository on GitHub; one branch pushed</span>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student connects their local repository to GitHub (<code>origin</code> and <code>upstream</code>), creates a feature branch, submits a Pull Request using <code>PULL_REQUEST_TEMPLATE.md</code>, simulates and resolves a deliberate merge conflict in VS Code, and verifies <code>xmllint --noout</code> with zero errors.
+            Each student can say what each of thirteen git words does and when to use it (clone, remote, origin, fork, main, branch, checkout, add, commit, push, fetch, merge, log), connects their local repository to GitHub as <code>origin</code>, and pushes one branch with one commit. Pull requests, merging, and conflicts move to Friday (10.2).
         </div>
     </div>
 
@@ -44,16 +44,16 @@
 
     <div class="requirement-callout">
         <h3>THE COLLABORATION OBJECTIVE: PEER REVIEW AS SCHOLARLY APPARATUS</h3>
-        <p>A digital scholarly edition is not an isolated desktop document. Today we introduce GitHub remote workflows. A Pull Request is not merely a code-review tool; it functions as a living apparatus criticus where scholars debate readings and provide evidence before adopting text into the master edition.</p>
+        <p>A digital scholarly edition is not an isolated desktop document. Today we learn the working vocabulary of git: thirteen words, each with a clear time and place of use. With that vocabulary in hand, Friday's pull request, merge, and conflict work becomes a sequence of familiar moves rather than a set of mysteries.</p>
     </div>
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
         <p><strong>1. Main branch protection:</strong> Never commit experimental draft markup directly to the main branch. All new work must occur on descriptive feature branches.<br>
-        <strong>2. Fork-and-pull governance:</strong> Use personal forks to draft changes; submit Pull Requests to the shared upstream repository.<br>
-        <strong>3. Syntax gate after merge:</strong> Immediately after editing a merge conflict in VS Code, running <code>xmllint --noout</code> is mandatory before staging to ensure no conflict markers survive.<br>
-        <strong>4. Descriptive PR titles and checklists:</strong> Every Pull Request must include a clear summary, manuscript image reference, and verification checklist.<br>
-        <strong>5. Module 10 assignment alignment:</strong> Today's hands-on conflict resolution prepares students for Assignment: Module 10 (Consolidation &amp; CI/CD), due Friday, November 13, at 11:00 PM.</p>
+        <strong>2. One step, one commit:</strong> Commit a finished step with <code>add</code> then <code>commit -m</code> and a message that says why.<br>
+        <strong>3. Validate before commit:</strong> Run <code>xmllint --noout</code> before staging any TEI file.<br>
+        <strong>4. Push the branch, not main:</strong> <code>git push origin &lt;branch&gt;</code>; merging into main happens through a pull request on Friday.<br>
+        <strong>5. Module 10 assignment alignment:</strong> Today's vocabulary prepares students for Friday's in-class conflict and validation work; Assignment: Module 10 is due Friday, November 13, at 11:00 PM.</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -68,63 +68,47 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>From Solitary Editor to Community</td>
-                <td class="desc-col">
-                    Welcome students. Review the nine-week milestone: teiHeader, facsimile, transcription, reconciliation, regularization, reading stylesheets, lemmatization, and named entities.<br>
-                    Note the schedule: Wednesday is Remembrance Day (no class). Today we transition from local Git to GitHub collaboration.
-                </td>
-                <td class="target-col">Class orientation; week 10 roadmap</td>
-            </tr>
-            <tr>
-                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>Remotes, Branches, and PR Apparatus</td>
-                <td class="desc-col">
-                    Demonstrate on projector: configuring <code>origin</code> and <code>upstream</code> remotes via <code>git remote -v</code>.<br>
-                    Show creating a feature branch: <code>git checkout -b feature/date-audit</code>. Push to GitHub and open a Pull Request using the pre-flight template.
-                </td>
-                <td class="target-col">Live terminal and GitHub demonstration</td>
-            </tr>
-            <tr>
-                <td class="time-col">8:46 &ndash; 8:56<br>(10 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Connecting Remotes &amp; Opening a PR</td>
-                <td class="desc-col">
-                    Students verify remote connections in their VS Code terminal.<br>
-                    Each student creates a feature branch for their witness (e.g. <code>feature/french-entities</code>, <code>feature/maud-lewis-dates</code>, <code>feature/treaty-places</code>), makes a minor refinement, and opens a Pull Request on GitHub.
-                </td>
-                <td class="target-col">Active Pull Request on GitHub</td>
-            </tr>
-            <tr>
-                <td class="time-col">8:56 &ndash; 9:12<br>(16 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>Simulating and Resolving a Conflict</td>
-                <td class="desc-col">
-                    Instructor guides a controlled conflict simulation: students edit line 20 on their feature branch and simulate concurrent edits on main.<br>
-                    Trigger the merge conflict: <code>git merge feature/...</code>. Inspect conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) in VS Code.<br>
-                    Guide students to synthesize both contributions by hand and run <code>xmllint --noout witness.xml</code>.
-                </td>
-                <td class="target-col">Resolved merge conflict; 0 syntax errors</td>
-            </tr>
-            <tr>
-                <td class="time-col">9:12 &ndash; 9:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Merge Commit &amp; Friday Preview</td>
-                <td class="desc-col">
-                    Guide students to stage and commit the resolution: <code>git commit -m "Merge branch feature/...: synthesize date attributes"</code>.<br>
-                    Confirm all local repositories are clean and pushed to GitHub.<br>
-                    Preview Friday: <em>&ldquo;On Friday we write automated GitHub Actions to test our editions on every push and conduct an in-class peer review exchange.&rdquo;</em>
-                </td>
-                <td class="target-col">Committed merge resolution; stage gate locked</td>
-            </tr>
-        </tbody>
+<tr>
+<td class="time-col">8:30 &ndash; 8:38<br>(8 mins)</td>
+<td class="activity-col">Phase 1: Framing<br>From Solitary Editor to Community</td>
+<td class="desc-col">Slides 1&ndash;4. Nine-week milestone; Wednesday is Remembrance Day (no class). Why emailing files fails and a shared history works.</td>
+<td class="target-col">Class orientation; week 10 roadmap</td>
+</tr>
+<tr>
+<td class="time-col">8:38 &ndash; 8:50<br>(12 mins)</td>
+<td class="activity-col">Phase 2: Concepts<br>Commits, Remotes, Forks</td>
+<td class="desc-col">Slides 5&ndash;8. <code>commit</code> and <code>log</code> as the history; local vs <code>origin</code>; <code>push</code> and <code>fetch</code>; shared write vs <code>fork</code>; <code>clone</code>, <code>remote -v</code>, <code>remote add upstream</code>, <code>fetch</code> + <code>merge</code>.</td>
+<td class="target-col">Places and moves distinguished</td>
+</tr>
+<tr>
+<td class="time-col">8:50 &ndash; 8:58<br>(8 mins)</td>
+<td class="activity-col">Phase 3: Branches<br>main, branch, checkout; Which Command When</td>
+<td class="desc-col">Slides 9&ndash;10. Why not work on <code>main</code>; <code>checkout -b</code> and <code>checkout main</code>; branch name prefixes. Sort the thirteen words into once-per-project and every-session.</td>
+<td class="target-col">Vocabulary sorted by use</td>
+</tr>
+<tr>
+<td class="time-col">8:58 &ndash; 9:15<br>(17 mins)</td>
+<td class="activity-col">Phase 4: Lab<br>Connect, Branch, Commit, Push</td>
+<td class="desc-col">Slide 11. Each student checks <code>git remote -v</code>, starts a branch, makes one small correction, runs <code>xmllint --noout</code>, adds, commits with a reason, pushes the branch, and confirms it on GitHub with <code>git log --oneline -3</code>.<br><strong>Circulate:</strong> authentication prompts, committing on main by mistake.</td>
+<td class="target-col">One pushed branch per student</td>
+</tr>
+<tr>
+<td class="time-col">9:15 &ndash; 9:20<br>(5 mins)</td>
+<td class="activity-col">Phase 5: Synthesis<br>Friday Preview</td>
+<td class="desc-col">Preview Friday: what to do when a pull request arrives, merging, bringing main home, resolving a conflict. Module 10 assignment due Fri Nov 13, 11:00 PM.</td>
+<td class="target-col">Stage gate locked</td>
+</tr>
+</tbody>
     </table>
 
     <div class="card">
         <h4>Cohort Differentiated Checkpoints</h4>
         <ul>
-            <li><strong>Ace (1791 French Revolutionary Decree):</strong> Verify remote tracking on <code>origin</code>; test resolving concurrent edits on National Assembly deputy titles in <code>&lt;orgName&gt;</code>.</li>
-            <li><strong>Olyvia (1967 Maud Lewis Letters):</strong> Check feature branch naming: <code>feature/maud-lewis-dates</code>; synthesize conflicting date estimates (e.g. <code>when="1967-02-13"</code> vs <code>cert="medium"</code>).</li>
-            <li><strong>Andromeda (1752 Peace and Friendship Treaty):</strong> Verify pull request description includes treaty article citations; resolve overlapping toponym annotations in <code>&lt;placeName&gt;</code>.</li>
-        </ul>
+<li><strong>Ace:</strong> Branch <code>fix/date-expansion</code>; one correction to the <code>x bre</code> expansion.</li>
+<li><strong>Olyvia:</strong> Branch <code>fix/maud-lewis-dates</code>; one <code>@when</code> correction.</li>
+<li><strong>Andromeda:</strong> Branch <code>fix/treaty-places</code>; one <code>&lt;placeName&gt;</code> correction.</li>
+<li><strong>Note (2026-11-11):</strong> As taught on Nov 10, the class reached Ace receiving a pull request; PR handling, merging, and conflicts were moved to 10.2.</li>
+</ul>
     </div>
 
 </body>
