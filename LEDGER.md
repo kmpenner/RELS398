@@ -122,6 +122,11 @@
   - **Cohort Anonymization:** Completely anonymize lecture slides, teaching plans, and lesson content for the next offering. Remove all real student names (Ace, Olyvia, Andromeda, Jay) and replace them with generic track classifications (e.g., Track A: Legal/Diplomatic, Track B: Administrative/Continental, Track C: Vernacular/Epistolary).
   - **Canonical Anchor Witness (1760–1761 Halifax Peace and Friendship Treaties):** Replace the idiosyncratic 3-cohort switching during in-class lectures with the **1760–1761 Halifax Treaties ("Burial of the Hatchet" treaties)** (Nova Scotia Archives RG 1 vol. 430 / UK National Archives CO 217; *R. v. Marshall* [1999]).
     - **Why 1760–1761:** Multiple surviving district exemplars (LaHave, Shubenacadie/Chibenaccadie, Richibucto, Miramichi) share core boilerplate (including the "Truckhouse" clause) with real scribal variants, dates, district names, and pictographic Mi'kmaw clan totem signatures. This supports every module in the pipeline—from `<msDesc>` and IIIF `<zone>`/`<figure>` totem markup to 18th-century paleography, `<choice>` regularization, UPOS/FEATS, NER, and authentic multi-witness collation—while students apply the demonstrated methods to their own independent documents in the lab.
+- **[2026-11-06 / 2026-11-13] Future Course Offering — 100% Open Access Reading Spine (Ken):**
+  - Acquired and verified two Open Access volumes co-edited by Laura Estill (StFX) and Ray Siemens (UVic) into `raw/readings/`:
+    1. *The Companion to Digital Humanities in Practice*, ed. Constance Crompton, Laura Estill, Richard J. Lane, and Ray Siemens (Routledge, Nov. 2025; CC BY-NC-ND 4.0, DOI: `10.4324/9781003327677`).
+    2. *The Past, Present, and Future of Early Modern Digital Studies: Iter at 25* (*NTMRS* 11), ed. Laura Estill and Ray Siemens (Iter Press, 2023; CC BY-NC 4.0).
+  - Extracted 18 chapter slices via `pypdf.PdfWriter()` page-by-page rebuilds into `raw/readings/Module_*/` and mapped the full 13-week Open Access reading schedule in [`revisions/REVISION_PLAN.md`](file:///home/kmpenner/projects/RELS/398/revisions/REVISION_PLAN.md).
 
 ---
 
