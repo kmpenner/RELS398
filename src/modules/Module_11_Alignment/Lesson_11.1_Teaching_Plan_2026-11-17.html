@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student opens a two-column split editor in VS Code, numbers ten parallel sentences with <code>xml:id</code> attributes, constructs a valid TEI <code>&lt;linkGrp&gt;</code> standoff block, and authors a complete four-line Leipzig interlinear gloss for three chosen sentences.
+            Each student first authors a 10-sentence parallel target text (<code>target_translation.xml</code>&mdash;interlingual English for French, or intralingual modern plain language for historical/vernacular English), opens a two-column split editor in VS Code, constructs a valid TEI <code>&lt;linkGrp&gt;</code> standoff block (<code>alignment_manual.xml</code>), and authors a complete four-line Leipzig interlinear gloss for three chosen sentences (<code>gloss_manual.xml</code>).
         </div>
     </div>
 
@@ -49,11 +49,12 @@
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Use VS Code split editor:</strong> Keep source text on the left pane and translation on the right pane (<code>View &gt; Editor Layout &gt; Two Columns</code>) to prevent cognitive overload.<br>
-        <strong>2. Standoff linking only:</strong> Never paste modern translations directly into the historical manuscript XML tree; preserve both files and link them via <code>&lt;linkGrp&gt;</code>.<br>
-        <strong>3. The hash mark prefix:</strong> Every ID inside a <code>@target</code> attribute must be preceded by a hash mark (<code>target="#s1 #t1"</code>).<br>
-        <strong>4. Strict Leipzig Rule 2:</strong> Use hyphens (<code>-</code>) only for visible morpheme cuts; use periods (<code>.</code>) for fused grammatical categories (e.g. <code>DEF.SG</code> or <code>3SG.PST</code>).<br>
-        <strong>5. Tuesday ground truth baseline:</strong> Today's hand-crafted files (<code>alignment_manual.xml</code> and <code>gloss_manual.xml</code>) establish the gold standard used to audit Wednesday's automated tools and Friday's AI output.</p>
+        <p><strong>1. Produce the target text first (Step 0):</strong> You cannot align a translation that does not exist yet. Draft <code>target_translation.xml</code> (interlingual translation or intralingual modern rendering) before writing any links.<br>
+        <strong>2. Use VS Code split editor:</strong> Keep source text on the left pane and <code>target_translation.xml</code> on the right pane (<code>View &gt; Editor Layout &gt; Two Columns</code>) to prevent cognitive overload.<br>
+        <strong>3. Standoff linking only:</strong> Never paste modern translations directly into the historical manuscript XML tree; preserve both files and link them via <code>&lt;linkGrp&gt;</code>.<br>
+        <strong>4. The hash mark prefix:</strong> Every ID inside a <code>@target</code> attribute must be preceded by a hash mark (<code>target="#s1 #t1"</code>).<br>
+        <strong>5. Strict Leipzig Rule 2:</strong> Use hyphens (<code>-</code>) only for visible morpheme cuts; use periods (<code>.</code>) for fused grammatical categories (e.g. <code>DEF.SG</code> or <code>3SG.PST</code>).<br>
+        <strong>6. Tuesday ground truth baseline:</strong> Today's hand-crafted files (<code>target_translation.xml</code>, <code>alignment_manual.xml</code>, and <code>gloss_manual.xml</code>) establish the gold standard used to audit Wednesday's automated tools and Friday's AI output.</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -69,37 +70,46 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time-col">8:30 &ndash; 8:36<br>(6 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>From Facing Pages to Digital Bitexts</td>
+                <td class="time-col">8:30 &ndash; 8:35<br>(5 mins)</td>
+                <td class="activity-col">Phase 1: Framing<br>Interlingual &amp; Intralingual Bitexts</td>
                 <td class="desc-col">
                     Welcome students. Contrast traditional print facing-page editions with digital parallel bitexts.<br>
-                    Explain why alignment matters: holding editors accountable and creating interactive reading tools.
+                    Distinguish <strong>interlingual</strong> bitexts (French &rarr; English) from <strong>intralingual</strong> bitexts (historical/vernacular English &rarr; modern plain English).
                 </td>
-                <td class="target-col">Orientation to Topic 11; three-step cycle framing</td>
+                <td class="target-col">Orientation to Topic 11; interlingual vs. intralingual framing</td>
             </tr>
             <tr>
-                <td class="time-col">8:36 &ndash; 8:46<br>(10 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>Split Editor &amp; TEI Standoff Linking</td>
+                <td class="time-col">8:35 &ndash; 8:44<br>(9 mins)</td>
+                <td class="activity-col">Phase 2: Live Demo<br>Target Text Prep, Split Editor &amp; <code>&lt;linkGrp&gt;</code></td>
                 <td class="desc-col">
-                    Demonstrate on projector: opening two files side by side in VS Code via <code>Cmd+\</code> or menu.<br>
-                    Show how to wrap sentences in <code>&lt;s xml:id="s1"&gt;</code> and <code>&lt;s xml:id="t1"&gt;</code>.<br>
-                    Write a clean <code>&lt;linkGrp type="translation-alignment"&gt;</code> with <code>&lt;link target="#s1 #t1"/&gt;</code> in <code>&lt;standOff&gt;</code>.
+                    Demonstrate drafting <code>target_translation.xml</code> sentence by sentence and opening both files side by side in VS Code via <code>Cmd+\</code>.<br>
+                    Show how to wrap sentences in <code>&lt;s xml:id="s1"&gt;</code> and <code>&lt;s xml:id="t1"&gt;</code>, and write a clean <code>&lt;linkGrp type="translation-alignment"&gt;</code> with <code>&lt;link target="#s1 #t1"/&gt;</code> in <code>&lt;standOff&gt;</code>.
                 </td>
-                <td class="target-col">Projector demo of two-column layout &amp; link markup</td>
+                <td class="target-col">Projector demo of target prep, split layout &amp; link markup</td>
             </tr>
             <tr>
-                <td class="time-col">8:46 &ndash; 8:58<br>(12 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Sentence Alignment by Hand</td>
+                <td class="time-col">8:44 &ndash; 8:53<br>(9 mins)</td>
+                <td class="activity-col">Phase 3: Lab A (Step 0)<br>Drafting the Parallel Target Text</td>
                 <td class="desc-col">
-                    Students set up their split editor with their primary witness and modern translation.<br>
-                    Each student marks ten parallel sentences with unique IDs and constructs their <code>&lt;linkGrp&gt;</code>.<br>
-                    Instructor circulates to check for missing hash marks (<code>#</code>) or 1:N sentence splits.
+                    Students select a 10-sentence passage of their primary witness and create <code>target_translation.xml</code>.<br>
+                    <strong>Ace</strong> drafts an English translation of 10 French decree sentences; <strong>Olyvia &amp; Andromeda</strong> draft 10 modernized/plain-language renderings (or parallel French).<br>
+                    Instructor circulates to verify clean <code>&lt;s xml:id="t1"&gt;</code> sentence boundaries.
+                </td>
+                <td class="target-col">10-sentence target text in <code>target_translation.xml</code></td>
+            </tr>
+            <tr>
+                <td class="time-col">8:53 &ndash; 9:03<br>(10 mins)</td>
+                <td class="activity-col">Phase 4: Lab B<br>Sentence Alignment by Hand</td>
+                <td class="desc-col">
+                    Students place their source file (left) and <code>target_translation.xml</code> (right) in VS Code Two Columns.<br>
+                    Each student encodes 10 aligned sentence pairs in a standoff <code>&lt;linkGrp&gt;</code> (including any 1:N or N:1 splits).<br>
+                    Instructor circulates to check for missing hash marks (<code>#</code>) or mismatched IDs.
                 </td>
                 <td class="target-col">10 aligned sentence pairs in <code>alignment_manual.xml</code></td>
             </tr>
             <tr>
-                <td class="time-col">8:58 &ndash; 9:12<br>(14 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>Four-Line Leipzig Glossing</td>
+                <td class="time-col">9:03 &ndash; 9:15<br>(12 mins)</td>
+                <td class="activity-col">Phase 5: Lab C<br>Four-Line Leipzig Glossing</td>
                 <td class="desc-col">
                     Introduce the four vertical tiers: surface text, morpheme breakdown, grammatical gloss, and free translation.<br>
                     Demonstrate the hyphen vs. period rule (Rule 2) using clear examples from French, colonial English, and vernacular handwriting.<br>
@@ -108,8 +118,8 @@
                 <td class="target-col">3 four-line glosses in <code>gloss_manual.xml</code></td>
             </tr>
             <tr>
-                <td class="time-col">9:12 &ndash; 9:20<br>(8 mins)</td>
-                <td class="activity-col">Phase 5: Synthesis<br>Ground Truth &amp; Wednesday Preview</td>
+                <td class="time-col">9:15 &ndash; 9:20<br>(5 mins)</td>
+                <td class="activity-col">Phase 6: Synthesis<br>Ground Truth &amp; Wednesday Preview</td>
                 <td class="desc-col">
                     Review completed glosses on student screens. Confirm all columns align vertically.<br>
                     Reassure students on their progress: <em>&ldquo;You just built a linguistic dataset that holds up to international research standards.&rdquo;</em><br>

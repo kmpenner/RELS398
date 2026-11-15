@@ -5,7 +5,7 @@
 <p>In a printed book, translations usually sit on a facing page. Readers must look back and forth across the gutter. You must guess which English phrase matches each historical word. If the translator reorders sentences, the connection becomes confusing. Printed pages cannot show exact word links.</p>
 <p>Digital editions solve this problem through <strong>translation alignment</strong>. Alignment creates explicit, clickable links between a source text and its translation. Instead of guessing, readers can click any historical sentence to see its modern translation. </p>
 <p>Alignment also holds editors accountable. Translators sometimes skip difficult phrases or smooth over strange grammar. When you link every sentence directly, all editorial decisions become visible. Nothing is hidden from the reader.</p>
-<p>Today you begin the three-step comparative cycle for text alignment. Today you will align sentences and words completely by hand. Your manual work will create the gold standard for testing automated tools tomorrow.</p>
+<p>Today you begin the three-step comparative cycle for text alignment. Before you can align two texts, you must first produce a working <strong>target text</strong> (either an interlingual translation or an intralingual modern rendering). Then you will align sentences and words completely by hand. Your manual work will create the gold standard for testing automated tools tomorrow.</p>
 <p><strong>Takeaway:</strong> Digital alignment replaces guesswork with explicit links, connecting historical sentences directly to their modern translations.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
@@ -53,13 +53,18 @@
 
 
   
-  <question type="description"><name><text>02 Content: What is a Parallel Bitext?</text></name><questiontext format="html"><text><![CDATA[
-<h3>What is a Parallel Bitext?</h3>
-<p>In computational humanities, two connected language versions are called a <strong>bitext</strong>. A bitext is not simply two files stored in the same folder. It is a single data structure that links two texts together.</p>
+  <question type="description"><name><text>02 Content: What is a Parallel Bitext? Interlingual vs. Intralingual Pairs</text></name><questiontext format="html"><text><![CDATA[
+<h3>What is a Parallel Bitext? Interlingual vs. Intralingual Pairs</h3>
+<p>In computational humanities, two connected versions of a text are called a <strong>bitext</strong>. A bitext is not simply two files stored in the same folder. It is a single data structure that links two text streams together.</p>
 <p>Every bitext contains two distinct parts:</p>
 <ul>
-<li><strong>The Source Text:</strong> The historical document in its original language (such as French, Latin, or 18th-century English).</li>
-<li><strong>The Target Text:</strong> The translation or modern reading version (usually modern English).</li>
+<li><strong>The Source Text:</strong> The historical document in its original language and spelling (such as 18th-century French, colonial legal English, or vernacular handwriting).</li>
+<li><strong>The Target Text:</strong> The parallel translation or modern reading version you author for contemporary readers.</li>
+</ul>
+<p>Depending on your historical document, your bitext takes one of two forms:</p>
+<ul>
+<li><strong>Interlingual Bitext (Across Languages):</strong> Translating a source document from one language into another—such as rendering Ace's 1791 French Revolutionary decree into modern English, or Olyvia's English letter into parallel Canadian French.</li>
+<li><strong>Intralingual Bitext (Across Registers or Eras):</strong> Rendering a historical or dialectal English text into plain, modernized English—such as translating Andromeda's 1752 legal treaty clauses or Olyvia's 1967 Maritime vernacular handwriting into contemporary prose.</li>
 </ul>
 <table>
   <thead>
@@ -88,19 +93,19 @@
   </tbody>
 </table>
 
-<p>When you build a bitext, you map historical meaning across language boundaries. You show exactly how historical expressions translate into contemporary terms.</p>
-<p><strong>Takeaway:</strong> A bitext is a paired data structure linking an original source text to its translation through explicit digital connections.</p>
+<p>When you build a bitext—whether interlingual or intralingual—you map historical meaning across linguistic or historical distance.</p>
+<p><strong>Takeaway:</strong> A parallel bitext links a historical source text to an authored target text, whether interlingual (across languages) or intralingual (across historical registers).</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>02 Question: What is a Parallel Bitext?</text>
+      <text>02 Question: What is a Parallel Bitext? Interlingual vs. Intralingual Pairs</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;What defines a parallel bitext in digital humanities and computational philology?&lt;/p&gt;</text>
+      <text>&lt;p&gt;How does an intralingual bitext differ from an interlingual bitext in digital historical editions?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;A bitext is a paired data structure linking an original source text to its translation through explicit digital connections.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A parallel bitext links a historical source text to an authored target text, whether interlingual (across languages) or intralingual (across historical registers).&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -109,57 +114,61 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;A paired data structure linking an original source text to its translation through explicit digital connections.&lt;/p&gt;</text>
+      <text>&lt;p&gt;An intralingual bitext pairs historical or dialectal prose with a modern rendering in the same language.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. A bitext consists of a source text and a target translation joined together by formal digital links.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. Intralingual alignment links two registers of one language (such as 1752 legal English to plain modern English), whereas interlingual alignment crosses languages.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;A single text file that contains only English vocabulary without any historical witness.&lt;/p&gt;</text>
+      <text>&lt;p&gt;An intralingual bitext deletes all historical spelling and keeps only a single unlinked reading version.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. A bitext always requires two language streams linked together.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. A bitext always preserves both source and target texts as separate linked streams.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Two completely unrelated books stored in separate archives that share no common themes.&lt;/p&gt;</text>
+      <text>&lt;p&gt;An intralingual bitext translates across two separate national languages, such as French into English.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. A bitext pairs an original historical text with its corresponding translation.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Crossing between two distinct languages defines an interlingual bitext, not an intralingual one.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;A physical printing press capable of printing two colors of ink at the same time.&lt;/p&gt;</text>
+      <text>&lt;p&gt;An intralingual bitext merges every translation word directly inside the manuscript XML text stream.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Bitext is a computational data concept, not a printing press mechanism.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Both interlingual and intralingual bitexts preserve clean source files via standoff linking.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
 
 
   
-  <question type="description"><name><text>03 Content: The Novice Setup in VS Code: Split Editor</text></name><questiontext format="html"><text><![CDATA[
-<h3>The Novice Setup in VS Code: Split Editor</h3>
-<p>Because you are working by hand today, Visual Studio Code offers a helpful visual feature. You do not need to switch back and forth between tabs. Instead, you can view both files side by side.</p>
-<p>To set up a side-by-side view in VS Code:</p>
+  <question type="description"><name><text>03 Content: Step 0: Producing Your Target Text &amp; Split-Editor Setup</text></name><questiontext format="html"><text><![CDATA[
+<h3>Step 0: Producing Your Target Text & Split-Editor Setup</h3>
+<p>You cannot align a translation that does not exist yet. Before writing any alignment links, you must first produce your working target file (<code>target_translation.xml</code>) for a 10-sentence passage of your primary witness.</p>
+<p>To draft a clean target text for alignment:</p>
+<ol>
+<li><strong>Read sentence by sentence:</strong> Work through your 10 chosen source sentences (<code>s1</code> through <code>s10</code>) in order, preserving their rhetorical flow.</li>
+<li><strong>Draft an accountable rendering:</strong> For non-English sources (Ace's French decree), draft a faithful modern English translation. For historical or vernacular English sources (Andromeda's 1752 Treaty or Olyvia's 1967 letter), draft a plain-language modern rendering (or a parallel French translation).</li>
+<li><strong>Save in a separate TEI file:</strong> Store your target sentences inside <code>target_translation.xml</code>—never paste translations inside your source manuscript XML.</li>
+</ol>
+<p>Once <code>target_translation.xml</code> exists, Visual Studio Code lets you view both files side by side without switching tabs:</p>
 <ol>
 <li>Open your source file (for example, <code>source_transcription.xml</code>).</li>
-<li>Go to the top menu bar and select <strong>View &gt; Editor Layout &gt; Two Columns</strong>.</li>
-<li>You can also press <code>Cmd+\</code> on macOS or <code>Ctrl+\</code> on Windows.</li>
-<li>Drag your translation file (such as <code>translation_english.xml</code>) into the right pane.</li>
+<li>Select <strong>View &gt; Editor Layout &gt; Two Columns</strong> (or press <code>Cmd+\</code> on macOS / <code>Ctrl+\</code> on Windows).</li>
+<li>Drag <code>target_translation.xml</code> into the right pane.</li>
 </ol>
-<p>Now you have your historical text on the left and your English translation on the right. You can scroll through both files simultaneously.</p>
-<p>This visual arrangement prevents mental fatigue. It allows you to inspect sentence boundaries and verify correspondences before typing any markup.</p>
-<p><strong>Takeaway:</strong> Using a two-column split editor in VS Code lets you inspect source texts and translations side by side without switching tabs.</p>
+<p>This visual arrangement prevents mental fatigue and lets you verify sentence boundaries before encoding links.</p>
+<p><strong>Takeaway:</strong> Alignment begins by drafting a separate target text file (<code>target_translation.xml</code>), then opening source and target side by side in VS Code's two-column split editor.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>03 Question: The Novice Setup in VS Code: Split Editor</text>
+      <text>03 Question: Step 0: Producing Your Target Text &amp; Split-Editor Setup</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;How do you view your source text and translation side by side in Visual Studio Code without switching tabs?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Before encoding standoff alignment links in VS Code, what Step 0 deliverable must you produce first?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Using a two-column split editor in VS Code lets you inspect source texts and translations side by side without switching tabs.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Alignment begins by drafting a separate target text file (target_translation.xml), then opening source and target side by side in VS Code's two-column split editor.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -168,27 +177,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;Select View &gt; Editor Layout &gt; Two Columns (or press Cmd+\ on macOS / Ctrl+\ on Windows) to open a split editor.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A separate TEI target file (target_translation.xml) containing your authored ten-sentence rendering.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. The split editor layout displays both files side by side, allowing simultaneous scrolling and comparison.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. You must author your target text in target_translation.xml first, then open it beside the source in VS Code Two Columns (Cmd+\ / Ctrl+\).&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Close VS Code and print both files on paper to read them on a physical desk.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A merged single-file manuscript where modern English translations are pasted inside each French tag.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. VS Code provides built-in multi-column split editor views directly in the application.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Mixing translations inside the source manuscript corrupts the XML witness.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Paste the English translation directly into the middle of the French XML file on every line.&lt;/p&gt;</text>
+      <text>&lt;p&gt;An automated neural network script that generates unreviewed translations without human comparison.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Mingling translation text into the source file corrupts the XML hierarchy.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Tuesday establishes a human-authored target text and manual alignment baseline.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Run a command in the terminal to permanently delete the translation file.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A printed paper copy of the archive catalogue showing only physical dimensions and watermarks.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. You need both files open simultaneously to perform alignment.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. You need a digital target text in VS Code to align sentences side by side.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
@@ -1497,7 +1506,7 @@ Line 4: &quot;The citizens spoke.&quot;
 <em>Line 1:</em> <em>It is agreed that the Treaty of 1726 shall be renewed.</em></p>
 <p>In colonial documents, formal modal verbs like <em>shall</em> carry legal force. When glossing historical English into a parallel modern version:</p>
 <ul>
-<li><strong>Line 1:</strong> <code>It is agree-d that the Treaty of 1726 shall be renew-ed.</code></li>
+<li><strong>Line 1:</strong> <code>It is agreed that the Treaty of 1726 shall be renewed.</code></li>
 <li><strong>Line 2:</strong> <code>it is agree-d that the treaty of 1726 shall be renew-ed</code></li>
 <li><strong>Line 3:</strong> <code>3SG.EXPL be.3SG.PRS agree-PST.PTCP COMP DEF treaty of 1726 OBLIG be renew-PST.PTCP</code></li>
 <li><strong>Line 4:</strong> <code>"It is agreed that the 1726 Treaty must be renewed."</code></li>
@@ -1729,11 +1738,12 @@ Line 4: &quot;The citizens spoke.&quot;
 
 
   
-  <question type="description"><name><text>29 Content: Creating Your Tuesday Ground Truth File</text></name><questiontext format="html"><text><![CDATA[
-<h3>Creating Your Tuesday Ground Truth File</h3>
-<p>Today in class, you will create two clean files in your personal project folder:</p>
+  <question type="description"><name><text>29 Content: Creating Your Tuesday Ground Truth Files</text></name><questiontext format="html"><text><![CDATA[
+<h3>Creating Your Tuesday Ground Truth Files</h3>
+<p>Today in class, you will create three clean files in your personal project folder:</p>
 <ol>
-<li><code>alignment_manual.xml</code>: A TEI file containing your 10-sentence passage and a standoff <code>&lt;linkGrp&gt;</code> linking source sentences to translation sentences.</li>
+<li><code>target_translation.xml</code>: Your authored 10-sentence parallel target text (English translation for French sources, or modernized/plain-language rendering for historical or vernacular English sources).</li>
+<li><code>alignment_manual.xml</code>: A TEI file containing your 10-sentence passage and a standoff <code>&lt;linkGrp&gt;</code> linking source sentences to your target sentences.</li>
 <li><code>gloss_manual.xml</code>: A clean file containing your four-line Leipzig interlinear gloss for three selected sentences.</li>
 </ol>
 <p>Take your time. Read each sentence carefully. Adjudicate every word division against your historical document.</p>
@@ -1743,10 +1753,10 @@ Line 4: &quot;The citizens spoke.&quot;
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>29 Question: Creating Your Tuesday Ground Truth File</text>
+      <text>29 Question: Creating Your Tuesday Ground Truth Files</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;What role do today's manual files (alignment_manual.xml and gloss_manual.xml) play in your semester project?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Which three manual deliverables in your project folder form Tuesday's verified human ground truth?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
       <text>&lt;p&gt;Your Tuesday manual files establish the verified human ground truth against which all algorithmic and AI tools will be measured.&lt;/p&gt;</text>
@@ -1758,27 +1768,27 @@ Line 4: &quot;The citizens spoke.&quot;
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;They establish the verified human ground truth against which all automated and AI tools will be evaluated.&lt;/p&gt;</text>
+      <text>&lt;p&gt;target_translation.xml (target text), alignment_manual.xml (linkGrp), and gloss_manual.xml (3 glosses).&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. Today's manual baseline is the gold standard used to measure the accuracy of deterministic and AI tools.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. Together, your authored target text, standoff sentence alignments, and three Leipzig glosses form Tuesday's human benchmark.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;They are temporary scratch files that should be deleted as soon as class ends.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Three temporary scratch backups meant to be deleted immediately once the Wednesday lab session starts.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. These files are essential course deliverables that benchmark the entire week's work.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. These files are permanent course deliverables used to benchmark the rest of the week's work.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;They are printed out and mailed to the National Archives in Paris.&lt;/p&gt;</text>
+      <text>&lt;p&gt;A single unlinked PDF printout, a raw camera photograph, and a blank repository configuration script.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. They remain in your project repository as local digital milestones.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Tuesday's deliverables are structured TEI XML files for your target text, sentence links, and glosses.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;They replace your final portfolio so you do not have to do any more work this term.&lt;/p&gt;</text>
+      <text>&lt;p&gt;An automated AI summary, a compiled HTML slide presentation, and an unverified library call-number log.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Today's work builds one key component of your comprehensive edition portfolio.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Tuesday is the manual baseline authored by human judgment before Wednesday and Friday tools.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>

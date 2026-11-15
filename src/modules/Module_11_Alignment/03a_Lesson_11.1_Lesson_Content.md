@@ -16,7 +16,7 @@ Digital editions solve this problem through **translation alignment**. Alignment
 
 Alignment also holds editors accountable. Translators sometimes skip difficult phrases or smooth over strange grammar. When you link every sentence directly, all editorial decisions become visible. Nothing is hidden from the reader.
 
-Today you begin the three-step comparative cycle for text alignment. Today you will align sentences and words completely by hand. Your manual work will create the gold standard for testing automated tools tomorrow.
+Today you begin the three-step comparative cycle for text alignment. Before you can align two texts, you must first produce a working **target text** (either an interlingual translation or an intralingual modern rendering). Then you will align sentences and words completely by hand. Your manual work will create the gold standard for testing automated tools tomorrow.
 
 **Takeaway:** Digital alignment replaces guesswork with explicit links, connecting historical sentences directly to their modern translations.
 
@@ -24,14 +24,19 @@ Today you begin the three-step comparative cycle for text alignment. Today you w
 
 ## **02 Content**
 
-**What is a Parallel Bitext?**
+**What is a Parallel Bitext? Interlingual vs. Intralingual Pairs**
 
-In computational humanities, two connected language versions are called a **bitext**. A bitext is not simply two files stored in the same folder. It is a single data structure that links two texts together.
+In computational humanities, two connected versions of a text are called a **bitext**. A bitext is not simply two files stored in the same folder. It is a single data structure that links two text streams together.
 
 Every bitext contains two distinct parts:
 
-* **The Source Text:** The historical document in its original language (such as French, Latin, or 18th-century English).
-* **The Target Text:** The translation or modern reading version (usually modern English).
+* **The Source Text:** The historical document in its original language and spelling (such as 18th-century French, colonial legal English, or vernacular handwriting).
+* **The Target Text:** The parallel translation or modern reading version you author for contemporary readers.
+
+Depending on your historical document, your bitext takes one of two forms:
+
+* **Interlingual Bitext (Across Languages):** Translating a source document from one language into another—such as rendering Ace's 1791 French Revolutionary decree into modern English, or Olyvia's English letter into parallel Canadian French.
+* **Intralingual Bitext (Across Registers or Eras):** Rendering a historical or dialectal English text into plain, modernized English—such as translating Andromeda's 1752 legal treaty clauses or Olyvia's 1967 Maritime vernacular handwriting into contemporary prose.
 
 <table>
   <thead>
@@ -60,30 +65,33 @@ Every bitext contains two distinct parts:
   </tbody>
 </table>
 
-When you build a bitext, you map historical meaning across language boundaries. You show exactly how historical expressions translate into contemporary terms.
+When you build a bitext—whether interlingual or intralingual—you map historical meaning across linguistic or historical distance.
 
-**Takeaway:** A bitext is a paired data structure linking an original source text to its translation through explicit digital connections.
+**Takeaway:** A parallel bitext links a historical source text to an authored target text, whether interlingual (across languages) or intralingual (across historical registers).
 
 ---
 
 ## **03 Content**
 
-**The Novice Setup in VS Code: Split Editor**
+**Step 0: Producing Your Target Text & Split-Editor Setup**
 
-Because you are working by hand today, Visual Studio Code offers a helpful visual feature. You do not need to switch back and forth between tabs. Instead, you can view both files side by side.
+You cannot align a translation that does not exist yet. Before writing any alignment links, you must first produce your working target file (`target_translation.xml`) for a 10-sentence passage of your primary witness.
 
-To set up a side-by-side view in VS Code:
+To draft a clean target text for alignment:
+
+1. **Read sentence by sentence:** Work through your 10 chosen source sentences (`s1` through `s10`) in order, preserving their rhetorical flow.
+2. **Draft an accountable rendering:** For non-English sources (Ace's French decree), draft a faithful modern English translation. For historical or vernacular English sources (Andromeda's 1752 Treaty or Olyvia's 1967 letter), draft a plain-language modern rendering (or a parallel French translation).
+3. **Save in a separate TEI file:** Store your target sentences inside `target_translation.xml`—never paste translations inside your source manuscript XML.
+
+Once `target_translation.xml` exists, Visual Studio Code lets you view both files side by side without switching tabs:
 
 1. Open your source file (for example, `source_transcription.xml`).
-2. Go to the top menu bar and select **View > Editor Layout > Two Columns**.
-3. You can also press `Cmd+\` on macOS or `Ctrl+\` on Windows.
-4. Drag your translation file (such as `translation_english.xml`) into the right pane.
+2. Select **View > Editor Layout > Two Columns** (or press `Cmd+\` on macOS / `Ctrl+\` on Windows).
+3. Drag `target_translation.xml` into the right pane.
 
-Now you have your historical text on the left and your English translation on the right. You can scroll through both files simultaneously.
+This visual arrangement prevents mental fatigue and lets you verify sentence boundaries before encoding links.
 
-This visual arrangement prevents mental fatigue. It allows you to inspect sentence boundaries and verify correspondences before typing any markup.
-
-**Takeaway:** Using a two-column split editor in VS Code lets you inspect source texts and translations side by side without switching tabs.
+**Takeaway:** Alignment begins by drafting a separate target text file (`target_translation.xml`), then opening source and target side by side in VS Code's two-column split editor.
 
 ---
 
@@ -588,7 +596,7 @@ Consider this opening clause:
 
 In colonial documents, formal modal verbs like *shall* carry legal force. When glossing historical English into a parallel modern version:
 
-* **Line 1:** `It is agree-d that the Treaty of 1726 shall be renew-ed.`
+* **Line 1:** `It is agreed that the Treaty of 1726 shall be renewed.`
 * **Line 2:** `it is agree-d that the treaty of 1726 shall be renew-ed`
 * **Line 3:** `3SG.EXPL be.3SG.PRS agree-PST.PTCP COMP DEF treaty of 1726 OBLIG be renew-PST.PTCP`
 * **Line 4:** `"It is agreed that the 1726 Treaty must be renewed."`
@@ -665,12 +673,13 @@ Checking for these simple issues ensures your manual work is flawless.
 
 ## **29 Content**
 
-**Creating Your Tuesday Ground Truth File**
+**Creating Your Tuesday Ground Truth Files**
 
-Today in class, you will create two clean files in your personal project folder:
+Today in class, you will create three clean files in your personal project folder:
 
-1. `alignment_manual.xml`: A TEI file containing your 10-sentence passage and a standoff `<linkGrp>` linking source sentences to translation sentences.
-2. `gloss_manual.xml`: A clean file containing your four-line Leipzig interlinear gloss for three selected sentences.
+1. `target_translation.xml`: Your authored 10-sentence parallel target text (English translation for French sources, or modernized/plain-language rendering for historical or vernacular English sources).
+2. `alignment_manual.xml`: A TEI file containing your 10-sentence passage and a standoff `<linkGrp>` linking source sentences to your target sentences.
+3. `gloss_manual.xml`: A clean file containing your four-line Leipzig interlinear gloss for three selected sentences.
 
 Take your time. Read each sentence carefully. Adjudicate every word division against your historical document.
 

@@ -57,13 +57,13 @@
   <!-- 02 Question -->
   <question type="multichoice">
     <name>
-      <text>02 Question: What is a Parallel Bitext?</text>
+      <text>02 Question: What is a Parallel Bitext? Interlingual vs. Intralingual Pairs</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What defines a parallel bitext in digital humanities and computational philology?</p>]]></text>
+      <text><![CDATA[<p>How does an intralingual bitext differ from an interlingual bitext in digital historical editions?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A bitext is a paired data structure linking an original source text to its translation through explicit digital connections.</p>]]></text>
+      <text><![CDATA[<p>A parallel bitext links a historical source text to an authored target text, whether interlingual (across languages) or intralingual (across historical registers).</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -72,27 +72,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>A paired data structure linking an original source text to its translation through explicit digital connections.</p>]]></text>
+      <text><![CDATA[<p>An intralingual bitext pairs historical or dialectal prose with a modern rendering in the same language.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. A bitext consists of a source text and a target translation joined together by formal digital links.</p>]]></text>
+        <text><![CDATA[<p>Correct. Intralingual alignment links two registers of one language (such as 1752 legal English to plain modern English), whereas interlingual alignment crosses languages.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A single text file that contains only English vocabulary without any historical witness.</p>]]></text>
+      <text><![CDATA[<p>An intralingual bitext deletes all historical spelling and keeps only a single unlinked reading version.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A bitext always requires two language streams linked together.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A bitext always preserves both source and target texts as separate linked streams.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Two completely unrelated books stored in separate archives that share no common themes.</p>]]></text>
+      <text><![CDATA[<p>An intralingual bitext translates across two separate national languages, such as French into English.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. A bitext pairs an original historical text with its corresponding translation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Crossing between two distinct languages defines an interlingual bitext, not an intralingual one.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A physical printing press capable of printing two colors of ink at the same time.</p>]]></text>
+      <text><![CDATA[<p>An intralingual bitext merges every translation word directly inside the manuscript XML text stream.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Bitext is a computational data concept, not a printing press mechanism.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Both interlingual and intralingual bitexts preserve clean source files via standoff linking.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -100,13 +100,13 @@
   <!-- 03 Question -->
   <question type="multichoice">
     <name>
-      <text>03 Question: The Novice Setup in VS Code: Split Editor</text>
+      <text>03 Question: Step 0: Producing Your Target Text &amp; Split-Editor Setup</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>How do you view your source text and translation side by side in Visual Studio Code without switching tabs?</p>]]></text>
+      <text><![CDATA[<p>Before encoding standoff alignment links in VS Code, what Step 0 deliverable must you produce first?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Using a two-column split editor in VS Code lets you inspect source texts and translations side by side without switching tabs.</p>]]></text>
+      <text><![CDATA[<p>Alignment begins by drafting a separate target text file (target_translation.xml), then opening source and target side by side in VS Code's two-column split editor.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -115,27 +115,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Select View > Editor Layout > Two Columns (or press Cmd+\ on macOS / Ctrl+\ on Windows) to open a split editor.</p>]]></text>
+      <text><![CDATA[<p>A separate TEI target file (target_translation.xml) containing your authored ten-sentence rendering.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The split editor layout displays both files side by side, allowing simultaneous scrolling and comparison.</p>]]></text>
+        <text><![CDATA[<p>Correct. You must author your target text in target_translation.xml first, then open it beside the source in VS Code Two Columns (Cmd+\ / Ctrl+\).</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Close VS Code and print both files on paper to read them on a physical desk.</p>]]></text>
+      <text><![CDATA[<p>A merged single-file manuscript where modern English translations are pasted inside each French tag.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. VS Code provides built-in multi-column split editor views directly in the application.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Mixing translations inside the source manuscript corrupts the XML witness.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Paste the English translation directly into the middle of the French XML file on every line.</p>]]></text>
+      <text><![CDATA[<p>An automated neural network script that generates unreviewed translations without human comparison.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Mingling translation text into the source file corrupts the XML hierarchy.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Tuesday establishes a human-authored target text and manual alignment baseline.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Run a command in the terminal to permanently delete the translation file.</p>]]></text>
+      <text><![CDATA[<p>A printed paper copy of the archive catalogue showing only physical dimensions and watermarks.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. You need both files open simultaneously to perform alignment.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. You need a digital target text in VS Code to align sentences side by side.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -1218,10 +1218,10 @@
   <!-- 29 Question -->
   <question type="multichoice">
     <name>
-      <text>29 Question: Creating Your Tuesday Ground Truth File</text>
+      <text>29 Question: Creating Your Tuesday Ground Truth Files</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>What role do today's manual files (alignment_manual.xml and gloss_manual.xml) play in your semester project?</p>]]></text>
+      <text><![CDATA[<p>Which three manual deliverables in your project folder form Tuesday's verified human ground truth?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>Your Tuesday manual files establish the verified human ground truth against which all algorithmic and AI tools will be measured.</p>]]></text>
@@ -1233,27 +1233,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>They establish the verified human ground truth against which all automated and AI tools will be evaluated.</p>]]></text>
+      <text><![CDATA[<p>target_translation.xml (target text), alignment_manual.xml (linkGrp), and gloss_manual.xml (3 glosses).</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Today's manual baseline is the gold standard used to measure the accuracy of deterministic and AI tools.</p>]]></text>
+        <text><![CDATA[<p>Correct. Together, your authored target text, standoff sentence alignments, and three Leipzig glosses form Tuesday's human benchmark.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They are temporary scratch files that should be deleted as soon as class ends.</p>]]></text>
+      <text><![CDATA[<p>Three temporary scratch backups meant to be deleted immediately once the Wednesday lab session starts.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. These files are essential course deliverables that benchmark the entire week's work.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. These files are permanent course deliverables used to benchmark the rest of the week's work.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They are printed out and mailed to the National Archives in Paris.</p>]]></text>
+      <text><![CDATA[<p>A single unlinked PDF printout, a raw camera photograph, and a blank repository configuration script.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. They remain in your project repository as local digital milestones.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Tuesday's deliverables are structured TEI XML files for your target text, sentence links, and glosses.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>They replace your final portfolio so you do not have to do any more work this term.</p>]]></text>
+      <text><![CDATA[<p>An automated AI summary, a compiled HTML slide presentation, and an unverified library call-number log.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Today's work builds one key component of your comprehensive edition portfolio.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Tuesday is the manual baseline authored by human judgment before Wednesday and Friday tools.</p>]]></text>
       </feedback>
     </answer>
   </question>
