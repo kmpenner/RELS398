@@ -29,14 +29,14 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student first authors a 10-sentence parallel target text (<code>target_translation.xml</code>&mdash;interlingual English for French, or intralingual modern plain language for historical/vernacular English), opens a two-column split editor in VS Code, constructs a valid TEI <code>&lt;linkGrp&gt;</code> standoff block (<code>alignment_manual.xml</code>), and authors a complete four-line Leipzig interlinear gloss for three chosen sentences (<code>gloss_manual.xml</code>).
+            Each student chooses a 10-sentence passage and, in class, drafts the first four sentences of a parallel target text (<code>target_translation.xml</code>&mdash;interlingual English for French, or intralingual modern plain language for historical/vernacular English), opens a two-column split editor in VS Code, constructs a valid TEI <code>&lt;linkGrp&gt;</code> standoff block (<code>alignment_manual.xml</code>), and authors a complete four-line Leipzig interlinear gloss for one sentence (<code>gloss_manual.xml</code>). <strong>In-class floor: 4 target sentences, 4 links, 1 gloss.</strong> Students finish all 10 sentences, 10 links and 3 glosses before Wednesday&rsquo;s class, because 11.2 scores the automated tools against the full ten.
         </div>
     </div>
 
     <div class="card">
         <h4>Walk-in Music (plays as students arrive, before minute 0)</h4>
         <ul>
-            <li><strong>Simon &amp; Garfunkel, &ldquo;Bridge over Troubled Water&rdquo;</strong> (1970, Columbia Records). Classic anthem of connection, translation, and building bridges across divides.</li>
+            <li><strong>Simon &amp; Garfunkel, &ldquo;Bridge over Troubled Water&rdquo;</strong> (1970, Columbia Records). The <a href="https://www.youtube.com/watch?v=4G-YQA_bsOU">YouTube link</a> is on slide 2; the slide shows no lyrics. Classic anthem of connection, translation, and building bridges across divides.</li>
             <li><strong>Pedagogical connection:</strong> Translation alignment builds a permanent digital bridge between historical languages and contemporary readers.</li>
             <li><strong>Springboard at minute 0:</strong> &ldquo;A translation printed on a facing page asks the reader to build their own mental bridge across the gutter. Today in VS Code, we build that bridge explicitly, linking every sentence and glossing historical grammar word by word.&rdquo;</li>
         </ul>
@@ -71,7 +71,7 @@
         <tbody>
             <tr>
                 <td class="time-col">8:30 &ndash; 8:35<br>(5 mins)</td>
-                <td class="activity-col">Phase 1: Framing<br>Interlingual &amp; Intralingual Bitexts</td>
+                <td class="activity-col">Phase 1: Framing<br>Interlingual &amp; Intralingual Bitexts<br><em>Slides 1&ndash;3.</em></td>
                 <td class="desc-col">
                     Welcome students. Contrast traditional print facing-page editions with digital parallel bitexts.<br>
                     Distinguish <strong>interlingual</strong> bitexts (French &rarr; English) from <strong>intralingual</strong> bitexts (historical/vernacular English &rarr; modern plain English).
@@ -80,7 +80,7 @@
             </tr>
             <tr>
                 <td class="time-col">8:35 &ndash; 8:44<br>(9 mins)</td>
-                <td class="activity-col">Phase 2: Live Demo<br>Target Text Prep, Split Editor &amp; <code>&lt;linkGrp&gt;</code></td>
+                <td class="activity-col">Phase 2: Live Demo<br>Target Text Prep, Split Editor &amp; <code>&lt;linkGrp&gt;</code><br><em>Slides 4&ndash;10, about a minute each.</em></td>
                 <td class="desc-col">
                     Demonstrate drafting <code>target_translation.xml</code> sentence by sentence and opening both files side by side in VS Code via <code>Cmd+\</code>.<br>
                     Show how to wrap sentences in <code>&lt;s xml:id="s1"&gt;</code> and <code>&lt;s xml:id="t1"&gt;</code>, and write a clean <code>&lt;linkGrp type="translation-alignment"&gt;</code> with <code>&lt;link target="#s1 #t1"/&gt;</code> in <code>&lt;standOff&gt;</code>.
@@ -89,43 +89,44 @@
             </tr>
             <tr>
                 <td class="time-col">8:44 &ndash; 8:53<br>(9 mins)</td>
-                <td class="activity-col">Phase 3: Lab A (Step 0)<br>Drafting the Parallel Target Text</td>
+                <td class="activity-col">Phase 3: Lab A (Step 0)<br>Drafting the Parallel Target Text<br><em>No new slides; leave slide 4 (Step 0) up.</em></td>
                 <td class="desc-col">
-                    Students select a 10-sentence passage of their primary witness and create <code>target_translation.xml</code>.<br>
-                    <strong>Ace</strong> drafts an English translation of 10 French decree sentences; <strong>Olyvia &amp; Andromeda</strong> draft 10 modernized/plain-language renderings (or parallel French).<br>
+                    Students select a 10-sentence passage of their primary witness, create <code>target_translation.xml</code>, and draft <code>t1</code>&ndash;<code>t4</code> (about two minutes a sentence). <code>t5</code>&ndash;<code>t10</code> are homework for Wednesday.<br>
+                    <strong>Ace</strong> drafts an English translation of the first 4 French decree sentences; <strong>Olyvia &amp; Andromeda</strong> draft 4 modernized/plain-language renderings (or parallel French).<br>
                     Instructor circulates to verify clean <code>&lt;s xml:id="t1"&gt;</code> sentence boundaries.
                 </td>
-                <td class="target-col">10-sentence target text in <code>target_translation.xml</code></td>
+                <td class="target-col"><code>t1</code>&ndash;<code>t4</code> in <code>target_translation.xml</code>; all 10 by Wednesday</td>
             </tr>
             <tr>
                 <td class="time-col">8:53 &ndash; 9:03<br>(10 mins)</td>
-                <td class="activity-col">Phase 4: Lab B<br>Sentence Alignment by Hand</td>
+                <td class="activity-col">Phase 4: Lab B<br>Sentence Alignment by Hand<br><em>No new slides; leave slide 9 (<code>&lt;linkGrp&gt;</code> example) up.</em></td>
                 <td class="desc-col">
                     Students place their source file (left) and <code>target_translation.xml</code> (right) in VS Code Two Columns.<br>
-                    Each student encodes 10 aligned sentence pairs in a standoff <code>&lt;linkGrp&gt;</code> (including any 1:N or N:1 splits).<br>
+                    Each student links the four drafted sentences in a standoff <code>&lt;linkGrp&gt;</code> (including any 1:N or N:1 splits). Fast finishers draft and link <code>t5</code> onward.<br>
                     Instructor circulates to check for missing hash marks (<code>#</code>) or mismatched IDs.
                 </td>
-                <td class="target-col">10 aligned sentence pairs in <code>alignment_manual.xml</code></td>
+                <td class="target-col">4 links in <code>alignment_manual.xml</code>; all 10 by Wednesday</td>
             </tr>
             <tr>
                 <td class="time-col">9:03 &ndash; 9:15<br>(12 mins)</td>
-                <td class="activity-col">Phase 5: Lab C<br>Four-Line Leipzig Glossing</td>
+                <td class="activity-col">Phase 5: Lab C<br>Four-Line Leipzig Glossing<br><em>Slides 11&ndash;14 in the first five minutes, then leave slide 13 (Rule 2) up.</em></td>
                 <td class="desc-col">
                     Introduce the four vertical tiers: surface text, morpheme breakdown, grammatical gloss, and free translation.<br>
                     Demonstrate the hyphen vs. period rule (Rule 2) using clear examples from French, colonial English, and vernacular handwriting.<br>
-                    Students author complete four-line glosses for three selected sentences.
+                    Students author one complete four-line gloss, for a sentence they have already linked (seven minutes). Two more glosses are homework for Wednesday.
                 </td>
-                <td class="target-col">3 four-line glosses in <code>gloss_manual.xml</code></td>
+                <td class="target-col">1 four-line gloss in <code>gloss_manual.xml</code>; 3 by Wednesday</td>
             </tr>
             <tr>
                 <td class="time-col">9:15 &ndash; 9:20<br>(5 mins)</td>
-                <td class="activity-col">Phase 6: Synthesis<br>Ground Truth &amp; Wednesday Preview</td>
+                <td class="activity-col">Phase 6: Synthesis<br>Ground Truth &amp; Wednesday Preview<br><em>Slides 15&ndash;16.</em></td>
                 <td class="desc-col">
-                    Review completed glosses on student screens. Confirm all columns align vertically.<br>
+                    Review one completed gloss per student on screen. Confirm all columns align vertically. Students commit what they have.<br>
                     Reassure students on their progress: <em>&ldquo;You just built a linguistic dataset that holds up to international research standards.&rdquo;</em><br>
+                    Set the homework: finish all 10 sentences, 10 links and 3 glosses before Wednesday&rsquo;s class.<br>
                     Preview Wednesday: <em>&ldquo;Tomorrow we introduce automated sentence alignment tools to see if algorithms can match your human judgment.&rdquo;</em>
                 </td>
-                <td class="target-col">Verified ground truth files saved; Wednesday setup</td>
+                <td class="target-col">Three files started and committed; homework set; Wednesday setup</td>
             </tr>
         </tbody>
     </table>
