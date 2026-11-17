@@ -97,6 +97,22 @@ To produce scholarly data, you must write a **structured system prompt**:
 
 Clear instructions produce clean, valid XML markup.
 
+**From sentences to words.** Sentence links say which sentence translates which. Word links go one level down, inside a single sentence pair. Your source already has `<w>` elements from Module 8. For one pair:
+
+1. Wrap the words of the target sentence in `<w>` too.
+2. Give every `<w>` in both sentences an `xml:id` (`s1w1`, `s1w2` ... `t1w1`, `t1w2`).
+3. Link the words in a second group, `<linkGrp type="word-alignment">`.
+
+```xml
+<linkGrp type="word-alignment">  <!-- La Nation fait les assignats. -->
+  <link target="#s1w1 #t1w1"/>        <!-- La : The -->
+  <link target="#s1w3 #t1w3"/>        <!-- fait : creates -->
+  <link target="#s1w5 #t1w5 #t1w6"/>  <!-- assignats : paper currency (1:2) -->
+</linkGrp>
+```
+
+Most word links are 1:1, but one word can link to two (*assignats* becomes *paper currency*), and some words link to nothing. Ask the AI to propose the word links, then check each one yourself.
+
 **Takeaway:** Structured prompts with explicit roles, input boundaries, and output formats force AI models to generate clean, valid TEI markup.
 
 ---
