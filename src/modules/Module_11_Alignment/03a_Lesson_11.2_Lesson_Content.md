@@ -391,63 +391,52 @@ Calculating these two percentages gives you an objective measurement of algorith
 
 ## **20 Content**
 
-**Case Study: Auditing Ace's 1791 French Decree**
+**What to Watch For: Ace's 1791 French Decree**
 
-Let us see how a length-based algorithm performs on Ace's French Revolutionary decree.
+What will a length-based aligner do with Ace's decree? We can't know until Ace runs it, but we can predict where to look.
 
-The French decree contains formal administrative clauses:
+* **Short, formulaic sentences** (such as the opening *L'Assemblée Nationale décrète...*) usually have translations of similar length, so a length-based aligner tends to pair them correctly, 1:1.
+* **A long sentence translated as two** is the classic trap. If Ace's translation breaks one long French sentence into two English sentences, the aligner expects one target sentence of similar length. It may force a 1:1 pair, and every pair after it slips by one.
 
-* Sentence 1 announces the decree (*L'Assemblée Nationale décrète...*).
-* Sentence 2 is an eighty-word sentence specifying metal currency denominations.
+When you score your own output, look first at any sentence you split or merged while translating.
 
-What happens during automated alignment?
-
-* **Success:** Sentence 1 is short in French and short in English. The algorithm scores a clean 1:1 match with 100% precision.
-* **Failure:** In Sentence 2, the English translator split the eighty-word sentence into two clear English sentences. The length algorithm attempted a 1:1 match and failed.
-
-Human intervention was required to change the 1:1 link into a 1:2 link.
-
-**Takeaway:** Length-based tools handle simple French clauses easily but struggle when translators split long administrative sentences.
+**Takeaway:** Length-based tools tend to handle short, parallel sentences well and to stumble where a translation splits or merges sentences.
 
 ---
 
 ## **21 Content**
 
-**Case Study: Auditing Andromeda's 1752 Treaty**
+**What to Watch For: Andromeda's 1752 Treaty**
 
-Andromeda's document is the 1752 Peace and Friendship Treaty. It features numbered articles.
+Andromeda's document is the 1752 Peace and Friendship Treaty. It is divided into numbered articles.
 
-Numbered articles provide a huge advantage for alignment algorithms:
+Numbered articles should help an aligner:
 
-* Every article begins with an explicit label (*Article 1*, *Article 2*, *Article 3*).
-* Numbers act as perfect lexical anchors.
-* Even if sentence lengths vary, the Roman numerals keep the algorithm on track.
+* Each article begins with an explicit label (*Article 1*, *Article 2*, *Article 3*).
+* Numbers look the same in both versions, so they can work as lexical anchors.
+* Even if sentence lengths vary, the article breaks limit how far a slip can spread.
 
-Because the treaty text has strong structural anchors, the automated alignment achieved nearly 95% precision. 
+So you would expect the aligner to stay on track through the treaty. Check whether it did, and look closely at any article that holds more than one sentence.
 
-Structured legal texts with numbered divisions are the easiest genre for automated tools to align.
-
-**Takeaway:** Numbered articles and Roman numerals act as structural anchors that dramatically boost alignment accuracy in legal treaties.
+**Takeaway:** Numbered articles can act as anchors that limit alignment errors in legal texts, but only your own scoring shows how well they worked.
 
 ---
 
 ## **22 Content**
 
-**Case Study: Auditing Olyvia's Maud Lewis Letter**
+**What to Watch For: Olyvia's Maud Lewis Letter**
 
 Olyvia's document is an informal handwritten letter by Maud Lewis.
 
-Letters present distinct challenges for length-based algorithms:
+Letters pose their own problems for a length-based aligner:
 
-* Maud's sentences are brief and conversational (*I got your letter. Was glad to hear.*).
-* Punctuation is sporadic; thoughts flow together without periods.
-* In a parallel French translation, colloquial Maritime expressions require longer French phrasing.
+* Maud's sentences are short and conversational.
+* Her punctuation is sporadic, so thoughts can run together without periods.
+* A regularized reading text (or a French translation) may break sentences differently from the original.
 
-Because the sentence boundaries were ambiguous, the automated sentence splitter struggled. It merged two short thoughts into one block. 
+If the sentence boundaries are unclear, a sentence splitter may merge two short thoughts into one block, and the pairs after it will slip. Decide the boundaries yourself, and mark them with `<s>`, before you run the aligner.
 
-This case demonstrates why personal letters require careful human boundary checking before running automated tools.
-
-**Takeaway:** Informal letters with conversational syntax and sporadic punctuation require human boundary editing before algorithms can succeed.
+**Takeaway:** Informal letters with sporadic punctuation need human boundary decisions before an aligner can do its job.
 
 ---
 

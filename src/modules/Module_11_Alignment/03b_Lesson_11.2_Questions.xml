@@ -831,13 +831,13 @@
   <!-- 20 Question -->
   <question type="multichoice">
     <name>
-      <text>20 Question: Case Study: Auditing Ace's 1791 French Decree</text>
+      <text>20 Question: What to Watch For: Ace's 1791 French Decree</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why did the length-based alignment algorithm struggle on Sentence 2 of Ace's French decree?</p>]]></text>
+      <text><![CDATA[<p>A long source sentence is translated as two target sentences. Why might a length-based aligner mispair it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Length-based tools handle simple French clauses easily but struggle when translators split long administrative sentences.</p>]]></text>
+      <text><![CDATA[<p>Length-based tools tend to stumble where a translation splits or merges sentences.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -846,27 +846,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The English translator split an eighty-word French legal sentence into two shorter English sentences (a 1:2 split).</p>]]></text>
+      <text><![CDATA[<p>It expects one target sentence of similar length, so it may force a 1:1 pair and shift the rest.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. The length algorithm expected a 1:1 ratio and failed when the translator divided the long administrative clause.</p>]]></text>
+        <text><![CDATA[<p>Correct. Unless a 1:2 move scores better, the aligner forces a 1:1 pair, and the following pairs slip.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because 1791 French decrees were written backwards from right to left.</p>]]></text>
+      <text><![CDATA[<p>It reads the meaning of both sentences, so it rejects any pair whose wording does not match.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. French is written left to right; the challenge was sentence splitting.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A length-based aligner counts characters; it does not read meaning.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the algorithm crashed whenever it encountered the word assignat.</p>]]></text>
+      <text><![CDATA[<p>It skips any source sentence longer than fifty words, so that sentence is left with no pair.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Length algorithms count characters; they do not crash on specific words.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. There is no length cut-off; long sentences are paired like any other.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the French National Assembly banned all English translations.</p>]]></text>
+      <text><![CDATA[<p>It sorts sentences alphabetically first, so the two halves end up far apart in the output.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The failure was a structural 1:2 translation asymmetry.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The aligner keeps the sentences in their original order.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -874,13 +874,13 @@
   <!-- 21 Question -->
   <question type="multichoice">
     <name>
-      <text>21 Question: Case Study: Auditing Andromeda's 1752 Treaty</text>
+      <text>21 Question: What to Watch For: Andromeda's 1752 Treaty</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why did automated alignment achieve exceptionally high accuracy (95%) on Andromeda's 1752 treaty?</p>]]></text>
+      <text><![CDATA[<p>Why might a length-based aligner stay on track through a treaty divided into numbered articles?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Numbered articles and Roman numerals act as structural anchors that dramatically boost alignment accuracy in legal treaties.</p>]]></text>
+      <text><![CDATA[<p>Numbered articles can act as anchors that limit alignment errors, but only your own scoring shows how well they worked.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -889,27 +889,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Numbered articles and Roman numerals provided unmistakable structural anchors that kept the algorithm aligned.</p>]]></text>
+      <text><![CDATA[<p>The article numbers appear in both versions and limit how far any one slip can spread.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Numbered headings act like pins along the alignment matrix diagonal, preventing cascading slippage.</p>]]></text>
+        <text><![CDATA[<p>Correct. Numbers look the same in both versions, so they work like pins along the alignment path.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the treaty was translated into modern English by an artificial intelligence model.</p>]]></text>
+      <text><![CDATA[<p>The article numbers tell the aligner how to translate each clause into modern English.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The 1752 treaty is a historical 18th-century English proclamation.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. An aligner pairs sentences you already have; it does not translate.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because the treaty contains only one sentence in total.</p>]]></text>
+      <text><![CDATA[<p>The articles are always the same length, so every pair can be found by length alone.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. The treaty contains multiple articles and extensive legal clauses.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. Article lengths vary; the numbers help because they match, not because of length.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because colonial treaties were encoded in XML in 1752.</p>]]></text>
+      <text><![CDATA[<p>The numbered articles switch the aligner from counting characters to counting words.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. XML was created in the late 1990s.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. A length-based aligner counts characters throughout.</p>]]></text>
       </feedback>
     </answer>
   </question>
@@ -917,13 +917,13 @@
   <!-- 22 Question -->
   <question type="multichoice">
     <name>
-      <text>22 Question: Case Study: Auditing Olyvia's Maud Lewis Letter</text>
+      <text>22 Question: What to Watch For: Olyvia's Maud Lewis Letter</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p>Why did automated sentence boundary detection require manual human editing on Olyvia's Maud Lewis letters?</p>]]></text>
+      <text><![CDATA[<p>Why should Olyvia mark sentence boundaries herself before aligning a Maud Lewis letter?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Informal letters with conversational syntax and sporadic punctuation require human boundary editing before algorithms can succeed.</p>]]></text>
+      <text><![CDATA[<p>Informal letters with sporadic punctuation need human boundary decisions before an aligner can do its job.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -932,27 +932,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Maud Lewis used informal conversational syntax with sporadic periods, causing the tool to merge distinct thoughts.</p>]]></text>
+      <text><![CDATA[<p>Her punctuation is sporadic, so a splitter may run two thoughts together and shift the pairs.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Correct. Informal handwriting and conversational writing lack standard punctuation boundaries, confusing automated splitters.</p>]]></text>
+        <text><![CDATA[<p>Correct. Without clear periods an automatic splitter can merge sentences, and the pairs after it slip.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because Maud Lewis wrote her letters in secret invisible ink.</p>]]></text>
+      <text><![CDATA[<p>Her handwriting must be typed first, because the aligner can only read printed letters.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Her letters are written in standard ink on personal stationery.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The aligner works on the transcription, which is already typed.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because letters written in Nova Scotia cannot be read by computers in Canada.</p>]]></text>
+      <text><![CDATA[<p>Her letters are too short, so the aligner will not run on fewer than twenty sentences.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Software operates identically regardless of regional geographic location.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. There is no minimum length; ten sentences are enough.</p>]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Because Maud Lewis refused to write letters with more than five words.</p>]]></text>
+      <text><![CDATA[<p>Her spelling is modern, so the aligner would otherwise treat the letter as a translation.</p>]]></text>
       <feedback format="html">
-        <text><![CDATA[<p>Incorrect. Her letters feature flowing personal narratives.</p>]]></text>
+        <text><![CDATA[<p>Incorrect. The aligner does not judge spelling; the problem is where sentences end.</p>]]></text>
       </feedback>
     </answer>
   </question>

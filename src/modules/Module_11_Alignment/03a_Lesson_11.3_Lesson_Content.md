@@ -236,17 +236,15 @@ Comparing all three versions simultaneously provides deep insight. You will see 
 
 ## **12 Content**
 
-**Case Study: AI on Ace's 1791 French Decree**
+**What to Watch For: AI on Ace's 1791 French Decree**
 
-Let us examine how Claude and Gemini perform on Ace's 1791 French decree (*Loi relative à la fabrication des assignats*).
+What should Ace check when Claude or Gemini aligns and glosses the decree (*Loi relative à la fabrication des assignats*)? These are things to look for, not results.
 
-Key findings from the AI test:
+* **Sentence alignment:** If Wednesday's length formula mispaired a long sentence that Ace's translation split in two, see whether the AI links it 1:2. Because it reads meaning rather than counting characters, it often does, but check every link.
+* **Leipzig glossing:** Check grammatical gender tags, such as `F.SG` on *nationale*.
+* **Silent modernization:** Check Line 1 letter by letter. An AI may quietly change a historical spelling or spacing, such as `L' Assemblée` to `L'Assemblée`.
 
-* **Sentence Alignment:** Unlike the length formula, the AI easily recognized that the eighty-word sentence was split into two English sentences. It proposed a clean 1:2 link with 100% precision.
-* **Leipzig Glossing:** The AI successfully identified French grammatical gender (`F.SG` on *nationale*).
-* **Failure Point:** In Line 1, the AI silently removed the space in `L' Assemblée`, changing it to modern `L'Assemblée`. 
-
-Ace had to restore the historical spacing to keep Line 1 faithful to the 1791 print witness.
+Any such change must be undone, so that Line 1 stays faithful to the 1791 print witness.
 
 **Takeaway:** AI models handle complex 1:2 sentence splits effortlessly, but they require oversight to preserve historical spacing and orthography.
 
@@ -254,37 +252,29 @@ Ace had to restore the historical spacing to keep Line 1 faithful to the 1791 pr
 
 ## **13 Content**
 
-**Case Study: AI on Andromeda's 1752 Treaty**
+**What to Watch For: AI on Andromeda's 1752 Treaty**
 
-Andromeda tested the AI models on the formal legal clauses of the 1752 Peace and Friendship Treaty.
+What should Andromeda check when the AI aligns and glosses the treaty? These are things to look for, not results.
 
-Results from the treaty test:
+* **Sentence alignment:** Does the AI match every numbered article? Does it handle the formal preamble, where Wednesday's length formula may have slipped?
+* **Linguistic glossing:** Check the modal *shall* (obligation or future?) and passive participles such as *renew-ed* (`renew-PST.PTCP`).
+* **Invented roots:** An AI may gloss an archaic spelling with a made-up Latin root. Line 3 should use plain English roots (*agree*, *treaty*, *peace*).
 
-* **Sentence Alignment:** The AI successfully matched all numbered treaty articles. It also recognized formal preamble language that the length formula struggled with.
-* **Linguistic Glossing:** The AI accurately glossed modal auxiliaries (*shall* as `OBLIG` or `FUT`) and passive participles (*renew-ed* as `renew-PST.PTCP`).
-* **Failure Point:** In Line 3, the AI glossed archaic colonial spellings by inventing fake Latin root names.
-
-Andromeda corrected the roots to plain English vocabulary (*agree*, *treaty*, *peace*).
-
-**Takeaway:** AI models excel at analyzing formal treaty syntax and passive verbs, but editors must ensure roots remain in accessible English.
+**Takeaway:** Check that the AI's glosses of formal treaty language are accurate and that its roots stay in plain English.
 
 ---
 
 ## **14 Content**
 
-**Case Study: AI on Olyvia's Maud Lewis Letters**
+**What to Watch For: AI on Olyvia's Maud Lewis Letters**
 
-Olyvia prompted the AI to align Maud Lewis's 1967 personal letters with a parallel modern French translation.
+What should Olyvia check when the AI aligns Maud Lewis's 1967 letter with its regularized (or French) version? These are things to look for, not results.
 
-Observations from the folk art test:
+* **Informal syntax:** Does the AI keep the sentence boundaries Olyvia chose, or does it merge or split them where periods are missing?
+* **Regional expressions:** Does it render Maritime phrasing faithfully, or flatten it?
+* **Over-correction:** An AI may try to "correct" Maud's grammar in Line 1. Any such change must be rejected: Line 1 records what she wrote.
 
-* **Informal Syntax:** The AI easily handled Maud's conversational clauses without getting confused by missing periods.
-* **Dialectal Nuance:** The AI recognized regional Maritime expressions (such as *was glad to hear*) and produced an idiomatic French translation.
-* **Failure Point:** The AI attempted to "correct" Maud's grammar in Line 1, replacing her colloquial phrasing with formal prose.
-
-Olyvia rejected the AI's grammatical corrections, preserving Maud Lewis's authentic voice as an artist.
-
-**Takeaway:** While AI translates vernacular English smoothly, editors must protect the authentic voice of personal correspondence from AI over-correction.
+**Takeaway:** Protect the authentic voice of personal correspondence from AI over-correction.
 
 ---
 
@@ -306,15 +296,15 @@ To complete your comparative audit, build a summary scorecard in your notes:
   <tbody>
     <tr>
       <td><strong>Sentence Precision</strong></td>
-      <td>100% (Gold Standard)</td>
-      <td>85% – 95% (Shift on splits)</td>
-      <td>95% – 100% (Handles splits)</td>
+      <td>Reference (by definition)</td>
+      <td>Your number</td>
+      <td>Your number</td>
     </tr>
     <tr>
       <td><strong>Execution Speed</strong></td>
-      <td>Slow (45 mins)</td>
-      <td>Instant (1 second)</td>
-      <td>Fast (10 seconds)</td>
+      <td>Your time</td>
+      <td>Your time</td>
+      <td>Your time</td>
     </tr>
     <tr>
       <td><strong>Grammar Depth</strong></td>
@@ -324,14 +314,14 @@ To complete your comparative audit, build a summary scorecard in your notes:
     </tr>
     <tr>
       <td><strong>Orthographic Fidelity</strong></td>
-      <td>100% (Exact witness)</td>
-      <td>100% (Unchanged)</td>
-      <td>85% (Biased toward modern)</td>
+      <td>Your check</td>
+      <td>Your check</td>
+      <td>Your check</td>
     </tr>
   </tbody>
 </table>
 
-This scorecard clearly shows the trade-offs of each method.
+Fill in this scorecard with your own measurements. Precision for the manual alignment is the reference the others are scored against, so it is not a measurement. Expect the length formula to slip on split sentences and the AI to modernize spelling, but report what you actually found.
 
 **Takeaway:** A comparative scorecard documents precision, speed, depth, and orthographic fidelity across all three alignment approaches.
 
