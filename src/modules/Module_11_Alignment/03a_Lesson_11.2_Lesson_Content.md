@@ -212,18 +212,21 @@ When the algorithm sees *1752* in source sentence `s8` and in translation senten
 
 ## **12 Content**
 
-**Interactive Alignment Tools: Web GUIs**
+**Running a Length-Based Aligner: hunalign in InterText**
 
-For beginners, you do not need to write complex command-line scripts in Python to run sentence alignment. The digital humanities community has built excellent interactive web tools.
+You do not need to write Python to run sentence alignment. The standard length-based aligner, **hunalign**, combines the Gale-Church length statistics with an optional bilingual dictionary. If you give it no dictionary, it aligns by length alone, builds a dictionary from that first pass, and then aligns again.
 
-Two popular tools include:
+The **InterText** desktop editor comes with hunalign built in. The workflow has five steps:
 
-* **Alpheios Alignment Editor:** An open-source web application where you paste source and target texts. The system proposes initial alignments, and you drag and drop sentences to adjust connections.
-* **Ugarit Translation Alignment:** A browser-based platform designed for historical languages that exports clean TEI XML.
+1. Import your source XML and your `target_translation.xml`, telling InterText that the alignable elements are your `<s>` sentences.
+2. Run the aligner (**Edit > Auto aligner**, then choose hunalign).
+3. Export the result as `alignment_deterministic.xml` before you change anything. This raw output is what you score.
+4. Compare its sentence pairs with your `alignment_manual.xml` and calculate precision and recall.
+5. Only then correct the pairs in InterText: **Enter** moves text down a row and **Backspace** moves it up.
 
-These graphical user interfaces (GUIs) let you harness algorithmic power while keeping full visual control over the results.
+Two other well-known tools do different jobs. **LF Aligner** is a front end for hunalign aimed at translators building translation memories. The **Alpheios Alignment Editor** and **Ugarit** are for *manual word-level* alignment: you click to pair words or phrases. They do not propose sentence pairs, so they are not deterministic sentence aligners. You will meet word-level work on Friday.
 
-**Takeaway:** Interactive web tools like Alpheios let scholars run alignment algorithms and manually adjust connections through a visual interface.
+**Takeaway:** hunalign in InterText proposes sentence pairs automatically by length. Score its raw output before you correct it, or you end up grading your own corrections.
 
 ---
 

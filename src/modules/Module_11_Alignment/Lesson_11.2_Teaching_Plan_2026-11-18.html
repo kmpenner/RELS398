@@ -17,7 +17,7 @@
                 <span class="badge">Time: 10:30 &ndash; 11:20 AM (50 mins)</span>
                 <span class="badge">Room: MULH 3032</span>
                 <span class="badge">Context: Week 11 (Alignment) &middot; Meeting 2 of 3</span>
-                <span class="badge">Milestone: Length-Based Alignment, Web GUIs, &amp; Precision/Recall Audit</span>
+                <span class="badge">Milestone: Length-Based Alignment with hunalign, &amp; Precision/Recall Audit</span>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Each student runs an automated alignment tool (Alpheios web editor or Gale-Church script), imports the generated <code>&lt;linkGrp&gt;</code>, inspects and corrects any cascading domino errors, and calculates Precision and Recall against their Tuesday manual ground truth.
+            Each student runs hunalign (Gale-Church length statistics plus an optional dictionary) inside the InterText desktop editor, exports the raw alignment before correcting it, calculates Precision and Recall against their Tuesday manual ground truth, and only then corrects the cascading domino errors in InterText. <em>Students install InterText before class (announced at the end of 11.1); the Mac build is unsigned, so Mac users must allow it in Privacy &amp; Security. Alpheios and Ugarit are manual word-level aligners and are not used here.</em>
         </div>
     </div>
 
@@ -50,7 +50,7 @@
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
         <p><strong>1. Intuitive length explanation:</strong> Explain Gale-Church through character counts and visual ratios, avoiding intimidating calculus or probability notation.<br>
-        <strong>2. Visual GUI first:</strong> Demonstrate interactive web tools (Alpheios or Ugarit) before showing behind-the-scenes scripts so novices maintain confidence.<br>
+        <strong>2. Score before you fix:</strong> Students export hunalign&rsquo;s raw output before touching it. Precision and recall measure the aligner, not the student&rsquo;s corrections.<br>
         <strong>3. Spotting the domino effect:</strong> Emphasize that a single missed sentence break cascades into following pairs; show students how to identify and reset anchor points.<br>
         <strong>4. The audit obligation:</strong> Students must compare the algorithmic output against their Tuesday file in a two-column split editor and record discrepancy counts.<br>
         <strong>5. Save output cleanly:</strong> Exported and verified markup must be saved as <code>alignment_deterministic.xml</code> in the project root.</p>
@@ -81,29 +81,30 @@
                 <td class="time-col">10:36 &ndash; 10:46<br>(10 mins)</td>
                 <td class="activity-col">Phase 2: Live Demo<br>Web Alignment &amp; the Domino Effect<br><em>Slides 7&ndash;12; run the live demo from slide 12.</em></td>
                 <td class="desc-col">
-                    Demonstrate on projector: pasting source and translation into the Alpheios Alignment Editor.<br>
+                    Demonstrate on projector: in InterText, import a source XML and a target file with <code>s</code> as the alignable element, then run <em>Edit &gt; Auto aligner</em> with hunalign.<br>
                     Show sentence boundary detection. Point out an abbreviation trap (e.g. <code>art.</code> or <code>Mr.</code>).<br>
-                    Demonstrate the &ldquo;domino effect&rdquo; when a sentence is split 1:2, and show how dragging sentences restores alignment.
+                    Demonstrate the &ldquo;domino effect&rdquo; when a sentence is split 1:2, and show how InterText&rsquo;s Enter (move text down) and Backspace (move text up) restore alignment.
                 </td>
                 <td class="target-col">Live projector demonstration of GUI tool</td>
             </tr>
             <tr>
                 <td class="time-col">10:46 &ndash; 10:58<br>(12 mins)</td>
-                <td class="activity-col">Phase 3: Lab A<br>Automated Alignment Run<br><em>No new slides; leave slide 12 (Alpheios workflow) up.</em></td>
+                <td class="activity-col">Phase 3: Lab A<br>Automated Alignment Run<br><em>No new slides; leave slide 12 (InterText workflow) up.</em></td>
                 <td class="desc-col">
-                    Students paste their primary witness passage and translation into the tool.<br>
-                    Run automatic sentence detection and review proposed alignment pairs.<br>
-                    Students identify any structural shifts (1:2 splits or 2:1 merges) and adjust links visually.
+                    Students import their source XML and <code>target_translation.xml</code> into InterText (alignable element <code>s</code>).<br>
+                    Run hunalign (<em>Edit &gt; Auto aligner</em>) and export the raw result as <code>alignment_deterministic.xml</code> before changing anything.<br>
+                    Note structural shifts (1:2 splits, 2:1 merges) but do not fix them yet. Anyone whose install failed pairs with a neighbour.
                 </td>
-                <td class="target-col">Corrected alignment pairs in web interface</td>
+                <td class="target-col">Raw hunalign output exported</td>
             </tr>
             <tr>
                 <td class="time-col">10:58 &ndash; 11:12<br>(14 mins)</td>
                 <td class="activity-col">Phase 4: Lab B<br>Side-by-Side Audit &amp; Metrics<br><em>Slide 13 (precision and recall), then leave it up.</em></td>
                 <td class="desc-col">
-                    Students export TEI XML to <code>alignment_deterministic.xml</code>.<br>
+                    Compare pairs, not syntax: InterText&rsquo;s TEI export may write its links differently from the student&rsquo;s <code>target="#s1 #t1"</code>.<br>
                     Open Tuesday's <code>alignment_manual.xml</code> and today's <code>alignment_deterministic.xml</code> side by side in VS Code.<br>
-                    Count agreements and disagreements. Calculate Precision (Correct / Proposed) and Recall (Correct / True).
+                    Count agreements and disagreements. Calculate Precision (Correct / Proposed) and Recall (Correct / True).<br>
+                    Then fix the pairs in InterText with Enter and Backspace, and save the corrected export separately.
                 </td>
                 <td class="target-col">Calculated Precision and Recall metrics</td>
             </tr>
