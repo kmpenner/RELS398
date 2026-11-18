@@ -628,27 +628,30 @@
 
 
   
-  <question type="description"><name><text>12 Content: Interactive Alignment Tools: Web GUIs</text></name><questiontext format="html"><text><![CDATA[
-<h3>Interactive Alignment Tools: Web GUIs</h3>
-<p>For beginners, you do not need to write complex command-line scripts in Python to run sentence alignment. The digital humanities community has built excellent interactive web tools.</p>
-<p>Two popular tools include:</p>
-<ul>
-<li><strong>Alpheios Alignment Editor:</strong> An open-source web application where you paste source and target texts. The system proposes initial alignments, and you drag and drop sentences to adjust connections.</li>
-<li><strong>Ugarit Translation Alignment:</strong> A browser-based platform designed for historical languages that exports clean TEI XML.</li>
-</ul>
-<p>These graphical user interfaces (GUIs) let you harness algorithmic power while keeping full visual control over the results.</p>
-<p><strong>Takeaway:</strong> Interactive web tools like Alpheios let scholars run alignment algorithms and manually adjust connections through a visual interface.</p>
+  <question type="description"><name><text>12 Content: Running a Length-Based Aligner: hunalign in InterText</text></name><questiontext format="html"><text><![CDATA[
+<h3>Running a Length-Based Aligner: hunalign in InterText</h3>
+<p>You do not need to write Python to run sentence alignment. The standard length-based aligner, <strong>hunalign</strong>, combines the Gale-Church length statistics with an optional bilingual dictionary. If you give it no dictionary, it aligns by length alone, builds a dictionary from that first pass, and then aligns again.</p>
+<p>The <strong>InterText</strong> desktop editor comes with hunalign built in. The workflow has five steps:</p>
+<ol>
+<li>Import your source XML and your <code>target_translation.xml</code>, telling InterText that the alignable elements are your <code>&lt;s&gt;</code> sentences.</li>
+<li>Run the aligner (<strong>Edit &gt; Auto aligner</strong>, then choose hunalign).</li>
+<li>Export the result as <code>alignment_deterministic.xml</code> before you change anything. This raw output is what you score.</li>
+<li>Compare its sentence pairs with your <code>alignment_manual.xml</code> and calculate precision and recall.</li>
+<li>Only then correct the pairs in InterText: <strong>Enter</strong> moves text down a row and <strong>Backspace</strong> moves it up.</li>
+</ol>
+<p>Two other well-known tools do different jobs. <strong>LF Aligner</strong> is a front end for hunalign aimed at translators building translation memories. The <strong>Alpheios Alignment Editor</strong> and <strong>Ugarit</strong> are for <em>manual word-level</em> alignment: you click to pair words or phrases. They do not propose sentence pairs, so they are not deterministic sentence aligners. You will meet word-level work on Friday.</p>
+<p><strong>Takeaway:</strong> hunalign in InterText proposes sentence pairs automatically by length. Score its raw output before you correct it, or you end up grading your own corrections.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>12 Question: Interactive Alignment Tools: Web GUIs</text>
+      <text>12 Question: Running hunalign in InterText</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;What is the main benefit of using an interactive web tool like the Alpheios Alignment Editor for beginners?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Why does this lesson use InterText rather than a word-level tool such as Alpheios?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Interactive web tools like Alpheios let scholars run alignment algorithms and manually adjust connections through a visual interface.&lt;/p&gt;</text>
+      <text>&lt;p&gt;hunalign in InterText proposes sentence pairs by length; Alpheios and Ugarit are for manual word-level alignment.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -657,27 +660,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;It allows students to run alignment algorithms and adjust connections visually without writing complex command-line scripts.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It proposes sentence pairs automatically with hunalign, and you correct them in the same window.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. Web GUIs provide drag-and-drop visual interfaces that make algorithmic alignment accessible to novices.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. InterText runs hunalign to propose sentence pairs, and you correct them with Enter and Backspace.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It replaces Visual Studio Code completely so students never have to look at XML.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It aligns single words by hand, so every translation pair must be clicked in one at a time.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Web tools export clean XML that students inspect and validate in VS Code.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. That describes manual word-level tools such as Alpheios and Ugarit, which propose no pairs.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It automatically writes the student's final term paper for them.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It translates the source with a neural model, then writes the whole target file for you.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Alignment tools assist text linking, not paper drafting.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. hunalign is deterministic and does not translate; you write the target file yourself.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;It connects to social media to share student homework publicly.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It validates your TEI against the schema, so broken pointers are repaired without review.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. DH tools focus on scholarship and research privacy.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. InterText does not validate TEI or repair pointers; you check those yourself.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
@@ -1043,7 +1046,7 @@
 <li><strong>Precision:</strong> Out of all the links the algorithm proposed, how many were actually correct?</li>
 <li><strong>Recall:</strong> Out of all the true links that exist in the text, how many did the algorithm manage to find?</li>
 </ul>
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Metric</th>
@@ -1113,32 +1116,26 @@
 
 
   
-  <question type="description"><name><text>20 Content: Case Study: Auditing Ace's 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
-<h3>Case Study: Auditing Ace's 1791 French Decree</h3>
-<p>Let us see how a length-based algorithm performs on Ace's French Revolutionary decree.</p>
-<p>The French decree contains formal administrative clauses:</p>
+  <question type="description"><name><text>20 Content: What to Watch For: Ace's 1791 French Decree</text></name><questiontext format="html"><text><![CDATA[
+<h3>What to Watch For: Ace's 1791 French Decree</h3>
+<p>What will a length-based aligner do with Ace's decree? We can't know until Ace runs it, but we can predict where to look.</p>
 <ul>
-<li>Sentence 1 announces the decree (<em>L'Assemblée Nationale décrète...</em>).</li>
-<li>Sentence 2 is an eighty-word sentence specifying metal currency denominations.</li>
+<li><strong>Short, formulaic sentences</strong> (such as the opening <em>L'Assemblée Nationale décrète...</em>) usually have translations of similar length, so a length-based aligner tends to pair them correctly, 1:1.</li>
+<li><strong>A long sentence translated as two</strong> is the classic trap. If Ace's translation breaks one long French sentence into two English sentences, the aligner expects one target sentence of similar length. It may force a 1:1 pair, and every pair after it slips by one.</li>
 </ul>
-<p>What happens during automated alignment?</p>
-<ul>
-<li><strong>Success:</strong> Sentence 1 is short in French and short in English. The algorithm scores a clean 1:1 match with 100% precision.</li>
-<li><strong>Failure:</strong> In Sentence 2, the English translator split the eighty-word sentence into two clear English sentences. The length algorithm attempted a 1:1 match and failed.</li>
-</ul>
-<p>Human intervention was required to change the 1:1 link into a 1:2 link.</p>
-<p><strong>Takeaway:</strong> Length-based tools handle simple French clauses easily but struggle when translators split long administrative sentences.</p>
+<p>When you score your own output, look first at any sentence you split or merged while translating.</p>
+<p><strong>Takeaway:</strong> Length-based tools tend to handle short, parallel sentences well and to stumble where a translation splits or merges sentences.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>20 Question: Case Study: Auditing Ace's 1791 French Decree</text>
+      <text>20 Question: What to Watch For: Ace's 1791 French Decree</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Why did the length-based alignment algorithm struggle on Sentence 2 of Ace's French decree?&lt;/p&gt;</text>
+      <text>&lt;p&gt;A long source sentence is translated as two target sentences. Why might a length-based aligner mispair it?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Length-based tools handle simple French clauses easily but struggle when translators split long administrative sentences.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Length-based tools tend to stumble where a translation splits or merges sentences.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1147,56 +1144,55 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;The English translator split an eighty-word French legal sentence into two shorter English sentences (a 1:2 split).&lt;/p&gt;</text>
+      <text>&lt;p&gt;It expects one target sentence of similar length, so it may force a 1:1 pair and shift the rest.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. The length algorithm expected a 1:1 ratio and failed when the translator divided the long administrative clause.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. Unless a 1:2 move scores better, the aligner forces a 1:1 pair, and the following pairs slip.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because 1791 French decrees were written backwards from right to left.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It reads the meaning of both sentences, so it rejects any pair whose wording does not match.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. French is written left to right; the challenge was sentence splitting.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. A length-based aligner counts characters; it does not read meaning.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because the algorithm crashed whenever it encountered the word assignat.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It skips any source sentence longer than fifty words, so that sentence is left with no pair.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Length algorithms count characters; they do not crash on specific words.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. There is no length cut-off; long sentences are paired like any other.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because the French National Assembly banned all English translations.&lt;/p&gt;</text>
+      <text>&lt;p&gt;It sorts sentences alphabetically first, so the two halves end up far apart in the output.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The failure was a structural 1:2 translation asymmetry.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. The aligner keeps the sentences in their original order.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
 
 
   
-  <question type="description"><name><text>21 Content: Case Study: Auditing Andromeda's 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
-<h3>Case Study: Auditing Andromeda's 1752 Treaty</h3>
-<p>Andromeda's document is the 1752 Peace and Friendship Treaty. It features numbered articles.</p>
-<p>Numbered articles provide a huge advantage for alignment algorithms:</p>
+  <question type="description"><name><text>21 Content: What to Watch For: Andromeda's 1752 Treaty</text></name><questiontext format="html"><text><![CDATA[
+<h3>What to Watch For: Andromeda's 1752 Treaty</h3>
+<p>Andromeda's document is the 1752 Peace and Friendship Treaty. It is divided into numbered articles.</p>
+<p>Numbered articles should help an aligner:</p>
 <ul>
-<li>Every article begins with an explicit label (<em>Article 1</em>, <em>Article 2</em>, <em>Article 3</em>).</li>
-<li>Numbers act as perfect lexical anchors.</li>
-<li>Even if sentence lengths vary, the Roman numerals keep the algorithm on track.</li>
+<li>Each article begins with an explicit label (<em>Article 1</em>, <em>Article 2</em>, <em>Article 3</em>).</li>
+<li>Numbers look the same in both versions, so they can work as lexical anchors.</li>
+<li>Even if sentence lengths vary, the article breaks limit how far a slip can spread.</li>
 </ul>
-<p>Because the treaty text has strong structural anchors, the automated alignment achieved nearly 95% precision. </p>
-<p>Structured legal texts with numbered divisions are the easiest genre for automated tools to align.</p>
-<p><strong>Takeaway:</strong> Numbered articles and Roman numerals act as structural anchors that dramatically boost alignment accuracy in legal treaties.</p>
+<p>So you would expect the aligner to stay on track through the treaty. Check whether it did, and look closely at any article that holds more than one sentence.</p>
+<p><strong>Takeaway:</strong> Numbered articles can act as anchors that limit alignment errors in legal texts, but only your own scoring shows how well they worked.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>21 Question: Case Study: Auditing Andromeda's 1752 Treaty</text>
+      <text>21 Question: What to Watch For: Andromeda's 1752 Treaty</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Why did automated alignment achieve exceptionally high accuracy (95%) on Andromeda's 1752 treaty?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Why might a length-based aligner stay on track through a treaty divided into numbered articles?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Numbered articles and Roman numerals act as structural anchors that dramatically boost alignment accuracy in legal treaties.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Numbered articles can act as anchors that limit alignment errors, but only your own scoring shows how well they worked.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1205,56 +1201,55 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;Numbered articles and Roman numerals provided unmistakable structural anchors that kept the algorithm aligned.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The article numbers appear in both versions and limit how far any one slip can spread.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. Numbered headings act like pins along the alignment matrix diagonal, preventing cascading slippage.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. Numbers look the same in both versions, so they work like pins along the alignment path.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because the treaty was translated into modern English by an artificial intelligence model.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The article numbers tell the aligner how to translate each clause into modern English.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The 1752 treaty is a historical 18th-century English proclamation.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. An aligner pairs sentences you already have; it does not translate.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because the treaty contains only one sentence in total.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The articles are always the same length, so every pair can be found by length alone.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. The treaty contains multiple articles and extensive legal clauses.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. Article lengths vary; the numbers help because they match, not because of length.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because colonial treaties were encoded in XML in 1752.&lt;/p&gt;</text>
+      <text>&lt;p&gt;The numbered articles switch the aligner from counting characters to counting words.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. XML was created in the late 1990s.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. A length-based aligner counts characters throughout.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
 
 
   
-  <question type="description"><name><text>22 Content: Case Study: Auditing Olyvia's Maud Lewis Letter</text></name><questiontext format="html"><text><![CDATA[
-<h3>Case Study: Auditing Olyvia's Maud Lewis Letter</h3>
+  <question type="description"><name><text>22 Content: What to Watch For: Olyvia's Maud Lewis Letter</text></name><questiontext format="html"><text><![CDATA[
+<h3>What to Watch For: Olyvia's Maud Lewis Letter</h3>
 <p>Olyvia's document is an informal handwritten letter by Maud Lewis.</p>
-<p>Letters present distinct challenges for length-based algorithms:</p>
+<p>Letters pose their own problems for a length-based aligner:</p>
 <ul>
-<li>Maud's sentences are brief and conversational (<em>I got your letter. Was glad to hear.</em>).</li>
-<li>Punctuation is sporadic; thoughts flow together without periods.</li>
-<li>In a parallel French translation, colloquial Maritime expressions require longer French phrasing.</li>
+<li>Maud's sentences are short and conversational.</li>
+<li>Her punctuation is sporadic, so thoughts can run together without periods.</li>
+<li>A regularized reading text (or a French translation) may break sentences differently from the original.</li>
 </ul>
-<p>Because the sentence boundaries were ambiguous, the automated sentence splitter struggled. It merged two short thoughts into one block. </p>
-<p>This case demonstrates why personal letters require careful human boundary checking before running automated tools.</p>
-<p><strong>Takeaway:</strong> Informal letters with conversational syntax and sporadic punctuation require human boundary editing before algorithms can succeed.</p>
+<p>If the sentence boundaries are unclear, a sentence splitter may merge two short thoughts into one block, and the pairs after it will slip. Decide the boundaries yourself, and mark them with <code>&lt;s&gt;</code>, before you run the aligner.</p>
+<p><strong>Takeaway:</strong> Informal letters with sporadic punctuation need human boundary decisions before an aligner can do its job.</p>
 <hr />
 ]]></text></questiontext><generalfeedback format="html"><text /></generalfeedback><penalty>0</penalty><hidden>0</hidden></question>
 <question type="multichoice">
     <name>
-      <text>22 Question: Case Study: Auditing Olyvia's Maud Lewis Letter</text>
+      <text>22 Question: What to Watch For: Olyvia's Maud Lewis Letter</text>
     </name>
     <questiontext format="html">
-      <text>&lt;p&gt;Why did automated sentence boundary detection require manual human editing on Olyvia's Maud Lewis letters?&lt;/p&gt;</text>
+      <text>&lt;p&gt;Why should Olyvia mark sentence boundaries herself before aligning a Maud Lewis letter?&lt;/p&gt;</text>
     </questiontext>
     <generalfeedback format="html">
-      <text>&lt;p&gt;Informal letters with conversational syntax and sporadic punctuation require human boundary editing before algorithms can succeed.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Informal letters with sporadic punctuation need human boundary decisions before an aligner can do its job.&lt;/p&gt;</text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -1263,27 +1258,27 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text>&lt;p&gt;Maud Lewis used informal conversational syntax with sporadic periods, causing the tool to merge distinct thoughts.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Her punctuation is sporadic, so a splitter may run two thoughts together and shift the pairs.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Correct. Informal handwriting and conversational writing lack standard punctuation boundaries, confusing automated splitters.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Correct. Without clear periods an automatic splitter can merge sentences, and the pairs after it slip.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because Maud Lewis wrote her letters in secret invisible ink.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Her handwriting must be typed first, because the aligner can only read printed letters.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Her letters are written in standard ink on personal stationery.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. The aligner works on the transcription, which is already typed.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because letters written in Nova Scotia cannot be read by computers in Canada.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Her letters are too short, so the aligner will not run on fewer than twenty sentences.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Software operates identically regardless of regional geographic location.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. There is no minimum length; ten sentences are enough.&lt;/p&gt;</text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text>&lt;p&gt;Because Maud Lewis refused to write letters with more than five words.&lt;/p&gt;</text>
+      <text>&lt;p&gt;Her spelling is modern, so the aligner would otherwise treat the letter as a translation.&lt;/p&gt;</text>
       <feedback format="html">
-        <text>&lt;p&gt;Incorrect. Her letters feature flowing personal narratives.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Incorrect. The aligner does not judge spelling; the problem is where sentences end.&lt;/p&gt;</text>
       </feedback>
     </answer>
   </question>
