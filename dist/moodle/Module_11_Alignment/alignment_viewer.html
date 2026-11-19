@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alignment Editor</title>
+<style>
+  :root { --bg:#fff; --fg:#222; --muted:#888; --box:#c0392b; --pair:#fdebd0; --line:#ddd; --warn:#b9770e; --seg:#1e8449; --segbg:#e9f7ef; --sent:#2e86c1; --sentbg:#eef6fc; }
+  body { margin:0; display:flex; flex-direction:column; height:100vh; font-family: Georgia, serif; background:var(--bg); color:var(--fg); }
+  header { padding:12px 16px; border-bottom:1px solid var(--line); font-family: system-ui, sans-serif; font-size:14px; }
+  header h1 { font-size:18px; margin:0 0 8px; }
+  .loaders { display:flex; flex-wrap:wrap; gap:16px; align-items:center; }
+  .loaders label { display:flex; flex-direction:column; gap:2px; }
+  .opts { margin-top:8px; display:flex; gap:16px; flex-wrap:wrap; }
+  #status { margin-top:4px; color:var(--warn); white-space:pre-wrap; height:3em; overflow-y:auto; }
+  main { display:grid; grid-template-columns:1fr 1fr; gap:0; flex:1; min-height:0; }
+  .pane { padding:16px; line-height:1.9; font-size:17px; overflow-y:auto; height:100%; box-sizing:border-box; }
+  .pane + .pane { border-left:1px solid var(--line); }
+  .pane h2 { font-family:system-ui, sans-serif; font-size:13px; text-transform:uppercase; color:var(--muted); margin:0 0 8px; }
+  .blk { margin:0 0 1em; }
+  .blk.head { font-weight:bold; }
+  .w { cursor:pointer; padding:1px 2px; border:2px solid transparent; border-radius:3px; }
+  .w:hover { background:#f3f3f3; }
+  .w.w-sel { border-color:var(--box); background:var(--pair); }
+  .w.w-linked { border-color:var(--box); }
+  .u { border:2px solid transparent; border-radius:4px; cursor:pointer; padding:1px 0; }
+  .u.seg-sel, .u.seg-linked { border-color:var(--seg); }
+  .u.seg-sel { background:var(--segbg); }
+  .u.s-sel, .u.s-linked { border:2px dashed var(--sent); }
+  .u.s-sel { background:var(--sentbg); }
+  .showUnlinked .w.unlinked { text-decoration: underline wavy var(--warn); }
+  .editing .w.has-link { background:#f2f2f2; }
+  .pick { outline:3px solid #7d3c98 !important; background:#e8daef !important; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  .showIds [data-id]::after { content: attr(data-id); font-size:10px; color:var(--muted); vertical-align:sub; font-family:system-ui, sans-serif; }
+  #info { height:4.2em; overflow-y:auto; }
+  #info { white-space:pre-wrap; font-family:system-ui, sans-serif; font-size:13px; margin-top:6px; color:var(--fg); }
+  @media (max-width: 700px) { body { height:auto; } main { grid-template-columns:1fr; } .pane { height:auto; } .pane + .pane { border-left:0; border-top:1px solid var(--line); } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Alignment Viewer and Editor</h1>
+  <div class="loaders">
+    <label>French (tokenized TEI) <input type="file" id="fFr" accept=".xml"></label>
+    <label>English (tokenized TEI) <input type="file" id="fEn" accept=".xml"></label>
+    <label>Alignment (linkGrp; optional if links are inside the files above) <input type="file" id="fAl" accept=".xml"></label>
+  </div>
+  <div class="opts">
+    <label><input type="checkbox" id="optUnlinked" checked> Mark unlinked words</label>
+    <label><input type="checkbox" id="optIds"> Show xml:ids</label>
+    <label><input type="checkbox" id="optEdit"> Edit mode</label>
+  </div>
+  <div class="opts" id="editbar" hidden>
+    <button id="bLink">Link selected (Enter)</button>
+    <button id="bUnlink">Unlink selected (Delete)</button>
+    <button id="bClear">Clear selection (Esc)</button>
+    <button id="bSave">Download alignment XML</button>
+  </div>
+  <div id="info">Load the files, then click a word. Linked words get a red box, linked segments (seg) a green box, linked sentences (s) a dashed blue box.</div>
+  <div id="status"></div>
+</header>
+<main>
+  <section class="pane" id="pFr"><h2>French (normalized)</h2></section>
+  <section class="pane" id="pEn"><h2>English</h2></section>
+</main>
+<script>
+const TEI = "http://www.tei-c.org/ns/1.0";
+const XML = "http://www.w3.org/XML/1998/namespace";
+const docs = { fr: null, en: null, al: null };
+let linkList = [];       // {ids, type, src}: one entry per <link> or @corresp
+let links = new Map();   // id -> Set of ids linked to it
+let spans = new Map();   // id -> span element
+
+// Normalized reading: prefer reg/expan/corr inside choice; skip notes and editorial apparatus.
+const PREFER = ["reg", "expan", "corr"];
+const SKIP = new Set(["note", "orig", "abbr", "sic", "fw", "figure", "teiHeader", "del"]);
+const BLOCKS = new Set(["head", "p", "ab", "l", "item", "salute", "signed", "dateline", "closer", "opener", "s"]);
+
+function readText(node) {
+  if (node.nodeType === 3) return node.nodeValue;
+  if (node.nodeType !== 1) return "";
+  const n = node.localName;
+  if (n === "choice") {
+    for (const p of PREFER) { const c = [...node.children].find(e => e.localName === p); if (c) return readText(c); }
+    return node.firstElementChild ? readText(node.firstElementChild) : "";
+  }
+  if (SKIP.has(n)) return "";
+  if (n === "lb" || n === "cb" || n === "pb") return node.getAttribute("break") === "no" ? "" : " ";
+  let s = ""; for (const c of node.childNodes) s += readText(c); return s;
+}
+const xid = el => el.getAttributeNS(XML, "id") || el.getAttribute("xml:id");
+
+function render(doc, pane) {
+  const root = doc.getElementsByTagNameNS(TEI, "text")[0] || doc.documentElement;
+  let blk = null, cur = null, inBlock = 0;
+  const newBlk = cls => { blk = cur = document.createElement("div"); blk.className = "blk " + (cls || ""); pane.appendChild(blk); };
+  const host = () => { if (!cur) newBlk(); return cur; };
+  const out = t => host().appendChild(document.createTextNode(t));
+  function walk(node) {
+    if (node.nodeType === 3) { out(node.nodeValue.replace(/\s+/g, " ")); return; }
+    if (node.nodeType !== 1) return;
+    const n = node.localName;
+    if (SKIP.has(n)) return;
+    if (n === "w") {
+      const sp = document.createElement("span");
+      sp.className = "w"; const id = xid(node);
+      sp.textContent = readText(node).replace(/\s+/g, "");
+      if (id) { sp.dataset.id = id; spans.set(id, sp); }
+      host().appendChild(sp); return;
+    }
+    if (n === "choice" || n === "pc" || n === "lb" || n === "pb" || n === "cb") { out(readText(node)); return; }
+    // only top-level blocks start a new line (sentences inside a p stay inline)
+    const isBlk = BLOCKS.has(n) && !(n === "s" && inBlock);
+    if (isBlk) { newBlk(n); inBlock++; }
+    // <s> and <seg> become boxes that can be aligned as units
+    let unit = null, outer = cur;
+    if (n === "s" || n === "seg") {
+      unit = document.createElement("span"); unit.className = "u " + n;
+      const id = xid(node); if (id) { unit.dataset.id = id; spans.set(id, unit); }
+      host().appendChild(unit); cur = unit;
+    }
+    for (const c of node.childNodes) walk(c);
+    if (unit) cur = outer;
+    if (isBlk) { inBlock--; blk = cur = null; }
+  }
+  walk(root);
+}
+
+function collectLinks(doc) {
+  const ids = v => (v || "").trim().split(/\s+/).filter(Boolean).map(t => t.replace(/^.*#/, ""));
+  for (const l of doc.getElementsByTagNameNS(TEI, "link")) {
+    const g = l.parentElement && l.parentElement.localName === "linkGrp" ? l.parentElement.getAttribute("type") : null;
+    linkList.push({ ids: ids(l.getAttribute("target")), type: l.getAttribute("type") || g, src: "file" });
+  }
+  for (const el of doc.querySelectorAll("[corresp]")) {
+    const a = xid(el); if (a) linkList.push({ ids: [a, ...ids(el.getAttribute("corresp"))], src: "corresp" });
+  }
+}
+
+function indexLinks() {
+  links = new Map();
+  const add = (a, b) => { if (a === b) return; if (!links.has(a)) links.set(a, new Set()); links.get(a).add(b); };
+  for (const l of linkList) for (const a of l.ids) for (const b of l.ids) add(a, b);
+}
+
+function rebuild() {
+  linkList = []; spans = new Map();
+  for (const k of ["fr", "en"]) {
+    const pane = document.getElementById(k === "fr" ? "pFr" : "pEn");
+    pane.querySelectorAll(".blk").forEach(e => e.remove());
+    if (docs[k]) render(docs[k], pane);
+  }
+  for (const d of Object.values(docs)) if (d) collectLinks(d);
+  refresh();
+}
+
+function refresh() {
+  indexLinks();
+  for (const id of [...picked]) if (!spans.has(id)) picked.delete(id);
+  showPicks();
+  const problems = [];
+  const missing = [...links.keys()].filter(id => !spans.has(id));
+  const words = [...spans.values()].filter(e => e.classList.contains("w"));
+  const sentHasWordLinks = new Set(words.filter(w => links.has(w.dataset.id)).map(w => w.closest(".u.s, .blk")));
+  let nCovered = 0;
+  for (const w of words) {
+    const covered = links.has(w.dataset.id) || [...ancestors(w, ".u.seg")].some(g => links.has(g.dataset.id));
+    if (covered) nCovered++;
+    w.classList.toggle("unlinked", !covered && sentHasWordLinks.has(w.closest(".u.s, .blk")));
+    w.classList.toggle("has-link", links.has(w.dataset.id));
+  }
+  for (const u of document.querySelectorAll(".u")) u.classList.toggle("unlinked", !links.has(u.dataset.id));
+  const unlinked = words.filter(w => w.classList.contains("unlinked"));
+  const nS = document.querySelectorAll(".u.s[data-id]").length, nSl = document.querySelectorAll(".u.s[data-id]:not(.unlinked)").length;
+  const dup = countDuplicates();
+  if (docs.fr && docs.en) {
+    problems.push(`Sentences: ${nSl} of ${nS} linked. Words: ${nCovered} of ${words.length} linked or inside a linked seg; ${unlinked.length} left unlinked in sentences that have word links.`);
+    if (missing.length) problems.push(`Link targets with no matching <w> (${missing.length}): ${missing.slice(0, 30).join(" ")}${missing.length > 30 ? " ..." : ""}`);
+    if (dup.length) problems.push(`Duplicate xml:id values (${dup.length}): ${dup.slice(0, 30).join(" ")}`);
+    if (!links.size) problems.push("No <link> or @corresp found yet. Load the alignment file, or turn on Edit mode to make links.");
+  }
+  document.getElementById("status").textContent = problems.join("\n");
+}
+
+function countDuplicates() {
+  const seen = new Map();
+  for (const k of ["fr", "en"]) if (docs[k]) for (const w of docs[k].getElementsByTagNameNS(TEI, "w")) {
+    const id = xid(w); if (id) seen.set(id, (seen.get(id) || 0) + 1);
+  }
+  return [...seen].filter(([, n]) => n > 1).map(([id]) => id);
+}
+
+function* ancestors(el, sel) { for (let a = el.parentElement.closest(sel); a; a = a.parentElement.closest(sel)) yield a; }
+
+function mark(el, cls) {
+  const id = el.dataset.id, found = [];
+  el.classList.add(cls + "-sel");
+  for (const p of links.get(id) || []) { const t = spans.get(p); if (t) { t.classList.add(cls + "-linked"); found.push(t); } }
+  const missing = [...(links.get(id) || [])].filter(p => !spans.has(p));
+  return { el, found, missing };
+}
+const label = e => `${e.dataset.id} "${e.textContent.length > 40 ? e.textContent.slice(0, 40) + "..." : e.textContent}"`;
+
+document.querySelector("main").addEventListener("click", e => {
+  let t = e.target.closest(".w, .u"); if (!t) return;
+  e.stopPropagation();
+  if (editing()) {
+    // click picks a word; shift-click its sentence; alt-click its segment
+    if (e.shiftKey) t = t.closest(".u.s") || t; else if (e.altKey) t = t.closest(".u.seg") || t;
+    const id = t.dataset.id;
+    if (id) { if (picked.has(id)) picked.delete(id); else picked.add(id); }
+    showPicks(); return;
+  }
+  for (const c of ["w-sel", "w-linked", "seg-sel", "seg-linked", "s-sel", "s-linked"])
+    document.querySelectorAll("." + c).forEach(x => x.classList.remove(c));
+  const lines = [];
+  // show the clicked element and every seg and sentence around it
+  const levels = [t, ...ancestors(t, ".u")];
+  let scrollTo = null;
+  for (const el of levels) {
+    if (!el.dataset.id) continue;
+    const kind = el.classList.contains("w") ? "w" : el.classList.contains("seg") ? "seg" : "s";
+    const r = mark(el, kind);
+    const head = kind === "w" ? "Word" : kind === "seg" ? "Segment" : "Sentence";
+    lines.push(`${head} ${label(el)}: ` + (r.found.length ? r.found.map(label).join(", ") : "not linked")
+      + (r.missing.length ? ` (missing targets: ${r.missing.join(" ")})` : ""));
+    if (!scrollTo) scrollTo = r.found.find(f => f.closest(".pane") !== el.closest(".pane"));
+  }
+  if (scrollTo) scrollTo.scrollIntoView({ block: "center", behavior: "smooth" });
+  document.getElementById("info").textContent = lines.join("\n") || `"${t.textContent}" has no xml:id.`;
+  e.stopPropagation();
+});
+
+const editing = () => document.getElementById("optEdit").checked;
+const picked = new Set();   // ids of selected items; only Link, Unlink, Esc and Clear empty it
+const picks = () => [...picked].map(id => spans.get(id)).filter(Boolean);
+const editable = l => l.src !== "corresp";
+function selState() {
+  const p = picks();
+  const fr = p.filter(x => x.closest("#pFr")).length, en = p.length - fr;
+  const ids = p.map(x => x.dataset.id).sort().join(" ");
+  const exists = linkList.some(l => [...l.ids].sort().join(" ") === ids);
+  const removable = linkList.some(l => editable(l) && l.ids.some(i => picked.has(i)));
+  return { fr, en, canLink: fr > 0 && en > 0 && !exists, exists, canUnlink: removable };
+}
+function showPicks() {
+  document.querySelectorAll(".pick").forEach(x => { if (!picked.has(x.dataset.id)) x.classList.remove("pick"); });
+  for (const x of picks()) x.classList.add("pick");
+  const st = selState();
+  document.getElementById("bLink").disabled = !st.canLink;
+  document.getElementById("bUnlink").disabled = !st.canUnlink;
+  document.getElementById("bClear").disabled = !picked.size;
+  const p = picks();
+  if (!editing()) return;
+  const counts = `French: ${st.fr} selected, English: ${st.en} selected.` + (st.exists ? " These are already linked." : "");
+  document.getElementById("info").textContent = p.length ? counts + "\nSelected: " + p.map(label).join(", ") + "\nClick a selected item again to deselect it. Enter = link, Delete = unlink, Esc = clear." : "Edit mode: click words in both panes, then press Enter (or Link). Shift-click picks a sentence, Alt-click a seg.";
+}
+function clearPicks() { picked.clear(); showPicks(); }
+function linkPicks() {
+  if (!selState().canLink) return;
+  const p = picks();
+  const ids = p.map(x => x.dataset.id);
+  const kinds = new Set(p.map(x => x.classList.contains("w") ? "w" : x.classList.contains("seg") ? "seg" : "s"));
+  const type = kinds.size === 1 && kinds.has("w") ? "word-alignment" : kinds.size === 1 && kinds.has("s") ? "sentence-alignment" : "segment-alignment";
+  // French ids first, then English, so targets read in a fixed order
+  ids.sort((a, b) => (spans.get(a).closest("#pFr") ? 0 : 1) - (spans.get(b).closest("#pFr") ? 0 : 1));
+  linkList.push({ ids, type, src: "edit" });
+  clearPicks(); refresh();
+  document.getElementById("info").textContent = "Linked: " + ids.join(" ");
+}
+function unlinkPicks() {
+  if (!selState().canUnlink) return;
+  const ids = new Set(picked);
+  const before = linkList.length;
+  linkList = linkList.filter(l => !editable(l) || !l.ids.some(i => ids.has(i)));
+  clearPicks(); refresh();
+  document.getElementById("info").textContent = `Removed ${before - linkList.length} link(s). Links made with @corresp inside the TEI files can only be changed there.`;
+}
+function downloadAlignment() {
+  const esc = v => v.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  const groups = new Map();
+  for (const l of linkList) if (l.src !== "corresp") {
+    const t = l.type || "alignment"; if (!groups.has(t)) groups.set(t, []); groups.get(t).push(l.ids);
+  }
+  const order = ["sentence-alignment", "segment-alignment", "word-alignment"];
+  const keys = [...groups.keys()].sort((a, b) => (order.indexOf(a) + 1 || 9) - (order.indexOf(b) + 1 || 9));
+  let x = `<?xml version="1.0" encoding="UTF-8"?>\n<TEI xmlns="http://www.tei-c.org/ns/1.0">\n  <teiHeader>\n    <fileDesc>\n      <titleStmt><title>Alignment</title></titleStmt>\n      <publicationStmt><p>Made with the Alignment Viewer and Editor, ${new Date().toISOString().slice(0, 10)}.</p></publicationStmt>\n      <sourceDesc><p>French: ${esc(names.fr || "")}; English: ${esc(names.en || "")}</p></sourceDesc>\n    </fileDesc>\n  </teiHeader>\n  <text>\n    <body>\n`;
+  for (const k of keys) {
+    x += `      <linkGrp type="${esc(k)}">\n`;
+    for (const ids of groups.get(k)) x += `        <link target="${esc(ids.map(i => "#" + i).join(" "))}"/>\n`;
+    x += `      </linkGrp>\n`;
+  }
+  x += `    </body>\n  </text>\n</TEI>\n`;
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([x], { type: "application/xml" }));
+  a.download = names.al || "alignment.xml"; a.click(); URL.revokeObjectURL(a.href);
+}
+const names = {};
+document.addEventListener("keydown", e => {
+  if (!editing() || e.target.tagName === "INPUT") return;
+  if (e.key === "Enter") linkPicks(); else if (e.key === "Delete" || e.key === "Backspace") unlinkPicks(); else if (e.key === "Escape") clearPicks();
+});
+
+function load(input, key) {
+  input.addEventListener("change", async () => {
+    const f = input.files[0]; if (!f) return;
+    const doc = new DOMParser().parseFromString(await f.text(), "application/xml");
+    const err = doc.getElementsByTagName("parsererror")[0];
+    if (err) { document.getElementById("status").textContent = `${f.name} is not well-formed XML:\n${err.textContent}`; return; }
+    docs[key] = doc; names[key] = f.name; rebuild();
+  });
+}
+load(document.getElementById("fFr"), "fr");
+load(document.getElementById("fEn"), "en");
+load(document.getElementById("fAl"), "al");
+const main = document.querySelector("main");
+document.getElementById("optUnlinked").onchange = e => main.classList.toggle("showUnlinked", e.target.checked);
+document.getElementById("optIds").onchange = e => main.classList.toggle("showIds", e.target.checked);
+main.classList.add("showUnlinked");
+document.getElementById("optEdit").onchange = e => {
+  main.classList.toggle("editing", e.target.checked);
+  for (const c of ["w-sel", "w-linked", "seg-sel", "seg-linked", "s-sel", "s-linked"])
+    document.querySelectorAll("." + c).forEach(x => x.classList.remove(c));
+  document.getElementById("editbar").hidden = !e.target.checked;
+  clearPicks(); if (!e.target.checked) document.getElementById("info").textContent = "Click a word to see its links.";
+};
+document.getElementById("bLink").onclick = linkPicks;
+document.getElementById("bUnlink").onclick = unlinkPicks;
+document.getElementById("bClear").onclick = clearPicks;
+document.getElementById("bSave").onclick = downloadAlignment;
+window.addEventListener("beforeunload", e => { if (linkList.some(l => l.src === "edit")) e.preventDefault(); });
+</script>
+</body>
+</html>
