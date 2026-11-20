@@ -43,7 +43,7 @@
         <p><strong>1. Documentary single-witness honesty:</strong> Explain your exact witness shelfmark, folio bounds, and editorial rules without inventing stemmata for unique single-witness holdings.<br>
         <strong>2. Explicit orthographic rules:</strong> State concrete transformation policies (e.g., long-s / <em>xbre</em> / accent normalization vs. diplomatic line breaks).<br>
         <strong>3. Attribution &amp; AI credit:</strong> Declare a <code>&lt;respStmt&gt;</code> entry with explicit <code>xml:id</code> targets matching every <code>@resp</code> attribute (checked by the viewer <code>model_credit</code> QA rule).<br>
-        <strong>4. Multi-output parity:</strong> Verify <code>xmllint --noout docs/edition.xml</code> before generating <code>edition_print.pdf</code> via Print / PDF.</p>
+        <strong>4. Multi-output parity:</strong> Confirm 0 errors in VS Code's XML <strong>Problems</strong> panel before generating <code>edition_print.pdf</code> via Print / PDF.</p>
     </div>
 
     <h3 class="section-header">50-Minute Classroom Execution Schedule</h3>
@@ -89,7 +89,7 @@
                 <td class="time-col">8:57 &ndash; 9:12<br>(15 mins)</td>
                 <td class="activity-col">Phase 4: Lab B<br>AI Attribution, Print PDF Codex, &amp; Push<br><em>Slides 9&ndash;11. Checkpoint at Slide 11 at 9:10.</em></td>
                 <td class="desc-col">
-                    Set CC BY 4.0 <code>&lt;licence&gt;</code> and explicit <code>&lt;respStmt&gt;</code> credits for human &amp; LLM stages; draft repository <code>README.md</code> landing summary; validate <code>xmllint --noout docs/edition.xml</code>.<br>
+                    Set CC BY 4.0 <code>&lt;licence&gt;</code> and explicit <code>&lt;respStmt&gt;</code> credits for human &amp; LLM stages; draft repository <code>README.md</code> landing summary; confirm 0 errors in VS Code's XML <strong>Problems</strong> panel.<br>
                     Click <strong>Print / PDF</strong> in Chrome, switch to Regularized or Diplomatic reading mode, save <code>edition_print.pdf</code> (verifying <code>#printFront</code>, parallel reading text, and <code>#printAppendix</code> notes/bibliography), commit, and push to GitHub.
                 </td>
                 <td class="target-col"><code>edition_print.pdf</code> saved; live About/Print updated</td>

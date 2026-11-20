@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Hand-author three notes (1 philological, 1 historical, 1 intertextual) on a short passage, run one AI candidate/verification pass under strict negative constraints, log editorial decisions (Accept / Revise / Reject) plus a 150&ndash;250 word reflection in <code>EDITION_NOTES.md</code>, merge the verified <code>&lt;standOff&gt;&lt;note target="#..." type="..." resp="..."&gt;</code> notes into <code>docs/edition.xml</code>, validate with <code>xmllint</code>, and verify interactive pins live on GitHub Pages.
+            Hand-author three notes (1 philological, 1 historical, 1 intertextual) on a short passage, run one AI candidate/verification pass under strict negative constraints, log editorial decisions (Accept / Revise / Reject) plus a 150&ndash;250 word reflection in <code>EDITION_NOTES.md</code>, merge the verified <code>&lt;standOff&gt;&lt;note target="#..." type="..." resp="..."&gt;</code> notes into <code>docs/edition.xml</code>, confirm 0 errors in VS Code's XML <strong>Problems</strong> panel, and verify interactive pins live on GitHub Pages.
         </div>
     </div>
 
@@ -88,7 +88,7 @@
                 <td class="activity-col">Phase 4: Lab B<br>AI Verification Audit &amp; XML Merge<br><em>Slides 9&ndash;10.</em></td>
                 <td class="desc-col">
                     Prompt AI under strict negative constraints for candidate notes on the same passage, record Accept / Revise / Reject decisions plus reflection in <code>EDITION_NOTES.md</code>, and merge the 3 final verified <code>&lt;note&gt;</code> elements into <code>docs/edition.xml</code>.<br>
-                    Validate with <code>xmllint --noout docs/edition.xml</code>.
+                    Confirm 0 errors in VS Code's XML <strong>Problems</strong> panel.
                 </td>
                 <td class="target-col"><code>EDITION_NOTES.md</code> + validated <code>edition.xml</code></td>
             </tr>

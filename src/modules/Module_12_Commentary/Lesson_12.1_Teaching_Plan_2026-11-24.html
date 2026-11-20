@@ -29,7 +29,7 @@
         </div>
         <div>
             <strong>OPERATIONAL TARGET &amp; CORE DIRECTIVE:</strong><br>
-            Copy <code>labs/edition_viewer/</code> into the repository's <code>docs/</code> folder, assemble or wire the facsimile image and regularized transcription (<code>edition.xml</code> or multi-file config), verify XML well-formedness (<code>xmllint --noout</code>), push to GitHub, and enable GitHub Pages so parallel image + switchable Diplomatic/Regularized views render live in the browser by 9:20 AM.
+            Copy <code>labs/edition_viewer/</code> into the repository's <code>docs/</code> folder, assemble or wire the facsimile image and regularized transcription (<code>edition.xml</code> or multi-file config), check VS Code's XML <strong>Problems</strong> panel for zero errors, push to GitHub, and enable GitHub Pages so parallel image + switchable Diplomatic/Regularized views render live in the browser by 9:20 AM.
         </div>
     </div>
 
@@ -40,7 +40,7 @@
 
     <div class="caution-callout">
         <h3>INVIOLABLE PEDAGOGICAL BOUNDARIES</h3>
-        <p><strong>1. Valid XML before deploying:</strong> Run <code>xmllint --noout</code> on every edited XML file before pushing.<br>
+        <p><strong>1. Valid XML before deploying:</strong> Confirm VS Code's XML <strong>Problems</strong> panel shows 0 errors before pushing.<br>
         <strong>2. Reversible <code>&lt;choice&gt;</code> markup:</strong> Keep both diplomatic (<code>&lt;orig&gt;</code>/<code>&lt;abbr&gt;</code>/<code>&lt;sic&gt;</code>) and reading forms (<code>&lt;reg&gt;</code>/<code>&lt;expan&gt;</code>/<code>&lt;corr&gt;</code>) intact inside <code>&lt;choice&gt;</code> so the switch button toggles faithfully.<br>
         <strong>3. No glued words across line breaks:</strong> Check <code>&lt;lb/&gt;</code> boundaries in Regularized mode (space between words, hyphen joined when <code>break="no"</code>).<br>
         <strong>4. Real paths only:</strong> Match <code>&lt;graphic url="..."/&gt;</code> exact filenames (e.g., <code>decree.jpg</code>) inside <code>docs/</code> so images never 404 on GitHub Pages.</p>
@@ -72,7 +72,7 @@
                 <td class="activity-col">Phase 2: Live Demo<br>From TEI Master to Local Preview<br><em>Slides 4&ndash;7. Checkpoint at Slide 5.</em></td>
                 <td class="desc-col">
                     Show <code>demo/witness.xml</code> + <code>edition_viewer/</code> running over <code>python3 -m http.server</code>. Toggle Diplomatic vs. Regularized vs. Interlinear on <em>Assemblee/Assembl&eacute;e</em>, <em>31 xbre/d&eacute;cembre 1791</em>, and <em>MM./Messieurs</em>, and inspect the <strong>QA</strong> toolbar badge.<br>
-                    Run Slide 5 checkpoint: diagnose a broken relative <code>&lt;graphic&gt;</code> filename and an unclosed tag caught by <code>xmllint --noout</code> and the viewer status bar.
+                    Run Slide 5 checkpoint: diagnose a broken relative <code>&lt;graphic&gt;</code> filename and an unclosed tag caught by VS Code's XML <strong>Problems</strong> panel and the viewer status bar.
                 </td>
                 <td class="target-col">Live toggle and diagnostic bar understood</td>
             </tr>
@@ -81,9 +81,9 @@
                 <td class="activity-col">Phase 3: Lab A<br>Stage <code>docs/</code> Folder<br><em>Slide 8 up.</em></td>
                 <td class="desc-col">
                     Ace copies <code>labs/edition_viewer/{index.html,edition.css,viewer.js}</code> and her facsimile image (<code>decree.jpg</code>) into <code>docs/</code> in her repo.<br>
-                    Assemble <code>docs/edition.xml</code> from her latest validated TEI master (header, <code>&lt;facsimile&gt;</code>, regularized text) and run <code>xmllint --noout docs/edition.xml</code>.
+                    Assemble <code>docs/edition.xml</code> from her latest validated TEI master (header, <code>&lt;facsimile&gt;</code>, regularized text) and confirm VS Code's XML <strong>Problems</strong> panel shows 0 errors.
                 </td>
-                <td class="target-col"><code>docs/edition.xml</code> passes <code>xmllint</code></td>
+                <td class="target-col"><code>docs/edition.xml</code> clean in VS Code Problems</td>
             </tr>
             <tr>
                 <td class="time-col">8:56 &ndash; 9:12<br>(16 mins)</td>

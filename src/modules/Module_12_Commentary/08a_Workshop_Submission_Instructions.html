@@ -4,7 +4,7 @@
         <li>Publish your 3-pane static site inside <code>docs/</code> on GitHub Pages (facsimile <code>&lt;zone&gt;</code> links, Diplomatic/Regularized/Interlinear views, and aligned translation synced cleanly with zero console/network 404s).</li>
         <li><strong>Manual first:</strong> write <strong>three grounded notes</strong> (one <code>philological</code>, one <code>historical</code>, one <code>intertextual</code>) with primary sources before prompting any LLM.</li>
         <li><strong>AI verification audit:</strong> run an AI pass under strict negative constraints on the same passage; in <code>EDITION_NOTES.md</code>, record Accept/Revise/Reject verdicts with verification checks plus a <strong>150–250 word reflection</strong>.</li>
-        <li>Merge the three vetted notes into <code>docs/edition.xml</code> inside <code>&lt;standOff&gt;</code> as <code>&lt;note xml:id="..." type="..." target="#..." resp="..."&gt;</code> including verbatim <code>&lt;quote&gt;</code> lemmas and <code>&lt;bibl&gt;</code>/<code>&lt;ref&gt;</code> sources; confirm <code>xmllint --noout docs/edition.xml</code> and zero QA errors.</li>
+        <li>Merge the three vetted notes into <code>docs/edition.xml</code> inside <code>&lt;standOff&gt;</code> as <code>&lt;note xml:id="..." type="..." target="#..." resp="..."&gt;</code> including verbatim <code>&lt;quote&gt;</code> lemmas and <code>&lt;bibl&gt;</code>/<code>&lt;ref&gt;</code> sources; confirm 0 errors in VS Code's XML Problems panel and in the viewer QA drawer.</li>
         <li>Submit your live GitHub Pages URL, validated <code>docs/edition.xml</code>, and <code>EDITION_NOTES.md</code>.</li>
     </ol>
 </div>

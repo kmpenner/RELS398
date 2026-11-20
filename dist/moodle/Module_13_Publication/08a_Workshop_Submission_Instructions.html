@@ -1,7 +1,7 @@
 <div class="card p-3 mb-3" style="padding: 1.25rem;">
     <h4 style="margin-top: 0;">Submission Instructions</h4>
     <ol>
-        <li>Populate <code>docs/edition.xml</code> with <code>&lt;front&gt;&lt;div type="introduction"&gt;</code>, full <code>&lt;editorialDecl&gt;</code>, <code>&lt;licence&gt;</code> (CC BY 4.0) + matching <code>&lt;respStmt&gt;</code> IDs, and <code>&lt;back&gt;&lt;listBibl&gt;</code>; confirm <code>xmllint --noout</code> and <strong>QA (0 errors)</strong> in the viewer.</li>
+        <li>Populate <code>docs/edition.xml</code> with <code>&lt;front&gt;&lt;div type="introduction"&gt;</code>, full <code>&lt;editorialDecl&gt;</code>, <code>&lt;licence&gt;</code> (CC BY 4.0) + matching <code>&lt;respStmt&gt;</code> IDs, and <code>&lt;back&gt;&lt;listBibl&gt;</code>; confirm 0 errors in VS Code's XML Problems panel and <strong>QA (0)</strong> in the viewer.</li>
         <li>Export <code>docs/edition_print.pdf</code> via Chrome Print / PDF (showing front preface, dual reading columns, notes, and bibliography) and verify standalone offline <code>edition_viewer.html</code> in browser.</li>
         <li>Log your 5-point structured peer review audit in <code>PEER_REVIEW.md</code> and full tool/LLM accountability in <code>AI_PROVENANCE.md</code> (and <code>README.md</code> with licensing details).</li>
         <li>After freezing final edits, run <code>sha256sum</code> to generate <code>CHECKSUMS.txt</code> (verified clean with <code>sha256sum -c</code>) and publish annotated tag <code>v1.0.0</code> as a GitHub Release with PDF &amp; offline HTML attached.</li>

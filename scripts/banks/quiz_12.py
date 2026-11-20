@@ -71,7 +71,7 @@ watch_html = """<div class="card p-3 mb-3" style="border-left: 5px solid #0284c7
     <h4 style="color: #0369a1; margin-top: 0;">Curated Media &amp; Technical Walkthroughs</h4>
     <p>Review these live walkthrough guides before completing your Week 12 web publication and commentary milestone:</p>
     <ul>
-        <li><strong>Lesson 12.1 Walkthrough — Staging <code>docs/</code> &amp; GitHub Pages Launch:</strong> Copying the zero-build static viewer, validating <code>edition.xml</code> with <code>xmllint</code>, and testing Diplomatic/Regularized/Interlinear toggles over HTTP.</li>
+        <li><strong>Lesson 12.1 Walkthrough — Staging <code>docs/</code> &amp; GitHub Pages Launch:</strong> Copying the zero-build static viewer, checking <code>edition.xml</code> in VS Code's XML Problems panel, and testing Diplomatic/Regularized/Interlinear toggles over HTTP.</li>
         <li><strong>Lesson 12.2 Walkthrough — Synchronizing Image Zones, Translations, &amp; <code>.wpop</code> Popovers:</strong> Mapping <code>&lt;facsimile&gt;&lt;zone&gt;</code> coordinates, resolving <code>#</code> pointers across 3 panes, and checking language dictionary links.</li>
         <li><strong>Lesson 12.3 Walkthrough — Stand-Off Commentary &amp; Negative AI Constraints:</strong> Encoding <code>philological</code>, <code>historical</code>, and <code>intertextual</code> notes with <code>&lt;quote&gt;</code> and <code>&lt;bibl&gt;</code> inside <code>&lt;standOff&gt;</code> and verifying zero QA warnings.</li>
     </ul>
